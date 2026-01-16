@@ -14,47 +14,23 @@ public final class CustomLogSourceAttributeArgs extends com.pulumi.resources.Res
 
     public static final CustomLogSourceAttributeArgs Empty = new CustomLogSourceAttributeArgs();
 
-    /**
-     * The ARN of the AWS Glue crawler.
-     * 
-     */
     @Import(name="crawlerArn", required=true)
     private Output<String> crawlerArn;
 
-    /**
-     * @return The ARN of the AWS Glue crawler.
-     * 
-     */
     public Output<String> crawlerArn() {
         return this.crawlerArn;
     }
 
-    /**
-     * The ARN of the AWS Glue database where results are written.
-     * 
-     */
     @Import(name="databaseArn", required=true)
     private Output<String> databaseArn;
 
-    /**
-     * @return The ARN of the AWS Glue database where results are written.
-     * 
-     */
     public Output<String> databaseArn() {
         return this.databaseArn;
     }
 
-    /**
-     * The ARN of the AWS Glue table.
-     * 
-     */
     @Import(name="tableArn", required=true)
     private Output<String> tableArn;
 
-    /**
-     * @return The ARN of the AWS Glue table.
-     * 
-     */
     public Output<String> tableArn() {
         return this.tableArn;
     }
@@ -85,65 +61,29 @@ public final class CustomLogSourceAttributeArgs extends com.pulumi.resources.Res
             $ = new CustomLogSourceAttributeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param crawlerArn The ARN of the AWS Glue crawler.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerArn(Output<String> crawlerArn) {
             $.crawlerArn = crawlerArn;
             return this;
         }
 
-        /**
-         * @param crawlerArn The ARN of the AWS Glue crawler.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerArn(String crawlerArn) {
             return crawlerArn(Output.of(crawlerArn));
         }
 
-        /**
-         * @param databaseArn The ARN of the AWS Glue database where results are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseArn(Output<String> databaseArn) {
             $.databaseArn = databaseArn;
             return this;
         }
 
-        /**
-         * @param databaseArn The ARN of the AWS Glue database where results are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseArn(String databaseArn) {
             return databaseArn(Output.of(databaseArn));
         }
 
-        /**
-         * @param tableArn The ARN of the AWS Glue table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(Output<String> tableArn) {
             $.tableArn = tableArn;
             return this;
         }
 
-        /**
-         * @param tableArn The ARN of the AWS Glue table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(String tableArn) {
             return tableArn(Output.of(tableArn));
         }

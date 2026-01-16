@@ -21,137 +21,65 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs exte
 
     public static final JobDefinitionEksPropertiesPodPropertiesInitContainerArgs Empty = new JobDefinitionEksPropertiesPodPropertiesInitContainerArgs();
 
-    /**
-     * Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     @Import(name="args")
     private @Nullable Output<List<String>> args;
 
-    /**
-     * @return Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     public Optional<Output<List<String>>> args() {
         return Optional.ofNullable(this.args);
     }
 
-    /**
-     * Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
-    /**
-     * @return Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-     * 
-     */
     public Optional<Output<List<String>>> commands() {
         return Optional.ofNullable(this.commands);
     }
 
-    /**
-     * Environment variables to pass to a container. See EKS Environment below.
-     * 
-     */
     @Import(name="envs")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>> envs;
 
-    /**
-     * @return Environment variables to pass to a container. See EKS Environment below.
-     * 
-     */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>>> envs() {
         return Optional.ofNullable(this.envs);
     }
 
-    /**
-     * Docker image used to start the container.
-     * 
-     */
     @Import(name="image", required=true)
     private Output<String> image;
 
-    /**
-     * @return Docker image used to start the container.
-     * 
-     */
     public Output<String> image() {
         return this.image;
     }
 
-    /**
-     * Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-     * 
-     */
     @Import(name="imagePullPolicy")
     private @Nullable Output<String> imagePullPolicy;
 
-    /**
-     * @return Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-     * 
-     */
     public Optional<Output<String>> imagePullPolicy() {
         return Optional.ofNullable(this.imagePullPolicy);
     }
 
-    /**
-     * Name of the job definition.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the job definition.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-     * 
-     */
     @Import(name="resources")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs> resources;
 
-    /**
-     * @return Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-     * 
-     */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
-    /**
-     * Security context for a job.
-     * 
-     */
     @Import(name="securityContext")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs> securityContext;
 
-    /**
-     * @return Security context for a job.
-     * 
-     */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs>> securityContext() {
         return Optional.ofNullable(this.securityContext);
     }
 
-    /**
-     * Volume mounts for the container.
-     * 
-     */
     @Import(name="volumeMounts")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>> volumeMounts;
 
-    /**
-     * @return Volume mounts for the container.
-     * 
-     */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>>> volumeMounts() {
         return Optional.ofNullable(this.volumeMounts);
     }
@@ -188,231 +116,99 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs exte
             $ = new JobDefinitionEksPropertiesPodPropertiesInitContainerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param args Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(@Nullable Output<List<String>> args) {
             $.args = args;
             return this;
         }
 
-        /**
-         * @param args Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(List<String> args) {
             return args(Output.of(args));
         }
 
-        /**
-         * @param args Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(String... args) {
             return args(List.of(args));
         }
 
-        /**
-         * @param commands Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(@Nullable Output<List<String>> commands) {
             $.commands = commands;
             return this;
         }
 
-        /**
-         * @param commands Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(List<String> commands) {
             return commands(Output.of(commands));
         }
 
-        /**
-         * @param commands Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
 
-        /**
-         * @param envs Environment variables to pass to a container. See EKS Environment below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder envs(@Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>> envs) {
             $.envs = envs;
             return this;
         }
 
-        /**
-         * @param envs Environment variables to pass to a container. See EKS Environment below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder envs(List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs> envs) {
             return envs(Output.of(envs));
         }
 
-        /**
-         * @param envs Environment variables to pass to a container. See EKS Environment below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder envs(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs... envs) {
             return envs(List.of(envs));
         }
 
-        /**
-         * @param image Docker image used to start the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(Output<String> image) {
             $.image = image;
             return this;
         }
 
-        /**
-         * @param image Docker image used to start the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder image(String image) {
             return image(Output.of(image));
         }
 
-        /**
-         * @param imagePullPolicy Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imagePullPolicy(@Nullable Output<String> imagePullPolicy) {
             $.imagePullPolicy = imagePullPolicy;
             return this;
         }
 
-        /**
-         * @param imagePullPolicy Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imagePullPolicy(String imagePullPolicy) {
             return imagePullPolicy(Output.of(imagePullPolicy));
         }
 
-        /**
-         * @param name Name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param resources Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(@Nullable Output<JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs resources) {
             return resources(Output.of(resources));
         }
 
-        /**
-         * @param securityContext Security context for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityContext(@Nullable Output<JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs> securityContext) {
             $.securityContext = securityContext;
             return this;
         }
 
-        /**
-         * @param securityContext Security context for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityContext(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs securityContext) {
             return securityContext(Output.of(securityContext));
         }
 
-        /**
-         * @param volumeMounts Volume mounts for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeMounts(@Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>> volumeMounts) {
             $.volumeMounts = volumeMounts;
             return this;
         }
 
-        /**
-         * @param volumeMounts Volume mounts for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeMounts(List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs> volumeMounts) {
             return volumeMounts(Output.of(volumeMounts));
         }
 
-        /**
-         * @param volumeMounts Volume mounts for the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeMounts(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs... volumeMounts) {
             return volumeMounts(List.of(volumeMounts));
         }

@@ -16,7 +16,6 @@ public final class TableMetadataIcebergArgs extends com.pulumi.resources.Resourc
 
     /**
      * Schema configuration for the Iceberg table.
-     * See `schema` below.
      * 
      */
     @Import(name="schema", required=true)
@@ -24,7 +23,6 @@ public final class TableMetadataIcebergArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return Schema configuration for the Iceberg table.
-     * See `schema` below.
      * 
      */
     public Output<TableMetadataIcebergSchemaArgs> schema() {
@@ -57,7 +55,6 @@ public final class TableMetadataIcebergArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param schema Schema configuration for the Iceberg table.
-         * See `schema` below.
          * 
          * @return builder
          * 
@@ -69,7 +66,6 @@ public final class TableMetadataIcebergArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param schema Schema configuration for the Iceberg table.
-         * See `schema` below.
          * 
          * @return builder
          * 

@@ -9,96 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Provides an IoT policy.
-    /// 
-    /// &gt; **NOTE on policy versions:** Updating this resource creates a new, default policy version. If updating the resource would exceed the maximum number of versions (5), the oldest non-default version of the policy is deleted before the new policy version is created.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pubsub = new Aws.Iot.Policy("pubsub", new()
-    ///     {
-    ///         Name = "PubSubToAnyTopic",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "iot:*",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IoT policies using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN assigned by AWS to this policy.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The default version of this policy.
-        /// </summary>
         [Output("defaultVersionId")]
         public Output<string> DefaultVersionId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the policy.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        /// </summary>
         [Output("policy")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -148,30 +79,17 @@ namespace Pulumi.Aws.Iot
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -186,42 +104,23 @@ namespace Pulumi.Aws.Iot
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN assigned by AWS to this policy.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The default version of this policy.
-        /// </summary>
         [Input("defaultVersionId")]
         public Input<string>? DefaultVersionId { get; set; }
 
-        /// <summary>
-        /// The name of the policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        /// </summary>
         [Input("policy")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -230,10 +129,6 @@ namespace Pulumi.Aws.Iot
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

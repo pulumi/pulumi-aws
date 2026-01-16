@@ -16,47 +16,23 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationC
 
     public static final FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs Empty = new FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs();
 
-    /**
-     * Enables or disables the logging. Defaults to `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enables or disables the logging. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The CloudWatch group name for logging. This value is required if `enabled` is true.
-     * 
-     */
     @Import(name="logGroupName")
     private @Nullable Output<String> logGroupName;
 
-    /**
-     * @return The CloudWatch group name for logging. This value is required if `enabled` is true.
-     * 
-     */
     public Optional<Output<String>> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
 
-    /**
-     * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-     * 
-     */
     @Import(name="logStreamName")
     private @Nullable Output<String> logStreamName;
 
-    /**
-     * @return The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-     * 
-     */
     public Optional<Output<String>> logStreamName() {
         return Optional.ofNullable(this.logStreamName);
     }
@@ -87,65 +63,29 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationC
             $ = new FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enables or disables the logging. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enables or disables the logging. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param logGroupName The CloudWatch group name for logging. This value is required if `enabled` is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(@Nullable Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName The CloudWatch group name for logging. This value is required if `enabled` is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param logStreamName The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamName(@Nullable Output<String> logStreamName) {
             $.logStreamName = logStreamName;
             return this;
         }
 
-        /**
-         * @param logStreamName The CloudWatch log stream name for logging. This value is required if `enabled` is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logStreamName(String logStreamName) {
             return logStreamName(Output.of(logStreamName));
         }

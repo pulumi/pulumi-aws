@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an AWS Billing Views.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/billing"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := billing.GetViews(ctx, &billing.GetViewsArgs{
-//				BillingViewTypes: []string{
-//					"PRIMARY",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("primaryViewArnByTypes", example.BillingViews[0].Arn)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOption) (*GetViewsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetViewsResult
@@ -55,15 +23,13 @@ func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getViews.
 type GetViewsArgs struct {
-	// List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
 	BillingViewTypes []string `pulumi:"billingViewTypes"`
 }
 
 // A collection of values returned by getViews.
 type GetViewsResult struct {
-	BillingViewTypes []string `pulumi:"billingViewTypes"`
-	// List of billing view objects with the following attributes:
-	BillingViews []GetViewsBillingView `pulumi:"billingViews"`
+	BillingViewTypes []string              `pulumi:"billingViewTypes"`
+	BillingViews     []GetViewsBillingView `pulumi:"billingViews"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
@@ -79,7 +45,6 @@ func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getViews.
 type GetViewsOutputArgs struct {
-	// List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
 	BillingViewTypes pulumi.StringArrayInput `pulumi:"billingViewTypes"`
 }
 
@@ -106,7 +71,6 @@ func (o GetViewsResultOutput) BillingViewTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []string { return v.BillingViewTypes }).(pulumi.StringArrayOutput)
 }
 
-// List of billing view objects with the following attributes:
 func (o GetViewsResultOutput) BillingViews() GetViewsBillingViewArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []GetViewsBillingView { return v.BillingViews }).(GetViewsBillingViewArrayOutput)
 }

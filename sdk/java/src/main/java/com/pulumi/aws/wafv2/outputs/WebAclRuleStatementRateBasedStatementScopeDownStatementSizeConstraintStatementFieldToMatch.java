@@ -25,173 +25,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments;
-    /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody body;
-    /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies;
-    /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
-     * 
-     */
     private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
-    /**
-     * @return Inspect the request headers. See `headers` below for details.
-     * 
-     */
     private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers;
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
-    /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod method;
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString queryString;
-    /**
-     * @return Inspect a single header. See `singleHeader` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
-    /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument;
-    /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment;
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath uriPath;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch() {}
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments> allQueryArguments() {
         return Optional.ofNullable(this.allQueryArguments);
     }
-    /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
-    /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
-    /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
-     * 
-     */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders() {
         return this.headerOrders == null ? List.of() : this.headerOrders;
     }
-    /**
-     * @return Inspect the request headers. See `headers` below for details.
-     * 
-     */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
-    /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody> jsonBody() {
         return Optional.ofNullable(this.jsonBody);
     }
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
-    /**
-     * @return Inspect a single header. See `singleHeader` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
-    /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
-    /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment> uriFragment() {
         return Optional.ofNullable(this.uriFragment);
     }
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

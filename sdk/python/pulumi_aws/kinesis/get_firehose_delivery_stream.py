@@ -43,9 +43,6 @@ class GetFirehoseDeliveryStreamResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Kinesis Firehose Delivery Stream (same as `id`).
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -83,22 +80,7 @@ def get_firehose_delivery_stream(name: Optional[_builtins.str] = None,
                                  region: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirehoseDeliveryStreamResult:
     """
-    Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
-
-    For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
-    ```
-
-
-    :param _builtins.str name: Name of the Kinesis Firehose Delivery Stream.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -115,22 +97,7 @@ def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[_builtins.st
                                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirehoseDeliveryStreamResult]:
     """
-    Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
-
-    For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
-    ```
-
-
-    :param _builtins.str name: Name of the Kinesis Firehose Delivery Stream.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

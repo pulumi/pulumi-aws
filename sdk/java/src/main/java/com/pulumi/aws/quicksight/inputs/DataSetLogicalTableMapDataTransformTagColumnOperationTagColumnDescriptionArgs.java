@@ -15,17 +15,9 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagColum
 
     public static final DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs Empty = new DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs();
 
-    /**
-     * The text of a description for a column.
-     * 
-     */
     @Import(name="text")
     private @Nullable Output<String> text;
 
-    /**
-     * @return The text of a description for a column.
-     * 
-     */
     public Optional<Output<String>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -54,23 +46,11 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagColum
             $ = new DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param text The text of a description for a column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(@Nullable Output<String> text) {
             $.text = text;
             return this;
         }
 
-        /**
-         * @param text The text of a description for a column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(String text) {
             return text(Output.of(text));
         }

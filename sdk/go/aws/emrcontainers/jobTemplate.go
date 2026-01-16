@@ -12,69 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EMR Containers (EMR on EKS) Job Template.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrcontainers"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrcontainers.NewJobTemplate(ctx, "example", &emrcontainers.JobTemplateArgs{
-//				JobTemplateData: &emrcontainers.JobTemplateJobTemplateDataArgs{
-//					ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//					ReleaseLabel:     pulumi.String("emr-6.10.0-latest"),
-//					JobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverArgs{
-//						SparkSqlJobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{
-//							EntryPoint: pulumi.String("default"),
-//						},
-//					},
-//				},
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EKS job templates using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-// ```
 type JobTemplate struct {
 	pulumi.CustomResourceState
 
-	// ARN of the job template.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The job template data which holds values of StartJobRun API request.
+	Arn             pulumi.StringOutput              `pulumi:"arn"`
 	JobTemplateData JobTemplateJobTemplateDataOutput `pulumi:"jobTemplateData"`
-	// The KMS key ARN used to encrypt the job template.
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// The specified name of the job template.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	KmsKeyArn       pulumi.StringPtrOutput           `pulumi:"kmsKeyArn"`
+	Name            pulumi.StringOutput              `pulumi:"name"`
+	Region          pulumi.StringOutput              `pulumi:"region"`
+	Tags            pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput           `pulumi:"tagsAll"`
 }
 
 // NewJobTemplate registers a new resource with the given unique name, arguments, and options.
@@ -110,37 +57,23 @@ func GetJobTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobTemplate resources.
 type jobTemplateState struct {
-	// ARN of the job template.
-	Arn *string `pulumi:"arn"`
-	// The job template data which holds values of StartJobRun API request.
+	Arn             *string                     `pulumi:"arn"`
 	JobTemplateData *JobTemplateJobTemplateData `pulumi:"jobTemplateData"`
-	// The KMS key ARN used to encrypt the job template.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The specified name of the job template.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	KmsKeyArn       *string                     `pulumi:"kmsKeyArn"`
+	Name            *string                     `pulumi:"name"`
+	Region          *string                     `pulumi:"region"`
+	Tags            map[string]string           `pulumi:"tags"`
+	TagsAll         map[string]string           `pulumi:"tagsAll"`
 }
 
 type JobTemplateState struct {
-	// ARN of the job template.
-	Arn pulumi.StringPtrInput
-	// The job template data which holds values of StartJobRun API request.
+	Arn             pulumi.StringPtrInput
 	JobTemplateData JobTemplateJobTemplateDataPtrInput
-	// The KMS key ARN used to encrypt the job template.
-	KmsKeyArn pulumi.StringPtrInput
-	// The specified name of the job template.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	KmsKeyArn       pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (JobTemplateState) ElementType() reflect.Type {
@@ -148,30 +81,20 @@ func (JobTemplateState) ElementType() reflect.Type {
 }
 
 type jobTemplateArgs struct {
-	// The job template data which holds values of StartJobRun API request.
 	JobTemplateData JobTemplateJobTemplateData `pulumi:"jobTemplateData"`
-	// The KMS key ARN used to encrypt the job template.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The specified name of the job template.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	KmsKeyArn       *string                    `pulumi:"kmsKeyArn"`
+	Name            *string                    `pulumi:"name"`
+	Region          *string                    `pulumi:"region"`
+	Tags            map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobTemplate resource.
 type JobTemplateArgs struct {
-	// The job template data which holds values of StartJobRun API request.
 	JobTemplateData JobTemplateJobTemplateDataInput
-	// The KMS key ARN used to encrypt the job template.
-	KmsKeyArn pulumi.StringPtrInput
-	// The specified name of the job template.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	KmsKeyArn       pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (JobTemplateArgs) ElementType() reflect.Type {
@@ -261,37 +184,30 @@ func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) J
 	return o
 }
 
-// ARN of the job template.
 func (o JobTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The job template data which holds values of StartJobRun API request.
 func (o JobTemplateOutput) JobTemplateData() JobTemplateJobTemplateDataOutput {
 	return o.ApplyT(func(v *JobTemplate) JobTemplateJobTemplateDataOutput { return v.JobTemplateData }).(JobTemplateJobTemplateDataOutput)
 }
 
-// The KMS key ARN used to encrypt the job template.
 func (o JobTemplateOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The specified name of the job template.
 func (o JobTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o JobTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o JobTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o JobTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

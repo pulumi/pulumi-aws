@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a QuickSight custom permissions profile.
- *
- * ## Example Usage
- *
- * resource "aws.quicksight.CustomPermissions" "example" {
- *   customPermissionsName = "example-permissions"
- *
- *   capabilities {
- *     printReports    = "DENY"
- *     shareDashboards = "DENY"
- *   }
- * }
- *
- * ## Import
- *
- * Using `pulumi import`, import a QuickSight custom permissions profile using the AWS account ID and custom permissions profile name separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/customPermissions:CustomPermissions example 123456789012,example-permissions
- * ```
- */
 export class CustomPermissions extends pulumi.CustomResource {
     /**
      * Get an existing CustomPermissions resource's state with the given name, ID, and optional extra
@@ -57,32 +35,12 @@ export class CustomPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomPermissions.__pulumiType;
     }
 
-    /**
-     * ARN of the custom permissions profile.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Actions to include in the custom permissions profile. See capabilities.
-     */
     declare public readonly capabilities: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
-    /**
-     * Custom permissions profile name.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly customPermissionsName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -127,32 +85,12 @@ export class CustomPermissions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomPermissions resources.
  */
 export interface CustomPermissionsState {
-    /**
-     * ARN of the custom permissions profile.
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Actions to include in the custom permissions profile. See capabilities.
-     */
     capabilities?: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilities>;
-    /**
-     * Custom permissions profile name.
-     *
-     * The following arguments are optional:
-     */
     customPermissionsName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -161,22 +99,8 @@ export interface CustomPermissionsState {
  */
 export interface CustomPermissionsArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Actions to include in the custom permissions profile. See capabilities.
-     */
     capabilities?: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilities>;
-    /**
-     * Custom permissions profile name.
-     *
-     * The following arguments are optional:
-     */
     customPermissionsName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

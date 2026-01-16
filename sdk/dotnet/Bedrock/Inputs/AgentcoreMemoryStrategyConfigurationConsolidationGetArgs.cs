@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreMemoryStrategyConfigurationConsolidationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Additional text to append to the model prompt for consolidation processing.
-        /// </summary>
         [Input("appendToPrompt", required: true)]
         public Input<string> AppendToPrompt { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the foundation model to use for consolidation processing.
-        /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 

@@ -17,122 +17,58 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SchemaArgs Empty = new SchemaArgs();
 
-    /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     * 
-     */
     @Import(name="compatibility", required=true)
     private Output<String> compatibility;
 
-    /**
-     * @return The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     * 
-     */
     public Output<String> compatibility() {
         return this.compatibility;
     }
 
-    /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     * 
-     */
     @Import(name="dataFormat", required=true)
     private Output<String> dataFormat;
 
-    /**
-     * @return The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     * 
-     */
     public Output<String> dataFormat() {
         return this.dataFormat;
     }
 
-    /**
-     * A description of the schema.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the schema.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ARN of the Glue Registry to create the schema in.
-     * 
-     */
     @Import(name="registryArn")
     private @Nullable Output<String> registryArn;
 
-    /**
-     * @return The ARN of the Glue Registry to create the schema in.
-     * 
-     */
     public Optional<Output<String>> registryArn() {
         return Optional.ofNullable(this.registryArn);
     }
 
-    /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
-     * 
-     */
     @Import(name="schemaDefinition", required=true)
     private Output<String> schemaDefinition;
 
-    /**
-     * @return The schema definition using the `dataFormat` setting for `schemaName`.
-     * 
-     */
     public Output<String> schemaDefinition() {
         return this.schemaDefinition;
     }
 
-    /**
-     * The Name of the schema.
-     * 
-     */
     @Import(name="schemaName", required=true)
     private Output<String> schemaName;
 
-    /**
-     * @return The Name of the schema.
-     * 
-     */
     public Output<String> schemaName() {
         return this.schemaName;
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -168,170 +104,74 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param compatibility The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compatibility(Output<String> compatibility) {
             $.compatibility = compatibility;
             return this;
         }
 
-        /**
-         * @param compatibility The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compatibility(String compatibility) {
             return compatibility(Output.of(compatibility));
         }
 
-        /**
-         * @param dataFormat The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFormat(Output<String> dataFormat) {
             $.dataFormat = dataFormat;
             return this;
         }
 
-        /**
-         * @param dataFormat The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFormat(String dataFormat) {
             return dataFormat(Output.of(dataFormat));
         }
 
-        /**
-         * @param description A description of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryArn The ARN of the Glue Registry to create the schema in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryArn(@Nullable Output<String> registryArn) {
             $.registryArn = registryArn;
             return this;
         }
 
-        /**
-         * @param registryArn The ARN of the Glue Registry to create the schema in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryArn(String registryArn) {
             return registryArn(Output.of(registryArn));
         }
 
-        /**
-         * @param schemaDefinition The schema definition using the `dataFormat` setting for `schemaName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaDefinition(Output<String> schemaDefinition) {
             $.schemaDefinition = schemaDefinition;
             return this;
         }
 
-        /**
-         * @param schemaDefinition The schema definition using the `dataFormat` setting for `schemaName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaDefinition(String schemaDefinition) {
             return schemaDefinition(Output.of(schemaDefinition));
         }
 
-        /**
-         * @param schemaName The Name of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaName(Output<String> schemaName) {
             $.schemaName = schemaName;
             return this;
         }
 
-        /**
-         * @param schemaName The Name of the schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaName(String schemaName) {
             return schemaName(Output.of(schemaName));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

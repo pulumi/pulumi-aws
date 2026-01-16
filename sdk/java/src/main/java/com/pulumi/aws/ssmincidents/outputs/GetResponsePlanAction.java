@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanAction {
-    /**
-     * @return The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-     * 
-     */
     private List<GetResponsePlanActionSsmAutomation> ssmAutomations;
 
     private GetResponsePlanAction() {}
-    /**
-     * @return The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-     * 
-     */
     public List<GetResponsePlanActionSsmAutomation> ssmAutomations() {
         return this.ssmAutomations;
     }

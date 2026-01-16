@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class SelectionConditionStringNotEqual {
-    /**
-     * @return Key for the filter.
-     * 
-     */
     private String key;
-    /**
-     * @return Value for the filter.
-     * 
-     */
     private String value;
 
     private SelectionConditionStringNotEqual() {}
-    /**
-     * @return Key for the filter.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Value for the filter.
-     * 
-     */
     public String value() {
         return this.value;
     }

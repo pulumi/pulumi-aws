@@ -76,25 +76,16 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the firewall rule group association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> _builtins.str:
-        """
-        A unique string defined by you to identify the request.
-        """
         return pulumi.get(self, "creator_request_id")
 
     @_builtins.property
@@ -105,9 +96,6 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> _builtins.str:
-        """
-        The unique identifier of the firewall rule group.
-        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @_builtins.property
@@ -121,41 +109,26 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @_builtins.property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> _builtins.str:
-        """
-        The owner of the association, used only for associations that are not managed by you.
-        """
         return pulumi.get(self, "managed_owner_name")
 
     @_builtins.property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> _builtins.str:
-        """
-        The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "modification_time")
 
     @_builtins.property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> _builtins.str:
-        """
-        If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-        """
         return pulumi.get(self, "mutation_protection")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the association.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
@@ -166,25 +139,16 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the association.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Additional information about the status of the response, if available.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The unique identifier of the VPC that is associated with the rule group.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -215,24 +179,7 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
                                                  region: Optional[_builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRuleGroupAssociationResult:
     """
-    `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group association from its id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group_association(firewall_rule_group_association_id="rslvr-frgassoc-example")
-    ```
-
-
-    :param _builtins.str firewall_rule_group_association_id: The identifier for the association.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
@@ -260,24 +207,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
                                                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupAssociationResult]:
     """
-    `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group association from its id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group_association(firewall_rule_group_association_id="rslvr-frgassoc-example")
-    ```
-
-
-    :param _builtins.str firewall_rule_group_association_id: The identifier for the association.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id

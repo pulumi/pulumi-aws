@@ -13,21 +13,9 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class DataLakeConfiguration
     {
-        /// <summary>
-        /// Provides encryption details of Amazon Security Lake object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataLakeConfigurationEncryptionConfiguration> EncryptionConfigurations;
-        /// <summary>
-        /// Provides lifecycle details of Amazon Security Lake object.
-        /// </summary>
         public readonly Outputs.DataLakeConfigurationLifecycleConfiguration? LifecycleConfiguration;
-        /// <summary>
-        /// The AWS Regions where Security Lake is automatically enabled.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Provides replication details of Amazon Security Lake object.
-        /// </summary>
         public readonly Outputs.DataLakeConfigurationReplicationConfiguration? ReplicationConfiguration;
 
         [OutputConstructor]

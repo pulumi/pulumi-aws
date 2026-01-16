@@ -11,65 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
-    /**
-     * @return A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-     * 
-     */
     private List<String> dnsIps;
-    /**
-     * @return The fully qualified domain name of the self-managed AD directory.
-     * 
-     */
     private String domainName;
-    /**
-     * @return The name of the domain group whose members have administrative privileges for the FSx file system.
-     * 
-     */
     private String fileSystemAdministratorsGroup;
-    /**
-     * @return The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
-     * 
-     */
     private String organizationalUnitDistinguishedName;
-    /**
-     * @return The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
-     * 
-     */
     private String username;
 
     private GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration() {}
-    /**
-     * @return A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-     * 
-     */
     public List<String> dnsIps() {
         return this.dnsIps;
     }
-    /**
-     * @return The fully qualified domain name of the self-managed AD directory.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return The name of the domain group whose members have administrative privileges for the FSx file system.
-     * 
-     */
     public String fileSystemAdministratorsGroup() {
         return this.fileSystemAdministratorsGroup;
     }
-    /**
-     * @return The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
-     * 
-     */
     public String organizationalUnitDistinguishedName() {
         return this.organizationalUnitDistinguishedName;
     }
-    /**
-     * @return The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
-     * 
-     */
     public String username() {
         return this.username;
     }

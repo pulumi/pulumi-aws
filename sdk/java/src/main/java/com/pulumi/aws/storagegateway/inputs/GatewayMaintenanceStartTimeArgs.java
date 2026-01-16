@@ -17,62 +17,30 @@ public final class GatewayMaintenanceStartTimeArgs extends com.pulumi.resources.
 
     public static final GatewayMaintenanceStartTimeArgs Empty = new GatewayMaintenanceStartTimeArgs();
 
-    /**
-     * The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-     * 
-     */
     @Import(name="dayOfMonth")
     private @Nullable Output<String> dayOfMonth;
 
-    /**
-     * @return The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-     * 
-     */
     public Optional<Output<String>> dayOfMonth() {
         return Optional.ofNullable(this.dayOfMonth);
     }
 
-    /**
-     * The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-     * 
-     */
     @Import(name="dayOfWeek")
     private @Nullable Output<String> dayOfWeek;
 
-    /**
-     * @return The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-     * 
-     */
     public Optional<Output<String>> dayOfWeek() {
         return Optional.ofNullable(this.dayOfWeek);
     }
 
-    /**
-     * The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-     * 
-     */
     @Import(name="hourOfDay", required=true)
     private Output<Integer> hourOfDay;
 
-    /**
-     * @return The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-     * 
-     */
     public Output<Integer> hourOfDay() {
         return this.hourOfDay;
     }
 
-    /**
-     * The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-     * 
-     */
     @Import(name="minuteOfHour")
     private @Nullable Output<Integer> minuteOfHour;
 
-    /**
-     * @return The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-     * 
-     */
     public Optional<Output<Integer>> minuteOfHour() {
         return Optional.ofNullable(this.minuteOfHour);
     }
@@ -104,86 +72,38 @@ public final class GatewayMaintenanceStartTimeArgs extends com.pulumi.resources.
             $ = new GatewayMaintenanceStartTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dayOfMonth The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfMonth(@Nullable Output<String> dayOfMonth) {
             $.dayOfMonth = dayOfMonth;
             return this;
         }
 
-        /**
-         * @param dayOfMonth The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfMonth(String dayOfMonth) {
             return dayOfMonth(Output.of(dayOfMonth));
         }
 
-        /**
-         * @param dayOfWeek The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfWeek(@Nullable Output<String> dayOfWeek) {
             $.dayOfWeek = dayOfWeek;
             return this;
         }
 
-        /**
-         * @param dayOfWeek The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dayOfWeek(String dayOfWeek) {
             return dayOfWeek(Output.of(dayOfWeek));
         }
 
-        /**
-         * @param hourOfDay The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hourOfDay(Output<Integer> hourOfDay) {
             $.hourOfDay = hourOfDay;
             return this;
         }
 
-        /**
-         * @param hourOfDay The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hourOfDay(Integer hourOfDay) {
             return hourOfDay(Output.of(hourOfDay));
         }
 
-        /**
-         * @param minuteOfHour The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minuteOfHour(@Nullable Output<Integer> minuteOfHour) {
             $.minuteOfHour = minuteOfHour;
             return this;
         }
 
-        /**
-         * @param minuteOfHour The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minuteOfHour(Integer minuteOfHour) {
             return minuteOfHour(Output.of(minuteOfHour));
         }

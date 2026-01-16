@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class TemplateSourceEntitySourceAnalysisDataSetReference
     {
-        /// <summary>
-        /// Dataset Amazon Resource Name (ARN).
-        /// </summary>
         public readonly string DataSetArn;
-        /// <summary>
-        /// Dataset placeholder.
-        /// </summary>
         public readonly string DataSetPlaceholder;
 
         [OutputConstructor]

@@ -13,18 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceCredentials
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-        /// When the value is not null, the `CredentialPair` from the data source in the ARN is used.
-        /// </summary>
         public readonly string? CopySourceArn;
-        /// <summary>
-        /// Credential pair. See Credential Pair below for more details.
-        /// </summary>
         public readonly Outputs.DataSourceCredentialsCredentialPair? CredentialPair;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
-        /// </summary>
         public readonly string? SecretArn;
 
         [OutputConstructor]

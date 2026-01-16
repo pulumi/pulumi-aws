@@ -12,17 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerDefaultActionForwardTargetGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the target group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Weight. The range is 0 to 999.
-        /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 

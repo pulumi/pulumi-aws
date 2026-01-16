@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableGlobalTableWitness
     {
-        /// <summary>
-        /// Name of the AWS Region that serves as a witness for the MRSC global table.
-        /// </summary>
         public readonly string? RegionName;
 
         [OutputConstructor]

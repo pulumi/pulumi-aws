@@ -14,16 +14,7 @@ import java.util.Objects;
 public final class GetStandardsControlAssociationsResult {
     private String id;
     private String region;
-    /**
-     * @return ID of the security control.
-     * 
-     */
     private String securityControlId;
-    /**
-     * @return A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standardsControlAssociations` below.
-     * 
-     */
     private List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
 
     private GetStandardsControlAssociationsResult() {}
@@ -33,18 +24,9 @@ public final class GetStandardsControlAssociationsResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return ID of the security control.
-     * 
-     */
     public String securityControlId() {
         return this.securityControlId;
     }
-    /**
-     * @return A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standardsControlAssociations` below.
-     * 
-     */
     public List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations() {
         return this.standardsControlAssociations;
     }

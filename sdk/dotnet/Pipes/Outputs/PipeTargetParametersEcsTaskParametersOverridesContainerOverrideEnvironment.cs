@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     {
-        /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

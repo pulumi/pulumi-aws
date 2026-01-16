@@ -14,161 +14,47 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `aws.directconnect.GatewayAssociation` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directconnect.GatewayAssociationProposal;
- * import com.pulumi.aws.directconnect.GatewayAssociationProposalArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GatewayAssociationProposal("example", GatewayAssociationProposalArgs.builder()
- *             .dxGatewayId(exampleAwsDxGateway.id())
- *             .dxGatewayOwnerAccountId(exampleAwsDxGateway.ownerAccountId())
- *             .associatedGatewayId(exampleAwsVpnGateway.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
- * 
- * __With `pulumi import`__, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:
- * 
- * Using a proposal ID:
- * 
- * ```sh
- * $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
- * ```
- * Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
- * 
- * ```sh
- * $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
- * ```
- * The latter case is useful when a previous proposal has been accepted and deleted by AWS.
- * The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
- * 
- */
 @ResourceType(type="aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")
 public class GatewayAssociationProposal extends com.pulumi.resources.CustomResource {
-    /**
-     * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-     * 
-     */
     @Export(name="allowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedPrefixes;
 
-    /**
-     * @return VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-     * 
-     */
     public Output<List<String>> allowedPrefixes() {
         return this.allowedPrefixes;
     }
-    /**
-     * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * 
-     */
     @Export(name="associatedGatewayId", refs={String.class}, tree="[0]")
     private Output<String> associatedGatewayId;
 
-    /**
-     * @return The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * 
-     */
     public Output<String> associatedGatewayId() {
         return this.associatedGatewayId;
     }
-    /**
-     * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * 
-     */
     @Export(name="associatedGatewayOwnerAccountId", refs={String.class}, tree="[0]")
     private Output<String> associatedGatewayOwnerAccountId;
 
-    /**
-     * @return The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * 
-     */
     public Output<String> associatedGatewayOwnerAccountId() {
         return this.associatedGatewayOwnerAccountId;
     }
-    /**
-     * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-     * 
-     */
     @Export(name="associatedGatewayType", refs={String.class}, tree="[0]")
     private Output<String> associatedGatewayType;
 
-    /**
-     * @return The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-     * 
-     */
     public Output<String> associatedGatewayType() {
         return this.associatedGatewayType;
     }
-    /**
-     * Direct Connect Gateway identifier.
-     * 
-     */
     @Export(name="dxGatewayId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayId;
 
-    /**
-     * @return Direct Connect Gateway identifier.
-     * 
-     */
     public Output<String> dxGatewayId() {
         return this.dxGatewayId;
     }
-    /**
-     * AWS Account identifier of the Direct Connect Gateway&#39;s owner.
-     * 
-     */
     @Export(name="dxGatewayOwnerAccountId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayOwnerAccountId;
 
-    /**
-     * @return AWS Account identifier of the Direct Connect Gateway&#39;s owner.
-     * 
-     */
     public Output<String> dxGatewayOwnerAccountId() {
         return this.dxGatewayOwnerAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

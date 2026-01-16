@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class JobQueueComputeEnvironmentOrder {
-    /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
-     * 
-     */
     private String computeEnvironment;
-    /**
-     * @return The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-     * 
-     */
     private Integer order;
 
     private JobQueueComputeEnvironmentOrder() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
-     * 
-     */
     public String computeEnvironment() {
         return this.computeEnvironment;
     }
-    /**
-     * @return The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-     * 
-     */
     public Integer order() {
         return this.order;
     }

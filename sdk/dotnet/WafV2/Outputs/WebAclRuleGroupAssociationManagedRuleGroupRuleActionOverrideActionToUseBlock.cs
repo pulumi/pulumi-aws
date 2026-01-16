@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlock
     {
-        /// <summary>
-        /// Custom response for blocked requests. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseBlockCustomResponse? CustomResponse;
 
         [OutputConstructor]

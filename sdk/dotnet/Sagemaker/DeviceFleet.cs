@@ -9,99 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Device Fleet resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.DeviceFleet("example", new()
-    ///     {
-    ///         DeviceFleetName = "example",
-    ///         RoleArn = test.Arn,
-    ///         OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
-    ///         {
-    ///             S3OutputLocation = $"s3://{exampleAwsS3Bucket.Bucket}/prefix/",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Device Fleets using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/deviceFleet:DeviceFleet")]
     public partial class DeviceFleet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the fleet.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Device Fleet (must be unique).
-        /// </summary>
         [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        /// </summary>
         [Output("enableIotRoleAlias")]
         public Output<bool?> EnableIotRoleAlias { get; private set; } = null!;
 
         [Output("iotRoleAlias")]
         public Output<string> IotRoleAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies details about the repository. see Output Config details below.
-        /// </summary>
         [Output("outputConfig")]
         public Output<Outputs.DeviceFleetOutputConfig> OutputConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -151,48 +88,26 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class DeviceFleetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the fleet.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the Device Fleet (must be unique).
-        /// </summary>
         [Input("deviceFleetName", required: true)]
         public Input<string> DeviceFleetName { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        /// </summary>
         [Input("enableIotRoleAlias")]
         public Input<bool>? EnableIotRoleAlias { get; set; }
 
-        /// <summary>
-        /// Specifies details about the repository. see Output Config details below.
-        /// </summary>
         [Input("outputConfig", required: true)]
         public Input<Inputs.DeviceFleetOutputConfigArgs> OutputConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -207,57 +122,32 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class DeviceFleetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A description of the fleet.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the Device Fleet (must be unique).
-        /// </summary>
         [Input("deviceFleetName")]
         public Input<string>? DeviceFleetName { get; set; }
 
-        /// <summary>
-        /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        /// </summary>
         [Input("enableIotRoleAlias")]
         public Input<bool>? EnableIotRoleAlias { get; set; }
 
         [Input("iotRoleAlias")]
         public Input<string>? IotRoleAlias { get; set; }
 
-        /// <summary>
-        /// Specifies details about the repository. see Output Config details below.
-        /// </summary>
         [Input("outputConfig")]
         public Input<Inputs.DeviceFleetOutputConfigGetArgs>? OutputConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -266,10 +156,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

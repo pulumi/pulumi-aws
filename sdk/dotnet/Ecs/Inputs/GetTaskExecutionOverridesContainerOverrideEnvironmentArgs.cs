@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class GetTaskExecutionOverridesContainerOverrideEnvironmentInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the key-value pair. For environment variables, this is the name of the environment variable.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the key-value pair. For environment variables, this is the value of the environment variable.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

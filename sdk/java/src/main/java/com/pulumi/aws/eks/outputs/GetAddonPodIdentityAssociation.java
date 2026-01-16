@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAddonPodIdentityAssociation {
-    /**
-     * @return ARN of the IAM role associated with the EKS add-on.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Service account associated with the EKS add-on.
-     * 
-     */
     private String serviceAccount;
 
     private GetAddonPodIdentityAssociation() {}
-    /**
-     * @return ARN of the IAM role associated with the EKS add-on.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Service account associated with the EKS add-on.
-     * 
-     */
     public String serviceAccount() {
         return this.serviceAccount;
     }

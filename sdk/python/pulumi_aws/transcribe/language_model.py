@@ -29,11 +29,6 @@ class LanguageModelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LanguageModel resource.
-        :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input['LanguageModelInputDataConfigArgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[_builtins.str] model_name: The model name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "base_model_name", base_model_name)
         pulumi.set(__self__, "input_data_config", input_data_config)
@@ -47,9 +42,6 @@ class LanguageModelArgs:
     @_builtins.property
     @pulumi.getter(name="baseModelName")
     def base_model_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of reference base model.
-        """
         return pulumi.get(self, "base_model_name")
 
     @base_model_name.setter
@@ -59,9 +51,6 @@ class LanguageModelArgs:
     @_builtins.property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> pulumi.Input['LanguageModelInputDataConfigArgs']:
-        """
-        The input data config for the LanguageModel. See Input Data Config for more details.
-        """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
@@ -71,9 +60,6 @@ class LanguageModelArgs:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -83,9 +69,6 @@ class LanguageModelArgs:
     @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The model name.
-        """
         return pulumi.get(self, "model_name")
 
     @model_name.setter
@@ -95,9 +78,6 @@ class LanguageModelArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,12 +107,6 @@ class _LanguageModelState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LanguageModel resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the LanguageModel.
-        :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input['LanguageModelInputDataConfigArgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[_builtins.str] model_name: The model name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -154,9 +128,6 @@ class _LanguageModelState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the LanguageModel.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -166,9 +137,6 @@ class _LanguageModelState:
     @_builtins.property
     @pulumi.getter(name="baseModelName")
     def base_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of reference base model.
-        """
         return pulumi.get(self, "base_model_name")
 
     @base_model_name.setter
@@ -178,9 +146,6 @@ class _LanguageModelState:
     @_builtins.property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> Optional[pulumi.Input['LanguageModelInputDataConfigArgs']]:
-        """
-        The input data config for the LanguageModel. See Input Data Config for more details.
-        """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
@@ -190,9 +155,6 @@ class _LanguageModelState:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -202,9 +164,6 @@ class _LanguageModelState:
     @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The model name.
-        """
         return pulumi.get(self, "model_name")
 
     @model_name.setter
@@ -214,9 +173,6 @@ class _LanguageModelState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -256,78 +212,9 @@ class LanguageModel(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Transcribe LanguageModel.
-
-        > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["transcribe.amazonaws.com"],
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=example.json)
-        test_policy = aws.iam.RolePolicy("test_policy",
-            name="example",
-            role=example_role.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:ListBucket",
-                    ],
-                    "Effect": "Allow",
-                    "Resource": ["*"],
-                }],
-            }))
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-transcribe",
-            force_destroy=True)
-        object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket.id,
-            key="transcribe/test1.txt",
-            source=pulumi.FileAsset("test1.txt"))
-        example_language_model = aws.transcribe.LanguageModel("example",
-            model_name="example",
-            base_model_name="NarrowBand",
-            input_data_config={
-                "data_access_role_arn": example_role.arn,
-                "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
-            },
-            language_code="en-US",
-            tags={
-                "ENVIRONMENT": "development",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
-
-        ```sh
-        $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-        ```
-
+        Create a LanguageModel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[_builtins.str] model_name: The model name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -336,71 +223,7 @@ class LanguageModel(pulumi.CustomResource):
                  args: LanguageModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Transcribe LanguageModel.
-
-        > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["transcribe.amazonaws.com"],
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=example.json)
-        test_policy = aws.iam.RolePolicy("test_policy",
-            name="example",
-            role=example_role.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:ListBucket",
-                    ],
-                    "Effect": "Allow",
-                    "Resource": ["*"],
-                }],
-            }))
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-transcribe",
-            force_destroy=True)
-        object = aws.s3.BucketObjectv2("object",
-            bucket=example_bucket.id,
-            key="transcribe/test1.txt",
-            source=pulumi.FileAsset("test1.txt"))
-        example_language_model = aws.transcribe.LanguageModel("example",
-            model_name="example",
-            base_model_name="NarrowBand",
-            input_data_config={
-                "data_access_role_arn": example_role.arn,
-                "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
-            },
-            language_code="en-US",
-            tags={
-                "ENVIRONMENT": "development",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
-
-        ```sh
-        $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-        ```
-
+        Create a LanguageModel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LanguageModelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -472,12 +295,6 @@ class LanguageModel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the LanguageModel.
-        :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[_builtins.str] model_name: The model name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -496,49 +313,31 @@ class LanguageModel(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the LanguageModel.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="baseModelName")
     def base_model_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of reference base model.
-        """
         return pulumi.get(self, "base_model_name")
 
     @_builtins.property
     @pulumi.getter(name="inputDataConfig")
     def input_data_config(self) -> pulumi.Output['outputs.LanguageModelInputDataConfig']:
-        """
-        The input data config for the LanguageModel. See Input Data Config for more details.
-        """
         return pulumi.get(self, "input_data_config")
 
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The model name.
-        """
         return pulumi.get(self, "model_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

@@ -19,55 +19,23 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
 
     public static final V2modelsSlotTypeValueSelectionSettingArgs Empty = new V2modelsSlotTypeValueSelectionSettingArgs();
 
-    /**
-     * Provides settings that enable advanced recognition settings for slot values.
-     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-     * See `advancedRecognitionSetting` argument reference below.
-     * 
-     */
     @Import(name="advancedRecognitionSettings")
     private @Nullable Output<List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>> advancedRecognitionSettings;
 
-    /**
-     * @return Provides settings that enable advanced recognition settings for slot values.
-     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-     * See `advancedRecognitionSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>>> advancedRecognitionSettings() {
         return Optional.ofNullable(this.advancedRecognitionSettings);
     }
 
-    /**
-     * Used to validate the value of the slot.
-     * See `regexFilter` argument reference below.
-     * 
-     */
     @Import(name="regexFilters")
     private @Nullable Output<List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>> regexFilters;
 
-    /**
-     * @return Used to validate the value of the slot.
-     * See `regexFilter` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>>> regexFilters() {
         return Optional.ofNullable(this.regexFilters);
     }
 
-    /**
-     * Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-     * 
-     */
     @Import(name="resolutionStrategy", required=true)
     private Output<String> resolutionStrategy;
 
-    /**
-     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-     * 
-     */
     public Output<String> resolutionStrategy() {
         return this.resolutionStrategy;
     }
@@ -98,96 +66,37 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
             $ = new V2modelsSlotTypeValueSelectionSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values.
-         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-         * See `advancedRecognitionSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedRecognitionSettings(@Nullable Output<List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>> advancedRecognitionSettings) {
             $.advancedRecognitionSettings = advancedRecognitionSettings;
             return this;
         }
 
-        /**
-         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values.
-         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-         * See `advancedRecognitionSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedRecognitionSettings(List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs> advancedRecognitionSettings) {
             return advancedRecognitionSettings(Output.of(advancedRecognitionSettings));
         }
 
-        /**
-         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values.
-         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-         * See `advancedRecognitionSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedRecognitionSettings(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs... advancedRecognitionSettings) {
             return advancedRecognitionSettings(List.of(advancedRecognitionSettings));
         }
 
-        /**
-         * @param regexFilters Used to validate the value of the slot.
-         * See `regexFilter` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexFilters(@Nullable Output<List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>> regexFilters) {
             $.regexFilters = regexFilters;
             return this;
         }
 
-        /**
-         * @param regexFilters Used to validate the value of the slot.
-         * See `regexFilter` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexFilters(List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs> regexFilters) {
             return regexFilters(Output.of(regexFilters));
         }
 
-        /**
-         * @param regexFilters Used to validate the value of the slot.
-         * See `regexFilter` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexFilters(V2modelsSlotTypeValueSelectionSettingRegexFilterArgs... regexFilters) {
             return regexFilters(List.of(regexFilters));
         }
 
-        /**
-         * @param resolutionStrategy Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolutionStrategy(Output<String> resolutionStrategy) {
             $.resolutionStrategy = resolutionStrategy;
             return this;
         }
 
-        /**
-         * @param resolutionStrategy Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolutionStrategy(String resolutionStrategy) {
             return resolutionStrategy(Output.of(resolutionStrategy));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean whether managed log persistence is enabled for the workgroup.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

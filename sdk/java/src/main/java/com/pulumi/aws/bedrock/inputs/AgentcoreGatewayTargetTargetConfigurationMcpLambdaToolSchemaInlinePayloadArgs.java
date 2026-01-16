@@ -18,62 +18,30 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs();
 
-    /**
-     * Description of what the tool does.
-     * 
-     */
     @Import(name="description", required=true)
     private Output<String> description;
 
-    /**
-     * @return Description of what the tool does.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
 
-    /**
-     * Schema for the tool&#39;s input. See `schemaDefinition` below.
-     * 
-     */
     @Import(name="inputSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema;
 
-    /**
-     * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs>> inputSchema() {
         return Optional.ofNullable(this.inputSchema);
     }
 
-    /**
-     * Name of the tool.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the tool.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Schema for the tool&#39;s output. See `schemaDefinition` below.
-     * 
-     */
     @Import(name="outputSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs> outputSchema;
 
-    /**
-     * @return Schema for the tool&#39;s output. See `schemaDefinition` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs>> outputSchema() {
         return Optional.ofNullable(this.outputSchema);
     }
@@ -105,86 +73,38 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of what the tool does.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of what the tool does.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param inputSchema Schema for the tool&#39;s input. See `schemaDefinition` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema) {
             $.inputSchema = inputSchema;
             return this;
         }
 
-        /**
-         * @param inputSchema Schema for the tool&#39;s input. See `schemaDefinition` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs inputSchema) {
             return inputSchema(Output.of(inputSchema));
         }
 
-        /**
-         * @param name Name of the tool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the tool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param outputSchema Schema for the tool&#39;s output. See `schemaDefinition` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs> outputSchema) {
             $.outputSchema = outputSchema;
             return this;
         }
 
-        /**
-         * @param outputSchema Schema for the tool&#39;s output. See `schemaDefinition` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs outputSchema) {
             return outputSchema(Output.of(outputSchema));
         }

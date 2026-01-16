@@ -16,32 +16,16 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs();
 
-    /**
-     * Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
-    /**
-     * @return Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
 
-    /**
-     * When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
-     * 
-     */
     @Import(name="languageSelectionPolicy")
     private @Nullable Output<String> languageSelectionPolicy;
 
-    /**
-     * @return When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
-     * 
-     */
     public Optional<Output<String>> languageSelectionPolicy() {
         return Optional.ofNullable(this.languageSelectionPolicy);
     }
@@ -71,44 +55,20 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param languageCode Selects a specific three-letter language code from within an audio source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
-        /**
-         * @param languageCode Selects a specific three-letter language code from within an audio source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
-        /**
-         * @param languageSelectionPolicy When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageSelectionPolicy(@Nullable Output<String> languageSelectionPolicy) {
             $.languageSelectionPolicy = languageSelectionPolicy;
             return this;
         }
 
-        /**
-         * @param languageSelectionPolicy When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageSelectionPolicy(String languageSelectionPolicy) {
             return languageSelectionPolicy(Output.of(languageSelectionPolicy));
         }

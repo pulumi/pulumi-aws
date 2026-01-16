@@ -16,17 +16,9 @@ public final class GuardrailContextualGroundingPolicyConfigArgs extends com.pulu
 
     public static final GuardrailContextualGroundingPolicyConfigArgs Empty = new GuardrailContextualGroundingPolicyConfigArgs();
 
-    /**
-     * One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-     * 
-     */
     @Import(name="filtersConfigs")
     private @Nullable Output<List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs>> filtersConfigs;
 
-    /**
-     * @return One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-     * 
-     */
     public Optional<Output<List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs>>> filtersConfigs() {
         return Optional.ofNullable(this.filtersConfigs);
     }
@@ -55,33 +47,15 @@ public final class GuardrailContextualGroundingPolicyConfigArgs extends com.pulu
             $ = new GuardrailContextualGroundingPolicyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filtersConfigs One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filtersConfigs(@Nullable Output<List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs>> filtersConfigs) {
             $.filtersConfigs = filtersConfigs;
             return this;
         }
 
-        /**
-         * @param filtersConfigs One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filtersConfigs(List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs> filtersConfigs) {
             return filtersConfigs(Output.of(filtersConfigs));
         }
 
-        /**
-         * @param filtersConfigs One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filtersConfigs(GuardrailContextualGroundingPolicyConfigFiltersConfigArgs... filtersConfigs) {
             return filtersConfigs(List.of(filtersConfigs));
         }

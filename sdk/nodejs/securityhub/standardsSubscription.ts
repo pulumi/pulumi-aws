@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Subscribes to a Security Hub standard.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const current = aws.getRegion({});
- * const cis = new aws.securityhub.StandardsSubscription("cis", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const pci321 = new aws.securityhub.StandardsSubscription("pci_321", {standardsArn: current.then(current => `arn:aws:securityhub:${current.region}::standards/pci-dss/v/3.2.1`)}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
- * ```
- * ```sh
- * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
- * ```
- * ```sh
- * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
- * ```
- */
 export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * Get an existing StandardsSubscription resource's state with the given name, ID, and optional extra
@@ -65,27 +32,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandardsSubscription.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of a standard - see below.
-     *
-     * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
-     *
-     * | Name                                     | ARN                                                                                                          |
-     * |------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-     * | AWS Foundational Security Best Practices | `arn:${var.partition}:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
-     * | AWS Resource Tagging Standard            | `arn:${var.partition}:securityhub:${var.region}::standards/aws-resource-tagging-standard/v/1.0.0`            |
-     * | CIS AWS Foundations Benchmark v1.2.0     | `arn:${var.partition}:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
-     * | CIS AWS Foundations Benchmark v1.4.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
-     * | CIS AWS Foundations Benchmark v3.0.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/3.0.0`            |
-     * | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
-     * | NIST SP 800-171 Rev. 2                   | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-171/v/2.0.0`                             |
-     * | PCI DSS  v3.2.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
-     * | PCI DSS  v4.0.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/4.0.1`                                  |
-     */
     declare public readonly standardsArn: pulumi.Output<string>;
 
     /**
@@ -120,27 +67,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsSubscription resources.
  */
 export interface StandardsSubscriptionState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of a standard - see below.
-     *
-     * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
-     *
-     * | Name                                     | ARN                                                                                                          |
-     * |------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-     * | AWS Foundational Security Best Practices | `arn:${var.partition}:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
-     * | AWS Resource Tagging Standard            | `arn:${var.partition}:securityhub:${var.region}::standards/aws-resource-tagging-standard/v/1.0.0`            |
-     * | CIS AWS Foundations Benchmark v1.2.0     | `arn:${var.partition}:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
-     * | CIS AWS Foundations Benchmark v1.4.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
-     * | CIS AWS Foundations Benchmark v3.0.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/3.0.0`            |
-     * | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
-     * | NIST SP 800-171 Rev. 2                   | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-171/v/2.0.0`                             |
-     * | PCI DSS  v3.2.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
-     * | PCI DSS  v4.0.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/4.0.1`                                  |
-     */
     standardsArn?: pulumi.Input<string>;
 }
 
@@ -148,26 +75,6 @@ export interface StandardsSubscriptionState {
  * The set of arguments for constructing a StandardsSubscription resource.
  */
 export interface StandardsSubscriptionArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of a standard - see below.
-     *
-     * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
-     *
-     * | Name                                     | ARN                                                                                                          |
-     * |------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-     * | AWS Foundational Security Best Practices | `arn:${var.partition}:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
-     * | AWS Resource Tagging Standard            | `arn:${var.partition}:securityhub:${var.region}::standards/aws-resource-tagging-standard/v/1.0.0`            |
-     * | CIS AWS Foundations Benchmark v1.2.0     | `arn:${var.partition}:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
-     * | CIS AWS Foundations Benchmark v1.4.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
-     * | CIS AWS Foundations Benchmark v3.0.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/3.0.0`            |
-     * | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
-     * | NIST SP 800-171 Rev. 2                   | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-171/v/2.0.0`                             |
-     * | PCI DSS  v3.2.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
-     * | PCI DSS  v4.0.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/4.0.1`                                  |
-     */
     standardsArn: pulumi.Input<string>;
 }

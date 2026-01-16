@@ -12,76 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Redshift Serverless Custom Domain Association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := acm.NewCertificate(ctx, "example", &acm.CertificateArgs{
-//				DomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := redshiftserverless.NewNamespace(ctx, "example", &redshiftserverless.NamespaceArgs{
-//				NamespaceName: pulumi.String("example-namespace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkgroup, err := redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
-//				WorkgroupName: pulumi.String("example-workgroup"),
-//				NamespaceName: exampleNamespace.NamespaceName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshiftserverless.NewCustomDomainAssociation(ctx, "example", &redshiftserverless.CustomDomainAssociationArgs{
-//				WorkgroupName:              exampleWorkgroup.WorkgroupName,
-//				CustomDomainName:           pulumi.String("example.com"),
-//				CustomDomainCertificateArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Serverless Custom Domain Association using the `workgroup_name` and `custom_domain_name`, separated by the coma. For example:
-//
-// ```sh
-// $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
-// ```
 type CustomDomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the certificate for the custom domain association.
-	CustomDomainCertificateArn pulumi.StringOutput `pulumi:"customDomainCertificateArn"`
-	// Expiration time for the certificate.
+	CustomDomainCertificateArn        pulumi.StringOutput `pulumi:"customDomainCertificateArn"`
 	CustomDomainCertificateExpiryTime pulumi.StringOutput `pulumi:"customDomainCertificateExpiryTime"`
-	// Custom domain to associate with the workgroup.
-	CustomDomainName pulumi.StringOutput `pulumi:"customDomainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the workgroup.
-	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
+	CustomDomainName                  pulumi.StringOutput `pulumi:"customDomainName"`
+	Region                            pulumi.StringOutput `pulumi:"region"`
+	WorkgroupName                     pulumi.StringOutput `pulumi:"workgroupName"`
 }
 
 // NewCustomDomainAssociation registers a new resource with the given unique name, arguments, and options.
@@ -123,29 +61,19 @@ func GetCustomDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomainAssociation resources.
 type customDomainAssociationState struct {
-	// ARN of the certificate for the custom domain association.
-	CustomDomainCertificateArn *string `pulumi:"customDomainCertificateArn"`
-	// Expiration time for the certificate.
+	CustomDomainCertificateArn        *string `pulumi:"customDomainCertificateArn"`
 	CustomDomainCertificateExpiryTime *string `pulumi:"customDomainCertificateExpiryTime"`
-	// Custom domain to associate with the workgroup.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the workgroup.
-	WorkgroupName *string `pulumi:"workgroupName"`
+	CustomDomainName                  *string `pulumi:"customDomainName"`
+	Region                            *string `pulumi:"region"`
+	WorkgroupName                     *string `pulumi:"workgroupName"`
 }
 
 type CustomDomainAssociationState struct {
-	// ARN of the certificate for the custom domain association.
-	CustomDomainCertificateArn pulumi.StringPtrInput
-	// Expiration time for the certificate.
+	CustomDomainCertificateArn        pulumi.StringPtrInput
 	CustomDomainCertificateExpiryTime pulumi.StringPtrInput
-	// Custom domain to associate with the workgroup.
-	CustomDomainName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the workgroup.
-	WorkgroupName pulumi.StringPtrInput
+	CustomDomainName                  pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
+	WorkgroupName                     pulumi.StringPtrInput
 }
 
 func (CustomDomainAssociationState) ElementType() reflect.Type {
@@ -153,26 +81,18 @@ func (CustomDomainAssociationState) ElementType() reflect.Type {
 }
 
 type customDomainAssociationArgs struct {
-	// ARN of the certificate for the custom domain association.
-	CustomDomainCertificateArn string `pulumi:"customDomainCertificateArn"`
-	// Custom domain to associate with the workgroup.
-	CustomDomainName string `pulumi:"customDomainName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the workgroup.
-	WorkgroupName string `pulumi:"workgroupName"`
+	CustomDomainCertificateArn string  `pulumi:"customDomainCertificateArn"`
+	CustomDomainName           string  `pulumi:"customDomainName"`
+	Region                     *string `pulumi:"region"`
+	WorkgroupName              string  `pulumi:"workgroupName"`
 }
 
 // The set of arguments for constructing a CustomDomainAssociation resource.
 type CustomDomainAssociationArgs struct {
-	// ARN of the certificate for the custom domain association.
 	CustomDomainCertificateArn pulumi.StringInput
-	// Custom domain to associate with the workgroup.
-	CustomDomainName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the workgroup.
-	WorkgroupName pulumi.StringInput
+	CustomDomainName           pulumi.StringInput
+	Region                     pulumi.StringPtrInput
+	WorkgroupName              pulumi.StringInput
 }
 
 func (CustomDomainAssociationArgs) ElementType() reflect.Type {
@@ -262,27 +182,22 @@ func (o CustomDomainAssociationOutput) ToCustomDomainAssociationOutputWithContex
 	return o
 }
 
-// ARN of the certificate for the custom domain association.
 func (o CustomDomainAssociationOutput) CustomDomainCertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.CustomDomainCertificateArn }).(pulumi.StringOutput)
 }
 
-// Expiration time for the certificate.
 func (o CustomDomainAssociationOutput) CustomDomainCertificateExpiryTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.CustomDomainCertificateExpiryTime }).(pulumi.StringOutput)
 }
 
-// Custom domain to associate with the workgroup.
 func (o CustomDomainAssociationOutput) CustomDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.CustomDomainName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomDomainAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the workgroup.
 func (o CustomDomainAssociationOutput) WorkgroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.WorkgroupName }).(pulumi.StringOutput)
 }

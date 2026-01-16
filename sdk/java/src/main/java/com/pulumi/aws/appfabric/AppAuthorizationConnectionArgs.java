@@ -18,62 +18,30 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
 
     public static final AppAuthorizationConnectionArgs Empty = new AppAuthorizationConnectionArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-     * 
-     */
     @Import(name="appAuthorizationArn", required=true)
     private Output<String> appAuthorizationArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-     * 
-     */
     public Output<String> appAuthorizationArn() {
         return this.appAuthorizationArn;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
-     * 
-     */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
 
-    /**
-     * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-     * 
-     */
     @Import(name="authRequest")
     private @Nullable Output<AppAuthorizationConnectionAuthRequestArgs> authRequest;
 
-    /**
-     * @return Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-     * 
-     */
     public Optional<Output<AppAuthorizationConnectionAuthRequestArgs>> authRequest() {
         return Optional.ofNullable(this.authRequest);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -113,86 +81,38 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
             $ = new AppAuthorizationConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appAuthorizationArn The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appAuthorizationArn(Output<String> appAuthorizationArn) {
             $.appAuthorizationArn = appAuthorizationArn;
             return this;
         }
 
-        /**
-         * @param appAuthorizationArn The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appAuthorizationArn(String appAuthorizationArn) {
             return appAuthorizationArn(Output.of(appAuthorizationArn));
         }
 
-        /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(Output<String> appBundleArn) {
             $.appBundleArn = appBundleArn;
             return this;
         }
 
-        /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appBundleArn(String appBundleArn) {
             return appBundleArn(Output.of(appBundleArn));
         }
 
-        /**
-         * @param authRequest Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authRequest(@Nullable Output<AppAuthorizationConnectionAuthRequestArgs> authRequest) {
             $.authRequest = authRequest;
             return this;
         }
 
-        /**
-         * @param authRequest Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authRequest(AppAuthorizationConnectionAuthRequestArgs authRequest) {
             return authRequest(Output.of(authRequest));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

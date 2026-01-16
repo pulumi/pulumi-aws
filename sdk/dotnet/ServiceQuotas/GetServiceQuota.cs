@@ -11,102 +11,12 @@ namespace Pulumi.Aws.ServiceQuotas
 {
     public static class GetServiceQuota
     {
-        /// <summary>
-        /// Retrieve information about a Service Quota.
-        /// 
-        /// &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byQuotaCode = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
-        ///     {
-        ///         QuotaCode = "L-F678F1CE",
-        ///         ServiceCode = "vpc",
-        ///     });
-        /// 
-        ///     var byQuotaName = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
-        ///     {
-        ///         QuotaName = "VPCs per Region",
-        ///         ServiceCode = "vpc",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetServiceQuotaResult> InvokeAsync(GetServiceQuotaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Service Quota.
-        /// 
-        /// &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byQuotaCode = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
-        ///     {
-        ///         QuotaCode = "L-F678F1CE",
-        ///         ServiceCode = "vpc",
-        ///     });
-        /// 
-        ///     var byQuotaName = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
-        ///     {
-        ///         QuotaName = "VPCs per Region",
-        ///         ServiceCode = "vpc",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceQuotaResult> Invoke(GetServiceQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Service Quota.
-        /// 
-        /// &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byQuotaCode = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
-        ///     {
-        ///         QuotaCode = "L-F678F1CE",
-        ///         ServiceCode = "vpc",
-        ///     });
-        /// 
-        ///     var byQuotaName = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
-        ///     {
-        ///         QuotaName = "VPCs per Region",
-        ///         ServiceCode = "vpc",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetServiceQuotaResult> Invoke(GetServiceQuotaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaInvokeArgs(), options.WithDefaults());
     }
@@ -114,29 +24,15 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class GetServiceQuotaArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaCode` or `QuotaName` must be specified.
-        /// </summary>
         [Input("quotaCode")]
         public string? QuotaCode { get; set; }
 
-        /// <summary>
-        /// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaName` or `QuotaCode` must be specified.
-        /// 
-        /// &gt; *NOTE:* Either `QuotaCode` or `QuotaName` must be configured.
-        /// </summary>
         [Input("quotaName")]
         public string? QuotaName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        /// </summary>
         [Input("serviceCode", required: true)]
         public string ServiceCode { get; set; } = null!;
 
@@ -148,29 +44,15 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class GetServiceQuotaInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaCode` or `QuotaName` must be specified.
-        /// </summary>
         [Input("quotaCode")]
         public Input<string>? QuotaCode { get; set; }
 
-        /// <summary>
-        /// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaName` or `QuotaCode` must be specified.
-        /// 
-        /// &gt; *NOTE:* Either `QuotaCode` or `QuotaName` must be configured.
-        /// </summary>
         [Input("quotaName")]
         public Input<string>? QuotaName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        /// </summary>
         [Input("serviceCode", required: true)]
         public Input<string> ServiceCode { get; set; } = null!;
 
@@ -184,21 +66,9 @@ namespace Pulumi.Aws.ServiceQuotas
     [OutputType]
     public sealed class GetServiceQuotaResult
     {
-        /// <summary>
-        /// Whether the service quota is adjustable.
-        /// </summary>
         public readonly bool Adjustable;
-        /// <summary>
-        /// ARN of the service quota.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Default value of the service quota.
-        /// </summary>
         public readonly double DefaultValue;
-        /// <summary>
-        /// Whether the service quota is global for the AWS account.
-        /// </summary>
         public readonly bool GlobalQuota;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -208,17 +78,8 @@ namespace Pulumi.Aws.ServiceQuotas
         public readonly string QuotaName;
         public readonly string Region;
         public readonly string ServiceCode;
-        /// <summary>
-        /// Name of the service.
-        /// </summary>
         public readonly string ServiceName;
-        /// <summary>
-        /// Information about the measurement.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceQuotaUsageMetricResult> UsageMetrics;
-        /// <summary>
-        /// Current value of the service quota.
-        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

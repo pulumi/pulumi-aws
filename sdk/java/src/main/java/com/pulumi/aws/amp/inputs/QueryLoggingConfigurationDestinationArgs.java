@@ -16,32 +16,16 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
 
     public static final QueryLoggingConfigurationDestinationArgs Empty = new QueryLoggingConfigurationDestinationArgs();
 
-    /**
-     * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-     * 
-     */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs;
 
-    /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-     * 
-     */
     public Optional<Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs>> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
-    /**
-     * A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<QueryLoggingConfigurationDestinationFiltersArgs> filters;
 
-    /**
-     * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-     * 
-     */
     public Optional<Output<QueryLoggingConfigurationDestinationFiltersArgs>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -71,44 +55,20 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
             $ = new QueryLoggingConfigurationDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(@Nullable Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogs Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(QueryLoggingConfigurationDestinationCloudwatchLogsArgs cloudwatchLogs) {
             return cloudwatchLogs(Output.of(cloudwatchLogs));
         }
 
-        /**
-         * @param filters A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<QueryLoggingConfigurationDestinationFiltersArgs> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(QueryLoggingConfigurationDestinationFiltersArgs filters) {
             return filters(Output.of(filters));
         }

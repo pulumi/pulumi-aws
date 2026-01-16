@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-        /// </summary>
         [Input("credentialLocation")]
         public Input<string>? CredentialLocation { get; set; }
 
-        /// <summary>
-        /// Name of the parameter containing the API key credential.
-        /// </summary>
         [Input("credentialParameterName")]
         public Input<string>? CredentialParameterName { get; set; }
 
-        /// <summary>
-        /// Prefix to add to the API key credential value.
-        /// </summary>
         [Input("credentialPrefix")]
         public Input<string>? CredentialPrefix { get; set; }
 
-        /// <summary>
-        /// ARN of the OIDC provider for API key authentication.
-        /// </summary>
         [Input("providerArn", required: true)]
         public Input<string> ProviderArn { get; set; } = null!;
 

@@ -11,261 +11,109 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDbNodesDbNode {
-    /**
-     * @return Additional information about the planned maintenance.
-     * 
-     */
     private String additionalDetails;
     private String arn;
-    /**
-     * @return The Oracle Cloud ID (OCID) of the backup IP address that&#39;s associated with the DB node.
-     * 
-     */
     private String backupIpId;
     private String backupVnic2Id;
-    /**
-     * @return The OCID of the backup VNIC for the DB node.
-     * 
-     */
     private String backupVnicId;
-    /**
-     * @return The number of CPU cores enabled on the DB node.
-     * 
-     */
     private Integer cpuCoreCount;
-    /**
-     * @return The date and time when the DB node was created.
-     * 
-     */
     private String createdAt;
     private Integer dbNodeStorageSize;
-    /**
-     * @return The unique identifier of the database server that&#39;s associated with the DB node.
-     * 
-     */
     private String dbServerId;
-    /**
-     * @return The OCID of the DB system.
-     * 
-     */
     private String dbSystemId;
-    /**
-     * @return The name of the fault domain where the DB node is located.
-     * 
-     */
     private String faultDomain;
-    /**
-     * @return The OCID of the host IP address that&#39;s associated with the DB node.
-     * 
-     */
     private String hostIpId;
-    /**
-     * @return The host name for the DB node.
-     * 
-     */
     private String hostname;
     private String id;
-    /**
-     * @return The type of maintenance the DB node is undergoing.
-     * 
-     */
     private String maintenanceType;
     private Integer memorySize;
-    /**
-     * @return The name of the OCI resource anchor for the DB node.
-     * 
-     */
     private String ociResourceAnchorName;
-    /**
-     * @return The OCID of the DB node.
-     * 
-     */
     private String ocid;
     private Integer softwareStorageSize;
-    /**
-     * @return The current status of the DB node.
-     * 
-     */
     private String status;
-    /**
-     * @return Additional information about the status of the DB node.
-     * 
-     */
     private String statusReason;
-    /**
-     * @return The end date and time of the maintenance window.
-     * 
-     */
     private String timeMaintenanceWindowEnd;
-    /**
-     * @return The start date and time of the maintenance window.
-     * 
-     */
     private String timeMaintenanceWindowStart;
-    /**
-     * @return The total number of CPU cores reserved on the DB node.
-     * 
-     */
     private Integer totalCpuCoreCount;
     private String vnic2Id;
-    /**
-     * @return The OCID of the VNIC.
-     * 
-     */
     private String vnicId;
 
     private GetDbNodesDbNode() {}
-    /**
-     * @return Additional information about the planned maintenance.
-     * 
-     */
     public String additionalDetails() {
         return this.additionalDetails;
     }
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The Oracle Cloud ID (OCID) of the backup IP address that&#39;s associated with the DB node.
-     * 
-     */
     public String backupIpId() {
         return this.backupIpId;
     }
     public String backupVnic2Id() {
         return this.backupVnic2Id;
     }
-    /**
-     * @return The OCID of the backup VNIC for the DB node.
-     * 
-     */
     public String backupVnicId() {
         return this.backupVnicId;
     }
-    /**
-     * @return The number of CPU cores enabled on the DB node.
-     * 
-     */
     public Integer cpuCoreCount() {
         return this.cpuCoreCount;
     }
-    /**
-     * @return The date and time when the DB node was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
     public Integer dbNodeStorageSize() {
         return this.dbNodeStorageSize;
     }
-    /**
-     * @return The unique identifier of the database server that&#39;s associated with the DB node.
-     * 
-     */
     public String dbServerId() {
         return this.dbServerId;
     }
-    /**
-     * @return The OCID of the DB system.
-     * 
-     */
     public String dbSystemId() {
         return this.dbSystemId;
     }
-    /**
-     * @return The name of the fault domain where the DB node is located.
-     * 
-     */
     public String faultDomain() {
         return this.faultDomain;
     }
-    /**
-     * @return The OCID of the host IP address that&#39;s associated with the DB node.
-     * 
-     */
     public String hostIpId() {
         return this.hostIpId;
     }
-    /**
-     * @return The host name for the DB node.
-     * 
-     */
     public String hostname() {
         return this.hostname;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The type of maintenance the DB node is undergoing.
-     * 
-     */
     public String maintenanceType() {
         return this.maintenanceType;
     }
     public Integer memorySize() {
         return this.memorySize;
     }
-    /**
-     * @return The name of the OCI resource anchor for the DB node.
-     * 
-     */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
-    /**
-     * @return The OCID of the DB node.
-     * 
-     */
     public String ocid() {
         return this.ocid;
     }
     public Integer softwareStorageSize() {
         return this.softwareStorageSize;
     }
-    /**
-     * @return The current status of the DB node.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Additional information about the status of the DB node.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }
-    /**
-     * @return The end date and time of the maintenance window.
-     * 
-     */
     public String timeMaintenanceWindowEnd() {
         return this.timeMaintenanceWindowEnd;
     }
-    /**
-     * @return The start date and time of the maintenance window.
-     * 
-     */
     public String timeMaintenanceWindowStart() {
         return this.timeMaintenanceWindowStart;
     }
-    /**
-     * @return The total number of CPU cores reserved on the DB node.
-     * 
-     */
     public Integer totalCpuCoreCount() {
         return this.totalCpuCoreCount;
     }
     public String vnic2Id() {
         return this.vnic2Id;
     }
-    /**
-     * @return The OCID of the VNIC.
-     * 
-     */
     public String vnicId() {
         return this.vnicId;
     }

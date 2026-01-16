@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyMetadata {
-    /**
-     * @return Key-value pairs used to identify, sort, and organize cube resources.
-     * 
-     */
     private Map<String,String> labels;
 
     private GetJobDefinitionEksPropertyPodPropertyMetadata() {}
-    /**
-     * @return Key-value pairs used to identify, sort, and organize cube resources.
-     * 
-     */
     public Map<String,String> labels() {
         return this.labels;
     }

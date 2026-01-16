@@ -18,81 +18,37 @@ public final class ResourceLfTagTableWithColumnsArgs extends com.pulumi.resource
 
     public static final ResourceLfTagTableWithColumnsArgs Empty = new ResourceLfTagTableWithColumnsArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Set of column names for the table.
-     * 
-     */
     @Import(name="columnNames")
     private @Nullable Output<List<String>> columnNames;
 
-    /**
-     * @return Set of column names for the table.
-     * 
-     */
     public Optional<Output<List<String>>> columnNames() {
         return Optional.ofNullable(this.columnNames);
     }
 
-    /**
-     * Option to add column wildcard. See Column Wildcard for more details.
-     * 
-     */
     @Import(name="columnWildcard")
     private @Nullable Output<ResourceLfTagTableWithColumnsColumnWildcardArgs> columnWildcard;
 
-    /**
-     * @return Option to add column wildcard. See Column Wildcard for more details.
-     * 
-     */
     public Optional<Output<ResourceLfTagTableWithColumnsColumnWildcardArgs>> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
 
-    /**
-     * Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * Name of the table resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the table resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -125,121 +81,51 @@ public final class ResourceLfTagTableWithColumnsArgs extends com.pulumi.resource
             $ = new ResourceLfTagTableWithColumnsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param columnNames Set of column names for the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(@Nullable Output<List<String>> columnNames) {
             $.columnNames = columnNames;
             return this;
         }
 
-        /**
-         * @param columnNames Set of column names for the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(List<String> columnNames) {
             return columnNames(Output.of(columnNames));
         }
 
-        /**
-         * @param columnNames Set of column names for the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnNames(String... columnNames) {
             return columnNames(List.of(columnNames));
         }
 
-        /**
-         * @param columnWildcard Option to add column wildcard. See Column Wildcard for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnWildcard(@Nullable Output<ResourceLfTagTableWithColumnsColumnWildcardArgs> columnWildcard) {
             $.columnWildcard = columnWildcard;
             return this;
         }
 
-        /**
-         * @param columnWildcard Option to add column wildcard. See Column Wildcard for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnWildcard(ResourceLfTagTableWithColumnsColumnWildcardArgs columnWildcard) {
             return columnWildcard(Output.of(columnWildcard));
         }
 
-        /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param name Name of the table resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the table resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

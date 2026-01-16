@@ -12,9 +12,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-        /// </summary>
         [Input("inputStartingPosition")]
         public Input<string>? InputStartingPosition { get; set; }
 

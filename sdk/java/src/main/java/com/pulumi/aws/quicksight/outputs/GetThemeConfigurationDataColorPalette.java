@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationDataColorPalette {
-    /**
-     * @return List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-     * 
-     */
     private List<String> colors;
-    /**
-     * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-     * 
-     */
     private String emptyFillColor;
-    /**
-     * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-     * 
-     */
     private List<String> minMaxGradients;
 
     private GetThemeConfigurationDataColorPalette() {}
-    /**
-     * @return List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-     * 
-     */
     public List<String> colors() {
         return this.colors;
     }
-    /**
-     * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-     * 
-     */
     public String emptyFillColor() {
         return this.emptyFillColor;
     }
-    /**
-     * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
-     * 
-     */
     public List<String> minMaxGradients() {
         return this.minMaxGradients;
     }

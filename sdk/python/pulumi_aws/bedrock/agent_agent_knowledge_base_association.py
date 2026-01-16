@@ -30,14 +30,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
-        :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
-        :param pulumi.Input[_builtins.str] description: Description of what the agent should use the knowledge base for.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to associate with the agent.
-        :param pulumi.Input[_builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "agent_id", agent_id)
         pulumi.set(__self__, "description", description)
@@ -53,9 +45,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier of the agent with which you want to associate the knowledge base.
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -65,9 +54,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        Description of what the agent should use the knowledge base for.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,9 +63,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier of the knowledge base to associate with the agent.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
@@ -89,11 +72,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseState")
     def knowledge_base_state(self) -> pulumi.Input[_builtins.str]:
-        """
-        Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "knowledge_base_state")
 
     @knowledge_base_state.setter
@@ -103,9 +81,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -115,9 +90,6 @@ class AgentAgentKnowledgeBaseAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -146,14 +118,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
                  timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentKnowledgeBaseAssociation resources.
-        :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        :param pulumi.Input[_builtins.str] description: Description of what the agent should use the knowledge base for.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to associate with the agent.
-        :param pulumi.Input[_builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if agent_id is not None:
             pulumi.set(__self__, "agent_id", agent_id)
@@ -173,9 +137,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the agent with which you want to associate the knowledge base.
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -185,9 +146,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
@@ -197,9 +155,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of what the agent should use the knowledge base for.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -209,9 +164,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the knowledge base to associate with the agent.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
@@ -221,11 +173,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseState")
     def knowledge_base_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "knowledge_base_state")
 
     @knowledge_base_state.setter
@@ -235,9 +182,6 @@ class _AgentAgentKnowledgeBaseAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -269,41 +213,9 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentAgentKnowledgeBaseAssociation("example",
-            agent_id="GGRRAED6JP",
-            description="Example Knowledge base",
-            knowledge_base_id="EMDPPAYPZI",
-            knowledge_base_state="ENABLED")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the agent ID, the agent version, and the knowledge base ID separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
-        ```
-
+        Create a AgentAgentKnowledgeBaseAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        :param pulumi.Input[_builtins.str] description: Description of what the agent should use the knowledge base for.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to associate with the agent.
-        :param pulumi.Input[_builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -312,31 +224,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
                  args: AgentAgentKnowledgeBaseAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentAgentKnowledgeBaseAssociation("example",
-            agent_id="GGRRAED6JP",
-            description="Example Knowledge base",
-            knowledge_base_id="EMDPPAYPZI",
-            knowledge_base_state="ENABLED")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the agent ID, the agent version, and the knowledge base ID separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
-        ```
-
+        Create a AgentAgentKnowledgeBaseAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentAgentKnowledgeBaseAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -407,14 +295,6 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
-        :param pulumi.Input[_builtins.str] agent_version: Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        :param pulumi.Input[_builtins.str] description: Description of what the agent should use the knowledge base for.
-        :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to associate with the agent.
-        :param pulumi.Input[_builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,51 +312,31 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the agent with which you want to associate the knowledge base.
-        """
         return pulumi.get(self, "agent_id")
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-        """
         return pulumi.get(self, "agent_version")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of what the agent should use the knowledge base for.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the knowledge base to associate with the agent.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseState")
     def knowledge_base_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "knowledge_base_state")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

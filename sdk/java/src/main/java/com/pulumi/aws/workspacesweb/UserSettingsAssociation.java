@@ -13,107 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web User Settings Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.UserSettings;
- * import com.pulumi.aws.workspacesweb.UserSettingsArgs;
- * import com.pulumi.aws.workspacesweb.UserSettingsAssociation;
- * import com.pulumi.aws.workspacesweb.UserSettingsAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Portal("example", PortalArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleUserSettings = new UserSettings("exampleUserSettings", UserSettingsArgs.builder()
- *             .copyAllowed("Enabled")
- *             .downloadAllowed("Enabled")
- *             .pasteAllowed("Enabled")
- *             .printAllowed("Enabled")
- *             .uploadAllowed("Enabled")
- *             .build());
- * 
- *         var exampleUserSettingsAssociation = new UserSettingsAssociation("exampleUserSettingsAssociation", UserSettingsAssociationArgs.builder()
- *             .userSettingsArn(exampleUserSettings.userSettingsArn())
- *             .portalArn(example.portalArn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:workspacesweb/userSettingsAssociation:UserSettingsAssociation")
 public class UserSettingsAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the portal to associate with the user settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portalArn", refs={String.class}, tree="[0]")
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the user settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the user settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Export(name="userSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> userSettingsArn;
 
-    /**
-     * @return ARN of the user settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> userSettingsArn() {
         return this.userSettingsArn;
     }

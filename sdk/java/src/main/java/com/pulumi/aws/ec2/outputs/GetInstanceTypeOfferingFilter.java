@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceTypeOfferingFilter {
-    /**
-     * @return Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-     * 
-     */
     private String name;
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     private List<String> values;
 
     private GetInstanceTypeOfferingFilter() {}
-    /**
-     * @return Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

@@ -14,32 +14,16 @@ public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetDbSystemShapesPlainArgs Empty = new GetDbSystemShapesPlainArgs();
 
-    /**
-     * The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-     * 
-     */
     @Import(name="availabilityZoneId")
     private @Nullable String availabilityZoneId;
 
-    /**
-     * @return The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-     * 
-     */
     public Optional<String> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -69,23 +53,11 @@ public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.Invok
             $ = new GetDbSystemShapesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZoneId The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(@Nullable String availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContainerRecipeComponent {
-    /**
-     * @return ARN of the Image Builder Component.
-     * 
-     */
     private String componentArn;
-    /**
-     * @return Set of parameters that are used to configure the component.
-     * 
-     */
     private List<GetContainerRecipeComponentParameter> parameters;
 
     private GetContainerRecipeComponent() {}
-    /**
-     * @return ARN of the Image Builder Component.
-     * 
-     */
     public String componentArn() {
         return this.componentArn;
     }
-    /**
-     * @return Set of parameters that are used to configure the component.
-     * 
-     */
     public List<GetContainerRecipeComponentParameter> parameters() {
         return this.parameters;
     }

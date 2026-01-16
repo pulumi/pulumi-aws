@@ -67,15 +67,6 @@ class AwsLogSourceSource(dict):
                  source_name: _builtins.str,
                  accounts: Optional[Sequence[_builtins.str]] = None,
                  source_version: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] regions: Specify the Regions where you want to enable Security Lake.
-        :param _builtins.str source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-        :param Sequence[_builtins.str] accounts: Specify the AWS account information where you want to enable Security Lake.
-               If not specified, uses all accounts included in the Security Lake.
-        :param _builtins.str source_version: The version for a AWS source.
-               If not specified, the version will be the default.
-               This must be a Regionally unique value.
-        """
         pulumi.set(__self__, "regions", regions)
         pulumi.set(__self__, "source_name", source_name)
         if accounts is not None:
@@ -86,36 +77,21 @@ class AwsLogSourceSource(dict):
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Sequence[_builtins.str]:
-        """
-        Specify the Regions where you want to enable Security Lake.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> _builtins.str:
-        """
-        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
-        """
         return pulumi.get(self, "source_name")
 
     @_builtins.property
     @pulumi.getter
     def accounts(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specify the AWS account information where you want to enable Security Lake.
-        If not specified, uses all accounts included in the Security Lake.
-        """
         return pulumi.get(self, "accounts")
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[_builtins.str]:
-        """
-        The version for a AWS source.
-        If not specified, the version will be the default.
-        This must be a Regionally unique value.
-        """
         return pulumi.get(self, "source_version")
 
 
@@ -146,11 +122,6 @@ class CustomLogSourceAttribute(dict):
                  crawler_arn: _builtins.str,
                  database_arn: _builtins.str,
                  table_arn: _builtins.str):
-        """
-        :param _builtins.str crawler_arn: The ARN of the AWS Glue crawler.
-        :param _builtins.str database_arn: The ARN of the AWS Glue database where results are written.
-        :param _builtins.str table_arn: The ARN of the AWS Glue table.
-        """
         pulumi.set(__self__, "crawler_arn", crawler_arn)
         pulumi.set(__self__, "database_arn", database_arn)
         pulumi.set(__self__, "table_arn", table_arn)
@@ -158,25 +129,16 @@ class CustomLogSourceAttribute(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerArn")
     def crawler_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Glue crawler.
-        """
         return pulumi.get(self, "crawler_arn")
 
     @_builtins.property
     @pulumi.getter(name="databaseArn")
     def database_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Glue database where results are written.
-        """
         return pulumi.get(self, "database_arn")
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Glue table.
-        """
         return pulumi.get(self, "table_arn")
 
 
@@ -204,10 +166,6 @@ class CustomLogSourceConfiguration(dict):
     def __init__(__self__, *,
                  crawler_configuration: Optional['outputs.CustomLogSourceConfigurationCrawlerConfiguration'] = None,
                  provider_identity: Optional['outputs.CustomLogSourceConfigurationProviderIdentity'] = None):
-        """
-        :param 'CustomLogSourceConfigurationCrawlerConfigurationArgs' crawler_configuration: The configuration for the Glue Crawler for the third-party custom source.
-        :param 'CustomLogSourceConfigurationProviderIdentityArgs' provider_identity: The identity of the log provider for the third-party custom source.
-        """
         if crawler_configuration is not None:
             pulumi.set(__self__, "crawler_configuration", crawler_configuration)
         if provider_identity is not None:
@@ -216,17 +174,11 @@ class CustomLogSourceConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
     def crawler_configuration(self) -> Optional['outputs.CustomLogSourceConfigurationCrawlerConfiguration']:
-        """
-        The configuration for the Glue Crawler for the third-party custom source.
-        """
         return pulumi.get(self, "crawler_configuration")
 
     @_builtins.property
     @pulumi.getter(name="providerIdentity")
     def provider_identity(self) -> Optional['outputs.CustomLogSourceConfigurationProviderIdentity']:
-        """
-        The identity of the log provider for the third-party custom source.
-        """
         return pulumi.get(self, "provider_identity")
 
 
@@ -251,17 +203,11 @@ class CustomLogSourceConfigurationCrawlerConfiguration(dict):
 
     def __init__(__self__, *,
                  role_arn: _builtins.str):
-        """
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -287,27 +233,17 @@ class CustomLogSourceConfigurationProviderIdentity(dict):
     def __init__(__self__, *,
                  external_id: _builtins.str,
                  principal: _builtins.str):
-        """
-        :param _builtins.str external_id: The external ID used to estalish trust relationship with the AWS identity.
-        :param _builtins.str principal: The AWS identity principal.
-        """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "principal", principal)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> _builtins.str:
-        """
-        The external ID used to estalish trust relationship with the AWS identity.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter
     def principal(self) -> _builtins.str:
-        """
-        The AWS identity principal.
-        """
         return pulumi.get(self, "principal")
 
 
@@ -333,27 +269,17 @@ class CustomLogSourceProviderDetail(dict):
     def __init__(__self__, *,
                  location: _builtins.str,
                  role_arn: _builtins.str):
-        """
-        :param _builtins.str location: The location of the partition in the Amazon S3 bucket for Security Lake.
-        :param _builtins.str role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
-        """
-        The location of the partition in the Amazon S3 bucket for Security Lake.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -385,12 +311,6 @@ class DataLakeConfiguration(dict):
                  encryption_configurations: Optional[Sequence['outputs.DataLakeConfigurationEncryptionConfiguration']] = None,
                  lifecycle_configuration: Optional['outputs.DataLakeConfigurationLifecycleConfiguration'] = None,
                  replication_configuration: Optional['outputs.DataLakeConfigurationReplicationConfiguration'] = None):
-        """
-        :param _builtins.str region: The AWS Regions where Security Lake is automatically enabled.
-        :param Sequence['DataLakeConfigurationEncryptionConfigurationArgs'] encryption_configurations: Provides encryption details of Amazon Security Lake object.
-        :param 'DataLakeConfigurationLifecycleConfigurationArgs' lifecycle_configuration: Provides lifecycle details of Amazon Security Lake object.
-        :param 'DataLakeConfigurationReplicationConfigurationArgs' replication_configuration: Provides replication details of Amazon Security Lake object.
-        """
         pulumi.set(__self__, "region", region)
         if encryption_configurations is not None:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
@@ -402,33 +322,21 @@ class DataLakeConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        The AWS Regions where Security Lake is automatically enabled.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[Sequence['outputs.DataLakeConfigurationEncryptionConfiguration']]:
-        """
-        Provides encryption details of Amazon Security Lake object.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional['outputs.DataLakeConfigurationLifecycleConfiguration']:
-        """
-        Provides lifecycle details of Amazon Security Lake object.
-        """
         return pulumi.get(self, "lifecycle_configuration")
 
     @_builtins.property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional['outputs.DataLakeConfigurationReplicationConfiguration']:
-        """
-        Provides replication details of Amazon Security Lake object.
-        """
         return pulumi.get(self, "replication_configuration")
 
 
@@ -453,17 +361,11 @@ class DataLakeConfigurationEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_id: _builtins.str):
-        """
-        :param _builtins.str kms_key_id: The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-        """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-        """
         return pulumi.get(self, "kms_key_id")
 
 
@@ -472,10 +374,6 @@ class DataLakeConfigurationLifecycleConfiguration(dict):
     def __init__(__self__, *,
                  expiration: Optional['outputs.DataLakeConfigurationLifecycleConfigurationExpiration'] = None,
                  transitions: Optional[Sequence['outputs.DataLakeConfigurationLifecycleConfigurationTransition']] = None):
-        """
-        :param 'DataLakeConfigurationLifecycleConfigurationExpirationArgs' expiration: Provides data expiration details of Amazon Security Lake object.
-        :param Sequence['DataLakeConfigurationLifecycleConfigurationTransitionArgs'] transitions: Provides data storage transition details of Amazon Security Lake object.
-        """
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
         if transitions is not None:
@@ -484,17 +382,11 @@ class DataLakeConfigurationLifecycleConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> Optional['outputs.DataLakeConfigurationLifecycleConfigurationExpiration']:
-        """
-        Provides data expiration details of Amazon Security Lake object.
-        """
         return pulumi.get(self, "expiration")
 
     @_builtins.property
     @pulumi.getter
     def transitions(self) -> Optional[Sequence['outputs.DataLakeConfigurationLifecycleConfigurationTransition']]:
-        """
-        Provides data storage transition details of Amazon Security Lake object.
-        """
         return pulumi.get(self, "transitions")
 
 
@@ -502,18 +394,12 @@ class DataLakeConfigurationLifecycleConfiguration(dict):
 class DataLakeConfigurationLifecycleConfigurationExpiration(dict):
     def __init__(__self__, *,
                  days: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int days: Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-        """
         if days is not None:
             pulumi.set(__self__, "days", days)
 
     @_builtins.property
     @pulumi.getter
     def days(self) -> Optional[_builtins.int]:
-        """
-        Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-        """
         return pulumi.get(self, "days")
 
 
@@ -539,10 +425,6 @@ class DataLakeConfigurationLifecycleConfigurationTransition(dict):
     def __init__(__self__, *,
                  days: Optional[_builtins.int] = None,
                  storage_class: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int days: Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-        :param _builtins.str storage_class: The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-        """
         if days is not None:
             pulumi.set(__self__, "days", days)
         if storage_class is not None:
@@ -551,17 +433,11 @@ class DataLakeConfigurationLifecycleConfigurationTransition(dict):
     @_builtins.property
     @pulumi.getter
     def days(self) -> Optional[_builtins.int]:
-        """
-        Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-        """
         return pulumi.get(self, "days")
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[_builtins.str]:
-        """
-        The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-        """
         return pulumi.get(self, "storage_class")
 
 
@@ -587,10 +463,6 @@ class DataLakeConfigurationReplicationConfiguration(dict):
     def __init__(__self__, *,
                  regions: Optional[Sequence[_builtins.str]] = None,
                  role_arn: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] regions: Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-        :param _builtins.str role_arn: Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-        """
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
         if role_arn is not None:
@@ -599,17 +471,11 @@ class DataLakeConfigurationReplicationConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def regions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
-        """
         return pulumi.get(self, "regions")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
-        """
-        Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -680,11 +546,6 @@ class SubscriberNotificationConfiguration(dict):
     def __init__(__self__, *,
                  https_notification_configuration: Optional['outputs.SubscriberNotificationConfigurationHttpsNotificationConfiguration'] = None,
                  sqs_notification_configuration: Optional['outputs.SubscriberNotificationConfigurationSqsNotificationConfiguration'] = None):
-        """
-        :param 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs' https_notification_configuration: The configurations for HTTPS subscriber notification.
-        :param 'SubscriberNotificationConfigurationSqsNotificationConfigurationArgs' sqs_notification_configuration: The configurations for SQS subscriber notification.
-               There are no parameters within `sqs_notification_configuration`.
-        """
         if https_notification_configuration is not None:
             pulumi.set(__self__, "https_notification_configuration", https_notification_configuration)
         if sqs_notification_configuration is not None:
@@ -693,18 +554,11 @@ class SubscriberNotificationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="httpsNotificationConfiguration")
     def https_notification_configuration(self) -> Optional['outputs.SubscriberNotificationConfigurationHttpsNotificationConfiguration']:
-        """
-        The configurations for HTTPS subscriber notification.
-        """
         return pulumi.get(self, "https_notification_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sqsNotificationConfiguration")
     def sqs_notification_configuration(self) -> Optional['outputs.SubscriberNotificationConfigurationSqsNotificationConfiguration']:
-        """
-        The configurations for SQS subscriber notification.
-        There are no parameters within `sqs_notification_configuration`.
-        """
         return pulumi.get(self, "sqs_notification_configuration")
 
 
@@ -739,16 +593,6 @@ class SubscriberNotificationConfigurationHttpsNotificationConfiguration(dict):
                  authorization_api_key_name: Optional[_builtins.str] = None,
                  authorization_api_key_value: Optional[_builtins.str] = None,
                  http_method: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint: The subscription endpoint in Security Lake.
-               If you prefer notification with an HTTPS endpoint, populate this field.
-        :param _builtins.str target_role_arn: The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-               For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-        :param _builtins.str authorization_api_key_name: The API key name for the notification subscription.
-        :param _builtins.str authorization_api_key_value: The API key value for the notification subscription.
-        :param _builtins.str http_method: The HTTP method used for the notification subscription.
-               Valid values are `POST` and `PUT`.
-        """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "target_role_arn", target_role_arn)
         if authorization_api_key_name is not None:
@@ -761,44 +605,26 @@ class SubscriberNotificationConfigurationHttpsNotificationConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        The subscription endpoint in Security Lake.
-        If you prefer notification with an HTTPS endpoint, populate this field.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="targetRoleArn")
     def target_role_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-        For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-        """
         return pulumi.get(self, "target_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="authorizationApiKeyName")
     def authorization_api_key_name(self) -> Optional[_builtins.str]:
-        """
-        The API key name for the notification subscription.
-        """
         return pulumi.get(self, "authorization_api_key_name")
 
     @_builtins.property
     @pulumi.getter(name="authorizationApiKeyValue")
     def authorization_api_key_value(self) -> Optional[_builtins.str]:
-        """
-        The API key value for the notification subscription.
-        """
         return pulumi.get(self, "authorization_api_key_value")
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[_builtins.str]:
-        """
-        The HTTP method used for the notification subscription.
-        Valid values are `POST` and `PUT`.
-        """
         return pulumi.get(self, "http_method")
 
 
@@ -832,10 +658,6 @@ class SubscriberSource(dict):
     def __init__(__self__, *,
                  aws_log_source_resource: Optional['outputs.SubscriberSourceAwsLogSourceResource'] = None,
                  custom_log_source_resource: Optional['outputs.SubscriberSourceCustomLogSourceResource'] = None):
-        """
-        :param 'SubscriberSourceAwsLogSourceResourceArgs' aws_log_source_resource: Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
-        :param 'SubscriberSourceCustomLogSourceResourceArgs' custom_log_source_resource: Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
-        """
         if aws_log_source_resource is not None:
             pulumi.set(__self__, "aws_log_source_resource", aws_log_source_resource)
         if custom_log_source_resource is not None:
@@ -844,17 +666,11 @@ class SubscriberSource(dict):
     @_builtins.property
     @pulumi.getter(name="awsLogSourceResource")
     def aws_log_source_resource(self) -> Optional['outputs.SubscriberSourceAwsLogSourceResource']:
-        """
-        Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
-        """
         return pulumi.get(self, "aws_log_source_resource")
 
     @_builtins.property
     @pulumi.getter(name="customLogSourceResource")
     def custom_log_source_resource(self) -> Optional['outputs.SubscriberSourceCustomLogSourceResource']:
-        """
-        Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
-        """
         return pulumi.get(self, "custom_log_source_resource")
 
 
@@ -882,10 +698,6 @@ class SubscriberSourceAwsLogSourceResource(dict):
     def __init__(__self__, *,
                  source_name: _builtins.str,
                  source_version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-        :param _builtins.str source_version: The version for a AWS source. This must be a Regionally unique value.
-        """
         pulumi.set(__self__, "source_name", source_name)
         if source_version is not None:
             pulumi.set(__self__, "source_version", source_version)
@@ -893,17 +705,11 @@ class SubscriberSourceAwsLogSourceResource(dict):
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> _builtins.str:
-        """
-        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-        """
         return pulumi.get(self, "source_name")
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[_builtins.str]:
-        """
-        The version for a AWS source. This must be a Regionally unique value.
-        """
         return pulumi.get(self, "source_version")
 
 
@@ -933,12 +739,6 @@ class SubscriberSourceCustomLogSourceResource(dict):
                  attributes: Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceAttribute']] = None,
                  providers: Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceProvider']] = None,
                  source_version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str source_name: The name for a third-party custom source. This must be a Regionally unique value.
-        :param Sequence['SubscriberSourceCustomLogSourceResourceAttributeArgs'] attributes: The attributes of the third-party custom source. See `attributes` Block below.
-        :param Sequence['SubscriberSourceCustomLogSourceResourceProviderArgs'] providers: The details of the log provider for the third-party custom source. See `provider` Block below.
-        :param _builtins.str source_version: The version for a third-party custom source. This must be a Regionally unique value.
-        """
         pulumi.set(__self__, "source_name", source_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -950,33 +750,21 @@ class SubscriberSourceCustomLogSourceResource(dict):
     @_builtins.property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> _builtins.str:
-        """
-        The name for a third-party custom source. This must be a Regionally unique value.
-        """
         return pulumi.get(self, "source_name")
 
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceAttribute']]:
-        """
-        The attributes of the third-party custom source. See `attributes` Block below.
-        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter
     def providers(self) -> Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceProvider']]:
-        """
-        The details of the log provider for the third-party custom source. See `provider` Block below.
-        """
         return pulumi.get(self, "providers")
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[_builtins.str]:
-        """
-        The version for a third-party custom source. This must be a Regionally unique value.
-        """
         return pulumi.get(self, "source_version")
 
 
@@ -1007,11 +795,6 @@ class SubscriberSourceCustomLogSourceResourceAttribute(dict):
                  crawler_arn: _builtins.str,
                  database_arn: _builtins.str,
                  table_arn: _builtins.str):
-        """
-        :param _builtins.str crawler_arn: The ARN of the AWS Glue crawler.
-        :param _builtins.str database_arn: The ARN of the AWS Glue database where results are written.
-        :param _builtins.str table_arn: The ARN of the AWS Glue table.
-        """
         pulumi.set(__self__, "crawler_arn", crawler_arn)
         pulumi.set(__self__, "database_arn", database_arn)
         pulumi.set(__self__, "table_arn", table_arn)
@@ -1019,25 +802,16 @@ class SubscriberSourceCustomLogSourceResourceAttribute(dict):
     @_builtins.property
     @pulumi.getter(name="crawlerArn")
     def crawler_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Glue crawler.
-        """
         return pulumi.get(self, "crawler_arn")
 
     @_builtins.property
     @pulumi.getter(name="databaseArn")
     def database_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Glue database where results are written.
-        """
         return pulumi.get(self, "database_arn")
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> _builtins.str:
-        """
-        The ARN of the AWS Glue table.
-        """
         return pulumi.get(self, "table_arn")
 
 
@@ -1063,27 +837,17 @@ class SubscriberSourceCustomLogSourceResourceProvider(dict):
     def __init__(__self__, *,
                  location: _builtins.str,
                  role_arn: _builtins.str):
-        """
-        :param _builtins.str location: The location of the partition in the Amazon S3 bucket for Security Lake.
-        :param _builtins.str role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> _builtins.str:
-        """
-        The location of the partition in the Amazon S3 bucket for Security Lake.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -1109,27 +873,17 @@ class SubscriberSubscriberIdentity(dict):
     def __init__(__self__, *,
                  external_id: _builtins.str,
                  principal: _builtins.str):
-        """
-        :param _builtins.str external_id: The AWS Regions where Security Lake is automatically enabled.
-        :param _builtins.str principal: Provides encryption details of Amazon Security Lake object.
-        """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "principal", principal)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> _builtins.str:
-        """
-        The AWS Regions where Security Lake is automatically enabled.
-        """
         return pulumi.get(self, "external_id")
 
     @_builtins.property
     @pulumi.getter
     def principal(self) -> _builtins.str:
-        """
-        Provides encryption details of Amazon Security Lake object.
-        """
         return pulumi.get(self, "principal")
 
 

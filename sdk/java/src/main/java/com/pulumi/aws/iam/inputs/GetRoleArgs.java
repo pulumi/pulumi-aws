@@ -17,32 +17,16 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRoleArgs Empty = new GetRoleArgs();
 
-    /**
-     * Friendly IAM role name to match.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Friendly IAM role name to match.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Tags attached to the role.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags attached to the role.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,44 +56,20 @@ public final class GetRoleArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRoleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Friendly IAM role name to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly IAM role name to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags Tags attached to the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags attached to the role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

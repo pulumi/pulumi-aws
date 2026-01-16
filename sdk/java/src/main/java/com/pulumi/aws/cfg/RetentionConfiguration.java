@@ -14,93 +14,23 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage the AWS Config retention configuration.
- * The retention configuration defines the number of days that AWS Config stores historical information.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.RetentionConfiguration;
- * import com.pulumi.aws.cfg.RetentionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RetentionConfiguration("example", RetentionConfigurationArgs.builder()
- *             .retentionPeriodInDays(90)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/retentionConfiguration:RetentionConfiguration")
 public class RetentionConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the retention configuration object. The object is always named **default**.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the retention configuration object. The object is always named **default**.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The number of days AWS Config stores historical information.
-     * 
-     */
     @Export(name="retentionPeriodInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionPeriodInDays;
 
-    /**
-     * @return The number of days AWS Config stores historical information.
-     * 
-     */
     public Output<Integer> retentionPeriodInDays() {
         return this.retentionPeriodInDays;
     }

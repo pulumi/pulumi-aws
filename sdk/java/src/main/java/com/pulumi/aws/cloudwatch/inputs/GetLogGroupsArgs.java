@@ -15,32 +15,16 @@ public final class GetLogGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLogGroupsArgs Empty = new GetLogGroupsArgs();
 
-    /**
-     * Group prefix of the Cloudwatch log groups to list
-     * 
-     */
     @Import(name="logGroupNamePrefix")
     private @Nullable Output<String> logGroupNamePrefix;
 
-    /**
-     * @return Group prefix of the Cloudwatch log groups to list
-     * 
-     */
     public Optional<Output<String>> logGroupNamePrefix() {
         return Optional.ofNullable(this.logGroupNamePrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetLogGroupsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLogGroupsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupNamePrefix Group prefix of the Cloudwatch log groups to list
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupNamePrefix(@Nullable Output<String> logGroupNamePrefix) {
             $.logGroupNamePrefix = logGroupNamePrefix;
             return this;
         }
 
-        /**
-         * @param logGroupNamePrefix Group prefix of the Cloudwatch log groups to list
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupNamePrefix(String logGroupNamePrefix) {
             return logGroupNamePrefix(Output.of(logGroupNamePrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

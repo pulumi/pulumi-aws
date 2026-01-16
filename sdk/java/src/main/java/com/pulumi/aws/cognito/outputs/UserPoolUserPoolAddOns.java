@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolUserPoolAddOns {
-    /**
-     * @return A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-     * 
-     */
     private @Nullable UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows advancedSecurityAdditionalFlows;
-    /**
-     * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-     * 
-     */
     private String advancedSecurityMode;
 
     private UserPoolUserPoolAddOns() {}
-    /**
-     * @return A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-     * 
-     */
     public Optional<UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows> advancedSecurityAdditionalFlows() {
         return Optional.ofNullable(this.advancedSecurityAdditionalFlows);
     }
-    /**
-     * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
-     * 
-     */
     public String advancedSecurityMode() {
         return this.advancedSecurityMode;
     }

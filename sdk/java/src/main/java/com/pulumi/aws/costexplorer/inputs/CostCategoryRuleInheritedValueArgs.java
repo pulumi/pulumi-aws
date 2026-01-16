@@ -15,32 +15,16 @@ public final class CostCategoryRuleInheritedValueArgs extends com.pulumi.resourc
 
     public static final CostCategoryRuleInheritedValueArgs Empty = new CostCategoryRuleInheritedValueArgs();
 
-    /**
-     * Key to extract cost category values.
-     * 
-     */
     @Import(name="dimensionKey")
     private @Nullable Output<String> dimensionKey;
 
-    /**
-     * @return Key to extract cost category values.
-     * 
-     */
     public Optional<Output<String>> dimensionKey() {
         return Optional.ofNullable(this.dimensionKey);
     }
 
-    /**
-     * Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-     * 
-     */
     @Import(name="dimensionName")
     private @Nullable Output<String> dimensionName;
 
-    /**
-     * @return Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-     * 
-     */
     public Optional<Output<String>> dimensionName() {
         return Optional.ofNullable(this.dimensionName);
     }
@@ -70,44 +54,20 @@ public final class CostCategoryRuleInheritedValueArgs extends com.pulumi.resourc
             $ = new CostCategoryRuleInheritedValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensionKey Key to extract cost category values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionKey(@Nullable Output<String> dimensionKey) {
             $.dimensionKey = dimensionKey;
             return this;
         }
 
-        /**
-         * @param dimensionKey Key to extract cost category values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionKey(String dimensionKey) {
             return dimensionKey(Output.of(dimensionKey));
         }
 
-        /**
-         * @param dimensionName Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionName(@Nullable Output<String> dimensionName) {
             $.dimensionName = dimensionName;
             return this;
         }
 
-        /**
-         * @param dimensionName Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionName(String dimensionName) {
             return dimensionName(Output.of(dimensionName));
         }

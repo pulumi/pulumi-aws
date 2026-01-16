@@ -18,92 +18,44 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TriggerActionArgs Empty = new TriggerActionArgs();
 
-    /**
-     * Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-     * 
-     */
     @Import(name="arguments")
     private @Nullable Output<Map<String,String>> arguments;
 
-    /**
-     * @return Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-     * 
-     */
     public Optional<Output<Map<String,String>>> arguments() {
         return Optional.ofNullable(this.arguments);
     }
 
-    /**
-     * The name of the crawler to be executed. Conflicts with `jobName`.
-     * 
-     */
     @Import(name="crawlerName")
     private @Nullable Output<String> crawlerName;
 
-    /**
-     * @return The name of the crawler to be executed. Conflicts with `jobName`.
-     * 
-     */
     public Optional<Output<String>> crawlerName() {
         return Optional.ofNullable(this.crawlerName);
     }
 
-    /**
-     * The name of a job to be executed. Conflicts with `crawlerName`.
-     * 
-     */
     @Import(name="jobName")
     private @Nullable Output<String> jobName;
 
-    /**
-     * @return The name of a job to be executed. Conflicts with `crawlerName`.
-     * 
-     */
     public Optional<Output<String>> jobName() {
         return Optional.ofNullable(this.jobName);
     }
 
-    /**
-     * Specifies configuration properties of a job run notification. See Notification Property details below.
-     * 
-     */
     @Import(name="notificationProperty")
     private @Nullable Output<TriggerActionNotificationPropertyArgs> notificationProperty;
 
-    /**
-     * @return Specifies configuration properties of a job run notification. See Notification Property details below.
-     * 
-     */
     public Optional<Output<TriggerActionNotificationPropertyArgs>> notificationProperty() {
         return Optional.ofNullable(this.notificationProperty);
     }
 
-    /**
-     * The name of the Security Configuration structure to be used with this action.
-     * 
-     */
     @Import(name="securityConfiguration")
     private @Nullable Output<String> securityConfiguration;
 
-    /**
-     * @return The name of the Security Configuration structure to be used with this action.
-     * 
-     */
     public Optional<Output<String>> securityConfiguration() {
         return Optional.ofNullable(this.securityConfiguration);
     }
 
-    /**
-     * The job run timeout in minutes. It overrides the timeout value of the job.
-     * 
-     */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
-    /**
-     * @return The job run timeout in minutes. It overrides the timeout value of the job.
-     * 
-     */
     public Optional<Output<Integer>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
@@ -137,128 +89,56 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TriggerActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arguments Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arguments(@Nullable Output<Map<String,String>> arguments) {
             $.arguments = arguments;
             return this;
         }
 
-        /**
-         * @param arguments Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arguments(Map<String,String> arguments) {
             return arguments(Output.of(arguments));
         }
 
-        /**
-         * @param crawlerName The name of the crawler to be executed. Conflicts with `jobName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerName(@Nullable Output<String> crawlerName) {
             $.crawlerName = crawlerName;
             return this;
         }
 
-        /**
-         * @param crawlerName The name of the crawler to be executed. Conflicts with `jobName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerName(String crawlerName) {
             return crawlerName(Output.of(crawlerName));
         }
 
-        /**
-         * @param jobName The name of a job to be executed. Conflicts with `crawlerName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobName(@Nullable Output<String> jobName) {
             $.jobName = jobName;
             return this;
         }
 
-        /**
-         * @param jobName The name of a job to be executed. Conflicts with `crawlerName`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobName(String jobName) {
             return jobName(Output.of(jobName));
         }
 
-        /**
-         * @param notificationProperty Specifies configuration properties of a job run notification. See Notification Property details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationProperty(@Nullable Output<TriggerActionNotificationPropertyArgs> notificationProperty) {
             $.notificationProperty = notificationProperty;
             return this;
         }
 
-        /**
-         * @param notificationProperty Specifies configuration properties of a job run notification. See Notification Property details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationProperty(TriggerActionNotificationPropertyArgs notificationProperty) {
             return notificationProperty(Output.of(notificationProperty));
         }
 
-        /**
-         * @param securityConfiguration The name of the Security Configuration structure to be used with this action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityConfiguration(@Nullable Output<String> securityConfiguration) {
             $.securityConfiguration = securityConfiguration;
             return this;
         }
 
-        /**
-         * @param securityConfiguration The name of the Security Configuration structure to be used with this action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityConfiguration(String securityConfiguration) {
             return securityConfiguration(Output.of(securityConfiguration));
         }
 
-        /**
-         * @param timeout The job run timeout in minutes. It overrides the timeout value of the job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(@Nullable Output<Integer> timeout) {
             $.timeout = timeout;
             return this;
         }
 
-        /**
-         * @param timeout The job run timeout in minutes. It overrides the timeout value of the job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
         }

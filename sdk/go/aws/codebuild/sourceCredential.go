@@ -12,129 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeBuild Source Credentials Resource.
-//
-// > **NOTE:
-// ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
-// Therefore, when you define `codebuild.SourceCredential`,
-// `codebuild.Project` resource defined in the same module will use it.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-//				AuthType:   pulumi.String("PERSONAL_ACCESS_TOKEN"),
-//				ServerType: pulumi.String("GITHUB"),
-//				Token:      pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Bitbucket Server Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-//				AuthType:   pulumi.String("BASIC_AUTH"),
-//				ServerType: pulumi.String("BITBUCKET"),
-//				Token:      pulumi.String("example"),
-//				UserName:   pulumi.String("test-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS CodeStar Connection Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-//				AuthType:   pulumi.String("CODECONNECTIONS"),
-//				ServerType: pulumi.String("GITHUB"),
-//				Token:      pulumi.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
-//
-// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
-//
-// % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
 type SourceCredential struct {
 	pulumi.CustomResourceState
 
-	// The ARN of Source Credential.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-	AuthType pulumi.StringOutput `pulumi:"authType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The source provider used for this project.
-	ServerType pulumi.StringOutput `pulumi:"serverType"`
-	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
-	// Connection ARN.
-	Token pulumi.StringOutput `pulumi:"token"`
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-	// other types of source providers or connections.
-	UserName pulumi.StringPtrOutput `pulumi:"userName"`
+	Arn        pulumi.StringOutput    `pulumi:"arn"`
+	AuthType   pulumi.StringOutput    `pulumi:"authType"`
+	Region     pulumi.StringOutput    `pulumi:"region"`
+	ServerType pulumi.StringOutput    `pulumi:"serverType"`
+	Token      pulumi.StringOutput    `pulumi:"token"`
+	UserName   pulumi.StringPtrOutput `pulumi:"userName"`
 }
 
 // NewSourceCredential registers a new resource with the given unique name, arguments, and options.
@@ -183,43 +69,21 @@ func GetSourceCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceCredential resources.
 type sourceCredentialState struct {
-	// The ARN of Source Credential.
-	Arn *string `pulumi:"arn"`
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-	AuthType *string `pulumi:"authType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The source provider used for this project.
+	Arn        *string `pulumi:"arn"`
+	AuthType   *string `pulumi:"authType"`
+	Region     *string `pulumi:"region"`
 	ServerType *string `pulumi:"serverType"`
-	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
-	// Connection ARN.
-	Token *string `pulumi:"token"`
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-	// other types of source providers or connections.
-	UserName *string `pulumi:"userName"`
+	Token      *string `pulumi:"token"`
+	UserName   *string `pulumi:"userName"`
 }
 
 type SourceCredentialState struct {
-	// The ARN of Source Credential.
-	Arn pulumi.StringPtrInput
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-	AuthType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The source provider used for this project.
+	Arn        pulumi.StringPtrInput
+	AuthType   pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 	ServerType pulumi.StringPtrInput
-	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
-	// Connection ARN.
-	Token pulumi.StringPtrInput
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-	// other types of source providers or connections.
-	UserName pulumi.StringPtrInput
+	Token      pulumi.StringPtrInput
+	UserName   pulumi.StringPtrInput
 }
 
 func (SourceCredentialState) ElementType() reflect.Type {
@@ -227,40 +91,20 @@ func (SourceCredentialState) ElementType() reflect.Type {
 }
 
 type sourceCredentialArgs struct {
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-	AuthType string `pulumi:"authType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The source provider used for this project.
-	ServerType string `pulumi:"serverType"`
-	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
-	// Connection ARN.
-	Token string `pulumi:"token"`
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-	// other types of source providers or connections.
-	UserName *string `pulumi:"userName"`
+	AuthType   string  `pulumi:"authType"`
+	Region     *string `pulumi:"region"`
+	ServerType string  `pulumi:"serverType"`
+	Token      string  `pulumi:"token"`
+	UserName   *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a SourceCredential resource.
 type SourceCredentialArgs struct {
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-	AuthType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The source provider used for this project.
+	AuthType   pulumi.StringInput
+	Region     pulumi.StringPtrInput
 	ServerType pulumi.StringInput
-	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
-	// Connection ARN.
-	Token pulumi.StringInput
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-	// other types of source providers or connections.
-	UserName pulumi.StringPtrInput
+	Token      pulumi.StringInput
+	UserName   pulumi.StringPtrInput
 }
 
 func (SourceCredentialArgs) ElementType() reflect.Type {
@@ -350,37 +194,26 @@ func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.
 	return o
 }
 
-// The ARN of Source Credential.
 func (o SourceCredentialOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-// repository. Valid values are `BASIC_AUTH`,
-// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SourceCredentialOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The source provider used for this project.
 func (o SourceCredentialOutput) ServerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.ServerType }).(pulumi.StringOutput)
 }
 
-// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
-// Connection ARN.
 func (o SourceCredentialOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
 }
 
-// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-// other types of source providers or connections.
 func (o SourceCredentialOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
 }

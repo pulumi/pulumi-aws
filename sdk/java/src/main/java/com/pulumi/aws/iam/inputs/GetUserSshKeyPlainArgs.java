@@ -13,47 +13,23 @@ public final class GetUserSshKeyPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetUserSshKeyPlainArgs Empty = new GetUserSshKeyPlainArgs();
 
-    /**
-     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-     * 
-     */
     @Import(name="encoding", required=true)
     private String encoding;
 
-    /**
-     * @return Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-     * 
-     */
     public String encoding() {
         return this.encoding;
     }
 
-    /**
-     * Unique identifier for the SSH public key.
-     * 
-     */
     @Import(name="sshPublicKeyId", required=true)
     private String sshPublicKeyId;
 
-    /**
-     * @return Unique identifier for the SSH public key.
-     * 
-     */
     public String sshPublicKeyId() {
         return this.sshPublicKeyId;
     }
 
-    /**
-     * Name of the IAM user associated with the SSH public key.
-     * 
-     */
     @Import(name="username", required=true)
     private String username;
 
-    /**
-     * @return Name of the IAM user associated with the SSH public key.
-     * 
-     */
     public String username() {
         return this.username;
     }
@@ -84,34 +60,16 @@ public final class GetUserSshKeyPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetUserSshKeyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encoding Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encoding(String encoding) {
             $.encoding = encoding;
             return this;
         }
 
-        /**
-         * @param sshPublicKeyId Unique identifier for the SSH public key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sshPublicKeyId(String sshPublicKeyId) {
             $.sshPublicKeyId = sshPublicKeyId;
             return this;
         }
 
-        /**
-         * @param username Name of the IAM user associated with the SSH public key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             $.username = username;
             return this;

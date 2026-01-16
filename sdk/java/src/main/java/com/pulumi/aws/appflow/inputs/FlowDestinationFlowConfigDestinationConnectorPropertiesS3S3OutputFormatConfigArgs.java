@@ -18,62 +18,30 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs();
 
-    /**
-     * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     @Import(name="aggregationConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs> aggregationConfig;
 
-    /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs>> aggregationConfig() {
         return Optional.ofNullable(this.aggregationConfig);
     }
 
-    /**
-     * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     @Import(name="fileType")
     private @Nullable Output<String> fileType;
 
-    /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-     * 
-     */
     public Optional<Output<String>> fileType() {
         return Optional.ofNullable(this.fileType);
     }
 
-    /**
-     * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     @Import(name="prefixConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs> prefixConfig;
 
-    /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs>> prefixConfig() {
         return Optional.ofNullable(this.prefixConfig);
     }
 
-    /**
-     * Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-     * 
-     */
     @Import(name="preserveSourceDataTyping")
     private @Nullable Output<Boolean> preserveSourceDataTyping;
 
-    /**
-     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-     * 
-     */
     public Optional<Output<Boolean>> preserveSourceDataTyping() {
         return Optional.ofNullable(this.preserveSourceDataTyping);
     }
@@ -105,86 +73,38 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs> aggregationConfig) {
             $.aggregationConfig = aggregationConfig;
             return this;
         }
 
-        /**
-         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregationConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs aggregationConfig) {
             return aggregationConfig(Output.of(aggregationConfig));
         }
 
-        /**
-         * @param fileType File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileType(@Nullable Output<String> fileType) {
             $.fileType = fileType;
             return this;
         }
 
-        /**
-         * @param fileType File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileType(String fileType) {
             return fileType(Output.of(fileType));
         }
 
-        /**
-         * @param prefixConfig Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs> prefixConfig) {
             $.prefixConfig = prefixConfig;
             return this;
         }
 
-        /**
-         * @param prefixConfig Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs prefixConfig) {
             return prefixConfig(Output.of(prefixConfig));
         }
 
-        /**
-         * @param preserveSourceDataTyping Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-         * 
-         * @return builder
-         * 
-         */
         public Builder preserveSourceDataTyping(@Nullable Output<Boolean> preserveSourceDataTyping) {
             $.preserveSourceDataTyping = preserveSourceDataTyping;
             return this;
         }
 
-        /**
-         * @param preserveSourceDataTyping Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-         * 
-         * @return builder
-         * 
-         */
         public Builder preserveSourceDataTyping(Boolean preserveSourceDataTyping) {
             return preserveSourceDataTyping(Output.of(preserveSourceDataTyping));
         }

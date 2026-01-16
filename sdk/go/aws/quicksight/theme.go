@@ -12,100 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a QuickSight Theme.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTheme(ctx, "example", &quicksight.ThemeArgs{
-//				ThemeId:     pulumi.String("example"),
-//				Name:        pulumi.String("example"),
-//				BaseThemeId: pulumi.String("MIDNIGHT"),
-//				Configuration: &quicksight.ThemeConfigurationArgs{
-//					DataColorPalette: &quicksight.ThemeConfigurationDataColorPaletteArgs{
-//						Colors: pulumi.StringArray{
-//							pulumi.String("#FFFFFF"),
-//							pulumi.String("#111111"),
-//							pulumi.String("#222222"),
-//							pulumi.String("#333333"),
-//							pulumi.String("#444444"),
-//							pulumi.String("#555555"),
-//							pulumi.String("#666666"),
-//							pulumi.String("#777777"),
-//							pulumi.String("#888888"),
-//							pulumi.String("#999999"),
-//						},
-//						EmptyFillColor: pulumi.String("#FFFFFF"),
-//						MinMaxGradients: pulumi.StringArray{
-//							pulumi.String("#FFFFFF"),
-//							pulumi.String("#111111"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
-// ```
 type Theme struct {
 	pulumi.CustomResourceState
 
-	// ARN of the theme.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
-	Configuration ThemeConfigurationPtrOutput `pulumi:"configuration"`
-	// The time that the theme was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The time that the theme was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Display name of the theme.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-	Permissions ThemePermissionArrayOutput `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The theme creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId pulumi.StringOutput `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
-	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
-	// The version number of the theme version.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	Arn                pulumi.StringOutput         `pulumi:"arn"`
+	AwsAccountId       pulumi.StringOutput         `pulumi:"awsAccountId"`
+	BaseThemeId        pulumi.StringOutput         `pulumi:"baseThemeId"`
+	Configuration      ThemeConfigurationPtrOutput `pulumi:"configuration"`
+	CreatedTime        pulumi.StringOutput         `pulumi:"createdTime"`
+	LastUpdatedTime    pulumi.StringOutput         `pulumi:"lastUpdatedTime"`
+	Name               pulumi.StringOutput         `pulumi:"name"`
+	Permissions        ThemePermissionArrayOutput  `pulumi:"permissions"`
+	Region             pulumi.StringOutput         `pulumi:"region"`
+	Status             pulumi.StringOutput         `pulumi:"status"`
+	Tags               pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	ThemeId            pulumi.StringOutput         `pulumi:"themeId"`
+	VersionDescription pulumi.StringPtrOutput      `pulumi:"versionDescription"`
+	VersionNumber      pulumi.IntOutput            `pulumi:"versionNumber"`
 }
 
 // NewTheme registers a new resource with the given unique name, arguments, and options.
@@ -144,71 +68,39 @@ func GetTheme(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Theme resources.
 type themeState struct {
-	// ARN of the theme.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-	BaseThemeId *string `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
-	Configuration *ThemeConfiguration `pulumi:"configuration"`
-	// The time that the theme was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The time that the theme was last updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Display name of the theme.
-	Name *string `pulumi:"name"`
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-	Permissions []ThemePermission `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The theme creation status.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId *string `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
-	VersionDescription *string `pulumi:"versionDescription"`
-	// The version number of the theme version.
-	VersionNumber *int `pulumi:"versionNumber"`
+	Arn                *string             `pulumi:"arn"`
+	AwsAccountId       *string             `pulumi:"awsAccountId"`
+	BaseThemeId        *string             `pulumi:"baseThemeId"`
+	Configuration      *ThemeConfiguration `pulumi:"configuration"`
+	CreatedTime        *string             `pulumi:"createdTime"`
+	LastUpdatedTime    *string             `pulumi:"lastUpdatedTime"`
+	Name               *string             `pulumi:"name"`
+	Permissions        []ThemePermission   `pulumi:"permissions"`
+	Region             *string             `pulumi:"region"`
+	Status             *string             `pulumi:"status"`
+	Tags               map[string]string   `pulumi:"tags"`
+	TagsAll            map[string]string   `pulumi:"tagsAll"`
+	ThemeId            *string             `pulumi:"themeId"`
+	VersionDescription *string             `pulumi:"versionDescription"`
+	VersionNumber      *int                `pulumi:"versionNumber"`
 }
 
 type ThemeState struct {
-	// ARN of the theme.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-	BaseThemeId pulumi.StringPtrInput
-	// The theme configuration, which contains the theme display properties. See configuration.
-	Configuration ThemeConfigurationPtrInput
-	// The time that the theme was created.
-	CreatedTime pulumi.StringPtrInput
-	// The time that the theme was last updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// Display name of the theme.
-	Name pulumi.StringPtrInput
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-	Permissions ThemePermissionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The theme creation status.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId pulumi.StringPtrInput
-	// A description of the current theme version being created/updated.
+	Arn                pulumi.StringPtrInput
+	AwsAccountId       pulumi.StringPtrInput
+	BaseThemeId        pulumi.StringPtrInput
+	Configuration      ThemeConfigurationPtrInput
+	CreatedTime        pulumi.StringPtrInput
+	LastUpdatedTime    pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Permissions        ThemePermissionArrayInput
+	Region             pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	ThemeId            pulumi.StringPtrInput
 	VersionDescription pulumi.StringPtrInput
-	// The version number of the theme version.
-	VersionNumber pulumi.IntPtrInput
+	VersionNumber      pulumi.IntPtrInput
 }
 
 func (ThemeState) ElementType() reflect.Type {
@@ -216,47 +108,27 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-	BaseThemeId string `pulumi:"baseThemeId"`
-	// The theme configuration, which contains the theme display properties. See configuration.
-	Configuration *ThemeConfiguration `pulumi:"configuration"`
-	// Display name of the theme.
-	Name *string `pulumi:"name"`
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-	Permissions []ThemePermission `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId string `pulumi:"themeId"`
-	// A description of the current theme version being created/updated.
-	VersionDescription *string `pulumi:"versionDescription"`
+	AwsAccountId       *string             `pulumi:"awsAccountId"`
+	BaseThemeId        string              `pulumi:"baseThemeId"`
+	Configuration      *ThemeConfiguration `pulumi:"configuration"`
+	Name               *string             `pulumi:"name"`
+	Permissions        []ThemePermission   `pulumi:"permissions"`
+	Region             *string             `pulumi:"region"`
+	Tags               map[string]string   `pulumi:"tags"`
+	ThemeId            string              `pulumi:"themeId"`
+	VersionDescription *string             `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-	BaseThemeId pulumi.StringInput
-	// The theme configuration, which contains the theme display properties. See configuration.
-	Configuration ThemeConfigurationPtrInput
-	// Display name of the theme.
-	Name pulumi.StringPtrInput
-	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
-	Permissions ThemePermissionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Identifier of the theme.
-	//
-	// The following arguments are optional:
-	ThemeId pulumi.StringInput
-	// A description of the current theme version being created/updated.
+	AwsAccountId       pulumi.StringPtrInput
+	BaseThemeId        pulumi.StringInput
+	Configuration      ThemeConfigurationPtrInput
+	Name               pulumi.StringPtrInput
+	Permissions        ThemePermissionArrayInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	ThemeId            pulumi.StringInput
 	VersionDescription pulumi.StringPtrInput
 }
 
@@ -347,7 +219,6 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
-// ARN of the theme.
 func (o ThemeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -356,69 +227,54 @@ func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 func (o ThemeOutput) BaseThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.BaseThemeId }).(pulumi.StringOutput)
 }
 
-// The theme configuration, which contains the theme display properties. See configuration.
 func (o ThemeOutput) Configuration() ThemeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Theme) ThemeConfigurationPtrOutput { return v.Configuration }).(ThemeConfigurationPtrOutput)
 }
 
-// The time that the theme was created.
 func (o ThemeOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The time that the theme was last updated.
 func (o ThemeOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Display name of the theme.
 func (o ThemeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 func (o ThemeOutput) Permissions() ThemePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemePermissionArrayOutput { return v.Permissions }).(ThemePermissionArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThemeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The theme creation status.
 func (o ThemeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ThemeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThemeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Identifier of the theme.
-//
-// The following arguments are optional:
 func (o ThemeOutput) ThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ThemeId }).(pulumi.StringOutput)
 }
 
-// A description of the current theme version being created/updated.
 func (o ThemeOutput) VersionDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the theme version.
 func (o ThemeOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Theme) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

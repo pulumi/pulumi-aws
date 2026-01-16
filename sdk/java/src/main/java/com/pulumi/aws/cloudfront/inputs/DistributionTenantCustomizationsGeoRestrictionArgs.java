@@ -16,32 +16,16 @@ public final class DistributionTenantCustomizationsGeoRestrictionArgs extends co
 
     public static final DistributionTenantCustomizationsGeoRestrictionArgs Empty = new DistributionTenantCustomizationsGeoRestrictionArgs();
 
-    /**
-     * Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     @Import(name="locations")
     private @Nullable Output<List<String>> locations;
 
-    /**
-     * @return Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     public Optional<Output<List<String>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
-    /**
-     * Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-     * 
-     */
     @Import(name="restrictionType")
     private @Nullable Output<String> restrictionType;
 
-    /**
-     * @return Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-     * 
-     */
     public Optional<Output<String>> restrictionType() {
         return Optional.ofNullable(this.restrictionType);
     }
@@ -71,54 +55,24 @@ public final class DistributionTenantCustomizationsGeoRestrictionArgs extends co
             $ = new DistributionTenantCustomizationsGeoRestrictionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param locations Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locations(@Nullable Output<List<String>> locations) {
             $.locations = locations;
             return this;
         }
 
-        /**
-         * @param locations Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locations(List<String> locations) {
             return locations(Output.of(locations));
         }
 
-        /**
-         * @param locations Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locations(String... locations) {
             return locations(List.of(locations));
         }
 
-        /**
-         * @param restrictionType Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionType(@Nullable Output<String> restrictionType) {
             $.restrictionType = restrictionType;
             return this;
         }
 
-        /**
-         * @param restrictionType Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictionType(String restrictionType) {
             return restrictionType(Output.of(restrictionType));
         }

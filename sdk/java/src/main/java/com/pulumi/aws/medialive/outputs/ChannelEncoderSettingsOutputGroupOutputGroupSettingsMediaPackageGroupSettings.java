@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings {
-    /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination destination;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings() {}
-    /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination destination() {
         return this.destination;
     }

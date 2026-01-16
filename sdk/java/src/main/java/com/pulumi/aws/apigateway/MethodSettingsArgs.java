@@ -17,77 +17,37 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final MethodSettingsArgs Empty = new MethodSettingsArgs();
 
-    /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-     * 
-     */
     @Import(name="methodPath", required=true)
     private Output<String> methodPath;
 
-    /**
-     * @return Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-     * 
-     */
     public Output<String> methodPath() {
         return this.methodPath;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the REST API
-     * 
-     */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
-    /**
-     * @return ID of the REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
 
-    /**
-     * Settings block, see below.
-     * 
-     */
     @Import(name="settings", required=true)
     private Output<MethodSettingsSettingsArgs> settings;
 
-    /**
-     * @return Settings block, see below.
-     * 
-     */
     public Output<MethodSettingsSettingsArgs> settings() {
         return this.settings;
     }
 
-    /**
-     * Name of the stage
-     * 
-     */
     @Import(name="stageName", required=true)
     private Output<String> stageName;
 
-    /**
-     * @return Name of the stage
-     * 
-     */
     public Output<String> stageName() {
         return this.stageName;
     }
@@ -120,107 +80,47 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
             $ = new MethodSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param methodPath Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder methodPath(Output<String> methodPath) {
             $.methodPath = methodPath;
             return this;
         }
 
-        /**
-         * @param methodPath Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder methodPath(String methodPath) {
             return methodPath(Output.of(methodPath));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApi ID of the REST API
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
-        /**
-         * @param restApi ID of the REST API
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }
 
-        /**
-         * @param settings Settings block, see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(Output<MethodSettingsSettingsArgs> settings) {
             $.settings = settings;
             return this;
         }
 
-        /**
-         * @param settings Settings block, see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(MethodSettingsSettingsArgs settings) {
             return settings(Output.of(settings));
         }
 
-        /**
-         * @param stageName Name of the stage
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(Output<String> stageName) {
             $.stageName = stageName;
             return this;
         }
 
-        /**
-         * @param stageName Name of the stage
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(String stageName) {
             return stageName(Output.of(stageName));
         }

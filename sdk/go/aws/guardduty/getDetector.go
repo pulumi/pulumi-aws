@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a GuardDuty detector.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.LookupDetector(ctx, &guardduty.LookupDetectorArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulumi.InvokeOption) (*LookupDetectorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDetectorResult
@@ -48,30 +23,21 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 
 // A collection of arguments for invoking getDetector.
 type LookupDetectorArgs struct {
-	// ID of the detector.
-	Id *string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id     *string           `pulumi:"id"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDetector.
 type LookupDetectorResult struct {
-	// ARN of the detector.
-	Arn string `pulumi:"arn"`
-	// Current configuration of the detector features.
-	Features []GetDetectorFeatureType `pulumi:"features"`
-	// The frequency of notifications sent about subsequent finding occurrences.
-	FindingPublishingFrequency string `pulumi:"findingPublishingFrequency"`
-	Id                         string `pulumi:"id"`
-	Region                     string `pulumi:"region"`
-	// Service-linked role that grants GuardDuty access to the resources in the AWS account.
-	ServiceRoleArn string `pulumi:"serviceRoleArn"`
-	// Current status of the detector.
-	Status string `pulumi:"status"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Arn                        string                   `pulumi:"arn"`
+	Features                   []GetDetectorFeatureType `pulumi:"features"`
+	FindingPublishingFrequency string                   `pulumi:"findingPublishingFrequency"`
+	Id                         string                   `pulumi:"id"`
+	Region                     string                   `pulumi:"region"`
+	ServiceRoleArn             string                   `pulumi:"serviceRoleArn"`
+	Status                     string                   `pulumi:"status"`
+	Tags                       map[string]string        `pulumi:"tags"`
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
@@ -85,12 +51,9 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 
 // A collection of arguments for invoking getDetector.
 type LookupDetectorOutputArgs struct {
-	// ID of the detector.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDetectorOutputArgs) ElementType() reflect.Type {
@@ -112,17 +75,14 @@ func (o LookupDetectorResultOutput) ToLookupDetectorResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the detector.
 func (o LookupDetectorResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Current configuration of the detector features.
 func (o LookupDetectorResultOutput) Features() GetDetectorFeatureTypeArrayOutput {
 	return o.ApplyT(func(v LookupDetectorResult) []GetDetectorFeatureType { return v.Features }).(GetDetectorFeatureTypeArrayOutput)
 }
 
-// The frequency of notifications sent about subsequent finding occurrences.
 func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.FindingPublishingFrequency }).(pulumi.StringOutput)
 }
@@ -135,17 +95,14 @@ func (o LookupDetectorResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Service-linked role that grants GuardDuty access to the resources in the AWS account.
 func (o LookupDetectorResultOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-// Current status of the detector.
 func (o LookupDetectorResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags for the resource.
 func (o LookupDetectorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDetectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

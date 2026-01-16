@@ -37,22 +37,6 @@ class WorkgroupArgs:
                  track_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -84,9 +68,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the namespace.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -96,11 +77,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workgroup.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -110,9 +86,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -122,9 +95,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
-        """
-        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        """
         return pulumi.get(self, "config_parameters")
 
     @config_parameters.setter
@@ -134,9 +104,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -146,9 +113,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -158,9 +122,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -170,9 +131,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="pricePerformanceTarget")
     def price_performance_target(self) -> Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']]:
-        """
-        Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        """
         return pulumi.get(self, "price_performance_target")
 
     @price_performance_target.setter
@@ -182,9 +140,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that specifies whether the workgroup can be accessed from a public network.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -194,9 +149,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -206,9 +158,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of security group IDs to associate with the workgroup.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -218,9 +167,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -230,9 +176,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -242,9 +185,6 @@ class WorkgroupArgs:
     @_builtins.property
     @pulumi.getter(name="trackName")
     def track_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-        """
         return pulumi.get(self, "track_name")
 
     @track_name.setter
@@ -275,26 +215,6 @@ class _WorkgroupState:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workgroup resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-        :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-        :param pulumi.Input[_builtins.str] workgroup_id: The Redshift Workgroup ID.
-        :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -336,9 +256,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -348,9 +265,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -360,9 +274,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
-        """
-        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        """
         return pulumi.get(self, "config_parameters")
 
     @config_parameters.setter
@@ -372,9 +283,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]]]:
-        """
-        The endpoint that is created from the workgroup. See `Endpoint` below.
-        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -384,9 +292,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -396,9 +301,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -408,9 +310,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the namespace.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -420,9 +319,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -432,9 +328,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="pricePerformanceTarget")
     def price_performance_target(self) -> Optional[pulumi.Input['WorkgroupPricePerformanceTargetArgs']]:
-        """
-        Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        """
         return pulumi.get(self, "price_performance_target")
 
     @price_performance_target.setter
@@ -444,9 +337,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that specifies whether the workgroup can be accessed from a public network.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -456,9 +346,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -468,9 +355,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of security group IDs to associate with the workgroup.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -480,9 +364,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -492,9 +373,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -504,9 +382,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -516,9 +391,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="trackName")
     def track_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-        """
         return pulumi.get(self, "track_name")
 
     @track_name.setter
@@ -528,9 +400,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Redshift Workgroup ID.
-        """
         return pulumi.get(self, "workgroup_id")
 
     @workgroup_id.setter
@@ -540,11 +409,6 @@ class _WorkgroupState:
     @_builtins.property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the workgroup.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -574,45 +438,9 @@ class Workgroup(pulumi.CustomResource):
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift Serverless Workgroup.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Workgroup("example",
-            namespace_name="concurrency-scaling",
-            workgroup_name="concurrency-scaling")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-        ```
-
+        Create a Workgroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-        :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -621,27 +449,7 @@ class Workgroup(pulumi.CustomResource):
                  args: WorkgroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift Serverless Workgroup.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Workgroup("example",
-            namespace_name="concurrency-scaling",
-            workgroup_name="concurrency-scaling")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-        ```
-
+        Create a Workgroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkgroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -737,26 +545,6 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-        :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-        :param pulumi.Input[_builtins.str] workgroup_id: The Redshift Workgroup ID.
-        :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -785,146 +573,90 @@ class Workgroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        """
         return pulumi.get(self, "base_capacity")
 
     @_builtins.property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> pulumi.Output[Sequence['outputs.WorkgroupConfigParameter']]:
-        """
-        An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        """
         return pulumi.get(self, "config_parameters")
 
     @_builtins.property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.WorkgroupEndpoint']]:
-        """
-        The endpoint that is created from the workgroup. See `Endpoint` below.
-        """
         return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-        """
         return pulumi.get(self, "max_capacity")
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the namespace.
-        """
         return pulumi.get(self, "namespace_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="pricePerformanceTarget")
     def price_performance_target(self) -> pulumi.Output['outputs.WorkgroupPricePerformanceTarget']:
-        """
-        Price-performance scaling for the workgroup. See `Price Performance Target` below.
-        """
         return pulumi.get(self, "price_performance_target")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A value that specifies whether the workgroup can be accessed from a public network.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        An array of security group IDs to associate with the workgroup.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="trackName")
     def track_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-        """
         return pulumi.get(self, "track_name")
 
     @_builtins.property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Redshift Workgroup ID.
-        """
         return pulumi.get(self, "workgroup_id")
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the workgroup.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "workgroup_name")
 

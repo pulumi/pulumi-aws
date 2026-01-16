@@ -11,71 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.LookupVpnConnection(ctx, &ec2.LookupVpnConnectionArgs{
-//				Filters: []ec2.GetVpnConnectionFilter{
-//					{
-//						Name: "customer-gateway-id",
-//						Values: []string{
-//							"cgw-1234567890",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("vpnConnectionId", example.VpnConnectionId)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Find by VPN Connection ID
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.LookupVpnConnection(ctx, &ec2.LookupVpnConnectionArgs{
-//				VpnConnectionId: pulumi.StringRef("vpn-abcd1234567890"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("gatewayAssociationState", example.GatewayAssociationState)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Deprecated: aws.vpn/getconnection.getConnection has been deprecated in favor of aws.ec2/getvpnconnection.getVpnConnection
 func GetConnection(ctx *pulumi.Context, args *GetConnectionArgs, opts ...pulumi.InvokeOption) (*GetConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
@@ -89,51 +24,33 @@ func GetConnection(ctx *pulumi.Context, args *GetConnectionArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getConnection.
 type GetConnectionArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	Filters []GetConnectionFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the EC2 VPN Connection.
-	VpnConnectionId *string `pulumi:"vpnConnectionId"`
+	Filters         []GetConnectionFilter `pulumi:"filters"`
+	Region          *string               `pulumi:"region"`
+	VpnConnectionId *string               `pulumi:"vpnConnectionId"`
 }
 
 // A collection of values returned by getConnection.
 type GetConnectionResult struct {
-	// Category of the VPN connection. A value of VPN indicates an AWS VPN connection. A value of VPN-Classic indicates an AWS Classic VPN connection.
-	Category string `pulumi:"category"`
-	// ARN of the core network.
-	CoreNetworkArn string `pulumi:"coreNetworkArn"`
-	// ARN of the core network attachment.
-	CoreNetworkAttachmentArn string `pulumi:"coreNetworkAttachmentArn"`
-	// Configuration information for the VPN connection's customer gateway (in the native XML format).
-	CustomerGatewayConfiguration string `pulumi:"customerGatewayConfiguration"`
-	// ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId string                `pulumi:"customerGatewayId"`
-	Filters           []GetConnectionFilter `pulumi:"filters"`
-	// Current state of the gateway association.
-	GatewayAssociationState string `pulumi:"gatewayAssociationState"`
+	Category                     string                `pulumi:"category"`
+	CoreNetworkArn               string                `pulumi:"coreNetworkArn"`
+	CoreNetworkAttachmentArn     string                `pulumi:"coreNetworkAttachmentArn"`
+	CustomerGatewayConfiguration string                `pulumi:"customerGatewayConfiguration"`
+	CustomerGatewayId            string                `pulumi:"customerGatewayId"`
+	Filters                      []GetConnectionFilter `pulumi:"filters"`
+	GatewayAssociationState      string                `pulumi:"gatewayAssociationState"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
-	PreSharedKeyArn string `pulumi:"preSharedKeyArn"`
-	Region          string `pulumi:"region"`
-	// List of static routes associated with the VPN connection.
-	Routes []GetConnectionRoute `pulumi:"routes"`
-	// Current state of the VPN connection.
-	State string `pulumi:"state"`
-	// Tags associated to the VPN Connection.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of a transit gateway associated with the VPN connection.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// Type of VPN connection. Currently the only supported type is ipsec.1.
-	Type string `pulumi:"type"`
-	// List of objects containing information about the VPN tunnel.
-	VgwTelemetries []GetConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
-	// ID of a VPN concentrator associated with the VPN connection.
-	VpnConcentratorId string `pulumi:"vpnConcentratorId"`
-	VpnConnectionId   string `pulumi:"vpnConnectionId"`
-	// ID of a virtual private gateway associated with the VPN connection.
-	VpnGatewayId string `pulumi:"vpnGatewayId"`
+	Id                string                      `pulumi:"id"`
+	PreSharedKeyArn   string                      `pulumi:"preSharedKeyArn"`
+	Region            string                      `pulumi:"region"`
+	Routes            []GetConnectionRoute        `pulumi:"routes"`
+	State             string                      `pulumi:"state"`
+	Tags              map[string]string           `pulumi:"tags"`
+	TransitGatewayId  string                      `pulumi:"transitGatewayId"`
+	Type              string                      `pulumi:"type"`
+	VgwTelemetries    []GetConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
+	VpnConcentratorId string                      `pulumi:"vpnConcentratorId"`
+	VpnConnectionId   string                      `pulumi:"vpnConnectionId"`
+	VpnGatewayId      string                      `pulumi:"vpnGatewayId"`
 }
 
 func GetConnectionOutput(ctx *pulumi.Context, args GetConnectionOutputArgs, opts ...pulumi.InvokeOption) GetConnectionResultOutput {
@@ -147,12 +64,9 @@ func GetConnectionOutput(ctx *pulumi.Context, args GetConnectionOutputArgs, opts
 
 // A collection of arguments for invoking getConnection.
 type GetConnectionOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
-	Filters GetConnectionFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Identifier of the EC2 VPN Connection.
-	VpnConnectionId pulumi.StringPtrInput `pulumi:"vpnConnectionId"`
+	Filters         GetConnectionFilterArrayInput `pulumi:"filters"`
+	Region          pulumi.StringPtrInput         `pulumi:"region"`
+	VpnConnectionId pulumi.StringPtrInput         `pulumi:"vpnConnectionId"`
 }
 
 func (GetConnectionOutputArgs) ElementType() reflect.Type {
@@ -174,27 +88,22 @@ func (o GetConnectionResultOutput) ToGetConnectionResultOutputWithContext(ctx co
 	return o
 }
 
-// Category of the VPN connection. A value of VPN indicates an AWS VPN connection. A value of VPN-Classic indicates an AWS Classic VPN connection.
 func (o GetConnectionResultOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// ARN of the core network.
 func (o GetConnectionResultOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// ARN of the core network attachment.
 func (o GetConnectionResultOutput) CoreNetworkAttachmentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.CoreNetworkAttachmentArn }).(pulumi.StringOutput)
 }
 
-// Configuration information for the VPN connection's customer gateway (in the native XML format).
 func (o GetConnectionResultOutput) CustomerGatewayConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.CustomerGatewayConfiguration }).(pulumi.StringOutput)
 }
 
-// ID of the customer gateway at your end of the VPN connection.
 func (o GetConnectionResultOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.CustomerGatewayId }).(pulumi.StringOutput)
 }
@@ -203,7 +112,6 @@ func (o GetConnectionResultOutput) Filters() GetConnectionFilterArrayOutput {
 	return o.ApplyT(func(v GetConnectionResult) []GetConnectionFilter { return v.Filters }).(GetConnectionFilterArrayOutput)
 }
 
-// Current state of the gateway association.
 func (o GetConnectionResultOutput) GatewayAssociationState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.GatewayAssociationState }).(pulumi.StringOutput)
 }
@@ -213,7 +121,6 @@ func (o GetConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
 func (o GetConnectionResultOutput) PreSharedKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.PreSharedKeyArn }).(pulumi.StringOutput)
 }
@@ -222,37 +129,30 @@ func (o GetConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of static routes associated with the VPN connection.
 func (o GetConnectionResultOutput) Routes() GetConnectionRouteArrayOutput {
 	return o.ApplyT(func(v GetConnectionResult) []GetConnectionRoute { return v.Routes }).(GetConnectionRouteArrayOutput)
 }
 
-// Current state of the VPN connection.
 func (o GetConnectionResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Tags associated to the VPN Connection.
 func (o GetConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// ID of a transit gateway associated with the VPN connection.
 func (o GetConnectionResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// Type of VPN connection. Currently the only supported type is ipsec.1.
 func (o GetConnectionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// List of objects containing information about the VPN tunnel.
 func (o GetConnectionResultOutput) VgwTelemetries() GetConnectionVgwTelemetryArrayOutput {
 	return o.ApplyT(func(v GetConnectionResult) []GetConnectionVgwTelemetry { return v.VgwTelemetries }).(GetConnectionVgwTelemetryArrayOutput)
 }
 
-// ID of a VPN concentrator associated with the VPN connection.
 func (o GetConnectionResultOutput) VpnConcentratorId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.VpnConcentratorId }).(pulumi.StringOutput)
 }
@@ -261,7 +161,6 @@ func (o GetConnectionResultOutput) VpnConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.VpnConnectionId }).(pulumi.StringOutput)
 }
 
-// ID of a virtual private gateway associated with the VPN connection.
 func (o GetConnectionResultOutput) VpnGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionResult) string { return v.VpnGatewayId }).(pulumi.StringOutput)
 }

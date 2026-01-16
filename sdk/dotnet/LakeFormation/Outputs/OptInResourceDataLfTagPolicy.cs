@@ -13,21 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataLfTagPolicy
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
-        /// <summary>
-        /// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-        /// </summary>
         public readonly string? ExpressionName;
-        /// <summary>
-        /// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
-        /// </summary>
         public readonly ImmutableArray<string> Expressions;
-        /// <summary>
-        /// Resource type for which the LF-tag policy applies.
-        /// </summary>
         public readonly string ResourceType;
 
         [OutputConstructor]

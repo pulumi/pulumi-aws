@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class RecordLatencyRoutingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 

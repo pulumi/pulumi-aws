@@ -16,201 +16,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS DataSync EFS Location.
- * 
- * &gt; **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datasync.EfsLocation;
- * import com.pulumi.aws.datasync.EfsLocationArgs;
- * import com.pulumi.aws.datasync.inputs.EfsLocationEc2ConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EfsLocation("example", EfsLocationArgs.builder()
- *             .efsFileSystemArn(exampleAwsEfsMountTarget.fileSystemArn())
- *             .ec2Config(EfsLocationEc2ConfigArgs.builder()
- *                 .securityGroupArns(exampleAwsSecurityGroup.arn())
- *                 .subnetArn(exampleAwsSubnet.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync EFS location.
- * 
- * Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
- * 
- * % pulumi import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- * 
- */
 @ResourceType(type="aws:datasync/efsLocation:EfsLocation")
 public class EfsLocation extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-     * 
-     */
     @Export(name="accessPointArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessPointArn;
 
-    /**
-     * @return Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
-     * 
-     */
     public Output<Optional<String>> accessPointArn() {
         return Codegen.optional(this.accessPointArn);
     }
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block containing EC2 configurations for connecting to the EFS File System.
-     * 
-     */
     @Export(name="ec2Config", refs={EfsLocationEc2Config.class}, tree="[0]")
     private Output<EfsLocationEc2Config> ec2Config;
 
-    /**
-     * @return Configuration block containing EC2 configurations for connecting to the EFS File System.
-     * 
-     */
     public Output<EfsLocationEc2Config> ec2Config() {
         return this.ec2Config;
     }
-    /**
-     * Amazon Resource Name (ARN) of EFS File System.
-     * 
-     */
     @Export(name="efsFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> efsFileSystemArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of EFS File System.
-     * 
-     */
     public Output<String> efsFileSystemArn() {
         return this.efsFileSystemArn;
     }
-    /**
-     * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-     * 
-     */
     @Export(name="fileSystemAccessRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileSystemAccessRoleArn;
 
-    /**
-     * @return Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
-     * 
-     */
     public Output<Optional<String>> fileSystemAccessRoleArn() {
         return Codegen.optional(this.fileSystemAccessRoleArn);
     }
-    /**
-     * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-     * 
-     */
     @Export(name="inTransitEncryption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inTransitEncryption;
 
-    /**
-     * @return Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-     * 
-     */
     public Output<Optional<String>> inTransitEncryption() {
         return Codegen.optional(this.inTransitEncryption);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Subdirectory to perform actions as source or destination. Default `/`.
-     * 
-     */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subdirectory;
 
-    /**
-     * @return Subdirectory to perform actions as source or destination. Default `/`.
-     * 
-     */
     public Output<Optional<String>> subdirectory() {
         return Codegen.optional(this.subdirectory);
     }
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

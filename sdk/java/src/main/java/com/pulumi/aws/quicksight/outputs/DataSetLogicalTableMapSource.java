@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMapSource {
-    /**
-     * @return ARN of the parent data set.
-     * 
-     */
     private @Nullable String dataSetArn;
-    /**
-     * @return Specifies the result of a join of two logical tables. See join_instruction.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapSourceJoinInstruction joinInstruction;
-    /**
-     * @return Physical table ID.
-     * 
-     */
     private @Nullable String physicalTableId;
 
     private DataSetLogicalTableMapSource() {}
-    /**
-     * @return ARN of the parent data set.
-     * 
-     */
     public Optional<String> dataSetArn() {
         return Optional.ofNullable(this.dataSetArn);
     }
-    /**
-     * @return Specifies the result of a join of two logical tables. See join_instruction.
-     * 
-     */
     public Optional<DataSetLogicalTableMapSourceJoinInstruction> joinInstruction() {
         return Optional.ofNullable(this.joinInstruction);
     }
-    /**
-     * @return Physical table ID.
-     * 
-     */
     public Optional<String> physicalTableId() {
         return Optional.ofNullable(this.physicalTableId);
     }

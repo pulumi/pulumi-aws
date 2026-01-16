@@ -33,15 +33,6 @@ class IdcApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdcApplication resource.
-        :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        :param pulumi.Input[_builtins.str] redshift_idc_application_name: Name of the Redshift application in IAM Identity Center.
-        :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
-        :param pulumi.Input['IdcApplicationAuthorizedTokenIssuerArgs'] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        :param pulumi.Input[_builtins.str] identity_namespace: Namespace for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['IdcApplicationServiceIntegrationArgs'] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "idc_display_name", idc_display_name)
@@ -63,9 +54,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -75,9 +63,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="idcDisplayName")
     def idc_display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Display name for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "idc_display_name")
 
     @idc_display_name.setter
@@ -87,9 +72,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="idcInstanceArn")
     def idc_instance_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        """
         return pulumi.get(self, "idc_instance_arn")
 
     @idc_instance_arn.setter
@@ -99,9 +81,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="redshiftIdcApplicationName")
     def redshift_idc_application_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Redshift application in IAM Identity Center.
-        """
         return pulumi.get(self, "redshift_idc_application_name")
 
     @redshift_idc_application_name.setter
@@ -111,9 +90,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of application being created. Valid values are `None` or `Lakehouse`.
-        """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
@@ -123,9 +99,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="authorizedTokenIssuer")
     def authorized_token_issuer(self) -> Optional[pulumi.Input['IdcApplicationAuthorizedTokenIssuerArgs']]:
-        """
-        Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        """
         return pulumi.get(self, "authorized_token_issuer")
 
     @authorized_token_issuer.setter
@@ -135,9 +108,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="identityNamespace")
     def identity_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "identity_namespace")
 
     @identity_namespace.setter
@@ -147,9 +117,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -159,9 +126,6 @@ class IdcApplicationArgs:
     @_builtins.property
     @pulumi.getter(name="serviceIntegration")
     def service_integration(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationArgs']]:
-        """
-        Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
-        """
         return pulumi.get(self, "service_integration")
 
     @service_integration.setter
@@ -196,17 +160,6 @@ class _IdcApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdcApplication resources.
-        :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
-        :param pulumi.Input['IdcApplicationAuthorizedTokenIssuerArgs'] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        :param pulumi.Input[_builtins.str] idc_managed_application_arn: ARN for the Amazon Redshift IAM Identity Center application.
-        :param pulumi.Input[_builtins.str] identity_namespace: Namespace for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] redshift_idc_application_arn: ARN of the Redshift application in IAM Identity Center.
-        :param pulumi.Input[_builtins.str] redshift_idc_application_name: Name of the Redshift application in IAM Identity Center.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['IdcApplicationServiceIntegrationArgs'] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
         """
         if application_type is not None:
             pulumi.set(__self__, "application_type", application_type)
@@ -238,9 +191,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of application being created. Valid values are `None` or `Lakehouse`.
-        """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
@@ -250,9 +200,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="authorizedTokenIssuer")
     def authorized_token_issuer(self) -> Optional[pulumi.Input['IdcApplicationAuthorizedTokenIssuerArgs']]:
-        """
-        Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        """
         return pulumi.get(self, "authorized_token_issuer")
 
     @authorized_token_issuer.setter
@@ -262,9 +209,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -274,9 +218,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="idcDisplayName")
     def idc_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "idc_display_name")
 
     @idc_display_name.setter
@@ -286,9 +227,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="idcInstanceArn")
     def idc_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        """
         return pulumi.get(self, "idc_instance_arn")
 
     @idc_instance_arn.setter
@@ -298,9 +236,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="idcManagedApplicationArn")
     def idc_managed_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the Amazon Redshift IAM Identity Center application.
-        """
         return pulumi.get(self, "idc_managed_application_arn")
 
     @idc_managed_application_arn.setter
@@ -310,9 +245,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="identityNamespace")
     def identity_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "identity_namespace")
 
     @identity_namespace.setter
@@ -322,9 +254,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="redshiftIdcApplicationArn")
     def redshift_idc_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Redshift application in IAM Identity Center.
-        """
         return pulumi.get(self, "redshift_idc_application_arn")
 
     @redshift_idc_application_arn.setter
@@ -334,9 +263,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="redshiftIdcApplicationName")
     def redshift_idc_application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Redshift application in IAM Identity Center.
-        """
         return pulumi.get(self, "redshift_idc_application_name")
 
     @redshift_idc_application_name.setter
@@ -346,9 +272,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -358,9 +281,6 @@ class _IdcApplicationState:
     @_builtins.property
     @pulumi.getter(name="serviceIntegration")
     def service_integration(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationArgs']]:
-        """
-        Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
-        """
         return pulumi.get(self, "service_integration")
 
     @service_integration.setter
@@ -404,41 +324,9 @@ class IdcApplication(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift IDC application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.IdcApplication("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            idc_display_name="example",
-            idc_instance_arn=example_aws_ssoadmin_instances["arns"][0],
-            identity_namespace="example",
-            redshift_idc_application_name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift endpoint access using the `redshift_idc_application_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/idcApplication:IdcApplication example example
-        ```
-
+        Create a IdcApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
-        :param pulumi.Input[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        :param pulumi.Input[_builtins.str] identity_namespace: Namespace for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] redshift_idc_application_name: Name of the Redshift application in IAM Identity Center.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
         """
         ...
     @overload
@@ -447,30 +335,7 @@ class IdcApplication(pulumi.CustomResource):
                  args: IdcApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift IDC application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.IdcApplication("example",
-            iam_role_arn=example_aws_iam_role["arn"],
-            idc_display_name="example",
-            idc_instance_arn=example_aws_ssoadmin_instances["arns"][0],
-            identity_namespace="example",
-            redshift_idc_application_name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift endpoint access using the `redshift_idc_application_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/idcApplication:IdcApplication example example
-        ```
-
+        Create a IdcApplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IdcApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -556,17 +421,6 @@ class IdcApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
-        :param pulumi.Input[Union['IdcApplicationAuthorizedTokenIssuerArgs', 'IdcApplicationAuthorizedTokenIssuerArgsDict']] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        :param pulumi.Input[_builtins.str] idc_managed_application_arn: ARN for the Amazon Redshift IAM Identity Center application.
-        :param pulumi.Input[_builtins.str] identity_namespace: Namespace for the Amazon Redshift IAM Identity Center application instance.
-        :param pulumi.Input[_builtins.str] redshift_idc_application_arn: ARN of the Redshift application in IAM Identity Center.
-        :param pulumi.Input[_builtins.str] redshift_idc_application_name: Name of the Redshift application in IAM Identity Center.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['IdcApplicationServiceIntegrationArgs', 'IdcApplicationServiceIntegrationArgsDict']] service_integration: Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -590,89 +444,56 @@ class IdcApplication(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of application being created. Valid values are `None` or `Lakehouse`.
-        """
         return pulumi.get(self, "application_type")
 
     @_builtins.property
     @pulumi.getter(name="authorizedTokenIssuer")
     def authorized_token_issuer(self) -> pulumi.Output[Optional['outputs.IdcApplicationAuthorizedTokenIssuer']]:
-        """
-        Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
-        """
         return pulumi.get(self, "authorized_token_issuer")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="idcDisplayName")
     def idc_display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display name for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "idc_display_name")
 
     @_builtins.property
     @pulumi.getter(name="idcInstanceArn")
     def idc_instance_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        """
         return pulumi.get(self, "idc_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="idcManagedApplicationArn")
     def idc_managed_application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the Amazon Redshift IAM Identity Center application.
-        """
         return pulumi.get(self, "idc_managed_application_arn")
 
     @_builtins.property
     @pulumi.getter(name="identityNamespace")
     def identity_namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Namespace for the Amazon Redshift IAM Identity Center application instance.
-        """
         return pulumi.get(self, "identity_namespace")
 
     @_builtins.property
     @pulumi.getter(name="redshiftIdcApplicationArn")
     def redshift_idc_application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Redshift application in IAM Identity Center.
-        """
         return pulumi.get(self, "redshift_idc_application_arn")
 
     @_builtins.property
     @pulumi.getter(name="redshiftIdcApplicationName")
     def redshift_idc_application_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Redshift application in IAM Identity Center.
-        """
         return pulumi.get(self, "redshift_idc_application_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceIntegration")
     def service_integration(self) -> pulumi.Output[Optional['outputs.IdcApplicationServiceIntegration']]:
-        """
-        Collection of service integrations for the Redshift IAM Identity Center application. Refer to the service_integration documentation for more details.
-        """
         return pulumi.get(self, "service_integration")
 
     @_builtins.property

@@ -16,90 +16,34 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescription {
-    /**
-     * @return Advanced audio normalization settings. See Audio Normalization Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings audioNormalizationSettings;
-    /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
-     * 
-     */
     private String audioSelectorName;
-    /**
-     * @return Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
-     * 
-     */
     private @Nullable String audioType;
-    /**
-     * @return Determined how audio type is determined.
-     * 
-     */
     private @Nullable String audioTypeControl;
-    /**
-     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings audioWatermarkSettings;
-    /**
-     * @return Audio codec settings. See Audio Codec Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettings codecSettings;
     private @Nullable String languageCode;
     private @Nullable String languageCodeControl;
-    /**
-     * @return The name of this audio description.
-     * 
-     */
     private String name;
     private @Nullable ChannelEncoderSettingsAudioDescriptionRemixSettings remixSettings;
-    /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     private @Nullable String streamName;
 
     private ChannelEncoderSettingsAudioDescription() {}
-    /**
-     * @return Advanced audio normalization settings. See Audio Normalization Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings> audioNormalizationSettings() {
         return Optional.ofNullable(this.audioNormalizationSettings);
     }
-    /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
-     * 
-     */
     public String audioSelectorName() {
         return this.audioSelectorName;
     }
-    /**
-     * @return Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
-     * 
-     */
     public Optional<String> audioType() {
         return Optional.ofNullable(this.audioType);
     }
-    /**
-     * @return Determined how audio type is determined.
-     * 
-     */
     public Optional<String> audioTypeControl() {
         return Optional.ofNullable(this.audioTypeControl);
     }
-    /**
-     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings> audioWatermarkSettings() {
         return Optional.ofNullable(this.audioWatermarkSettings);
     }
-    /**
-     * @return Audio codec settings. See Audio Codec Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettings> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
@@ -109,20 +53,12 @@ public final class ChannelEncoderSettingsAudioDescription {
     public Optional<String> languageCodeControl() {
         return Optional.ofNullable(this.languageCodeControl);
     }
-    /**
-     * @return The name of this audio description.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public Optional<ChannelEncoderSettingsAudioDescriptionRemixSettings> remixSettings() {
         return Optional.ofNullable(this.remixSettings);
     }
-    /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     public Optional<String> streamName() {
         return Optional.ofNullable(this.streamName);
     }

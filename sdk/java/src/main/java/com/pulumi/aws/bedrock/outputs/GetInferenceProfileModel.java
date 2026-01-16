@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInferenceProfileModel {
-    /**
-     * @return The Amazon Resource Name (ARN) of the model.
-     * 
-     */
     private String modelArn;
 
     private GetInferenceProfileModel() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the model.
-     * 
-     */
     public String modelArn() {
         return this.modelArn;
     }

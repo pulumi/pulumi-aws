@@ -64,9 +64,6 @@ class GetContactsRotationResult:
     @_builtins.property
     @pulumi.getter(name="contactIds")
     def contact_ids(self) -> Sequence[_builtins.str]:
-        """
-        The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        """
         return pulumi.get(self, "contact_ids")
 
     @_builtins.property
@@ -77,17 +74,11 @@ class GetContactsRotationResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name for the rotation.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def recurrences(self) -> Sequence['outputs.GetContactsRotationRecurrenceResult']:
-        """
-        Information about when an on-call rotation is in effect and how long the rotation period lasts.
-        """
         return pulumi.get(self, "recurrences")
 
     @_builtins.property
@@ -98,25 +89,16 @@ class GetContactsRotationResult:
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> _builtins.str:
-        """
-        The date and time, in RFC 3339 format, that the rotation goes into effect.
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="timeZoneId")
     def time_zone_id(self) -> _builtins.str:
-        """
-        The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        """
         return pulumi.get(self, "time_zone_id")
 
 
@@ -141,20 +123,7 @@ def get_contacts_rotation(arn: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactsRotationResult:
     """
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_contacts_rotation(arn="arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
-    ```
-
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the rotation.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -176,20 +145,7 @@ def get_contacts_rotation_output(arn: Optional[pulumi.Input[_builtins.str]] = No
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactsRotationResult]:
     """
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_contacts_rotation(arn="arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
-    ```
-
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the rotation.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

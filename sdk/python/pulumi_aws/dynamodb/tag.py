@@ -25,10 +25,6 @@ class TagArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -39,9 +35,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -51,9 +44,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -63,9 +53,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -75,9 +62,6 @@ class TagArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _TagState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -111,9 +91,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tag name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -123,9 +100,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -135,9 +109,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -147,9 +118,6 @@ class _TagState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -169,46 +137,9 @@ class Tag(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
-
-        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
-
-        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        replica = aws.get_region()
-        current = aws.get_region()
-        example = aws.dynamodb.Table("example", replicas=[{
-            "region_name": replica.name,
-        }])
-        test = aws.dynamodb.Tag("test",
-            resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
-                search=current.region,
-                replace=replica.name)).apply(lambda invoke: invoke.result),
-            key="testkey",
-            value="testvalue")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         ...
     @overload
@@ -217,40 +148,7 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
-
-        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `dynamodb.Table` and `dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `dynamodb.Tag` resource.
-
-        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        replica = aws.get_region()
-        current = aws.get_region()
-        example = aws.dynamodb.Table("example", replicas=[{
-            "region_name": replica.name,
-        }])
-        test = aws.dynamodb.Tag("test",
-            resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
-                search=current.region,
-                replace=replica.name)).apply(lambda invoke: invoke.result),
-            key="testkey",
-            value="testvalue")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,10 +208,6 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        :param pulumi.Input[_builtins.str] value: Tag value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -328,32 +222,20 @@ class Tag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tag name.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 

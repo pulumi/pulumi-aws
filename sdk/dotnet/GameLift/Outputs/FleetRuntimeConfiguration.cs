@@ -13,17 +13,8 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class FleetRuntimeConfiguration
     {
-        /// <summary>
-        /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-        /// </summary>
         public readonly int? GameSessionActivationTimeoutSeconds;
-        /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-        /// </summary>
         public readonly int? MaxConcurrentGameSessionActivations;
-        /// <summary>
-        /// Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FleetRuntimeConfigurationServerProcess> ServerProcesses;
 
         [OutputConstructor]

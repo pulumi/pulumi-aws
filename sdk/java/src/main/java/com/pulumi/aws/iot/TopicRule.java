@@ -37,129 +37,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates and manages an AWS IoT topic rule.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.sns.TopicArgs;
- * import com.pulumi.aws.iot.TopicRule;
- * import com.pulumi.aws.iot.TopicRuleArgs;
- * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
- * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionArgs;
- * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionSnsArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mytopic = new Topic("mytopic", TopicArgs.builder()
- *             .name("mytopic")
- *             .build());
- * 
- *         var myerrortopic = new Topic("myerrortopic", TopicArgs.builder()
- *             .name("myerrortopic")
- *             .build());
- * 
- *         var rule = new TopicRule("rule", TopicRuleArgs.builder()
- *             .name("MyRule")
- *             .description("Example rule")
- *             .enabled(true)
- *             .sql("SELECT * FROM 'topic/test'")
- *             .sqlVersion("2016-03-23")
- *             .sns(TopicRuleSnsArgs.builder()
- *                 .messageFormat("RAW")
- *                 .roleArn(role.arn())
- *                 .targetArn(mytopic.arn())
- *                 .build())
- *             .errorAction(TopicRuleErrorActionArgs.builder()
- *                 .sns(TopicRuleErrorActionSnsArgs.builder()
- *                     .messageFormat("RAW")
- *                     .roleArn(role.arn())
- *                     .targetArn(myerrortopic.arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("iot.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var myrole = new Role("myrole", RoleArgs.builder()
- *             .name("myrole")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         final var mypolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sns:Publish")
- *                 .resources(mytopic.arn())
- *                 .build())
- *             .build());
- * 
- *         var mypolicyRolePolicy = new RolePolicy("mypolicyRolePolicy", RolePolicyArgs.builder()
- *             .name("mypolicy")
- *             .role(myrole.id())
- *             .policy(mypolicy.applyValue(_mypolicy -> _mypolicy.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:iot/topicRule:TopicRule")
 public class TopicRule extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the topic rule
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the topic rule
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -181,17 +63,9 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleCloudwatchMetric>>> cloudwatchMetrics() {
         return Codegen.optional(this.cloudwatchMetrics);
     }
-    /**
-     * The description of the rule.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the rule.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -213,31 +87,15 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleElasticsearch>>> elasticsearch() {
         return Codegen.optional(this.elasticsearch);
     }
-    /**
-     * Specifies whether the rule is enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Specifies whether the rule is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
-     * 
-     */
     @Export(name="errorAction", refs={TopicRuleErrorAction.class}, tree="[0]")
     private Output</* @Nullable */ TopicRuleErrorAction> errorAction;
 
-    /**
-     * @return Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
-     * 
-     */
     public Output<Optional<TopicRuleErrorAction>> errorAction() {
         return Codegen.optional(this.errorAction);
     }
@@ -283,31 +141,15 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleLambda>>> lambdas() {
         return Codegen.optional(this.lambdas);
     }
-    /**
-     * The name of the rule.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -329,31 +171,15 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleSns>>> sns() {
         return Codegen.optional(this.sns);
     }
-    /**
-     * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-     * 
-     */
     @Export(name="sql", refs={String.class}, tree="[0]")
     private Output<String> sql;
 
-    /**
-     * @return The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-     * 
-     */
     public Output<String> sql() {
         return this.sql;
     }
-    /**
-     * The version of the SQL rules engine to use when evaluating the rule.
-     * 
-     */
     @Export(name="sqlVersion", refs={String.class}, tree="[0]")
     private Output<String> sqlVersion;
 
-    /**
-     * @return The version of the SQL rules engine to use when evaluating the rule.
-     * 
-     */
     public Output<String> sqlVersion() {
         return this.sqlVersion;
     }
@@ -369,31 +195,15 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleStepFunction>>> stepFunctions() {
         return Codegen.optional(this.stepFunctions);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

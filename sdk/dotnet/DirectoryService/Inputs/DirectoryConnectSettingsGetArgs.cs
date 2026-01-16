@@ -22,10 +22,6 @@ namespace Pulumi.Aws.DirectoryService.Inputs
 
         [Input("connectIps")]
         private InputList<string>? _connectIps;
-
-        /// <summary>
-        /// The IP addresses of the AD Connector servers.
-        /// </summary>
         public InputList<string> ConnectIps
         {
             get => _connectIps ?? (_connectIps = new InputList<string>());
@@ -34,37 +30,23 @@ namespace Pulumi.Aws.DirectoryService.Inputs
 
         [Input("customerDnsIps", required: true)]
         private InputList<string>? _customerDnsIps;
-
-        /// <summary>
-        /// The DNS IP addresses of the domain to connect to.
-        /// </summary>
         public InputList<string> CustomerDnsIps
         {
             get => _customerDnsIps ?? (_customerDnsIps = new InputList<string>());
             set => _customerDnsIps = value;
         }
 
-        /// <summary>
-        /// The username corresponding to the password provided.
-        /// </summary>
         [Input("customerUsername", required: true)]
         public Input<string> CustomerUsername { get; set; } = null!;
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// The identifier of the VPC that the directory is in.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

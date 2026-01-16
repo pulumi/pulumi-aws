@@ -16,86 +16,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
- * This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
- * The service provider should add a record to the DNS server _before_ creating this resource.
- * 
- * For additional details, refer to the AWS documentation on [managing VPC endpoint service DNS names](https://docs.aws.amazon.com/vpc/latest/privatelink/manage-dns-names.html).
- * 
- * &gt; Destruction of this resource will not stop the verification process, only remove the resource from state.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpc.EndpointServicePrivateDnsVerification;
- * import com.pulumi.aws.vpc.EndpointServicePrivateDnsVerificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EndpointServicePrivateDnsVerification("example", EndpointServicePrivateDnsVerificationArgs.builder()
- *             .serviceId(exampleAwsVpcEndpointService.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * You cannot import this resource.
- * 
- */
 @ResourceType(type="aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification")
 public class EndpointServicePrivateDnsVerification extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the endpoint service.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
-    /**
-     * @return ID of the endpoint service.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> serviceId() {
         return this.serviceId;
     }
@@ -105,17 +36,9 @@ public class EndpointServicePrivateDnsVerification extends com.pulumi.resources.
     public Output<Optional<EndpointServicePrivateDnsVerificationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     * 
-     */
     @Export(name="waitForVerification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForVerification;
 
-    /**
-     * @return Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-     * 
-     */
     public Output<Optional<Boolean>> waitForVerification() {
         return Codegen.optional(this.waitForVerification);
     }

@@ -14,15 +14,7 @@ import javax.annotation.Nullable;
 public final class FeatureGroupFeatureDefinition {
     private @Nullable FeatureGroupFeatureDefinitionCollectionConfig collectionConfig;
     private @Nullable String collectionType;
-    /**
-     * @return The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
-     * 
-     */
     private @Nullable String featureName;
-    /**
-     * @return The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-     * 
-     */
     private @Nullable String featureType;
 
     private FeatureGroupFeatureDefinition() {}
@@ -32,17 +24,9 @@ public final class FeatureGroupFeatureDefinition {
     public Optional<String> collectionType() {
         return Optional.ofNullable(this.collectionType);
     }
-    /**
-     * @return The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
-     * 
-     */
     public Optional<String> featureName() {
         return Optional.ofNullable(this.featureName);
     }
-    /**
-     * @return The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-     * 
-     */
     public Optional<String> featureType() {
         return Optional.ofNullable(this.featureType);
     }

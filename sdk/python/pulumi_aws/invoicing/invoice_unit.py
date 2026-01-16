@@ -31,15 +31,6 @@ class InvoiceUnitArgs:
                  timeouts: Optional[pulumi.Input['InvoiceUnitTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InvoiceUnit resource.
-        :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
-        :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]] rules: Configuration block for invoice unit rules. See below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] tax_inheritance_disabled: Whether tax inheritance is disabled for this invoice unit.
         """
         pulumi.set(__self__, "invoice_receiver", invoice_receiver)
         if description is not None:
@@ -60,9 +51,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter(name="invoiceReceiver")
     def invoice_receiver(self) -> pulumi.Input[_builtins.str]:
-        """
-        AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        """
         return pulumi.get(self, "invoice_receiver")
 
     @invoice_receiver.setter
@@ -72,9 +60,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the invoice unit.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,9 +69,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the invoice unit. Cannot be changed after creation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,9 +78,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -108,11 +87,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]]]:
-        """
-        Configuration block for invoice unit rules. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -122,9 +96,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -134,9 +105,6 @@ class InvoiceUnitArgs:
     @_builtins.property
     @pulumi.getter(name="taxInheritanceDisabled")
     def tax_inheritance_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether tax inheritance is disabled for this invoice unit.
-        """
         return pulumi.get(self, "tax_inheritance_disabled")
 
     @tax_inheritance_disabled.setter
@@ -169,18 +137,6 @@ class _InvoiceUnitState:
                  timeouts: Optional[pulumi.Input['InvoiceUnitTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering InvoiceUnit resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the invoice unit.
-        :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
-        :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] last_modified: Timestamp when the invoice unit was last modified.
-        :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]] rules: Configuration block for invoice unit rules. See below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] tax_inheritance_disabled: Whether tax inheritance is disabled for this invoice unit.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -208,9 +164,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the invoice unit.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -220,9 +173,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the invoice unit.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -232,9 +182,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter(name="invoiceReceiver")
     def invoice_receiver(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        """
         return pulumi.get(self, "invoice_receiver")
 
     @invoice_receiver.setter
@@ -244,9 +191,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp when the invoice unit was last modified.
-        """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
@@ -256,9 +200,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name of the invoice unit. Cannot be changed after creation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -268,9 +209,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -280,11 +218,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]]]:
-        """
-        Configuration block for invoice unit rules. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -294,9 +227,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -306,9 +236,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -318,9 +245,6 @@ class _InvoiceUnitState:
     @_builtins.property
     @pulumi.getter(name="taxInheritanceDisabled")
     def tax_inheritance_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether tax inheritance is disabled for this invoice unit.
-        """
         return pulumi.get(self, "tax_inheritance_disabled")
 
     @tax_inheritance_disabled.setter
@@ -353,45 +277,9 @@ class InvoiceUnit(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['InvoiceUnitTimeoutsArgs', 'InvoiceUnitTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Invoice Unit for organizational billing.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.invoicing.InvoiceUnit("example",
-            name="example-unit",
-            description="Example invoice unit",
-            invoice_receiver="123456789012",
-            rules=[{
-                "linked_accounts": ["098765432109"],
-            }],
-            tags={
-                "Environment": "production",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Invoice Units using the ARN. For example:
-
-        ```sh
-        $ pulumi import aws:invoicing/invoiceUnit:InvoiceUnit example arn:aws:invoicing::123456789012:invoice-unit/example-id
-        ```
-
+        Create a InvoiceUnit resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
-        :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] tax_inheritance_disabled: Whether tax inheritance is disabled for this invoice unit.
         """
         ...
     @overload
@@ -400,34 +288,7 @@ class InvoiceUnit(pulumi.CustomResource):
                  args: InvoiceUnitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Invoice Unit for organizational billing.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.invoicing.InvoiceUnit("example",
-            name="example-unit",
-            description="Example invoice unit",
-            invoice_receiver="123456789012",
-            rules=[{
-                "linked_accounts": ["098765432109"],
-            }],
-            tags={
-                "Environment": "production",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Invoice Units using the ARN. For example:
-
-        ```sh
-        $ pulumi import aws:invoicing/invoiceUnit:InvoiceUnit example arn:aws:invoicing::123456789012:invoice-unit/example-id
-        ```
-
+        Create a InvoiceUnit resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InvoiceUnitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -501,18 +362,6 @@ class InvoiceUnit(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the invoice unit.
-        :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
-        :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] last_modified: Timestamp when the invoice unit was last modified.
-        :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] tax_inheritance_disabled: Whether tax inheritance is disabled for this invoice unit.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,83 +383,51 @@ class InvoiceUnit(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the invoice unit.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the invoice unit.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="invoiceReceiver")
     def invoice_receiver(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        """
         return pulumi.get(self, "invoice_receiver")
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp when the invoice unit was last modified.
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name of the invoice unit. Cannot be changed after creation.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[Sequence['outputs.InvoiceUnitRule']]]:
-        """
-        Configuration block for invoice unit rules. See below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="taxInheritanceDisabled")
     def tax_inheritance_disabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether tax inheritance is disabled for this invoice unit.
-        """
         return pulumi.get(self, "tax_inheritance_disabled")
 
     @_builtins.property

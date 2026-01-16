@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration
     {
-        /// <summary>
-        /// The maximum number of tokens that a chunk can contain in this layer.
-        /// </summary>
         public readonly int MaxTokens;
 
         [OutputConstructor]

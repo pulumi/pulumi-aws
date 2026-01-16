@@ -26,11 +26,6 @@ class SmsChannelArgs:
                  short_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmsChannel resource.
-        :param pulumi.Input[_builtins.str] application_id: ID of the application.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sender_id: Identifier of the sender for your messages.
-        :param pulumi.Input[_builtins.str] short_code: Short Code registered with the phone provider.
         """
         pulumi.set(__self__, "application_id", application_id)
         if enabled is not None:
@@ -45,9 +40,6 @@ class SmsChannelArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the application.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -57,9 +49,6 @@ class SmsChannelArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the channel is enabled or disabled. By default, it is set to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -69,9 +58,6 @@ class SmsChannelArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +67,6 @@ class SmsChannelArgs:
     @_builtins.property
     @pulumi.getter(name="senderId")
     def sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the sender for your messages.
-        """
         return pulumi.get(self, "sender_id")
 
     @sender_id.setter
@@ -93,9 +76,6 @@ class SmsChannelArgs:
     @_builtins.property
     @pulumi.getter(name="shortCode")
     def short_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Short Code registered with the phone provider.
-        """
         return pulumi.get(self, "short_code")
 
     @short_code.setter
@@ -115,13 +95,6 @@ class _SmsChannelState:
                  transactional_messages_per_second: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SmsChannel resources.
-        :param pulumi.Input[_builtins.str] application_id: ID of the application.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
-        :param pulumi.Input[_builtins.int] promotional_messages_per_second: Maximum number of promotional messages that can be sent per second.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sender_id: Identifier of the sender for your messages.
-        :param pulumi.Input[_builtins.str] short_code: Short Code registered with the phone provider.
-        :param pulumi.Input[_builtins.int] transactional_messages_per_second: Maximum number of transactional messages per second that can be sent.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -141,9 +114,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the application.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -153,9 +123,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the channel is enabled or disabled. By default, it is set to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -165,9 +132,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter(name="promotionalMessagesPerSecond")
     def promotional_messages_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of promotional messages that can be sent per second.
-        """
         return pulumi.get(self, "promotional_messages_per_second")
 
     @promotional_messages_per_second.setter
@@ -177,9 +141,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -189,9 +150,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter(name="senderId")
     def sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the sender for your messages.
-        """
         return pulumi.get(self, "sender_id")
 
     @sender_id.setter
@@ -201,9 +159,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter(name="shortCode")
     def short_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Short Code registered with the phone provider.
-        """
         return pulumi.get(self, "short_code")
 
     @short_code.setter
@@ -213,9 +168,6 @@ class _SmsChannelState:
     @_builtins.property
     @pulumi.getter(name="transactionalMessagesPerSecond")
     def transactional_messages_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum number of transactional messages per second that can be sent.
-        """
         return pulumi.get(self, "transactional_messages_per_second")
 
     @transactional_messages_per_second.setter
@@ -236,33 +188,9 @@ class SmsChannel(pulumi.CustomResource):
                  short_code: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
-
-        ```sh
-        $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-        ```
-
+        Create a SmsChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: ID of the application.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sender_id: Identifier of the sender for your messages.
-        :param pulumi.Input[_builtins.str] short_code: Short Code registered with the phone provider.
         """
         ...
     @overload
@@ -271,26 +199,7 @@ class SmsChannel(pulumi.CustomResource):
                  args: SmsChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
-
-        ```sh
-        $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-        ```
-
+        Create a SmsChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SmsChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,13 +262,6 @@ class SmsChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: ID of the application.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
-        :param pulumi.Input[_builtins.int] promotional_messages_per_second: Maximum number of promotional messages that can be sent per second.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sender_id: Identifier of the sender for your messages.
-        :param pulumi.Input[_builtins.str] short_code: Short Code registered with the phone provider.
-        :param pulumi.Input[_builtins.int] transactional_messages_per_second: Maximum number of transactional messages per second that can be sent.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -377,56 +279,35 @@ class SmsChannel(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the application.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the channel is enabled or disabled. By default, it is set to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="promotionalMessagesPerSecond")
     def promotional_messages_per_second(self) -> pulumi.Output[_builtins.int]:
-        """
-        Maximum number of promotional messages that can be sent per second.
-        """
         return pulumi.get(self, "promotional_messages_per_second")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="senderId")
     def sender_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of the sender for your messages.
-        """
         return pulumi.get(self, "sender_id")
 
     @_builtins.property
     @pulumi.getter(name="shortCode")
     def short_code(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Short Code registered with the phone provider.
-        """
         return pulumi.get(self, "short_code")
 
     @_builtins.property
     @pulumi.getter(name="transactionalMessagesPerSecond")
     def transactional_messages_per_second(self) -> pulumi.Output[_builtins.int]:
-        """
-        Maximum number of transactional messages per second that can be sent.
-        """
         return pulumi.get(self, "transactional_messages_per_second")
 

@@ -19,230 +19,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Transfer Family Web App.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.transfer.WebApp;
- * import com.pulumi.aws.transfer.WebAppArgs;
- * import com.pulumi.aws.transfer.inputs.WebAppIdentityProviderDetailsArgs;
- * import com.pulumi.aws.transfer.inputs.WebAppIdentityProviderDetailsIdentityCenterConfigArgs;
- * import com.pulumi.aws.transfer.inputs.WebAppWebAppUnitArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         final var assumeRoleTransfer = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions(                
- *                     "sts:AssumeRole",
- *                     "sts:SetContext")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("transfer.amazonaws.com")
- *                     .build())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("StringEquals")
- *                     .values(current.accountId())
- *                     .variable("aws:SourceAccount")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("example")
- *             .assumeRolePolicy(assumeRoleTransfer.json())
- *             .build());
- * 
- *         final var exampleGetPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .actions(                    
- *                         "s3:GetDataAccess",
- *                         "s3:ListCallerAccessGrants")
- *                     .resources(String.format("arn:%s:s3:%s:%s:access-grants/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .values(current.accountId())
- *                         .variable("s3:ResourceAccount")
- *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .actions("s3:ListAccessGrantsInstances")
- *                     .resources("*")
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .values(current.accountId())
- *                         .variable("s3:ResourceAccount")
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
- *             .policy(exampleGetPolicyDocument.json())
- *             .role(exampleRole.name())
- *             .build());
- * 
- *         var exampleWebApp = new WebApp("exampleWebApp", WebAppArgs.builder()
- *             .identityProviderDetails(WebAppIdentityProviderDetailsArgs.builder()
- *                 .identityCenterConfig(WebAppIdentityProviderDetailsIdentityCenterConfigArgs.builder()
- *                     .instanceArn(example.arns()[0])
- *                     .role(exampleRole.arn())
- *                     .build())
- *                 .build())
- *             .webAppUnits(WebAppWebAppUnitArgs.builder()
- *                 .provisioned(1)
- *                 .build())
- *             .tags(Map.of("Name", "test"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Transfer Family Web App using the `web_app_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/webApp:WebApp")
 public class WebApp extends com.pulumi.resources.CustomResource {
-    /**
-     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     * 
-     */
     @Export(name="accessEndpoint", refs={String.class}, tree="[0]")
     private Output<String> accessEndpoint;
 
-    /**
-     * @return URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     * 
-     */
     public Output<String> accessEndpoint() {
         return this.accessEndpoint;
     }
-    /**
-     * ARN of the Web App.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Web App.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     * 
-     */
     @Export(name="endpointDetails", refs={WebAppEndpointDetails.class}, tree="[0]")
     private Output</* @Nullable */ WebAppEndpointDetails> endpointDetails;
 
-    /**
-     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     * 
-     */
     public Output<Optional<WebAppEndpointDetails>> endpointDetails() {
         return Codegen.optional(this.endpointDetails);
     }
-    /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="identityProviderDetails", refs={WebAppIdentityProviderDetails.class}, tree="[0]")
     private Output</* @Nullable */ WebAppIdentityProviderDetails> identityProviderDetails;
 
-    /**
-     * @return Block for details of the identity provider to use with the web app. See Identity provider details below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<WebAppIdentityProviderDetails>> identityProviderDetails() {
         return Codegen.optional(this.identityProviderDetails);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value pairs that can be used to group and search for web apps.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs that can be used to group and search for web apps.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -252,47 +63,21 @@ public class WebApp extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     * 
-     */
     @Export(name="webAppEndpointPolicy", refs={String.class}, tree="[0]")
     private Output<String> webAppEndpointPolicy;
 
-    /**
-     * @return Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     * 
-     */
     public Output<String> webAppEndpointPolicy() {
         return this.webAppEndpointPolicy;
     }
-    /**
-     * ID of the Wep App resource.
-     * 
-     */
     @Export(name="webAppId", refs={String.class}, tree="[0]")
     private Output<String> webAppId;
 
-    /**
-     * @return ID of the Wep App resource.
-     * 
-     */
     public Output<String> webAppId() {
         return this.webAppId;
     }
-    /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     * 
-     */
     @Export(name="webAppUnits", refs={List.class,WebAppWebAppUnit.class}, tree="[0,1]")
     private Output<List<WebAppWebAppUnit>> webAppUnits;
 
-    /**
-     * @return Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     * 
-     */
     public Output<List<WebAppWebAppUnit>> webAppUnits() {
         return this.webAppUnits;
     }

@@ -14,122 +14,35 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Kinesis Analytics v2 Application Snapshot.
- * Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesisanalyticsv2.ApplicationSnapshot;
- * import com.pulumi.aws.kinesisanalyticsv2.ApplicationSnapshotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApplicationSnapshot("example", ApplicationSnapshotArgs.builder()
- *             .applicationName(exampleAwsKinesisanalyticsv2Application.name())
- *             .snapshotName("example-snapshot")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
- * ```
- * 
- */
 @ResourceType(type="aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")
 public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     @Export(name="applicationName", refs={String.class}, tree="[0]")
     private Output<String> applicationName;
 
-    /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     public Output<String> applicationName() {
         return this.applicationName;
     }
-    /**
-     * The current application version ID when the snapshot was created.
-     * 
-     */
     @Export(name="applicationVersionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> applicationVersionId;
 
-    /**
-     * @return The current application version ID when the snapshot was created.
-     * 
-     */
     public Output<Integer> applicationVersionId() {
         return this.applicationVersionId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The timestamp of the application snapshot.
-     * 
-     */
     @Export(name="snapshotCreationTimestamp", refs={String.class}, tree="[0]")
     private Output<String> snapshotCreationTimestamp;
 
-    /**
-     * @return The timestamp of the application snapshot.
-     * 
-     */
     public Output<String> snapshotCreationTimestamp() {
         return this.snapshotCreationTimestamp;
     }
-    /**
-     * The name of the application snapshot.
-     * 
-     */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output<String> snapshotName;
 
-    /**
-     * @return The name of the application snapshot.
-     * 
-     */
     public Output<String> snapshotName() {
         return this.snapshotName;
     }

@@ -14,32 +14,16 @@ public final class ScheduleTargetEventbridgeParametersArgs extends com.pulumi.re
 
     public static final ScheduleTargetEventbridgeParametersArgs Empty = new ScheduleTargetEventbridgeParametersArgs();
 
-    /**
-     * Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-     * 
-     */
     @Import(name="detailType", required=true)
     private Output<String> detailType;
 
-    /**
-     * @return Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-     * 
-     */
     public Output<String> detailType() {
         return this.detailType;
     }
 
-    /**
-     * Source of the event.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Source of the event.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
@@ -69,44 +53,20 @@ public final class ScheduleTargetEventbridgeParametersArgs extends com.pulumi.re
             $ = new ScheduleTargetEventbridgeParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param detailType Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detailType(Output<String> detailType) {
             $.detailType = detailType;
             return this;
         }
 
-        /**
-         * @param detailType Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detailType(String detailType) {
             return detailType(Output.of(detailType));
         }
 
-        /**
-         * @param source Source of the event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Source of the event.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

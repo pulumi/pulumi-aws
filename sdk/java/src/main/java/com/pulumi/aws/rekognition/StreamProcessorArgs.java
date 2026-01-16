@@ -26,14 +26,14 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     public static final StreamProcessorArgs Empty = new StreamProcessorArgs();
 
     /**
-     * See `dataSharingPreference`.
+     * Shows whether you are sharing data with Rekognition to improve model performance.
      * 
      */
     @Import(name="dataSharingPreference")
     private @Nullable Output<StreamProcessorDataSharingPreferenceArgs> dataSharingPreference;
 
     /**
-     * @return See `dataSharingPreference`.
+     * @return Shows whether you are sharing data with Rekognition to improve model performance.
      * 
      */
     public Optional<Output<StreamProcessorDataSharingPreferenceArgs>> dataSharingPreference() {
@@ -41,14 +41,14 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Input video stream. See `input`.
+     * Information about the source streaming video.
      * 
      */
     @Import(name="input")
     private @Nullable Output<StreamProcessorInputArgs> input;
 
     /**
-     * @return Input video stream. See `input`.
+     * @return Information about the source streaming video.
      * 
      */
     public Optional<Output<StreamProcessorInputArgs>> input() {
@@ -56,14 +56,14 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Optional parameter for label detection stream processors.
+     * The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Optional parameter for label detection stream processors.
+     * @return The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -71,14 +71,14 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Stream Processor.
+     * An identifier you assign to the stream processor.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Stream Processor.
+     * @return An identifier you assign to the stream processor.
      * 
      */
     public Optional<Output<String>> name() {
@@ -86,14 +86,14 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
      * 
      */
     @Import(name="notificationChannel")
     private @Nullable Output<StreamProcessorNotificationChannelArgs> notificationChannel;
 
     /**
-     * @return The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+     * @return The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
      * 
      */
     public Optional<Output<StreamProcessorNotificationChannelArgs>> notificationChannel() {
@@ -101,59 +101,43 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+     * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
      * 
      */
     @Import(name="output")
     private @Nullable Output<StreamProcessorOutputArgs> output;
 
     /**
-     * @return Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+     * @return Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
      * 
      */
     public Optional<Output<StreamProcessorOutputArgs>> output() {
         return Optional.ofNullable(this.output);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
-     * 
-     */
     @Import(name="regionsOfInterests")
     private @Nullable Output<List<StreamProcessorRegionsOfInterestArgs>> regionsOfInterests;
 
-    /**
-     * @return Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
-     * 
-     */
     public Optional<Output<List<StreamProcessorRegionsOfInterestArgs>>> regionsOfInterests() {
         return Optional.ofNullable(this.regionsOfInterests);
     }
 
     /**
-     * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+     * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+     * @return The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
      * 
      */
     public Output<String> roleArn() {
@@ -161,35 +145,23 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
-     * 
-     * The following arguments are optional:
+     * Input parameters used in a streaming video analyzed by a stream processor.
      * 
      */
     @Import(name="settings")
     private @Nullable Output<StreamProcessorSettingsArgs> settings;
 
     /**
-     * @return Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
-     * 
-     * The following arguments are optional:
+     * @return Input parameters used in a streaming video analyzed by a stream processor.
      * 
      */
     public Optional<Output<StreamProcessorSettingsArgs>> settings() {
         return Optional.ofNullable(this.settings);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -237,7 +209,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataSharingPreference See `dataSharingPreference`.
+         * @param dataSharingPreference Shows whether you are sharing data with Rekognition to improve model performance.
          * 
          * @return builder
          * 
@@ -248,7 +220,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataSharingPreference See `dataSharingPreference`.
+         * @param dataSharingPreference Shows whether you are sharing data with Rekognition to improve model performance.
          * 
          * @return builder
          * 
@@ -258,7 +230,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param input Input video stream. See `input`.
+         * @param input Information about the source streaming video.
          * 
          * @return builder
          * 
@@ -269,7 +241,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param input Input video stream. See `input`.
+         * @param input Information about the source streaming video.
          * 
          * @return builder
          * 
@@ -279,7 +251,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kmsKeyId Optional parameter for label detection stream processors.
+         * @param kmsKeyId The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
          * 
          * @return builder
          * 
@@ -290,7 +262,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kmsKeyId Optional parameter for label detection stream processors.
+         * @param kmsKeyId The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
          * 
          * @return builder
          * 
@@ -300,7 +272,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Stream Processor.
+         * @param name An identifier you assign to the stream processor.
          * 
          * @return builder
          * 
@@ -311,7 +283,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Stream Processor.
+         * @param name An identifier you assign to the stream processor.
          * 
          * @return builder
          * 
@@ -321,7 +293,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notificationChannel The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+         * @param notificationChannel The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
          * 
          * @return builder
          * 
@@ -332,7 +304,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notificationChannel The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+         * @param notificationChannel The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.
          * 
          * @return builder
          * 
@@ -342,7 +314,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param output Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+         * @param output Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
          * 
          * @return builder
          * 
@@ -353,7 +325,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param output Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+         * @param output Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results.
          * 
          * @return builder
          * 
@@ -362,60 +334,30 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
             return output(Output.of(output));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param regionsOfInterests Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionsOfInterests(@Nullable Output<List<StreamProcessorRegionsOfInterestArgs>> regionsOfInterests) {
             $.regionsOfInterests = regionsOfInterests;
             return this;
         }
 
-        /**
-         * @param regionsOfInterests Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionsOfInterests(List<StreamProcessorRegionsOfInterestArgs> regionsOfInterests) {
             return regionsOfInterests(Output.of(regionsOfInterests));
         }
 
-        /**
-         * @param regionsOfInterests Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionsOfInterests(StreamProcessorRegionsOfInterestArgs... regionsOfInterests) {
             return regionsOfInterests(List.of(regionsOfInterests));
         }
 
         /**
-         * @param roleArn The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+         * @param roleArn The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
          * 
          * @return builder
          * 
@@ -426,7 +368,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+         * @param roleArn The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
          * 
          * @return builder
          * 
@@ -436,9 +378,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param settings Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
-         * 
-         * The following arguments are optional:
+         * @param settings Input parameters used in a streaming video analyzed by a stream processor.
          * 
          * @return builder
          * 
@@ -449,9 +389,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param settings Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
-         * 
-         * The following arguments are optional:
+         * @param settings Input parameters used in a streaming video analyzed by a stream processor.
          * 
          * @return builder
          * 
@@ -460,23 +398,11 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
             return settings(Output.of(settings));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

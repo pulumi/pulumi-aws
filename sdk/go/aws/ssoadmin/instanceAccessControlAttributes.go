@@ -12,78 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewInstanceAccessControlAttributes(ctx, "example", &ssoadmin.InstanceAccessControlAttributesArgs{
-//				InstanceArn: pulumi.String(example.Arns[0]),
-//				Attributes: ssoadmin.InstanceAccessControlAttributesAttributeArray{
-//					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
-//						Key: pulumi.String("name"),
-//						Values: ssoadmin.InstanceAccessControlAttributesAttributeValueArray{
-//							&ssoadmin.InstanceAccessControlAttributesAttributeValueArgs{
-//								Sources: pulumi.StringArray{
-//									pulumi.String("${path:name.givenName}"),
-//								},
-//							},
-//						},
-//					},
-//					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
-//						Key: pulumi.String("last"),
-//						Values: ssoadmin.InstanceAccessControlAttributesAttributeValueArray{
-//							&ssoadmin.InstanceAccessControlAttributesAttributeValueArgs{
-//								Sources: pulumi.StringArray{
-//									pulumi.String("${path:name.familyName}"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
-// ```
 type InstanceAccessControlAttributes struct {
 	pulumi.CustomResourceState
 
-	// See AccessControlAttribute for more details.
-	Attributes InstanceAccessControlAttributesAttributeArrayOutput `pulumi:"attributes"`
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region       pulumi.StringOutput `pulumi:"region"`
-	Status       pulumi.StringOutput `pulumi:"status"`
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	Attributes   InstanceAccessControlAttributesAttributeArrayOutput `pulumi:"attributes"`
+	InstanceArn  pulumi.StringOutput                                 `pulumi:"instanceArn"`
+	Region       pulumi.StringOutput                                 `pulumi:"region"`
+	Status       pulumi.StringOutput                                 `pulumi:"status"`
+	StatusReason pulumi.StringOutput                                 `pulumi:"statusReason"`
 }
 
 // NewInstanceAccessControlAttributes registers a new resource with the given unique name, arguments, and options.
@@ -122,22 +58,16 @@ func GetInstanceAccessControlAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
 type instanceAccessControlAttributesState struct {
-	// See AccessControlAttribute for more details.
-	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region       *string `pulumi:"region"`
-	Status       *string `pulumi:"status"`
-	StatusReason *string `pulumi:"statusReason"`
+	Attributes   []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
+	InstanceArn  *string                                    `pulumi:"instanceArn"`
+	Region       *string                                    `pulumi:"region"`
+	Status       *string                                    `pulumi:"status"`
+	StatusReason *string                                    `pulumi:"statusReason"`
 }
 
 type InstanceAccessControlAttributesState struct {
-	// See AccessControlAttribute for more details.
-	Attributes InstanceAccessControlAttributesAttributeArrayInput
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Attributes   InstanceAccessControlAttributesAttributeArrayInput
+	InstanceArn  pulumi.StringPtrInput
 	Region       pulumi.StringPtrInput
 	Status       pulumi.StringPtrInput
 	StatusReason pulumi.StringPtrInput
@@ -148,22 +78,16 @@ func (InstanceAccessControlAttributesState) ElementType() reflect.Type {
 }
 
 type instanceAccessControlAttributesArgs struct {
-	// See AccessControlAttribute for more details.
-	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
-	// The Amazon Resource Name (ARN) of the SSO Instance.
-	InstanceArn string `pulumi:"instanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Attributes  []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
+	InstanceArn string                                     `pulumi:"instanceArn"`
+	Region      *string                                    `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InstanceAccessControlAttributes resource.
 type InstanceAccessControlAttributesArgs struct {
-	// See AccessControlAttribute for more details.
-	Attributes InstanceAccessControlAttributesAttributeArrayInput
-	// The Amazon Resource Name (ARN) of the SSO Instance.
+	Attributes  InstanceAccessControlAttributesAttributeArrayInput
 	InstanceArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (InstanceAccessControlAttributesArgs) ElementType() reflect.Type {
@@ -253,19 +177,16 @@ func (o InstanceAccessControlAttributesOutput) ToInstanceAccessControlAttributes
 	return o
 }
 
-// See AccessControlAttribute for more details.
 func (o InstanceAccessControlAttributesOutput) Attributes() InstanceAccessControlAttributesAttributeArrayOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) InstanceAccessControlAttributesAttributeArrayOutput {
 		return v.Attributes
 	}).(InstanceAccessControlAttributesAttributeArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance.
 func (o InstanceAccessControlAttributesOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceAccessControlAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

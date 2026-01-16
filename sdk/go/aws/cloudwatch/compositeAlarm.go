@@ -12,81 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Composite Alarm resource.
-//
-// > **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `dependsOn`, references to alarm names, and two-stage updates.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewCompositeAlarm(ctx, "example", &cloudwatch.CompositeAlarmArgs{
-//				AlarmDescription: pulumi.String("This is a composite alarm!"),
-//				AlarmName:        pulumi.String("example-composite-alarm"),
-//				AlarmActions:     pulumi.Any(exampleAwsSnsTopic.Arn),
-//				OkActions:        pulumi.Any(exampleAwsSnsTopic.Arn),
-//				AlarmRule:        pulumi.Sprintf("ALARM(%v) OR\nALARM(%v)\n", alpha.AlarmName, bravo.AlarmName),
-//				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
-//					Alarm:           pulumi.String("suppressor-alarm"),
-//					ExtensionPeriod: pulumi.Int(10),
-//					WaitPeriod:      pulumi.Int(20),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
-// ```
 type CompositeAlarm struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
-	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
-	ActionsSuppressor CompositeAlarmActionsSuppressorPtrOutput `pulumi:"actionsSuppressor"`
-	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
-	// The description for the composite alarm.
-	AlarmDescription pulumi.StringPtrOutput `pulumi:"alarmDescription"`
-	// The name for the composite alarm. This name must be unique within the region.
-	AlarmName pulumi.StringOutput `pulumi:"alarmName"`
-	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-	AlarmRule pulumi.StringOutput `pulumi:"alarmRule"`
-	// The ARN of the composite alarm.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
-	// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ActionsEnabled          pulumi.BoolPtrOutput                     `pulumi:"actionsEnabled"`
+	ActionsSuppressor       CompositeAlarmActionsSuppressorPtrOutput `pulumi:"actionsSuppressor"`
+	AlarmActions            pulumi.StringArrayOutput                 `pulumi:"alarmActions"`
+	AlarmDescription        pulumi.StringPtrOutput                   `pulumi:"alarmDescription"`
+	AlarmName               pulumi.StringOutput                      `pulumi:"alarmName"`
+	AlarmRule               pulumi.StringOutput                      `pulumi:"alarmRule"`
+	Arn                     pulumi.StringOutput                      `pulumi:"arn"`
+	InsufficientDataActions pulumi.StringArrayOutput                 `pulumi:"insufficientDataActions"`
+	OkActions               pulumi.StringArrayOutput                 `pulumi:"okActions"`
+	Region                  pulumi.StringOutput                      `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                   `pulumi:"tagsAll"`
 }
 
 // NewCompositeAlarm registers a new resource with the given unique name, arguments, and options.
@@ -125,57 +65,33 @@ func GetCompositeAlarm(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CompositeAlarm resources.
 type compositeAlarmState struct {
-	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-	ActionsEnabled *bool `pulumi:"actionsEnabled"`
-	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
-	ActionsSuppressor *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
-	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	AlarmActions []string `pulumi:"alarmActions"`
-	// The description for the composite alarm.
-	AlarmDescription *string `pulumi:"alarmDescription"`
-	// The name for the composite alarm. This name must be unique within the region.
-	AlarmName *string `pulumi:"alarmName"`
-	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-	AlarmRule *string `pulumi:"alarmRule"`
-	// The ARN of the composite alarm.
-	Arn *string `pulumi:"arn"`
-	// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
-	// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	OkActions []string `pulumi:"okActions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ActionsEnabled          *bool                            `pulumi:"actionsEnabled"`
+	ActionsSuppressor       *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
+	AlarmActions            []string                         `pulumi:"alarmActions"`
+	AlarmDescription        *string                          `pulumi:"alarmDescription"`
+	AlarmName               *string                          `pulumi:"alarmName"`
+	AlarmRule               *string                          `pulumi:"alarmRule"`
+	Arn                     *string                          `pulumi:"arn"`
+	InsufficientDataActions []string                         `pulumi:"insufficientDataActions"`
+	OkActions               []string                         `pulumi:"okActions"`
+	Region                  *string                          `pulumi:"region"`
+	Tags                    map[string]string                `pulumi:"tags"`
+	TagsAll                 map[string]string                `pulumi:"tagsAll"`
 }
 
 type CompositeAlarmState struct {
-	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-	ActionsEnabled pulumi.BoolPtrInput
-	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
-	ActionsSuppressor CompositeAlarmActionsSuppressorPtrInput
-	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	AlarmActions pulumi.StringArrayInput
-	// The description for the composite alarm.
-	AlarmDescription pulumi.StringPtrInput
-	// The name for the composite alarm. This name must be unique within the region.
-	AlarmName pulumi.StringPtrInput
-	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-	AlarmRule pulumi.StringPtrInput
-	// The ARN of the composite alarm.
-	Arn pulumi.StringPtrInput
-	// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+	ActionsEnabled          pulumi.BoolPtrInput
+	ActionsSuppressor       CompositeAlarmActionsSuppressorPtrInput
+	AlarmActions            pulumi.StringArrayInput
+	AlarmDescription        pulumi.StringPtrInput
+	AlarmName               pulumi.StringPtrInput
+	AlarmRule               pulumi.StringPtrInput
+	Arn                     pulumi.StringPtrInput
 	InsufficientDataActions pulumi.StringArrayInput
-	// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	OkActions pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	OkActions               pulumi.StringArrayInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (CompositeAlarmState) ElementType() reflect.Type {
@@ -183,50 +99,30 @@ func (CompositeAlarmState) ElementType() reflect.Type {
 }
 
 type compositeAlarmArgs struct {
-	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-	ActionsEnabled *bool `pulumi:"actionsEnabled"`
-	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
-	ActionsSuppressor *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
-	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	AlarmActions []string `pulumi:"alarmActions"`
-	// The description for the composite alarm.
-	AlarmDescription *string `pulumi:"alarmDescription"`
-	// The name for the composite alarm. This name must be unique within the region.
-	AlarmName string `pulumi:"alarmName"`
-	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-	AlarmRule string `pulumi:"alarmRule"`
-	// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
-	// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	OkActions []string `pulumi:"okActions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ActionsEnabled          *bool                            `pulumi:"actionsEnabled"`
+	ActionsSuppressor       *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
+	AlarmActions            []string                         `pulumi:"alarmActions"`
+	AlarmDescription        *string                          `pulumi:"alarmDescription"`
+	AlarmName               string                           `pulumi:"alarmName"`
+	AlarmRule               string                           `pulumi:"alarmRule"`
+	InsufficientDataActions []string                         `pulumi:"insufficientDataActions"`
+	OkActions               []string                         `pulumi:"okActions"`
+	Region                  *string                          `pulumi:"region"`
+	Tags                    map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CompositeAlarm resource.
 type CompositeAlarmArgs struct {
-	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-	ActionsEnabled pulumi.BoolPtrInput
-	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
-	ActionsSuppressor CompositeAlarmActionsSuppressorPtrInput
-	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	AlarmActions pulumi.StringArrayInput
-	// The description for the composite alarm.
-	AlarmDescription pulumi.StringPtrInput
-	// The name for the composite alarm. This name must be unique within the region.
-	AlarmName pulumi.StringInput
-	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-	AlarmRule pulumi.StringInput
-	// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
+	ActionsEnabled          pulumi.BoolPtrInput
+	ActionsSuppressor       CompositeAlarmActionsSuppressorPtrInput
+	AlarmActions            pulumi.StringArrayInput
+	AlarmDescription        pulumi.StringPtrInput
+	AlarmName               pulumi.StringInput
+	AlarmRule               pulumi.StringInput
 	InsufficientDataActions pulumi.StringArrayInput
-	// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-	OkActions pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	OkActions               pulumi.StringArrayInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (CompositeAlarmArgs) ElementType() reflect.Type {
@@ -316,62 +212,50 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 func (o CompositeAlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Actions will be suppressed if the suppressor alarm is in the ALARM state.
 func (o CompositeAlarmOutput) ActionsSuppressor() CompositeAlarmActionsSuppressorPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarm) CompositeAlarmActionsSuppressorPtrOutput { return v.ActionsSuppressor }).(CompositeAlarmActionsSuppressorPtrOutput)
 }
 
-// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 func (o CompositeAlarmOutput) AlarmActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.AlarmActions }).(pulumi.StringArrayOutput)
 }
 
-// The description for the composite alarm.
 func (o CompositeAlarmOutput) AlarmDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringPtrOutput { return v.AlarmDescription }).(pulumi.StringPtrOutput)
 }
 
-// The name for the composite alarm. This name must be unique within the region.
 func (o CompositeAlarmOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.AlarmName }).(pulumi.StringOutput)
 }
 
-// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
 func (o CompositeAlarmOutput) AlarmRule() pulumi.StringOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.AlarmRule }).(pulumi.StringOutput)
 }
 
-// The ARN of the composite alarm.
 func (o CompositeAlarmOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 func (o CompositeAlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.InsufficientDataActions }).(pulumi.StringArrayOutput)
 }
 
-// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 func (o CompositeAlarmOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CompositeAlarmOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CompositeAlarmOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CompositeAlarmOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -14,32 +14,16 @@ public final class AnalyticsApplicationOutputLambdaArgs extends com.pulumi.resou
 
     public static final AnalyticsApplicationOutputLambdaArgs Empty = new AnalyticsApplicationOutputLambdaArgs();
 
-    /**
-     * The ARN of the Lambda function.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the Lambda function.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
 
-    /**
-     * The ARN of the IAM Role used to access the Lambda function.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM Role used to access the Lambda function.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -69,44 +53,20 @@ public final class AnalyticsApplicationOutputLambdaArgs extends com.pulumi.resou
             $ = new AnalyticsApplicationOutputLambdaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceArn The ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM Role used to access the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM Role used to access the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

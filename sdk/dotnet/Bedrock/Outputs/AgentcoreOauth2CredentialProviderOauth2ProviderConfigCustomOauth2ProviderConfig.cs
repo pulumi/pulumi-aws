@@ -13,35 +13,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig
     {
-        /// <summary>
-        /// Used together with write-only credentials to trigger an update. Increment this value when an update to `ClientIdWo` or `ClientSecretWo` is required.
-        /// 
-        /// **OAuth Discovery Configuration:**
-        /// </summary>
         public readonly int? ClientCredentialsWoVersion;
-        /// <summary>
-        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
-        /// </summary>
         public readonly string? ClientId;
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only OAuth2 client ID. Cannot be used with `ClientId`. Must be used together with `ClientSecretWo` and `ClientCredentialsWoVersion`.
         /// </summary>
         public readonly string? ClientIdWo;
-        /// <summary>
-        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
-        /// 
-        /// **Write-Only Credentials (choose one pair):**
-        /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only OAuth2 client secret. Cannot be used with `ClientSecret`. Must be used together with `ClientIdWo` and `ClientCredentialsWoVersion`.
         /// </summary>
         public readonly string? ClientSecretWo;
-        /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// </summary>
         public readonly Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery? OauthDiscovery;
 
         [OutputConstructor]

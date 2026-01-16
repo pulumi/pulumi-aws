@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction
     {
         public readonly string EventAction;
-        /// <summary>
-        /// Whether to send a notification.
-        /// </summary>
         public readonly bool Notify;
 
         [OutputConstructor]

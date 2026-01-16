@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class InternetMonitorHealthEventsConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The health event threshold percentage set for availability scores.
-        /// </summary>
         [Input("availabilityScoreThreshold")]
         public Input<double>? AvailabilityScoreThreshold { get; set; }
 
-        /// <summary>
-        /// The health event threshold percentage set for performance scores.
-        /// </summary>
         [Input("performanceScoreThreshold")]
         public Input<double>? PerformanceScoreThreshold { get; set; }
 

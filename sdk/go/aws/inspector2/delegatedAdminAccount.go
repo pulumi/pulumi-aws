@@ -12,56 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Inspector Delegated Admin Account.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector2.NewDelegatedAdminAccount(ctx, "example", &inspector2.DelegatedAdminAccountArgs{
-//				AccountId: pulumi.String(current.AccountId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
-// ```
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState
 
-	// Account to enable as delegated admin account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of this delegated admin account.
+	AccountId          pulumi.StringOutput `pulumi:"accountId"`
+	Region             pulumi.StringOutput `pulumi:"region"`
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 }
 
@@ -98,20 +53,14 @@ func GetDelegatedAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DelegatedAdminAccount resources.
 type delegatedAdminAccountState struct {
-	// Account to enable as delegated admin account.
-	AccountId *string `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of this delegated admin account.
+	AccountId          *string `pulumi:"accountId"`
+	Region             *string `pulumi:"region"`
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 }
 
 type DelegatedAdminAccountState struct {
-	// Account to enable as delegated admin account.
-	AccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of this delegated admin account.
+	AccountId          pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
 	RelationshipStatus pulumi.StringPtrInput
 }
 
@@ -120,18 +69,14 @@ func (DelegatedAdminAccountState) ElementType() reflect.Type {
 }
 
 type delegatedAdminAccountArgs struct {
-	// Account to enable as delegated admin account.
-	AccountId string `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccountId string  `pulumi:"accountId"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DelegatedAdminAccount resource.
 type DelegatedAdminAccountArgs struct {
-	// Account to enable as delegated admin account.
 	AccountId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (DelegatedAdminAccountArgs) ElementType() reflect.Type {
@@ -221,17 +166,14 @@ func (o DelegatedAdminAccountOutput) ToDelegatedAdminAccountOutputWithContext(ct
 	return o
 }
 
-// Account to enable as delegated admin account.
 func (o DelegatedAdminAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DelegatedAdminAccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of this delegated admin account.
 func (o DelegatedAdminAccountOutput) RelationshipStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
 }

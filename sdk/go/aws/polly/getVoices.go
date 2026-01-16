@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Polly Voices.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/polly"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := polly.GetVoices(ctx, &polly.GetVoicesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Language Code
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/polly"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := polly.GetVoices(ctx, &polly.GetVoicesArgs{
-//				LanguageCode: pulumi.StringRef("en-GB"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVoices(ctx *pulumi.Context, args *GetVoicesArgs, opts ...pulumi.InvokeOption) (*GetVoicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVoicesResult
@@ -76,29 +23,21 @@ func GetVoices(ctx *pulumi.Context, args *GetVoicesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getVoices.
 type GetVoicesArgs struct {
-	// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-	Engine *string `pulumi:"engine"`
-	// Whether to return any bilingual voices that use the specified language as an additional language.
-	IncludeAdditionalLanguageCodes *bool `pulumi:"includeAdditionalLanguageCodes"`
-	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-	LanguageCode *string `pulumi:"languageCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of voices with their properties. See `voices` Attribute Reference below.
-	Voices []GetVoicesVoice `pulumi:"voices"`
+	Engine                         *string          `pulumi:"engine"`
+	IncludeAdditionalLanguageCodes *bool            `pulumi:"includeAdditionalLanguageCodes"`
+	LanguageCode                   *string          `pulumi:"languageCode"`
+	Region                         *string          `pulumi:"region"`
+	Voices                         []GetVoicesVoice `pulumi:"voices"`
 }
 
 // A collection of values returned by getVoices.
 type GetVoicesResult struct {
-	Engine *string `pulumi:"engine"`
-	// Amazon Polly assigned voice ID.
-	Id                             string `pulumi:"id"`
-	IncludeAdditionalLanguageCodes *bool  `pulumi:"includeAdditionalLanguageCodes"`
-	// Language code of the voice.
-	LanguageCode *string `pulumi:"languageCode"`
-	Region       string  `pulumi:"region"`
-	// List of voices with their properties. See `voices` Attribute Reference below.
-	Voices []GetVoicesVoice `pulumi:"voices"`
+	Engine                         *string          `pulumi:"engine"`
+	Id                             string           `pulumi:"id"`
+	IncludeAdditionalLanguageCodes *bool            `pulumi:"includeAdditionalLanguageCodes"`
+	LanguageCode                   *string          `pulumi:"languageCode"`
+	Region                         string           `pulumi:"region"`
+	Voices                         []GetVoicesVoice `pulumi:"voices"`
 }
 
 func GetVoicesOutput(ctx *pulumi.Context, args GetVoicesOutputArgs, opts ...pulumi.InvokeOption) GetVoicesResultOutput {
@@ -112,16 +51,11 @@ func GetVoicesOutput(ctx *pulumi.Context, args GetVoicesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getVoices.
 type GetVoicesOutputArgs struct {
-	// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-	Engine pulumi.StringPtrInput `pulumi:"engine"`
-	// Whether to return any bilingual voices that use the specified language as an additional language.
-	IncludeAdditionalLanguageCodes pulumi.BoolPtrInput `pulumi:"includeAdditionalLanguageCodes"`
-	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// List of voices with their properties. See `voices` Attribute Reference below.
-	Voices GetVoicesVoiceArrayInput `pulumi:"voices"`
+	Engine                         pulumi.StringPtrInput    `pulumi:"engine"`
+	IncludeAdditionalLanguageCodes pulumi.BoolPtrInput      `pulumi:"includeAdditionalLanguageCodes"`
+	LanguageCode                   pulumi.StringPtrInput    `pulumi:"languageCode"`
+	Region                         pulumi.StringPtrInput    `pulumi:"region"`
+	Voices                         GetVoicesVoiceArrayInput `pulumi:"voices"`
 }
 
 func (GetVoicesOutputArgs) ElementType() reflect.Type {
@@ -147,7 +81,6 @@ func (o GetVoicesResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetVoicesResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Polly assigned voice ID.
 func (o GetVoicesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -156,7 +89,6 @@ func (o GetVoicesResultOutput) IncludeAdditionalLanguageCodes() pulumi.BoolPtrOu
 	return o.ApplyT(func(v GetVoicesResult) *bool { return v.IncludeAdditionalLanguageCodes }).(pulumi.BoolPtrOutput)
 }
 
-// Language code of the voice.
 func (o GetVoicesResultOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetVoicesResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
@@ -165,7 +97,6 @@ func (o GetVoicesResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of voices with their properties. See `voices` Attribute Reference below.
 func (o GetVoicesResultOutput) Voices() GetVoicesVoiceArrayOutput {
 	return o.ApplyT(func(v GetVoicesResult) []GetVoicesVoice { return v.Voices }).(GetVoicesVoiceArrayOutput)
 }

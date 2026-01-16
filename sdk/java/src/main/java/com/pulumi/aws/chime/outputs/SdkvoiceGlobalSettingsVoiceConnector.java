@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SdkvoiceGlobalSettingsVoiceConnector {
-    /**
-     * @return The S3 bucket that stores the Voice Connector&#39;s call detail records.
-     * 
-     */
     private @Nullable String cdrBucket;
 
     private SdkvoiceGlobalSettingsVoiceConnector() {}
-    /**
-     * @return The S3 bucket that stores the Voice Connector&#39;s call detail records.
-     * 
-     */
     public Optional<String> cdrBucket() {
         return Optional.ofNullable(this.cdrBucket);
     }

@@ -9,61 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.RouteServerVpcAssociation("example", new()
-    ///     {
-    ///         RouteServerId = exampleAwsVpcRouteServer.RouteServerId,
-    ///         VpcId = exampleAwsVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation")]
     public partial class RouteServerVpcAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the route server to be associated.
-        /// </summary>
         [Output("routeServerId")]
         public Output<string> RouteServerId { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.RouteServerVpcAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC to associate with the route server.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -113,26 +70,15 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class RouteServerVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the route server to be associated.
-        /// </summary>
         [Input("routeServerId", required: true)]
         public Input<string> RouteServerId { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.RouteServerVpcAssociationTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC to associate with the route server.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -144,26 +90,15 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class RouteServerVpcAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the route server to be associated.
-        /// </summary>
         [Input("routeServerId")]
         public Input<string>? RouteServerId { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.RouteServerVpcAssociationTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC to associate with the route server.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

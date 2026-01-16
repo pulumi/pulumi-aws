@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionTenantManagedCertificateRequestGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Certificate transparency logging preference. Valid values: `Enabled`, `Disabled`.
-        /// </summary>
         [Input("certificateTransparencyLoggingPreference")]
         public Input<string>? CertificateTransparencyLoggingPreference { get; set; }
 
-        /// <summary>
-        /// Primary domain name for the certificate.
-        /// </summary>
         [Input("primaryDomainName")]
         public Input<string>? PrimaryDomainName { get; set; }
 
-        /// <summary>
-        /// Host for validation token. Valid values: `Cloudfront`, `Domain`.
-        /// </summary>
         [Input("validationTokenHost")]
         public Input<string>? ValidationTokenHost { get; set; }
 

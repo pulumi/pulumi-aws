@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetBrokerNodesNodeInfoListResult
     {
-        /// <summary>
-        /// Attached elastic network interface of the broker
-        /// </summary>
         public readonly string AttachedEniId;
-        /// <summary>
-        /// ID of the broker
-        /// </summary>
         public readonly double BrokerId;
-        /// <summary>
-        /// Client subnet to which this broker node belongs
-        /// </summary>
         public readonly string ClientSubnet;
-        /// <summary>
-        /// The client virtual private cloud (VPC) IP address
-        /// </summary>
         public readonly string ClientVpcIpAddress;
-        /// <summary>
-        /// Set of endpoints for accessing the broker. This does not include ports
-        /// </summary>
         public readonly ImmutableArray<string> Endpoints;
-        /// <summary>
-        /// ARN of the node
-        /// </summary>
         public readonly string NodeArn;
 
         [OutputConstructor]

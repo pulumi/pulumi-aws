@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
-    /**
-     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return The S3 path where offline records are written.
-     * 
-     */
     private @Nullable String resolvedOutputS3Uri;
-    /**
-     * @return The S3 URI, or location in Amazon S3, of OfflineStore.
-     * 
-     */
     private String s3Uri;
 
     private FeatureGroupOfflineStoreConfigS3StorageConfig() {}
-    /**
-     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return The S3 path where offline records are written.
-     * 
-     */
     public Optional<String> resolvedOutputS3Uri() {
         return Optional.ofNullable(this.resolvedOutputS3Uri);
     }
-    /**
-     * @return The S3 URI, or location in Amazon S3, of OfflineStore.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

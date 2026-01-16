@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleTransformUrlRewriteConfigRewrite {
-    /**
-     * @return Regular expression to match in the input string.
-     * 
-     */
     private String regex;
-    /**
-     * @return Replacement string to use when rewriting the matched input.
-     * 
-     */
     private String replace;
 
     private GetListenerRuleTransformUrlRewriteConfigRewrite() {}
-    /**
-     * @return Regular expression to match in the input string.
-     * 
-     */
     public String regex() {
         return this.regex;
     }
-    /**
-     * @return Replacement string to use when rewriting the matched input.
-     * 
-     */
     public String replace() {
         return this.replace;
     }

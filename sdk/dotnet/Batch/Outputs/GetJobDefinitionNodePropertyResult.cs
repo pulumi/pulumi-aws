@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyResult
     {
-        /// <summary>
-        /// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-        /// </summary>
         public readonly int MainNode;
-        /// <summary>
-        /// A list of node ranges and their properties that are associated with a multi-node parallel job.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyResult> NodeRangeProperties;
-        /// <summary>
-        /// The number of nodes that are associated with a multi-node parallel job.
-        /// </summary>
         public readonly int NumNodes;
 
         [OutputConstructor]

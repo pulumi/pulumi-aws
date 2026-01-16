@@ -12,74 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a load balancer to an Auto Scaling group.
-//
-// > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new load balancer attachment
-//			_, err := autoscaling.NewAttachment(ctx, "example", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
-//				Elb:                  pulumi.Any(exampleAwsElb.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new ALB Target Group attachment
-//			_, err := autoscaling.NewAttachment(ctx, "example", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(exampleAwsAutoscalingGroup.Id),
-//				LbTargetGroupArn:     pulumi.Any(exampleAwsLbTargetGroup.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Attachment struct {
 	pulumi.CustomResourceState
 
-	// Name of ASG to associate with the ELB.
-	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// Name of the ELB.
-	Elb pulumi.StringPtrOutput `pulumi:"elb"`
-	// ARN of a load balancer target group.
-	LbTargetGroupArn pulumi.StringPtrOutput `pulumi:"lbTargetGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AutoscalingGroupName pulumi.StringOutput    `pulumi:"autoscalingGroupName"`
+	Elb                  pulumi.StringPtrOutput `pulumi:"elb"`
+	LbTargetGroupArn     pulumi.StringPtrOutput `pulumi:"lbTargetGroupArn"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
 }
 
 // NewAttachment registers a new resource with the given unique name, arguments, and options.
@@ -115,25 +54,17 @@ func GetAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Attachment resources.
 type attachmentState struct {
-	// Name of ASG to associate with the ELB.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// Name of the ELB.
-	Elb *string `pulumi:"elb"`
-	// ARN of a load balancer target group.
-	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Elb                  *string `pulumi:"elb"`
+	LbTargetGroupArn     *string `pulumi:"lbTargetGroupArn"`
+	Region               *string `pulumi:"region"`
 }
 
 type AttachmentState struct {
-	// Name of ASG to associate with the ELB.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// Name of the ELB.
-	Elb pulumi.StringPtrInput
-	// ARN of a load balancer target group.
-	LbTargetGroupArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Elb                  pulumi.StringPtrInput
+	LbTargetGroupArn     pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 }
 
 func (AttachmentState) ElementType() reflect.Type {
@@ -141,26 +72,18 @@ func (AttachmentState) ElementType() reflect.Type {
 }
 
 type attachmentArgs struct {
-	// Name of ASG to associate with the ELB.
-	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// Name of the ELB.
-	Elb *string `pulumi:"elb"`
-	// ARN of a load balancer target group.
-	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AutoscalingGroupName string  `pulumi:"autoscalingGroupName"`
+	Elb                  *string `pulumi:"elb"`
+	LbTargetGroupArn     *string `pulumi:"lbTargetGroupArn"`
+	Region               *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Attachment resource.
 type AttachmentArgs struct {
-	// Name of ASG to associate with the ELB.
 	AutoscalingGroupName pulumi.StringInput
-	// Name of the ELB.
-	Elb pulumi.StringPtrInput
-	// ARN of a load balancer target group.
-	LbTargetGroupArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Elb                  pulumi.StringPtrInput
+	LbTargetGroupArn     pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 }
 
 func (AttachmentArgs) ElementType() reflect.Type {
@@ -250,22 +173,18 @@ func (o AttachmentOutput) ToAttachmentOutputWithContext(ctx context.Context) Att
 	return o
 }
 
-// Name of ASG to associate with the ELB.
 func (o AttachmentOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// Name of the ELB.
 func (o AttachmentOutput) Elb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.Elb }).(pulumi.StringPtrOutput)
 }
 
-// ARN of a load balancer target group.
 func (o AttachmentOutput) LbTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.LbTargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

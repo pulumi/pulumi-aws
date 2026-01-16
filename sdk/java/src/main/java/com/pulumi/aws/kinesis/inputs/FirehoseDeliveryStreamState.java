@@ -28,32 +28,16 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
     public static final FirehoseDeliveryStreamState Empty = new FirehoseDeliveryStreamState();
 
-    /**
-     * The Amazon Resource Name (ARN) specifying the Stream
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
-    /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-     * 
-     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
@@ -65,246 +49,114 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.destinationId);
     }
 
-    /**
-     * Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
-     * 
-     */
     @Import(name="elasticsearchConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationArgs> elasticsearchConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationArgs>> elasticsearchConfiguration() {
         return Optional.ofNullable(this.elasticsearchConfiguration);
     }
 
-    /**
-     * Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
-     * 
-     */
     @Import(name="extendedS3Configuration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationArgs> extendedS3Configuration;
 
-    /**
-     * @return Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationArgs>> extendedS3Configuration() {
         return Optional.ofNullable(this.extendedS3Configuration);
     }
 
-    /**
-     * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
-     * 
-     */
     @Import(name="httpEndpointConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationArgs> httpEndpointConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationArgs>> httpEndpointConfiguration() {
         return Optional.ofNullable(this.httpEndpointConfiguration);
     }
 
-    /**
-     * Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
-     * 
-     */
     @Import(name="icebergConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamIcebergConfigurationArgs> icebergConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamIcebergConfigurationArgs>> icebergConfiguration() {
         return Optional.ofNullable(this.icebergConfiguration);
     }
 
-    /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
-     * 
-     */
     @Import(name="kinesisSourceConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs> kinesisSourceConfiguration;
 
-    /**
-     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs>> kinesisSourceConfiguration() {
         return Optional.ofNullable(this.kinesisSourceConfiguration);
     }
 
-    /**
-     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
-     * 
-     */
     @Import(name="mskSourceConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamMskSourceConfigurationArgs> mskSourceConfiguration;
 
-    /**
-     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamMskSourceConfigurationArgs>> mskSourceConfiguration() {
         return Optional.ofNullable(this.mskSourceConfiguration);
     }
 
-    /**
-     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
-     * 
-     */
     @Import(name="opensearchConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationArgs> opensearchConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationArgs>> opensearchConfiguration() {
         return Optional.ofNullable(this.opensearchConfiguration);
     }
 
-    /**
-     * Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
-     * 
-     */
     @Import(name="opensearchserverlessConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs> opensearchserverlessConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs>> opensearchserverlessConfiguration() {
         return Optional.ofNullable(this.opensearchserverlessConfiguration);
     }
 
-    /**
-     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
-     * 
-     */
     @Import(name="redshiftConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationArgs> redshiftConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationArgs>> redshiftConfiguration() {
         return Optional.ofNullable(this.redshiftConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     * 
-     */
     @Import(name="serverSideEncryption")
     private @Nullable Output<FirehoseDeliveryStreamServerSideEncryptionArgs> serverSideEncryption;
 
-    /**
-     * @return Encrypt at rest options. See `serverSideEncryption` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamServerSideEncryptionArgs>> serverSideEncryption() {
         return Optional.ofNullable(this.serverSideEncryption);
     }
 
-    /**
-     * Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
-     * 
-     */
     @Import(name="snowflakeConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationArgs> snowflakeConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationArgs>> snowflakeConfiguration() {
         return Optional.ofNullable(this.snowflakeConfiguration);
     }
 
-    /**
-     * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
-     * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
-     */
     @Import(name="splunkConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration;
 
-    /**
-     * @return Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
-     * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationArgs>> splunkConfiguration() {
         return Optional.ofNullable(this.splunkConfiguration);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -359,44 +211,20 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
             $ = new FirehoseDeliveryStreamState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
@@ -410,342 +238,146 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
             return destinationId(Output.of(destinationId));
         }
 
-        /**
-         * @param elasticsearchConfiguration Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elasticsearchConfiguration(@Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationArgs> elasticsearchConfiguration) {
             $.elasticsearchConfiguration = elasticsearchConfiguration;
             return this;
         }
 
-        /**
-         * @param elasticsearchConfiguration Configuration options when `destination` is `elasticsearch`. See `elasticsearchConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elasticsearchConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationArgs elasticsearchConfiguration) {
             return elasticsearchConfiguration(Output.of(elasticsearchConfiguration));
         }
 
-        /**
-         * @param extendedS3Configuration Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extendedS3Configuration(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationArgs> extendedS3Configuration) {
             $.extendedS3Configuration = extendedS3Configuration;
             return this;
         }
 
-        /**
-         * @param extendedS3Configuration Enhanced configuration options for the s3 destination. See `extendedS3Configuration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs extendedS3Configuration) {
             return extendedS3Configuration(Output.of(extendedS3Configuration));
         }
 
-        /**
-         * @param httpEndpointConfiguration Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpEndpointConfiguration(@Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationArgs> httpEndpointConfiguration) {
             $.httpEndpointConfiguration = httpEndpointConfiguration;
             return this;
         }
 
-        /**
-         * @param httpEndpointConfiguration Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpEndpointConfiguration(FirehoseDeliveryStreamHttpEndpointConfigurationArgs httpEndpointConfiguration) {
             return httpEndpointConfiguration(Output.of(httpEndpointConfiguration));
         }
 
-        /**
-         * @param icebergConfiguration Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergConfiguration(@Nullable Output<FirehoseDeliveryStreamIcebergConfigurationArgs> icebergConfiguration) {
             $.icebergConfiguration = icebergConfiguration;
             return this;
         }
 
-        /**
-         * @param icebergConfiguration Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergConfiguration(FirehoseDeliveryStreamIcebergConfigurationArgs icebergConfiguration) {
             return icebergConfiguration(Output.of(icebergConfiguration));
         }
 
-        /**
-         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisSourceConfiguration(@Nullable Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs> kinesisSourceConfiguration) {
             $.kinesisSourceConfiguration = kinesisSourceConfiguration;
             return this;
         }
 
-        /**
-         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisSourceConfiguration(FirehoseDeliveryStreamKinesisSourceConfigurationArgs kinesisSourceConfiguration) {
             return kinesisSourceConfiguration(Output.of(kinesisSourceConfiguration));
         }
 
-        /**
-         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mskSourceConfiguration(@Nullable Output<FirehoseDeliveryStreamMskSourceConfigurationArgs> mskSourceConfiguration) {
             $.mskSourceConfiguration = mskSourceConfiguration;
             return this;
         }
 
-        /**
-         * @param mskSourceConfiguration The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mskSourceConfiguration(FirehoseDeliveryStreamMskSourceConfigurationArgs mskSourceConfiguration) {
             return mskSourceConfiguration(Output.of(mskSourceConfiguration));
         }
 
-        /**
-         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param opensearchConfiguration Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opensearchConfiguration(@Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationArgs> opensearchConfiguration) {
             $.opensearchConfiguration = opensearchConfiguration;
             return this;
         }
 
-        /**
-         * @param opensearchConfiguration Configuration options when `destination` is `opensearch`. See `opensearchConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs opensearchConfiguration) {
             return opensearchConfiguration(Output.of(opensearchConfiguration));
         }
 
-        /**
-         * @param opensearchserverlessConfiguration Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opensearchserverlessConfiguration(@Nullable Output<FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs> opensearchserverlessConfiguration) {
             $.opensearchserverlessConfiguration = opensearchserverlessConfiguration;
             return this;
         }
 
-        /**
-         * @param opensearchserverlessConfiguration Configuration options when `destination` is `opensearchserverless`. See `opensearchserverlessConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opensearchserverlessConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs opensearchserverlessConfiguration) {
             return opensearchserverlessConfiguration(Output.of(opensearchserverlessConfiguration));
         }
 
-        /**
-         * @param redshiftConfiguration Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftConfiguration(@Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationArgs> redshiftConfiguration) {
             $.redshiftConfiguration = redshiftConfiguration;
             return this;
         }
 
-        /**
-         * @param redshiftConfiguration Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs redshiftConfiguration) {
             return redshiftConfiguration(Output.of(redshiftConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverSideEncryption Encrypt at rest options. See `serverSideEncryption` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryption(@Nullable Output<FirehoseDeliveryStreamServerSideEncryptionArgs> serverSideEncryption) {
             $.serverSideEncryption = serverSideEncryption;
             return this;
         }
 
-        /**
-         * @param serverSideEncryption Encrypt at rest options. See `serverSideEncryption` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryption(FirehoseDeliveryStreamServerSideEncryptionArgs serverSideEncryption) {
             return serverSideEncryption(Output.of(serverSideEncryption));
         }
 
-        /**
-         * @param snowflakeConfiguration Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowflakeConfiguration(@Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationArgs> snowflakeConfiguration) {
             $.snowflakeConfiguration = snowflakeConfiguration;
             return this;
         }
 
-        /**
-         * @param snowflakeConfiguration Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowflakeConfiguration(FirehoseDeliveryStreamSnowflakeConfigurationArgs snowflakeConfiguration) {
             return snowflakeConfiguration(Output.of(snowflakeConfiguration));
         }
 
-        /**
-         * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
-         * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder splunkConfiguration(@Nullable Output<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration) {
             $.splunkConfiguration = splunkConfiguration;
             return this;
         }
 
-        /**
-         * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
-         * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder splunkConfiguration(FirehoseDeliveryStreamSplunkConfigurationArgs splunkConfiguration) {
             return splunkConfiguration(Output.of(splunkConfiguration));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -14,32 +14,16 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
 
     public static final WorkgroupConfigParameterArgs Empty = new WorkgroupConfigParameterArgs();
 
-    /**
-     * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
-     * 
-     */
     @Import(name="parameterKey", required=true)
     private Output<String> parameterKey;
 
-    /**
-     * @return The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
-     * 
-     */
     public Output<String> parameterKey() {
         return this.parameterKey;
     }
 
-    /**
-     * The value of the parameter to set.
-     * 
-     */
     @Import(name="parameterValue", required=true)
     private Output<String> parameterValue;
 
-    /**
-     * @return The value of the parameter to set.
-     * 
-     */
     public Output<String> parameterValue() {
         return this.parameterValue;
     }
@@ -69,44 +53,20 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
             $ = new WorkgroupConfigParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameterKey The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterKey(Output<String> parameterKey) {
             $.parameterKey = parameterKey;
             return this;
         }
 
-        /**
-         * @param parameterKey The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterKey(String parameterKey) {
             return parameterKey(Output.of(parameterKey));
         }
 
-        /**
-         * @param parameterValue The value of the parameter to set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValue(Output<String> parameterValue) {
             $.parameterValue = parameterValue;
             return this;
         }
 
-        /**
-         * @param parameterValue The value of the parameter to set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValue(String parameterValue) {
             return parameterValue(Output.of(parameterValue));
         }

@@ -12,17 +12,9 @@ namespace Pulumi.Aws.IvsChat.Inputs
 
     public sealed class RoomMessageReviewHandlerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The fallback behavior (whether the message
-        /// is allowed or denied) if the handler does not return a valid response,
-        /// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-        /// </summary>
         [Input("fallbackResult")]
         public Input<string>? FallbackResult { get; set; }
 
-        /// <summary>
-        /// ARN of the lambda message review handler function.
-        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 

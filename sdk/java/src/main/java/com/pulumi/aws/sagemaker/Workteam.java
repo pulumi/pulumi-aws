@@ -19,259 +19,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker AI Workteam resource.
- * 
- * ## Example Usage
- * 
- * ### Cognito Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Workteam;
- * import com.pulumi.aws.sagemaker.WorkteamArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workteam("example", WorkteamArgs.builder()
- *             .workteamName("example")
- *             .workforceName(exampleAwsSagemakerWorkforce.id())
- *             .description("example")
- *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
- *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
- *                     .clientId(exampleAwsCognitoUserPoolClient.id())
- *                     .userPool(exampleAwsCognitoUserPoolDomain.userPoolId())
- *                     .userGroup(exampleAwsCognitoUserGroup.name())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Oidc Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Workteam;
- * import com.pulumi.aws.sagemaker.WorkteamArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workteam("example", WorkteamArgs.builder()
- *             .workteamName("example")
- *             .workforceName(exampleAwsSagemakerWorkforce.id())
- *             .description("example")
- *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
- *                 .oidcMemberDefinition(WorkteamMemberDefinitionOidcMemberDefinitionArgs.builder()
- *                     .groups("example")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SageMaker AI Workteams using the `workteam_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/workteam:Workteam example example
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/workteam:Workteam")
 public class Workteam extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description of the work team.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return A description of the work team.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-     * 
-     */
     @Export(name="memberDefinitions", refs={List.class,WorkteamMemberDefinition.class}, tree="[0,1]")
     private Output<List<WorkteamMemberDefinition>> memberDefinitions;
 
-    /**
-     * @return A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-     * 
-     */
     public Output<List<WorkteamMemberDefinition>> memberDefinitions() {
         return this.memberDefinitions;
     }
-    /**
-     * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-     * 
-     */
     @Export(name="notificationConfiguration", refs={WorkteamNotificationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkteamNotificationConfiguration> notificationConfiguration;
 
-    /**
-     * @return Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-     * 
-     */
     public Output<Optional<WorkteamNotificationConfiguration>> notificationConfiguration() {
         return Codegen.optional(this.notificationConfiguration);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The subdomain for your OIDC Identity Provider.
-     * 
-     */
     @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
-    /**
-     * @return The subdomain for your OIDC Identity Provider.
-     * 
-     */
     public Output<String> subdomain() {
         return this.subdomain;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
-     * 
-     */
     @Export(name="workerAccessConfiguration", refs={WorkteamWorkerAccessConfiguration.class}, tree="[0]")
     private Output<WorkteamWorkerAccessConfiguration> workerAccessConfiguration;
 
-    /**
-     * @return Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
-     * 
-     */
     public Output<WorkteamWorkerAccessConfiguration> workerAccessConfiguration() {
         return this.workerAccessConfiguration;
     }
-    /**
-     * The name of the workforce.
-     * 
-     */
     @Export(name="workforceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workforceName;
 
-    /**
-     * @return The name of the workforce.
-     * 
-     */
     public Output<Optional<String>> workforceName() {
         return Codegen.optional(this.workforceName);
     }
-    /**
-     * The name of the Workteam (must be unique).
-     * 
-     */
     @Export(name="workteamName", refs={String.class}, tree="[0]")
     private Output<String> workteamName;
 
-    /**
-     * @return The name of the Workteam (must be unique).
-     * 
-     */
     public Output<String> workteamName() {
         return this.workteamName;
     }

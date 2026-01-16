@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AccessGrantGrantee {
-    /**
-     * @return Grantee identifier.
-     * 
-     */
     private String granteeIdentifier;
-    /**
-     * @return Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-     * 
-     */
     private String granteeType;
 
     private AccessGrantGrantee() {}
-    /**
-     * @return Grantee identifier.
-     * 
-     */
     public String granteeIdentifier() {
         return this.granteeIdentifier;
     }
-    /**
-     * @return Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-     * 
-     */
     public String granteeType() {
         return this.granteeType;
     }

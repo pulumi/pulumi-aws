@@ -16,77 +16,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleRuleOr {
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrAnd> ands;
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrCostCategory> costCategories;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrDimension> dimensions;
-    /**
-     * @return Return results that do not match the `Dimension` object.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrNot> nots;
-    /**
-     * @return Return results that match either `Dimension` object.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrOr> ors;
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrTag> tags;
 
     private GetCostCategoryRuleRuleOr() {}
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrAnd> ands() {
         return this.ands;
     }
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrCostCategory> costCategories() {
         return this.costCategories;
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrDimension> dimensions() {
         return this.dimensions;
     }
-    /**
-     * @return Return results that do not match the `Dimension` object.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrNot> nots() {
         return this.nots;
     }
-    /**
-     * @return Return results that match either `Dimension` object.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrOr> ors() {
         return this.ors;
     }
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrTag> tags() {
         return this.tags;
     }

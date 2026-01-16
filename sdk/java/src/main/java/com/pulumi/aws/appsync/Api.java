@@ -17,326 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.Api;
- * import com.pulumi.aws.appsync.ApiArgs;
- * import com.pulumi.aws.appsync.inputs.ApiEventConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Api("example", ApiArgs.builder()
- *             .name("example-event-api")
- *             .eventConfig(ApiEventConfigArgs.builder()
- *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
- *                     .authType("API_KEY")
- *                     .build())
- *                 .connectionAuthModes(ApiEventConfigConnectionAuthModeArgs.builder()
- *                     .authType("API_KEY")
- *                     .build())
- *                 .defaultPublishAuthModes(ApiEventConfigDefaultPublishAuthModeArgs.builder()
- *                     .authType("API_KEY")
- *                     .build())
- *                 .defaultSubscribeAuthModes(ApiEventConfigDefaultSubscribeAuthModeArgs.builder()
- *                     .authType("API_KEY")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Cognito Authentication
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.appsync.Api;
- * import com.pulumi.aws.appsync.ApiArgs;
- * import com.pulumi.aws.appsync.inputs.ApiEventConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()
- *             .name("example-user-pool")
- *             .build());
- * 
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
- *             .name("example-event-api")
- *             .eventConfig(ApiEventConfigArgs.builder()
- *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
- *                     .authType("AMAZON_COGNITO_USER_POOLS")
- *                     .cognitoConfig(ApiEventConfigAuthProviderCognitoConfigArgs.builder()
- *                         .userPoolId(example.id())
- *                         .awsRegion(current.name())
- *                         .build())
- *                     .build())
- *                 .connectionAuthModes(ApiEventConfigConnectionAuthModeArgs.builder()
- *                     .authType("AMAZON_COGNITO_USER_POOLS")
- *                     .build())
- *                 .defaultPublishAuthModes(ApiEventConfigDefaultPublishAuthModeArgs.builder()
- *                     .authType("AMAZON_COGNITO_USER_POOLS")
- *                     .build())
- *                 .defaultSubscribeAuthModes(ApiEventConfigDefaultSubscribeAuthModeArgs.builder()
- *                     .authType("AMAZON_COGNITO_USER_POOLS")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Lambda Authorizer
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.Api;
- * import com.pulumi.aws.appsync.ApiArgs;
- * import com.pulumi.aws.appsync.inputs.ApiEventConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Api("example", ApiArgs.builder()
- *             .name("example-event-api")
- *             .eventConfig(ApiEventConfigArgs.builder()
- *                 .authProviders(ApiEventConfigAuthProviderArgs.builder()
- *                     .authType("AWS_LAMBDA")
- *                     .lambdaAuthorizerConfig(ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs.builder()
- *                         .authorizerUri(exampleAwsLambdaFunction.arn())
- *                         .authorizerResultTtlInSeconds(300)
- *                         .build())
- *                     .build())
- *                 .connectionAuthModes(ApiEventConfigConnectionAuthModeArgs.builder()
- *                     .authType("AWS_LAMBDA")
- *                     .build())
- *                 .defaultPublishAuthModes(ApiEventConfigDefaultPublishAuthModeArgs.builder()
- *                     .authType("AWS_LAMBDA")
- *                     .build())
- *                 .defaultSubscribeAuthModes(ApiEventConfigDefaultSubscribeAuthModeArgs.builder()
- *                     .authType("AWS_LAMBDA")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:appsync/api:Api example example-api-id
- * ```
- * 
- */
 @ResourceType(type="aws:appsync/api:Api")
 public class Api extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Event API.
-     * 
-     */
     @Export(name="apiArn", refs={String.class}, tree="[0]")
     private Output<String> apiArn;
 
-    /**
-     * @return ARN of the Event API.
-     * 
-     */
     public Output<String> apiArn() {
         return this.apiArn;
     }
-    /**
-     * ID of the Event API.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return ID of the Event API.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * DNS configuration for the Event API.
-     * 
-     */
     @Export(name="dns", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> dns;
 
-    /**
-     * @return DNS configuration for the Event API.
-     * 
-     */
     public Output<Map<String,String>> dns() {
         return this.dns;
     }
-    /**
-     * Configuration for the Event API. See Event Config below.
-     * 
-     */
     @Export(name="eventConfig", refs={ApiEventConfig.class}, tree="[0]")
     private Output</* @Nullable */ ApiEventConfig> eventConfig;
 
-    /**
-     * @return Configuration for the Event API. See Event Config below.
-     * 
-     */
     public Output<Optional<ApiEventConfig>> eventConfig() {
         return Codegen.optional(this.eventConfig);
     }
-    /**
-     * Name of the Event API.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Event API.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Contact information for the owner of the Event API.
-     * 
-     */
     @Export(name="ownerContact", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerContact;
 
-    /**
-     * @return Contact information for the owner of the Event API.
-     * 
-     */
     public Output<Optional<String>> ownerContact() {
         return Codegen.optional(this.ownerContact);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the associated WAF web ACL.
-     * 
-     */
     @Export(name="wafWebAclArn", refs={String.class}, tree="[0]")
     private Output<String> wafWebAclArn;
 
-    /**
-     * @return ARN of the associated WAF web ACL.
-     * 
-     */
     public Output<String> wafWebAclArn() {
         return this.wafWebAclArn;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParametersSpark
     {
-        /// <summary>
-        /// The host to which to connect.
-        /// </summary>
         public readonly string Host;
-        /// <summary>
-        /// The warehouse to which to connect.
-        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]

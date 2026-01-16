@@ -12,45 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAssociationCertificateSettings {
-    /**
-     * @return DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-     * 
-     */
     private @Nullable String certificateVerificationDnsRecord;
-    /**
-     * @return The Amazon resource name (ARN) for the custom certificate.
-     * Required when `type` is `CUSTOM`.
-     * 
-     */
     private @Nullable String customCertificateArn;
-    /**
-     * @return The certificate type.
-     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-     * 
-     */
     private String type;
 
     private DomainAssociationCertificateSettings() {}
-    /**
-     * @return DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-     * 
-     */
     public Optional<String> certificateVerificationDnsRecord() {
         return Optional.ofNullable(this.certificateVerificationDnsRecord);
     }
-    /**
-     * @return The Amazon resource name (ARN) for the custom certificate.
-     * Required when `type` is `CUSTOM`.
-     * 
-     */
     public Optional<String> customCertificateArn() {
         return Optional.ofNullable(this.customCertificateArn);
     }
-    /**
-     * @return The certificate type.
-     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-     * 
-     */
     public String type() {
         return this.type;
     }

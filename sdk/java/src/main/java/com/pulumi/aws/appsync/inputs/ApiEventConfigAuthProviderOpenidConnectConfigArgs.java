@@ -17,62 +17,30 @@ public final class ApiEventConfigAuthProviderOpenidConnectConfigArgs extends com
 
     public static final ApiEventConfigAuthProviderOpenidConnectConfigArgs Empty = new ApiEventConfigAuthProviderOpenidConnectConfigArgs();
 
-    /**
-     * TTL in seconds for the authentication token.
-     * 
-     */
     @Import(name="authTtl")
     private @Nullable Output<Integer> authTtl;
 
-    /**
-     * @return TTL in seconds for the authentication token.
-     * 
-     */
     public Optional<Output<Integer>> authTtl() {
         return Optional.ofNullable(this.authTtl);
     }
 
-    /**
-     * Client ID for the OpenID Connect provider.
-     * 
-     */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
-    /**
-     * @return Client ID for the OpenID Connect provider.
-     * 
-     */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
-    /**
-     * TTL in seconds for the issued at time.
-     * 
-     */
     @Import(name="iatTtl")
     private @Nullable Output<Integer> iatTtl;
 
-    /**
-     * @return TTL in seconds for the issued at time.
-     * 
-     */
     public Optional<Output<Integer>> iatTtl() {
         return Optional.ofNullable(this.iatTtl);
     }
 
-    /**
-     * Issuer URL for the OpenID Connect provider.
-     * 
-     */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
-    /**
-     * @return Issuer URL for the OpenID Connect provider.
-     * 
-     */
     public Output<String> issuer() {
         return this.issuer;
     }
@@ -104,86 +72,38 @@ public final class ApiEventConfigAuthProviderOpenidConnectConfigArgs extends com
             $ = new ApiEventConfigAuthProviderOpenidConnectConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authTtl TTL in seconds for the authentication token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authTtl(@Nullable Output<Integer> authTtl) {
             $.authTtl = authTtl;
             return this;
         }
 
-        /**
-         * @param authTtl TTL in seconds for the authentication token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authTtl(Integer authTtl) {
             return authTtl(Output.of(authTtl));
         }
 
-        /**
-         * @param clientId Client ID for the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId Client ID for the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param iatTtl TTL in seconds for the issued at time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iatTtl(@Nullable Output<Integer> iatTtl) {
             $.iatTtl = iatTtl;
             return this;
         }
 
-        /**
-         * @param iatTtl TTL in seconds for the issued at time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iatTtl(Integer iatTtl) {
             return iatTtl(Output.of(iatTtl));
         }
 
-        /**
-         * @param issuer Issuer URL for the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer Issuer URL for the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }

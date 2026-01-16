@@ -29,14 +29,6 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schema resource.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "compatibility", compatibility)
         pulumi.set(__self__, "data_format", data_format)
@@ -54,9 +46,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def compatibility(self) -> pulumi.Input[_builtins.str]:
-        """
-        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        """
         return pulumi.get(self, "compatibility")
 
     @compatibility.setter
@@ -66,9 +55,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
@@ -78,9 +64,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Input[_builtins.str]:
-        """
-        The schema definition using the `data_format` setting for `schema_name`.
-        """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
@@ -90,9 +73,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Name of the schema.
-        """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
@@ -102,9 +82,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the schema.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -114,9 +91,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -126,9 +100,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Glue Registry to create the schema in.
-        """
         return pulumi.get(self, "registry_arn")
 
     @registry_arn.setter
@@ -138,9 +109,6 @@ class SchemaArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,20 +135,6 @@ class _SchemaState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the schema.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
-        :param pulumi.Input[_builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
-        :param pulumi.Input[_builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the Glue Registry.
-        :param pulumi.Input[_builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -214,9 +168,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the schema.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -226,9 +177,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def compatibility(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        """
         return pulumi.get(self, "compatibility")
 
     @compatibility.setter
@@ -238,9 +186,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
@@ -250,9 +195,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the schema.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -262,9 +204,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="latestSchemaVersion")
     def latest_schema_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The latest version of the schema associated with the returned schema definition.
-        """
         return pulumi.get(self, "latest_schema_version")
 
     @latest_schema_version.setter
@@ -274,9 +213,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="nextSchemaVersion")
     def next_schema_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The next version of the schema associated with the returned schema definition.
-        """
         return pulumi.get(self, "next_schema_version")
 
     @next_schema_version.setter
@@ -286,9 +222,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -298,9 +231,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Glue Registry to create the schema in.
-        """
         return pulumi.get(self, "registry_arn")
 
     @registry_arn.setter
@@ -310,9 +240,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Glue Registry.
-        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -322,9 +249,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="schemaCheckpoint")
     def schema_checkpoint(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The version number of the checkpoint (the last time the compatibility mode was changed).
-        """
         return pulumi.get(self, "schema_checkpoint")
 
     @schema_checkpoint.setter
@@ -334,9 +258,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The schema definition using the `data_format` setting for `schema_name`.
-        """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
@@ -346,9 +267,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Name of the schema.
-        """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
@@ -358,9 +276,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -370,9 +285,6 @@ class _SchemaState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -396,44 +308,9 @@ class Schema(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Glue Schema resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Schema("example",
-            schema_name="example",
-            registry_arn=test["arn"],
-            data_format="AVRO",
-            compatibility="NONE",
-            schema_definition="{\\"type\\": \\"record\\", \\"name\\": \\"r1\\", \\"fields\\": [ {\\"name\\": \\"f1\\", \\"type\\": \\"int\\"}, {\\"name\\": \\"f2\\", \\"type\\": \\"string\\"} ]}")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
-
-        Using `pulumi import`, import Glue Registries using `arn`. For example:
-
-        % pulumi import aws_glue_schema.example arn:aws:glue:us-west-2:123456789012:schema/example/example
-
+        Create a Schema resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -442,34 +319,7 @@ class Schema(pulumi.CustomResource):
                  args: SchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue Schema resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Schema("example",
-            schema_name="example",
-            registry_arn=test["arn"],
-            data_format="AVRO",
-            compatibility="NONE",
-            schema_definition="{\\"type\\": \\"record\\", \\"name\\": \\"r1\\", \\"fields\\": [ {\\"name\\": \\"f1\\", \\"type\\": \\"int\\"}, {\\"name\\": \\"f2\\", \\"type\\": \\"string\\"} ]}")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
-
-        Using `pulumi import`, import Glue Registries using `arn`. For example:
-
-        % pulumi import aws_glue_schema.example arn:aws:glue:us-west-2:123456789012:schema/example/example
-
+        Create a Schema resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -555,20 +405,6 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the schema.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
-        :param pulumi.Input[_builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
-        :param pulumi.Input[_builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the Glue Registry.
-        :param pulumi.Input[_builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -593,112 +429,70 @@ class Schema(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the schema.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def compatibility(self) -> pulumi.Output[_builtins.str]:
-        """
-        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        """
         return pulumi.get(self, "compatibility")
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[_builtins.str]:
-        """
-        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        """
         return pulumi.get(self, "data_format")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the schema.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="latestSchemaVersion")
     def latest_schema_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The latest version of the schema associated with the returned schema definition.
-        """
         return pulumi.get(self, "latest_schema_version")
 
     @_builtins.property
     @pulumi.getter(name="nextSchemaVersion")
     def next_schema_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The next version of the schema associated with the returned schema definition.
-        """
         return pulumi.get(self, "next_schema_version")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Glue Registry to create the schema in.
-        """
         return pulumi.get(self, "registry_arn")
 
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Glue Registry.
-        """
         return pulumi.get(self, "registry_name")
 
     @_builtins.property
     @pulumi.getter(name="schemaCheckpoint")
     def schema_checkpoint(self) -> pulumi.Output[_builtins.int]:
-        """
-        The version number of the checkpoint (the last time the compatibility mode was changed).
-        """
         return pulumi.get(self, "schema_checkpoint")
 
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output[_builtins.str]:
-        """
-        The schema definition using the `data_format` setting for `schema_name`.
-        """
         return pulumi.get(self, "schema_definition")
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Name of the schema.
-        """
         return pulumi.get(self, "schema_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleTargetSagemakerPipelineParametersPipelineParameter {
-    /**
-     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     private String value;
 
     private ScheduleTargetSagemakerPipelineParametersPipelineParameter() {}
-    /**
-     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-     * 
-     */
     public String value() {
         return this.value;
     }

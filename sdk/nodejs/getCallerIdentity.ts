@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to get the access to the effective Account ID, User ID, and ARN in
- * which this provider is authorized.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * export const accountId = current.then(current => current.accountId);
- * export const callerArn = current.then(current => current.arn);
- * export const callerUser = current.then(current => current.userId);
- * ```
- */
 export function getCallerIdentity(args?: GetCallerIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,9 +16,6 @@ export function getCallerIdentity(args?: GetCallerIdentityArgs, opts?: pulumi.In
  * A collection of arguments for invoking getCallerIdentity.
  */
 export interface GetCallerIdentityArgs {
-    /**
-     * Account ID number of the account that owns or contains the calling entity.
-     */
     id?: string;
 }
 
@@ -42,39 +23,11 @@ export interface GetCallerIdentityArgs {
  * A collection of values returned by getCallerIdentity.
  */
 export interface GetCallerIdentityResult {
-    /**
-     * AWS Account ID number of the account that owns or contains the calling entity.
-     */
     readonly accountId: string;
-    /**
-     * ARN associated with the calling entity.
-     */
     readonly arn: string;
-    /**
-     * Account ID number of the account that owns or contains the calling entity.
-     */
     readonly id: string;
-    /**
-     * Unique identifier of the calling entity.
-     */
     readonly userId: string;
 }
-/**
- * Use this data source to get the access to the effective Account ID, User ID, and ARN in
- * which this provider is authorized.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * export const accountId = current.then(current => current.accountId);
- * export const callerArn = current.then(current => current.arn);
- * export const callerUser = current.then(current => current.userId);
- * ```
- */
 export function getCallerIdentityOutput(args?: GetCallerIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCallerIdentityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,8 +40,5 @@ export function getCallerIdentityOutput(args?: GetCallerIdentityOutputArgs, opts
  * A collection of arguments for invoking getCallerIdentity.
  */
 export interface GetCallerIdentityOutputArgs {
-    /**
-     * Account ID number of the account that owns or contains the calling entity.
-     */
     id?: pulumi.Input<string>;
 }

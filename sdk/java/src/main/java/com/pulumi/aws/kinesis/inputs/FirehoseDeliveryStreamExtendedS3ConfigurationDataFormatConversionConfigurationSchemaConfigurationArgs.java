@@ -16,92 +16,44 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs();
 
-    /**
-     * The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Specifies the name of the AWS Glue database that contains the schema for the output data.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Specifies the name of the AWS Glue database that contains the schema for the output data.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * If you don&#39;t specify an AWS Region, the default is the current region.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return If you don&#39;t specify an AWS Region, the default is the current region.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
 
-    /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
-     * 
-     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
-    /**
-     * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
-     * 
-     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -135,128 +87,56 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             $ = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId The ID of the AWS Glue Data Catalog. If you don&#39;t supply this, the AWS account ID is used by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param databaseName Specifies the name of the AWS Glue database that contains the schema for the output data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Specifies the name of the AWS Glue database that contains the schema for the output data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param region If you don&#39;t specify an AWS Region, the default is the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region If you don&#39;t specify an AWS Region, the default is the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tableName Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
 
-        /**
-         * @param versionId Specifies the table version for the output data schema. Defaults to `LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
-        /**
-         * @param versionId Specifies the table version for the output data schema. Defaults to `LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }

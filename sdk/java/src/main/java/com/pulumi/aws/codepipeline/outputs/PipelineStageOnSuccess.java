@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineStageOnSuccess {
-    /**
-     * @return The conditions that are success conditions. Defined as a `condition` block below.
-     * 
-     */
     private PipelineStageOnSuccessCondition condition;
 
     private PipelineStageOnSuccess() {}
-    /**
-     * @return The conditions that are success conditions. Defined as a `condition` block below.
-     * 
-     */
     public PipelineStageOnSuccessCondition condition() {
         return this.condition;
     }

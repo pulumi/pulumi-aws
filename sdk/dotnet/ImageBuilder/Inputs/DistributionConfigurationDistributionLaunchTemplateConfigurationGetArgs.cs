@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class DistributionConfigurationDistributionLaunchTemplateConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account ID that this configuration applies to.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `True`.
-        /// </summary>
         [Input("default")]
         public Input<bool>? Default { get; set; }
 
-        /// <summary>
-        /// The ID of the Amazon EC2 launch template to use.
-        /// </summary>
         [Input("launchTemplateId", required: true)]
         public Input<string> LaunchTemplateId { get; set; } = null!;
 

@@ -14,32 +14,16 @@ public final class ClusterEncryptionDetailArgs extends com.pulumi.resources.Reso
 
     public static final ClusterEncryptionDetailArgs Empty = new ClusterEncryptionDetailArgs();
 
-    /**
-     * The status of encryption for the DSQL Cluster.
-     * 
-     */
     @Import(name="encryptionStatus", required=true)
     private Output<String> encryptionStatus;
 
-    /**
-     * @return The status of encryption for the DSQL Cluster.
-     * 
-     */
     public Output<String> encryptionStatus() {
         return this.encryptionStatus;
     }
 
-    /**
-     * The type of encryption that protects the data on the DSQL Cluster.
-     * 
-     */
     @Import(name="encryptionType", required=true)
     private Output<String> encryptionType;
 
-    /**
-     * @return The type of encryption that protects the data on the DSQL Cluster.
-     * 
-     */
     public Output<String> encryptionType() {
         return this.encryptionType;
     }
@@ -69,44 +53,20 @@ public final class ClusterEncryptionDetailArgs extends com.pulumi.resources.Reso
             $ = new ClusterEncryptionDetailArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionStatus The status of encryption for the DSQL Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionStatus(Output<String> encryptionStatus) {
             $.encryptionStatus = encryptionStatus;
             return this;
         }
 
-        /**
-         * @param encryptionStatus The status of encryption for the DSQL Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionStatus(String encryptionStatus) {
             return encryptionStatus(Output.of(encryptionStatus));
         }
 
-        /**
-         * @param encryptionType The type of encryption that protects the data on the DSQL Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(Output<String> encryptionType) {
             $.encryptionType = encryptionType;
             return this;
         }
 
-        /**
-         * @param encryptionType The type of encryption that protects the data on the DSQL Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(String encryptionType) {
             return encryptionType(Output.of(encryptionType));
         }

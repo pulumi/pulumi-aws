@@ -17,32 +17,16 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
 
     public static final BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs();
 
-    /**
-     * Number of days to retain journal table records.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return Number of days to retain journal table records.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="expiration", required=true)
     private Output<String> expiration;
 
-    /**
-     * @return Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> expiration() {
         return this.expiration;
     }
@@ -72,44 +56,20 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
             $ = new BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param days Number of days to retain journal table records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days Number of days to retain journal table records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
-        /**
-         * @param expiration Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiration(Output<String> expiration) {
             $.expiration = expiration;
             return this;
         }
 
-        /**
-         * @param expiration Whether journal table record expiration is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiration(String expiration) {
             return expiration(Output.of(expiration));
         }

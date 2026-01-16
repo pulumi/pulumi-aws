@@ -14,32 +14,16 @@ public final class GetConnectionGroupPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetConnectionGroupPlainArgs Empty = new GetConnectionGroupPlainArgs();
 
-    /**
-     * Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     @Import(name="routingEndpoint")
     private @Nullable String routingEndpoint;
 
-    /**
-     * @return Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-     * 
-     */
     public Optional<String> routingEndpoint() {
         return Optional.ofNullable(this.routingEndpoint);
     }
@@ -69,23 +53,11 @@ public final class GetConnectionGroupPlainArgs extends com.pulumi.resources.Invo
             $ = new GetConnectionGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param routingEndpoint Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingEndpoint(@Nullable String routingEndpoint) {
             $.routingEndpoint = routingEndpoint;
             return this;

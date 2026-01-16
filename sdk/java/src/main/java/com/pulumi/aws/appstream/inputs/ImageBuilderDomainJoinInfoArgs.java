@@ -15,32 +15,16 @@ public final class ImageBuilderDomainJoinInfoArgs extends com.pulumi.resources.R
 
     public static final ImageBuilderDomainJoinInfoArgs Empty = new ImageBuilderDomainJoinInfoArgs();
 
-    /**
-     * Fully qualified name of the directory (for example, corp.example.com).
-     * 
-     */
     @Import(name="directoryName")
     private @Nullable Output<String> directoryName;
 
-    /**
-     * @return Fully qualified name of the directory (for example, corp.example.com).
-     * 
-     */
     public Optional<Output<String>> directoryName() {
         return Optional.ofNullable(this.directoryName);
     }
 
-    /**
-     * Distinguished name of the organizational unit for computer accounts.
-     * 
-     */
     @Import(name="organizationalUnitDistinguishedName")
     private @Nullable Output<String> organizationalUnitDistinguishedName;
 
-    /**
-     * @return Distinguished name of the organizational unit for computer accounts.
-     * 
-     */
     public Optional<Output<String>> organizationalUnitDistinguishedName() {
         return Optional.ofNullable(this.organizationalUnitDistinguishedName);
     }
@@ -70,44 +54,20 @@ public final class ImageBuilderDomainJoinInfoArgs extends com.pulumi.resources.R
             $ = new ImageBuilderDomainJoinInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directoryName Fully qualified name of the directory (for example, corp.example.com).
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryName(@Nullable Output<String> directoryName) {
             $.directoryName = directoryName;
             return this;
         }
 
-        /**
-         * @param directoryName Fully qualified name of the directory (for example, corp.example.com).
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryName(String directoryName) {
             return directoryName(Output.of(directoryName));
         }
 
-        /**
-         * @param organizationalUnitDistinguishedName Distinguished name of the organizational unit for computer accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitDistinguishedName(@Nullable Output<String> organizationalUnitDistinguishedName) {
             $.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }
 
-        /**
-         * @param organizationalUnitDistinguishedName Distinguished name of the organizational unit for computer accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitDistinguishedName(String organizationalUnitDistinguishedName) {
             return organizationalUnitDistinguishedName(Output.of(organizationalUnitDistinguishedName));
         }

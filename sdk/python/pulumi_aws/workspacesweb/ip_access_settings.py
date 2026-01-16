@@ -30,15 +30,6 @@ class IpAccessSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpAccessSettings resource.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "display_name", display_name)
         if additional_encryption_context is not None:
@@ -57,9 +48,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The display name of the IP access settings.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -69,9 +57,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the IP access settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -81,9 +66,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -93,9 +75,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the IP access settings.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -105,11 +84,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]]:
-        """
-        The IP rules of the IP access settings. See IP Rule below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
@@ -119,9 +93,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -131,9 +102,6 @@ class IpAccessSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -156,18 +124,6 @@ class _IpAccessSettingsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IpAccessSettings resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs that this IP access settings resource is associated with.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings resource.
-        :param pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -193,9 +149,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the IP access settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -205,9 +158,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of web portal ARNs that this IP access settings resource is associated with.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -217,9 +167,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -229,9 +176,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the IP access settings.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -241,9 +185,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the IP access settings.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -253,9 +194,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IP access settings resource.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @ip_access_settings_arn.setter
@@ -265,11 +203,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]]:
-        """
-        The IP rules of the IP access settings. See IP Rule below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
@@ -279,9 +212,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -291,9 +221,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -303,9 +230,6 @@ class _IpAccessSettingsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -328,94 +252,9 @@ class IpAccessSettings(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web IP Access Settings resource. Once associated with a web portal, IP access settings control which IP addresses users can connect from.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            ip_rules=[{
-                "ip_range": "10.0.0.0/16",
-            }])
-        ```
-
-        ### With Multiple IP Rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            description="Example IP access settings",
-            ip_rules=[
-                {
-                    "ip_range": "10.0.0.0/16",
-                    "description": "Main office",
-                },
-                {
-                    "ip_range": "192.168.0.0/24",
-                    "description": "Branch office",
-                },
-            ])
-        ```
-
-        ### With All Arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web IP Access Settings",
-            deletion_window_in_days=7)
-        example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            description="Example IP access settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            ip_rules=[
-                {
-                    "ip_range": "10.0.0.0/16",
-                    "description": "Main office",
-                },
-                {
-                    "ip_range": "192.168.0.0/24",
-                    "description": "Branch office",
-                },
-            ],
-            tags={
-                "Name": "example-ip-access-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ip_access_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
-        ```
-
+        Create a IpAccessSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -424,83 +263,7 @@ class IpAccessSettings(pulumi.CustomResource):
                  args: IpAccessSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web IP Access Settings resource. Once associated with a web portal, IP access settings control which IP addresses users can connect from.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            ip_rules=[{
-                "ip_range": "10.0.0.0/16",
-            }])
-        ```
-
-        ### With Multiple IP Rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            description="Example IP access settings",
-            ip_rules=[
-                {
-                    "ip_range": "10.0.0.0/16",
-                    "description": "Main office",
-                },
-                {
-                    "ip_range": "192.168.0.0/24",
-                    "description": "Branch office",
-                },
-            ])
-        ```
-
-        ### With All Arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web IP Access Settings",
-            deletion_window_in_days=7)
-        example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
-            description="Example IP access settings",
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            ip_rules=[
-                {
-                    "ip_range": "10.0.0.0/16",
-                    "description": "Main office",
-                },
-                {
-                    "ip_range": "192.168.0.0/24",
-                    "description": "Branch office",
-                },
-            ],
-            tags={
-                "Name": "example-ip-access-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ip_access_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
-        ```
-
+        Create a IpAccessSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IpAccessSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -571,18 +334,6 @@ class IpAccessSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs that this IP access settings resource is associated with.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] description: The description of the IP access settings.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
-        :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAccessSettingsIpRuleArgs', 'IpAccessSettingsIpRuleArgsDict']]]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -603,82 +354,50 @@ class IpAccessSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Additional encryption context for the IP access settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of web portal ARNs that this IP access settings resource is associated with.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the IP access settings.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The display name of the IP access settings.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IP access settings resource.
-        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> pulumi.Output[Optional[Sequence['outputs.IpAccessSettingsIpRule']]]:
-        """
-        The IP rules of the IP access settings. See IP Rule below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "ip_rules")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

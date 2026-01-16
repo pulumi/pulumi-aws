@@ -43,9 +43,6 @@ class GetLbsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of Load Balancer ARNs.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -83,26 +80,7 @@ def get_lbs(region: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLbsResult:
     """
-    Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
-    resources.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lb.get_lbs(tags={
-        "elbv2.k8s.aws/cluster": "my-cluster",
-    })
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Load Balancers.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -119,26 +97,7 @@ def get_lbs_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = Non
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLbsResult]:
     """
-    Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
-    resources.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lb.get_lbs(tags={
-        "elbv2.k8s.aws/cluster": "my-cluster",
-    })
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Load Balancers.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

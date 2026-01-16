@@ -21,307 +21,113 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift Serverless Workgroup.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshiftserverless.Workgroup;
- * import com.pulumi.aws.redshiftserverless.WorkgroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workgroup("example", WorkgroupArgs.builder()
- *             .namespaceName("concurrency-scaling")
- *             .workgroupName("concurrency-scaling")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshiftserverless/workgroup:Workgroup")
 public class Workgroup extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     * 
-     */
     @Export(name="baseCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> baseCapacity;
 
-    /**
-     * @return The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     * 
-     */
     public Output<Integer> baseCapacity() {
         return this.baseCapacity;
     }
-    /**
-     * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     * 
-     */
     @Export(name="configParameters", refs={List.class,WorkgroupConfigParameter.class}, tree="[0,1]")
     private Output<List<WorkgroupConfigParameter>> configParameters;
 
-    /**
-     * @return An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     * 
-     */
     public Output<List<WorkgroupConfigParameter>> configParameters() {
         return this.configParameters;
     }
-    /**
-     * The endpoint that is created from the workgroup. See `Endpoint` below.
-     * 
-     */
     @Export(name="endpoints", refs={List.class,WorkgroupEndpoint.class}, tree="[0,1]")
     private Output<List<WorkgroupEndpoint>> endpoints;
 
-    /**
-     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
-     * 
-     */
     public Output<List<WorkgroupEndpoint>> endpoints() {
         return this.endpoints;
     }
-    /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     * 
-     */
     @Export(name="enhancedVpcRouting", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enhancedVpcRouting;
 
-    /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     * 
-     */
     public Output<Optional<Boolean>> enhancedVpcRouting() {
         return Codegen.optional(this.enhancedVpcRouting);
     }
-    /**
-     * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-     * 
-     */
     @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxCapacity;
 
-    /**
-     * @return The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
-     * 
-     */
     public Output<Optional<Integer>> maxCapacity() {
         return Codegen.optional(this.maxCapacity);
     }
-    /**
-     * The name of the namespace.
-     * 
-     */
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
-    /**
-     * @return The name of the namespace.
-     * 
-     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
-    /**
-     * The port number on which the cluster accepts incoming connections.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
-    /**
-     * @return The port number on which the cluster accepts incoming connections.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
-    /**
-     * Price-performance scaling for the workgroup. See `Price Performance Target` below.
-     * 
-     */
     @Export(name="pricePerformanceTarget", refs={WorkgroupPricePerformanceTarget.class}, tree="[0]")
     private Output<WorkgroupPricePerformanceTarget> pricePerformanceTarget;
 
-    /**
-     * @return Price-performance scaling for the workgroup. See `Price Performance Target` below.
-     * 
-     */
     public Output<WorkgroupPricePerformanceTarget> pricePerformanceTarget() {
         return this.pricePerformanceTarget;
     }
-    /**
-     * A value that specifies whether the workgroup can be accessed from a public network.
-     * 
-     */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
-    /**
-     * @return A value that specifies whether the workgroup can be accessed from a public network.
-     * 
-     */
     public Output<Optional<Boolean>> publiclyAccessible() {
         return Codegen.optional(this.publiclyAccessible);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return An array of security group IDs to associate with the workgroup.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-     * 
-     */
     @Export(name="trackName", refs={String.class}, tree="[0]")
     private Output<String> trackName;
 
-    /**
-     * @return The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
-     * 
-     */
     public Output<String> trackName() {
         return this.trackName;
     }
-    /**
-     * The Redshift Workgroup ID.
-     * 
-     */
     @Export(name="workgroupId", refs={String.class}, tree="[0]")
     private Output<String> workgroupId;
 
-    /**
-     * @return The Redshift Workgroup ID.
-     * 
-     */
     public Output<String> workgroupId() {
         return this.workgroupId;
     }
-    /**
-     * The name of the workgroup.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
-    /**
-     * @return The name of the workgroup.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> workgroupName() {
         return this.workgroupName;
     }

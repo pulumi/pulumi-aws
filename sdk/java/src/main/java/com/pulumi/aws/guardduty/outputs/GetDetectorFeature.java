@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDetectorFeature {
-    /**
-     * @return Additional feature configuration.
-     * 
-     */
     private List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations;
-    /**
-     * @return The name of the detector feature.
-     * 
-     */
     private String name;
-    /**
-     * @return Current status of the detector.
-     * 
-     */
     private String status;
 
     private GetDetectorFeature() {}
-    /**
-     * @return Additional feature configuration.
-     * 
-     */
     public List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations() {
         return this.additionalConfigurations;
     }
-    /**
-     * @return The name of the detector feature.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Current status of the detector.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
-    /**
-     * @return The OIDC configuration for processing access tokens. See Access Token Only below.
-     * 
-     */
     private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly accessTokenOnly;
-    /**
-     * @return The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-     * 
-     */
     private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly identityTokenOnly;
 
     private IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection() {}
-    /**
-     * @return The OIDC configuration for processing access tokens. See Access Token Only below.
-     * 
-     */
     public Optional<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly> accessTokenOnly() {
         return Optional.ofNullable(this.accessTokenOnly);
     }
-    /**
-     * @return The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-     * 
-     */
     public Optional<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly> identityTokenOnly() {
         return Optional.ofNullable(this.identityTokenOnly);
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationSheetTileBorderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The option to enable display of borders for visuals.
-        /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }
 

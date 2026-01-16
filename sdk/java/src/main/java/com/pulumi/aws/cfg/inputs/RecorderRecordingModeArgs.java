@@ -16,32 +16,16 @@ public final class RecorderRecordingModeArgs extends com.pulumi.resources.Resour
 
     public static final RecorderRecordingModeArgs Empty = new RecorderRecordingModeArgs();
 
-    /**
-     * Default recording frequency. `CONTINUOUS` or `DAILY`.
-     * 
-     */
     @Import(name="recordingFrequency")
     private @Nullable Output<String> recordingFrequency;
 
-    /**
-     * @return Default recording frequency. `CONTINUOUS` or `DAILY`.
-     * 
-     */
     public Optional<Output<String>> recordingFrequency() {
         return Optional.ofNullable(this.recordingFrequency);
     }
 
-    /**
-     * Recording mode overrides. Detailed below.
-     * 
-     */
     @Import(name="recordingModeOverride")
     private @Nullable Output<RecorderRecordingModeRecordingModeOverrideArgs> recordingModeOverride;
 
-    /**
-     * @return Recording mode overrides. Detailed below.
-     * 
-     */
     public Optional<Output<RecorderRecordingModeRecordingModeOverrideArgs>> recordingModeOverride() {
         return Optional.ofNullable(this.recordingModeOverride);
     }
@@ -71,44 +55,20 @@ public final class RecorderRecordingModeArgs extends com.pulumi.resources.Resour
             $ = new RecorderRecordingModeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recordingFrequency Default recording frequency. `CONTINUOUS` or `DAILY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingFrequency(@Nullable Output<String> recordingFrequency) {
             $.recordingFrequency = recordingFrequency;
             return this;
         }
 
-        /**
-         * @param recordingFrequency Default recording frequency. `CONTINUOUS` or `DAILY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingFrequency(String recordingFrequency) {
             return recordingFrequency(Output.of(recordingFrequency));
         }
 
-        /**
-         * @param recordingModeOverride Recording mode overrides. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingModeOverride(@Nullable Output<RecorderRecordingModeRecordingModeOverrideArgs> recordingModeOverride) {
             $.recordingModeOverride = recordingModeOverride;
             return this;
         }
 
-        /**
-         * @param recordingModeOverride Recording mode overrides. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingModeOverride(RecorderRecordingModeRecordingModeOverrideArgs recordingModeOverride) {
             return recordingModeOverride(Output.of(recordingModeOverride));
         }

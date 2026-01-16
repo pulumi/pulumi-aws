@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
-    /**
-     * @return Starting hour of the 10-hour window for updates
-     * 
-     */
     private @Nullable Integer hours;
-    /**
-     * @return Starting minute of the 10-hour window for updates
-     * 
-     */
     private @Nullable Integer minutes;
 
     private DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime() {}
-    /**
-     * @return Starting hour of the 10-hour window for updates
-     * 
-     */
     public Optional<Integer> hours() {
         return Optional.ofNullable(this.hours);
     }
-    /**
-     * @return Starting minute of the 10-hour window for updates
-     * 
-     */
     public Optional<Integer> minutes() {
         return Optional.ofNullable(this.minutes);
     }

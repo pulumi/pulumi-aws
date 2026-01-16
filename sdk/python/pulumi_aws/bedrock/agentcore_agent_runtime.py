@@ -36,20 +36,6 @@ class AgentcoreAgentRuntimeArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreAgentRuntime resource.
-        :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
-        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
-        :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -79,9 +65,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeName")
     def agent_runtime_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the agent runtime.
-        """
         return pulumi.get(self, "agent_runtime_name")
 
     @agent_runtime_name.setter
@@ -91,9 +74,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the IAM role that the agent runtime assumes to access AWS services.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -103,9 +83,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArtifact")
     def agent_runtime_artifact(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']]:
-        """
-        Container artifact configuration. See `agent_runtime_artifact` below.
-        """
         return pulumi.get(self, "agent_runtime_artifact")
 
     @agent_runtime_artifact.setter
@@ -115,9 +92,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs']]:
-        """
-        Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
@@ -127,9 +101,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the agent runtime.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -139,9 +110,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of environment variables to pass to the container.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -151,9 +119,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]]:
-        """
-        Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        """
         return pulumi.get(self, "lifecycle_configurations")
 
     @lifecycle_configurations.setter
@@ -163,11 +128,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']]:
-        """
-        Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -177,9 +137,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs']]:
-        """
-        Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        """
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
@@ -189,9 +146,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -201,9 +155,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter(name="requestHeaderConfiguration")
     def request_header_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs']]:
-        """
-        Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        """
         return pulumi.get(self, "request_header_configuration")
 
     @request_header_configuration.setter
@@ -213,9 +164,6 @@ class AgentcoreAgentRuntimeArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -255,25 +203,6 @@ class _AgentcoreAgentRuntimeState:
                  workload_identity_details: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering AgentcoreAgentRuntime resources.
-        :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the Agent Runtime.
-        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
-        :param pulumi.Input[_builtins.str] agent_runtime_id: Unique identifier of the Agent Runtime.
-        :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
-        :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the Agent Runtime.
-        :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs']]] workload_identity_details: Workload identity details for the agent runtime. See `workload_identity_details` below.
         """
         if agent_runtime_arn is not None:
             pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -315,9 +244,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArn")
     def agent_runtime_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Agent Runtime.
-        """
         return pulumi.get(self, "agent_runtime_arn")
 
     @agent_runtime_arn.setter
@@ -327,9 +253,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArtifact")
     def agent_runtime_artifact(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']]:
-        """
-        Container artifact configuration. See `agent_runtime_artifact` below.
-        """
         return pulumi.get(self, "agent_runtime_artifact")
 
     @agent_runtime_artifact.setter
@@ -339,9 +262,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeId")
     def agent_runtime_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the Agent Runtime.
-        """
         return pulumi.get(self, "agent_runtime_id")
 
     @agent_runtime_id.setter
@@ -351,9 +271,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeName")
     def agent_runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the agent runtime.
-        """
         return pulumi.get(self, "agent_runtime_name")
 
     @agent_runtime_name.setter
@@ -363,9 +280,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeVersion")
     def agent_runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the Agent Runtime.
-        """
         return pulumi.get(self, "agent_runtime_version")
 
     @agent_runtime_version.setter
@@ -375,9 +289,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs']]:
-        """
-        Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
@@ -387,9 +298,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the agent runtime.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -399,9 +307,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of environment variables to pass to the container.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -411,9 +316,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]]:
-        """
-        Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        """
         return pulumi.get(self, "lifecycle_configurations")
 
     @lifecycle_configurations.setter
@@ -423,11 +325,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs']]:
-        """
-        Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -437,9 +334,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs']]:
-        """
-        Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        """
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
@@ -449,9 +343,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -461,9 +352,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="requestHeaderConfiguration")
     def request_header_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs']]:
-        """
-        Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        """
         return pulumi.get(self, "request_header_configuration")
 
     @request_header_configuration.setter
@@ -473,9 +361,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the agent runtime assumes to access AWS services.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -485,9 +370,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -497,9 +379,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -518,9 +397,6 @@ class _AgentcoreAgentRuntimeState:
     @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")
     def workload_identity_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs']]]]:
-        """
-        Workload identity details for the agent runtime. See `workload_identity_details` below.
-        """
         return pulumi.get(self, "workload_identity_details")
 
     @workload_identity_details.setter
@@ -549,148 +425,9 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentcoreAgentRuntimeTimeoutsArgs', 'AgentcoreAgentRuntimeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Agent Runtime. Agent Runtime provides a containerized execution environment for AI agents.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        ecr_permissions = aws.iam.get_policy_document(statements=[
-            {
-                "actions": ["ecr:GetAuthorizationToken"],
-                "effect": "Allow",
-                "resources": ["*"],
-            },
-            {
-                "actions": [
-                    "ecr:BatchGetImage",
-                    "ecr:GetDownloadUrlForLayer",
-                ],
-                "effect": "Allow",
-                "resources": [example_aws_ecr_repository["arn"]],
-            },
-        ])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-runtime-role",
-            assume_role_policy=assume_role.json)
-        example_role_policy = aws.iam.RolePolicy("example",
-            role=example.id,
-            policy=ecr_permissions.json)
-        example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example.arn,
-            agent_runtime_artifact={
-                "container_configuration": {
-                    "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
-                },
-            },
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ### MCP Server With Custom JWT Authorizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            description="Agent runtime with JWT authorization",
-            role_arn=example_aws_iam_role["arn"],
-            agent_runtime_artifact={
-                "container_configuration": {
-                    "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:v1.0",
-                },
-            },
-            environment_variables={
-                "LOG_LEVEL": "INFO",
-                "ENV": "production",
-            },
-            authorizer_configuration={
-                "custom_jwt_authorizer": {
-                    "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
-                    "allowed_audiences": [
-                        "my-app",
-                        "mobile-app",
-                    ],
-                    "allowed_clients": [
-                        "client-123",
-                        "client-456",
-                    ],
-                },
-            },
-            network_configuration={
-                "network_mode": "PUBLIC",
-            },
-            protocol_configuration={
-                "server_protocol": "MCP",
-            })
-        ```
-
-        ### Agent runtime artifact from S3 with Code Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example_aws_iam_role["arn"],
-            agent_runtime_artifact={
-                "code_configuration": {
-                    "entry_points": ["main.py"],
-                    "runtime": "PYTHON_3_13",
-                    "code": {
-                        "s3": {
-                            "bucket": "example-bucket",
-                            "prefix": "example-agent-runtime-code.zip",
-                        },
-                    },
-                },
-            },
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime example agent-runtime-12345
-        ```
-
+        Create a AgentcoreAgentRuntime resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict']] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
-        :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict']] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict']] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -699,132 +436,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                  args: AgentcoreAgentRuntimeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Agent Runtime. Agent Runtime provides a containerized execution environment for AI agents.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        ecr_permissions = aws.iam.get_policy_document(statements=[
-            {
-                "actions": ["ecr:GetAuthorizationToken"],
-                "effect": "Allow",
-                "resources": ["*"],
-            },
-            {
-                "actions": [
-                    "ecr:BatchGetImage",
-                    "ecr:GetDownloadUrlForLayer",
-                ],
-                "effect": "Allow",
-                "resources": [example_aws_ecr_repository["arn"]],
-            },
-        ])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-runtime-role",
-            assume_role_policy=assume_role.json)
-        example_role_policy = aws.iam.RolePolicy("example",
-            role=example.id,
-            policy=ecr_permissions.json)
-        example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example.arn,
-            agent_runtime_artifact={
-                "container_configuration": {
-                    "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
-                },
-            },
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ### MCP Server With Custom JWT Authorizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            description="Agent runtime with JWT authorization",
-            role_arn=example_aws_iam_role["arn"],
-            agent_runtime_artifact={
-                "container_configuration": {
-                    "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:v1.0",
-                },
-            },
-            environment_variables={
-                "LOG_LEVEL": "INFO",
-                "ENV": "production",
-            },
-            authorizer_configuration={
-                "custom_jwt_authorizer": {
-                    "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
-                    "allowed_audiences": [
-                        "my-app",
-                        "mobile-app",
-                    ],
-                    "allowed_clients": [
-                        "client-123",
-                        "client-456",
-                    ],
-                },
-            },
-            network_configuration={
-                "network_mode": "PUBLIC",
-            },
-            protocol_configuration={
-                "server_protocol": "MCP",
-            })
-        ```
-
-        ### Agent runtime artifact from S3 with Code Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example_agent_runtime",
-            role_arn=example_aws_iam_role["arn"],
-            agent_runtime_artifact={
-                "code_configuration": {
-                    "entry_points": ["main.py"],
-                    "runtime": "PYTHON_3_13",
-                    "code": {
-                        "s3": {
-                            "bucket": "example-bucket",
-                            "prefix": "example-agent-runtime-code.zip",
-                        },
-                    },
-                },
-            },
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime example agent-runtime-12345
-        ```
-
+        Create a AgentcoreAgentRuntime resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreAgentRuntimeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -919,25 +531,6 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the Agent Runtime.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict']] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
-        :param pulumi.Input[_builtins.str] agent_runtime_id: Unique identifier of the Agent Runtime.
-        :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
-        :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the Agent Runtime.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict']] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict']] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs', 'AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict']]]] workload_identity_details: Workload identity details for the agent runtime. See `workload_identity_details` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -966,131 +559,81 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArn")
     def agent_runtime_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Agent Runtime.
-        """
         return pulumi.get(self, "agent_runtime_arn")
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArtifact")
     def agent_runtime_artifact(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']]:
-        """
-        Container artifact configuration. See `agent_runtime_artifact` below.
-        """
         return pulumi.get(self, "agent_runtime_artifact")
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeId")
     def agent_runtime_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the Agent Runtime.
-        """
         return pulumi.get(self, "agent_runtime_id")
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeName")
     def agent_runtime_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the agent runtime.
-        """
         return pulumi.get(self, "agent_runtime_name")
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeVersion")
     def agent_runtime_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the Agent Runtime.
-        """
         return pulumi.get(self, "agent_runtime_version")
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfiguration']]:
-        """
-        Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
-        """
         return pulumi.get(self, "authorizer_configuration")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the agent runtime.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of environment variables to pass to the container.
-        """
         return pulumi.get(self, "environment_variables")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> pulumi.Output[Sequence['outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]:
-        """
-        Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
-        """
         return pulumi.get(self, "lifecycle_configurations")
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeNetworkConfiguration']]:
-        """
-        Network configuration for the agent runtime. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeProtocolConfiguration']]:
-        """
-        Protocol configuration for the agent runtime. See `protocol_configuration` below.
-        """
         return pulumi.get(self, "protocol_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="requestHeaderConfiguration")
     def request_header_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']]:
-        """
-        Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
-        """
         return pulumi.get(self, "request_header_configuration")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role that the agent runtime assumes to access AWS services.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1101,8 +644,5 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")
     def workload_identity_details(self) -> pulumi.Output[Sequence['outputs.AgentcoreAgentRuntimeWorkloadIdentityDetail']]:
-        """
-        Workload identity details for the agent runtime. See `workload_identity_details` below.
-        """
         return pulumi.get(self, "workload_identity_details")
 

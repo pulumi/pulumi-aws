@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfiguration {
-    /**
-     * @return The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
-     * 
-     */
     private @Nullable String maxCapacityBreachBehavior;
-    /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
-     * 
-     */
     private @Nullable Integer maxCapacityBuffer;
-    /**
-     * @return Metrics and target utilization to use for predictive scaling. See supported fields below.
-     * 
-     */
     private List<PolicyPredictiveScalingPolicyConfigurationMetricSpecification> metricSpecifications;
-    /**
-     * @return Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return Amount of time, in seconds, that the start time can be advanced.
-     * 
-     */
     private @Nullable Integer schedulingBufferTime;
 
     private PolicyPredictiveScalingPolicyConfiguration() {}
-    /**
-     * @return The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
-     * 
-     */
     public Optional<String> maxCapacityBreachBehavior() {
         return Optional.ofNullable(this.maxCapacityBreachBehavior);
     }
-    /**
-     * @return Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `maxCapacityBreachBehavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
-     * 
-     */
     public Optional<Integer> maxCapacityBuffer() {
         return Optional.ofNullable(this.maxCapacityBuffer);
     }
-    /**
-     * @return Metrics and target utilization to use for predictive scaling. See supported fields below.
-     * 
-     */
     public List<PolicyPredictiveScalingPolicyConfigurationMetricSpecification> metricSpecifications() {
         return this.metricSpecifications;
     }
-    /**
-     * @return Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return Amount of time, in seconds, that the start time can be advanced.
-     * 
-     */
     public Optional<Integer> schedulingBufferTime() {
         return Optional.ofNullable(this.schedulingBufferTime);
     }

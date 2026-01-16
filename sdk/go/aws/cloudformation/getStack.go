@@ -11,46 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The CloudFormation Stack data source allows access to stack
-// outputs and other useful data including the template body.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			network, err := cloudformation.LookupStack(ctx, &cloudformation.LookupStackArgs{
-//				Name: "my-network-stack",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:          pulumi.String("ami-abb07bcb"),
-//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     pulumi.String(network.Outputs.SubnetId),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.InvokeOption) (*LookupStackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackResult
@@ -63,40 +23,27 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getStack.
 type LookupStackArgs struct {
-	// Name of the stack
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags associated with this stack.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStack.
 type LookupStackResult struct {
-	// List of capabilities
-	Capabilities []string `pulumi:"capabilities"`
-	// Description of the stack
-	Description string `pulumi:"description"`
-	// Whether the rollback of the stack is disabled when stack creation fails
-	DisableRollback bool `pulumi:"disableRollback"`
-	// ARN of the IAM role used to create the stack.
-	IamRoleArn string `pulumi:"iamRoleArn"`
+	Capabilities    []string `pulumi:"capabilities"`
+	Description     string   `pulumi:"description"`
+	DisableRollback bool     `pulumi:"disableRollback"`
+	IamRoleArn      string   `pulumi:"iamRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// List of SNS topic ARNs to publish stack related events
-	NotificationArns []string `pulumi:"notificationArns"`
-	// Map of outputs from the stack.
-	Outputs map[string]string `pulumi:"outputs"`
-	// Map of parameters that specify input parameters for the stack.
-	Parameters map[string]string `pulumi:"parameters"`
-	Region     string            `pulumi:"region"`
-	// Map of tags associated with this stack.
-	Tags map[string]string `pulumi:"tags"`
-	// Structure containing the template body.
-	TemplateBody string `pulumi:"templateBody"`
-	// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
-	TimeoutInMinutes int `pulumi:"timeoutInMinutes"`
+	Id               string            `pulumi:"id"`
+	Name             string            `pulumi:"name"`
+	NotificationArns []string          `pulumi:"notificationArns"`
+	Outputs          map[string]string `pulumi:"outputs"`
+	Parameters       map[string]string `pulumi:"parameters"`
+	Region           string            `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	TemplateBody     string            `pulumi:"templateBody"`
+	TimeoutInMinutes int               `pulumi:"timeoutInMinutes"`
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
@@ -110,12 +57,9 @@ func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...
 
 // A collection of arguments for invoking getStack.
 type LookupStackOutputArgs struct {
-	// Name of the stack
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags associated with this stack.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupStackOutputArgs) ElementType() reflect.Type {
@@ -137,22 +81,18 @@ func (o LookupStackResultOutput) ToLookupStackResultOutputWithContext(ctx contex
 	return o
 }
 
-// List of capabilities
 func (o LookupStackResultOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
-// Description of the stack
 func (o LookupStackResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Whether the rollback of the stack is disabled when stack creation fails
 func (o LookupStackResultOutput) DisableRollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStackResult) bool { return v.DisableRollback }).(pulumi.BoolOutput)
 }
 
-// ARN of the IAM role used to create the stack.
 func (o LookupStackResultOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
@@ -166,17 +106,14 @@ func (o LookupStackResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of SNS topic ARNs to publish stack related events
 func (o LookupStackResultOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
-// Map of outputs from the stack.
 func (o LookupStackResultOutput) Outputs() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
 }
 
-// Map of parameters that specify input parameters for the stack.
 func (o LookupStackResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -185,17 +122,14 @@ func (o LookupStackResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags associated with this stack.
 func (o LookupStackResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Structure containing the template body.
 func (o LookupStackResultOutput) TemplateBody() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStackResult) string { return v.TemplateBody }).(pulumi.StringOutput)
 }
 
-// Amount of time that can pass before the stack status becomes `CREATE_FAILED`
 func (o LookupStackResultOutput) TimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupStackResult) int { return v.TimeoutInMinutes }).(pulumi.IntOutput)
 }

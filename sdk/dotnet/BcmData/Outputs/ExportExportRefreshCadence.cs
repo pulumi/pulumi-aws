@@ -13,9 +13,6 @@ namespace Pulumi.Aws.BcmData.Outputs
     [OutputType]
     public sealed class ExportExportRefreshCadence
     {
-        /// <summary>
-        /// Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
-        /// </summary>
         public readonly string Frequency;
 
         [OutputConstructor]

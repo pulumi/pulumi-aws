@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to take for a high risk. See action block below.
-        /// </summary>
         [Input("highAction")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs>? HighAction { get; set; }
 
-        /// <summary>
-        /// Action to take for a low risk. See action block below.
-        /// </summary>
         [Input("lowAction")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs>? LowAction { get; set; }
 
-        /// <summary>
-        /// Action to take for a medium risk. See action block below.
-        /// </summary>
         [Input("mediumAction")]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs>? MediumAction { get; set; }
 

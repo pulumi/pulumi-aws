@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainerEnvGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the job definition.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the environment variable.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

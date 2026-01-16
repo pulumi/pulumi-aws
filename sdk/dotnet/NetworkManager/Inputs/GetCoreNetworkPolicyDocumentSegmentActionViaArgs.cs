@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     {
         [Input("networkFunctionGroups")]
         private InputList<string>? _networkFunctionGroups;
-
-        /// <summary>
-        /// A list of strings. The network function group to use for the service insertion action.
-        /// </summary>
         public InputList<string> NetworkFunctionGroups
         {
             get => _networkFunctionGroups ?? (_networkFunctionGroups = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
         [Input("withEdgeOverrides")]
         private InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInputArgs>? _withEdgeOverrides;
-
-        /// <summary>
-        /// Any edge overrides and the preferred edge to use.
-        /// </summary>
         public InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInputArgs> WithEdgeOverrides
         {
             get => _withEdgeOverrides ?? (_withEdgeOverrides = new InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInputArgs>());

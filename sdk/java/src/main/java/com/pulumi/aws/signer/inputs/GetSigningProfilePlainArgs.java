@@ -16,47 +16,23 @@ public final class GetSigningProfilePlainArgs extends com.pulumi.resources.Invok
 
     public static final GetSigningProfilePlainArgs Empty = new GetSigningProfilePlainArgs();
 
-    /**
-     * Name of the target signing profile.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the target signing profile.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of tags associated with the signing profile.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return List of tags associated with the signing profile.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetSigningProfilePlainArgs extends com.pulumi.resources.Invok
             $ = new GetSigningProfilePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the target signing profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags List of tags associated with the signing profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

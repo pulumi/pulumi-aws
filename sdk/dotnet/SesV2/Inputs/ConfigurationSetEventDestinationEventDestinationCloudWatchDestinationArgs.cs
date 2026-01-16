@@ -14,10 +14,6 @@ namespace Pulumi.Aws.SesV2.Inputs
     {
         [Input("dimensionConfigurations", required: true)]
         private InputList<Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>? _dimensionConfigurations;
-
-        /// <summary>
-        /// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `DimensionConfiguration` Block for details.
-        /// </summary>
         public InputList<Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs> DimensionConfigurations
         {
             get => _dimensionConfigurations ?? (_dimensionConfigurations = new InputList<Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>());

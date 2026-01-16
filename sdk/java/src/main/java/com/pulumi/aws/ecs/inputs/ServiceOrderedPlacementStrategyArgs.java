@@ -16,36 +16,16 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
 
     public static final ServiceOrderedPlacementStrategyArgs Empty = new ServiceOrderedPlacementStrategyArgs();
 
-    /**
-     * For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-     * 
-     */
     @Import(name="field")
     private @Nullable Output<String> field;
 
-    /**
-     * @return For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-     * 
-     */
     public Optional<Output<String>> field() {
         return Optional.ofNullable(this.field);
     }
 
-    /**
-     * Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-     * 
-     * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-     * 
-     * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -75,48 +55,20 @@ public final class ServiceOrderedPlacementStrategyArgs extends com.pulumi.resour
             $ = new ServiceOrderedPlacementStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param field For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(@Nullable Output<String> field) {
             $.field = field;
             return this;
         }
 
-        /**
-         * @param field For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
-        /**
-         * @param type Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-         * 
-         * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-         * 
-         * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

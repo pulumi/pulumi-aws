@@ -15,32 +15,16 @@ public final class GetBrokerEngineTypesArgs extends com.pulumi.resources.InvokeA
 
     public static final GetBrokerEngineTypesArgs Empty = new GetBrokerEngineTypesArgs();
 
-    /**
-     * MQ engine type to return version details for.
-     * 
-     */
     @Import(name="engineType")
     private @Nullable Output<String> engineType;
 
-    /**
-     * @return MQ engine type to return version details for.
-     * 
-     */
     public Optional<Output<String>> engineType() {
         return Optional.ofNullable(this.engineType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetBrokerEngineTypesArgs extends com.pulumi.resources.InvokeA
             $ = new GetBrokerEngineTypesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engineType MQ engine type to return version details for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(@Nullable Output<String> engineType) {
             $.engineType = engineType;
             return this;
         }
 
-        /**
-         * @param engineType MQ engine type to return version details for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(String engineType) {
             return engineType(Output.of(engineType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

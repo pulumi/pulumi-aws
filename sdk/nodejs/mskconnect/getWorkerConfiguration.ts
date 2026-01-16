@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an Amazon MSK Connect Worker Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getWorkerConfiguration({
- *     name: "example",
- * });
- * ```
- */
 export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
@@ -31,17 +17,8 @@ export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: 
  * A collection of arguments for invoking getWorkerConfiguration.
  */
 export interface GetWorkerConfigurationArgs {
-    /**
-     * Name of the worker configuration.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * A map of tags assigned to the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -49,47 +26,18 @@ export interface GetWorkerConfigurationArgs {
  * A collection of values returned by getWorkerConfiguration.
  */
 export interface GetWorkerConfigurationResult {
-    /**
-     * the ARN of the worker configuration.
-     */
     readonly arn: string;
-    /**
-     * a summary description of the worker configuration.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * an ID of the latest successfully created revision of the worker configuration.
-     */
     readonly latestRevision: number;
     readonly name: string;
-    /**
-     * contents of connect-distributed.properties file.
-     */
     readonly propertiesFileContent: string;
     readonly region: string;
-    /**
-     * A map of tags assigned to the resource.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Get information on an Amazon MSK Connect Worker Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getWorkerConfiguration({
- *     name: "example",
- * });
- * ```
- */
 export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
@@ -103,16 +51,7 @@ export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputA
  * A collection of arguments for invoking getWorkerConfiguration.
  */
 export interface GetWorkerConfigurationOutputArgs {
-    /**
-     * Name of the worker configuration.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

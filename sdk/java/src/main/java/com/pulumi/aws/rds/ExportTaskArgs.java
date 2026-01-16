@@ -18,126 +18,58 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ExportTaskArgs Empty = new ExportTaskArgs();
 
-    /**
-     * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-     * 
-     */
     @Import(name="exportOnlies")
     private @Nullable Output<List<String>> exportOnlies;
 
-    /**
-     * @return Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-     * 
-     */
     public Optional<Output<List<String>>> exportOnlies() {
         return Optional.ofNullable(this.exportOnlies);
     }
 
-    /**
-     * Unique identifier for the snapshot export task.
-     * 
-     */
     @Import(name="exportTaskIdentifier", required=true)
     private Output<String> exportTaskIdentifier;
 
-    /**
-     * @return Unique identifier for the snapshot export task.
-     * 
-     */
     public Output<String> exportTaskIdentifier() {
         return this.exportTaskIdentifier;
     }
 
-    /**
-     * ARN of the IAM role to use for writing to the Amazon S3 bucket.
-     * 
-     */
     @Import(name="iamRoleArn", required=true)
     private Output<String> iamRoleArn;
 
-    /**
-     * @return ARN of the IAM role to use for writing to the Amazon S3 bucket.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
 
-    /**
-     * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-     * 
-     */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
-    /**
-     * @return ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the Amazon S3 bucket to export the snapshot to.
-     * 
-     */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
-    /**
-     * @return Name of the Amazon S3 bucket to export the snapshot to.
-     * 
-     */
     public Output<String> s3BucketName() {
         return this.s3BucketName;
     }
 
-    /**
-     * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-     * 
-     */
     @Import(name="s3Prefix")
     private @Nullable Output<String> s3Prefix;
 
-    /**
-     * @return Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-     * 
-     */
     public Optional<Output<String>> s3Prefix() {
         return Optional.ofNullable(this.s3Prefix);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sourceArn", required=true)
     private Output<String> sourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the snapshot to export.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> sourceArn() {
         return this.sourceArn;
     }
@@ -181,184 +113,78 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ExportTaskArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exportOnlies Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportOnlies(@Nullable Output<List<String>> exportOnlies) {
             $.exportOnlies = exportOnlies;
             return this;
         }
 
-        /**
-         * @param exportOnlies Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportOnlies(List<String> exportOnlies) {
             return exportOnlies(Output.of(exportOnlies));
         }
 
-        /**
-         * @param exportOnlies Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportOnlies(String... exportOnlies) {
             return exportOnlies(List.of(exportOnlies));
         }
 
-        /**
-         * @param exportTaskIdentifier Unique identifier for the snapshot export task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportTaskIdentifier(Output<String> exportTaskIdentifier) {
             $.exportTaskIdentifier = exportTaskIdentifier;
             return this;
         }
 
-        /**
-         * @param exportTaskIdentifier Unique identifier for the snapshot export task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportTaskIdentifier(String exportTaskIdentifier) {
             return exportTaskIdentifier(Output.of(exportTaskIdentifier));
         }
 
-        /**
-         * @param iamRoleArn ARN of the IAM role to use for writing to the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(Output<String> iamRoleArn) {
             $.iamRoleArn = iamRoleArn;
             return this;
         }
 
-        /**
-         * @param iamRoleArn ARN of the IAM role to use for writing to the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamRoleArn(String iamRoleArn) {
             return iamRoleArn(Output.of(iamRoleArn));
         }
 
-        /**
-         * @param kmsKeyId ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3BucketName Name of the Amazon S3 bucket to export the snapshot to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(Output<String> s3BucketName) {
             $.s3BucketName = s3BucketName;
             return this;
         }
 
-        /**
-         * @param s3BucketName Name of the Amazon S3 bucket to export the snapshot to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BucketName(String s3BucketName) {
             return s3BucketName(Output.of(s3BucketName));
         }
 
-        /**
-         * @param s3Prefix Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(@Nullable Output<String> s3Prefix) {
             $.s3Prefix = s3Prefix;
             return this;
         }
 
-        /**
-         * @param s3Prefix Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(String s3Prefix) {
             return s3Prefix(Output.of(s3Prefix));
         }
 
-        /**
-         * @param sourceArn Amazon Resource Name (ARN) of the snapshot to export.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(Output<String> sourceArn) {
             $.sourceArn = sourceArn;
             return this;
         }
 
-        /**
-         * @param sourceArn Amazon Resource Name (ARN) of the snapshot to export.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceArn(String sourceArn) {
             return sourceArn(Output.of(sourceArn));
         }

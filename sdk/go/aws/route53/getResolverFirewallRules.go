@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-//
-// ## Example Usage
-//
-// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetResolverFirewallRules(ctx, &route53.GetResolverFirewallRulesArgs{
-//				FirewallRuleGroupId: exampleAwsRoute53ResolverFirewallRuleGroup.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetResolverFirewallRules(ctx *pulumi.Context, args *GetResolverFirewallRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverFirewallRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResolverFirewallRulesResult
@@ -52,27 +23,19 @@ func GetResolverFirewallRules(ctx *pulumi.Context, args *GetResolverFirewallRule
 
 // A collection of arguments for invoking getResolverFirewallRules.
 type GetResolverFirewallRulesArgs struct {
-	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-	Action *string `pulumi:"action"`
-	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
-	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
-	// The setting that determines the processing order of the rules in a rule group.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Action              *string `pulumi:"action"`
+	FirewallRuleGroupId string  `pulumi:"firewallRuleGroupId"`
+	Priority            *int    `pulumi:"priority"`
+	Region              *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRules.
 type GetResolverFirewallRulesResult struct {
-	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
-	Action *string `pulumi:"action"`
-	// The unique identifier of the firewall rule group.
-	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
-	// List with information about the firewall rules. See details below.
-	FirewallRules []GetResolverFirewallRulesFirewallRule `pulumi:"firewallRules"`
+	Action              *string                                `pulumi:"action"`
+	FirewallRuleGroupId string                                 `pulumi:"firewallRuleGroupId"`
+	FirewallRules       []GetResolverFirewallRulesFirewallRule `pulumi:"firewallRules"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The priority of the rule in the rule group.
+	Id       string `pulumi:"id"`
 	Priority *int   `pulumi:"priority"`
 	Region   string `pulumi:"region"`
 }
@@ -88,14 +51,10 @@ func GetResolverFirewallRulesOutput(ctx *pulumi.Context, args GetResolverFirewal
 
 // A collection of arguments for invoking getResolverFirewallRules.
 type GetResolverFirewallRulesOutputArgs struct {
-	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
-	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
-	// The setting that determines the processing order of the rules in a rule group.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Action              pulumi.StringPtrInput `pulumi:"action"`
+	FirewallRuleGroupId pulumi.StringInput    `pulumi:"firewallRuleGroupId"`
+	Priority            pulumi.IntPtrInput    `pulumi:"priority"`
+	Region              pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetResolverFirewallRulesOutputArgs) ElementType() reflect.Type {
@@ -117,17 +76,14 @@ func (o GetResolverFirewallRulesResultOutput) ToGetResolverFirewallRulesResultOu
 	return o
 }
 
-// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule.
 func (o GetResolverFirewallRulesResultOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier of the firewall rule group.
 func (o GetResolverFirewallRulesResultOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
 }
 
-// List with information about the firewall rules. See details below.
 func (o GetResolverFirewallRulesResultOutput) FirewallRules() GetResolverFirewallRulesFirewallRuleArrayOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) []GetResolverFirewallRulesFirewallRule { return v.FirewallRules }).(GetResolverFirewallRulesFirewallRuleArrayOutput)
 }
@@ -137,7 +93,6 @@ func (o GetResolverFirewallRulesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The priority of the rule in the rule group.
 func (o GetResolverFirewallRulesResultOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }

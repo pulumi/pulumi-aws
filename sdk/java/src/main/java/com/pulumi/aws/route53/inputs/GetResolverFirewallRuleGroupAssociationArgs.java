@@ -16,32 +16,16 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
 
     public static final GetResolverFirewallRuleGroupAssociationArgs Empty = new GetResolverFirewallRuleGroupAssociationArgs();
 
-    /**
-     * The identifier for the association.
-     * 
-     */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private Output<String> firewallRuleGroupAssociationId;
 
-    /**
-     * @return The identifier for the association.
-     * 
-     */
     public Output<String> firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
             $ = new GetResolverFirewallRuleGroupAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallRuleGroupAssociationId The identifier for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupAssociationId(Output<String> firewallRuleGroupAssociationId) {
             $.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
             return this;
         }
 
-        /**
-         * @param firewallRuleGroupAssociationId The identifier for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupAssociationId(String firewallRuleGroupAssociationId) {
             return firewallRuleGroupAssociationId(Output.of(firewallRuleGroupAssociationId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

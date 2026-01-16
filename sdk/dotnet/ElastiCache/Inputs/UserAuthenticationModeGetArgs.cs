@@ -17,10 +17,6 @@ namespace Pulumi.Aws.ElastiCache.Inputs
 
         [Input("passwords")]
         private InputList<string>? _passwords;
-
-        /// <summary>
-        /// Specifies the passwords to use for authentication if `Type` is set to `Password`.
-        /// </summary>
         public InputList<string> Passwords
         {
             get => _passwords ?? (_passwords = new InputList<string>());
@@ -31,9 +27,6 @@ namespace Pulumi.Aws.ElastiCache.Inputs
             }
         }
 
-        /// <summary>
-        /// Specifies the authentication type. Possible options are: `Password`, `no-password-required` or `Iam`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

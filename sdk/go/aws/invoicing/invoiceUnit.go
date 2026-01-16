@@ -12,77 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Invoice Unit for organizational billing.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/invoicing"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := invoicing.NewInvoiceUnit(ctx, "example", &invoicing.InvoiceUnitArgs{
-//				Name:            pulumi.String("example-unit"),
-//				Description:     pulumi.String("Example invoice unit"),
-//				InvoiceReceiver: pulumi.String("123456789012"),
-//				Rules: invoicing.InvoiceUnitRuleArray{
-//					&invoicing.InvoiceUnitRuleArgs{
-//						LinkedAccounts: pulumi.StringArray{
-//							pulumi.String("098765432109"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Invoice Units using the ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:invoicing/invoiceUnit:InvoiceUnit example arn:aws:invoicing::123456789012:invoice-unit/example-id
-// ```
 type InvoiceUnit struct {
 	pulumi.CustomResourceState
 
-	// ARN of the invoice unit.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the invoice unit.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-	InvoiceReceiver pulumi.StringOutput `pulumi:"invoiceReceiver"`
-	// Timestamp when the invoice unit was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// Unique name of the invoice unit. Cannot be changed after creation.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for invoice unit rules. See below.
-	//
-	// The following arguments are optional:
-	Rules InvoiceUnitRuleArrayOutput `pulumi:"rules"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Whether tax inheritance is disabled for this invoice unit.
+	Arn                    pulumi.StringOutput          `pulumi:"arn"`
+	Description            pulumi.StringPtrOutput       `pulumi:"description"`
+	InvoiceReceiver        pulumi.StringOutput          `pulumi:"invoiceReceiver"`
+	LastModified           pulumi.StringOutput          `pulumi:"lastModified"`
+	Name                   pulumi.StringOutput          `pulumi:"name"`
+	Region                 pulumi.StringOutput          `pulumi:"region"`
+	Rules                  InvoiceUnitRuleArrayOutput   `pulumi:"rules"`
+	Tags                   pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	TaxInheritanceDisabled pulumi.BoolOutput            `pulumi:"taxInheritanceDisabled"`
 	Timeouts               InvoiceUnitTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -120,53 +61,29 @@ func GetInvoiceUnit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvoiceUnit resources.
 type invoiceUnitState struct {
-	// ARN of the invoice unit.
-	Arn *string `pulumi:"arn"`
-	// Description of the invoice unit.
-	Description *string `pulumi:"description"`
-	// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-	InvoiceReceiver *string `pulumi:"invoiceReceiver"`
-	// Timestamp when the invoice unit was last modified.
-	LastModified *string `pulumi:"lastModified"`
-	// Unique name of the invoice unit. Cannot be changed after creation.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for invoice unit rules. See below.
-	//
-	// The following arguments are optional:
-	Rules []InvoiceUnitRule `pulumi:"rules"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Whether tax inheritance is disabled for this invoice unit.
+	Arn                    *string              `pulumi:"arn"`
+	Description            *string              `pulumi:"description"`
+	InvoiceReceiver        *string              `pulumi:"invoiceReceiver"`
+	LastModified           *string              `pulumi:"lastModified"`
+	Name                   *string              `pulumi:"name"`
+	Region                 *string              `pulumi:"region"`
+	Rules                  []InvoiceUnitRule    `pulumi:"rules"`
+	Tags                   map[string]string    `pulumi:"tags"`
+	TagsAll                map[string]string    `pulumi:"tagsAll"`
 	TaxInheritanceDisabled *bool                `pulumi:"taxInheritanceDisabled"`
 	Timeouts               *InvoiceUnitTimeouts `pulumi:"timeouts"`
 }
 
 type InvoiceUnitState struct {
-	// ARN of the invoice unit.
-	Arn pulumi.StringPtrInput
-	// Description of the invoice unit.
-	Description pulumi.StringPtrInput
-	// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-	InvoiceReceiver pulumi.StringPtrInput
-	// Timestamp when the invoice unit was last modified.
-	LastModified pulumi.StringPtrInput
-	// Unique name of the invoice unit. Cannot be changed after creation.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for invoice unit rules. See below.
-	//
-	// The following arguments are optional:
-	Rules InvoiceUnitRuleArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Whether tax inheritance is disabled for this invoice unit.
+	Arn                    pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	InvoiceReceiver        pulumi.StringPtrInput
+	LastModified           pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Rules                  InvoiceUnitRuleArrayInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
 	TaxInheritanceDisabled pulumi.BoolPtrInput
 	Timeouts               InvoiceUnitTimeoutsPtrInput
 }
@@ -176,42 +93,24 @@ func (InvoiceUnitState) ElementType() reflect.Type {
 }
 
 type invoiceUnitArgs struct {
-	// Description of the invoice unit.
-	Description *string `pulumi:"description"`
-	// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-	InvoiceReceiver string `pulumi:"invoiceReceiver"`
-	// Unique name of the invoice unit. Cannot be changed after creation.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for invoice unit rules. See below.
-	//
-	// The following arguments are optional:
-	Rules []InvoiceUnitRule `pulumi:"rules"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Whether tax inheritance is disabled for this invoice unit.
+	Description            *string              `pulumi:"description"`
+	InvoiceReceiver        string               `pulumi:"invoiceReceiver"`
+	Name                   *string              `pulumi:"name"`
+	Region                 *string              `pulumi:"region"`
+	Rules                  []InvoiceUnitRule    `pulumi:"rules"`
+	Tags                   map[string]string    `pulumi:"tags"`
 	TaxInheritanceDisabled *bool                `pulumi:"taxInheritanceDisabled"`
 	Timeouts               *InvoiceUnitTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a InvoiceUnit resource.
 type InvoiceUnitArgs struct {
-	// Description of the invoice unit.
-	Description pulumi.StringPtrInput
-	// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-	InvoiceReceiver pulumi.StringInput
-	// Unique name of the invoice unit. Cannot be changed after creation.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for invoice unit rules. See below.
-	//
-	// The following arguments are optional:
-	Rules InvoiceUnitRuleArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Whether tax inheritance is disabled for this invoice unit.
+	Description            pulumi.StringPtrInput
+	InvoiceReceiver        pulumi.StringInput
+	Name                   pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	Rules                  InvoiceUnitRuleArrayInput
+	Tags                   pulumi.StringMapInput
 	TaxInheritanceDisabled pulumi.BoolPtrInput
 	Timeouts               InvoiceUnitTimeoutsPtrInput
 }
@@ -303,54 +202,42 @@ func (o InvoiceUnitOutput) ToInvoiceUnitOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// ARN of the invoice unit.
 func (o InvoiceUnitOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the invoice unit.
 func (o InvoiceUnitOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
 func (o InvoiceUnitOutput) InvoiceReceiver() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.InvoiceReceiver }).(pulumi.StringOutput)
 }
 
-// Timestamp when the invoice unit was last modified.
 func (o InvoiceUnitOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// Unique name of the invoice unit. Cannot be changed after creation.
 func (o InvoiceUnitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InvoiceUnitOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for invoice unit rules. See below.
-//
-// The following arguments are optional:
 func (o InvoiceUnitOutput) Rules() InvoiceUnitRuleArrayOutput {
 	return o.ApplyT(func(v *InvoiceUnit) InvoiceUnitRuleArrayOutput { return v.Rules }).(InvoiceUnitRuleArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InvoiceUnitOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InvoiceUnitOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Whether tax inheritance is disabled for this invoice unit.
 func (o InvoiceUnitOutput) TaxInheritanceDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.BoolOutput { return v.TaxInheritanceDisabled }).(pulumi.BoolOutput)
 }

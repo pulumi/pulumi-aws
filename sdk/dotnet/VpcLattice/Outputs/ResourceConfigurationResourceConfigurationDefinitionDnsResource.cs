@@ -13,13 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ResourceConfigurationResourceConfigurationDefinitionDnsResource
     {
-        /// <summary>
-        /// The hostname of the Resource for this configuration.
-        /// </summary>
         public readonly string DomainName;
-        /// <summary>
-        /// The IP Address type either `IPV4` or `IPV6`
-        /// </summary>
         public readonly string IpAddressType;
 
         [OutputConstructor]

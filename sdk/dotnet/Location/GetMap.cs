@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Location
 {
     public static class GetMap
     {
-        /// <summary>
-        /// Retrieve information about a Location Service Map.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetMap.Invoke(new()
-        ///     {
-        ///         MapName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("aws:location/getMap:getMap", args ?? new GetMapArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Location Service Map.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetMap.Invoke(new()
-        ///     {
-        ///         MapName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws:location/getMap:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Location Service Map.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetMap.Invoke(new()
-        ///     {
-        ///         MapName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws:location/getMap:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetMapArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the map resource.
-        /// </summary>
         [Input("mapName", required: true)]
         public string MapName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the map.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetMapInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the map resource.
-        /// </summary>
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the map.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,35 +70,17 @@ namespace Pulumi.Aws.Location
     [OutputType]
     public sealed class GetMapResult
     {
-        /// <summary>
-        /// List of configurations that specify the map tile style selected from a partner data provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetMapConfigurationResult> Configurations;
-        /// <summary>
-        /// Timestamp for when the map resource was created in ISO 8601 format.
-        /// </summary>
         public readonly string CreateTime;
-        /// <summary>
-        /// Optional description for the map resource.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN for the map resource.
-        /// </summary>
         public readonly string MapArn;
         public readonly string MapName;
         public readonly string Region;
-        /// <summary>
-        /// Key-value map of resource tags for the map.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Timestamp for when the map resource was last updated in ISO 8601 format.
-        /// </summary>
         public readonly string UpdateTime;
 
         [OutputConstructor]

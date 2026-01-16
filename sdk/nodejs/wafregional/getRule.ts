@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getRule({
- *     name: "tfWAFRegionalRule",
- * });
- * ```
- */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRule:getRule", {
@@ -30,13 +16,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getRule.
  */
 export interface GetRuleArgs {
-    /**
-     * Name of the WAF Regional rule.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,20 +31,6 @@ export interface GetRuleResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getRule({
- *     name: "tfWAFRegionalRule",
- * });
- * ```
- */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getRule:getRule", {
@@ -77,12 +43,6 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getRule.
  */
 export interface GetRuleOutputArgs {
-    /**
-     * Name of the WAF Regional rule.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

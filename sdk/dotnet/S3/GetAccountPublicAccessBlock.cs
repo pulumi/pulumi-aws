@@ -11,66 +11,12 @@ namespace Pulumi.Aws.S3
 {
     public static class GetAccountPublicAccessBlock
     {
-        /// <summary>
-        /// The S3 account public access block data source returns account-level public access block configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAccountPublicAccessBlockResult> InvokeAsync(GetAccountPublicAccessBlockArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The S3 account public access block data source returns account-level public access block configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccountPublicAccessBlockResult> Invoke(GetAccountPublicAccessBlockInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The S3 account public access block data source returns account-level public access block configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAccountPublicAccessBlockResult> Invoke(GetAccountPublicAccessBlockInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockInvokeArgs(), options.WithDefaults());
     }
@@ -78,9 +24,6 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetAccountPublicAccessBlockArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
@@ -92,9 +35,6 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetAccountPublicAccessBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -109,25 +49,13 @@ namespace Pulumi.Aws.S3
     public sealed class GetAccountPublicAccessBlockResult
     {
         public readonly string? AccountId;
-        /// <summary>
-        /// Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `True` or `False`.
-        /// </summary>
         public readonly bool BlockPublicAcls;
-        /// <summary>
-        /// Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `True` or `False`.
-        /// </summary>
         public readonly bool BlockPublicPolicy;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `True` or `False`.
-        /// </summary>
         public readonly bool IgnorePublicAcls;
-        /// <summary>
-        /// Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `True` or `False`.
-        /// </summary>
         public readonly bool RestrictPublicBuckets;
 
         [OutputConstructor]

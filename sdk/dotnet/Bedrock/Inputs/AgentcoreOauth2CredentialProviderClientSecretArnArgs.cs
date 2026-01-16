@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreOauth2CredentialProviderClientSecretArnArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the secret in AWS Secrets Manager.
-        /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 

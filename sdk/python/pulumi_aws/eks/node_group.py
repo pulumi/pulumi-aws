@@ -44,29 +44,6 @@ class NodeGroupArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
-        :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "node_role_arn", node_role_arn)
@@ -110,9 +87,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the EKS Cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -122,9 +96,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        """
         return pulumi.get(self, "node_role_arn")
 
     @node_role_arn.setter
@@ -134,9 +105,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> pulumi.Input['NodeGroupScalingConfigArgs']:
-        """
-        Configuration block with scaling settings. See `scaling_config` below for details.
-        """
         return pulumi.get(self, "scaling_config")
 
     @scaling_config.setter
@@ -146,11 +114,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Identifiers of EC2 Subnets to associate with the EKS Node Group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -160,9 +123,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "ami_type")
 
     @ami_type.setter
@@ -172,9 +132,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="capacityType")
     def capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "capacity_type")
 
     @capacity_type.setter
@@ -184,9 +141,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="diskSize")
     def disk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
@@ -196,9 +150,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="forceUpdateVersion")
     def force_update_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        """
         return pulumi.get(self, "force_update_version")
 
     @force_update_version.setter
@@ -208,9 +159,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
@@ -220,9 +168,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -232,9 +177,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]:
-        """
-        Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -244,9 +186,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="nodeGroupName")
     def node_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        """
         return pulumi.get(self, "node_group_name")
 
     @node_group_name.setter
@@ -256,9 +195,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="nodeGroupNamePrefix")
     def node_group_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        """
         return pulumi.get(self, "node_group_name_prefix")
 
     @node_group_name_prefix.setter
@@ -268,9 +204,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfig")
     def node_repair_config(self) -> Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]:
-        """
-        The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        """
         return pulumi.get(self, "node_repair_config")
 
     @node_repair_config.setter
@@ -280,9 +213,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -292,9 +222,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        """
         return pulumi.get(self, "release_version")
 
     @release_version.setter
@@ -304,9 +231,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="remoteAccess")
     def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]:
-        """
-        Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
@@ -316,9 +240,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -328,9 +249,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
-        """
-        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        """
         return pulumi.get(self, "taints")
 
     @taints.setter
@@ -340,9 +258,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter(name="updateConfig")
     def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
-        """
-        Configuration block with update settings. See `update_config` below for details.
-        """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
@@ -352,9 +267,6 @@ class NodeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -392,33 +304,6 @@ class _NodeGroupState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
-        :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]] resources: List of objects containing information about underlying resources.
-        :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
-        :param pulumi.Input[_builtins.str] status: Status of the EKS Node Group.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
-        :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         if ami_type is not None:
             pulumi.set(__self__, "ami_type", ami_type)
@@ -474,9 +359,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "ami_type")
 
     @ami_type.setter
@@ -486,9 +368,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the EKS Node Group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -498,9 +377,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="capacityType")
     def capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "capacity_type")
 
     @capacity_type.setter
@@ -510,9 +386,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the EKS Cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -522,9 +395,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="diskSize")
     def disk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
@@ -534,9 +404,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="forceUpdateVersion")
     def force_update_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        """
         return pulumi.get(self, "force_update_version")
 
     @force_update_version.setter
@@ -546,9 +413,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
@@ -558,9 +422,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -570,9 +431,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]:
-        """
-        Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -582,9 +440,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="nodeGroupName")
     def node_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        """
         return pulumi.get(self, "node_group_name")
 
     @node_group_name.setter
@@ -594,9 +449,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="nodeGroupNamePrefix")
     def node_group_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        """
         return pulumi.get(self, "node_group_name_prefix")
 
     @node_group_name_prefix.setter
@@ -606,9 +458,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfig")
     def node_repair_config(self) -> Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]:
-        """
-        The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        """
         return pulumi.get(self, "node_repair_config")
 
     @node_repair_config.setter
@@ -618,9 +467,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        """
         return pulumi.get(self, "node_role_arn")
 
     @node_role_arn.setter
@@ -630,9 +476,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -642,9 +485,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        """
         return pulumi.get(self, "release_version")
 
     @release_version.setter
@@ -654,9 +494,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="remoteAccess")
     def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]:
-        """
-        Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
@@ -666,9 +503,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]:
-        """
-        List of objects containing information about underlying resources.
-        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -678,9 +512,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional[pulumi.Input['NodeGroupScalingConfigArgs']]:
-        """
-        Configuration block with scaling settings. See `scaling_config` below for details.
-        """
         return pulumi.get(self, "scaling_config")
 
     @scaling_config.setter
@@ -690,9 +521,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the EKS Node Group.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -702,11 +530,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identifiers of EC2 Subnets to associate with the EKS Node Group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -716,9 +539,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -728,9 +548,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -740,9 +557,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
-        """
-        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        """
         return pulumi.get(self, "taints")
 
     @taints.setter
@@ -752,9 +566,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter(name="updateConfig")
     def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
-        """
-        Configuration block with update settings. See `update_config` below for details.
-        """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
@@ -764,9 +575,6 @@ class _NodeGroupState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -803,128 +611,9 @@ class NodeGroup(pulumi.CustomResource):
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
-            scaling_config={
-                "desired_size": 1,
-                "max_size": 2,
-                "min_size": 1,
-            },
-            update_config={
-                "max_unavailable": 1,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example__amazon_eks_worker_node_policy,
-                    example__amazon_ekscni_policy,
-                    example__amazon_ec2_container_registry_read_only,
-                ]))
-        ```
-
-        ### Ignoring Changes to Desired Size
-
-        You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.NodeGroup("example", scaling_config={
-            "desired_size": 2,
-        })
-        ```
-
-        ### Example IAM Role for EKS Node Group
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            name="eks-node-group-example",
-            assume_role_policy=json.dumps({
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
-                    },
-                }],
-                "Version": "2012-10-17",
-            }))
-        example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-            role=example.name)
-        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
-            role=example.name)
-        example__amazon_ec2_container_registry_read_only = aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
-            role=example.name)
-        ```
-
-        ### Example Subnets for EKS Node Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        available = aws.get_availability_zones(state="available")
-        example = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.ec2.Subnet(f"example-{range['value']}",
-                availability_zone=available.names[range["value"]],
-                cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
-                    newbits=8,
-                    netnum=range["value"]).result,
-                vpc_id=example_aws_vpc["id"]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-        ```
-
+        Create a NodeGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        :param pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']] update_config: Configuration block with update settings. See `update_config` below for details.
-        :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         ...
     @overload
@@ -933,103 +622,7 @@ class NodeGroup(pulumi.CustomResource):
                  args: NodeGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
-            scaling_config={
-                "desired_size": 1,
-                "max_size": 2,
-                "min_size": 1,
-            },
-            update_config={
-                "max_unavailable": 1,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example__amazon_eks_worker_node_policy,
-                    example__amazon_ekscni_policy,
-                    example__amazon_ec2_container_registry_read_only,
-                ]))
-        ```
-
-        ### Ignoring Changes to Desired Size
-
-        You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.NodeGroup("example", scaling_config={
-            "desired_size": 2,
-        })
-        ```
-
-        ### Example IAM Role for EKS Node Group
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            name="eks-node-group-example",
-            assume_role_policy=json.dumps({
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
-                    },
-                }],
-                "Version": "2012-10-17",
-            }))
-        example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-            role=example.name)
-        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKS_CNI_Policy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
-            role=example.name)
-        example__amazon_ec2_container_registry_read_only = aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
-            role=example.name)
-        ```
-
-        ### Example Subnets for EKS Node Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        available = aws.get_availability_zones(state="available")
-        example = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.ec2.Subnet(f"example-{range['value']}",
-                availability_zone=available.names[range["value"]],
-                cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
-                    newbits=8,
-                    netnum=range["value"]).result,
-                vpc_id=example_aws_vpc["id"]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-        ```
-
+        Create a NodeGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NodeGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1150,33 +743,6 @@ class NodeGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
-        :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupResourceArgs', 'NodeGroupResourceArgsDict']]]] resources: List of objects containing information about underlying resources.
-        :param pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
-        :param pulumi.Input[_builtins.str] status: Status of the EKS Node Group.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']] update_config: Configuration block with update settings. See `update_config` below for details.
-        :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1212,202 +778,125 @@ class NodeGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "ami_type")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the EKS Node Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="capacityType")
     def capacity_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "capacity_type")
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the EKS Cluster.
-        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
     @pulumi.getter(name="diskSize")
     def disk_size(self) -> pulumi.Output[_builtins.int]:
-        """
-        Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "disk_size")
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateVersion")
     def force_update_version(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
-        """
         return pulumi.get(self, "force_update_version")
 
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "instance_types")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.NodeGroupLaunchTemplate']]:
-        """
-        Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
-        """
         return pulumi.get(self, "launch_template")
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupName")
     def node_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
-        """
         return pulumi.get(self, "node_group_name")
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupNamePrefix")
     def node_group_name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
-        """
         return pulumi.get(self, "node_group_name_prefix")
 
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfig")
     def node_repair_config(self) -> pulumi.Output['outputs.NodeGroupNodeRepairConfig']:
-        """
-        The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        """
         return pulumi.get(self, "node_repair_config")
 
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        """
         return pulumi.get(self, "node_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        """
         return pulumi.get(self, "release_version")
 
     @_builtins.property
     @pulumi.getter(name="remoteAccess")
     def remote_access(self) -> pulumi.Output[Optional['outputs.NodeGroupRemoteAccess']]:
-        """
-        Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
-        """
         return pulumi.get(self, "remote_access")
 
     @_builtins.property
     @pulumi.getter
     def resources(self) -> pulumi.Output[Sequence['outputs.NodeGroupResource']]:
-        """
-        List of objects containing information about underlying resources.
-        """
         return pulumi.get(self, "resources")
 
     @_builtins.property
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> pulumi.Output['outputs.NodeGroupScalingConfig']:
-        """
-        Configuration block with scaling settings. See `scaling_config` below for details.
-        """
         return pulumi.get(self, "scaling_config")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the EKS Node Group.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Identifiers of EC2 Subnets to associate with the EKS Node Group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def taints(self) -> pulumi.Output[Optional[Sequence['outputs.NodeGroupTaint']]]:
-        """
-        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        """
         return pulumi.get(self, "taints")
 
     @_builtins.property
     @pulumi.getter(name="updateConfig")
     def update_config(self) -> pulumi.Output['outputs.NodeGroupUpdateConfig']:
-        """
-        Configuration block with update settings. See `update_config` below for details.
-        """
         return pulumi.get(self, "update_config")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "version")
 

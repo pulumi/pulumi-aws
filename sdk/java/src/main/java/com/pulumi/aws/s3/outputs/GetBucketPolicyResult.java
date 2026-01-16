@@ -16,10 +16,6 @@ public final class GetBucketPolicyResult {
      * 
      */
     private String id;
-    /**
-     * @return IAM bucket policy.
-     * 
-     */
     private String policy;
     private String region;
 
@@ -34,10 +30,6 @@ public final class GetBucketPolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IAM bucket policy.
-     * 
-     */
     public String policy() {
         return this.policy;
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output {
-    /**
-     * @return The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-     * 
-     */
     private @Nullable String localPath;
-    /**
-     * @return Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-     * 
-     */
     private @Nullable String s3UploadMode;
-    /**
-     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-     * 
-     */
     private String s3Uri;
 
     private DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output() {}
-    /**
-     * @return The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-     * 
-     */
     public Optional<String> localPath() {
         return Optional.ofNullable(this.localPath);
     }
-    /**
-     * @return Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-     * 
-     */
     public Optional<String> s3UploadMode() {
         return Optional.ofNullable(this.s3UploadMode);
     }
-    /**
-     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardSourceEntity {
-    /**
-     * @return The source template. See source_template.
-     * 
-     */
     private @Nullable DashboardSourceEntitySourceTemplate sourceTemplate;
 
     private DashboardSourceEntity() {}
-    /**
-     * @return The source template. See source_template.
-     * 
-     */
     public Optional<DashboardSourceEntitySourceTemplate> sourceTemplate() {
         return Optional.ofNullable(this.sourceTemplate);
     }

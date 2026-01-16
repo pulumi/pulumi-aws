@@ -16,92 +16,44 @@ public final class BasePathMappingArgs extends com.pulumi.resources.ResourceArgs
 
     public static final BasePathMappingArgs Empty = new BasePathMappingArgs();
 
-    /**
-     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-     * 
-     */
     @Import(name="basePath")
     private @Nullable Output<String> basePath;
 
-    /**
-     * @return Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-     * 
-     */
     public Optional<Output<String>> basePath() {
         return Optional.ofNullable(this.basePath);
     }
 
-    /**
-     * Already-registered domain name to connect the API to.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Already-registered domain name to connect the API to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
-     * 
-     */
     @Import(name="domainNameId")
     private @Nullable Output<String> domainNameId;
 
-    /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
-     * 
-     */
     public Optional<Output<String>> domainNameId() {
         return Optional.ofNullable(this.domainNameId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the API to connect.
-     * 
-     */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
-    /**
-     * @return ID of the API to connect.
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
 
-    /**
-     * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-     * 
-     */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
-    /**
-     * @return Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-     * 
-     */
     public Optional<Output<String>> stageName() {
         return Optional.ofNullable(this.stageName);
     }
@@ -135,128 +87,56 @@ public final class BasePathMappingArgs extends com.pulumi.resources.ResourceArgs
             $ = new BasePathMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param basePath Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder basePath(@Nullable Output<String> basePath) {
             $.basePath = basePath;
             return this;
         }
 
-        /**
-         * @param basePath Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder basePath(String basePath) {
             return basePath(Output.of(basePath));
         }
 
-        /**
-         * @param domainName Already-registered domain name to connect the API to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Already-registered domain name to connect the API to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameId(@Nullable Output<String> domainNameId) {
             $.domainNameId = domainNameId;
             return this;
         }
 
-        /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameId(String domainNameId) {
             return domainNameId(Output.of(domainNameId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApi ID of the API to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
-        /**
-         * @param restApi ID of the API to connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }
 
-        /**
-         * @param stageName Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(@Nullable Output<String> stageName) {
             $.stageName = stageName;
             return this;
         }
 
-        /**
-         * @param stageName Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(String stageName) {
             return stageName(Output.of(stageName));
         }

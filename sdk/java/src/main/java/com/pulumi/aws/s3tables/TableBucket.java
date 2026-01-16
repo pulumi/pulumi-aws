@@ -18,206 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon S3 Tables Table Bucket.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3tables.TableBucket;
- * import com.pulumi.aws.s3tables.TableBucketArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TableBucket("example", TableBucketArgs.builder()
- *             .name("example-bucket")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Tables Table Bucket using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3tables/tableBucket:TableBucket example arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3tables/tableBucket:TableBucket")
 public class TableBucket extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the table bucket.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the table bucket.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Date and time when the bucket was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Date and time when the bucket was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={TableBucketEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ TableBucketEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
-     * 
-     */
     public Output<Optional<TableBucketEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceDestroy;
 
-    /**
-     * @return Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-     * 
-     */
     public Output<Boolean> forceDestroy() {
         return this.forceDestroy;
     }
-    /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
-     * 
-     */
     @Export(name="maintenanceConfiguration", refs={TableBucketMaintenanceConfiguration.class}, tree="[0]")
     private Output<TableBucketMaintenanceConfiguration> maintenanceConfiguration;
 
-    /**
-     * @return A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
-     * 
-     */
     public Output<TableBucketMaintenanceConfiguration> maintenanceConfiguration() {
         return this.maintenanceConfiguration;
     }
-    /**
-     * Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Account ID of the account that owns the table bucket.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return Account ID of the account that owns the table bucket.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

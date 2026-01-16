@@ -24,9 +24,6 @@ class RestApiPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RestApiPolicy resource.
-        :param pulumi.Input[_builtins.str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[_builtins.str] rest_api_id: ID of the REST API.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -36,9 +33,6 @@ class RestApiPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        JSON formatted policy document that controls access to the API Gateway.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,9 +42,6 @@ class RestApiPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the REST API.
-        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -60,9 +51,6 @@ class RestApiPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _RestApiPolicyState:
                  rest_api_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RestApiPolicy resources.
-        :param pulumi.Input[_builtins.str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api_id: ID of the REST API.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -92,9 +77,6 @@ class _RestApiPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON formatted policy document that controls access to the API Gateway.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -104,9 +86,6 @@ class _RestApiPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _RestApiPolicyState:
     @_builtins.property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the REST API.
-        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -137,51 +113,9 @@ class RestApiPolicy(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an API Gateway REST API Policy.
-
-        > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
-        test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["*"],
-            }],
-            "actions": ["execute-api:Invoke"],
-            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
-            "conditions": [{
-                "test": "IpAddress",
-                "variable": "aws:SourceIp",
-                "values": ["123.123.123.123/32"],
-            }],
-        }])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
-            rest_api_id=test_rest_api.id,
-            policy=test.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-        ```
-
+        Create a RestApiPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api_id: ID of the REST API.
         """
         ...
     @overload
@@ -190,46 +124,7 @@ class RestApiPolicy(pulumi.CustomResource):
                  args: RestApiPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an API Gateway REST API Policy.
-
-        > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_rest_api = aws.apigateway.RestApi("test", name="example-rest-api")
-        test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["*"],
-            }],
-            "actions": ["execute-api:Invoke"],
-            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
-            "conditions": [{
-                "test": "IpAddress",
-                "variable": "aws:SourceIp",
-                "values": ["123.123.123.123/32"],
-            }],
-        }])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("test",
-            rest_api_id=test_rest_api.id,
-            policy=test.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-        ```
-
+        Create a RestApiPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RestApiPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,9 +179,6 @@ class RestApiPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api_id: ID of the REST API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,24 +192,15 @@ class RestApiPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        JSON formatted policy document that controls access to the API Gateway.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the REST API.
-        """
         return pulumi.get(self, "rest_api_id")
 

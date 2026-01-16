@@ -40,9 +40,6 @@ class GetServiceAccountResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the AWS ELB service account in the selected Region.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -73,51 +70,7 @@ class AwaitableGetServiceAccountResult(GetServiceAccountResult):
 def get_service_account(region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceAccountResult:
     """
-    Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
-    in a given region for the purpose of permitting in S3 bucket policy.
-
-    > **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.elb.get_service_account()
-    elb_logs = aws.s3.Bucket("elb_logs", bucket="my-elb-tf-test-bucket")
-    elb_logs_acl = aws.s3.BucketAcl("elb_logs_acl",
-        bucket=elb_logs.id,
-        acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-        "effect": "Allow",
-        "principals": [{
-            "type": "AWS",
-            "identifiers": [main.arn],
-        }],
-        "actions": ["s3:PutObject"],
-        "resources": [f"{arn}/AWSLogs/*"],
-    }]))
-    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
-        bucket=elb_logs.id,
-        policy=allow_elb_logging.json)
-    bar = aws.elb.LoadBalancer("bar",
-        name="my-foobar-elb",
-        availability_zones=["us-west-2a"],
-        access_logs={
-            "bucket": elb_logs.id,
-            "interval": 5,
-        },
-        listeners=[{
-            "instance_port": 8000,
-            "instance_protocol": "http",
-            "lb_port": 80,
-            "lb_protocol": "http",
-        }])
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -131,51 +84,7 @@ def get_service_account(region: Optional[_builtins.str] = None,
 def get_service_account_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
-    Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
-    in a given region for the purpose of permitting in S3 bucket policy.
-
-    > **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.elb.get_service_account()
-    elb_logs = aws.s3.Bucket("elb_logs", bucket="my-elb-tf-test-bucket")
-    elb_logs_acl = aws.s3.BucketAcl("elb_logs_acl",
-        bucket=elb_logs.id,
-        acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-        "effect": "Allow",
-        "principals": [{
-            "type": "AWS",
-            "identifiers": [main.arn],
-        }],
-        "actions": ["s3:PutObject"],
-        "resources": [f"{arn}/AWSLogs/*"],
-    }]))
-    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
-        bucket=elb_logs.id,
-        policy=allow_elb_logging.json)
-    bar = aws.elb.LoadBalancer("bar",
-        name="my-foobar-elb",
-        availability_zones=["us-west-2a"],
-        access_logs={
-            "bucket": elb_logs.id,
-            "interval": 5,
-        },
-        listeners=[{
-            "instance_port": 8000,
-            "instance_protocol": "http",
-            "lb_port": 80,
-            "lb_protocol": "http",
-        }])
-    ```
-
-
-    :param _builtins.str region: Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

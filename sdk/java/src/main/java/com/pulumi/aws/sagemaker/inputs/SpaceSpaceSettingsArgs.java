@@ -22,107 +22,51 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
 
     public static final SpaceSpaceSettingsArgs Empty = new SpaceSpaceSettingsArgs();
 
-    /**
-     * The type of app created within the space.
-     * 
-     */
     @Import(name="appType")
     private @Nullable Output<String> appType;
 
-    /**
-     * @return The type of app created within the space.
-     * 
-     */
     public Optional<Output<String>> appType() {
         return Optional.ofNullable(this.appType);
     }
 
-    /**
-     * The Code Editor application settings. See `codeEditorAppSettings` Block below.
-     * 
-     */
     @Import(name="codeEditorAppSettings")
     private @Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings;
 
-    /**
-     * @return The Code Editor application settings. See `codeEditorAppSettings` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsCodeEditorAppSettingsArgs>> codeEditorAppSettings() {
         return Optional.ofNullable(this.codeEditorAppSettings);
     }
 
-    /**
-     * A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-     * 
-     */
     @Import(name="customFileSystems")
     private @Nullable Output<List<SpaceSpaceSettingsCustomFileSystemArgs>> customFileSystems;
 
-    /**
-     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-     * 
-     */
     public Optional<Output<List<SpaceSpaceSettingsCustomFileSystemArgs>>> customFileSystems() {
         return Optional.ofNullable(this.customFileSystems);
     }
 
-    /**
-     * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     @Import(name="jupyterLabAppSettings")
     private @Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
 
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsJupyterLabAppSettingsArgs>> jupyterLabAppSettings() {
         return Optional.ofNullable(this.jupyterLabAppSettings);
     }
 
-    /**
-     * The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
 
-    /**
-     * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
 
-    /**
-     * The storage settings. See `spaceStorageSettings` Block below.
-     * 
-     */
     @Import(name="spaceStorageSettings")
     private @Nullable Output<SpaceSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
 
-    /**
-     * @return The storage settings. See `spaceStorageSettings` Block below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsSpaceStorageSettingsArgs>> spaceStorageSettings() {
         return Optional.ofNullable(this.spaceStorageSettings);
     }
@@ -157,159 +101,69 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
             $ = new SpaceSpaceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appType The type of app created within the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appType(@Nullable Output<String> appType) {
             $.appType = appType;
             return this;
         }
 
-        /**
-         * @param appType The type of app created within the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appType(String appType) {
             return appType(Output.of(appType));
         }
 
-        /**
-         * @param codeEditorAppSettings The Code Editor application settings. See `codeEditorAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeEditorAppSettings(@Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings) {
             $.codeEditorAppSettings = codeEditorAppSettings;
             return this;
         }
 
-        /**
-         * @param codeEditorAppSettings The Code Editor application settings. See `codeEditorAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeEditorAppSettings(SpaceSpaceSettingsCodeEditorAppSettingsArgs codeEditorAppSettings) {
             return codeEditorAppSettings(Output.of(codeEditorAppSettings));
         }
 
-        /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customFileSystems(@Nullable Output<List<SpaceSpaceSettingsCustomFileSystemArgs>> customFileSystems) {
             $.customFileSystems = customFileSystems;
             return this;
         }
 
-        /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customFileSystems(List<SpaceSpaceSettingsCustomFileSystemArgs> customFileSystems) {
             return customFileSystems(Output.of(customFileSystems));
         }
 
-        /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `customFileSystem` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customFileSystems(SpaceSpaceSettingsCustomFileSystemArgs... customFileSystems) {
             return customFileSystems(List.of(customFileSystems));
         }
 
-        /**
-         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterLabAppSettings(@Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings) {
             $.jupyterLabAppSettings = jupyterLabAppSettings;
             return this;
         }
 
-        /**
-         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterLabAppSettings(SpaceSpaceSettingsJupyterLabAppSettingsArgs jupyterLabAppSettings) {
             return jupyterLabAppSettings(Output.of(jupyterLabAppSettings));
         }
 
-        /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterServerAppSettings(@Nullable Output<SpaceSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings) {
             $.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
 
-        /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterServerAppSettings(SpaceSpaceSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings) {
             return jupyterServerAppSettings(Output.of(jupyterServerAppSettings));
         }
 
-        /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayAppSettings(@Nullable Output<SpaceSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings) {
             $.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
 
-        /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayAppSettings(SpaceSpaceSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings) {
             return kernelGatewayAppSettings(Output.of(kernelGatewayAppSettings));
         }
 
-        /**
-         * @param spaceStorageSettings The storage settings. See `spaceStorageSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceStorageSettings(@Nullable Output<SpaceSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings) {
             $.spaceStorageSettings = spaceStorageSettings;
             return this;
         }
 
-        /**
-         * @param spaceStorageSettings The storage settings. See `spaceStorageSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceStorageSettings(SpaceSpaceSettingsSpaceStorageSettingsArgs spaceStorageSettings) {
             return spaceStorageSettings(Output.of(spaceStorageSettings));
         }

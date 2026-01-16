@@ -14,47 +14,23 @@ public final class GraphQLApiEnhancedMetricsConfigArgs extends com.pulumi.resour
 
     public static final GraphQLApiEnhancedMetricsConfigArgs Empty = new GraphQLApiEnhancedMetricsConfigArgs();
 
-    /**
-     * How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-     * 
-     */
     @Import(name="dataSourceLevelMetricsBehavior", required=true)
     private Output<String> dataSourceLevelMetricsBehavior;
 
-    /**
-     * @return How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-     * 
-     */
     public Output<String> dataSourceLevelMetricsBehavior() {
         return this.dataSourceLevelMetricsBehavior;
     }
 
-    /**
-     * How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-     * 
-     */
     @Import(name="operationLevelMetricsConfig", required=true)
     private Output<String> operationLevelMetricsConfig;
 
-    /**
-     * @return How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-     * 
-     */
     public Output<String> operationLevelMetricsConfig() {
         return this.operationLevelMetricsConfig;
     }
 
-    /**
-     * How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-     * 
-     */
     @Import(name="resolverLevelMetricsBehavior", required=true)
     private Output<String> resolverLevelMetricsBehavior;
 
-    /**
-     * @return How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-     * 
-     */
     public Output<String> resolverLevelMetricsBehavior() {
         return this.resolverLevelMetricsBehavior;
     }
@@ -85,65 +61,29 @@ public final class GraphQLApiEnhancedMetricsConfigArgs extends com.pulumi.resour
             $ = new GraphQLApiEnhancedMetricsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSourceLevelMetricsBehavior How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceLevelMetricsBehavior(Output<String> dataSourceLevelMetricsBehavior) {
             $.dataSourceLevelMetricsBehavior = dataSourceLevelMetricsBehavior;
             return this;
         }
 
-        /**
-         * @param dataSourceLevelMetricsBehavior How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceLevelMetricsBehavior(String dataSourceLevelMetricsBehavior) {
             return dataSourceLevelMetricsBehavior(Output.of(dataSourceLevelMetricsBehavior));
         }
 
-        /**
-         * @param operationLevelMetricsConfig How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-         * 
-         * @return builder
-         * 
-         */
         public Builder operationLevelMetricsConfig(Output<String> operationLevelMetricsConfig) {
             $.operationLevelMetricsConfig = operationLevelMetricsConfig;
             return this;
         }
 
-        /**
-         * @param operationLevelMetricsConfig How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-         * 
-         * @return builder
-         * 
-         */
         public Builder operationLevelMetricsConfig(String operationLevelMetricsConfig) {
             return operationLevelMetricsConfig(Output.of(operationLevelMetricsConfig));
         }
 
-        /**
-         * @param resolverLevelMetricsBehavior How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverLevelMetricsBehavior(Output<String> resolverLevelMetricsBehavior) {
             $.resolverLevelMetricsBehavior = resolverLevelMetricsBehavior;
             return this;
         }
 
-        /**
-         * @param resolverLevelMetricsBehavior How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverLevelMetricsBehavior(String resolverLevelMetricsBehavior) {
             return resolverLevelMetricsBehavior(Output.of(resolverLevelMetricsBehavior));
         }

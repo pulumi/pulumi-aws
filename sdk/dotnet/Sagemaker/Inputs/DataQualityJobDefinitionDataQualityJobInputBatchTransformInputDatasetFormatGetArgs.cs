@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CSV dataset used in the monitoring job. Fields are documented below.
-        /// </summary>
         [Input("csv")]
         public Input<Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvGetArgs>? Csv { get; set; }
 
-        /// <summary>
-        /// The JSON dataset used in the monitoring job. Fields are documented below.
-        /// </summary>
         [Input("json")]
         public Input<Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonGetArgs>? Json { get; set; }
 

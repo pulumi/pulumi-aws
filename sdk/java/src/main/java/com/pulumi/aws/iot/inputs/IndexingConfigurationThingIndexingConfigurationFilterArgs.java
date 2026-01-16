@@ -16,17 +16,9 @@ public final class IndexingConfigurationThingIndexingConfigurationFilterArgs ext
 
     public static final IndexingConfigurationThingIndexingConfigurationFilterArgs Empty = new IndexingConfigurationThingIndexingConfigurationFilterArgs();
 
-    /**
-     * List of shadow names that you select to index.
-     * 
-     */
     @Import(name="namedShadowNames")
     private @Nullable Output<List<String>> namedShadowNames;
 
-    /**
-     * @return List of shadow names that you select to index.
-     * 
-     */
     public Optional<Output<List<String>>> namedShadowNames() {
         return Optional.ofNullable(this.namedShadowNames);
     }
@@ -55,33 +47,15 @@ public final class IndexingConfigurationThingIndexingConfigurationFilterArgs ext
             $ = new IndexingConfigurationThingIndexingConfigurationFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namedShadowNames List of shadow names that you select to index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namedShadowNames(@Nullable Output<List<String>> namedShadowNames) {
             $.namedShadowNames = namedShadowNames;
             return this;
         }
 
-        /**
-         * @param namedShadowNames List of shadow names that you select to index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namedShadowNames(List<String> namedShadowNames) {
             return namedShadowNames(Output.of(namedShadowNames));
         }
 
-        /**
-         * @param namedShadowNames List of shadow names that you select to index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namedShadowNames(String... namedShadowNames) {
             return namedShadowNames(List.of(namedShadowNames));
         }

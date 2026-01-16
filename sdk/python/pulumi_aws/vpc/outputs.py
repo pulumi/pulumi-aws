@@ -105,10 +105,6 @@ class RouteServerPeerBgpOptions(dict):
     def __init__(__self__, *,
                  peer_asn: _builtins.int,
                  peer_liveness_detection: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int peer_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-        :param _builtins.str peer_liveness_detection: The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-        """
         pulumi.set(__self__, "peer_asn", peer_asn)
         if peer_liveness_detection is not None:
             pulumi.set(__self__, "peer_liveness_detection", peer_liveness_detection)
@@ -116,17 +112,11 @@ class RouteServerPeerBgpOptions(dict):
     @_builtins.property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> _builtins.int:
-        """
-        The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-        """
         return pulumi.get(self, "peer_asn")
 
     @_builtins.property
     @pulumi.getter(name="peerLivenessDetection")
     def peer_liveness_detection(self) -> Optional[_builtins.str]:
-        """
-        The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-        """
         return pulumi.get(self, "peer_liveness_detection")
 
 
@@ -309,16 +299,6 @@ class GetEndpointAssociationsAssociationResult(dict):
                  service_network_arn: _builtins.str,
                  service_network_name: _builtins.str,
                  tags: Mapping[str, _builtins.str]):
-        """
-        :param _builtins.str associated_resource_accessibility: Accessibility of the resource.
-        :param _builtins.str associated_resource_arn: ARN of the resource for this association.
-        :param Sequence['GetEndpointAssociationsAssociationDnsEntryArgs'] dns_entries: DNS entries for the Association. DNS entry blocks are documented below.
-        :param Sequence['GetEndpointAssociationsAssociationPrivateDnsEntryArgs'] private_dns_entries: DNS entries for the Association. Private DNS entry blocks are documented below.
-        :param _builtins.str resource_configuration_group_arn: ARN of the Resource Group if the Resource is a member of a group.
-        :param _builtins.str service_network_arn: Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-        :param _builtins.str service_network_name: Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-        :param Mapping[str, _builtins.str] tags: Tags of the association.
-        """
         pulumi.set(__self__, "associated_resource_accessibility", associated_resource_accessibility)
         pulumi.set(__self__, "associated_resource_arn", associated_resource_arn)
         pulumi.set(__self__, "dns_entries", dns_entries)
@@ -332,25 +312,16 @@ class GetEndpointAssociationsAssociationResult(dict):
     @_builtins.property
     @pulumi.getter(name="associatedResourceAccessibility")
     def associated_resource_accessibility(self) -> _builtins.str:
-        """
-        Accessibility of the resource.
-        """
         return pulumi.get(self, "associated_resource_accessibility")
 
     @_builtins.property
     @pulumi.getter(name="associatedResourceArn")
     def associated_resource_arn(self) -> _builtins.str:
-        """
-        ARN of the resource for this association.
-        """
         return pulumi.get(self, "associated_resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetEndpointAssociationsAssociationDnsEntryResult']:
-        """
-        DNS entries for the Association. DNS entry blocks are documented below.
-        """
         return pulumi.get(self, "dns_entries")
 
     @_builtins.property
@@ -361,41 +332,26 @@ class GetEndpointAssociationsAssociationResult(dict):
     @_builtins.property
     @pulumi.getter(name="privateDnsEntries")
     def private_dns_entries(self) -> Sequence['outputs.GetEndpointAssociationsAssociationPrivateDnsEntryResult']:
-        """
-        DNS entries for the Association. Private DNS entry blocks are documented below.
-        """
         return pulumi.get(self, "private_dns_entries")
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationGroupArn")
     def resource_configuration_group_arn(self) -> _builtins.str:
-        """
-        ARN of the Resource Group if the Resource is a member of a group.
-        """
         return pulumi.get(self, "resource_configuration_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> _builtins.str:
-        """
-        Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-        """
         return pulumi.get(self, "service_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkName")
     def service_network_name(self) -> _builtins.str:
-        """
-        Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-        """
         return pulumi.get(self, "service_network_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags of the association.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -404,27 +360,17 @@ class GetEndpointAssociationsAssociationDnsEntryResult(dict):
     def __init__(__self__, *,
                  dns_name: _builtins.str,
                  hosted_zone_id: _builtins.str):
-        """
-        :param _builtins.str dns_name: DNS name.
-        :param _builtins.str hosted_zone_id: ID of the private hosted zone.
-        """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS name.
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
-        """
-        ID of the private hosted zone.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
 
@@ -433,27 +379,17 @@ class GetEndpointAssociationsAssociationPrivateDnsEntryResult(dict):
     def __init__(__self__, *,
                  dns_name: _builtins.str,
                  hosted_zone_id: _builtins.str):
-        """
-        :param _builtins.str dns_name: DNS name.
-        :param _builtins.str hosted_zone_id: ID of the private hosted zone.
-        """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS name.
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
-        """
-        ID of the private hosted zone.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
 
@@ -462,27 +398,17 @@ class GetSecurityGroupRuleFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
 
@@ -491,33 +417,17 @@ class GetSecurityGroupRulesFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               
-               Security group rule IDs will be selected if any one of the given values match.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-
-        Security group rule IDs will be selected if any one of the given values match.
-        """
         return pulumi.get(self, "values")
 
 

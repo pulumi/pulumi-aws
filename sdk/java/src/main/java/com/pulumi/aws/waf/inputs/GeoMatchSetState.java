@@ -17,47 +17,23 @@ public final class GeoMatchSetState extends com.pulumi.resources.ResourceArgs {
 
     public static final GeoMatchSetState Empty = new GeoMatchSetState();
 
-    /**
-     * Amazon Resource Name (ARN)
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN)
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
-     * 
-     */
     @Import(name="geoMatchConstraints")
     private @Nullable Output<List<GeoMatchSetGeoMatchConstraintArgs>> geoMatchConstraints;
 
-    /**
-     * @return The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
-     * 
-     */
     public Optional<Output<List<GeoMatchSetGeoMatchConstraintArgs>>> geoMatchConstraints() {
         return Optional.ofNullable(this.geoMatchConstraints);
     }
 
-    /**
-     * The name or description of the GeoMatchSet.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the GeoMatchSet.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -88,75 +64,33 @@ public final class GeoMatchSetState extends com.pulumi.resources.ResourceArgs {
             $ = new GeoMatchSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN)
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN)
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param geoMatchConstraints The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoMatchConstraints(@Nullable Output<List<GeoMatchSetGeoMatchConstraintArgs>> geoMatchConstraints) {
             $.geoMatchConstraints = geoMatchConstraints;
             return this;
         }
 
-        /**
-         * @param geoMatchConstraints The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoMatchConstraints(List<GeoMatchSetGeoMatchConstraintArgs> geoMatchConstraints) {
             return geoMatchConstraints(Output.of(geoMatchConstraints));
         }
 
-        /**
-         * @param geoMatchConstraints The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoMatchConstraints(GeoMatchSetGeoMatchConstraintArgs... geoMatchConstraints) {
             return geoMatchConstraints(List.of(geoMatchConstraints));
         }
 
-        /**
-         * @param name The name or description of the GeoMatchSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the GeoMatchSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

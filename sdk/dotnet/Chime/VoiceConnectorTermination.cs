@@ -9,94 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Enable Termination settings to control outbound calling from your SIP infrastructure.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
-    ///     {
-    ///         Name = "vc-name-test",
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("default", new()
-    ///     {
-    ///         Disabled = false,
-    ///         CpsLimit = 1,
-    ///         CidrAllowLists = new[]
-    ///         {
-    ///             "50.35.78.96/31",
-    ///         },
-    ///         CallingRegions = new[]
-    ///         {
-    ///             "US",
-    ///             "CA",
-    ///         },
-    ///         VoiceConnectorId = @default.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")]
     public partial class VoiceConnectorTermination : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-        /// </summary>
         [Output("callingRegions")]
         public Output<ImmutableArray<string>> CallingRegions { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP addresses allowed to make calls, in CIDR format.
-        /// </summary>
         [Output("cidrAllowLists")]
         public Output<ImmutableArray<string>> CidrAllowLists { get; private set; } = null!;
 
-        /// <summary>
-        /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-        /// </summary>
         [Output("cpsLimit")]
         public Output<int?> CpsLimit { get; private set; } = null!;
 
-        /// <summary>
-        /// The default caller ID phone number.
-        /// </summary>
         [Output("defaultPhoneNumber")]
         public Output<string?> DefaultPhoneNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// When termination settings are disabled, outbound calls can not be made.
-        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Output("voiceConnectorId")]
         public Output<string> VoiceConnectorId { get; private set; } = null!;
 
@@ -148,10 +81,6 @@ namespace Pulumi.Aws.Chime
     {
         [Input("callingRegions", required: true)]
         private InputList<string>? _callingRegions;
-
-        /// <summary>
-        /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-        /// </summary>
         public InputList<string> CallingRegions
         {
             get => _callingRegions ?? (_callingRegions = new InputList<string>());
@@ -160,43 +89,24 @@ namespace Pulumi.Aws.Chime
 
         [Input("cidrAllowLists", required: true)]
         private InputList<string>? _cidrAllowLists;
-
-        /// <summary>
-        /// The IP addresses allowed to make calls, in CIDR format.
-        /// </summary>
         public InputList<string> CidrAllowLists
         {
             get => _cidrAllowLists ?? (_cidrAllowLists = new InputList<string>());
             set => _cidrAllowLists = value;
         }
 
-        /// <summary>
-        /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-        /// </summary>
         [Input("cpsLimit")]
         public Input<int>? CpsLimit { get; set; }
 
-        /// <summary>
-        /// The default caller ID phone number.
-        /// </summary>
         [Input("defaultPhoneNumber")]
         public Input<string>? DefaultPhoneNumber { get; set; }
 
-        /// <summary>
-        /// When termination settings are disabled, outbound calls can not be made.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId", required: true)]
         public Input<string> VoiceConnectorId { get; set; } = null!;
 
@@ -210,10 +120,6 @@ namespace Pulumi.Aws.Chime
     {
         [Input("callingRegions")]
         private InputList<string>? _callingRegions;
-
-        /// <summary>
-        /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-        /// </summary>
         public InputList<string> CallingRegions
         {
             get => _callingRegions ?? (_callingRegions = new InputList<string>());
@@ -222,43 +128,24 @@ namespace Pulumi.Aws.Chime
 
         [Input("cidrAllowLists")]
         private InputList<string>? _cidrAllowLists;
-
-        /// <summary>
-        /// The IP addresses allowed to make calls, in CIDR format.
-        /// </summary>
         public InputList<string> CidrAllowLists
         {
             get => _cidrAllowLists ?? (_cidrAllowLists = new InputList<string>());
             set => _cidrAllowLists = value;
         }
 
-        /// <summary>
-        /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-        /// </summary>
         [Input("cpsLimit")]
         public Input<int>? CpsLimit { get; set; }
 
-        /// <summary>
-        /// The default caller ID phone number.
-        /// </summary>
         [Input("defaultPhoneNumber")]
         public Input<string>? DefaultPhoneNumber { get; set; }
 
-        /// <summary>
-        /// When termination settings are disabled, outbound calls can not be made.
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId")]
         public Input<string>? VoiceConnectorId { get; set; }
 

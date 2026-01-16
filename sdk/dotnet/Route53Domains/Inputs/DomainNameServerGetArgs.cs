@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Route53Domains.Inputs
     {
         [Input("glueIps", required: true)]
         private InputList<string>? _glueIps;
-
-        /// <summary>
-        /// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        /// </summary>
         public InputList<string> GlueIps
         {
             get => _glueIps ?? (_glueIps = new InputList<string>());
             set => _glueIps = value;
         }
 
-        /// <summary>
-        /// The fully qualified host name of the name server.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

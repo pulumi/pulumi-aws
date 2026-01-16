@@ -13,120 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an individual ECS resource tag. This resource should only be used in cases where ECS resources are created outside the provider (e.g., ECS Clusters implicitly created by Batch Compute Environments).
- * 
- * &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.ecs.Cluster` and `aws.ecs.Tag` to manage tags of the same ECS Cluster will cause a perpetual difference where the `aws.ecs.Cluster` resource will try to remove the tag being added by the `aws.ecs.Tag` resource.
- * 
- * &gt; **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.batch.ComputeEnvironment;
- * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
- * import com.pulumi.aws.ecs.Tag;
- * import com.pulumi.aws.ecs.TagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ComputeEnvironment("example", ComputeEnvironmentArgs.builder()
- *             .name("example")
- *             .serviceRole(exampleAwsIamRole.arn())
- *             .type("UNMANAGED")
- *             .build());
- * 
- *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
- *             .resourceArn(example.ecsClusterArn())
- *             .key("Name")
- *             .value("Hello World")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
- * ```
- * 
- */
 @ResourceType(type="aws:ecs/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
-    /**
-     * Tag name.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Tag name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) of the ECS resource to tag.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the ECS resource to tag.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * Tag value.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

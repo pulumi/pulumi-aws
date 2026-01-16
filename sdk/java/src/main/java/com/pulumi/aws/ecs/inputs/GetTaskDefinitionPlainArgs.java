@@ -15,32 +15,16 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetTaskDefinitionPlainArgs Empty = new GetTaskDefinitionPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-     * 
-     */
     @Import(name="taskDefinition", required=true)
     private String taskDefinition;
 
-    /**
-     * @return Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-     * 
-     */
     public String taskDefinition() {
         return this.taskDefinition;
     }
@@ -70,23 +54,11 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
             $ = new GetTaskDefinitionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param taskDefinition Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskDefinition(String taskDefinition) {
             $.taskDefinition = taskDefinition;
             return this;

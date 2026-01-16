@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContributorManagedInsightRulesManagedRule {
-    /**
-     * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     private String resourceArn;
-    /**
-     * @return Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
-     * 
-     */
     private List<GetContributorManagedInsightRulesManagedRuleRuleState> ruleStates;
-    /**
-     * @return Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
-     * 
-     */
     private String templateName;
 
     private GetContributorManagedInsightRulesManagedRule() {}
-    /**
-     * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * @return Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
-     * 
-     */
     public List<GetContributorManagedInsightRulesManagedRuleRuleState> ruleStates() {
         return this.ruleStates;
     }
-    /**
-     * @return Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
-     * 
-     */
     public String templateName() {
         return this.templateName;
     }

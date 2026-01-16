@@ -18,47 +18,23 @@ public final class GetListenerRuleTransform extends com.pulumi.resources.InvokeA
 
     public static final GetListenerRuleTransform Empty = new GetListenerRuleTransform();
 
-    /**
-     * Block for host header rewrite. Detailed below.
-     * 
-     */
     @Import(name="hostHeaderRewriteConfigs")
     private @Nullable List<GetListenerRuleTransformHostHeaderRewriteConfig> hostHeaderRewriteConfigs;
 
-    /**
-     * @return Block for host header rewrite. Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleTransformHostHeaderRewriteConfig>> hostHeaderRewriteConfigs() {
         return Optional.ofNullable(this.hostHeaderRewriteConfigs);
     }
 
-    /**
-     * Type of transform.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Type of transform.
-     * 
-     */
     public String type() {
         return this.type;
     }
 
-    /**
-     * Block for URL rewrite. Detailed below.
-     * 
-     */
     @Import(name="urlRewriteConfigs")
     private @Nullable List<GetListenerRuleTransformUrlRewriteConfig> urlRewriteConfigs;
 
-    /**
-     * @return Block for URL rewrite. Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleTransformUrlRewriteConfig>> urlRewriteConfigs() {
         return Optional.ofNullable(this.urlRewriteConfigs);
     }
@@ -89,55 +65,25 @@ public final class GetListenerRuleTransform extends com.pulumi.resources.InvokeA
             $ = new GetListenerRuleTransform(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostHeaderRewriteConfigs Block for host header rewrite. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostHeaderRewriteConfigs(@Nullable List<GetListenerRuleTransformHostHeaderRewriteConfig> hostHeaderRewriteConfigs) {
             $.hostHeaderRewriteConfigs = hostHeaderRewriteConfigs;
             return this;
         }
 
-        /**
-         * @param hostHeaderRewriteConfigs Block for host header rewrite. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostHeaderRewriteConfigs(GetListenerRuleTransformHostHeaderRewriteConfig... hostHeaderRewriteConfigs) {
             return hostHeaderRewriteConfigs(List.of(hostHeaderRewriteConfigs));
         }
 
-        /**
-         * @param type Type of transform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param urlRewriteConfigs Block for URL rewrite. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urlRewriteConfigs(@Nullable List<GetListenerRuleTransformUrlRewriteConfig> urlRewriteConfigs) {
             $.urlRewriteConfigs = urlRewriteConfigs;
             return this;
         }
 
-        /**
-         * @param urlRewriteConfigs Block for URL rewrite. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urlRewriteConfigs(GetListenerRuleTransformUrlRewriteConfig... urlRewriteConfigs) {
             return urlRewriteConfigs(List.of(urlRewriteConfigs));
         }

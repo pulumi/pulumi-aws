@@ -30,21 +30,9 @@ MYPY = False
 if not MYPY:
     class ApplicationAppversionLifecycleArgsDict(TypedDict):
         service_role: pulumi.Input[_builtins.str]
-        """
-        The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
         delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        """
         max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         max_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
 elif False:
     ApplicationAppversionLifecycleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -55,12 +43,6 @@ class ApplicationAppversionLifecycleArgs:
                  delete_source_from_s3: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_age_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  max_count: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        :param pulumi.Input[_builtins.bool] delete_source_from_s3: Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        :param pulumi.Input[_builtins.int] max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        :param pulumi.Input[_builtins.int] max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         pulumi.set(__self__, "service_role", service_role)
         if delete_source_from_s3 is not None:
             pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
@@ -72,9 +54,6 @@ class ApplicationAppversionLifecycleArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -84,9 +63,6 @@ class ApplicationAppversionLifecycleArgs:
     @_builtins.property
     @pulumi.getter(name="deleteSourceFromS3")
     def delete_source_from_s3(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
@@ -96,9 +72,6 @@ class ApplicationAppversionLifecycleArgs:
     @_builtins.property
     @pulumi.getter(name="maxAgeInDays")
     def max_age_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         return pulumi.get(self, "max_age_in_days")
 
     @max_age_in_days.setter
@@ -108,9 +81,6 @@ class ApplicationAppversionLifecycleArgs:
     @_builtins.property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -121,9 +91,6 @@ class ApplicationAppversionLifecycleArgs:
 if not MYPY:
     class ConfigurationTemplateSettingArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        A unique name for this Template.
-        """
         namespace: pulumi.Input[_builtins.str]
         value: pulumi.Input[_builtins.str]
         resource: NotRequired[pulumi.Input[_builtins.str]]
@@ -137,9 +104,6 @@ class ConfigurationTemplateSettingArgs:
                  namespace: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  resource: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: A unique name for this Template.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -149,9 +113,6 @@ class ConfigurationTemplateSettingArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A unique name for this Template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -189,10 +150,6 @@ class ConfigurationTemplateSettingArgs:
 if not MYPY:
     class EnvironmentAllSettingArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         namespace: pulumi.Input[_builtins.str]
         value: pulumi.Input[_builtins.str]
         resource: NotRequired[pulumi.Input[_builtins.str]]
@@ -206,10 +163,6 @@ class EnvironmentAllSettingArgs:
                  namespace: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  resource: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: A unique name for this Environment. This name is used
-               in the application URL
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -219,10 +172,6 @@ class EnvironmentAllSettingArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -260,10 +209,6 @@ class EnvironmentAllSettingArgs:
 if not MYPY:
     class EnvironmentSettingArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         namespace: pulumi.Input[_builtins.str]
         value: pulumi.Input[_builtins.str]
         resource: NotRequired[pulumi.Input[_builtins.str]]
@@ -277,10 +222,6 @@ class EnvironmentSettingArgs:
                  namespace: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  resource: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: A unique name for this Environment. This name is used
-               in the application URL
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -290,10 +231,6 @@ class EnvironmentSettingArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         return pulumi.get(self, "name")
 
     @name.setter

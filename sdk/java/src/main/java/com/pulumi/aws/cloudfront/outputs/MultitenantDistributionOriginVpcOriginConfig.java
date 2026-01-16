@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionOriginVpcOriginConfig {
-    /**
-     * @return Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-     * 
-     */
     private @Nullable Integer originKeepaliveTimeout;
-    /**
-     * @return Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-     * 
-     */
     private @Nullable Integer originReadTimeout;
-    /**
-     * @return ID of the VPC origin that you want CloudFront to route requests to.
-     * 
-     */
     private String vpcOriginId;
 
     private MultitenantDistributionOriginVpcOriginConfig() {}
-    /**
-     * @return Custom keep-alive timeout, in seconds. By default, CloudFront uses a default timeout. Default: 5.
-     * 
-     */
     public Optional<Integer> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
-    /**
-     * @return Custom read timeout, in seconds. By default, CloudFront uses a default timeout. Default: 30.
-     * 
-     */
     public Optional<Integer> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
-    /**
-     * @return ID of the VPC origin that you want CloudFront to route requests to.
-     * 
-     */
     public String vpcOriginId() {
         return this.vpcOriginId;
     }

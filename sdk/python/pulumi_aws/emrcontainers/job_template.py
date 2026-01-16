@@ -28,11 +28,6 @@ class JobTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a JobTemplate resource.
-        :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
-        :param pulumi.Input[_builtins.str] name: The specified name of the job template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "job_template_data", job_template_data)
         if kms_key_arn is not None:
@@ -47,9 +42,6 @@ class JobTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="jobTemplateData")
     def job_template_data(self) -> pulumi.Input['JobTemplateJobTemplateDataArgs']:
-        """
-        The job template data which holds values of StartJobRun API request.
-        """
         return pulumi.get(self, "job_template_data")
 
     @job_template_data.setter
@@ -59,9 +51,6 @@ class JobTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key ARN used to encrypt the job template.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -71,9 +60,6 @@ class JobTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The specified name of the job template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,9 +69,6 @@ class JobTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,9 +78,6 @@ class JobTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,13 +97,6 @@ class _JobTemplateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering JobTemplate resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the job template.
-        :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
-        :param pulumi.Input[_builtins.str] name: The specified name of the job template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -143,9 +116,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the job template.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -155,9 +125,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter(name="jobTemplateData")
     def job_template_data(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataArgs']]:
-        """
-        The job template data which holds values of StartJobRun API request.
-        """
         return pulumi.get(self, "job_template_data")
 
     @job_template_data.setter
@@ -167,9 +134,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The KMS key ARN used to encrypt the job template.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -179,9 +143,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The specified name of the job template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -191,9 +152,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -203,9 +161,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -215,9 +170,6 @@ class _JobTemplateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -238,44 +190,9 @@ class JobTemplate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an EMR Containers (EMR on EKS) Job Template.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrcontainers.JobTemplate("example",
-            job_template_data={
-                "execution_role_arn": example_aws_iam_role["arn"],
-                "release_label": "emr-6.10.0-latest",
-                "job_driver": {
-                    "spark_sql_job_driver": {
-                        "entry_point": "default",
-                    },
-                },
-            },
-            name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS job templates using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
-
+        Create a JobTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
-        :param pulumi.Input[_builtins.str] name: The specified name of the job template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -284,37 +201,7 @@ class JobTemplate(pulumi.CustomResource):
                  args: JobTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EMR Containers (EMR on EKS) Job Template.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrcontainers.JobTemplate("example",
-            job_template_data={
-                "execution_role_arn": example_aws_iam_role["arn"],
-                "release_label": "emr-6.10.0-latest",
-                "job_driver": {
-                    "spark_sql_job_driver": {
-                        "entry_point": "default",
-                    },
-                },
-            },
-            name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EKS job templates using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
-
+        Create a JobTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param JobTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -377,13 +264,6 @@ class JobTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the job template.
-        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
-        :param pulumi.Input[_builtins.str] name: The specified name of the job template.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,56 +281,35 @@ class JobTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the job template.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="jobTemplateData")
     def job_template_data(self) -> pulumi.Output['outputs.JobTemplateJobTemplateData']:
-        """
-        The job template data which holds values of StartJobRun API request.
-        """
         return pulumi.get(self, "job_template_data")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The KMS key ARN used to encrypt the job template.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The specified name of the job template.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

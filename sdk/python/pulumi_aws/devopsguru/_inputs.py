@@ -44,9 +44,6 @@ MYPY = False
 if not MYPY:
     class EventSourcesConfigEventSourceArgsDict(TypedDict):
         amazon_code_guru_profilers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict']]]]
-        """
-        Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
-        """
 elif False:
     EventSourcesConfigEventSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -54,18 +51,12 @@ elif False:
 class EventSourcesConfigEventSourceArgs:
     def __init__(__self__, *,
                  amazon_code_guru_profilers: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]] amazon_code_guru_profilers: Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
-        """
         if amazon_code_guru_profilers is not None:
             pulumi.set(__self__, "amazon_code_guru_profilers", amazon_code_guru_profilers)
 
     @_builtins.property
     @pulumi.getter(name="amazonCodeGuruProfilers")
     def amazon_code_guru_profilers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]]:
-        """
-        Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
-        """
         return pulumi.get(self, "amazon_code_guru_profilers")
 
     @amazon_code_guru_profilers.setter
@@ -76,9 +67,6 @@ class EventSourcesConfigEventSourceArgs:
 if not MYPY:
     class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict(TypedDict):
         status: pulumi.Input[_builtins.str]
-        """
-        Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-        """
 elif False:
     EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -86,17 +74,11 @@ elif False:
 class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] status: Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-        """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -107,13 +89,7 @@ class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs:
 if not MYPY:
     class NotificationChannelFiltersArgsDict(TypedDict):
         message_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-        """
         severities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-        """
 elif False:
     NotificationChannelFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -122,10 +98,6 @@ class NotificationChannelFiltersArgs:
     def __init__(__self__, *,
                  message_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] message_types: Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] severities: Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-        """
         if message_types is not None:
             pulumi.set(__self__, "message_types", message_types)
         if severities is not None:
@@ -134,9 +106,6 @@ class NotificationChannelFiltersArgs:
     @_builtins.property
     @pulumi.getter(name="messageTypes")
     def message_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-        """
         return pulumi.get(self, "message_types")
 
     @message_types.setter
@@ -146,9 +115,6 @@ class NotificationChannelFiltersArgs:
     @_builtins.property
     @pulumi.getter
     def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-        """
         return pulumi.get(self, "severities")
 
     @severities.setter
@@ -159,9 +125,6 @@ class NotificationChannelFiltersArgs:
 if not MYPY:
     class NotificationChannelSnsArgsDict(TypedDict):
         topic_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
 elif False:
     NotificationChannelSnsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -169,17 +132,11 @@ elif False:
 class NotificationChannelSnsArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -190,9 +147,6 @@ class NotificationChannelSnsArgs:
 if not MYPY:
     class ResourceCollectionCloudformationArgsDict(TypedDict):
         stack_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
-        """
 elif False:
     ResourceCollectionCloudformationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -200,17 +154,11 @@ elif False:
 class ResourceCollectionCloudformationArgs:
     def __init__(__self__, *,
                  stack_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stack_names: Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
-        """
         pulumi.set(__self__, "stack_names", stack_names)
 
     @_builtins.property
     @pulumi.getter(name="stackNames")
     def stack_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
-        """
         return pulumi.get(self, "stack_names")
 
     @stack_names.setter
@@ -221,13 +169,7 @@ class ResourceCollectionCloudformationArgs:
 if not MYPY:
     class ResourceCollectionTagsArgsDict(TypedDict):
         app_boundary_key: pulumi.Input[_builtins.str]
-        """
-        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-        """
         tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
-        """
 elif False:
     ResourceCollectionTagsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -236,19 +178,12 @@ class ResourceCollectionTagsArgs:
     def __init__(__self__, *,
                  app_boundary_key: pulumi.Input[_builtins.str],
                  tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] app_boundary_key: An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_values: Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
-        """
         pulumi.set(__self__, "app_boundary_key", app_boundary_key)
         pulumi.set(__self__, "tag_values", tag_values)
 
     @_builtins.property
     @pulumi.getter(name="appBoundaryKey")
     def app_boundary_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-        """
         return pulumi.get(self, "app_boundary_key")
 
     @app_boundary_key.setter
@@ -258,9 +193,6 @@ class ResourceCollectionTagsArgs:
     @_builtins.property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
-        """
         return pulumi.get(self, "tag_values")
 
     @tag_values.setter
@@ -271,17 +203,8 @@ class ResourceCollectionTagsArgs:
 if not MYPY:
     class ServiceIntegrationKmsServerSideEncryptionArgsDict(TypedDict):
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-        """
         opt_in_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-        """
 elif False:
     ServiceIntegrationKmsServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -291,11 +214,6 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  opt_in_status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-        :param pulumi.Input[_builtins.str] opt_in_status: Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-        :param pulumi.Input[_builtins.str] type: Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if opt_in_status is not None:
@@ -306,9 +224,6 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -318,9 +233,6 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -330,9 +242,6 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -343,9 +252,6 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
 if not MYPY:
     class ServiceIntegrationLogsAnomalyDetectionArgsDict(TypedDict):
         opt_in_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        """
 elif False:
     ServiceIntegrationLogsAnomalyDetectionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -353,18 +259,12 @@ elif False:
 class ServiceIntegrationLogsAnomalyDetectionArgs:
     def __init__(__self__, *,
                  opt_in_status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] opt_in_status: Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        """
         if opt_in_status is not None:
             pulumi.set(__self__, "opt_in_status", opt_in_status)
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -375,9 +275,6 @@ class ServiceIntegrationLogsAnomalyDetectionArgs:
 if not MYPY:
     class ServiceIntegrationOpsCenterArgsDict(TypedDict):
         opt_in_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        """
 elif False:
     ServiceIntegrationOpsCenterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -385,18 +282,12 @@ elif False:
 class ServiceIntegrationOpsCenterArgs:
     def __init__(__self__, *,
                  opt_in_status: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] opt_in_status: Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        """
         if opt_in_status is not None:
             pulumi.set(__self__, "opt_in_status", opt_in_status)
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
@@ -407,13 +298,7 @@ class ServiceIntegrationOpsCenterArgs:
 if not MYPY:
     class GetNotificationChannelFilterArgsDict(TypedDict):
         message_types: Sequence[_builtins.str]
-        """
-        Events to receive notifications for.
-        """
         severities: Sequence[_builtins.str]
-        """
-        Severity levels to receive notifications for.
-        """
 elif False:
     GetNotificationChannelFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -422,19 +307,12 @@ class GetNotificationChannelFilterArgs:
     def __init__(__self__, *,
                  message_types: Sequence[_builtins.str],
                  severities: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] message_types: Events to receive notifications for.
-        :param Sequence[_builtins.str] severities: Severity levels to receive notifications for.
-        """
         pulumi.set(__self__, "message_types", message_types)
         pulumi.set(__self__, "severities", severities)
 
     @_builtins.property
     @pulumi.getter(name="messageTypes")
     def message_types(self) -> Sequence[_builtins.str]:
-        """
-        Events to receive notifications for.
-        """
         return pulumi.get(self, "message_types")
 
     @message_types.setter
@@ -444,9 +322,6 @@ class GetNotificationChannelFilterArgs:
     @_builtins.property
     @pulumi.getter
     def severities(self) -> Sequence[_builtins.str]:
-        """
-        Severity levels to receive notifications for.
-        """
         return pulumi.get(self, "severities")
 
     @severities.setter
@@ -457,9 +332,6 @@ class GetNotificationChannelFilterArgs:
 if not MYPY:
     class GetNotificationChannelSnArgsDict(TypedDict):
         topic_arn: _builtins.str
-        """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
 elif False:
     GetNotificationChannelSnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -467,17 +339,11 @@ elif False:
 class GetNotificationChannelSnArgs:
     def __init__(__self__, *,
                  topic_arn: _builtins.str):
-        """
-        :param _builtins.str topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter

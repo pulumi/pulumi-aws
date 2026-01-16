@@ -11,75 +11,12 @@ namespace Pulumi.Aws.RedshiftServerless
 {
     public static class GetNamespace
     {
-        /// <summary>
-        /// Data source for managing an AWS Redshift Serverless Namespace.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedshiftServerless.GetNamespace.Invoke(new()
-        ///     {
-        ///         NamespaceName = "example-namespace",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Redshift Serverless Namespace.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedshiftServerless.GetNamespace.Invoke(new()
-        ///     {
-        ///         NamespaceName = "example-namespace",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Redshift Serverless Namespace.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedshiftServerless.GetNamespace.Invoke(new()
-        ///     {
-        ///         NamespaceName = "example-namespace",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the namespace.
-        /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the namespace.
-        /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,41 +54,17 @@ namespace Pulumi.Aws.RedshiftServerless
     [OutputType]
     public sealed class GetNamespaceResult
     {
-        /// <summary>
-        /// The username of the administrator for the first database created in the namespace.
-        /// </summary>
         public readonly string AdminUsername;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The name of the first database created in the namespace.
-        /// </summary>
         public readonly string DbName;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
-        /// </summary>
         public readonly string DefaultIamRoleArn;
-        /// <summary>
-        /// A list of IAM roles to associate with the namespace.
-        /// </summary>
         public readonly ImmutableArray<string> IamRoles;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// The types of logs the namespace can export. Available export types are `Userlog`, `Connectionlog`, and `Useractivitylog`.
-        /// </summary>
         public readonly ImmutableArray<string> LogExports;
-        /// <summary>
-        /// The Redshift Namespace ID.
-        /// </summary>
         public readonly string NamespaceId;
         public readonly string NamespaceName;
         public readonly string Region;

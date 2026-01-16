@@ -11,81 +11,12 @@ namespace Pulumi.Aws.AppConfig
 {
     public static class GetApplication
     {
-        /// <summary>
-        /// Provides details about an AWS AppConfig Application.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppConfig.GetApplication.Invoke(new()
-        ///     {
-        ///         Name = "my-appconfig-application",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:appconfig/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an AWS AppConfig Application.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppConfig.GetApplication.Invoke(new()
-        ///     {
-        ///         Name = "my-appconfig-application",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:appconfig/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an AWS AppConfig Application.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppConfig.GetApplication.Invoke(new()
-        ///     {
-        ///         Name = "my-appconfig-application",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:appconfig/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
@@ -93,21 +24,12 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Application. Either `Id` or `Name` must be specified.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// AWS AppConfig Application name. Either `Name` or `Id` must be specified.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -119,21 +41,12 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Application. Either `Id` or `Name` must be specified.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// AWS AppConfig Application name. Either `Name` or `Id` must be specified.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -147,13 +60,7 @@ namespace Pulumi.Aws.AppConfig
     [OutputType]
     public sealed class GetApplicationResult
     {
-        /// <summary>
-        /// ARN of the Application.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the Application.
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;

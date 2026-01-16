@@ -9,96 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("example", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///     });
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SES:SendEmail",
-    ///                     "SES:SendRawEmail",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleDomainIdentity.Arn,
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                         Type = "AWS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("example", new()
-    ///     {
-    ///         Identity = exampleDomainIdentity.Arn,
-    ///         Name = "example",
-    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/identityPolicy:IdentityPolicy")]
     public partial class IdentityPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the SES Identity.
-        /// </summary>
         [Output("identity")]
         public Output<string> Identity { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the policy.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON string of the policy.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -148,27 +70,15 @@ namespace Pulumi.Aws.Ses
 
     public sealed class IdentityPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the SES Identity.
-        /// </summary>
         [Input("identity", required: true)]
         public Input<string> Identity { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// JSON string of the policy.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -180,27 +90,15 @@ namespace Pulumi.Aws.Ses
 
     public sealed class IdentityPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the SES Identity.
-        /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
 
-        /// <summary>
-        /// Name of the policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// JSON string of the policy.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

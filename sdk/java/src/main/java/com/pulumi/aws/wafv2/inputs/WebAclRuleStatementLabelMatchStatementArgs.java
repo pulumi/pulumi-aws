@@ -14,32 +14,16 @@ public final class WebAclRuleStatementLabelMatchStatementArgs extends com.pulumi
 
     public static final WebAclRuleStatementLabelMatchStatementArgs Empty = new WebAclRuleStatementLabelMatchStatementArgs();
 
-    /**
-     * String to match against.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return String to match against.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
-     * 
-     */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
-    /**
-     * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
-     * 
-     */
     public Output<String> scope() {
         return this.scope;
     }
@@ -69,44 +53,20 @@ public final class WebAclRuleStatementLabelMatchStatementArgs extends com.pulumi
             $ = new WebAclRuleStatementLabelMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key String to match against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key String to match against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param scope Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }

@@ -12,68 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Internet Monitor Monitor resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewInternetMonitor(ctx, "example", &cloudwatch.InternetMonitorArgs{
-//				MonitorName: pulumi.String("exmple"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
-// ```
 type InternetMonitor struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Monitor.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-	HealthEventsConfig InternetMonitorHealthEventsConfigPtrOutput `pulumi:"healthEventsConfig"`
-	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+	Arn                             pulumi.StringOutput                                     `pulumi:"arn"`
+	HealthEventsConfig              InternetMonitorHealthEventsConfigPtrOutput              `pulumi:"healthEventsConfig"`
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrOutput `pulumi:"internetMeasurementsLogDelivery"`
-	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-	MaxCityNetworksToMonitor pulumi.IntPtrOutput `pulumi:"maxCityNetworksToMonitor"`
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-	Resources pulumi.StringArrayOutput `pulumi:"resources"`
-	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-	TrafficPercentageToMonitor pulumi.IntPtrOutput `pulumi:"trafficPercentageToMonitor"`
+	MaxCityNetworksToMonitor        pulumi.IntPtrOutput                                     `pulumi:"maxCityNetworksToMonitor"`
+	MonitorName                     pulumi.StringOutput                                     `pulumi:"monitorName"`
+	Region                          pulumi.StringOutput                                     `pulumi:"region"`
+	Resources                       pulumi.StringArrayOutput                                `pulumi:"resources"`
+	Status                          pulumi.StringPtrOutput                                  `pulumi:"status"`
+	Tags                            pulumi.StringMapOutput                                  `pulumi:"tags"`
+	TagsAll                         pulumi.StringMapOutput                                  `pulumi:"tagsAll"`
+	TrafficPercentageToMonitor      pulumi.IntPtrOutput                                     `pulumi:"trafficPercentageToMonitor"`
 }
 
 // NewInternetMonitor registers a new resource with the given unique name, arguments, and options.
@@ -109,57 +61,31 @@ func GetInternetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InternetMonitor resources.
 type internetMonitorState struct {
-	// ARN of the Monitor.
-	Arn *string `pulumi:"arn"`
-	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
-	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+	Arn                             *string                                         `pulumi:"arn"`
+	HealthEventsConfig              *InternetMonitorHealthEventsConfig              `pulumi:"healthEventsConfig"`
 	InternetMeasurementsLogDelivery *InternetMonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
-	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-	MaxCityNetworksToMonitor *int `pulumi:"maxCityNetworksToMonitor"`
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName *string `pulumi:"monitorName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-	Resources []string `pulumi:"resources"`
-	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-	TrafficPercentageToMonitor *int `pulumi:"trafficPercentageToMonitor"`
+	MaxCityNetworksToMonitor        *int                                            `pulumi:"maxCityNetworksToMonitor"`
+	MonitorName                     *string                                         `pulumi:"monitorName"`
+	Region                          *string                                         `pulumi:"region"`
+	Resources                       []string                                        `pulumi:"resources"`
+	Status                          *string                                         `pulumi:"status"`
+	Tags                            map[string]string                               `pulumi:"tags"`
+	TagsAll                         map[string]string                               `pulumi:"tagsAll"`
+	TrafficPercentageToMonitor      *int                                            `pulumi:"trafficPercentageToMonitor"`
 }
 
 type InternetMonitorState struct {
-	// ARN of the Monitor.
-	Arn pulumi.StringPtrInput
-	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-	HealthEventsConfig InternetMonitorHealthEventsConfigPtrInput
-	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+	Arn                             pulumi.StringPtrInput
+	HealthEventsConfig              InternetMonitorHealthEventsConfigPtrInput
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrInput
-	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-	MaxCityNetworksToMonitor pulumi.IntPtrInput
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-	Resources pulumi.StringArrayInput
-	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-	TrafficPercentageToMonitor pulumi.IntPtrInput
+	MaxCityNetworksToMonitor        pulumi.IntPtrInput
+	MonitorName                     pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
+	Resources                       pulumi.StringArrayInput
+	Status                          pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
+	TrafficPercentageToMonitor      pulumi.IntPtrInput
 }
 
 func (InternetMonitorState) ElementType() reflect.Type {
@@ -167,50 +93,28 @@ func (InternetMonitorState) ElementType() reflect.Type {
 }
 
 type internetMonitorArgs struct {
-	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
-	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+	HealthEventsConfig              *InternetMonitorHealthEventsConfig              `pulumi:"healthEventsConfig"`
 	InternetMeasurementsLogDelivery *InternetMonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
-	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-	MaxCityNetworksToMonitor *int `pulumi:"maxCityNetworksToMonitor"`
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName string `pulumi:"monitorName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-	Resources []string `pulumi:"resources"`
-	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-	Status *string `pulumi:"status"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-	TrafficPercentageToMonitor *int `pulumi:"trafficPercentageToMonitor"`
+	MaxCityNetworksToMonitor        *int                                            `pulumi:"maxCityNetworksToMonitor"`
+	MonitorName                     string                                          `pulumi:"monitorName"`
+	Region                          *string                                         `pulumi:"region"`
+	Resources                       []string                                        `pulumi:"resources"`
+	Status                          *string                                         `pulumi:"status"`
+	Tags                            map[string]string                               `pulumi:"tags"`
+	TrafficPercentageToMonitor      *int                                            `pulumi:"trafficPercentageToMonitor"`
 }
 
 // The set of arguments for constructing a InternetMonitor resource.
 type InternetMonitorArgs struct {
-	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-	HealthEventsConfig InternetMonitorHealthEventsConfigPtrInput
-	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+	HealthEventsConfig              InternetMonitorHealthEventsConfigPtrInput
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrInput
-	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-	MaxCityNetworksToMonitor pulumi.IntPtrInput
-	// The name of the monitor.
-	//
-	// The following arguments are optional:
-	MonitorName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-	Resources pulumi.StringArrayInput
-	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-	Status pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-	TrafficPercentageToMonitor pulumi.IntPtrInput
+	MaxCityNetworksToMonitor        pulumi.IntPtrInput
+	MonitorName                     pulumi.StringInput
+	Region                          pulumi.StringPtrInput
+	Resources                       pulumi.StringArrayInput
+	Status                          pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TrafficPercentageToMonitor      pulumi.IntPtrInput
 }
 
 func (InternetMonitorArgs) ElementType() reflect.Type {
@@ -300,61 +204,48 @@ func (o InternetMonitorOutput) ToInternetMonitorOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the Monitor.
 func (o InternetMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
 func (o InternetMonitorOutput) HealthEventsConfig() InternetMonitorHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v *InternetMonitor) InternetMonitorHealthEventsConfigPtrOutput { return v.HealthEventsConfig }).(InternetMonitorHealthEventsConfigPtrOutput)
 }
 
-// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 func (o InternetMonitorOutput) InternetMeasurementsLogDelivery() InternetMonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *InternetMonitor) InternetMonitorInternetMeasurementsLogDeliveryPtrOutput {
 		return v.InternetMeasurementsLogDelivery
 	}).(InternetMonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
-// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
 func (o InternetMonitorOutput) MaxCityNetworksToMonitor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.IntPtrOutput { return v.MaxCityNetworksToMonitor }).(pulumi.IntPtrOutput)
 }
 
-// The name of the monitor.
-//
-// The following arguments are optional:
 func (o InternetMonitorOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InternetMonitorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 func (o InternetMonitorOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
 func (o InternetMonitorOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InternetMonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InternetMonitorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
 func (o InternetMonitorOutput) TrafficPercentageToMonitor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.IntPtrOutput { return v.TrafficPercentageToMonitor }).(pulumi.IntPtrOutput)
 }

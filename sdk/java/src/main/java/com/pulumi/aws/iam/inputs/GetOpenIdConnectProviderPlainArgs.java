@@ -15,47 +15,23 @@ public final class GetOpenIdConnectProviderPlainArgs extends com.pulumi.resource
 
     public static final GetOpenIdConnectProviderPlainArgs Empty = new GetOpenIdConnectProviderPlainArgs();
 
-    /**
-     * ARN of the OpenID Connect provider.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the OpenID Connect provider.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Map of resource tags for the IAM OIDC provider.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of resource tags for the IAM OIDC provider.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * URL of the OpenID Connect provider.
-     * 
-     */
     @Import(name="url")
     private @Nullable String url;
 
-    /**
-     * @return URL of the OpenID Connect provider.
-     * 
-     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
@@ -86,34 +62,16 @@ public final class GetOpenIdConnectProviderPlainArgs extends com.pulumi.resource
             $ = new GetOpenIdConnectProviderPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags for the IAM OIDC provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param url URL of the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable String url) {
             $.url = url;
             return this;

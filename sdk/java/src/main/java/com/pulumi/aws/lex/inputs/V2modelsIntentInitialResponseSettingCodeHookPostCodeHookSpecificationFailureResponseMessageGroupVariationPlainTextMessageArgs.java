@@ -14,17 +14,9 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
 
     public static final V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs Empty = new V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs();
 
-    /**
-     * Message to send to the user.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Message to send to the user.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
             $ = new V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value Message to send to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Message to send to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsRStudioServerProAppSettings {
-    /**
-     * @return Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String accessStatus;
-    /**
-     * @return The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
-     * 
-     */
     private @Nullable String userGroup;
 
     private UserProfileUserSettingsRStudioServerProAppSettings() {}
-    /**
-     * @return Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> accessStatus() {
         return Optional.ofNullable(this.accessStatus);
     }
-    /**
-     * @return The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
-     * 
-     */
     public Optional<String> userGroup() {
         return Optional.ofNullable(this.userGroup);
     }

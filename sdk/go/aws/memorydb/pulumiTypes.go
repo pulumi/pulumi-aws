@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterClusterEndpoint struct {
-	// DNS hostname of the node.
 	Address *string `pulumi:"address"`
-	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
-	Port *int `pulumi:"port"`
+	Port    *int    `pulumi:"port"`
 }
 
 // ClusterClusterEndpointInput is an input type that accepts ClusterClusterEndpointArgs and ClusterClusterEndpointOutput values.
@@ -32,10 +30,8 @@ type ClusterClusterEndpointInput interface {
 }
 
 type ClusterClusterEndpointArgs struct {
-	// DNS hostname of the node.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port    pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (ClusterClusterEndpointArgs) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutputWithContext(
 	return o
 }
 
-// DNS hostname of the node.
 func (o ClusterClusterEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 func (o ClusterClusterEndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterClusterEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -120,14 +114,10 @@ func (o ClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterClust
 }
 
 type ClusterShard struct {
-	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Set of nodes in this shard.
-	Nodes []ClusterShardNode `pulumi:"nodes"`
-	// Number of individual nodes in this shard.
-	NumNodes *int `pulumi:"numNodes"`
-	// Keyspace for this shard. Example: `0-16383`.
-	Slots *string `pulumi:"slots"`
+	Name     *string            `pulumi:"name"`
+	Nodes    []ClusterShardNode `pulumi:"nodes"`
+	NumNodes *int               `pulumi:"numNodes"`
+	Slots    *string            `pulumi:"slots"`
 }
 
 // ClusterShardInput is an input type that accepts ClusterShardArgs and ClusterShardOutput values.
@@ -142,14 +132,10 @@ type ClusterShardInput interface {
 }
 
 type ClusterShardArgs struct {
-	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Set of nodes in this shard.
-	Nodes ClusterShardNodeArrayInput `pulumi:"nodes"`
-	// Number of individual nodes in this shard.
-	NumNodes pulumi.IntPtrInput `pulumi:"numNodes"`
-	// Keyspace for this shard. Example: `0-16383`.
-	Slots pulumi.StringPtrInput `pulumi:"slots"`
+	Name     pulumi.StringPtrInput      `pulumi:"name"`
+	Nodes    ClusterShardNodeArrayInput `pulumi:"nodes"`
+	NumNodes pulumi.IntPtrInput         `pulumi:"numNodes"`
+	Slots    pulumi.StringPtrInput      `pulumi:"slots"`
 }
 
 func (ClusterShardArgs) ElementType() reflect.Type {
@@ -203,22 +189,18 @@ func (o ClusterShardOutput) ToClusterShardOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ClusterShardOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShard) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Set of nodes in this shard.
 func (o ClusterShardOutput) Nodes() ClusterShardNodeArrayOutput {
 	return o.ApplyT(func(v ClusterShard) []ClusterShardNode { return v.Nodes }).(ClusterShardNodeArrayOutput)
 }
 
-// Number of individual nodes in this shard.
 func (o ClusterShardOutput) NumNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterShard) *int { return v.NumNodes }).(pulumi.IntPtrOutput)
 }
 
-// Keyspace for this shard. Example: `0-16383`.
 func (o ClusterShardOutput) Slots() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShard) *string { return v.Slots }).(pulumi.StringPtrOutput)
 }
@@ -244,13 +226,10 @@ func (o ClusterShardArrayOutput) Index(i pulumi.IntInput) ClusterShardOutput {
 }
 
 type ClusterShardNode struct {
-	// The Availability Zone in which the node resides.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-	CreateTime *string                    `pulumi:"createTime"`
-	Endpoints  []ClusterShardNodeEndpoint `pulumi:"endpoints"`
-	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
+	AvailabilityZone *string                    `pulumi:"availabilityZone"`
+	CreateTime       *string                    `pulumi:"createTime"`
+	Endpoints        []ClusterShardNodeEndpoint `pulumi:"endpoints"`
+	Name             *string                    `pulumi:"name"`
 }
 
 // ClusterShardNodeInput is an input type that accepts ClusterShardNodeArgs and ClusterShardNodeOutput values.
@@ -265,13 +244,10 @@ type ClusterShardNodeInput interface {
 }
 
 type ClusterShardNodeArgs struct {
-	// The Availability Zone in which the node resides.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-	CreateTime pulumi.StringPtrInput              `pulumi:"createTime"`
-	Endpoints  ClusterShardNodeEndpointArrayInput `pulumi:"endpoints"`
-	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	AvailabilityZone pulumi.StringPtrInput              `pulumi:"availabilityZone"`
+	CreateTime       pulumi.StringPtrInput              `pulumi:"createTime"`
+	Endpoints        ClusterShardNodeEndpointArrayInput `pulumi:"endpoints"`
+	Name             pulumi.StringPtrInput              `pulumi:"name"`
 }
 
 func (ClusterShardNodeArgs) ElementType() reflect.Type {
@@ -325,12 +301,10 @@ func (o ClusterShardNodeOutput) ToClusterShardNodeOutputWithContext(ctx context.
 	return o
 }
 
-// The Availability Zone in which the node resides.
 func (o ClusterShardNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShardNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
 func (o ClusterShardNodeOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShardNode) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
@@ -339,7 +313,6 @@ func (o ClusterShardNodeOutput) Endpoints() ClusterShardNodeEndpointArrayOutput 
 	return o.ApplyT(func(v ClusterShardNode) []ClusterShardNodeEndpoint { return v.Endpoints }).(ClusterShardNodeEndpointArrayOutput)
 }
 
-// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ClusterShardNodeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShardNode) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -365,10 +338,8 @@ func (o ClusterShardNodeArrayOutput) Index(i pulumi.IntInput) ClusterShardNodeOu
 }
 
 type ClusterShardNodeEndpoint struct {
-	// DNS hostname of the node.
 	Address *string `pulumi:"address"`
-	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
-	Port *int `pulumi:"port"`
+	Port    *int    `pulumi:"port"`
 }
 
 // ClusterShardNodeEndpointInput is an input type that accepts ClusterShardNodeEndpointArgs and ClusterShardNodeEndpointOutput values.
@@ -383,10 +354,8 @@ type ClusterShardNodeEndpointInput interface {
 }
 
 type ClusterShardNodeEndpointArgs struct {
-	// DNS hostname of the node.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The port number on which each of the nodes accepts connections. Defaults to `6379`.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port    pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (ClusterShardNodeEndpointArgs) ElementType() reflect.Type {
@@ -440,12 +409,10 @@ func (o ClusterShardNodeEndpointOutput) ToClusterShardNodeEndpointOutputWithCont
 	return o
 }
 
-// DNS hostname of the node.
 func (o ClusterShardNodeEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterShardNodeEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The port number on which each of the nodes accepts connections. Defaults to `6379`.
 func (o ClusterShardNodeEndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterShardNodeEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -646,9 +613,7 @@ func (o MultiRegionClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ParameterGroupParameter struct {
-	// The name of the parameter.
-	Name string `pulumi:"name"`
-	// The value of the parameter.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -664,9 +629,7 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// The name of the parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the parameter.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -721,12 +684,10 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// The name of the parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -752,34 +713,20 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type SnapshotClusterConfiguration struct {
-	// Description for the cluster.
-	Description *string `pulumi:"description"`
-	// The engine that will run on cluster nodes.
-	Engine *string `pulumi:"engine"`
-	// Version number of the engine used by the cluster.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// The weekly time range during which maintenance on the cluster is performed.
-	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Compute and memory capacity of the nodes in the cluster.
-	NodeType *string `pulumi:"nodeType"`
-	// Number of shards in the cluster.
-	NumShards *int `pulumi:"numShards"`
-	// Name of the parameter group associated with the cluster.
-	ParameterGroupName *string `pulumi:"parameterGroupName"`
-	// Port number on which the cluster accepts connections.
-	Port *int `pulumi:"port"`
-	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
-	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-	SnapshotWindow *string `pulumi:"snapshotWindow"`
-	// Name of the subnet group used by the cluster.
-	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// ARN of the SNS topic to which cluster notifications are sent.
-	TopicArn *string `pulumi:"topicArn"`
-	// The VPC in which the cluster exists.
-	VpcId *string `pulumi:"vpcId"`
+	Description            *string `pulumi:"description"`
+	Engine                 *string `pulumi:"engine"`
+	EngineVersion          *string `pulumi:"engineVersion"`
+	MaintenanceWindow      *string `pulumi:"maintenanceWindow"`
+	Name                   *string `pulumi:"name"`
+	NodeType               *string `pulumi:"nodeType"`
+	NumShards              *int    `pulumi:"numShards"`
+	ParameterGroupName     *string `pulumi:"parameterGroupName"`
+	Port                   *int    `pulumi:"port"`
+	SnapshotRetentionLimit *int    `pulumi:"snapshotRetentionLimit"`
+	SnapshotWindow         *string `pulumi:"snapshotWindow"`
+	SubnetGroupName        *string `pulumi:"subnetGroupName"`
+	TopicArn               *string `pulumi:"topicArn"`
+	VpcId                  *string `pulumi:"vpcId"`
 }
 
 // SnapshotClusterConfigurationInput is an input type that accepts SnapshotClusterConfigurationArgs and SnapshotClusterConfigurationOutput values.
@@ -794,34 +741,20 @@ type SnapshotClusterConfigurationInput interface {
 }
 
 type SnapshotClusterConfigurationArgs struct {
-	// Description for the cluster.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The engine that will run on cluster nodes.
-	Engine pulumi.StringPtrInput `pulumi:"engine"`
-	// Version number of the engine used by the cluster.
-	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
-	// The weekly time range during which maintenance on the cluster is performed.
-	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Compute and memory capacity of the nodes in the cluster.
-	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
-	// Number of shards in the cluster.
-	NumShards pulumi.IntPtrInput `pulumi:"numShards"`
-	// Name of the parameter group associated with the cluster.
-	ParameterGroupName pulumi.StringPtrInput `pulumi:"parameterGroupName"`
-	// Port number on which the cluster accepts connections.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
-	SnapshotRetentionLimit pulumi.IntPtrInput `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-	SnapshotWindow pulumi.StringPtrInput `pulumi:"snapshotWindow"`
-	// Name of the subnet group used by the cluster.
-	SubnetGroupName pulumi.StringPtrInput `pulumi:"subnetGroupName"`
-	// ARN of the SNS topic to which cluster notifications are sent.
-	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
-	// The VPC in which the cluster exists.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	Engine                 pulumi.StringPtrInput `pulumi:"engine"`
+	EngineVersion          pulumi.StringPtrInput `pulumi:"engineVersion"`
+	MaintenanceWindow      pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
+	Name                   pulumi.StringPtrInput `pulumi:"name"`
+	NodeType               pulumi.StringPtrInput `pulumi:"nodeType"`
+	NumShards              pulumi.IntPtrInput    `pulumi:"numShards"`
+	ParameterGroupName     pulumi.StringPtrInput `pulumi:"parameterGroupName"`
+	Port                   pulumi.IntPtrInput    `pulumi:"port"`
+	SnapshotRetentionLimit pulumi.IntPtrInput    `pulumi:"snapshotRetentionLimit"`
+	SnapshotWindow         pulumi.StringPtrInput `pulumi:"snapshotWindow"`
+	SubnetGroupName        pulumi.StringPtrInput `pulumi:"subnetGroupName"`
+	TopicArn               pulumi.StringPtrInput `pulumi:"topicArn"`
+	VpcId                  pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (SnapshotClusterConfigurationArgs) ElementType() reflect.Type {
@@ -875,72 +808,58 @@ func (o SnapshotClusterConfigurationOutput) ToSnapshotClusterConfigurationOutput
 	return o
 }
 
-// Description for the cluster.
 func (o SnapshotClusterConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The engine that will run on cluster nodes.
 func (o SnapshotClusterConfigurationOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-// Version number of the engine used by the cluster.
 func (o SnapshotClusterConfigurationOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// The weekly time range during which maintenance on the cluster is performed.
 func (o SnapshotClusterConfigurationOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o SnapshotClusterConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Compute and memory capacity of the nodes in the cluster.
 func (o SnapshotClusterConfigurationOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.NodeType }).(pulumi.StringPtrOutput)
 }
 
-// Number of shards in the cluster.
 func (o SnapshotClusterConfigurationOutput) NumShards() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *int { return v.NumShards }).(pulumi.IntPtrOutput)
 }
 
-// Name of the parameter group associated with the cluster.
 func (o SnapshotClusterConfigurationOutput) ParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
-// Port number on which the cluster accepts connections.
 func (o SnapshotClusterConfigurationOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Number of days for which MemoryDB retains automatic snapshots before deleting them.
 func (o SnapshotClusterConfigurationOutput) SnapshotRetentionLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *int { return v.SnapshotRetentionLimit }).(pulumi.IntPtrOutput)
 }
 
-// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
 func (o SnapshotClusterConfigurationOutput) SnapshotWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.SnapshotWindow }).(pulumi.StringPtrOutput)
 }
 
-// Name of the subnet group used by the cluster.
 func (o SnapshotClusterConfigurationOutput) SubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the SNS topic to which cluster notifications are sent.
 func (o SnapshotClusterConfigurationOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
 
-// The VPC in which the cluster exists.
 func (o SnapshotClusterConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -966,12 +885,9 @@ func (o SnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) Snapsh
 }
 
 type UserAuthenticationMode struct {
-	// Number of passwords belonging to the user if `type` is set to `password`.
-	PasswordCount *int `pulumi:"passwordCount"`
-	// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-	Passwords []string `pulumi:"passwords"`
-	// Specifies the authentication type. Valid values are: `password` or `iam`.
-	Type string `pulumi:"type"`
+	PasswordCount *int     `pulumi:"passwordCount"`
+	Passwords     []string `pulumi:"passwords"`
+	Type          string   `pulumi:"type"`
 }
 
 // UserAuthenticationModeInput is an input type that accepts UserAuthenticationModeArgs and UserAuthenticationModeOutput values.
@@ -986,12 +902,9 @@ type UserAuthenticationModeInput interface {
 }
 
 type UserAuthenticationModeArgs struct {
-	// Number of passwords belonging to the user if `type` is set to `password`.
-	PasswordCount pulumi.IntPtrInput `pulumi:"passwordCount"`
-	// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
-	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
-	// Specifies the authentication type. Valid values are: `password` or `iam`.
-	Type pulumi.StringInput `pulumi:"type"`
+	PasswordCount pulumi.IntPtrInput      `pulumi:"passwordCount"`
+	Passwords     pulumi.StringArrayInput `pulumi:"passwords"`
+	Type          pulumi.StringInput      `pulumi:"type"`
 }
 
 func (UserAuthenticationModeArgs) ElementType() reflect.Type {
@@ -1071,17 +984,14 @@ func (o UserAuthenticationModeOutput) ToUserAuthenticationModePtrOutputWithConte
 	}).(UserAuthenticationModePtrOutput)
 }
 
-// Number of passwords belonging to the user if `type` is set to `password`.
 func (o UserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) *int { return v.PasswordCount }).(pulumi.IntPtrOutput)
 }
 
-// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
 func (o UserAuthenticationModeOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) []string { return v.Passwords }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the authentication type. Valid values are: `password` or `iam`.
 func (o UserAuthenticationModeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1110,7 +1020,6 @@ func (o UserAuthenticationModePtrOutput) Elem() UserAuthenticationModeOutput {
 	}).(UserAuthenticationModeOutput)
 }
 
-// Number of passwords belonging to the user if `type` is set to `password`.
 func (o UserAuthenticationModePtrOutput) PasswordCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) *int {
 		if v == nil {
@@ -1120,7 +1029,6 @@ func (o UserAuthenticationModePtrOutput) PasswordCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
 func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) []string {
 		if v == nil {
@@ -1130,7 +1038,6 @@ func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the authentication type. Valid values are: `password` or `iam`.
 func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) *string {
 		if v == nil {
@@ -1141,10 +1048,8 @@ func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetClusterClusterEndpoint struct {
-	// DNS hostname of the node.
 	Address string `pulumi:"address"`
-	// Port number that this node is listening on.
-	Port int `pulumi:"port"`
+	Port    int    `pulumi:"port"`
 }
 
 // GetClusterClusterEndpointInput is an input type that accepts GetClusterClusterEndpointArgs and GetClusterClusterEndpointOutput values.
@@ -1159,10 +1064,8 @@ type GetClusterClusterEndpointInput interface {
 }
 
 type GetClusterClusterEndpointArgs struct {
-	// DNS hostname of the node.
 	Address pulumi.StringInput `pulumi:"address"`
-	// Port number that this node is listening on.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (GetClusterClusterEndpointArgs) ElementType() reflect.Type {
@@ -1216,12 +1119,10 @@ func (o GetClusterClusterEndpointOutput) ToGetClusterClusterEndpointOutputWithCo
 	return o
 }
 
-// DNS hostname of the node.
 func (o GetClusterClusterEndpointOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterEndpoint) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// Port number that this node is listening on.
 func (o GetClusterClusterEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterClusterEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1247,14 +1148,10 @@ func (o GetClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) GetCluste
 }
 
 type GetClusterShard struct {
-	// Name of the cluster.
-	Name string `pulumi:"name"`
-	// Set of nodes in this shard.
-	Nodes []GetClusterShardNode `pulumi:"nodes"`
-	// Number of individual nodes in this shard.
-	NumNodes int `pulumi:"numNodes"`
-	// Keyspace for this shard. Example: `0-16383`.
-	Slots string `pulumi:"slots"`
+	Name     string                `pulumi:"name"`
+	Nodes    []GetClusterShardNode `pulumi:"nodes"`
+	NumNodes int                   `pulumi:"numNodes"`
+	Slots    string                `pulumi:"slots"`
 }
 
 // GetClusterShardInput is an input type that accepts GetClusterShardArgs and GetClusterShardOutput values.
@@ -1269,14 +1166,10 @@ type GetClusterShardInput interface {
 }
 
 type GetClusterShardArgs struct {
-	// Name of the cluster.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of nodes in this shard.
-	Nodes GetClusterShardNodeArrayInput `pulumi:"nodes"`
-	// Number of individual nodes in this shard.
-	NumNodes pulumi.IntInput `pulumi:"numNodes"`
-	// Keyspace for this shard. Example: `0-16383`.
-	Slots pulumi.StringInput `pulumi:"slots"`
+	Name     pulumi.StringInput            `pulumi:"name"`
+	Nodes    GetClusterShardNodeArrayInput `pulumi:"nodes"`
+	NumNodes pulumi.IntInput               `pulumi:"numNodes"`
+	Slots    pulumi.StringInput            `pulumi:"slots"`
 }
 
 func (GetClusterShardArgs) ElementType() reflect.Type {
@@ -1330,22 +1223,18 @@ func (o GetClusterShardOutput) ToGetClusterShardOutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the cluster.
 func (o GetClusterShardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterShard) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of nodes in this shard.
 func (o GetClusterShardOutput) Nodes() GetClusterShardNodeArrayOutput {
 	return o.ApplyT(func(v GetClusterShard) []GetClusterShardNode { return v.Nodes }).(GetClusterShardNodeArrayOutput)
 }
 
-// Number of individual nodes in this shard.
 func (o GetClusterShardOutput) NumNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterShard) int { return v.NumNodes }).(pulumi.IntOutput)
 }
 
-// Keyspace for this shard. Example: `0-16383`.
 func (o GetClusterShardOutput) Slots() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterShard) string { return v.Slots }).(pulumi.StringOutput)
 }
@@ -1371,13 +1260,10 @@ func (o GetClusterShardArrayOutput) Index(i pulumi.IntInput) GetClusterShardOutp
 }
 
 type GetClusterShardNode struct {
-	// The Availability Zone in which the node resides.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-	CreateTime string                        `pulumi:"createTime"`
-	Endpoints  []GetClusterShardNodeEndpoint `pulumi:"endpoints"`
-	// Name of the cluster.
-	Name string `pulumi:"name"`
+	AvailabilityZone string                        `pulumi:"availabilityZone"`
+	CreateTime       string                        `pulumi:"createTime"`
+	Endpoints        []GetClusterShardNodeEndpoint `pulumi:"endpoints"`
+	Name             string                        `pulumi:"name"`
 }
 
 // GetClusterShardNodeInput is an input type that accepts GetClusterShardNodeArgs and GetClusterShardNodeOutput values.
@@ -1392,13 +1278,10 @@ type GetClusterShardNodeInput interface {
 }
 
 type GetClusterShardNodeArgs struct {
-	// The Availability Zone in which the node resides.
-	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
-	// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-	CreateTime pulumi.StringInput                    `pulumi:"createTime"`
-	Endpoints  GetClusterShardNodeEndpointArrayInput `pulumi:"endpoints"`
-	// Name of the cluster.
-	Name pulumi.StringInput `pulumi:"name"`
+	AvailabilityZone pulumi.StringInput                    `pulumi:"availabilityZone"`
+	CreateTime       pulumi.StringInput                    `pulumi:"createTime"`
+	Endpoints        GetClusterShardNodeEndpointArrayInput `pulumi:"endpoints"`
+	Name             pulumi.StringInput                    `pulumi:"name"`
 }
 
 func (GetClusterShardNodeArgs) ElementType() reflect.Type {
@@ -1452,12 +1335,10 @@ func (o GetClusterShardNodeOutput) ToGetClusterShardNodeOutputWithContext(ctx co
 	return o
 }
 
-// The Availability Zone in which the node resides.
 func (o GetClusterShardNodeOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterShardNode) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
 func (o GetClusterShardNodeOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterShardNode) string { return v.CreateTime }).(pulumi.StringOutput)
 }
@@ -1466,7 +1347,6 @@ func (o GetClusterShardNodeOutput) Endpoints() GetClusterShardNodeEndpointArrayO
 	return o.ApplyT(func(v GetClusterShardNode) []GetClusterShardNodeEndpoint { return v.Endpoints }).(GetClusterShardNodeEndpointArrayOutput)
 }
 
-// Name of the cluster.
 func (o GetClusterShardNodeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterShardNode) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1492,10 +1372,8 @@ func (o GetClusterShardNodeArrayOutput) Index(i pulumi.IntInput) GetClusterShard
 }
 
 type GetClusterShardNodeEndpoint struct {
-	// DNS hostname of the node.
 	Address string `pulumi:"address"`
-	// Port number that this node is listening on.
-	Port int `pulumi:"port"`
+	Port    int    `pulumi:"port"`
 }
 
 // GetClusterShardNodeEndpointInput is an input type that accepts GetClusterShardNodeEndpointArgs and GetClusterShardNodeEndpointOutput values.
@@ -1510,10 +1388,8 @@ type GetClusterShardNodeEndpointInput interface {
 }
 
 type GetClusterShardNodeEndpointArgs struct {
-	// DNS hostname of the node.
 	Address pulumi.StringInput `pulumi:"address"`
-	// Port number that this node is listening on.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (GetClusterShardNodeEndpointArgs) ElementType() reflect.Type {
@@ -1567,12 +1443,10 @@ func (o GetClusterShardNodeEndpointOutput) ToGetClusterShardNodeEndpointOutputWi
 	return o
 }
 
-// DNS hostname of the node.
 func (o GetClusterShardNodeEndpointOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterShardNodeEndpoint) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// Port number that this node is listening on.
 func (o GetClusterShardNodeEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterShardNodeEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1598,9 +1472,7 @@ func (o GetClusterShardNodeEndpointArrayOutput) Index(i pulumi.IntInput) GetClus
 }
 
 type GetParameterGroupParameter struct {
-	// Name of the parameter group.
-	Name string `pulumi:"name"`
-	// Value of the parameter.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1616,9 +1488,7 @@ type GetParameterGroupParameterInput interface {
 }
 
 type GetParameterGroupParameterArgs struct {
-	// Name of the parameter group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of the parameter.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1673,12 +1543,10 @@ func (o GetParameterGroupParameterOutput) ToGetParameterGroupParameterOutputWith
 	return o
 }
 
-// Name of the parameter group.
 func (o GetParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of the parameter.
 func (o GetParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1704,34 +1572,20 @@ func (o GetParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) GetParam
 }
 
 type GetSnapshotClusterConfiguration struct {
-	// Description for the cluster.
-	Description string `pulumi:"description"`
-	// The engine that will run on cluster nodes.
-	Engine string `pulumi:"engine"`
-	// Version number of the engine used by the cluster.
-	EngineVersion string `pulumi:"engineVersion"`
-	// The weekly time range during which maintenance on the cluster is performed.
-	MaintenanceWindow string `pulumi:"maintenanceWindow"`
-	// Name of the snapshot.
-	Name string `pulumi:"name"`
-	// Compute and memory capacity of the nodes in the cluster.
-	NodeType string `pulumi:"nodeType"`
-	// Number of shards in the cluster.
-	NumShards int `pulumi:"numShards"`
-	// Name of the parameter group associated with the cluster.
-	ParameterGroupName string `pulumi:"parameterGroupName"`
-	// Port number on which the cluster accepts connections.
-	Port int `pulumi:"port"`
-	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
-	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-	SnapshotWindow string `pulumi:"snapshotWindow"`
-	// Name of the subnet group used by the cluster.
-	SubnetGroupName string `pulumi:"subnetGroupName"`
-	// ARN of the SNS topic to which cluster notifications are sent.
-	TopicArn string `pulumi:"topicArn"`
-	// The VPC in which the cluster exists.
-	VpcId string `pulumi:"vpcId"`
+	Description            string `pulumi:"description"`
+	Engine                 string `pulumi:"engine"`
+	EngineVersion          string `pulumi:"engineVersion"`
+	MaintenanceWindow      string `pulumi:"maintenanceWindow"`
+	Name                   string `pulumi:"name"`
+	NodeType               string `pulumi:"nodeType"`
+	NumShards              int    `pulumi:"numShards"`
+	ParameterGroupName     string `pulumi:"parameterGroupName"`
+	Port                   int    `pulumi:"port"`
+	SnapshotRetentionLimit int    `pulumi:"snapshotRetentionLimit"`
+	SnapshotWindow         string `pulumi:"snapshotWindow"`
+	SubnetGroupName        string `pulumi:"subnetGroupName"`
+	TopicArn               string `pulumi:"topicArn"`
+	VpcId                  string `pulumi:"vpcId"`
 }
 
 // GetSnapshotClusterConfigurationInput is an input type that accepts GetSnapshotClusterConfigurationArgs and GetSnapshotClusterConfigurationOutput values.
@@ -1746,34 +1600,20 @@ type GetSnapshotClusterConfigurationInput interface {
 }
 
 type GetSnapshotClusterConfigurationArgs struct {
-	// Description for the cluster.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The engine that will run on cluster nodes.
-	Engine pulumi.StringInput `pulumi:"engine"`
-	// Version number of the engine used by the cluster.
-	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
-	// The weekly time range during which maintenance on the cluster is performed.
-	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
-	// Name of the snapshot.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Compute and memory capacity of the nodes in the cluster.
-	NodeType pulumi.StringInput `pulumi:"nodeType"`
-	// Number of shards in the cluster.
-	NumShards pulumi.IntInput `pulumi:"numShards"`
-	// Name of the parameter group associated with the cluster.
-	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
-	// Port number on which the cluster accepts connections.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Number of days for which MemoryDB retains automatic snapshots before deleting them.
-	SnapshotRetentionLimit pulumi.IntInput `pulumi:"snapshotRetentionLimit"`
-	// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
-	SnapshotWindow pulumi.StringInput `pulumi:"snapshotWindow"`
-	// Name of the subnet group used by the cluster.
-	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
-	// ARN of the SNS topic to which cluster notifications are sent.
-	TopicArn pulumi.StringInput `pulumi:"topicArn"`
-	// The VPC in which the cluster exists.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
+	Description            pulumi.StringInput `pulumi:"description"`
+	Engine                 pulumi.StringInput `pulumi:"engine"`
+	EngineVersion          pulumi.StringInput `pulumi:"engineVersion"`
+	MaintenanceWindow      pulumi.StringInput `pulumi:"maintenanceWindow"`
+	Name                   pulumi.StringInput `pulumi:"name"`
+	NodeType               pulumi.StringInput `pulumi:"nodeType"`
+	NumShards              pulumi.IntInput    `pulumi:"numShards"`
+	ParameterGroupName     pulumi.StringInput `pulumi:"parameterGroupName"`
+	Port                   pulumi.IntInput    `pulumi:"port"`
+	SnapshotRetentionLimit pulumi.IntInput    `pulumi:"snapshotRetentionLimit"`
+	SnapshotWindow         pulumi.StringInput `pulumi:"snapshotWindow"`
+	SubnetGroupName        pulumi.StringInput `pulumi:"subnetGroupName"`
+	TopicArn               pulumi.StringInput `pulumi:"topicArn"`
+	VpcId                  pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (GetSnapshotClusterConfigurationArgs) ElementType() reflect.Type {
@@ -1827,72 +1667,58 @@ func (o GetSnapshotClusterConfigurationOutput) ToGetSnapshotClusterConfiguration
 	return o
 }
 
-// Description for the cluster.
 func (o GetSnapshotClusterConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The engine that will run on cluster nodes.
 func (o GetSnapshotClusterConfigurationOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Version number of the engine used by the cluster.
 func (o GetSnapshotClusterConfigurationOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The weekly time range during which maintenance on the cluster is performed.
 func (o GetSnapshotClusterConfigurationOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// Name of the snapshot.
 func (o GetSnapshotClusterConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Compute and memory capacity of the nodes in the cluster.
 func (o GetSnapshotClusterConfigurationOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// Number of shards in the cluster.
 func (o GetSnapshotClusterConfigurationOutput) NumShards() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) int { return v.NumShards }).(pulumi.IntOutput)
 }
 
-// Name of the parameter group associated with the cluster.
 func (o GetSnapshotClusterConfigurationOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
 
-// Port number on which the cluster accepts connections.
 func (o GetSnapshotClusterConfigurationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Number of days for which MemoryDB retains automatic snapshots before deleting them.
 func (o GetSnapshotClusterConfigurationOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
-// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
 func (o GetSnapshotClusterConfigurationOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.SnapshotWindow }).(pulumi.StringOutput)
 }
 
-// Name of the subnet group used by the cluster.
 func (o GetSnapshotClusterConfigurationOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
-// ARN of the SNS topic to which cluster notifications are sent.
 func (o GetSnapshotClusterConfigurationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
 }
 
-// The VPC in which the cluster exists.
 func (o GetSnapshotClusterConfigurationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -1918,10 +1744,8 @@ func (o GetSnapshotClusterConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetUserAuthenticationMode struct {
-	// Number of passwords belonging to the user if `type` is set to `password`.
-	PasswordCount int `pulumi:"passwordCount"`
-	// Type of authentication configured.
-	Type string `pulumi:"type"`
+	PasswordCount int    `pulumi:"passwordCount"`
+	Type          string `pulumi:"type"`
 }
 
 // GetUserAuthenticationModeInput is an input type that accepts GetUserAuthenticationModeArgs and GetUserAuthenticationModeOutput values.
@@ -1936,10 +1760,8 @@ type GetUserAuthenticationModeInput interface {
 }
 
 type GetUserAuthenticationModeArgs struct {
-	// Number of passwords belonging to the user if `type` is set to `password`.
-	PasswordCount pulumi.IntInput `pulumi:"passwordCount"`
-	// Type of authentication configured.
-	Type pulumi.StringInput `pulumi:"type"`
+	PasswordCount pulumi.IntInput    `pulumi:"passwordCount"`
+	Type          pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetUserAuthenticationModeArgs) ElementType() reflect.Type {
@@ -1993,12 +1815,10 @@ func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutputWithCo
 	return o
 }
 
-// Number of passwords belonging to the user if `type` is set to `password`.
 func (o GetUserAuthenticationModeOutput) PasswordCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetUserAuthenticationMode) int { return v.PasswordCount }).(pulumi.IntOutput)
 }
 
-// Type of authentication configured.
 func (o GetUserAuthenticationModeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
 }

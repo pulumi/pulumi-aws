@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ReplicationInstanceKerberosAuthenticationSettings {
-    /**
-     * @return ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-     * 
-     */
     private String keyCacheSecretIamArn;
-    /**
-     * @return Secret ID that stores the key cache file required for Kerberos authentication.
-     * 
-     */
     private String keyCacheSecretId;
-    /**
-     * @return Contents of krb5 configuration file required for Kerberos authentication.
-     * 
-     */
     private String krb5FileContents;
 
     private ReplicationInstanceKerberosAuthenticationSettings() {}
-    /**
-     * @return ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-     * 
-     */
     public String keyCacheSecretIamArn() {
         return this.keyCacheSecretIamArn;
     }
-    /**
-     * @return Secret ID that stores the key cache file required for Kerberos authentication.
-     * 
-     */
     public String keyCacheSecretId() {
         return this.keyCacheSecretId;
     }
-    /**
-     * @return Contents of krb5 configuration file required for Kerberos authentication.
-     * 
-     */
     public String krb5FileContents() {
         return this.krb5FileContents;
     }

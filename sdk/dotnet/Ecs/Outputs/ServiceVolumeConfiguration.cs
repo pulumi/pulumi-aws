@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceVolumeConfiguration
     {
-        /// <summary>
-        /// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-        /// </summary>
         public readonly Outputs.ServiceVolumeConfigurationManagedEbsVolume ManagedEbsVolume;
-        /// <summary>
-        /// Name of the volume.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

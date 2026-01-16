@@ -11,13 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
-//
-// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-//
-// ## Example Usage
-//
-// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
 func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.InvokeOption) (*GetEbsVolumesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEbsVolumesResult
@@ -30,25 +23,16 @@ func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getEbsVolumes.
 type GetEbsVolumesArgs struct {
-	// Custom filter block as described below.
 	Filters []GetEbsVolumesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired volumes.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string               `pulumi:"region"`
+	Tags    map[string]string     `pulumi:"tags"`
 }
 
 // A collection of values returned by getEbsVolumes.
 type GetEbsVolumesResult struct {
 	Filters []GetEbsVolumesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of all the EBS Volume IDs found. This data source will fail if
-	// no volumes match the provided criteria.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -65,16 +49,9 @@ func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts
 
 // A collection of arguments for invoking getEbsVolumes.
 type GetEbsVolumesOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetEbsVolumesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired volumes.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput         `pulumi:"region"`
+	Tags    pulumi.StringMapInput         `pulumi:"tags"`
 }
 
 func (GetEbsVolumesOutputArgs) ElementType() reflect.Type {
@@ -105,8 +82,6 @@ func (o GetEbsVolumesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEbsVolumesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of all the EBS Volume IDs found. This data source will fail if
-// no volumes match the provided criteria.
 func (o GetEbsVolumesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEbsVolumesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

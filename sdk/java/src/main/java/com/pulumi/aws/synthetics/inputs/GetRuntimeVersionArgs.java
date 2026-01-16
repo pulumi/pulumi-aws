@@ -17,66 +17,30 @@ public final class GetRuntimeVersionArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetRuntimeVersionArgs Empty = new GetRuntimeVersionArgs();
 
-    /**
-     * Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-     * 
-     */
     @Import(name="latest")
     private @Nullable Output<Boolean> latest;
 
-    /**
-     * @return Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> latest() {
         return Optional.ofNullable(this.latest);
     }
 
-    /**
-     * Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
-    /**
-     * @return Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> prefix() {
         return this.prefix;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -108,90 +72,38 @@ public final class GetRuntimeVersionArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetRuntimeVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param latest Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latest(@Nullable Output<Boolean> latest) {
             $.latest = latest;
             return this;
         }
 
-        /**
-         * @param latest Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latest(Boolean latest) {
             return latest(Output.of(latest));
         }
 
-        /**
-         * @param prefix Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param version Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

@@ -115,26 +115,16 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability Zone for the cache cluster.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="cacheNodes")
     def cache_nodes(self) -> Sequence['outputs.GetClusterCacheNodeResult']:
-        """
-        List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
-        Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
-        """
         return pulumi.get(self, "cache_nodes")
 
     @_builtins.property
     @pulumi.getter(name="clusterAddress")
     def cluster_address(self) -> _builtins.str:
-        """
-        (Memcached only) DNS name of the cache cluster without the port appended.
-        """
         return pulumi.get(self, "cluster_address")
 
     @_builtins.property
@@ -145,25 +135,16 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="configurationEndpoint")
     def configuration_endpoint(self) -> _builtins.str:
-        """
-        (Memcached only) Configuration endpoint to allow host discovery.
-        """
         return pulumi.get(self, "configuration_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> _builtins.str:
-        """
-        Name of the cache engine.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
-        """
-        Version number of the cache engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
@@ -177,84 +158,51 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="ipDiscovery")
     def ip_discovery(self) -> _builtins.str:
-        """
-        The IP version advertised in the discovery protocol.
-        """
         return pulumi.get(self, "ip_discovery")
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Sequence['outputs.GetClusterLogDeliveryConfigurationResult']:
-        """
-        Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-        """
         return pulumi.get(self, "log_delivery_configurations")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> _builtins.str:
-        """
-        Specifies the weekly time range for when maintenance
-        on the cache cluster is performed.
-        """
         return pulumi.get(self, "maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> _builtins.str:
-        """
-        The IP versions for cache cluster connections.
-        """
         return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> _builtins.str:
-        """
-        The cluster node type.
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> _builtins.str:
-        """
-        An ARN of an
-        SNS topic that ElastiCache notifications get sent to.
-        """
         return pulumi.get(self, "notification_topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="numCacheNodes")
     def num_cache_nodes(self) -> _builtins.int:
-        """
-        The number of cache nodes that the cache cluster has.
-        """
         return pulumi.get(self, "num_cache_nodes")
 
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> _builtins.str:
-        """
-        Name of the parameter group associated with this cache cluster.
-        """
         return pulumi.get(self, "parameter_group_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port number on which each of the cache nodes will
-        accept connections.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredOutpostArn")
     def preferred_outpost_arn(self) -> _builtins.str:
-        """
-        The outpost ARN in which the cache cluster was created if created in outpost.
-        """
         return pulumi.get(self, "preferred_outpost_arn")
 
     @_builtins.property
@@ -265,51 +213,31 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="replicationGroupId")
     def replication_group_id(self) -> _builtins.str:
-        """
-        The replication group to which this cache cluster belongs.
-        """
         return pulumi.get(self, "replication_group_id")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List VPC security groups associated with the cache cluster.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> _builtins.int:
-        """
-        The number of days for which ElastiCache will
-        retain automatic cache cluster snapshots before deleting them.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @_builtins.property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> _builtins.str:
-        """
-        Daily time range (in UTC) during which ElastiCache will
-        begin taking a daily snapshot of the cache cluster.
-        """
         return pulumi.get(self, "snapshot_window")
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> _builtins.str:
-        """
-        Name of the subnet group associated to the cache cluster.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the resource
-        """
         return pulumi.get(self, "tags")
 
 
@@ -352,21 +280,7 @@ def get_cluster(cluster_id: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to get information about an ElastiCache Cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
-    ```
-
-
-    :param _builtins.str cluster_id: Group identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -407,21 +321,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to get information about an ElastiCache Cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
-    ```
-
-
-    :param _builtins.str cluster_id: Group identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id

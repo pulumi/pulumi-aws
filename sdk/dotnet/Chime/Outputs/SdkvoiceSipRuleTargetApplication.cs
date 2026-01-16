@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class SdkvoiceSipRuleTargetApplication
     {
-        /// <summary>
-        /// The AWS Region of the target application.
-        /// </summary>
         public readonly string AwsRegion;
-        /// <summary>
-        /// Priority of the SIP media application in the target list.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// The SIP media application ID.
-        /// </summary>
         public readonly string SipMediaApplicationId;
 
         [OutputConstructor]

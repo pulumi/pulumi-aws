@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification
     {
-        /// <summary>
-        /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-        /// </summary>
         public readonly string? PropagateTags;
-        /// <summary>
-        /// The type of volume resource. Valid values, `Volume`.
-        /// </summary>
         public readonly string ResourceType;
-        /// <summary>
-        /// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

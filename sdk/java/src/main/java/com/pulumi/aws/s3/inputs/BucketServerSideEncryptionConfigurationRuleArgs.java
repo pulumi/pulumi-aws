@@ -18,47 +18,23 @@ public final class BucketServerSideEncryptionConfigurationRuleArgs extends com.p
 
     public static final BucketServerSideEncryptionConfigurationRuleArgs Empty = new BucketServerSideEncryptionConfigurationRuleArgs();
 
-    /**
-     * Single object for setting server-side encryption by default. See below.
-     * 
-     */
     @Import(name="applyServerSideEncryptionByDefault")
     private @Nullable Output<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault;
 
-    /**
-     * @return Single object for setting server-side encryption by default. See below.
-     * 
-     */
     public Optional<Output<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefault() {
         return Optional.ofNullable(this.applyServerSideEncryptionByDefault);
     }
 
-    /**
-     * List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-     * 
-     */
     @Import(name="blockedEncryptionTypes")
     private @Nullable Output<List<String>> blockedEncryptionTypes;
 
-    /**
-     * @return List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-     * 
-     */
     public Optional<Output<List<String>>> blockedEncryptionTypes() {
         return Optional.ofNullable(this.blockedEncryptionTypes);
     }
 
-    /**
-     * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     * 
-     */
     @Import(name="bucketKeyEnabled")
     private @Nullable Output<Boolean> bucketKeyEnabled;
 
-    /**
-     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     * 
-     */
     public Optional<Output<Boolean>> bucketKeyEnabled() {
         return Optional.ofNullable(this.bucketKeyEnabled);
     }
@@ -89,75 +65,33 @@ public final class BucketServerSideEncryptionConfigurationRuleArgs extends com.p
             $ = new BucketServerSideEncryptionConfigurationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applyServerSideEncryptionByDefault Single object for setting server-side encryption by default. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyServerSideEncryptionByDefault(@Nullable Output<BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault) {
             $.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
             return this;
         }
 
-        /**
-         * @param applyServerSideEncryptionByDefault Single object for setting server-side encryption by default. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs applyServerSideEncryptionByDefault) {
             return applyServerSideEncryptionByDefault(Output.of(applyServerSideEncryptionByDefault));
         }
 
-        /**
-         * @param blockedEncryptionTypes List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedEncryptionTypes(@Nullable Output<List<String>> blockedEncryptionTypes) {
             $.blockedEncryptionTypes = blockedEncryptionTypes;
             return this;
         }
 
-        /**
-         * @param blockedEncryptionTypes List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedEncryptionTypes(List<String> blockedEncryptionTypes) {
             return blockedEncryptionTypes(Output.of(blockedEncryptionTypes));
         }
 
-        /**
-         * @param blockedEncryptionTypes List of server-side encryption types to block for object uploads. Valid values are `SSE-C` (blocks uploads using server-side encryption with customer-provided keys) and `NONE` (unblocks all encryption types). Starting in March 2026, Amazon S3 will automatically block SSE-C uploads for all new buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedEncryptionTypes(String... blockedEncryptionTypes) {
             return blockedEncryptionTypes(List.of(blockedEncryptionTypes));
         }
 
-        /**
-         * @param bucketKeyEnabled Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketKeyEnabled(@Nullable Output<Boolean> bucketKeyEnabled) {
             $.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
 
-        /**
-         * @param bucketKeyEnabled Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketKeyEnabled(Boolean bucketKeyEnabled) {
             return bucketKeyEnabled(Output.of(bucketKeyEnabled));
         }

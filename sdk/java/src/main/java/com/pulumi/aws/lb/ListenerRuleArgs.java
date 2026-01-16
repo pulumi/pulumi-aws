@@ -22,107 +22,51 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ListenerRuleArgs Empty = new ListenerRuleArgs();
 
-    /**
-     * An Action block. Action blocks are documented below.
-     * 
-     */
     @Import(name="actions", required=true)
     private Output<List<ListenerRuleActionArgs>> actions;
 
-    /**
-     * @return An Action block. Action blocks are documented below.
-     * 
-     */
     public Output<List<ListenerRuleActionArgs>> actions() {
         return this.actions;
     }
 
-    /**
-     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     * 
-     */
     @Import(name="conditions", required=true)
     private Output<List<ListenerRuleConditionArgs>> conditions;
 
-    /**
-     * @return A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     * 
-     */
     public Output<List<ListenerRuleConditionArgs>> conditions() {
         return this.conditions;
     }
 
-    /**
-     * The ARN of the listener to which to attach the rule.
-     * 
-     */
     @Import(name="listenerArn", required=true)
     private Output<String> listenerArn;
 
-    /**
-     * @return The ARN of the listener to which to attach the rule.
-     * 
-     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }
 
-    /**
-     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
-     * 
-     */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
-    /**
-     * @return The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
-     * 
-     */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     * 
-     */
     @Import(name="transforms")
     private @Nullable Output<List<ListenerRuleTransformArgs>> transforms;
 
-    /**
-     * @return Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     * 
-     */
     public Optional<Output<List<ListenerRuleTransformArgs>>> transforms() {
         return Optional.ofNullable(this.transforms);
     }
@@ -157,179 +101,77 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ListenerRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions An Action block. Action blocks are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(Output<List<ListenerRuleActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions An Action block. Action blocks are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<ListenerRuleActionArgs> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions An Action block. Action blocks are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(ListenerRuleActionArgs... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param conditions A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(Output<List<ListenerRuleConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(List<ListenerRuleConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
 
-        /**
-         * @param conditions A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(ListenerRuleConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param listenerArn The ARN of the listener to which to attach the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(Output<String> listenerArn) {
             $.listenerArn = listenerArn;
             return this;
         }
 
-        /**
-         * @param listenerArn The ARN of the listener to which to attach the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerArn(String listenerArn) {
             return listenerArn(Output.of(listenerArn));
         }
 
-        /**
-         * @param priority The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transforms Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transforms(@Nullable Output<List<ListenerRuleTransformArgs>> transforms) {
             $.transforms = transforms;
             return this;
         }
 
-        /**
-         * @param transforms Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transforms(List<ListenerRuleTransformArgs> transforms) {
             return transforms(Output.of(transforms));
         }
 
-        /**
-         * @param transforms Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transforms(ListenerRuleTransformArgs... transforms) {
             return transforms(List.of(transforms));
         }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecHttpRouteActionWeightedTargetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The targeted port of the weighted object.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-        /// </summary>
         [Input("virtualNode", required: true)]
         public Input<string> VirtualNode { get; set; } = null!;
 
-        /// <summary>
-        /// Relative weight of the weighted target. An integer between 0 and 100.
-        /// </summary>
         [Input("weight", required: true)]
         public Input<int> Weight { get; set; } = null!;
 

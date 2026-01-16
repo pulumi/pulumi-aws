@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
-    /**
-     * @return Description of the array items.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-     * 
-     */
     private @Nullable String itemsJson;
-    /**
-     * @return JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-     * 
-     */
     private @Nullable String propertiesJson;
-    /**
-     * @return Data type of the array items.
-     * 
-     */
     private String type;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems() {}
-    /**
-     * @return Description of the array items.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
-     * 
-     */
     public Optional<String> itemsJson() {
         return Optional.ofNullable(this.itemsJson);
     }
-    /**
-     * @return JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
-     * 
-     */
     public Optional<String> propertiesJson() {
         return Optional.ofNullable(this.propertiesJson);
     }
-    /**
-     * @return Data type of the array items.
-     * 
-     */
     public String type() {
         return this.type;
     }

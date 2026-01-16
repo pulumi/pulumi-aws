@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about existing Network Manager links.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.GetLinks(ctx, &networkmanager.GetLinksArgs{
-//				GlobalNetworkId: globalNetworkId,
-//				Tags: map[string]interface{}{
-//					"Env": "test",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
@@ -53,24 +23,18 @@ func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getLinks.
 type GetLinksArgs struct {
-	// ID of the Global Network of the links to retrieve.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// Link provider to retrieve.
-	ProviderName *string `pulumi:"providerName"`
-	// ID of the site of the links to retrieve.
-	SiteId *string `pulumi:"siteId"`
-	// Restricts the list to the links with these tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Link type to retrieve.
-	Type *string `pulumi:"type"`
+	GlobalNetworkId string            `pulumi:"globalNetworkId"`
+	ProviderName    *string           `pulumi:"providerName"`
+	SiteId          *string           `pulumi:"siteId"`
+	Tags            map[string]string `pulumi:"tags"`
+	Type            *string           `pulumi:"type"`
 }
 
 // A collection of values returned by getLinks.
 type GetLinksResult struct {
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IDs of the links.
+	Id           string            `pulumi:"id"`
 	Ids          []string          `pulumi:"ids"`
 	ProviderName *string           `pulumi:"providerName"`
 	SiteId       *string           `pulumi:"siteId"`
@@ -89,16 +53,11 @@ func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getLinks.
 type GetLinksOutputArgs struct {
-	// ID of the Global Network of the links to retrieve.
-	GlobalNetworkId pulumi.StringInput `pulumi:"globalNetworkId"`
-	// Link provider to retrieve.
-	ProviderName pulumi.StringPtrInput `pulumi:"providerName"`
-	// ID of the site of the links to retrieve.
-	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
-	// Restricts the list to the links with these tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Link type to retrieve.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	GlobalNetworkId pulumi.StringInput    `pulumi:"globalNetworkId"`
+	ProviderName    pulumi.StringPtrInput `pulumi:"providerName"`
+	SiteId          pulumi.StringPtrInput `pulumi:"siteId"`
+	Tags            pulumi.StringMapInput `pulumi:"tags"`
+	Type            pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetLinksOutputArgs) ElementType() reflect.Type {
@@ -129,7 +88,6 @@ func (o GetLinksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IDs of the links.
 func (o GetLinksResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinksResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

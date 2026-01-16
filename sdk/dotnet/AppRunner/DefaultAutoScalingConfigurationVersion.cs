@@ -9,58 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppRunner
 {
-    /// <summary>
-    /// Manages the default App Runner auto scaling configuration.
-    /// When creating or updating this resource the existing default auto scaling configuration will be set to non-default automatically.
-    /// When creating or updating this resource the configuration is automatically assigned as the default to the new services you create in the future. The new default designation doesn't affect the associations that were previously set for existing services.
-    /// Each account can have only one default auto scaling configuration per Region.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new()
-    ///     {
-    ///         AutoScalingConfigurationName = "example",
-    ///         MaxConcurrency = 50,
-    ///         MaxSize = 10,
-    ///         MinSize = 2,
-    ///     });
-    /// 
-    ///     var exampleDefaultAutoScalingConfigurationVersion = new Aws.AppRunner.DefaultAutoScalingConfigurationVersion("example", new()
-    ///     {
-    ///         AutoScalingConfigurationArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import App Runner default auto scaling configurations using the current Region. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion example us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion")]
     public partial class DefaultAutoScalingConfigurationVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        /// </summary>
         [Output("autoScalingConfigurationArn")]
         public Output<string> AutoScalingConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -110,15 +64,9 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class DefaultAutoScalingConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        /// </summary>
         [Input("autoScalingConfigurationArn", required: true)]
         public Input<string> AutoScalingConfigurationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -130,15 +78,9 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class DefaultAutoScalingConfigurationVersionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        /// </summary>
         [Input("autoScalingConfigurationArn")]
         public Input<string>? AutoScalingConfigurationArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

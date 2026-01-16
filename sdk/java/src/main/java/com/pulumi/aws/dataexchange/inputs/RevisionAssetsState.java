@@ -20,81 +20,37 @@ public final class RevisionAssetsState extends com.pulumi.resources.ResourceArgs
 
     public static final RevisionAssetsState Empty = new RevisionAssetsState();
 
-    /**
-     * The ARN of the Data Exchange Revision Assets.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the Data Exchange Revision Assets.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * A block to define the asset associated with the revision. See Asset for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="assets")
     private @Nullable Output<List<RevisionAssetsAssetArgs>> assets;
 
-    /**
-     * @return A block to define the asset associated with the revision. See Asset for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<RevisionAssetsAssetArgs>>> assets() {
         return Optional.ofNullable(this.assets);
     }
 
-    /**
-     * A comment for the revision. Maximum length is 16,348 characters.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return A comment for the revision. Maximum length is 16,348 characters.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * The timestamp when the revision was created, in RFC3339 format.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return The timestamp when the revision was created, in RFC3339 format.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Unique identifier for the data set associated with the revision.
-     * 
-     */
     @Import(name="dataSetId")
     private @Nullable Output<String> dataSetId;
 
-    /**
-     * @return Unique identifier for the data set associated with the revision.
-     * 
-     */
     public Optional<Output<String>> dataSetId() {
         return Optional.ofNullable(this.dataSetId);
     }
@@ -113,47 +69,23 @@ public final class RevisionAssetsState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.forceDestroy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -165,17 +97,9 @@ public final class RevisionAssetsState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The timestamp when the revision was last updated, in RFC3339 format.
-     * 
-     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
-    /**
-     * @return The timestamp when the revision was last updated, in RFC3339 format.
-     * 
-     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -215,123 +139,51 @@ public final class RevisionAssetsState extends com.pulumi.resources.ResourceArgs
             $ = new RevisionAssetsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the Data Exchange Revision Assets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the Data Exchange Revision Assets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param assets A block to define the asset associated with the revision. See Asset for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assets(@Nullable Output<List<RevisionAssetsAssetArgs>> assets) {
             $.assets = assets;
             return this;
         }
 
-        /**
-         * @param assets A block to define the asset associated with the revision. See Asset for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assets(List<RevisionAssetsAssetArgs> assets) {
             return assets(Output.of(assets));
         }
 
-        /**
-         * @param assets A block to define the asset associated with the revision. See Asset for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assets(RevisionAssetsAssetArgs... assets) {
             return assets(List.of(assets));
         }
 
-        /**
-         * @param comment A comment for the revision. Maximum length is 16,348 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment A comment for the revision. Maximum length is 16,348 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param createdAt The timestamp when the revision was created, in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt The timestamp when the revision was created, in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param dataSetId Unique identifier for the data set associated with the revision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(@Nullable Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId Unique identifier for the data set associated with the revision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }
@@ -354,65 +206,29 @@ public final class RevisionAssetsState extends com.pulumi.resources.ResourceArgs
             return forceDestroy(Output.of(forceDestroy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -426,23 +242,11 @@ public final class RevisionAssetsState extends com.pulumi.resources.ResourceArgs
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param updatedAt The timestamp when the revision was last updated, in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt The timestamp when the revision was last updated, in RFC3339 format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

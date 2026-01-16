@@ -18,193 +18,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon MSK Serverless cluster.
- * 
- * &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.msk.ServerlessCluster;
- * import com.pulumi.aws.msk.ServerlessClusterArgs;
- * import com.pulumi.aws.msk.inputs.ServerlessClusterVpcConfigArgs;
- * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationArgs;
- * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslArgs;
- * import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslIamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessCluster("example", ServerlessClusterArgs.builder()
- *             .clusterName("Example")
- *             .vpcConfigs(ServerlessClusterVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .build())
- *             .clientAuthentication(ServerlessClusterClientAuthenticationArgs.builder()
- *                 .sasl(ServerlessClusterClientAuthenticationSaslArgs.builder()
- *                     .iam(ServerlessClusterClientAuthenticationSaslIamArgs.builder()
- *                         .enabled(true)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- * 
- */
 @ResourceType(type="aws:msk/serverlessCluster:ServerlessCluster")
 public class ServerlessCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the serverless cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the serverless cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-     * 
-     */
     @Export(name="bootstrapBrokersSaslIam", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersSaslIam;
 
-    /**
-     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-     * 
-     */
     public Output<String> bootstrapBrokersSaslIam() {
         return this.bootstrapBrokersSaslIam;
     }
-    /**
-     * Specifies client authentication information for the serverless cluster. See below.
-     * 
-     */
     @Export(name="clientAuthentication", refs={ServerlessClusterClientAuthentication.class}, tree="[0]")
     private Output<ServerlessClusterClientAuthentication> clientAuthentication;
 
-    /**
-     * @return Specifies client authentication information for the serverless cluster. See below.
-     * 
-     */
     public Output<ServerlessClusterClientAuthentication> clientAuthentication() {
         return this.clientAuthentication;
     }
-    /**
-     * The name of the serverless cluster.
-     * 
-     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
-    /**
-     * @return The name of the serverless cluster.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
-    /**
-     * UUID of the serverless cluster, for use in IAM policies.
-     * 
-     */
     @Export(name="clusterUuid", refs={String.class}, tree="[0]")
     private Output<String> clusterUuid;
 
-    /**
-     * @return UUID of the serverless cluster, for use in IAM policies.
-     * 
-     */
     public Output<String> clusterUuid() {
         return this.clusterUuid;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * VPC configuration information. See below.
-     * 
-     */
     @Export(name="vpcConfigs", refs={List.class,ServerlessClusterVpcConfig.class}, tree="[0,1]")
     private Output<List<ServerlessClusterVpcConfig>> vpcConfigs;
 
-    /**
-     * @return VPC configuration information. See below.
-     * 
-     */
     public Output<List<ServerlessClusterVpcConfig>> vpcConfigs() {
         return this.vpcConfigs;
     }

@@ -4,41 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages the specified alternate contact attached to an AWS Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const operations = new aws.account.AlternativeContact("operations", {
- *     alternateContactType: "OPERATIONS",
- *     name: "Example",
- *     title: "Example",
- *     emailAddress: "test@example.com",
- *     phoneNumber: "+1234567890",
- * });
- * ```
- *
- * ## Import
- *
- * Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
- *
- * __Using `pulumi import` to import__ the Alternate Contact for the current or another account using the `alternate_contact_type`. For example:
- *
- * Import the Alternate Contact for the current account:
- *
- * ```sh
- * $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
- * ```
- * Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
- *
- * ```sh
- * $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
- * ```
- */
 export class AlternativeContact extends pulumi.CustomResource {
     /**
      * Get an existing AlternativeContact resource's state with the given name, ID, and optional extra
@@ -67,29 +32,11 @@ export class AlternativeContact extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlternativeContact.__pulumiType;
     }
 
-    /**
-     * ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-     */
     declare public readonly accountId: pulumi.Output<string | undefined>;
-    /**
-     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     */
     declare public readonly alternateContactType: pulumi.Output<string>;
-    /**
-     * An email address for the alternate contact.
-     */
     declare public readonly emailAddress: pulumi.Output<string>;
-    /**
-     * Name of the alternate contact.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Phone number for the alternate contact.
-     */
     declare public readonly phoneNumber: pulumi.Output<string>;
-    /**
-     * Title for the alternate contact.
-     */
     declare public readonly title: pulumi.Output<string>;
 
     /**
@@ -141,29 +88,11 @@ export class AlternativeContact extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlternativeContact resources.
  */
 export interface AlternativeContactState {
-    /**
-     * ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     */
     alternateContactType?: pulumi.Input<string>;
-    /**
-     * An email address for the alternate contact.
-     */
     emailAddress?: pulumi.Input<string>;
-    /**
-     * Name of the alternate contact.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Phone number for the alternate contact.
-     */
     phoneNumber?: pulumi.Input<string>;
-    /**
-     * Title for the alternate contact.
-     */
     title?: pulumi.Input<string>;
 }
 
@@ -171,28 +100,10 @@ export interface AlternativeContactState {
  * The set of arguments for constructing a AlternativeContact resource.
  */
 export interface AlternativeContactArgs {
-    /**
-     * ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     */
     alternateContactType: pulumi.Input<string>;
-    /**
-     * An email address for the alternate contact.
-     */
     emailAddress: pulumi.Input<string>;
-    /**
-     * Name of the alternate contact.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Phone number for the alternate contact.
-     */
     phoneNumber: pulumi.Input<string>;
-    /**
-     * Title for the alternate contact.
-     */
     title: pulumi.Input<string>;
 }

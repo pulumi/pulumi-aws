@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetSagemakerPipelineTarget {
-    /**
-     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-     * 
-     */
     private @Nullable List<EventTargetSagemakerPipelineTargetPipelineParameterList> pipelineParameterLists;
 
     private EventTargetSagemakerPipelineTarget() {}
-    /**
-     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-     * 
-     */
     public List<EventTargetSagemakerPipelineTargetPipelineParameterList> pipelineParameterLists() {
         return this.pipelineParameterLists == null ? List.of() : this.pipelineParameterLists;
     }

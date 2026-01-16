@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup vault resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.Vault("example", {
- *     name: "example_backup_vault",
- *     kmsKeyArn: exampleAwsKmsKey.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup vault using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/vault:Vault test-vault TestVault
- * ```
- */
 export class Vault extends pulumi.CustomResource {
     /**
      * Get an existing Vault resource's state with the given name, ID, and optional extra
@@ -55,37 +32,13 @@ export class Vault extends pulumi.CustomResource {
         return obj['__pulumiType'] === Vault.__pulumiType;
     }
 
-    /**
-     * The ARN of the vault.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-     */
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
-    /**
-     * The server-side encryption key that is used to protect your backups.
-     */
     declare public readonly kmsKeyArn: pulumi.Output<string>;
-    /**
-     * Name of the backup vault to create.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The number of recovery points that are stored in a backup vault.
-     */
     declare public /*out*/ readonly recoveryPoints: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -129,37 +82,13 @@ export class Vault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vault resources.
  */
 export interface VaultState {
-    /**
-     * The ARN of the vault.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * The server-side encryption key that is used to protect your backups.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Name of the backup vault to create.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The number of recovery points that are stored in a backup vault.
-     */
     recoveryPoints?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -167,24 +96,9 @@ export interface VaultState {
  * The set of arguments for constructing a Vault resource.
  */
 export interface VaultArgs {
-    /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * The server-side encryption key that is used to protect your backups.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Name of the backup vault to create.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

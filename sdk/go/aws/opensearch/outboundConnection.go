@@ -12,82 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Opensearch Outbound Connection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
-//				ConnectionAlias: pulumi.String("outbound_connection"),
-//				ConnectionMode:  pulumi.String("DIRECT"),
-//				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Region),
-//					DomainName: pulumi.Any(localDomain.DomainName),
-//				},
-//				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Region),
-//					DomainName: pulumi.Any(remoteDomain.DomainName),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-// ```
 type OutboundConnection struct {
 	pulumi.CustomResourceState
 
-	// Accepts the connection.
-	AcceptConnection pulumi.BoolPtrOutput `pulumi:"acceptConnection"`
-	// Specifies the connection alias that will be used by the customer for this connection.
-	ConnectionAlias pulumi.StringOutput `pulumi:"connectionAlias"`
-	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-	ConnectionMode pulumi.StringOutput `pulumi:"connectionMode"`
-	// Configuration block for the outbound connection.
+	AcceptConnection     pulumi.BoolPtrOutput                         `pulumi:"acceptConnection"`
+	ConnectionAlias      pulumi.StringOutput                          `pulumi:"connectionAlias"`
+	ConnectionMode       pulumi.StringOutput                          `pulumi:"connectionMode"`
 	ConnectionProperties OutboundConnectionConnectionPropertiesOutput `pulumi:"connectionProperties"`
-	// Status of the connection request.
-	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// Configuration block for the local Opensearch domain.
-	LocalDomainInfo OutboundConnectionLocalDomainInfoOutput `pulumi:"localDomainInfo"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for the remote Opensearch domain.
-	RemoteDomainInfo OutboundConnectionRemoteDomainInfoOutput `pulumi:"remoteDomainInfo"`
+	ConnectionStatus     pulumi.StringOutput                          `pulumi:"connectionStatus"`
+	LocalDomainInfo      OutboundConnectionLocalDomainInfoOutput      `pulumi:"localDomainInfo"`
+	Region               pulumi.StringOutput                          `pulumi:"region"`
+	RemoteDomainInfo     OutboundConnectionRemoteDomainInfoOutput     `pulumi:"remoteDomainInfo"`
 }
 
 // NewOutboundConnection registers a new resource with the given unique name, arguments, and options.
@@ -129,41 +64,25 @@ func GetOutboundConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundConnection resources.
 type outboundConnectionState struct {
-	// Accepts the connection.
-	AcceptConnection *bool `pulumi:"acceptConnection"`
-	// Specifies the connection alias that will be used by the customer for this connection.
-	ConnectionAlias *string `pulumi:"connectionAlias"`
-	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-	ConnectionMode *string `pulumi:"connectionMode"`
-	// Configuration block for the outbound connection.
+	AcceptConnection     *bool                                   `pulumi:"acceptConnection"`
+	ConnectionAlias      *string                                 `pulumi:"connectionAlias"`
+	ConnectionMode       *string                                 `pulumi:"connectionMode"`
 	ConnectionProperties *OutboundConnectionConnectionProperties `pulumi:"connectionProperties"`
-	// Status of the connection request.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// Configuration block for the local Opensearch domain.
-	LocalDomainInfo *OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the remote Opensearch domain.
-	RemoteDomainInfo *OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
+	ConnectionStatus     *string                                 `pulumi:"connectionStatus"`
+	LocalDomainInfo      *OutboundConnectionLocalDomainInfo      `pulumi:"localDomainInfo"`
+	Region               *string                                 `pulumi:"region"`
+	RemoteDomainInfo     *OutboundConnectionRemoteDomainInfo     `pulumi:"remoteDomainInfo"`
 }
 
 type OutboundConnectionState struct {
-	// Accepts the connection.
-	AcceptConnection pulumi.BoolPtrInput
-	// Specifies the connection alias that will be used by the customer for this connection.
-	ConnectionAlias pulumi.StringPtrInput
-	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-	ConnectionMode pulumi.StringPtrInput
-	// Configuration block for the outbound connection.
+	AcceptConnection     pulumi.BoolPtrInput
+	ConnectionAlias      pulumi.StringPtrInput
+	ConnectionMode       pulumi.StringPtrInput
 	ConnectionProperties OutboundConnectionConnectionPropertiesPtrInput
-	// Status of the connection request.
-	ConnectionStatus pulumi.StringPtrInput
-	// Configuration block for the local Opensearch domain.
-	LocalDomainInfo OutboundConnectionLocalDomainInfoPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the remote Opensearch domain.
-	RemoteDomainInfo OutboundConnectionRemoteDomainInfoPtrInput
+	ConnectionStatus     pulumi.StringPtrInput
+	LocalDomainInfo      OutboundConnectionLocalDomainInfoPtrInput
+	Region               pulumi.StringPtrInput
+	RemoteDomainInfo     OutboundConnectionRemoteDomainInfoPtrInput
 }
 
 func (OutboundConnectionState) ElementType() reflect.Type {
@@ -171,38 +90,24 @@ func (OutboundConnectionState) ElementType() reflect.Type {
 }
 
 type outboundConnectionArgs struct {
-	// Accepts the connection.
-	AcceptConnection *bool `pulumi:"acceptConnection"`
-	// Specifies the connection alias that will be used by the customer for this connection.
-	ConnectionAlias string `pulumi:"connectionAlias"`
-	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-	ConnectionMode *string `pulumi:"connectionMode"`
-	// Configuration block for the outbound connection.
+	AcceptConnection     *bool                                   `pulumi:"acceptConnection"`
+	ConnectionAlias      string                                  `pulumi:"connectionAlias"`
+	ConnectionMode       *string                                 `pulumi:"connectionMode"`
 	ConnectionProperties *OutboundConnectionConnectionProperties `pulumi:"connectionProperties"`
-	// Configuration block for the local Opensearch domain.
-	LocalDomainInfo OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for the remote Opensearch domain.
-	RemoteDomainInfo OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
+	LocalDomainInfo      OutboundConnectionLocalDomainInfo       `pulumi:"localDomainInfo"`
+	Region               *string                                 `pulumi:"region"`
+	RemoteDomainInfo     OutboundConnectionRemoteDomainInfo      `pulumi:"remoteDomainInfo"`
 }
 
 // The set of arguments for constructing a OutboundConnection resource.
 type OutboundConnectionArgs struct {
-	// Accepts the connection.
-	AcceptConnection pulumi.BoolPtrInput
-	// Specifies the connection alias that will be used by the customer for this connection.
-	ConnectionAlias pulumi.StringInput
-	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-	ConnectionMode pulumi.StringPtrInput
-	// Configuration block for the outbound connection.
+	AcceptConnection     pulumi.BoolPtrInput
+	ConnectionAlias      pulumi.StringInput
+	ConnectionMode       pulumi.StringPtrInput
 	ConnectionProperties OutboundConnectionConnectionPropertiesPtrInput
-	// Configuration block for the local Opensearch domain.
-	LocalDomainInfo OutboundConnectionLocalDomainInfoInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for the remote Opensearch domain.
-	RemoteDomainInfo OutboundConnectionRemoteDomainInfoInput
+	LocalDomainInfo      OutboundConnectionLocalDomainInfoInput
+	Region               pulumi.StringPtrInput
+	RemoteDomainInfo     OutboundConnectionRemoteDomainInfoInput
 }
 
 func (OutboundConnectionArgs) ElementType() reflect.Type {
@@ -292,44 +197,36 @@ func (o OutboundConnectionOutput) ToOutboundConnectionOutputWithContext(ctx cont
 	return o
 }
 
-// Accepts the connection.
 func (o OutboundConnectionOutput) AcceptConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.BoolPtrOutput { return v.AcceptConnection }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the connection alias that will be used by the customer for this connection.
 func (o OutboundConnectionOutput) ConnectionAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionAlias }).(pulumi.StringOutput)
 }
 
-// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
 func (o OutboundConnectionOutput) ConnectionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionMode }).(pulumi.StringOutput)
 }
 
-// Configuration block for the outbound connection.
 func (o OutboundConnectionOutput) ConnectionProperties() OutboundConnectionConnectionPropertiesOutput {
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionConnectionPropertiesOutput {
 		return v.ConnectionProperties
 	}).(OutboundConnectionConnectionPropertiesOutput)
 }
 
-// Status of the connection request.
 func (o OutboundConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// Configuration block for the local Opensearch domain.
 func (o OutboundConnectionOutput) LocalDomainInfo() OutboundConnectionLocalDomainInfoOutput {
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionLocalDomainInfoOutput { return v.LocalDomainInfo }).(OutboundConnectionLocalDomainInfoOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OutboundConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for the remote Opensearch domain.
 func (o OutboundConnectionOutput) RemoteDomainInfo() OutboundConnectionRemoteDomainInfoOutput {
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionRemoteDomainInfoOutput { return v.RemoteDomainInfo }).(OutboundConnectionRemoteDomainInfoOutput)
 }

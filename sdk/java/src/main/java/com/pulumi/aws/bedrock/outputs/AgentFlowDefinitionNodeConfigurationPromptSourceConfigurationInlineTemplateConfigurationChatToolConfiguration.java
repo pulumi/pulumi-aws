@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration {
-    /**
-     * @return Defines which tools the model should request when invoked. See Tool Choice for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice toolChoice;
-    /**
-     * @return A list of tools to pass to a model. See Tool for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool> tools;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration() {}
-    /**
-     * @return Defines which tools the model should request when invoked. See Tool Choice for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice> toolChoice() {
         return Optional.ofNullable(this.toolChoice);
     }
-    /**
-     * @return A list of tools to pass to a model. See Tool for more information.
-     * 
-     */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationTool> tools() {
         return this.tools == null ? List.of() : this.tools;
     }

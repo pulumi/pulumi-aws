@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageImageScanningConfigurationEcrConfiguration {
-    /**
-     * @return Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-     * 
-     */
     private @Nullable List<String> containerTags;
-    /**
-     * @return The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-     * 
-     */
     private @Nullable String repositoryName;
 
     private ImageImageScanningConfigurationEcrConfiguration() {}
-    /**
-     * @return Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-     * 
-     */
     public List<String> containerTags() {
         return this.containerTags == null ? List.of() : this.containerTags;
     }
-    /**
-     * @return The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-     * 
-     */
     public Optional<String> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
     }

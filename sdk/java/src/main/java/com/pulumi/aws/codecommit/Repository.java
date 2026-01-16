@@ -15,247 +15,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeCommit Repository Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codecommit.Repository;
- * import com.pulumi.aws.codecommit.RepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Repository("test", RepositoryArgs.builder()
- *             .repositoryName("MyTestRepository")
- *             .description("This is the Sample App Repository")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### AWS KMS Customer Managed Keys (CMK)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.codecommit.Repository;
- * import com.pulumi.aws.codecommit.RepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testKey = new Key("testKey", KeyArgs.builder()
- *             .description("test")
- *             .deletionWindowInDays(7)
- *             .build());
- * 
- *         var test = new Repository("test", RepositoryArgs.builder()
- *             .repositoryName("MyTestRepository")
- *             .description("This is the Sample App Repository")
- *             .kmsKeyId(testKey.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CodeCommit repository using repository name. For example:
- * 
- * ```sh
- * $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
- * ```
- * 
- */
 @ResourceType(type="aws:codecommit/repository:Repository")
 public class Repository extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the repository
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the repository
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The URL to use for cloning the repository over HTTPS.
-     * 
-     */
     @Export(name="cloneUrlHttp", refs={String.class}, tree="[0]")
     private Output<String> cloneUrlHttp;
 
-    /**
-     * @return The URL to use for cloning the repository over HTTPS.
-     * 
-     */
     public Output<String> cloneUrlHttp() {
         return this.cloneUrlHttp;
     }
-    /**
-     * The URL to use for cloning the repository over SSH.
-     * 
-     */
     @Export(name="cloneUrlSsh", refs={String.class}, tree="[0]")
     private Output<String> cloneUrlSsh;
 
-    /**
-     * @return The URL to use for cloning the repository over SSH.
-     * 
-     */
     public Output<String> cloneUrlSsh() {
         return this.cloneUrlSsh;
     }
-    /**
-     * The default branch of the repository. The branch specified here needs to exist.
-     * 
-     */
     @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultBranch;
 
-    /**
-     * @return The default branch of the repository. The branch specified here needs to exist.
-     * 
-     */
     public Output<Optional<String>> defaultBranch() {
         return Codegen.optional(this.defaultBranch);
     }
-    /**
-     * The description of the repository. This needs to be less than 1000 characters
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the repository. This needs to be less than 1000 characters
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the repository
-     * 
-     */
     @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
-    /**
-     * @return The ID of the repository
-     * 
-     */
     public Output<String> repositoryId() {
         return this.repositoryId;
     }
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
-    /**
-     * @return The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

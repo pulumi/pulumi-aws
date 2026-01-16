@@ -9,70 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sns
 {
-    /// <summary>
-    /// Provides a way to set SNS SMS preferences.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences("update_sms_prefs");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import the SMS preferences.
-    /// </summary>
     [AwsResourceType("aws:sns/smsPreferences:SmsPreferences")]
     public partial class SmsPreferences : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A string, such as your business brand, that is displayed as the sender on the receiving device.
-        /// </summary>
         [Output("defaultSenderId")]
         public Output<string?> DefaultSenderId { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-        /// </summary>
         [Output("defaultSmsType")]
         public Output<string?> DefaultSmsType { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-        /// </summary>
         [Output("deliveryStatusIamRoleArn")]
         public Output<string?> DeliveryStatusIamRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        /// </summary>
         [Output("deliveryStatusSuccessSamplingRate")]
         public Output<string?> DeliveryStatusSuccessSamplingRate { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-        /// </summary>
         [Output("monthlySpendLimit")]
         public Output<int> MonthlySpendLimit { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-        /// </summary>
         [Output("usageReportS3Bucket")]
         public Output<string?> UsageReportS3Bucket { get; private set; } = null!;
 
@@ -122,45 +79,24 @@ namespace Pulumi.Aws.Sns
 
     public sealed class SmsPreferencesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A string, such as your business brand, that is displayed as the sender on the receiving device.
-        /// </summary>
         [Input("defaultSenderId")]
         public Input<string>? DefaultSenderId { get; set; }
 
-        /// <summary>
-        /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-        /// </summary>
         [Input("defaultSmsType")]
         public Input<string>? DefaultSmsType { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-        /// </summary>
         [Input("deliveryStatusIamRoleArn")]
         public Input<string>? DeliveryStatusIamRoleArn { get; set; }
 
-        /// <summary>
-        /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        /// </summary>
         [Input("deliveryStatusSuccessSamplingRate")]
         public Input<string>? DeliveryStatusSuccessSamplingRate { get; set; }
 
-        /// <summary>
-        /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-        /// </summary>
         [Input("monthlySpendLimit")]
         public Input<int>? MonthlySpendLimit { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-        /// </summary>
         [Input("usageReportS3Bucket")]
         public Input<string>? UsageReportS3Bucket { get; set; }
 
@@ -172,45 +108,24 @@ namespace Pulumi.Aws.Sns
 
     public sealed class SmsPreferencesState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A string, such as your business brand, that is displayed as the sender on the receiving device.
-        /// </summary>
         [Input("defaultSenderId")]
         public Input<string>? DefaultSenderId { get; set; }
 
-        /// <summary>
-        /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-        /// </summary>
         [Input("defaultSmsType")]
         public Input<string>? DefaultSmsType { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-        /// </summary>
         [Input("deliveryStatusIamRoleArn")]
         public Input<string>? DeliveryStatusIamRoleArn { get; set; }
 
-        /// <summary>
-        /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        /// </summary>
         [Input("deliveryStatusSuccessSamplingRate")]
         public Input<string>? DeliveryStatusSuccessSamplingRate { get; set; }
 
-        /// <summary>
-        /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-        /// </summary>
         [Input("monthlySpendLimit")]
         public Input<int>? MonthlySpendLimit { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-        /// </summary>
         [Input("usageReportS3Bucket")]
         public Input<string>? UsageReportS3Bucket { get; set; }
 

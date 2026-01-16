@@ -18,62 +18,30 @@ public final class CapacityBlockReservationArgs extends com.pulumi.resources.Res
 
     public static final CapacityBlockReservationArgs Empty = new CapacityBlockReservationArgs();
 
-    /**
-     * The Capacity Block Reservation ID.
-     * 
-     */
     @Import(name="capacityBlockOfferingId", required=true)
     private Output<String> capacityBlockOfferingId;
 
-    /**
-     * @return The Capacity Block Reservation ID.
-     * 
-     */
     public Output<String> capacityBlockOfferingId() {
         return this.capacityBlockOfferingId;
     }
 
-    /**
-     * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-     * 
-     */
     @Import(name="instancePlatform", required=true)
     private Output<String> instancePlatform;
 
-    /**
-     * @return The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-     * 
-     */
     public Output<String> instancePlatform() {
         return this.instancePlatform;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -113,86 +81,38 @@ public final class CapacityBlockReservationArgs extends com.pulumi.resources.Res
             $ = new CapacityBlockReservationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityBlockOfferingId The Capacity Block Reservation ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityBlockOfferingId(Output<String> capacityBlockOfferingId) {
             $.capacityBlockOfferingId = capacityBlockOfferingId;
             return this;
         }
 
-        /**
-         * @param capacityBlockOfferingId The Capacity Block Reservation ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityBlockOfferingId(String capacityBlockOfferingId) {
             return capacityBlockOfferingId(Output.of(capacityBlockOfferingId));
         }
 
-        /**
-         * @param instancePlatform The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePlatform(Output<String> instancePlatform) {
             $.instancePlatform = instancePlatform;
             return this;
         }
 
-        /**
-         * @param instancePlatform The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePlatform(String instancePlatform) {
             return instancePlatform(Output.of(instancePlatform));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

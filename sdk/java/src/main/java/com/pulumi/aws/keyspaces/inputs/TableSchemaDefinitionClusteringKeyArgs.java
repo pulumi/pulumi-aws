@@ -14,32 +14,16 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
 
     public static final TableSchemaDefinitionClusteringKeyArgs Empty = new TableSchemaDefinitionClusteringKeyArgs();
 
-    /**
-     * The name of the clustering key column.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the clustering key column.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The order modifier. Valid values: `ASC`, `DESC`.
-     * 
-     */
     @Import(name="orderBy", required=true)
     private Output<String> orderBy;
 
-    /**
-     * @return The order modifier. Valid values: `ASC`, `DESC`.
-     * 
-     */
     public Output<String> orderBy() {
         return this.orderBy;
     }
@@ -69,44 +53,20 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
             $ = new TableSchemaDefinitionClusteringKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the clustering key column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the clustering key column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param orderBy The order modifier. Valid values: `ASC`, `DESC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orderBy(Output<String> orderBy) {
             $.orderBy = orderBy;
             return this;
         }
 
-        /**
-         * @param orderBy The order modifier. Valid values: `ASC`, `DESC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orderBy(String orderBy) {
             return orderBy(Output.of(orderBy));
         }

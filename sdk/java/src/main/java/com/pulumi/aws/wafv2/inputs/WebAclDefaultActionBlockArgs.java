@@ -15,17 +15,9 @@ public final class WebAclDefaultActionBlockArgs extends com.pulumi.resources.Res
 
     public static final WebAclDefaultActionBlockArgs Empty = new WebAclDefaultActionBlockArgs();
 
-    /**
-     * Defines a custom response for the web request. See `customResponse` below for details.
-     * 
-     */
     @Import(name="customResponse")
     private @Nullable Output<WebAclDefaultActionBlockCustomResponseArgs> customResponse;
 
-    /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
-     * 
-     */
     public Optional<Output<WebAclDefaultActionBlockCustomResponseArgs>> customResponse() {
         return Optional.ofNullable(this.customResponse);
     }
@@ -54,23 +46,11 @@ public final class WebAclDefaultActionBlockArgs extends com.pulumi.resources.Res
             $ = new WebAclDefaultActionBlockArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customResponse Defines a custom response for the web request. See `customResponse` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponse(@Nullable Output<WebAclDefaultActionBlockCustomResponseArgs> customResponse) {
             $.customResponse = customResponse;
             return this;
         }
 
-        /**
-         * @param customResponse Defines a custom response for the web request. See `customResponse` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponse(WebAclDefaultActionBlockCustomResponseArgs customResponse) {
             return customResponse(Output.of(customResponse));
         }

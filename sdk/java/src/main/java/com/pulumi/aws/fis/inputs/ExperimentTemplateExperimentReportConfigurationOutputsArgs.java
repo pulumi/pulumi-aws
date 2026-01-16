@@ -15,17 +15,9 @@ public final class ExperimentTemplateExperimentReportConfigurationOutputsArgs ex
 
     public static final ExperimentTemplateExperimentReportConfigurationOutputsArgs Empty = new ExperimentTemplateExperimentReportConfigurationOutputsArgs();
 
-    /**
-     * The data sources for the experiment report. See below.
-     * 
-     */
     @Import(name="s3Configuration")
     private @Nullable Output<ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs> s3Configuration;
 
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     public Optional<Output<ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs>> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
@@ -54,23 +46,11 @@ public final class ExperimentTemplateExperimentReportConfigurationOutputsArgs ex
             $ = new ExperimentTemplateExperimentReportConfigurationOutputsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Configuration The data sources for the experiment report. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(@Nullable Output<ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs> s3Configuration) {
             $.s3Configuration = s3Configuration;
             return this;
         }
 
-        /**
-         * @param s3Configuration The data sources for the experiment report. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
         }

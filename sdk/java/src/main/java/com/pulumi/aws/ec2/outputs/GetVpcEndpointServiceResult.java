@@ -16,25 +16,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcEndpointServiceResult {
-    /**
-     * @return Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-     * 
-     */
     private Boolean acceptanceRequired;
-    /**
-     * @return ARN of the VPC endpoint service.
-     * 
-     */
     private String arn;
-    /**
-     * @return Availability Zones in which the service is available. Not available for endpoint services in other regions.
-     * 
-     */
     private List<String> availabilityZones;
-    /**
-     * @return The DNS names for the service.
-     * 
-     */
     private List<String> baseEndpointDnsNames;
     private @Nullable List<GetVpcEndpointServiceFilter> filters;
     /**
@@ -42,29 +26,11 @@ public final class GetVpcEndpointServiceResult {
      * 
      */
     private String id;
-    /**
-     * @return Whether or not the service manages its VPC endpoints - `true` or `false`.
-     * 
-     */
     private Boolean managesVpcEndpoints;
-    /**
-     * @return AWS account ID of the service owner or `amazon`.
-     * 
-     */
     private String owner;
-    /**
-     * @return Private DNS name for the service.
-     * 
-     */
     private String privateDnsName;
-    /**
-     * @return Private DNS names assigned to the VPC endpoint service.
-     * 
-     */
     private List<String> privateDnsNames;
     /**
-     * @return (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use serviceRegion instead.
      * 
@@ -72,61 +38,25 @@ public final class GetVpcEndpointServiceResult {
     @Deprecated /* region is deprecated. Use serviceRegion instead. */
     private String region;
     private @Nullable String service;
-    /**
-     * @return ID of the endpoint service.
-     * 
-     */
     private String serviceId;
     private String serviceName;
-    /**
-     * @return Region of the endpoint service.
-     * 
-     */
     private String serviceRegion;
     private @Nullable List<String> serviceRegions;
     private String serviceType;
-    /**
-     * @return The supported IP address types.
-     * 
-     */
     private List<String> supportedIpAddressTypes;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Whether or not the service supports endpoint policies - `true` or `false`.
-     * 
-     */
     private Boolean vpcEndpointPolicySupported;
 
     private GetVpcEndpointServiceResult() {}
-    /**
-     * @return Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-     * 
-     */
     public Boolean acceptanceRequired() {
         return this.acceptanceRequired;
     }
-    /**
-     * @return ARN of the VPC endpoint service.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Availability Zones in which the service is available. Not available for endpoint services in other regions.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * @return The DNS names for the service.
-     * 
-     */
     public List<String> baseEndpointDnsNames() {
         return this.baseEndpointDnsNames;
     }
@@ -140,37 +70,19 @@ public final class GetVpcEndpointServiceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Whether or not the service manages its VPC endpoints - `true` or `false`.
-     * 
-     */
     public Boolean managesVpcEndpoints() {
         return this.managesVpcEndpoints;
     }
-    /**
-     * @return AWS account ID of the service owner or `amazon`.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Private DNS name for the service.
-     * 
-     */
     public String privateDnsName() {
         return this.privateDnsName;
     }
-    /**
-     * @return Private DNS names assigned to the VPC endpoint service.
-     * 
-     */
     public List<String> privateDnsNames() {
         return this.privateDnsNames;
     }
     /**
-     * @return (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use serviceRegion instead.
      * 
@@ -182,20 +94,12 @@ public final class GetVpcEndpointServiceResult {
     public Optional<String> service() {
         return Optional.ofNullable(this.service);
     }
-    /**
-     * @return ID of the endpoint service.
-     * 
-     */
     public String serviceId() {
         return this.serviceId;
     }
     public String serviceName() {
         return this.serviceName;
     }
-    /**
-     * @return Region of the endpoint service.
-     * 
-     */
     public String serviceRegion() {
         return this.serviceRegion;
     }
@@ -205,24 +109,12 @@ public final class GetVpcEndpointServiceResult {
     public String serviceType() {
         return this.serviceType;
     }
-    /**
-     * @return The supported IP address types.
-     * 
-     */
     public List<String> supportedIpAddressTypes() {
         return this.supportedIpAddressTypes;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Whether or not the service supports endpoint policies - `true` or `false`.
-     * 
-     */
     public Boolean vpcEndpointPolicySupported() {
         return this.vpcEndpointPolicySupported;
     }

@@ -25,12 +25,6 @@ class CustomerGatewayAssociationArgs:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerGatewayAssociation resource.
-        :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         pulumi.set(__self__, "customer_gateway_arn", customer_gateway_arn)
         pulumi.set(__self__, "device_id", device_id)
@@ -41,9 +35,6 @@ class CustomerGatewayAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="customerGatewayArn")
     def customer_gateway_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the customer gateway.
-        """
         return pulumi.get(self, "customer_gateway_arn")
 
     @customer_gateway_arn.setter
@@ -53,9 +44,6 @@ class CustomerGatewayAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
@@ -65,11 +53,6 @@ class CustomerGatewayAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the global network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -79,9 +62,6 @@ class CustomerGatewayAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
@@ -98,12 +78,6 @@ class _CustomerGatewayAssociationState:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomerGatewayAssociation resources.
-        :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         if customer_gateway_arn is not None:
             pulumi.set(__self__, "customer_gateway_arn", customer_gateway_arn)
@@ -117,9 +91,6 @@ class _CustomerGatewayAssociationState:
     @_builtins.property
     @pulumi.getter(name="customerGatewayArn")
     def customer_gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer gateway.
-        """
         return pulumi.get(self, "customer_gateway_arn")
 
     @customer_gateway_arn.setter
@@ -129,9 +100,6 @@ class _CustomerGatewayAssociationState:
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
@@ -141,11 +109,6 @@ class _CustomerGatewayAssociationState:
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the global network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -155,9 +118,6 @@ class _CustomerGatewayAssociationState:
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
@@ -177,58 +137,9 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
                  link_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Network Manager Customer Gateway Association.
-
-        Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.GlobalNetwork("example", description="example")
-        example_site = aws.networkmanager.Site("example", global_network_id=example.id)
-        example_device = aws.networkmanager.Device("example",
-            global_network_id=example.id,
-            site_id=example_site.id)
-        example_customer_gateway = aws.ec2.CustomerGateway("example",
-            bgp_asn="65000",
-            ip_address="172.83.124.10",
-            type="ipsec.1")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
-        example_vpn_connection = aws.ec2.VpnConnection("example",
-            customer_gateway_id=example_customer_gateway.id,
-            transit_gateway_id=example_transit_gateway.id,
-            type=example_customer_gateway.type,
-            static_routes_only=True)
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
-            global_network_id=example.id,
-            transit_gateway_arn=example_transit_gateway.arn,
-            opts = pulumi.ResourceOptions(depends_on=[example_vpn_connection]))
-        example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("example",
-            global_network_id=example.id,
-            customer_gateway_arn=example_customer_gateway.arn,
-            device_id=example_device.id,
-            opts = pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
-        ```
-
+        Create a CustomerGatewayAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         ...
     @overload
@@ -237,50 +148,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
                  args: CustomerGatewayAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Manager Customer Gateway Association.
-
-        Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.GlobalNetwork("example", description="example")
-        example_site = aws.networkmanager.Site("example", global_network_id=example.id)
-        example_device = aws.networkmanager.Device("example",
-            global_network_id=example.id,
-            site_id=example_site.id)
-        example_customer_gateway = aws.ec2.CustomerGateway("example",
-            bgp_asn="65000",
-            ip_address="172.83.124.10",
-            type="ipsec.1")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example")
-        example_vpn_connection = aws.ec2.VpnConnection("example",
-            customer_gateway_id=example_customer_gateway.id,
-            transit_gateway_id=example_transit_gateway.id,
-            type=example_customer_gateway.type,
-            static_routes_only=True)
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
-            global_network_id=example.id,
-            transit_gateway_arn=example_transit_gateway.arn,
-            opts = pulumi.ResourceOptions(depends_on=[example_vpn_connection]))
-        example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("example",
-            global_network_id=example.id,
-            customer_gateway_arn=example_customer_gateway.arn,
-            device_id=example_device.id,
-            opts = pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
-        ```
-
+        Create a CustomerGatewayAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomerGatewayAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,12 +208,6 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
-        :param pulumi.Input[_builtins.str] device_id: ID of the device.
-        :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] link_id: ID of the link.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,34 +222,20 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="customerGatewayArn")
     def customer_gateway_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the customer gateway.
-        """
         return pulumi.get(self, "customer_gateway_arn")
 
     @_builtins.property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the global network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "global_network_id")
 
     @_builtins.property
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the link.
-        """
         return pulumi.get(self, "link_id")
 

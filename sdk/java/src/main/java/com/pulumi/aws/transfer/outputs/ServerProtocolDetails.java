@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerProtocolDetails {
-    /**
-     * @return Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
-     * 
-     */
     private @Nullable List<String> as2Transports;
-    /**
-     * @return Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
-     * 
-     */
     private @Nullable String passiveIp;
-    /**
-     * @return Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
-     * 
-     */
     private @Nullable String setStatOption;
-    /**
-     * @return A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
-     * 
-     */
     private @Nullable String tlsSessionResumptionMode;
 
     private ServerProtocolDetails() {}
-    /**
-     * @return Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
-     * 
-     */
     public List<String> as2Transports() {
         return this.as2Transports == null ? List.of() : this.as2Transports;
     }
-    /**
-     * @return Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
-     * 
-     */
     public Optional<String> passiveIp() {
         return Optional.ofNullable(this.passiveIp);
     }
-    /**
-     * @return Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
-     * 
-     */
     public Optional<String> setStatOption() {
         return Optional.ofNullable(this.setStatOption);
     }
-    /**
-     * @return A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
-     * 
-     */
     public Optional<String> tlsSessionResumptionMode() {
         return Optional.ofNullable(this.tlsSessionResumptionMode);
     }

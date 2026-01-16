@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS RDS (Relational Database) RDS Instance State.
- *
- * > Destruction of this resource is a no-op and **will not** modify the instance state
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.rds.InstanceDesiredState("test", {
- *     identifier: testAwsDbInstance.identifier,
- *     state: "available",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
- * ```
- */
 export class InstanceDesiredState extends pulumi.CustomResource {
     /**
      * Get an existing InstanceDesiredState resource's state with the given name, ID, and optional extra
@@ -62,17 +35,8 @@ export class InstanceDesiredState extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceDesiredState.__pulumiType;
     }
 
-    /**
-     * DB Instance Identifier
-     */
     declare public readonly identifier: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     */
     declare public readonly state: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.rds.InstanceDesiredStateTimeouts | undefined>;
 
@@ -115,17 +79,8 @@ export class InstanceDesiredState extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceDesiredState resources.
  */
 export interface InstanceDesiredStateState {
-    /**
-     * DB Instance Identifier
-     */
     identifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     */
     state?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.rds.InstanceDesiredStateTimeouts>;
 }
@@ -134,17 +89,8 @@ export interface InstanceDesiredStateState {
  * The set of arguments for constructing a InstanceDesiredState resource.
  */
 export interface InstanceDesiredStateArgs {
-    /**
-     * DB Instance Identifier
-     */
     identifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     */
     state: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.rds.InstanceDesiredStateTimeouts>;
 }

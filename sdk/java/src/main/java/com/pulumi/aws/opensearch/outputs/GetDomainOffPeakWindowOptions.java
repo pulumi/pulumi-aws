@@ -12,18 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainOffPeakWindowOptions {
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     private Boolean enabled;
     private List<GetDomainOffPeakWindowOptionsOffPeakWindow> offPeakWindows;
 
     private GetDomainOffPeakWindowOptions() {}
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

@@ -49,9 +49,6 @@ class GetAliasResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name(ARN) of the key alias.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -65,9 +62,6 @@ class GetAliasResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the alias
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -78,17 +72,11 @@ class GetAliasResult:
     @_builtins.property
     @pulumi.getter(name="targetKeyArn")
     def target_key_arn(self) -> _builtins.str:
-        """
-        ARN pointed to by the alias.
-        """
         return pulumi.get(self, "target_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetKeyId")
     def target_key_id(self) -> _builtins.str:
-        """
-        Key identifier pointed to by the alias.
-        """
         return pulumi.get(self, "target_key_id")
 
 
@@ -110,22 +98,7 @@ def get_alias(name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Use this data source to get the ARN of a KMS key alias.
-    By using this data source, you can reference key alias
-    without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.kms.get_alias(name="alias/aws/s3")
-    ```
-
-
-    :param _builtins.str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -144,22 +117,7 @@ def get_alias_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
-    Use this data source to get the ARN of a KMS key alias.
-    By using this data source, you can reference key alias
-    without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.kms.get_alias(name="alias/aws/s3")
-    ```
-
-
-    :param _builtins.str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

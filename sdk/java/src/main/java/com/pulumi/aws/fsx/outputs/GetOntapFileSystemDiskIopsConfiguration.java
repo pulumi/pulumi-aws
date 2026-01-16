@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOntapFileSystemDiskIopsConfiguration {
-    /**
-     * @return The total number of SSD IOPS provisioned for the file system.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
-     * 
-     */
     private String mode;
 
     private GetOntapFileSystemDiskIopsConfiguration() {}
-    /**
-     * @return The total number of SSD IOPS provisioned for the file system.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
-     * 
-     */
     public String mode() {
         return this.mode;
     }

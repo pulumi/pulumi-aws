@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Cognito
 {
     public static class GetIdentityPool
     {
-        /// <summary>
-        /// Data source for managing an AWS Cognito Identity Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Cognito.GetIdentityPool.Invoke(new()
-        ///     {
-        ///         IdentityPoolName = "test pool",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetIdentityPoolResult> InvokeAsync(GetIdentityPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Cognito Identity Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Cognito.GetIdentityPool.Invoke(new()
-        ///     {
-        ///         IdentityPoolName = "test pool",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Cognito Identity Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Cognito.GetIdentityPool.Invoke(new()
-        ///     {
-        ///         IdentityPoolName = "test pool",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetIdentityPoolArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Cognito Identity Pool name.
-        /// </summary>
         [Input("identityPoolName", required: true)]
         public string IdentityPoolName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assigned to the Identity Pool.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetIdentityPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Cognito Identity Pool name.
-        /// </summary>
         [Input("identityPoolName", required: true)]
         public Input<string> IdentityPoolName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assigned to the Identity Pool.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,47 +70,20 @@ namespace Pulumi.Aws.Cognito
     [OutputType]
     public sealed class GetIdentityPoolResult
     {
-        /// <summary>
-        /// Whether the classic / basic authentication flow is enabled.
-        /// </summary>
         public readonly bool AllowClassicFlow;
-        /// <summary>
-        /// Whether the identity pool supports unauthenticated logins or not.
-        /// </summary>
         public readonly bool AllowUnauthenticatedIdentities;
-        /// <summary>
-        /// ARN of the Pool.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// An array of Amazon Cognito Identity user pools and their client IDs.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetIdentityPoolCognitoIdentityProviderResult> CognitoIdentityProviders;
-        /// <summary>
-        /// The "domain" by which Cognito will refer to your users.
-        /// </summary>
         public readonly string DeveloperProviderName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string IdentityPoolName;
-        /// <summary>
-        /// Set of OpendID Connect provider ARNs.
-        /// </summary>
         public readonly ImmutableArray<string> OpenidConnectProviderArns;
         public readonly string Region;
-        /// <summary>
-        /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-        /// </summary>
         public readonly ImmutableArray<string> SamlProviderArns;
-        /// <summary>
-        /// Key-Value pairs mapping provider names to provider app IDs.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> SupportedLoginProviders;
-        /// <summary>
-        /// A map of tags to assigned to the Identity Pool.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

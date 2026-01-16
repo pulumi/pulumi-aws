@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DatabaseAclConfiguration {
-    /**
-     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-     * 
-     * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
-     * 
-     */
     private String s3AclOption;
 
     private DatabaseAclConfiguration() {}
-    /**
-     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-     * 
-     * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
-     * 
-     */
     public String s3AclOption() {
         return this.s3AclOption;
     }

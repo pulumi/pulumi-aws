@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentMonitor {
-    /**
-     * @return ARN of the Amazon CloudWatch alarm.
-     * 
-     */
     private String alarmArn;
-    /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
-     * 
-     */
     private @Nullable String alarmRoleArn;
 
     private EnvironmentMonitor() {}
-    /**
-     * @return ARN of the Amazon CloudWatch alarm.
-     * 
-     */
     public String alarmArn() {
         return this.alarmArn;
     }
-    /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
-     * 
-     */
     public Optional<String> alarmRoleArn() {
         return Optional.ofNullable(this.alarmRoleArn);
     }

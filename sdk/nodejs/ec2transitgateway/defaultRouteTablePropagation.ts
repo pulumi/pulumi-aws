@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Propagation.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.DefaultRouteTablePropagation("example", {
- *     transitGatewayId: exampleAwsEc2TransitGateway.id,
- *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
- * });
- * ```
- */
 export class DefaultRouteTablePropagation extends pulumi.CustomResource {
     /**
      * Get an existing DefaultRouteTablePropagation resource's state with the given name, ID, and optional extra
@@ -53,18 +36,9 @@ export class DefaultRouteTablePropagation extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly originalDefaultRouteTableId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts | undefined>;
-    /**
-     * ID of the Transit Gateway to change the default association route table on.
-     */
     declare public readonly transitGatewayId: pulumi.Output<string>;
-    /**
-     * ID of the Transit Gateway Route Table to be made the default association route table.
-     */
     declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
 
     /**
@@ -109,18 +83,9 @@ export class DefaultRouteTablePropagation extends pulumi.CustomResource {
  */
 export interface DefaultRouteTablePropagationState {
     originalDefaultRouteTableId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts>;
-    /**
-     * ID of the Transit Gateway to change the default association route table on.
-     */
     transitGatewayId?: pulumi.Input<string>;
-    /**
-     * ID of the Transit Gateway Route Table to be made the default association route table.
-     */
     transitGatewayRouteTableId?: pulumi.Input<string>;
 }
 
@@ -128,17 +93,8 @@ export interface DefaultRouteTablePropagationState {
  * The set of arguments for constructing a DefaultRouteTablePropagation resource.
  */
 export interface DefaultRouteTablePropagationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts>;
-    /**
-     * ID of the Transit Gateway to change the default association route table on.
-     */
     transitGatewayId: pulumi.Input<string>;
-    /**
-     * ID of the Transit Gateway Route Table to be made the default association route table.
-     */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

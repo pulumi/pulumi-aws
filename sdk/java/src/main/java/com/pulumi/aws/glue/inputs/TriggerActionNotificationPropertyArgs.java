@@ -15,17 +15,9 @@ public final class TriggerActionNotificationPropertyArgs extends com.pulumi.reso
 
     public static final TriggerActionNotificationPropertyArgs Empty = new TriggerActionNotificationPropertyArgs();
 
-    /**
-     * After a job run starts, the number of minutes to wait before sending a job run delay notification.
-     * 
-     */
     @Import(name="notifyDelayAfter")
     private @Nullable Output<Integer> notifyDelayAfter;
 
-    /**
-     * @return After a job run starts, the number of minutes to wait before sending a job run delay notification.
-     * 
-     */
     public Optional<Output<Integer>> notifyDelayAfter() {
         return Optional.ofNullable(this.notifyDelayAfter);
     }
@@ -54,23 +46,11 @@ public final class TriggerActionNotificationPropertyArgs extends com.pulumi.reso
             $ = new TriggerActionNotificationPropertyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param notifyDelayAfter After a job run starts, the number of minutes to wait before sending a job run delay notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifyDelayAfter(@Nullable Output<Integer> notifyDelayAfter) {
             $.notifyDelayAfter = notifyDelayAfter;
             return this;
         }
 
-        /**
-         * @param notifyDelayAfter After a job run starts, the number of minutes to wait before sending a job run delay notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifyDelayAfter(Integer notifyDelayAfter) {
             return notifyDelayAfter(Output.of(notifyDelayAfter));
         }

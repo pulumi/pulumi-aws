@@ -17,14 +17,14 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
     public static final StreamProcessorRegionsOfInterestArgs Empty = new StreamProcessorRegionsOfInterestArgs();
 
     /**
-     * Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+     * The box representing a region of interest on screen.
      * 
      */
     @Import(name="boundingBox", required=true)
     private Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox;
 
     /**
-     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+     * @return The box representing a region of interest on screen.
      * 
      */
     public Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox() {
@@ -32,14 +32,14 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
     }
 
     /**
-     * Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+     * Specifies a shape made of 3 to 10 Point objects that define a region of interest.
      * 
      */
     @Import(name="polygons", required=true)
     private Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons;
 
     /**
-     * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+     * @return Specifies a shape made of 3 to 10 Point objects that define a region of interest.
      * 
      */
     public Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons() {
@@ -72,7 +72,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param boundingBox Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+         * @param boundingBox The box representing a region of interest on screen.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param boundingBox Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+         * @param boundingBox The box representing a region of interest on screen.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param polygons Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+         * @param polygons Specifies a shape made of 3 to 10 Point objects that define a region of interest.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param polygons Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+         * @param polygons Specifies a shape made of 3 to 10 Point objects that define a region of interest.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param polygons Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+         * @param polygons Specifies a shape made of 3 to 10 Point objects that define a region of interest.
          * 
          * @return builder
          * 

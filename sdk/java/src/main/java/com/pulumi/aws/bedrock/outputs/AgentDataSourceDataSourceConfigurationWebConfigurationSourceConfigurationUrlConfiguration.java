@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
-    /**
-     * @return List of one or more seed URLs to crawl. See `seedUrls` block for details.
-     * 
-     */
     private @Nullable List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> seedUrls;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration() {}
-    /**
-     * @return List of one or more seed URLs to crawl. See `seedUrls` block for details.
-     * 
-     */
     public List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> seedUrls() {
         return this.seedUrls == null ? List.of() : this.seedUrls;
     }

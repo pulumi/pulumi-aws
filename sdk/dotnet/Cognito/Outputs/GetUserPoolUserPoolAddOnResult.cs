@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolUserPoolAddOnResult
     {
-        /// <summary>
-        /// A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult> AdvancedSecurityAdditionalFlows;
-        /// <summary>
-        /// Mode for advanced security.
-        /// </summary>
         public readonly string AdvancedSecurityMode;
 
         [OutputConstructor]

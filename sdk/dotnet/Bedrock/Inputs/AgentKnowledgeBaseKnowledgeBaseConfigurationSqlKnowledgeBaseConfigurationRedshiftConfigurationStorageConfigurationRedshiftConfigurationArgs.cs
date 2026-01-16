@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Amazon Redshift database.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class GetReleaseLabelsFiltersResult
     {
-        /// <summary>
-        /// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
-        /// </summary>
         public readonly string? Application;
-        /// <summary>
-        /// Optional release label version prefix filter. For example, `emr-5`.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

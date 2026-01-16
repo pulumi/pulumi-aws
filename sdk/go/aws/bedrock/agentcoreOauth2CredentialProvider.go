@@ -12,153 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### GitHub OAuth Provider
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "github", &bedrock.AgentcoreOauth2CredentialProviderArgs{
-//				Name:                     pulumi.String("github-oauth-provider"),
-//				CredentialProviderVendor: pulumi.String("GithubOauth2"),
-//				Oauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{
-//					GithubOauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs{
-//						ClientId:     pulumi.String("your-github-client-id"),
-//						ClientSecret: pulumi.String("your-github-client-secret"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom OAuth Provider with Discovery URL
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "auth0", &bedrock.AgentcoreOauth2CredentialProviderArgs{
-//				Name:                     pulumi.String("auth0-oauth-provider"),
-//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
-//				CustomOauth2ProviderConfig: []map[string]interface{}{
-//					map[string]interface{}{
-//						"custom": []map[string]interface{}{
-//							map[string]interface{}{
-//								"clientIdWo":                 "auth0-client-id",
-//								"clientSecretWo":             "auth0-client-secret",
-//								"clientCredentialsWoVersion": 1,
-//								"oauthDiscovery": []map[string]interface{}{
-//									map[string]interface{}{
-//										"discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom OAuth Provider with Authorization Server Metadata
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "keycloak", &bedrock.AgentcoreOauth2CredentialProviderArgs{
-//				Name:                     pulumi.String("keycloak-oauth-provider"),
-//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
-//				Oauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{
-//					CustomOauth2ProviderConfig: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs{
-//						ClientIdWo:                 pulumi.String("keycloak-client-id"),
-//						ClientSecretWo:             pulumi.String("keycloak-client-secret"),
-//						ClientCredentialsWoVersion: pulumi.Int(1),
-//						OauthDiscovery: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{
-//							AuthorizationServerMetadata: &bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{
-//								Issuer:                pulumi.String("https://auth.company.com/realms/production"),
-//								AuthorizationEndpoint: pulumi.String("https://auth.company.com/realms/production/protocol/openid-connect/auth"),
-//								TokenEndpoint:         pulumi.String("https://auth.company.com/realms/production/protocol/openid-connect/token"),
-//								ResponseTypes: pulumi.StringArray{
-//									pulumi.String("code"),
-//									pulumi.String("id_token"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
-// ```
 type AgentcoreOauth2CredentialProvider struct {
 	pulumi.CustomResourceState
 
-	// ARN of the AWS Secrets Manager secret containing the client secret.
-	ClientSecretArns AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput `pulumi:"clientSecretArns"`
-	// ARN of the OAuth2 credential provider.
-	CredentialProviderArn pulumi.StringOutput `pulumi:"credentialProviderArn"`
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-	CredentialProviderVendor pulumi.StringOutput `pulumi:"credentialProviderVendor"`
-	// Name of the OAuth2 credential provider.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-	//
-	// The following arguments are optional:
-	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput `pulumi:"oauth2ProviderConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ClientSecretArns         AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput    `pulumi:"clientSecretArns"`
+	CredentialProviderArn    pulumi.StringOutput                                            `pulumi:"credentialProviderArn"`
+	CredentialProviderVendor pulumi.StringOutput                                            `pulumi:"credentialProviderVendor"`
+	Name                     pulumi.StringOutput                                            `pulumi:"name"`
+	Oauth2ProviderConfig     AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput `pulumi:"oauth2ProviderConfig"`
+	Region                   pulumi.StringOutput                                            `pulumi:"region"`
 }
 
 // NewAgentcoreOauth2CredentialProvider registers a new resource with the given unique name, arguments, and options.
@@ -194,37 +56,21 @@ func GetAgentcoreOauth2CredentialProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreOauth2CredentialProvider resources.
 type agentcoreOauth2CredentialProviderState struct {
-	// ARN of the AWS Secrets Manager secret containing the client secret.
-	ClientSecretArns []AgentcoreOauth2CredentialProviderClientSecretArn `pulumi:"clientSecretArns"`
-	// ARN of the OAuth2 credential provider.
-	CredentialProviderArn *string `pulumi:"credentialProviderArn"`
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-	CredentialProviderVendor *string `pulumi:"credentialProviderVendor"`
-	// Name of the OAuth2 credential provider.
-	Name *string `pulumi:"name"`
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-	//
-	// The following arguments are optional:
-	Oauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ClientSecretArns         []AgentcoreOauth2CredentialProviderClientSecretArn     `pulumi:"clientSecretArns"`
+	CredentialProviderArn    *string                                                `pulumi:"credentialProviderArn"`
+	CredentialProviderVendor *string                                                `pulumi:"credentialProviderVendor"`
+	Name                     *string                                                `pulumi:"name"`
+	Oauth2ProviderConfig     *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
+	Region                   *string                                                `pulumi:"region"`
 }
 
 type AgentcoreOauth2CredentialProviderState struct {
-	// ARN of the AWS Secrets Manager secret containing the client secret.
-	ClientSecretArns AgentcoreOauth2CredentialProviderClientSecretArnArrayInput
-	// ARN of the OAuth2 credential provider.
-	CredentialProviderArn pulumi.StringPtrInput
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+	ClientSecretArns         AgentcoreOauth2CredentialProviderClientSecretArnArrayInput
+	CredentialProviderArn    pulumi.StringPtrInput
 	CredentialProviderVendor pulumi.StringPtrInput
-	// Name of the OAuth2 credential provider.
-	Name pulumi.StringPtrInput
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-	//
-	// The following arguments are optional:
-	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Oauth2ProviderConfig     AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
+	Region                   pulumi.StringPtrInput
 }
 
 func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
@@ -232,30 +78,18 @@ func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
 }
 
 type agentcoreOauth2CredentialProviderArgs struct {
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-	CredentialProviderVendor string `pulumi:"credentialProviderVendor"`
-	// Name of the OAuth2 credential provider.
-	Name *string `pulumi:"name"`
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-	//
-	// The following arguments are optional:
-	Oauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	CredentialProviderVendor string                                                 `pulumi:"credentialProviderVendor"`
+	Name                     *string                                                `pulumi:"name"`
+	Oauth2ProviderConfig     *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
+	Region                   *string                                                `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
 type AgentcoreOauth2CredentialProviderArgs struct {
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
 	CredentialProviderVendor pulumi.StringInput
-	// Name of the OAuth2 credential provider.
-	Name pulumi.StringPtrInput
-	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-	//
-	// The following arguments are optional:
-	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Oauth2ProviderConfig     AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
+	Region                   pulumi.StringPtrInput
 }
 
 func (AgentcoreOauth2CredentialProviderArgs) ElementType() reflect.Type {
@@ -345,38 +179,30 @@ func (o AgentcoreOauth2CredentialProviderOutput) ToAgentcoreOauth2CredentialProv
 	return o
 }
 
-// ARN of the AWS Secrets Manager secret containing the client secret.
 func (o AgentcoreOauth2CredentialProviderOutput) ClientSecretArns() AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
 		return v.ClientSecretArns
 	}).(AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput)
 }
 
-// ARN of the OAuth2 credential provider.
 func (o AgentcoreOauth2CredentialProviderOutput) CredentialProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CredentialProviderArn }).(pulumi.StringOutput)
 }
 
-// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
 func (o AgentcoreOauth2CredentialProviderOutput) CredentialProviderVendor() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CredentialProviderVendor }).(pulumi.StringOutput)
 }
 
-// Name of the OAuth2 credential provider.
 func (o AgentcoreOauth2CredentialProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
-//
-// The following arguments are optional:
 func (o AgentcoreOauth2CredentialProviderOutput) Oauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
 		return v.Oauth2ProviderConfig
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreOauth2CredentialProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

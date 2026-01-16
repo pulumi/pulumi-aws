@@ -15,17 +15,9 @@ public final class FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs e
 
     public static final FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs Empty = new FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs();
 
-    /**
-     * The unique identifier of the transit gateway attachment.
-     * 
-     */
     @Import(name="attachmentId")
     private @Nullable Output<String> attachmentId;
 
-    /**
-     * @return The unique identifier of the transit gateway attachment.
-     * 
-     */
     public Optional<Output<String>> attachmentId() {
         return Optional.ofNullable(this.attachmentId);
     }
@@ -54,23 +46,11 @@ public final class FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs e
             $ = new FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attachmentId The unique identifier of the transit gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentId(@Nullable Output<String> attachmentId) {
             $.attachmentId = attachmentId;
             return this;
         }
 
-        /**
-         * @param attachmentId The unique identifier of the transit gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentId(String attachmentId) {
             return attachmentId(Output.of(attachmentId));
         }

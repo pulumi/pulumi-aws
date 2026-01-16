@@ -15,32 +15,16 @@ public final class GetDbSystemShapesArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetDbSystemShapesArgs Empty = new GetDbSystemShapesArgs();
 
-    /**
-     * The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-     * 
-     */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
-    /**
-     * @return The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-     * 
-     */
     public Optional<Output<String>> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetDbSystemShapesArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetDbSystemShapesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZoneId The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(@Nullable Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
-        /**
-         * @param availabilityZoneId The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about single Outpost Instance Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getOutpostInstanceType({
- *     arn: exampleAwsOutpostsOutpost.arn,
- *     preferredInstanceTypes: [
- *         "m5.large",
- *         "m5.4xlarge",
- *     ],
- * });
- * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
- * ```
- */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
@@ -37,23 +18,9 @@ export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: 
  * A collection of arguments for invoking getOutpostInstanceType.
  */
 export interface GetOutpostInstanceTypeArgs {
-    /**
-     * Outpost ARN.
-     *
-     * The following arguments are optional:
-     */
     arn: string;
-    /**
-     * Desired instance type. Conflicts with `preferredInstanceTypes`.
-     */
     instanceType?: string;
-    /**
-     * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
-     */
     preferredInstanceTypes?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -70,25 +37,6 @@ export interface GetOutpostInstanceTypeResult {
     readonly preferredInstanceTypes?: string[];
     readonly region: string;
 }
-/**
- * Information about single Outpost Instance Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getOutpostInstanceType({
- *     arn: exampleAwsOutpostsOutpost.arn,
- *     preferredInstanceTypes: [
- *         "m5.large",
- *         "m5.4xlarge",
- *     ],
- * });
- * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
- * ```
- */
 export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
@@ -103,22 +51,8 @@ export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputA
  * A collection of arguments for invoking getOutpostInstanceType.
  */
 export interface GetOutpostInstanceTypeOutputArgs {
-    /**
-     * Outpost ARN.
-     *
-     * The following arguments are optional:
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Desired instance type. Conflicts with `preferredInstanceTypes`.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
-     */
     preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -17,51 +17,23 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EventActionArgs Empty = new EventActionArgs();
 
-    /**
-     * Describes the action to take.
-     * Described in `action` Configuration Block below.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<EventActionActionArgs> action;
 
-    /**
-     * @return Describes the action to take.
-     * Described in `action` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionActionArgs>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     * 
-     */
     @Import(name="event")
     private @Nullable Output<EventActionEventArgs> event;
 
-    /**
-     * @return Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     * 
-     */
     public Optional<Output<EventActionEventArgs>> event() {
         return Optional.ofNullable(this.event);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -92,69 +64,29 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EventActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Describes the action to take.
-         * Described in `action` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<EventActionActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Describes the action to take.
-         * Described in `action` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(EventActionActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param event Describes the event that triggers the `action`.
-         * Described in `event` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder event(@Nullable Output<EventActionEventArgs> event) {
             $.event = event;
             return this;
         }
 
-        /**
-         * @param event Describes the event that triggers the `action`.
-         * Described in `event` Configuration Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder event(EventActionEventArgs event) {
             return event(Output.of(event));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

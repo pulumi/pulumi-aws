@@ -20,92 +20,44 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NetworkAclArgs Empty = new NetworkAclArgs();
 
-    /**
-     * Specifies an egress rule. Parameters defined below.
-     * 
-     */
     @Import(name="egress")
     private @Nullable Output<List<NetworkAclEgressArgs>> egress;
 
-    /**
-     * @return Specifies an egress rule. Parameters defined below.
-     * 
-     */
     public Optional<Output<List<NetworkAclEgressArgs>>> egress() {
         return Optional.ofNullable(this.egress);
     }
 
-    /**
-     * Specifies an ingress rule. Parameters defined below.
-     * 
-     */
     @Import(name="ingress")
     private @Nullable Output<List<NetworkAclIngressArgs>> ingress;
 
-    /**
-     * @return Specifies an ingress rule. Parameters defined below.
-     * 
-     */
     public Optional<Output<List<NetworkAclIngressArgs>>> ingress() {
         return Optional.ofNullable(this.ingress);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A list of Subnet IDs to apply the ACL to
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of Subnet IDs to apply the ACL to
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The ID of the associated VPC.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the associated VPC.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -139,158 +91,68 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NetworkAclArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param egress Specifies an egress rule. Parameters defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egress(@Nullable Output<List<NetworkAclEgressArgs>> egress) {
             $.egress = egress;
             return this;
         }
 
-        /**
-         * @param egress Specifies an egress rule. Parameters defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egress(List<NetworkAclEgressArgs> egress) {
             return egress(Output.of(egress));
         }
 
-        /**
-         * @param egress Specifies an egress rule. Parameters defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egress(NetworkAclEgressArgs... egress) {
             return egress(List.of(egress));
         }
 
-        /**
-         * @param ingress Specifies an ingress rule. Parameters defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingress(@Nullable Output<List<NetworkAclIngressArgs>> ingress) {
             $.ingress = ingress;
             return this;
         }
 
-        /**
-         * @param ingress Specifies an ingress rule. Parameters defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingress(List<NetworkAclIngressArgs> ingress) {
             return ingress(Output.of(ingress));
         }
 
-        /**
-         * @param ingress Specifies an ingress rule. Parameters defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingress(NetworkAclIngressArgs... ingress) {
             return ingress(List.of(ingress));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subnetIds A list of Subnet IDs to apply the ACL to
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds A list of Subnet IDs to apply the ACL to
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds A list of Subnet IDs to apply the ACL to
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId The ID of the associated VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the associated VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

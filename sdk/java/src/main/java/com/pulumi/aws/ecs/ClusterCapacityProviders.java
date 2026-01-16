@@ -16,121 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages the capacity providers of an ECS Cluster.
- * 
- * More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Cluster;
- * import com.pulumi.aws.ecs.ClusterArgs;
- * import com.pulumi.aws.ecs.ClusterCapacityProviders;
- * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()
- *             .name("my-cluster")
- *             .build());
- * 
- *         var exampleClusterCapacityProviders = new ClusterCapacityProviders("exampleClusterCapacityProviders", ClusterCapacityProvidersArgs.builder()
- *             .clusterName(example.name())
- *             .capacityProviders("FARGATE")
- *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
- *                 .base(1)
- *                 .weight(100)
- *                 .capacityProvider("FARGATE")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
- * ```
- * 
- */
 @ResourceType(type="aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")
 public class ClusterCapacityProviders extends com.pulumi.resources.CustomResource {
-    /**
-     * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
     @Export(name="capacityProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> capacityProviders;
 
-    /**
-     * @return Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
     public Output<Optional<List<String>>> capacityProviders() {
         return Codegen.optional(this.capacityProviders);
     }
-    /**
-     * Name of the ECS cluster to manage capacity providers for.
-     * 
-     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the ECS cluster to manage capacity providers for.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
-    /**
-     * Set of capacity provider strategies to use by default for the cluster. Detailed below.
-     * 
-     */
     @Export(name="defaultCapacityProviderStrategies", refs={List.class,ClusterCapacityProvidersDefaultCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
 
-    /**
-     * @return Set of capacity provider strategies to use by default for the cluster. Detailed below.
-     * 
-     */
     public Output<Optional<List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>>> defaultCapacityProviderStrategies() {
         return Codegen.optional(this.defaultCapacityProviderStrategies);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

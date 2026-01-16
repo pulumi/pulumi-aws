@@ -26,11 +26,6 @@ class PreparedStatementArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
-        :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[_builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
-        :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
-        :param pulumi.Input[_builtins.str] name: The name of the prepared statement. Maximum length of 256.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         pulumi.set(__self__, "workgroup", workgroup)
@@ -44,9 +39,6 @@ class PreparedStatementArgs:
     @_builtins.property
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> pulumi.Input[_builtins.str]:
-        """
-        The query string for the prepared statement.
-        """
         return pulumi.get(self, "query_statement")
 
     @query_statement.setter
@@ -56,9 +48,6 @@ class PreparedStatementArgs:
     @_builtins.property
     @pulumi.getter
     def workgroup(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workgroup to which the prepared statement belongs.
-        """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
@@ -68,9 +57,6 @@ class PreparedStatementArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Brief explanation of prepared statement. Maximum length of 1024.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,9 +66,6 @@ class PreparedStatementArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the prepared statement. Maximum length of 256.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,9 +75,6 @@ class PreparedStatementArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,11 +92,6 @@ class _PreparedStatementState:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PreparedStatement resources.
-        :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
-        :param pulumi.Input[_builtins.str] name: The name of the prepared statement. Maximum length of 256.
-        :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -132,9 +107,6 @@ class _PreparedStatementState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Brief explanation of prepared statement. Maximum length of 1024.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -144,9 +116,6 @@ class _PreparedStatementState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the prepared statement. Maximum length of 256.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -156,9 +125,6 @@ class _PreparedStatementState:
     @_builtins.property
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The query string for the prepared statement.
-        """
         return pulumi.get(self, "query_statement")
 
     @query_statement.setter
@@ -168,9 +134,6 @@ class _PreparedStatementState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,9 +143,6 @@ class _PreparedStatementState:
     @_builtins.property
     @pulumi.getter
     def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the workgroup to which the prepared statement belongs.
-        """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
@@ -203,42 +163,9 @@ class PreparedStatement(pulumi.CustomResource):
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Athena Prepared Statement.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.s3.Bucket("test",
-            bucket="tf-test",
-            force_destroy=True)
-        test_workgroup = aws.athena.Workgroup("test", name="tf-test")
-        test_database = aws.athena.Database("test",
-            name="example",
-            bucket=test.bucket)
-        test_prepared_statement = aws.athena.PreparedStatement("test",
-            name="tf_test",
-            query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
-            workgroup=test_workgroup.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
-        ```
-
+        Create a PreparedStatement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
-        :param pulumi.Input[_builtins.str] name: The name of the prepared statement. Maximum length of 256.
-        :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         ...
     @overload
@@ -247,35 +174,7 @@ class PreparedStatement(pulumi.CustomResource):
                  args: PreparedStatementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Athena Prepared Statement.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.s3.Bucket("test",
-            bucket="tf-test",
-            force_destroy=True)
-        test_workgroup = aws.athena.Workgroup("test", name="tf-test")
-        test_database = aws.athena.Database("test",
-            name="example",
-            bucket=test.bucket)
-        test_prepared_statement = aws.athena.PreparedStatement("test",
-            name="tf_test",
-            query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
-            workgroup=test_workgroup.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
-        ```
-
+        Create a PreparedStatement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PreparedStatementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,11 +235,6 @@ class PreparedStatement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
-        :param pulumi.Input[_builtins.str] name: The name of the prepared statement. Maximum length of 256.
-        :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,40 +250,25 @@ class PreparedStatement(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Brief explanation of prepared statement. Maximum length of 1024.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the prepared statement. Maximum length of 256.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> pulumi.Output[_builtins.str]:
-        """
-        The query string for the prepared statement.
-        """
         return pulumi.get(self, "query_statement")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def workgroup(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the workgroup to which the prepared statement belongs.
-        """
         return pulumi.get(self, "workgroup")
 

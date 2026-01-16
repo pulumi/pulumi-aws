@@ -16,36 +16,16 @@ public final class DirectoryBucketAccessPointScopeScopeArgs extends com.pulumi.r
 
     public static final DirectoryBucketAccessPointScopeScopeArgs Empty = new DirectoryBucketAccessPointScopeScopeArgs();
 
-    /**
-     * You can specify a list of API operations as permissions for the access point.
-     * 
-     */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
-    /**
-     * @return You can specify a list of API operations as permissions for the access point.
-     * 
-     */
     public Optional<Output<List<String>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
-    /**
-     * You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-     * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-     * 
-     */
     @Import(name="prefixes")
     private @Nullable Output<List<String>> prefixes;
 
-    /**
-     * @return You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-     * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-     * 
-     */
     public Optional<Output<List<String>>> prefixes() {
         return Optional.ofNullable(this.prefixes);
     }
@@ -75,70 +55,28 @@ public final class DirectoryBucketAccessPointScopeScopeArgs extends com.pulumi.r
             $ = new DirectoryBucketAccessPointScopeScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param permissions You can specify a list of API operations as permissions for the access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(@Nullable Output<List<String>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions You can specify a list of API operations as permissions for the access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(List<String> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param permissions You can specify a list of API operations as permissions for the access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
 
-        /**
-         * @param prefixes You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-         * 
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixes(@Nullable Output<List<String>> prefixes) {
             $.prefixes = prefixes;
             return this;
         }
 
-        /**
-         * @param prefixes You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-         * 
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixes(List<String> prefixes) {
             return prefixes(Output.of(prefixes));
         }
 
-        /**
-         * @param prefixes You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-         * 
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixes(String... prefixes) {
             return prefixes(List.of(prefixes));
         }

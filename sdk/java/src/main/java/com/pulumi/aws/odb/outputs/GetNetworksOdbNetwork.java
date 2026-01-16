@@ -10,77 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworksOdbNetwork {
-    /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     private String arn;
-    /**
-     * @return Display name for the network resource.
-     * 
-     */
     private String displayName;
-    /**
-     * @return Unique identifier of the odb network resource.
-     * 
-     */
     private String id;
-    /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
-     * 
-     */
     private String ociNetworkAnchorId;
-    /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-     * 
-     */
     private String ociVcnId;
-    /**
-     * @return The URL of the OCI VCN for the ODB network.
-     * 
-     */
     private String ociVcnUrl;
 
     private GetNetworksOdbNetwork() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Display name for the network resource.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return Unique identifier of the odb network resource.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
-     * 
-     */
     public String ociNetworkAnchorId() {
         return this.ociNetworkAnchorId;
     }
-    /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
-     * 
-     */
     public String ociVcnId() {
         return this.ociVcnId;
     }
-    /**
-     * @return The URL of the OCI VCN for the ODB network.
-     * 
-     */
     public String ociVcnUrl() {
         return this.ociVcnUrl;
     }

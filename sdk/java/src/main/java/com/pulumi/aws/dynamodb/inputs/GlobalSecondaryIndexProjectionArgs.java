@@ -17,36 +17,16 @@ public final class GlobalSecondaryIndexProjectionArgs extends com.pulumi.resourc
 
     public static final GlobalSecondaryIndexProjectionArgs Empty = new GlobalSecondaryIndexProjectionArgs();
 
-    /**
-     * Specifies which additional attributes to include in the index.
-     * Only valid when `projectionType` is `INCLUDE`.`
-     * 
-     */
     @Import(name="nonKeyAttributes")
     private @Nullable Output<List<String>> nonKeyAttributes;
 
-    /**
-     * @return Specifies which additional attributes to include in the index.
-     * Only valid when `projectionType` is `INCLUDE`.`
-     * 
-     */
     public Optional<Output<List<String>>> nonKeyAttributes() {
         return Optional.ofNullable(this.nonKeyAttributes);
     }
 
-    /**
-     * The set of attributes represented in the index.
-     * One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-     * 
-     */
     @Import(name="projectionType", required=true)
     private Output<String> projectionType;
 
-    /**
-     * @return The set of attributes represented in the index.
-     * One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-     * 
-     */
     public Output<String> projectionType() {
         return this.projectionType;
     }
@@ -76,59 +56,24 @@ public final class GlobalSecondaryIndexProjectionArgs extends com.pulumi.resourc
             $ = new GlobalSecondaryIndexProjectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nonKeyAttributes Specifies which additional attributes to include in the index.
-         * Only valid when `projectionType` is `INCLUDE`.`
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonKeyAttributes(@Nullable Output<List<String>> nonKeyAttributes) {
             $.nonKeyAttributes = nonKeyAttributes;
             return this;
         }
 
-        /**
-         * @param nonKeyAttributes Specifies which additional attributes to include in the index.
-         * Only valid when `projectionType` is `INCLUDE`.`
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonKeyAttributes(List<String> nonKeyAttributes) {
             return nonKeyAttributes(Output.of(nonKeyAttributes));
         }
 
-        /**
-         * @param nonKeyAttributes Specifies which additional attributes to include in the index.
-         * Only valid when `projectionType` is `INCLUDE`.`
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
 
-        /**
-         * @param projectionType The set of attributes represented in the index.
-         * One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectionType(Output<String> projectionType) {
             $.projectionType = projectionType;
             return this;
         }
 
-        /**
-         * @param projectionType The set of attributes represented in the index.
-         * One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectionType(String projectionType) {
             return projectionType(Output.of(projectionType));
         }

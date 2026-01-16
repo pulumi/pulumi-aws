@@ -12,61 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContactChannelResult {
-    /**
-     * @return Whether the contact channel is activated.
-     * 
-     */
     private String activationStatus;
     private String arn;
-    /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     * 
-     */
     private String contactId;
-    /**
-     * @return Details used to engage the contact channel.
-     * 
-     */
     private List<GetContactChannelDeliveryAddress> deliveryAddresses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the contact channel.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return Type of the contact channel.
-     * 
-     */
     private String type;
 
     private GetContactChannelResult() {}
-    /**
-     * @return Whether the contact channel is activated.
-     * 
-     */
     public String activationStatus() {
         return this.activationStatus;
     }
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-     * 
-     */
     public String contactId() {
         return this.contactId;
     }
-    /**
-     * @return Details used to engage the contact channel.
-     * 
-     */
     public List<GetContactChannelDeliveryAddress> deliveryAddresses() {
         return this.deliveryAddresses;
     }
@@ -77,20 +45,12 @@ public final class GetContactChannelResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the contact channel.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Type of the contact channel.
-     * 
-     */
     public String type() {
         return this.type;
     }

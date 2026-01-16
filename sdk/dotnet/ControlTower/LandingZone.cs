@@ -9,66 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ControlTower
 {
-    /// <summary>
-    /// Creates a new landing zone using Control Tower. For more information on usage, please see the
-    /// [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:controltower/landingZone:LandingZone")]
     public partial class LandingZone : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the landing zone.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The drift status summary of the landing zone.
-        /// </summary>
         [Output("driftStatuses")]
         public Output<ImmutableArray<Outputs.LandingZoneDriftStatus>> DriftStatuses { get; private set; } = null!;
 
-        /// <summary>
-        /// The latest available version of the landing zone.
-        /// </summary>
         [Output("latestAvailableVersion")]
         public Output<string> LatestAvailableVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        /// </summary>
         [Output("manifestJson")]
         public Output<string> ManifestJson { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the landing zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the landing zone, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The landing zone version.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -118,33 +82,20 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class LandingZoneArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        /// </summary>
         [Input("manifestJson", required: true)]
         public Input<string> ManifestJson { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the landing zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The landing zone version.
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -156,48 +107,28 @@ namespace Pulumi.Aws.ControlTower
 
     public sealed class LandingZoneState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the landing zone.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("driftStatuses")]
         private InputList<Inputs.LandingZoneDriftStatusGetArgs>? _driftStatuses;
-
-        /// <summary>
-        /// The drift status summary of the landing zone.
-        /// </summary>
         public InputList<Inputs.LandingZoneDriftStatusGetArgs> DriftStatuses
         {
             get => _driftStatuses ?? (_driftStatuses = new InputList<Inputs.LandingZoneDriftStatusGetArgs>());
             set => _driftStatuses = value;
         }
 
-        /// <summary>
-        /// The latest available version of the landing zone.
-        /// </summary>
         [Input("latestAvailableVersion")]
         public Input<string>? LatestAvailableVersion { get; set; }
 
-        /// <summary>
-        /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        /// </summary>
         [Input("manifestJson")]
         public Input<string>? ManifestJson { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the landing zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -206,19 +137,12 @@ namespace Pulumi.Aws.ControlTower
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the landing zone, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The landing zone version.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

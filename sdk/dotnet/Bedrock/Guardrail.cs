@@ -9,217 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Resource for managing an Amazon Bedrock Guardrail.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.Guardrail("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         BlockedInputMessaging = "example",
-    ///         BlockedOutputsMessaging = "example",
-    ///         Description = "example",
-    ///         ContentPolicyConfig = new Aws.Bedrock.Inputs.GuardrailContentPolicyConfigArgs
-    ///         {
-    ///             FiltersConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailContentPolicyConfigFiltersConfigArgs
-    ///                 {
-    ///                     InputStrength = "MEDIUM",
-    ///                     OutputStrength = "MEDIUM",
-    ///                     Type = "HATE",
-    ///                 },
-    ///             },
-    ///             TierConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailContentPolicyConfigTierConfigArgs
-    ///                 {
-    ///                     TierName = "STANDARD",
-    ///                 },
-    ///             },
-    ///         },
-    ///         SensitiveInformationPolicyConfig = new Aws.Bedrock.Inputs.GuardrailSensitiveInformationPolicyConfigArgs
-    ///         {
-    ///             PiiEntitiesConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs
-    ///                 {
-    ///                     Action = "BLOCK",
-    ///                     InputAction = "BLOCK",
-    ///                     OutputAction = "ANONYMIZE",
-    ///                     InputEnabled = true,
-    ///                     OutputEnabled = true,
-    ///                     Type = "NAME",
-    ///                 },
-    ///             },
-    ///             RegexesConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs
-    ///                 {
-    ///                     Action = "BLOCK",
-    ///                     InputAction = "BLOCK",
-    ///                     OutputAction = "BLOCK",
-    ///                     InputEnabled = true,
-    ///                     OutputEnabled = false,
-    ///                     Description = "example regex",
-    ///                     Name = "regex_example",
-    ///                     Pattern = "^\\d{3}-\\d{2}-\\d{4}$",
-    ///                 },
-    ///             },
-    ///         },
-    ///         TopicPolicyConfig = new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigArgs
-    ///         {
-    ///             TopicsConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs
-    ///                 {
-    ///                     Name = "investment_topic",
-    ///                     Examples = new[]
-    ///                     {
-    ///                         "Where should I invest my money ?",
-    ///                     },
-    ///                     Type = "DENY",
-    ///                     Definition = "Investment advice refers to inquiries, guidance, or recommendations regarding the management or allocation of funds or assets with the goal of generating returns .",
-    ///                 },
-    ///             },
-    ///             TierConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailTopicPolicyConfigTierConfigArgs
-    ///                 {
-    ///                     TierName = "CLASSIC",
-    ///                 },
-    ///             },
-    ///         },
-    ///         WordPolicyConfig = new Aws.Bedrock.Inputs.GuardrailWordPolicyConfigArgs
-    ///         {
-    ///             ManagedWordListsConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailWordPolicyConfigManagedWordListsConfigArgs
-    ///                 {
-    ///                     Type = "PROFANITY",
-    ///                 },
-    ///             },
-    ///             WordsConfigs = new[]
-    ///             {
-    ///                 new Aws.Bedrock.Inputs.GuardrailWordPolicyConfigWordsConfigArgs
-    ///                 {
-    ///                     Text = "HATE",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrail_id` and `version`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/guardrail:Guardrail")]
     public partial class Guardrail : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Message to return when the guardrail blocks a prompt.
-        /// </summary>
         [Output("blockedInputMessaging")]
         public Output<string> BlockedInputMessaging { get; private set; } = null!;
 
-        /// <summary>
-        /// Message to return when the guardrail blocks a model response.
-        /// </summary>
         [Output("blockedOutputsMessaging")]
         public Output<string> BlockedOutputsMessaging { get; private set; } = null!;
 
-        /// <summary>
-        /// Content policy config for a guardrail. See Content Policy Config for more information.
-        /// </summary>
         [Output("contentPolicyConfig")]
         public Output<Outputs.GuardrailContentPolicyConfig?> ContentPolicyConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-        /// </summary>
         [Output("contextualGroundingPolicyConfig")]
         public Output<Outputs.GuardrailContextualGroundingPolicyConfig?> ContextualGroundingPolicyConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Unix epoch timestamp in seconds for when the Guardrail was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         [Output("crossRegionConfig")]
         public Output<Outputs.GuardrailCrossRegionConfig?> CrossRegionConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the guardrail or its version.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Guardrail.
-        /// </summary>
         [Output("guardrailArn")]
         public Output<string> GuardrailArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Guardrail.
-        /// </summary>
         [Output("guardrailId")]
         public Output<string> GuardrailId { get; private set; } = null!;
 
-        /// <summary>
-        /// The KMS key with which the guardrail was encrypted at rest.
-        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the guardrail.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-        /// </summary>
         [Output("sensitiveInformationPolicyConfig")]
         public Output<Outputs.GuardrailSensitiveInformationPolicyConfig?> SensitiveInformationPolicyConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -229,21 +63,12 @@ namespace Pulumi.Aws.Bedrock
         [Output("timeouts")]
         public Output<Outputs.GuardrailTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Topic policy config for a guardrail. See Topic Policy Config for more information.
-        /// </summary>
         [Output("topicPolicyConfig")]
         public Output<Outputs.GuardrailTopicPolicyConfig?> TopicPolicyConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the Guardrail.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// Word policy config for a guardrail. See Word Policy Config for more information.
-        /// </summary>
         [Output("wordPolicyConfig")]
         public Output<Outputs.GuardrailWordPolicyConfig?> WordPolicyConfig { get; private set; } = null!;
 
@@ -293,71 +118,38 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GuardrailArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Message to return when the guardrail blocks a prompt.
-        /// </summary>
         [Input("blockedInputMessaging", required: true)]
         public Input<string> BlockedInputMessaging { get; set; } = null!;
 
-        /// <summary>
-        /// Message to return when the guardrail blocks a model response.
-        /// </summary>
         [Input("blockedOutputsMessaging", required: true)]
         public Input<string> BlockedOutputsMessaging { get; set; } = null!;
 
-        /// <summary>
-        /// Content policy config for a guardrail. See Content Policy Config for more information.
-        /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.GuardrailContentPolicyConfigArgs>? ContentPolicyConfig { get; set; }
 
-        /// <summary>
-        /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-        /// </summary>
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigArgs>? CrossRegionConfig { get; set; }
 
-        /// <summary>
-        /// Description of the guardrail or its version.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The KMS key with which the guardrail was encrypted at rest.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the guardrail.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-        /// </summary>
         [Input("sensitiveInformationPolicyConfig")]
         public Input<Inputs.GuardrailSensitiveInformationPolicyConfigArgs>? SensitiveInformationPolicyConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -367,15 +159,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("timeouts")]
         public Input<Inputs.GuardrailTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Topic policy config for a guardrail. See Topic Policy Config for more information.
-        /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.GuardrailTopicPolicyConfigArgs>? TopicPolicyConfig { get; set; }
 
-        /// <summary>
-        /// Word policy config for a guardrail. See Word Policy Config for more information.
-        /// </summary>
         [Input("wordPolicyConfig")]
         public Input<Inputs.GuardrailWordPolicyConfigArgs>? WordPolicyConfig { get; set; }
 
@@ -387,95 +173,50 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GuardrailState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Message to return when the guardrail blocks a prompt.
-        /// </summary>
         [Input("blockedInputMessaging")]
         public Input<string>? BlockedInputMessaging { get; set; }
 
-        /// <summary>
-        /// Message to return when the guardrail blocks a model response.
-        /// </summary>
         [Input("blockedOutputsMessaging")]
         public Input<string>? BlockedOutputsMessaging { get; set; }
 
-        /// <summary>
-        /// Content policy config for a guardrail. See Content Policy Config for more information.
-        /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.GuardrailContentPolicyConfigGetArgs>? ContentPolicyConfig { get; set; }
 
-        /// <summary>
-        /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-        /// </summary>
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigGetArgs>? ContextualGroundingPolicyConfig { get; set; }
 
-        /// <summary>
-        /// Unix epoch timestamp in seconds for when the Guardrail was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigGetArgs>? CrossRegionConfig { get; set; }
 
-        /// <summary>
-        /// Description of the guardrail or its version.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of the Guardrail.
-        /// </summary>
         [Input("guardrailArn")]
         public Input<string>? GuardrailArn { get; set; }
 
-        /// <summary>
-        /// ID of the Guardrail.
-        /// </summary>
         [Input("guardrailId")]
         public Input<string>? GuardrailId { get; set; }
 
-        /// <summary>
-        /// The KMS key with which the guardrail was encrypted at rest.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the guardrail.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-        /// </summary>
         [Input("sensitiveInformationPolicyConfig")]
         public Input<Inputs.GuardrailSensitiveInformationPolicyConfigGetArgs>? SensitiveInformationPolicyConfig { get; set; }
 
-        /// <summary>
-        /// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -493,21 +234,12 @@ namespace Pulumi.Aws.Bedrock
         [Input("timeouts")]
         public Input<Inputs.GuardrailTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Topic policy config for a guardrail. See Topic Policy Config for more information.
-        /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.GuardrailTopicPolicyConfigGetArgs>? TopicPolicyConfig { get; set; }
 
-        /// <summary>
-        /// Version of the Guardrail.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
-        /// <summary>
-        /// Word policy config for a guardrail. See Word Policy Config for more information.
-        /// </summary>
         [Input("wordPolicyConfig")]
         public Input<Inputs.GuardrailWordPolicyConfigGetArgs>? WordPolicyConfig { get; set; }
 

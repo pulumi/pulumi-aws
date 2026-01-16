@@ -17,62 +17,30 @@ public final class DirectoryBucketAccessPointScopeArgs extends com.pulumi.resour
 
     public static final DirectoryBucketAccessPointScopeArgs Empty = new DirectoryBucketAccessPointScopeArgs();
 
-    /**
-     * The AWS account ID that owns the specified access point.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return The AWS account ID that owns the specified access point.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
-    /**
-     * The name of the access point that you want to apply the scope to.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the access point that you want to apply the scope to.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-     * 
-     */
     @Import(name="scope")
     private @Nullable Output<DirectoryBucketAccessPointScopeScopeArgs> scope;
 
-    /**
-     * @return . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-     * 
-     */
     public Optional<Output<DirectoryBucketAccessPointScopeScopeArgs>> scope() {
         return Optional.ofNullable(this.scope);
     }
@@ -104,86 +72,38 @@ public final class DirectoryBucketAccessPointScopeArgs extends com.pulumi.resour
             $ = new DirectoryBucketAccessPointScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The AWS account ID that owns the specified access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The AWS account ID that owns the specified access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param name The name of the access point that you want to apply the scope to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the access point that you want to apply the scope to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scope . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable Output<DirectoryBucketAccessPointScopeScopeArgs> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(DirectoryBucketAccessPointScopeScopeArgs scope) {
             return scope(Output.of(scope));
         }

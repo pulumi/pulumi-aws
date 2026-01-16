@@ -55,25 +55,16 @@ class GetOriginAccessControlResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The origin access control ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        A description of the origin access control.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        Current version of the origin access control's information. For example: `E2QWRUHAPOMQZL`.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
@@ -84,33 +75,21 @@ class GetOriginAccessControlResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        A name to identify the origin access control.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="originAccessControlOriginType")
     def origin_access_control_origin_type(self) -> _builtins.str:
-        """
-        The type of origin that this origin access control is for.
-        """
         return pulumi.get(self, "origin_access_control_origin_type")
 
     @_builtins.property
     @pulumi.getter(name="signingBehavior")
     def signing_behavior(self) -> _builtins.str:
-        """
-        Specifies which requests CloudFront signs.
-        """
         return pulumi.get(self, "signing_behavior")
 
     @_builtins.property
     @pulumi.getter(name="signingProtocol")
     def signing_protocol(self) -> _builtins.str:
-        """
-        The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests.
-        """
         return pulumi.get(self, "signing_protocol")
 
 
@@ -133,21 +112,7 @@ class AwaitableGetOriginAccessControlResult(GetOriginAccessControlResult):
 def get_origin_access_control(id: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginAccessControlResult:
     """
-    Use this data source to retrieve information for an Amazon CloudFront origin access control config.
-
-    ## Example Usage
-
-    The below example retrieves a CloudFront origin access control config.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_control(id="E2T5VTFBZJ3BJB")
-    ```
-
-
-    :param _builtins.str id: The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -166,21 +131,7 @@ def get_origin_access_control(id: Optional[_builtins.str] = None,
 def get_origin_access_control_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
-    Use this data source to retrieve information for an Amazon CloudFront origin access control config.
-
-    ## Example Usage
-
-    The below example retrieves a CloudFront origin access control config.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_control(id="E2T5VTFBZJ3BJB")
-    ```
-
-
-    :param _builtins.str id: The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

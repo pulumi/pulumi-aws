@@ -15,17 +15,9 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
 
     public static final EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs Empty = new EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs();
 
-    /**
-     * Message attribute to validate. Valid values: `KEY`, `VALUE`.
-     * 
-     */
     @Import(name="attribute")
     private @Nullable Output<String> attribute;
 
-    /**
-     * @return Message attribute to validate. Valid values: `KEY`, `VALUE`.
-     * 
-     */
     public Optional<Output<String>> attribute() {
         return Optional.ofNullable(this.attribute);
     }
@@ -54,23 +46,11 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
             $ = new EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attribute Message attribute to validate. Valid values: `KEY`, `VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attribute(@Nullable Output<String> attribute) {
             $.attribute = attribute;
             return this;
         }
 
-        /**
-         * @param attribute Message attribute to validate. Valid values: `KEY`, `VALUE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attribute(String attribute) {
             return attribute(Output.of(attribute));
         }

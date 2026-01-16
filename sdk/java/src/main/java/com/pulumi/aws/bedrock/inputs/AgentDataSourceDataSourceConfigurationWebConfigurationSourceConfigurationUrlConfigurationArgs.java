@@ -16,17 +16,9 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
 
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs();
 
-    /**
-     * List of one or more seed URLs to crawl. See `seedUrls` block for details.
-     * 
-     */
     @Import(name="seedUrls")
     private @Nullable Output<List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>> seedUrls;
 
-    /**
-     * @return List of one or more seed URLs to crawl. See `seedUrls` block for details.
-     * 
-     */
     public Optional<Output<List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>>> seedUrls() {
         return Optional.ofNullable(this.seedUrls);
     }
@@ -55,33 +47,15 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
             $ = new AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param seedUrls List of one or more seed URLs to crawl. See `seedUrls` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder seedUrls(@Nullable Output<List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>> seedUrls) {
             $.seedUrls = seedUrls;
             return this;
         }
 
-        /**
-         * @param seedUrls List of one or more seed URLs to crawl. See `seedUrls` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder seedUrls(List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs> seedUrls) {
             return seedUrls(Output.of(seedUrls));
         }
 
-        /**
-         * @param seedUrls List of one or more seed URLs to crawl. See `seedUrls` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder seedUrls(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs... seedUrls) {
             return seedUrls(List.of(seedUrls));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationEngineVersion
     {
-        /// <summary>
-        /// The engine version on which the query runs. If `SelectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
-        /// </summary>
         public readonly string? EffectiveEngineVersion;
-        /// <summary>
-        /// Requested engine version. Defaults to `AUTO`.
-        /// </summary>
         public readonly string? SelectedEngineVersion;
 
         [OutputConstructor]

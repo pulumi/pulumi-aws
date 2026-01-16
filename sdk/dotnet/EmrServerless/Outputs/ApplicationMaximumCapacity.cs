@@ -13,17 +13,8 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationMaximumCapacity
     {
-        /// <summary>
-        /// The maximum allowed CPU for an application.
-        /// </summary>
         public readonly string Cpu;
-        /// <summary>
-        /// The maximum allowed disk for an application.
-        /// </summary>
         public readonly string? Disk;
-        /// <summary>
-        /// The maximum allowed resources for an application.
-        /// </summary>
         public readonly string Memory;
 
         [OutputConstructor]

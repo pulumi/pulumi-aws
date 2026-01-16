@@ -11,433 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Network Firewall TLS Inspection Configuration.
-//
-// ## Example Usage
-//
-// > **NOTE:** You must configure either inbound inspection, outbound inspection, or both.
-//
-// ### Basic inbound/ingress inspection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
-//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
-//					},
-//				},
-//				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
-//					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
-//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
-//								ResourceArn: pulumi.Any(example1.Arn),
-//							},
-//						},
-//						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
-//								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
-//										FromPort: pulumi.Int(443),
-//										ToPort:   pulumi.Int(443),
-//									},
-//								},
-//								Destinations: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//								SourcePorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs{
-//										FromPort: pulumi.Int(0),
-//										ToPort:   pulumi.Int(65535),
-//									},
-//								},
-//								Sources: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic outbound/engress inspection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
-//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
-//					},
-//				},
-//				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
-//					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
-//						CertificateAuthorityArn: pulumi.Any(example1.Arn),
-//						CheckCertificateRevocationStatus: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs{
-//							RevokedStatusAction: pulumi.String("REJECT"),
-//							UnknownStatusAction: pulumi.String("PASS"),
-//						},
-//						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
-//								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
-//										FromPort: pulumi.Int(443),
-//										ToPort:   pulumi.Int(443),
-//									},
-//								},
-//								Destinations: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//								SourcePorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs{
-//										FromPort: pulumi.Int(0),
-//										ToPort:   pulumi.Int(65535),
-//									},
-//								},
-//								Sources: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Inbound with encryption configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: example.Arn,
-//						Type:  pulumi.String("CUSTOMER_KMS"),
-//					},
-//				},
-//				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
-//					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
-//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
-//								ResourceArn: pulumi.Any(example1.Arn),
-//							},
-//						},
-//						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
-//								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
-//										FromPort: pulumi.Int(443),
-//										ToPort:   pulumi.Int(443),
-//									},
-//								},
-//								Destinations: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//								SourcePorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs{
-//										FromPort: pulumi.Int(0),
-//										ToPort:   pulumi.Int(65535),
-//									},
-//								},
-//								Sources: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Outbound with encryption configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: example.Arn,
-//						Type:  pulumi.String("CUSTOMER_KMS"),
-//					},
-//				},
-//				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
-//					ServerCertificateConfigurations: []map[string]interface{}{
-//						map[string]interface{}{
-//							"certificateAuthorityArn": example1.Arn,
-//							"checkCertificateRevocationStatus": []map[string]interface{}{
-//								map[string]interface{}{
-//									"revokedStatusAction": "REJECT",
-//									"unknownStatusAction": "PASS",
-//								},
-//							},
-//							"scope": []map[string]interface{}{
-//								map[string]interface{}{
-//									"protocols": []float64{
-//										6,
-//									},
-//									"destinationPorts": []map[string]interface{}{
-//										map[string]interface{}{
-//											"fromPort": 443,
-//											"toPort":   443,
-//										},
-//									},
-//									"destination": []map[string]interface{}{
-//										map[string]interface{}{
-//											"addressDefinition": "0.0.0.0/0",
-//										},
-//									},
-//									"sourcePorts": []map[string]interface{}{
-//										map[string]interface{}{
-//											"fromPort": 0,
-//											"toPort":   65535,
-//										},
-//									},
-//									"source": []map[string]interface{}{
-//										map[string]interface{}{
-//											"addressDefinition": "0.0.0.0/0",
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Combined inbound and outbound
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewTlsInspectionConfiguration(ctx, "example", &networkfirewall.TlsInspectionConfigurationArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example"),
-//				EncryptionConfigurations: networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArray{
-//					&networkfirewall.TlsInspectionConfigurationEncryptionConfigurationArgs{
-//						KeyId: pulumi.String("AWS_OWNED_KMS_KEY"),
-//						Type:  pulumi.String("AWS_OWNED_KMS_KEY"),
-//					},
-//				},
-//				TlsInspectionConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs{
-//					ServerCertificateConfiguration: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs{
-//						CertificateAuthorityArn: pulumi.Any(example1.Arn),
-//						CheckCertificateRevocationStatus: &networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs{
-//							RevokedStatusAction: pulumi.String("REJECT"),
-//							UnknownStatusAction: pulumi.String("PASS"),
-//						},
-//						ServerCertificates: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs{
-//								ResourceArn: pulumi.Any(example2.Arn),
-//							},
-//						},
-//						Scopes: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArray{
-//							&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs{
-//								Protocols: pulumi.IntArray{
-//									pulumi.Int(6),
-//								},
-//								DestinationPorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs{
-//										FromPort: pulumi.Int(443),
-//										ToPort:   pulumi.Int(443),
-//									},
-//								},
-//								Destinations: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//								SourcePorts: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs{
-//										FromPort: pulumi.Int(0),
-//										ToPort:   pulumi.Int(65535),
-//									},
-//								},
-//								Sources: networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArray{
-//									&networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs{
-//										AddressDefinition: pulumi.String("0.0.0.0/0"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
-//
-// Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
-//
-// % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 type TlsInspectionConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the TLS Inspection Configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Certificate Manager certificate block. See Certificate Authority below for details.
-	CertificateAuthorities TlsInspectionConfigurationCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
-	// List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-	Certificates TlsInspectionConfigurationCertificateArrayOutput `pulumi:"certificates"`
-	// Description of the TLS inspection configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Encryption configuration block. Detailed below.
-	EncryptionConfigurations TlsInspectionConfigurationEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
-	// Descriptive name of the TLS inspection configuration.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations pulumi.IntOutput `pulumi:"numberOfAssociations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                         `pulumi:"region"`
-	Tags     pulumi.StringMapOutput                      `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
-	Timeouts TlsInspectionConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// TLS inspection configuration block. Detailed below.
-	//
-	// The following arguments are optional:
-	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput `pulumi:"tlsInspectionConfiguration"`
-	// A unique identifier for the TLS inspection configuration.
-	TlsInspectionConfigurationId pulumi.StringOutput `pulumi:"tlsInspectionConfigurationId"`
-	// String token used when updating the rule group.
-	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
+	Arn                          pulumi.StringOutput                                           `pulumi:"arn"`
+	CertificateAuthorities       TlsInspectionConfigurationCertificateAuthorityArrayOutput     `pulumi:"certificateAuthorities"`
+	Certificates                 TlsInspectionConfigurationCertificateArrayOutput              `pulumi:"certificates"`
+	Description                  pulumi.StringPtrOutput                                        `pulumi:"description"`
+	EncryptionConfigurations     TlsInspectionConfigurationEncryptionConfigurationArrayOutput  `pulumi:"encryptionConfigurations"`
+	Name                         pulumi.StringOutput                                           `pulumi:"name"`
+	NumberOfAssociations         pulumi.IntOutput                                              `pulumi:"numberOfAssociations"`
+	Region                       pulumi.StringOutput                                           `pulumi:"region"`
+	Tags                         pulumi.StringMapOutput                                        `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput                                        `pulumi:"tagsAll"`
+	Timeouts                     TlsInspectionConfigurationTimeoutsPtrOutput                   `pulumi:"timeouts"`
+	TlsInspectionConfiguration   TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput `pulumi:"tlsInspectionConfiguration"`
+	TlsInspectionConfigurationId pulumi.StringOutput                                           `pulumi:"tlsInspectionConfigurationId"`
+	UpdateToken                  pulumi.StringOutput                                           `pulumi:"updateToken"`
 }
 
 // NewTlsInspectionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -470,63 +60,37 @@ func GetTlsInspectionConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TlsInspectionConfiguration resources.
 type tlsInspectionConfigurationState struct {
-	// ARN of the TLS Inspection Configuration.
-	Arn *string `pulumi:"arn"`
-	// Certificate Manager certificate block. See Certificate Authority below for details.
-	CertificateAuthorities []TlsInspectionConfigurationCertificateAuthority `pulumi:"certificateAuthorities"`
-	// List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-	Certificates []TlsInspectionConfigurationCertificate `pulumi:"certificates"`
-	// Description of the TLS inspection configuration.
-	Description *string `pulumi:"description"`
-	// Encryption configuration block. Detailed below.
-	EncryptionConfigurations []TlsInspectionConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// Descriptive name of the TLS inspection configuration.
-	Name *string `pulumi:"name"`
-	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations *int `pulumi:"numberOfAssociations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                             `pulumi:"region"`
-	Tags     map[string]string                   `pulumi:"tags"`
-	TagsAll  map[string]string                   `pulumi:"tagsAll"`
-	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
-	// TLS inspection configuration block. Detailed below.
-	//
-	// The following arguments are optional:
-	TlsInspectionConfiguration *TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
-	// A unique identifier for the TLS inspection configuration.
-	TlsInspectionConfigurationId *string `pulumi:"tlsInspectionConfigurationId"`
-	// String token used when updating the rule group.
-	UpdateToken *string `pulumi:"updateToken"`
+	Arn                          *string                                               `pulumi:"arn"`
+	CertificateAuthorities       []TlsInspectionConfigurationCertificateAuthority      `pulumi:"certificateAuthorities"`
+	Certificates                 []TlsInspectionConfigurationCertificate               `pulumi:"certificates"`
+	Description                  *string                                               `pulumi:"description"`
+	EncryptionConfigurations     []TlsInspectionConfigurationEncryptionConfiguration   `pulumi:"encryptionConfigurations"`
+	Name                         *string                                               `pulumi:"name"`
+	NumberOfAssociations         *int                                                  `pulumi:"numberOfAssociations"`
+	Region                       *string                                               `pulumi:"region"`
+	Tags                         map[string]string                                     `pulumi:"tags"`
+	TagsAll                      map[string]string                                     `pulumi:"tagsAll"`
+	Timeouts                     *TlsInspectionConfigurationTimeouts                   `pulumi:"timeouts"`
+	TlsInspectionConfiguration   *TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
+	TlsInspectionConfigurationId *string                                               `pulumi:"tlsInspectionConfigurationId"`
+	UpdateToken                  *string                                               `pulumi:"updateToken"`
 }
 
 type TlsInspectionConfigurationState struct {
-	// ARN of the TLS Inspection Configuration.
-	Arn pulumi.StringPtrInput
-	// Certificate Manager certificate block. See Certificate Authority below for details.
-	CertificateAuthorities TlsInspectionConfigurationCertificateAuthorityArrayInput
-	// List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-	Certificates TlsInspectionConfigurationCertificateArrayInput
-	// Description of the TLS inspection configuration.
-	Description pulumi.StringPtrInput
-	// Encryption configuration block. Detailed below.
-	EncryptionConfigurations TlsInspectionConfigurationEncryptionConfigurationArrayInput
-	// Descriptive name of the TLS inspection configuration.
-	Name pulumi.StringPtrInput
-	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
-	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
-	// TLS inspection configuration block. Detailed below.
-	//
-	// The following arguments are optional:
-	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationPtrInput
-	// A unique identifier for the TLS inspection configuration.
+	Arn                          pulumi.StringPtrInput
+	CertificateAuthorities       TlsInspectionConfigurationCertificateAuthorityArrayInput
+	Certificates                 TlsInspectionConfigurationCertificateArrayInput
+	Description                  pulumi.StringPtrInput
+	EncryptionConfigurations     TlsInspectionConfigurationEncryptionConfigurationArrayInput
+	Name                         pulumi.StringPtrInput
+	NumberOfAssociations         pulumi.IntPtrInput
+	Region                       pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	Timeouts                     TlsInspectionConfigurationTimeoutsPtrInput
+	TlsInspectionConfiguration   TlsInspectionConfigurationTlsInspectionConfigurationPtrInput
 	TlsInspectionConfigurationId pulumi.StringPtrInput
-	// String token used when updating the rule group.
-	UpdateToken pulumi.StringPtrInput
+	UpdateToken                  pulumi.StringPtrInput
 }
 
 func (TlsInspectionConfigurationState) ElementType() reflect.Type {
@@ -534,37 +98,23 @@ func (TlsInspectionConfigurationState) ElementType() reflect.Type {
 }
 
 type tlsInspectionConfigurationArgs struct {
-	// Description of the TLS inspection configuration.
-	Description *string `pulumi:"description"`
-	// Encryption configuration block. Detailed below.
-	EncryptionConfigurations []TlsInspectionConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// Descriptive name of the TLS inspection configuration.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                             `pulumi:"region"`
-	Tags     map[string]string                   `pulumi:"tags"`
-	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
-	// TLS inspection configuration block. Detailed below.
-	//
-	// The following arguments are optional:
+	Description                *string                                               `pulumi:"description"`
+	EncryptionConfigurations   []TlsInspectionConfigurationEncryptionConfiguration   `pulumi:"encryptionConfigurations"`
+	Name                       *string                                               `pulumi:"name"`
+	Region                     *string                                               `pulumi:"region"`
+	Tags                       map[string]string                                     `pulumi:"tags"`
+	Timeouts                   *TlsInspectionConfigurationTimeouts                   `pulumi:"timeouts"`
 	TlsInspectionConfiguration *TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
 }
 
 // The set of arguments for constructing a TlsInspectionConfiguration resource.
 type TlsInspectionConfigurationArgs struct {
-	// Description of the TLS inspection configuration.
-	Description pulumi.StringPtrInput
-	// Encryption configuration block. Detailed below.
-	EncryptionConfigurations TlsInspectionConfigurationEncryptionConfigurationArrayInput
-	// Descriptive name of the TLS inspection configuration.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
-	// TLS inspection configuration block. Detailed below.
-	//
-	// The following arguments are optional:
+	Description                pulumi.StringPtrInput
+	EncryptionConfigurations   TlsInspectionConfigurationEncryptionConfigurationArrayInput
+	Name                       pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	Timeouts                   TlsInspectionConfigurationTimeoutsPtrInput
 	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationPtrInput
 }
 
@@ -655,48 +205,40 @@ func (o TlsInspectionConfigurationOutput) ToTlsInspectionConfigurationOutputWith
 	return o
 }
 
-// ARN of the TLS Inspection Configuration.
 func (o TlsInspectionConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Certificate Manager certificate block. See Certificate Authority below for details.
 func (o TlsInspectionConfigurationOutput) CertificateAuthorities() TlsInspectionConfigurationCertificateAuthorityArrayOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationCertificateAuthorityArrayOutput {
 		return v.CertificateAuthorities
 	}).(TlsInspectionConfigurationCertificateAuthorityArrayOutput)
 }
 
-// List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
 func (o TlsInspectionConfigurationOutput) Certificates() TlsInspectionConfigurationCertificateArrayOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationCertificateArrayOutput {
 		return v.Certificates
 	}).(TlsInspectionConfigurationCertificateArrayOutput)
 }
 
-// Description of the TLS inspection configuration.
 func (o TlsInspectionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Encryption configuration block. Detailed below.
 func (o TlsInspectionConfigurationOutput) EncryptionConfigurations() TlsInspectionConfigurationEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationEncryptionConfigurationArrayOutput {
 		return v.EncryptionConfigurations
 	}).(TlsInspectionConfigurationEncryptionConfigurationArrayOutput)
 }
 
-// Descriptive name of the TLS inspection configuration.
 func (o TlsInspectionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Number of firewall policies that use this TLS inspection configuration.
 func (o TlsInspectionConfigurationOutput) NumberOfAssociations() pulumi.IntOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.IntOutput { return v.NumberOfAssociations }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TlsInspectionConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -713,21 +255,16 @@ func (o TlsInspectionConfigurationOutput) Timeouts() TlsInspectionConfigurationT
 	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationTimeoutsPtrOutput { return v.Timeouts }).(TlsInspectionConfigurationTimeoutsPtrOutput)
 }
 
-// TLS inspection configuration block. Detailed below.
-//
-// The following arguments are optional:
 func (o TlsInspectionConfigurationOutput) TlsInspectionConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
 		return v.TlsInspectionConfiguration
 	}).(TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput)
 }
 
-// A unique identifier for the TLS inspection configuration.
 func (o TlsInspectionConfigurationOutput) TlsInspectionConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.TlsInspectionConfigurationId }).(pulumi.StringOutput)
 }
 
-// String token used when updating the rule group.
 func (o TlsInspectionConfigurationOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.UpdateToken }).(pulumi.StringOutput)
 }

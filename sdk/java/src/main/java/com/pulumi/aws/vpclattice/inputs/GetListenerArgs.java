@@ -17,62 +17,30 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetListenerArgs Empty = new GetListenerArgs();
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the listener
-     * 
-     */
     @Import(name="listenerIdentifier", required=true)
     private Output<String> listenerIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the listener
-     * 
-     */
     public Output<String> listenerIdentifier() {
         return this.listenerIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the service network
-     * 
-     */
     @Import(name="serviceIdentifier", required=true)
     private Output<String> serviceIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the service network
-     * 
-     */
     public Output<String> serviceIdentifier() {
         return this.serviceIdentifier;
     }
 
-    /**
-     * List of tags associated with the listener.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return List of tags associated with the listener.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetListenerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerIdentifier(Output<String> listenerIdentifier) {
             $.listenerIdentifier = listenerIdentifier;
             return this;
         }
 
-        /**
-         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerIdentifier(String listenerIdentifier) {
             return listenerIdentifier(Output.of(listenerIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(Output<String> serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
 
-        /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(String serviceIdentifier) {
             return serviceIdentifier(Output.of(serviceIdentifier));
         }
 
-        /**
-         * @param tags List of tags associated with the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags List of tags associated with the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

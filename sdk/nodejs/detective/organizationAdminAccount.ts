@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Detective Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Detective can be found in the [Detective User Guide](https://docs.aws.amazon.com/detective/latest/adminguide/accounts-orgs-transition.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.Organization("example", {
- *     awsServiceAccessPrincipals: ["detective.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleOrganizationAdminAccount = new aws.detective.OrganizationAdminAccount("example", {accountId: "123456789012"}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
- * ```
- */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -58,13 +32,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * AWS account identifier to designate as a delegated administrator for Detective.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -99,13 +67,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationAdminAccount resources.
  */
 export interface OrganizationAdminAccountState {
-    /**
-     * AWS account identifier to designate as a delegated administrator for Detective.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -113,12 +75,6 @@ export interface OrganizationAdminAccountState {
  * The set of arguments for constructing a OrganizationAdminAccount resource.
  */
 export interface OrganizationAdminAccountArgs {
-    /**
-     * AWS account identifier to designate as a delegated administrator for Detective.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -16,32 +16,16 @@ public final class IdcApplicationAuthorizedTokenIssuerArgs extends com.pulumi.re
 
     public static final IdcApplicationAuthorizedTokenIssuerArgs Empty = new IdcApplicationAuthorizedTokenIssuerArgs();
 
-    /**
-     * List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     @Import(name="authorizedAudiencesLists")
     private @Nullable Output<List<String>> authorizedAudiencesLists;
 
-    /**
-     * @return List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     public Optional<Output<List<String>>> authorizedAudiencesLists() {
         return Optional.ofNullable(this.authorizedAudiencesLists);
     }
 
-    /**
-     * ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     @Import(name="trustedTokenIssuerArn")
     private @Nullable Output<String> trustedTokenIssuerArn;
 
-    /**
-     * @return ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-     * 
-     */
     public Optional<Output<String>> trustedTokenIssuerArn() {
         return Optional.ofNullable(this.trustedTokenIssuerArn);
     }
@@ -71,54 +55,24 @@ public final class IdcApplicationAuthorizedTokenIssuerArgs extends com.pulumi.re
             $ = new IdcApplicationAuthorizedTokenIssuerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizedAudiencesLists List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedAudiencesLists(@Nullable Output<List<String>> authorizedAudiencesLists) {
             $.authorizedAudiencesLists = authorizedAudiencesLists;
             return this;
         }
 
-        /**
-         * @param authorizedAudiencesLists List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedAudiencesLists(List<String> authorizedAudiencesLists) {
             return authorizedAudiencesLists(Output.of(authorizedAudiencesLists));
         }
 
-        /**
-         * @param authorizedAudiencesLists List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedAudiencesLists(String... authorizedAudiencesLists) {
             return authorizedAudiencesLists(List.of(authorizedAudiencesLists));
         }
 
-        /**
-         * @param trustedTokenIssuerArn ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedTokenIssuerArn(@Nullable Output<String> trustedTokenIssuerArn) {
             $.trustedTokenIssuerArn = trustedTokenIssuerArn;
             return this;
         }
 
-        /**
-         * @param trustedTokenIssuerArn ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedTokenIssuerArn(String trustedTokenIssuerArn) {
             return trustedTokenIssuerArn(Output.of(trustedTokenIssuerArn));
         }

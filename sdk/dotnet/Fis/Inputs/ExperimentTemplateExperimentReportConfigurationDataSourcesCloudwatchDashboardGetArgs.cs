@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Fis.Inputs
 
     public sealed class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the CloudWatch dashboard.
-        /// </summary>
         [Input("dashboardArn")]
         public Input<string>? DashboardArn { get; set; }
 

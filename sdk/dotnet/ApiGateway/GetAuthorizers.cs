@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetAuthorizers
     {
-        /// <summary>
-        /// Provides details about multiple API Gateway Authorizers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetAuthorizers.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAuthorizersResult> InvokeAsync(GetAuthorizersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizersResult>("aws:apigateway/getAuthorizers:getAuthorizers", args ?? new GetAuthorizersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about multiple API Gateway Authorizers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetAuthorizers.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAuthorizersResult> Invoke(GetAuthorizersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizersResult>("aws:apigateway/getAuthorizers:getAuthorizers", args ?? new GetAuthorizersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about multiple API Gateway Authorizers.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetAuthorizers.Invoke(new()
-        ///     {
-        ///         RestApiId = exampleAwsApiGatewayRestApi.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAuthorizersResult> Invoke(GetAuthorizersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizersResult>("aws:apigateway/getAuthorizers:getAuthorizers", args ?? new GetAuthorizersInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetAuthorizersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetAuthorizersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
@@ -133,9 +58,6 @@ namespace Pulumi.Aws.ApiGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of Authorizer identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly string RestApiId;

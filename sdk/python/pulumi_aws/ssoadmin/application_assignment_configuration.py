@@ -24,9 +24,6 @@ class ApplicationAssignmentConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAssignmentConfiguration resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "assignment_required", assignment_required)
@@ -36,9 +33,6 @@ class ApplicationAssignmentConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -48,9 +42,6 @@ class ApplicationAssignmentConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="assignmentRequired")
     def assignment_required(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        """
         return pulumi.get(self, "assignment_required")
 
     @assignment_required.setter
@@ -60,9 +51,6 @@ class ApplicationAssignmentConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _ApplicationAssignmentConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAssignmentConfiguration resources.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -92,9 +77,6 @@ class _ApplicationAssignmentConfigurationState:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -104,9 +86,6 @@ class _ApplicationAssignmentConfigurationState:
     @_builtins.property
     @pulumi.getter(name="assignmentRequired")
     def assignment_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        """
         return pulumi.get(self, "assignment_required")
 
     @assignment_required.setter
@@ -116,9 +95,6 @@ class _ApplicationAssignmentConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,43 +113,9 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SSO Admin Application Assignment Configuration.
-
-        By default, applications will require users to have an explicit assignment in order to access an application.
-        This resource can be used to adjust this default behavior if necessary.
-
-        > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.ApplicationAssignmentConfiguration("example",
-            application_arn=example_aws_ssoadmin_application["arn"],
-            assignment_required=True)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-
-        Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
-
-        % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
-
+        Create a ApplicationAssignmentConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -182,38 +124,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
                  args: ApplicationAssignmentConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SSO Admin Application Assignment Configuration.
-
-        By default, applications will require users to have an explicit assignment in order to access an application.
-        This resource can be used to adjust this default behavior if necessary.
-
-        > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.ApplicationAssignmentConfiguration("example",
-            application_arn=example_aws_ssoadmin_application["arn"],
-            assignment_required=True)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-
-        Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
-
-        % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
-
+        Create a ApplicationAssignmentConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationAssignmentConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,9 +179,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
-        :param pulumi.Input[_builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -284,24 +192,15 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="assignmentRequired")
     def assignment_required(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-        """
         return pulumi.get(self, "assignment_required")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

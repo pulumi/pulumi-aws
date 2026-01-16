@@ -13,15 +13,13 @@ namespace Pulumi.Aws.TimestreamInfluxDB.Inputs
     public sealed class DbClusterLogDeliveryConfigurationS3ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the S3 bucket to deliver logs to.
+        /// The name of the S3 bucket to deliver logs to.
         /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// Indicates whether log delivery to the S3 bucket is enabled.
-        /// 
-        /// **Note**: The following arguments do updates in-place: `DbParameterGroupIdentifier`, `LogDeliveryConfiguration`, `Port`, `DbInstanceType`, `FailoverMode`, and `Tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `DbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `DbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

@@ -9,66 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
-    /// <summary>
-    /// Provides a WAF Regional Geo Match Set Resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var geoMatchSet = new Aws.WafRegional.GeoMatchSet("geo_match_set", new()
-    ///     {
-    ///         Name = "geo_match_set",
-    ///         GeoMatchConstraints = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///             {
-    ///                 Type = "Country",
-    ///                 Value = "US",
-    ///             },
-    ///             new Aws.WafRegional.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///             {
-    ///                 Type = "Country",
-    ///                 Value = "CA",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WAF Regional Geo Match Set using the id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:wafregional/geoMatchSet:GeoMatchSet geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafregional/geoMatchSet:GeoMatchSet")]
     public partial class GeoMatchSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-        /// </summary>
         [Output("geoMatchConstraints")]
         public Output<ImmutableArray<Outputs.GeoMatchSetGeoMatchConstraint>> GeoMatchConstraints { get; private set; } = null!;
 
-        /// <summary>
-        /// The name or description of the Geo Match Set.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -120,25 +69,15 @@ namespace Pulumi.Aws.WafRegional
     {
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _geoMatchConstraints;
-
-        /// <summary>
-        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-        /// </summary>
         public InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs> GeoMatchConstraints
         {
             get => _geoMatchConstraints ?? (_geoMatchConstraints = new InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>());
             set => _geoMatchConstraints = value;
         }
 
-        /// <summary>
-        /// The name or description of the Geo Match Set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -152,25 +91,15 @@ namespace Pulumi.Aws.WafRegional
     {
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs>? _geoMatchConstraints;
-
-        /// <summary>
-        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-        /// </summary>
         public InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs> GeoMatchConstraints
         {
             get => _geoMatchConstraints ?? (_geoMatchConstraints = new InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs>());
             set => _geoMatchConstraints = value;
         }
 
-        /// <summary>
-        /// The name or description of the Geo Match Set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

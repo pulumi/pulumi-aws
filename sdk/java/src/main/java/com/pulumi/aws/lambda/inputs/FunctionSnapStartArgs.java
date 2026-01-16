@@ -16,32 +16,16 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
 
     public static final FunctionSnapStartArgs Empty = new FunctionSnapStartArgs();
 
-    /**
-     * When to apply snap start optimization. Valid value: `PublishedVersions`.
-     * 
-     */
     @Import(name="applyOn", required=true)
     private Output<String> applyOn;
 
-    /**
-     * @return When to apply snap start optimization. Valid value: `PublishedVersions`.
-     * 
-     */
     public Output<String> applyOn() {
         return this.applyOn;
     }
 
-    /**
-     * Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-     * 
-     */
     @Import(name="optimizationStatus")
     private @Nullable Output<String> optimizationStatus;
 
-    /**
-     * @return Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-     * 
-     */
     public Optional<Output<String>> optimizationStatus() {
         return Optional.ofNullable(this.optimizationStatus);
     }
@@ -71,44 +55,20 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
             $ = new FunctionSnapStartArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applyOn When to apply snap start optimization. Valid value: `PublishedVersions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyOn(Output<String> applyOn) {
             $.applyOn = applyOn;
             return this;
         }
 
-        /**
-         * @param applyOn When to apply snap start optimization. Valid value: `PublishedVersions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyOn(String applyOn) {
             return applyOn(Output.of(applyOn));
         }
 
-        /**
-         * @param optimizationStatus Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optimizationStatus(@Nullable Output<String> optimizationStatus) {
             $.optimizationStatus = optimizationStatus;
             return this;
         }
 
-        /**
-         * @param optimizationStatus Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optimizationStatus(String optimizationStatus) {
             return optimizationStatus(Output.of(optimizationStatus));
         }

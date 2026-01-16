@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.EventSourceMappingFilterCriteriaFilterGetArgs>? _filters;
-
-        /// <summary>
-        /// Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-        /// </summary>
         public InputList<Inputs.EventSourceMappingFilterCriteriaFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.EventSourceMappingFilterCriteriaFilterGetArgs>());

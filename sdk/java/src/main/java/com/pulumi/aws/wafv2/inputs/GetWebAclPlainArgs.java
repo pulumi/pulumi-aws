@@ -15,62 +15,30 @@ public final class GetWebAclPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWebAclPlainArgs Empty = new GetWebAclPlainArgs();
 
-    /**
-     * Name of the WAFv2 Web ACL. Exactly one of `name` or `resourceArn` must be specified.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the WAFv2 Web ACL. Exactly one of `name` or `resourceArn` must be specified.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable String resourceArn;
 
-    /**
-     * @return ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
-     * 
-     */
     public Optional<String> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     @Import(name="scope", required=true)
     private String scope;
 
-    /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
@@ -102,45 +70,21 @@ public final class GetWebAclPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetWebAclPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the WAFv2 Web ACL. Exactly one of `name` or `resourceArn` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable String resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             $.scope = scope;
             return this;

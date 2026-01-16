@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig
     {
-        /// <summary>
-        /// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `SessionStickinessConfig`.
-        /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig? SessionStickinessConfig;
-        /// <summary>
-        /// The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
-        /// </summary>
         public readonly double Weight;
 
         [OutputConstructor]

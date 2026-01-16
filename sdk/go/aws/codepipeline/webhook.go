@@ -12,160 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodePipeline Webhook.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bar, err := codepipeline.NewPipeline(ctx, "bar", &codepipeline.PipelineArgs{
-//				Name:    pulumi.String("tf-test-pipeline"),
-//				RoleArn: pulumi.Any(barAwsIamRole.Arn),
-//				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
-//					&codepipeline.PipelineArtifactStoreArgs{
-//						Location: pulumi.Any(barAwsS3Bucket.Bucket),
-//						Type:     pulumi.String("S3"),
-//						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-//							Id:   pulumi.Any(s3kmskey.Arn),
-//							Type: pulumi.String("KMS"),
-//						},
-//					},
-//				},
-//				Stages: codepipeline.PipelineStageArray{
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Source"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Source"),
-//								Category: pulumi.String("Source"),
-//								Owner:    pulumi.String("ThirdParty"),
-//								Provider: pulumi.String("GitHub"),
-//								Version:  pulumi.String("1"),
-//								OutputArtifacts: pulumi.StringArray{
-//									pulumi.String("test"),
-//								},
-//								Configuration: pulumi.StringMap{
-//									"Owner":  pulumi.String("my-organization"),
-//									"Repo":   pulumi.String("test"),
-//									"Branch": pulumi.String("master"),
-//								},
-//							},
-//						},
-//					},
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Build"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Build"),
-//								Category: pulumi.String("Build"),
-//								Owner:    pulumi.String("AWS"),
-//								Provider: pulumi.String("CodeBuild"),
-//								InputArtifacts: pulumi.StringArray{
-//									pulumi.String("test"),
-//								},
-//								Version: pulumi.String("1"),
-//								Configuration: pulumi.StringMap{
-//									"ProjectName": pulumi.String("test"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			webhookSecret := "super-secret"
-//			barWebhook, err := codepipeline.NewWebhook(ctx, "bar", &codepipeline.WebhookArgs{
-//				Name:           pulumi.String("test-webhook-github-bar"),
-//				Authentication: pulumi.String("GITHUB_HMAC"),
-//				TargetAction:   pulumi.String("Source"),
-//				TargetPipeline: bar.Name,
-//				AuthenticationConfiguration: &codepipeline.WebhookAuthenticationConfigurationArgs{
-//					SecretToken: pulumi.String(webhookSecret),
-//				},
-//				Filters: codepipeline.WebhookFilterArray{
-//					&codepipeline.WebhookFilterArgs{
-//						JsonPath:    pulumi.String("$.ref"),
-//						MatchEquals: pulumi.String("refs/heads/{Branch}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Wire the CodePipeline webhook into a GitHub repository.
-//			_, err = github.NewRepositoryWebhook(ctx, "bar", &github.RepositoryWebhookArgs{
-//				Repository: pulumi.Any(repo.Name),
-//				Name:       "web",
-//				Configuration: github.RepositoryWebhookConfigurationArgs{
-//					map[string]interface{}{
-//						"url":         barWebhook.Url,
-//						"contentType": "json",
-//						"insecureSsl": true,
-//						"secret":      webhookSecret,
-//					},
-//				},
-//				Events: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
-//
-// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
-//
-// % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 type Webhook struct {
 	pulumi.CustomResourceState
 
-	// The CodePipeline webhook's ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-	Authentication pulumi.StringOutput `pulumi:"authentication"`
-	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+	Arn                         pulumi.StringOutput                         `pulumi:"arn"`
+	Authentication              pulumi.StringOutput                         `pulumi:"authentication"`
 	AuthenticationConfiguration WebhookAuthenticationConfigurationPtrOutput `pulumi:"authenticationConfiguration"`
-	// One or more `filter` blocks. Filter blocks are documented below.
-	Filters WebhookFilterArrayOutput `pulumi:"filters"`
-	// The name of the webhook.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-	TargetAction pulumi.StringOutput `pulumi:"targetAction"`
-	// The name of the pipeline.
-	TargetPipeline pulumi.StringOutput `pulumi:"targetPipeline"`
-	// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Filters                     WebhookFilterArrayOutput                    `pulumi:"filters"`
+	Name                        pulumi.StringOutput                         `pulumi:"name"`
+	Region                      pulumi.StringOutput                         `pulumi:"region"`
+	Tags                        pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	TargetAction                pulumi.StringOutput                         `pulumi:"targetAction"`
+	TargetPipeline              pulumi.StringOutput                         `pulumi:"targetPipeline"`
+	Url                         pulumi.StringOutput                         `pulumi:"url"`
 }
 
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
@@ -210,53 +70,31 @@ func GetWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Webhook resources.
 type webhookState struct {
-	// The CodePipeline webhook's ARN.
-	Arn *string `pulumi:"arn"`
-	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-	Authentication *string `pulumi:"authentication"`
-	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+	Arn                         *string                             `pulumi:"arn"`
+	Authentication              *string                             `pulumi:"authentication"`
 	AuthenticationConfiguration *WebhookAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// One or more `filter` blocks. Filter blocks are documented below.
-	Filters []WebhookFilter `pulumi:"filters"`
-	// The name of the webhook.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-	TargetAction *string `pulumi:"targetAction"`
-	// The name of the pipeline.
-	TargetPipeline *string `pulumi:"targetPipeline"`
-	// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-	Url *string `pulumi:"url"`
+	Filters                     []WebhookFilter                     `pulumi:"filters"`
+	Name                        *string                             `pulumi:"name"`
+	Region                      *string                             `pulumi:"region"`
+	Tags                        map[string]string                   `pulumi:"tags"`
+	TagsAll                     map[string]string                   `pulumi:"tagsAll"`
+	TargetAction                *string                             `pulumi:"targetAction"`
+	TargetPipeline              *string                             `pulumi:"targetPipeline"`
+	Url                         *string                             `pulumi:"url"`
 }
 
 type WebhookState struct {
-	// The CodePipeline webhook's ARN.
-	Arn pulumi.StringPtrInput
-	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-	Authentication pulumi.StringPtrInput
-	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+	Arn                         pulumi.StringPtrInput
+	Authentication              pulumi.StringPtrInput
 	AuthenticationConfiguration WebhookAuthenticationConfigurationPtrInput
-	// One or more `filter` blocks. Filter blocks are documented below.
-	Filters WebhookFilterArrayInput
-	// The name of the webhook.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-	TargetAction pulumi.StringPtrInput
-	// The name of the pipeline.
-	TargetPipeline pulumi.StringPtrInput
-	// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-	Url pulumi.StringPtrInput
+	Filters                     WebhookFilterArrayInput
+	Name                        pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
+	TargetAction                pulumi.StringPtrInput
+	TargetPipeline              pulumi.StringPtrInput
+	Url                         pulumi.StringPtrInput
 }
 
 func (WebhookState) ElementType() reflect.Type {
@@ -264,42 +102,26 @@ func (WebhookState) ElementType() reflect.Type {
 }
 
 type webhookArgs struct {
-	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-	Authentication string `pulumi:"authentication"`
-	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+	Authentication              string                              `pulumi:"authentication"`
 	AuthenticationConfiguration *WebhookAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// One or more `filter` blocks. Filter blocks are documented below.
-	Filters []WebhookFilter `pulumi:"filters"`
-	// The name of the webhook.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-	TargetAction string `pulumi:"targetAction"`
-	// The name of the pipeline.
-	TargetPipeline string `pulumi:"targetPipeline"`
+	Filters                     []WebhookFilter                     `pulumi:"filters"`
+	Name                        *string                             `pulumi:"name"`
+	Region                      *string                             `pulumi:"region"`
+	Tags                        map[string]string                   `pulumi:"tags"`
+	TargetAction                string                              `pulumi:"targetAction"`
+	TargetPipeline              string                              `pulumi:"targetPipeline"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
-	// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-	Authentication pulumi.StringInput
-	// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+	Authentication              pulumi.StringInput
 	AuthenticationConfiguration WebhookAuthenticationConfigurationPtrInput
-	// One or more `filter` blocks. Filter blocks are documented below.
-	Filters WebhookFilterArrayInput
-	// The name of the webhook.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-	TargetAction pulumi.StringInput
-	// The name of the pipeline.
-	TargetPipeline pulumi.StringInput
+	Filters                     WebhookFilterArrayInput
+	Name                        pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TargetAction                pulumi.StringInput
+	TargetPipeline              pulumi.StringInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {
@@ -389,57 +211,46 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
-// The CodePipeline webhook's ARN.
 func (o WebhookOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
 func (o WebhookOutput) Authentication() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Authentication }).(pulumi.StringOutput)
 }
 
-// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
 func (o WebhookOutput) AuthenticationConfiguration() WebhookAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Webhook) WebhookAuthenticationConfigurationPtrOutput { return v.AuthenticationConfiguration }).(WebhookAuthenticationConfigurationPtrOutput)
 }
 
-// One or more `filter` blocks. Filter blocks are documented below.
 func (o WebhookOutput) Filters() WebhookFilterArrayOutput {
 	return o.ApplyT(func(v *Webhook) WebhookFilterArrayOutput { return v.Filters }).(WebhookFilterArrayOutput)
 }
 
-// The name of the webhook.
 func (o WebhookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebhookOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WebhookOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WebhookOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 func (o WebhookOutput) TargetAction() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.TargetAction }).(pulumi.StringOutput)
 }
 
-// The name of the pipeline.
 func (o WebhookOutput) TargetPipeline() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.TargetPipeline }).(pulumi.StringOutput)
 }
 
-// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
 func (o WebhookOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

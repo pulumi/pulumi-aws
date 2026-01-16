@@ -15,142 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS X-Ray Resource Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.xray.ResourcePolicy;
- * import com.pulumi.aws.xray.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ResourcePolicy("test", ResourcePolicyArgs.builder()
- *             .policyName("test")
- *             .policyDocument("{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowXRayAccess\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"xray:*\",\"xray:PutResourcePolicy\"],\"Resource\":\"*\"}]}")
- *             .bypassPolicyLockoutCheck(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import X-Ray Resource Policy using the `policy_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
- * ```
- * 
- */
 @ResourceType(type="aws:xray/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
-     * 
-     */
     @Export(name="bypassPolicyLockoutCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassPolicyLockoutCheck;
 
-    /**
-     * @return Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> bypassPolicyLockoutCheck() {
         return Codegen.optional(this.bypassPolicyLockoutCheck);
     }
-    /**
-     * When the policy was last updated, in Unix time seconds.
-     * 
-     */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
-    /**
-     * @return When the policy was last updated, in Unix time seconds.
-     * 
-     */
     public Output<String> lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * name of the resource policy. Must be unique within a specific Amazon Web Services account.
-     * 
-     */
     @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
-    /**
-     * @return name of the resource policy. Must be unique within a specific Amazon Web Services account.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
-    /**
-     * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
-     * 
-     */
     @Export(name="policyRevisionId", refs={String.class}, tree="[0]")
     private Output<String> policyRevisionId;
 
-    /**
-     * @return Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
-     * 
-     */
     public Output<String> policyRevisionId() {
         return this.policyRevisionId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

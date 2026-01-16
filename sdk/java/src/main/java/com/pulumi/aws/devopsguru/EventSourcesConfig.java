@@ -16,83 +16,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devopsguru.EventSourcesConfig;
- * import com.pulumi.aws.devopsguru.EventSourcesConfigArgs;
- * import com.pulumi.aws.devopsguru.inputs.EventSourcesConfigEventSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventSourcesConfig("example", EventSourcesConfigArgs.builder()
- *             .eventSources(EventSourcesConfigEventSourceArgs.builder()
- *                 .amazonCodeGuruProfilers(EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs.builder()
- *                     .status("ENABLED")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
- * 
- * ```sh
- * $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:devopsguru/eventSourcesConfig:EventSourcesConfig")
 public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-     * 
-     */
     @Export(name="eventSources", refs={List.class,EventSourcesConfigEventSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventSourcesConfigEventSource>> eventSources;
 
-    /**
-     * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
-     * 
-     */
     public Output<Optional<List<EventSourcesConfigEventSource>>> eventSources() {
         return Codegen.optional(this.eventSources);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

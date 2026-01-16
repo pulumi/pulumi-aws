@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.KeyValueStore("example", {
- *     name: "ExampleKeyValueStore",
- *     comment: "This is an example key value store",
- * });
- * const exampleKeyvaluestoreKey = new aws.cloudfront.KeyvaluestoreKey("example", {
- *     keyValueStoreArn: example.arn,
- *     key: "Test Key",
- *     value: "Test Value",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
- *
- * * `key` (String) Key name.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and 'key' separated by `,`. For example:
- *
- * % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
- */
 export class KeyvaluestoreKey extends pulumi.CustomResource {
     /**
      * Get an existing KeyvaluestoreKey resource's state with the given name, ID, and optional extra
@@ -71,11 +33,11 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
     }
 
     /**
-     * Key to put.
+     * The key to put.
      */
     declare public readonly key: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      */
     declare public readonly keyValueStoreArn: pulumi.Output<string>;
     /**
@@ -83,7 +45,7 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly totalSizeInBytes: pulumi.Output<number>;
     /**
-     * Value to put.
+     * The value to put.
      */
     declare public readonly value: pulumi.Output<string>;
 
@@ -130,11 +92,11 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
  */
 export interface KeyvaluestoreKeyState {
     /**
-     * Key to put.
+     * The key to put.
      */
     key?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      */
     keyValueStoreArn?: pulumi.Input<string>;
     /**
@@ -142,7 +104,7 @@ export interface KeyvaluestoreKeyState {
      */
     totalSizeInBytes?: pulumi.Input<number>;
     /**
-     * Value to put.
+     * The value to put.
      */
     value?: pulumi.Input<string>;
 }
@@ -152,15 +114,15 @@ export interface KeyvaluestoreKeyState {
  */
 export interface KeyvaluestoreKeyArgs {
     /**
-     * Key to put.
+     * The key to put.
      */
     key: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      */
     keyValueStoreArn: pulumi.Input<string>;
     /**
-     * Value to put.
+     * The value to put.
      */
     value: pulumi.Input<string>;
 }

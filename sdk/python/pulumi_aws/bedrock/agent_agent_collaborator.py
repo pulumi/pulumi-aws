@@ -32,14 +32,6 @@ class AgentAgentCollaboratorArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentCollaborator resource.
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
-        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         pulumi.set(__self__, "agent_id", agent_id)
         pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
@@ -60,9 +52,6 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID if the agent to associate the collaborator.
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -72,9 +61,6 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="collaborationInstruction")
     def collaboration_instruction(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instruction to give the collaborator.
-        """
         return pulumi.get(self, "collaboration_instruction")
 
     @collaboration_instruction.setter
@@ -84,11 +70,6 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
     def collaborator_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of this collaborator.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "collaborator_name")
 
     @collaborator_name.setter
@@ -116,9 +97,6 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to prepare the agent after creation or modification. Defaults to `true`.
-        """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
@@ -128,9 +106,6 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,9 +115,6 @@ class AgentAgentCollaboratorArgs:
     @_builtins.property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configure relaying the history to the collaborator.
-        """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
@@ -174,15 +146,6 @@ class _AgentAgentCollaboratorState:
                  timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentCollaborator resources.
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
-        :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
-        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         if agent_descriptor is not None:
             pulumi.set(__self__, "agent_descriptor", agent_descriptor)
@@ -217,9 +180,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID if the agent to associate the collaborator.
-        """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
@@ -238,9 +198,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="collaborationInstruction")
     def collaboration_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instruction to give the collaborator.
-        """
         return pulumi.get(self, "collaboration_instruction")
 
     @collaboration_instruction.setter
@@ -250,9 +207,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="collaboratorId")
     def collaborator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Agent Collaborator.
-        """
         return pulumi.get(self, "collaborator_id")
 
     @collaborator_id.setter
@@ -262,11 +216,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
     def collaborator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of this collaborator.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "collaborator_name")
 
     @collaborator_name.setter
@@ -276,9 +225,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to prepare the agent after creation or modification. Defaults to `true`.
-        """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
@@ -288,9 +234,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -300,9 +243,6 @@ class _AgentAgentCollaboratorState:
     @_builtins.property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configure relaying the history to the collaborator.
-        """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
@@ -336,106 +276,9 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Agents Agent Collaborator.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "conditions": [
-                {
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "aws:SourceAccount",
-                },
-                {
-                    "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
-                    "variable": "AWS:SourceArn",
-                },
-            ],
-        }])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[
-            {
-                "actions": ["bedrock:InvokeModel"],
-                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
-            },
-            {
-                "actions": [
-                    "bedrock:GetAgentAlias",
-                    "bedrock:InvokeAgent",
-                ],
-                "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
-                ],
-            },
-        ])
-        example = aws.iam.Role("example",
-            assume_role_policy=example_agent_trust.json,
-            name_prefix="AmazonBedrockExecutionRoleForAgents_")
-        example_role_policy = aws.iam.RolePolicy("example",
-            policy=example_agent_permissions.json,
-            role=example.id)
-        example_collaborator = aws.bedrock.AgentAgent("example_collaborator",
-            agent_name="my-agent-collaborator",
-            agent_resource_role_arn=example.arn,
-            idle_session_ttl_in_seconds=500,
-            foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="do what the supervisor tells you to do")
-        example_supervisor = aws.bedrock.AgentAgent("example_supervisor",
-            agent_name="my-agent-supervisor",
-            agent_resource_role_arn=example.arn,
-            agent_collaboration="SUPERVISOR",
-            idle_session_ttl_in_seconds=500,
-            foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="tell the sub agent what to do",
-            prepare_agent=False)
-        example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
-            agent_alias_name="my-agent-alias",
-            agent_id=example_collaborator.agent_id,
-            description="Test Alias")
-        example_agent_agent_collaborator = aws.bedrock.AgentAgentCollaborator("example",
-            agent_id=example_supervisor.agent_id,
-            collaboration_instruction="tell the other agent what to do",
-            collaborator_name="my-collab-example",
-            relay_conversation_history="TO_COLLABORATOR",
-            agent_descriptor={
-                "alias_arn": example_agent_agent_alias.agent_alias_arn,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agent_id`, `agent_version`, and `collaborator_id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY
-        ```
-
+        Create a AgentAgentCollaborator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
-        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         ...
     @overload
@@ -444,96 +287,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  args: AgentAgentCollaboratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Agents Agent Collaborator.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
-            "conditions": [
-                {
-                    "test": "StringEquals",
-                    "values": [current.account_id],
-                    "variable": "aws:SourceAccount",
-                },
-                {
-                    "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
-                    "variable": "AWS:SourceArn",
-                },
-            ],
-        }])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[
-            {
-                "actions": ["bedrock:InvokeModel"],
-                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
-            },
-            {
-                "actions": [
-                    "bedrock:GetAgentAlias",
-                    "bedrock:InvokeAgent",
-                ],
-                "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
-                ],
-            },
-        ])
-        example = aws.iam.Role("example",
-            assume_role_policy=example_agent_trust.json,
-            name_prefix="AmazonBedrockExecutionRoleForAgents_")
-        example_role_policy = aws.iam.RolePolicy("example",
-            policy=example_agent_permissions.json,
-            role=example.id)
-        example_collaborator = aws.bedrock.AgentAgent("example_collaborator",
-            agent_name="my-agent-collaborator",
-            agent_resource_role_arn=example.arn,
-            idle_session_ttl_in_seconds=500,
-            foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="do what the supervisor tells you to do")
-        example_supervisor = aws.bedrock.AgentAgent("example_supervisor",
-            agent_name="my-agent-supervisor",
-            agent_resource_role_arn=example.arn,
-            agent_collaboration="SUPERVISOR",
-            idle_session_ttl_in_seconds=500,
-            foundation_model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-            instruction="tell the sub agent what to do",
-            prepare_agent=False)
-        example_agent_agent_alias = aws.bedrock.AgentAgentAlias("example",
-            agent_alias_name="my-agent-alias",
-            agent_id=example_collaborator.agent_id,
-            description="Test Alias")
-        example_agent_agent_collaborator = aws.bedrock.AgentAgentCollaborator("example",
-            agent_id=example_supervisor.agent_id,
-            collaboration_instruction="tell the other agent what to do",
-            collaborator_name="my-collab-example",
-            relay_conversation_history="TO_COLLABORATOR",
-            agent_descriptor={
-                "alias_arn": example_agent_agent_alias.agent_alias_arn,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agent_id`, `agent_version`, and `collaborator_id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY
-        ```
-
+        Create a AgentAgentCollaborator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentAgentCollaboratorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -610,15 +364,6 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
-        :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
-        :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
-        :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -644,9 +389,6 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentId")
     def agent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID if the agent to associate the collaborator.
-        """
         return pulumi.get(self, "agent_id")
 
     @_builtins.property
@@ -657,51 +399,31 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="collaborationInstruction")
     def collaboration_instruction(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instruction to give the collaborator.
-        """
         return pulumi.get(self, "collaboration_instruction")
 
     @_builtins.property
     @pulumi.getter(name="collaboratorId")
     def collaborator_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Agent Collaborator.
-        """
         return pulumi.get(self, "collaborator_id")
 
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
     def collaborator_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of this collaborator.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "collaborator_name")
 
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to prepare the agent after creation or modification. Defaults to `true`.
-        """
         return pulumi.get(self, "prepare_agent")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configure relaying the history to the collaborator.
-        """
         return pulumi.get(self, "relay_conversation_history")
 
     @_builtins.property

@@ -16,32 +16,16 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
 
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs();
 
-    /**
-     * Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-     * 
-     */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
-    /**
-     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-     * 
-     */
     public Output<String> predefinedMetricType() {
         return this.predefinedMetricType;
     }
 
-    /**
-     * Label that uniquely identifies a specific target group from which to determine the total and average request count.
-     * 
-     */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the total and average request count.
-     * 
-     */
     public Optional<Output<String>> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }
@@ -71,44 +55,20 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             $ = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedMetricType Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(Output<String> predefinedMetricType) {
             $.predefinedMetricType = predefinedMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedMetricType Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(String predefinedMetricType) {
             return predefinedMetricType(Output.of(predefinedMetricType));
         }
 
-        /**
-         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the total and average request count.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
-        /**
-         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the total and average request count.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

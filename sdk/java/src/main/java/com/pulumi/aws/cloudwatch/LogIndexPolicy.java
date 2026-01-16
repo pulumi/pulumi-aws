@@ -13,105 +13,31 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudWatch Logs Index Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.cloudwatch.LogIndexPolicy;
- * import com.pulumi.aws.cloudwatch.LogIndexPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleLogIndexPolicy = new LogIndexPolicy("exampleLogIndexPolicy", LogIndexPolicyArgs.builder()
- *             .logGroupName(example.name())
- *             .policyDocument(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Fields", jsonArray("eventName"))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Logs Index Policy using the `log_group_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logIndexPolicy:LogIndexPolicy")
 public class LogIndexPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Log group name to set the policy for.
-     * 
-     */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
-    /**
-     * @return Log group name to set the policy for.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
     /**
-     * JSON policy document. This is a JSON formatted string.
+     * Field index filter policy, in JSON
      * 
      */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
     /**
-     * @return JSON policy document. This is a JSON formatted string.
+     * @return Field index filter policy, in JSON
      * 
      */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

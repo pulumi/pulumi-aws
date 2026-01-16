@@ -11,84 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Log Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("Yada"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Application": pulumi.String("serviceA"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `name` (String) Name of the CloudWatch log group.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
-//
-// % pulumi import aws_cloudwatch_log_group.example yada
 type LogGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
-	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
-	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-	// permissions for the CMK whenever the encrypted data is requested.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
-	LogGroupClass pulumi.StringOutput `pulumi:"logGroupClass"`
-	// The name of the log group. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the number of days
-	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
-	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
-	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
-	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                       pulumi.StringOutput    `pulumi:"arn"`
+	DeletionProtectionEnabled pulumi.BoolOutput      `pulumi:"deletionProtectionEnabled"`
+	KmsKeyId                  pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	LogGroupClass             pulumi.StringOutput    `pulumi:"logGroupClass"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix                pulumi.StringOutput    `pulumi:"namePrefix"`
+	Region                    pulumi.StringOutput    `pulumi:"region"`
+	RetentionInDays           pulumi.IntPtrOutput    `pulumi:"retentionInDays"`
+	SkipDestroy               pulumi.BoolPtrOutput   `pulumi:"skipDestroy"`
+	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLogGroup registers a new resource with the given unique name, arguments, and options.
@@ -121,61 +57,31 @@ func GetLogGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogGroup resources.
 type logGroupState struct {
-	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-	Arn *string `pulumi:"arn"`
-	// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-	// permissions for the CMK whenever the encrypted data is requested.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
-	LogGroupClass *string `pulumi:"logGroupClass"`
-	// The name of the log group. If omitted, this provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the number of days
-	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                       *string           `pulumi:"arn"`
+	DeletionProtectionEnabled *bool             `pulumi:"deletionProtectionEnabled"`
+	KmsKeyId                  *string           `pulumi:"kmsKeyId"`
+	LogGroupClass             *string           `pulumi:"logGroupClass"`
+	Name                      *string           `pulumi:"name"`
+	NamePrefix                *string           `pulumi:"namePrefix"`
+	Region                    *string           `pulumi:"region"`
+	RetentionInDays           *int              `pulumi:"retentionInDays"`
+	SkipDestroy               *bool             `pulumi:"skipDestroy"`
+	Tags                      map[string]string `pulumi:"tags"`
+	TagsAll                   map[string]string `pulumi:"tagsAll"`
 }
 
 type LogGroupState struct {
-	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-	Arn pulumi.StringPtrInput
-	// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
+	Arn                       pulumi.StringPtrInput
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-	// permissions for the CMK whenever the encrypted data is requested.
-	KmsKeyId pulumi.StringPtrInput
-	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
-	LogGroupClass pulumi.StringPtrInput
-	// The name of the log group. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the number of days
-	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
-	RetentionInDays pulumi.IntPtrInput
-	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
-	SkipDestroy pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	KmsKeyId                  pulumi.StringPtrInput
+	LogGroupClass             pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	NamePrefix                pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RetentionInDays           pulumi.IntPtrInput
+	SkipDestroy               pulumi.BoolPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
 }
 
 func (LogGroupState) ElementType() reflect.Type {
@@ -183,54 +89,28 @@ func (LogGroupState) ElementType() reflect.Type {
 }
 
 type logGroupArgs struct {
-	// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-	// permissions for the CMK whenever the encrypted data is requested.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
-	LogGroupClass *string `pulumi:"logGroupClass"`
-	// The name of the log group. If omitted, this provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the number of days
-	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DeletionProtectionEnabled *bool             `pulumi:"deletionProtectionEnabled"`
+	KmsKeyId                  *string           `pulumi:"kmsKeyId"`
+	LogGroupClass             *string           `pulumi:"logGroupClass"`
+	Name                      *string           `pulumi:"name"`
+	NamePrefix                *string           `pulumi:"namePrefix"`
+	Region                    *string           `pulumi:"region"`
+	RetentionInDays           *int              `pulumi:"retentionInDays"`
+	SkipDestroy               *bool             `pulumi:"skipDestroy"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogGroup resource.
 type LogGroupArgs struct {
-	// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-	// permissions for the CMK whenever the encrypted data is requested.
-	KmsKeyId pulumi.StringPtrInput
-	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
-	LogGroupClass pulumi.StringPtrInput
-	// The name of the log group. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the number of days
-	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
-	RetentionInDays pulumi.IntPtrInput
-	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
-	SkipDestroy pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	KmsKeyId                  pulumi.StringPtrInput
+	LogGroupClass             pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	NamePrefix                pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	RetentionInDays           pulumi.IntPtrInput
+	SkipDestroy               pulumi.BoolPtrInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (LogGroupArgs) ElementType() reflect.Type {
@@ -320,61 +200,46 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 func (o LogGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Boolean to indicate whether deletion protection is enabled. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing this argument.
 func (o LogGroupOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.BoolOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
 
-// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
-// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
-// permissions for the CMK whenever the encrypted data is requested.
 func (o LogGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 func (o LogGroupOutput) LogGroupClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.LogGroupClass }).(pulumi.StringOutput)
 }
 
-// The name of the log group. If omitted, this provider will assign a random, unique name.
 func (o LogGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o LogGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the number of days
-// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 func (o LogGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
 func (o LogGroupOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LogGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

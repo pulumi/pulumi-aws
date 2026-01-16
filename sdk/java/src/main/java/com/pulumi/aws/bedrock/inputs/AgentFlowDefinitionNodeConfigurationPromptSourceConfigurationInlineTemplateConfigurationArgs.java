@@ -16,17 +16,9 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs();
 
-    /**
-     * Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     @Import(name="chat")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs> chat;
 
-    /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs>> chat() {
         return Optional.ofNullable(this.chat);
     }
@@ -63,23 +55,11 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chat(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs> chat) {
             $.chat = chat;
             return this;
         }
 
-        /**
-         * @param chat Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chat(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs chat) {
             return chat(Output.of(chat));
         }

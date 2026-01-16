@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class TargetGroupTargetGroupHealthGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
-        /// </summary>
         [Input("dnsFailover")]
         public Input<Inputs.TargetGroupTargetGroupHealthDnsFailoverGetArgs>? DnsFailover { get; set; }
 
-        /// <summary>
-        /// Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
-        /// </summary>
         [Input("unhealthyStateRouting")]
         public Input<Inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingGetArgs>? UnhealthyStateRouting { get; set; }
 

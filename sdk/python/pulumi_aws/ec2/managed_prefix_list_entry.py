@@ -25,10 +25,6 @@ class ManagedPrefixListEntryInitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrefixListEntry resource.
-        :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
-        :param pulumi.Input[_builtins.str] prefix_list_id: The ID of the prefix list.
-        :param pulumi.Input[_builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
@@ -40,9 +36,6 @@ class ManagedPrefixListEntryInitArgs:
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[_builtins.str]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -52,9 +45,6 @@ class ManagedPrefixListEntryInitArgs:
     @_builtins.property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the prefix list.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
@@ -64,9 +54,6 @@ class ManagedPrefixListEntryInitArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -76,9 +63,6 @@ class ManagedPrefixListEntryInitArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _ManagedPrefixListEntryState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixListEntry resources.
-        :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
-        :param pulumi.Input[_builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[_builtins.str] prefix_list_id: The ID of the prefix list.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -112,9 +92,6 @@ class _ManagedPrefixListEntryState:
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -124,9 +101,6 @@ class _ManagedPrefixListEntryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -136,9 +110,6 @@ class _ManagedPrefixListEntryState:
     @_builtins.property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the prefix list.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
@@ -148,9 +119,6 @@ class _ManagedPrefixListEntryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -170,47 +138,9 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Use the `aws_prefix_list_entry` resource to manage a managed prefix list entry.
-
-        > **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.
-
-        > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
-
-        ## Example Usage
-
-        Basic usage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            name="All VPC CIDR-s",
-            address_family="IPv4",
-            max_entries=5,
-            tags={
-                "Env": "live",
-            })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry_1",
-            cidr=example_aws_vpc["cidrBlock"],
-            description="Primary",
-            prefix_list_id=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-        ```
-
+        Create a ManagedPrefixListEntry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
-        :param pulumi.Input[_builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[_builtins.str] prefix_list_id: The ID of the prefix list.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -219,41 +149,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  args: ManagedPrefixListEntryInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use the `aws_prefix_list_entry` resource to manage a managed prefix list entry.
-
-        > **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.
-
-        > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
-
-        ## Example Usage
-
-        Basic usage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            name="All VPC CIDR-s",
-            address_family="IPv4",
-            max_entries=5,
-            tags={
-                "Env": "live",
-            })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry_1",
-            cidr=example_aws_vpc["cidrBlock"],
-            description="Primary",
-            prefix_list_id=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-        ```
-
+        Create a ManagedPrefixListEntry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ManagedPrefixListEntryInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,10 +207,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
-        :param pulumi.Input[_builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[_builtins.str] prefix_list_id: The ID of the prefix list.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -329,32 +221,20 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "cidr")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the prefix list.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

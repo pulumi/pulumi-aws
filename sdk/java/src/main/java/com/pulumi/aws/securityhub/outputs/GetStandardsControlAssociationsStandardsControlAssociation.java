@@ -11,113 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStandardsControlAssociationsStandardsControlAssociation {
-    /**
-     * @return Enablement status of a control in a specific standard.
-     * 
-     */
     private String associationStatus;
-    /**
-     * @return List of underlying requirements in the compliance framework related to the standard.
-     * 
-     */
     private List<String> relatedRequirements;
-    /**
-     * @return ARN of the security control.
-     * 
-     */
     private String securityControlArn;
-    /**
-     * @return The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-     * 
-     */
     private String securityControlId;
-    /**
-     * @return ARN of the standard.
-     * 
-     */
     private String standardsArn;
-    /**
-     * @return Description of the standard.
-     * 
-     */
     private String standardsControlDescription;
-    /**
-     * @return Title of the standard.
-     * 
-     */
     private String standardsControlTitle;
-    /**
-     * @return Last time that a control&#39;s enablement status in a specified standard was updated.
-     * 
-     */
     private String updatedAt;
-    /**
-     * @return Reason for updating a control&#39;s enablement status in a specified standard.
-     * 
-     */
     private String updatedReason;
 
     private GetStandardsControlAssociationsStandardsControlAssociation() {}
-    /**
-     * @return Enablement status of a control in a specific standard.
-     * 
-     */
     public String associationStatus() {
         return this.associationStatus;
     }
-    /**
-     * @return List of underlying requirements in the compliance framework related to the standard.
-     * 
-     */
     public List<String> relatedRequirements() {
         return this.relatedRequirements;
     }
-    /**
-     * @return ARN of the security control.
-     * 
-     */
     public String securityControlArn() {
         return this.securityControlArn;
     }
-    /**
-     * @return The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-     * 
-     */
     public String securityControlId() {
         return this.securityControlId;
     }
-    /**
-     * @return ARN of the standard.
-     * 
-     */
     public String standardsArn() {
         return this.standardsArn;
     }
-    /**
-     * @return Description of the standard.
-     * 
-     */
     public String standardsControlDescription() {
         return this.standardsControlDescription;
     }
-    /**
-     * @return Title of the standard.
-     * 
-     */
     public String standardsControlTitle() {
         return this.standardsControlTitle;
     }
-    /**
-     * @return Last time that a control&#39;s enablement status in a specified standard was updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }
-    /**
-     * @return Reason for updating a control&#39;s enablement status in a specified standard.
-     * 
-     */
     public String updatedReason() {
         return this.updatedReason;
     }

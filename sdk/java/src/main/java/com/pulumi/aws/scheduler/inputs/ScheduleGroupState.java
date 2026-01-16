@@ -16,137 +16,65 @@ public final class ScheduleGroupState extends com.pulumi.resources.ResourceArgs 
 
     public static final ScheduleGroupState Empty = new ScheduleGroupState();
 
-    /**
-     * ARN of the schedule group.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the schedule group.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Time at which the schedule group was created.
-     * 
-     */
     @Import(name="creationDate")
     private @Nullable Output<String> creationDate;
 
-    /**
-     * @return Time at which the schedule group was created.
-     * 
-     */
     public Optional<Output<String>> creationDate() {
         return Optional.ofNullable(this.creationDate);
     }
 
-    /**
-     * Time at which the schedule group was last modified.
-     * 
-     */
     @Import(name="lastModificationDate")
     private @Nullable Output<String> lastModificationDate;
 
-    /**
-     * @return Time at which the schedule group was last modified.
-     * 
-     */
     public Optional<Output<String>> lastModificationDate() {
         return Optional.ofNullable(this.lastModificationDate);
     }
 
-    /**
-     * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * State of the schedule group. Can be `ACTIVE` or `DELETING`.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return State of the schedule group. Can be `ACTIVE` or `DELETING`.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -183,191 +111,83 @@ public final class ScheduleGroupState extends com.pulumi.resources.ResourceArgs 
             $ = new ScheduleGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the schedule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the schedule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param creationDate Time at which the schedule group was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationDate(@Nullable Output<String> creationDate) {
             $.creationDate = creationDate;
             return this;
         }
 
-        /**
-         * @param creationDate Time at which the schedule group was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationDate(String creationDate) {
             return creationDate(Output.of(creationDate));
         }
 
-        /**
-         * @param lastModificationDate Time at which the schedule group was last modified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModificationDate(@Nullable Output<String> lastModificationDate) {
             $.lastModificationDate = lastModificationDate;
             return this;
         }
 
-        /**
-         * @param lastModificationDate Time at which the schedule group was last modified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModificationDate(String lastModificationDate) {
             return lastModificationDate(Output.of(lastModificationDate));
         }
 
-        /**
-         * @param name Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state State of the schedule group. Can be `ACTIVE` or `DELETING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the schedule group. Can be `ACTIVE` or `DELETING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

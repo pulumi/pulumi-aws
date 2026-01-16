@@ -17,32 +17,16 @@ public final class GatewayRouteSpecHttpRouteMatchQueryParameterArgs extends com.
 
     public static final GatewayRouteSpecHttpRouteMatchQueryParameterArgs Empty = new GatewayRouteSpecHttpRouteMatchQueryParameterArgs();
 
-    /**
-     * The query parameter to match on.
-     * 
-     */
     @Import(name="match")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs> match;
 
-    /**
-     * @return The query parameter to match on.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs>> match() {
         return Optional.ofNullable(this.match);
     }
 
-    /**
-     * Name for the query parameter that will be matched on.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name for the query parameter that will be matched on.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -72,44 +56,20 @@ public final class GatewayRouteSpecHttpRouteMatchQueryParameterArgs extends com.
             $ = new GatewayRouteSpecHttpRouteMatchQueryParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param match The query parameter to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(@Nullable Output<GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match The query parameter to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs match) {
             return match(Output.of(match));
         }
 
-        /**
-         * @param name Name for the query parameter that will be matched on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the query parameter that will be matched on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

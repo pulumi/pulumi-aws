@@ -9,43 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Notifications
 {
-    /// <summary>
-    /// Resource for managing an AWS User Notifications Notification Hub.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Notifications.NotificationHub("example", new()
-    ///     {
-    ///         NotificationHubRegion = "us-west-2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:notifications/notificationHub:NotificationHub")]
     public partial class NotificationHub : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Notification Hub region.
-        /// </summary>
         [Output("notificationHubRegion")]
         public Output<string> NotificationHubRegion { get; private set; } = null!;
 
@@ -98,9 +64,6 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class NotificationHubArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Notification Hub region.
-        /// </summary>
         [Input("notificationHubRegion", required: true)]
         public Input<string> NotificationHubRegion { get; set; } = null!;
 
@@ -115,9 +78,6 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class NotificationHubState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Notification Hub region.
-        /// </summary>
         [Input("notificationHubRegion")]
         public Input<string>? NotificationHubRegion { get; set; }
 

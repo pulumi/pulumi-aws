@@ -17,101 +17,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Control Tower Baseline.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.controltower.Baseline;
- * import com.pulumi.aws.controltower.BaselineArgs;
- * import com.pulumi.aws.controltower.inputs.BaselineParametersArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Baseline("example", BaselineArgs.builder()
- *             .baselineIdentifier("arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2")
- *             .baselineVersion("4.0")
- *             .targetIdentifier(test.arn())
- *             .parameters(BaselineParametersArgs.builder()
- *                 .key("IdentityCenterEnabledBaselineArn")
- *                 .value("arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Control Tower Baseline using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
- * ```
- * 
- */
 @ResourceType(type="aws:controltower/baseline:Baseline")
 public class Baseline extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Baseline.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Baseline.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the baseline to be enabled.
-     * 
-     */
     @Export(name="baselineIdentifier", refs={String.class}, tree="[0]")
     private Output<String> baselineIdentifier;
 
-    /**
-     * @return The ARN of the baseline to be enabled.
-     * 
-     */
     public Output<String> baselineIdentifier() {
         return this.baselineIdentifier;
     }
-    /**
-     * The version of the baseline to be enabled.
-     * 
-     */
     @Export(name="baselineVersion", refs={String.class}, tree="[0]")
     private Output<String> baselineVersion;
 
-    /**
-     * @return The version of the baseline to be enabled.
-     * 
-     */
     public Output<String> baselineVersion() {
         return this.baselineVersion;
     }
@@ -121,77 +43,33 @@ public class Baseline extends com.pulumi.resources.CustomResource {
     public Output<String> operationIdentifier() {
         return this.operationIdentifier;
     }
-    /**
-     * A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     * 
-     */
     @Export(name="parameters", refs={BaselineParameters.class}, tree="[0]")
     private Output</* @Nullable */ BaselineParameters> parameters;
 
-    /**
-     * @return A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     * 
-     */
     public Output<Optional<BaselineParameters>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="targetIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetIdentifier;
 
-    /**
-     * @return The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetIdentifier() {
         return this.targetIdentifier;
     }

@@ -7,75 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS KMS (Key Management) Custom Key Store.
- *
- * ## Example Usage
- *
- * ### CloudHSM
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const test = new aws.kms.CustomKeyStore("test", {
- *     cloudHsmClusterId: cloudHsmClusterId,
- *     customKeyStoreName: "kms-custom-key-store-test",
- *     keyStorePassword: "noplaintextpasswords1",
- *     trustAnchorCertificate: std.file({
- *         input: "anchor-certificate.crt",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
- * ### External Key Store (VPC)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.CustomKeyStore("example", {
- *     customKeyStoreName: "example-vpc-xks",
- *     customKeyStoreType: "EXTERNAL_KEY_STORE",
- *     xksProxyAuthenticationCredential: {
- *         accessKeyId: ephemeralAccessKeyId,
- *         rawSecretAccessKey: ephemeralSecretAccessKey,
- *     },
- *     xksProxyConnectivity: "VPC_ENDPOINT_SERVICE",
- *     xksProxyUriEndpoint: "https://myproxy-private.xks.example.com",
- *     xksProxyUriPath: "/kms/xks/v1",
- *     xksProxyVpcEndpointServiceName: "com.amazonaws.vpce.us-east-1.vpce-svc-example",
- * });
- * ```
- *
- * ### External Key Store (Public)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.CustomKeyStore("example", {
- *     customKeyStoreName: "example-public-xks",
- *     customKeyStoreType: "EXTERNAL_KEY_STORE",
- *     xksProxyAuthenticationCredential: {
- *         accessKeyId: ephemeralAccessKeyId,
- *         rawSecretAccessKey: ephemeralSecretAccessKey,
- *     },
- *     xksProxyConnectivity: "PUBLIC_ENDPOINT",
- *     xksProxyUriEndpoint: "https://myproxy.xks.example.com",
- *     xksProxyUriPath: "/kms/xks/v1",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
- * ```
- */
 export class CustomKeyStore extends pulumi.CustomResource {
     /**
      * Get an existing CustomKeyStore resource's state with the given name, ID, and optional extra
@@ -105,20 +36,9 @@ export class CustomKeyStore extends pulumi.CustomResource {
     }
 
     declare public readonly cloudHsmClusterId: pulumi.Output<string | undefined>;
-    /**
-     * Unique name for Custom Key Store.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly customKeyStoreName: pulumi.Output<string>;
-    /**
-     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     */
     declare public readonly customKeyStoreType: pulumi.Output<string>;
     declare public readonly keyStorePassword: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly trustAnchorCertificate: pulumi.Output<string | undefined>;
     declare public readonly xksProxyAuthenticationCredential: pulumi.Output<outputs.kms.CustomKeyStoreXksProxyAuthenticationCredential | undefined>;
@@ -178,20 +98,9 @@ export class CustomKeyStore extends pulumi.CustomResource {
  */
 export interface CustomKeyStoreState {
     cloudHsmClusterId?: pulumi.Input<string>;
-    /**
-     * Unique name for Custom Key Store.
-     *
-     * The following arguments are optional:
-     */
     customKeyStoreName?: pulumi.Input<string>;
-    /**
-     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     */
     customKeyStoreType?: pulumi.Input<string>;
     keyStorePassword?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     trustAnchorCertificate?: pulumi.Input<string>;
     xksProxyAuthenticationCredential?: pulumi.Input<inputs.kms.CustomKeyStoreXksProxyAuthenticationCredential>;
@@ -206,20 +115,9 @@ export interface CustomKeyStoreState {
  */
 export interface CustomKeyStoreArgs {
     cloudHsmClusterId?: pulumi.Input<string>;
-    /**
-     * Unique name for Custom Key Store.
-     *
-     * The following arguments are optional:
-     */
     customKeyStoreName: pulumi.Input<string>;
-    /**
-     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     */
     customKeyStoreType?: pulumi.Input<string>;
     keyStorePassword?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     trustAnchorCertificate?: pulumi.Input<string>;
     xksProxyAuthenticationCredential?: pulumi.Input<inputs.kms.CustomKeyStoreXksProxyAuthenticationCredential>;

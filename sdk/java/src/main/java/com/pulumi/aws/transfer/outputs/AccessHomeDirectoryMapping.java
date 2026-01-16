@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AccessHomeDirectoryMapping {
-    /**
-     * @return Represents an entry and a target.
-     * 
-     */
     private String entry;
-    /**
-     * @return Represents the map target.
-     * 
-     */
     private String target;
 
     private AccessHomeDirectoryMapping() {}
-    /**
-     * @return Represents an entry and a target.
-     * 
-     */
     public String entry() {
         return this.entry;
     }
-    /**
-     * @return Represents the map target.
-     * 
-     */
     public String target() {
         return this.target;
     }

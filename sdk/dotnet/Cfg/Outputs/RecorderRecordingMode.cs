@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cfg.Outputs
     [OutputType]
     public sealed class RecorderRecordingMode
     {
-        /// <summary>
-        /// Default recording frequency. `CONTINUOUS` or `DAILY`.
-        /// </summary>
         public readonly string? RecordingFrequency;
-        /// <summary>
-        /// Recording mode overrides. Detailed below.
-        /// </summary>
         public readonly Outputs.RecorderRecordingModeRecordingModeOverride? RecordingModeOverride;
 
         [OutputConstructor]

@@ -19,77 +19,37 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
 
     public static final ManagedScalingPolicyArgs Empty = new ManagedScalingPolicyArgs();
 
-    /**
-     * ID of the EMR cluster
-     * 
-     */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
-    /**
-     * @return ID of the EMR cluster
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
 
-    /**
-     * Configuration block with compute limit settings. Described below.
-     * 
-     */
     @Import(name="computeLimits", required=true)
     private Output<List<ManagedScalingPolicyComputeLimitArgs>> computeLimits;
 
-    /**
-     * @return Configuration block with compute limit settings. Described below.
-     * 
-     */
     public Output<List<ManagedScalingPolicyComputeLimitArgs>> computeLimits() {
         return this.computeLimits;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
-     * 
-     */
     @Import(name="scalingStrategy")
     private @Nullable Output<String> scalingStrategy;
 
-    /**
-     * @return Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
-     * 
-     */
     public Optional<Output<String>> scalingStrategy() {
         return Optional.ofNullable(this.scalingStrategy);
     }
 
-    /**
-     * Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
-     * 
-     */
     @Import(name="utilizationPerformanceIndex")
     private @Nullable Output<Integer> utilizationPerformanceIndex;
 
-    /**
-     * @return Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
-     * 
-     */
     public Optional<Output<Integer>> utilizationPerformanceIndex() {
         return Optional.ofNullable(this.utilizationPerformanceIndex);
     }
@@ -122,117 +82,51 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
             $ = new ManagedScalingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterId ID of the EMR cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
-        /**
-         * @param clusterId ID of the EMR cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(String clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
-        /**
-         * @param computeLimits Configuration block with compute limit settings. Described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeLimits(Output<List<ManagedScalingPolicyComputeLimitArgs>> computeLimits) {
             $.computeLimits = computeLimits;
             return this;
         }
 
-        /**
-         * @param computeLimits Configuration block with compute limit settings. Described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeLimits(List<ManagedScalingPolicyComputeLimitArgs> computeLimits) {
             return computeLimits(Output.of(computeLimits));
         }
 
-        /**
-         * @param computeLimits Configuration block with compute limit settings. Described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeLimits(ManagedScalingPolicyComputeLimitArgs... computeLimits) {
             return computeLimits(List.of(computeLimits));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scalingStrategy Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingStrategy(@Nullable Output<String> scalingStrategy) {
             $.scalingStrategy = scalingStrategy;
             return this;
         }
 
-        /**
-         * @param scalingStrategy Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scalingStrategy(String scalingStrategy) {
             return scalingStrategy(Output.of(scalingStrategy));
         }
 
-        /**
-         * @param utilizationPerformanceIndex Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder utilizationPerformanceIndex(@Nullable Output<Integer> utilizationPerformanceIndex) {
             $.utilizationPerformanceIndex = utilizationPerformanceIndex;
             return this;
         }
 
-        /**
-         * @param utilizationPerformanceIndex Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder utilizationPerformanceIndex(Integer utilizationPerformanceIndex) {
             return utilizationPerformanceIndex(Output.of(utilizationPerformanceIndex));
         }

@@ -19,101 +19,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FilterFilterCriteriaVulnerablePackage {
-    /**
-     * @return (Optional) The architecture of the package. Documented below.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageArchitecture architecture;
-    /**
-     * @return (Optional) The epoch of the package. Documented below.
-     * 
-     */
     private @Nullable List<FilterFilterCriteriaVulnerablePackageEpoch> epoches;
-    /**
-     * @return (Optional) The name of the package. Documented below.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageFilePath filePath;
-    /**
-     * @return Name of the filter.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageName name;
-    /**
-     * @return (Optional) The release of the package. Documented below.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageRelease release;
-    /**
-     * @return (Optional) The ARN of the package&#39;s source lambda layer. Documented below.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn sourceLambdaLayerArn;
-    /**
-     * @return (Optional) The source layer hash of the package. Documented below.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageSourceLayerHash sourceLayerHash;
-    /**
-     * @return (Optional) The version of the package. Documented below.
-     * 
-     */
     private @Nullable FilterFilterCriteriaVulnerablePackageVersion version;
 
     private FilterFilterCriteriaVulnerablePackage() {}
-    /**
-     * @return (Optional) The architecture of the package. Documented below.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageArchitecture> architecture() {
         return Optional.ofNullable(this.architecture);
     }
-    /**
-     * @return (Optional) The epoch of the package. Documented below.
-     * 
-     */
     public List<FilterFilterCriteriaVulnerablePackageEpoch> epoches() {
         return this.epoches == null ? List.of() : this.epoches;
     }
-    /**
-     * @return (Optional) The name of the package. Documented below.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageFilePath> filePath() {
         return Optional.ofNullable(this.filePath);
     }
-    /**
-     * @return Name of the filter.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageName> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return (Optional) The release of the package. Documented below.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageRelease> release() {
         return Optional.ofNullable(this.release);
     }
-    /**
-     * @return (Optional) The ARN of the package&#39;s source lambda layer. Documented below.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArn> sourceLambdaLayerArn() {
         return Optional.ofNullable(this.sourceLambdaLayerArn);
     }
-    /**
-     * @return (Optional) The source layer hash of the package. Documented below.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageSourceLayerHash> sourceLayerHash() {
         return Optional.ofNullable(this.sourceLayerHash);
     }
-    /**
-     * @return (Optional) The version of the package. Documented below.
-     * 
-     */
     public Optional<FilterFilterCriteriaVulnerablePackageVersion> version() {
         return Optional.ofNullable(this.version);
     }

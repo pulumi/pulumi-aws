@@ -14,32 +14,16 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
 
     public static final IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs Empty = new IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs();
 
-    /**
-     * The group attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     @Import(name="groupAttributeField", required=true)
     private Output<String> groupAttributeField;
 
-    /**
-     * @return The group attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     public Output<String> groupAttributeField() {
         return this.groupAttributeField;
     }
 
-    /**
-     * The user name attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     @Import(name="userNameAttributeField", required=true)
     private Output<String> userNameAttributeField;
 
-    /**
-     * @return The user name attribute field. Minimum length of 1. Maximum length of 2048.
-     * 
-     */
     public Output<String> userNameAttributeField() {
         return this.userNameAttributeField;
     }
@@ -69,44 +53,20 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
             $ = new IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupAttributeField The group attribute field. Minimum length of 1. Maximum length of 2048.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupAttributeField(Output<String> groupAttributeField) {
             $.groupAttributeField = groupAttributeField;
             return this;
         }
 
-        /**
-         * @param groupAttributeField The group attribute field. Minimum length of 1. Maximum length of 2048.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupAttributeField(String groupAttributeField) {
             return groupAttributeField(Output.of(groupAttributeField));
         }
 
-        /**
-         * @param userNameAttributeField The user name attribute field. Minimum length of 1. Maximum length of 2048.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userNameAttributeField(Output<String> userNameAttributeField) {
             $.userNameAttributeField = userNameAttributeField;
             return this;
         }
 
-        /**
-         * @param userNameAttributeField The user name attribute field. Minimum length of 1. Maximum length of 2048.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userNameAttributeField(String userNameAttributeField) {
             return userNameAttributeField(Output.of(userNameAttributeField));
         }

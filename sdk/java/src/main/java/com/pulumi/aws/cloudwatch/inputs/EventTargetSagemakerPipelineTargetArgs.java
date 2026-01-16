@@ -16,17 +16,9 @@ public final class EventTargetSagemakerPipelineTargetArgs extends com.pulumi.res
 
     public static final EventTargetSagemakerPipelineTargetArgs Empty = new EventTargetSagemakerPipelineTargetArgs();
 
-    /**
-     * List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-     * 
-     */
     @Import(name="pipelineParameterLists")
     private @Nullable Output<List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs>> pipelineParameterLists;
 
-    /**
-     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-     * 
-     */
     public Optional<Output<List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs>>> pipelineParameterLists() {
         return Optional.ofNullable(this.pipelineParameterLists);
     }
@@ -55,33 +47,15 @@ public final class EventTargetSagemakerPipelineTargetArgs extends com.pulumi.res
             $ = new EventTargetSagemakerPipelineTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pipelineParameterLists List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineParameterLists(@Nullable Output<List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs>> pipelineParameterLists) {
             $.pipelineParameterLists = pipelineParameterLists;
             return this;
         }
 
-        /**
-         * @param pipelineParameterLists List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineParameterLists(List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs> pipelineParameterLists) {
             return pipelineParameterLists(Output.of(pipelineParameterLists));
         }
 
-        /**
-         * @param pipelineParameterLists List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineParameterLists(EventTargetSagemakerPipelineTargetPipelineParameterListArgs... pipelineParameterLists) {
             return pipelineParameterLists(List.of(pipelineParameterLists));
         }

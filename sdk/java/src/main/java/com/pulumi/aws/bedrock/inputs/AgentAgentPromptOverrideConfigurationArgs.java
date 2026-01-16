@@ -16,32 +16,16 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
 
     public static final AgentAgentPromptOverrideConfigurationArgs Empty = new AgentAgentPromptOverrideConfigurationArgs();
 
-    /**
-     * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
-     * 
-     */
     @Import(name="overrideLambda", required=true)
     private Output<String> overrideLambda;
 
-    /**
-     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
-     * 
-     */
     public Output<String> overrideLambda() {
         return this.overrideLambda;
     }
 
-    /**
-     * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
-     * 
-     */
     @Import(name="promptConfigurations", required=true)
     private Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations;
 
-    /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
-     * 
-     */
     public Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations() {
         return this.promptConfigurations;
     }
@@ -71,54 +55,24 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
             $ = new AgentAgentPromptOverrideConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrideLambda(Output<String> overrideLambda) {
             $.overrideLambda = overrideLambda;
             return this;
         }
 
-        /**
-         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrideLambda(String overrideLambda) {
             return overrideLambda(Output.of(overrideLambda));
         }
 
-        /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder promptConfigurations(Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations) {
             $.promptConfigurations = promptConfigurations;
             return this;
         }
 
-        /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder promptConfigurations(List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs> promptConfigurations) {
             return promptConfigurations(Output.of(promptConfigurations));
         }
 
-        /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder promptConfigurations(AgentAgentPromptOverrideConfigurationPromptConfigurationArgs... promptConfigurations) {
             return promptConfigurations(List.of(promptConfigurations));
         }

@@ -13,22 +13,10 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class ManagedLoginBrandingAsset
     {
-        /// <summary>
-        /// Image file, in Base64-encoded binary.
-        /// </summary>
         public readonly string? Bytes;
-        /// <summary>
-        /// Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-        /// </summary>
         public readonly string Category;
-        /// <summary>
-        /// Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-        /// </summary>
         public readonly string ColorMode;
         public readonly string Extension;
-        /// <summary>
-        /// Asset ID.
-        /// </summary>
         public readonly string? ResourceId;
 
         [OutputConstructor]

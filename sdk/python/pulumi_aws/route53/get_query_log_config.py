@@ -63,17 +63,11 @@ class GetQueryLogConfigResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Computed ARN of the Route53 Resolver Query Logging Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> _builtins.str:
-        """
-        The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
-        """
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
@@ -92,17 +86,11 @@ class GetQueryLogConfigResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the query logging configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        The AWS account ID for the account that created the query logging configuration.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -118,17 +106,11 @@ class GetQueryLogConfigResult:
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> _builtins.str:
-        """
-        An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
-        """
         return pulumi.get(self, "share_status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assign to the service.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -157,41 +139,7 @@ def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilt
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryLogConfigResult:
     """
-    `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(resolver_query_log_config_id="rqlc-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(filters=[
-        {
-            "name": "Name",
-            "values": ["shared-query-log-config"],
-        },
-        {
-            "name": "ShareStatus",
-            "values": ["SHARED_WITH_ME"],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [Route53resolver Filter value in the AWS API reference][1].
-    :param _builtins.str name: The name of the query logging configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the service.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -220,41 +168,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryLogConfigResult]:
     """
-    `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(resolver_query_log_config_id="rqlc-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(filters=[
-        {
-            "name": "Name",
-            "values": ["shared-query-log-config"],
-        },
-        {
-            "name": "ShareStatus",
-            "values": ["SHARED_WITH_ME"],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [Route53resolver Filter value in the AWS API reference][1].
-    :param _builtins.str name: The name of the query logging configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the service.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

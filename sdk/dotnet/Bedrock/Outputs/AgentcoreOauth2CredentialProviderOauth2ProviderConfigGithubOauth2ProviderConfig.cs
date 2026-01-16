@@ -24,9 +24,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         /// </summary>
         public readonly string? ClientSecretWo;
-        /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery> OauthDiscoveries;
 
         [OutputConstructor]

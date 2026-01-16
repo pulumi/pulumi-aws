@@ -9,91 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Manages an AWS Bedrock AgentCore Workload Identity. Workload Identity provides OAuth2-based authentication and authorization for AI agents to access external resources securely.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreWorkloadIdentity("example", new()
-    ///     {
-    ///         Name = "example-workload-identity",
-    ///         AllowedResourceOauth2ReturnUrls = new[]
-    ///         {
-    ///             "https://example.com/callback",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Workload Identity with Multiple Return URLs
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentcoreWorkloadIdentity("example", new()
-    ///     {
-    ///         Name = "example-workload-identity",
-    ///         AllowedResourceOauth2ReturnUrls = new[]
-    ///         {
-    ///             "https://app.example.com/oauth/callback",
-    ///             "https://api.example.com/auth/return",
-    ///             "https://example.com/callback",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity")]
     public partial class AgentcoreWorkloadIdentity : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        /// </summary>
         [Output("allowedResourceOauth2ReturnUrls")]
         public Output<ImmutableArray<string>> AllowedResourceOauth2ReturnUrls { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Workload Identity.
-        /// </summary>
         [Output("workloadIdentityArn")]
         public Output<string> WorkloadIdentityArn { get; private set; } = null!;
 
@@ -145,27 +72,15 @@ namespace Pulumi.Aws.Bedrock
     {
         [Input("allowedResourceOauth2ReturnUrls")]
         private InputList<string>? _allowedResourceOauth2ReturnUrls;
-
-        /// <summary>
-        /// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        /// </summary>
         public InputList<string> AllowedResourceOauth2ReturnUrls
         {
             get => _allowedResourceOauth2ReturnUrls ?? (_allowedResourceOauth2ReturnUrls = new InputList<string>());
             set => _allowedResourceOauth2ReturnUrls = value;
         }
 
-        /// <summary>
-        /// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -179,33 +94,18 @@ namespace Pulumi.Aws.Bedrock
     {
         [Input("allowedResourceOauth2ReturnUrls")]
         private InputList<string>? _allowedResourceOauth2ReturnUrls;
-
-        /// <summary>
-        /// Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        /// </summary>
         public InputList<string> AllowedResourceOauth2ReturnUrls
         {
             get => _allowedResourceOauth2ReturnUrls ?? (_allowedResourceOauth2ReturnUrls = new InputList<string>());
             set => _allowedResourceOauth2ReturnUrls = value;
         }
 
-        /// <summary>
-        /// Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the Workload Identity.
-        /// </summary>
         [Input("workloadIdentityArn")]
         public Input<string>? WorkloadIdentityArn { get; set; }
 

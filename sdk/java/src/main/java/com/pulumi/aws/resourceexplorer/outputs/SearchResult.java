@@ -13,58 +13,26 @@ import java.util.Objects;
 
 @CustomType
 public final class SearchResult {
-    /**
-     * @return Query String.
-     * 
-     */
     private String id;
     private String queryString;
-    /**
-     * @return Amazon Web Services Region in which the resource was created and exists.
-     * 
-     */
     private String region;
-    /**
-     * @return Number of resources that match the query. See `resourceCount` below.
-     * 
-     */
     private List<SearchResourceCount> resourceCounts;
-    /**
-     * @return List of structures that describe the resources that match the query. See `resources` below.
-     * 
-     */
     private List<SearchResource> resources;
     private String viewArn;
 
     private SearchResult() {}
-    /**
-     * @return Query String.
-     * 
-     */
     public String id() {
         return this.id;
     }
     public String queryString() {
         return this.queryString;
     }
-    /**
-     * @return Amazon Web Services Region in which the resource was created and exists.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Number of resources that match the query. See `resourceCount` below.
-     * 
-     */
     public List<SearchResourceCount> resourceCounts() {
         return this.resourceCounts;
     }
-    /**
-     * @return List of structures that describe the resources that match the query. See `resources` below.
-     * 
-     */
     public List<SearchResource> resources() {
         return this.resources;
     }

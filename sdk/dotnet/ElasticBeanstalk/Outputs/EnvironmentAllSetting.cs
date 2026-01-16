@@ -13,10 +13,6 @@ namespace Pulumi.Aws.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class EnvironmentAllSetting
     {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
         public readonly string Name;
         public readonly string Namespace;
         public readonly string? Resource;

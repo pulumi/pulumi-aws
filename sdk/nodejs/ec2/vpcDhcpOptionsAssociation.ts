@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a VPC DHCP Options Association resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const dnsResolver = new aws.ec2.VpcDhcpOptionsAssociation("dns_resolver", {
- *     vpcId: fooAwsVpc.id,
- *     dhcpOptionsId: foo.id,
- * });
- * ```
- *
- * ## Remarks
- *
- * * You can only associate one DHCP Options Set to a given VPC ID.
- * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
- *
- * ## Import
- *
- * Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
- * ```
- */
 export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     /**
      * Get an existing VpcDhcpOptionsAssociation resource's state with the given name, ID, and optional extra
@@ -60,17 +32,8 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcDhcpOptionsAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     */
     declare public readonly dhcpOptionsId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -110,17 +73,8 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
  */
 export interface VpcDhcpOptionsAssociationState {
-    /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     */
     dhcpOptionsId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -128,16 +82,7 @@ export interface VpcDhcpOptionsAssociationState {
  * The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
  */
 export interface VpcDhcpOptionsAssociationArgs {
-    /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     */
     dhcpOptionsId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
-     */
     vpcId: pulumi.Input<string>;
 }

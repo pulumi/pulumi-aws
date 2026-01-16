@@ -28,13 +28,6 @@ class ThreatIntelSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThreatIntelSet resource.
-        :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] format: The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[_builtins.str] location: The URI of the file that contains the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] name: The friendly name to identify the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "activate", activate)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -50,9 +43,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter
     def activate(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        """
         return pulumi.get(self, "activate")
 
     @activate.setter
@@ -62,9 +52,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The detector ID of the GuardDuty.
-        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -74,9 +61,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
-        """
-        The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -86,9 +70,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[_builtins.str]:
-        """
-        The URI of the file that contains the ThreatIntelSet.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -98,9 +79,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The friendly name to identify the ThreatIntelSet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -110,9 +88,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -122,9 +97,6 @@ class ThreatIntelSetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -146,15 +118,6 @@ class _ThreatIntelSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ThreatIntelSet resources.
-        :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] format: The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[_builtins.str] location: The URI of the file that contains the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] name: The friendly name to identify the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if activate is not None:
             pulumi.set(__self__, "activate", activate)
@@ -178,9 +141,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def activate(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        """
         return pulumi.get(self, "activate")
 
     @activate.setter
@@ -190,9 +150,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -202,9 +159,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The detector ID of the GuardDuty.
-        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -214,9 +168,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -226,9 +177,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URI of the file that contains the ThreatIntelSet.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -238,9 +186,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The friendly name to identify the ThreatIntelSet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -250,9 +195,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -262,9 +204,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -274,9 +213,6 @@ class _ThreatIntelSetState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -299,55 +235,9 @@ class ThreatIntelSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a GuardDuty ThreatIntelSet.
-
-        > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.Bucket("bucket")
-        bucket_acl = aws.s3.BucketAcl("bucket_acl",
-            bucket=bucket.id,
-            acl="private")
-        my_threat_intel_set = aws.s3.BucketObjectv2("MyThreatIntelSet",
-            acl="public-read",
-            content="10.0.0.0/8\\n",
-            bucket=bucket.id,
-            key="MyThreatIntelSet")
-        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("MyThreatIntelSet",
-            activate=True,
-            detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(
-                bucket=my_threat_intel_set.bucket,
-                key=my_threat_intel_set.key
-        ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
-        ,
-            name="MyThreatIntelSet")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
-
-        ```sh
-        $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-        ```
-
+        Create a ThreatIntelSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] format: The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[_builtins.str] location: The URI of the file that contains the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] name: The friendly name to identify the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -356,46 +246,7 @@ class ThreatIntelSet(pulumi.CustomResource):
                  args: ThreatIntelSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a GuardDuty ThreatIntelSet.
-
-        > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.Bucket("bucket")
-        bucket_acl = aws.s3.BucketAcl("bucket_acl",
-            bucket=bucket.id,
-            acl="private")
-        my_threat_intel_set = aws.s3.BucketObjectv2("MyThreatIntelSet",
-            acl="public-read",
-            content="10.0.0.0/8\\n",
-            bucket=bucket.id,
-            key="MyThreatIntelSet")
-        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("MyThreatIntelSet",
-            activate=True,
-            detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(
-                bucket=my_threat_intel_set.bucket,
-                key=my_threat_intel_set.key
-        ).apply(lambda resolved_outputs: f"https://s3.amazonaws.com/{resolved_outputs['bucket']}/{resolved_outputs['key']}")
-        ,
-            name="MyThreatIntelSet")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
-
-        ```sh
-        $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-        ```
-
+        Create a ThreatIntelSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ThreatIntelSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -470,15 +321,6 @@ class ThreatIntelSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] format: The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[_builtins.str] location: The URI of the file that contains the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] name: The friendly name to identify the ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -498,72 +340,45 @@ class ThreatIntelSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def activate(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        """
         return pulumi.get(self, "activate")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The detector ID of the GuardDuty.
-        """
         return pulumi.get(self, "detector_id")
 
     @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Output[_builtins.str]:
-        """
-        The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        """
         return pulumi.get(self, "format")
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URI of the file that contains the ThreatIntelSet.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The friendly name to identify the ThreatIntelSet.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

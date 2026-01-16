@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration
     {
-        /// <summary>
-        /// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

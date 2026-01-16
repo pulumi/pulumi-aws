@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigRenameKey
     {
-        /// <summary>
-        /// Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `RenameKeys` `Entry` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogTransformerTransformerConfigRenameKeyEntry> Entries;
 
         [OutputConstructor]

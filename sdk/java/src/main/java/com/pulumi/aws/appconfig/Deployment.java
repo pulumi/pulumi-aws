@@ -16,253 +16,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppConfig Deployment resource for an `aws.appconfig.Application` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appconfig.Deployment;
- * import com.pulumi.aws.appconfig.DeploymentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Deployment("example", DeploymentArgs.builder()
- *             .applicationId(exampleAwsAppconfigApplication.id())
- *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
- *             .configurationVersion(exampleAwsAppconfigHostedConfigurationVersion.versionNumber())
- *             .deploymentStrategyId(exampleAwsAppconfigDeploymentStrategy.id())
- *             .description("My example deployment")
- *             .environmentId(exampleAwsAppconfigEnvironment.environmentId())
- *             .kmsKeyIdentifier(exampleAwsKmsKey.arn())
- *             .tags(Map.of("Type", "AppConfig Deployment"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
-    /**
-     * Application ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return Application ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * ARN of the AppConfig Deployment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig Deployment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration profile ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
-    /**
-     * @return Configuration profile ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
-    /**
-     * Configuration version to deploy. Can be at most 1024 characters.
-     * 
-     */
     @Export(name="configurationVersion", refs={String.class}, tree="[0]")
     private Output<String> configurationVersion;
 
-    /**
-     * @return Configuration version to deploy. Can be at most 1024 characters.
-     * 
-     */
     public Output<String> configurationVersion() {
         return this.configurationVersion;
     }
-    /**
-     * Deployment number.
-     * 
-     */
     @Export(name="deploymentNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> deploymentNumber;
 
-    /**
-     * @return Deployment number.
-     * 
-     */
     public Output<Integer> deploymentNumber() {
         return this.deploymentNumber;
     }
-    /**
-     * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-     * 
-     */
     @Export(name="deploymentStrategyId", refs={String.class}, tree="[0]")
     private Output<String> deploymentStrategyId;
 
-    /**
-     * @return Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-     * 
-     */
     public Output<String> deploymentStrategyId() {
         return this.deploymentStrategyId;
     }
-    /**
-     * Description of the deployment. Can be at most 1024 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the deployment. Can be at most 1024 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Environment ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
-    /**
-     * @return Environment ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
-    /**
-     * ARN of the KMS key used to encrypt configuration data.
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return ARN of the KMS key used to encrypt configuration data.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-     * 
-     */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
-    /**
-     * @return The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-     * 
-     */
     public Output<Optional<String>> kmsKeyIdentifier() {
         return Codegen.optional(this.kmsKeyIdentifier);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the deployment.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the deployment.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

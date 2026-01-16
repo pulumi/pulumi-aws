@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetOnDemandOptionsCapacityReservationOptions {
-    /**
-     * @return Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-     * 
-     */
     private @Nullable String usageStrategy;
 
     private FleetOnDemandOptionsCapacityReservationOptions() {}
-    /**
-     * @return Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
-     * 
-     */
     public Optional<String> usageStrategy() {
         return Optional.ofNullable(this.usageStrategy);
     }

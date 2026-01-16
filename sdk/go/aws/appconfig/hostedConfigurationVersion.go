@@ -12,157 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppConfig Hosted Configuration Version resource.
-//
-// ## Example Usage
-//
-// ### Freeform
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"foo": "bar",
-//				"fruit": []string{
-//					"apple",
-//					"pear",
-//					"orange",
-//				},
-//				"isThingEnabled": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          pulumi.Any(exampleAwsAppconfigApplication.Id),
-//				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
-//				Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
-//				ContentType:            pulumi.String("application/json"),
-//				Content:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Feature Flags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"flags": map[string]interface{}{
-//					"foo": map[string]interface{}{
-//						"name": "foo",
-//						"_deprecation": map[string]interface{}{
-//							"status": "planned",
-//						},
-//					},
-//					"bar": map[string]interface{}{
-//						"name": "bar",
-//						"attributes": map[string]interface{}{
-//							"someAttribute": map[string]interface{}{
-//								"constraints": map[string]interface{}{
-//									"type":     "string",
-//									"required": true,
-//								},
-//							},
-//							"someOtherAttribute": map[string]interface{}{
-//								"constraints": map[string]interface{}{
-//									"type":     "number",
-//									"required": true,
-//								},
-//							},
-//						},
-//					},
-//				},
-//				"values": map[string]interface{}{
-//					"foo": map[string]interface{}{
-//						"enabled": "true",
-//					},
-//					"bar": map[string]interface{}{
-//						"enabled":            "true",
-//						"someAttribute":      "Hello World",
-//						"someOtherAttribute": 123,
-//					},
-//				},
-//				"version": "1",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          pulumi.Any(exampleAwsAppconfigApplication.Id),
-//				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
-//				Description:            pulumi.String("Example Feature Flag Configuration Version"),
-//				ContentType:            pulumi.String("application/json"),
-//				Content:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Multi-variant Feature Flags
-//
-// ## Import
-//
-// Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-// ```
 type HostedConfigurationVersion struct {
 	pulumi.CustomResourceState
 
-	// Application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// ARN of the AppConfig  hosted configuration version.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration profile ID.
-	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
-	// Content of the configuration or the configuration data.
-	Content pulumi.StringOutput `pulumi:"content"`
-	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// Description of the configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Version number of the hosted configuration.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	ApplicationId          pulumi.StringOutput    `pulumi:"applicationId"`
+	Arn                    pulumi.StringOutput    `pulumi:"arn"`
+	ConfigurationProfileId pulumi.StringOutput    `pulumi:"configurationProfileId"`
+	Content                pulumi.StringOutput    `pulumi:"content"`
+	ContentType            pulumi.StringOutput    `pulumi:"contentType"`
+	Description            pulumi.StringPtrOutput `pulumi:"description"`
+	Region                 pulumi.StringOutput    `pulumi:"region"`
+	VersionNumber          pulumi.IntOutput       `pulumi:"versionNumber"`
 }
 
 // NewHostedConfigurationVersion registers a new resource with the given unique name, arguments, and options.
@@ -214,41 +74,25 @@ func GetHostedConfigurationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedConfigurationVersion resources.
 type hostedConfigurationVersionState struct {
-	// Application ID.
-	ApplicationId *string `pulumi:"applicationId"`
-	// ARN of the AppConfig  hosted configuration version.
-	Arn *string `pulumi:"arn"`
-	// Configuration profile ID.
+	ApplicationId          *string `pulumi:"applicationId"`
+	Arn                    *string `pulumi:"arn"`
 	ConfigurationProfileId *string `pulumi:"configurationProfileId"`
-	// Content of the configuration or the configuration data.
-	Content *string `pulumi:"content"`
-	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-	ContentType *string `pulumi:"contentType"`
-	// Description of the configuration.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Version number of the hosted configuration.
-	VersionNumber *int `pulumi:"versionNumber"`
+	Content                *string `pulumi:"content"`
+	ContentType            *string `pulumi:"contentType"`
+	Description            *string `pulumi:"description"`
+	Region                 *string `pulumi:"region"`
+	VersionNumber          *int    `pulumi:"versionNumber"`
 }
 
 type HostedConfigurationVersionState struct {
-	// Application ID.
-	ApplicationId pulumi.StringPtrInput
-	// ARN of the AppConfig  hosted configuration version.
-	Arn pulumi.StringPtrInput
-	// Configuration profile ID.
+	ApplicationId          pulumi.StringPtrInput
+	Arn                    pulumi.StringPtrInput
 	ConfigurationProfileId pulumi.StringPtrInput
-	// Content of the configuration or the configuration data.
-	Content pulumi.StringPtrInput
-	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-	ContentType pulumi.StringPtrInput
-	// Description of the configuration.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Version number of the hosted configuration.
-	VersionNumber pulumi.IntPtrInput
+	Content                pulumi.StringPtrInput
+	ContentType            pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	VersionNumber          pulumi.IntPtrInput
 }
 
 func (HostedConfigurationVersionState) ElementType() reflect.Type {
@@ -256,34 +100,22 @@ func (HostedConfigurationVersionState) ElementType() reflect.Type {
 }
 
 type hostedConfigurationVersionArgs struct {
-	// Application ID.
-	ApplicationId string `pulumi:"applicationId"`
-	// Configuration profile ID.
-	ConfigurationProfileId string `pulumi:"configurationProfileId"`
-	// Content of the configuration or the configuration data.
-	Content string `pulumi:"content"`
-	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-	ContentType string `pulumi:"contentType"`
-	// Description of the configuration.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplicationId          string  `pulumi:"applicationId"`
+	ConfigurationProfileId string  `pulumi:"configurationProfileId"`
+	Content                string  `pulumi:"content"`
+	ContentType            string  `pulumi:"contentType"`
+	Description            *string `pulumi:"description"`
+	Region                 *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a HostedConfigurationVersion resource.
 type HostedConfigurationVersionArgs struct {
-	// Application ID.
-	ApplicationId pulumi.StringInput
-	// Configuration profile ID.
+	ApplicationId          pulumi.StringInput
 	ConfigurationProfileId pulumi.StringInput
-	// Content of the configuration or the configuration data.
-	Content pulumi.StringInput
-	// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-	ContentType pulumi.StringInput
-	// Description of the configuration.
-	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Content                pulumi.StringInput
+	ContentType            pulumi.StringInput
+	Description            pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
 }
 
 func (HostedConfigurationVersionArgs) ElementType() reflect.Type {
@@ -373,42 +205,34 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWith
 	return o
 }
 
-// Application ID.
 func (o HostedConfigurationVersionOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// ARN of the AppConfig  hosted configuration version.
 func (o HostedConfigurationVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration profile ID.
 func (o HostedConfigurationVersionOutput) ConfigurationProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
 }
 
-// Content of the configuration or the configuration data.
 func (o HostedConfigurationVersionOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
 func (o HostedConfigurationVersionOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Description of the configuration.
 func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedConfigurationVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Version number of the hosted configuration.
 func (o HostedConfigurationVersionOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

@@ -21,17 +21,9 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
         return this.cidr;
     }
 
-    /**
-     * The status of the network resource.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -70,23 +62,11 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
             return cidr(Output.of(cidr));
         }
 
-        /**
-         * @param status The status of the network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the network resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

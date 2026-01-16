@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class UserSettingsCookieSynchronizationConfigurationAllowlist
     {
-        /// <summary>
-        /// Domain of the cookie.
-        /// </summary>
         public readonly string Domain;
-        /// <summary>
-        /// Name of the cookie.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Path of the cookie.
-        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

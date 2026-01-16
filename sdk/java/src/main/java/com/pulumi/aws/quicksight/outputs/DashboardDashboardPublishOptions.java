@@ -20,125 +20,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardDashboardPublishOptions {
-    /**
-     * @return Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsAdHocFilteringOption adHocFilteringOption;
-    /**
-     * @return The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsDataPointDrillUpDownOption dataPointDrillUpDownOption;
-    /**
-     * @return The data point menu label options of a dashboard. See data_point_menu_label_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsDataPointMenuLabelOption dataPointMenuLabelOption;
-    /**
-     * @return The data point tool tip options of a dashboard. See data_point_tooltip_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsDataPointTooltipOption dataPointTooltipOption;
-    /**
-     * @return Export to .csv option. See export_to_csv_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsExportToCsvOption exportToCsvOption;
-    /**
-     * @return Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsExportWithHiddenFieldsOption exportWithHiddenFieldsOption;
-    /**
-     * @return Sheet controls option. See sheet_controls_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsSheetControlsOption sheetControlsOption;
-    /**
-     * @return The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption sheetLayoutElementMaximizationOption;
-    /**
-     * @return The axis sort options of a dashboard. See visual_axis_sort_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsVisualAxisSortOption visualAxisSortOption;
-    /**
-     * @return The menu options of a visual in a dashboard. See visual_menu_option.
-     * 
-     */
     private @Nullable DashboardDashboardPublishOptionsVisualMenuOption visualMenuOption;
 
     private DashboardDashboardPublishOptions() {}
-    /**
-     * @return Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsAdHocFilteringOption> adHocFilteringOption() {
         return Optional.ofNullable(this.adHocFilteringOption);
     }
-    /**
-     * @return The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsDataPointDrillUpDownOption> dataPointDrillUpDownOption() {
         return Optional.ofNullable(this.dataPointDrillUpDownOption);
     }
-    /**
-     * @return The data point menu label options of a dashboard. See data_point_menu_label_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsDataPointMenuLabelOption> dataPointMenuLabelOption() {
         return Optional.ofNullable(this.dataPointMenuLabelOption);
     }
-    /**
-     * @return The data point tool tip options of a dashboard. See data_point_tooltip_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsDataPointTooltipOption> dataPointTooltipOption() {
         return Optional.ofNullable(this.dataPointTooltipOption);
     }
-    /**
-     * @return Export to .csv option. See export_to_csv_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsExportToCsvOption> exportToCsvOption() {
         return Optional.ofNullable(this.exportToCsvOption);
     }
-    /**
-     * @return Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsExportWithHiddenFieldsOption> exportWithHiddenFieldsOption() {
         return Optional.ofNullable(this.exportWithHiddenFieldsOption);
     }
-    /**
-     * @return Sheet controls option. See sheet_controls_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsSheetControlsOption> sheetControlsOption() {
         return Optional.ofNullable(this.sheetControlsOption);
     }
-    /**
-     * @return The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption> sheetLayoutElementMaximizationOption() {
         return Optional.ofNullable(this.sheetLayoutElementMaximizationOption);
     }
-    /**
-     * @return The axis sort options of a dashboard. See visual_axis_sort_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsVisualAxisSortOption> visualAxisSortOption() {
         return Optional.ofNullable(this.visualAxisSortOption);
     }
-    /**
-     * @return The menu options of a visual in a dashboard. See visual_menu_option.
-     * 
-     */
     public Optional<DashboardDashboardPublishOptionsVisualMenuOption> visualMenuOption() {
         return Optional.ofNullable(this.visualMenuOption);
     }

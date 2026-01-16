@@ -22,17 +22,9 @@ public final class LifecyclePolicyPolicyDetailsEventSourceArgs extends com.pulum
         return this.parameters;
     }
 
-    /**
-     * The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,23 +63,11 @@ public final class LifecyclePolicyPolicyDetailsEventSourceArgs extends com.pulum
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param type The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -9,156 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rbin
 {
-    /// <summary>
-    /// Resource for managing an AWS RBin Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rbin.Rule("example", new()
-    ///     {
-    ///         Description = "Example tag-level retention rule",
-    ///         ResourceType = "EBS_SNAPSHOT",
-    ///         ResourceTags = new[]
-    ///         {
-    ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
-    ///             {
-    ///                 ResourceTagKey = "tag_key",
-    ///                 ResourceTagValue = "tag_value",
-    ///             },
-    ///         },
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodValue = 10,
-    ///             RetentionPeriodUnit = "DAYS",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "test_tag_key", "test_tag_value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Region-Level Retention Rule
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rbin.Rule("example", new()
-    ///     {
-    ///         Description = "Example region-level retention rule with exclusion tags",
-    ///         ResourceType = "EC2_IMAGE",
-    ///         ExcludeResourceTags = new[]
-    ///         {
-    ///             new Aws.Rbin.Inputs.RuleExcludeResourceTagArgs
-    ///             {
-    ///                 ResourceTagKey = "tag_key",
-    ///                 ResourceTagValue = "tag_value",
-    ///             },
-    ///         },
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodValue = 10,
-    ///             RetentionPeriodUnit = "DAYS",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "test_tag_key", "test_tag_value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import RBin Rule using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rbin/rule:Rule example examplerule
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rbin/rule:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Retention rule description.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `ExcludeResourceTags` below.
-        /// </summary>
         [Output("excludeResourceTags")]
         public Output<ImmutableArray<Outputs.RuleExcludeResourceTag>> ExcludeResourceTags { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the retention rule lock configuration. See `LockConfiguration` below.
-        /// </summary>
         [Output("lockConfiguration")]
         public Output<Outputs.RuleLockConfiguration?> LockConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        /// </summary>
         [Output("lockEndTime")]
         public Output<string> LockEndTime { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `Locked`, `PendingUnlock`, `Unlocked`.
-        /// </summary>
         [Output("lockState")]
         public Output<string> LockState { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `ResourceTags` below.
-        /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Outputs.RuleResourceTag>> ResourceTags { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the retention period for which the retention rule is to retain resources. See `RetentionPeriod` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.RuleRetentionPeriod> RetentionPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// (String) State of the retention rule. Only retention rules that are in the `Available` state retain resources. Valid values include `Pending` and `Available`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -214,59 +97,34 @@ namespace Pulumi.Aws.Rbin
 
     public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Retention rule description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("excludeResourceTags")]
         private InputList<Inputs.RuleExcludeResourceTagArgs>? _excludeResourceTags;
-
-        /// <summary>
-        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `ExcludeResourceTags` below.
-        /// </summary>
         public InputList<Inputs.RuleExcludeResourceTagArgs> ExcludeResourceTags
         {
             get => _excludeResourceTags ?? (_excludeResourceTags = new InputList<Inputs.RuleExcludeResourceTagArgs>());
             set => _excludeResourceTags = value;
         }
 
-        /// <summary>
-        /// Information about the retention rule lock configuration. See `LockConfiguration` below.
-        /// </summary>
         [Input("lockConfiguration")]
         public Input<Inputs.RuleLockConfigurationArgs>? LockConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputList<Inputs.RuleResourceTagArgs>? _resourceTags;
-
-        /// <summary>
-        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `ResourceTags` below.
-        /// </summary>
         public InputList<Inputs.RuleResourceTagArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.RuleResourceTagArgs>());
             set => _resourceTags = value;
         }
 
-        /// <summary>
-        /// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
-        /// <summary>
-        /// Information about the retention period for which the retention rule is to retain resources. See `RetentionPeriod` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("retentionPeriod", required: true)]
         public Input<Inputs.RuleRetentionPeriodArgs> RetentionPeriod { get; set; } = null!;
 
@@ -289,77 +147,43 @@ namespace Pulumi.Aws.Rbin
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Retention rule description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("excludeResourceTags")]
         private InputList<Inputs.RuleExcludeResourceTagGetArgs>? _excludeResourceTags;
-
-        /// <summary>
-        /// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `ExcludeResourceTags` below.
-        /// </summary>
         public InputList<Inputs.RuleExcludeResourceTagGetArgs> ExcludeResourceTags
         {
             get => _excludeResourceTags ?? (_excludeResourceTags = new InputList<Inputs.RuleExcludeResourceTagGetArgs>());
             set => _excludeResourceTags = value;
         }
 
-        /// <summary>
-        /// Information about the retention rule lock configuration. See `LockConfiguration` below.
-        /// </summary>
         [Input("lockConfiguration")]
         public Input<Inputs.RuleLockConfigurationGetArgs>? LockConfiguration { get; set; }
 
-        /// <summary>
-        /// (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        /// </summary>
         [Input("lockEndTime")]
         public Input<string>? LockEndTime { get; set; }
 
-        /// <summary>
-        /// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `Locked`, `PendingUnlock`, `Unlocked`.
-        /// </summary>
         [Input("lockState")]
         public Input<string>? LockState { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputList<Inputs.RuleResourceTagGetArgs>? _resourceTags;
-
-        /// <summary>
-        /// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `ResourceTags` below.
-        /// </summary>
         public InputList<Inputs.RuleResourceTagGetArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.RuleResourceTagGetArgs>());
             set => _resourceTags = value;
         }
 
-        /// <summary>
-        /// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
-        /// <summary>
-        /// Information about the retention period for which the retention rule is to retain resources. See `RetentionPeriod` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.RuleRetentionPeriodGetArgs>? RetentionPeriod { get; set; }
 
-        /// <summary>
-        /// (String) State of the retention rule. Only retention rules that are in the `Available` state retain resources. Valid values include `Pending` and `Available`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

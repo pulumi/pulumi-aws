@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapabilityConfigurationArgoCdRbacRoleMapping {
-    /**
-     * @return List of identities. See `identity` below.
-     * 
-     */
     private @Nullable List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities;
-    /**
-     * @return ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-     * 
-     */
     private String role;
 
     private CapabilityConfigurationArgoCdRbacRoleMapping() {}
-    /**
-     * @return List of identities. See `identity` below.
-     * 
-     */
     public List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities() {
         return this.identities == null ? List.of() : this.identities;
     }
-    /**
-     * @return ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-     * 
-     */
     public String role() {
         return this.role;
     }

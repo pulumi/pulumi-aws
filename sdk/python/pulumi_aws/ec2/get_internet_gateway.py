@@ -57,9 +57,6 @@ class GetInternetGatewayResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Internet Gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -88,9 +85,6 @@ class GetInternetGatewayResult:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the internet gateway.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -126,31 +120,7 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
     """
-    `ec2.InternetGateway` provides details about a specific Internet Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    vpc_id = config.require_object("vpcId")
-    default = aws.ec2.get_internet_gateway(filters=[{
-        "name": "attachment.vpc-id",
-        "values": [vpc_id],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Internet Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -175,31 +145,7 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
-    `ec2.InternetGateway` provides details about a specific Internet Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    vpc_id = config.require_object("vpcId")
-    default = aws.ec2.get_internet_gateway(filters=[{
-        "name": "attachment.vpc-id",
-        "values": [vpc_id],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Internet Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

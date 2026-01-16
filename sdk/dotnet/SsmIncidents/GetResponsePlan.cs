@@ -11,81 +11,12 @@ namespace Pulumi.Aws.SsmIncidents
 {
     public static class GetResponsePlan
     {
-        /// <summary>
-        /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
-        ///     {
-        ///         Arn = "exampleARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResponsePlanResult> InvokeAsync(GetResponsePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
-        ///     {
-        ///         Arn = "exampleARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
-        ///     {
-        ///         Arn = "exampleARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.SsmIncidents
 
     public sealed class GetResponsePlanArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the response plan.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// The tags applied to the response plan.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.SsmIncidents
 
     public sealed class GetResponsePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the response plan.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags applied to the response plan.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,40 +70,19 @@ namespace Pulumi.Aws.SsmIncidents
     [OutputType]
     public sealed class GetResponsePlanResult
     {
-        /// <summary>
-        /// (Optional) The actions that the response plan starts at the beginning of an incident.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponsePlanActionResult> Actions;
         public readonly string Arn;
-        /// <summary>
-        /// The Chatbot chat channel used for collaboration during an incident.
-        /// </summary>
         public readonly ImmutableArray<string> ChatChannels;
-        /// <summary>
-        /// The long format of the response plan name. This field can contain spaces.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        /// </summary>
         public readonly ImmutableArray<string> Engagements;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetResponsePlanIncidentTemplateResult> IncidentTemplates;
-        /// <summary>
-        /// Information about third-party services integrated into the response plan. The following values are supported:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResponsePlanIntegrationResult> Integrations;
-        /// <summary>
-        /// The name of the PagerDuty configuration.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// The tags applied to the response plan.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

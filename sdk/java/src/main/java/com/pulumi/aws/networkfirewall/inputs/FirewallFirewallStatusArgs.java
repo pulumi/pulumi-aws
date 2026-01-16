@@ -17,32 +17,16 @@ public final class FirewallFirewallStatusArgs extends com.pulumi.resources.Resou
 
     public static final FirewallFirewallStatusArgs Empty = new FirewallFirewallStatusArgs();
 
-    /**
-     * Set of subnets configured for use by the firewall.
-     * 
-     */
     @Import(name="syncStates")
     private @Nullable Output<List<FirewallFirewallStatusSyncStateArgs>> syncStates;
 
-    /**
-     * @return Set of subnets configured for use by the firewall.
-     * 
-     */
     public Optional<Output<List<FirewallFirewallStatusSyncStateArgs>>> syncStates() {
         return Optional.ofNullable(this.syncStates);
     }
 
-    /**
-     * Set of transit gateway configured for use by the firewall.
-     * 
-     */
     @Import(name="transitGatewayAttachmentSyncStates")
     private @Nullable Output<List<FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>> transitGatewayAttachmentSyncStates;
 
-    /**
-     * @return Set of transit gateway configured for use by the firewall.
-     * 
-     */
     public Optional<Output<List<FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>>> transitGatewayAttachmentSyncStates() {
         return Optional.ofNullable(this.transitGatewayAttachmentSyncStates);
     }
@@ -72,64 +56,28 @@ public final class FirewallFirewallStatusArgs extends com.pulumi.resources.Resou
             $ = new FirewallFirewallStatusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param syncStates Set of subnets configured for use by the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncStates(@Nullable Output<List<FirewallFirewallStatusSyncStateArgs>> syncStates) {
             $.syncStates = syncStates;
             return this;
         }
 
-        /**
-         * @param syncStates Set of subnets configured for use by the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncStates(List<FirewallFirewallStatusSyncStateArgs> syncStates) {
             return syncStates(Output.of(syncStates));
         }
 
-        /**
-         * @param syncStates Set of subnets configured for use by the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncStates(FirewallFirewallStatusSyncStateArgs... syncStates) {
             return syncStates(List.of(syncStates));
         }
 
-        /**
-         * @param transitGatewayAttachmentSyncStates Set of transit gateway configured for use by the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentSyncStates(@Nullable Output<List<FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs>> transitGatewayAttachmentSyncStates) {
             $.transitGatewayAttachmentSyncStates = transitGatewayAttachmentSyncStates;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentSyncStates Set of transit gateway configured for use by the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentSyncStates(List<FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs> transitGatewayAttachmentSyncStates) {
             return transitGatewayAttachmentSyncStates(Output.of(transitGatewayAttachmentSyncStates));
         }
 
-        /**
-         * @param transitGatewayAttachmentSyncStates Set of transit gateway configured for use by the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentSyncStates(FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs... transitGatewayAttachmentSyncStates) {
             return transitGatewayAttachmentSyncStates(List.of(transitGatewayAttachmentSyncStates));
         }

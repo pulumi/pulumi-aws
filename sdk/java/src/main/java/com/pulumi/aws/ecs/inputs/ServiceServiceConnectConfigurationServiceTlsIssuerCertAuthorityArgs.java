@@ -14,17 +14,9 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
 
     public static final ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs Empty = new ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs();
 
-    /**
-     * ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
-     * 
-     */
     @Import(name="awsPcaAuthorityArn", required=true)
     private Output<String> awsPcaAuthorityArn;
 
-    /**
-     * @return ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
-     * 
-     */
     public Output<String> awsPcaAuthorityArn() {
         return this.awsPcaAuthorityArn;
     }
@@ -53,23 +45,11 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
             $ = new ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsPcaAuthorityArn ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsPcaAuthorityArn(Output<String> awsPcaAuthorityArn) {
             $.awsPcaAuthorityArn = awsPcaAuthorityArn;
             return this;
         }
 
-        /**
-         * @param awsPcaAuthorityArn ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsPcaAuthorityArn(String awsPcaAuthorityArn) {
             return awsPcaAuthorityArn(Output.of(awsPcaAuthorityArn));
         }

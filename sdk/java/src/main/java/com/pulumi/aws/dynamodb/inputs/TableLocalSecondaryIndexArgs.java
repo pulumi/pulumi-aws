@@ -17,62 +17,30 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
 
     public static final TableLocalSecondaryIndexArgs Empty = new TableLocalSecondaryIndexArgs();
 
-    /**
-     * Name of the index
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the index
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-     * 
-     */
     @Import(name="nonKeyAttributes")
     private @Nullable Output<List<String>> nonKeyAttributes;
 
-    /**
-     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-     * 
-     */
     public Optional<Output<List<String>>> nonKeyAttributes() {
         return Optional.ofNullable(this.nonKeyAttributes);
     }
 
-    /**
-     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-     * 
-     */
     @Import(name="projectionType", required=true)
     private Output<String> projectionType;
 
-    /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-     * 
-     */
     public Output<String> projectionType() {
         return this.projectionType;
     }
 
-    /**
-     * Name of the range key.
-     * 
-     */
     @Import(name="rangeKey", required=true)
     private Output<String> rangeKey;
 
-    /**
-     * @return Name of the range key.
-     * 
-     */
     public Output<String> rangeKey() {
         return this.rangeKey;
     }
@@ -104,96 +72,42 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
             $ = new TableLocalSecondaryIndexArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the index
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the index
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonKeyAttributes(@Nullable Output<List<String>> nonKeyAttributes) {
             $.nonKeyAttributes = nonKeyAttributes;
             return this;
         }
 
-        /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonKeyAttributes(List<String> nonKeyAttributes) {
             return nonKeyAttributes(Output.of(nonKeyAttributes));
         }
 
-        /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
 
-        /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectionType(Output<String> projectionType) {
             $.projectionType = projectionType;
             return this;
         }
 
-        /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectionType(String projectionType) {
             return projectionType(Output.of(projectionType));
         }
 
-        /**
-         * @param rangeKey Name of the range key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rangeKey(Output<String> rangeKey) {
             $.rangeKey = rangeKey;
             return this;
         }
 
-        /**
-         * @param rangeKey Name of the range key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rangeKey(String rangeKey) {
             return rangeKey(Output.of(rangeKey));
         }

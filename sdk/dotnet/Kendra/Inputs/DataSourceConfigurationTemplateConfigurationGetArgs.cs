@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class DataSourceConfigurationTemplateConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-        /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
 

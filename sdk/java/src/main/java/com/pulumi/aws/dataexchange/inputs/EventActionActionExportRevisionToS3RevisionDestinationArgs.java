@@ -16,34 +16,16 @@ public final class EventActionActionExportRevisionToS3RevisionDestinationArgs ex
 
     public static final EventActionActionExportRevisionToS3RevisionDestinationArgs Empty = new EventActionActionExportRevisionToS3RevisionDestinationArgs();
 
-    /**
-     * The S3 bucket where the revision will be exported.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The S3 bucket where the revision will be exported.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Pattern for naming revisions in the S3 bucket.
-     * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-     * 
-     */
     @Import(name="keyPattern")
     private @Nullable Output<String> keyPattern;
 
-    /**
-     * @return Pattern for naming revisions in the S3 bucket.
-     * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-     * 
-     */
     public Optional<Output<String>> keyPattern() {
         return Optional.ofNullable(this.keyPattern);
     }
@@ -73,46 +55,20 @@ public final class EventActionActionExportRevisionToS3RevisionDestinationArgs ex
             $ = new EventActionActionExportRevisionToS3RevisionDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The S3 bucket where the revision will be exported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The S3 bucket where the revision will be exported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param keyPattern Pattern for naming revisions in the S3 bucket.
-         * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPattern(@Nullable Output<String> keyPattern) {
             $.keyPattern = keyPattern;
             return this;
         }
 
-        /**
-         * @param keyPattern Pattern for naming revisions in the S3 bucket.
-         * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPattern(String keyPattern) {
             return keyPattern(Output.of(keyPattern));
         }

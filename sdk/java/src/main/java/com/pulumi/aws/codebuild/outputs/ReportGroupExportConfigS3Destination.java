@@ -13,67 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReportGroupExportConfigS3Destination {
-    /**
-     * @return The name of the S3 bucket where the raw data of a report are exported.
-     * 
-     */
     private String bucket;
-    /**
-     * @return A boolean value that specifies if the results of a report are encrypted.
-     * **Note: the API does not currently allow setting encryption as disabled**
-     * 
-     */
     private @Nullable Boolean encryptionDisabled;
-    /**
-     * @return The encryption key for the report&#39;s encrypted raw data. The KMS key ARN.
-     * 
-     */
     private String encryptionKey;
-    /**
-     * @return The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-     * 
-     */
     private @Nullable String packaging;
-    /**
-     * @return The path to the exported report&#39;s raw data results.
-     * 
-     */
     private @Nullable String path;
 
     private ReportGroupExportConfigS3Destination() {}
-    /**
-     * @return The name of the S3 bucket where the raw data of a report are exported.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return A boolean value that specifies if the results of a report are encrypted.
-     * **Note: the API does not currently allow setting encryption as disabled**
-     * 
-     */
     public Optional<Boolean> encryptionDisabled() {
         return Optional.ofNullable(this.encryptionDisabled);
     }
-    /**
-     * @return The encryption key for the report&#39;s encrypted raw data. The KMS key ARN.
-     * 
-     */
     public String encryptionKey() {
         return this.encryptionKey;
     }
-    /**
-     * @return The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-     * 
-     */
     public Optional<String> packaging() {
         return Optional.ofNullable(this.packaging);
     }
-    /**
-     * @return The path to the exported report&#39;s raw data results.
-     * 
-     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }

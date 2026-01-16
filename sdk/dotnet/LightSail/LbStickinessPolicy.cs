@@ -9,76 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages session stickiness for a Lightsail Load Balancer.
-    /// 
-    /// Use this resource to configure session stickiness to ensure that user sessions are consistently routed to the same backend instance. This helps maintain session state for applications that store session data locally on the server.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.Lb("example", new()
-    ///     {
-    ///         Name = "example-load-balancer",
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleLbStickinessPolicy = new Aws.LightSail.LbStickinessPolicy("example", new()
-    ///     {
-    ///         LbName = example.Name,
-    ///         CookieDuration = 900,
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")]
     public partial class LbStickinessPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Cookie duration in seconds. This determines the length of the session stickiness.
-        /// </summary>
         [Output("cookieDuration")]
         public Output<int> CookieDuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to enable session stickiness for the load balancer.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the load balancer to which you want to enable session stickiness.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,29 +70,15 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cookie duration in seconds. This determines the length of the session stickiness.
-        /// </summary>
         [Input("cookieDuration", required: true)]
         public Input<int> CookieDuration { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to enable session stickiness for the load balancer.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the load balancer to which you want to enable session stickiness.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,29 +90,15 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbStickinessPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cookie duration in seconds. This determines the length of the session stickiness.
-        /// </summary>
         [Input("cookieDuration")]
         public Input<int>? CookieDuration { get; set; }
 
-        /// <summary>
-        /// Whether to enable session stickiness for the load balancer.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Name of the load balancer to which you want to enable session stickiness.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

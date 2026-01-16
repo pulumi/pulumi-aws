@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDbSystemShapesResult {
     private @Nullable String availabilityZoneId;
-    /**
-     * @return The list of shapes and their properties. Information about a hardware system model (shape) that&#39;s available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
-     * 
-     */
     private List<GetDbSystemShapesDbSystemShape> dbSystemShapes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -31,10 +27,6 @@ public final class GetDbSystemShapesResult {
     public Optional<String> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
-    /**
-     * @return The list of shapes and their properties. Information about a hardware system model (shape) that&#39;s available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
-     * 
-     */
     public List<GetDbSystemShapesDbSystemShape> dbSystemShapes() {
         return this.dbSystemShapes;
     }

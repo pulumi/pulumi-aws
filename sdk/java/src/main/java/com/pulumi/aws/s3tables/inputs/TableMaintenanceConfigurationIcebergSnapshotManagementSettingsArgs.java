@@ -14,36 +14,16 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
 
     public static final TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs Empty = new TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs();
 
-    /**
-     * Snapshots older than this will be marked for deletiion.
-     * Must be at least `1`.
-     * 
-     */
     @Import(name="maxSnapshotAgeHours", required=true)
     private Output<Integer> maxSnapshotAgeHours;
 
-    /**
-     * @return Snapshots older than this will be marked for deletiion.
-     * Must be at least `1`.
-     * 
-     */
     public Output<Integer> maxSnapshotAgeHours() {
         return this.maxSnapshotAgeHours;
     }
 
-    /**
-     * Minimum number of snapshots to keep.
-     * Must be at least `1`.
-     * 
-     */
     @Import(name="minSnapshotsToKeep", required=true)
     private Output<Integer> minSnapshotsToKeep;
 
-    /**
-     * @return Minimum number of snapshots to keep.
-     * Must be at least `1`.
-     * 
-     */
     public Output<Integer> minSnapshotsToKeep() {
         return this.minSnapshotsToKeep;
     }
@@ -73,48 +53,20 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
             $ = new TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletiion.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxSnapshotAgeHours(Output<Integer> maxSnapshotAgeHours) {
             $.maxSnapshotAgeHours = maxSnapshotAgeHours;
             return this;
         }
 
-        /**
-         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletiion.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxSnapshotAgeHours(Integer maxSnapshotAgeHours) {
             return maxSnapshotAgeHours(Output.of(maxSnapshotAgeHours));
         }
 
-        /**
-         * @param minSnapshotsToKeep Minimum number of snapshots to keep.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minSnapshotsToKeep(Output<Integer> minSnapshotsToKeep) {
             $.minSnapshotsToKeep = minSnapshotsToKeep;
             return this;
         }
 
-        /**
-         * @param minSnapshotsToKeep Minimum number of snapshots to keep.
-         * Must be at least `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minSnapshotsToKeep(Integer minSnapshotsToKeep) {
             return minSnapshotsToKeep(Output.of(minSnapshotsToKeep));
         }

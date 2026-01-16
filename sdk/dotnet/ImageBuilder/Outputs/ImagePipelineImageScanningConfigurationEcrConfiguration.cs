@@ -14,9 +14,6 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class ImagePipelineImageScanningConfigurationEcrConfiguration
     {
         public readonly ImmutableArray<string> ContainerTags;
-        /// <summary>
-        /// The name of the repository to scan
-        /// </summary>
         public readonly string? RepositoryName;
 
         [OutputConstructor]

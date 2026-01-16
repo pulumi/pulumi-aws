@@ -9,62 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Attaches a Managed IAM Policy to an IAM user
-    /// 
-    /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var user = new Aws.Iam.User("user", new()
-    ///     {
-    ///         Name = "test-user",
-    ///     });
-    /// 
-    ///     var policy = new Aws.Iam.Policy("policy", new()
-    ///     {
-    ///         Name = "test-policy",
-    ///         Description = "A test policy",
-    ///         PolicyDocument = "{ ... policy JSON ... }",
-    ///     });
-    /// 
-    ///     var test_attach = new Aws.Iam.UserPolicyAttachment("test-attach", new()
-    ///     {
-    ///         User = user.Name,
-    ///         PolicyArn = policy.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/userPolicyAttachment:UserPolicyAttachment")]
     public partial class UserPolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the policy you want to apply
-        /// </summary>
         [Output("policyArn")]
         public Output<string> PolicyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The user the policy should be applied to
-        /// </summary>
         [Output("user")]
         public Output<string> User { get; private set; } = null!;
 
@@ -114,15 +64,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the policy you want to apply
-        /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
 
-        /// <summary>
-        /// The user the policy should be applied to
-        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 
@@ -134,15 +78,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the policy you want to apply
-        /// </summary>
         [Input("policyArn")]
         public Input<string>? PolicyArn { get; set; }
 
-        /// <summary>
-        /// The user the policy should be applied to
-        /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }
 

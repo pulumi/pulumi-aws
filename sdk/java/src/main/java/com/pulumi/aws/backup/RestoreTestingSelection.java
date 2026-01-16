@@ -18,225 +18,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Backup Restore Testing Selection.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.RestoreTestingSelection;
- * import com.pulumi.aws.backup.RestoreTestingSelectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RestoreTestingSelection("example", RestoreTestingSelectionArgs.builder()
- *             .name("ec2_selection")
- *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.name())
- *             .protectedResourceType("EC2")
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .protectedResourceArns("*")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Advanced Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.RestoreTestingSelection;
- * import com.pulumi.aws.backup.RestoreTestingSelectionArgs;
- * import com.pulumi.aws.backup.inputs.RestoreTestingSelectionProtectedResourceConditionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RestoreTestingSelection("example", RestoreTestingSelectionArgs.builder()
- *             .name("ec2_selection")
- *             .restoreTestingPlanName(exampleAwsBackupRestoreTestingPlan.name())
- *             .protectedResourceType("EC2")
- *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .protectedResourceConditions(RestoreTestingSelectionProtectedResourceConditionsArgs.builder()
- *                 .stringEquals(RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs.builder()
- *                     .key("aws:ResourceTag/backup")
- *                     .value("true")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup Restore Testing Selection using `name:restore_testing_plan_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/restoreTestingSelection:RestoreTestingSelection example restore_testing_selection_12345678:restore_testing_plan_12345678
- * ```
- * 
- */
 @ResourceType(type="aws:backup/restoreTestingSelection:RestoreTestingSelection")
 public class RestoreTestingSelection extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the IAM role.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return The ARN of the IAM role.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * The name of the backup restore testing selection.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the backup restore testing selection.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ARNs for the protected resources.
-     * 
-     */
     @Export(name="protectedResourceArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protectedResourceArns;
 
-    /**
-     * @return The ARNs for the protected resources.
-     * 
-     */
     public Output<List<String>> protectedResourceArns() {
         return this.protectedResourceArns;
     }
-    /**
-     * The conditions for the protected resource.
-     * 
-     */
     @Export(name="protectedResourceConditions", refs={RestoreTestingSelectionProtectedResourceConditions.class}, tree="[0]")
     private Output</* @Nullable */ RestoreTestingSelectionProtectedResourceConditions> protectedResourceConditions;
 
-    /**
-     * @return The conditions for the protected resource.
-     * 
-     */
     public Output<Optional<RestoreTestingSelectionProtectedResourceConditions>> protectedResourceConditions() {
         return Codegen.optional(this.protectedResourceConditions);
     }
-    /**
-     * The type of the protected resource.
-     * 
-     */
     @Export(name="protectedResourceType", refs={String.class}, tree="[0]")
     private Output<String> protectedResourceType;
 
-    /**
-     * @return The type of the protected resource.
-     * 
-     */
     public Output<String> protectedResourceType() {
         return this.protectedResourceType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-     * 
-     */
     @Export(name="restoreMetadataOverrides", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> restoreMetadataOverrides;
 
-    /**
-     * @return Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-     * 
-     */
     public Output<Map<String,String>> restoreMetadataOverrides() {
         return this.restoreMetadataOverrides;
     }
-    /**
-     * The name of the restore testing plan.
-     * 
-     */
     @Export(name="restoreTestingPlanName", refs={String.class}, tree="[0]")
     private Output<String> restoreTestingPlanName;
 
-    /**
-     * @return The name of the restore testing plan.
-     * 
-     */
     public Output<String> restoreTestingPlanName() {
         return this.restoreTestingPlanName;
     }
-    /**
-     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-     * 
-     */
     @Export(name="validationWindowHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> validationWindowHours;
 
-    /**
-     * @return The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-     * 
-     */
     public Output<Integer> validationWindowHours() {
         return this.validationWindowHours;
     }

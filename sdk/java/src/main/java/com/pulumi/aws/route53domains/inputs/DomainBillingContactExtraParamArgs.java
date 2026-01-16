@@ -14,32 +14,16 @@ public final class DomainBillingContactExtraParamArgs extends com.pulumi.resourc
 
     public static final DomainBillingContactExtraParamArgs Empty = new DomainBillingContactExtraParamArgs();
 
-    /**
-     * The name of an additional parameter that is required by a top-level domain.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of an additional parameter that is required by a top-level domain.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value that corresponds with the name of an extra parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value that corresponds with the name of an extra parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class DomainBillingContactExtraParamArgs extends com.pulumi.resourc
             $ = new DomainBillingContactExtraParamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of an additional parameter that is required by a top-level domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of an additional parameter that is required by a top-level domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value that corresponds with the name of an extra parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value that corresponds with the name of an extra parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

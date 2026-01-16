@@ -11,69 +11,12 @@ namespace Pulumi.Aws.ServiceDiscovery
 {
     public static class GetHttpNamespace
     {
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceDiscovery.GetHttpNamespace.Invoke(new()
-        ///     {
-        ///         Name = "development",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetHttpNamespaceResult> InvokeAsync(GetHttpNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceDiscovery.GetHttpNamespace.Invoke(new()
-        ///     {
-        ///         Name = "development",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceDiscovery.GetHttpNamespace.Invoke(new()
-        ///     {
-        ///         Name = "development",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
     }
@@ -81,24 +24,14 @@ namespace Pulumi.Aws.ServiceDiscovery
 
     public sealed class GetHttpNamespaceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the http namespace.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -113,24 +46,14 @@ namespace Pulumi.Aws.ServiceDiscovery
 
     public sealed class GetHttpNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the http namespace.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -147,17 +70,8 @@ namespace Pulumi.Aws.ServiceDiscovery
     [OutputType]
     public sealed class GetHttpNamespaceResult
     {
-        /// <summary>
-        /// ARN that Amazon Route 53 assigns to the namespace when you create it.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description that you specify for the namespace when you create it.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Name of an HTTP namespace.
-        /// </summary>
         public readonly string HttpName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -165,9 +79,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

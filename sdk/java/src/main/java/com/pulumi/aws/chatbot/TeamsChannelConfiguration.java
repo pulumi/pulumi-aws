@@ -18,259 +18,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Chatbot Microsoft Teams Channel Configuration.
- * 
- * &gt; **NOTE:** We provide this resource on a best-effort basis. If you are able to test it and find it useful, we welcome your input at GitHub.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chatbot.TeamsChannelConfiguration;
- * import com.pulumi.aws.chatbot.TeamsChannelConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new TeamsChannelConfiguration("test", TeamsChannelConfigurationArgs.builder()
- *             .channelId("C07EZ1ABC23")
- *             .configurationName("mitt-lags-kanal")
- *             .iamRoleArn(testAwsIamRole.arn())
- *             .teamId("74361522-da01-538d-aa2e-ac7918c6bb92")
- *             .tenantId("1234")
- *             .tags(Map.of("Name", "mitt-lags-kanal"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Chatbot Microsoft Teams Channel Configuration using the `team_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
- * ```
- * 
- */
 @ResourceType(type="aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration")
 public class TeamsChannelConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the Microsoft Teams channel.
-     * 
-     */
     @Export(name="channelId", refs={String.class}, tree="[0]")
     private Output<String> channelId;
 
-    /**
-     * @return ID of the Microsoft Teams channel.
-     * 
-     */
     public Output<String> channelId() {
         return this.channelId;
     }
-    /**
-     * Name of the Microsoft Teams channel.
-     * 
-     */
     @Export(name="channelName", refs={String.class}, tree="[0]")
     private Output<String> channelName;
 
-    /**
-     * @return Name of the Microsoft Teams channel.
-     * 
-     */
     public Output<String> channelName() {
         return this.channelName;
     }
-    /**
-     * ARN of the Microsoft Teams channel configuration.
-     * 
-     */
     @Export(name="chatConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> chatConfigurationArn;
 
-    /**
-     * @return ARN of the Microsoft Teams channel configuration.
-     * 
-     */
     public Output<String> chatConfigurationArn() {
         return this.chatConfigurationArn;
     }
-    /**
-     * Name of the Microsoft Teams channel configuration.
-     * 
-     */
     @Export(name="configurationName", refs={String.class}, tree="[0]")
     private Output<String> configurationName;
 
-    /**
-     * @return Name of the Microsoft Teams channel configuration.
-     * 
-     */
     public Output<String> configurationName() {
         return this.configurationName;
     }
-    /**
-     * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-     * 
-     */
     @Export(name="guardrailPolicyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> guardrailPolicyArns;
 
-    /**
-     * @return List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-     * 
-     */
     public Output<List<String>> guardrailPolicyArns() {
         return this.guardrailPolicyArns;
     }
-    /**
-     * ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * Logging levels include `ERROR`, `INFO`, or `NONE`.
-     * 
-     */
     @Export(name="loggingLevel", refs={String.class}, tree="[0]")
     private Output<String> loggingLevel;
 
-    /**
-     * @return Logging levels include `ERROR`, `INFO`, or `NONE`.
-     * 
-     */
     public Output<String> loggingLevel() {
         return this.loggingLevel;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-     * 
-     */
     @Export(name="snsTopicArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> snsTopicArns;
 
-    /**
-     * @return ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-     * 
-     */
     public Output<List<String>> snsTopicArns() {
         return this.snsTopicArns;
     }
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-     * 
-     */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
-    /**
-     * @return ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-     * 
-     */
     public Output<String> teamId() {
         return this.teamId;
     }
-    /**
-     * Name of the Microsoft Teams team.
-     * 
-     */
     @Export(name="teamName", refs={String.class}, tree="[0]")
     private Output<String> teamName;
 
-    /**
-     * @return Name of the Microsoft Teams team.
-     * 
-     */
     public Output<String> teamName() {
         return this.teamName;
     }
-    /**
-     * ID of the Microsoft Teams tenant.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
-    /**
-     * @return ID of the Microsoft Teams tenant.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> tenantId() {
         return this.tenantId;
     }
@@ -280,17 +110,9 @@ public class TeamsChannelConfiguration extends com.pulumi.resources.CustomResour
     public Output<Optional<TeamsChannelConfigurationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Enables use of a user role requirement in your chat configuration.
-     * 
-     */
     @Export(name="userAuthorizationRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> userAuthorizationRequired;
 
-    /**
-     * @return Enables use of a user role requirement in your chat configuration.
-     * 
-     */
     public Output<Boolean> userAuthorizationRequired() {
         return this.userAuthorizationRequired;
     }

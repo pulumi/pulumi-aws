@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount {
-    /**
-     * @return Maximum.
-     * 
-     */
     private Integer max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private Integer min;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Integer max() {
         return this.max;
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Integer min() {
         return this.min;
     }

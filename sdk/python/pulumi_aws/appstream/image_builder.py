@@ -37,22 +37,6 @@ class ImageBuilderArgs:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type to use when launching the image builder.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
-        :param pulumi.Input[_builtins.str] description: Description to display.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to apply to the image builder.
-        :param pulumi.Input[_builtins.str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[_builtins.str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[_builtins.str] name: Unique name for the image builder.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if access_endpoints is not None:
@@ -85,9 +69,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instance type to use when launching the image builder.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -97,9 +78,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
-        """
-        Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
@@ -109,9 +87,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the AppStream 2.0 agent to use for this image builder.
-        """
         return pulumi.get(self, "appstream_agent_version")
 
     @appstream_agent_version.setter
@@ -121,9 +96,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description to display.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -133,9 +105,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable friendly name for the AppStream image builder.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -145,9 +114,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
-        """
-        Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
@@ -157,9 +123,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables or disables default internet access for the image builder.
-        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
@@ -169,9 +132,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role to apply to the image builder.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -181,9 +141,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the public, private, or shared image to use.
-        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -193,9 +150,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the image used to create the image builder.
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -205,11 +159,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the image builder.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -219,9 +168,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -231,9 +177,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -243,9 +186,6 @@ class ImageBuilderArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
-        """
-        Configuration block for the VPC configuration for the image builder. See below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -276,26 +216,6 @@ class _ImageBuilderState:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ImageBuilder resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream image builder.
-        :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-        :param pulumi.Input[_builtins.str] description: Description to display.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to apply to the image builder.
-        :param pulumi.Input[_builtins.str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[_builtins.str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type to use when launching the image builder.
-        :param pulumi.Input[_builtins.str] name: Unique name for the image builder.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -337,9 +257,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
-        """
-        Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
@@ -349,9 +266,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the AppStream 2.0 agent to use for this image builder.
-        """
         return pulumi.get(self, "appstream_agent_version")
 
     @appstream_agent_version.setter
@@ -361,9 +275,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the appstream image builder.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -373,9 +284,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -385,9 +293,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description to display.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -397,9 +302,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable friendly name for the AppStream image builder.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -409,9 +311,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
-        """
-        Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
@@ -421,9 +320,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables or disables default internet access for the image builder.
-        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
@@ -433,9 +329,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role to apply to the image builder.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -445,9 +338,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the public, private, or shared image to use.
-        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -457,9 +347,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the image used to create the image builder.
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -469,9 +356,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance type to use when launching the image builder.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -481,11 +365,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the image builder.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -495,9 +374,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -507,9 +383,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -519,9 +392,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -531,9 +401,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -543,9 +410,6 @@ class _ImageBuilderState:
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
-        """
-        Configuration block for the VPC configuration for the image builder. See below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -575,55 +439,9 @@ class ImageBuilder(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides an AppStream image builder.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_fleet = aws.appstream.ImageBuilder("test_fleet",
-            name="Name",
-            description="Description of a ImageBuilder",
-            display_name="Display name of a ImageBuilder",
-            enable_default_internet_access=False,
-            image_name="AppStream-WinServer2019-10-05-2022",
-            instance_type="stream.standard.large",
-            vpc_config={
-                "subnet_ids": [example["id"]],
-            },
-            tags={
-                "Name": "Example Image Builder",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
-        ```
-
+        Create a ImageBuilder resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
-        :param pulumi.Input[_builtins.str] description: Description to display.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to apply to the image builder.
-        :param pulumi.Input[_builtins.str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[_builtins.str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type to use when launching the image builder.
-        :param pulumi.Input[_builtins.str] name: Unique name for the image builder.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         ...
     @overload
@@ -632,37 +450,7 @@ class ImageBuilder(pulumi.CustomResource):
                  args: ImageBuilderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppStream image builder.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_fleet = aws.appstream.ImageBuilder("test_fleet",
-            name="Name",
-            description="Description of a ImageBuilder",
-            display_name="Display name of a ImageBuilder",
-            enable_default_internet_access=False,
-            image_name="AppStream-WinServer2019-10-05-2022",
-            instance_type="stream.standard.large",
-            vpc_config={
-                "subnet_ids": [example["id"]],
-            },
-            tags={
-                "Name": "Example Image Builder",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
-        ```
-
+        Create a ImageBuilder resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ImageBuilderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -756,26 +544,6 @@ class ImageBuilder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream image builder.
-        :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-        :param pulumi.Input[_builtins.str] description: Description to display.
-        :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[_builtins.bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
-        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to apply to the image builder.
-        :param pulumi.Input[_builtins.str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[_builtins.str] image_name: Name of the image used to create the image builder.
-        :param pulumi.Input[_builtins.str] instance_type: Instance type to use when launching the image builder.
-        :param pulumi.Input[_builtins.str] name: Unique name for the image builder.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -804,146 +572,90 @@ class ImageBuilder(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ImageBuilderAccessEndpoint']]]:
-        """
-        Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
-        """
         return pulumi.get(self, "access_endpoints")
 
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the AppStream 2.0 agent to use for this image builder.
-        """
         return pulumi.get(self, "appstream_agent_version")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the appstream image builder.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description to display.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Human-readable friendly name for the AppStream image builder.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> pulumi.Output['outputs.ImageBuilderDomainJoinInfo']:
-        """
-        Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
-        """
         return pulumi.get(self, "domain_join_info")
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Enables or disables default internet access for the image builder.
-        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the IAM role to apply to the image builder.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the public, private, or shared image to use.
-        """
         return pulumi.get(self, "image_arn")
 
     @_builtins.property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the image used to create the image builder.
-        """
         return pulumi.get(self, "image_name")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance type to use when launching the image builder.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for the image builder.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output['outputs.ImageBuilderVpcConfig']:
-        """
-        Configuration block for the VPC configuration for the image builder. See below.
-        """
         return pulumi.get(self, "vpc_config")
 

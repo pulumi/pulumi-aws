@@ -30,27 +30,17 @@ class MonitorLocalResource(dict):
     def __init__(__self__, *,
                  identifier: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param _builtins.str type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> _builtins.str:
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -59,27 +49,17 @@ class MonitorRemoteResource(dict):
     def __init__(__self__, *,
                  identifier: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str identifier: The identifier of the resource. For VPC resources, this is the VPC ARN.
-        :param _builtins.str type: The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> _builtins.str:
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -148,10 +128,6 @@ class ScopeTarget(dict):
     def __init__(__self__, *,
                  region: _builtins.str,
                  target_identifier: Optional['outputs.ScopeTargetTargetIdentifier'] = None):
-        """
-        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param 'ScopeTargetTargetIdentifierArgs' target_identifier: A target identifier is a pair of identifying information for a scope.
-        """
         pulumi.set(__self__, "region", region)
         if target_identifier is not None:
             pulumi.set(__self__, "target_identifier", target_identifier)
@@ -159,17 +135,11 @@ class ScopeTarget(dict):
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> Optional['outputs.ScopeTargetTargetIdentifier']:
-        """
-        A target identifier is a pair of identifying information for a scope.
-        """
         return pulumi.get(self, "target_identifier")
 
 
@@ -197,10 +167,6 @@ class ScopeTargetTargetIdentifier(dict):
     def __init__(__self__, *,
                  target_type: _builtins.str,
                  target_id: Optional['outputs.ScopeTargetTargetIdentifierTargetId'] = None):
-        """
-        :param _builtins.str target_type: The type of a target. A target type is currently always `ACCOUNT`.
-        :param 'ScopeTargetTargetIdentifierTargetIdArgs' target_id: The identifier for a target, which is currently always an account ID.
-        """
         pulumi.set(__self__, "target_type", target_type)
         if target_id is not None:
             pulumi.set(__self__, "target_id", target_id)
@@ -208,17 +174,11 @@ class ScopeTargetTargetIdentifier(dict):
     @_builtins.property
     @pulumi.getter(name="targetType")
     def target_type(self) -> _builtins.str:
-        """
-        The type of a target. A target type is currently always `ACCOUNT`.
-        """
         return pulumi.get(self, "target_type")
 
     @_builtins.property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional['outputs.ScopeTargetTargetIdentifierTargetId']:
-        """
-        The identifier for a target, which is currently always an account ID.
-        """
         return pulumi.get(self, "target_id")
 
 
@@ -243,17 +203,11 @@ class ScopeTargetTargetIdentifierTargetId(dict):
 
     def __init__(__self__, *,
                  account_id: _builtins.str):
-        """
-        :param _builtins.str account_id: AWS account ID.
-        """
         pulumi.set(__self__, "account_id", account_id)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> _builtins.str:
-        """
-        AWS account ID.
-        """
         return pulumi.get(self, "account_id")
 
 

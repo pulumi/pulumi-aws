@@ -9,83 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Resource for managing an AWS SSO Admin Application Assignment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
-    ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
-    ///         PrincipalId = exampleAwsIdentitystoreUser.UserId,
-    ///         PrincipalType = "USER",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Group Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
-    ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
-    ///         PrincipalId = exampleAwsIdentitystoreGroup.GroupId,
-    ///         PrincipalType = "GROUP",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAssignment:ApplicationAssignment")]
     public partial class ApplicationAssignment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -135,27 +70,15 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ApplicationAssignmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -167,27 +90,15 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ApplicationAssignmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

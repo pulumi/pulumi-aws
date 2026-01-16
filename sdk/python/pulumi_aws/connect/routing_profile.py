@@ -31,15 +31,6 @@ class RoutingProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoutingProfile resource.
-        :param pulumi.Input[_builtins.str] default_outbound_queue_id: Specifies the default outbound queue for the Routing Profile.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Routing Profile.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Routing Profile.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "default_outbound_queue_id", default_outbound_queue_id)
         pulumi.set(__self__, "description", description)
@@ -57,9 +48,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter(name="defaultOutboundQueueId")
     def default_outbound_queue_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the default outbound queue for the Routing Profile.
-        """
         return pulumi.get(self, "default_outbound_queue_id")
 
     @default_outbound_queue_id.setter
@@ -69,9 +57,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the description of the Routing Profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -81,9 +66,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -93,9 +75,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter(name="mediaConcurrencies")
     def media_concurrencies(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]]:
-        """
-        One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        """
         return pulumi.get(self, "media_concurrencies")
 
     @media_concurrencies.setter
@@ -105,9 +84,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the Routing Profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,9 +93,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]]:
-        """
-        One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        """
         return pulumi.get(self, "queue_configs")
 
     @queue_configs.setter
@@ -129,9 +102,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -141,10 +111,6 @@ class RoutingProfileArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the Routing Profile. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -168,18 +134,6 @@ class _RoutingProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RoutingProfile resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Routing Profile.
-        :param pulumi.Input[_builtins.str] default_outbound_queue_id: Specifies the default outbound queue for the Routing Profile.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Routing Profile.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Routing Profile.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] routing_profile_id: Identifier for the Routing Profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -207,9 +161,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Routing Profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -219,9 +170,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter(name="defaultOutboundQueueId")
     def default_outbound_queue_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the default outbound queue for the Routing Profile.
-        """
         return pulumi.get(self, "default_outbound_queue_id")
 
     @default_outbound_queue_id.setter
@@ -231,9 +179,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the Routing Profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -243,9 +188,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -255,9 +197,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter(name="mediaConcurrencies")
     def media_concurrencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]]]:
-        """
-        One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        """
         return pulumi.get(self, "media_concurrencies")
 
     @media_concurrencies.setter
@@ -267,9 +206,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the Routing Profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -279,9 +215,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]]:
-        """
-        One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        """
         return pulumi.get(self, "queue_configs")
 
     @queue_configs.setter
@@ -291,9 +224,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -303,9 +233,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the Routing Profile.
-        """
         return pulumi.get(self, "routing_profile_id")
 
     @routing_profile_id.setter
@@ -315,10 +242,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the Routing Profile. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -328,9 +251,6 @@ class _RoutingProfileState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -354,66 +274,9 @@ class RoutingProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon Connect Routing Profile resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.RoutingProfile("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="example",
-            default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
-            description="example description",
-            media_concurrencies=[
-                {
-                    "channel": "VOICE",
-                    "concurrency": 1,
-                    "cross_channel_behavior": {
-                        "behavior_type": "ROUTE_ANY_CHANNEL",
-                    },
-                },
-                {
-                    "channel": "CHAT",
-                    "concurrency": 3,
-                    "cross_channel_behavior": {
-                        "behavior_type": "ROUTE_CURRENT_CHANNEL_ONLY",
-                    },
-                },
-            ],
-            queue_configs=[{
-                "channel": "VOICE",
-                "delay": 2,
-                "priority": 1,
-                "queue_id": "12345678-1234-1234-1234-123456789012",
-            }],
-            tags={
-                "Name": "Example Routing Profile",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a RoutingProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] default_outbound_queue_id: Specifies the default outbound queue for the Routing Profile.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Routing Profile.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Routing Profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -422,55 +285,7 @@ class RoutingProfile(pulumi.CustomResource):
                  args: RoutingProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Connect Routing Profile resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.RoutingProfile("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="example",
-            default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
-            description="example description",
-            media_concurrencies=[
-                {
-                    "channel": "VOICE",
-                    "concurrency": 1,
-                    "cross_channel_behavior": {
-                        "behavior_type": "ROUTE_ANY_CHANNEL",
-                    },
-                },
-                {
-                    "channel": "CHAT",
-                    "concurrency": 3,
-                    "cross_channel_behavior": {
-                        "behavior_type": "ROUTE_CURRENT_CHANNEL_ONLY",
-                    },
-                },
-            ],
-            queue_configs=[{
-                "channel": "VOICE",
-                "delay": 2,
-                "priority": 1,
-                "queue_id": "12345678-1234-1234-1234-123456789012",
-            }],
-            tags={
-                "Name": "Example Routing Profile",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a RoutingProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RoutingProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -550,18 +365,6 @@ class RoutingProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Routing Profile.
-        :param pulumi.Input[_builtins.str] default_outbound_queue_id: Specifies the default outbound queue for the Routing Profile.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Routing Profile.
-        :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Routing Profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] routing_profile_id: Identifier for the Routing Profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -583,89 +386,55 @@ class RoutingProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Routing Profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultOutboundQueueId")
     def default_outbound_queue_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the default outbound queue for the Routing Profile.
-        """
         return pulumi.get(self, "default_outbound_queue_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the description of the Routing Profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="mediaConcurrencies")
     def media_concurrencies(self) -> pulumi.Output[Sequence['outputs.RoutingProfileMediaConcurrency']]:
-        """
-        One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
-        """
         return pulumi.get(self, "media_concurrencies")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the name of the Routing Profile.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
     def queue_configs(self) -> pulumi.Output[Optional[Sequence['outputs.RoutingProfileQueueConfig']]]:
-        """
-        One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
-        """
         return pulumi.get(self, "queue_configs")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the Routing Profile.
-        """
         return pulumi.get(self, "routing_profile_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the Routing Profile. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

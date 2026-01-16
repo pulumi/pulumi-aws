@@ -15,103 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CloudFront Key Value Store.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.KeyValueStore;
- * import com.pulumi.aws.cloudfront.KeyValueStoreArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new KeyValueStore("example", KeyValueStoreArgs.builder()
- *             .name("ExampleKeyValueStore")
- *             .comment("This is an example key value store")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `name` (String) Name of the CloudFront Key Value Store.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
- * 
- * % pulumi import aws_cloudfront_key_value_store.example example_store
- * 
- */
 @ResourceType(type="aws:cloudfront/keyValueStore:KeyValueStore")
 public class KeyValueStore extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Comment.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Comment.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * ETag hash of the KeyValueStore.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return ETag hash of the KeyValueStore.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
@@ -121,21 +41,9 @@ public class KeyValueStore extends com.pulumi.resources.CustomResource {
     public Output<String> lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * Unique name for your CloudFront KeyValueStore.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name for your CloudFront KeyValueStore.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

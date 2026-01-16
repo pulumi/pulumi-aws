@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 public final class MultiRegionAccessPointDetailsRegion {
     private String bucket;
     private @Nullable String bucketAccountId;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private @Nullable String region;
 
     private MultiRegionAccessPointDetailsRegion() {}
@@ -27,10 +23,6 @@ public final class MultiRegionAccessPointDetailsRegion {
     public Optional<String> bucketAccountId() {
         return Optional.ofNullable(this.bucketAccountId);
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEnvironmentMonitor {
-    /**
-     * @return ARN of the Amazon CloudWatch alarm.
-     * 
-     */
     private String alarmArn;
-    /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor.
-     * 
-     */
     private String alarmRoleArn;
 
     private GetEnvironmentMonitor() {}
-    /**
-     * @return ARN of the Amazon CloudWatch alarm.
-     * 
-     */
     public String alarmArn() {
         return this.alarmArn;
     }
-    /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor.
-     * 
-     */
     public String alarmRoleArn() {
         return this.alarmRoleArn;
     }

@@ -17,61 +17,23 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSolutionStackArgs Empty = new GetSolutionStackArgs();
 
-    /**
-     * If more than one result is returned, use the most
-     * recent solution stack.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most
-     * recent solution stack.
-     * 
-     */
     public Optional<Output<Boolean>> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Regex string to apply to the solution stack list returned
-     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-     * AWS documentation for reference solution stack names.
-     * 
-     * &gt; **NOTE:** If more or less than a single match is returned by the search,
-     * this call will fail. Ensure that your search is specific enough to return
-     * a single solution stack, or use `mostRecent` to choose the most recent one.
-     * 
-     */
     @Import(name="nameRegex", required=true)
     private Output<String> nameRegex;
 
-    /**
-     * @return Regex string to apply to the solution stack list returned
-     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-     * AWS documentation for reference solution stack names.
-     * 
-     * &gt; **NOTE:** If more or less than a single match is returned by the search,
-     * this call will fail. Ensure that your search is specific enough to return
-     * a single solution stack, or use `mostRecent` to choose the most recent one.
-     * 
-     */
     public Output<String> nameRegex() {
         return this.nameRegex;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,79 +64,29 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetSolutionStackArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent solution stack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent solution stack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the solution stack list returned
-         * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-         * AWS documentation for reference solution stack names.
-         * 
-         * &gt; **NOTE:** If more or less than a single match is returned by the search,
-         * this call will fail. Ensure that your search is specific enough to return
-         * a single solution stack, or use `mostRecent` to choose the most recent one.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(Output<String> nameRegex) {
             $.nameRegex = nameRegex;
             return this;
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the solution stack list returned
-         * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-         * AWS documentation for reference solution stack names.
-         * 
-         * &gt; **NOTE:** If more or less than a single match is returned by the search,
-         * this call will fail. Ensure that your search is specific enough to return
-         * a single solution stack, or use `mostRecent` to choose the most recent one.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(String nameRegex) {
             return nameRegex(Output.of(nameRegex));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

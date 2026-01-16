@@ -17,32 +17,16 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
 
     public static final ServerlessClusterVpcConfigArgs Empty = new ServerlessClusterVpcConfigArgs();
 
-    /**
-     * Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * A list of subnets in at least two different Availability Zones that host your client applications.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of subnets in at least two different Availability Zones that host your client applications.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
@@ -72,64 +56,28 @@ public final class ServerlessClusterVpcConfigArgs extends com.pulumi.resources.R
             $ = new ServerlessClusterVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds A list of subnets in at least two different Availability Zones that host your client applications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds A list of subnets in at least two different Availability Zones that host your client applications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds A list of subnets in at least two different Availability Zones that host your client applications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

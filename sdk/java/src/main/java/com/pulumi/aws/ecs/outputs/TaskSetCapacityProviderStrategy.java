@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskSetCapacityProviderStrategy {
-    /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-     * 
-     */
     private @Nullable Integer base;
-    /**
-     * @return The short name or full Amazon Resource Name (ARN) of the capacity provider.
-     * 
-     */
     private String capacityProvider;
-    /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-     * 
-     */
     private Integer weight;
 
     private TaskSetCapacityProviderStrategy() {}
-    /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-     * 
-     */
     public Optional<Integer> base() {
         return Optional.ofNullable(this.base);
     }
-    /**
-     * @return The short name or full Amazon Resource Name (ARN) of the capacity provider.
-     * 
-     */
     public String capacityProvider() {
         return this.capacityProvider;
     }
-    /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

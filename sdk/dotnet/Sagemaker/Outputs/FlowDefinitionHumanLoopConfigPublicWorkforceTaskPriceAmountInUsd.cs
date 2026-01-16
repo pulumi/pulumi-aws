@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd
     {
-        /// <summary>
-        /// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-        /// </summary>
         public readonly int? Cents;
-        /// <summary>
-        /// The whole number of dollars in the amount. Valid value range between `0` and `2`.
-        /// </summary>
         public readonly int? Dollars;
-        /// <summary>
-        /// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-        /// </summary>
         public readonly int? TenthFractionsOfACent;
 
         [OutputConstructor]

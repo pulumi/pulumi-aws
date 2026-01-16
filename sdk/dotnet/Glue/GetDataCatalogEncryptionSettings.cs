@@ -11,27 +11,12 @@ namespace Pulumi.Aws.Glue
 {
     public static class GetDataCatalogEncryptionSettings
     {
-        /// <summary>
-        /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
-        /// 
-        /// ## Example Usage
-        /// </summary>
         public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());
     }
@@ -39,15 +24,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class GetDataCatalogEncryptionSettingsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Data Catalog. This is typically the AWS account ID.
-        /// </summary>
         [Input("catalogId", required: true)]
         public string CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -59,15 +38,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class GetDataCatalogEncryptionSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Data Catalog. This is typically the AWS account ID.
-        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -82,9 +55,6 @@ namespace Pulumi.Aws.Glue
     public sealed class GetDataCatalogEncryptionSettingsResult
     {
         public readonly string CatalogId;
-        /// <summary>
-        /// The security configuration to set. see Data Catalog Encryption Settings.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult> DataCatalogEncryptionSettings;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

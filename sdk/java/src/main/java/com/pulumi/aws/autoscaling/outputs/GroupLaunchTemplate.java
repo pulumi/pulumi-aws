@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupLaunchTemplate {
-    /**
-     * @return ID of the launch template. Conflicts with `name`.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Name of the launch template. Conflicts with `id`.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-     * 
-     */
     private @Nullable String version;
 
     private GroupLaunchTemplate() {}
-    /**
-     * @return ID of the launch template. Conflicts with `name`.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Name of the launch template. Conflicts with `id`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

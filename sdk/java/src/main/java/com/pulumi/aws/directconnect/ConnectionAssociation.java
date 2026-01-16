@@ -13,101 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associates a Direct Connect Connection with a LAG.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directconnect.Connection;
- * import com.pulumi.aws.directconnect.ConnectionArgs;
- * import com.pulumi.aws.directconnect.LinkAggregationGroup;
- * import com.pulumi.aws.directconnect.LinkAggregationGroupArgs;
- * import com.pulumi.aws.directconnect.ConnectionAssociation;
- * import com.pulumi.aws.directconnect.ConnectionAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()
- *             .name("example")
- *             .bandwidth("1Gbps")
- *             .location("EqSe2-EQ")
- *             .build());
- * 
- *         var exampleLinkAggregationGroup = new LinkAggregationGroup("exampleLinkAggregationGroup", LinkAggregationGroupArgs.builder()
- *             .name("example")
- *             .connectionsBandwidth("1Gbps")
- *             .location("EqSe2-EQ")
- *             .build());
- * 
- *         var exampleConnectionAssociation = new ConnectionAssociation("exampleConnectionAssociation", ConnectionAssociationArgs.builder()
- *             .connectionId(example.id())
- *             .lagId(exampleLinkAggregationGroup.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:directconnect/connectionAssociation:ConnectionAssociation")
 public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the connection.
-     * 
-     */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
-    /**
-     * @return The ID of the connection.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
-    /**
-     * The ID of the LAG with which to associate the connection.
-     * 
-     */
     @Export(name="lagId", refs={String.class}, tree="[0]")
     private Output<String> lagId;
 
-    /**
-     * @return The ID of the LAG with which to associate the connection.
-     * 
-     */
     public Output<String> lagId() {
         return this.lagId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

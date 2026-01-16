@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleActionCountCustomRequestHandling
     {
-        /// <summary>
-        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> InsertHeaders;
 
         [OutputConstructor]

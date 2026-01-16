@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryCreationTemplateImageTagMutabilityExclusionFilter {
-    /**
-     * @return The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-     * 
-     */
     private String filter;
-    /**
-     * @return The type of filter to use. Must be `WILDCARD`.
-     * 
-     */
     private String filterType;
 
     private RepositoryCreationTemplateImageTagMutabilityExclusionFilter() {}
-    /**
-     * @return The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-     * 
-     */
     public String filter() {
         return this.filter;
     }
-    /**
-     * @return The type of filter to use. Must be `WILDCARD`.
-     * 
-     */
     public String filterType() {
         return this.filterType;
     }

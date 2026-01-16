@@ -12,81 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI endpoint configuration resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpointConfiguration(ctx, "ec", &sagemaker.EndpointConfigurationArgs{
-//				Name: pulumi.String("my-endpoint-config"),
-//				ProductionVariants: sagemaker.EndpointConfigurationProductionVariantArray{
-//					&sagemaker.EndpointConfigurationProductionVariantArgs{
-//						VariantName:          pulumi.String("variant-1"),
-//						ModelName:            pulumi.Any(m.Name),
-//						InitialInstanceCount: pulumi.Int(1),
-//						InstanceType:         pulumi.String("ml.t2.medium"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import endpoint configurations using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
-// ```
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN assigned by AWS to this endpoint configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// How an endpoint performs asynchronous inference.
-	AsyncInferenceConfig EndpointConfigurationAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
-	// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrOutput `pulumi:"dataCaptureConfig"`
-	// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
-	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
-	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// List each model that you want to host at this endpoint. See below.
-	ProductionVariants EndpointConfigurationProductionVariantArrayOutput `pulumi:"productionVariants"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+	Arn                      pulumi.StringOutput                                     `pulumi:"arn"`
+	AsyncInferenceConfig     EndpointConfigurationAsyncInferenceConfigPtrOutput      `pulumi:"asyncInferenceConfig"`
+	DataCaptureConfig        EndpointConfigurationDataCaptureConfigPtrOutput         `pulumi:"dataCaptureConfig"`
+	ExecutionRoleArn         pulumi.StringPtrOutput                                  `pulumi:"executionRoleArn"`
+	KmsKeyArn                pulumi.StringPtrOutput                                  `pulumi:"kmsKeyArn"`
+	Name                     pulumi.StringOutput                                     `pulumi:"name"`
+	NamePrefix               pulumi.StringOutput                                     `pulumi:"namePrefix"`
+	ProductionVariants       EndpointConfigurationProductionVariantArrayOutput       `pulumi:"productionVariants"`
+	Region                   pulumi.StringOutput                                     `pulumi:"region"`
 	ShadowProductionVariants EndpointConfigurationShadowProductionVariantArrayOutput `pulumi:"shadowProductionVariants"`
-	// Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags                     pulumi.StringMapOutput                                  `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                                  `pulumi:"tagsAll"`
 }
 
 // NewEndpointConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -122,57 +62,33 @@ func GetEndpointConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointConfiguration resources.
 type endpointConfigurationState struct {
-	// ARN assigned by AWS to this endpoint configuration.
-	Arn *string `pulumi:"arn"`
-	// How an endpoint performs asynchronous inference.
-	AsyncInferenceConfig *EndpointConfigurationAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
-	// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-	DataCaptureConfig *EndpointConfigurationDataCaptureConfig `pulumi:"dataCaptureConfig"`
-	// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// List each model that you want to host at this endpoint. See below.
-	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+	Arn                      *string                                        `pulumi:"arn"`
+	AsyncInferenceConfig     *EndpointConfigurationAsyncInferenceConfig     `pulumi:"asyncInferenceConfig"`
+	DataCaptureConfig        *EndpointConfigurationDataCaptureConfig        `pulumi:"dataCaptureConfig"`
+	ExecutionRoleArn         *string                                        `pulumi:"executionRoleArn"`
+	KmsKeyArn                *string                                        `pulumi:"kmsKeyArn"`
+	Name                     *string                                        `pulumi:"name"`
+	NamePrefix               *string                                        `pulumi:"namePrefix"`
+	ProductionVariants       []EndpointConfigurationProductionVariant       `pulumi:"productionVariants"`
+	Region                   *string                                        `pulumi:"region"`
 	ShadowProductionVariants []EndpointConfigurationShadowProductionVariant `pulumi:"shadowProductionVariants"`
-	// Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags                     map[string]string                              `pulumi:"tags"`
+	TagsAll                  map[string]string                              `pulumi:"tagsAll"`
 }
 
 type EndpointConfigurationState struct {
-	// ARN assigned by AWS to this endpoint configuration.
-	Arn pulumi.StringPtrInput
-	// How an endpoint performs asynchronous inference.
-	AsyncInferenceConfig EndpointConfigurationAsyncInferenceConfigPtrInput
-	// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrInput
-	// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	KmsKeyArn pulumi.StringPtrInput
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// List each model that you want to host at this endpoint. See below.
-	ProductionVariants EndpointConfigurationProductionVariantArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+	Arn                      pulumi.StringPtrInput
+	AsyncInferenceConfig     EndpointConfigurationAsyncInferenceConfigPtrInput
+	DataCaptureConfig        EndpointConfigurationDataCaptureConfigPtrInput
+	ExecutionRoleArn         pulumi.StringPtrInput
+	KmsKeyArn                pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	NamePrefix               pulumi.StringPtrInput
+	ProductionVariants       EndpointConfigurationProductionVariantArrayInput
+	Region                   pulumi.StringPtrInput
 	ShadowProductionVariants EndpointConfigurationShadowProductionVariantArrayInput
-	// Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (EndpointConfigurationState) ElementType() reflect.Type {
@@ -180,50 +96,30 @@ func (EndpointConfigurationState) ElementType() reflect.Type {
 }
 
 type endpointConfigurationArgs struct {
-	// How an endpoint performs asynchronous inference.
-	AsyncInferenceConfig *EndpointConfigurationAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
-	// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-	DataCaptureConfig *EndpointConfigurationDataCaptureConfig `pulumi:"dataCaptureConfig"`
-	// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// List each model that you want to host at this endpoint. See below.
-	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+	AsyncInferenceConfig     *EndpointConfigurationAsyncInferenceConfig     `pulumi:"asyncInferenceConfig"`
+	DataCaptureConfig        *EndpointConfigurationDataCaptureConfig        `pulumi:"dataCaptureConfig"`
+	ExecutionRoleArn         *string                                        `pulumi:"executionRoleArn"`
+	KmsKeyArn                *string                                        `pulumi:"kmsKeyArn"`
+	Name                     *string                                        `pulumi:"name"`
+	NamePrefix               *string                                        `pulumi:"namePrefix"`
+	ProductionVariants       []EndpointConfigurationProductionVariant       `pulumi:"productionVariants"`
+	Region                   *string                                        `pulumi:"region"`
 	ShadowProductionVariants []EndpointConfigurationShadowProductionVariant `pulumi:"shadowProductionVariants"`
-	// Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                     map[string]string                              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EndpointConfiguration resource.
 type EndpointConfigurationArgs struct {
-	// How an endpoint performs asynchronous inference.
-	AsyncInferenceConfig EndpointConfigurationAsyncInferenceConfigPtrInput
-	// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-	DataCaptureConfig EndpointConfigurationDataCaptureConfigPtrInput
-	// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-	KmsKeyArn pulumi.StringPtrInput
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// List each model that you want to host at this endpoint. See below.
-	ProductionVariants EndpointConfigurationProductionVariantArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+	AsyncInferenceConfig     EndpointConfigurationAsyncInferenceConfigPtrInput
+	DataCaptureConfig        EndpointConfigurationDataCaptureConfigPtrInput
+	ExecutionRoleArn         pulumi.StringPtrInput
+	KmsKeyArn                pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	NamePrefix               pulumi.StringPtrInput
+	ProductionVariants       EndpointConfigurationProductionVariantArrayInput
+	Region                   pulumi.StringPtrInput
 	ShadowProductionVariants EndpointConfigurationShadowProductionVariantArrayInput
-	// Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (EndpointConfigurationArgs) ElementType() reflect.Type {
@@ -313,70 +209,58 @@ func (o EndpointConfigurationOutput) ToEndpointConfigurationOutputWithContext(ct
 	return o
 }
 
-// ARN assigned by AWS to this endpoint configuration.
 func (o EndpointConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// How an endpoint performs asynchronous inference.
 func (o EndpointConfigurationOutput) AsyncInferenceConfig() EndpointConfigurationAsyncInferenceConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfigurationAsyncInferenceConfigPtrOutput {
 		return v.AsyncInferenceConfig
 	}).(EndpointConfigurationAsyncInferenceConfigPtrOutput)
 }
 
-// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
 func (o EndpointConfigurationOutput) DataCaptureConfig() EndpointConfigurationDataCaptureConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfigurationDataCaptureConfigPtrOutput {
 		return v.DataCaptureConfig
 	}).(EndpointConfigurationDataCaptureConfigPtrOutput)
 }
 
-// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
 func (o EndpointConfigurationOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 func (o EndpointConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o EndpointConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
 func (o EndpointConfigurationOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// List each model that you want to host at this endpoint. See below.
 func (o EndpointConfigurationOutput) ProductionVariants() EndpointConfigurationProductionVariantArrayOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfigurationProductionVariantArrayOutput {
 		return v.ProductionVariants
 	}).(EndpointConfigurationProductionVariantArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
 func (o EndpointConfigurationOutput) ShadowProductionVariants() EndpointConfigurationShadowProductionVariantArrayOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfigurationShadowProductionVariantArrayOutput {
 		return v.ShadowProductionVariants
 	}).(EndpointConfigurationShadowProductionVariantArrayOutput)
 }
 
-// Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EndpointConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EndpointConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

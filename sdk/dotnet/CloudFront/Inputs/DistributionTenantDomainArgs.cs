@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionTenantDomainArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Set of domains associated with the distribution tenant.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Current status of the distribution tenant.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

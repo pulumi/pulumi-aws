@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainOffPeakWindowOptionsOffPeakWindow
     {
-        /// <summary>
-        /// 10h window for updates
-        /// </summary>
         public readonly Outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime? WindowStartTime;
 
         [OutputConstructor]

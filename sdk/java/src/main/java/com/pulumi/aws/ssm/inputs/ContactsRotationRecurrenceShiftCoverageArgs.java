@@ -18,17 +18,9 @@ public final class ContactsRotationRecurrenceShiftCoverageArgs extends com.pulum
 
     public static final ContactsRotationRecurrenceShiftCoverageArgs Empty = new ContactsRotationRecurrenceShiftCoverageArgs();
 
-    /**
-     * (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-     * 
-     */
     @Import(name="coverageTimes")
     private @Nullable Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes;
 
-    /**
-     * @return (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-     * 
-     */
     public Optional<Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>>> coverageTimes() {
         return Optional.ofNullable(this.coverageTimes);
     }
@@ -65,33 +57,15 @@ public final class ContactsRotationRecurrenceShiftCoverageArgs extends com.pulum
             $ = new ContactsRotationRecurrenceShiftCoverageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coverageTimes (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coverageTimes(@Nullable Output<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes) {
             $.coverageTimes = coverageTimes;
             return this;
         }
 
-        /**
-         * @param coverageTimes (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coverageTimes(List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs> coverageTimes) {
             return coverageTimes(Output.of(coverageTimes));
         }
 
-        /**
-         * @param coverageTimes (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coverageTimes(ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs... coverageTimes) {
             return coverageTimes(List.of(coverageTimes));
         }

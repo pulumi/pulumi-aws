@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration
     {
-        /// <summary>
-        /// The size of the tasks volume in GiB. Must be at least 1.
-        /// </summary>
         public readonly int StorageSizeGib;
 
         [OutputConstructor]

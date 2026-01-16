@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult
     {
-        /// <summary>
-        /// Latitude.
-        /// </summary>
         public readonly string Latitude;
-        /// <summary>
-        /// Longitude.
-        /// </summary>
         public readonly string Longitude;
 
         [OutputConstructor]

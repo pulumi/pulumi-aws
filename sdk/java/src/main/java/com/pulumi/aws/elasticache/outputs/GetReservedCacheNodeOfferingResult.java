@@ -13,20 +13,12 @@ import java.util.Objects;
 public final class GetReservedCacheNodeOfferingResult {
     private String cacheNodeType;
     private String duration;
-    /**
-     * @return Fixed price charged for this reserved cache node.
-     * 
-     */
     private Double fixedPrice;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Unique identifier for the reservation.
-     * 
-     */
     private String offeringId;
     private String offeringType;
     private String productDescription;
@@ -39,10 +31,6 @@ public final class GetReservedCacheNodeOfferingResult {
     public String duration() {
         return this.duration;
     }
-    /**
-     * @return Fixed price charged for this reserved cache node.
-     * 
-     */
     public Double fixedPrice() {
         return this.fixedPrice;
     }
@@ -53,10 +41,6 @@ public final class GetReservedCacheNodeOfferingResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Unique identifier for the reservation.
-     * 
-     */
     public String offeringId() {
         return this.offeringId;
     }

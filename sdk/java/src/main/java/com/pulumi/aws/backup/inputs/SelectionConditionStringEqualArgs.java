@@ -14,32 +14,16 @@ public final class SelectionConditionStringEqualArgs extends com.pulumi.resource
 
     public static final SelectionConditionStringEqualArgs Empty = new SelectionConditionStringEqualArgs();
 
-    /**
-     * Key for the filter.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key for the filter.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Value for the filter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value for the filter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class SelectionConditionStringEqualArgs extends com.pulumi.resource
             $ = new SelectionConditionStringEqualArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Value for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value for the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

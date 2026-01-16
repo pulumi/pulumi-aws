@@ -12,154 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewRouteServerPeer(ctx, "test", &vpc.RouteServerPeerArgs{
-//				RouteServerEndpointId: pulumi.Any(example.RouteServerEndpointId),
-//				PeerAddress:           pulumi.String("10.0.1.250"),
-//				BgpOptions: &vpc.RouteServerPeerBgpOptionsArgs{
-//					PeerAsn: pulumi.Int(65200),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Appliance 1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Complete Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := vpc.NewRouteServer(ctx, "test", &vpc.RouteServerArgs{
-//				AmazonSideAsn: pulumi.Int(4294967294),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testVpcRouteServerAssociation, err := aws.NewVpcRouteServerAssociation(ctx, "test", &aws.VpcRouteServerAssociationArgs{
-//				RouteServerId: test.RouteServerId,
-//				VpcId:         testAwsVpc.Id,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testRouteServerEndpoint, err := vpc.NewRouteServerEndpoint(ctx, "test", &vpc.RouteServerEndpointArgs{
-//				RouteServerId: test.RouteServerId,
-//				SubnetId:      pulumi.Any(testAwsSubnet.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Test Endpoint"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testVpcRouteServerAssociation,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpc.NewRouteServerPropagation(ctx, "test", &vpc.RouteServerPropagationArgs{
-//				RouteServerId: test.RouteServerId,
-//				RouteTableId:  pulumi.Any(testAwsRouteTable.Id),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testVpcRouteServerAssociation,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpc.NewRouteServerPeer(ctx, "test", &vpc.RouteServerPeerArgs{
-//				RouteServerEndpointId: testRouteServerEndpoint.RouteServerEndpointId,
-//				PeerAddress:           pulumi.String("10.0.1.250"),
-//				BgpOptions: &vpc.RouteServerPeerBgpOptionsArgs{
-//					PeerAsn:               pulumi.Int(65000),
-//					PeerLivenessDetection: pulumi.String("bgp-keepalive"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Test Appliance"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_peer_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678
-// ```
 type RouteServerPeer struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the route server peer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions RouteServerPeerBgpOptionsPtrOutput `pulumi:"bgpOptions"`
-	// The IP address of the Elastic network interface for the route server endpoint.
-	EndpointEniAddress pulumi.StringOutput `pulumi:"endpointEniAddress"`
-	// The ID of the Elastic network interface for the route server endpoint.
-	EndpointEniId pulumi.StringOutput `pulumi:"endpointEniId"`
-	// The IPv4 address of the peer device.
-	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the route server endpoint for which to create a peer.
-	//
-	// The following arguments are optional:
-	RouteServerEndpointId pulumi.StringOutput `pulumi:"routeServerEndpointId"`
-	// The ID of the route server associated with this peer.
-	RouteServerId pulumi.StringOutput `pulumi:"routeServerId"`
-	// The unique identifier of the route server peer.
-	RouteServerPeerId pulumi.StringOutput `pulumi:"routeServerPeerId"`
-	// The ID of the subnet containing the route server peer.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
-	Timeouts RouteServerPeerTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the VPC containing the route server peer.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn                   pulumi.StringOutput                `pulumi:"arn"`
+	BgpOptions            RouteServerPeerBgpOptionsPtrOutput `pulumi:"bgpOptions"`
+	EndpointEniAddress    pulumi.StringOutput                `pulumi:"endpointEniAddress"`
+	EndpointEniId         pulumi.StringOutput                `pulumi:"endpointEniId"`
+	PeerAddress           pulumi.StringOutput                `pulumi:"peerAddress"`
+	Region                pulumi.StringOutput                `pulumi:"region"`
+	RouteServerEndpointId pulumi.StringOutput                `pulumi:"routeServerEndpointId"`
+	RouteServerId         pulumi.StringOutput                `pulumi:"routeServerId"`
+	RouteServerPeerId     pulumi.StringOutput                `pulumi:"routeServerPeerId"`
+	SubnetId              pulumi.StringOutput                `pulumi:"subnetId"`
+	Tags                  pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	Timeouts              RouteServerPeerTimeoutsPtrOutput   `pulumi:"timeouts"`
+	VpcId                 pulumi.StringOutput                `pulumi:"vpcId"`
 }
 
 // NewRouteServerPeer registers a new resource with the given unique name, arguments, and options.
@@ -198,67 +67,37 @@ func GetRouteServerPeer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteServerPeer resources.
 type routeServerPeerState struct {
-	// The ARN of the route server peer.
-	Arn *string `pulumi:"arn"`
-	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions *RouteServerPeerBgpOptions `pulumi:"bgpOptions"`
-	// The IP address of the Elastic network interface for the route server endpoint.
-	EndpointEniAddress *string `pulumi:"endpointEniAddress"`
-	// The ID of the Elastic network interface for the route server endpoint.
-	EndpointEniId *string `pulumi:"endpointEniId"`
-	// The IPv4 address of the peer device.
-	PeerAddress *string `pulumi:"peerAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the route server endpoint for which to create a peer.
-	//
-	// The following arguments are optional:
-	RouteServerEndpointId *string `pulumi:"routeServerEndpointId"`
-	// The ID of the route server associated with this peer.
-	RouteServerId *string `pulumi:"routeServerId"`
-	// The unique identifier of the route server peer.
-	RouteServerPeerId *string `pulumi:"routeServerPeerId"`
-	// The ID of the subnet containing the route server peer.
-	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string        `pulumi:"tagsAll"`
-	Timeouts *RouteServerPeerTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC containing the route server peer.
-	VpcId *string `pulumi:"vpcId"`
+	Arn                   *string                    `pulumi:"arn"`
+	BgpOptions            *RouteServerPeerBgpOptions `pulumi:"bgpOptions"`
+	EndpointEniAddress    *string                    `pulumi:"endpointEniAddress"`
+	EndpointEniId         *string                    `pulumi:"endpointEniId"`
+	PeerAddress           *string                    `pulumi:"peerAddress"`
+	Region                *string                    `pulumi:"region"`
+	RouteServerEndpointId *string                    `pulumi:"routeServerEndpointId"`
+	RouteServerId         *string                    `pulumi:"routeServerId"`
+	RouteServerPeerId     *string                    `pulumi:"routeServerPeerId"`
+	SubnetId              *string                    `pulumi:"subnetId"`
+	Tags                  map[string]string          `pulumi:"tags"`
+	TagsAll               map[string]string          `pulumi:"tagsAll"`
+	Timeouts              *RouteServerPeerTimeouts   `pulumi:"timeouts"`
+	VpcId                 *string                    `pulumi:"vpcId"`
 }
 
 type RouteServerPeerState struct {
-	// The ARN of the route server peer.
-	Arn pulumi.StringPtrInput
-	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions RouteServerPeerBgpOptionsPtrInput
-	// The IP address of the Elastic network interface for the route server endpoint.
-	EndpointEniAddress pulumi.StringPtrInput
-	// The ID of the Elastic network interface for the route server endpoint.
-	EndpointEniId pulumi.StringPtrInput
-	// The IPv4 address of the peer device.
-	PeerAddress pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the route server endpoint for which to create a peer.
-	//
-	// The following arguments are optional:
+	Arn                   pulumi.StringPtrInput
+	BgpOptions            RouteServerPeerBgpOptionsPtrInput
+	EndpointEniAddress    pulumi.StringPtrInput
+	EndpointEniId         pulumi.StringPtrInput
+	PeerAddress           pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	RouteServerEndpointId pulumi.StringPtrInput
-	// The ID of the route server associated with this peer.
-	RouteServerId pulumi.StringPtrInput
-	// The unique identifier of the route server peer.
-	RouteServerPeerId pulumi.StringPtrInput
-	// The ID of the subnet containing the route server peer.
-	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts RouteServerPeerTimeoutsPtrInput
-	// The ID of the VPC containing the route server peer.
-	VpcId pulumi.StringPtrInput
+	RouteServerId         pulumi.StringPtrInput
+	RouteServerPeerId     pulumi.StringPtrInput
+	SubnetId              pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	Timeouts              RouteServerPeerTimeoutsPtrInput
+	VpcId                 pulumi.StringPtrInput
 }
 
 func (RouteServerPeerState) ElementType() reflect.Type {
@@ -266,36 +105,22 @@ func (RouteServerPeerState) ElementType() reflect.Type {
 }
 
 type routeServerPeerArgs struct {
-	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions *RouteServerPeerBgpOptions `pulumi:"bgpOptions"`
-	// The IPv4 address of the peer device.
-	PeerAddress string `pulumi:"peerAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the route server endpoint for which to create a peer.
-	//
-	// The following arguments are optional:
-	RouteServerEndpointId string `pulumi:"routeServerEndpointId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string        `pulumi:"tags"`
-	Timeouts *RouteServerPeerTimeouts `pulumi:"timeouts"`
+	BgpOptions            *RouteServerPeerBgpOptions `pulumi:"bgpOptions"`
+	PeerAddress           string                     `pulumi:"peerAddress"`
+	Region                *string                    `pulumi:"region"`
+	RouteServerEndpointId string                     `pulumi:"routeServerEndpointId"`
+	Tags                  map[string]string          `pulumi:"tags"`
+	Timeouts              *RouteServerPeerTimeouts   `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a RouteServerPeer resource.
 type RouteServerPeerArgs struct {
-	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions RouteServerPeerBgpOptionsPtrInput
-	// The IPv4 address of the peer device.
-	PeerAddress pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the route server endpoint for which to create a peer.
-	//
-	// The following arguments are optional:
+	BgpOptions            RouteServerPeerBgpOptionsPtrInput
+	PeerAddress           pulumi.StringInput
+	Region                pulumi.StringPtrInput
 	RouteServerEndpointId pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts RouteServerPeerTimeoutsPtrInput
+	Tags                  pulumi.StringMapInput
+	Timeouts              RouteServerPeerTimeoutsPtrInput
 }
 
 func (RouteServerPeerArgs) ElementType() reflect.Type {
@@ -385,64 +210,50 @@ func (o RouteServerPeerOutput) ToRouteServerPeerOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ARN of the route server peer.
 func (o RouteServerPeerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
 func (o RouteServerPeerOutput) BgpOptions() RouteServerPeerBgpOptionsPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeer) RouteServerPeerBgpOptionsPtrOutput { return v.BgpOptions }).(RouteServerPeerBgpOptionsPtrOutput)
 }
 
-// The IP address of the Elastic network interface for the route server endpoint.
 func (o RouteServerPeerOutput) EndpointEniAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.EndpointEniAddress }).(pulumi.StringOutput)
 }
 
-// The ID of the Elastic network interface for the route server endpoint.
 func (o RouteServerPeerOutput) EndpointEniId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.EndpointEniId }).(pulumi.StringOutput)
 }
 
-// The IPv4 address of the peer device.
 func (o RouteServerPeerOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.PeerAddress }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteServerPeerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the route server endpoint for which to create a peer.
-//
-// The following arguments are optional:
 func (o RouteServerPeerOutput) RouteServerEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.RouteServerEndpointId }).(pulumi.StringOutput)
 }
 
-// The ID of the route server associated with this peer.
 func (o RouteServerPeerOutput) RouteServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.RouteServerId }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the route server peer.
 func (o RouteServerPeerOutput) RouteServerPeerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.RouteServerPeerId }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet containing the route server peer.
 func (o RouteServerPeerOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteServerPeerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteServerPeerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -451,7 +262,6 @@ func (o RouteServerPeerOutput) Timeouts() RouteServerPeerTimeoutsPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeer) RouteServerPeerTimeoutsPtrOutput { return v.Timeouts }).(RouteServerPeerTimeoutsPtrOutput)
 }
 
-// The ID of the VPC containing the route server peer.
 func (o RouteServerPeerOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPeer) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

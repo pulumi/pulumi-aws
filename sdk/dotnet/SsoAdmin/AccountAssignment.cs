@@ -9,158 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Provides a Single Sign-On (SSO) Account Assignment resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleGetPermissionSet = Aws.SsoAdmin.GetPermissionSet.Invoke(new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         Name = "AWSReadOnlyAccess",
-    ///     });
-    /// 
-    ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
-    ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
-    ///         {
-    ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
-    ///             {
-    ///                 AttributePath = "DisplayName",
-    ///                 AttributeValue = "ExampleGroup",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAccountAssignment = new Aws.SsoAdmin.AccountAssignment("example", new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         PermissionSetArn = exampleGetPermissionSet.Apply(getPermissionSetResult =&gt; getPermissionSetResult.Arn),
-    ///         PrincipalId = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
-    ///         PrincipalType = "GROUP",
-    ///         TargetId = "123456789012",
-    ///         TargetType = "AWS_ACCOUNT",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Managed Policy Attachment
-    /// 
-    /// &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `DependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///     });
-    /// 
-    ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
-    ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         DisplayName = "Admin",
-    ///         Description = "Admin Group",
-    ///     });
-    /// 
-    ///     var exampleAccountAssignment = new Aws.SsoAdmin.AccountAssignment("example", new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///         PrincipalId = exampleGroup.GroupId,
-    ///         PrincipalType = "GROUP",
-    ///         TargetId = "123456789012",
-    ///         TargetType = "AWS_ACCOUNT",
-    ///     });
-    /// 
-    ///     var exampleManagedPolicyAttachment = new Aws.SsoAdmin.ManagedPolicyAttachment("example", new()
-    ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///         ManagedPolicyArn = "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
-    ///         PermissionSetArn = examplePermissionSet.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAccountAssignment,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/accountAssignment:AccountAssignment")]
     public partial class AccountAssignment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
-        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
-        /// <summary>
-        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// An AWS account identifier, typically a 10-12 digit string.
-        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
-        /// <summary>
-        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        /// </summary>
         [Output("targetType")]
         public Output<string> TargetType { get; private set; } = null!;
 
@@ -210,45 +79,24 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class AccountAssignmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
-        /// <summary>
-        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        /// </summary>
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// An AWS account identifier, typically a 10-12 digit string.
-        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
-        /// <summary>
-        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        /// </summary>
         [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;
 
@@ -260,45 +108,24 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class AccountAssignmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
-        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
-        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 
-        /// <summary>
-        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
-        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
-        /// <summary>
-        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// An AWS account identifier, typically a 10-12 digit string.
-        /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 
-        /// <summary>
-        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
-        /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 

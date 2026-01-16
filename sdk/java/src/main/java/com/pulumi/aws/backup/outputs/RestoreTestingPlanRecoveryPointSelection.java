@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RestoreTestingPlanRecoveryPointSelection {
-    /**
-     * @return Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
-     * 
-     */
     private String algorithm;
-    /**
-     * @return Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-     * 
-     */
     private @Nullable List<String> excludeVaults;
-    /**
-     * @return Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-     * 
-     */
     private List<String> includeVaults;
-    /**
-     * @return Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-     * 
-     */
     private List<String> recoveryPointTypes;
-    /**
-     * @return Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-     * 
-     */
     private @Nullable Integer selectionWindowDays;
 
     private RestoreTestingPlanRecoveryPointSelection() {}
-    /**
-     * @return Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
-     * 
-     */
     public String algorithm() {
         return this.algorithm;
     }
-    /**
-     * @return Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
-     * 
-     */
     public List<String> excludeVaults() {
         return this.excludeVaults == null ? List.of() : this.excludeVaults;
     }
-    /**
-     * @return Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
-     * 
-     */
     public List<String> includeVaults() {
         return this.includeVaults;
     }
-    /**
-     * @return Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
-     * 
-     */
     public List<String> recoveryPointTypes() {
         return this.recoveryPointTypes;
     }
-    /**
-     * @return Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-     * 
-     */
     public Optional<Integer> selectionWindowDays() {
         return Optional.ofNullable(this.selectionWindowDays);
     }

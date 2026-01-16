@@ -11,80 +11,32 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionResult {
-    /**
-     * @return ARN identifying your CloudFront Function.
-     * 
-     */
     private String arn;
-    /**
-     * @return Source code of the function
-     * 
-     */
     private String code;
-    /**
-     * @return Comment.
-     * 
-     */
     private String comment;
-    /**
-     * @return ETag hash of the function
-     * 
-     */
     private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
-     * 
-     */
     private List<String> keyValueStoreAssociations;
-    /**
-     * @return When this resource was last modified.
-     * 
-     */
     private String lastModifiedTime;
     private String name;
-    /**
-     * @return Identifier of the function&#39;s runtime.
-     * 
-     */
     private String runtime;
     private String stage;
-    /**
-     * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     * 
-     */
     private String status;
 
     private GetFunctionResult() {}
-    /**
-     * @return ARN identifying your CloudFront Function.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Source code of the function
-     * 
-     */
     public String code() {
         return this.code;
     }
-    /**
-     * @return Comment.
-     * 
-     */
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return ETag hash of the function
-     * 
-     */
     public String etag() {
         return this.etag;
     }
@@ -95,37 +47,21 @@ public final class GetFunctionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
-     * 
-     */
     public List<String> keyValueStoreAssociations() {
         return this.keyValueStoreAssociations;
     }
-    /**
-     * @return When this resource was last modified.
-     * 
-     */
     public String lastModifiedTime() {
         return this.lastModifiedTime;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Identifier of the function&#39;s runtime.
-     * 
-     */
     public String runtime() {
         return this.runtime;
     }
     public String stage() {
         return this.stage;
     }
-    /**
-     * @return Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

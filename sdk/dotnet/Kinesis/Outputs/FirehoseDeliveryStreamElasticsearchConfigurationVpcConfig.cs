@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig
     {
-        /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// A list of security group IDs to associate with Kinesis Firehose.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of subnet IDs to associate with Kinesis Firehose.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string? VpcId;
 

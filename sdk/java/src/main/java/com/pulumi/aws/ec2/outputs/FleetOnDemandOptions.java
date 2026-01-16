@@ -14,79 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetOnDemandOptions {
-    /**
-     * @return The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
-     * 
-     */
     private @Nullable String allocationStrategy;
-    /**
-     * @return The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
-     * 
-     */
     private @Nullable FleetOnDemandOptionsCapacityReservationOptions capacityReservationOptions;
-    /**
-     * @return The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
-     * 
-     */
     private @Nullable String maxTotalPrice;
-    /**
-     * @return The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
-     * 
-     */
     private @Nullable Integer minTargetCapacity;
-    /**
-     * @return Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     private @Nullable Boolean singleAvailabilityZone;
-    /**
-     * @return Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     private @Nullable Boolean singleInstanceType;
 
     private FleetOnDemandOptions() {}
-    /**
-     * @return The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
-     * 
-     */
     public Optional<String> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
-    /**
-     * @return The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<FleetOnDemandOptionsCapacityReservationOptions> capacityReservationOptions() {
         return Optional.ofNullable(this.capacityReservationOptions);
     }
-    /**
-     * @return The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
-     * 
-     */
     public Optional<String> maxTotalPrice() {
         return Optional.ofNullable(this.maxTotalPrice);
     }
-    /**
-     * @return The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
-     * 
-     */
     public Optional<Integer> minTargetCapacity() {
         return Optional.ofNullable(this.minTargetCapacity);
     }
-    /**
-     * @return Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Boolean> singleAvailabilityZone() {
         return Optional.ofNullable(this.singleAvailabilityZone);
     }
-    /**
-     * @return Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
-     * 
-     */
     public Optional<Boolean> singleInstanceType() {
         return Optional.ofNullable(this.singleInstanceType);
     }

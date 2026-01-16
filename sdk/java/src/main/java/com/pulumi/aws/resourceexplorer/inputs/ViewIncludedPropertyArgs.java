@@ -14,17 +14,9 @@ public final class ViewIncludedPropertyArgs extends com.pulumi.resources.Resourc
 
     public static final ViewIncludedPropertyArgs Empty = new ViewIncludedPropertyArgs();
 
-    /**
-     * The name of the property that is included in this view. Valid values: `tags`.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the property that is included in this view. Valid values: `tags`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class ViewIncludedPropertyArgs extends com.pulumi.resources.Resourc
             $ = new ViewIncludedPropertyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the property that is included in this view. Valid values: `tags`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the property that is included in this view. Valid values: `tags`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

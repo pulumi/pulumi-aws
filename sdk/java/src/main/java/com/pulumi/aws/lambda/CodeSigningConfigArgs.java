@@ -19,81 +19,37 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final CodeSigningConfigArgs Empty = new CodeSigningConfigArgs();
 
-    /**
-     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="allowedPublishers", required=true)
     private Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers;
 
-    /**
-     * @return Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers() {
         return this.allowedPublishers;
     }
 
-    /**
-     * Descriptive name for this code signing configuration.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Descriptive name for this code signing configuration.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-     * 
-     */
     @Import(name="policies")
     private @Nullable Output<CodeSigningConfigPoliciesArgs> policies;
 
-    /**
-     * @return Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-     * 
-     */
     public Optional<Output<CodeSigningConfigPoliciesArgs>> policies() {
         return Optional.ofNullable(this.policies);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -126,111 +82,47 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new CodeSigningConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedPublishers Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedPublishers(Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers) {
             $.allowedPublishers = allowedPublishers;
             return this;
         }
 
-        /**
-         * @param allowedPublishers Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedPublishers(CodeSigningConfigAllowedPublishersArgs allowedPublishers) {
             return allowedPublishers(Output.of(allowedPublishers));
         }
 
-        /**
-         * @param description Descriptive name for this code signing configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Descriptive name for this code signing configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param policies Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policies(@Nullable Output<CodeSigningConfigPoliciesArgs> policies) {
             $.policies = policies;
             return this;
         }
 
-        /**
-         * @param policies Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policies(CodeSigningConfigPoliciesArgs policies) {
             return policies(Output.of(policies));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

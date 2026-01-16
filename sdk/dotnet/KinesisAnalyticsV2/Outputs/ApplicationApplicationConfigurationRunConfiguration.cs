@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationRunConfiguration
     {
-        /// <summary>
-        /// The restore behavior of a restarting application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration? ApplicationRestoreConfiguration;
-        /// <summary>
-        /// The starting parameters for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration? FlinkRunConfiguration;
 
         [OutputConstructor]

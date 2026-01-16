@@ -14,17 +14,9 @@ public final class GetOriginAccessControlArgs extends com.pulumi.resources.Invok
 
     public static final GetOriginAccessControlArgs Empty = new GetOriginAccessControlArgs();
 
-    /**
-     * The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -53,23 +45,11 @@ public final class GetOriginAccessControlArgs extends com.pulumi.resources.Invok
             $ = new GetOriginAccessControlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

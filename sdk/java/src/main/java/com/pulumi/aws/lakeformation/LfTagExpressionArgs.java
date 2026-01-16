@@ -18,14 +18,14 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
     public static final LfTagExpressionArgs Empty = new LfTagExpressionArgs();
 
     /**
-     * ID of the Data Catalog. Defaults to the account ID if not specified.
+     * The ID of the Data Catalog.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return ID of the Data Catalog. Defaults to the account ID if not specified.
+     * @return The ID of the Data Catalog.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -33,65 +33,45 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Description of the LF-Tag Expression.
+     * A description of the LF-Tag Expression.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the LF-Tag Expression.
+     * @return A description of the LF-Tag Expression.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="expressions")
     private @Nullable Output<List<LfTagExpressionExpressionArgs>> expressions;
 
-    /**
-     * @return A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<LfTagExpressionExpressionArgs>>> expressions() {
         return Optional.ofNullable(this.expressions);
     }
 
     /**
-     * Name of the LF-Tag Expression.
+     * The name of the LF-Tag Expression.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the LF-Tag Expression.
+     * @return The name of the LF-Tag Expression.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -125,7 +105,7 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catalogId ID of the Data Catalog. Defaults to the account ID if not specified.
+         * @param catalogId The ID of the Data Catalog.
          * 
          * @return builder
          * 
@@ -136,7 +116,7 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catalogId ID of the Data Catalog. Defaults to the account ID if not specified.
+         * @param catalogId The ID of the Data Catalog.
          * 
          * @return builder
          * 
@@ -146,7 +126,7 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description Description of the LF-Tag Expression.
+         * @param description A description of the LF-Tag Expression.
          * 
          * @return builder
          * 
@@ -157,7 +137,7 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description Description of the LF-Tag Expression.
+         * @param description A description of the LF-Tag Expression.
          * 
          * @return builder
          * 
@@ -166,45 +146,21 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
             return description(Output.of(description));
         }
 
-        /**
-         * @param expressions A list of LF-Tag conditions (key-value pairs). See expression for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(@Nullable Output<List<LfTagExpressionExpressionArgs>> expressions) {
             $.expressions = expressions;
             return this;
         }
 
-        /**
-         * @param expressions A list of LF-Tag conditions (key-value pairs). See expression for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(List<LfTagExpressionExpressionArgs> expressions) {
             return expressions(Output.of(expressions));
         }
 
-        /**
-         * @param expressions A list of LF-Tag conditions (key-value pairs). See expression for more details.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder expressions(LfTagExpressionExpressionArgs... expressions) {
             return expressions(List.of(expressions));
         }
 
         /**
-         * @param name Name of the LF-Tag Expression.
+         * @param name The name of the LF-Tag Expression.
          * 
          * @return builder
          * 
@@ -215,7 +171,7 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Name of the LF-Tag Expression.
+         * @param name The name of the LF-Tag Expression.
          * 
          * @return builder
          * 
@@ -224,23 +180,11 @@ public final class LfTagExpressionArgs extends com.pulumi.resources.ResourceArgs
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier of the transit gateway attachment.
-        /// </summary>
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 

@@ -9,126 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ResilienceHub
 {
-    /// <summary>
-    /// Resource for managing an AWS Resilience Hub Resiliency Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ResilienceHub.ResiliencyPolicy("example", new()
-    ///     {
-    ///         Name = "testexample",
-    ///         Description = "testexample",
-    ///         Tier = "NonCritical",
-    ///         DataLocationConstraint = "AnyLocation",
-    ///         Policy = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyArgs
-    ///         {
-    ///             Region = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyRegionArgs
-    ///             {
-    ///                 Rpo = "24h",
-    ///                 Rto = "24h",
-    ///             },
-    ///             Az = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyAzArgs
-    ///             {
-    ///                 Rpo = "24h",
-    ///                 Rto = "24h",
-    ///             },
-    ///             Hardware = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyHardwareArgs
-    ///             {
-    ///                 Rpo = "24h",
-    ///                 Rto = "24h",
-    ///             },
-    ///             Software = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicySoftwareArgs
-    ///             {
-    ///                 Rpo = "24h",
-    ///                 Rto = "24h",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy")]
     public partial class ResiliencyPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Resiliency Policy.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Data Location Constraint of the Policy.
-        /// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+        /// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
         /// </summary>
         [Output("dataLocationConstraint")]
         public Output<string> DataLocationConstraint { get; private set; } = null!;
 
         /// <summary>
-        /// Description of Resiliency Policy.
+        /// The description for the policy.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Estimated Cost Tier of the Resiliency Policy.
+        /// Specifies the estimated cost tier of the resiliency policy.
         /// </summary>
         [Output("estimatedCostTier")]
         public Output<string> EstimatedCostTier { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Resiliency Policy.
-        /// Must be between 2 and 60 characters long.
-        /// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+        /// The name of the policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `Policy`.
-        /// 
-        /// The following arguments are optional:
+        /// The resiliency failure policy.
         /// </summary>
         [Output("policy")]
         public Output<Outputs.ResiliencyPolicyPolicy?> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Resiliency Policy Tier.
-        /// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        /// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         /// </summary>
         [Output("tier")]
         public Output<string> Tier { get; private set; } = null!;
@@ -183,46 +110,34 @@ namespace Pulumi.Aws.ResilienceHub
     public sealed class ResiliencyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Data Location Constraint of the Policy.
-        /// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+        /// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
         /// </summary>
         [Input("dataLocationConstraint")]
         public Input<string>? DataLocationConstraint { get; set; }
 
         /// <summary>
-        /// Description of Resiliency Policy.
+        /// The description for the policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of Resiliency Policy.
-        /// Must be between 2 and 60 characters long.
-        /// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+        /// The name of the policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `Policy`.
-        /// 
-        /// The following arguments are optional:
+        /// The resiliency failure policy.
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ResiliencyPolicyPolicyArgs>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -230,8 +145,7 @@ namespace Pulumi.Aws.ResilienceHub
         }
 
         /// <summary>
-        /// Resiliency Policy Tier.
-        /// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        /// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
@@ -247,59 +161,44 @@ namespace Pulumi.Aws.ResilienceHub
 
     public sealed class ResiliencyPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Resiliency Policy.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Data Location Constraint of the Policy.
-        /// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+        /// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
         /// </summary>
         [Input("dataLocationConstraint")]
         public Input<string>? DataLocationConstraint { get; set; }
 
         /// <summary>
-        /// Description of Resiliency Policy.
+        /// The description for the policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Estimated Cost Tier of the Resiliency Policy.
+        /// Specifies the estimated cost tier of the resiliency policy.
         /// </summary>
         [Input("estimatedCostTier")]
         public Input<string>? EstimatedCostTier { get; set; }
 
         /// <summary>
-        /// Name of Resiliency Policy.
-        /// Must be between 2 and 60 characters long.
-        /// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+        /// The name of the policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `Policy`.
-        /// 
-        /// The following arguments are optional:
+        /// The resiliency failure policy.
         /// </summary>
         [Input("policy")]
         public Input<Inputs.ResiliencyPolicyPolicyGetArgs>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -308,10 +207,6 @@ namespace Pulumi.Aws.ResilienceHub
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -319,8 +214,7 @@ namespace Pulumi.Aws.ResilienceHub
         }
 
         /// <summary>
-        /// Resiliency Policy Tier.
-        /// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+        /// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

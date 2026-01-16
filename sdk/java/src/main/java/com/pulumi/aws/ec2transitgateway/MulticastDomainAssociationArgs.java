@@ -16,62 +16,30 @@ public final class MulticastDomainAssociationArgs extends com.pulumi.resources.R
 
     public static final MulticastDomainAssociationArgs Empty = new MulticastDomainAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to associate with the transit gateway multicast domain.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
 
-    /**
-     * The ID of the transit gateway attachment.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId", required=true)
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
 
-    /**
-     * The ID of the transit gateway multicast domain.
-     * 
-     */
     @Import(name="transitGatewayMulticastDomainId", required=true)
     private Output<String> transitGatewayMulticastDomainId;
 
-    /**
-     * @return The ID of the transit gateway multicast domain.
-     * 
-     */
     public Output<String> transitGatewayMulticastDomainId() {
         return this.transitGatewayMulticastDomainId;
     }
@@ -103,86 +71,38 @@ public final class MulticastDomainAssociationArgs extends com.pulumi.resources.R
             $ = new MulticastDomainAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subnetId The ID of the subnet to associate with the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet to associate with the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param transitGatewayAttachmentId The ID of the transit gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId The ID of the transit gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayMulticastDomainId The ID of the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayMulticastDomainId(Output<String> transitGatewayMulticastDomainId) {
             $.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
             return this;
         }
 
-        /**
-         * @param transitGatewayMulticastDomainId The ID of the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayMulticastDomainId(String transitGatewayMulticastDomainId) {
             return transitGatewayMulticastDomainId(Output.of(transitGatewayMulticastDomainId));
         }

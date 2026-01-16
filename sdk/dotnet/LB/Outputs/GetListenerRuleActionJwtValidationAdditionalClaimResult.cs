@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionJwtValidationAdditionalClaimResult
     {
-        /// <summary>
-        /// Format of the claim value.
-        /// </summary>
         public readonly string Format;
-        /// <summary>
-        /// Name of the claim to validate.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

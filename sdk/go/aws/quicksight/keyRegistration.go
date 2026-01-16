@@ -11,59 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registers customer managed keys in a Amazon QuickSight account.
-//
-// > Deletion of this resource clears all CMK registrations from a QuickSight account. QuickSight then uses AWS owned keys to encrypt your resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewKeyRegistration(ctx, "example", &quicksight.KeyRegistrationArgs{
-//				KeyRegistrations: quicksight.KeyRegistrationKeyRegistrationArray{
-//					&quicksight.KeyRegistrationKeyRegistrationArgs{
-//						KeyArn: pulumi.Any(example1.Arn),
-//					},
-//					&quicksight.KeyRegistrationKeyRegistrationArgs{
-//						KeyArn:     pulumi.Any(example2.Arn),
-//						DefaultKey: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight key registration using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/keyRegistration:KeyRegistration example "012345678901"
-// ```
 type KeyRegistration struct {
 	pulumi.CustomResourceState
 
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Registered keys. See key_registration.
+	AwsAccountId     pulumi.StringOutput                       `pulumi:"awsAccountId"`
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayOutput `pulumi:"keyRegistrations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region           pulumi.StringOutput                       `pulumi:"region"`
 }
 
 // NewKeyRegistration registers a new resource with the given unique name, arguments, and options.
@@ -96,19 +49,15 @@ func GetKeyRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyRegistration resources.
 type keyRegistrationState struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Registered keys. See key_registration.
+	AwsAccountId     *string                          `pulumi:"awsAccountId"`
 	KeyRegistrations []KeyRegistrationKeyRegistration `pulumi:"keyRegistrations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region           *string                          `pulumi:"region"`
 }
 
 type KeyRegistrationState struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Registered keys. See key_registration.
+	AwsAccountId     pulumi.StringPtrInput
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (KeyRegistrationState) ElementType() reflect.Type {
@@ -116,20 +65,16 @@ func (KeyRegistrationState) ElementType() reflect.Type {
 }
 
 type keyRegistrationArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Registered keys. See key_registration.
+	AwsAccountId     *string                          `pulumi:"awsAccountId"`
 	KeyRegistrations []KeyRegistrationKeyRegistration `pulumi:"keyRegistrations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region           *string                          `pulumi:"region"`
 }
 
 // The set of arguments for constructing a KeyRegistration resource.
 type KeyRegistrationArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Registered keys. See key_registration.
+	AwsAccountId     pulumi.StringPtrInput
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (KeyRegistrationArgs) ElementType() reflect.Type {
@@ -223,12 +168,10 @@ func (o KeyRegistrationOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyRegistration) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Registered keys. See key_registration.
 func (o KeyRegistrationOutput) KeyRegistrations() KeyRegistrationKeyRegistrationArrayOutput {
 	return o.ApplyT(func(v *KeyRegistration) KeyRegistrationKeyRegistrationArrayOutput { return v.KeyRegistrations }).(KeyRegistrationKeyRegistrationArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KeyRegistrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyRegistration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Chatbot Slack Workspace.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.chatbot.getSlackWorkspace({
- *     slackTeamName: "abc",
- * });
- * ```
- */
 export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSlackWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
@@ -32,13 +16,7 @@ export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSlackWorkspace.
  */
 export interface GetSlackWorkspaceArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Slack workspace name configured with AWS Chatbot.
-     */
     slackTeamName: string;
 }
 
@@ -51,28 +29,9 @@ export interface GetSlackWorkspaceResult {
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * ID of the Slack Workspace assigned by AWS Chatbot.
-     */
     readonly slackTeamId: string;
     readonly slackTeamName: string;
 }
-/**
- * Data source for managing an AWS Chatbot Slack Workspace.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.chatbot.getSlackWorkspace({
- *     slackTeamName: "abc",
- * });
- * ```
- */
 export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSlackWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
@@ -85,12 +44,6 @@ export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?
  * A collection of arguments for invoking getSlackWorkspace.
  */
 export interface GetSlackWorkspaceOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Slack workspace name configured with AWS Chatbot.
-     */
     slackTeamName: pulumi.Input<string>;
 }

@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync API Key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- *     name: "example",
- * });
- * const exampleApiKey = new aws.appsync.ApiKey("example", {
- *     apiId: example.id,
- *     expires: "2018-05-03T04:00:00Z",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
- *
- * ```sh
- * $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
- * ```
- */
 export class ApiKey extends pulumi.CustomResource {
     /**
      * Get an existing ApiKey resource's state with the given name, ID, and optional extra
@@ -59,26 +32,11 @@ export class ApiKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiKey.__pulumiType;
     }
 
-    /**
-     * ID of the associated AppSync API
-     */
     declare public readonly apiId: pulumi.Output<string>;
     declare public /*out*/ readonly apiKeyId: pulumi.Output<string>;
-    /**
-     * API key description. Defaults to "Managed by Pulumi".
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     */
     declare public readonly expires: pulumi.Output<string | undefined>;
-    /**
-     * API key
-     */
     declare public /*out*/ readonly key: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -123,26 +81,11 @@ export class ApiKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiKey resources.
  */
 export interface ApiKeyState {
-    /**
-     * ID of the associated AppSync API
-     */
     apiId?: pulumi.Input<string>;
     apiKeyId?: pulumi.Input<string>;
-    /**
-     * API key description. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     */
     expires?: pulumi.Input<string>;
-    /**
-     * API key
-     */
     key?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -150,20 +93,8 @@ export interface ApiKeyState {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
-    /**
-     * ID of the associated AppSync API
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * API key description. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     */
     expires?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

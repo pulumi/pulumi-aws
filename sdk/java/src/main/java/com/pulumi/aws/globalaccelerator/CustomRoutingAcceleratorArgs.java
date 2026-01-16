@@ -19,92 +19,44 @@ public final class CustomRoutingAcceleratorArgs extends com.pulumi.resources.Res
 
     public static final CustomRoutingAcceleratorArgs Empty = new CustomRoutingAcceleratorArgs();
 
-    /**
-     * The attributes of the accelerator. Fields documented below.
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<CustomRoutingAcceleratorAttributesArgs> attributes;
 
-    /**
-     * @return The attributes of the accelerator. Fields documented below.
-     * 
-     */
     public Optional<Output<CustomRoutingAcceleratorAttributesArgs>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-     * 
-     */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
-    /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-     * 
-     */
     public Optional<Output<List<String>>> ipAddresses() {
         return Optional.ofNullable(this.ipAddresses);
     }
 
-    /**
-     * The name of a custom routing accelerator.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of a custom routing accelerator.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -138,138 +90,60 @@ public final class CustomRoutingAcceleratorArgs extends com.pulumi.resources.Res
             $ = new CustomRoutingAcceleratorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes The attributes of the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<CustomRoutingAcceleratorAttributesArgs> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes The attributes of the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(CustomRoutingAcceleratorAttributesArgs attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param enabled Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param ipAddressType The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddresses(@Nullable Output<List<String>> ipAddresses) {
             $.ipAddresses = ipAddresses;
             return this;
         }
 
-        /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddresses(List<String> ipAddresses) {
             return ipAddresses(Output.of(ipAddresses));
         }
 
-        /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
 
-        /**
-         * @param name The name of a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of a custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

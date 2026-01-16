@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode
     {
-        /// <summary>
-        /// Status codes in the response that indicate a failed login attempt.
-        /// </summary>
         public readonly ImmutableArray<int> FailureCodes;
-        /// <summary>
-        /// Status codes in the response that indicate a successful login attempt.
-        /// </summary>
         public readonly ImmutableArray<int> SuccessCodes;
 
         [OutputConstructor]

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseValidity {
-    /**
-     * @return Start of the validity time range.
-     * 
-     */
     private String begin;
-    /**
-     * @return End of the validity time range.
-     * 
-     */
     private String end;
 
     private GetReceivedLicenseValidity() {}
-    /**
-     * @return Start of the validity time range.
-     * 
-     */
     public String begin() {
         return this.begin;
     }
-    /**
-     * @return End of the validity time range.
-     * 
-     */
     public String end() {
         return this.end;
     }

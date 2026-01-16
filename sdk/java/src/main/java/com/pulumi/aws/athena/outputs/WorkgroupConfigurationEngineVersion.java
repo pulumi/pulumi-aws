@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationEngineVersion {
-    /**
-     * @return The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
-     * 
-     */
     private @Nullable String effectiveEngineVersion;
-    /**
-     * @return Requested engine version. Defaults to `AUTO`.
-     * 
-     */
     private @Nullable String selectedEngineVersion;
 
     private WorkgroupConfigurationEngineVersion() {}
-    /**
-     * @return The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
-     * 
-     */
     public Optional<String> effectiveEngineVersion() {
         return Optional.ofNullable(this.effectiveEngineVersion);
     }
-    /**
-     * @return Requested engine version. Defaults to `AUTO`.
-     * 
-     */
     public Optional<String> selectedEngineVersion() {
         return Optional.ofNullable(this.selectedEngineVersion);
     }

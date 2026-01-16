@@ -12,65 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift Serverless Endpoint Access.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewEndpointAccess(ctx, "example", &redshiftserverless.EndpointAccessArgs{
-//				EndpointName:  pulumi.String("example"),
-//				WorkgroupName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
-// ```
 type EndpointAccess struct {
 	pulumi.CustomResourceState
 
-	// The DNS address of the VPC endpoint.
-	Address pulumi.StringOutput `pulumi:"address"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the endpoint.
-	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
-	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
-	// The port that Amazon Redshift Serverless listens on.
-	Port pulumi.IntOutput `pulumi:"port"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// An array of VPC subnet IDs to associate with the endpoint.
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-	VpcEndpoints EndpointAccessVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
-	// An array of security group IDs to associate with the workgroup.
-	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
-	// The name of the workgroup.
-	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
+	Address             pulumi.StringOutput                  `pulumi:"address"`
+	Arn                 pulumi.StringOutput                  `pulumi:"arn"`
+	EndpointName        pulumi.StringOutput                  `pulumi:"endpointName"`
+	OwnerAccount        pulumi.StringPtrOutput               `pulumi:"ownerAccount"`
+	Port                pulumi.IntOutput                     `pulumi:"port"`
+	Region              pulumi.StringOutput                  `pulumi:"region"`
+	SubnetIds           pulumi.StringArrayOutput             `pulumi:"subnetIds"`
+	VpcEndpoints        EndpointAccessVpcEndpointArrayOutput `pulumi:"vpcEndpoints"`
+	VpcSecurityGroupIds pulumi.StringArrayOutput             `pulumi:"vpcSecurityGroupIds"`
+	WorkgroupName       pulumi.StringOutput                  `pulumi:"workgroupName"`
 }
 
 // NewEndpointAccess registers a new resource with the given unique name, arguments, and options.
@@ -112,49 +66,29 @@ func GetEndpointAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointAccess resources.
 type endpointAccessState struct {
-	// The DNS address of the VPC endpoint.
-	Address *string `pulumi:"address"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-	Arn *string `pulumi:"arn"`
-	// The name of the endpoint.
-	EndpointName *string `pulumi:"endpointName"`
-	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-	OwnerAccount *string `pulumi:"ownerAccount"`
-	// The port that Amazon Redshift Serverless listens on.
-	Port *int `pulumi:"port"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An array of VPC subnet IDs to associate with the endpoint.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-	VpcEndpoints []EndpointAccessVpcEndpoint `pulumi:"vpcEndpoints"`
-	// An array of security group IDs to associate with the workgroup.
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// The name of the workgroup.
-	WorkgroupName *string `pulumi:"workgroupName"`
+	Address             *string                     `pulumi:"address"`
+	Arn                 *string                     `pulumi:"arn"`
+	EndpointName        *string                     `pulumi:"endpointName"`
+	OwnerAccount        *string                     `pulumi:"ownerAccount"`
+	Port                *int                        `pulumi:"port"`
+	Region              *string                     `pulumi:"region"`
+	SubnetIds           []string                    `pulumi:"subnetIds"`
+	VpcEndpoints        []EndpointAccessVpcEndpoint `pulumi:"vpcEndpoints"`
+	VpcSecurityGroupIds []string                    `pulumi:"vpcSecurityGroupIds"`
+	WorkgroupName       *string                     `pulumi:"workgroupName"`
 }
 
 type EndpointAccessState struct {
-	// The DNS address of the VPC endpoint.
-	Address pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-	Arn pulumi.StringPtrInput
-	// The name of the endpoint.
-	EndpointName pulumi.StringPtrInput
-	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-	OwnerAccount pulumi.StringPtrInput
-	// The port that Amazon Redshift Serverless listens on.
-	Port pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An array of VPC subnet IDs to associate with the endpoint.
-	SubnetIds pulumi.StringArrayInput
-	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-	VpcEndpoints EndpointAccessVpcEndpointArrayInput
-	// An array of security group IDs to associate with the workgroup.
+	Address             pulumi.StringPtrInput
+	Arn                 pulumi.StringPtrInput
+	EndpointName        pulumi.StringPtrInput
+	OwnerAccount        pulumi.StringPtrInput
+	Port                pulumi.IntPtrInput
+	Region              pulumi.StringPtrInput
+	SubnetIds           pulumi.StringArrayInput
+	VpcEndpoints        EndpointAccessVpcEndpointArrayInput
 	VpcSecurityGroupIds pulumi.StringArrayInput
-	// The name of the workgroup.
-	WorkgroupName pulumi.StringPtrInput
+	WorkgroupName       pulumi.StringPtrInput
 }
 
 func (EndpointAccessState) ElementType() reflect.Type {
@@ -162,34 +96,22 @@ func (EndpointAccessState) ElementType() reflect.Type {
 }
 
 type endpointAccessArgs struct {
-	// The name of the endpoint.
-	EndpointName string `pulumi:"endpointName"`
-	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-	OwnerAccount *string `pulumi:"ownerAccount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An array of VPC subnet IDs to associate with the endpoint.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// An array of security group IDs to associate with the workgroup.
+	EndpointName        string   `pulumi:"endpointName"`
+	OwnerAccount        *string  `pulumi:"ownerAccount"`
+	Region              *string  `pulumi:"region"`
+	SubnetIds           []string `pulumi:"subnetIds"`
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// The name of the workgroup.
-	WorkgroupName string `pulumi:"workgroupName"`
+	WorkgroupName       string   `pulumi:"workgroupName"`
 }
 
 // The set of arguments for constructing a EndpointAccess resource.
 type EndpointAccessArgs struct {
-	// The name of the endpoint.
-	EndpointName pulumi.StringInput
-	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
-	OwnerAccount pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An array of VPC subnet IDs to associate with the endpoint.
-	SubnetIds pulumi.StringArrayInput
-	// An array of security group IDs to associate with the workgroup.
+	EndpointName        pulumi.StringInput
+	OwnerAccount        pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	SubnetIds           pulumi.StringArrayInput
 	VpcSecurityGroupIds pulumi.StringArrayInput
-	// The name of the workgroup.
-	WorkgroupName pulumi.StringInput
+	WorkgroupName       pulumi.StringInput
 }
 
 func (EndpointAccessArgs) ElementType() reflect.Type {
@@ -279,52 +201,42 @@ func (o EndpointAccessOutput) ToEndpointAccessOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The DNS address of the VPC endpoint.
 func (o EndpointAccessOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
 func (o EndpointAccessOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the endpoint.
 func (o EndpointAccessOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
 func (o EndpointAccessOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
-// The port that Amazon Redshift Serverless listens on.
 func (o EndpointAccessOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointAccessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An array of VPC subnet IDs to associate with the endpoint.
 func (o EndpointAccessOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
 func (o EndpointAccessOutput) VpcEndpoints() EndpointAccessVpcEndpointArrayOutput {
 	return o.ApplyT(func(v *EndpointAccess) EndpointAccessVpcEndpointArrayOutput { return v.VpcEndpoints }).(EndpointAccessVpcEndpointArrayOutput)
 }
 
-// An array of security group IDs to associate with the workgroup.
 func (o EndpointAccessOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The name of the workgroup.
 func (o EndpointAccessOutput) WorkgroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.WorkgroupName }).(pulumi.StringOutput)
 }

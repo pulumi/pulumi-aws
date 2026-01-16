@@ -15,32 +15,16 @@ public final class GlobalSecondaryIndexOnDemandThroughputArgs extends com.pulumi
 
     public static final GlobalSecondaryIndexOnDemandThroughputArgs Empty = new GlobalSecondaryIndexOnDemandThroughputArgs();
 
-    /**
-     * Maximum number of read request units for this index.
-     * 
-     */
     @Import(name="maxReadRequestUnits")
     private @Nullable Output<Integer> maxReadRequestUnits;
 
-    /**
-     * @return Maximum number of read request units for this index.
-     * 
-     */
     public Optional<Output<Integer>> maxReadRequestUnits() {
         return Optional.ofNullable(this.maxReadRequestUnits);
     }
 
-    /**
-     * Maximum number of write request units for this index.
-     * 
-     */
     @Import(name="maxWriteRequestUnits")
     private @Nullable Output<Integer> maxWriteRequestUnits;
 
-    /**
-     * @return Maximum number of write request units for this index.
-     * 
-     */
     public Optional<Output<Integer>> maxWriteRequestUnits() {
         return Optional.ofNullable(this.maxWriteRequestUnits);
     }
@@ -70,44 +54,20 @@ public final class GlobalSecondaryIndexOnDemandThroughputArgs extends com.pulumi
             $ = new GlobalSecondaryIndexOnDemandThroughputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxReadRequestUnits Maximum number of read request units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxReadRequestUnits(@Nullable Output<Integer> maxReadRequestUnits) {
             $.maxReadRequestUnits = maxReadRequestUnits;
             return this;
         }
 
-        /**
-         * @param maxReadRequestUnits Maximum number of read request units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxReadRequestUnits(Integer maxReadRequestUnits) {
             return maxReadRequestUnits(Output.of(maxReadRequestUnits));
         }
 
-        /**
-         * @param maxWriteRequestUnits Maximum number of write request units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxWriteRequestUnits(@Nullable Output<Integer> maxWriteRequestUnits) {
             $.maxWriteRequestUnits = maxWriteRequestUnits;
             return this;
         }
 
-        /**
-         * @param maxWriteRequestUnits Maximum number of write request units for this index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxWriteRequestUnits(Integer maxWriteRequestUnits) {
             return maxWriteRequestUnits(Output.of(maxWriteRequestUnits));
         }

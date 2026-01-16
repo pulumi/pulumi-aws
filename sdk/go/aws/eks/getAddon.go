@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about an EKS add-on.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.LookupAddon(ctx, &eks.LookupAddonArgs{
-//				AddonName:   "vpc-cni",
-//				ClusterName: exampleAwsEksCluster.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("eksAddonOutputs", exampleAwsEksAddon)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAddonResult
@@ -52,39 +23,27 @@ func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getAddon.
 type LookupAddonArgs struct {
-	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-	AddonName string `pulumi:"addonName"`
-	// Name of the EKS Cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	AddonName   string            `pulumi:"addonName"`
+	ClusterName string            `pulumi:"clusterName"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAddon.
 type LookupAddonResult struct {
-	AddonName string `pulumi:"addonName"`
-	// Version of EKS add-on.
-	AddonVersion string `pulumi:"addonVersion"`
-	// ARN of the EKS add-on.
-	Arn         string `pulumi:"arn"`
-	ClusterName string `pulumi:"clusterName"`
-	// Configuration values for the addon with a single JSON string.
+	AddonName           string `pulumi:"addonName"`
+	AddonVersion        string `pulumi:"addonVersion"`
+	Arn                 string `pulumi:"arn"`
+	ClusterName         string `pulumi:"clusterName"`
 	ConfigurationValues string `pulumi:"configurationValues"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-	CreatedAt string `pulumi:"createdAt"`
+	CreatedAt           string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-	ModifiedAt string `pulumi:"modifiedAt"`
-	// Pod identity association for the EKS add-on.
+	Id                      string                           `pulumi:"id"`
+	ModifiedAt              string                           `pulumi:"modifiedAt"`
 	PodIdentityAssociations []GetAddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
 	Region                  string                           `pulumi:"region"`
-	// ARN of IAM role used for EKS add-on. If value is empty -
-	// then add-on uses the IAM role assigned to the EKS Cluster node.
-	ServiceAccountRoleArn string            `pulumi:"serviceAccountRoleArn"`
-	Tags                  map[string]string `pulumi:"tags"`
+	ServiceAccountRoleArn   string                           `pulumi:"serviceAccountRoleArn"`
+	Tags                    map[string]string                `pulumi:"tags"`
 }
 
 func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...pulumi.InvokeOption) LookupAddonResultOutput {
@@ -98,14 +57,10 @@ func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...
 
 // A collection of arguments for invoking getAddon.
 type LookupAddonOutputArgs struct {
-	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-	AddonName pulumi.StringInput `pulumi:"addonName"`
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringInput `pulumi:"clusterName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	AddonName   pulumi.StringInput    `pulumi:"addonName"`
+	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupAddonOutputArgs) ElementType() reflect.Type {
@@ -131,12 +86,10 @@ func (o LookupAddonResultOutput) AddonName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.AddonName }).(pulumi.StringOutput)
 }
 
-// Version of EKS add-on.
 func (o LookupAddonResultOutput) AddonVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.AddonVersion }).(pulumi.StringOutput)
 }
 
-// ARN of the EKS add-on.
 func (o LookupAddonResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -145,12 +98,10 @@ func (o LookupAddonResultOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Configuration values for the addon with a single JSON string.
 func (o LookupAddonResultOutput) ConfigurationValues() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.ConfigurationValues }).(pulumi.StringOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 func (o LookupAddonResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -160,12 +111,10 @@ func (o LookupAddonResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 func (o LookupAddonResultOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-// Pod identity association for the EKS add-on.
 func (o LookupAddonResultOutput) PodIdentityAssociations() GetAddonPodIdentityAssociationArrayOutput {
 	return o.ApplyT(func(v LookupAddonResult) []GetAddonPodIdentityAssociation { return v.PodIdentityAssociations }).(GetAddonPodIdentityAssociationArrayOutput)
 }
@@ -174,8 +123,6 @@ func (o LookupAddonResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of IAM role used for EKS add-on. If value is empty -
-// then add-on uses the IAM role assigned to the EKS Cluster node.
 func (o LookupAddonResultOutput) ServiceAccountRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.ServiceAccountRoleArn }).(pulumi.StringOutput)
 }

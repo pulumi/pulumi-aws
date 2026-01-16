@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class CapacityProviderVpcConfig {
-    /**
-     * @return List of security group IDs for the VPC.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return List of subnet IDs for the VPC.
-     * 
-     */
     private List<String> subnetIds;
 
     private CapacityProviderVpcConfig() {}
-    /**
-     * @return List of security group IDs for the VPC.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return List of subnet IDs for the VPC.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

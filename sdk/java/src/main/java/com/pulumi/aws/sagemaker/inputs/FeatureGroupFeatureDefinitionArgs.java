@@ -30,32 +30,16 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
         return Optional.ofNullable(this.collectionType);
     }
 
-    /**
-     * The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
-     * 
-     */
     @Import(name="featureName")
     private @Nullable Output<String> featureName;
 
-    /**
-     * @return The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
-     * 
-     */
     public Optional<Output<String>> featureName() {
         return Optional.ofNullable(this.featureName);
     }
 
-    /**
-     * The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-     * 
-     */
     @Import(name="featureType")
     private @Nullable Output<String> featureType;
 
-    /**
-     * @return The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-     * 
-     */
     public Optional<Output<String>> featureType() {
         return Optional.ofNullable(this.featureType);
     }
@@ -105,44 +89,20 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
             return collectionType(Output.of(collectionType));
         }
 
-        /**
-         * @param featureName The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureName(@Nullable Output<String> featureName) {
             $.featureName = featureName;
             return this;
         }
 
-        /**
-         * @param featureName The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureName(String featureName) {
             return featureName(Output.of(featureName));
         }
 
-        /**
-         * @param featureType The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureType(@Nullable Output<String> featureType) {
             $.featureType = featureType;
             return this;
         }
 
-        /**
-         * @param featureType The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureType(String featureType) {
             return featureType(Output.of(featureType));
         }

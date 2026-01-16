@@ -14,17 +14,9 @@ public final class AgentcoreGatewayInterceptorConfigurationInputConfigurationArg
 
     public static final AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs Empty = new AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs();
 
-    /**
-     * Whether to pass request headers to the interceptor.
-     * 
-     */
     @Import(name="passRequestHeaders", required=true)
     private Output<Boolean> passRequestHeaders;
 
-    /**
-     * @return Whether to pass request headers to the interceptor.
-     * 
-     */
     public Output<Boolean> passRequestHeaders() {
         return this.passRequestHeaders;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreGatewayInterceptorConfigurationInputConfigurationArg
             $ = new AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passRequestHeaders Whether to pass request headers to the interceptor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passRequestHeaders(Output<Boolean> passRequestHeaders) {
             $.passRequestHeaders = passRequestHeaders;
             return this;
         }
 
-        /**
-         * @param passRequestHeaders Whether to pass request headers to the interceptor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passRequestHeaders(Boolean passRequestHeaders) {
             return passRequestHeaders(Output.of(passRequestHeaders));
         }

@@ -12,175 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Contact Flow Module resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// This resource embeds or references Contact Flows Modules specified in Amazon Connect Contact Flow Language. For more information see
-// [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html)
-//
-// !> **WARN:** Contact Flow Modules exported from the Console [See Contact Flow import/export which is the same for Contact Flow Modules](https://docs.aws.amazon.com/connect/latest/adminguide/contact-flow-import-export.html) are not in the Amazon Connect Contact Flow Language and can not be used with this resource. Instead, the recommendation is to use the AWS CLI [`describe-contact-flow-module`](https://docs.aws.amazon.com/cli/latest/reference/connect/describe-contact-flow-module.html).
-// See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version":     "2019-10-30",
-//				"StartAction": "12345678-1234-1234-1234-123456789012",
-//				"Actions": []interface{}{
-//					map[string]interface{}{
-//						"Identifier": "12345678-1234-1234-1234-123456789012",
-//						"Parameters": map[string]interface{}{
-//							"Text": "Hello contact flow module",
-//						},
-//						"Transitions": map[string]interface{}{
-//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"Errors":     []interface{}{},
-//							"Conditions": []interface{}{},
-//						},
-//						"Type": "MessageParticipant",
-//					},
-//					map[string]interface{}{
-//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"Type":        "DisconnectParticipant",
-//						"Parameters":  map[string]interface{}{},
-//						"Transitions": map[string]interface{}{},
-//					},
-//				},
-//				"Settings": map[string]interface{}{
-//					"InputParameters":  []interface{}{},
-//					"OutputParameters": []interface{}{},
-//					"Transitions": []map[string]interface{}{
-//						map[string]interface{}{
-//							"DisplayName":   "Success",
-//							"ReferenceName": "Success",
-//							"Description":   "",
-//						},
-//						map[string]interface{}{
-//							"DisplayName":   "Error",
-//							"ReferenceName": "Error",
-//							"Description":   "",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("Example Contact Flow Module Description"),
-//				Content:     pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("Example Contact Flow Module"),
-//					"Application": pulumi.String("Example"),
-//					"Method":      pulumi.String("Create"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With External Content
-//
-// Use the AWS CLI to extract Contact Flow Content:
-//
-// Use the generated file as input:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
-//				Input: "contact_flow_module.json",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("Example Contact Flow Module Description"),
-//				Filename:    pulumi.String("contact_flow_module.json"),
-//				ContentHash: pulumi.String(invokeFilebase64sha256.Result),
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("Example Contact Flow Module"),
-//					"Application": pulumi.String("Example"),
-//					"Method":      pulumi.String("Create"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-// ```
 type ContactFlowModule struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Contact Flow Module.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The identifier of the Contact Flow Module.
-	ContactFlowModuleId pulumi.StringOutput `pulumi:"contactFlowModuleId"`
-	// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content pulumi.StringOutput `pulumi:"content"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
-	ContentHash pulumi.StringPtrOutput `pulumi:"contentHash"`
-	// Specifies the description of the Contact Flow Module.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
-	Filename pulumi.StringPtrOutput `pulumi:"filename"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Specifies the name of the Contact Flow Module.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                 pulumi.StringOutput    `pulumi:"arn"`
+	ContactFlowModuleId pulumi.StringOutput    `pulumi:"contactFlowModuleId"`
+	Content             pulumi.StringOutput    `pulumi:"content"`
+	ContentHash         pulumi.StringPtrOutput `pulumi:"contentHash"`
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	Filename            pulumi.StringPtrOutput `pulumi:"filename"`
+	InstanceId          pulumi.StringOutput    `pulumi:"instanceId"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewContactFlowModule registers a new resource with the given unique name, arguments, and options.
@@ -216,53 +61,31 @@ func GetContactFlowModule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactFlowModule resources.
 type contactFlowModuleState struct {
-	// The Amazon Resource Name (ARN) of the Contact Flow Module.
-	Arn *string `pulumi:"arn"`
-	// The identifier of the Contact Flow Module.
-	ContactFlowModuleId *string `pulumi:"contactFlowModuleId"`
-	// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content *string `pulumi:"content"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
-	ContentHash *string `pulumi:"contentHash"`
-	// Specifies the description of the Contact Flow Module.
-	Description *string `pulumi:"description"`
-	// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
-	Filename *string `pulumi:"filename"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Specifies the name of the Contact Flow Module.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                 *string           `pulumi:"arn"`
+	ContactFlowModuleId *string           `pulumi:"contactFlowModuleId"`
+	Content             *string           `pulumi:"content"`
+	ContentHash         *string           `pulumi:"contentHash"`
+	Description         *string           `pulumi:"description"`
+	Filename            *string           `pulumi:"filename"`
+	InstanceId          *string           `pulumi:"instanceId"`
+	Name                *string           `pulumi:"name"`
+	Region              *string           `pulumi:"region"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
 }
 
 type ContactFlowModuleState struct {
-	// The Amazon Resource Name (ARN) of the Contact Flow Module.
-	Arn pulumi.StringPtrInput
-	// The identifier of the Contact Flow Module.
+	Arn                 pulumi.StringPtrInput
 	ContactFlowModuleId pulumi.StringPtrInput
-	// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content pulumi.StringPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
-	ContentHash pulumi.StringPtrInput
-	// Specifies the description of the Contact Flow Module.
-	Description pulumi.StringPtrInput
-	// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
-	Filename pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// Specifies the name of the Contact Flow Module.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Content             pulumi.StringPtrInput
+	ContentHash         pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Filename            pulumi.StringPtrInput
+	InstanceId          pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (ContactFlowModuleState) ElementType() reflect.Type {
@@ -270,42 +93,26 @@ func (ContactFlowModuleState) ElementType() reflect.Type {
 }
 
 type contactFlowModuleArgs struct {
-	// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content *string `pulumi:"content"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
-	ContentHash *string `pulumi:"contentHash"`
-	// Specifies the description of the Contact Flow Module.
-	Description *string `pulumi:"description"`
-	// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
-	Filename *string `pulumi:"filename"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Specifies the name of the Contact Flow Module.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Content     *string           `pulumi:"content"`
+	ContentHash *string           `pulumi:"contentHash"`
+	Description *string           `pulumi:"description"`
+	Filename    *string           `pulumi:"filename"`
+	InstanceId  string            `pulumi:"instanceId"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContactFlowModule resource.
 type ContactFlowModuleArgs struct {
-	// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content pulumi.StringPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+	Content     pulumi.StringPtrInput
 	ContentHash pulumi.StringPtrInput
-	// Specifies the description of the Contact Flow Module.
 	Description pulumi.StringPtrInput
-	// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
-	Filename pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// Specifies the name of the Contact Flow Module.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Filename    pulumi.StringPtrInput
+	InstanceId  pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ContactFlowModuleArgs) ElementType() reflect.Type {
@@ -395,57 +202,46 @@ func (o ContactFlowModuleOutput) ToContactFlowModuleOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Contact Flow Module.
 func (o ContactFlowModuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The identifier of the Contact Flow Module.
 func (o ContactFlowModuleOutput) ContactFlowModuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.ContactFlowModuleId }).(pulumi.StringOutput)
 }
 
-// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
 func (o ContactFlowModuleOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
 func (o ContactFlowModuleOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.ContentHash }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the description of the Contact Flow Module.
 func (o ContactFlowModuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
 func (o ContactFlowModuleOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o ContactFlowModuleOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Contact Flow Module.
 func (o ContactFlowModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactFlowModuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContactFlowModuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContactFlowModuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

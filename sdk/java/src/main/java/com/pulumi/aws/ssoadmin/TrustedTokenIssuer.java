@@ -16,199 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SSO Admin Trusted Token Issuer.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.ssoadmin.TrustedTokenIssuer;
- * import com.pulumi.aws.ssoadmin.TrustedTokenIssuerArgs;
- * import com.pulumi.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs;
- * import com.pulumi.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         var exampleTrustedTokenIssuer = new TrustedTokenIssuer("exampleTrustedTokenIssuer", TrustedTokenIssuerArgs.builder()
- *             .name("example")
- *             .instanceArn(example.arns()[0])
- *             .trustedTokenIssuerType("OIDC_JWT")
- *             .trustedTokenIssuerConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs.builder()
- *                 .oidcJwtConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.builder()
- *                     .claimAttributePath("email")
- *                     .identityStoreAttributePath("emails.value")
- *                     .issuerUrl("https://example.com")
- *                     .jwksRetrievalOption("OPEN_ID_DISCOVERY")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::123456789012:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")
 public class TrustedTokenIssuer extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the trusted token issuer.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the trusted token issuer.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-     * 
-     */
     @Export(name="clientToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientToken;
 
-    /**
-     * @return A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-     * 
-     */
     public Output<Optional<String>> clientToken() {
         return Codegen.optional(this.clientToken);
     }
-    /**
-     * ARN of the instance of IAM Identity Center.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return ARN of the instance of IAM Identity Center.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * Name of the trusted token issuer.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the trusted token issuer.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-     * 
-     */
     @Export(name="trustedTokenIssuerConfiguration", refs={TrustedTokenIssuerTrustedTokenIssuerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ TrustedTokenIssuerTrustedTokenIssuerConfiguration> trustedTokenIssuerConfiguration;
 
-    /**
-     * @return A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-     * 
-     */
     public Output<Optional<TrustedTokenIssuerTrustedTokenIssuerConfiguration>> trustedTokenIssuerConfiguration() {
         return Codegen.optional(this.trustedTokenIssuerConfiguration);
     }
-    /**
-     * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="trustedTokenIssuerType", refs={String.class}, tree="[0]")
     private Output<String> trustedTokenIssuerType;
 
-    /**
-     * @return Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> trustedTokenIssuerType() {
         return this.trustedTokenIssuerType;
     }

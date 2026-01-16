@@ -9,96 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
-    /// <summary>
-    /// Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Msk.VpcConnection("test", new()
-    ///     {
-    ///         Authentication = "SASL_IAM",
-    ///         TargetClusterArn = "aws_msk_cluster.arn",
-    ///         VpcId = testAwsVpc.Id,
-    ///         ClientSubnets = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             testAwsSecurityGroup.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:msk/vpcConnection:VpcConnection")]
     public partial class VpcConnection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC connection.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        /// </summary>
         [Output("authentication")]
         public Output<string> Authentication { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of subnets in the client VPC to connect to.
-        /// </summary>
         [Output("clientSubnets")]
         public Output<ImmutableArray<string>> ClientSubnets { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The security groups to attach to the ENIs for the broker nodes.
-        /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
-        /// </summary>
         [Output("targetClusterArn")]
         public Output<string> TargetClusterArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC ID of the remote client.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -148,36 +85,22 @@ namespace Pulumi.Aws.Msk
 
     public sealed class VpcConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        /// </summary>
         [Input("authentication", required: true)]
         public Input<string> Authentication { get; set; } = null!;
 
         [Input("clientSubnets", required: true)]
         private InputList<string>? _clientSubnets;
-
-        /// <summary>
-        /// The list of subnets in the client VPC to connect to.
-        /// </summary>
         public InputList<string> ClientSubnets
         {
             get => _clientSubnets ?? (_clientSubnets = new InputList<string>());
             set => _clientSubnets = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// The security groups to attach to the ENIs for the broker nodes.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -186,25 +109,15 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
-        /// </summary>
         [Input("targetClusterArn", required: true)]
         public Input<string> TargetClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// The VPC ID of the remote client.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -216,42 +129,25 @@ namespace Pulumi.Aws.Msk
 
     public sealed class VpcConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC connection.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        /// </summary>
         [Input("authentication")]
         public Input<string>? Authentication { get; set; }
 
         [Input("clientSubnets")]
         private InputList<string>? _clientSubnets;
-
-        /// <summary>
-        /// The list of subnets in the client VPC to connect to.
-        /// </summary>
         public InputList<string> ClientSubnets
         {
             get => _clientSubnets ?? (_clientSubnets = new InputList<string>());
             set => _clientSubnets = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// The security groups to attach to the ENIs for the broker nodes.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -260,10 +156,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -272,25 +164,15 @@ namespace Pulumi.Aws.Msk
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
-        /// </summary>
         [Input("targetClusterArn")]
         public Input<string>? TargetClusterArn { get; set; }
 
-        /// <summary>
-        /// The VPC ID of the remote client.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

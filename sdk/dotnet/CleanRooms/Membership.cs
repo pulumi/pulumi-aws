@@ -9,145 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CleanRooms
 {
-    /// <summary>
-    /// Provides a AWS Clean Rooms membership. Memberships are used to join a Clean Rooms collaboration by the invited member.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Membership with tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testMembership = new Aws.CleanRooms.Membership("test_membership", new()
-    ///     {
-    ///         CollaborationId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-    ///         QueryLogStatus = "DISABLED",
-    ///         DefaultResultConfiguration = new Aws.CleanRooms.Inputs.MembershipDefaultResultConfigurationArgs
-    ///         {
-    ///             RoleArn = "arn:aws:iam::123456789012:role/role-name",
-    ///             OutputConfiguration = new Aws.CleanRooms.Inputs.MembershipDefaultResultConfigurationOutputConfigurationArgs
-    ///             {
-    ///                 S3 = new Aws.CleanRooms.Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args
-    ///                 {
-    ///                     Bucket = "test-bucket",
-    ///                     ResultFormat = "PARQUET",
-    ///                     KeyPrefix = "test-prefix",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Project", "Terraform" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_cleanrooms_membership` using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cleanrooms/membership:Membership membership 1234abcd-12ab-34cd-56ef-1234567890ab
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cleanrooms/membership:Membership")]
     public partial class Membership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the membership.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the joined collaboration.
-        /// </summary>
         [Output("collaborationArn")]
         public Output<string> CollaborationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID of the collaboration's creator.
-        /// </summary>
         [Output("collaborationCreatorAccountId")]
         public Output<string> CollaborationCreatorAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The display name of the collaboration's creator.
-        /// </summary>
         [Output("collaborationCreatorDisplayName")]
         public Output<string> CollaborationCreatorDisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the collaboration to which the member was invited.
-        /// </summary>
         [Output("collaborationId")]
         public Output<string> CollaborationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the joined collaboration.
-        /// </summary>
         [Output("collaborationName")]
         public Output<string> CollaborationName { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time the membership was created.
-        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The default configuration for a query result.
-        /// </summary>
         [Output("defaultResultConfiguration")]
         public Output<Outputs.MembershipDefaultResultConfiguration?> DefaultResultConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of abilities for the invited member.
-        /// </summary>
         [Output("memberAbilities")]
         public Output<ImmutableArray<string>> MemberAbilities { get; private set; } = null!;
 
         [Output("paymentConfiguration")]
         public Output<Outputs.MembershipPaymentConfiguration?> PaymentConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// An indicator as to whether query logging has been enabled or disabled for the membership.
-        /// </summary>
         [Output("queryLogStatus")]
         public Output<string> QueryLogStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the membership.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key value pairs which tag the membership.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time the membership was last updated.
-        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -197,39 +106,23 @@ namespace Pulumi.Aws.CleanRooms
 
     public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the collaboration to which the member was invited.
-        /// </summary>
         [Input("collaborationId", required: true)]
         public Input<string> CollaborationId { get; set; } = null!;
 
-        /// <summary>
-        /// The default configuration for a query result.
-        /// </summary>
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipDefaultResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
 
         [Input("paymentConfiguration")]
         public Input<Inputs.MembershipPaymentConfigurationArgs>? PaymentConfiguration { get; set; }
 
-        /// <summary>
-        /// An indicator as to whether query logging has been enabled or disabled for the membership.
-        /// </summary>
         [Input("queryLogStatus", required: true)]
         public Input<string> QueryLogStatus { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key value pairs which tag the membership.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -244,60 +137,32 @@ namespace Pulumi.Aws.CleanRooms
 
     public sealed class MembershipState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the membership.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ARN of the joined collaboration.
-        /// </summary>
         [Input("collaborationArn")]
         public Input<string>? CollaborationArn { get; set; }
 
-        /// <summary>
-        /// The account ID of the collaboration's creator.
-        /// </summary>
         [Input("collaborationCreatorAccountId")]
         public Input<string>? CollaborationCreatorAccountId { get; set; }
 
-        /// <summary>
-        /// The display name of the collaboration's creator.
-        /// </summary>
         [Input("collaborationCreatorDisplayName")]
         public Input<string>? CollaborationCreatorDisplayName { get; set; }
 
-        /// <summary>
-        /// The ID of the collaboration to which the member was invited.
-        /// </summary>
         [Input("collaborationId")]
         public Input<string>? CollaborationId { get; set; }
 
-        /// <summary>
-        /// The name of the joined collaboration.
-        /// </summary>
         [Input("collaborationName")]
         public Input<string>? CollaborationName { get; set; }
 
-        /// <summary>
-        /// The date and time the membership was created.
-        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
-        /// <summary>
-        /// The default configuration for a query result.
-        /// </summary>
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipDefaultResultConfigurationGetArgs>? DefaultResultConfiguration { get; set; }
 
         [Input("memberAbilities")]
         private InputList<string>? _memberAbilities;
-
-        /// <summary>
-        /// The list of abilities for the invited member.
-        /// </summary>
         public InputList<string> MemberAbilities
         {
             get => _memberAbilities ?? (_memberAbilities = new InputList<string>());
@@ -307,30 +172,17 @@ namespace Pulumi.Aws.CleanRooms
         [Input("paymentConfiguration")]
         public Input<Inputs.MembershipPaymentConfigurationGetArgs>? PaymentConfiguration { get; set; }
 
-        /// <summary>
-        /// An indicator as to whether query logging has been enabled or disabled for the membership.
-        /// </summary>
         [Input("queryLogStatus")]
         public Input<string>? QueryLogStatus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The status of the membership.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key value pairs which tag the membership.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -345,9 +197,6 @@ namespace Pulumi.Aws.CleanRooms
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The date and time the membership was last updated.
-        /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }
 

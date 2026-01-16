@@ -11,78 +11,12 @@ namespace Pulumi.Aws.CloudControl
 {
     public static class GetResource
     {
-        /// <summary>
-        /// Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudControl.GetResource.Invoke(new()
-        ///     {
-        ///         Identifier = "example",
-        ///         TypeName = "AWS::ECS::Cluster",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudControl.GetResource.Invoke(new()
-        ///     {
-        ///         Identifier = "example",
-        ///         TypeName = "AWS::ECS::Cluster",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudControl.GetResource.Invoke(new()
-        ///     {
-        ///         Identifier = "example",
-        ///         TypeName = "AWS::ECS::Cluster",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
@@ -90,35 +24,18 @@ namespace Pulumi.Aws.CloudControl
 
     public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-        /// </summary>
         [Input("identifier", required: true)]
         public string Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Role to assume for operations.
-        /// </summary>
         [Input("roleArn")]
         public string? RoleArn { get; set; }
 
-        /// <summary>
-        /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("typeName", required: true)]
         public string TypeName { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the CloudFormation resource type version.
-        /// </summary>
         [Input("typeVersionId")]
         public string? TypeVersionId { get; set; }
 
@@ -130,35 +47,18 @@ namespace Pulumi.Aws.CloudControl
 
     public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Role to assume for operations.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the CloudFormation resource type version.
-        /// </summary>
         [Input("typeVersionId")]
         public Input<string>? TypeVersionId { get; set; }
 
@@ -177,9 +77,6 @@ namespace Pulumi.Aws.CloudControl
         /// </summary>
         public readonly string Id;
         public readonly string Identifier;
-        /// <summary>
-        /// JSON string matching the CloudFormation resource type schema with current configuration.
-        /// </summary>
         public readonly string Properties;
         public readonly string Region;
         public readonly string? RoleArn;

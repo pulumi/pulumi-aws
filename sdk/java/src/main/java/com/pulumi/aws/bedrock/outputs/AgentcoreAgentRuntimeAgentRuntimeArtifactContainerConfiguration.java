@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
-    /**
-     * @return URI of the container image in Amazon ECR.
-     * 
-     */
     private String containerUri;
 
     private AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration() {}
-    /**
-     * @return URI of the container image in Amazon ECR.
-     * 
-     */
     public String containerUri() {
         return this.containerUri;
     }

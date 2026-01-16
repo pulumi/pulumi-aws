@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentConfigurationCanaryConfigurationResult
     {
-        /// <summary>
-        /// Time to wait before shifting remaining traffic
-        /// </summary>
         public readonly string CanaryBakeTimeInMinutes;
-        /// <summary>
-        /// Percentage of traffic to route to canary deployment
-        /// </summary>
         public readonly double CanaryPercent;
 
         [OutputConstructor]

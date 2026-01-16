@@ -7,49 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a DMS Serverless replication config resource.
- *
- * > **NOTE:** Changing most arguments will stop the replication if it is running. You can set `startReplication` to resume the replication afterwards.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const name = new aws.dms.ReplicationConfig("name", {
- *     replicationConfigIdentifier: "test-dms-serverless-replication-tf",
- *     resourceIdentifier: "test-dms-serverless-replication-tf",
- *     replicationType: "cdc",
- *     sourceEndpointArn: source.endpointArn,
- *     targetEndpointArn: target.endpointArn,
- *     tableMappings: `  {
- *     \\"rules\\":[{\\"rule-type\\":\\"selection\\",\\"rule-id\\":\\"1\\",\\"rule-name\\":\\"1\\",\\"rule-action\\":\\"include\\",\\"object-locator\\":{\\"schema-name\\":\\"%%\\",\\"table-name\\":\\"%%\\"}}]
- *   }
- * `,
- *     startReplication: true,
- *     computeConfig: {
- *         replicationSubnetGroupId: _default.replicationSubnetGroupId,
- *         maxCapacityUnits: 64,
- *         minCapacityUnits: 2,
- *         preferredMaintenanceWindow: "sun:23:45-mon:00:30",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the DMS replication configuration.
- *
- * Using `pulumi import`, import a replication config using the `arn`. For example:
- *
- * % pulumi import aws_dms_replication_config.example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
- */
 export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * Get an existing ReplicationConfig resource's state with the given name, ID, and optional extra
@@ -78,61 +35,19 @@ export class ReplicationConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationConfig.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for the serverless replication config.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Configuration block for provisioning an DMS Serverless replication.
-     */
     declare public readonly computeConfig: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Unique identifier that you want to use to create the config.
-     */
     declare public readonly replicationConfigIdentifier: pulumi.Output<string>;
-    /**
-     * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
-     */
     declare public readonly replicationSettings: pulumi.Output<string>;
-    /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     */
     declare public readonly replicationType: pulumi.Output<string>;
-    /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
-     */
     declare public readonly resourceIdentifier: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     */
     declare public readonly sourceEndpointArn: pulumi.Output<string>;
-    /**
-     * Whether to run or stop the serverless replication, default is false.
-     */
     declare public readonly startReplication: pulumi.Output<boolean | undefined>;
-    /**
-     * JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
-     */
     declare public readonly supplementalSettings: pulumi.Output<string | undefined>;
-    /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     */
     declare public readonly tableMappings: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     */
     declare public readonly targetEndpointArn: pulumi.Output<string>;
 
     /**
@@ -206,61 +121,19 @@ export class ReplicationConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationConfig resources.
  */
 export interface ReplicationConfigState {
-    /**
-     * The Amazon Resource Name (ARN) for the serverless replication config.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Configuration block for provisioning an DMS Serverless replication.
-     */
     computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Unique identifier that you want to use to create the config.
-     */
     replicationConfigIdentifier?: pulumi.Input<string>;
-    /**
-     * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
-     */
     replicationSettings?: pulumi.Input<string>;
-    /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     */
     replicationType?: pulumi.Input<string>;
-    /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
-     */
     resourceIdentifier?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     */
     sourceEndpointArn?: pulumi.Input<string>;
-    /**
-     * Whether to run or stop the serverless replication, default is false.
-     */
     startReplication?: pulumi.Input<boolean>;
-    /**
-     * JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
-     */
     supplementalSettings?: pulumi.Input<string>;
-    /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     */
     tableMappings?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     */
     targetEndpointArn?: pulumi.Input<string>;
 }
 
@@ -268,52 +141,16 @@ export interface ReplicationConfigState {
  * The set of arguments for constructing a ReplicationConfig resource.
  */
 export interface ReplicationConfigArgs {
-    /**
-     * Configuration block for provisioning an DMS Serverless replication.
-     */
     computeConfig: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Unique identifier that you want to use to create the config.
-     */
     replicationConfigIdentifier: pulumi.Input<string>;
-    /**
-     * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
-     */
     replicationSettings?: pulumi.Input<string>;
-    /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     */
     replicationType: pulumi.Input<string>;
-    /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
-     */
     resourceIdentifier?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     */
     sourceEndpointArn: pulumi.Input<string>;
-    /**
-     * Whether to run or stop the serverless replication, default is false.
-     */
     startReplication?: pulumi.Input<boolean>;
-    /**
-     * JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
-     */
     supplementalSettings?: pulumi.Input<string>;
-    /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     */
     tableMappings: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     */
     targetEndpointArn: pulumi.Input<string>;
 }

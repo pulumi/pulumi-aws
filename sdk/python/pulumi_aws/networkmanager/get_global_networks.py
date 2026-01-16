@@ -48,9 +48,6 @@ class GetGlobalNetworksResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the global networks.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -73,21 +70,7 @@ class AwaitableGetGlobalNetworksResult(GetGlobalNetworksResult):
 def get_global_networks(tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalNetworksResult:
     """
-    Provides details about existing Network Manager global networks.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_networks(tags={
-        "Env": "test",
-    })
-    ```
-
-
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the global networks with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -101,21 +84,7 @@ def get_global_networks(tags: Optional[Mapping[str, _builtins.str]] = None,
 def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalNetworksResult]:
     """
-    Provides details about existing Network Manager global networks.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_networks(tags={
-        "Env": "test",
-    })
-    ```
-
-
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the global networks with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags

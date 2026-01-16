@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainNameServer {
-    /**
-     * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-     * 
-     */
     private List<String> glueIps;
-    /**
-     * @return The fully qualified host name of the name server.
-     * 
-     */
     private String name;
 
     private DomainNameServer() {}
-    /**
-     * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-     * 
-     */
     public List<String> glueIps() {
         return this.glueIps;
     }
-    /**
-     * @return The fully qualified host name of the name server.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -24,17 +24,8 @@ MYPY = False
 if not MYPY:
     class DataIntegrationScheduleConfigArgsDict(TypedDict):
         first_execution_from: pulumi.Input[_builtins.str]
-        """
-        The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        """
         object: pulumi.Input[_builtins.str]
-        """
-        The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-        """
         schedule_expression: pulumi.Input[_builtins.str]
-        """
-        How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
-        """
 elif False:
     DataIntegrationScheduleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -44,11 +35,6 @@ class DataIntegrationScheduleConfigArgs:
                  first_execution_from: pulumi.Input[_builtins.str],
                  object: pulumi.Input[_builtins.str],
                  schedule_expression: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] first_execution_from: The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        :param pulumi.Input[_builtins.str] object: The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-        :param pulumi.Input[_builtins.str] schedule_expression: How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
-        """
         pulumi.set(__self__, "first_execution_from", first_execution_from)
         pulumi.set(__self__, "object", object)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -56,9 +42,6 @@ class DataIntegrationScheduleConfigArgs:
     @_builtins.property
     @pulumi.getter(name="firstExecutionFrom")
     def first_execution_from(self) -> pulumi.Input[_builtins.str]:
-        """
-        The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        """
         return pulumi.get(self, "first_execution_from")
 
     @first_execution_from.setter
@@ -68,9 +51,6 @@ class DataIntegrationScheduleConfigArgs:
     @_builtins.property
     @pulumi.getter
     def object(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -80,9 +60,6 @@ class DataIntegrationScheduleConfigArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[_builtins.str]:
-        """
-        How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter

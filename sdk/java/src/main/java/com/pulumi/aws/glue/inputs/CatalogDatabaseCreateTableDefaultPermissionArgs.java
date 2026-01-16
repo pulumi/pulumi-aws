@@ -17,32 +17,16 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
 
     public static final CatalogDatabaseCreateTableDefaultPermissionArgs Empty = new CatalogDatabaseCreateTableDefaultPermissionArgs();
 
-    /**
-     * The permissions that are granted to the principal.
-     * 
-     */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
-    /**
-     * @return The permissions that are granted to the principal.
-     * 
-     */
     public Optional<Output<List<String>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
-    /**
-     * The principal who is granted permissions.. See `principal` below.
-     * 
-     */
     @Import(name="principal")
     private @Nullable Output<CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs> principal;
 
-    /**
-     * @return The principal who is granted permissions.. See `principal` below.
-     * 
-     */
     public Optional<Output<CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs>> principal() {
         return Optional.ofNullable(this.principal);
     }
@@ -72,54 +56,24 @@ public final class CatalogDatabaseCreateTableDefaultPermissionArgs extends com.p
             $ = new CatalogDatabaseCreateTableDefaultPermissionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param permissions The permissions that are granted to the principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(@Nullable Output<List<String>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions The permissions that are granted to the principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(List<String> permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param permissions The permissions that are granted to the principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
 
-        /**
-         * @param principal The principal who is granted permissions.. See `principal` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(@Nullable Output<CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal The principal who is granted permissions.. See `principal` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs principal) {
             return principal(Output.of(principal));
         }

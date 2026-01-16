@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupCapacityReservationSpecification {
-    /**
-     * @return Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-     * 
-     */
     private @Nullable String capacityReservationPreference;
-    /**
-     * @return Describes a target Capacity Reservation or Capacity Reservation resource group.
-     * 
-     */
     private @Nullable GroupCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
 
     private GroupCapacityReservationSpecification() {}
-    /**
-     * @return Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-     * 
-     */
     public Optional<String> capacityReservationPreference() {
         return Optional.ofNullable(this.capacityReservationPreference);
     }
-    /**
-     * @return Describes a target Capacity Reservation or Capacity Reservation resource group.
-     * 
-     */
     public Optional<GroupCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTarget() {
         return Optional.ofNullable(this.capacityReservationTarget);
     }

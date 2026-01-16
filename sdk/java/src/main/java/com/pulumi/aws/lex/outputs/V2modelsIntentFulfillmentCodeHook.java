@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHook {
-    /**
-     * @return Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
-     * 
-     */
     private @Nullable Boolean active;
-    /**
-     * @return Whether a Lambda function should be invoked to fulfill a specific intent.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
-     * 
-     */
     private @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification fulfillmentUpdatesSpecification;
-    /**
-     * @return Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
-     * 
-     */
     private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification postFulfillmentStatusSpecification;
 
     private V2modelsIntentFulfillmentCodeHook() {}
-    /**
-     * @return Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
-     * 
-     */
     public Optional<Boolean> active() {
         return Optional.ofNullable(this.active);
     }
-    /**
-     * @return Whether a Lambda function should be invoked to fulfill a specific intent.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
-     * 
-     */
     public Optional<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification> fulfillmentUpdatesSpecification() {
         return Optional.ofNullable(this.fulfillmentUpdatesSpecification);
     }
-    /**
-     * @return Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
-     * 
-     */
     public Optional<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification> postFulfillmentStatusSpecification() {
         return Optional.ofNullable(this.postFulfillmentStatusSpecification);
     }

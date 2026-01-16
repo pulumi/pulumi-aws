@@ -19,185 +19,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConfigurationProductionVariant {
-    /**
-     * @return Size of the Elastic Inference (EI) instance to use for the production variant.
-     * 
-     */
     private @Nullable String acceleratorType;
-    /**
-     * @return Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-     * 
-     */
     private @Nullable Integer containerStartupHealthCheckTimeoutInSeconds;
-    /**
-     * @return Core dump configuration from the model container when the process crashes. Fields are documented below.
-     * 
-     */
     private @Nullable EndpointConfigurationProductionVariantCoreDumpConfig coreDumpConfig;
-    /**
-     * @return Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
-     * 
-     */
     private @Nullable Boolean enableSsmAccess;
-    /**
-     * @return Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
-     * 
-     */
     private @Nullable String inferenceAmiVersion;
-    /**
-     * @return Initial number of instances used for auto-scaling.
-     * 
-     */
     private @Nullable Integer initialInstanceCount;
-    /**
-     * @return Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
-     * 
-     */
     private @Nullable Double initialVariantWeight;
-    /**
-     * @return Type of instance to start.
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
-     * 
-     */
     private @Nullable EndpointConfigurationProductionVariantManagedInstanceScaling managedInstanceScaling;
-    /**
-     * @return Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-     * 
-     */
     private @Nullable Integer modelDataDownloadTimeoutInSeconds;
-    /**
-     * @return Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
-     * 
-     */
     private @Nullable String modelName;
-    /**
-     * @return How the endpoint routes incoming traffic. See routingConfig below.
-     * 
-     */
     private @Nullable List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs;
-    /**
-     * @return How an endpoint performs asynchronous inference.
-     * 
-     */
     private @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
-    /**
-     * @return Name of the variant. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     private @Nullable String variantName;
-    /**
-     * @return Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-     * 
-     */
     private @Nullable Integer volumeSizeInGb;
 
     private EndpointConfigurationProductionVariant() {}
-    /**
-     * @return Size of the Elastic Inference (EI) instance to use for the production variant.
-     * 
-     */
     public Optional<String> acceleratorType() {
         return Optional.ofNullable(this.acceleratorType);
     }
-    /**
-     * @return Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-     * 
-     */
     public Optional<Integer> containerStartupHealthCheckTimeoutInSeconds() {
         return Optional.ofNullable(this.containerStartupHealthCheckTimeoutInSeconds);
     }
-    /**
-     * @return Core dump configuration from the model container when the process crashes. Fields are documented below.
-     * 
-     */
     public Optional<EndpointConfigurationProductionVariantCoreDumpConfig> coreDumpConfig() {
         return Optional.ofNullable(this.coreDumpConfig);
     }
-    /**
-     * @return Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
-     * 
-     */
     public Optional<Boolean> enableSsmAccess() {
         return Optional.ofNullable(this.enableSsmAccess);
     }
-    /**
-     * @return Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
-     * 
-     */
     public Optional<String> inferenceAmiVersion() {
         return Optional.ofNullable(this.inferenceAmiVersion);
     }
-    /**
-     * @return Initial number of instances used for auto-scaling.
-     * 
-     */
     public Optional<Integer> initialInstanceCount() {
         return Optional.ofNullable(this.initialInstanceCount);
     }
-    /**
-     * @return Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
-     * 
-     */
     public Optional<Double> initialVariantWeight() {
         return Optional.ofNullable(this.initialVariantWeight);
     }
-    /**
-     * @return Type of instance to start.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
-     * 
-     */
     public Optional<EndpointConfigurationProductionVariantManagedInstanceScaling> managedInstanceScaling() {
         return Optional.ofNullable(this.managedInstanceScaling);
     }
-    /**
-     * @return Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-     * 
-     */
     public Optional<Integer> modelDataDownloadTimeoutInSeconds() {
         return Optional.ofNullable(this.modelDataDownloadTimeoutInSeconds);
     }
-    /**
-     * @return Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
-     * 
-     */
     public Optional<String> modelName() {
         return Optional.ofNullable(this.modelName);
     }
-    /**
-     * @return How the endpoint routes incoming traffic. See routingConfig below.
-     * 
-     */
     public List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs() {
         return this.routingConfigs == null ? List.of() : this.routingConfigs;
     }
-    /**
-     * @return How an endpoint performs asynchronous inference.
-     * 
-     */
     public Optional<EndpointConfigurationProductionVariantServerlessConfig> serverlessConfig() {
         return Optional.ofNullable(this.serverlessConfig);
     }
-    /**
-     * @return Name of the variant. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Optional<String> variantName() {
         return Optional.ofNullable(this.variantName);
     }
-    /**
-     * @return Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-     * 
-     */
     public Optional<Integer> volumeSizeInGb() {
         return Optional.ofNullable(this.volumeSizeInGb);
     }

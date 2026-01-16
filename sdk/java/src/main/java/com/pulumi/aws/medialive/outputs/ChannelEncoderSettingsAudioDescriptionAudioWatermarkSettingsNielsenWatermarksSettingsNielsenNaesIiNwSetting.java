@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting {
     private String checkDigitString;
-    /**
-     * @return The Nielsen Source ID to include in the watermark.
-     * 
-     */
     private Double sid;
 
     private ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting() {}
     public String checkDigitString() {
         return this.checkDigitString;
     }
-    /**
-     * @return The Nielsen Source ID to include in the watermark.
-     * 
-     */
     public Double sid() {
         return this.sid;
     }

@@ -14,112 +14,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.LoadBalancer;
- * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.ec2.ProxyProtocolPolicy;
- * import com.pulumi.aws.ec2.ProxyProtocolPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
- *             .name("test-lb")
- *             .availabilityZones("us-east-1a")
- *             .listeners(            
- *                 LoadBalancerListenerArgs.builder()
- *                     .instancePort(25)
- *                     .instanceProtocol("tcp")
- *                     .lbPort(25)
- *                     .lbProtocol("tcp")
- *                     .build(),
- *                 LoadBalancerListenerArgs.builder()
- *                     .instancePort(587)
- *                     .instanceProtocol("tcp")
- *                     .lbPort(587)
- *                     .lbProtocol("tcp")
- *                     .build())
- *             .build());
- * 
- *         var smtp = new ProxyProtocolPolicy("smtp", ProxyProtocolPolicyArgs.builder()
- *             .loadBalancer(lb.name())
- *             .instancePorts(            
- *                 "25",
- *                 "587")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")
 public class ProxyProtocolPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     * 
-     */
     @Export(name="instancePorts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instancePorts;
 
-    /**
-     * @return List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     * 
-     */
     public Output<List<String>> instancePorts() {
         return this.instancePorts;
     }
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
-    /**
-     * @return The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Output<String> loadBalancer() {
         return this.loadBalancer;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpc.getEndpointAssociations({
- *     vpcEndpointId: exampleAwsVpcEndpoint.id,
- * });
- * ```
- */
 export function getEndpointAssociations(args: GetEndpointAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", {
@@ -35,13 +19,7 @@ export function getEndpointAssociations(args: GetEndpointAssociationsArgs, opts?
  * A collection of arguments for invoking getEndpointAssociations.
  */
 export interface GetEndpointAssociationsArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * ID of the specific VPC Endpoint to retrieve.
-     */
     vpcEndpointId: string;
 }
 
@@ -49,9 +27,6 @@ export interface GetEndpointAssociationsArgs {
  * A collection of values returned by getEndpointAssociations.
  */
 export interface GetEndpointAssociationsResult {
-    /**
-     * Associations for the VPC Endpoint. Association blocks are documented below.
-     */
     readonly associations: outputs.vpc.GetEndpointAssociationsAssociation[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -60,22 +35,6 @@ export interface GetEndpointAssociationsResult {
     readonly region: string;
     readonly vpcEndpointId: string;
 }
-/**
- * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpc.getEndpointAssociations({
- *     vpcEndpointId: exampleAwsVpcEndpoint.id,
- * });
- * ```
- */
 export function getEndpointAssociationsOutput(args: GetEndpointAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", {
@@ -88,12 +47,6 @@ export function getEndpointAssociationsOutput(args: GetEndpointAssociationsOutpu
  * A collection of arguments for invoking getEndpointAssociations.
  */
 export interface GetEndpointAssociationsOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the specific VPC Endpoint to retrieve.
-     */
     vpcEndpointId: pulumi.Input<string>;
 }

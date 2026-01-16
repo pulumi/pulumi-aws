@@ -26,11 +26,6 @@ class MetricsDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricsDestination resource.
-        :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[_builtins.str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[_builtins.str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app_monitor_name", app_monitor_name)
         pulumi.set(__self__, "destination", destination)
@@ -44,9 +39,6 @@ class MetricsDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="appMonitorName")
     def app_monitor_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the CloudWatch RUM app monitor that will send the metrics.
-        """
         return pulumi.get(self, "app_monitor_name")
 
     @app_monitor_name.setter
@@ -56,9 +48,6 @@ class MetricsDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input[_builtins.str]:
-        """
-        Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -68,9 +57,6 @@ class MetricsDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -80,9 +66,6 @@ class MetricsDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -92,9 +75,6 @@ class MetricsDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,11 +92,6 @@ class _MetricsDestinationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MetricsDestination resources.
-        :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[_builtins.str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[_builtins.str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if app_monitor_name is not None:
             pulumi.set(__self__, "app_monitor_name", app_monitor_name)
@@ -132,9 +107,6 @@ class _MetricsDestinationState:
     @_builtins.property
     @pulumi.getter(name="appMonitorName")
     def app_monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CloudWatch RUM app monitor that will send the metrics.
-        """
         return pulumi.get(self, "app_monitor_name")
 
     @app_monitor_name.setter
@@ -144,9 +116,6 @@ class _MetricsDestinationState:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -156,9 +125,6 @@ class _MetricsDestinationState:
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -168,9 +134,6 @@ class _MetricsDestinationState:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -180,9 +143,6 @@ class _MetricsDestinationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -203,34 +163,9 @@ class MetricsDestination(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch RUM Metrics Destination resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rum.MetricsDestination("example",
-            app_monitor_name=example_aws_rum_app_monitor["name"],
-            destination="CloudWatch")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-        ```
-
+        Create a MetricsDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[_builtins.str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[_builtins.str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -239,27 +174,7 @@ class MetricsDestination(pulumi.CustomResource):
                  args: MetricsDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch RUM Metrics Destination resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rum.MetricsDestination("example",
-            app_monitor_name=example_aws_rum_app_monitor["name"],
-            destination="CloudWatch")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-        ```
-
+        Create a MetricsDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MetricsDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,11 +235,6 @@ class MetricsDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[_builtins.str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[_builtins.str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,40 +250,25 @@ class MetricsDestination(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appMonitorName")
     def app_monitor_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the CloudWatch RUM app monitor that will send the metrics.
-        """
         return pulumi.get(self, "app_monitor_name")
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Output[_builtins.str]:
-        """
-        Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

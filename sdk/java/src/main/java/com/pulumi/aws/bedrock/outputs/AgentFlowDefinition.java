@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinition {
-    /**
-     * @return A list of connection definitions in the flow. See Connection for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionConnection> connections;
-    /**
-     * @return A list of node definitions in the flow. See Node for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionNode> nodes;
 
     private AgentFlowDefinition() {}
-    /**
-     * @return A list of connection definitions in the flow. See Connection for more information.
-     * 
-     */
     public List<AgentFlowDefinitionConnection> connections() {
         return this.connections == null ? List.of() : this.connections;
     }
-    /**
-     * @return A list of node definitions in the flow. See Node for more information.
-     * 
-     */
     public List<AgentFlowDefinitionNode> nodes() {
         return this.nodes == null ? List.of() : this.nodes;
     }

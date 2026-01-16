@@ -17,47 +17,23 @@ public final class LoadBalancerHealthCheckLogsArgs extends com.pulumi.resources.
 
     public static final LoadBalancerHealthCheckLogsArgs Empty = new LoadBalancerHealthCheckLogsArgs();
 
-    /**
-     * S3 bucket name to store the logs in.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return S3 bucket name to store the logs in.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -88,65 +64,29 @@ public final class LoadBalancerHealthCheckLogsArgs extends com.pulumi.resources.
             $ = new LoadBalancerHealthCheckLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket S3 bucket name to store the logs in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket S3 bucket name to store the logs in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param enabled Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean to enable / disable `healthCheckLogs`. Defaults to `false`, even when `bucket` is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param prefix S3 bucket prefix. Logs are stored in the root if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix S3 bucket prefix. Logs are stored in the root if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

@@ -15,197 +15,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM Virtual MFA Device.
- * 
- * &gt; **Note:** All attributes will be stored in the raw state as plain-text.
- * **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider.
- *   To associate the virtual MFA device with a user and enable it, use the code returned in either `base32StringSeed` or `qrCodePng` to generate TOTP authentication codes.
- *   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
- * 
- * ## Example Usage
- * 
- * **Using certs on file:**
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.VirtualMfaDevice;
- * import com.pulumi.aws.iam.VirtualMfaDeviceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VirtualMfaDevice("example", VirtualMfaDeviceArgs.builder()
- *             .virtualMfaDeviceName("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
- * ```
- * 
- */
 @ResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")
 public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
-     * 
-     */
     @Export(name="base32StringSeed", refs={String.class}, tree="[0]")
     private Output<String> base32StringSeed;
 
-    /**
-     * @return Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
-     * 
-     */
     public Output<String> base32StringSeed() {
         return this.base32StringSeed;
     }
-    /**
-     * Date and time when the virtual MFA device was enabled.
-     * 
-     */
     @Export(name="enableDate", refs={String.class}, tree="[0]")
     private Output<String> enableDate;
 
-    /**
-     * @return Date and time when the virtual MFA device was enabled.
-     * 
-     */
     public Output<String> enableDate() {
         return this.enableDate;
     }
-    /**
-     * Path for the virtual MFA device.
-     * 
-     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
-    /**
-     * @return Path for the virtual MFA device.
-     * 
-     */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
-    /**
-     * QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
-     * 
-     */
     @Export(name="qrCodePng", refs={String.class}, tree="[0]")
     private Output<String> qrCodePng;
 
-    /**
-     * @return QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
-     * 
-     */
     public Output<String> qrCodePng() {
         return this.qrCodePng;
     }
-    /**
-     * Serial number associated with the virtual MFA device.
-     * 
-     */
     @Export(name="serialNumber", refs={String.class}, tree="[0]")
     private Output<String> serialNumber;
 
-    /**
-     * @return Serial number associated with the virtual MFA device.
-     * 
-     */
     public Output<String> serialNumber() {
         return this.serialNumber;
     }
-    /**
-     * Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Name of the IAM user associated with this virtual MFA device.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return Name of the IAM user associated with this virtual MFA device.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
-    /**
-     * Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     * 
-     */
     @Export(name="virtualMfaDeviceName", refs={String.class}, tree="[0]")
     private Output<String> virtualMfaDeviceName;
 
-    /**
-     * @return Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-     * 
-     */
     public Output<String> virtualMfaDeviceName() {
         return this.virtualMfaDeviceName;
     }

@@ -13,37 +13,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfiguration
     {
-        /// <summary>
-        /// The code location and type parameters for the application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration ApplicationCodeConfiguration;
-        /// <summary>
-        /// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration? ApplicationEncryptionConfiguration;
-        /// <summary>
-        /// Describes whether snapshots are enabled for a Flink-based application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration? ApplicationSnapshotConfiguration;
-        /// <summary>
-        /// Describes execution properties for a Flink-based application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationEnvironmentProperties? EnvironmentProperties;
-        /// <summary>
-        /// The configuration of a Flink-based application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationFlinkApplicationConfiguration? FlinkApplicationConfiguration;
-        /// <summary>
-        /// Describes the starting properties for a Flink-based application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationRunConfiguration? RunConfiguration;
-        /// <summary>
-        /// The configuration of a SQL-based application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfiguration? SqlApplicationConfiguration;
-        /// <summary>
-        /// The VPC configuration of a Flink-based application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

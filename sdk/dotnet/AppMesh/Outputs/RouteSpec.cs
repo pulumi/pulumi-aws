@@ -13,26 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpec
     {
-        /// <summary>
-        /// GRPC routing information for the route.
-        /// </summary>
         public readonly Outputs.RouteSpecGrpcRoute? GrpcRoute;
-        /// <summary>
-        /// HTTP/2 routing information for the route.
-        /// </summary>
         public readonly Outputs.RouteSpecHttp2Route? Http2Route;
-        /// <summary>
-        /// HTTP routing information for the route.
-        /// </summary>
         public readonly Outputs.RouteSpecHttpRoute? HttpRoute;
-        /// <summary>
-        /// Priority for the route, between `0` and `1000`.
-        /// Routes are matched based on the specified value, where `0` is the highest priority.
-        /// </summary>
         public readonly int? Priority;
-        /// <summary>
-        /// TCP routing information for the route.
-        /// </summary>
         public readonly Outputs.RouteSpecTcpRoute? TcpRoute;
 
         [OutputConstructor]

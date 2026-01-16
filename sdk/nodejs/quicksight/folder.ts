@@ -7,73 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing a QuickSight Folder.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Folder("example", {
- *     folderId: "example-id",
- *     name: "example-name",
- * });
- * ```
- *
- * ### With Permissions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Folder("example", {
- *     folderId: "example-id",
- *     name: "example-name",
- *     permissions: [{
- *         actions: [
- *             "quicksight:CreateFolder",
- *             "quicksight:DescribeFolder",
- *             "quicksight:UpdateFolder",
- *             "quicksight:DeleteFolder",
- *             "quicksight:CreateFolderMembership",
- *             "quicksight:DeleteFolderMembership",
- *             "quicksight:DescribeFolderPermissions",
- *             "quicksight:UpdateFolderPermissions",
- *         ],
- *         principal: exampleAwsQuicksightUser.arn,
- *     }],
- * });
- * ```
- *
- * ### With Parent Folder
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const parent = new aws.quicksight.Folder("parent", {
- *     folderId: "parent-id",
- *     name: "parent-name",
- * });
- * const example = new aws.quicksight.Folder("example", {
- *     folderId: "example-id",
- *     name: "example-name",
- *     parentFolderArn: parent.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
- * ```
- */
 export class Folder extends pulumi.CustomResource {
     /**
      * Get an existing Folder resource's state with the given name, ID, and optional extra
@@ -102,56 +35,18 @@ export class Folder extends pulumi.CustomResource {
         return obj['__pulumiType'] === Folder.__pulumiType;
     }
 
-    /**
-     * ARN of the folder.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * The time that the folder was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * Identifier for the folder.
-     */
     declare public readonly folderId: pulumi.Output<string>;
-    /**
-     * An array of ancestor ARN strings for the folder. Empty for root-level folders.
-     */
     declare public /*out*/ readonly folderPaths: pulumi.Output<string[]>;
-    /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-     */
     declare public readonly folderType: pulumi.Output<string | undefined>;
-    /**
-     * The time that the folder was last updated.
-     */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
-    /**
-     * Display name for the folder.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-     */
     declare public readonly parentFolderArn: pulumi.Output<string | undefined>;
-    /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-     */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.FolderPermission[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -208,56 +103,18 @@ export class Folder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Folder resources.
  */
 export interface FolderState {
-    /**
-     * ARN of the folder.
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The time that the folder was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Identifier for the folder.
-     */
     folderId?: pulumi.Input<string>;
-    /**
-     * An array of ancestor ARN strings for the folder. Empty for root-level folders.
-     */
     folderPaths?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-     */
     folderType?: pulumi.Input<string>;
-    /**
-     * The time that the folder was last updated.
-     */
     lastUpdatedTime?: pulumi.Input<string>;
-    /**
-     * Display name for the folder.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-     */
     parentFolderArn?: pulumi.Input<string>;
-    /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -266,34 +123,11 @@ export interface FolderState {
  */
 export interface FolderArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier for the folder.
-     */
     folderId: pulumi.Input<string>;
-    /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-     */
     folderType?: pulumi.Input<string>;
-    /**
-     * Display name for the folder.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-     */
     parentFolderArn?: pulumi.Input<string>;
-    /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -30,11 +30,6 @@ class DeploymentArgs:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[_builtins.str] application_id: Application to deploy.
-        :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
-        :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "application_version", application_version)
@@ -50,9 +45,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Application to deploy.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -62,9 +54,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="applicationVersion")
     def application_version(self) -> pulumi.Input[_builtins.int]:
-        """
-        Version to application to deploy
-        """
         return pulumi.get(self, "application_version")
 
     @application_version.setter
@@ -74,9 +63,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Environment to deploy application to.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -86,9 +72,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def start(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Start the application once deployed.
-        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -107,9 +90,6 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -139,11 +119,6 @@ class _DeploymentState:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[_builtins.str] application_id: Application to deploy.
-        :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
-        :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -165,9 +140,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application to deploy.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -177,9 +149,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="applicationVersion")
     def application_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version to application to deploy
-        """
         return pulumi.get(self, "application_version")
 
     @application_version.setter
@@ -198,9 +167,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Environment to deploy application to.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -219,9 +185,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -231,9 +194,6 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Start the application once deployed.
-        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -265,38 +225,9 @@ class Deployment(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Deployment("test",
-            environment_id="01234567890abcdef012345678",
-            application_id="34567890abcdef012345678012",
-            application_version=1,
-            start=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Mainframe Modernization Deployment using the `APPLICATION-ID,DEPLOYMENT-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
-        ```
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Application to deploy.
-        :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
-        :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
         """
         ...
     @overload
@@ -305,31 +236,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.m2.Deployment("test",
-            environment_id="01234567890abcdef012345678",
-            application_id="34567890abcdef012345678012",
-            application_version=1,
-            start=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Mainframe Modernization Deployment using the `APPLICATION-ID,DEPLOYMENT-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
-        ```
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,11 +309,6 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Application to deploy.
-        :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
-        :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -425,17 +327,11 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Application to deploy.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter(name="applicationVersion")
     def application_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version to application to deploy
-        """
         return pulumi.get(self, "application_version")
 
     @_builtins.property
@@ -446,9 +342,6 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Environment to deploy application to.
-        """
         return pulumi.get(self, "environment_id")
 
     @_builtins.property
@@ -459,17 +352,11 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def start(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Start the application once deployed.
-        """
         return pulumi.get(self, "start")
 
     @_builtins.property

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreBrowserRecording
     {
-        /// <summary>
-        /// Whether to enable recording for browser sessions. Defaults to `False`.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// S3 location where browser session recordings are stored. See `S3Location` below.
-        /// </summary>
         public readonly Outputs.AgentcoreBrowserRecordingS3Location? S3Location;
 
         [OutputConstructor]

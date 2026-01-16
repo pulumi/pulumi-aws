@@ -18,62 +18,30 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
     public static final ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs Empty = new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs();
 
-    /**
-     * Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-     * 
-     */
     @Import(name="autoScalingEnabled")
     private @Nullable Output<Boolean> autoScalingEnabled;
 
-    /**
-     * @return Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-     * 
-     */
     public Optional<Output<Boolean>> autoScalingEnabled() {
         return Optional.ofNullable(this.autoScalingEnabled);
     }
 
-    /**
-     * Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
-     * 
-     */
     @Import(name="configurationType", required=true)
     private Output<String> configurationType;
 
-    /**
-     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
-     * 
-     */
     public Output<String> configurationType() {
         return this.configurationType;
     }
 
-    /**
-     * Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-     * 
-     */
     @Import(name="parallelism")
     private @Nullable Output<Integer> parallelism;
 
-    /**
-     * @return Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-     * 
-     */
     public Optional<Output<Integer>> parallelism() {
         return Optional.ofNullable(this.parallelism);
     }
 
-    /**
-     * Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-     * 
-     */
     @Import(name="parallelismPerKpu")
     private @Nullable Output<Integer> parallelismPerKpu;
 
-    /**
-     * @return Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-     * 
-     */
     public Optional<Output<Integer>> parallelismPerKpu() {
         return Optional.ofNullable(this.parallelismPerKpu);
     }
@@ -105,86 +73,38 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
             $ = new ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingEnabled Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingEnabled(@Nullable Output<Boolean> autoScalingEnabled) {
             $.autoScalingEnabled = autoScalingEnabled;
             return this;
         }
 
-        /**
-         * @param autoScalingEnabled Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingEnabled(Boolean autoScalingEnabled) {
             return autoScalingEnabled(Output.of(autoScalingEnabled));
         }
 
-        /**
-         * @param configurationType Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationType(Output<String> configurationType) {
             $.configurationType = configurationType;
             return this;
         }
 
-        /**
-         * @param configurationType Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationType(String configurationType) {
             return configurationType(Output.of(configurationType));
         }
 
-        /**
-         * @param parallelism Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelism(@Nullable Output<Integer> parallelism) {
             $.parallelism = parallelism;
             return this;
         }
 
-        /**
-         * @param parallelism Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelism(Integer parallelism) {
             return parallelism(Output.of(parallelism));
         }
 
-        /**
-         * @param parallelismPerKpu Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelismPerKpu(@Nullable Output<Integer> parallelismPerKpu) {
             $.parallelismPerKpu = parallelismPerKpu;
             return this;
         }
 
-        /**
-         * @param parallelismPerKpu Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelismPerKpu(Integer parallelismPerKpu) {
             return parallelismPerKpu(Output.of(parallelismPerKpu));
         }

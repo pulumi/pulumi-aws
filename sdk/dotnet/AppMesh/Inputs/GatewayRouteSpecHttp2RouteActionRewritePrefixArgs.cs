@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttp2RouteActionRewritePrefixArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("defaultPrefix")]
         public Input<string>? DefaultPrefix { get; set; }
 
-        /// <summary>
-        /// Value used to replace the incoming route prefix when rewritten.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

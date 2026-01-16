@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodeStarConnections.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -26,25 +22,15 @@ namespace Pulumi.Aws.CodeStarConnections.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        /// </summary>
         [Input("tlsCertificate")]
         public Input<string>? TlsCertificate { get; set; }
 
-        /// <summary>
-        /// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

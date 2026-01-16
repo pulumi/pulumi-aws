@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings
     {
-        /// <summary>
-        /// This field is not currently supported and will not affect the output styling. Leave the default value.
-        /// </summary>
         public readonly string StyleControl;
 
         [OutputConstructor]

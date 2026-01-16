@@ -23,8 +23,6 @@ class EmailIdentityArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
-        :param pulumi.Input[_builtins.str] email: The email address to assign to SES.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email", email)
         if region is not None:
@@ -33,9 +31,6 @@ class EmailIdentityArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
-        """
-        The email address to assign to SES.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -45,9 +40,6 @@ class EmailIdentityArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _EmailIdentityState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentity resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the email identity.
-        :param pulumi.Input[_builtins.str] email: The email address to assign to SES.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -77,9 +66,6 @@ class _EmailIdentityState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the email identity.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -89,9 +75,6 @@ class _EmailIdentityState:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email address to assign to SES.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -101,9 +84,6 @@ class _EmailIdentityState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,29 +101,9 @@ class EmailIdentity(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an SES email identity resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ses.EmailIdentity("example", email="email@example.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SES email identities using the email address. For example:
-
-        ```sh
-        $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-        ```
-
+        Create a EmailIdentity resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] email: The email address to assign to SES.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -152,25 +112,7 @@ class EmailIdentity(pulumi.CustomResource):
                  args: EmailIdentityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SES email identity resource
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ses.EmailIdentity("example", email="email@example.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SES email identities using the email address. For example:
-
-        ```sh
-        $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-        ```
-
+        Create a EmailIdentity resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,9 +164,6 @@ class EmailIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the email identity.
-        :param pulumi.Input[_builtins.str] email: The email address to assign to SES.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -238,24 +177,15 @@ class EmailIdentity(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the email identity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
-        """
-        The email address to assign to SES.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -29,12 +29,6 @@ class VirtualNodeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNode resource.
-        :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input['VirtualNodeSpecArgs'] spec: Virtual node specification to apply.
-        :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "mesh_name", mesh_name)
         pulumi.set(__self__, "spec", spec)
@@ -50,9 +44,6 @@ class VirtualNodeArgs:
     @_builtins.property
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "mesh_name")
 
     @mesh_name.setter
@@ -62,9 +53,6 @@ class VirtualNodeArgs:
     @_builtins.property
     @pulumi.getter
     def spec(self) -> pulumi.Input['VirtualNodeSpecArgs']:
-        """
-        Virtual node specification to apply.
-        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -74,9 +62,6 @@ class VirtualNodeArgs:
     @_builtins.property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
@@ -86,9 +71,6 @@ class VirtualNodeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,9 +80,6 @@ class VirtualNodeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,9 +89,6 @@ class VirtualNodeArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -136,17 +112,6 @@ class _VirtualNodeState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualNode resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the virtual node.
-        :param pulumi.Input[_builtins.str] created_date: Creation date of the virtual node.
-        :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the virtual node.
-        :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input['VirtualNodeSpecArgs'] spec: Virtual node specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -174,9 +139,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the virtual node.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -186,9 +148,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation date of the virtual node.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -198,9 +157,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last update date of the virtual node.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
@@ -210,9 +166,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "mesh_name")
 
     @mesh_name.setter
@@ -222,9 +175,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
@@ -234,9 +184,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -246,9 +193,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -258,9 +202,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
@@ -270,9 +211,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input['VirtualNodeSpecArgs']]:
-        """
-        Virtual node specification to apply.
-        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -282,9 +220,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -294,9 +229,6 @@ class _VirtualNodeState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -318,173 +250,9 @@ class VirtualNode(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS App Mesh virtual node resource.
-
-        ## Breaking Changes
-
-        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
-
-        * Rename the `service_name` attribute of the `dns` object to `hostname`.
-
-        * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
-        setting `virtual_service_name` to the name of the service.
-
-        The state associated with existing resources will automatically be migrated.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
-        ```
-
-        ### AWS Cloud Map Service Discovery
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-                "service_discovery": {
-                    "aws_cloud_map": {
-                        "attributes": {
-                            "stack": "blue",
-                        },
-                        "service_name": "serviceb1",
-                        "namespace_name": example.name,
-                    },
-                },
-            })
-        ```
-
-        ### Listener Health Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                    "health_check": {
-                        "protocol": "http",
-                        "path": "/ping",
-                        "healthy_threshold": 2,
-                        "unhealthy_threshold": 2,
-                        "timeout_millis": 2000,
-                        "interval_millis": 5000,
-                    },
-                }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
-        ```
-
-        ### Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-                "logging": {
-                    "access_log": {
-                        "file": {
-                            "path": "/dev/stdout",
-                        },
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
-
-        ```sh
-        $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-        ```
-
+        Create a VirtualNode resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -493,165 +261,7 @@ class VirtualNode(pulumi.CustomResource):
                  args: VirtualNodeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS App Mesh virtual node resource.
-
-        ## Breaking Changes
-
-        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
-
-        * Rename the `service_name` attribute of the `dns` object to `hostname`.
-
-        * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
-        setting `virtual_service_name` to the name of the service.
-
-        The state associated with existing resources will automatically be migrated.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
-        ```
-
-        ### AWS Cloud Map Service Discovery
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicediscovery.HttpNamespace("example", name="example-ns")
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-                "service_discovery": {
-                    "aws_cloud_map": {
-                        "attributes": {
-                            "stack": "blue",
-                        },
-                        "service_name": "serviceb1",
-                        "namespace_name": example.name,
-                    },
-                },
-            })
-        ```
-
-        ### Listener Health Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                    "health_check": {
-                        "protocol": "http",
-                        "path": "/ping",
-                        "healthy_threshold": 2,
-                        "unhealthy_threshold": 2,
-                        "timeout_millis": 2000,
-                        "interval_millis": 5000,
-                    },
-                }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-            })
-        ```
-
-        ### Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
-            name="serviceBv1",
-            mesh_name=simple["id"],
-            spec={
-                "backends": [{
-                    "virtual_service": {
-                        "virtual_service_name": "servicea.simpleapp.local",
-                    },
-                }],
-                "listeners": [{
-                    "port_mapping": {
-                        "port": 8080,
-                        "protocol": "http",
-                    },
-                }],
-                "service_discovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
-                    },
-                },
-                "logging": {
-                    "access_log": {
-                        "file": {
-                            "path": "/dev/stdout",
-                        },
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
-
-        ```sh
-        $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-        ```
-
+        Create a VirtualNode resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualNodeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -725,17 +335,6 @@ class VirtualNode(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the virtual node.
-        :param pulumi.Input[_builtins.str] created_date: Creation date of the virtual node.
-        :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the virtual node.
-        :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[_builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -757,88 +356,55 @@ class VirtualNode(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the virtual node.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation date of the virtual node.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last update date of the virtual node.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "mesh_name")
 
     @_builtins.property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "mesh_owner")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name to use for the virtual node. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter
     def spec(self) -> pulumi.Output['outputs.VirtualNodeSpec']:
-        """
-        Virtual node specification to apply.
-        """
         return pulumi.get(self, "spec")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -15,150 +15,41 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch Log Metric Filter resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.cloudwatch.LogMetricFilter;
- * import com.pulumi.aws.cloudwatch.LogMetricFilterArgs;
- * import com.pulumi.aws.cloudwatch.inputs.LogMetricFilterMetricTransformationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dada = new LogGroup("dada", LogGroupArgs.builder()
- *             .name("MyApp/access.log")
- *             .build());
- * 
- *         var yada = new LogMetricFilter("yada", LogMetricFilterArgs.builder()
- *             .name("MyAppAccessCount")
- *             .pattern("")
- *             .logGroupName(dada.name())
- *             .metricTransformation(LogMetricFilterMetricTransformationArgs.builder()
- *                 .name("EventCount")
- *                 .namespace("YourNamespace")
- *                 .value("1")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logMetricFilter:LogMetricFilter")
 public class LogMetricFilter extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-     * 
-     */
     @Export(name="applyOnTransformedLogs", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyOnTransformedLogs;
 
-    /**
-     * @return Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-     * 
-     */
     public Output<Boolean> applyOnTransformedLogs() {
         return this.applyOnTransformedLogs;
     }
-    /**
-     * The name of the log group to associate the metric filter with.
-     * 
-     */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group to associate the metric filter with.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * A block defining collection of information needed to define how metric data gets emitted. See below.
-     * 
-     */
     @Export(name="metricTransformation", refs={LogMetricFilterMetricTransformation.class}, tree="[0]")
     private Output<LogMetricFilterMetricTransformation> metricTransformation;
 
-    /**
-     * @return A block defining collection of information needed to define how metric data gets emitted. See below.
-     * 
-     */
     public Output<LogMetricFilterMetricTransformation> metricTransformation() {
         return this.metricTransformation;
     }
-    /**
-     * A name for the metric filter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for the metric filter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-     * for extracting metric data out of ingested log events.
-     * 
-     */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
-    /**
-     * @return A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
-     * for extracting metric data out of ingested log events.
-     * 
-     */
     public Output<String> pattern() {
         return this.pattern;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

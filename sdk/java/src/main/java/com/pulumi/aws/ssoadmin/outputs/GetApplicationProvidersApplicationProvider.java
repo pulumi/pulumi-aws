@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationProvidersApplicationProvider {
-    /**
-     * @return ARN of the application provider.
-     * 
-     */
     private String applicationProviderArn;
-    /**
-     * @return An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
-     * 
-     */
     private List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas;
-    /**
-     * @return Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-     * 
-     */
     private String federationProtocol;
 
     private GetApplicationProvidersApplicationProvider() {}
-    /**
-     * @return ARN of the application provider.
-     * 
-     */
     public String applicationProviderArn() {
         return this.applicationProviderArn;
     }
-    /**
-     * @return An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
-     * 
-     */
     public List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas() {
         return this.displayDatas;
     }
-    /**
-     * @return Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
-     * 
-     */
     public String federationProtocol() {
         return this.federationProtocol;
     }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyMultiRegionConfigurationPrimaryKey {
-    /**
-     * @return The key ARN of a primary or replica key of a multi-Region key.
-     * 
-     */
     private String arn;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
 
     private GetKeyMultiRegionConfigurationPrimaryKey() {}
-    /**
-     * @return The key ARN of a primary or replica key of a multi-Region key.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }

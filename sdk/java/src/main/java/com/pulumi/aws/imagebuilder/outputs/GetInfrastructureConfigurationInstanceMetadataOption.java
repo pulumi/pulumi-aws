@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInfrastructureConfigurationInstanceMetadataOption {
-    /**
-     * @return Number of hops that an instance can traverse to reach its destonation.
-     * 
-     */
     private Integer httpPutResponseHopLimit;
-    /**
-     * @return Whether a signed token is required for instance metadata retrieval requests.
-     * 
-     */
     private String httpTokens;
 
     private GetInfrastructureConfigurationInstanceMetadataOption() {}
-    /**
-     * @return Number of hops that an instance can traverse to reach its destonation.
-     * 
-     */
     public Integer httpPutResponseHopLimit() {
         return this.httpPutResponseHopLimit;
     }
-    /**
-     * @return Whether a signed token is required for instance metadata retrieval requests.
-     * 
-     */
     public String httpTokens() {
         return this.httpTokens;
     }

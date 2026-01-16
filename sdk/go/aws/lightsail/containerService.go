@@ -12,190 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lightsail container service. Use this resource to create and manage a scalable compute and networking platform for deploying, running, and managing containerized applications in Lightsail.
-//
-// > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services, see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
-//
-// > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `publicDomainNames` with your container service. For more information, see [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerService(ctx, "example", &lightsail.ContainerServiceArgs{
-//				Name:       pulumi.String("container-service-1"),
-//				Power:      pulumi.String("nano"),
-//				Scale:      pulumi.Int(1),
-//				IsDisabled: pulumi.Bool(false),
-//				Tags: pulumi.StringMap{
-//					"foo1": pulumi.String("bar1"),
-//					"foo2": pulumi.String(""),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Public Domain Names
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerService(ctx, "example", &lightsail.ContainerServiceArgs{
-//				PublicDomainNames: &lightsail.ContainerServicePublicDomainNamesArgs{
-//					Certificates: lightsail.ContainerServicePublicDomainNamesCertificateArray{
-//						&lightsail.ContainerServicePublicDomainNamesCertificateArgs{
-//							CertificateName: pulumi.String("example-certificate"),
-//							DomainNames: pulumi.StringArray{
-//								pulumi.String("www.example.com"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Private Registry Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleContainerService, err := lightsail.NewContainerService(ctx, "example", &lightsail.ContainerServiceArgs{
-// PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
-// EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
-// IsActive: pulumi.Bool(true),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// example := exampleContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// privateRegistryAccess.EcrImagePullerRole.PrincipalArn,
-// },
-// },
-// },
-// Actions: []string{
-// "ecr:BatchGetImage",
-// "ecr:GetDownloadUrlForLayer",
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = ecr.NewRepositoryPolicy(ctx, "example", &ecr.RepositoryPolicyArgs{
-// Repository: pulumi.Any(exampleAwsEcrRepository.Name),
-// Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1
-// ```
 type ContainerService struct {
 	pulumi.CustomResourceState
 
-	// ARN of the container service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Availability Zone. Follows the format us-east-2a (case-sensitive).
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Date and time when the container service was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Whether to disable the container service. Defaults to `false`.
-	IsDisabled pulumi.BoolPtrOutput `pulumi:"isDisabled"`
-	// Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-	Power pulumi.StringOutput `pulumi:"power"`
-	// Power ID of the container service.
-	PowerId pulumi.StringOutput `pulumi:"powerId"`
-	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-	PrivateDomainName pulumi.StringOutput `pulumi:"privateDomainName"`
-	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+	Arn                   pulumi.StringOutput                         `pulumi:"arn"`
+	AvailabilityZone      pulumi.StringOutput                         `pulumi:"availabilityZone"`
+	CreatedAt             pulumi.StringOutput                         `pulumi:"createdAt"`
+	IsDisabled            pulumi.BoolPtrOutput                        `pulumi:"isDisabled"`
+	Name                  pulumi.StringOutput                         `pulumi:"name"`
+	Power                 pulumi.StringOutput                         `pulumi:"power"`
+	PowerId               pulumi.StringOutput                         `pulumi:"powerId"`
+	PrincipalArn          pulumi.StringOutput                         `pulumi:"principalArn"`
+	PrivateDomainName     pulumi.StringOutput                         `pulumi:"privateDomainName"`
 	PrivateRegistryAccess ContainerServicePrivateRegistryAccessOutput `pulumi:"privateRegistryAccess"`
-	// Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-	PublicDomainNames ContainerServicePublicDomainNamesPtrOutput `pulumi:"publicDomainNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Lightsail resource type of the container service (i.e., ContainerService).
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-	//
-	// The following arguments are optional:
-	Scale pulumi.IntOutput `pulumi:"scale"`
-	// Current state of the container service.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-	Url pulumi.StringOutput `pulumi:"url"`
+	PublicDomainNames     ContainerServicePublicDomainNamesPtrOutput  `pulumi:"publicDomainNames"`
+	Region                pulumi.StringOutput                         `pulumi:"region"`
+	ResourceType          pulumi.StringOutput                         `pulumi:"resourceType"`
+	Scale                 pulumi.IntOutput                            `pulumi:"scale"`
+	State                 pulumi.StringOutput                         `pulumi:"state"`
+	Tags                  pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Url                   pulumi.StringOutput                         `pulumi:"url"`
 }
 
 // NewContainerService registers a new resource with the given unique name, arguments, and options.
@@ -234,85 +71,45 @@ func GetContainerService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerService resources.
 type containerServiceState struct {
-	// ARN of the container service.
-	Arn *string `pulumi:"arn"`
-	// Availability Zone. Follows the format us-east-2a (case-sensitive).
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Date and time when the container service was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Whether to disable the container service. Defaults to `false`.
-	IsDisabled *bool `pulumi:"isDisabled"`
-	// Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-	Name *string `pulumi:"name"`
-	// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-	Power *string `pulumi:"power"`
-	// Power ID of the container service.
-	PowerId *string `pulumi:"powerId"`
-	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-	PrincipalArn *string `pulumi:"principalArn"`
-	// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-	PrivateDomainName *string `pulumi:"privateDomainName"`
-	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+	Arn                   *string                                `pulumi:"arn"`
+	AvailabilityZone      *string                                `pulumi:"availabilityZone"`
+	CreatedAt             *string                                `pulumi:"createdAt"`
+	IsDisabled            *bool                                  `pulumi:"isDisabled"`
+	Name                  *string                                `pulumi:"name"`
+	Power                 *string                                `pulumi:"power"`
+	PowerId               *string                                `pulumi:"powerId"`
+	PrincipalArn          *string                                `pulumi:"principalArn"`
+	PrivateDomainName     *string                                `pulumi:"privateDomainName"`
 	PrivateRegistryAccess *ContainerServicePrivateRegistryAccess `pulumi:"privateRegistryAccess"`
-	// Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Lightsail resource type of the container service (i.e., ContainerService).
-	ResourceType *string `pulumi:"resourceType"`
-	// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-	//
-	// The following arguments are optional:
-	Scale *int `pulumi:"scale"`
-	// Current state of the container service.
-	State *string `pulumi:"state"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-	Url *string `pulumi:"url"`
+	PublicDomainNames     *ContainerServicePublicDomainNames     `pulumi:"publicDomainNames"`
+	Region                *string                                `pulumi:"region"`
+	ResourceType          *string                                `pulumi:"resourceType"`
+	Scale                 *int                                   `pulumi:"scale"`
+	State                 *string                                `pulumi:"state"`
+	Tags                  map[string]string                      `pulumi:"tags"`
+	TagsAll               map[string]string                      `pulumi:"tagsAll"`
+	Url                   *string                                `pulumi:"url"`
 }
 
 type ContainerServiceState struct {
-	// ARN of the container service.
-	Arn pulumi.StringPtrInput
-	// Availability Zone. Follows the format us-east-2a (case-sensitive).
-	AvailabilityZone pulumi.StringPtrInput
-	// Date and time when the container service was created.
-	CreatedAt pulumi.StringPtrInput
-	// Whether to disable the container service. Defaults to `false`.
-	IsDisabled pulumi.BoolPtrInput
-	// Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringPtrInput
-	// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-	Power pulumi.StringPtrInput
-	// Power ID of the container service.
-	PowerId pulumi.StringPtrInput
-	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-	PrincipalArn pulumi.StringPtrInput
-	// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-	PrivateDomainName pulumi.StringPtrInput
-	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+	Arn                   pulumi.StringPtrInput
+	AvailabilityZone      pulumi.StringPtrInput
+	CreatedAt             pulumi.StringPtrInput
+	IsDisabled            pulumi.BoolPtrInput
+	Name                  pulumi.StringPtrInput
+	Power                 pulumi.StringPtrInput
+	PowerId               pulumi.StringPtrInput
+	PrincipalArn          pulumi.StringPtrInput
+	PrivateDomainName     pulumi.StringPtrInput
 	PrivateRegistryAccess ContainerServicePrivateRegistryAccessPtrInput
-	// Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Lightsail resource type of the container service (i.e., ContainerService).
-	ResourceType pulumi.StringPtrInput
-	// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-	//
-	// The following arguments are optional:
-	Scale pulumi.IntPtrInput
-	// Current state of the container service.
-	State pulumi.StringPtrInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
-	Url pulumi.StringPtrInput
+	PublicDomainNames     ContainerServicePublicDomainNamesPtrInput
+	Region                pulumi.StringPtrInput
+	ResourceType          pulumi.StringPtrInput
+	Scale                 pulumi.IntPtrInput
+	State                 pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	Url                   pulumi.StringPtrInput
 }
 
 func (ContainerServiceState) ElementType() reflect.Type {
@@ -320,46 +117,26 @@ func (ContainerServiceState) ElementType() reflect.Type {
 }
 
 type containerServiceArgs struct {
-	// Whether to disable the container service. Defaults to `false`.
-	IsDisabled *bool `pulumi:"isDisabled"`
-	// Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-	Name *string `pulumi:"name"`
-	// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-	Power string `pulumi:"power"`
-	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+	IsDisabled            *bool                                  `pulumi:"isDisabled"`
+	Name                  *string                                `pulumi:"name"`
+	Power                 string                                 `pulumi:"power"`
 	PrivateRegistryAccess *ContainerServicePrivateRegistryAccess `pulumi:"privateRegistryAccess"`
-	// Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-	//
-	// The following arguments are optional:
-	Scale int `pulumi:"scale"`
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	PublicDomainNames     *ContainerServicePublicDomainNames     `pulumi:"publicDomainNames"`
+	Region                *string                                `pulumi:"region"`
+	Scale                 int                                    `pulumi:"scale"`
+	Tags                  map[string]string                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContainerService resource.
 type ContainerServiceArgs struct {
-	// Whether to disable the container service. Defaults to `false`.
-	IsDisabled pulumi.BoolPtrInput
-	// Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringPtrInput
-	// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-	Power pulumi.StringInput
-	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
+	IsDisabled            pulumi.BoolPtrInput
+	Name                  pulumi.StringPtrInput
+	Power                 pulumi.StringInput
 	PrivateRegistryAccess ContainerServicePrivateRegistryAccessPtrInput
-	// Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
-	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-	//
-	// The following arguments are optional:
-	Scale pulumi.IntInput
-	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	PublicDomainNames     ContainerServicePublicDomainNamesPtrInput
+	Region                pulumi.StringPtrInput
+	Scale                 pulumi.IntInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (ContainerServiceArgs) ElementType() reflect.Type {
@@ -449,94 +226,74 @@ func (o ContainerServiceOutput) ToContainerServiceOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the container service.
 func (o ContainerServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Availability Zone. Follows the format us-east-2a (case-sensitive).
 func (o ContainerServiceOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Date and time when the container service was created.
 func (o ContainerServiceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Whether to disable the container service. Defaults to `false`.
 func (o ContainerServiceOutput) IsDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.BoolPtrOutput { return v.IsDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
 func (o ContainerServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
 func (o ContainerServiceOutput) Power() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Power }).(pulumi.StringOutput)
 }
 
-// Power ID of the container service.
 func (o ContainerServiceOutput) PowerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PowerId }).(pulumi.StringOutput)
 }
 
-// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 func (o ContainerServiceOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
 func (o ContainerServiceOutput) PrivateDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PrivateDomainName }).(pulumi.StringOutput)
 }
 
-// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 func (o ContainerServiceOutput) PrivateRegistryAccess() ContainerServicePrivateRegistryAccessOutput {
 	return o.ApplyT(func(v *ContainerService) ContainerServicePrivateRegistryAccessOutput { return v.PrivateRegistryAccess }).(ContainerServicePrivateRegistryAccessOutput)
 }
 
-// Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
 func (o ContainerServiceOutput) PublicDomainNames() ContainerServicePublicDomainNamesPtrOutput {
 	return o.ApplyT(func(v *ContainerService) ContainerServicePublicDomainNamesPtrOutput { return v.PublicDomainNames }).(ContainerServicePublicDomainNamesPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContainerServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Lightsail resource type of the container service (i.e., ContainerService).
 func (o ContainerServiceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
-//
-// The following arguments are optional:
 func (o ContainerServiceOutput) Scale() pulumi.IntOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.IntOutput { return v.Scale }).(pulumi.IntOutput)
 }
 
-// Current state of the container service.
 func (o ContainerServiceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContainerServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContainerServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
 func (o ContainerServiceOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

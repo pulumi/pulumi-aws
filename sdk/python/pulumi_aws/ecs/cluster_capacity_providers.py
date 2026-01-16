@@ -27,10 +27,6 @@ class ClusterCapacityProvidersArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterCapacityProviders resource.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         if capacity_providers is not None:
@@ -43,9 +39,6 @@ class ClusterCapacityProvidersArgs:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the ECS cluster to manage capacity providers for.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -55,9 +48,6 @@ class ClusterCapacityProvidersArgs:
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -67,9 +57,6 @@ class ClusterCapacityProvidersArgs:
     @_builtins.property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
     def default_capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]:
-        """
-        Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        """
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @default_capacity_provider_strategies.setter
@@ -79,9 +66,6 @@ class ClusterCapacityProvidersArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -98,10 +82,6 @@ class _ClusterCapacityProvidersState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCapacityProviders resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
@@ -115,9 +95,6 @@ class _ClusterCapacityProvidersState:
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -127,9 +104,6 @@ class _ClusterCapacityProvidersState:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the ECS cluster to manage capacity providers for.
-        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -139,9 +113,6 @@ class _ClusterCapacityProvidersState:
     @_builtins.property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
     def default_capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]:
-        """
-        Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        """
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @default_capacity_provider_strategies.setter
@@ -151,9 +122,6 @@ class _ClusterCapacityProvidersState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,41 +141,9 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages the capacity providers of an ECS Cluster.
-
-        More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Cluster("example", name="my-cluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("example",
-            cluster_name=example.name,
-            capacity_providers=["FARGATE"],
-            default_capacity_provider_strategies=[{
-                "base": 1,
-                "weight": 100,
-                "capacity_provider": "FARGATE",
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-        ```
-
+        Create a ClusterCapacityProviders resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -216,35 +152,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                  args: ClusterCapacityProvidersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the capacity providers of an ECS Cluster.
-
-        More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ecs.Cluster("example", name="my-cluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("example",
-            cluster_name=example.name,
-            capacity_providers=["FARGATE"],
-            default_capacity_provider_strategies=[{
-                "base": 1,
-                "weight": 100,
-                "capacity_provider": "FARGATE",
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-        ```
-
+        Create a ClusterCapacityProviders resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterCapacityProvidersArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,10 +208,6 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -318,32 +222,20 @@ class ClusterCapacityProviders(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "capacity_providers")
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the ECS cluster to manage capacity providers for.
-        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
     def default_capacity_provider_strategies(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy']]]:
-        """
-        Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        """
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

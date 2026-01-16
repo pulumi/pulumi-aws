@@ -13,17 +13,8 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
     {
-        /// <summary>
-        /// The classification within a configuration.
-        /// </summary>
         public readonly string Classification;
-        /// <summary>
-        /// A list of additional configurations to apply within a configuration object.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration> Configurations;
-        /// <summary>
-        /// A set of properties specified within a configuration classification.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
 
         [OutputConstructor]

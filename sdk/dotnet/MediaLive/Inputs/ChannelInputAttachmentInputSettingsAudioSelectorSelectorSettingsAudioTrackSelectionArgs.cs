@@ -12,18 +12,11 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
-        /// </summary>
         [Input("dolbyEDecode")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs>? DolbyEDecode { get; set; }
 
         [Input("tracks", required: true)]
         private InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>? _tracks;
-
-        /// <summary>
-        /// Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-        /// </summary>
         public InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs> Tracks
         {
             get => _tracks ?? (_tracks = new InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs>());

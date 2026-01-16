@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetDistributionConfigurationDistributionContainerDistributionConfigurationResult
     {
-        /// <summary>
-        /// Set of tags that are attached to the container distribution configuration.
-        /// </summary>
         public readonly ImmutableArray<string> ContainerTags;
-        /// <summary>
-        /// Description of the container distribution configuration.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Set of destination repositories for the container distribution configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult> TargetRepositories;
 
         [OutputConstructor]

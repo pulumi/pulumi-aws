@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetRowLevelPermissionDataSet {
-    /**
-     * @return ARN of the dataset that contains permissions for RLS.
-     * 
-     */
     private String arn;
-    /**
-     * @return User or group rules associated with the dataset that contains permissions for RLS.
-     * 
-     */
     private @Nullable String formatVersion;
-    /**
-     * @return Namespace associated with the dataset that contains permissions for RLS.
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-     * 
-     */
     private String permissionPolicy;
-    /**
-     * @return Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private DataSetRowLevelPermissionDataSet() {}
-    /**
-     * @return ARN of the dataset that contains permissions for RLS.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return User or group rules associated with the dataset that contains permissions for RLS.
-     * 
-     */
     public Optional<String> formatVersion() {
         return Optional.ofNullable(this.formatVersion);
     }
-    /**
-     * @return Namespace associated with the dataset that contains permissions for RLS.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
-     * 
-     */
     public String permissionPolicy() {
         return this.permissionPolicy;
     }
-    /**
-     * @return Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

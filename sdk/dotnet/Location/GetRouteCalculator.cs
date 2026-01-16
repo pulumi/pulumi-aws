@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Location
 {
     public static class GetRouteCalculator
     {
-        /// <summary>
-        /// Retrieve information about a Location Service Route Calculator.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetRouteCalculator.Invoke(new()
-        ///     {
-        ///         CalculatorName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRouteCalculatorResult> InvokeAsync(GetRouteCalculatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Location Service Route Calculator.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetRouteCalculator.Invoke(new()
-        ///     {
-        ///         CalculatorName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a Location Service Route Calculator.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetRouteCalculator.Invoke(new()
-        ///     {
-        ///         CalculatorName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetRouteCalculatorArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the route calculator resource.
-        /// </summary>
         [Input("calculatorName", required: true)]
         public string CalculatorName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the route calculator.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.Location
 
     public sealed class GetRouteCalculatorInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the route calculator resource.
-        /// </summary>
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the route calculator.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,35 +70,17 @@ namespace Pulumi.Aws.Location
     [OutputType]
     public sealed class GetRouteCalculatorResult
     {
-        /// <summary>
-        /// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-        /// </summary>
         public readonly string CalculatorArn;
         public readonly string CalculatorName;
-        /// <summary>
-        /// Timestamp for when the route calculator resource was created in ISO 8601 format.
-        /// </summary>
         public readonly string CreateTime;
-        /// <summary>
-        /// Data provider of traffic and road network data.
-        /// </summary>
         public readonly string DataSource;
-        /// <summary>
-        /// Optional description of the route calculator resource.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// Key-value map of resource tags for the route calculator.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-        /// </summary>
         public readonly string UpdateTime;
 
         [OutputConstructor]

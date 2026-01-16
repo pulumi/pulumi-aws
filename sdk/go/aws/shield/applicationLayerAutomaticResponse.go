@@ -12,61 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			cfg := config.New(ctx, "")
-//			// The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
-//			distributionId := cfg.Require("distributionId")
-//			_, err = shield.NewApplicationLayerAutomaticResponse(ctx, "example", &shield.ApplicationLayerAutomaticResponseArgs{
-//				ResourceArn: pulumi.Sprintf("arn:%v:cloudfront:%v:distribution/%v", currentGetPartition.Partition, currentGetCallerIdentity.AccountId, distributionId),
-//				Action:      pulumi.String("COUNT"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ApplicationLayerAutomaticResponse struct {
 	pulumi.CustomResourceState
 
-	// One of `COUNT` or `BLOCK`
-	Action pulumi.StringOutput `pulumi:"action"`
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	Action      pulumi.StringOutput                                `pulumi:"action"`
 	ResourceArn pulumi.StringOutput                                `pulumi:"resourceArn"`
 	Timeouts    ApplicationLayerAutomaticResponseTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -107,17 +56,13 @@ func GetApplicationLayerAutomaticResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationLayerAutomaticResponse resources.
 type applicationLayerAutomaticResponseState struct {
-	// One of `COUNT` or `BLOCK`
-	Action *string `pulumi:"action"`
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	Action      *string                                    `pulumi:"action"`
 	ResourceArn *string                                    `pulumi:"resourceArn"`
 	Timeouts    *ApplicationLayerAutomaticResponseTimeouts `pulumi:"timeouts"`
 }
 
 type ApplicationLayerAutomaticResponseState struct {
-	// One of `COUNT` or `BLOCK`
-	Action pulumi.StringPtrInput
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	Action      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
 	Timeouts    ApplicationLayerAutomaticResponseTimeoutsPtrInput
 }
@@ -127,18 +72,14 @@ func (ApplicationLayerAutomaticResponseState) ElementType() reflect.Type {
 }
 
 type applicationLayerAutomaticResponseArgs struct {
-	// One of `COUNT` or `BLOCK`
-	Action string `pulumi:"action"`
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	Action      string                                     `pulumi:"action"`
 	ResourceArn string                                     `pulumi:"resourceArn"`
 	Timeouts    *ApplicationLayerAutomaticResponseTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ApplicationLayerAutomaticResponse resource.
 type ApplicationLayerAutomaticResponseArgs struct {
-	// One of `COUNT` or `BLOCK`
-	Action pulumi.StringInput
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	Action      pulumi.StringInput
 	ResourceArn pulumi.StringInput
 	Timeouts    ApplicationLayerAutomaticResponseTimeoutsPtrInput
 }
@@ -230,12 +171,10 @@ func (o ApplicationLayerAutomaticResponseOutput) ToApplicationLayerAutomaticResp
 	return o
 }
 
-// One of `COUNT` or `BLOCK`
 func (o ApplicationLayerAutomaticResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponse) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
 func (o ApplicationLayerAutomaticResponseOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponse) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

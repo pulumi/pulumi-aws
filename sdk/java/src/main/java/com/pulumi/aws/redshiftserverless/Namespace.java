@@ -18,99 +18,28 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshiftserverless.Namespace;
- * import com.pulumi.aws.redshiftserverless.NamespaceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Namespace("example", NamespaceArgs.builder()
- *             .namespaceName("concurrency-scaling")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshiftserverless/namespace:Namespace example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshiftserverless/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
-     * 
-     */
     @Export(name="adminPasswordSecretArn", refs={String.class}, tree="[0]")
     private Output<String> adminPasswordSecretArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
-     * 
-     */
     public Output<String> adminPasswordSecretArn() {
         return this.adminPasswordSecretArn;
     }
-    /**
-     * ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
-     * 
-     */
     @Export(name="adminPasswordSecretKmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> adminPasswordSecretKmsKeyId;
 
-    /**
-     * @return ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
-     * 
-     */
     public Output<String> adminPasswordSecretKmsKeyId() {
         return this.adminPasswordSecretKmsKeyId;
     }
-    /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
-     * 
-     */
     @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminUserPassword;
 
-    /**
-     * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
-     * 
-     */
     public Output<Optional<String>> adminUserPassword() {
         return Codegen.optional(this.adminUserPassword);
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
      * 
      */
     @Export(name="adminUserPasswordWo", refs={String.class}, tree="[0]")
@@ -118,208 +47,92 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
      * 
      */
     public Output<Optional<String>> adminUserPasswordWo() {
         return Codegen.optional(this.adminUserPasswordWo);
     }
-    /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
-     * 
-     */
     @Export(name="adminUserPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> adminUserPasswordWoVersion;
 
-    /**
-     * @return Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
-     * 
-     */
     public Output<Optional<Integer>> adminUserPasswordWoVersion() {
         return Codegen.optional(this.adminUserPasswordWoVersion);
     }
-    /**
-     * The username of the administrator for the first database created in the namespace.
-     * 
-     */
     @Export(name="adminUsername", refs={String.class}, tree="[0]")
     private Output<String> adminUsername;
 
-    /**
-     * @return The username of the administrator for the first database created in the namespace.
-     * 
-     */
     public Output<String> adminUsername() {
         return this.adminUsername;
     }
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the first database created in the namespace.
-     * 
-     */
     @Export(name="dbName", refs={String.class}, tree="[0]")
     private Output<String> dbName;
 
-    /**
-     * @return The name of the first database created in the namespace.
-     * 
-     */
     public Output<String> dbName() {
         return this.dbName;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
-     * 
-     */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultIamRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
-     * 
-     */
     public Output<Optional<String>> defaultIamRoleArn() {
         return Codegen.optional(this.defaultIamRoleArn);
     }
-    /**
-     * A list of IAM roles to associate with the namespace.
-     * 
-     */
     @Export(name="iamRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iamRoles;
 
-    /**
-     * @return A list of IAM roles to associate with the namespace.
-     * 
-     */
     public Output<List<String>> iamRoles() {
         return this.iamRoles;
     }
-    /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-     * 
-     */
     @Export(name="logExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> logExports;
 
-    /**
-     * @return The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-     * 
-     */
     public Output<Optional<List<String>>> logExports() {
         return Codegen.optional(this.logExports);
     }
-    /**
-     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
-     * 
-     */
     @Export(name="manageAdminPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageAdminPassword;
 
-    /**
-     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
-     * 
-     */
     public Output<Optional<Boolean>> manageAdminPassword() {
         return Codegen.optional(this.manageAdminPassword);
     }
-    /**
-     * The Redshift Namespace ID.
-     * 
-     */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
-    /**
-     * @return The Redshift Namespace ID.
-     * 
-     */
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
-    /**
-     * The name of the namespace.
-     * 
-     */
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
-    /**
-     * @return The name of the namespace.
-     * 
-     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

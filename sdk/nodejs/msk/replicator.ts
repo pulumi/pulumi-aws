@@ -7,69 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Managed Streaming for Kafka Replicator.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.msk.Replicator("test", {
- *     replicatorName: "test-name",
- *     description: "test-description",
- *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
- *     kafkaClusters: [
- *         {
- *             amazonMskCluster: {
- *                 mskClusterArn: source.arn,
- *             },
- *             vpcConfig: {
- *                 subnetIds: sourceAwsSubnet.map(__item => __item.id),
- *                 securityGroupsIds: [sourceAwsSecurityGroup.id],
- *             },
- *         },
- *         {
- *             amazonMskCluster: {
- *                 mskClusterArn: target.arn,
- *             },
- *             vpcConfig: {
- *                 subnetIds: targetAwsSubnet.map(__item => __item.id),
- *                 securityGroupsIds: [targetAwsSecurityGroup.id],
- *             },
- *         },
- *     ],
- *     replicationInfoList: {
- *         sourceKafkaClusterArn: source.arn,
- *         targetKafkaClusterArn: target.arn,
- *         targetCompressionType: "NONE",
- *         topicReplications: [{
- *             topicNameConfiguration: {
- *                 type: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
- *             },
- *             topicsToReplicates: [".*"],
- *             startingPosition: {
- *                 type: "LATEST",
- *             },
- *         }],
- *         consumerGroupReplications: [{
- *             consumerGroupsToReplicates: [".*"],
- *         }],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
- *
- * ```sh
- * $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- */
 export class Replicator extends pulumi.CustomResource {
     /**
      * Get an existing Replicator resource's state with the given name, ID, and optional extra
@@ -98,42 +35,15 @@ export class Replicator extends pulumi.CustomResource {
         return obj['__pulumiType'] === Replicator.__pulumiType;
     }
 
-    /**
-     * ARN of the Replicator.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
-    /**
-     * A summary description of the replicator.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * A list of Kafka clusters which are targets of the replicator.
-     */
     declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
-     */
     declare public readonly replicationInfoList: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
-    /**
-     * The name of the replicator.
-     */
     declare public readonly replicatorName: pulumi.Output<string>;
-    /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-     */
     declare public readonly serviceExecutionRoleArn: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -193,42 +103,15 @@ export class Replicator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Replicator resources.
  */
 export interface ReplicatorState {
-    /**
-     * ARN of the Replicator.
-     */
     arn?: pulumi.Input<string>;
     currentVersion?: pulumi.Input<string>;
-    /**
-     * A summary description of the replicator.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of Kafka clusters which are targets of the replicator.
-     */
     kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
-     */
     replicationInfoList?: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
-    /**
-     * The name of the replicator.
-     */
     replicatorName?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-     */
     serviceExecutionRoleArn?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -236,32 +119,11 @@ export interface ReplicatorState {
  * The set of arguments for constructing a Replicator resource.
  */
 export interface ReplicatorArgs {
-    /**
-     * A summary description of the replicator.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of Kafka clusters which are targets of the replicator.
-     */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
-     */
     replicationInfoList: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
-    /**
-     * The name of the replicator.
-     */
     replicatorName: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-     */
     serviceExecutionRoleArn: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

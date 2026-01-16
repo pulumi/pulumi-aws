@@ -9,178 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing a QuickSight Folder.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Folder("example", new()
-    ///     {
-    ///         FolderId = "example-id",
-    ///         Name = "example-name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Permissions
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Folder("example", new()
-    ///     {
-    ///         FolderId = "example-id",
-    ///         Name = "example-name",
-    ///         Permissions = new[]
-    ///         {
-    ///             new Aws.Quicksight.Inputs.FolderPermissionArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "quicksight:CreateFolder",
-    ///                     "quicksight:DescribeFolder",
-    ///                     "quicksight:UpdateFolder",
-    ///                     "quicksight:DeleteFolder",
-    ///                     "quicksight:CreateFolderMembership",
-    ///                     "quicksight:DeleteFolderMembership",
-    ///                     "quicksight:DescribeFolderPermissions",
-    ///                     "quicksight:UpdateFolderPermissions",
-    ///                 },
-    ///                 Principal = exampleAwsQuicksightUser.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Parent Folder
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var parent = new Aws.Quicksight.Folder("parent", new()
-    ///     {
-    ///         FolderId = "parent-id",
-    ///         Name = "parent-name",
-    ///     });
-    /// 
-    ///     var example = new Aws.Quicksight.Folder("example", new()
-    ///     {
-    ///         FolderId = "example-id",
-    ///         Name = "example-name",
-    ///         ParentFolderArn = parent.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/folder:Folder")]
     public partial class Folder : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the folder.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The time that the folder was created.
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier for the folder.
-        /// </summary>
         [Output("folderId")]
         public Output<string> FolderId { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
-        /// </summary>
         [Output("folderPaths")]
         public Output<ImmutableArray<string>> FolderPaths { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        /// </summary>
         [Output("folderType")]
         public Output<string?> FolderType { get; private set; } = null!;
 
-        /// <summary>
-        /// The time that the folder was last updated.
-        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Display name for the folder.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        /// </summary>
         [Output("parentFolderArn")]
         public Output<string?> ParentFolderArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.FolderPermission>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -233,56 +100,31 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier for the folder.
-        /// </summary>
         [Input("folderId", required: true)]
         public Input<string> FolderId { get; set; } = null!;
 
-        /// <summary>
-        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        /// </summary>
         [Input("folderType")]
         public Input<string>? FolderType { get; set; }
 
-        /// <summary>
-        /// Display name for the folder.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        /// </summary>
         [Input("parentFolderArn")]
         public Input<string>? ParentFolderArn { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.FolderPermissionArgs>? _permissions;
-
-        /// <summary>
-        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-        /// </summary>
         public InputList<Inputs.FolderPermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.FolderPermissionArgs>());
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -297,89 +139,51 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class FolderState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the folder.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The time that the folder was created.
-        /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
-        /// <summary>
-        /// Identifier for the folder.
-        /// </summary>
         [Input("folderId")]
         public Input<string>? FolderId { get; set; }
 
         [Input("folderPaths")]
         private InputList<string>? _folderPaths;
-
-        /// <summary>
-        /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
-        /// </summary>
         public InputList<string> FolderPaths
         {
             get => _folderPaths ?? (_folderPaths = new InputList<string>());
             set => _folderPaths = value;
         }
 
-        /// <summary>
-        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        /// </summary>
         [Input("folderType")]
         public Input<string>? FolderType { get; set; }
 
-        /// <summary>
-        /// The time that the folder was last updated.
-        /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
-        /// <summary>
-        /// Display name for the folder.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        /// </summary>
         [Input("parentFolderArn")]
         public Input<string>? ParentFolderArn { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.FolderPermissionGetArgs>? _permissions;
-
-        /// <summary>
-        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-        /// </summary>
         public InputList<Inputs.FolderPermissionGetArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.FolderPermissionGetArgs>());
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -388,10 +192,6 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

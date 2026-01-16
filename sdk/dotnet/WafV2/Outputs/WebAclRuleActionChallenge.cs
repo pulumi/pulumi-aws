@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleActionChallenge
     {
-        /// <summary>
-        /// Defines custom handling for the web request. See `CustomRequestHandling` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleActionChallengeCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

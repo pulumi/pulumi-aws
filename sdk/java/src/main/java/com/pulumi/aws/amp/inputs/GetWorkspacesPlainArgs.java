@@ -14,32 +14,16 @@ public final class GetWorkspacesPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetWorkspacesPlainArgs Empty = new GetWorkspacesPlainArgs();
 
-    /**
-     * Limits results to workspaces with aliases that begin with this value.
-     * 
-     */
     @Import(name="aliasPrefix")
     private @Nullable String aliasPrefix;
 
-    /**
-     * @return Limits results to workspaces with aliases that begin with this value.
-     * 
-     */
     public Optional<String> aliasPrefix() {
         return Optional.ofNullable(this.aliasPrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -69,23 +53,11 @@ public final class GetWorkspacesPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetWorkspacesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasPrefix Limits results to workspaces with aliases that begin with this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasPrefix(@Nullable String aliasPrefix) {
             $.aliasPrefix = aliasPrefix;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

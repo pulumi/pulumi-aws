@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreMemoryStrategyConfiguration {
-    /**
-     * @return Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     private @Nullable AgentcoreMemoryStrategyConfigurationConsolidation consolidation;
-    /**
-     * @return Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     private @Nullable AgentcoreMemoryStrategyConfigurationExtraction extraction;
-    /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-     * 
-     */
     private String type;
 
     private AgentcoreMemoryStrategyConfiguration() {}
-    /**
-     * @return Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     public Optional<AgentcoreMemoryStrategyConfigurationConsolidation> consolidation() {
         return Optional.ofNullable(this.consolidation);
     }
-    /**
-     * @return Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     public Optional<AgentcoreMemoryStrategyConfigurationExtraction> extraction() {
         return Optional.ofNullable(this.extraction);
     }
-    /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-     * 
-     */
     public String type() {
         return this.type;
     }

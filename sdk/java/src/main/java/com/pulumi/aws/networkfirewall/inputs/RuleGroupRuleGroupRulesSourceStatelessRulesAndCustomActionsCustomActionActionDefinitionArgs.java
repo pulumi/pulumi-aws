@@ -14,17 +14,9 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
 
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs();
 
-    /**
-     * A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-     * 
-     */
     @Import(name="publishMetricAction", required=true)
     private Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs> publishMetricAction;
 
-    /**
-     * @return A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-     * 
-     */
     public Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs> publishMetricAction() {
         return this.publishMetricAction;
     }
@@ -53,23 +45,11 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
             $ = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param publishMetricAction A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publishMetricAction(Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs> publishMetricAction) {
             $.publishMetricAction = publishMetricAction;
             return this;
         }
 
-        /**
-         * @param publishMetricAction A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publishMetricAction(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs publishMetricAction) {
             return publishMetricAction(Output.of(publishMetricAction));
         }

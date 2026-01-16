@@ -16,62 +16,30 @@ public final class EnvironmentMembershipArgs extends com.pulumi.resources.Resour
 
     public static final EnvironmentMembershipArgs Empty = new EnvironmentMembershipArgs();
 
-    /**
-     * The ID of the environment that contains the environment member you want to add.
-     * 
-     */
     @Import(name="environmentId", required=true)
     private Output<String> environmentId;
 
-    /**
-     * @return The ID of the environment that contains the environment member you want to add.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
 
-    /**
-     * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     * 
-     */
     @Import(name="permissions", required=true)
     private Output<String> permissions;
 
-    /**
-     * @return The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     * 
-     */
     public Output<String> permissions() {
         return this.permissions;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
-     * 
-     */
     @Import(name="userArn", required=true)
     private Output<String> userArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the environment member you want to add.
-     * 
-     */
     public Output<String> userArn() {
         return this.userArn;
     }
@@ -103,86 +71,38 @@ public final class EnvironmentMembershipArgs extends com.pulumi.resources.Resour
             $ = new EnvironmentMembershipArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param environmentId The ID of the environment that contains the environment member you want to add.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentId(Output<String> environmentId) {
             $.environmentId = environmentId;
             return this;
         }
 
-        /**
-         * @param environmentId The ID of the environment that contains the environment member you want to add.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentId(String environmentId) {
             return environmentId(Output.of(environmentId));
         }
 
-        /**
-         * @param permissions The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(Output<String> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(String permissions) {
             return permissions(Output.of(permissions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userArn The Amazon Resource Name (ARN) of the environment member you want to add.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userArn(Output<String> userArn) {
             $.userArn = userArn;
             return this;
         }
 
-        /**
-         * @param userArn The Amazon Resource Name (ARN) of the environment member you want to add.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userArn(String userArn) {
             return userArn(Output.of(userArn));
         }

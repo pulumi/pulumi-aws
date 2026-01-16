@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FsxOpenZfsFileSystemProtocol {
-    /**
-     * @return Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-     * 
-     */
     private FsxOpenZfsFileSystemProtocolNfs nfs;
 
     private FsxOpenZfsFileSystemProtocol() {}
-    /**
-     * @return Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-     * 
-     */
     public FsxOpenZfsFileSystemProtocolNfs nfs() {
         return this.nfs;
     }

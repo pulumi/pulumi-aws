@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FsxOpenZfsFileSystemProtocolNfs {
-    /**
-     * @return Represents the mount options that are available for DataSync to access an NFS location. See below.
-     * 
-     */
     private FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions;
 
     private FsxOpenZfsFileSystemProtocolNfs() {}
-    /**
-     * @return Represents the mount options that are available for DataSync to access an NFS location. See below.
-     * 
-     */
     public FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions() {
         return this.mountOptions;
     }

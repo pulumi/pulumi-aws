@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclLoggingConfigurationRedactedFieldSingleHeaderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the query header to redact. This setting must be provided in lowercase characters.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

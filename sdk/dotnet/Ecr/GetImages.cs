@@ -11,108 +11,12 @@ namespace Pulumi.Aws.Ecr
 {
     public static class GetImages
     {
-        /// <summary>
-        /// The ECR Images data source allows the list of images in a specified repository to be retrieved.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetImages.Invoke(new()
-        ///     {
-        ///         RepositoryName = "my-repository",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["imageDigests"] = .Where(img =&gt; img.ImageDigest != null).Select(img =&gt; 
-        ///         {
-        ///             return img.ImageDigest;
-        ///         }).ToList(),
-        ///         ["imageTags"] = .Where(img =&gt; img.ImageTag != null).Select(img =&gt; 
-        ///         {
-        ///             return img.ImageTag;
-        ///         }).ToList(),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetImagesResult> InvokeAsync(GetImagesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("aws:ecr/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Images data source allows the list of images in a specified repository to be retrieved.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetImages.Invoke(new()
-        ///     {
-        ///         RepositoryName = "my-repository",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["imageDigests"] = .Where(img =&gt; img.ImageDigest != null).Select(img =&gt; 
-        ///         {
-        ///             return img.ImageDigest;
-        ///         }).ToList(),
-        ///         ["imageTags"] = .Where(img =&gt; img.ImageTag != null).Select(img =&gt; 
-        ///         {
-        ///             return img.ImageTag;
-        ///         }).ToList(),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("aws:ecr/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Images data source allows the list of images in a specified repository to be retrieved.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecr.GetImages.Invoke(new()
-        ///     {
-        ///         RepositoryName = "my-repository",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["imageDigests"] = .Where(img =&gt; img.ImageDigest != null).Select(img =&gt; 
-        ///         {
-        ///             return img.ImageDigest;
-        ///         }).ToList(),
-        ///         ["imageTags"] = .Where(img =&gt; img.ImageTag != null).Select(img =&gt; 
-        ///         {
-        ///             return img.ImageTag;
-        ///         }).ToList(),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("aws:ecr/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
     }
@@ -120,21 +24,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetImagesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the Registry where the repository resides.
-        /// </summary>
         [Input("registryId")]
         public string? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the ECR Repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public string RepositoryName { get; set; } = null!;
 
@@ -146,21 +41,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetImagesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the Registry where the repository resides.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the ECR Repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -178,9 +64,6 @@ namespace Pulumi.Aws.Ecr
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of image objects containing image digest and tags. Each object has the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageIdResult> ImageIds;
         public readonly string Region;
         public readonly string? RegistryId;

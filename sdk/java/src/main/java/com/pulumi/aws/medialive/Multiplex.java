@@ -18,172 +18,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS MediaLive Multiplex.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.medialive.Multiplex;
- * import com.pulumi.aws.medialive.MultiplexArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexMultiplexSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
- *             .build());
- * 
- *         var example = new Multiplex("example", MultiplexArgs.builder()
- *             .name("example-multiplex-changed")
- *             .availabilityZones(            
- *                 available.names()[0],
- *                 available.names()[1])
- *             .multiplexSettings(MultiplexMultiplexSettingsArgs.builder()
- *                 .transportStreamBitrate(1000000)
- *                 .transportStreamId(1)
- *                 .transportStreamReservedBitrate(1)
- *                 .maximumVideoBufferDelayMilliseconds(1000)
- *                 .build())
- *             .startMultiplex(true)
- *             .tags(Map.of("tag1", "value1"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
- * ```
- * 
- */
 @ResourceType(type="aws:medialive/multiplex:Multiplex")
 public class Multiplex extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Multiplex.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Multiplex.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A list of availability zones. You must specify exactly two.
-     * 
-     */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
-    /**
-     * @return A list of availability zones. You must specify exactly two.
-     * 
-     */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * Multiplex settings. See Multiplex Settings for more details.
-     * 
-     */
     @Export(name="multiplexSettings", refs={MultiplexMultiplexSettings.class}, tree="[0]")
     private Output</* @Nullable */ MultiplexMultiplexSettings> multiplexSettings;
 
-    /**
-     * @return Multiplex settings. See Multiplex Settings for more details.
-     * 
-     */
     public Output<Optional<MultiplexMultiplexSettings>> multiplexSettings() {
         return Codegen.optional(this.multiplexSettings);
     }
-    /**
-     * name of Multiplex.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return name of Multiplex.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Whether to start the Multiplex. Defaults to `false`.
-     * 
-     */
     @Export(name="startMultiplex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startMultiplex;
 
-    /**
-     * @return Whether to start the Multiplex. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> startMultiplex() {
         return Codegen.optional(this.startMultiplex);
     }
-    /**
-     * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

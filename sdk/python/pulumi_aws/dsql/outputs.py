@@ -45,27 +45,17 @@ class ClusterEncryptionDetail(dict):
     def __init__(__self__, *,
                  encryption_status: _builtins.str,
                  encryption_type: _builtins.str):
-        """
-        :param _builtins.str encryption_status: The status of encryption for the DSQL Cluster.
-        :param _builtins.str encryption_type: The type of encryption that protects the data on the DSQL Cluster.
-        """
         pulumi.set(__self__, "encryption_status", encryption_status)
         pulumi.set(__self__, "encryption_type", encryption_type)
 
     @_builtins.property
     @pulumi.getter(name="encryptionStatus")
     def encryption_status(self) -> _builtins.str:
-        """
-        The status of encryption for the DSQL Cluster.
-        """
         return pulumi.get(self, "encryption_status")
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> _builtins.str:
-        """
-        The type of encryption that protects the data on the DSQL Cluster.
-        """
         return pulumi.get(self, "encryption_type")
 
 
@@ -91,10 +81,6 @@ class ClusterMultiRegionProperties(dict):
     def __init__(__self__, *,
                  clusters: Optional[Sequence[_builtins.str]] = None,
                  witness_region: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] clusters: List of DSQL Cluster ARNs peered to this cluster.
-        :param _builtins.str witness_region: Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        """
         if clusters is not None:
             pulumi.set(__self__, "clusters", clusters)
         if witness_region is not None:
@@ -103,17 +89,11 @@ class ClusterMultiRegionProperties(dict):
     @_builtins.property
     @pulumi.getter
     def clusters(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of DSQL Cluster ARNs peered to this cluster.
-        """
         return pulumi.get(self, "clusters")
 
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
     def witness_region(self) -> Optional[_builtins.str]:
-        """
-        Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        """
         return pulumi.get(self, "witness_region")
 
 

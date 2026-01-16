@@ -16,47 +16,23 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
-    /**
-     * JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the rule group or firewall policy.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -87,65 +63,29 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the rule group or firewall policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the rule group or firewall policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

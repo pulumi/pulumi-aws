@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingSelfManagedEventSource
     {
-        /// <summary>
-        /// Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Endpoints;
 
         [OutputConstructor]

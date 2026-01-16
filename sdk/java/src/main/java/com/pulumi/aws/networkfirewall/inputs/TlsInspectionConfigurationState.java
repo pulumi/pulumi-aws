@@ -23,122 +23,58 @@ public final class TlsInspectionConfigurationState extends com.pulumi.resources.
 
     public static final TlsInspectionConfigurationState Empty = new TlsInspectionConfigurationState();
 
-    /**
-     * ARN of the TLS Inspection Configuration.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the TLS Inspection Configuration.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Certificate Manager certificate block. See Certificate Authority below for details.
-     * 
-     */
     @Import(name="certificateAuthorities")
     private @Nullable Output<List<TlsInspectionConfigurationCertificateAuthorityArgs>> certificateAuthorities;
 
-    /**
-     * @return Certificate Manager certificate block. See Certificate Authority below for details.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationCertificateAuthorityArgs>>> certificateAuthorities() {
         return Optional.ofNullable(this.certificateAuthorities);
     }
 
-    /**
-     * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-     * 
-     */
     @Import(name="certificates")
     private @Nullable Output<List<TlsInspectionConfigurationCertificateArgs>> certificates;
 
-    /**
-     * @return List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationCertificateArgs>>> certificates() {
         return Optional.ofNullable(this.certificates);
     }
 
-    /**
-     * Description of the TLS inspection configuration.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the TLS inspection configuration.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Encryption configuration block. Detailed below.
-     * 
-     */
     @Import(name="encryptionConfigurations")
     private @Nullable Output<List<TlsInspectionConfigurationEncryptionConfigurationArgs>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration block. Detailed below.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationEncryptionConfigurationArgs>>> encryptionConfigurations() {
         return Optional.ofNullable(this.encryptionConfigurations);
     }
 
-    /**
-     * Descriptive name of the TLS inspection configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Descriptive name of the TLS inspection configuration.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Number of firewall policies that use this TLS inspection configuration.
-     * 
-     */
     @Import(name="numberOfAssociations")
     private @Nullable Output<Integer> numberOfAssociations;
 
-    /**
-     * @return Number of firewall policies that use this TLS inspection configuration.
-     * 
-     */
     public Optional<Output<Integer>> numberOfAssociations() {
         return Optional.ofNullable(this.numberOfAssociations);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -164,51 +100,23 @@ public final class TlsInspectionConfigurationState extends com.pulumi.resources.
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * TLS inspection configuration block. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="tlsInspectionConfiguration")
     private @Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration;
 
-    /**
-     * @return TLS inspection configuration block. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs>> tlsInspectionConfiguration() {
         return Optional.ofNullable(this.tlsInspectionConfiguration);
     }
 
-    /**
-     * A unique identifier for the TLS inspection configuration.
-     * 
-     */
     @Import(name="tlsInspectionConfigurationId")
     private @Nullable Output<String> tlsInspectionConfigurationId;
 
-    /**
-     * @return A unique identifier for the TLS inspection configuration.
-     * 
-     */
     public Optional<Output<String>> tlsInspectionConfigurationId() {
         return Optional.ofNullable(this.tlsInspectionConfigurationId);
     }
 
-    /**
-     * String token used when updating the rule group.
-     * 
-     */
     @Import(name="updateToken")
     private @Nullable Output<String> updateToken;
 
-    /**
-     * @return String token used when updating the rule group.
-     * 
-     */
     public Optional<Output<String>> updateToken() {
         return Optional.ofNullable(this.updateToken);
     }
@@ -250,200 +158,86 @@ public final class TlsInspectionConfigurationState extends com.pulumi.resources.
             $ = new TlsInspectionConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the TLS Inspection Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the TLS Inspection Configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param certificateAuthorities Certificate Manager certificate block. See Certificate Authority below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorities(@Nullable Output<List<TlsInspectionConfigurationCertificateAuthorityArgs>> certificateAuthorities) {
             $.certificateAuthorities = certificateAuthorities;
             return this;
         }
 
-        /**
-         * @param certificateAuthorities Certificate Manager certificate block. See Certificate Authority below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorities(List<TlsInspectionConfigurationCertificateAuthorityArgs> certificateAuthorities) {
             return certificateAuthorities(Output.of(certificateAuthorities));
         }
 
-        /**
-         * @param certificateAuthorities Certificate Manager certificate block. See Certificate Authority below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorities(TlsInspectionConfigurationCertificateAuthorityArgs... certificateAuthorities) {
             return certificateAuthorities(List.of(certificateAuthorities));
         }
 
-        /**
-         * @param certificates List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificates(@Nullable Output<List<TlsInspectionConfigurationCertificateArgs>> certificates) {
             $.certificates = certificates;
             return this;
         }
 
-        /**
-         * @param certificates List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificates(List<TlsInspectionConfigurationCertificateArgs> certificates) {
             return certificates(Output.of(certificates));
         }
 
-        /**
-         * @param certificates List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificates(TlsInspectionConfigurationCertificateArgs... certificates) {
             return certificates(List.of(certificates));
         }
 
-        /**
-         * @param description Description of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(@Nullable Output<List<TlsInspectionConfigurationEncryptionConfigurationArgs>> encryptionConfigurations) {
             $.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(List<TlsInspectionConfigurationEncryptionConfigurationArgs> encryptionConfigurations) {
             return encryptionConfigurations(Output.of(encryptionConfigurations));
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
 
-        /**
-         * @param name Descriptive name of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Descriptive name of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param numberOfAssociations Number of firewall policies that use this TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfAssociations(@Nullable Output<Integer> numberOfAssociations) {
             $.numberOfAssociations = numberOfAssociations;
             return this;
         }
 
-        /**
-         * @param numberOfAssociations Number of firewall policies that use this TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numberOfAssociations(Integer numberOfAssociations) {
             return numberOfAssociations(Output.of(numberOfAssociations));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -475,69 +269,29 @@ public final class TlsInspectionConfigurationState extends com.pulumi.resources.
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param tlsInspectionConfiguration TLS inspection configuration block. Detailed below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsInspectionConfiguration(@Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration) {
             $.tlsInspectionConfiguration = tlsInspectionConfiguration;
             return this;
         }
 
-        /**
-         * @param tlsInspectionConfiguration TLS inspection configuration block. Detailed below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs tlsInspectionConfiguration) {
             return tlsInspectionConfiguration(Output.of(tlsInspectionConfiguration));
         }
 
-        /**
-         * @param tlsInspectionConfigurationId A unique identifier for the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsInspectionConfigurationId(@Nullable Output<String> tlsInspectionConfigurationId) {
             $.tlsInspectionConfigurationId = tlsInspectionConfigurationId;
             return this;
         }
 
-        /**
-         * @param tlsInspectionConfigurationId A unique identifier for the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsInspectionConfigurationId(String tlsInspectionConfigurationId) {
             return tlsInspectionConfigurationId(Output.of(tlsInspectionConfigurationId));
         }
 
-        /**
-         * @param updateToken String token used when updating the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updateToken(@Nullable Output<String> updateToken) {
             $.updateToken = updateToken;
             return this;
         }
 
-        /**
-         * @param updateToken String token used when updating the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updateToken(String updateToken) {
             return updateToken(Output.of(updateToken));
         }

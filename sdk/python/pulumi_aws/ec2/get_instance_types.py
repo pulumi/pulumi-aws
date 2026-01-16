@@ -58,9 +58,6 @@ class GetInstanceTypesResult:
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Sequence[_builtins.str]:
-        """
-        List of EC2 Instance Types.
-        """
         return pulumi.get(self, "instance_types")
 
     @_builtins.property
@@ -85,40 +82,7 @@ def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterA
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypesResult:
     """
-    Information about EC2 Instance Types.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_instance_types(filters=[
-        {
-            "name": "auto-recovery-supported",
-            "values": ["true"],
-        },
-        {
-            "name": "network-info.encryption-in-transit-supported",
-            "values": ["true"],
-        },
-        {
-            "name": "instance-storage-supported",
-            "values": ["true"],
-        },
-        {
-            "name": "instance-type",
-            "values": [
-                "g5.2xlarge",
-                "g5.4xlarge",
-            ],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -135,40 +99,7 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
-    Information about EC2 Instance Types.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_instance_types(filters=[
-        {
-            "name": "auto-recovery-supported",
-            "values": ["true"],
-        },
-        {
-            "name": "network-info.encryption-in-transit-supported",
-            "values": ["true"],
-        },
-        {
-            "name": "instance-storage-supported",
-            "values": ["true"],
-        },
-        {
-            "name": "instance-type",
-            "values": [
-                "g5.2xlarge",
-                "g5.4xlarge",
-            ],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

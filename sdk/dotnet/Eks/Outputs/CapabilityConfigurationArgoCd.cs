@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfigurationArgoCd
     {
-        /// <summary>
-        /// AWS IAM Identity Center configuration. See `AwsIdc` below.
-        /// </summary>
         public readonly Outputs.CapabilityConfigurationArgoCdAwsIdc? AwsIdc;
-        /// <summary>
-        /// Kubernetes namespace for ArgoCD.
-        /// </summary>
         public readonly string? Namespace;
-        /// <summary>
-        /// Network access configuration. See `NetworkAccess` below.
-        /// </summary>
         public readonly Outputs.CapabilityConfigurationArgoCdNetworkAccess? NetworkAccess;
-        /// <summary>
-        /// RBAC role mappings. See `RbacRoleMapping` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityConfigurationArgoCdRbacRoleMapping> RbacRoleMappings;
-        /// <summary>
-        /// URL of the Argo CD server.
-        /// </summary>
         public readonly string? ServerUrl;
 
         [OutputConstructor]

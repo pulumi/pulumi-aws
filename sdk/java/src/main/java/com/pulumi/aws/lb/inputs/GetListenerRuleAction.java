@@ -23,134 +23,58 @@ public final class GetListenerRuleAction extends com.pulumi.resources.InvokeArgs
 
     public static final GetListenerRuleAction Empty = new GetListenerRuleAction();
 
-    /**
-     * An action to authenticate using Amazon Cognito.
-     * Detailed below.
-     * 
-     */
     @Import(name="authenticateCognitos")
     private @Nullable List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos;
 
-    /**
-     * @return An action to authenticate using Amazon Cognito.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionAuthenticateCognito>> authenticateCognitos() {
         return Optional.ofNullable(this.authenticateCognitos);
     }
 
-    /**
-     * An action to authenticate using OIDC.
-     * Detailed below.
-     * 
-     */
     @Import(name="authenticateOidcs")
     private @Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs;
 
-    /**
-     * @return An action to authenticate using OIDC.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionAuthenticateOidc>> authenticateOidcs() {
         return Optional.ofNullable(this.authenticateOidcs);
     }
 
-    /**
-     * An action to return a fixed response.
-     * Detailed below.
-     * 
-     */
     @Import(name="fixedResponses")
     private @Nullable List<GetListenerRuleActionFixedResponse> fixedResponses;
 
-    /**
-     * @return An action to return a fixed response.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionFixedResponse>> fixedResponses() {
         return Optional.ofNullable(this.fixedResponses);
     }
 
-    /**
-     * An action to forward the request.
-     * Detailed below.
-     * 
-     */
     @Import(name="forwards")
     private @Nullable List<GetListenerRuleActionForward> forwards;
 
-    /**
-     * @return An action to forward the request.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionForward>> forwards() {
         return Optional.ofNullable(this.forwards);
     }
 
-    /**
-     * An action to validate using JWT.
-     * Detailed below.
-     * 
-     */
     @Import(name="jwtValidations")
     private @Nullable List<GetListenerRuleActionJwtValidation> jwtValidations;
 
-    /**
-     * @return An action to validate using JWT.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionJwtValidation>> jwtValidations() {
         return Optional.ofNullable(this.jwtValidations);
     }
 
-    /**
-     * The evaluation order of the action.
-     * 
-     */
     @Import(name="order", required=true)
     private Integer order;
 
-    /**
-     * @return The evaluation order of the action.
-     * 
-     */
     public Integer order() {
         return this.order;
     }
 
-    /**
-     * An action to redirect the request.
-     * Detailed below.
-     * 
-     */
     @Import(name="redirects")
     private @Nullable List<GetListenerRuleActionRedirect> redirects;
 
-    /**
-     * @return An action to redirect the request.
-     * Detailed below.
-     * 
-     */
     public Optional<List<GetListenerRuleActionRedirect>> redirects() {
         return Optional.ofNullable(this.redirects);
     }
 
-    /**
-     * Type of transform.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Type of transform.
-     * 
-     */
     public String type() {
         return this.type;
     }
@@ -186,161 +110,65 @@ public final class GetListenerRuleAction extends com.pulumi.resources.InvokeArgs
             $ = new GetListenerRuleAction(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticateCognitos An action to authenticate using Amazon Cognito.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateCognitos(@Nullable List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos) {
             $.authenticateCognitos = authenticateCognitos;
             return this;
         }
 
-        /**
-         * @param authenticateCognitos An action to authenticate using Amazon Cognito.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateCognitos(GetListenerRuleActionAuthenticateCognito... authenticateCognitos) {
             return authenticateCognitos(List.of(authenticateCognitos));
         }
 
-        /**
-         * @param authenticateOidcs An action to authenticate using OIDC.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateOidcs(@Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs) {
             $.authenticateOidcs = authenticateOidcs;
             return this;
         }
 
-        /**
-         * @param authenticateOidcs An action to authenticate using OIDC.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateOidcs(GetListenerRuleActionAuthenticateOidc... authenticateOidcs) {
             return authenticateOidcs(List.of(authenticateOidcs));
         }
 
-        /**
-         * @param fixedResponses An action to return a fixed response.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponses(@Nullable List<GetListenerRuleActionFixedResponse> fixedResponses) {
             $.fixedResponses = fixedResponses;
             return this;
         }
 
-        /**
-         * @param fixedResponses An action to return a fixed response.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponses(GetListenerRuleActionFixedResponse... fixedResponses) {
             return fixedResponses(List.of(fixedResponses));
         }
 
-        /**
-         * @param forwards An action to forward the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwards(@Nullable List<GetListenerRuleActionForward> forwards) {
             $.forwards = forwards;
             return this;
         }
 
-        /**
-         * @param forwards An action to forward the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwards(GetListenerRuleActionForward... forwards) {
             return forwards(List.of(forwards));
         }
 
-        /**
-         * @param jwtValidations An action to validate using JWT.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtValidations(@Nullable List<GetListenerRuleActionJwtValidation> jwtValidations) {
             $.jwtValidations = jwtValidations;
             return this;
         }
 
-        /**
-         * @param jwtValidations An action to validate using JWT.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtValidations(GetListenerRuleActionJwtValidation... jwtValidations) {
             return jwtValidations(List.of(jwtValidations));
         }
 
-        /**
-         * @param order The evaluation order of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(Integer order) {
             $.order = order;
             return this;
         }
 
-        /**
-         * @param redirects An action to redirect the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirects(@Nullable List<GetListenerRuleActionRedirect> redirects) {
             $.redirects = redirects;
             return this;
         }
 
-        /**
-         * @param redirects An action to redirect the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirects(GetListenerRuleActionRedirect... redirects) {
             return redirects(List.of(redirects));
         }
 
-        /**
-         * @param type Type of transform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;

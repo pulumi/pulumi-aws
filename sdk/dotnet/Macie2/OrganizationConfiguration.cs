@@ -9,39 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie2
 {
-    /// <summary>
-    /// Provides a resource to manage Amazon Macie configuration settings for an organization in AWS Organizations.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Macie2.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:macie2/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         /// </summary>
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -92,14 +68,11 @@ namespace Pulumi.Aws.Macie2
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         /// </summary>
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -112,14 +85,11 @@ namespace Pulumi.Aws.Macie2
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
         /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

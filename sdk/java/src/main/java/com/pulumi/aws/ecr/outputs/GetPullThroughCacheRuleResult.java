@@ -10,15 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPullThroughCacheRuleResult {
-    /**
-     * @return ARN of the Secret which will be used to authenticate against the registry.
-     * 
-     */
     private String credentialArn;
-    /**
-     * @return The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
-     * 
-     */
     private String customRoleArn;
     private String ecrRepositoryPrefix;
     /**
@@ -27,34 +19,14 @@ public final class GetPullThroughCacheRuleResult {
      */
     private String id;
     private String region;
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     private String registryId;
-    /**
-     * @return The registry URL of the upstream registry to use as the source.
-     * 
-     */
     private String upstreamRegistryUrl;
-    /**
-     * @return The upstream repository prefix associated with the pull through cache rule.
-     * 
-     */
     private String upstreamRepositoryPrefix;
 
     private GetPullThroughCacheRuleResult() {}
-    /**
-     * @return ARN of the Secret which will be used to authenticate against the registry.
-     * 
-     */
     public String credentialArn() {
         return this.credentialArn;
     }
-    /**
-     * @return The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
-     * 
-     */
     public String customRoleArn() {
         return this.customRoleArn;
     }
@@ -71,24 +43,12 @@ public final class GetPullThroughCacheRuleResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public String registryId() {
         return this.registryId;
     }
-    /**
-     * @return The registry URL of the upstream registry to use as the source.
-     * 
-     */
     public String upstreamRegistryUrl() {
         return this.upstreamRegistryUrl;
     }
-    /**
-     * @return The upstream repository prefix associated with the pull through cache rule.
-     * 
-     */
     public String upstreamRepositoryPrefix() {
         return this.upstreamRepositoryPrefix;
     }

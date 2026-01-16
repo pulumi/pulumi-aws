@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterRemoteNetworkConfigResult
     {
-        /// <summary>
-        /// The networks that can contain hybrid nodes.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterRemoteNetworkConfigRemoteNodeNetworkResult> RemoteNodeNetworks;
-        /// <summary>
-        /// The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterRemoteNetworkConfigRemotePodNetworkResult> RemotePodNetworks;
 
         [OutputConstructor]

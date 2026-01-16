@@ -57,9 +57,6 @@ class GetResourceResult:
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> _builtins.str:
-        """
-        Set to the ID of the parent Resource.
-        """
         return pulumi.get(self, "parent_id")
 
     @_builtins.property
@@ -70,9 +67,6 @@ class GetResourceResult:
     @_builtins.property
     @pulumi.getter(name="pathPart")
     def path_part(self) -> _builtins.str:
-        """
-        Set to the path relative to the parent Resource.
-        """
         return pulumi.get(self, "path_part")
 
     @_builtins.property
@@ -105,24 +99,7 @@ def get_resource(path: Optional[_builtins.str] = None,
                  rest_api_id: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Use this data source to get the id of a Resource in API Gateway.
-    To fetch the Resource, you must provide the REST API id as well as the full path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
-        path="/endpoint/path")
-    ```
-
-
-    :param _builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -143,24 +120,7 @@ def get_resource_output(path: Optional[pulumi.Input[_builtins.str]] = None,
                         rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Use this data source to get the id of a Resource in API Gateway.
-    To fetch the Resource, you must provide the REST API id as well as the full path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
-        path="/endpoint/path")
-    ```
-
-
-    :param _builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['path'] = path

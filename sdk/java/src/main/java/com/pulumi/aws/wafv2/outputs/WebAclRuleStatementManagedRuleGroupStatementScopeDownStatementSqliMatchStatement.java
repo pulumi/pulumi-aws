@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement {
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch;
-    /**
-     * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
-     * 
-     */
     private @Nullable String sensitivityLevel;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement() {}
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
-     * 
-     */
     public Optional<String> sensitivityLevel() {
         return Optional.ofNullable(this.sensitivityLevel);
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

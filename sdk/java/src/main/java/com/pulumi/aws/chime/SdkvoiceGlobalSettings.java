@@ -13,69 +13,11 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing Amazon Chime SDK Voice Global Settings.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.SdkvoiceGlobalSettings;
- * import com.pulumi.aws.chime.SdkvoiceGlobalSettingsArgs;
- * import com.pulumi.aws.chime.inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SdkvoiceGlobalSettings("example", SdkvoiceGlobalSettingsArgs.builder()
- *             .voiceConnector(SdkvoiceGlobalSettingsVoiceConnectorArgs.builder()
- *                 .cdrBucket("example-bucket-name")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")
 public class SdkvoiceGlobalSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * The Voice Connector settings. See voice_connector.
-     * 
-     */
     @Export(name="voiceConnector", refs={SdkvoiceGlobalSettingsVoiceConnector.class}, tree="[0]")
     private Output<SdkvoiceGlobalSettingsVoiceConnector> voiceConnector;
 
-    /**
-     * @return The Voice Connector settings. See voice_connector.
-     * 
-     */
     public Output<SdkvoiceGlobalSettingsVoiceConnector> voiceConnector() {
         return this.voiceConnector;
     }

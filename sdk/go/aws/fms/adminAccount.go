@@ -11,43 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fms.NewAdminAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-// ```
 type AdminAccount struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 }
 
@@ -81,12 +47,10 @@ func GetAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdminAccount resources.
 type adminAccountState struct {
-	// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 	AccountId *string `pulumi:"accountId"`
 }
 
 type AdminAccountState struct {
-	// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 	AccountId pulumi.StringPtrInput
 }
 
@@ -95,13 +59,11 @@ func (AdminAccountState) ElementType() reflect.Type {
 }
 
 type adminAccountArgs struct {
-	// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 	AccountId *string `pulumi:"accountId"`
 }
 
 // The set of arguments for constructing a AdminAccount resource.
 type AdminAccountArgs struct {
-	// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 	AccountId pulumi.StringPtrInput
 }
 
@@ -192,7 +154,6 @@ func (o AdminAccountOutput) ToAdminAccountOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 func (o AdminAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

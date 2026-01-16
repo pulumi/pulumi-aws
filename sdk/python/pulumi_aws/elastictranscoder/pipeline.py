@@ -34,26 +34,6 @@ class PipelineArgs:
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[_builtins.str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        :param pulumi.Input[_builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input['PipelineContentConfigArgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]] content_config_permissions: The permissions for the `content_config` object. (documented below)
-        :param pulumi.Input[_builtins.str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input['PipelineNotificationsArgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        :param pulumi.Input[_builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
-               
-               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-               
-               The `content_config` object specifies information about the Amazon S3 bucket in
-               which you want Elastic Transcoder to save transcoded files and playlists: which
-               bucket to use, and the storage class that you want to assign to the files. If
-               you specify values for `content_config`, you must also specify values for
-               `thumbnail_config`. If you specify values for `content_config` and
-               `thumbnail_config`, omit the `output_bucket` object.
         """
         pulumi.set(__self__, "input_bucket", input_bucket)
         pulumi.set(__self__, "role", role)
@@ -79,9 +59,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="inputBucket")
     def input_bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        """
         return pulumi.get(self, "input_bucket")
 
     @input_bucket.setter
@@ -91,9 +68,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -103,9 +77,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="awsKmsKeyArn")
     def aws_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        """
         return pulumi.get(self, "aws_kms_key_arn")
 
     @aws_kms_key_arn.setter
@@ -115,9 +86,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="contentConfig")
     def content_config(self) -> Optional[pulumi.Input['PipelineContentConfigArgs']]:
-        """
-        The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        """
         return pulumi.get(self, "content_config")
 
     @content_config.setter
@@ -127,9 +95,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="contentConfigPermissions")
     def content_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]]:
-        """
-        The permissions for the `content_config` object. (documented below)
-        """
         return pulumi.get(self, "content_config_permissions")
 
     @content_config_permissions.setter
@@ -139,9 +104,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the pipeline. Maximum 40 characters
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -151,9 +113,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['PipelineNotificationsArgs']]:
-        """
-        The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
@@ -163,9 +122,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="outputBucket")
     def output_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        """
         return pulumi.get(self, "output_bucket")
 
     @output_bucket.setter
@@ -175,9 +131,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -187,9 +140,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="thumbnailConfig")
     def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArgs']]:
-        """
-        The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        """
         return pulumi.get(self, "thumbnail_config")
 
     @thumbnail_config.setter
@@ -199,18 +149,6 @@ class PipelineArgs:
     @_builtins.property
     @pulumi.getter(name="thumbnailConfigPermissions")
     def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]:
-        """
-        The permissions for the `thumbnail_config` object. (documented below)
-
-        See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-
-        The `content_config` object specifies information about the Amazon S3 bucket in
-        which you want Elastic Transcoder to save transcoded files and playlists: which
-        bucket to use, and the storage class that you want to assign to the files. If
-        you specify values for `content_config`, you must also specify values for
-        `thumbnail_config`. If you specify values for `content_config` and
-        `thumbnail_config`, omit the `output_bucket` object.
-        """
         return pulumi.get(self, "thumbnail_config_permissions")
 
     @thumbnail_config_permissions.setter
@@ -235,27 +173,6 @@ class _PipelineState:
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Elastictranscoder pipeline.
-        :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input['PipelineContentConfigArgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]] content_config_permissions: The permissions for the `content_config` object. (documented below)
-        :param pulumi.Input[_builtins.str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        :param pulumi.Input[_builtins.str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input['PipelineNotificationsArgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        :param pulumi.Input[_builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
-               
-               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-               
-               The `content_config` object specifies information about the Amazon S3 bucket in
-               which you want Elastic Transcoder to save transcoded files and playlists: which
-               bucket to use, and the storage class that you want to assign to the files. If
-               you specify values for `content_config`, you must also specify values for
-               `thumbnail_config`. If you specify values for `content_config` and
-               `thumbnail_config`, omit the `output_bucket` object.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -285,9 +202,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Elastictranscoder pipeline.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -297,9 +211,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="awsKmsKeyArn")
     def aws_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        """
         return pulumi.get(self, "aws_kms_key_arn")
 
     @aws_kms_key_arn.setter
@@ -309,9 +220,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="contentConfig")
     def content_config(self) -> Optional[pulumi.Input['PipelineContentConfigArgs']]:
-        """
-        The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        """
         return pulumi.get(self, "content_config")
 
     @content_config.setter
@@ -321,9 +229,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="contentConfigPermissions")
     def content_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]]:
-        """
-        The permissions for the `content_config` object. (documented below)
-        """
         return pulumi.get(self, "content_config_permissions")
 
     @content_config_permissions.setter
@@ -333,9 +238,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="inputBucket")
     def input_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        """
         return pulumi.get(self, "input_bucket")
 
     @input_bucket.setter
@@ -345,9 +247,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the pipeline. Maximum 40 characters
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -357,9 +256,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['PipelineNotificationsArgs']]:
-        """
-        The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
@@ -369,9 +265,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="outputBucket")
     def output_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        """
         return pulumi.get(self, "output_bucket")
 
     @output_bucket.setter
@@ -381,9 +274,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -393,9 +283,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -405,9 +292,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="thumbnailConfig")
     def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArgs']]:
-        """
-        The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        """
         return pulumi.get(self, "thumbnail_config")
 
     @thumbnail_config.setter
@@ -417,18 +301,6 @@ class _PipelineState:
     @_builtins.property
     @pulumi.getter(name="thumbnailConfigPermissions")
     def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]:
-        """
-        The permissions for the `thumbnail_config` object. (documented below)
-
-        See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-
-        The `content_config` object specifies information about the Amazon S3 bucket in
-        which you want Elastic Transcoder to save transcoded files and playlists: which
-        bucket to use, and the storage class that you want to assign to the files. If
-        you specify values for `content_config`, you must also specify values for
-        `thumbnail_config`. If you specify values for `content_config` and
-        `thumbnail_config`, omit the `output_bucket` object.
-        """
         return pulumi.get(self, "thumbnail_config_permissions")
 
     @thumbnail_config_permissions.setter
@@ -455,60 +327,9 @@ class Pipeline(pulumi.CustomResource):
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides an Elastic Transcoder pipeline resource.
-
-        > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=input_bucket["id"],
-            name="aws_elastictranscoder_pipeline_my_test_",
-            role=test_role["arn"],
-            content_config={
-                "bucket": content_bucket["id"],
-                "storage_class": "Standard",
-            },
-            thumbnail_config={
-                "bucket": thumb_bucket["id"],
-                "storage_class": "Standard",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
-        ```
-
+        Create a Pipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input[Union['PipelineContentConfigArgs', 'PipelineContentConfigArgsDict']] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineContentConfigPermissionArgs', 'PipelineContentConfigPermissionArgsDict']]]] content_config_permissions: The permissions for the `content_config` object. (documented below)
-        :param pulumi.Input[_builtins.str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        :param pulumi.Input[_builtins.str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        :param pulumi.Input[_builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
-               
-               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-               
-               The `content_config` object specifies information about the Amazon S3 bucket in
-               which you want Elastic Transcoder to save transcoded files and playlists: which
-               bucket to use, and the storage class that you want to assign to the files. If
-               you specify values for `content_config`, you must also specify values for
-               `thumbnail_config`. If you specify values for `content_config` and
-               `thumbnail_config`, omit the `output_bucket` object.
         """
         ...
     @overload
@@ -517,38 +338,7 @@ class Pipeline(pulumi.CustomResource):
                  args: PipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Transcoder pipeline resource.
-
-        > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=input_bucket["id"],
-            name="aws_elastictranscoder_pipeline_my_test_",
-            role=test_role["arn"],
-            content_config={
-                "bucket": content_bucket["id"],
-                "storage_class": "Standard",
-            },
-            thumbnail_config={
-                "bucket": thumb_bucket["id"],
-                "storage_class": "Standard",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
-        ```
-
+        Create a Pipeline resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -629,27 +419,6 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Elastictranscoder pipeline.
-        :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input[Union['PipelineContentConfigArgs', 'PipelineContentConfigArgsDict']] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineContentConfigPermissionArgs', 'PipelineContentConfigPermissionArgsDict']]]] content_config_permissions: The permissions for the `content_config` object. (documented below)
-        :param pulumi.Input[_builtins.str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        :param pulumi.Input[_builtins.str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        :param pulumi.Input[_builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
-               
-               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-               
-               The `content_config` object specifies information about the Amazon S3 bucket in
-               which you want Elastic Transcoder to save transcoded files and playlists: which
-               bucket to use, and the storage class that you want to assign to the files. If
-               you specify values for `content_config`, you must also specify values for
-               `thumbnail_config`. If you specify values for `content_config` and
-               `thumbnail_config`, omit the `output_bucket` object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -672,105 +441,60 @@ class Pipeline(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Elastictranscoder pipeline.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsKmsKeyArn")
     def aws_kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        """
         return pulumi.get(self, "aws_kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="contentConfig")
     def content_config(self) -> pulumi.Output['outputs.PipelineContentConfig']:
-        """
-        The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        """
         return pulumi.get(self, "content_config")
 
     @_builtins.property
     @pulumi.getter(name="contentConfigPermissions")
     def content_config_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineContentConfigPermission']]]:
-        """
-        The permissions for the `content_config` object. (documented below)
-        """
         return pulumi.get(self, "content_config_permissions")
 
     @_builtins.property
     @pulumi.getter(name="inputBucket")
     def input_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-        """
         return pulumi.get(self, "input_bucket")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the pipeline. Maximum 40 characters
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional['outputs.PipelineNotifications']]:
-        """
-        The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-        """
         return pulumi.get(self, "notifications")
 
     @_builtins.property
     @pulumi.getter(name="outputBucket")
     def output_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        """
         return pulumi.get(self, "output_bucket")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Output[_builtins.str]:
-        """
-        The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        """
         return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter(name="thumbnailConfig")
     def thumbnail_config(self) -> pulumi.Output['outputs.PipelineThumbnailConfig']:
-        """
-        The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        """
         return pulumi.get(self, "thumbnail_config")
 
     @_builtins.property
     @pulumi.getter(name="thumbnailConfigPermissions")
     def thumbnail_config_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineThumbnailConfigPermission']]]:
-        """
-        The permissions for the `thumbnail_config` object. (documented below)
-
-        See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
-
-        The `content_config` object specifies information about the Amazon S3 bucket in
-        which you want Elastic Transcoder to save transcoded files and playlists: which
-        bucket to use, and the storage class that you want to assign to the files. If
-        you specify values for `content_config`, you must also specify values for
-        `thumbnail_config`. If you specify values for `content_config` and
-        `thumbnail_config`, omit the `output_bucket` object.
-        """
         return pulumi.get(self, "thumbnail_config_permissions")
 

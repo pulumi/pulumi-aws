@@ -16,32 +16,16 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
 
     public static final WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs Empty = new WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs();
 
-    /**
-     * Specifies the details for the EFS file being copied.
-     * 
-     */
     @Import(name="efsFileLocation")
     private @Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs> efsFileLocation;
 
-    /**
-     * @return Specifies the details for the EFS file being copied.
-     * 
-     */
     public Optional<Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs>> efsFileLocation() {
         return Optional.ofNullable(this.efsFileLocation);
     }
 
-    /**
-     * Specifies the details for the S3 file being copied.
-     * 
-     */
     @Import(name="s3FileLocation")
     private @Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs> s3FileLocation;
 
-    /**
-     * @return Specifies the details for the S3 file being copied.
-     * 
-     */
     public Optional<Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs>> s3FileLocation() {
         return Optional.ofNullable(this.s3FileLocation);
     }
@@ -71,44 +55,20 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
             $ = new WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param efsFileLocation Specifies the details for the EFS file being copied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileLocation(@Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs> efsFileLocation) {
             $.efsFileLocation = efsFileLocation;
             return this;
         }
 
-        /**
-         * @param efsFileLocation Specifies the details for the EFS file being copied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsFileLocation(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs efsFileLocation) {
             return efsFileLocation(Output.of(efsFileLocation));
         }
 
-        /**
-         * @param s3FileLocation Specifies the details for the S3 file being copied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3FileLocation(@Nullable Output<WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs> s3FileLocation) {
             $.s3FileLocation = s3FileLocation;
             return this;
         }
 
-        /**
-         * @param s3FileLocation Specifies the details for the S3 file being copied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3FileLocation(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs s3FileLocation) {
             return s3FileLocation(Output.of(s3FileLocation));
         }

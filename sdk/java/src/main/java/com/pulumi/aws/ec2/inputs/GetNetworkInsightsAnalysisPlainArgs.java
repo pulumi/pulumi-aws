@@ -17,55 +17,23 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
 
     public static final GetNetworkInsightsAnalysisPlainArgs Empty = new GetNetworkInsightsAnalysisPlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetNetworkInsightsAnalysisFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<List<GetNetworkInsightsAnalysisFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Network Insights Analysis to select.
-     * 
-     */
     @Import(name="networkInsightsAnalysisId")
     private @Nullable String networkInsightsAnalysisId;
 
-    /**
-     * @return ID of the Network Insights Analysis to select.
-     * 
-     */
     public Optional<String> networkInsightsAnalysisId() {
         return Optional.ofNullable(this.networkInsightsAnalysisId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,52 +72,20 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
             $ = new GetNetworkInsightsAnalysisPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetNetworkInsightsAnalysisFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNetworkInsightsAnalysisFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param networkInsightsAnalysisId ID of the Network Insights Analysis to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsAnalysisId(@Nullable String networkInsightsAnalysisId) {
             $.networkInsightsAnalysisId = networkInsightsAnalysisId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

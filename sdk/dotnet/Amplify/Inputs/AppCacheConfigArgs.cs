@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Amplify.Inputs
 
     public sealed class AppCacheConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

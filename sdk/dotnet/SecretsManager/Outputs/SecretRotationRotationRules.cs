@@ -13,17 +13,8 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     [OutputType]
     public sealed class SecretRotationRotationRules
     {
-        /// <summary>
-        /// Specifies the number of days between automatic scheduled rotations of the secret. Either `AutomaticallyAfterDays` or `ScheduleExpression` must be specified.
-        /// </summary>
         public readonly int? AutomaticallyAfterDays;
-        /// <summary>
-        /// The length of the rotation window in hours. For example, `3h` for a three hour window.
-        /// </summary>
         public readonly string? Duration;
-        /// <summary>
-        /// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `AutomaticallyAfterDays` or `ScheduleExpression` must be specified.
-        /// </summary>
         public readonly string? ScheduleExpression;
 
         [OutputConstructor]

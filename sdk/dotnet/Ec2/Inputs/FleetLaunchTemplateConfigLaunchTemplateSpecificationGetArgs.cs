@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetLaunchTemplateConfigLaunchTemplateSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the launch template.
-        /// </summary>
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
-        /// <summary>
-        /// The name of the launch template.
-        /// </summary>
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
-        /// <summary>
-        /// The launch template version number, `$Latest`, or `$Default.`
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 

@@ -21,10 +21,6 @@ public final class GetInvocationResult {
     private String input;
     private @Nullable String qualifier;
     private String region;
-    /**
-     * @return String result of the Lambda function invocation.
-     * 
-     */
     private String result;
     private @Nullable String tenantId;
 
@@ -48,10 +44,6 @@ public final class GetInvocationResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return String result of the Lambda function invocation.
-     * 
-     */
     public String result() {
         return this.result;
     }

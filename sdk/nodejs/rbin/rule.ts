@@ -7,65 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS RBin Rule.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rbin.Rule("example", {
- *     description: "Example tag-level retention rule",
- *     resourceType: "EBS_SNAPSHOT",
- *     resourceTags: [{
- *         resourceTagKey: "tag_key",
- *         resourceTagValue: "tag_value",
- *     }],
- *     retentionPeriod: {
- *         retentionPeriodValue: 10,
- *         retentionPeriodUnit: "DAYS",
- *     },
- *     tags: {
- *         test_tag_key: "test_tag_value",
- *     },
- * });
- * ```
- *
- * ### Region-Level Retention Rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rbin.Rule("example", {
- *     description: "Example region-level retention rule with exclusion tags",
- *     resourceType: "EC2_IMAGE",
- *     excludeResourceTags: [{
- *         resourceTagKey: "tag_key",
- *         resourceTagValue: "tag_value",
- *     }],
- *     retentionPeriod: {
- *         retentionPeriodValue: 10,
- *         retentionPeriodUnit: "DAYS",
- *     },
- *     tags: {
- *         test_tag_key: "test_tag_value",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import RBin Rule using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:rbin/rule:Rule example examplerule
- * ```
- */
 export class Rule extends pulumi.CustomResource {
     /**
      * Get an existing Rule resource's state with the given name, ID, and optional extra
@@ -95,47 +36,15 @@ export class Rule extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Retention rule description.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     */
     declare public readonly excludeResourceTags: pulumi.Output<outputs.rbin.RuleExcludeResourceTag[] | undefined>;
-    /**
-     * Information about the retention rule lock configuration. See `lockConfiguration` below.
-     */
     declare public readonly lockConfiguration: pulumi.Output<outputs.rbin.RuleLockConfiguration | undefined>;
-    /**
-     * (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-     */
     declare public /*out*/ readonly lockEndTime: pulumi.Output<string>;
-    /**
-     * (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
-     */
     declare public /*out*/ readonly lockState: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     */
     declare public readonly resourceTags: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
-    /**
-     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     */
     declare public readonly resourceType: pulumi.Output<string>;
-    /**
-     * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly retentionPeriod: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
-    /**
-     * (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -198,47 +107,15 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleState {
     arn?: pulumi.Input<string>;
-    /**
-     * Retention rule description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     */
     excludeResourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleExcludeResourceTag>[]>;
-    /**
-     * Information about the retention rule lock configuration. See `lockConfiguration` below.
-     */
     lockConfiguration?: pulumi.Input<inputs.rbin.RuleLockConfiguration>;
-    /**
-     * (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-     */
     lockEndTime?: pulumi.Input<string>;
-    /**
-     * (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
-     */
     lockState?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     */
     resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTag>[]>;
-    /**
-     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     */
     resourceType?: pulumi.Input<string>;
-    /**
-     * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     *
-     * The following arguments are optional:
-     */
     retentionPeriod?: pulumi.Input<inputs.rbin.RuleRetentionPeriod>;
-    /**
-     * (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-     */
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -248,35 +125,12 @@ export interface RuleState {
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
-    /**
-     * Retention rule description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
-     */
     excludeResourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleExcludeResourceTag>[]>;
-    /**
-     * Information about the retention rule lock configuration. See `lockConfiguration` below.
-     */
     lockConfiguration?: pulumi.Input<inputs.rbin.RuleLockConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
-     */
     resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTag>[]>;
-    /**
-     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-     */
     resourceType: pulumi.Input<string>;
-    /**
-     * Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
-     *
-     * The following arguments are optional:
-     */
     retentionPeriod: pulumi.Input<inputs.rbin.RuleRetentionPeriod>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

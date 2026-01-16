@@ -40,24 +40,6 @@ class ReplicationConfigurationTemplateArgs:
                  timeouts: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfigurationTemplate resource.
-        :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        :param pulumi.Input[_builtins.int] bandwidth_throttling: Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        :param pulumi.Input[_builtins.bool] create_public_ip: Whether to create a Public IP for the Recovery Instance by default.
-        :param pulumi.Input[_builtins.str] data_plane_routing: Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        :param pulumi.Input[_builtins.str] default_large_staging_disk_type: Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        :param pulumi.Input[_builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        :param pulumi.Input[_builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
-        :param pulumi.Input[_builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] staging_area_tags: Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        :param pulumi.Input[_builtins.bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        :param pulumi.Input[_builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
         """
         pulumi.set(__self__, "associate_default_security_group", associate_default_security_group)
         pulumi.set(__self__, "bandwidth_throttling", bandwidth_throttling)
@@ -86,9 +68,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="associateDefaultSecurityGroup")
     def associate_default_security_group(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        """
         return pulumi.get(self, "associate_default_security_group")
 
     @associate_default_security_group.setter
@@ -98,9 +77,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="bandwidthThrottling")
     def bandwidth_throttling(self) -> pulumi.Input[_builtins.int]:
-        """
-        Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        """
         return pulumi.get(self, "bandwidth_throttling")
 
     @bandwidth_throttling.setter
@@ -110,9 +86,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="createPublicIp")
     def create_public_ip(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether to create a Public IP for the Recovery Instance by default.
-        """
         return pulumi.get(self, "create_public_ip")
 
     @create_public_ip.setter
@@ -122,9 +95,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="dataPlaneRouting")
     def data_plane_routing(self) -> pulumi.Input[_builtins.str]:
-        """
-        Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        """
         return pulumi.get(self, "data_plane_routing")
 
     @data_plane_routing.setter
@@ -134,9 +104,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="defaultLargeStagingDiskType")
     def default_large_staging_disk_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        """
         return pulumi.get(self, "default_large_staging_disk_type")
 
     @default_large_staging_disk_type.setter
@@ -146,9 +113,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="ebsEncryption")
     def ebs_encryption(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        """
         return pulumi.get(self, "ebs_encryption")
 
     @ebs_encryption.setter
@@ -158,9 +122,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="replicationServerInstanceType")
     def replication_server_instance_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instance type to be used for the replication server.
-        """
         return pulumi.get(self, "replication_server_instance_type")
 
     @replication_server_instance_type.setter
@@ -170,9 +131,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="replicationServersSecurityGroupsIds")
     def replication_servers_security_groups_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Security group IDs that will be used by the replication server.
-        """
         return pulumi.get(self, "replication_servers_security_groups_ids")
 
     @replication_servers_security_groups_ids.setter
@@ -182,9 +140,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="stagingAreaSubnetId")
     def staging_area_subnet_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Subnet to be used by the replication staging area.
-        """
         return pulumi.get(self, "staging_area_subnet_id")
 
     @staging_area_subnet_id.setter
@@ -194,9 +149,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="stagingAreaTags")
     def staging_area_tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        """
         return pulumi.get(self, "staging_area_tags")
 
     @staging_area_tags.setter
@@ -206,11 +158,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="useDedicatedReplicationServer")
     def use_dedicated_replication_server(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether to use a dedicated Replication Server in the replication staging area.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "use_dedicated_replication_server")
 
     @use_dedicated_replication_server.setter
@@ -220,9 +167,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="autoReplicateNewDisks")
     def auto_replicate_new_disks(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        """
         return pulumi.get(self, "auto_replicate_new_disks")
 
     @auto_replicate_new_disks.setter
@@ -232,9 +176,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="ebsEncryptionKeyArn")
     def ebs_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the EBS encryption key to be used during replication.
-        """
         return pulumi.get(self, "ebs_encryption_key_arn")
 
     @ebs_encryption_key_arn.setter
@@ -244,9 +185,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="pitPolicies")
     def pit_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]:
-        """
-        Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        """
         return pulumi.get(self, "pit_policies")
 
     @pit_policies.setter
@@ -256,9 +194,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -268,9 +203,6 @@ class ReplicationConfigurationTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of tags to be associated with the Replication Configuration Template resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -311,26 +243,6 @@ class _ReplicationConfigurationTemplateState:
                  use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfigurationTemplate resources.
-        :param pulumi.Input[_builtins.str] arn: Replication configuration template ARN.
-        :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        :param pulumi.Input[_builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        :param pulumi.Input[_builtins.int] bandwidth_throttling: Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        :param pulumi.Input[_builtins.bool] create_public_ip: Whether to create a Public IP for the Recovery Instance by default.
-        :param pulumi.Input[_builtins.str] data_plane_routing: Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        :param pulumi.Input[_builtins.str] default_large_staging_disk_type: Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        :param pulumi.Input[_builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        :param pulumi.Input[_builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
-        :param pulumi.Input[_builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] staging_area_tags: Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -374,9 +286,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Replication configuration template ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -386,9 +295,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="associateDefaultSecurityGroup")
     def associate_default_security_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        """
         return pulumi.get(self, "associate_default_security_group")
 
     @associate_default_security_group.setter
@@ -398,9 +304,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="autoReplicateNewDisks")
     def auto_replicate_new_disks(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        """
         return pulumi.get(self, "auto_replicate_new_disks")
 
     @auto_replicate_new_disks.setter
@@ -410,9 +313,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="bandwidthThrottling")
     def bandwidth_throttling(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        """
         return pulumi.get(self, "bandwidth_throttling")
 
     @bandwidth_throttling.setter
@@ -422,9 +322,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="createPublicIp")
     def create_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to create a Public IP for the Recovery Instance by default.
-        """
         return pulumi.get(self, "create_public_ip")
 
     @create_public_ip.setter
@@ -434,9 +331,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="dataPlaneRouting")
     def data_plane_routing(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        """
         return pulumi.get(self, "data_plane_routing")
 
     @data_plane_routing.setter
@@ -446,9 +340,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="defaultLargeStagingDiskType")
     def default_large_staging_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        """
         return pulumi.get(self, "default_large_staging_disk_type")
 
     @default_large_staging_disk_type.setter
@@ -458,9 +349,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="ebsEncryption")
     def ebs_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        """
         return pulumi.get(self, "ebs_encryption")
 
     @ebs_encryption.setter
@@ -470,9 +358,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="ebsEncryptionKeyArn")
     def ebs_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the EBS encryption key to be used during replication.
-        """
         return pulumi.get(self, "ebs_encryption_key_arn")
 
     @ebs_encryption_key_arn.setter
@@ -482,9 +367,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="pitPolicies")
     def pit_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]:
-        """
-        Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        """
         return pulumi.get(self, "pit_policies")
 
     @pit_policies.setter
@@ -494,9 +376,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -506,9 +385,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="replicationServerInstanceType")
     def replication_server_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance type to be used for the replication server.
-        """
         return pulumi.get(self, "replication_server_instance_type")
 
     @replication_server_instance_type.setter
@@ -518,9 +394,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="replicationServersSecurityGroupsIds")
     def replication_servers_security_groups_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Security group IDs that will be used by the replication server.
-        """
         return pulumi.get(self, "replication_servers_security_groups_ids")
 
     @replication_servers_security_groups_ids.setter
@@ -530,9 +403,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="stagingAreaSubnetId")
     def staging_area_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Subnet to be used by the replication staging area.
-        """
         return pulumi.get(self, "staging_area_subnet_id")
 
     @staging_area_subnet_id.setter
@@ -542,9 +412,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="stagingAreaTags")
     def staging_area_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        """
         return pulumi.get(self, "staging_area_tags")
 
     @staging_area_tags.setter
@@ -554,9 +421,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Set of tags to be associated with the Replication Configuration Template resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -566,9 +430,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -587,11 +448,6 @@ class _ReplicationConfigurationTemplateState:
     @_builtins.property
     @pulumi.getter(name="useDedicatedReplicationServer")
     def use_dedicated_replication_server(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use a dedicated Replication Server in the replication staging area.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "use_dedicated_replication_server")
 
     @use_dedicated_replication_server.setter
@@ -624,83 +480,9 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
-
-        > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.drs.ReplicationConfigurationTemplate("example",
-            associate_default_security_group=False,
-            bandwidth_throttling=12,
-            create_public_ip=False,
-            data_plane_routing="PRIVATE_IP",
-            default_large_staging_disk_type="GP2",
-            ebs_encryption="DEFAULT",
-            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            replication_server_instance_type="t3.small",
-            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
-            staging_area_subnet_id=example_aws_subnet["id"],
-            use_dedicated_replication_server=False,
-            pit_policies=[
-                {
-                    "enabled": True,
-                    "interval": 10,
-                    "retention_duration": 60,
-                    "units": "MINUTE",
-                    "rule_id": 1,
-                },
-                {
-                    "enabled": True,
-                    "interval": 1,
-                    "retention_duration": 24,
-                    "units": "HOUR",
-                    "rule_id": 2,
-                },
-                {
-                    "enabled": True,
-                    "interval": 1,
-                    "retention_duration": 3,
-                    "units": "DAY",
-                    "rule_id": 3,
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid
-        ```
-
+        Create a ReplicationConfigurationTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        :param pulumi.Input[_builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        :param pulumi.Input[_builtins.int] bandwidth_throttling: Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        :param pulumi.Input[_builtins.bool] create_public_ip: Whether to create a Public IP for the Recovery Instance by default.
-        :param pulumi.Input[_builtins.str] data_plane_routing: Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        :param pulumi.Input[_builtins.str] default_large_staging_disk_type: Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        :param pulumi.Input[_builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        :param pulumi.Input[_builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
-        :param pulumi.Input[_builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] staging_area_tags: Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
-        :param pulumi.Input[_builtins.bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -709,63 +491,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  args: ReplicationConfigurationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
-
-        > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.drs.ReplicationConfigurationTemplate("example",
-            associate_default_security_group=False,
-            bandwidth_throttling=12,
-            create_public_ip=False,
-            data_plane_routing="PRIVATE_IP",
-            default_large_staging_disk_type="GP2",
-            ebs_encryption="DEFAULT",
-            ebs_encryption_key_arn="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-            replication_server_instance_type="t3.small",
-            replication_servers_security_groups_ids=[__item["id"] for __item in example_aws_security_group],
-            staging_area_subnet_id=example_aws_subnet["id"],
-            use_dedicated_replication_server=False,
-            pit_policies=[
-                {
-                    "enabled": True,
-                    "interval": 10,
-                    "retention_duration": 60,
-                    "units": "MINUTE",
-                    "rule_id": 1,
-                },
-                {
-                    "enabled": True,
-                    "interval": 1,
-                    "retention_duration": 24,
-                    "units": "HOUR",
-                    "rule_id": 2,
-                },
-                {
-                    "enabled": True,
-                    "interval": 1,
-                    "retention_duration": 3,
-                    "units": "DAY",
-                    "rule_id": 3,
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid
-        ```
-
+        Create a ReplicationConfigurationTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -884,26 +610,6 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Replication configuration template ARN.
-        :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        :param pulumi.Input[_builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        :param pulumi.Input[_builtins.int] bandwidth_throttling: Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        :param pulumi.Input[_builtins.bool] create_public_ip: Whether to create a Public IP for the Recovery Instance by default.
-        :param pulumi.Input[_builtins.str] data_plane_routing: Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        :param pulumi.Input[_builtins.str] default_large_staging_disk_type: Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        :param pulumi.Input[_builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        :param pulumi.Input[_builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
-        :param pulumi.Input[_builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] staging_area_tags: Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -933,137 +639,86 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Replication configuration template ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associateDefaultSecurityGroup")
     def associate_default_security_group(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
-        """
         return pulumi.get(self, "associate_default_security_group")
 
     @_builtins.property
     @pulumi.getter(name="autoReplicateNewDisks")
     def auto_replicate_new_disks(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to allow the AWS replication agent to automatically replicate newly added disks.
-        """
         return pulumi.get(self, "auto_replicate_new_disks")
 
     @_builtins.property
     @pulumi.getter(name="bandwidthThrottling")
     def bandwidth_throttling(self) -> pulumi.Output[_builtins.int]:
-        """
-        Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
-        """
         return pulumi.get(self, "bandwidth_throttling")
 
     @_builtins.property
     @pulumi.getter(name="createPublicIp")
     def create_public_ip(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to create a Public IP for the Recovery Instance by default.
-        """
         return pulumi.get(self, "create_public_ip")
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneRouting")
     def data_plane_routing(self) -> pulumi.Output[_builtins.str]:
-        """
-        Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
-        """
         return pulumi.get(self, "data_plane_routing")
 
     @_builtins.property
     @pulumi.getter(name="defaultLargeStagingDiskType")
     def default_large_staging_disk_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
-        """
         return pulumi.get(self, "default_large_staging_disk_type")
 
     @_builtins.property
     @pulumi.getter(name="ebsEncryption")
     def ebs_encryption(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
-        """
         return pulumi.get(self, "ebs_encryption")
 
     @_builtins.property
     @pulumi.getter(name="ebsEncryptionKeyArn")
     def ebs_encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the EBS encryption key to be used during replication.
-        """
         return pulumi.get(self, "ebs_encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="pitPolicies")
     def pit_policies(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationConfigurationTemplatePitPolicy']]]:
-        """
-        Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        """
         return pulumi.get(self, "pit_policies")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replicationServerInstanceType")
     def replication_server_instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance type to be used for the replication server.
-        """
         return pulumi.get(self, "replication_server_instance_type")
 
     @_builtins.property
     @pulumi.getter(name="replicationServersSecurityGroupsIds")
     def replication_servers_security_groups_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Security group IDs that will be used by the replication server.
-        """
         return pulumi.get(self, "replication_servers_security_groups_ids")
 
     @_builtins.property
     @pulumi.getter(name="stagingAreaSubnetId")
     def staging_area_subnet_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Subnet to be used by the replication staging area.
-        """
         return pulumi.get(self, "staging_area_subnet_id")
 
     @_builtins.property
     @pulumi.getter(name="stagingAreaTags")
     def staging_area_tags(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        """
         return pulumi.get(self, "staging_area_tags")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Set of tags to be associated with the Replication Configuration Template resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1074,10 +729,5 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="useDedicatedReplicationServer")
     def use_dedicated_replication_server(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether to use a dedicated Replication Server in the replication staging area.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "use_dedicated_replication_server")
 

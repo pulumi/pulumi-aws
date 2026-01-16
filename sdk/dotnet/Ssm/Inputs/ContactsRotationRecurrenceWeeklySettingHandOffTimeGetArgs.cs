@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class ContactsRotationRecurrenceWeeklySettingHandOffTimeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) The hour of the day.
-        /// </summary>
         [Input("hourOfDay", required: true)]
         public Input<int> HourOfDay { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The minutes of the hour.
-        /// </summary>
         [Input("minuteOfHour", required: true)]
         public Input<int> MinuteOfHour { get; set; } = null!;
 

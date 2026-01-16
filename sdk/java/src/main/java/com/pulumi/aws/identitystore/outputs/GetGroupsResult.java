@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupsResult {
-    /**
-     * @return List of Identity Store Groups
-     * 
-     */
     private List<GetGroupsGroup> groups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,10 +22,6 @@ public final class GetGroupsResult {
     private String region;
 
     private GetGroupsResult() {}
-    /**
-     * @return List of Identity Store Groups
-     * 
-     */
     public List<GetGroupsGroup> groups() {
         return this.groups;
     }

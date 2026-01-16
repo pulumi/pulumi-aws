@@ -11,58 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
-//
-// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			p, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
-//				Filters: []ec2.GetVpcIpamPoolFilter{
-//					{
-//						Name: "description",
-//						Values: []string{
-//							"*mypool*",
-//						},
-//					},
-//					{
-//						Name: "address-family",
-//						Values: []string{
-//							"ipv4",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.GetVpcIpamPoolCidrs(ctx, &ec2.GetVpcIpamPoolCidrsArgs{
-//				IpamPoolId: p.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Filtering:
 func GetVpcIpamPoolCidrs(ctx *pulumi.Context, args *GetVpcIpamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolCidrsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamPoolCidrsResult
@@ -75,20 +23,16 @@ func GetVpcIpamPoolCidrs(ctx *pulumi.Context, args *GetVpcIpamPoolCidrsArgs, opt
 
 // A collection of arguments for invoking getVpcIpamPoolCidrs.
 type GetVpcIpamPoolCidrsArgs struct {
-	// Custom filter block as described below.
-	Filters []GetVpcIpamPoolCidrsFilter `pulumi:"filters"`
-	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId string `pulumi:"ipamPoolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Filters    []GetVpcIpamPoolCidrsFilter `pulumi:"filters"`
+	IpamPoolId string                      `pulumi:"ipamPoolId"`
+	Region     *string                     `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpamPoolCidrs.
 type GetVpcIpamPoolCidrsResult struct {
 	Filters []GetVpcIpamPoolCidrsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The CIDRs provisioned into the IPAM pool, described below.
+	Id            string                            `pulumi:"id"`
 	IpamPoolCidrs []GetVpcIpamPoolCidrsIpamPoolCidr `pulumi:"ipamPoolCidrs"`
 	IpamPoolId    string                            `pulumi:"ipamPoolId"`
 	Region        string                            `pulumi:"region"`
@@ -105,12 +49,9 @@ func GetVpcIpamPoolCidrsOutput(ctx *pulumi.Context, args GetVpcIpamPoolCidrsOutp
 
 // A collection of arguments for invoking getVpcIpamPoolCidrs.
 type GetVpcIpamPoolCidrsOutputArgs struct {
-	// Custom filter block as described below.
-	Filters GetVpcIpamPoolCidrsFilterArrayInput `pulumi:"filters"`
-	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Filters    GetVpcIpamPoolCidrsFilterArrayInput `pulumi:"filters"`
+	IpamPoolId pulumi.StringInput                  `pulumi:"ipamPoolId"`
+	Region     pulumi.StringPtrInput               `pulumi:"region"`
 }
 
 func (GetVpcIpamPoolCidrsOutputArgs) ElementType() reflect.Type {
@@ -141,7 +82,6 @@ func (o GetVpcIpamPoolCidrsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The CIDRs provisioned into the IPAM pool, described below.
 func (o GetVpcIpamPoolCidrsResultOutput) IpamPoolCidrs() GetVpcIpamPoolCidrsIpamPoolCidrArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsResult) []GetVpcIpamPoolCidrsIpamPoolCidr { return v.IpamPoolCidrs }).(GetVpcIpamPoolCidrsIpamPoolCidrArrayOutput)
 }

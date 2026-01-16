@@ -15,15 +15,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("dataTransferApi")]
         public Input<string>? DataTransferApi { get; set; }
 
-        /// <summary>
-        /// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-        /// </summary>
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
 
-        /// <summary>
-        /// Whether Amazon AppFlow includes deleted files in the flow run.
-        /// </summary>
         [Input("includeDeletedRecords")]
         public Input<bool>? IncludeDeletedRecords { get; set; }
 

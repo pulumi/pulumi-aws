@@ -12,49 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages AWS SESv2 (Simple Email V2) account-level suppression attributes.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewAccountSuppressionAttributes(ctx, "example", &sesv2.AccountSuppressionAttributesArgs{
-//				SuppressedReasons: pulumi.StringArray{
-//					pulumi.String("COMPLAINT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import account-level suppression attributes using the account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes example 123456789012
-// ```
 type AccountSuppressionAttributes struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	Region            pulumi.StringOutput      `pulumi:"region"`
 	SuppressedReasons pulumi.StringArrayOutput `pulumi:"suppressedReasons"`
 }
 
@@ -91,16 +52,12 @@ func GetAccountSuppressionAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSuppressionAttributes resources.
 type accountSuppressionAttributesState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	Region            *string  `pulumi:"region"`
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 type AccountSuppressionAttributesState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	Region            pulumi.StringPtrInput
 	SuppressedReasons pulumi.StringArrayInput
 }
 
@@ -109,17 +66,13 @@ func (AccountSuppressionAttributesState) ElementType() reflect.Type {
 }
 
 type accountSuppressionAttributesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	Region            *string  `pulumi:"region"`
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 // The set of arguments for constructing a AccountSuppressionAttributes resource.
 type AccountSuppressionAttributesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	Region            pulumi.StringPtrInput
 	SuppressedReasons pulumi.StringArrayInput
 }
 
@@ -210,12 +163,10 @@ func (o AccountSuppressionAttributesOutput) ToAccountSuppressionAttributesOutput
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountSuppressionAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSuppressionAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 func (o AccountSuppressionAttributesOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSuppressionAttributes) pulumi.StringArrayOutput { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
 }

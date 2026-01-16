@@ -12,77 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an Amazon Kinesis Streams resource policy.
-// Use a resource policy to manage cross-account access to your data streams or consumers.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewResourcePolicy(ctx, "example", &kinesis.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-//				Policy: pulumi.Sprintf(`{
-//	  \"Version\": \"2012-10-17\",
-//	  \"Id\": \"writePolicy\",
-//	  \"Statement\": [{
-//	    \"Sid\": \"writestatement\",
-//	    \"Effect\": \"Allow\",
-//	    \"Principal\": {
-//	      \"AWS\": \"123456789456\"
-//	    },
-//	    \"Action\": [
-//	      \"kinesis:DescribeStreamSummary\",
-//	      \"kinesis:ListShards\",
-//	      \"kinesis:PutRecord\",
-//	      \"kinesis:PutRecords\"
-//	    ],
-//	    \"Resource\": \"%v\"
-//	  }]
-//	}
-//
-// `, exampleAwsKinesisStream.Arn),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
-//
-// Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
-//
-// % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the data stream or consumer.
+	Policy      pulumi.StringOutput `pulumi:"policy"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -122,20 +56,14 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// The policy document.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the data stream or consumer.
+	Policy      *string `pulumi:"policy"`
+	Region      *string `pulumi:"region"`
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 type ResourcePolicyState struct {
-	// The policy document.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the data stream or consumer.
+	Policy      pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -144,21 +72,15 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// The policy document.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the data stream or consumer.
-	ResourceArn string `pulumi:"resourceArn"`
+	Policy      string  `pulumi:"policy"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// The policy document.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the data stream or consumer.
+	Policy      pulumi.StringInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringInput
 }
 
@@ -249,17 +171,14 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The policy document.
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the data stream or consumer.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

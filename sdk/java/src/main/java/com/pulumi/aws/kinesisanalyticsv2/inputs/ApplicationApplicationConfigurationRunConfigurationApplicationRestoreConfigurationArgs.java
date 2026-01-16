@@ -15,32 +15,16 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
 
     public static final ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs Empty = new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs();
 
-    /**
-     * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-     * 
-     */
     @Import(name="applicationRestoreType")
     private @Nullable Output<String> applicationRestoreType;
 
-    /**
-     * @return Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-     * 
-     */
     public Optional<Output<String>> applicationRestoreType() {
         return Optional.ofNullable(this.applicationRestoreType);
     }
 
-    /**
-     * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
-     * 
-     */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
-    /**
-     * @return The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
-     * 
-     */
     public Optional<Output<String>> snapshotName() {
         return Optional.ofNullable(this.snapshotName);
     }
@@ -70,44 +54,20 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
             $ = new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationRestoreType Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationRestoreType(@Nullable Output<String> applicationRestoreType) {
             $.applicationRestoreType = applicationRestoreType;
             return this;
         }
 
-        /**
-         * @param applicationRestoreType Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationRestoreType(String applicationRestoreType) {
             return applicationRestoreType(Output.of(applicationRestoreType));
         }
 
-        /**
-         * @param snapshotName The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(@Nullable Output<String> snapshotName) {
             $.snapshotName = snapshotName;
             return this;
         }
 
-        /**
-         * @param snapshotName The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(String snapshotName) {
             return snapshotName(Output.of(snapshotName));
         }

@@ -9,79 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Manages an AWS End User Messaging SMS Configuration Set.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Pinpoint.Smsvoicev2ConfigurationSet("example", new()
-    ///     {
-    ///         Name = "example-configuration-set",
-    ///         DefaultSenderId = "example",
-    ///         DefaultMessageType = "TRANSACTIONAL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import configuration sets using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet example example-configuration-set
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet")]
     public partial class Smsvoicev2ConfigurationSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the configuration set.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        /// </summary>
         [Output("defaultMessageType")]
         public Output<string?> DefaultMessageType { get; private set; } = null!;
 
-        /// <summary>
-        /// The default sender ID to use for this configuration set.
-        /// </summary>
         [Output("defaultSenderId")]
         public Output<string?> DefaultSenderId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the configuration set.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -131,36 +79,20 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class Smsvoicev2ConfigurationSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        /// </summary>
         [Input("defaultMessageType")]
         public Input<string>? DefaultMessageType { get; set; }
 
-        /// <summary>
-        /// The default sender ID to use for this configuration set.
-        /// </summary>
         [Input("defaultSenderId")]
         public Input<string>? DefaultSenderId { get; set; }
 
-        /// <summary>
-        /// The name of the configuration set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -175,42 +107,23 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class Smsvoicev2ConfigurationSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the configuration set.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        /// </summary>
         [Input("defaultMessageType")]
         public Input<string>? DefaultMessageType { get; set; }
 
-        /// <summary>
-        /// The default sender ID to use for this configuration set.
-        /// </summary>
         [Input("defaultSenderId")]
         public Input<string>? DefaultSenderId { get; set; }
 
-        /// <summary>
-        /// The name of the configuration set.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -219,10 +132,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

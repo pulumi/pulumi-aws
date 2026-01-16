@@ -12,10 +12,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
 
     public sealed class DetectorDatasourcesS3LogsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        /// Defaults to `True`.
-        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 

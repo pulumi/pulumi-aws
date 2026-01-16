@@ -11,105 +11,12 @@ namespace Pulumi.Aws.Msk
 {
     public static class GetKafkaVersion
     {
-        /// <summary>
-        /// Get information on a Amazon MSK Kafka Version
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "2.4.1.1",
-        ///             "2.4.1",
-        ///             "2.2.1",
-        ///         },
-        ///     });
-        /// 
-        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         Version = "2.8.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetKafkaVersionResult> InvokeAsync(GetKafkaVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on a Amazon MSK Kafka Version
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "2.4.1.1",
-        ///             "2.4.1",
-        ///             "2.2.1",
-        ///         },
-        ///     });
-        /// 
-        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         Version = "2.8.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetKafkaVersionResult> Invoke(GetKafkaVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on a Amazon MSK Kafka Version
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "2.4.1.1",
-        ///             "2.4.1",
-        ///             "2.2.1",
-        ///         },
-        ///     });
-        /// 
-        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         Version = "2.8.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetKafkaVersionResult> Invoke(GetKafkaVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionInvokeArgs(), options.WithDefaults());
     }
@@ -119,25 +26,15 @@ namespace Pulumi.Aws.Msk
     {
         [Input("preferredVersions")]
         private List<string>? _preferredVersions;
-
-        /// <summary>
-        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `PreferredVersions` or `Version` must be set.
-        /// </summary>
         public List<string> PreferredVersions
         {
             get => _preferredVersions ?? (_preferredVersions = new List<string>());
             set => _preferredVersions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `PreferredVersions` or `Version` must be set.
-        /// </summary>
         [Input("version")]
         public string? Version { get; set; }
 
@@ -151,25 +48,15 @@ namespace Pulumi.Aws.Msk
     {
         [Input("preferredVersions")]
         private InputList<string>? _preferredVersions;
-
-        /// <summary>
-        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `PreferredVersions` or `Version` must be set.
-        /// </summary>
         public InputList<string> PreferredVersions
         {
             get => _preferredVersions ?? (_preferredVersions = new InputList<string>());
             set => _preferredVersions = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `PreferredVersions` or `Version` must be set.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -189,9 +76,6 @@ namespace Pulumi.Aws.Msk
         public readonly string Id;
         public readonly ImmutableArray<string> PreferredVersions;
         public readonly string Region;
-        /// <summary>
-        /// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-        /// </summary>
         public readonly string Status;
         public readonly string Version;
 

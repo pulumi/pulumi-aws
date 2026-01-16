@@ -15,17 +15,9 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs extends
 
     public static final TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs Empty = new TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs();
 
-    /**
-     * A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-     * 
-     */
     @Import(name="oidcJwtConfiguration")
     private @Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration;
 
-    /**
-     * @return A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-     * 
-     */
     public Optional<Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs>> oidcJwtConfiguration() {
         return Optional.ofNullable(this.oidcJwtConfiguration);
     }
@@ -54,23 +46,11 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs extends
             $ = new TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param oidcJwtConfiguration A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcJwtConfiguration(@Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration) {
             $.oidcJwtConfiguration = oidcJwtConfiguration;
             return this;
         }
 
-        /**
-         * @param oidcJwtConfiguration A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oidcJwtConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs oidcJwtConfiguration) {
             return oidcJwtConfiguration(Output.of(oidcJwtConfiguration));
         }

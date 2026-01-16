@@ -18,47 +18,23 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsArgs extends c
 
     public static final UserProfileUserSettingsKernelGatewayAppSettingsArgs Empty = new UserProfileUserSettingsKernelGatewayAppSettingsArgs();
 
-    /**
-     * A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
-     * 
-     */
     @Import(name="customImages")
     private @Nullable Output<List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs>> customImages;
 
-    /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
-     * 
-     */
     public Optional<Output<List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs>>> customImages() {
         return Optional.ofNullable(this.customImages);
     }
 
-    /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     public Optional<Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
         return Optional.ofNullable(this.lifecycleConfigArns);
     }
@@ -89,85 +65,37 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsArgs extends c
             $ = new UserProfileUserSettingsKernelGatewayAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customImages A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(@Nullable Output<List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs>> customImages) {
             $.customImages = customImages;
             return this;
         }
 
-        /**
-         * @param customImages A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs> customImages) {
             return customImages(Output.of(customImages));
         }
 
-        /**
-         * @param customImages A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customImages(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs... customImages) {
             return customImages(List.of(customImages));
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(@Nullable Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
 
-        /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultResourceSpec(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(@Nullable Output<List<String>> lifecycleConfigArns) {
             $.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(List<String> lifecycleConfigArns) {
             return lifecycleConfigArns(Output.of(lifecycleConfigArns));
         }
 
-        /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArns(String... lifecycleConfigArns) {
             return lifecycleConfigArns(List.of(lifecycleConfigArns));
         }

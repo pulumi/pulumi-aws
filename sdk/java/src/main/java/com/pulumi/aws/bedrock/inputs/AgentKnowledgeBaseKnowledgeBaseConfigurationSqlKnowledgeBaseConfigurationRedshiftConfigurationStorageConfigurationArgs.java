@@ -18,47 +18,23 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs();
 
-    /**
-     * Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
-     * 
-     */
     @Import(name="awsDataCatalogConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs> awsDataCatalogConfiguration;
 
-    /**
-     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs>> awsDataCatalogConfiguration() {
         return Optional.ofNullable(this.awsDataCatalogConfiguration);
     }
 
-    /**
-     * Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
-     * 
-     */
     @Import(name="redshiftConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs> redshiftConfiguration;
 
-    /**
-     * @return Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs>> redshiftConfiguration() {
         return Optional.ofNullable(this.redshiftConfiguration);
     }
 
-    /**
-     * Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -89,65 +65,29 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsDataCatalogConfiguration Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsDataCatalogConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs> awsDataCatalogConfiguration) {
             $.awsDataCatalogConfiguration = awsDataCatalogConfiguration;
             return this;
         }
 
-        /**
-         * @param awsDataCatalogConfiguration Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsDataCatalogConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs awsDataCatalogConfiguration) {
             return awsDataCatalogConfiguration(Output.of(awsDataCatalogConfiguration));
         }
 
-        /**
-         * @param redshiftConfiguration Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs> redshiftConfiguration) {
             $.redshiftConfiguration = redshiftConfiguration;
             return this;
         }
 
-        /**
-         * @param redshiftConfiguration Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs redshiftConfiguration) {
             return redshiftConfiguration(Output.of(redshiftConfiguration));
         }
 
-        /**
-         * @param type Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserIdentityInfo {
-    /**
-     * @return The email address.
-     * 
-     */
     private String email;
-    /**
-     * @return The first name.
-     * 
-     */
     private String firstName;
-    /**
-     * @return The last name.
-     * 
-     */
     private String lastName;
-    /**
-     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-     * 
-     */
     private String secondaryEmail;
 
     private GetUserIdentityInfo() {}
-    /**
-     * @return The email address.
-     * 
-     */
     public String email() {
         return this.email;
     }
-    /**
-     * @return The first name.
-     * 
-     */
     public String firstName() {
         return this.firstName;
     }
-    /**
-     * @return The last name.
-     * 
-     */
     public String lastName() {
         return this.lastName;
     }
-    /**
-     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-     * 
-     */
     public String secondaryEmail() {
         return this.secondaryEmail;
     }

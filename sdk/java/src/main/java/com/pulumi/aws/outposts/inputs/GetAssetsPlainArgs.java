@@ -16,62 +16,30 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAssetsPlainArgs Empty = new GetAssetsPlainArgs();
 
-    /**
-     * Outpost ARN.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return Outpost ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Filters by list of Host IDs of a Dedicated Host.
-     * 
-     */
     @Import(name="hostIdFilters")
     private @Nullable List<String> hostIdFilters;
 
-    /**
-     * @return Filters by list of Host IDs of a Dedicated Host.
-     * 
-     */
     public Optional<List<String>> hostIdFilters() {
         return Optional.ofNullable(this.hostIdFilters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-     * 
-     */
     @Import(name="statusIdFilters")
     private @Nullable List<String> statusIdFilters;
 
-    /**
-     * @return Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-     * 
-     */
     public Optional<List<String>> statusIdFilters() {
         return Optional.ofNullable(this.statusIdFilters);
     }
@@ -103,66 +71,30 @@ public final class GetAssetsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAssetsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Outpost ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostIdFilters(@Nullable List<String> hostIdFilters) {
             $.hostIdFilters = hostIdFilters;
             return this;
         }
 
-        /**
-         * @param hostIdFilters Filters by list of Host IDs of a Dedicated Host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostIdFilters(String... hostIdFilters) {
             return hostIdFilters(List.of(hostIdFilters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusIdFilters(@Nullable List<String> statusIdFilters) {
             $.statusIdFilters = statusIdFilters;
             return this;
         }
 
-        /**
-         * @param statusIdFilters Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusIdFilters(String... statusIdFilters) {
             return statusIdFilters(List.of(statusIdFilters));
         }

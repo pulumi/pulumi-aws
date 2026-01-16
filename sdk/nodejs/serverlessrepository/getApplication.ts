@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.serverlessrepository.getApplication({
- *     applicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
- * });
- * const exampleCloudFormationStack = new aws.serverlessrepository.CloudFormationStack("example", {
- *     name: "Example",
- *     applicationId: example.then(example => example.applicationId),
- *     semanticVersion: example.then(example => example.semanticVersion),
- *     capabilities: example.then(example => example.requiredCapabilities),
- * });
- * ```
- */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:serverlessrepository/getApplication:getApplication", {
@@ -37,17 +17,8 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationArgs {
-    /**
-     * ARN of the application.
-     */
     applicationId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Requested version of the application. By default, retrieves the latest version.
-     */
     semanticVersion?: string;
 }
 
@@ -55,53 +26,18 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    /**
-     * ARN of the application.
-     */
     readonly applicationId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the application.
-     */
     readonly name: string;
     readonly region: string;
-    /**
-     * A list of capabilities describing the permissions needed to deploy the application.
-     */
     readonly requiredCapabilities: string[];
     readonly semanticVersion: string;
-    /**
-     * URL pointing to the source code of the application version.
-     */
     readonly sourceCodeUrl: string;
-    /**
-     * URL pointing to the Cloud Formation template for the application version.
-     */
     readonly templateUrl: string;
 }
-/**
- * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.serverlessrepository.getApplication({
- *     applicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
- * });
- * const exampleCloudFormationStack = new aws.serverlessrepository.CloudFormationStack("example", {
- *     name: "Example",
- *     applicationId: example.then(example => example.applicationId),
- *     semanticVersion: example.then(example => example.semanticVersion),
- *     capabilities: example.then(example => example.requiredCapabilities),
- * });
- * ```
- */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:serverlessrepository/getApplication:getApplication", {
@@ -115,16 +51,7 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationOutputArgs {
-    /**
-     * ARN of the application.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Requested version of the application. By default, retrieves the latest version.
-     */
     semanticVersion?: pulumi.Input<string>;
 }

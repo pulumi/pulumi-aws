@@ -16,32 +16,16 @@ public final class AutomationRuleActionFindingFieldsUpdateSeverityArgs extends c
 
     public static final AutomationRuleActionFindingFieldsUpdateSeverityArgs Empty = new AutomationRuleActionFindingFieldsUpdateSeverityArgs();
 
-    /**
-     * The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
-    /**
-     * The native severity as defined by the AWS service or integrated partner product that generated the finding.
-     * 
-     */
     @Import(name="product")
     private @Nullable Output<Double> product;
 
-    /**
-     * @return The native severity as defined by the AWS service or integrated partner product that generated the finding.
-     * 
-     */
     public Optional<Output<Double>> product() {
         return Optional.ofNullable(this.product);
     }
@@ -71,44 +55,20 @@ public final class AutomationRuleActionFindingFieldsUpdateSeverityArgs extends c
             $ = new AutomationRuleActionFindingFieldsUpdateSeverityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param label The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
-        /**
-         * @param product The native severity as defined by the AWS service or integrated partner product that generated the finding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder product(@Nullable Output<Double> product) {
             $.product = product;
             return this;
         }
 
-        /**
-         * @param product The native severity as defined by the AWS service or integrated partner product that generated the finding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder product(Double product) {
             return product(Output.of(product));
         }

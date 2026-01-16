@@ -17,47 +17,23 @@ public final class HsmClientCertificateArgs extends com.pulumi.resources.Resourc
 
     public static final HsmClientCertificateArgs Empty = new HsmClientCertificateArgs();
 
-    /**
-     * The identifier of the HSM client certificate.
-     * 
-     */
     @Import(name="hsmClientCertificateIdentifier", required=true)
     private Output<String> hsmClientCertificateIdentifier;
 
-    /**
-     * @return The identifier of the HSM client certificate.
-     * 
-     */
     public Output<String> hsmClientCertificateIdentifier() {
         return this.hsmClientCertificateIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class HsmClientCertificateArgs extends com.pulumi.resources.Resourc
             $ = new HsmClientCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hsmClientCertificateIdentifier The identifier of the HSM client certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmClientCertificateIdentifier(Output<String> hsmClientCertificateIdentifier) {
             $.hsmClientCertificateIdentifier = hsmClientCertificateIdentifier;
             return this;
         }
 
-        /**
-         * @param hsmClientCertificateIdentifier The identifier of the HSM client certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hsmClientCertificateIdentifier(String hsmClientCertificateIdentifier) {
             return hsmClientCertificateIdentifier(Output.of(hsmClientCertificateIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

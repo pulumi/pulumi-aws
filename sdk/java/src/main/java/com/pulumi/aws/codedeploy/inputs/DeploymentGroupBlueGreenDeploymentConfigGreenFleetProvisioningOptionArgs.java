@@ -15,21 +15,9 @@ public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisionin
 
     public static final DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs Empty = new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs();
 
-    /**
-     * The method used to add instances to a replacement environment.
-     * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-     * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
-    /**
-     * @return The method used to add instances to a replacement environment.
-     * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-     * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
-     * 
-     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
@@ -58,27 +46,11 @@ public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisionin
             $ = new DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action The method used to add instances to a replacement environment.
-         * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-         * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action The method used to add instances to a replacement environment.
-         * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-         * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }

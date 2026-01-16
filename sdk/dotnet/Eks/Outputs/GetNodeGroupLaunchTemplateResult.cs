@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetNodeGroupLaunchTemplateResult
     {
-        /// <summary>
-        /// The ID of the launch template.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the AutoScaling Group.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Kubernetes version.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

@@ -12,57 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
-// This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
-// The service provider should add a record to the DNS server _before_ creating this resource.
-//
-// For additional details, refer to the AWS documentation on [managing VPC endpoint service DNS names](https://docs.aws.amazon.com/vpc/latest/privatelink/manage-dns-names.html).
-//
-// > Destruction of this resource will not stop the verification process, only remove the resource from state.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewEndpointServicePrivateDnsVerification(ctx, "example", &vpc.EndpointServicePrivateDnsVerificationArgs{
-//				ServiceId: pulumi.Any(exampleAwsVpcEndpointService.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import this resource.
 type EndpointServicePrivateDnsVerification struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the endpoint service.
-	//
-	// The following arguments are optional:
-	ServiceId pulumi.StringOutput                                    `pulumi:"serviceId"`
-	Timeouts  EndpointServicePrivateDnsVerificationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-	WaitForVerification pulumi.BoolPtrOutput `pulumi:"waitForVerification"`
+	Region              pulumi.StringOutput                                    `pulumi:"region"`
+	ServiceId           pulumi.StringOutput                                    `pulumi:"serviceId"`
+	Timeouts            EndpointServicePrivateDnsVerificationTimeoutsPtrOutput `pulumi:"timeouts"`
+	WaitForVerification pulumi.BoolPtrOutput                                   `pulumi:"waitForVerification"`
 }
 
 // NewEndpointServicePrivateDnsVerification registers a new resource with the given unique name, arguments, and options.
@@ -98,26 +54,16 @@ func GetEndpointServicePrivateDnsVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
 type endpointServicePrivateDnsVerificationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the endpoint service.
-	//
-	// The following arguments are optional:
-	ServiceId *string                                        `pulumi:"serviceId"`
-	Timeouts  *EndpointServicePrivateDnsVerificationTimeouts `pulumi:"timeouts"`
-	// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-	WaitForVerification *bool `pulumi:"waitForVerification"`
+	Region              *string                                        `pulumi:"region"`
+	ServiceId           *string                                        `pulumi:"serviceId"`
+	Timeouts            *EndpointServicePrivateDnsVerificationTimeouts `pulumi:"timeouts"`
+	WaitForVerification *bool                                          `pulumi:"waitForVerification"`
 }
 
 type EndpointServicePrivateDnsVerificationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the endpoint service.
-	//
-	// The following arguments are optional:
-	ServiceId pulumi.StringPtrInput
-	Timeouts  EndpointServicePrivateDnsVerificationTimeoutsPtrInput
-	// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
+	Region              pulumi.StringPtrInput
+	ServiceId           pulumi.StringPtrInput
+	Timeouts            EndpointServicePrivateDnsVerificationTimeoutsPtrInput
 	WaitForVerification pulumi.BoolPtrInput
 }
 
@@ -126,27 +72,17 @@ func (EndpointServicePrivateDnsVerificationState) ElementType() reflect.Type {
 }
 
 type endpointServicePrivateDnsVerificationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the endpoint service.
-	//
-	// The following arguments are optional:
-	ServiceId string                                         `pulumi:"serviceId"`
-	Timeouts  *EndpointServicePrivateDnsVerificationTimeouts `pulumi:"timeouts"`
-	// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
-	WaitForVerification *bool `pulumi:"waitForVerification"`
+	Region              *string                                        `pulumi:"region"`
+	ServiceId           string                                         `pulumi:"serviceId"`
+	Timeouts            *EndpointServicePrivateDnsVerificationTimeouts `pulumi:"timeouts"`
+	WaitForVerification *bool                                          `pulumi:"waitForVerification"`
 }
 
 // The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
 type EndpointServicePrivateDnsVerificationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the endpoint service.
-	//
-	// The following arguments are optional:
-	ServiceId pulumi.StringInput
-	Timeouts  EndpointServicePrivateDnsVerificationTimeoutsPtrInput
-	// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
+	Region              pulumi.StringPtrInput
+	ServiceId           pulumi.StringInput
+	Timeouts            EndpointServicePrivateDnsVerificationTimeoutsPtrInput
 	WaitForVerification pulumi.BoolPtrInput
 }
 
@@ -237,14 +173,10 @@ func (o EndpointServicePrivateDnsVerificationOutput) ToEndpointServicePrivateDns
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointServicePrivateDnsVerificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointServicePrivateDnsVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the endpoint service.
-//
-// The following arguments are optional:
 func (o EndpointServicePrivateDnsVerificationOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointServicePrivateDnsVerification) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }
@@ -255,7 +187,6 @@ func (o EndpointServicePrivateDnsVerificationOutput) Timeouts() EndpointServiceP
 	}).(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput)
 }
 
-// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
 func (o EndpointServicePrivateDnsVerificationOutput) WaitForVerification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointServicePrivateDnsVerification) pulumi.BoolPtrOutput { return v.WaitForVerification }).(pulumi.BoolPtrOutput)
 }

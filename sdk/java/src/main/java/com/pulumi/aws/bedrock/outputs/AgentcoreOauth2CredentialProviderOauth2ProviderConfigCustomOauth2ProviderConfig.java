@@ -13,89 +13,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
-    /**
-     * @return Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
-     * 
-     * **OAuth Discovery Configuration:**
-     * 
-     */
     private @Nullable Integer clientCredentialsWoVersion;
-    /**
-     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
-     * 
-     */
     private @Nullable String clientId;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
      * 
      */
     private @Nullable String clientIdWo;
-    /**
-     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-     * 
-     * **Write-Only Credentials (choose one pair):**
-     * 
-     */
     private @Nullable String clientSecret;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
      * 
      */
     private @Nullable String clientSecretWo;
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery oauthDiscovery;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig() {}
-    /**
-     * @return Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
-     * 
-     * **OAuth Discovery Configuration:**
-     * 
-     */
     public Optional<Integer> clientCredentialsWoVersion() {
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
-    /**
-     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
-     * 
-     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
      * 
      */
     public Optional<String> clientIdWo() {
         return Optional.ofNullable(this.clientIdWo);
     }
-    /**
-     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
-     * 
-     * **Write-Only Credentials (choose one pair):**
-     * 
-     */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
      * 
      */
     public Optional<String> clientSecretWo() {
         return Optional.ofNullable(this.clientSecretWo);
     }
-    /**
-     * @return OAuth discovery configuration. See `oauthDiscovery` below.
-     * 
-     */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery> oauthDiscovery() {
         return Optional.ofNullable(this.oauthDiscovery);
     }

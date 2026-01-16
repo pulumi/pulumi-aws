@@ -73,17 +73,11 @@ class GetModelsResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        AWS region.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="modelSummaries")
     def model_summaries(self) -> Sequence['outputs.GetModelsModelSummaryResult']:
-        """
-        List of model summary objects. See `model_summaries`.
-        """
         return pulumi.get(self, "model_summaries")
 
     @_builtins.property
@@ -114,34 +108,7 @@ def get_models(by_customization_type: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelsResult:
     """
-    Data source for managing AWS Bedrock Foundation Models.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models()
-    ```
-
-    ### Filter by Inference Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
-    ```
-
-
-    :param _builtins.str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
-    :param _builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-    :param _builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-    :param _builtins.str by_provider: Model provider to filter on.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type
@@ -167,34 +134,7 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[_bui
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelsResult]:
     """
-    Data source for managing AWS Bedrock Foundation Models.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models()
-    ```
-
-    ### Filter by Inference Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
-    ```
-
-
-    :param _builtins.str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
-    :param _builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-    :param _builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-    :param _builtins.str by_provider: Model provider to filter on.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type

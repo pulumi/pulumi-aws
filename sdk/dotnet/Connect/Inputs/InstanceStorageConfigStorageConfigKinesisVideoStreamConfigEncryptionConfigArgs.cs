@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of encryption. Valid Values: `KMS`.
-        /// </summary>
         [Input("encryptionType", required: true)]
         public Input<string> EncryptionType { get; set; } = null!;
 
-        /// <summary>
-        /// The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 

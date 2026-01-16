@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the name of a elastic beanstalk solution stack.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticbeanstalk.GetSolutionStack(ctx, &elasticbeanstalk.GetSolutionStackArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSolutionStackResult
@@ -51,19 +23,9 @@ func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...p
 
 // A collection of arguments for invoking getSolutionStack.
 type GetSolutionStackArgs struct {
-	// If more than one result is returned, use the most
-	// recent solution stack.
-	MostRecent *bool `pulumi:"mostRecent"`
-	// Regex string to apply to the solution stack list returned
-	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-	// AWS documentation for reference solution stack names.
-	//
-	// > **NOTE:** If more or less than a single match is returned by the search,
-	// this call will fail. Ensure that your search is specific enough to return
-	// a single solution stack, or use `mostRecent` to choose the most recent one.
-	NameRegex string `pulumi:"nameRegex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	NameRegex  string  `pulumi:"nameRegex"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSolutionStack.
@@ -71,10 +33,9 @@ type GetSolutionStackResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	MostRecent *bool  `pulumi:"mostRecent"`
-	// Name of the solution stack.
-	Name      string `pulumi:"name"`
-	NameRegex string `pulumi:"nameRegex"`
-	Region    string `pulumi:"region"`
+	Name       string `pulumi:"name"`
+	NameRegex  string `pulumi:"nameRegex"`
+	Region     string `pulumi:"region"`
 }
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
@@ -88,19 +49,9 @@ func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs
 
 // A collection of arguments for invoking getSolutionStack.
 type GetSolutionStackOutputArgs struct {
-	// If more than one result is returned, use the most
-	// recent solution stack.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Regex string to apply to the solution stack list returned
-	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-	// AWS documentation for reference solution stack names.
-	//
-	// > **NOTE:** If more or less than a single match is returned by the search,
-	// this call will fail. Ensure that your search is specific enough to return
-	// a single solution stack, or use `mostRecent` to choose the most recent one.
-	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	NameRegex  pulumi.StringInput    `pulumi:"nameRegex"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSolutionStackOutputArgs) ElementType() reflect.Type {
@@ -131,7 +82,6 @@ func (o GetSolutionStackResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSolutionStackResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the solution stack.
 func (o GetSolutionStackResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Name }).(pulumi.StringOutput)
 }

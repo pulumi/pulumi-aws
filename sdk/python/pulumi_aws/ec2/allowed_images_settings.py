@@ -26,9 +26,6 @@ class AllowedImagesSettingsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AllowedImagesSettings resource.
-        :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-        :param pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "state", state)
         if image_criterions is not None:
@@ -39,9 +36,6 @@ class AllowedImagesSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
-        """
-        State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -51,9 +45,6 @@ class AllowedImagesSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="imageCriterions")
     def image_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]:
-        """
-        List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        """
         return pulumi.get(self, "image_criterions")
 
     @image_criterions.setter
@@ -63,9 +54,6 @@ class AllowedImagesSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +69,6 @@ class _AllowedImagesSettingsState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AllowedImagesSettings resources.
-        :param pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         """
         if image_criterions is not None:
             pulumi.set(__self__, "image_criterions", image_criterions)
@@ -95,9 +80,6 @@ class _AllowedImagesSettingsState:
     @_builtins.property
     @pulumi.getter(name="imageCriterions")
     def image_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]:
-        """
-        List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        """
         return pulumi.get(self, "image_criterions")
 
     @image_criterions.setter
@@ -107,9 +89,6 @@ class _AllowedImagesSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,9 +98,6 @@ class _AllowedImagesSettingsState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -140,58 +116,9 @@ class AllowedImagesSettings(pulumi.CustomResource):
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
-
-        For more information about the image criteria that can be set, see the [AWS documentation on Allowed AMIs JSON configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration).
-
-        > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
-
-        > **NOTE:** There is only one allowed images settings configuration per AWS account and region. Creating this resource will configure the account-level settings.
-
-        ## Example Usage
-
-        ### Enable with Amazon AMIs only
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AllowedImagesSettings("example",
-            state="enabled",
-            image_criterions=[{
-                "image_providers": ["amazon"],
-            }])
-        ```
-
-        ### Enable audit mode with specific account IDs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AllowedImagesSettings("example",
-            state="audit-mode",
-            image_criterions=[{
-                "image_providers": [
-                    "amazon",
-                    "123456789012",
-                ],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 allowed images settings. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
-        ```
-
+        Create a AllowedImagesSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         """
         ...
     @overload
@@ -200,53 +127,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
                  args: AllowedImagesSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
-
-        For more information about the image criteria that can be set, see the [AWS documentation on Allowed AMIs JSON configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration).
-
-        > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
-
-        > **NOTE:** There is only one allowed images settings configuration per AWS account and region. Creating this resource will configure the account-level settings.
-
-        ## Example Usage
-
-        ### Enable with Amazon AMIs only
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AllowedImagesSettings("example",
-            state="enabled",
-            image_criterions=[{
-                "image_providers": ["amazon"],
-            }])
-        ```
-
-        ### Enable audit mode with specific account IDs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AllowedImagesSettings("example",
-            state="audit-mode",
-            image_criterions=[{
-                "image_providers": [
-                    "amazon",
-                    "123456789012",
-                ],
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 allowed images settings. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
-        ```
-
+        Create a AllowedImagesSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AllowedImagesSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,9 +180,6 @@ class AllowedImagesSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,24 +193,15 @@ class AllowedImagesSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="imageCriterions")
     def image_criterions(self) -> pulumi.Output[Optional[Sequence['outputs.AllowedImagesSettingsImageCriterion']]]:
-        """
-        List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
-        """
         return pulumi.get(self, "image_criterions")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-        """
         return pulumi.get(self, "state")
 

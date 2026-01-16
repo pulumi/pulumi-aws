@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ListenerDefaultActionFixedResponse {
-    /**
-     * @return Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-     * 
-     */
     private Integer statusCode;
 
     private ListenerDefaultActionFixedResponse() {}
-    /**
-     * @return Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-     * 
-     */
     public Integer statusCode() {
         return this.statusCode;
     }

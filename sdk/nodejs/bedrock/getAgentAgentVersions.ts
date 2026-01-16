@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getAgentAgentVersions({
- *     agentId: testAwsBedrockagentAgent.agentId,
- * });
- * ```
- */
 export function getAgentAgentVersions(args: GetAgentAgentVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentAgentVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", {
@@ -36,17 +20,8 @@ export function getAgentAgentVersions(args: GetAgentAgentVersionsArgs, opts?: pu
  * A collection of arguments for invoking getAgentAgentVersions.
  */
 export interface GetAgentAgentVersionsArgs {
-    /**
-     * Unique identifier of the agent.
-     */
     agentId: string;
-    /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     */
     agentVersionSummaries?: inputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -55,9 +30,6 @@ export interface GetAgentAgentVersionsArgs {
  */
 export interface GetAgentAgentVersionsResult {
     readonly agentId: string;
-    /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     */
     readonly agentVersionSummaries?: outputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -65,22 +37,6 @@ export interface GetAgentAgentVersionsResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getAgentAgentVersions({
- *     agentId: testAwsBedrockagentAgent.agentId,
- * });
- * ```
- */
 export function getAgentAgentVersionsOutput(args: GetAgentAgentVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentAgentVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", {
@@ -94,16 +50,7 @@ export function getAgentAgentVersionsOutput(args: GetAgentAgentVersionsOutputArg
  * A collection of arguments for invoking getAgentAgentVersions.
  */
 export interface GetAgentAgentVersionsOutputArgs {
-    /**
-     * Unique identifier of the agent.
-     */
     agentId: pulumi.Input<string>;
-    /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     */
     agentVersionSummaries?: pulumi.Input<pulumi.Input<inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

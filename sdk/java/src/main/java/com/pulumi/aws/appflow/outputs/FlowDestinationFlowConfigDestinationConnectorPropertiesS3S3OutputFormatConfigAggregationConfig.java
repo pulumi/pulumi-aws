@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
-    /**
-     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-     * 
-     */
     private @Nullable String aggregationType;
-    /**
-     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-     * 
-     */
     private @Nullable Integer targetFileSize;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig() {}
-    /**
-     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-     * 
-     */
     public Optional<String> aggregationType() {
         return Optional.ofNullable(this.aggregationType);
     }
-    /**
-     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-     * 
-     */
     public Optional<Integer> targetFileSize() {
         return Optional.ofNullable(this.targetFileSize);
     }

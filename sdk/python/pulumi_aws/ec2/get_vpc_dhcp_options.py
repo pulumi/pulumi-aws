@@ -72,33 +72,21 @@ class GetVpcDhcpOptionsResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the DHCP Options Set.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> _builtins.str:
-        """
-        EC2 DHCP Options ID
-        """
         return pulumi.get(self, "dhcp_options_id")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
-        """
-        Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="domainNameServers")
     def domain_name_servers(self) -> Sequence[_builtins.str]:
-        """
-        List of name servers.
-        """
         return pulumi.get(self, "domain_name_servers")
 
     @_builtins.property
@@ -117,41 +105,26 @@ class GetVpcDhcpOptionsResult:
     @_builtins.property
     @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
     def ipv6_address_preferred_lease_time(self) -> _builtins.str:
-        """
-        How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
-        """
         return pulumi.get(self, "ipv6_address_preferred_lease_time")
 
     @_builtins.property
     @pulumi.getter(name="netbiosNameServers")
     def netbios_name_servers(self) -> Sequence[_builtins.str]:
-        """
-        List of NETBIOS name servers.
-        """
         return pulumi.get(self, "netbios_name_servers")
 
     @_builtins.property
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> _builtins.str:
-        """
-        NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-        """
         return pulumi.get(self, "netbios_node_type")
 
     @_builtins.property
     @pulumi.getter(name="ntpServers")
     def ntp_servers(self) -> Sequence[_builtins.str]:
-        """
-        List of NTP servers.
-        """
         return pulumi.get(self, "ntp_servers")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the DHCP options set.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -162,9 +135,6 @@ class GetVpcDhcpOptionsResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -195,42 +165,7 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcDhcpOptionsResult:
     """
-    Retrieve information about an EC2 DHCP Options configuration.
-
-    ## Example Usage
-
-    ### Lookup by DHCP Options ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
-    ```
-
-    ### Lookup by Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(filters=[
-        {
-            "name": "key",
-            "values": ["domain-name"],
-        },
-        {
-            "name": "value",
-            "values": ["example.com"],
-        },
-    ])
-    ```
-
-
-    :param _builtins.str dhcp_options_id: EC2 DHCP Options ID.
-    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id
@@ -260,42 +195,7 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcDhcpOptionsResult]:
     """
-    Retrieve information about an EC2 DHCP Options configuration.
-
-    ## Example Usage
-
-    ### Lookup by DHCP Options ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
-    ```
-
-    ### Lookup by Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(filters=[
-        {
-            "name": "key",
-            "values": ["domain-name"],
-        },
-        {
-            "name": "value",
-            "values": ["example.com"],
-        },
-    ])
-    ```
-
-
-    :param _builtins.str dhcp_options_id: EC2 DHCP Options ID.
-    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id

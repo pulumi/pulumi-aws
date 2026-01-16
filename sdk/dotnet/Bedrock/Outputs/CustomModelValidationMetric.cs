@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class CustomModelValidationMetric
     {
-        /// <summary>
-        /// The validation loss associated with the validator.
-        /// </summary>
         public readonly double ValidationLoss;
 
         [OutputConstructor]

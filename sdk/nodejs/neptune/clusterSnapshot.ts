@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Neptune database cluster snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.neptune.ClusterSnapshot("example", {
- *     dbClusterIdentifier: exampleAwsNeptuneCluster.id,
- *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
- * ```
- */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Get an existing ClusterSnapshot resource's state with the given name, ID, and optional extra
@@ -55,63 +32,21 @@ export class ClusterSnapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSnapshot.__pulumiType;
     }
 
-    /**
-     * Specifies the allocated storage size in gigabytes (GB).
-     */
     declare public /*out*/ readonly allocatedStorage: pulumi.Output<number>;
-    /**
-     * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-     */
     declare public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     */
     declare public readonly dbClusterIdentifier: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-     */
     declare public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     declare public readonly dbClusterSnapshotIdentifier: pulumi.Output<string>;
-    /**
-     * Specifies the name of the database engine.
-     */
     declare public /*out*/ readonly engine: pulumi.Output<string>;
-    /**
-     * Version of the database engine for this DB cluster snapshot.
-     */
     declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
-    /**
-     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-     */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * License model information for the restored DB cluster.
-     */
     declare public /*out*/ readonly licenseModel: pulumi.Output<string>;
-    /**
-     * Port that the DB cluster was listening on at the time of the snapshot.
-     */
     declare public /*out*/ readonly port: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
     declare public /*out*/ readonly sourceDbClusterSnapshotArn: pulumi.Output<string>;
-    /**
-     * The status of this DB Cluster Snapshot.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Specifies whether the DB cluster snapshot is encrypted.
-     */
     declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
-    /**
-     * The VPC ID associated with the DB cluster snapshot.
-     */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -177,63 +112,21 @@ export class ClusterSnapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterSnapshot resources.
  */
 export interface ClusterSnapshotState {
-    /**
-     * Specifies the allocated storage size in gigabytes (GB).
-     */
     allocatedStorage?: pulumi.Input<number>;
-    /**
-     * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-     */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     */
     dbClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-     */
     dbClusterSnapshotArn?: pulumi.Input<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     dbClusterSnapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * Specifies the name of the database engine.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Version of the database engine for this DB cluster snapshot.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * License model information for the restored DB cluster.
-     */
     licenseModel?: pulumi.Input<string>;
-    /**
-     * Port that the DB cluster was listening on at the time of the snapshot.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     snapshotType?: pulumi.Input<string>;
     sourceDbClusterSnapshotArn?: pulumi.Input<string>;
-    /**
-     * The status of this DB Cluster Snapshot.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Specifies whether the DB cluster snapshot is encrypted.
-     */
     storageEncrypted?: pulumi.Input<boolean>;
-    /**
-     * The VPC ID associated with the DB cluster snapshot.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -241,16 +134,7 @@ export interface ClusterSnapshotState {
  * The set of arguments for constructing a ClusterSnapshot resource.
  */
 export interface ClusterSnapshotArgs {
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     */
     dbClusterIdentifier: pulumi.Input<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     dbClusterSnapshotIdentifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

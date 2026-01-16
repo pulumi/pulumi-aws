@@ -17,47 +17,23 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetParameterArgs Empty = new GetParameterArgs();
 
-    /**
-     * Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Whether to return decrypted `SecureString` value. Defaults to `true`.
-     * 
-     */
     @Import(name="withDecryption")
     private @Nullable Output<Boolean> withDecryption;
 
-    /**
-     * @return Whether to return decrypted `SecureString` value. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> withDecryption() {
         return Optional.ofNullable(this.withDecryption);
     }
@@ -88,65 +64,29 @@ public final class GetParameterArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the parameter. To query by parameter version use `name:version` (e.g., `foo:3`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDecryption(@Nullable Output<Boolean> withDecryption) {
             $.withDecryption = withDecryption;
             return this;
         }
 
-        /**
-         * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDecryption(Boolean withDecryption) {
             return withDecryption(Output.of(withDecryption));
         }

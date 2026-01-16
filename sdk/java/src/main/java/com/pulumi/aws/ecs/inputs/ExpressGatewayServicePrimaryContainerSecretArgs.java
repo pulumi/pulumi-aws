@@ -21,17 +21,9 @@ public final class ExpressGatewayServicePrimaryContainerSecretArgs extends com.p
         return this.name;
     }
 
-    /**
-     * ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
-     * 
-     */
     @Import(name="valueFrom", required=true)
     private Output<String> valueFrom;
 
-    /**
-     * @return ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
-     * 
-     */
     public Output<String> valueFrom() {
         return this.valueFrom;
     }
@@ -70,23 +62,11 @@ public final class ExpressGatewayServicePrimaryContainerSecretArgs extends com.p
             return name(Output.of(name));
         }
 
-        /**
-         * @param valueFrom ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueFrom(Output<String> valueFrom) {
             $.valueFrom = valueFrom;
             return this;
         }
 
-        /**
-         * @param valueFrom ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueFrom(String valueFrom) {
             return valueFrom(Output.of(valueFrom));
         }

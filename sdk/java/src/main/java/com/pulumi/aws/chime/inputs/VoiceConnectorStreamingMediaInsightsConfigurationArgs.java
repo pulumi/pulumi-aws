@@ -16,32 +16,16 @@ public final class VoiceConnectorStreamingMediaInsightsConfigurationArgs extends
 
     public static final VoiceConnectorStreamingMediaInsightsConfigurationArgs Empty = new VoiceConnectorStreamingMediaInsightsConfigurationArgs();
 
-    /**
-     * The media insights configuration that will be invoked by the Voice Connector.
-     * 
-     */
     @Import(name="configurationArn")
     private @Nullable Output<String> configurationArn;
 
-    /**
-     * @return The media insights configuration that will be invoked by the Voice Connector.
-     * 
-     */
     public Optional<Output<String>> configurationArn() {
         return Optional.ofNullable(this.configurationArn);
     }
 
-    /**
-     * When `true`, the media insights configuration is not enabled. Defaults to `false`.
-     * 
-     */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
-    /**
-     * @return When `true`, the media insights configuration is not enabled. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> disabled() {
         return Optional.ofNullable(this.disabled);
     }
@@ -71,44 +55,20 @@ public final class VoiceConnectorStreamingMediaInsightsConfigurationArgs extends
             $ = new VoiceConnectorStreamingMediaInsightsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationArn The media insights configuration that will be invoked by the Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationArn(@Nullable Output<String> configurationArn) {
             $.configurationArn = configurationArn;
             return this;
         }
 
-        /**
-         * @param configurationArn The media insights configuration that will be invoked by the Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationArn(String configurationArn) {
             return configurationArn(Output.of(configurationArn));
         }
 
-        /**
-         * @param disabled When `true`, the media insights configuration is not enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabled(@Nullable Output<Boolean> disabled) {
             $.disabled = disabled;
             return this;
         }
 
-        /**
-         * @param disabled When `true`, the media insights configuration is not enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabled(Boolean disabled) {
             return disabled(Output.of(disabled));
         }

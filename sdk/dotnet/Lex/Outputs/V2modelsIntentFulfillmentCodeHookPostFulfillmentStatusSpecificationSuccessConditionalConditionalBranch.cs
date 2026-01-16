@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranch
     {
-        /// <summary>
-        /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `Condition`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition Condition;
-        /// <summary>
-        /// Name of the branch.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Configuration block for the next step in the conversation. See `NextStep`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep NextStep;
-        /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponse? Response;
 
         [OutputConstructor]

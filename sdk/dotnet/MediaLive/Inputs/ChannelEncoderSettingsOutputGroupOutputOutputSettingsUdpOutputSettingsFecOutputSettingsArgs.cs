@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The height of the FEC protection matrix.
-        /// </summary>
         [Input("columnDepth")]
         public Input<int>? ColumnDepth { get; set; }
 
-        /// <summary>
-        /// Enables column only or column and row based FEC.
-        /// </summary>
         [Input("includeFec")]
         public Input<string>? IncludeFec { get; set; }
 
-        /// <summary>
-        /// The width of the FEC protection matrix.
-        /// </summary>
         [Input("rowLength")]
         public Input<int>? RowLength { get; set; }
 

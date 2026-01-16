@@ -12,32 +12,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAppIdentityProviderDetailsIdentityCenterConfig {
     private @Nullable String applicationArn;
-    /**
-     * @return ARN of the IAM Identity Center used for the web app.
-     * 
-     */
     private @Nullable String instanceArn;
-    /**
-     * @return ARN of an identity bearer role for your web app.
-     * 
-     */
     private @Nullable String role;
 
     private WebAppIdentityProviderDetailsIdentityCenterConfig() {}
     public Optional<String> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
-    /**
-     * @return ARN of the IAM Identity Center used for the web app.
-     * 
-     */
     public Optional<String> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
-    /**
-     * @return ARN of an identity bearer role for your web app.
-     * 
-     */
     public Optional<String> role() {
         return Optional.ofNullable(this.role);
     }

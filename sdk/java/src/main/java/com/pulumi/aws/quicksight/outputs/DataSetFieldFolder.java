@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetFieldFolder {
-    /**
-     * @return An array of column names to add to the folder. A column can only be in one folder.
-     * 
-     */
     private @Nullable List<String> columns;
-    /**
-     * @return Field folder description.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Key of the field folder map.
-     * 
-     */
     private String fieldFoldersId;
 
     private DataSetFieldFolder() {}
-    /**
-     * @return An array of column names to add to the folder. A column can only be in one folder.
-     * 
-     */
     public List<String> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
-    /**
-     * @return Field folder description.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Key of the field folder map.
-     * 
-     */
     public String fieldFoldersId() {
         return this.fieldFoldersId;
     }

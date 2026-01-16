@@ -11,32 +11,16 @@ import java.util.Objects;
 @CustomType
 public final class GetTableSchemaCompositePartitionKey {
     private String enforcementInRecord;
-    /**
-     * @return Name of the Timestream table.
-     * 
-     */
     private String name;
-    /**
-     * @return Type of partition key.
-     * 
-     */
     private String type;
 
     private GetTableSchemaCompositePartitionKey() {}
     public String enforcementInRecord() {
         return this.enforcementInRecord;
     }
-    /**
-     * @return Name of the Timestream table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Type of partition key.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -11,26 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteCalculatorResult {
-    /**
-     * @return ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-     * 
-     */
     private String calculatorArn;
     private String calculatorName;
-    /**
-     * @return Timestamp for when the route calculator resource was created in ISO 8601 format.
-     * 
-     */
     private String createTime;
-    /**
-     * @return Data provider of traffic and road network data.
-     * 
-     */
     private String dataSource;
-    /**
-     * @return Optional description of the route calculator resource.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -38,46 +22,22 @@ public final class GetRouteCalculatorResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the route calculator.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-     * 
-     */
     private String updateTime;
 
     private GetRouteCalculatorResult() {}
-    /**
-     * @return ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-     * 
-     */
     public String calculatorArn() {
         return this.calculatorArn;
     }
     public String calculatorName() {
         return this.calculatorName;
     }
-    /**
-     * @return Timestamp for when the route calculator resource was created in ISO 8601 format.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return Data provider of traffic and road network data.
-     * 
-     */
     public String dataSource() {
         return this.dataSource;
     }
-    /**
-     * @return Optional description of the route calculator resource.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -91,17 +51,9 @@ public final class GetRouteCalculatorResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the route calculator.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-     * 
-     */
     public String updateTime() {
         return this.updateTime;
     }

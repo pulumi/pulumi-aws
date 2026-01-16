@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainClusterConfigColdStorageOptions {
-    /**
-     * @return Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private DomainClusterConfigColdStorageOptions() {}
-    /**
-     * @return Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

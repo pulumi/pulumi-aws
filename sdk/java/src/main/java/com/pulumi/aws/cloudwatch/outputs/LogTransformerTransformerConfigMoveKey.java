@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigMoveKey {
-    /**
-     * @return Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigMoveKeyEntry> entries;
 
     private LogTransformerTransformerConfigMoveKey() {}
-    /**
-     * @return Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `moveKeys` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigMoveKeyEntry> entries() {
         return this.entries;
     }

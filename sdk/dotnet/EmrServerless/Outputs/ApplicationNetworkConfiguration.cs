@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationNetworkConfiguration
     {
-        /// <summary>
-        /// The array of security group Ids for customer VPC connectivity.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The array of subnet Ids for customer VPC connectivity.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

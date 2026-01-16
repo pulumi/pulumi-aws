@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIndexIndexStatisticTextDocumentStatistic {
-    /**
-     * @return Total size, in bytes, of the indexed documents.
-     * 
-     */
     private Integer indexedTextBytes;
-    /**
-     * @return The number of text documents indexed.
-     * 
-     */
     private Integer indexedTextDocumentsCount;
 
     private GetIndexIndexStatisticTextDocumentStatistic() {}
-    /**
-     * @return Total size, in bytes, of the indexed documents.
-     * 
-     */
     public Integer indexedTextBytes() {
         return this.indexedTextBytes;
     }
-    /**
-     * @return The number of text documents indexed.
-     * 
-     */
     public Integer indexedTextDocumentsCount() {
         return this.indexedTextDocumentsCount;
     }

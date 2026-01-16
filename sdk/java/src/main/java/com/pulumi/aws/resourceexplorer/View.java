@@ -19,197 +19,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a Resource Explorer view.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.resourceexplorer.Index;
- * import com.pulumi.aws.resourceexplorer.IndexArgs;
- * import com.pulumi.aws.resourceexplorer.View;
- * import com.pulumi.aws.resourceexplorer.ViewArgs;
- * import com.pulumi.aws.resourceexplorer.inputs.ViewFiltersArgs;
- * import com.pulumi.aws.resourceexplorer.inputs.ViewIncludedPropertyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()
- *             .type("LOCAL")
- *             .build());
- * 
- *         var exampleView = new View("exampleView", ViewArgs.builder()
- *             .name("exampleview")
- *             .filters(ViewFiltersArgs.builder()
- *                 .filterString("resourcetype:ec2:instance")
- *                 .build())
- *             .includedProperties(ViewIncludedPropertyArgs.builder()
- *                 .name("tags")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
- * 
- * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
- * 
- * % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
- * 
- */
 @ResourceType(type="aws:resourceexplorer/view:View")
 public class View extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Resource Explorer view.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     * 
-     */
     @Export(name="defaultView", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultView;
 
-    /**
-     * @return Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-     * 
-     */
     public Output<Boolean> defaultView() {
         return this.defaultView;
     }
-    /**
-     * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     * 
-     */
     @Export(name="filters", refs={ViewFilters.class}, tree="[0]")
     private Output</* @Nullable */ ViewFilters> filters;
 
-    /**
-     * @return Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-     * 
-     */
     public Output<Optional<ViewFilters>> filters() {
         return Codegen.optional(this.filters);
     }
-    /**
-     * Optional fields to be included in search results from this view. See Included Properties below for more details.
-     * 
-     */
     @Export(name="includedProperties", refs={List.class,ViewIncludedProperty.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ViewIncludedProperty>> includedProperties;
 
-    /**
-     * @return Optional fields to be included in search results from this view. See Included Properties below for more details.
-     * 
-     */
     public Output<Optional<List<ViewIncludedProperty>>> includedProperties() {
         return Codegen.optional(this.includedProperties);
     }
-    /**
-     * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     * 
-     */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
-    /**
-     * @return The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-     * 
-     */
     public Output<String> scope() {
         return this.scope;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

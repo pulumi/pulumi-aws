@@ -16,77 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponsePlanIncidentTemplate {
-    /**
-     * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
-     * 
-     */
     private @Nullable String dedupeString;
-    /**
-     * @return The impact value of a generated incident. The following values are supported:
-     * 
-     */
     private Integer impact;
-    /**
-     * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-     * 
-     */
     private @Nullable Map<String,String> incidentTags;
-    /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-     * 
-     */
     private @Nullable List<ResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
-    /**
-     * @return The summary of an incident.
-     * 
-     */
     private @Nullable String summary;
-    /**
-     * @return The title of a generated incident.
-     * 
-     */
     private String title;
 
     private ResponsePlanIncidentTemplate() {}
-    /**
-     * @return A string used to stop Incident Manager from creating multiple incident records for the same incident.
-     * 
-     */
     public Optional<String> dedupeString() {
         return Optional.ofNullable(this.dedupeString);
     }
-    /**
-     * @return The impact value of a generated incident. The following values are supported:
-     * 
-     */
     public Integer impact() {
         return this.impact;
     }
-    /**
-     * @return The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-     * 
-     */
     public Map<String,String> incidentTags() {
         return this.incidentTags == null ? Map.of() : this.incidentTags;
     }
-    /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
-     * 
-     */
     public List<ResponsePlanIncidentTemplateNotificationTarget> notificationTargets() {
         return this.notificationTargets == null ? List.of() : this.notificationTargets;
     }
-    /**
-     * @return The summary of an incident.
-     * 
-     */
     public Optional<String> summary() {
         return Optional.ofNullable(this.summary);
     }
-    /**
-     * @return The title of a generated incident.
-     * 
-     */
     public String title() {
         return this.title;
     }

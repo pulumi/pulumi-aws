@@ -17,32 +17,16 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
 
     public static final ImageOutputResourceArgs Empty = new ImageOutputResourceArgs();
 
-    /**
-     * Set of objects with each Amazon Machine Image (AMI) created.
-     * 
-     */
     @Import(name="amis")
     private @Nullable Output<List<ImageOutputResourceAmiArgs>> amis;
 
-    /**
-     * @return Set of objects with each Amazon Machine Image (AMI) created.
-     * 
-     */
     public Optional<Output<List<ImageOutputResourceAmiArgs>>> amis() {
         return Optional.ofNullable(this.amis);
     }
 
-    /**
-     * Set of objects with each container image created and stored in the output repository.
-     * 
-     */
     @Import(name="containers")
     private @Nullable Output<List<ImageOutputResourceContainerArgs>> containers;
 
-    /**
-     * @return Set of objects with each container image created and stored in the output repository.
-     * 
-     */
     public Optional<Output<List<ImageOutputResourceContainerArgs>>> containers() {
         return Optional.ofNullable(this.containers);
     }
@@ -72,64 +56,28 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
             $ = new ImageOutputResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amis Set of objects with each Amazon Machine Image (AMI) created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(@Nullable Output<List<ImageOutputResourceAmiArgs>> amis) {
             $.amis = amis;
             return this;
         }
 
-        /**
-         * @param amis Set of objects with each Amazon Machine Image (AMI) created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(List<ImageOutputResourceAmiArgs> amis) {
             return amis(Output.of(amis));
         }
 
-        /**
-         * @param amis Set of objects with each Amazon Machine Image (AMI) created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amis(ImageOutputResourceAmiArgs... amis) {
             return amis(List.of(amis));
         }
 
-        /**
-         * @param containers Set of objects with each container image created and stored in the output repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(@Nullable Output<List<ImageOutputResourceContainerArgs>> containers) {
             $.containers = containers;
             return this;
         }
 
-        /**
-         * @param containers Set of objects with each container image created and stored in the output repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(List<ImageOutputResourceContainerArgs> containers) {
             return containers(Output.of(containers));
         }
 
-        /**
-         * @param containers Set of objects with each container image created and stored in the output repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(ImageOutputResourceContainerArgs... containers) {
             return containers(List.of(containers));
         }

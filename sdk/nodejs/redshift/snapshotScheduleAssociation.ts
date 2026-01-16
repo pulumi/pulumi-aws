@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.redshift.Cluster("default", {
- *     clusterIdentifier: "tf-redshift-cluster",
- *     databaseName: "mydb",
- *     masterUsername: "foo",
- *     masterPassword: "Mustbe8characters",
- *     nodeType: "dc1.large",
- *     clusterType: "single-node",
- * });
- * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("default", {
- *     identifier: "tf-redshift-snapshot-schedule",
- *     definitions: ["rate(12 hours)"],
- * });
- * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("default", {
- *     clusterIdentifier: _default.id,
- *     scheduleIdentifier: defaultSnapshotSchedule.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
- * ```
- */
 export class SnapshotScheduleAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SnapshotScheduleAssociation resource's state with the given name, ID, and optional extra
@@ -65,17 +32,8 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SnapshotScheduleAssociation.__pulumiType;
     }
 
-    /**
-     * The cluster identifier.
-     */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The snapshot schedule identifier.
-     */
     declare public readonly scheduleIdentifier: pulumi.Output<string>;
 
     /**
@@ -115,17 +73,8 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotScheduleAssociation resources.
  */
 export interface SnapshotScheduleAssociationState {
-    /**
-     * The cluster identifier.
-     */
     clusterIdentifier?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The snapshot schedule identifier.
-     */
     scheduleIdentifier?: pulumi.Input<string>;
 }
 
@@ -133,16 +82,7 @@ export interface SnapshotScheduleAssociationState {
  * The set of arguments for constructing a SnapshotScheduleAssociation resource.
  */
 export interface SnapshotScheduleAssociationArgs {
-    /**
-     * The cluster identifier.
-     */
     clusterIdentifier: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The snapshot schedule identifier.
-     */
     scheduleIdentifier: pulumi.Input<string>;
 }

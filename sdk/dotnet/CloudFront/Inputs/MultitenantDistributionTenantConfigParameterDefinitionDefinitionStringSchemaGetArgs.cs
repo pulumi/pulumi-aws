@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Comment describing the parameter.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Default value for the parameter.
-        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// Whether the parameter is required.
-        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 

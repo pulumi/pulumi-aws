@@ -22,167 +22,79 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
 
     public static final ModelState Empty = new ModelState();
 
-    /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     * 
-     */
     @Import(name="containers")
     private @Nullable Output<List<ModelContainerArgs>> containers;
 
-    /**
-     * @return Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     * 
-     */
     public Optional<Output<List<ModelContainerArgs>>> containers() {
         return Optional.ofNullable(this.containers);
     }
 
-    /**
-     * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     * 
-     */
     @Import(name="enableNetworkIsolation")
     private @Nullable Output<Boolean> enableNetworkIsolation;
 
-    /**
-     * @return Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     * 
-     */
     public Optional<Output<Boolean>> enableNetworkIsolation() {
         return Optional.ofNullable(this.enableNetworkIsolation);
     }
 
-    /**
-     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-     * 
-     */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
-    /**
-     * @return A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-     * 
-     */
     public Optional<Output<String>> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
 
-    /**
-     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-     * 
-     */
     @Import(name="inferenceExecutionConfig")
     private @Nullable Output<ModelInferenceExecutionConfigArgs> inferenceExecutionConfig;
 
-    /**
-     * @return Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-     * 
-     */
     public Optional<Output<ModelInferenceExecutionConfigArgs>> inferenceExecutionConfig() {
         return Optional.ofNullable(this.inferenceExecutionConfig);
     }
 
-    /**
-     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     * 
-     */
     @Import(name="primaryContainer")
     private @Nullable Output<ModelPrimaryContainerArgs> primaryContainer;
 
-    /**
-     * @return Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     * 
-     */
     public Optional<Output<ModelPrimaryContainerArgs>> primaryContainer() {
         return Optional.ofNullable(this.primaryContainer);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
-     * 
-     */
     @Import(name="vpcConfig")
     private @Nullable Output<ModelVpcConfigArgs> vpcConfig;
 
-    /**
-     * @return Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
-     * 
-     */
     public Optional<Output<ModelVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -221,243 +133,105 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
             $ = new ModelState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) assigned by AWS to this model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) assigned by AWS to this model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param containers Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(@Nullable Output<List<ModelContainerArgs>> containers) {
             $.containers = containers;
             return this;
         }
 
-        /**
-         * @param containers Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(List<ModelContainerArgs> containers) {
             return containers(Output.of(containers));
         }
 
-        /**
-         * @param containers Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(ModelContainerArgs... containers) {
             return containers(List.of(containers));
         }
 
-        /**
-         * @param enableNetworkIsolation Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableNetworkIsolation(@Nullable Output<Boolean> enableNetworkIsolation) {
             $.enableNetworkIsolation = enableNetworkIsolation;
             return this;
         }
 
-        /**
-         * @param enableNetworkIsolation Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableNetworkIsolation(Boolean enableNetworkIsolation) {
             return enableNetworkIsolation(Output.of(enableNetworkIsolation));
         }
 
-        /**
-         * @param executionRoleArn A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(@Nullable Output<String> executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
         }
 
-        /**
-         * @param executionRoleArn A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(String executionRoleArn) {
             return executionRoleArn(Output.of(executionRoleArn));
         }
 
-        /**
-         * @param inferenceExecutionConfig Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceExecutionConfig(@Nullable Output<ModelInferenceExecutionConfigArgs> inferenceExecutionConfig) {
             $.inferenceExecutionConfig = inferenceExecutionConfig;
             return this;
         }
 
-        /**
-         * @param inferenceExecutionConfig Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceExecutionConfig(ModelInferenceExecutionConfigArgs inferenceExecutionConfig) {
             return inferenceExecutionConfig(Output.of(inferenceExecutionConfig));
         }
 
-        /**
-         * @param name Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param primaryContainer Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryContainer(@Nullable Output<ModelPrimaryContainerArgs> primaryContainer) {
             $.primaryContainer = primaryContainer;
             return this;
         }
 
-        /**
-         * @param primaryContainer Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryContainer(ModelPrimaryContainerArgs primaryContainer) {
             return primaryContainer(Output.of(primaryContainer));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param vpcConfig Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(@Nullable Output<ModelVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
-        /**
-         * @param vpcConfig Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(ModelVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

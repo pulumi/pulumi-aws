@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupEc2TagSet
     {
-        /// <summary>
-        /// Tag filters associated with the deployment group. See the AWS docs for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentGroupEc2TagSetEc2TagFilter> Ec2TagFilters;
 
         [OutputConstructor]

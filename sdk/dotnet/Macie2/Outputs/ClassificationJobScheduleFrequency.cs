@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobScheduleFrequency
     {
-        /// <summary>
-        /// Specifies a daily recurrence pattern for running the job.
-        /// </summary>
         public readonly bool? DailySchedule;
-        /// <summary>
-        /// Specifies a monthly recurrence pattern for running the job.
-        /// </summary>
         public readonly int? MonthlySchedule;
-        /// <summary>
-        /// Specifies a weekly recurrence pattern for running the job.
-        /// </summary>
         public readonly string? WeeklySchedule;
 
         [OutputConstructor]

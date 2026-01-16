@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FeatureGroupOnlineStoreConfigTtlDurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
-        /// <summary>
-        /// TtlDuration time value.
-        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

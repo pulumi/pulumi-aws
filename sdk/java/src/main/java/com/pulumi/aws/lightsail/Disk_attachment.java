@@ -13,135 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.lightsail.Disk;
- * import com.pulumi.aws.lightsail.DiskArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.Disk_attachment;
- * import com.pulumi.aws.lightsail.Disk_attachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
- *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name("opt-in-status")
- *                 .values("opt-in-not-required")
- *                 .build())
- *             .build());
- * 
- *         var example = new Disk("example", DiskArgs.builder()
- *             .name("example-disk")
- *             .sizeInGb(8)
- *             .availabilityZone(available.names()[0])
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .name("example-instance")
- *             .availabilityZone(available.names()[0])
- *             .blueprintId("amazon_linux_2")
- *             .bundleId("nano_3_0")
- *             .build());
- * 
- *         var exampleDisk_attachment = new Disk_attachment("exampleDisk_attachment", Disk_attachmentArgs.builder()
- *             .diskName(example.name())
- *             .instanceName(exampleInstance.name())
- *             .diskPath("/dev/xvdf")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/disk_attachment:Disk_attachment")
 public class Disk_attachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Lightsail disk.
-     * 
-     */
     @Export(name="diskName", refs={String.class}, tree="[0]")
     private Output<String> diskName;
 
-    /**
-     * @return Name of the Lightsail disk.
-     * 
-     */
     public Output<String> diskName() {
         return this.diskName;
     }
-    /**
-     * Disk path to expose to the instance.
-     * 
-     */
     @Export(name="diskPath", refs={String.class}, tree="[0]")
     private Output<String> diskPath;
 
-    /**
-     * @return Disk path to expose to the instance.
-     * 
-     */
     public Output<String> diskPath() {
         return this.diskPath;
     }
-    /**
-     * Name of the Lightsail instance to attach to.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return Name of the Lightsail instance to attach to.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

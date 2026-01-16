@@ -16,32 +16,16 @@ public final class GetDataCatalogEncryptionSettingsArgs extends com.pulumi.resou
 
     public static final GetDataCatalogEncryptionSettingsArgs Empty = new GetDataCatalogEncryptionSettingsArgs();
 
-    /**
-     * ID of the Data Catalog. This is typically the AWS account ID.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private Output<String> catalogId;
 
-    /**
-     * @return ID of the Data Catalog. This is typically the AWS account ID.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class GetDataCatalogEncryptionSettingsArgs extends com.pulumi.resou
             $ = new GetDataCatalogEncryptionSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog. This is typically the AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId ID of the Data Catalog. This is typically the AWS account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

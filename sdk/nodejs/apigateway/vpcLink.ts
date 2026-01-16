@@ -4,41 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an API Gateway VPC Link.
- *
- * > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
- * To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lb.LoadBalancer("example", {
- *     name: "example",
- *     internal: true,
- *     loadBalancerType: "network",
- *     subnetMappings: [{
- *         subnetId: "12345",
- *     }],
- * });
- * const exampleVpcLink = new aws.apigateway.VpcLink("example", {
- *     name: "example",
- *     description: "example description",
- *     targetArn: example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
- * ```
- */
 export class VpcLink extends pulumi.CustomResource {
     /**
      * Get an existing VpcLink resource's state with the given name, ID, and optional extra
@@ -68,29 +33,11 @@ export class VpcLink extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the VPC link.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name used to label and identify the VPC link.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     */
     declare public readonly targetArn: pulumi.Output<string>;
 
     /**
@@ -136,29 +83,11 @@ export class VpcLink extends pulumi.CustomResource {
  */
 export interface VpcLinkState {
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the VPC link.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name used to label and identify the VPC link.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     */
     targetArn?: pulumi.Input<string>;
 }
 
@@ -166,24 +95,9 @@ export interface VpcLinkState {
  * The set of arguments for constructing a VpcLink resource.
  */
 export interface VpcLinkArgs {
-    /**
-     * Description of the VPC link.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name used to label and identify the VPC link.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     */
     targetArn: pulumi.Input<string>;
 }

@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration {
-    /**
-     * @return ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
-     * 
-     */
     private @Nullable String certificateAuthorityArn;
-    /**
-     * @return Check Certificate Revocation Status block. Detailed below.
-     * 
-     */
     private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus checkCertificateRevocationStatus;
-    /**
-     * @return Scope block. Detailed below.
-     * 
-     */
     private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes;
-    /**
-     * @return Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
-     * 
-     */
     private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate> serverCertificates;
 
     private TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration() {}
-    /**
-     * @return ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
-     * 
-     */
     public Optional<String> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
-    /**
-     * @return Check Certificate Revocation Status block. Detailed below.
-     * 
-     */
     public Optional<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus> checkCertificateRevocationStatus() {
         return Optional.ofNullable(this.checkCertificateRevocationStatus);
     }
-    /**
-     * @return Scope block. Detailed below.
-     * 
-     */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes() {
         return this.scopes == null ? List.of() : this.scopes;
     }
-    /**
-     * @return Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
-     * 
-     */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate> serverCertificates() {
         return this.serverCertificates == null ? List.of() : this.serverCertificates;
     }

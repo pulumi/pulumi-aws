@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMulticastDomainFilter {
-    /**
-     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-     * 
-     */
     private String name;
-    /**
-     * @return Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
-     * 
-     */
     private List<String> values;
 
     private GetMulticastDomainFilter() {}
-    /**
-     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

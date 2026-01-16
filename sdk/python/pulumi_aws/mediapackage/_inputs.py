@@ -26,9 +26,6 @@ MYPY = False
 if not MYPY:
     class ChannelHlsIngestArgsDict(TypedDict):
         ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgsDict']]]]
-        """
-        A list of the ingest endpoints
-        """
 elif False:
     ChannelHlsIngestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -36,18 +33,12 @@ elif False:
 class ChannelHlsIngestArgs:
     def __init__(__self__, *,
                  ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]] ingest_endpoints: A list of the ingest endpoints
-        """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @_builtins.property
     @pulumi.getter(name="ingestEndpoints")
     def ingest_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]:
-        """
-        A list of the ingest endpoints
-        """
         return pulumi.get(self, "ingest_endpoints")
 
     @ingest_endpoints.setter
@@ -58,17 +49,8 @@ class ChannelHlsIngestArgs:
 if not MYPY:
     class ChannelHlsIngestIngestEndpointArgsDict(TypedDict):
         password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password
-        """
         url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL
-        """
         username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username
-        """
 elif False:
     ChannelHlsIngestIngestEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -78,11 +60,6 @@ class ChannelHlsIngestIngestEndpointArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  username: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] password: The password
-        :param pulumi.Input[_builtins.str] url: The URL
-        :param pulumi.Input[_builtins.str] username: The username
-        """
         if password is not None:
             pulumi.set(__self__, "password", password)
         if url is not None:
@@ -93,9 +70,6 @@ class ChannelHlsIngestIngestEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The password
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -105,9 +79,6 @@ class ChannelHlsIngestIngestEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -117,9 +88,6 @@ class ChannelHlsIngestIngestEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The username
-        """
         return pulumi.get(self, "username")
 
     @username.setter

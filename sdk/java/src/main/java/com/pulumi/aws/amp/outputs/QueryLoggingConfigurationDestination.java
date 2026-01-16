@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class QueryLoggingConfigurationDestination {
-    /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-     * 
-     */
     private @Nullable QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-     * 
-     */
     private @Nullable QueryLoggingConfigurationDestinationFilters filters;
 
     private QueryLoggingConfigurationDestination() {}
-    /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-     * 
-     */
     public Optional<QueryLoggingConfigurationDestinationCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-     * 
-     */
     public Optional<QueryLoggingConfigurationDestinationFilters> filters() {
         return Optional.ofNullable(this.filters);
     }

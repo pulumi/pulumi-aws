@@ -11,20 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetLaunchTemplateIamInstanceProfile {
     private String arn;
-    /**
-     * @return Name of the launch template.
-     * 
-     */
     private String name;
 
     private GetLaunchTemplateIamInstanceProfile() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Name of the launch template.
-     * 
-     */
     public String name() {
         return this.name;
     }

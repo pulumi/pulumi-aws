@@ -12,90 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage the accepter's side of a Direct Connect hosted transit virtual interface.
-// This resource accepts ownership of a transit virtual interface created by another AWS account.
-//
-// > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			accepter, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Accepter's side of the VIF.
-//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				Name:          pulumi.String("tf-dxg-example"),
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Creator's side of the VIF
-//			creator, err := directconnect.NewHostedTransitVirtualInterface(ctx, "creator", &directconnect.HostedTransitVirtualInterfaceArgs{
-//				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId: pulumi.String(accepter.AccountId),
-//				Name:           pulumi.String("tf-transit-vif-example"),
-//				Vlan:           pulumi.Int(4094),
-//				AddressFamily:  pulumi.String("ipv4"),
-//				BgpAsn:         pulumi.Int(65352),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewHostedTransitVirtualInterfaceAcceptor(ctx, "accepter", &directconnect.HostedTransitVirtualInterfaceAcceptorArgs{
-//				VirtualInterfaceId: creator.ID(),
-//				DxGatewayId:        example.ID(),
-//				Tags: pulumi.StringMap{
-//					"Side": pulumi.String("Accepter"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
-// ```
 type HostedTransitVirtualInterfaceAcceptor struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	DxGatewayId        pulumi.StringOutput    `pulumi:"dxGatewayId"`
+	Region             pulumi.StringOutput    `pulumi:"region"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VirtualInterfaceId pulumi.StringOutput    `pulumi:"virtualInterfaceId"`
 }
 
 // NewHostedTransitVirtualInterfaceAcceptor registers a new resource with the given unique name, arguments, and options.
@@ -134,32 +59,20 @@ func GetHostedTransitVirtualInterfaceAcceptor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostedTransitVirtualInterfaceAcceptor resources.
 type hostedTransitVirtualInterfaceAcceptorState struct {
-	// The ARN of the virtual interface.
-	Arn *string `pulumi:"arn"`
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
+	Arn                *string           `pulumi:"arn"`
+	DxGatewayId        *string           `pulumi:"dxGatewayId"`
+	Region             *string           `pulumi:"region"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
+	VirtualInterfaceId *string           `pulumi:"virtualInterfaceId"`
 }
 
 type HostedTransitVirtualInterfaceAcceptorState struct {
-	// The ARN of the virtual interface.
-	Arn pulumi.StringPtrInput
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ID of the Direct Connect virtual interface to accept.
+	Arn                pulumi.StringPtrInput
+	DxGatewayId        pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 	VirtualInterfaceId pulumi.StringPtrInput
 }
 
@@ -168,25 +81,17 @@ func (HostedTransitVirtualInterfaceAcceptorState) ElementType() reflect.Type {
 }
 
 type hostedTransitVirtualInterfaceAcceptorArgs struct {
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId string `pulumi:"dxGatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
+	DxGatewayId        string            `pulumi:"dxGatewayId"`
+	Region             *string           `pulumi:"region"`
+	Tags               map[string]string `pulumi:"tags"`
+	VirtualInterfaceId string            `pulumi:"virtualInterfaceId"`
 }
 
 // The set of arguments for constructing a HostedTransitVirtualInterfaceAcceptor resource.
 type HostedTransitVirtualInterfaceAcceptorArgs struct {
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the Direct Connect virtual interface to accept.
+	DxGatewayId        pulumi.StringInput
+	Region             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
 	VirtualInterfaceId pulumi.StringInput
 }
 
@@ -277,32 +182,26 @@ func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInter
 	return o
 }
 
-// The ARN of the virtual interface.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the Direct Connect gateway to which to connect the virtual interface.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) DxGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringOutput { return v.DxGatewayId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the Direct Connect virtual interface to accept.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) VirtualInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringOutput { return v.VirtualInterfaceId }).(pulumi.StringOutput)
 }

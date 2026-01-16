@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class WebhookFilterGroup
     {
-        /// <summary>
-        /// A webhook filter for the group. See filter for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebhookFilterGroupFilter> Filters;
 
         [OutputConstructor]

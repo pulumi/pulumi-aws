@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionSnapStart
     {
-        /// <summary>
-        /// When to apply snap start optimization. Valid value: `PublishedVersions`.
-        /// </summary>
         public readonly string ApplyOn;
-        /// <summary>
-        /// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        /// </summary>
         public readonly string? OptimizationStatus;
 
         [OutputConstructor]

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionActiveTrustedKeyGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("items")]
         private InputList<Inputs.MultitenantDistributionActiveTrustedKeyGroupItemGetArgs>? _items;
-
-        /// <summary>
-        /// List of key groups. See Key Group Items below.
-        /// </summary>
         public InputList<Inputs.MultitenantDistributionActiveTrustedKeyGroupItemGetArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.MultitenantDistributionActiveTrustedKeyGroupItemGetArgs>());

@@ -16,17 +16,9 @@ public final class OrganizationsFeaturesState extends com.pulumi.resources.Resou
 
     public static final OrganizationsFeaturesState Empty = new OrganizationsFeaturesState();
 
-    /**
-     * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     * 
-     */
     @Import(name="enabledFeatures")
     private @Nullable Output<List<String>> enabledFeatures;
 
-    /**
-     * @return List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-     * 
-     */
     public Optional<Output<List<String>>> enabledFeatures() {
         return Optional.ofNullable(this.enabledFeatures);
     }
@@ -55,33 +47,15 @@ public final class OrganizationsFeaturesState extends com.pulumi.resources.Resou
             $ = new OrganizationsFeaturesState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabledFeatures List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledFeatures(@Nullable Output<List<String>> enabledFeatures) {
             $.enabledFeatures = enabledFeatures;
             return this;
         }
 
-        /**
-         * @param enabledFeatures List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledFeatures(List<String> enabledFeatures) {
             return enabledFeatures(Output.of(enabledFeatures));
         }
 
-        /**
-         * @param enabledFeatures List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledFeatures(String... enabledFeatures) {
             return enabledFeatures(List.of(enabledFeatures));
         }

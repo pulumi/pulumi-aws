@@ -24,36 +24,16 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.cloudHsmClusterId);
     }
 
-    /**
-     * Unique name for Custom Key Store.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="customKeyStoreName", required=true)
     private Output<String> customKeyStoreName;
 
-    /**
-     * @return Unique name for Custom Key Store.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> customKeyStoreName() {
         return this.customKeyStoreName;
     }
 
-    /**
-     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     * 
-     */
     @Import(name="customKeyStoreType")
     private @Nullable Output<String> customKeyStoreType;
 
-    /**
-     * @return Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-     * 
-     */
     public Optional<Output<String>> customKeyStoreType() {
         return Optional.ofNullable(this.customKeyStoreType);
     }
@@ -65,17 +45,9 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.keyStorePassword);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -165,48 +137,20 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
             return cloudHsmClusterId(Output.of(cloudHsmClusterId));
         }
 
-        /**
-         * @param customKeyStoreName Unique name for Custom Key Store.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreName(Output<String> customKeyStoreName) {
             $.customKeyStoreName = customKeyStoreName;
             return this;
         }
 
-        /**
-         * @param customKeyStoreName Unique name for Custom Key Store.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreName(String customKeyStoreName) {
             return customKeyStoreName(Output.of(customKeyStoreName));
         }
 
-        /**
-         * @param customKeyStoreType Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreType(@Nullable Output<String> customKeyStoreType) {
             $.customKeyStoreType = customKeyStoreType;
             return this;
         }
 
-        /**
-         * @param customKeyStoreType Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreType(String customKeyStoreType) {
             return customKeyStoreType(Output.of(customKeyStoreType));
         }
@@ -220,23 +164,11 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
             return keyStorePassword(Output.of(keyStorePassword));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

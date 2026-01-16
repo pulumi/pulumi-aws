@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ViewIncludedProperty {
-    /**
-     * @return The name of the property that is included in this view. Valid values: `tags`.
-     * 
-     */
     private String name;
 
     private ViewIncludedProperty() {}
-    /**
-     * @return The name of the property that is included in this view. Valid values: `tags`.
-     * 
-     */
     public String name() {
         return this.name;
     }

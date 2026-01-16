@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImagePipelineImageScanningConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with ECR configuration for image scanning. Detailed below.
-        /// </summary>
         [Input("ecrConfiguration")]
         public Input<Inputs.ImagePipelineImageScanningConfigurationEcrConfigurationGetArgs>? EcrConfiguration { get; set; }
 
-        /// <summary>
-        /// Whether image scans are enabled. Defaults to `False`.
-        /// </summary>
         [Input("imageScanningEnabled")]
         public Input<bool>? ImageScanningEnabled { get; set; }
 

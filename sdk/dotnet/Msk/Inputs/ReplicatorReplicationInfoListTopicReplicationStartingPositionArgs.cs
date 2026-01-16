@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

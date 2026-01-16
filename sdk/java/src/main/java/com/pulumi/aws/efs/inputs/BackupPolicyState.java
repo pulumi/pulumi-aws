@@ -16,47 +16,23 @@ public final class BackupPolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final BackupPolicyState Empty = new BackupPolicyState();
 
-    /**
-     * A backupPolicy object (documented below).
-     * 
-     */
     @Import(name="backupPolicy")
     private @Nullable Output<BackupPolicyBackupPolicyArgs> backupPolicy;
 
-    /**
-     * @return A backupPolicy object (documented below).
-     * 
-     */
     public Optional<Output<BackupPolicyBackupPolicyArgs>> backupPolicy() {
         return Optional.ofNullable(this.backupPolicy);
     }
 
-    /**
-     * The ID of the EFS file system.
-     * 
-     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
-    /**
-     * @return The ID of the EFS file system.
-     * 
-     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class BackupPolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new BackupPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupPolicy A backupPolicy object (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupPolicy(@Nullable Output<BackupPolicyBackupPolicyArgs> backupPolicy) {
             $.backupPolicy = backupPolicy;
             return this;
         }
 
-        /**
-         * @param backupPolicy A backupPolicy object (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupPolicy(BackupPolicyBackupPolicyArgs backupPolicy) {
             return backupPolicy(Output.of(backupPolicy));
         }
 
-        /**
-         * @param fileSystemId The ID of the EFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId The ID of the EFS file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

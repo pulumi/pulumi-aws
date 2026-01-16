@@ -46,17 +46,11 @@ class GetUserPoolClientsResult:
     @_builtins.property
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of Cognito user pool client IDs.
-        """
         return pulumi.get(self, "client_ids")
 
     @_builtins.property
     @pulumi.getter(name="clientNames")
     def client_names(self) -> Sequence[_builtins.str]:
-        """
-        List of Cognito user pool client names.
-        """
         return pulumi.get(self, "client_names")
 
     @_builtins.property
@@ -95,20 +89,7 @@ def get_user_pool_clients(region: Optional[_builtins.str] = None,
                           user_pool_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolClientsResult:
     """
-    Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.cognito.get_user_pool_clients(user_pool_id=main_aws_cognito_user_pool["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: Cognito user pool ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -126,20 +107,7 @@ def get_user_pool_clients_output(region: Optional[pulumi.Input[Optional[_builtin
                                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientsResult]:
     """
-    Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.cognito.get_user_pool_clients(user_pool_id=main_aws_cognito_user_pool["id"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: Cognito user pool ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

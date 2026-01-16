@@ -17,68 +17,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContactsRotationRecurrence {
     private @Nullable List<ContactsRotationRecurrenceDailySetting> dailySettings;
-    /**
-     * @return (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-     * 
-     */
     private @Nullable List<ContactsRotationRecurrenceMonthlySetting> monthlySettings;
-    /**
-     * @return (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-     * 
-     */
     private Integer numberOfOnCalls;
-    /**
-     * @return (Required) The number of days, weeks, or months a single rotation lasts.
-     * 
-     */
     private Integer recurrenceMultiplier;
-    /**
-     * @return (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-     * 
-     */
     private @Nullable List<ContactsRotationRecurrenceShiftCoverage> shiftCoverages;
-    /**
-     * @return (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-     * 
-     */
     private @Nullable List<ContactsRotationRecurrenceWeeklySetting> weeklySettings;
 
     private ContactsRotationRecurrence() {}
     public List<ContactsRotationRecurrenceDailySetting> dailySettings() {
         return this.dailySettings == null ? List.of() : this.dailySettings;
     }
-    /**
-     * @return (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-     * 
-     */
     public List<ContactsRotationRecurrenceMonthlySetting> monthlySettings() {
         return this.monthlySettings == null ? List.of() : this.monthlySettings;
     }
-    /**
-     * @return (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-     * 
-     */
     public Integer numberOfOnCalls() {
         return this.numberOfOnCalls;
     }
-    /**
-     * @return (Required) The number of days, weeks, or months a single rotation lasts.
-     * 
-     */
     public Integer recurrenceMultiplier() {
         return this.recurrenceMultiplier;
     }
-    /**
-     * @return (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-     * 
-     */
     public List<ContactsRotationRecurrenceShiftCoverage> shiftCoverages() {
         return this.shiftCoverages == null ? List.of() : this.shiftCoverages;
     }
-    /**
-     * @return (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-     * 
-     */
     public List<ContactsRotationRecurrenceWeeklySetting> weeklySettings() {
         return this.weeklySettings == null ? List.of() : this.weeklySettings;
     }

@@ -19,205 +19,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupResult {
-    /**
-     * @return ARN of the Auto Scaling group.
-     * 
-     */
     private String arn;
-    /**
-     * @return One or more Availability Zones for the group.
-     * 
-     */
     private List<String> availabilityZones;
     private Integer defaultCooldown;
-    /**
-     * @return Desired size of the group.
-     * 
-     */
     private Integer desiredCapacity;
-    /**
-     * @return The unit of measurement for the value returned for `desiredCapacity`.
-     * 
-     */
     private String desiredCapacityType;
-    /**
-     * @return List of metrics enabled for collection.
-     * 
-     */
     private List<String> enabledMetrics;
-    /**
-     * @return The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
-     * 
-     */
     private Integer healthCheckGracePeriod;
-    /**
-     * @return Service to use for the health checks. The valid values are EC2 and ELB.
-     * 
-     */
     private String healthCheckType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Instance maintenance policy for the group.
-     * 
-     */
     private List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies;
-    /**
-     * @return The name of the associated launch configuration.
-     * 
-     */
     private String launchConfiguration;
-    /**
-     * @return List of launch templates along with the overrides.
-     * 
-     */
     private List<GetGroupLaunchTemplate> launchTemplates;
-    /**
-     * @return One or more load balancers associated with the group.
-     * 
-     */
     private List<String> loadBalancers;
-    /**
-     * @return Maximum amount of time, in seconds, that an instance can be in service.
-     * 
-     */
     private Integer maxInstanceLifetime;
-    /**
-     * @return Maximum size of the group.
-     * 
-     */
     private Integer maxSize;
-    /**
-     * @return Minimum number of instances to maintain in the warm pool.
-     * 
-     */
     private Integer minSize;
-    /**
-     * @return List of mixed instances policy objects for the group.
-     * 
-     */
     private List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies;
-    /**
-     * @return Name of the Auto Scaling Group.
-     * 
-     */
     private String name;
     private Boolean newInstancesProtectedFromScaleIn;
-    /**
-     * @return Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
-     * 
-     */
     private String placementGroup;
-    /**
-     * @return Predicted capacity of the group.
-     * 
-     */
     private Integer predictedCapacity;
     private String region;
-    /**
-     * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
-     * 
-     */
     private String serviceLinkedRoleArn;
-    /**
-     * @return Current state of the group when DeleteAutoScalingGroup is in progress.
-     * 
-     */
     private String status;
-    /**
-     * @return List of processes suspended processes for the Auto Scaling Group.
-     * 
-     */
     private List<String> suspendedProcesses;
-    /**
-     * @return List of tags for the group.
-     * 
-     */
     private List<GetGroupTag> tags;
-    /**
-     * @return ARNs of the target groups for your load balancer.
-     * 
-     */
     private List<String> targetGroupArns;
-    /**
-     * @return The termination policies for the group.
-     * 
-     */
     private List<String> terminationPolicies;
-    /**
-     * @return Traffic sources.
-     * 
-     */
     private List<GetGroupTrafficSource> trafficSources;
-    /**
-     * @return VPC ID for the group.
-     * 
-     */
     private String vpcZoneIdentifier;
-    /**
-     * @return Current size of the warm pool.
-     * 
-     */
     private Integer warmPoolSize;
-    /**
-     * @return List of warm pool configuration objects.
-     * 
-     */
     private List<GetGroupWarmPool> warmPools;
 
     private GetGroupResult() {}
-    /**
-     * @return ARN of the Auto Scaling group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return One or more Availability Zones for the group.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
     public Integer defaultCooldown() {
         return this.defaultCooldown;
     }
-    /**
-     * @return Desired size of the group.
-     * 
-     */
     public Integer desiredCapacity() {
         return this.desiredCapacity;
     }
-    /**
-     * @return The unit of measurement for the value returned for `desiredCapacity`.
-     * 
-     */
     public String desiredCapacityType() {
         return this.desiredCapacityType;
     }
-    /**
-     * @return List of metrics enabled for collection.
-     * 
-     */
     public List<String> enabledMetrics() {
         return this.enabledMetrics;
     }
-    /**
-     * @return The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
-     * 
-     */
     public Integer healthCheckGracePeriod() {
         return this.healthCheckGracePeriod;
     }
-    /**
-     * @return Service to use for the health checks. The valid values are EC2 and ELB.
-     * 
-     */
     public String healthCheckType() {
         return this.healthCheckType;
     }
@@ -228,156 +88,72 @@ public final class GetGroupResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Instance maintenance policy for the group.
-     * 
-     */
     public List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies() {
         return this.instanceMaintenancePolicies;
     }
-    /**
-     * @return The name of the associated launch configuration.
-     * 
-     */
     public String launchConfiguration() {
         return this.launchConfiguration;
     }
-    /**
-     * @return List of launch templates along with the overrides.
-     * 
-     */
     public List<GetGroupLaunchTemplate> launchTemplates() {
         return this.launchTemplates;
     }
-    /**
-     * @return One or more load balancers associated with the group.
-     * 
-     */
     public List<String> loadBalancers() {
         return this.loadBalancers;
     }
-    /**
-     * @return Maximum amount of time, in seconds, that an instance can be in service.
-     * 
-     */
     public Integer maxInstanceLifetime() {
         return this.maxInstanceLifetime;
     }
-    /**
-     * @return Maximum size of the group.
-     * 
-     */
     public Integer maxSize() {
         return this.maxSize;
     }
-    /**
-     * @return Minimum number of instances to maintain in the warm pool.
-     * 
-     */
     public Integer minSize() {
         return this.minSize;
     }
-    /**
-     * @return List of mixed instances policy objects for the group.
-     * 
-     */
     public List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies() {
         return this.mixedInstancesPolicies;
     }
-    /**
-     * @return Name of the Auto Scaling Group.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public Boolean newInstancesProtectedFromScaleIn() {
         return this.newInstancesProtectedFromScaleIn;
     }
-    /**
-     * @return Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
-     * 
-     */
     public String placementGroup() {
         return this.placementGroup;
     }
-    /**
-     * @return Predicted capacity of the group.
-     * 
-     */
     public Integer predictedCapacity() {
         return this.predictedCapacity;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
-     * 
-     */
     public String serviceLinkedRoleArn() {
         return this.serviceLinkedRoleArn;
     }
-    /**
-     * @return Current state of the group when DeleteAutoScalingGroup is in progress.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return List of processes suspended processes for the Auto Scaling Group.
-     * 
-     */
     public List<String> suspendedProcesses() {
         return this.suspendedProcesses;
     }
-    /**
-     * @return List of tags for the group.
-     * 
-     */
     public List<GetGroupTag> tags() {
         return this.tags;
     }
-    /**
-     * @return ARNs of the target groups for your load balancer.
-     * 
-     */
     public List<String> targetGroupArns() {
         return this.targetGroupArns;
     }
-    /**
-     * @return The termination policies for the group.
-     * 
-     */
     public List<String> terminationPolicies() {
         return this.terminationPolicies;
     }
-    /**
-     * @return Traffic sources.
-     * 
-     */
     public List<GetGroupTrafficSource> trafficSources() {
         return this.trafficSources;
     }
-    /**
-     * @return VPC ID for the group.
-     * 
-     */
     public String vpcZoneIdentifier() {
         return this.vpcZoneIdentifier;
     }
-    /**
-     * @return Current size of the warm pool.
-     * 
-     */
     public Integer warmPoolSize() {
         return this.warmPoolSize;
     }
-    /**
-     * @return List of warm pool configuration objects.
-     * 
-     */
     public List<GetGroupWarmPool> warmPools() {
         return this.warmPools;
     }

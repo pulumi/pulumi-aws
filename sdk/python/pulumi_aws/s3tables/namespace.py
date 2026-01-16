@@ -24,11 +24,6 @@ class NamespaceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
@@ -38,11 +33,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the namespace.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -52,9 +42,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -64,9 +51,6 @@ class NamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -85,14 +69,6 @@ class _NamespaceState:
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
-        :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] owner_account_id: Account ID of the account that owns the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -110,9 +86,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the namespace was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -122,9 +95,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the account that created the namespace.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -134,11 +104,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the namespace.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -148,9 +113,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the account that owns the namespace.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -160,9 +122,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -172,9 +131,6 @@ class _NamespaceState:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -193,37 +149,9 @@ class Namespace(pulumi.CustomResource):
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon S3 Tables Namespace.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example = aws.s3tables.Namespace("example",
-            namespace="example_namespace",
-            table_bucket_arn=example_table_bucket.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Namespace using the `table_bucket_arn` and the value of `namespace`, separated by a semicolon (`;`). For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-        ```
-
+        Create a Namespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         ...
     @overload
@@ -232,30 +160,7 @@ class Namespace(pulumi.CustomResource):
                  args: NamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon S3 Tables Namespace.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example = aws.s3tables.Namespace("example",
-            namespace="example_namespace",
-            table_bucket_arn=example_table_bucket.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Namespace using the `table_bucket_arn` and the value of `namespace`, separated by a semicolon (`;`). For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
-        ```
-
+        Create a Namespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,14 +221,6 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
-        :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] owner_account_id: Account ID of the account that owns the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,50 +237,30 @@ class Namespace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the namespace was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the account that created the namespace.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the namespace.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the account that owns the namespace.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-        """
         return pulumi.get(self, "table_bucket_arn")
 

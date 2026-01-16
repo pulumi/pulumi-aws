@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
-    /**
-     * @return The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-     * 
-     */
     private @Nullable String deliveryStream;
-    /**
-     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-     * 
-     */
     private Boolean enabled;
 
     private ConnectorLogDeliveryWorkerLogDeliveryFirehose() {}
-    /**
-     * @return The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-     * 
-     */
     public Optional<String> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
-    /**
-     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

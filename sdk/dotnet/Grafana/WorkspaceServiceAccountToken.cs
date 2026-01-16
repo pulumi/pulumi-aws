@@ -9,91 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Grafana
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Grafana.WorkspaceServiceAccount("example", new()
-    ///     {
-    ///         Name = "example-admin",
-    ///         GrafanaRole = "ADMIN",
-    ///         WorkspaceId = exampleAwsGrafanaWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleWorkspaceServiceAccountToken = new Aws.Grafana.WorkspaceServiceAccountToken("example", new()
-    ///     {
-    ///         Name = "example-key",
-    ///         ServiceAccountId = example.ServiceAccountId,
-    ///         SecondsToLive = 3600,
-    ///         WorkspaceId = exampleAwsGrafanaWorkspace.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")]
     public partial class WorkspaceServiceAccountToken : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies when the service account token was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies when the service account token will expire.
-        /// </summary>
         [Output("expiresAt")]
         public Output<string> ExpiresAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the token to create. The name must be unique within the workspace.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        /// </summary>
         [Output("secondsToLive")]
         public Output<int> SecondsToLive { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the service account for which to create a token.
-        /// </summary>
         [Output("serviceAccountId")]
         public Output<string> ServiceAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the service account token in the given Grafana workspace.
-        /// </summary>
         [Output("serviceAccountTokenId")]
         public Output<string> ServiceAccountTokenId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Grafana workspace with which the service account token is associated.
-        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -147,33 +89,18 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class WorkspaceServiceAccountTokenArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the token to create. The name must be unique within the workspace.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        /// </summary>
         [Input("secondsToLive", required: true)]
         public Input<int> SecondsToLive { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the service account for which to create a token.
-        /// </summary>
         [Input("serviceAccountId", required: true)]
         public Input<string> ServiceAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The Grafana workspace with which the service account token is associated.
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -185,24 +112,14 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class WorkspaceServiceAccountTokenState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies when the service account token was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Specifies when the service account token will expire.
-        /// </summary>
         [Input("expiresAt")]
         public Input<string>? ExpiresAt { get; set; }
 
         [Input("key")]
         private Input<string>? _key;
-
-        /// <summary>
-        /// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-        /// </summary>
         public Input<string>? Key
         {
             get => _key;
@@ -213,39 +130,21 @@ namespace Pulumi.Aws.Grafana
             }
         }
 
-        /// <summary>
-        /// A name for the token to create. The name must be unique within the workspace.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-        /// </summary>
         [Input("secondsToLive")]
         public Input<int>? SecondsToLive { get; set; }
 
-        /// <summary>
-        /// The ID of the service account for which to create a token.
-        /// </summary>
         [Input("serviceAccountId")]
         public Input<string>? ServiceAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier of the service account token in the given Grafana workspace.
-        /// </summary>
         [Input("serviceAccountTokenId")]
         public Input<string>? ServiceAccountTokenId { get; set; }
 
-        /// <summary>
-        /// The Grafana workspace with which the service account token is associated.
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

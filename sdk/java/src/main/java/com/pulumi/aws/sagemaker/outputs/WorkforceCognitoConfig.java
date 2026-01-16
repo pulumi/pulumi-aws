@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkforceCognitoConfig {
-    /**
-     * @return The client ID for your Amazon Cognito user pool.
-     * 
-     */
     private String clientId;
-    /**
-     * @return ID for your Amazon Cognito user pool.
-     * 
-     */
     private String userPool;
 
     private WorkforceCognitoConfig() {}
-    /**
-     * @return The client ID for your Amazon Cognito user pool.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return ID for your Amazon Cognito user pool.
-     * 
-     */
     public String userPool() {
         return this.userPool;
     }

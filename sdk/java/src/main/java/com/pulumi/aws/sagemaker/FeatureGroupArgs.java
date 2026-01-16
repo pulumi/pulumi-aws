@@ -22,152 +22,72 @@ public final class FeatureGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FeatureGroupArgs Empty = new FeatureGroupArgs();
 
-    /**
-     * A free-form description of a Feature Group.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A free-form description of a Feature Group.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the feature that stores the EventTime of a Record in a Feature Group.
-     * 
-     */
     @Import(name="eventTimeFeatureName", required=true)
     private Output<String> eventTimeFeatureName;
 
-    /**
-     * @return The name of the feature that stores the EventTime of a Record in a Feature Group.
-     * 
-     */
     public Output<String> eventTimeFeatureName() {
         return this.eventTimeFeatureName;
     }
 
-    /**
-     * A list of Feature names and types. See Feature Definition Below.
-     * 
-     */
     @Import(name="featureDefinitions", required=true)
     private Output<List<FeatureGroupFeatureDefinitionArgs>> featureDefinitions;
 
-    /**
-     * @return A list of Feature names and types. See Feature Definition Below.
-     * 
-     */
     public Output<List<FeatureGroupFeatureDefinitionArgs>> featureDefinitions() {
         return this.featureDefinitions;
     }
 
-    /**
-     * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-     * 
-     */
     @Import(name="featureGroupName", required=true)
     private Output<String> featureGroupName;
 
-    /**
-     * @return The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-     * 
-     */
     public Output<String> featureGroupName() {
         return this.featureGroupName;
     }
 
-    /**
-     * The Offline Feature Store Configuration. See Offline Store Config Below.
-     * 
-     */
     @Import(name="offlineStoreConfig")
     private @Nullable Output<FeatureGroupOfflineStoreConfigArgs> offlineStoreConfig;
 
-    /**
-     * @return The Offline Feature Store Configuration. See Offline Store Config Below.
-     * 
-     */
     public Optional<Output<FeatureGroupOfflineStoreConfigArgs>> offlineStoreConfig() {
         return Optional.ofNullable(this.offlineStoreConfig);
     }
 
-    /**
-     * The Online Feature Store Configuration. See Online Store Config Below.
-     * 
-     */
     @Import(name="onlineStoreConfig")
     private @Nullable Output<FeatureGroupOnlineStoreConfigArgs> onlineStoreConfig;
 
-    /**
-     * @return The Online Feature Store Configuration. See Online Store Config Below.
-     * 
-     */
     public Optional<Output<FeatureGroupOnlineStoreConfigArgs>> onlineStoreConfig() {
         return Optional.ofNullable(this.onlineStoreConfig);
     }
 
-    /**
-     * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-     * 
-     */
     @Import(name="recordIdentifierFeatureName", required=true)
     private Output<String> recordIdentifierFeatureName;
 
-    /**
-     * @return The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-     * 
-     */
     public Output<String> recordIdentifierFeatureName() {
         return this.recordIdentifierFeatureName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -213,222 +133,96 @@ public final class FeatureGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FeatureGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A free-form description of a Feature Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A free-form description of a Feature Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param eventTimeFeatureName The name of the feature that stores the EventTime of a Record in a Feature Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventTimeFeatureName(Output<String> eventTimeFeatureName) {
             $.eventTimeFeatureName = eventTimeFeatureName;
             return this;
         }
 
-        /**
-         * @param eventTimeFeatureName The name of the feature that stores the EventTime of a Record in a Feature Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventTimeFeatureName(String eventTimeFeatureName) {
             return eventTimeFeatureName(Output.of(eventTimeFeatureName));
         }
 
-        /**
-         * @param featureDefinitions A list of Feature names and types. See Feature Definition Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureDefinitions(Output<List<FeatureGroupFeatureDefinitionArgs>> featureDefinitions) {
             $.featureDefinitions = featureDefinitions;
             return this;
         }
 
-        /**
-         * @param featureDefinitions A list of Feature names and types. See Feature Definition Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureDefinitions(List<FeatureGroupFeatureDefinitionArgs> featureDefinitions) {
             return featureDefinitions(Output.of(featureDefinitions));
         }
 
-        /**
-         * @param featureDefinitions A list of Feature names and types. See Feature Definition Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureDefinitions(FeatureGroupFeatureDefinitionArgs... featureDefinitions) {
             return featureDefinitions(List.of(featureDefinitions));
         }
 
-        /**
-         * @param featureGroupName The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureGroupName(Output<String> featureGroupName) {
             $.featureGroupName = featureGroupName;
             return this;
         }
 
-        /**
-         * @param featureGroupName The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureGroupName(String featureGroupName) {
             return featureGroupName(Output.of(featureGroupName));
         }
 
-        /**
-         * @param offlineStoreConfig The Offline Feature Store Configuration. See Offline Store Config Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder offlineStoreConfig(@Nullable Output<FeatureGroupOfflineStoreConfigArgs> offlineStoreConfig) {
             $.offlineStoreConfig = offlineStoreConfig;
             return this;
         }
 
-        /**
-         * @param offlineStoreConfig The Offline Feature Store Configuration. See Offline Store Config Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder offlineStoreConfig(FeatureGroupOfflineStoreConfigArgs offlineStoreConfig) {
             return offlineStoreConfig(Output.of(offlineStoreConfig));
         }
 
-        /**
-         * @param onlineStoreConfig The Online Feature Store Configuration. See Online Store Config Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onlineStoreConfig(@Nullable Output<FeatureGroupOnlineStoreConfigArgs> onlineStoreConfig) {
             $.onlineStoreConfig = onlineStoreConfig;
             return this;
         }
 
-        /**
-         * @param onlineStoreConfig The Online Feature Store Configuration. See Online Store Config Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs onlineStoreConfig) {
             return onlineStoreConfig(Output.of(onlineStoreConfig));
         }
 
-        /**
-         * @param recordIdentifierFeatureName The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordIdentifierFeatureName(Output<String> recordIdentifierFeatureName) {
             $.recordIdentifierFeatureName = recordIdentifierFeatureName;
             return this;
         }
 
-        /**
-         * @param recordIdentifierFeatureName The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordIdentifierFeatureName(String recordIdentifierFeatureName) {
             return recordIdentifierFeatureName(Output.of(recordIdentifierFeatureName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tags Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

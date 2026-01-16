@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class AssessmentScopeAwsServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Amazon Web Service.
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 

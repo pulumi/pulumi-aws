@@ -34,29 +34,6 @@ class AuthorizerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] authorizer_type: Authorizer type. Valid values: `JWT`, `REQUEST`.
-               Specify `REQUEST` for a Lambda function using incoming request parameters.
-               For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        :param pulumi.Input[_builtins.str] authorizer_credentials_arn: Required credentials as an IAM role for API Gateway to invoke the authorizer.
-               Supported only for `REQUEST` authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_payload_format_version: Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-               Valid values: `1.0`, `2.0`.
-        :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-               If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-               Supported only for HTTP API Lambda authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI).
-               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-               Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        :param pulumi.Input[_builtins.bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_sources: Identity sources for which authorization is requested.
-               For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-               For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input['AuthorizerJwtConfigurationArgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[_builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "authorizer_type", authorizer_type)
@@ -82,9 +59,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -94,11 +68,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Authorizer type. Valid values: `JWT`, `REQUEST`.
-        Specify `REQUEST` for a Lambda function using incoming request parameters.
-        For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
@@ -108,10 +77,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerCredentialsArn")
     def authorizer_credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Required credentials as an IAM role for API Gateway to invoke the authorizer.
-        Supported only for `REQUEST` authorizers.
-        """
         return pulumi.get(self, "authorizer_credentials_arn")
 
     @authorizer_credentials_arn.setter
@@ -121,10 +86,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerPayloadFormatVersion")
     def authorizer_payload_format_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-        Valid values: `1.0`, `2.0`.
-        """
         return pulumi.get(self, "authorizer_payload_format_version")
 
     @authorizer_payload_format_version.setter
@@ -134,11 +95,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-        If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-        Supported only for HTTP API Lambda authorizers.
-        """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @authorizer_result_ttl_in_seconds.setter
@@ -148,11 +104,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authorizer's Uniform Resource Identifier (URI).
-        For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-        Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        """
         return pulumi.get(self, "authorizer_uri")
 
     @authorizer_uri.setter
@@ -162,10 +113,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="enableSimpleResponses")
     def enable_simple_responses(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-        Supported only for HTTP APIs.
-        """
         return pulumi.get(self, "enable_simple_responses")
 
     @enable_simple_responses.setter
@@ -175,11 +122,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="identitySources")
     def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identity sources for which authorization is requested.
-        For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-        For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        """
         return pulumi.get(self, "identity_sources")
 
     @identity_sources.setter
@@ -189,10 +131,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="jwtConfiguration")
     def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
-        """
-        Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-        Supported only for HTTP APIs.
-        """
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
@@ -202,9 +140,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the authorizer. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -214,9 +149,6 @@ class AuthorizerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -240,29 +172,6 @@ class _AuthorizerState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] authorizer_credentials_arn: Required credentials as an IAM role for API Gateway to invoke the authorizer.
-               Supported only for `REQUEST` authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_payload_format_version: Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-               Valid values: `1.0`, `2.0`.
-        :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-               If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-               Supported only for HTTP API Lambda authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_type: Authorizer type. Valid values: `JWT`, `REQUEST`.
-               Specify `REQUEST` for a Lambda function using incoming request parameters.
-               For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI).
-               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-               Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        :param pulumi.Input[_builtins.bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_sources: Identity sources for which authorization is requested.
-               For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-               For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input['AuthorizerJwtConfigurationArgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[_builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -290,9 +199,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -302,10 +208,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="authorizerCredentialsArn")
     def authorizer_credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Required credentials as an IAM role for API Gateway to invoke the authorizer.
-        Supported only for `REQUEST` authorizers.
-        """
         return pulumi.get(self, "authorizer_credentials_arn")
 
     @authorizer_credentials_arn.setter
@@ -315,10 +217,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="authorizerPayloadFormatVersion")
     def authorizer_payload_format_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-        Valid values: `1.0`, `2.0`.
-        """
         return pulumi.get(self, "authorizer_payload_format_version")
 
     @authorizer_payload_format_version.setter
@@ -328,11 +226,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-        If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-        Supported only for HTTP API Lambda authorizers.
-        """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @authorizer_result_ttl_in_seconds.setter
@@ -342,11 +235,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authorizer type. Valid values: `JWT`, `REQUEST`.
-        Specify `REQUEST` for a Lambda function using incoming request parameters.
-        For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
@@ -356,11 +244,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Authorizer's Uniform Resource Identifier (URI).
-        For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-        Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        """
         return pulumi.get(self, "authorizer_uri")
 
     @authorizer_uri.setter
@@ -370,10 +253,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="enableSimpleResponses")
     def enable_simple_responses(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-        Supported only for HTTP APIs.
-        """
         return pulumi.get(self, "enable_simple_responses")
 
     @enable_simple_responses.setter
@@ -383,11 +262,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="identitySources")
     def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Identity sources for which authorization is requested.
-        For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-        For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        """
         return pulumi.get(self, "identity_sources")
 
     @identity_sources.setter
@@ -397,10 +271,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter(name="jwtConfiguration")
     def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
-        """
-        Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-        Supported only for HTTP APIs.
-        """
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
@@ -410,9 +280,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the authorizer. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -422,9 +289,6 @@ class _AuthorizerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -451,73 +315,9 @@ class Authorizer(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon API Gateway Version 2 authorizer.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        ## Example Usage
-
-        ### Basic WebSocket API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=example_aws_lambda_function["invokeArn"],
-            identity_sources=["route.request.header.Auth"],
-            name="example-authorizer")
-        ```
-
-        ### Basic HTTP API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=example_aws_lambda_function["invokeArn"],
-            identity_sources=["$request.header.Authorization"],
-            name="example-authorizer",
-            authorizer_payload_format_version="2.0")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
-        ```
-
+        Create a Authorizer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] authorizer_credentials_arn: Required credentials as an IAM role for API Gateway to invoke the authorizer.
-               Supported only for `REQUEST` authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_payload_format_version: Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-               Valid values: `1.0`, `2.0`.
-        :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-               If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-               Supported only for HTTP API Lambda authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_type: Authorizer type. Valid values: `JWT`, `REQUEST`.
-               Specify `REQUEST` for a Lambda function using incoming request parameters.
-               For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI).
-               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-               Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        :param pulumi.Input[_builtins.bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_sources: Identity sources for which authorization is requested.
-               For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-               For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[_builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -526,48 +326,7 @@ class Authorizer(pulumi.CustomResource):
                  args: AuthorizerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon API Gateway Version 2 authorizer.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        ## Example Usage
-
-        ### Basic WebSocket API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=example_aws_lambda_function["invokeArn"],
-            identity_sources=["route.request.header.Auth"],
-            name="example-authorizer")
-        ```
-
-        ### Basic HTTP API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=example_aws_lambda_function["invokeArn"],
-            identity_sources=["$request.header.Authorization"],
-            name="example-authorizer",
-            authorizer_payload_format_version="2.0")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
-        ```
-
+        Create a Authorizer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -646,29 +405,6 @@ class Authorizer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] authorizer_credentials_arn: Required credentials as an IAM role for API Gateway to invoke the authorizer.
-               Supported only for `REQUEST` authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_payload_format_version: Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-               Valid values: `1.0`, `2.0`.
-        :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-               If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-               Supported only for HTTP API Lambda authorizers.
-        :param pulumi.Input[_builtins.str] authorizer_type: Authorizer type. Valid values: `JWT`, `REQUEST`.
-               Specify `REQUEST` for a Lambda function using incoming request parameters.
-               For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI).
-               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-               Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        :param pulumi.Input[_builtins.bool] enable_simple_responses: Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_sources: Identity sources for which authorization is requested.
-               For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-               For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-               Supported only for HTTP APIs.
-        :param pulumi.Input[_builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -690,100 +426,55 @@ class Authorizer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @_builtins.property
     @pulumi.getter(name="authorizerCredentialsArn")
     def authorizer_credentials_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Required credentials as an IAM role for API Gateway to invoke the authorizer.
-        Supported only for `REQUEST` authorizers.
-        """
         return pulumi.get(self, "authorizer_credentials_arn")
 
     @_builtins.property
     @pulumi.getter(name="authorizerPayloadFormatVersion")
     def authorizer_payload_format_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-        Valid values: `1.0`, `2.0`.
-        """
         return pulumi.get(self, "authorizer_payload_format_version")
 
     @_builtins.property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[_builtins.int]:
-        """
-        Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-        If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-        Supported only for HTTP API Lambda authorizers.
-        """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Authorizer type. Valid values: `JWT`, `REQUEST`.
-        Specify `REQUEST` for a Lambda function using incoming request parameters.
-        For HTTP APIs, specify `JWT` to use JSON Web Tokens.
-        """
         return pulumi.get(self, "authorizer_type")
 
     @_builtins.property
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Authorizer's Uniform Resource Identifier (URI).
-        For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
-        Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
-        """
         return pulumi.get(self, "authorizer_uri")
 
     @_builtins.property
     @pulumi.getter(name="enableSimpleResponses")
     def enable_simple_responses(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-        Supported only for HTTP APIs.
-        """
         return pulumi.get(self, "enable_simple_responses")
 
     @_builtins.property
     @pulumi.getter(name="identitySources")
     def identity_sources(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Identity sources for which authorization is requested.
-        For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-        For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        """
         return pulumi.get(self, "identity_sources")
 
     @_builtins.property
     @pulumi.getter(name="jwtConfiguration")
     def jwt_configuration(self) -> pulumi.Output[Optional['outputs.AuthorizerJwtConfiguration']]:
-        """
-        Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-        Supported only for HTTP APIs.
-        """
         return pulumi.get(self, "jwt_configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the authorizer. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

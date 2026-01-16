@@ -16,47 +16,23 @@ public final class DomainServiceAccessPolicyArgs extends com.pulumi.resources.Re
 
     public static final DomainServiceAccessPolicyArgs Empty = new DomainServiceAccessPolicyArgs();
 
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     * 
-     */
     @Import(name="accessPolicy", required=true)
     private Output<String> accessPolicy;
 
-    /**
-     * @return The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     * 
-     */
     public Output<String> accessPolicy() {
         return this.accessPolicy;
     }
 
-    /**
-     * The CloudSearch domain name the policy applies to.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return The CloudSearch domain name the policy applies to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class DomainServiceAccessPolicyArgs extends com.pulumi.resources.Re
             $ = new DomainServiceAccessPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPolicy The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPolicy(Output<String> accessPolicy) {
             $.accessPolicy = accessPolicy;
             return this;
         }
 
-        /**
-         * @param accessPolicy The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPolicy(String accessPolicy) {
             return accessPolicy(Output.of(accessPolicy));
         }
 
-        /**
-         * @param domainName The CloudSearch domain name the policy applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The CloudSearch domain name the policy applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

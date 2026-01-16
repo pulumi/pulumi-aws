@@ -15,17 +15,9 @@ public final class IdcApplicationServiceIntegrationRedshiftArgs extends com.pulu
 
     public static final IdcApplicationServiceIntegrationRedshiftArgs Empty = new IdcApplicationServiceIntegrationRedshiftArgs();
 
-    /**
-     * Amazon Redshift connect service integration scope.
-     * 
-     */
     @Import(name="connect")
     private @Nullable Output<IdcApplicationServiceIntegrationRedshiftConnectArgs> connect;
 
-    /**
-     * @return Amazon Redshift connect service integration scope.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationRedshiftConnectArgs>> connect() {
         return Optional.ofNullable(this.connect);
     }
@@ -54,23 +46,11 @@ public final class IdcApplicationServiceIntegrationRedshiftArgs extends com.pulu
             $ = new IdcApplicationServiceIntegrationRedshiftArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connect Amazon Redshift connect service integration scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connect(@Nullable Output<IdcApplicationServiceIntegrationRedshiftConnectArgs> connect) {
             $.connect = connect;
             return this;
         }
 
-        /**
-         * @param connect Amazon Redshift connect service integration scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connect(IdcApplicationServiceIntegrationRedshiftConnectArgs connect) {
             return connect(Output.of(connect));
         }

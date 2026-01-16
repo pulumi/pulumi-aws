@@ -13,45 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionsLfTag {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return The key-name for the tag.
-     * 
-     */
     private String key;
-    /**
-     * @return A list of possible values an attribute can take.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private List<String> values;
 
     private PermissionsLfTag() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return The key-name for the tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return A list of possible values an attribute can take.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

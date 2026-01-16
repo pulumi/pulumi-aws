@@ -16,32 +16,16 @@ public final class WorkgroupConfigurationManagedQueryResultsConfigurationArgs ex
 
     public static final WorkgroupConfigurationManagedQueryResultsConfigurationArgs Empty = new WorkgroupConfigurationManagedQueryResultsConfigurationArgs();
 
-    /**
-     * If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-     * 
-     */
     public Optional<Output<WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
@@ -71,44 +55,20 @@ public final class WorkgroupConfigurationManagedQueryResultsConfigurationArgs ex
             $ = new WorkgroupConfigurationManagedQueryResultsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param encryptionConfiguration Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }

@@ -25,11 +25,6 @@ class ResolverQueryLogConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverQueryLogConfig resource.
-        :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
-               You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         if name is not None:
@@ -42,10 +37,6 @@ class ResolverQueryLogConfigArgs:
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the resource that you want Route 53 Resolver to send query logs.
-        You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -55,9 +46,6 @@ class ResolverQueryLogConfigArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Route 53 Resolver query logging configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,9 +55,6 @@ class ResolverQueryLogConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +64,6 @@ class ResolverQueryLogConfigArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -102,17 +84,6 @@ class _ResolverQueryLogConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverQueryLogConfig resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-        :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
-               You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
-        :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the account that created the query logging configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] share_status: An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-               Sharing is configured through AWS Resource Access Manager (AWS RAM).
-               Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -134,9 +105,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -146,10 +114,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the resource that you want Route 53 Resolver to send query logs.
-        You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -159,9 +123,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Route 53 Resolver query logging configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -171,9 +132,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID of the account that created the query logging configuration.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -183,9 +141,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -195,11 +150,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-        Sharing is configured through AWS Resource Access Manager (AWS RAM).
-        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        """
         return pulumi.get(self, "share_status")
 
     @share_status.setter
@@ -209,9 +159,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -221,9 +168,6 @@ class _ResolverQueryLogConfigState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -243,37 +187,9 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Route 53 Resolver query logging configuration resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverQueryLogConfig("example",
-            name="example",
-            destination_arn=example_aws_s3_bucket["arn"],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
-        ```
-
+        Create a ResolverQueryLogConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
-               You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -282,30 +198,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
                  args: ResolverQueryLogConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route 53 Resolver query logging configuration resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverQueryLogConfig("example",
-            name="example",
-            destination_arn=example_aws_s3_bucket["arn"],
-            tags={
-                "Environment": "Prod",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
-        ```
-
+        Create a ResolverQueryLogConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverQueryLogConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -369,17 +262,6 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-        :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
-               You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
-        :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the account that created the query logging configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] share_status: An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-               Sharing is configured through AWS Resource Access Manager (AWS RAM).
-               Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,67 +280,40 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the resource that you want Route 53 Resolver to send query logs.
-        You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        """
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Route 53 Resolver query logging configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID of the account that created the query logging configuration.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-        Sharing is configured through AWS Resource Access Manager (AWS RAM).
-        Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        """
         return pulumi.get(self, "share_status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

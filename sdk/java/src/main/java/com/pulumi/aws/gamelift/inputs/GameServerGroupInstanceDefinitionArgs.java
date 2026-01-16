@@ -16,38 +16,16 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
 
     public static final GameServerGroupInstanceDefinitionArgs Empty = new GameServerGroupInstanceDefinitionArgs();
 
-    /**
-     * An EC2 instance type.
-     * 
-     */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
-    /**
-     * @return An EC2 instance type.
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
 
-    /**
-     * Instance weighting that indicates how much this instance type contributes
-     * to the total capacity of a game server group.
-     * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-     * the most cost-effective options.
-     * 
-     */
     @Import(name="weightedCapacity")
     private @Nullable Output<String> weightedCapacity;
 
-    /**
-     * @return Instance weighting that indicates how much this instance type contributes
-     * to the total capacity of a game server group.
-     * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-     * the most cost-effective options.
-     * 
-     */
     public Optional<Output<String>> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }
@@ -77,50 +55,20 @@ public final class GameServerGroupInstanceDefinitionArgs extends com.pulumi.reso
             $ = new GameServerGroupInstanceDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceType An EC2 instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType An EC2 instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param weightedCapacity Instance weighting that indicates how much this instance type contributes
-         * to the total capacity of a game server group.
-         * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-         * the most cost-effective options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedCapacity(@Nullable Output<String> weightedCapacity) {
             $.weightedCapacity = weightedCapacity;
             return this;
         }
 
-        /**
-         * @param weightedCapacity Instance weighting that indicates how much this instance type contributes
-         * to the total capacity of a game server group.
-         * Instance weights are used by GameLift FleetIQ to calculate the instance type&#39;s cost per unit hour and better identify
-         * the most cost-effective options.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedCapacity(String weightedCapacity) {
             return weightedCapacity(Output.of(weightedCapacity));
         }

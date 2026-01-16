@@ -16,47 +16,23 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetQueuePlainArgs Empty = new GetQueuePlainArgs();
 
-    /**
-     * Unique identifier of the queue. The same as `name`.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Unique identifier of the queue. The same as `name`.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetQueuePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Unique identifier of the queue. The same as `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -17,47 +17,23 @@ public final class WorkgroupConfigurationMonitoringConfigurationArgs extends com
 
     public static final WorkgroupConfigurationMonitoringConfigurationArgs Empty = new WorkgroupConfigurationMonitoringConfigurationArgs();
 
-    /**
-     * Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-     * 
-     */
     @Import(name="cloudWatchLoggingConfiguration")
     private @Nullable Output<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs> cloudWatchLoggingConfiguration;
 
-    /**
-     * @return Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-     * 
-     */
     public Optional<Output<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs>> cloudWatchLoggingConfiguration() {
         return Optional.ofNullable(this.cloudWatchLoggingConfiguration);
     }
 
-    /**
-     * Configuration block for managed log persistence. See Managed Logging Configuration below.
-     * 
-     */
     @Import(name="managedLoggingConfiguration")
     private @Nullable Output<WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs> managedLoggingConfiguration;
 
-    /**
-     * @return Configuration block for managed log persistence. See Managed Logging Configuration below.
-     * 
-     */
     public Optional<Output<WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs>> managedLoggingConfiguration() {
         return Optional.ofNullable(this.managedLoggingConfiguration);
     }
 
-    /**
-     * Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-     * 
-     */
     @Import(name="s3LoggingConfiguration")
     private @Nullable Output<WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs> s3LoggingConfiguration;
 
-    /**
-     * @return Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-     * 
-     */
     public Optional<Output<WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs>> s3LoggingConfiguration() {
         return Optional.ofNullable(this.s3LoggingConfiguration);
     }
@@ -88,65 +64,29 @@ public final class WorkgroupConfigurationMonitoringConfigurationArgs extends com
             $ = new WorkgroupConfigurationMonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudWatchLoggingConfiguration Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchLoggingConfiguration(@Nullable Output<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs> cloudWatchLoggingConfiguration) {
             $.cloudWatchLoggingConfiguration = cloudWatchLoggingConfiguration;
             return this;
         }
 
-        /**
-         * @param cloudWatchLoggingConfiguration Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchLoggingConfiguration(WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs cloudWatchLoggingConfiguration) {
             return cloudWatchLoggingConfiguration(Output.of(cloudWatchLoggingConfiguration));
         }
 
-        /**
-         * @param managedLoggingConfiguration Configuration block for managed log persistence. See Managed Logging Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedLoggingConfiguration(@Nullable Output<WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs> managedLoggingConfiguration) {
             $.managedLoggingConfiguration = managedLoggingConfiguration;
             return this;
         }
 
-        /**
-         * @param managedLoggingConfiguration Configuration block for managed log persistence. See Managed Logging Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedLoggingConfiguration(WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs managedLoggingConfiguration) {
             return managedLoggingConfiguration(Output.of(managedLoggingConfiguration));
         }
 
-        /**
-         * @param s3LoggingConfiguration Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3LoggingConfiguration(@Nullable Output<WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs> s3LoggingConfiguration) {
             $.s3LoggingConfiguration = s3LoggingConfiguration;
             return this;
         }
 
-        /**
-         * @param s3LoggingConfiguration Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3LoggingConfiguration(WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs s3LoggingConfiguration) {
             return s3LoggingConfiguration(Output.of(s3LoggingConfiguration));
         }

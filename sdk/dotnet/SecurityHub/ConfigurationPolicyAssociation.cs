@@ -9,96 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Manages Security Hub configuration policy associations.
-    /// 
-    /// &gt; **NOTE:** This resource requires `aws.securityhub.OrganizationConfiguration` to be configured with type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.FindingAggregator("example", new()
-    ///     {
-    ///         LinkingMode = "ALL_REGIONS",
-    ///     });
-    /// 
-    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = false,
-    ///         AutoEnableStandards = "NONE",
-    ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
-    ///         {
-    ///             ConfigurationType = "CENTRAL",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleConfigurationPolicy = new Aws.SecurityHub.ConfigurationPolicy("example", new()
-    ///     {
-    ///         Name = "Example",
-    ///         Description = "This is an example configuration policy",
-    ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
-    ///         {
-    ///             ServiceEnabled = true,
-    ///             EnabledStandardArns = new[]
-    ///             {
-    ///                 "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
-    ///                 "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///             },
-    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
-    ///             {
-    ///                 DisabledControlIdentifiers = new() { },
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleOrganizationConfiguration,
-    ///         },
-    ///     });
-    /// 
-    ///     var accountExample = new Aws.SecurityHub.ConfigurationPolicyAssociation("account_example", new()
-    ///     {
-    ///         TargetId = "123456789012",
-    ///         PolicyId = exampleConfigurationPolicy.Id,
-    ///     });
-    /// 
-    ///     var rootExample = new Aws.SecurityHub.ConfigurationPolicyAssociation("root_example", new()
-    ///     {
-    ///         TargetId = "r-abcd",
-    ///         PolicyId = exampleConfigurationPolicy.Id,
-    ///     });
-    /// 
-    ///     var ouExample = new Aws.SecurityHub.ConfigurationPolicyAssociation("ou_example", new()
-    ///     {
-    ///         TargetId = "ou-abcd-12345678",
-    ///         PolicyId = exampleConfigurationPolicy.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")]
     public partial class ConfigurationPolicyAssociation : global::Pulumi.CustomResource
     {
@@ -108,9 +18,6 @@ namespace Pulumi.Aws.SecurityHub
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -172,9 +79,6 @@ namespace Pulumi.Aws.SecurityHub
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -198,9 +102,6 @@ namespace Pulumi.Aws.SecurityHub
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationRule {
-    /**
-     * @return Configuration block containing settings for abort incomplete multipart upload.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
-    /**
-     * @return Configuration block containing settings for expiration of objects.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
-    /**
-     * @return Configuration block containing settings for filtering.
-     * 
-     */
     private @Nullable BucketLifecycleConfigurationRuleFilter filter;
-    /**
-     * @return Unique identifier for the rule.
-     * 
-     */
     private String id;
-    /**
-     * @return Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-     * 
-     */
     private @Nullable String status;
 
     private BucketLifecycleConfigurationRule() {}
-    /**
-     * @return Configuration block containing settings for abort incomplete multipart upload.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload> abortIncompleteMultipartUpload() {
         return Optional.ofNullable(this.abortIncompleteMultipartUpload);
     }
-    /**
-     * @return Configuration block containing settings for expiration of objects.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
-    /**
-     * @return Configuration block containing settings for filtering.
-     * 
-     */
     public Optional<BucketLifecycleConfigurationRuleFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
-    /**
-     * @return Unique identifier for the rule.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

@@ -44,9 +44,6 @@ class ClusterNode(dict):
                  availability_zone: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int port: The port used by the configuration endpoint
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if availability_zone is not None:
@@ -74,9 +71,6 @@ class ClusterNode(dict):
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
-        """
-        The port used by the configuration endpoint
-        """
         return pulumi.get(self, "port")
 
 
@@ -84,18 +78,12 @@ class ClusterNode(dict):
 class ClusterServerSideEncryption(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether to enable encryption at rest. Defaults to `false`.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether to enable encryption at rest. Defaults to `false`.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -104,27 +92,17 @@ class ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str name: The name of the parameter.
-        :param _builtins.str value: The value for the parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value for the parameter.
-        """
         return pulumi.get(self, "value")
 
 

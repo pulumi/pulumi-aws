@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an EC2 Transit Gateway Peering Attachment.
- *
- * ## Example Usage
- *
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getPeeringAttachment({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- *
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const attachment = aws.ec2transitgateway.getPeeringAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
- */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,25 +22,9 @@ export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pul
  * A collection of arguments for invoking getPeeringAttachment.
  */
 export interface GetPeeringAttachmentArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetPeeringAttachmentFilter[];
-    /**
-     * Identifier of the EC2 Transit Gateway Peering Attachment.
-     */
     id?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     */
     tags?: {[key: string]: string};
 }
 
@@ -78,62 +32,17 @@ export interface GetPeeringAttachmentArgs {
  * A collection of values returned by getPeeringAttachment.
  */
 export interface GetPeeringAttachmentResult {
-    /**
-     * ARN of the attachment.
-     */
     readonly arn: string;
     readonly filters?: outputs.ec2transitgateway.GetPeeringAttachmentFilter[];
     readonly id: string;
-    /**
-     * Identifier of the peer AWS account.
-     */
     readonly peerAccountId: string;
-    /**
-     * Identifier of the peer AWS region.
-     */
     readonly peerRegion: string;
-    /**
-     * Identifier of the peer EC2 Transit Gateway.
-     */
     readonly peerTransitGatewayId: string;
     readonly region: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
-    /**
-     * Identifier of the local EC2 Transit Gateway.
-     */
     readonly transitGatewayId: string;
 }
-/**
- * Get information on an EC2 Transit Gateway Peering Attachment.
- *
- * ## Example Usage
- *
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getPeeringAttachment({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- *
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const attachment = aws.ec2transitgateway.getPeeringAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
- */
 export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeeringAttachmentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -149,24 +58,8 @@ export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs
  * A collection of arguments for invoking getPeeringAttachment.
  */
 export interface GetPeeringAttachmentOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetPeeringAttachmentFilterArgs>[]>;
-    /**
-     * Identifier of the EC2 Transit Gateway Peering Attachment.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

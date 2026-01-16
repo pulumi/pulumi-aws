@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-        /// </summary>
         [Input("cents")]
         public Input<int>? Cents { get; set; }
 
-        /// <summary>
-        /// The whole number of dollars in the amount. Valid value range between `0` and `2`.
-        /// </summary>
         [Input("dollars")]
         public Input<int>? Dollars { get; set; }
 
-        /// <summary>
-        /// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-        /// </summary>
         [Input("tenthFractionsOfACent")]
         public Input<int>? TenthFractionsOfACent { get; set; }
 

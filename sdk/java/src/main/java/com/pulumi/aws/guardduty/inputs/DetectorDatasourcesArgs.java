@@ -17,53 +17,23 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
 
     public static final DetectorDatasourcesArgs Empty = new DetectorDatasourcesArgs();
 
-    /**
-     * Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes and Kubernetes Audit Logs below for more details.
-     * 
-     */
     @Import(name="kubernetes")
     private @Nullable Output<DetectorDatasourcesKubernetesArgs> kubernetes;
 
-    /**
-     * @return Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes and Kubernetes Audit Logs below for more details.
-     * 
-     */
     public Optional<Output<DetectorDatasourcesKubernetesArgs>> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
     }
 
-    /**
-     * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-     * 
-     */
     @Import(name="malwareProtection")
     private @Nullable Output<DetectorDatasourcesMalwareProtectionArgs> malwareProtection;
 
-    /**
-     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-     * 
-     */
     public Optional<Output<DetectorDatasourcesMalwareProtectionArgs>> malwareProtection() {
         return Optional.ofNullable(this.malwareProtection);
     }
 
-    /**
-     * Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * See S3 Logs below for more details.
-     * 
-     */
     @Import(name="s3Logs")
     private @Nullable Output<DetectorDatasourcesS3LogsArgs> s3Logs;
 
-    /**
-     * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * See S3 Logs below for more details.
-     * 
-     */
     public Optional<Output<DetectorDatasourcesS3LogsArgs>> s3Logs() {
         return Optional.ofNullable(this.s3Logs);
     }
@@ -94,71 +64,29 @@ public final class DetectorDatasourcesArgs extends com.pulumi.resources.Resource
             $ = new DetectorDatasourcesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kubernetes Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes and Kubernetes Audit Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetes(@Nullable Output<DetectorDatasourcesKubernetesArgs> kubernetes) {
             $.kubernetes = kubernetes;
             return this;
         }
 
-        /**
-         * @param kubernetes Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes and Kubernetes Audit Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetes(DetectorDatasourcesKubernetesArgs kubernetes) {
             return kubernetes(Output.of(kubernetes));
         }
 
-        /**
-         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-         * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareProtection(@Nullable Output<DetectorDatasourcesMalwareProtectionArgs> malwareProtection) {
             $.malwareProtection = malwareProtection;
             return this;
         }
 
-        /**
-         * @param malwareProtection Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-         * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareProtection(DetectorDatasourcesMalwareProtectionArgs malwareProtection) {
             return malwareProtection(Output.of(malwareProtection));
         }
 
-        /**
-         * @param s3Logs Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-         * See S3 Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Logs(@Nullable Output<DetectorDatasourcesS3LogsArgs> s3Logs) {
             $.s3Logs = s3Logs;
             return this;
         }
 
-        /**
-         * @param s3Logs Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-         * See S3 Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Logs(DetectorDatasourcesS3LogsArgs s3Logs) {
             return s3Logs(Output.of(s3Logs));
         }

@@ -11,66 +11,30 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGeofenceCollectionResult {
-    /**
-     * @return ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     private String collectionArn;
     private String collectionName;
-    /**
-     * @return Timestamp for when the geofence collection resource was created in ISO 8601 format.
-     * 
-     */
     private String createTime;
-    /**
-     * @return Optional description of the geofence collection resource.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     private String kmsKeyId;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the geofence collection.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-     * 
-     */
     private String updateTime;
 
     private GetGeofenceCollectionResult() {}
-    /**
-     * @return ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     public String collectionArn() {
         return this.collectionArn;
     }
     public String collectionName() {
         return this.collectionName;
     }
-    /**
-     * @return Timestamp for when the geofence collection resource was created in ISO 8601 format.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return Optional description of the geofence collection resource.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -81,27 +45,15 @@ public final class GetGeofenceCollectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the geofence collection.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-     * 
-     */
     public String updateTime() {
         return this.updateTime;
     }

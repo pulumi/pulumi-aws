@@ -12,57 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Redshift Cluster IAM Roles resource.
-//
-// > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `redshift.Cluster` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewClusterIamRoles(ctx, "example", &redshift.ClusterIamRolesArgs{
-//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
-//				IamRoleArns: pulumi.StringArray{
-//					exampleAwsIamRole.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-// ```
 type ClusterIamRoles struct {
 	pulumi.CustomResourceState
 
-	// The name of the Redshift Cluster IAM Roles.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-	IamRoleArns pulumi.StringArrayOutput `pulumi:"iamRoleArns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	ClusterIdentifier pulumi.StringOutput      `pulumi:"clusterIdentifier"`
+	DefaultIamRoleArn pulumi.StringOutput      `pulumi:"defaultIamRoleArn"`
+	IamRoleArns       pulumi.StringArrayOutput `pulumi:"iamRoleArns"`
+	Region            pulumi.StringOutput      `pulumi:"region"`
 }
 
 // NewClusterIamRoles registers a new resource with the given unique name, arguments, and options.
@@ -98,25 +54,17 @@ func GetClusterIamRoles(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterIamRoles resources.
 type clusterIamRolesState struct {
-	// The name of the Redshift Cluster IAM Roles.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-	IamRoleArns []string `pulumi:"iamRoleArns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ClusterIdentifier *string  `pulumi:"clusterIdentifier"`
+	DefaultIamRoleArn *string  `pulumi:"defaultIamRoleArn"`
+	IamRoleArns       []string `pulumi:"iamRoleArns"`
+	Region            *string  `pulumi:"region"`
 }
 
 type ClusterIamRolesState struct {
-	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-	IamRoleArns pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IamRoleArns       pulumi.StringArrayInput
+	Region            pulumi.StringPtrInput
 }
 
 func (ClusterIamRolesState) ElementType() reflect.Type {
@@ -124,26 +72,18 @@ func (ClusterIamRolesState) ElementType() reflect.Type {
 }
 
 type clusterIamRolesArgs struct {
-	// The name of the Redshift Cluster IAM Roles.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-	IamRoleArns []string `pulumi:"iamRoleArns"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ClusterIdentifier string   `pulumi:"clusterIdentifier"`
+	DefaultIamRoleArn *string  `pulumi:"defaultIamRoleArn"`
+	IamRoleArns       []string `pulumi:"iamRoleArns"`
+	Region            *string  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterIamRoles resource.
 type ClusterIamRolesArgs struct {
-	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier pulumi.StringInput
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-	IamRoleArns pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	IamRoleArns       pulumi.StringArrayInput
+	Region            pulumi.StringPtrInput
 }
 
 func (ClusterIamRolesArgs) ElementType() reflect.Type {
@@ -233,22 +173,18 @@ func (o ClusterIamRolesOutput) ToClusterIamRolesOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the Redshift Cluster IAM Roles.
 func (o ClusterIamRolesOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
 func (o ClusterIamRolesOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
 
-// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 func (o ClusterIamRolesOutput) IamRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringArrayOutput { return v.IamRoleArns }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterIamRolesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

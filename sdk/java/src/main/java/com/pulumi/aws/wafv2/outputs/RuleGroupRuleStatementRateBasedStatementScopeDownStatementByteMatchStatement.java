@@ -15,57 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch fieldToMatch;
-    /**
-     * @return The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
-     * 
-     */
     private String positionalConstraint;
-    /**
-     * @return A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
-     * 
-     */
     private String searchString;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement() {}
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
-     * 
-     */
     public String positionalConstraint() {
         return this.positionalConstraint;
     }
-    /**
-     * @return A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
-     * 
-     */
     public String searchString() {
         return this.searchString;
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

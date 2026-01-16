@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WorkflowStepTagStepDetailsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the step, used as an identifier.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-        /// </summary>
         [Input("sourceFileLocation")]
         public Input<string>? SourceFileLocation { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.WorkflowStepTagStepDetailsTagArgs>? _tags;
-
-        /// <summary>
-        /// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-        /// </summary>
         public InputList<Inputs.WorkflowStepTagStepDetailsTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.WorkflowStepTagStepDetailsTagArgs>());

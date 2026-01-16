@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleAction {
-    /**
-     * @return Describes the rule action that returns a custom HTTP response.
-     * See `fixedResponse` Block for details.
-     * 
-     */
     private @Nullable ListenerRuleActionFixedResponse fixedResponse;
-    /**
-     * @return The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-     * See `forward` Block for details.
-     * 
-     */
     private @Nullable ListenerRuleActionForward forward;
 
     private ListenerRuleAction() {}
-    /**
-     * @return Describes the rule action that returns a custom HTTP response.
-     * See `fixedResponse` Block for details.
-     * 
-     */
     public Optional<ListenerRuleActionFixedResponse> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
-    /**
-     * @return The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-     * See `forward` Block for details.
-     * 
-     */
     public Optional<ListenerRuleActionForward> forward() {
         return Optional.ofNullable(this.forward);
     }

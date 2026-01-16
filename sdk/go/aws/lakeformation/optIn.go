@@ -11,46 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lake Formation Opt In.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewOptIn(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type OptIn struct {
 	pulumi.CustomResourceState
 
-	// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-	Conditions OptInConditionArrayOutput `pulumi:"conditions"`
-	// Last modified date and time of the record.
-	LastModified  pulumi.StringOutput `pulumi:"lastModified"`
-	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
-	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-	Principals OptInPrincipalArrayOutput `pulumi:"principals"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Structure for the resource. See Resource for more details.
+	Conditions    OptInConditionArrayOutput    `pulumi:"conditions"`
+	LastModified  pulumi.StringOutput          `pulumi:"lastModified"`
+	LastUpdatedBy pulumi.StringOutput          `pulumi:"lastUpdatedBy"`
+	Principals    OptInPrincipalArrayOutput    `pulumi:"principals"`
+	Region        pulumi.StringOutput          `pulumi:"region"`
 	ResourceDatas OptInResourceDataArrayOutput `pulumi:"resourceDatas"`
 }
 
@@ -84,30 +52,20 @@ func GetOptIn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OptIn resources.
 type optInState struct {
-	// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-	Conditions []OptInCondition `pulumi:"conditions"`
-	// Last modified date and time of the record.
-	LastModified  *string `pulumi:"lastModified"`
-	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
-	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-	Principals []OptInPrincipal `pulumi:"principals"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Structure for the resource. See Resource for more details.
+	Conditions    []OptInCondition    `pulumi:"conditions"`
+	LastModified  *string             `pulumi:"lastModified"`
+	LastUpdatedBy *string             `pulumi:"lastUpdatedBy"`
+	Principals    []OptInPrincipal    `pulumi:"principals"`
+	Region        *string             `pulumi:"region"`
 	ResourceDatas []OptInResourceData `pulumi:"resourceDatas"`
 }
 
 type OptInState struct {
-	// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-	Conditions OptInConditionArrayInput
-	// Last modified date and time of the record.
+	Conditions    OptInConditionArrayInput
 	LastModified  pulumi.StringPtrInput
 	LastUpdatedBy pulumi.StringPtrInput
-	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-	Principals OptInPrincipalArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Structure for the resource. See Resource for more details.
+	Principals    OptInPrincipalArrayInput
+	Region        pulumi.StringPtrInput
 	ResourceDatas OptInResourceDataArrayInput
 }
 
@@ -116,25 +74,17 @@ func (OptInState) ElementType() reflect.Type {
 }
 
 type optInArgs struct {
-	// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-	Conditions []OptInCondition `pulumi:"conditions"`
-	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-	Principals []OptInPrincipal `pulumi:"principals"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Structure for the resource. See Resource for more details.
+	Conditions    []OptInCondition    `pulumi:"conditions"`
+	Principals    []OptInPrincipal    `pulumi:"principals"`
+	Region        *string             `pulumi:"region"`
 	ResourceDatas []OptInResourceData `pulumi:"resourceDatas"`
 }
 
 // The set of arguments for constructing a OptIn resource.
 type OptInArgs struct {
-	// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-	Conditions OptInConditionArrayInput
-	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-	Principals OptInPrincipalArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Structure for the resource. See Resource for more details.
+	Conditions    OptInConditionArrayInput
+	Principals    OptInPrincipalArrayInput
+	Region        pulumi.StringPtrInput
 	ResourceDatas OptInResourceDataArrayInput
 }
 
@@ -225,12 +175,10 @@ func (o OptInOutput) ToOptInOutputWithContext(ctx context.Context) OptInOutput {
 	return o
 }
 
-// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
 func (o OptInOutput) Conditions() OptInConditionArrayOutput {
 	return o.ApplyT(func(v *OptIn) OptInConditionArrayOutput { return v.Conditions }).(OptInConditionArrayOutput)
 }
 
-// Last modified date and time of the record.
 func (o OptInOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptIn) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
@@ -239,17 +187,14 @@ func (o OptInOutput) LastUpdatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptIn) pulumi.StringOutput { return v.LastUpdatedBy }).(pulumi.StringOutput)
 }
 
-// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 func (o OptInOutput) Principals() OptInPrincipalArrayOutput {
 	return o.ApplyT(func(v *OptIn) OptInPrincipalArrayOutput { return v.Principals }).(OptInPrincipalArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OptInOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptIn) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Structure for the resource. See Resource for more details.
 func (o OptInOutput) ResourceDatas() OptInResourceDataArrayOutput {
 	return o.ApplyT(func(v *OptIn) OptInResourceDataArrayOutput { return v.ResourceDatas }).(OptInResourceDataArrayOutput)
 }

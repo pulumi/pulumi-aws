@@ -17,34 +17,16 @@ public final class LogTransformerTransformerConfigRenameKeyEntryArgs extends com
 
     public static final LogTransformerTransformerConfigRenameKeyEntryArgs Empty = new LogTransformerTransformerConfigRenameKeyEntryArgs();
 
-    /**
-     * Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     @Import(name="overwriteIfExists")
     private @Nullable Output<Boolean> overwriteIfExists;
 
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     public Optional<Output<Boolean>> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
@@ -82,46 +64,20 @@ public final class LogTransformerTransformerConfigRenameKeyEntryArgs extends com
             $ = new LogTransformerTransformerConfigRenameKeyEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Specifies the key with the value that will be converted to a different type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Specifies the key with the value that will be converted to a different type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * * `renameTo` - (Required) Specifies the new name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(@Nullable Output<Boolean> overwriteIfExists) {
             $.overwriteIfExists = overwriteIfExists;
             return this;
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * * `renameTo` - (Required) Specifies the new name of the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(Boolean overwriteIfExists) {
             return overwriteIfExists(Output.of(overwriteIfExists));
         }

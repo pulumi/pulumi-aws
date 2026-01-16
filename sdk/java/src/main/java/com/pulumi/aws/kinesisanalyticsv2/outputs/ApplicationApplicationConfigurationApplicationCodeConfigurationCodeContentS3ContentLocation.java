@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
-    /**
-     * @return The ARN for the S3 bucket containing the application code.
-     * 
-     */
     private String bucketArn;
-    /**
-     * @return The file key for the object containing the application code.
-     * 
-     */
     private String fileKey;
-    /**
-     * @return The version of the object containing the application code.
-     * 
-     */
     private @Nullable String objectVersion;
 
     private ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation() {}
-    /**
-     * @return The ARN for the S3 bucket containing the application code.
-     * 
-     */
     public String bucketArn() {
         return this.bucketArn;
     }
-    /**
-     * @return The file key for the object containing the application code.
-     * 
-     */
     public String fileKey() {
         return this.fileKey;
     }
-    /**
-     * @return The version of the object containing the application code.
-     * 
-     */
     public Optional<String> objectVersion() {
         return Optional.ofNullable(this.objectVersion);
     }

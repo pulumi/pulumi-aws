@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionDurableConfig
     {
-        /// <summary>
-        /// Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-        /// </summary>
         public readonly int ExecutionTimeout;
-        /// <summary>
-        /// Number of days to retain the function's execution state. Valid value between 1 and 90. If not specified, the function's execution state is not retained. Defaults to 14.
-        /// </summary>
         public readonly int? RetentionPeriod;
 
         [OutputConstructor]

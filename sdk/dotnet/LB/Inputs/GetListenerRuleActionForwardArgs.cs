@@ -14,11 +14,6 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("stickinesses")]
         private InputList<Inputs.GetListenerRuleActionForwardStickinessInputArgs>? _stickinesses;
-
-        /// <summary>
-        /// Target group stickiness for the rule.
-        /// Detailed below.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleActionForwardStickinessInputArgs> Stickinesses
         {
             get => _stickinesses ?? (_stickinesses = new InputList<Inputs.GetListenerRuleActionForwardStickinessInputArgs>());
@@ -27,11 +22,6 @@ namespace Pulumi.Aws.LB.Inputs
 
         [Input("targetGroups")]
         private InputList<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs>? _targetGroups;
-
-        /// <summary>
-        /// Set of target groups for the action.
-        /// Detailed below.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs>());

@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an AWS Elemental MediaPackage Version 2 Channel Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mediapackagev2.ChannelGroup("example", {
- *     name: "example",
- *     description: "channel group for example channels",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Elemental MediaPackage Version 2 Channel Group using the channel group's `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:mediapackagev2/channelGroup:ChannelGroup example example
- * ```
- */
 export class ChannelGroup extends pulumi.CustomResource {
     /**
      * Get an existing ChannelGroup resource's state with the given name, ID, and optional extra
@@ -55,33 +32,12 @@ export class ChannelGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelGroup.__pulumiType;
     }
 
-    /**
-     * The ARN of the channel
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A description of the channel group
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The egress domain of the channel group
-     */
     declare public /*out*/ readonly egressDomain: pulumi.Output<string>;
-    /**
-     * A unique identifier naming the channel group
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,33 +79,12 @@ export class ChannelGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ChannelGroup resources.
  */
 export interface ChannelGroupState {
-    /**
-     * The ARN of the channel
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description of the channel group
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The egress domain of the channel group
-     */
     egressDomain?: pulumi.Input<string>;
-    /**
-     * A unique identifier naming the channel group
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -157,20 +92,8 @@ export interface ChannelGroupState {
  * The set of arguments for constructing a ChannelGroup resource.
  */
 export interface ChannelGroupArgs {
-    /**
-     * A description of the channel group
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A unique identifier naming the channel group
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

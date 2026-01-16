@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the user can interrupt a speech prompt attempt from the bot.
-        /// </summary>
         [Input("allowInterrupt")]
         public Input<bool>? AllowInterrupt { get; set; }
 
-        /// <summary>
-        /// Configuration block for the allowed input types of the prompt attempt. See `AllowedInputTypes`.
-        /// </summary>
         [Input("allowedInputTypes", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesGetArgs> AllowedInputTypes { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for settings on audio and DTMF input. See `AudioAndDtmfInputSpecification`.
-        /// </summary>
         [Input("audioAndDtmfInputSpecification")]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationGetArgs>? AudioAndDtmfInputSpecification { get; set; }
 
-        /// <summary>
-        /// Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-        /// </summary>
         [Input("mapBlockKey", required: true)]
         public Input<string> MapBlockKey { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the settings on text input. See `TextInputSpecification`.
-        /// </summary>
         [Input("textInputSpecification")]
         public Input<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationGetArgs>? TextInputSpecification { get; set; }
 

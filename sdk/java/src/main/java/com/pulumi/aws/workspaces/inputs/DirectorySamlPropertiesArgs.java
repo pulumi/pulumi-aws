@@ -15,47 +15,23 @@ public final class DirectorySamlPropertiesArgs extends com.pulumi.resources.Reso
 
     public static final DirectorySamlPropertiesArgs Empty = new DirectorySamlPropertiesArgs();
 
-    /**
-     * The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-     * 
-     */
     @Import(name="relayStateParameterName")
     private @Nullable Output<String> relayStateParameterName;
 
-    /**
-     * @return The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-     * 
-     */
     public Optional<Output<String>> relayStateParameterName() {
         return Optional.ofNullable(this.relayStateParameterName);
     }
 
-    /**
-     * Status of SAML 2.0 authentication. Default `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of SAML 2.0 authentication. Default `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The SAML 2.0 identity provider (IdP) user access URL.
-     * 
-     */
     @Import(name="userAccessUrl")
     private @Nullable Output<String> userAccessUrl;
 
-    /**
-     * @return The SAML 2.0 identity provider (IdP) user access URL.
-     * 
-     */
     public Optional<Output<String>> userAccessUrl() {
         return Optional.ofNullable(this.userAccessUrl);
     }
@@ -86,65 +62,29 @@ public final class DirectorySamlPropertiesArgs extends com.pulumi.resources.Reso
             $ = new DirectorySamlPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param relayStateParameterName The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relayStateParameterName(@Nullable Output<String> relayStateParameterName) {
             $.relayStateParameterName = relayStateParameterName;
             return this;
         }
 
-        /**
-         * @param relayStateParameterName The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relayStateParameterName(String relayStateParameterName) {
             return relayStateParameterName(Output.of(relayStateParameterName));
         }
 
-        /**
-         * @param status Status of SAML 2.0 authentication. Default `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of SAML 2.0 authentication. Default `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param userAccessUrl The SAML 2.0 identity provider (IdP) user access URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userAccessUrl(@Nullable Output<String> userAccessUrl) {
             $.userAccessUrl = userAccessUrl;
             return this;
         }
 
-        /**
-         * @param userAccessUrl The SAML 2.0 identity provider (IdP) user access URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userAccessUrl(String userAccessUrl) {
             return userAccessUrl(Output.of(userAccessUrl));
         }

@@ -46,14 +46,14 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
     }
 
     /**
-     * JSON policy document to use as the content for the new policy
+     * JSON policy document to use as the content for the new policy.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return JSON policy document to use as the content for the new policy
+     * @return JSON policy document to use as the content for the new policy.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -75,17 +75,9 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.policyVersion);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -93,16 +85,12 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
     /**
      * Type of access policy. Must be `data`.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Type of access policy. Must be `data`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -181,7 +169,7 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param policy JSON policy document to use as the content for the new policy
+         * @param policy JSON policy document to use as the content for the new policy.
          * 
          * @return builder
          * 
@@ -192,7 +180,7 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param policy JSON policy document to use as the content for the new policy
+         * @param policy JSON policy document to use as the content for the new policy.
          * 
          * @return builder
          * 
@@ -222,31 +210,17 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
             return policyVersion(Output.of(policyVersion));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
          * @param type Type of access policy. Must be `data`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -258,8 +232,6 @@ public final class ServerlessAccessPolicyState extends com.pulumi.resources.Reso
 
         /**
          * @param type Type of access policy. Must be `data`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

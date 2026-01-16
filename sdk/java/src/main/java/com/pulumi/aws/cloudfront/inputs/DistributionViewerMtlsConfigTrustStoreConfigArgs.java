@@ -17,47 +17,23 @@ public final class DistributionViewerMtlsConfigTrustStoreConfigArgs extends com.
 
     public static final DistributionViewerMtlsConfigTrustStoreConfigArgs Empty = new DistributionViewerMtlsConfigTrustStoreConfigArgs();
 
-    /**
-     * Whether to advertise the trust store CA names to clients. Defaults to `false`.
-     * 
-     */
     @Import(name="advertiseTrustStoreCaNames")
     private @Nullable Output<Boolean> advertiseTrustStoreCaNames;
 
-    /**
-     * @return Whether to advertise the trust store CA names to clients. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> advertiseTrustStoreCaNames() {
         return Optional.ofNullable(this.advertiseTrustStoreCaNames);
     }
 
-    /**
-     * Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-     * 
-     */
     @Import(name="ignoreCertificateExpiry")
     private @Nullable Output<Boolean> ignoreCertificateExpiry;
 
-    /**
-     * @return Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ignoreCertificateExpiry() {
         return Optional.ofNullable(this.ignoreCertificateExpiry);
     }
 
-    /**
-     * Identifier of the trust store to use for viewer mTLS.
-     * 
-     */
     @Import(name="trustStoreId", required=true)
     private Output<String> trustStoreId;
 
-    /**
-     * @return Identifier of the trust store to use for viewer mTLS.
-     * 
-     */
     public Output<String> trustStoreId() {
         return this.trustStoreId;
     }
@@ -88,65 +64,29 @@ public final class DistributionViewerMtlsConfigTrustStoreConfigArgs extends com.
             $ = new DistributionViewerMtlsConfigTrustStoreConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param advertiseTrustStoreCaNames Whether to advertise the trust store CA names to clients. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advertiseTrustStoreCaNames(@Nullable Output<Boolean> advertiseTrustStoreCaNames) {
             $.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             return this;
         }
 
-        /**
-         * @param advertiseTrustStoreCaNames Whether to advertise the trust store CA names to clients. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advertiseTrustStoreCaNames(Boolean advertiseTrustStoreCaNames) {
             return advertiseTrustStoreCaNames(Output.of(advertiseTrustStoreCaNames));
         }
 
-        /**
-         * @param ignoreCertificateExpiry Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreCertificateExpiry(@Nullable Output<Boolean> ignoreCertificateExpiry) {
             $.ignoreCertificateExpiry = ignoreCertificateExpiry;
             return this;
         }
 
-        /**
-         * @param ignoreCertificateExpiry Whether to ignore certificate expiry for viewer mTLS. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreCertificateExpiry(Boolean ignoreCertificateExpiry) {
             return ignoreCertificateExpiry(Output.of(ignoreCertificateExpiry));
         }
 
-        /**
-         * @param trustStoreId Identifier of the trust store to use for viewer mTLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreId(Output<String> trustStoreId) {
             $.trustStoreId = trustStoreId;
             return this;
         }
 
-        /**
-         * @param trustStoreId Identifier of the trust store to use for viewer mTLS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreId(String trustStoreId) {
             return trustStoreId(Output.of(trustStoreId));
         }

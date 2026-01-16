@@ -17,151 +17,47 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an App Runner Custom Domain association.
- * 
- * &gt; **NOTE:** After creation, you must use the information in the `certificateValidationRecords` attribute to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain (found in the `dnsTarget` attribute) and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name you associated. App Runner tracks domain validity in a certificate stored in AWS Certificate Manager (ACM).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.CustomDomainAssociation;
- * import com.pulumi.aws.apprunner.CustomDomainAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomDomainAssociation("example", CustomDomainAssociationArgs.builder()
- *             .domainName("example.com")
- *             .serviceArn(exampleAwsApprunnerService.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import App Runner Custom Domain Associations using the `domain_name` and `service_arn` separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-app/8fe1e10304f84fd2b0df550fe98a71fa
- * ```
- * 
- */
 @ResourceType(type="aws:apprunner/customDomainAssociation:CustomDomainAssociation")
 public class CustomDomainAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-     * 
-     */
     @Export(name="certificateValidationRecords", refs={List.class,CustomDomainAssociationCertificateValidationRecord.class}, tree="[0,1]")
     private Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
 
-    /**
-     * @return A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
-     * 
-     */
     public Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords() {
         return this.certificateValidationRecords;
     }
-    /**
-     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-     * 
-     */
     @Export(name="dnsTarget", refs={String.class}, tree="[0]")
     private Output<String> dnsTarget;
 
-    /**
-     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
-     * 
-     */
     public Output<String> dnsTarget() {
         return this.dnsTarget;
     }
-    /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-     * 
-     */
     @Export(name="enableWwwSubdomain", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableWwwSubdomain;
 
-    /**
-     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enableWwwSubdomain() {
         return Codegen.optional(this.enableWwwSubdomain);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the App Runner service.
-     * 
-     */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
-    /**
-     * @return ARN of the App Runner service.
-     * 
-     */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
-    /**
-     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

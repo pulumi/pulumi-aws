@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceClientAlias {
-    /**
-     * @return Name that you use in the applications of client tasks to connect to this service.
-     * 
-     */
     private @Nullable String dnsName;
-    /**
-     * @return Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Configuration block for test traffic routing rules. See below.
-     * 
-     */
     private @Nullable List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules;
 
     private ServiceServiceConnectConfigurationServiceClientAlias() {}
-    /**
-     * @return Name that you use in the applications of client tasks to connect to this service.
-     * 
-     */
     public Optional<String> dnsName() {
         return Optional.ofNullable(this.dnsName);
     }
-    /**
-     * @return Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Configuration block for test traffic routing rules. See below.
-     * 
-     */
     public List<ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule> testTrafficRules() {
         return this.testTrafficRules == null ? List.of() : this.testTrafficRules;
     }

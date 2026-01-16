@@ -16,47 +16,23 @@ public final class ResolverFirewallConfigArgs extends com.pulumi.resources.Resou
 
     public static final ResolverFirewallConfigArgs Empty = new ResolverFirewallConfigArgs();
 
-    /**
-     * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="firewallFailOpen")
     private @Nullable Output<String> firewallFailOpen;
 
-    /**
-     * @return Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> firewallFailOpen() {
         return Optional.ofNullable(this.firewallFailOpen);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC that the configuration is for.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of the VPC that the configuration is for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -87,65 +63,29 @@ public final class ResolverFirewallConfigArgs extends com.pulumi.resources.Resou
             $ = new ResolverFirewallConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallFailOpen Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallFailOpen(@Nullable Output<String> firewallFailOpen) {
             $.firewallFailOpen = firewallFailOpen;
             return this;
         }
 
-        /**
-         * @param firewallFailOpen Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallFailOpen(String firewallFailOpen) {
             return firewallFailOpen(Output.of(firewallFailOpen));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId The ID of the VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of the VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

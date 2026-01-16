@@ -26,9 +26,6 @@ MYPY = False
 if not MYPY:
     class FindingsFilterFindingCriteriaArgsDict(TypedDict):
         criterions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgsDict']]]]
-        """
-        A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
 elif False:
     FindingsFilterFindingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -36,18 +33,12 @@ elif False:
 class FindingsFilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterions: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
         if criterions is not None:
             pulumi.set(__self__, "criterions", criterions)
 
     @_builtins.property
     @pulumi.getter
     def criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]]:
-        """
-        A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
         return pulumi.get(self, "criterions")
 
     @criterions.setter
@@ -58,37 +49,13 @@ class FindingsFilterFindingCriteriaArgs:
 if not MYPY:
     class FindingsFilterFindingCriteriaCriterionArgsDict(TypedDict):
         field: pulumi.Input[_builtins.str]
-        """
-        The name of the field to be evaluated.
-        """
         eq_exact_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        """
         eqs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         gt: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the property is greater than the specified value.
-        """
         gte: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the property is greater than or equal to the specified value.
-        """
         lt: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the property is less than the specified value.
-        """
         lte: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the property is less than or equal to the specified value.
-        """
         neqs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
 elif False:
     FindingsFilterFindingCriteriaCriterionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -103,16 +70,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
                  lt: Optional[pulumi.Input[_builtins.str]] = None,
                  lte: Optional[pulumi.Input[_builtins.str]] = None,
                  neqs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] field: The name of the field to be evaluated.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] eq_exact_matches: The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] eqs: The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        :param pulumi.Input[_builtins.str] gt: The value for the property is greater than the specified value.
-        :param pulumi.Input[_builtins.str] gte: The value for the property is greater than or equal to the specified value.
-        :param pulumi.Input[_builtins.str] lt: The value for the property is less than the specified value.
-        :param pulumi.Input[_builtins.str] lte: The value for the property is less than or equal to the specified value.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] neqs: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         pulumi.set(__self__, "field", field)
         if eq_exact_matches is not None:
             pulumi.set(__self__, "eq_exact_matches", eq_exact_matches)
@@ -132,9 +89,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def field(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the field to be evaluated.
-        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -144,9 +98,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter(name="eqExactMatches")
     def eq_exact_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        """
         return pulumi.get(self, "eq_exact_matches")
 
     @eq_exact_matches.setter
@@ -156,9 +107,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def eqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         return pulumi.get(self, "eqs")
 
     @eqs.setter
@@ -168,9 +116,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def gt(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value for the property is greater than the specified value.
-        """
         return pulumi.get(self, "gt")
 
     @gt.setter
@@ -180,9 +125,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value for the property is greater than or equal to the specified value.
-        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -192,9 +134,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def lt(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value for the property is less than the specified value.
-        """
         return pulumi.get(self, "lt")
 
     @lt.setter
@@ -204,9 +143,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value for the property is less than or equal to the specified value.
-        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -216,9 +152,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @_builtins.property
     @pulumi.getter
     def neqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         return pulumi.get(self, "neqs")
 
     @neqs.setter

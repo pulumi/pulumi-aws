@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
-    /**
-     * @return Name of the Kinesis Firehose Delivery Stream to send findings to.
-     * 
-     */
     private String deliveryStream;
 
     private GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose() {}
-    /**
-     * @return Name of the Kinesis Firehose Delivery Stream to send findings to.
-     * 
-     */
     public String deliveryStream() {
         return this.deliveryStream;
     }

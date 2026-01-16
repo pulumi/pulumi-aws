@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterKubernetesNetworkConfigResult
     {
-        /// <summary>
-        /// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult> ElasticLoadBalancings;
-        /// <summary>
-        /// `Ipv4` or `Ipv6`.
-        /// </summary>
         public readonly string IpFamily;
-        /// <summary>
-        /// The CIDR block to assign Kubernetes pod and service IP addresses from if `Ipv4` was specified when the cluster was created.
-        /// </summary>
         public readonly string ServiceIpv4Cidr;
-        /// <summary>
-        /// The CIDR block to assign Kubernetes pod and service IP addresses from if `Ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
-        /// </summary>
         public readonly string ServiceIpv6Cidr;
 
         [OutputConstructor]

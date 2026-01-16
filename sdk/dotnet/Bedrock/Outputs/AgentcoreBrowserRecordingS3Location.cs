@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreBrowserRecordingS3Location
     {
-        /// <summary>
-        /// Name of the S3 bucket where recordings are stored.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// S3 key prefix for recording files.
-        /// </summary>
         public readonly string Prefix;
 
         [OutputConstructor]

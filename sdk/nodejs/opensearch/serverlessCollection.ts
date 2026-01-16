@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Collection.
- *
- * > **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
- *
- * > **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
- *     type: "encryption",
- *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example"],
- *             ResourceType: "collection",
- *         }],
- *         AWSOwnedKey: true,
- *     }),
- * });
- * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {name: "example"}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
- * ```
- */
 export class ServerlessCollection extends pulumi.CustomResource {
     /**
      * Get an existing ServerlessCollection resource's state with the given name, ID, and optional extra
@@ -74,9 +35,6 @@ export class ServerlessCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerlessCollection.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the collection.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
@@ -96,21 +54,13 @@ export class ServerlessCollection extends pulumi.CustomResource {
     declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
      * Name of the collection.
-     *
-     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     declare public readonly standbyReplicas: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.opensearch.ServerlessCollectionTimeouts | undefined>;
@@ -168,9 +118,6 @@ export class ServerlessCollection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerlessCollection resources.
  */
 export interface ServerlessCollectionState {
-    /**
-     * Amazon Resource Name (ARN) of the collection.
-     */
     arn?: pulumi.Input<string>;
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
@@ -190,21 +137,13 @@ export interface ServerlessCollectionState {
     kmsKeyArn?: pulumi.Input<string>;
     /**
      * Name of the collection.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     standbyReplicas?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
@@ -224,21 +163,13 @@ export interface ServerlessCollectionArgs {
     description?: pulumi.Input<string>;
     /**
      * Name of the collection.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     standbyReplicas?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
     /**

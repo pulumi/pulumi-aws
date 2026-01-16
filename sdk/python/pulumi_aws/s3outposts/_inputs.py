@@ -24,9 +24,6 @@ MYPY = False
 if not MYPY:
     class EndpointNetworkInterfaceArgsDict(TypedDict):
         network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the Elastic Network Interface (ENI).
-        """
 elif False:
     EndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -34,18 +31,12 @@ elif False:
 class EndpointNetworkInterfaceArgs:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] network_interface_id: Identifier of the Elastic Network Interface (ENI).
-        """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the Elastic Network Interface (ENI).
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter

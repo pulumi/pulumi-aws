@@ -18,55 +18,23 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
 
     public static final GetNetworkInsightsAnalysisArgs Empty = new GetNetworkInsightsAnalysisArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsAnalysisFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<Output<List<GetNetworkInsightsAnalysisFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Network Insights Analysis to select.
-     * 
-     */
     @Import(name="networkInsightsAnalysisId")
     private @Nullable Output<String> networkInsightsAnalysisId;
 
-    /**
-     * @return ID of the Network Insights Analysis to select.
-     * 
-     */
     public Optional<Output<String>> networkInsightsAnalysisId() {
         return Optional.ofNullable(this.networkInsightsAnalysisId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -105,87 +73,33 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
             $ = new GetNetworkInsightsAnalysisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetNetworkInsightsAnalysisFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetNetworkInsightsAnalysisFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNetworkInsightsAnalysisFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param networkInsightsAnalysisId ID of the Network Insights Analysis to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsAnalysisId(@Nullable Output<String> networkInsightsAnalysisId) {
             $.networkInsightsAnalysisId = networkInsightsAnalysisId;
             return this;
         }
 
-        /**
-         * @param networkInsightsAnalysisId ID of the Network Insights Analysis to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsAnalysisId(String networkInsightsAnalysisId) {
             return networkInsightsAnalysisId(Output.of(networkInsightsAnalysisId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

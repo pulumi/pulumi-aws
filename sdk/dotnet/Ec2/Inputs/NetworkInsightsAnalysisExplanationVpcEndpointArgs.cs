@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class NetworkInsightsAnalysisExplanationVpcEndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Network Insights Analysis.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the Network Insights Analysis.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 

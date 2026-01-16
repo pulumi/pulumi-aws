@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketIntelligentTieringConfigurationFilter
     {
-        /// <summary>
-        /// Object key name prefix that identifies the subset of objects to which the configuration applies.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// All of these tags must exist in the object's tag set in order for the configuration to apply.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

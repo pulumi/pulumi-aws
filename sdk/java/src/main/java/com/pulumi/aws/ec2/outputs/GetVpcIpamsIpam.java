@@ -14,201 +14,73 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcIpamsIpam {
-    /**
-     * @return ARN of the IPAM.
-     * 
-     */
     private String arn;
-    /**
-     * @return The default resource discovery association ID.
-     * 
-     */
     private String defaultResourceDiscoveryAssociationId;
-    /**
-     * @return The default resource discovery ID.
-     * 
-     */
     private String defaultResourceDiscoveryId;
-    /**
-     * @return Description for the IPAM.
-     * 
-     */
     private String description;
-    /**
-     * @return If private GUA is enabled.
-     * 
-     */
     private Boolean enablePrivateGua;
-    /**
-     * @return ID of the IPAM resource.
-     * 
-     */
     private String id;
-    /**
-     * @return Region that the IPAM exists in.
-     * 
-     */
     private String ipamRegion;
     private String meteredAccount;
-    /**
-     * @return Regions that the IPAM is configured to operate in.
-     * 
-     */
     private List<GetVpcIpamsIpamOperatingRegion> operatingRegions;
-    /**
-     * @return ID of the account that owns this IPAM.
-     * 
-     */
     private String ownerId;
-    /**
-     * @return ID of the default private scope.
-     * 
-     */
     private String privateDefaultScopeId;
-    /**
-     * @return ID of the default public scope.
-     * 
-     */
     private String publicDefaultScopeId;
-    /**
-     * @return Number of resource discovery associations.
-     * 
-     */
     private Integer resourceDiscoveryAssociationCount;
-    /**
-     * @return Number of scopes on this IPAM.
-     * 
-     */
     private Integer scopeCount;
-    /**
-     * @return Current state of the IPAM.
-     * 
-     */
     private String state;
-    /**
-     * @return State message of the IPAM.
-     * 
-     */
     private String stateMessage;
-    /**
-     * @return IPAM Tier.
-     * 
-     */
     private String tier;
 
     private GetVpcIpamsIpam() {}
-    /**
-     * @return ARN of the IPAM.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The default resource discovery association ID.
-     * 
-     */
     public String defaultResourceDiscoveryAssociationId() {
         return this.defaultResourceDiscoveryAssociationId;
     }
-    /**
-     * @return The default resource discovery ID.
-     * 
-     */
     public String defaultResourceDiscoveryId() {
         return this.defaultResourceDiscoveryId;
     }
-    /**
-     * @return Description for the IPAM.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return If private GUA is enabled.
-     * 
-     */
     public Boolean enablePrivateGua() {
         return this.enablePrivateGua;
     }
-    /**
-     * @return ID of the IPAM resource.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Region that the IPAM exists in.
-     * 
-     */
     public String ipamRegion() {
         return this.ipamRegion;
     }
     public String meteredAccount() {
         return this.meteredAccount;
     }
-    /**
-     * @return Regions that the IPAM is configured to operate in.
-     * 
-     */
     public List<GetVpcIpamsIpamOperatingRegion> operatingRegions() {
         return this.operatingRegions;
     }
-    /**
-     * @return ID of the account that owns this IPAM.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
-    /**
-     * @return ID of the default private scope.
-     * 
-     */
     public String privateDefaultScopeId() {
         return this.privateDefaultScopeId;
     }
-    /**
-     * @return ID of the default public scope.
-     * 
-     */
     public String publicDefaultScopeId() {
         return this.publicDefaultScopeId;
     }
-    /**
-     * @return Number of resource discovery associations.
-     * 
-     */
     public Integer resourceDiscoveryAssociationCount() {
         return this.resourceDiscoveryAssociationCount;
     }
-    /**
-     * @return Number of scopes on this IPAM.
-     * 
-     */
     public Integer scopeCount() {
         return this.scopeCount;
     }
-    /**
-     * @return Current state of the IPAM.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return State message of the IPAM.
-     * 
-     */
     public String stateMessage() {
         return this.stateMessage;
     }
-    /**
-     * @return IPAM Tier.
-     * 
-     */
     public String tier() {
         return this.tier;
     }

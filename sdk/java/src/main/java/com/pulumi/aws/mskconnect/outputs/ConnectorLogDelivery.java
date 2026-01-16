@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorLogDelivery {
-    /**
-     * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `workerLogDelivery` Block for details.
-     * 
-     */
     private ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery;
 
     private ConnectorLogDelivery() {}
-    /**
-     * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `workerLogDelivery` Block for details.
-     * 
-     */
     public ConnectorLogDeliveryWorkerLogDelivery workerLogDelivery() {
         return this.workerLogDelivery;
     }

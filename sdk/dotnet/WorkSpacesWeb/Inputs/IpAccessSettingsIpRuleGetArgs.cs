@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
     public sealed class IpAccessSettingsIpRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the IP access settings.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The IP range of the IP rule.
-        /// </summary>
         [Input("ipRange", required: true)]
         public Input<string> IpRange { get; set; } = null!;
 

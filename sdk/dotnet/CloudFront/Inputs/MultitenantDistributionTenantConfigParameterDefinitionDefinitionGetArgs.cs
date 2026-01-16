@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("stringSchemas")]
         private InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaGetArgs>? _stringSchemas;
-
-        /// <summary>
-        /// String schema configuration. See String Schema below.
-        /// </summary>
         public InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaGetArgs> StringSchemas
         {
             get => _stringSchemas ?? (_stringSchemas = new InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaGetArgs>());

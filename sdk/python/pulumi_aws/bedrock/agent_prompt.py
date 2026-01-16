@@ -30,15 +30,6 @@ class AgentPromptArgs:
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]] = None):
         """
         The set of arguments for constructing a AgentPrompt resource.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
-        :param pulumi.Input[_builtins.str] description: Description of the prompt.
-        :param pulumi.Input[_builtins.str] name: Name of the prompt.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
         """
         if customer_encryption_key_arn is not None:
             pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
@@ -58,9 +49,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
@@ -70,9 +58,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter(name="defaultVariant")
     def default_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the default variant for your prompt.
-        """
         return pulumi.get(self, "default_variant")
 
     @default_variant.setter
@@ -82,9 +67,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the prompt.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -94,11 +76,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the prompt.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -108,9 +85,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -120,9 +94,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -132,9 +103,6 @@ class AgentPromptArgs:
     @_builtins.property
     @pulumi.getter
     def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
-        """
-        A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        """
         return pulumi.get(self, "variants")
 
     @variants.setter
@@ -159,20 +127,6 @@ class _AgentPromptState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentPrompt resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the prompt.
-        :param pulumi.Input[_builtins.str] created_at: Time at which the prompt was created.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
-        :param pulumi.Input[_builtins.str] description: Description of the prompt.
-        :param pulumi.Input[_builtins.str] name: Name of the prompt.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: Time at which the prompt was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        :param pulumi.Input[_builtins.str] version: Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -202,9 +156,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the prompt.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -214,9 +165,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time at which the prompt was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -226,9 +174,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
@@ -238,9 +183,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter(name="defaultVariant")
     def default_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the default variant for your prompt.
-        """
         return pulumi.get(self, "default_variant")
 
     @default_variant.setter
@@ -250,9 +192,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the prompt.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -262,11 +201,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the prompt.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -276,9 +210,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -288,9 +219,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -300,9 +228,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -312,9 +237,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time at which the prompt was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -324,9 +246,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
-        """
-        A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        """
         return pulumi.get(self, "variants")
 
     @variants.setter
@@ -336,9 +255,6 @@ class _AgentPromptState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -361,75 +277,9 @@ class AgentPrompt(pulumi.CustomResource):
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Agents Prompt.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentPrompt("example",
-            name="MyPrompt",
-            description="My prompt description.")
-        ```
-
-        ### With Variants
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentPrompt("example",
-            name="MakePlaylist",
-            description="My first prompt.",
-            default_variant="Variant1",
-            variants=[{
-                "name": "Variant1",
-                "model_id": "amazon.titan-text-express-v1",
-                "inference_configuration": {
-                    "text": {
-                        "temperature": 0.8,
-                    },
-                },
-                "template_type": "TEXT",
-                "template_configuration": {
-                    "text": {
-                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
-                        "input_variables": [
-                            {
-                                "name": "genre",
-                            },
-                            {
-                                "name": "number",
-                            },
-                        ],
-                    },
-                },
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
-        ```
-
+        Create a AgentPrompt resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
-        :param pulumi.Input[_builtins.str] description: Description of the prompt.
-        :param pulumi.Input[_builtins.str] name: Name of the prompt.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
         """
         ...
     @overload
@@ -438,64 +288,7 @@ class AgentPrompt(pulumi.CustomResource):
                  args: Optional[AgentPromptArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Agents Prompt.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentPrompt("example",
-            name="MyPrompt",
-            description="My prompt description.")
-        ```
-
-        ### With Variants
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentPrompt("example",
-            name="MakePlaylist",
-            description="My first prompt.",
-            default_variant="Variant1",
-            variants=[{
-                "name": "Variant1",
-                "model_id": "amazon.titan-text-express-v1",
-                "inference_configuration": {
-                    "text": {
-                        "temperature": 0.8,
-                    },
-                },
-                "template_type": "TEXT",
-                "template_configuration": {
-                    "text": {
-                        "text": "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
-                        "input_variables": [
-                            {
-                                "name": "genre",
-                            },
-                            {
-                                "name": "number",
-                            },
-                        ],
-                    },
-                },
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
-        ```
-
+        Create a AgentPrompt resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentPromptArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -568,20 +361,6 @@ class AgentPrompt(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the prompt.
-        :param pulumi.Input[_builtins.str] created_at: Time at which the prompt was created.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
-        :param pulumi.Input[_builtins.str] description: Description of the prompt.
-        :param pulumi.Input[_builtins.str] name: Name of the prompt.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: Time at which the prompt was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]] variants: A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        :param pulumi.Input[_builtins.str] version: Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -604,98 +383,60 @@ class AgentPrompt(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the prompt.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time at which the prompt was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="defaultVariant")
     def default_variant(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of the default variant for your prompt.
-        """
         return pulumi.get(self, "default_variant")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the prompt.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the prompt.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time at which the prompt was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
     @_builtins.property
     @pulumi.getter
     def variants(self) -> pulumi.Output[Optional[Sequence['outputs.AgentPromptVariant']]]:
-        """
-        A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        """
         return pulumi.get(self, "variants")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-        """
         return pulumi.get(self, "version")
 

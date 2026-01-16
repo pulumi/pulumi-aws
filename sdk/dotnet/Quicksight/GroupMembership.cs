@@ -9,36 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing QuickSight Group Membership
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.GroupMembership("example", new()
-    ///     {
-    ///         GroupName = "all-access-users",
-    ///         MemberName = "john_smith",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource
     {
@@ -48,27 +18,15 @@ namespace Pulumi.Aws.Quicksight
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the group in which the member will be added.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the member to add to the group.
-        /// </summary>
         [Output("memberName")]
         public Output<string> MemberName { get; private set; } = null!;
 
-        /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `Default`.
-        /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -121,27 +79,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the group in which the member will be added.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the member to add to the group.
-        /// </summary>
         [Input("memberName", required: true)]
         public Input<string> MemberName { get; set; } = null!;
 
-        /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -159,27 +105,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the group in which the member will be added.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// The name of the member to add to the group.
-        /// </summary>
         [Input("memberName")]
         public Input<string>? MemberName { get; set; }
 
-        /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

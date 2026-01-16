@@ -15,69 +15,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC NAT Gateway EIP Association.
- * 
- * !&gt; **WARNING:** You should not use the `aws.ec2.NatGatewayEipAssociation` resource in conjunction with an `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NatGatewayEipAssociation;
- * import com.pulumi.aws.ec2.NatGatewayEipAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NatGatewayEipAssociation("example", NatGatewayEipAssociationArgs.builder()
- *             .allocationId(exampleAwsEip.id())
- *             .natGatewayId(exampleAwsNatGateway.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC NAT Gateway EIP Association using the `nat_gateway_id,allocation_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation")
 public class NatGatewayEipAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     * 
-     */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
-    /**
-     * @return The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     * 
-     */
     public Output<String> allocationId() {
         return this.allocationId;
     }
@@ -87,35 +29,15 @@ public class NatGatewayEipAssociation extends com.pulumi.resources.CustomResourc
     public Output<String> associationId() {
         return this.associationId;
     }
-    /**
-     * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="natGatewayId", refs={String.class}, tree="[0]")
     private Output<String> natGatewayId;
 
-    /**
-     * @return The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> natGatewayId() {
         return this.natGatewayId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

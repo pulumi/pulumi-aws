@@ -9,112 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
-    /// <summary>
-    /// Manages an Amazon MSK Serverless cluster.
-    /// 
-    /// &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Msk.ServerlessCluster("example", new()
-    ///     {
-    ///         ClusterName = "Example",
-    ///         VpcConfigs = new[]
-    ///         {
-    ///             new Aws.Msk.Inputs.ServerlessClusterVpcConfigArgs
-    ///             {
-    ///                 SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///                 SecurityGroupIds = new[]
-    ///                 {
-    ///                     exampleAwsSecurityGroup.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///         ClientAuthentication = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationArgs
-    ///         {
-    ///             Sasl = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslArgs
-    ///             {
-    ///                 Iam = new Aws.Msk.Inputs.ServerlessClusterClientAuthenticationSaslIamArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:msk/serverlessCluster:ServerlessCluster")]
     public partial class ServerlessCluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the serverless cluster.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-        /// </summary>
         [Output("bootstrapBrokersSaslIam")]
         public Output<string> BootstrapBrokersSaslIam { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies client authentication information for the serverless cluster. See below.
-        /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ServerlessClusterClientAuthentication> ClientAuthentication { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the serverless cluster.
-        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
-        /// <summary>
-        /// UUID of the serverless cluster, for use in IAM policies.
-        /// </summary>
         [Output("clusterUuid")]
         public Output<string> ClusterUuid { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC configuration information. See below.
-        /// </summary>
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.ServerlessClusterVpcConfig>> VpcConfigs { get; private set; } = null!;
 
@@ -164,30 +85,17 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ServerlessClusterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies client authentication information for the serverless cluster. See below.
-        /// </summary>
         [Input("clientAuthentication", required: true)]
         public Input<Inputs.ServerlessClusterClientAuthenticationArgs> ClientAuthentication { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the serverless cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -196,10 +104,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("vpcConfigs", required: true)]
         private InputList<Inputs.ServerlessClusterVpcConfigArgs>? _vpcConfigs;
-
-        /// <summary>
-        /// VPC configuration information. See below.
-        /// </summary>
         public InputList<Inputs.ServerlessClusterVpcConfigArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.ServerlessClusterVpcConfigArgs>());
@@ -214,48 +118,26 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ServerlessClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the serverless cluster.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-        /// </summary>
         [Input("bootstrapBrokersSaslIam")]
         public Input<string>? BootstrapBrokersSaslIam { get; set; }
 
-        /// <summary>
-        /// Specifies client authentication information for the serverless cluster. See below.
-        /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ServerlessClusterClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
 
-        /// <summary>
-        /// The name of the serverless cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        /// <summary>
-        /// UUID of the serverless cluster, for use in IAM policies.
-        /// </summary>
         [Input("clusterUuid")]
         public Input<string>? ClusterUuid { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -264,10 +146,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -276,10 +154,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("vpcConfigs")]
         private InputList<Inputs.ServerlessClusterVpcConfigGetArgs>? _vpcConfigs;
-
-        /// <summary>
-        /// VPC configuration information. See below.
-        /// </summary>
         public InputList<Inputs.ServerlessClusterVpcConfigGetArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.ServerlessClusterVpcConfigGetArgs>());

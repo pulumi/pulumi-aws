@@ -15,32 +15,16 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionArgs extends
 
     public static final FirewallPolicyFirewallPolicyStatelessCustomActionArgs Empty = new FirewallPolicyFirewallPolicyStatelessCustomActionArgs();
 
-    /**
-     * A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
-     * 
-     */
     @Import(name="actionDefinition", required=true)
     private Output<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs> actionDefinition;
 
-    /**
-     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
-     * 
-     */
     public Output<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs> actionDefinition() {
         return this.actionDefinition;
     }
 
-    /**
-     * A friendly name of the custom action.
-     * 
-     */
     @Import(name="actionName", required=true)
     private Output<String> actionName;
 
-    /**
-     * @return A friendly name of the custom action.
-     * 
-     */
     public Output<String> actionName() {
         return this.actionName;
     }
@@ -70,44 +54,20 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionArgs extends
             $ = new FirewallPolicyFirewallPolicyStatelessCustomActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionDefinition(Output<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs> actionDefinition) {
             $.actionDefinition = actionDefinition;
             return this;
         }
 
-        /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs actionDefinition) {
             return actionDefinition(Output.of(actionDefinition));
         }
 
-        /**
-         * @param actionName A friendly name of the custom action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionName(Output<String> actionName) {
             $.actionName = actionName;
             return this;
         }
 
-        /**
-         * @param actionName A friendly name of the custom action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionName(String actionName) {
             return actionName(Output.of(actionName));
         }

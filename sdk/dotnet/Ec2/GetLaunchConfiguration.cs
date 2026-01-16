@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetLaunchConfiguration
     {
-        /// <summary>
-        /// Provides information about a Launch Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetLaunchConfiguration.Invoke(new()
-        ///     {
-        ///         Name = "test-launch-config",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLaunchConfigurationResult> InvokeAsync(GetLaunchConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchConfigurationResult>("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args ?? new GetLaunchConfigurationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Launch Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetLaunchConfiguration.Invoke(new()
-        ///     {
-        ///         Name = "test-launch-config",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLaunchConfigurationResult> Invoke(GetLaunchConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchConfigurationResult>("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args ?? new GetLaunchConfigurationInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Launch Configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetLaunchConfiguration.Invoke(new()
-        ///     {
-        ///         Name = "test-launch-config",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLaunchConfigurationResult> Invoke(GetLaunchConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchConfigurationResult>("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args ?? new GetLaunchConfigurationInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetLaunchConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the launch configuration.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetLaunchConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the launch configuration.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,78 +54,27 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetLaunchConfigurationResult
     {
-        /// <summary>
-        /// Amazon Resource Name of the launch configuration.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Whether a Public IP address is associated with the instance.
-        /// </summary>
         public readonly bool AssociatePublicIpAddress;
-        /// <summary>
-        /// EBS Block Devices attached to the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationEbsBlockDeviceResult> EbsBlockDevices;
-        /// <summary>
-        /// Whether the launched EC2 instance will be EBS-optimized.
-        /// </summary>
         public readonly bool EbsOptimized;
-        /// <summary>
-        /// Whether Detailed Monitoring is Enabled.
-        /// </summary>
         public readonly bool EnableMonitoring;
-        /// <summary>
-        /// The Ephemeral volumes on the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationEphemeralBlockDeviceResult> EphemeralBlockDevices;
-        /// <summary>
-        /// The IAM Instance Profile to associate with launched instances.
-        /// </summary>
         public readonly string IamInstanceProfile;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// EC2 Image ID of the instance.
-        /// </summary>
         public readonly string ImageId;
-        /// <summary>
-        /// Instance Type of the instance to launch.
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// Key Name that should be used for the instance.
-        /// </summary>
         public readonly string KeyName;
-        /// <summary>
-        /// Metadata options for the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationMetadataOptionResult> MetadataOptions;
-        /// <summary>
-        /// Name of the launch configuration.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Tenancy of the instance.
-        /// </summary>
         public readonly string PlacementTenancy;
         public readonly string Region;
-        /// <summary>
-        /// Root Block Device of the instance.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationRootBlockDeviceResult> RootBlockDevices;
-        /// <summary>
-        /// List of associated Security Group IDS.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// Price to use for reserving Spot instances.
-        /// </summary>
         public readonly string SpotPrice;
-        /// <summary>
-        /// User Data of the instance.
-        /// </summary>
         public readonly string UserData;
 
         [OutputConstructor]

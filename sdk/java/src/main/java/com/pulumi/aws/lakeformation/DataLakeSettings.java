@@ -19,355 +19,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
- * 
- * &gt; **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
- * 
- * ## Example Usage
- * 
- * ### Data Lake Admins
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
- *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Create Default Permissions
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
- *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
- *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
- *                 .permissions(                
- *                     "SELECT",
- *                     "ALTER",
- *                     "DROP")
- *                 .principal(test.arn())
- *                 .build())
- *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions("ALL")
- *                 .principal(testAwsIamRole.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Enable EMR access to LakeFormation resources
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
- *             .admins(            
- *                 test.arn(),
- *                 testAwsIamRole.arn())
- *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
- *                 .permissions(                
- *                     "SELECT",
- *                     "ALTER",
- *                     "DROP")
- *                 .principal(test.arn())
- *                 .build())
- *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions("ALL")
- *                 .principal(testAwsIamRole.arn())
- *                 .build())
- *             .allowExternalDataFiltering(true)
- *             .externalDataFilteringAllowLists(            
- *                 current.accountId(),
- *                 thirdParty.accountId())
- *             .authorizedSessionTagValueLists("Amazon EMR")
- *             .allowFullTableExternalDataAccess(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Change Cross Account Version
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
- *             .parameters(Map.of("CROSS_ACCOUNT_VERSION", "3"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:lakeformation/dataLakeSettings:DataLakeSettings")
 public class DataLakeSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-     * 
-     */
     @Export(name="admins", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> admins;
 
-    /**
-     * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-     * 
-     */
     public Output<List<String>> admins() {
         return this.admins;
     }
-    /**
-     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-     * 
-     */
     @Export(name="allowExternalDataFiltering", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowExternalDataFiltering;
 
-    /**
-     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-     * 
-     */
     public Output<Optional<Boolean>> allowExternalDataFiltering() {
         return Codegen.optional(this.allowExternalDataFiltering);
     }
-    /**
-     * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     * 
-     */
     @Export(name="allowFullTableExternalDataAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowFullTableExternalDataAccess;
 
-    /**
-     * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     * 
-     */
     public Output<Optional<Boolean>> allowFullTableExternalDataAccess() {
         return Codegen.optional(this.allowFullTableExternalDataAccess);
     }
-    /**
-     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
-     * 
-     */
     @Export(name="authorizedSessionTagValueLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authorizedSessionTagValueLists;
 
-    /**
-     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
-     * 
-     */
     public Output<List<String>> authorizedSessionTagValueLists() {
         return this.authorizedSessionTagValueLists;
     }
-    /**
-     * Identifier for the Data Catalog. By default, the account ID.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, the account ID.
-     * 
-     */
     public Output<Optional<String>> catalogId() {
         return Codegen.optional(this.catalogId);
     }
-    /**
-     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     * 
-     */
     @Export(name="createDatabaseDefaultPermissions", refs={List.class,DataLakeSettingsCreateDatabaseDefaultPermission.class}, tree="[0,1]")
     private Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
 
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     * 
-     */
     public Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions() {
         return this.createDatabaseDefaultPermissions;
     }
-    /**
-     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     * 
-     */
     @Export(name="createTableDefaultPermissions", refs={List.class,DataLakeSettingsCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions;
 
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     * 
-     */
     public Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
     }
-    /**
-     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-     * 
-     */
     @Export(name="externalDataFilteringAllowLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> externalDataFilteringAllowLists;
 
-    /**
-     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-     * 
-     */
     public Output<List<String>> externalDataFilteringAllowLists() {
         return this.externalDataFilteringAllowLists;
     }
-    /**
-     * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
-     * 
-     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
-    /**
-     * @return Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
-     * 
-     */
     public Output<Map<String,String>> parameters() {
         return this.parameters;
     }
-    /**
-     * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-     * 
-     */
     @Export(name="readOnlyAdmins", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> readOnlyAdmins;
 
-    /**
-     * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-     * 
-     */
     public Output<List<String>> readOnlyAdmins() {
         return this.readOnlyAdmins;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
-     * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
-     * 
-     */
     @Export(name="trustedResourceOwners", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> trustedResourceOwners;
 
-    /**
-     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
-     * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
-     * 
-     */
     public Output<List<String>> trustedResourceOwners() {
         return this.trustedResourceOwners;
     }

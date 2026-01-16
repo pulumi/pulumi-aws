@@ -11,180 +11,12 @@ namespace Pulumi.Aws.Emr
 {
     public static class GetSupportedInstanceTypes
     {
-        /// <summary>
-        /// Data source for managing AWS EMR Supported Instance Types.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = "ebs-6.15.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### With a Lifecycle Pre-Condition
-        /// 
-        /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var instanceType = "r7g.large";
-        /// 
-        ///     var releaseLabel = "emr-6.15.0";
-        /// 
-        ///     var test = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = releaseLabel,
-        ///     });
-        /// 
-        ///     var testCluster = new Aws.Emr.Cluster("test", new()
-        ///     {
-        ///         ReleaseLabel = releaseLabel,
-        ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
-        ///         {
-        ///             InstanceType = instanceType,
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSupportedInstanceTypesResult> InvokeAsync(GetSupportedInstanceTypesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS EMR Supported Instance Types.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = "ebs-6.15.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### With a Lifecycle Pre-Condition
-        /// 
-        /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var instanceType = "r7g.large";
-        /// 
-        ///     var releaseLabel = "emr-6.15.0";
-        /// 
-        ///     var test = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = releaseLabel,
-        ///     });
-        /// 
-        ///     var testCluster = new Aws.Emr.Cluster("test", new()
-        ///     {
-        ///         ReleaseLabel = releaseLabel,
-        ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
-        ///         {
-        ///             InstanceType = instanceType,
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSupportedInstanceTypesResult> Invoke(GetSupportedInstanceTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS EMR Supported Instance Types.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = "ebs-6.15.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### With a Lifecycle Pre-Condition
-        /// 
-        /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var instanceType = "r7g.large";
-        /// 
-        ///     var releaseLabel = "emr-6.15.0";
-        /// 
-        ///     var test = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = releaseLabel,
-        ///     });
-        /// 
-        ///     var testCluster = new Aws.Emr.Cluster("test", new()
-        ///     {
-        ///         ReleaseLabel = releaseLabel,
-        ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
-        ///         {
-        ///             InstanceType = instanceType,
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSupportedInstanceTypesResult> Invoke(GetSupportedInstanceTypesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesInvokeArgs(), options.WithDefaults());
     }
@@ -192,15 +24,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class GetSupportedInstanceTypesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-        /// </summary>
         [Input("releaseLabel", required: true)]
         public string ReleaseLabel { get; set; } = null!;
 
@@ -212,15 +38,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class GetSupportedInstanceTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-        /// </summary>
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
 
@@ -237,9 +57,6 @@ namespace Pulumi.Aws.Emr
         public readonly string Id;
         public readonly string Region;
         public readonly string ReleaseLabel;
-        /// <summary>
-        /// List of supported instance types. See `SupportedInstanceTypes` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSupportedInstanceTypesSupportedInstanceTypeResult> SupportedInstanceTypes;
 
         [OutputConstructor]

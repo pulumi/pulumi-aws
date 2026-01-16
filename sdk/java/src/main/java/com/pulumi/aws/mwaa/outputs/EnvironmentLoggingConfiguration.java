@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentLoggingConfiguration {
-    /**
-     * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     private @Nullable EnvironmentLoggingConfigurationDagProcessingLogs dagProcessingLogs;
-    /**
-     * @return Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     private @Nullable EnvironmentLoggingConfigurationSchedulerLogs schedulerLogs;
-    /**
-     * @return Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-     * 
-     */
     private @Nullable EnvironmentLoggingConfigurationTaskLogs taskLogs;
-    /**
-     * @return Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     private @Nullable EnvironmentLoggingConfigurationWebserverLogs webserverLogs;
-    /**
-     * @return Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     private @Nullable EnvironmentLoggingConfigurationWorkerLogs workerLogs;
 
     private EnvironmentLoggingConfiguration() {}
-    /**
-     * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     public Optional<EnvironmentLoggingConfigurationDagProcessingLogs> dagProcessingLogs() {
         return Optional.ofNullable(this.dagProcessingLogs);
     }
-    /**
-     * @return Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     public Optional<EnvironmentLoggingConfigurationSchedulerLogs> schedulerLogs() {
         return Optional.ofNullable(this.schedulerLogs);
     }
-    /**
-     * @return Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-     * 
-     */
     public Optional<EnvironmentLoggingConfigurationTaskLogs> taskLogs() {
         return Optional.ofNullable(this.taskLogs);
     }
-    /**
-     * @return Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     public Optional<EnvironmentLoggingConfigurationWebserverLogs> webserverLogs() {
         return Optional.ofNullable(this.webserverLogs);
     }
-    /**
-     * @return Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-     * 
-     */
     public Optional<EnvironmentLoggingConfigurationWorkerLogs> workerLogs() {
         return Optional.ofNullable(this.workerLogs);
     }

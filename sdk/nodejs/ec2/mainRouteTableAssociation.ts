@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource for managing the main routing table of a VPC.
- *
- * > **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
- * For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`aws.ec2.RouteTable`][tf-route-tables].
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const a = new aws.ec2.MainRouteTableAssociation("a", {
- *     vpcId: foo.id,
- *     routeTableId: bar.id,
- * });
- * ```
- *
- * ## Notes
- *
- * On VPC creation, the AWS API always creates an initial Main Route Table. This
- * resource records the ID of that Route Table under `originalRouteTableId`.
- * The "Delete" action for a `mainRouteTableAssociation` consists of resetting
- * this original table as the Main Route Table for the VPC. You'll see this
- * additional Route Table in the AWS console; it must remain intact in order for
- * the `mainRouteTableAssociation` delete to work properly.
- */
 export class MainRouteTableAssociation extends pulumi.CustomResource {
     /**
      * Get an existing MainRouteTableAssociation resource's state with the given name, ID, and optional extra
@@ -59,22 +32,9 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === MainRouteTableAssociation.__pulumiType;
     }
 
-    /**
-     * Used internally, see **Notes** below
-     */
     declare public /*out*/ readonly originalRouteTableId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
-     */
     declare public readonly routeTableId: pulumi.Output<string>;
-    /**
-     * The ID of the VPC whose main route table should be set
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -116,22 +76,9 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MainRouteTableAssociation resources.
  */
 export interface MainRouteTableAssociationState {
-    /**
-     * Used internally, see **Notes** below
-     */
     originalRouteTableId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
-     */
     routeTableId?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC whose main route table should be set
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -139,17 +86,7 @@ export interface MainRouteTableAssociationState {
  * The set of arguments for constructing a MainRouteTableAssociation resource.
  */
 export interface MainRouteTableAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
-     */
     routeTableId: pulumi.Input<string>;
-    /**
-     * The ID of the VPC whose main route table should be set
-     */
     vpcId: pulumi.Input<string>;
 }

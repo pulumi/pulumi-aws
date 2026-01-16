@@ -16,32 +16,16 @@ public final class RecommendationPreferencesUtilizationPreferenceMetricParameter
 
     public static final RecommendationPreferencesUtilizationPreferenceMetricParametersArgs Empty = new RecommendationPreferencesUtilizationPreferenceMetricParametersArgs();
 
-    /**
-     * The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-     * 
-     */
     @Import(name="headroom", required=true)
     private Output<String> headroom;
 
-    /**
-     * @return The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-     * 
-     */
     public Output<String> headroom() {
         return this.headroom;
     }
 
-    /**
-     * The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-     * 
-     */
     @Import(name="threshold")
     private @Nullable Output<String> threshold;
 
-    /**
-     * @return The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-     * 
-     */
     public Optional<Output<String>> threshold() {
         return Optional.ofNullable(this.threshold);
     }
@@ -71,44 +55,20 @@ public final class RecommendationPreferencesUtilizationPreferenceMetricParameter
             $ = new RecommendationPreferencesUtilizationPreferenceMetricParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param headroom The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headroom(Output<String> headroom) {
             $.headroom = headroom;
             return this;
         }
 
-        /**
-         * @param headroom The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headroom(String headroom) {
             return headroom(Output.of(headroom));
         }
 
-        /**
-         * @param threshold The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(@Nullable Output<String> threshold) {
             $.threshold = threshold;
             return this;
         }
 
-        /**
-         * @param threshold The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(String threshold) {
             return threshold(Output.of(threshold));
         }

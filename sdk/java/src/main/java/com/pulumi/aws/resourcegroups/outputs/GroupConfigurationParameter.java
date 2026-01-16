@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GroupConfigurationParameter {
-    /**
-     * @return The name of the group configuration parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value or values to be used for the specified parameter.
-     * 
-     */
     private List<String> values;
 
     private GroupConfigurationParameter() {}
-    /**
-     * @return The name of the group configuration parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value or values to be used for the specified parameter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

@@ -25,12 +25,6 @@ class DataShareAuthorizationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataShareAuthorization resource.
-        :param pulumi.Input[_builtins.str] consumer_identifier: Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "consumer_identifier", consumer_identifier)
         pulumi.set(__self__, "data_share_arn", data_share_arn)
@@ -42,9 +36,6 @@ class DataShareAuthorizationArgs:
     @_builtins.property
     @pulumi.getter(name="consumerIdentifier")
     def consumer_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        """
         return pulumi.get(self, "consumer_identifier")
 
     @consumer_identifier.setter
@@ -54,11 +45,6 @@ class DataShareAuthorizationArgs:
     @_builtins.property
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "data_share_arn")
 
     @data_share_arn.setter
@@ -68,9 +54,6 @@ class DataShareAuthorizationArgs:
     @_builtins.property
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow write operations for a datashare.
-        """
         return pulumi.get(self, "allow_writes")
 
     @allow_writes.setter
@@ -80,9 +63,6 @@ class DataShareAuthorizationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,14 +81,6 @@ class _DataShareAuthorizationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataShareAuthorization resources.
-        :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
-        :param pulumi.Input[_builtins.str] consumer_identifier: Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] managed_by: Identifier of a datashare to show its managing entity.
-        :param pulumi.Input[_builtins.str] producer_arn: Amazon Resource Name (ARN) of the producer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allow_writes is not None:
             pulumi.set(__self__, "allow_writes", allow_writes)
@@ -126,9 +98,6 @@ class _DataShareAuthorizationState:
     @_builtins.property
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to allow write operations for a datashare.
-        """
         return pulumi.get(self, "allow_writes")
 
     @allow_writes.setter
@@ -138,9 +107,6 @@ class _DataShareAuthorizationState:
     @_builtins.property
     @pulumi.getter(name="consumerIdentifier")
     def consumer_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        """
         return pulumi.get(self, "consumer_identifier")
 
     @consumer_identifier.setter
@@ -150,11 +116,6 @@ class _DataShareAuthorizationState:
     @_builtins.property
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "data_share_arn")
 
     @data_share_arn.setter
@@ -164,9 +125,6 @@ class _DataShareAuthorizationState:
     @_builtins.property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of a datashare to show its managing entity.
-        """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
@@ -176,9 +134,6 @@ class _DataShareAuthorizationState:
     @_builtins.property
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the producer.
-        """
         return pulumi.get(self, "producer_arn")
 
     @producer_arn.setter
@@ -188,9 +143,6 @@ class _DataShareAuthorizationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -210,37 +162,9 @@ class DataShareAuthorization(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Redshift Data Share Authorization.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.DataShareAuthorization("example",
-            consumer_identifier="123456789012",
-            data_share_arn="arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
-        ```
-
+        Create a DataShareAuthorization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
-        :param pulumi.Input[_builtins.str] consumer_identifier: Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -249,29 +173,7 @@ class DataShareAuthorization(pulumi.CustomResource):
                  args: DataShareAuthorizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Redshift Data Share Authorization.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.DataShareAuthorization("example",
-            consumer_identifier="123456789012",
-            data_share_arn="arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
-        ```
-
+        Create a DataShareAuthorization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataShareAuthorizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,14 +235,6 @@ class DataShareAuthorization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
-        :param pulumi.Input[_builtins.str] consumer_identifier: Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] managed_by: Identifier of a datashare to show its managing entity.
-        :param pulumi.Input[_builtins.str] producer_arn: Amazon Resource Name (ARN) of the producer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,50 +251,30 @@ class DataShareAuthorization(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to allow write operations for a datashare.
-        """
         return pulumi.get(self, "allow_writes")
 
     @_builtins.property
     @pulumi.getter(name="consumerIdentifier")
     def consumer_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        """
         return pulumi.get(self, "consumer_identifier")
 
     @_builtins.property
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "data_share_arn")
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of a datashare to show its managing entity.
-        """
         return pulumi.get(self, "managed_by")
 
     @_builtins.property
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the producer.
-        """
         return pulumi.get(self, "producer_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

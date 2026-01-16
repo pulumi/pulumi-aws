@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigSubstituteStringEntry
     {
-        /// <summary>
-        /// Specifies the regular expression string to be replaced.
-        /// </summary>
         public readonly string From;
-        /// <summary>
-        /// Specifies the key to modify.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// Specifies the string to be substituted for each match of `From`.
-        /// </summary>
         public readonly string To;
 
         [OutputConstructor]

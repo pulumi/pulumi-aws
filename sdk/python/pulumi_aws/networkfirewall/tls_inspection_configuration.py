@@ -30,13 +30,6 @@ class TlsInspectionConfigurationArgs:
                  tls_inspection_configuration: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
-        :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
-               
-               The following arguments are optional:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -56,9 +49,6 @@ class TlsInspectionConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the TLS inspection configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -68,9 +58,6 @@ class TlsInspectionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration block. Detailed below.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -80,9 +67,6 @@ class TlsInspectionConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Descriptive name of the TLS inspection configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,9 +76,6 @@ class TlsInspectionConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -122,11 +103,6 @@ class TlsInspectionConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfiguration")
     def tls_inspection_configuration(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]:
-        """
-        TLS inspection configuration block. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tls_inspection_configuration")
 
     @tls_inspection_configuration.setter
@@ -153,19 +129,6 @@ class _TlsInspectionConfigurationState:
                  update_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TlsInspectionConfiguration resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the TLS Inspection Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]] certificate_authorities: Certificate Manager certificate block. See Certificate Authority below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]] certificates: List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-        :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
-        :param pulumi.Input[_builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] tls_inspection_configuration_id: A unique identifier for the TLS inspection configuration.
-        :param pulumi.Input[_builtins.str] update_token: String token used when updating the rule group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -199,9 +162,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the TLS Inspection Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -211,9 +171,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="certificateAuthorities")
     def certificate_authorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]]:
-        """
-        Certificate Manager certificate block. See Certificate Authority below for details.
-        """
         return pulumi.get(self, "certificate_authorities")
 
     @certificate_authorities.setter
@@ -223,9 +180,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]]:
-        """
-        List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -235,9 +189,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the TLS inspection configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -247,9 +198,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]:
-        """
-        Encryption configuration block. Detailed below.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
@@ -259,9 +207,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Descriptive name of the TLS inspection configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -271,9 +216,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="numberOfAssociations")
     def number_of_associations(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of firewall policies that use this TLS inspection configuration.
-        """
         return pulumi.get(self, "number_of_associations")
 
     @number_of_associations.setter
@@ -283,9 +225,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -322,11 +261,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfiguration")
     def tls_inspection_configuration(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]:
-        """
-        TLS inspection configuration block. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tls_inspection_configuration")
 
     @tls_inspection_configuration.setter
@@ -336,9 +270,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfigurationId")
     def tls_inspection_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique identifier for the TLS inspection configuration.
-        """
         return pulumi.get(self, "tls_inspection_configuration_id")
 
     @tls_inspection_configuration_id.setter
@@ -348,9 +279,6 @@ class _TlsInspectionConfigurationState:
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        String token used when updating the rule group.
-        """
         return pulumi.get(self, "update_token")
 
     @update_token.setter
@@ -373,243 +301,9 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Network Firewall TLS Inspection Configuration.
-
-        ## Example Usage
-
-        > **NOTE:** You must configure either inbound inspection, outbound inspection, or both.
-
-        ### Basic inbound/ingress inspection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Basic outbound/engress inspection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
-                    "check_certificate_revocation_status": {
-                        "revoked_status_action": "REJECT",
-                        "unknown_status_action": "PASS",
-                    },
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Inbound with encryption configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=7)
-        example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Outbound with encryption configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=7)
-        example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configurations": [{
-                    "certificateAuthorityArn": example1["arn"],
-                    "checkCertificateRevocationStatus": [{
-                        "revokedStatusAction": "REJECT",
-                        "unknownStatusAction": "PASS",
-                    }],
-                    "scope": [{
-                        "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
-                        }],
-                        "destination": [{
-                            "addressDefinition": "0.0.0.0/0",
-                        }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
-                        }],
-                        "source": [{
-                            "addressDefinition": "0.0.0.0/0",
-                        }],
-                    }],
-                }],
-            })
-        ```
-
-        ### Combined inbound and outbound
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
-                    "check_certificate_revocation_status": {
-                        "revoked_status_action": "REJECT",
-                        "unknown_status_action": "PASS",
-                    },
-                    "server_certificates": [{
-                        "resource_arn": example2["arn"],
-                    }],
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
-
-        Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
-
-        % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
-
+        Create a TlsInspectionConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -618,234 +312,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  args: Optional[TlsInspectionConfigurationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Network Firewall TLS Inspection Configuration.
-
-        ## Example Usage
-
-        > **NOTE:** You must configure either inbound inspection, outbound inspection, or both.
-
-        ### Basic inbound/ingress inspection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Basic outbound/engress inspection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
-                    "check_certificate_revocation_status": {
-                        "revoked_status_action": "REJECT",
-                        "unknown_status_action": "PASS",
-                    },
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Inbound with encryption configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=7)
-        example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ### Outbound with encryption configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=7)
-        example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configurations": [{
-                    "certificateAuthorityArn": example1["arn"],
-                    "checkCertificateRevocationStatus": [{
-                        "revokedStatusAction": "REJECT",
-                        "unknownStatusAction": "PASS",
-                    }],
-                    "scope": [{
-                        "protocols": [6],
-                        "destinationPorts": [{
-                            "fromPort": 443,
-                            "toPort": 443,
-                        }],
-                        "destination": [{
-                            "addressDefinition": "0.0.0.0/0",
-                        }],
-                        "sourcePorts": [{
-                            "fromPort": 0,
-                            "toPort": 65535,
-                        }],
-                        "source": [{
-                            "addressDefinition": "0.0.0.0/0",
-                        }],
-                    }],
-                }],
-            })
-        ```
-
-        ### Combined inbound and outbound
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
-            tls_inspection_configuration={
-                "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
-                    "check_certificate_revocation_status": {
-                        "revoked_status_action": "REJECT",
-                        "unknown_status_action": "PASS",
-                    },
-                    "server_certificates": [{
-                        "resource_arn": example2["arn"],
-                    }],
-                    "scopes": [{
-                        "protocols": [6],
-                        "destination_ports": [{
-                            "from_port": 443,
-                            "to_port": 443,
-                        }],
-                        "destinations": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                        "source_ports": [{
-                            "from_port": 0,
-                            "to_port": 65535,
-                        }],
-                        "sources": [{
-                            "address_definition": "0.0.0.0/0",
-                        }],
-                    }],
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
-
-        Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
-
-        % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
-
+        Create a TlsInspectionConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TlsInspectionConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -922,19 +389,6 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the TLS Inspection Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict']]]] certificate_authorities: Certificate Manager certificate block. See Certificate Authority below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict']]]] certificates: List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-        :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
-        :param pulumi.Input[_builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] tls_inspection_configuration_id: A unique identifier for the TLS inspection configuration.
-        :param pulumi.Input[_builtins.str] update_token: String token used when updating the rule group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -959,65 +413,41 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the TLS Inspection Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorities")
     def certificate_authorities(self) -> pulumi.Output[Sequence['outputs.TlsInspectionConfigurationCertificateAuthority']]:
-        """
-        Certificate Manager certificate block. See Certificate Authority below for details.
-        """
         return pulumi.get(self, "certificate_authorities")
 
     @_builtins.property
     @pulumi.getter
     def certificates(self) -> pulumi.Output[Sequence['outputs.TlsInspectionConfigurationCertificate']]:
-        """
-        List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-        """
         return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the TLS inspection configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> pulumi.Output[Sequence['outputs.TlsInspectionConfigurationEncryptionConfiguration']]:
-        """
-        Encryption configuration block. Detailed below.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Descriptive name of the TLS inspection configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="numberOfAssociations")
     def number_of_associations(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of firewall policies that use this TLS inspection configuration.
-        """
         return pulumi.get(self, "number_of_associations")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -1038,26 +468,15 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfiguration")
     def tls_inspection_configuration(self) -> pulumi.Output[Optional['outputs.TlsInspectionConfigurationTlsInspectionConfiguration']]:
-        """
-        TLS inspection configuration block. Detailed below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tls_inspection_configuration")
 
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfigurationId")
     def tls_inspection_configuration_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        A unique identifier for the TLS inspection configuration.
-        """
         return pulumi.get(self, "tls_inspection_configuration_id")
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> pulumi.Output[_builtins.str]:
-        """
-        String token used when updating the rule group.
-        """
         return pulumi.get(self, "update_token")
 

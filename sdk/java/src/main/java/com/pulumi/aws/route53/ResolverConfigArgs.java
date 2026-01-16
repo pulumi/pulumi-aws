@@ -16,47 +16,23 @@ public final class ResolverConfigArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResolverConfigArgs Empty = new ResolverConfigArgs();
 
-    /**
-     * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-     * 
-     */
     @Import(name="autodefinedReverseFlag", required=true)
     private Output<String> autodefinedReverseFlag;
 
-    /**
-     * @return Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-     * 
-     */
     public Output<String> autodefinedReverseFlag() {
         return this.autodefinedReverseFlag;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC that the configuration is for.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of the VPC that the configuration is for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -87,65 +63,29 @@ public final class ResolverConfigArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResolverConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autodefinedReverseFlag Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autodefinedReverseFlag(Output<String> autodefinedReverseFlag) {
             $.autodefinedReverseFlag = autodefinedReverseFlag;
             return this;
         }
 
-        /**
-         * @param autodefinedReverseFlag Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autodefinedReverseFlag(String autodefinedReverseFlag) {
             return autodefinedReverseFlag(Output.of(autodefinedReverseFlag));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId The ID of the VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of the VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

@@ -9,73 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryReadiness
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Readiness Cell.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.Cell("example", new()
-    ///     {
-    ///         CellName = "us-west-2-failover-cell",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/cell:Cell")]
     public partial class Cell : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the cell
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name describing the cell.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("cellName")]
         public Output<string> CellName { get; private set; } = null!;
 
-        /// <summary>
-        /// List of cell arns to add as nested fault domains within this cell.
-        /// </summary>
         [Output("cells")]
         public Output<ImmutableArray<string>> Cells { get; private set; } = null!;
 
-        /// <summary>
-        /// List of readiness scopes (recovery groups or cells) that contain this cell.
-        /// </summary>
         [Output("parentReadinessScopes")]
         public Output<ImmutableArray<string>> ParentReadinessScopes { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -125,20 +76,11 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class CellArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name describing the cell.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("cellName", required: true)]
         public Input<string> CellName { get; set; } = null!;
 
         [Input("cells")]
         private InputList<string>? _cells;
-
-        /// <summary>
-        /// List of cell arns to add as nested fault domains within this cell.
-        /// </summary>
         public InputList<string> Cells
         {
             get => _cells ?? (_cells = new InputList<string>());
@@ -147,10 +89,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -165,26 +103,14 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class CellState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the cell
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique name describing the cell.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("cellName")]
         public Input<string>? CellName { get; set; }
 
         [Input("cells")]
         private InputList<string>? _cells;
-
-        /// <summary>
-        /// List of cell arns to add as nested fault domains within this cell.
-        /// </summary>
         public InputList<string> Cells
         {
             get => _cells ?? (_cells = new InputList<string>());
@@ -193,10 +119,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("parentReadinessScopes")]
         private InputList<string>? _parentReadinessScopes;
-
-        /// <summary>
-        /// List of readiness scopes (recovery groups or cells) that contain this cell.
-        /// </summary>
         public InputList<string> ParentReadinessScopes
         {
             get => _parentReadinessScopes ?? (_parentReadinessScopes = new InputList<string>());
@@ -205,10 +127,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -217,10 +135,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

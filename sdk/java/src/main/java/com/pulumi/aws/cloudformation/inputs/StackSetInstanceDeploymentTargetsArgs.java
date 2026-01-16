@@ -16,62 +16,30 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
 
     public static final StackSetInstanceDeploymentTargetsArgs Empty = new StackSetInstanceDeploymentTargetsArgs();
 
-    /**
-     * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-     * 
-     */
     @Import(name="accountFilterType")
     private @Nullable Output<String> accountFilterType;
 
-    /**
-     * @return Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-     * 
-     */
     public Optional<Output<String>> accountFilterType() {
         return Optional.ofNullable(this.accountFilterType);
     }
 
-    /**
-     * List of accounts to deploy stack set updates.
-     * 
-     */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
-    /**
-     * @return List of accounts to deploy stack set updates.
-     * 
-     */
     public Optional<Output<List<String>>> accounts() {
         return Optional.ofNullable(this.accounts);
     }
 
-    /**
-     * S3 URL of the file containing the list of accounts.
-     * 
-     */
     @Import(name="accountsUrl")
     private @Nullable Output<String> accountsUrl;
 
-    /**
-     * @return S3 URL of the file containing the list of accounts.
-     * 
-     */
     public Optional<Output<String>> accountsUrl() {
         return Optional.ofNullable(this.accountsUrl);
     }
 
-    /**
-     * Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-     * 
-     */
     @Import(name="organizationalUnitIds")
     private @Nullable Output<List<String>> organizationalUnitIds;
 
-    /**
-     * @return Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-     * 
-     */
     public Optional<Output<List<String>>> organizationalUnitIds() {
         return Optional.ofNullable(this.organizationalUnitIds);
     }
@@ -103,106 +71,46 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
             $ = new StackSetInstanceDeploymentTargetsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountFilterType Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountFilterType(@Nullable Output<String> accountFilterType) {
             $.accountFilterType = accountFilterType;
             return this;
         }
 
-        /**
-         * @param accountFilterType Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountFilterType(String accountFilterType) {
             return accountFilterType(Output.of(accountFilterType));
         }
 
-        /**
-         * @param accounts List of accounts to deploy stack set updates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(@Nullable Output<List<String>> accounts) {
             $.accounts = accounts;
             return this;
         }
 
-        /**
-         * @param accounts List of accounts to deploy stack set updates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(List<String> accounts) {
             return accounts(Output.of(accounts));
         }
 
-        /**
-         * @param accounts List of accounts to deploy stack set updates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accounts(String... accounts) {
             return accounts(List.of(accounts));
         }
 
-        /**
-         * @param accountsUrl S3 URL of the file containing the list of accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountsUrl(@Nullable Output<String> accountsUrl) {
             $.accountsUrl = accountsUrl;
             return this;
         }
 
-        /**
-         * @param accountsUrl S3 URL of the file containing the list of accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountsUrl(String accountsUrl) {
             return accountsUrl(Output.of(accountsUrl));
         }
 
-        /**
-         * @param organizationalUnitIds Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitIds(@Nullable Output<List<String>> organizationalUnitIds) {
             $.organizationalUnitIds = organizationalUnitIds;
             return this;
         }
 
-        /**
-         * @param organizationalUnitIds Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitIds(List<String> organizationalUnitIds) {
             return organizationalUnitIds(Output.of(organizationalUnitIds));
         }
 
-        /**
-         * @param organizationalUnitIds Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitIds(String... organizationalUnitIds) {
             return organizationalUnitIds(List.of(organizationalUnitIds));
         }

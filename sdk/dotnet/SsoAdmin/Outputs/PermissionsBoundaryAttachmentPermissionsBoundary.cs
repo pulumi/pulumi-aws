@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class PermissionsBoundaryAttachmentPermissionsBoundary
     {
-        /// <summary>
-        /// Specifies the name and path of a customer managed policy. See below.
-        /// </summary>
         public readonly Outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference? CustomerManagedPolicyReference;
-        /// <summary>
-        /// AWS-managed IAM policy ARN to use as the permissions boundary.
-        /// </summary>
         public readonly string? ManagedPolicyArn;
 
         [OutputConstructor]

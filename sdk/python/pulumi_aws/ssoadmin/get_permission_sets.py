@@ -43,9 +43,6 @@ class GetPermissionSetsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of string contain the ARN of all Permission Sets.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -80,23 +77,7 @@ def get_permission_sets(instance_arn: Optional[_builtins.str] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionSetsResult:
     """
-    Data source returning the ARN of all AWS SSO Admin Permission Sets.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_permission_sets = aws.ssoadmin.get_permission_sets(instance_arn=example.arns[0])
-    ```
-
-
-    :param _builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
@@ -113,23 +94,7 @@ def get_permission_sets_output(instance_arn: Optional[pulumi.Input[_builtins.str
                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetsResult]:
     """
-    Data source returning the ARN of all AWS SSO Admin Permission Sets.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_instances()
-    example_get_permission_sets = aws.ssoadmin.get_permission_sets(instance_arn=example.arns[0])
-    ```
-
-
-    :param _builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn

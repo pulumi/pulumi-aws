@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainLogPublishingOption {
-    /**
-     * @return The CloudWatch Log Group where the logs are published.
-     * 
-     */
     private String cloudwatchLogGroupArn;
-    /**
-     * @return Whether node to node encryption is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The type of Elasticsearch log being published.
-     * 
-     */
     private String logType;
 
     private GetDomainLogPublishingOption() {}
-    /**
-     * @return The CloudWatch Log Group where the logs are published.
-     * 
-     */
     public String cloudwatchLogGroupArn() {
         return this.cloudwatchLogGroupArn;
     }
-    /**
-     * @return Whether node to node encryption is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The type of Elasticsearch log being published.
-     * 
-     */
     public String logType() {
         return this.logType;
     }

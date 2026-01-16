@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceEventBridgeConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN for the EventBridge bus.
-        /// </summary>
         [Input("eventBusArn", required: true)]
         public Input<string> EventBusArn { get; set; } = null!;
 

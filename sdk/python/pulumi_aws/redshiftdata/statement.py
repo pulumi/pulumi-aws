@@ -33,17 +33,6 @@ class StatementArgs:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Statement resource.
-        :param pulumi.Input[_builtins.str] database: The name of the database.
-        :param pulumi.Input[_builtins.str] sql: The SQL statement text to run.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        :param pulumi.Input[_builtins.str] db_user: The database user name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[_builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[_builtins.bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        :param pulumi.Input[_builtins.str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "sql", sql)
@@ -67,9 +56,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -79,11 +65,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter
     def sql(self) -> pulumi.Input[_builtins.str]:
-        """
-        The SQL statement text to run.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "sql")
 
     @sql.setter
@@ -93,9 +74,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -105,9 +83,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
@@ -126,9 +101,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,9 +110,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -150,9 +119,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
@@ -162,9 +128,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
@@ -174,9 +137,6 @@ class StatementArgs:
     @_builtins.property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -199,17 +159,6 @@ class _StatementState:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Statement resources.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        :param pulumi.Input[_builtins.str] database: The name of the database.
-        :param pulumi.Input[_builtins.str] db_user: The database user name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[_builtins.str] sql: The SQL statement text to run.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[_builtins.bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        :param pulumi.Input[_builtins.str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -235,9 +184,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -247,9 +193,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -259,9 +202,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
@@ -280,9 +220,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -292,9 +229,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -304,11 +238,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter
     def sql(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SQL statement text to run.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "sql")
 
     @sql.setter
@@ -318,9 +247,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
@@ -330,9 +256,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
@@ -342,9 +265,6 @@ class _StatementState:
     @_builtins.property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -370,56 +290,9 @@ class Statement(pulumi.CustomResource):
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Executes a Redshift Data Statement.
-
-        ## Example Usage
-
-        ### cluster_identifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftdata.Statement("example",
-            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
-            database=example_aws_redshift_cluster["databaseName"],
-            db_user=example_aws_redshift_cluster["masterUsername"],
-            sql="CREATE GROUP group_name;")
-        ```
-
-        ### workgroup_name
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftdata.Statement("example",
-            workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"],
-            database="dev",
-            sql="CREATE GROUP group_name;")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftdata/statement:Statement example example
-        ```
-
+        Create a Statement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        :param pulumi.Input[_builtins.str] database: The name of the database.
-        :param pulumi.Input[_builtins.str] db_user: The database user name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[_builtins.str] sql: The SQL statement text to run.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[_builtins.bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        :param pulumi.Input[_builtins.str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
         ...
     @overload
@@ -428,43 +301,7 @@ class Statement(pulumi.CustomResource):
                  args: StatementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Executes a Redshift Data Statement.
-
-        ## Example Usage
-
-        ### cluster_identifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftdata.Statement("example",
-            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
-            database=example_aws_redshift_cluster["databaseName"],
-            db_user=example_aws_redshift_cluster["masterUsername"],
-            sql="CREATE GROUP group_name;")
-        ```
-
-        ### workgroup_name
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftdata.Statement("example",
-            workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"],
-            database="dev",
-            sql="CREATE GROUP group_name;")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshiftdata/statement:Statement example example
-        ```
-
+        Create a Statement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param StatementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -540,17 +377,6 @@ class Statement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        :param pulumi.Input[_builtins.str] database: The name of the database.
-        :param pulumi.Input[_builtins.str] db_user: The database user name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[_builtins.str] sql: The SQL statement text to run.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[_builtins.bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        :param pulumi.Input[_builtins.str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -571,25 +397,16 @@ class Statement(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter
     def database(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @_builtins.property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @_builtins.property
@@ -600,50 +417,30 @@ class Statement(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secret_arn")
 
     @_builtins.property
     @pulumi.getter
     def sql(self) -> pulumi.Output[_builtins.str]:
-        """
-        The SQL statement text to run.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "sql")
 
     @_builtins.property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
         return pulumi.get(self, "statement_name")
 
     @_builtins.property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        """
         return pulumi.get(self, "workgroup_name")
 

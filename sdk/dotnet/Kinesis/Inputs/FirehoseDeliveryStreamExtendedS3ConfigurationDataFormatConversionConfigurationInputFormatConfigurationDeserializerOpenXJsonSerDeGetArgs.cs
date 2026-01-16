@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
-        /// </summary>
         [Input("caseInsensitive")]
         public Input<bool>? CaseInsensitive { get; set; }
 
         [Input("columnToJsonKeyMappings")]
         private InputMap<string>? _columnToJsonKeyMappings;
-
-        /// <summary>
-        /// A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
-        /// </summary>
         public InputMap<string> ColumnToJsonKeyMappings
         {
             get => _columnToJsonKeyMappings ?? (_columnToJsonKeyMappings = new InputMap<string>());
             set => _columnToJsonKeyMappings = value;
         }
 
-        /// <summary>
-        /// When set to `True`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "AB" when using this option. Defaults to `False`.
-        /// </summary>
         [Input("convertDotsInJsonKeysToUnderscores")]
         public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }
 

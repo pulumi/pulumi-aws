@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFabric.Inputs
 
     public sealed class IngestionDestinationDestinationConfigurationAuditLogGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-        /// </summary>
         [Input("destination")]
         public Input<Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationGetArgs>? Destination { get; set; }
 

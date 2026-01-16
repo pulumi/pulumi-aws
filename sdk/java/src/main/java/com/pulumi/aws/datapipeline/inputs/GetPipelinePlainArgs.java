@@ -16,47 +16,23 @@ public final class GetPipelinePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetPipelinePlainArgs Empty = new GetPipelinePlainArgs();
 
-    /**
-     * ID of the pipeline.
-     * 
-     */
     @Import(name="pipelineId", required=true)
     private String pipelineId;
 
-    /**
-     * @return ID of the pipeline.
-     * 
-     */
     public String pipelineId() {
         return this.pipelineId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetPipelinePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetPipelinePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pipelineId ID of the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineId(String pipelineId) {
             $.pipelineId = pipelineId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

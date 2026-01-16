@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInput {
-    /**
-     * @return Input object for the batch transform job. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInput batchTransformInput;
-    /**
-     * @return Input object for the endpoint. Fields are documented below.
-     * 
-     */
     private @Nullable DataQualityJobDefinitionDataQualityJobInputEndpointInput endpointInput;
 
     private DataQualityJobDefinitionDataQualityJobInput() {}
-    /**
-     * @return Input object for the batch transform job. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionDataQualityJobInputBatchTransformInput> batchTransformInput() {
         return Optional.ofNullable(this.batchTransformInput);
     }
-    /**
-     * @return Input object for the endpoint. Fields are documented below.
-     * 
-     */
     public Optional<DataQualityJobDefinitionDataQualityJobInputEndpointInput> endpointInput() {
         return Optional.ofNullable(this.endpointInput);
     }

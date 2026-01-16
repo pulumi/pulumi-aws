@@ -76,9 +76,6 @@ class GetConfigurationProfileResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Configuration Profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -89,9 +86,6 @@ class GetConfigurationProfileResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Configuration Profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -110,17 +104,11 @@ class GetConfigurationProfileResult:
     @_builtins.property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> _builtins.str:
-        """
-        Location URI of the Configuration Profile.
-        """
         return pulumi.get(self, "location_uri")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Configuration Profile.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -131,33 +119,21 @@ class GetConfigurationProfileResult:
     @_builtins.property
     @pulumi.getter(name="retrievalRoleArn")
     def retrieval_role_arn(self) -> _builtins.str:
-        """
-        ARN of an IAM role with permission to access the configuration at the specified location_uri.
-        """
         return pulumi.get(self, "retrieval_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def validators(self) -> Sequence['outputs.GetConfigurationProfileValidatorResult']:
-        """
-        Nested list of methods for validating the configuration.
-        """
         return pulumi.get(self, "validators")
 
 
@@ -188,25 +164,7 @@ def get_configuration_profile(application_id: Optional[_builtins.str] = None,
                               tags: Optional[Mapping[str, _builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileResult:
     """
-    Provides access to an AppConfig Configuration Profile.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
-        configuration_profile_id="qrbb1c1")
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig application to which this configuration profile belongs.
-    :param _builtins.str configuration_profile_id: ID of the Configuration Profile.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -236,25 +194,7 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[_buil
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
-    Provides access to an AppConfig Configuration Profile.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
-        configuration_profile_id="qrbb1c1")
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig application to which this configuration profile belongs.
-    :param _builtins.str configuration_profile_id: ID of the Configuration Profile.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id

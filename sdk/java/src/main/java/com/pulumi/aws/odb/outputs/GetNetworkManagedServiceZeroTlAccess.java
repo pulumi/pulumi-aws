@@ -11,20 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkManagedServiceZeroTlAccess {
     private String cidr;
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     private String status;
 
     private GetNetworkManagedServiceZeroTlAccess() {}
     public String cidr() {
         return this.cidr;
     }
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public String status() {
         return this.status;
     }

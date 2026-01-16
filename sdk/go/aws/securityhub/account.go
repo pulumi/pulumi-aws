@@ -11,54 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables Security Hub for this AWS account.
-//
-// > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/account:Account example 123456789012
-// ```
 type Account struct {
 	pulumi.CustomResourceState
 
-	// ARN of the SecurityHub Hub created in the account.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-	AutoEnableControls pulumi.BoolPtrOutput `pulumi:"autoEnableControls"`
-	// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
-	ControlFindingGenerator pulumi.StringOutput `pulumi:"controlFindingGenerator"`
-	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-	EnableDefaultStandards pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Arn                     pulumi.StringOutput  `pulumi:"arn"`
+	AutoEnableControls      pulumi.BoolPtrOutput `pulumi:"autoEnableControls"`
+	ControlFindingGenerator pulumi.StringOutput  `pulumi:"controlFindingGenerator"`
+	EnableDefaultStandards  pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
+	Region                  pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -91,29 +51,19 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// ARN of the SecurityHub Hub created in the account.
-	Arn *string `pulumi:"arn"`
-	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-	AutoEnableControls *bool `pulumi:"autoEnableControls"`
-	// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
+	Arn                     *string `pulumi:"arn"`
+	AutoEnableControls      *bool   `pulumi:"autoEnableControls"`
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
-	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EnableDefaultStandards  *bool   `pulumi:"enableDefaultStandards"`
+	Region                  *string `pulumi:"region"`
 }
 
 type AccountState struct {
-	// ARN of the SecurityHub Hub created in the account.
-	Arn pulumi.StringPtrInput
-	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-	AutoEnableControls pulumi.BoolPtrInput
-	// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
+	Arn                     pulumi.StringPtrInput
+	AutoEnableControls      pulumi.BoolPtrInput
 	ControlFindingGenerator pulumi.StringPtrInput
-	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-	EnableDefaultStandards pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	EnableDefaultStandards  pulumi.BoolPtrInput
+	Region                  pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -121,26 +71,18 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-	AutoEnableControls *bool `pulumi:"autoEnableControls"`
-	// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
+	AutoEnableControls      *bool   `pulumi:"autoEnableControls"`
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
-	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EnableDefaultStandards  *bool   `pulumi:"enableDefaultStandards"`
+	Region                  *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
-	AutoEnableControls pulumi.BoolPtrInput
-	// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
+	AutoEnableControls      pulumi.BoolPtrInput
 	ControlFindingGenerator pulumi.StringPtrInput
-	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
-	EnableDefaultStandards pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	EnableDefaultStandards  pulumi.BoolPtrInput
+	Region                  pulumi.StringPtrInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -230,27 +172,22 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// ARN of the SecurityHub Hub created in the account.
 func (o AccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
 func (o AccountOutput) AutoEnableControls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AutoEnableControls }).(pulumi.BoolPtrOutput)
 }
 
-// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
 func (o AccountOutput) ControlFindingGenerator() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ControlFindingGenerator }).(pulumi.StringOutput)
 }
 
-// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
 func (o AccountOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskDefinitionPlacementConstraint {
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
-     * 
-     */
     private String type;
 
     private TaskDefinitionPlacementConstraint() {}
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
-     * 
-     */
     public String type() {
         return this.type;
     }

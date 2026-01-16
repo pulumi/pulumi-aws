@@ -9,100 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog Constraint.
-    /// 
-    /// &gt; **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.Constraint("example", new()
-    ///     {
-    ///         Description = "Back off, man. I'm a scientist.",
-    ///         PortfolioId = exampleAwsServicecatalogPortfolio.Id,
-    ///         ProductId = exampleAwsServicecatalogProduct.Id,
-    ///         Type = "LAUNCH",
-    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["RoleArn"] = "arn:aws:iam::123456789012:role/LaunchRole",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/constraint:Constraint")]
     public partial class Constraint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the constraint.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Owner of the constraint.
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        /// </summary>
         [Output("parameters")]
         public Output<string> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Output("portfolioId")]
         public Output<string> PortfolioId { get; private set; } = null!;
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -152,47 +85,24 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ConstraintArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Description of the constraint.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        /// </summary>
         [Input("parameters", required: true)]
         public Input<string> Parameters { get; set; } = null!;
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -204,56 +114,30 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ConstraintState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Description of the constraint.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Owner of the constraint.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId")]
         public Input<string>? PortfolioId { get; set; }
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

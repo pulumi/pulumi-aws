@@ -12,173 +12,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RegisteredDomainBillingContact {
-    /**
-     * @return First line of the contact&#39;s address.
-     * 
-     */
     private @Nullable String addressLine1;
-    /**
-     * @return Second line of contact&#39;s address, if any.
-     * 
-     */
     private @Nullable String addressLine2;
-    /**
-     * @return The city of the contact&#39;s address.
-     * 
-     */
     private @Nullable String city;
-    /**
-     * @return Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-     * 
-     */
     private @Nullable String contactType;
-    /**
-     * @return Code for the country of the contact&#39;s address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-     * 
-     */
     private @Nullable String countryCode;
-    /**
-     * @return Email address of the contact.
-     * 
-     */
     private @Nullable String email;
-    /**
-     * @return A key-value map of parameters required by certain top-level domains.
-     * 
-     */
     private @Nullable Map<String,String> extraParams;
-    /**
-     * @return Fax number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     private @Nullable String fax;
-    /**
-     * @return First name of contact.
-     * 
-     */
     private @Nullable String firstName;
-    /**
-     * @return Last name of contact.
-     * 
-     */
     private @Nullable String lastName;
-    /**
-     * @return Name of the organization for contact types other than `PERSON`.
-     * 
-     */
     private @Nullable String organizationName;
-    /**
-     * @return The phone number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     private @Nullable String phoneNumber;
-    /**
-     * @return The state or province of the contact&#39;s city.
-     * 
-     */
     private @Nullable String state;
-    /**
-     * @return The zip or postal code of the contact&#39;s address.
-     * 
-     */
     private @Nullable String zipCode;
 
     private RegisteredDomainBillingContact() {}
-    /**
-     * @return First line of the contact&#39;s address.
-     * 
-     */
     public Optional<String> addressLine1() {
         return Optional.ofNullable(this.addressLine1);
     }
-    /**
-     * @return Second line of contact&#39;s address, if any.
-     * 
-     */
     public Optional<String> addressLine2() {
         return Optional.ofNullable(this.addressLine2);
     }
-    /**
-     * @return The city of the contact&#39;s address.
-     * 
-     */
     public Optional<String> city() {
         return Optional.ofNullable(this.city);
     }
-    /**
-     * @return Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-     * 
-     */
     public Optional<String> contactType() {
         return Optional.ofNullable(this.contactType);
     }
-    /**
-     * @return Code for the country of the contact&#39;s address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-     * 
-     */
     public Optional<String> countryCode() {
         return Optional.ofNullable(this.countryCode);
     }
-    /**
-     * @return Email address of the contact.
-     * 
-     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
-    /**
-     * @return A key-value map of parameters required by certain top-level domains.
-     * 
-     */
     public Map<String,String> extraParams() {
         return this.extraParams == null ? Map.of() : this.extraParams;
     }
-    /**
-     * @return Fax number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     public Optional<String> fax() {
         return Optional.ofNullable(this.fax);
     }
-    /**
-     * @return First name of contact.
-     * 
-     */
     public Optional<String> firstName() {
         return Optional.ofNullable(this.firstName);
     }
-    /**
-     * @return Last name of contact.
-     * 
-     */
     public Optional<String> lastName() {
         return Optional.ofNullable(this.lastName);
     }
-    /**
-     * @return Name of the organization for contact types other than `PERSON`.
-     * 
-     */
     public Optional<String> organizationName() {
         return Optional.ofNullable(this.organizationName);
     }
-    /**
-     * @return The phone number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
-     * 
-     */
     public Optional<String> phoneNumber() {
         return Optional.ofNullable(this.phoneNumber);
     }
-    /**
-     * @return The state or province of the contact&#39;s city.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
-    /**
-     * @return The zip or postal code of the contact&#39;s address.
-     * 
-     */
     public Optional<String> zipCode() {
         return Optional.ofNullable(this.zipCode);
     }

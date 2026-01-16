@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaPackage.Outputs
     [OutputType]
     public sealed class ChannelHlsIngest
     {
-        /// <summary>
-        /// A list of the ingest endpoints
-        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelHlsIngestIngestEndpoint> IngestEndpoints;
 
         [OutputConstructor]

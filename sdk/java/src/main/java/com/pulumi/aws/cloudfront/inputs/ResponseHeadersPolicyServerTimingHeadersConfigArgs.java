@@ -15,32 +15,16 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs extends co
 
     public static final ResponseHeadersPolicyServerTimingHeadersConfigArgs Empty = new ResponseHeadersPolicyServerTimingHeadersConfigArgs();
 
-    /**
-     * A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-     * 
-     */
     @Import(name="samplingRate", required=true)
     private Output<Double> samplingRate;
 
-    /**
-     * @return A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-     * 
-     */
     public Output<Double> samplingRate() {
         return this.samplingRate;
     }
@@ -70,44 +54,20 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs extends co
             $ = new ResponseHeadersPolicyServerTimingHeadersConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param samplingRate A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samplingRate(Output<Double> samplingRate) {
             $.samplingRate = samplingRate;
             return this;
         }
 
-        /**
-         * @param samplingRate A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samplingRate(Double samplingRate) {
             return samplingRate(Output.of(samplingRate));
         }

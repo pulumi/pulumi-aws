@@ -14,36 +14,21 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LifecyclePolicyPolicyDetails struct {
-	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
-	Action   *LifecyclePolicyPolicyDetailsAction `pulumi:"action"`
-	CopyTags *bool                               `pulumi:"copyTags"`
-	// How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
-	CreateInterval *int `pulumi:"createInterval"`
-	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
-	EventSource *LifecyclePolicyPolicyDetailsEventSource `pulumi:"eventSource"`
-	// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
-	Exclusions *LifecyclePolicyPolicyDetailsExclusions `pulumi:"exclusions"`
-	// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
-	ExtendDeletion *bool                                   `pulumi:"extendDeletion"`
-	Parameters     *LifecyclePolicyPolicyDetailsParameters `pulumi:"parameters"`
-	// Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
-	PolicyLanguage *string `pulumi:"policyLanguage"`
-	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
-	PolicyType *string `pulumi:"policyType"`
-	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
-	ResourceLocations *string `pulumi:"resourceLocations"`
-	// Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
-	ResourceType *string `pulumi:"resourceType"`
-	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-	ResourceTypes []string `pulumi:"resourceTypes"`
-	// Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
-	RetainInterval *int `pulumi:"retainInterval"`
-	// See the `schedule` configuration block.
-	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
-	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
-	//
-	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
-	TargetTags map[string]string `pulumi:"targetTags"`
+	Action            *LifecyclePolicyPolicyDetailsAction      `pulumi:"action"`
+	CopyTags          *bool                                    `pulumi:"copyTags"`
+	CreateInterval    *int                                     `pulumi:"createInterval"`
+	EventSource       *LifecyclePolicyPolicyDetailsEventSource `pulumi:"eventSource"`
+	Exclusions        *LifecyclePolicyPolicyDetailsExclusions  `pulumi:"exclusions"`
+	ExtendDeletion    *bool                                    `pulumi:"extendDeletion"`
+	Parameters        *LifecyclePolicyPolicyDetailsParameters  `pulumi:"parameters"`
+	PolicyLanguage    *string                                  `pulumi:"policyLanguage"`
+	PolicyType        *string                                  `pulumi:"policyType"`
+	ResourceLocations *string                                  `pulumi:"resourceLocations"`
+	ResourceType      *string                                  `pulumi:"resourceType"`
+	ResourceTypes     []string                                 `pulumi:"resourceTypes"`
+	RetainInterval    *int                                     `pulumi:"retainInterval"`
+	Schedules         []LifecyclePolicyPolicyDetailsSchedule   `pulumi:"schedules"`
+	TargetTags        map[string]string                        `pulumi:"targetTags"`
 }
 
 // LifecyclePolicyPolicyDetailsInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs and LifecyclePolicyPolicyDetailsOutput values.
@@ -58,36 +43,21 @@ type LifecyclePolicyPolicyDetailsInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsArgs struct {
-	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
-	Action   LifecyclePolicyPolicyDetailsActionPtrInput `pulumi:"action"`
-	CopyTags pulumi.BoolPtrInput                        `pulumi:"copyTags"`
-	// How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
-	CreateInterval pulumi.IntPtrInput `pulumi:"createInterval"`
-	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
-	EventSource LifecyclePolicyPolicyDetailsEventSourcePtrInput `pulumi:"eventSource"`
-	// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
-	Exclusions LifecyclePolicyPolicyDetailsExclusionsPtrInput `pulumi:"exclusions"`
-	// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
-	ExtendDeletion pulumi.BoolPtrInput                            `pulumi:"extendDeletion"`
-	Parameters     LifecyclePolicyPolicyDetailsParametersPtrInput `pulumi:"parameters"`
-	// Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
-	PolicyLanguage pulumi.StringPtrInput `pulumi:"policyLanguage"`
-	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
-	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
-	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
-	ResourceLocations pulumi.StringPtrInput `pulumi:"resourceLocations"`
-	// Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	// Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
-	RetainInterval pulumi.IntPtrInput `pulumi:"retainInterval"`
-	// See the `schedule` configuration block.
-	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
-	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
-	//
-	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
-	TargetTags pulumi.StringMapInput `pulumi:"targetTags"`
+	Action            LifecyclePolicyPolicyDetailsActionPtrInput      `pulumi:"action"`
+	CopyTags          pulumi.BoolPtrInput                             `pulumi:"copyTags"`
+	CreateInterval    pulumi.IntPtrInput                              `pulumi:"createInterval"`
+	EventSource       LifecyclePolicyPolicyDetailsEventSourcePtrInput `pulumi:"eventSource"`
+	Exclusions        LifecyclePolicyPolicyDetailsExclusionsPtrInput  `pulumi:"exclusions"`
+	ExtendDeletion    pulumi.BoolPtrInput                             `pulumi:"extendDeletion"`
+	Parameters        LifecyclePolicyPolicyDetailsParametersPtrInput  `pulumi:"parameters"`
+	PolicyLanguage    pulumi.StringPtrInput                           `pulumi:"policyLanguage"`
+	PolicyType        pulumi.StringPtrInput                           `pulumi:"policyType"`
+	ResourceLocations pulumi.StringPtrInput                           `pulumi:"resourceLocations"`
+	ResourceType      pulumi.StringPtrInput                           `pulumi:"resourceType"`
+	ResourceTypes     pulumi.StringArrayInput                         `pulumi:"resourceTypes"`
+	RetainInterval    pulumi.IntPtrInput                              `pulumi:"retainInterval"`
+	Schedules         LifecyclePolicyPolicyDetailsScheduleArrayInput  `pulumi:"schedules"`
+	TargetTags        pulumi.StringMapInput                           `pulumi:"targetTags"`
 }
 
 func (LifecyclePolicyPolicyDetailsArgs) ElementType() reflect.Type {
@@ -167,7 +137,6 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOut
 	}).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
 
-// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
 func (o LifecyclePolicyPolicyDetailsOutput) Action() LifecyclePolicyPolicyDetailsActionPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsAction { return v.Action }).(LifecyclePolicyPolicyDetailsActionPtrOutput)
 }
@@ -176,22 +145,18 @@ func (o LifecyclePolicyPolicyDetailsOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
 func (o LifecyclePolicyPolicyDetailsOutput) CreateInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *int { return v.CreateInterval }).(pulumi.IntPtrOutput)
 }
 
-// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
 func (o LifecyclePolicyPolicyDetailsOutput) EventSource() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsEventSource { return v.EventSource }).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
 func (o LifecyclePolicyPolicyDetailsOutput) Exclusions() LifecyclePolicyPolicyDetailsExclusionsPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsExclusions { return v.Exclusions }).(LifecyclePolicyPolicyDetailsExclusionsPtrOutput)
 }
 
-// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
 func (o LifecyclePolicyPolicyDetailsOutput) ExtendDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *bool { return v.ExtendDeletion }).(pulumi.BoolPtrOutput)
 }
@@ -200,44 +165,34 @@ func (o LifecyclePolicyPolicyDetailsOutput) Parameters() LifecyclePolicyPolicyDe
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters { return v.Parameters }).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
 
-// Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
 func (o LifecyclePolicyPolicyDetailsOutput) PolicyLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.PolicyLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 func (o LifecyclePolicyPolicyDetailsOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
-// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
 func (o LifecyclePolicyPolicyDetailsOutput) ResourceLocations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.ResourceLocations }).(pulumi.StringPtrOutput)
 }
 
-// Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
 func (o LifecyclePolicyPolicyDetailsOutput) RetainInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *int { return v.RetainInterval }).(pulumi.IntPtrOutput)
 }
 
-// See the `schedule` configuration block.
 func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDetailsScheduleArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule { return v.Schedules }).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
-// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
-//
-// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]string { return v.TargetTags }).(pulumi.StringMapOutput)
 }
@@ -266,7 +221,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetai
 	}).(LifecyclePolicyPolicyDetailsOutput)
 }
 
-// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Action() LifecyclePolicyPolicyDetailsActionPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsAction {
 		if v == nil {
@@ -285,7 +239,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) CopyTags() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) CreateInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *int {
 		if v == nil {
@@ -295,7 +248,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) CreateInterval() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsEventSource {
 		if v == nil {
@@ -305,7 +257,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyPoli
 	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Exclusions() LifecyclePolicyPolicyDetailsExclusionsPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsExclusions {
 		if v == nil {
@@ -315,7 +266,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Exclusions() LifecyclePolicyPolic
 	}).(LifecyclePolicyPolicyDetailsExclusionsPtrOutput)
 }
 
-// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ExtendDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *bool {
 		if v == nil {
@@ -334,7 +284,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Parameters() LifecyclePolicyPolic
 	}).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
 
-// Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
 		if v == nil {
@@ -344,7 +293,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyLanguage() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
 		if v == nil {
@@ -354,7 +302,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If the source resources are located in a Local Zone, specify `LOCAL_ZONE`. Valid values are `CLOUD`, `LOCAL_ZONE`, and `OUTPOST`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceLocations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
 		if v == nil {
@@ -364,7 +311,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceLocations() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of default policy to create. Valid values are `VOLUME` and `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
 		if v == nil {
@@ -374,7 +320,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []string {
 		if v == nil {
@@ -384,7 +329,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) RetainInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *int {
 		if v == nil {
@@ -394,7 +338,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) RetainInterval() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// See the `schedule` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicyDetailsScheduleArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule {
 		if v == nil {
@@ -404,9 +347,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
-// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `policyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policyType` is `EVENT_BASED_POLICY`.
-//
-// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]string {
 		if v == nil {
@@ -417,7 +357,6 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutp
 }
 
 type LifecyclePolicyPolicyDetailsAction struct {
-	// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
 	CrossRegionCopies []LifecyclePolicyPolicyDetailsActionCrossRegionCopy `pulumi:"crossRegionCopies"`
 	Name              string                                              `pulumi:"name"`
 }
@@ -434,7 +373,6 @@ type LifecyclePolicyPolicyDetailsActionInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsActionArgs struct {
-	// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
 	CrossRegionCopies LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput `pulumi:"crossRegionCopies"`
 	Name              pulumi.StringInput                                          `pulumi:"name"`
 }
@@ -516,7 +454,6 @@ func (o LifecyclePolicyPolicyDetailsActionOutput) ToLifecyclePolicyPolicyDetails
 	}).(LifecyclePolicyPolicyDetailsActionPtrOutput)
 }
 
-// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
 func (o LifecyclePolicyPolicyDetailsActionOutput) CrossRegionCopies() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsAction) []LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
 		return v.CrossRegionCopies
@@ -551,7 +488,6 @@ func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Elem() LifecyclePolicyPolic
 	}).(LifecyclePolicyPolicyDetailsActionOutput)
 }
 
-// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
 func (o LifecyclePolicyPolicyDetailsActionPtrOutput) CrossRegionCopies() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsAction) []LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
 		if v == nil {
@@ -571,7 +507,6 @@ func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Name() pulumi.StringPtrOutp
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopy struct {
-	// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
 	EncryptionConfiguration LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	RetainRule              *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule             `pulumi:"retainRule"`
 	Target                  string                                                                   `pulumi:"target"`
@@ -589,7 +524,6 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs struct {
-	// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
 	EncryptionConfiguration LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput `pulumi:"encryptionConfiguration"`
 	RetainRule              LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput           `pulumi:"retainRule"`
 	Target                  pulumi.StringInput                                                            `pulumi:"target"`
@@ -646,7 +580,6 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ToLifecyclePoli
 	return o
 }
 
-// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) EncryptionConfiguration() LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopy) LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
 		return v.EncryptionConfiguration
@@ -892,8 +825,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) In
 
 type LifecyclePolicyPolicyDetailsEventSource struct {
 	Parameters LifecyclePolicyPolicyDetailsEventSourceParameters `pulumi:"parameters"`
-	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-	Type string `pulumi:"type"`
+	Type       string                                            `pulumi:"type"`
 }
 
 // LifecyclePolicyPolicyDetailsEventSourceInput is an input type that accepts LifecyclePolicyPolicyDetailsEventSourceArgs and LifecyclePolicyPolicyDetailsEventSourceOutput values.
@@ -909,8 +841,7 @@ type LifecyclePolicyPolicyDetailsEventSourceInput interface {
 
 type LifecyclePolicyPolicyDetailsEventSourceArgs struct {
 	Parameters LifecyclePolicyPolicyDetailsEventSourceParametersInput `pulumi:"parameters"`
-	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                     `pulumi:"type"`
 }
 
 func (LifecyclePolicyPolicyDetailsEventSourceArgs) ElementType() reflect.Type {
@@ -996,7 +927,6 @@ func (o LifecyclePolicyPolicyDetailsEventSourceOutput) Parameters() LifecyclePol
 	}).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput)
 }
 
-// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
 func (o LifecyclePolicyPolicyDetailsEventSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1034,7 +964,6 @@ func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Parameters() Lifecycle
 	}).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
 }
 
-// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
 func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSource) *string {
 		if v == nil {
@@ -1045,12 +974,9 @@ func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Type() pulumi.StringPt
 }
 
 type LifecyclePolicyPolicyDetailsEventSourceParameters struct {
-	// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
-	DescriptionRegex string `pulumi:"descriptionRegex"`
-	// The type of event. Currently, only `shareSnapshot` events are supported.
-	EventType string `pulumi:"eventType"`
-	// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
-	SnapshotOwners []string `pulumi:"snapshotOwners"`
+	DescriptionRegex string   `pulumi:"descriptionRegex"`
+	EventType        string   `pulumi:"eventType"`
+	SnapshotOwners   []string `pulumi:"snapshotOwners"`
 }
 
 // LifecyclePolicyPolicyDetailsEventSourceParametersInput is an input type that accepts LifecyclePolicyPolicyDetailsEventSourceParametersArgs and LifecyclePolicyPolicyDetailsEventSourceParametersOutput values.
@@ -1065,12 +991,9 @@ type LifecyclePolicyPolicyDetailsEventSourceParametersInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsEventSourceParametersArgs struct {
-	// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
-	DescriptionRegex pulumi.StringInput `pulumi:"descriptionRegex"`
-	// The type of event. Currently, only `shareSnapshot` events are supported.
-	EventType pulumi.StringInput `pulumi:"eventType"`
-	// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
-	SnapshotOwners pulumi.StringArrayInput `pulumi:"snapshotOwners"`
+	DescriptionRegex pulumi.StringInput      `pulumi:"descriptionRegex"`
+	EventType        pulumi.StringInput      `pulumi:"eventType"`
+	SnapshotOwners   pulumi.StringArrayInput `pulumi:"snapshotOwners"`
 }
 
 func (LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ElementType() reflect.Type {
@@ -1150,17 +1073,14 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToLifecyclePoli
 	}).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
 }
 
-// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) DescriptionRegex() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSourceParameters) string { return v.DescriptionRegex }).(pulumi.StringOutput)
 }
 
-// The type of event. Currently, only `shareSnapshot` events are supported.
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) EventType() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSourceParameters) string { return v.EventType }).(pulumi.StringOutput)
 }
 
-// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) SnapshotOwners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSourceParameters) []string { return v.SnapshotOwners }).(pulumi.StringArrayOutput)
 }
@@ -1189,7 +1109,6 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) Elem() Lifec
 	}).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput)
 }
 
-// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) DescriptionRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) *string {
 		if v == nil {
@@ -1199,7 +1118,6 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) DescriptionR
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of event. Currently, only `shareSnapshot` events are supported.
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) *string {
 		if v == nil {
@@ -1209,7 +1127,6 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) EventType() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
 func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) SnapshotOwners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) []string {
 		if v == nil {
@@ -1220,12 +1137,9 @@ func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) SnapshotOwne
 }
 
 type LifecyclePolicyPolicyDetailsExclusions struct {
-	// Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-	ExcludeBootVolumes *bool `pulumi:"excludeBootVolumes"`
-	// Map specifies whether to exclude volumes that have specific tags.
-	ExcludeTags map[string]string `pulumi:"excludeTags"`
-	// List specifies the volume types to exclude.
-	ExcludeVolumeTypes []string `pulumi:"excludeVolumeTypes"`
+	ExcludeBootVolumes *bool             `pulumi:"excludeBootVolumes"`
+	ExcludeTags        map[string]string `pulumi:"excludeTags"`
+	ExcludeVolumeTypes []string          `pulumi:"excludeVolumeTypes"`
 }
 
 // LifecyclePolicyPolicyDetailsExclusionsInput is an input type that accepts LifecyclePolicyPolicyDetailsExclusionsArgs and LifecyclePolicyPolicyDetailsExclusionsOutput values.
@@ -1240,11 +1154,8 @@ type LifecyclePolicyPolicyDetailsExclusionsInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsExclusionsArgs struct {
-	// Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-	ExcludeBootVolumes pulumi.BoolPtrInput `pulumi:"excludeBootVolumes"`
-	// Map specifies whether to exclude volumes that have specific tags.
-	ExcludeTags pulumi.StringMapInput `pulumi:"excludeTags"`
-	// List specifies the volume types to exclude.
+	ExcludeBootVolumes pulumi.BoolPtrInput     `pulumi:"excludeBootVolumes"`
+	ExcludeTags        pulumi.StringMapInput   `pulumi:"excludeTags"`
 	ExcludeVolumeTypes pulumi.StringArrayInput `pulumi:"excludeVolumeTypes"`
 }
 
@@ -1325,17 +1236,14 @@ func (o LifecyclePolicyPolicyDetailsExclusionsOutput) ToLifecyclePolicyPolicyDet
 	}).(LifecyclePolicyPolicyDetailsExclusionsPtrOutput)
 }
 
-// Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
 func (o LifecyclePolicyPolicyDetailsExclusionsOutput) ExcludeBootVolumes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsExclusions) *bool { return v.ExcludeBootVolumes }).(pulumi.BoolPtrOutput)
 }
 
-// Map specifies whether to exclude volumes that have specific tags.
 func (o LifecyclePolicyPolicyDetailsExclusionsOutput) ExcludeTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsExclusions) map[string]string { return v.ExcludeTags }).(pulumi.StringMapOutput)
 }
 
-// List specifies the volume types to exclude.
 func (o LifecyclePolicyPolicyDetailsExclusionsOutput) ExcludeVolumeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsExclusions) []string { return v.ExcludeVolumeTypes }).(pulumi.StringArrayOutput)
 }
@@ -1364,7 +1272,6 @@ func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) Elem() LifecyclePolicyP
 	}).(LifecyclePolicyPolicyDetailsExclusionsOutput)
 }
 
-// Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
 func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeBootVolumes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsExclusions) *bool {
 		if v == nil {
@@ -1374,7 +1281,6 @@ func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeBootVolumes() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Map specifies whether to exclude volumes that have specific tags.
 func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsExclusions) map[string]string {
 		if v == nil {
@@ -1384,7 +1290,6 @@ func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeTags() pulumi.St
 	}).(pulumi.StringMapOutput)
 }
 
-// List specifies the volume types to exclude.
 func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeVolumeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsExclusions) []string {
 		if v == nil {
@@ -1395,10 +1300,8 @@ func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeVolumeTypes() pu
 }
 
 type LifecyclePolicyPolicyDetailsParameters struct {
-	// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 	ExcludeBootVolume *bool `pulumi:"excludeBootVolume"`
-	// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-	NoReboot *bool `pulumi:"noReboot"`
+	NoReboot          *bool `pulumi:"noReboot"`
 }
 
 // LifecyclePolicyPolicyDetailsParametersInput is an input type that accepts LifecyclePolicyPolicyDetailsParametersArgs and LifecyclePolicyPolicyDetailsParametersOutput values.
@@ -1413,10 +1316,8 @@ type LifecyclePolicyPolicyDetailsParametersInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsParametersArgs struct {
-	// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 	ExcludeBootVolume pulumi.BoolPtrInput `pulumi:"excludeBootVolume"`
-	// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-	NoReboot pulumi.BoolPtrInput `pulumi:"noReboot"`
+	NoReboot          pulumi.BoolPtrInput `pulumi:"noReboot"`
 }
 
 func (LifecyclePolicyPolicyDetailsParametersArgs) ElementType() reflect.Type {
@@ -1496,12 +1397,10 @@ func (o LifecyclePolicyPolicyDetailsParametersOutput) ToLifecyclePolicyPolicyDet
 	}).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
 
-// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 func (o LifecyclePolicyPolicyDetailsParametersOutput) ExcludeBootVolume() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.ExcludeBootVolume }).(pulumi.BoolPtrOutput)
 }
 
-// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
 func (o LifecyclePolicyPolicyDetailsParametersOutput) NoReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.NoReboot }).(pulumi.BoolPtrOutput)
 }
@@ -1530,7 +1429,6 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) Elem() LifecyclePolicyP
 	}).(LifecyclePolicyPolicyDetailsParametersOutput)
 }
 
-// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ExcludeBootVolume() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsParameters) *bool {
 		if v == nil {
@@ -1540,7 +1438,6 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ExcludeBootVolume() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
 func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) NoReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsParameters) *bool {
 		if v == nil {
@@ -1551,24 +1448,17 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) NoReboot() pulumi.BoolP
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {
-	// Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
-	ArchiveRule *LifecyclePolicyPolicyDetailsScheduleArchiveRule `pulumi:"archiveRule"`
-	CopyTags    *bool                                            `pulumi:"copyTags"`
-	// See the `createRule` block. Max of 1 per schedule.
-	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRule `pulumi:"createRule"`
-	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
+	ArchiveRule          *LifecyclePolicyPolicyDetailsScheduleArchiveRule          `pulumi:"archiveRule"`
+	CopyTags             *bool                                                     `pulumi:"copyTags"`
+	CreateRule           LifecyclePolicyPolicyDetailsScheduleCreateRule            `pulumi:"createRule"`
 	CrossRegionCopyRules []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule `pulumi:"crossRegionCopyRules"`
 	DeprecateRule        *LifecyclePolicyPolicyDetailsScheduleDeprecateRule        `pulumi:"deprecateRule"`
-	// See the `fastRestoreRule` block. Max of 1 per schedule.
-	FastRestoreRule *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule `pulumi:"fastRestoreRule"`
-	Name            string                                               `pulumi:"name"`
-	RetainRule      LifecyclePolicyPolicyDetailsScheduleRetainRule       `pulumi:"retainRule"`
-	// See the `shareRule` block. Max of 1 per schedule.
-	ShareRule *LifecyclePolicyPolicyDetailsScheduleShareRule `pulumi:"shareRule"`
-	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-	TagsToAdd map[string]string `pulumi:"tagsToAdd"`
-	// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
-	VariableTags map[string]string `pulumi:"variableTags"`
+	FastRestoreRule      *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule      `pulumi:"fastRestoreRule"`
+	Name                 string                                                    `pulumi:"name"`
+	RetainRule           LifecyclePolicyPolicyDetailsScheduleRetainRule            `pulumi:"retainRule"`
+	ShareRule            *LifecyclePolicyPolicyDetailsScheduleShareRule            `pulumi:"shareRule"`
+	TagsToAdd            map[string]string                                         `pulumi:"tagsToAdd"`
+	VariableTags         map[string]string                                         `pulumi:"variableTags"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArgs and LifecyclePolicyPolicyDetailsScheduleOutput values.
@@ -1583,24 +1473,17 @@ type LifecyclePolicyPolicyDetailsScheduleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArgs struct {
-	// Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
-	ArchiveRule LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrInput `pulumi:"archiveRule"`
-	CopyTags    pulumi.BoolPtrInput                                     `pulumi:"copyTags"`
-	// See the `createRule` block. Max of 1 per schedule.
-	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRuleInput `pulumi:"createRule"`
-	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
+	ArchiveRule          LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrInput           `pulumi:"archiveRule"`
+	CopyTags             pulumi.BoolPtrInput                                               `pulumi:"copyTags"`
+	CreateRule           LifecyclePolicyPolicyDetailsScheduleCreateRuleInput               `pulumi:"createRule"`
 	CrossRegionCopyRules LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput `pulumi:"crossRegionCopyRules"`
 	DeprecateRule        LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput         `pulumi:"deprecateRule"`
-	// See the `fastRestoreRule` block. Max of 1 per schedule.
-	FastRestoreRule LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput `pulumi:"fastRestoreRule"`
-	Name            pulumi.StringInput                                          `pulumi:"name"`
-	RetainRule      LifecyclePolicyPolicyDetailsScheduleRetainRuleInput         `pulumi:"retainRule"`
-	// See the `shareRule` block. Max of 1 per schedule.
-	ShareRule LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput `pulumi:"shareRule"`
-	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-	TagsToAdd pulumi.StringMapInput `pulumi:"tagsToAdd"`
-	// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
-	VariableTags pulumi.StringMapInput `pulumi:"variableTags"`
+	FastRestoreRule      LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput       `pulumi:"fastRestoreRule"`
+	Name                 pulumi.StringInput                                                `pulumi:"name"`
+	RetainRule           LifecyclePolicyPolicyDetailsScheduleRetainRuleInput               `pulumi:"retainRule"`
+	ShareRule            LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput             `pulumi:"shareRule"`
+	TagsToAdd            pulumi.StringMapInput                                             `pulumi:"tagsToAdd"`
+	VariableTags         pulumi.StringMapInput                                             `pulumi:"variableTags"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleArgs) ElementType() reflect.Type {
@@ -1654,7 +1537,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToLifecyclePolicyPolicyDetai
 	return o
 }
 
-// Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) ArchiveRule() LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleArchiveRule {
 		return v.ArchiveRule
@@ -1665,14 +1547,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) CopyTags() pulumi.BoolPtrOut
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// See the `createRule` block. Max of 1 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) CreateRule() LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) LifecyclePolicyPolicyDetailsScheduleCreateRule {
 		return v.CreateRule
 	}).(LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput)
 }
 
-// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) CrossRegionCopyRules() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
 		return v.CrossRegionCopyRules
@@ -1685,7 +1565,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) DeprecateRule() LifecyclePol
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
 }
 
-// See the `fastRestoreRule` block. Max of 1 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) FastRestoreRule() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
 		return v.FastRestoreRule
@@ -1702,19 +1581,16 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) RetainRule() LifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput)
 }
 
-// See the `shareRule` block. Max of 1 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) ShareRule() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleShareRule {
 		return v.ShareRule
 	}).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
 }
 
-// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) TagsToAdd() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]string { return v.TagsToAdd }).(pulumi.StringMapOutput)
 }
 
-// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) VariableTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]string { return v.VariableTags }).(pulumi.StringMapOutput)
 }
@@ -1740,7 +1616,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArchiveRule struct {
-	// Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
 	ArchiveRetainRule LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule `pulumi:"archiveRetainRule"`
 }
 
@@ -1756,7 +1631,6 @@ type LifecyclePolicyPolicyDetailsScheduleArchiveRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs struct {
-	// Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
 	ArchiveRetainRule LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleInput `pulumi:"archiveRetainRule"`
 }
 
@@ -1837,7 +1711,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleOutput) ToLifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrOutput)
 }
 
-// Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
 func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleOutput) ArchiveRetainRule() LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleArchiveRule) LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule {
 		return v.ArchiveRetainRule
@@ -1868,7 +1741,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrOutput) Elem() Lifecyc
 	}).(LifecyclePolicyPolicyDetailsScheduleArchiveRuleOutput)
 }
 
-// Information about the retention period for the snapshot archiving rule. See the `archiveRetainRule` block.
 func (o LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrOutput) ArchiveRetainRule() LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRulePtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleArchiveRule) *LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule {
 		if v == nil {
@@ -1879,7 +1751,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleArchiveRulePtrOutput) ArchiveRetainR
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule struct {
-	// Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
 	RetentionArchiveTier LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTier `pulumi:"retentionArchiveTier"`
 }
 
@@ -1895,7 +1766,6 @@ type LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleInput inter
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs struct {
-	// Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
 	RetentionArchiveTier LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierInput `pulumi:"retentionArchiveTier"`
 }
 
@@ -1976,7 +1846,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleOutput) 
 	}).(LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRulePtrOutput)
 }
 
-// Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
 func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleOutput) RetentionArchiveTier() LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule) LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTier {
 		return v.RetentionArchiveTier
@@ -2007,7 +1876,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRulePtrOutpu
 	}).(LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleOutput)
 }
 
-// Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
 func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRulePtrOutput) RetentionArchiveTier() LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule) *LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTier {
 		if v == nil {
@@ -2187,16 +2055,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentio
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
-	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
-	CronExpression *string `pulumi:"cronExpression"`
-	Interval       *int    `pulumi:"interval"`
-	IntervalUnit   *string `pulumi:"intervalUnit"`
-	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-	Location *string `pulumi:"location"`
-	// Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
-	Scripts *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts `pulumi:"scripts"`
-	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
-	Times *string `pulumi:"times"`
+	CronExpression *string                                                `pulumi:"cronExpression"`
+	Interval       *int                                                   `pulumi:"interval"`
+	IntervalUnit   *string                                                `pulumi:"intervalUnit"`
+	Location       *string                                                `pulumi:"location"`
+	Scripts        *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts `pulumi:"scripts"`
+	Times          *string                                                `pulumi:"times"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleCreateRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs and LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput values.
@@ -2211,16 +2075,12 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
-	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
-	CronExpression pulumi.StringPtrInput `pulumi:"cronExpression"`
-	Interval       pulumi.IntPtrInput    `pulumi:"interval"`
-	IntervalUnit   pulumi.StringPtrInput `pulumi:"intervalUnit"`
-	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
-	Scripts LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrInput `pulumi:"scripts"`
-	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
-	Times pulumi.StringPtrInput `pulumi:"times"`
+	CronExpression pulumi.StringPtrInput                                         `pulumi:"cronExpression"`
+	Interval       pulumi.IntPtrInput                                            `pulumi:"interval"`
+	IntervalUnit   pulumi.StringPtrInput                                         `pulumi:"intervalUnit"`
+	Location       pulumi.StringPtrInput                                         `pulumi:"location"`
+	Scripts        LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrInput `pulumi:"scripts"`
+	Times          pulumi.StringPtrInput                                         `pulumi:"times"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs) ElementType() reflect.Type {
@@ -2249,7 +2109,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`. For details on valid Cron expressions, see [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions).
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) CronExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.CronExpression }).(pulumi.StringPtrOutput)
 }
@@ -2262,36 +2121,27 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pul
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Scripts() LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts {
 		return v.Scripts
 	}).(LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput)
 }
 
-// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Times() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Times }).(pulumi.StringPtrOutput)
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts struct {
-	// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `true`.
-	ExecuteOperationOnScriptFailure *bool `pulumi:"executeOperationOnScriptFailure"`
-	// The SSM document that includes the pre and/or post scripts to run. In case automating VSS backups, specify `AWS_VSS_BACKUP`. In case automating application-consistent snapshots for SAP HANA workloads, specify `AWSSystemsManagerSAP-CreateDLMSnapshotForSAPHANA`. If you are using a custom SSM document that you own, specify either the name or ARN of the SSM document.
-	ExecutionHandler string `pulumi:"executionHandler"`
-	// Indicates the service used to execute the pre and/or post scripts. If using custom SSM documents or automating application-consistent snapshots of SAP HANA workloads, specify `AWS_SYSTEMS_MANAGER`. In case automating VSS Backups, omit this parameter. The default is `AWS_SYSTEMS_MANAGER`.
-	ExecutionHandlerService *string `pulumi:"executionHandlerService"`
-	// Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. In case automating VSS Backups, omit this parameter. The default is `10`.
-	ExecutionTimeout *int `pulumi:"executionTimeout"`
-	// Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail. Must be an integer between `0` and `3`. The default is `0`.
-	MaximumRetryCount *int `pulumi:"maximumRetryCount"`
-	// List to indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager initiates snapshot creation. Valid values: `PRE` and `POST`. The default is `PRE` and `POST`
-	Stages []string `pulumi:"stages"`
+	ExecuteOperationOnScriptFailure *bool    `pulumi:"executeOperationOnScriptFailure"`
+	ExecutionHandler                string   `pulumi:"executionHandler"`
+	ExecutionHandlerService         *string  `pulumi:"executionHandlerService"`
+	ExecutionTimeout                *int     `pulumi:"executionTimeout"`
+	MaximumRetryCount               *int     `pulumi:"maximumRetryCount"`
+	Stages                          []string `pulumi:"stages"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs and LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput values.
@@ -2306,18 +2156,12 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs struct {
-	// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `true`.
-	ExecuteOperationOnScriptFailure pulumi.BoolPtrInput `pulumi:"executeOperationOnScriptFailure"`
-	// The SSM document that includes the pre and/or post scripts to run. In case automating VSS backups, specify `AWS_VSS_BACKUP`. In case automating application-consistent snapshots for SAP HANA workloads, specify `AWSSystemsManagerSAP-CreateDLMSnapshotForSAPHANA`. If you are using a custom SSM document that you own, specify either the name or ARN of the SSM document.
-	ExecutionHandler pulumi.StringInput `pulumi:"executionHandler"`
-	// Indicates the service used to execute the pre and/or post scripts. If using custom SSM documents or automating application-consistent snapshots of SAP HANA workloads, specify `AWS_SYSTEMS_MANAGER`. In case automating VSS Backups, omit this parameter. The default is `AWS_SYSTEMS_MANAGER`.
-	ExecutionHandlerService pulumi.StringPtrInput `pulumi:"executionHandlerService"`
-	// Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. In case automating VSS Backups, omit this parameter. The default is `10`.
-	ExecutionTimeout pulumi.IntPtrInput `pulumi:"executionTimeout"`
-	// Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail. Must be an integer between `0` and `3`. The default is `0`.
-	MaximumRetryCount pulumi.IntPtrInput `pulumi:"maximumRetryCount"`
-	// List to indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager initiates snapshot creation. Valid values: `PRE` and `POST`. The default is `PRE` and `POST`
-	Stages pulumi.StringArrayInput `pulumi:"stages"`
+	ExecuteOperationOnScriptFailure pulumi.BoolPtrInput     `pulumi:"executeOperationOnScriptFailure"`
+	ExecutionHandler                pulumi.StringInput      `pulumi:"executionHandler"`
+	ExecutionHandlerService         pulumi.StringPtrInput   `pulumi:"executionHandlerService"`
+	ExecutionTimeout                pulumi.IntPtrInput      `pulumi:"executionTimeout"`
+	MaximumRetryCount               pulumi.IntPtrInput      `pulumi:"maximumRetryCount"`
+	Stages                          pulumi.StringArrayInput `pulumi:"stages"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs) ElementType() reflect.Type {
@@ -2397,36 +2241,30 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) ToLifecycle
 	}).(LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput)
 }
 
-// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `true`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) ExecuteOperationOnScriptFailure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *bool {
 		return v.ExecuteOperationOnScriptFailure
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The SSM document that includes the pre and/or post scripts to run. In case automating VSS backups, specify `AWS_VSS_BACKUP`. In case automating application-consistent snapshots for SAP HANA workloads, specify `AWSSystemsManagerSAP-CreateDLMSnapshotForSAPHANA`. If you are using a custom SSM document that you own, specify either the name or ARN of the SSM document.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) ExecutionHandler() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) string { return v.ExecutionHandler }).(pulumi.StringOutput)
 }
 
-// Indicates the service used to execute the pre and/or post scripts. If using custom SSM documents or automating application-consistent snapshots of SAP HANA workloads, specify `AWS_SYSTEMS_MANAGER`. In case automating VSS Backups, omit this parameter. The default is `AWS_SYSTEMS_MANAGER`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) ExecutionHandlerService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *string {
 		return v.ExecutionHandlerService
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. In case automating VSS Backups, omit this parameter. The default is `10`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *int { return v.ExecutionTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail. Must be an integer between `0` and `3`. The default is `0`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) MaximumRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *int { return v.MaximumRetryCount }).(pulumi.IntPtrOutput)
 }
 
-// List to indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager initiates snapshot creation. Valid values: `PRE` and `POST`. The default is `PRE` and `POST`
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput) Stages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) []string { return v.Stages }).(pulumi.StringArrayOutput)
 }
@@ -2455,7 +2293,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) Elem() L
 	}).(LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsOutput)
 }
 
-// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `true`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) ExecuteOperationOnScriptFailure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *bool {
 		if v == nil {
@@ -2465,7 +2302,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) ExecuteO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The SSM document that includes the pre and/or post scripts to run. In case automating VSS backups, specify `AWS_VSS_BACKUP`. In case automating application-consistent snapshots for SAP HANA workloads, specify `AWSSystemsManagerSAP-CreateDLMSnapshotForSAPHANA`. If you are using a custom SSM document that you own, specify either the name or ARN of the SSM document.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) ExecutionHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *string {
 		if v == nil {
@@ -2475,7 +2311,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) Executio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the service used to execute the pre and/or post scripts. If using custom SSM documents or automating application-consistent snapshots of SAP HANA workloads, specify `AWS_SYSTEMS_MANAGER`. In case automating VSS Backups, omit this parameter. The default is `AWS_SYSTEMS_MANAGER`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) ExecutionHandlerService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *string {
 		if v == nil {
@@ -2485,7 +2320,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) Executio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. In case automating VSS Backups, omit this parameter. The default is `10`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *int {
 		if v == nil {
@@ -2495,7 +2329,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) Executio
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail. Must be an integer between `0` and `3`. The default is `0`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) MaximumRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) *int {
 		if v == nil {
@@ -2505,7 +2338,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) MaximumR
 	}).(pulumi.IntPtrOutput)
 }
 
-// List to indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager initiates snapshot creation. Valid values: `PRE` and `POST`. The default is `PRE` and `POST`
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsPtrOutput) Stages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts) []string {
 		if v == nil {
@@ -2522,8 +2354,7 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule struct {
 	Encrypted     bool                                                                  `pulumi:"encrypted"`
 	RetainRule    *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule    `pulumi:"retainRule"`
 	Target        *string                                                               `pulumi:"target"`
-	// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-	TargetRegion *string `pulumi:"targetRegion"`
+	TargetRegion  *string                                                               `pulumi:"targetRegion"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput values.
@@ -2544,8 +2375,7 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs struct {
 	Encrypted     pulumi.BoolInput                                                             `pulumi:"encrypted"`
 	RetainRule    LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput    `pulumi:"retainRule"`
 	Target        pulumi.StringPtrInput                                                        `pulumi:"target"`
-	// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-	TargetRegion pulumi.StringPtrInput `pulumi:"targetRegion"`
+	TargetRegion  pulumi.StringPtrInput                                                        `pulumi:"targetRegion"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs) ElementType() reflect.Type {
@@ -2627,7 +2457,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) Target() 
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) TargetRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.TargetRegion }).(pulumi.StringPtrOutput)
 }
@@ -3116,7 +2945,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit
 }
 
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRule struct {
-	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	Count             *int     `pulumi:"count"`
 	Interval          *int     `pulumi:"interval"`
@@ -3135,7 +2963,6 @@ type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs struct {
-	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	Count             pulumi.IntPtrInput      `pulumi:"count"`
 	Interval          pulumi.IntPtrInput      `pulumi:"interval"`
@@ -3219,7 +3046,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToLifecyclePo
 	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
 }
 
-// The Availability Zones in which to enable fast snapshot restore.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -3260,7 +3086,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Elem() Lif
 	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput)
 }
 
-// The Availability Zones in which to enable fast snapshot restore.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string {
 		if v == nil {
@@ -3359,12 +3184,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) IntervalUnit() pul
 }
 
 type LifecyclePolicyPolicyDetailsScheduleShareRule struct {
-	// The IDs of the AWS accounts with which to share the snapshots.
-	TargetAccounts []string `pulumi:"targetAccounts"`
-	// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-	UnshareInterval *int `pulumi:"unshareInterval"`
-	// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-	UnshareIntervalUnit *string `pulumi:"unshareIntervalUnit"`
+	TargetAccounts      []string `pulumi:"targetAccounts"`
+	UnshareInterval     *int     `pulumi:"unshareInterval"`
+	UnshareIntervalUnit *string  `pulumi:"unshareIntervalUnit"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleShareRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleShareRuleArgs and LifecyclePolicyPolicyDetailsScheduleShareRuleOutput values.
@@ -3379,12 +3201,9 @@ type LifecyclePolicyPolicyDetailsScheduleShareRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleShareRuleArgs struct {
-	// The IDs of the AWS accounts with which to share the snapshots.
-	TargetAccounts pulumi.StringArrayInput `pulumi:"targetAccounts"`
-	// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-	UnshareInterval pulumi.IntPtrInput `pulumi:"unshareInterval"`
-	// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-	UnshareIntervalUnit pulumi.StringPtrInput `pulumi:"unshareIntervalUnit"`
+	TargetAccounts      pulumi.StringArrayInput `pulumi:"targetAccounts"`
+	UnshareInterval     pulumi.IntPtrInput      `pulumi:"unshareInterval"`
+	UnshareIntervalUnit pulumi.StringPtrInput   `pulumi:"unshareIntervalUnit"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ElementType() reflect.Type {
@@ -3464,17 +3283,14 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToLifecyclePolicyPo
 	}).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
 }
 
-// The IDs of the AWS accounts with which to share the snapshots.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) TargetAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) []string { return v.TargetAccounts }).(pulumi.StringArrayOutput)
 }
 
-// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) UnshareInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) *int { return v.UnshareInterval }).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) *string { return v.UnshareIntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -3503,7 +3319,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) Elem() Lifecycle
 	}).(LifecyclePolicyPolicyDetailsScheduleShareRuleOutput)
 }
 
-// The IDs of the AWS accounts with which to share the snapshots.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) TargetAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) []string {
 		if v == nil {
@@ -3513,7 +3328,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) TargetAccounts()
 	}).(pulumi.StringArrayOutput)
 }
 
-// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) *int {
 		if v == nil {
@@ -3523,7 +3337,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareInterval(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) *string {
 		if v == nil {

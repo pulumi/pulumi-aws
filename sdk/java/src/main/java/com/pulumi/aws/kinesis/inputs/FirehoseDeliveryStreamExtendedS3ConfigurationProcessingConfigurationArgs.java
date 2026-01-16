@@ -17,32 +17,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
 
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs();
 
-    /**
-     * Enables or disables data processing.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enables or disables data processing.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Specifies the data processors as multiple blocks. See `processors` block below for details.
-     * 
-     */
     @Import(name="processors")
     private @Nullable Output<List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs>> processors;
 
-    /**
-     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
-     * 
-     */
     public Optional<Output<List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs>>> processors() {
         return Optional.ofNullable(this.processors);
     }
@@ -72,54 +56,24 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
             $ = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enables or disables data processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enables or disables data processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processors(@Nullable Output<List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs>> processors) {
             $.processors = processors;
             return this;
         }
 
-        /**
-         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processors(List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs> processors) {
             return processors(Output.of(processors));
         }
 
-        /**
-         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs... processors) {
             return processors(List.of(processors));
         }

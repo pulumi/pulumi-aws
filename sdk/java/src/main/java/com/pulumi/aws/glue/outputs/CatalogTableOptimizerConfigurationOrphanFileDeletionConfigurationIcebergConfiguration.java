@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
-    /**
-     * @return Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-     * 
-     */
     private @Nullable Integer orphanFileRetentionPeriodInDays;
-    /**
-     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
-     * 
-     */
     private @Nullable Integer runRateInHours;
 
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration() {}
-    /**
-     * @return Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-     * 
-     */
     public Optional<Integer> orphanFileRetentionPeriodInDays() {
         return Optional.ofNullable(this.orphanFileRetentionPeriodInDays);
     }
-    /**
-     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
-     * 
-     */
     public Optional<Integer> runRateInHours() {
         return Optional.ofNullable(this.runRateInHours);
     }

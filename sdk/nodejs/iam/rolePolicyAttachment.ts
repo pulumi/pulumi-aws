@@ -6,69 +6,6 @@ import * as utilities from "../utilities";
 
 import {Role} from "./index";
 
-/**
- * Attaches a Managed IAM Policy to an IAM role
- *
- * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- *
- * > **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ec2.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {
- *     name: "test-role",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["ec2:Describe*"],
- *         resources: ["*"],
- *     }],
- * });
- * const policyPolicy = new aws.iam.Policy("policy", {
- *     name: "test-policy",
- *     description: "A test policy",
- *     policy: policy.then(policy => policy.json),
- * });
- * const test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
- *     role: role.name,
- *     policyArn: policyPolicy.arn,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `role` (String) Name of the IAM role.
- *
- * * `policy_arn` (String) ARN of the IAM policy.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
- *
- * % pulumi import aws_iam_role_policy_attachment.example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- */
 export class RolePolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing RolePolicyAttachment resource's state with the given name, ID, and optional extra
@@ -97,13 +34,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === RolePolicyAttachment.__pulumiType;
     }
 
-    /**
-     * The ARN of the policy you want to apply
-     */
     declare public readonly policyArn: pulumi.Output<string>;
-    /**
-     * The name of the IAM role to which the policy should be applied
-     */
     declare public readonly role: pulumi.Output<string>;
 
     /**
@@ -141,13 +72,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RolePolicyAttachment resources.
  */
 export interface RolePolicyAttachmentState {
-    /**
-     * The ARN of the policy you want to apply
-     */
     policyArn?: pulumi.Input<string>;
-    /**
-     * The name of the IAM role to which the policy should be applied
-     */
     role?: pulumi.Input<string | Role>;
 }
 
@@ -155,12 +80,6 @@ export interface RolePolicyAttachmentState {
  * The set of arguments for constructing a RolePolicyAttachment resource.
  */
 export interface RolePolicyAttachmentArgs {
-    /**
-     * The ARN of the policy you want to apply
-     */
     policyArn: pulumi.Input<string>;
-    /**
-     * The name of the IAM role to which the policy should be applied
-     */
     role: pulumi.Input<string | Role>;
 }

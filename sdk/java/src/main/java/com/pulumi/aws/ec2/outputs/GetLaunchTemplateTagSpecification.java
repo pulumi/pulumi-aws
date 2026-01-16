@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetLaunchTemplateTagSpecification {
     private String resourceType;
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetLaunchTemplateTagSpecification() {}
     public String resourceType() {
         return this.resourceType;
     }
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

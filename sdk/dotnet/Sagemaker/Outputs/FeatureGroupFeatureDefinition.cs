@@ -15,13 +15,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     {
         public readonly Outputs.FeatureGroupFeatureDefinitionCollectionConfig? CollectionConfig;
         public readonly string? CollectionType;
-        /// <summary>
-        /// The name of a feature. `FeatureName` cannot be any of the following: `IsDeleted`, `WriteTime`, `ApiInvocationTime`.
-        /// </summary>
         public readonly string? FeatureName;
-        /// <summary>
-        /// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-        /// </summary>
         public readonly string? FeatureType;
 
         [OutputConstructor]

@@ -15,17 +15,9 @@ public final class TableGlobalTableWitnessArgs extends com.pulumi.resources.Reso
 
     public static final TableGlobalTableWitnessArgs Empty = new TableGlobalTableWitnessArgs();
 
-    /**
-     * Name of the AWS Region that serves as a witness for the MRSC global table.
-     * 
-     */
     @Import(name="regionName")
     private @Nullable Output<String> regionName;
 
-    /**
-     * @return Name of the AWS Region that serves as a witness for the MRSC global table.
-     * 
-     */
     public Optional<Output<String>> regionName() {
         return Optional.ofNullable(this.regionName);
     }
@@ -54,23 +46,11 @@ public final class TableGlobalTableWitnessArgs extends com.pulumi.resources.Reso
             $ = new TableGlobalTableWitnessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regionName Name of the AWS Region that serves as a witness for the MRSC global table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionName(@Nullable Output<String> regionName) {
             $.regionName = regionName;
             return this;
         }
 
-        /**
-         * @param regionName Name of the AWS Region that serves as a witness for the MRSC global table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionName(String regionName) {
             return regionName(Output.of(regionName));
         }

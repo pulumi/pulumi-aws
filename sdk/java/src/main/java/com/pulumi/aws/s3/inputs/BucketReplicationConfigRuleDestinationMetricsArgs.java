@@ -17,32 +17,16 @@ public final class BucketReplicationConfigRuleDestinationMetricsArgs extends com
 
     public static final BucketReplicationConfigRuleDestinationMetricsArgs Empty = new BucketReplicationConfigRuleDestinationMetricsArgs();
 
-    /**
-     * Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
-     * 
-     */
     @Import(name="eventThreshold")
     private @Nullable Output<BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs> eventThreshold;
 
-    /**
-     * @return Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
-     * 
-     */
     public Optional<Output<BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs>> eventThreshold() {
         return Optional.ofNullable(this.eventThreshold);
     }
 
-    /**
-     * Status of the Destination Metrics. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Status of the Destination Metrics. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -72,44 +56,20 @@ public final class BucketReplicationConfigRuleDestinationMetricsArgs extends com
             $ = new BucketReplicationConfigRuleDestinationMetricsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventThreshold Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventThreshold(@Nullable Output<BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs> eventThreshold) {
             $.eventThreshold = eventThreshold;
             return this;
         }
 
-        /**
-         * @param eventThreshold Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventThreshold(BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs eventThreshold) {
             return eventThreshold(Output.of(eventThreshold));
         }
 
-        /**
-         * @param status Status of the Destination Metrics. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the Destination Metrics. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

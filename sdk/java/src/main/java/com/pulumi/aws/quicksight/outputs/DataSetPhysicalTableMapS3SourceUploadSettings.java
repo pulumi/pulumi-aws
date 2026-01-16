@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetPhysicalTableMapS3SourceUploadSettings {
-    /**
-     * @return Whether the file has a header row, or the files each have a header row.
-     * 
-     */
     private @Nullable Boolean containsHeader;
-    /**
-     * @return Delimiter between values in the file.
-     * 
-     */
     private @Nullable String delimiter;
-    /**
-     * @return File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-     * 
-     */
     private @Nullable String format;
-    /**
-     * @return A row number to start reading data from.
-     * 
-     */
     private @Nullable Integer startFromRow;
-    /**
-     * @return Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-     * 
-     */
     private @Nullable String textQualifier;
 
     private DataSetPhysicalTableMapS3SourceUploadSettings() {}
-    /**
-     * @return Whether the file has a header row, or the files each have a header row.
-     * 
-     */
     public Optional<Boolean> containsHeader() {
         return Optional.ofNullable(this.containsHeader);
     }
-    /**
-     * @return Delimiter between values in the file.
-     * 
-     */
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
-    /**
-     * @return File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-     * 
-     */
     public Optional<String> format() {
         return Optional.ofNullable(this.format);
     }
-    /**
-     * @return A row number to start reading data from.
-     * 
-     */
     public Optional<Integer> startFromRow() {
         return Optional.ofNullable(this.startFromRow);
     }
-    /**
-     * @return Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-     * 
-     */
     public Optional<String> textQualifier() {
         return Optional.ofNullable(this.textQualifier);
     }

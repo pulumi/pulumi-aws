@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ReportGroupExportConfig
     {
-        /// <summary>
-        /// contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        /// </summary>
         public readonly Outputs.ReportGroupExportConfigS3Destination? S3Destination;
-        /// <summary>
-        /// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

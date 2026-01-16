@@ -13,93 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.detective.Graph;
- * import com.pulumi.aws.detective.Member;
- * import com.pulumi.aws.detective.MemberArgs;
- * import com.pulumi.aws.detective.InvitationAccepter;
- * import com.pulumi.aws.detective.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primary = new Graph("primary");
- * 
- *         var primaryMember = new Member("primaryMember", MemberArgs.builder()
- *             .accountId("ACCOUNT ID")
- *             .emailAddress("EMAIL")
- *             .graphArn(primary.graphArn())
- *             .message("Message of the invite")
- *             .build());
- * 
- *         var member = new InvitationAccepter("member", InvitationAccepterArgs.builder()
- *             .graphArn(primary.graphArn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryMember)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
- * ```
- * 
- */
 @ResourceType(type="aws:detective/invitationAccepter:InvitationAccepter")
 public class InvitationAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the behavior graph that the member account is accepting the invitation for.
-     * 
-     */
     @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
-    /**
-     * @return ARN of the behavior graph that the member account is accepting the invitation for.
-     * 
-     */
     public Output<String> graphArn() {
         return this.graphArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

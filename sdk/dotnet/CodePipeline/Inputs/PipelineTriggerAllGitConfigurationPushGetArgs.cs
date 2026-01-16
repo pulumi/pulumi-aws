@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("branches")]
         private InputList<Inputs.PipelineTriggerAllGitConfigurationPushBranchGetArgs>? _branches;
-
-        /// <summary>
-        /// The field that specifies to filter on branches for the push trigger configuration. A `Branches` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationPushBranchGetArgs> Branches
         {
             get => _branches ?? (_branches = new InputList<Inputs.PipelineTriggerAllGitConfigurationPushBranchGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("filePaths")]
         private InputList<Inputs.PipelineTriggerAllGitConfigurationPushFilePathGetArgs>? _filePaths;
-
-        /// <summary>
-        /// The field that specifies to filter on file paths for the push trigger configuration. A `FilePaths` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationPushFilePathGetArgs> FilePaths
         {
             get => _filePaths ?? (_filePaths = new InputList<Inputs.PipelineTriggerAllGitConfigurationPushFilePathGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("tags")]
         private InputList<Inputs.PipelineTriggerAllGitConfigurationPushTagGetArgs>? _tags;
-
-        /// <summary>
-        /// The field that contains the details for the Git tags trigger configuration. A `Tags` block is documented below.
-        /// </summary>
         public InputList<Inputs.PipelineTriggerAllGitConfigurationPushTagGetArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.PipelineTriggerAllGitConfigurationPushTagGetArgs>());

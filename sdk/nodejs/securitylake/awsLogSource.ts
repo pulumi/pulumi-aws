@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Security Lake AWS Log Source.
- *
- * > **NOTE:** A single `aws.securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
- *
- * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.AwsLogSource`. Use a `dependsOn` statement.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securitylake.AwsLogSource("example", {source: {
- *     accounts: ["123456789012"],
- *     regions: ["eu-west-1"],
- *     sourceName: "ROUTE53",
- * }}, {
- *     dependsOn: [exampleAwsSecuritylakeDataLake],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AWS log sources using the source name. For example:
- *
- * ```sh
- * $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
- * ```
- */
 export class AwsLogSource extends pulumi.CustomResource {
     /**
      * Get an existing AwsLogSource resource's state with the given name, ID, and optional extra
@@ -67,13 +35,7 @@ export class AwsLogSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === AwsLogSource.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specify the natively-supported AWS service to add as a source in Security Lake.
-     */
     declare public readonly source: pulumi.Output<outputs.securitylake.AwsLogSourceSource | undefined>;
 
     /**
@@ -105,13 +67,7 @@ export class AwsLogSource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AwsLogSource resources.
  */
 export interface AwsLogSourceState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specify the natively-supported AWS service to add as a source in Security Lake.
-     */
     source?: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
 }
 
@@ -119,12 +75,6 @@ export interface AwsLogSourceState {
  * The set of arguments for constructing a AwsLogSource resource.
  */
 export interface AwsLogSourceArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specify the natively-supported AWS service to add as a source in Security Lake.
-     */
     source?: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
 }

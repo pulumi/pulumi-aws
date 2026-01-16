@@ -10,31 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AmiEphemeralBlockDevice {
-    /**
-     * @return Path at which the device is exposed to created instances.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
-     * *N* is a volume number starting from zero.
-     * 
-     */
     private String virtualName;
 
     private AmiEphemeralBlockDevice() {}
-    /**
-     * @return Path at which the device is exposed to created instances.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
-     * *N* is a volume number starting from zero.
-     * 
-     */
     public String virtualName() {
         return this.virtualName;
     }

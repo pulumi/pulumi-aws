@@ -13,13 +13,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxClusterDatabaseCacheConfiguration
     {
-        /// <summary>
-        /// Type of disk cache.
-        /// </summary>
         public readonly string CacheType;
-        /// <summary>
-        /// Paths within the database to cache.
-        /// </summary>
         public readonly ImmutableArray<string> DbPaths;
 
         [OutputConstructor]

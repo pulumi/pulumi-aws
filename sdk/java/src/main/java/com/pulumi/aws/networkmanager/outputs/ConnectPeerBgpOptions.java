@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectPeerBgpOptions {
-    /**
-     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     private @Nullable String peerAsn;
 
     private ConnectPeerBgpOptions() {}
-    /**
-     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     public Optional<String> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }

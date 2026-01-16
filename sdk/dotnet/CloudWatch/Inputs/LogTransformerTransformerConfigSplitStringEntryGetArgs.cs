@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogTransformerTransformerConfigSplitStringEntryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the separator characters to split the string entry on.
-        /// </summary>
         [Input("delimiter", required: true)]
         public Input<string> Delimiter { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the key to modify.
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 

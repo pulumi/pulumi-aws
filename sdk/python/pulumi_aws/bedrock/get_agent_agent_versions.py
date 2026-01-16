@@ -50,9 +50,6 @@ class GetAgentAgentVersionsResult:
     @_builtins.property
     @pulumi.getter(name="agentVersionSummaries")
     def agent_version_summaries(self) -> Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryResult']]:
-        """
-        List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-        """
         return pulumi.get(self, "agent_version_summaries")
 
     @_builtins.property
@@ -86,23 +83,7 @@ def get_agent_agent_versions(agent_id: Optional[_builtins.str] = None,
                              region: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentAgentVersionsResult:
     """
-    Data source for managing an AWS Amazon BedrockAgent Agent Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_agent_agent_versions(agent_id=test_aws_bedrockagent_agent["agentId"])
-    ```
-
-
-    :param _builtins.str agent_id: Unique identifier of the agent.
-    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['agentId'] = agent_id
@@ -121,23 +102,7 @@ def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[_builtins.st
                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentAgentVersionsResult]:
     """
-    Data source for managing an AWS Amazon BedrockAgent Agent Versions.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_agent_agent_versions(agent_id=test_aws_bedrockagent_agent["agentId"])
-    ```
-
-
-    :param _builtins.str agent_id: Unique identifier of the agent.
-    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['agentId'] = agent_id

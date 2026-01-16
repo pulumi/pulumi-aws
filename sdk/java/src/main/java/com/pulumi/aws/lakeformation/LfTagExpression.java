@@ -16,138 +16,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lake Formation LF Tag Expression.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.LfTag;
- * import com.pulumi.aws.lakeformation.LfTagArgs;
- * import com.pulumi.aws.lakeformation.LfTagExpression;
- * import com.pulumi.aws.lakeformation.LfTagExpressionArgs;
- * import com.pulumi.aws.lakeformation.inputs.LfTagExpressionExpressionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()
- *             .key("example")
- *             .values("value")
- *             .build());
- * 
- *         var exampleLfTagExpression = new LfTagExpression("exampleLfTagExpression", LfTagExpressionArgs.builder()
- *             .name("example")
- *             .expressions(LfTagExpressionExpressionArgs.builder()
- *                 .tagKey(example.key())
- *                 .tagValues(example.values())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lake Formation LF Tag Expression using the `name,catalog_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lakeformation/lfTagExpression:LfTagExpression example example-tag-expression,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:lakeformation/lfTagExpression:LfTagExpression")
 public class LfTagExpression extends com.pulumi.resources.CustomResource {
     /**
-     * ID of the Data Catalog. Defaults to the account ID if not specified.
+     * The ID of the Data Catalog.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return ID of the Data Catalog. Defaults to the account ID if not specified.
+     * @return The ID of the Data Catalog.
      * 
      */
     public Output<String> catalogId() {
         return this.catalogId;
     }
     /**
-     * Description of the LF-Tag Expression.
+     * A description of the LF-Tag Expression.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the LF-Tag Expression.
+     * @return A description of the LF-Tag Expression.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="expressions", refs={List.class,LfTagExpressionExpression.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LfTagExpressionExpression>> expressions;
 
-    /**
-     * @return A list of LF-Tag conditions (key-value pairs). See expression for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<LfTagExpressionExpression>>> expressions() {
         return Codegen.optional(this.expressions);
     }
     /**
-     * Name of the LF-Tag Expression.
+     * The name of the LF-Tag Expression.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the LF-Tag Expression.
+     * @return The name of the LF-Tag Expression.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

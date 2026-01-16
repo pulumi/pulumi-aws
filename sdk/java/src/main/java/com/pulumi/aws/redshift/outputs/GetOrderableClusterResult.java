@@ -12,10 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrderableClusterResult {
-    /**
-     * @return List of Availability Zone names where the Redshift Cluster is available.
-     * 
-     */
     private List<String> availabilityZones;
     private String clusterType;
     private String clusterVersion;
@@ -29,10 +25,6 @@ public final class GetOrderableClusterResult {
     private String region;
 
     private GetOrderableClusterResult() {}
-    /**
-     * @return List of Availability Zone names where the Redshift Cluster is available.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }

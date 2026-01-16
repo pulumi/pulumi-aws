@@ -16,47 +16,23 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
 
     public static final AcceleratorAttributesArgs Empty = new AcceleratorAttributesArgs();
 
-    /**
-     * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-     * 
-     */
     @Import(name="flowLogsEnabled")
     private @Nullable Output<Boolean> flowLogsEnabled;
 
-    /**
-     * @return Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-     * 
-     */
     public Optional<Output<Boolean>> flowLogsEnabled() {
         return Optional.ofNullable(this.flowLogsEnabled);
     }
 
-    /**
-     * The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     @Import(name="flowLogsS3Bucket")
     private @Nullable Output<String> flowLogsS3Bucket;
 
-    /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     public Optional<Output<String>> flowLogsS3Bucket() {
         return Optional.ofNullable(this.flowLogsS3Bucket);
     }
 
-    /**
-     * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     @Import(name="flowLogsS3Prefix")
     private @Nullable Output<String> flowLogsS3Prefix;
 
-    /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-     * 
-     */
     public Optional<Output<String>> flowLogsS3Prefix() {
         return Optional.ofNullable(this.flowLogsS3Prefix);
     }
@@ -87,65 +63,29 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
             $ = new AcceleratorAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param flowLogsEnabled Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowLogsEnabled(@Nullable Output<Boolean> flowLogsEnabled) {
             $.flowLogsEnabled = flowLogsEnabled;
             return this;
         }
 
-        /**
-         * @param flowLogsEnabled Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowLogsEnabled(Boolean flowLogsEnabled) {
             return flowLogsEnabled(Output.of(flowLogsEnabled));
         }
 
-        /**
-         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowLogsS3Bucket(@Nullable Output<String> flowLogsS3Bucket) {
             $.flowLogsS3Bucket = flowLogsS3Bucket;
             return this;
         }
 
-        /**
-         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowLogsS3Bucket(String flowLogsS3Bucket) {
             return flowLogsS3Bucket(Output.of(flowLogsS3Bucket));
         }
 
-        /**
-         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowLogsS3Prefix(@Nullable Output<String> flowLogsS3Prefix) {
             $.flowLogsS3Prefix = flowLogsS3Prefix;
             return this;
         }
 
-        /**
-         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder flowLogsS3Prefix(String flowLogsS3Prefix) {
             return flowLogsS3Prefix(Output.of(flowLogsS3Prefix));
         }

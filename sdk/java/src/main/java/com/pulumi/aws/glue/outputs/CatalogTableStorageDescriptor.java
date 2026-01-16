@@ -20,173 +20,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableStorageDescriptor {
-    /**
-     * @return List of locations that point to the path where a Delta table is located.
-     * 
-     */
     private @Nullable List<String> additionalLocations;
-    /**
-     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-     * 
-     */
     private @Nullable List<String> bucketColumns;
-    /**
-     * @return Configuration block for columns in the table. See `columns` below.
-     * 
-     */
     private @Nullable List<CatalogTableStorageDescriptorColumn> columns;
-    /**
-     * @return Whether the data in the table is compressed.
-     * 
-     */
     private @Nullable Boolean compressed;
-    /**
-     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-     * 
-     */
     private @Nullable String inputFormat;
-    /**
-     * @return Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return Must be specified if the table contains any dimension columns.
-     * 
-     */
     private @Nullable Integer numberOfBuckets;
-    /**
-     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-     * 
-     */
     private @Nullable String outputFormat;
-    /**
-     * @return User-supplied properties in key-value form.
-     * 
-     */
     private @Nullable Map<String,String> parameters;
-    /**
-     * @return Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
-     * 
-     */
     private @Nullable CatalogTableStorageDescriptorSchemaReference schemaReference;
-    /**
-     * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `serDeInfo` below.
-     * 
-     */
     private @Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo;
-    /**
-     * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
-     * 
-     */
     private @Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo;
-    /**
-     * @return Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
-     * 
-     */
     private @Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns;
-    /**
-     * @return Whether the table data is stored in subdirectories.
-     * 
-     */
     private @Nullable Boolean storedAsSubDirectories;
 
     private CatalogTableStorageDescriptor() {}
-    /**
-     * @return List of locations that point to the path where a Delta table is located.
-     * 
-     */
     public List<String> additionalLocations() {
         return this.additionalLocations == null ? List.of() : this.additionalLocations;
     }
-    /**
-     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-     * 
-     */
     public List<String> bucketColumns() {
         return this.bucketColumns == null ? List.of() : this.bucketColumns;
     }
-    /**
-     * @return Configuration block for columns in the table. See `columns` below.
-     * 
-     */
     public List<CatalogTableStorageDescriptorColumn> columns() {
         return this.columns == null ? List.of() : this.columns;
     }
-    /**
-     * @return Whether the data in the table is compressed.
-     * 
-     */
     public Optional<Boolean> compressed() {
         return Optional.ofNullable(this.compressed);
     }
-    /**
-     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-     * 
-     */
     public Optional<String> inputFormat() {
         return Optional.ofNullable(this.inputFormat);
     }
-    /**
-     * @return Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return Must be specified if the table contains any dimension columns.
-     * 
-     */
     public Optional<Integer> numberOfBuckets() {
         return Optional.ofNullable(this.numberOfBuckets);
     }
-    /**
-     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-     * 
-     */
     public Optional<String> outputFormat() {
         return Optional.ofNullable(this.outputFormat);
     }
-    /**
-     * @return User-supplied properties in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
-    /**
-     * @return Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
-     * 
-     */
     public Optional<CatalogTableStorageDescriptorSchemaReference> schemaReference() {
         return Optional.ofNullable(this.schemaReference);
     }
-    /**
-     * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `serDeInfo` below.
-     * 
-     */
     public Optional<CatalogTableStorageDescriptorSerDeInfo> serDeInfo() {
         return Optional.ofNullable(this.serDeInfo);
     }
-    /**
-     * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
-     * 
-     */
     public Optional<CatalogTableStorageDescriptorSkewedInfo> skewedInfo() {
         return Optional.ofNullable(this.skewedInfo);
     }
-    /**
-     * @return Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
-     * 
-     */
     public List<CatalogTableStorageDescriptorSortColumn> sortColumns() {
         return this.sortColumns == null ? List.of() : this.sortColumns;
     }
-    /**
-     * @return Whether the table data is stored in subdirectories.
-     * 
-     */
     public Optional<Boolean> storedAsSubDirectories() {
         return Optional.ofNullable(this.storedAsSubDirectories);
     }

@@ -18,51 +18,23 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
 
     public static final GetOntapStorageVirtualMachineArgs Empty = new GetOntapStorageVirtualMachineArgs();
 
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetOntapStorageVirtualMachineFilterArgs>> filters;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetOntapStorageVirtualMachineFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Identifier of the storage virtual machine (e.g. `svm-12345678`).
-     * 
-     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier of the storage virtual machine (e.g. `svm-12345678`).
-     * 
-     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -101,79 +73,33 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
             $ = new GetOntapStorageVirtualMachineArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetOntapStorageVirtualMachineFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetOntapStorageVirtualMachineFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetOntapStorageVirtualMachineFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Identifier of the storage virtual machine (e.g. `svm-12345678`).
-         * 
-         * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier of the storage virtual machine (e.g. `svm-12345678`).
-         * 
-         * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

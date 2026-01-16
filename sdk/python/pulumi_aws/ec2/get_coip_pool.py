@@ -57,9 +57,6 @@ class GetCoipPoolResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the COIP pool
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -83,9 +80,6 @@ class GetCoipPoolResult:
     @_builtins.property
     @pulumi.getter(name="poolCidrs")
     def pool_cidrs(self) -> Sequence[_builtins.str]:
-        """
-        Set of CIDR blocks in pool
-        """
         return pulumi.get(self, "pool_cidrs")
 
     @_builtins.property
@@ -127,25 +121,7 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolResult:
     """
-    Provides details about a specific EC2 Customer-Owned IP Pool.
-
-    This data source can prove useful when a module accepts a coip pool id as
-    an input variable and needs to, for example, determine the CIDR block of that
-    COIP Pool.
-
-    ## Example Usage
-
-    The following example returns a specific coip pool ID
-
-
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
-    :param _builtins.str pool_id: ID of the specific COIP Pool to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired COIP Pool.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -172,25 +148,7 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolResult]:
     """
-    Provides details about a specific EC2 Customer-Owned IP Pool.
-
-    This data source can prove useful when a module accepts a coip pool id as
-    an input variable and needs to, for example, determine the CIDR block of that
-    COIP Pool.
-
-    ## Example Usage
-
-    The following example returns a specific coip pool ID
-
-
-    :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
-    :param _builtins.str pool_id: ID of the specific COIP Pool to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired COIP Pool.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

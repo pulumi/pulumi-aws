@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentAttachmentsSource {
-    /**
-     * @return The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
-     * 
-     */
     private String key;
-    /**
-     * @return The name of the document attachment file.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
-     * 
-     */
     private List<String> values;
 
     private DocumentAttachmentsSource() {}
-    /**
-     * @return The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The name of the document attachment file.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

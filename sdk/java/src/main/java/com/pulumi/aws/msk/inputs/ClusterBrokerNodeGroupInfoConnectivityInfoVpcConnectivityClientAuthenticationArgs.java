@@ -16,32 +16,16 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs();
 
-    /**
-     * Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-     * 
-     */
     @Import(name="sasl")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs> sasl;
 
-    /**
-     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs>> sasl() {
         return Optional.ofNullable(this.sasl);
     }
 
-    /**
-     * Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-     * 
-     */
     @Import(name="tls")
     private @Nullable Output<Boolean> tls;
 
-    /**
-     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-     * 
-     */
     public Optional<Output<Boolean>> tls() {
         return Optional.ofNullable(this.tls);
     }
@@ -71,44 +55,20 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sasl Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sasl(@Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs> sasl) {
             $.sasl = sasl;
             return this;
         }
 
-        /**
-         * @param sasl Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sasl(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs sasl) {
             return sasl(Output.of(sasl));
         }
 
-        /**
-         * @param tls Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tls(@Nullable Output<Boolean> tls) {
             $.tls = tls;
             return this;
         }
 
-        /**
-         * @param tls Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tls(Boolean tls) {
             return tls(Output.of(tls));
         }

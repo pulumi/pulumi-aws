@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEventBusesResult {
-    /**
-     * @return This list of event buses.
-     * 
-     */
     private List<GetEventBusesEventBus> eventBuses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,10 +24,6 @@ public final class GetEventBusesResult {
     private String region;
 
     private GetEventBusesResult() {}
-    /**
-     * @return This list of event buses.
-     * 
-     */
     public List<GetEventBusesEventBus> eventBuses() {
         return this.eventBuses;
     }

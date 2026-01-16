@@ -16,32 +16,16 @@ public final class ApplicationAutoStopConfigurationArgs extends com.pulumi.resou
 
     public static final ApplicationAutoStopConfigurationArgs Empty = new ApplicationAutoStopConfigurationArgs();
 
-    /**
-     * Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-     * 
-     */
     @Import(name="idleTimeoutMinutes")
     private @Nullable Output<Integer> idleTimeoutMinutes;
 
-    /**
-     * @return The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-     * 
-     */
     public Optional<Output<Integer>> idleTimeoutMinutes() {
         return Optional.ofNullable(this.idleTimeoutMinutes);
     }
@@ -71,44 +55,20 @@ public final class ApplicationAutoStopConfigurationArgs extends com.pulumi.resou
             $ = new ApplicationAutoStopConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param idleTimeoutMinutes The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutMinutes(@Nullable Output<Integer> idleTimeoutMinutes) {
             $.idleTimeoutMinutes = idleTimeoutMinutes;
             return this;
         }
 
-        /**
-         * @param idleTimeoutMinutes The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeoutMinutes(Integer idleTimeoutMinutes) {
             return idleTimeoutMinutes(Output.of(idleTimeoutMinutes));
         }

@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkManagedServiceManagedS3BackupAccess {
     private List<String> ipv4Addresses;
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     private String status;
 
     private GetNetworkManagedServiceManagedS3BackupAccess() {}
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses;
     }
-    /**
-     * @return The status of the network resource.
-     * 
-     */
     public String status() {
         return this.status;
     }

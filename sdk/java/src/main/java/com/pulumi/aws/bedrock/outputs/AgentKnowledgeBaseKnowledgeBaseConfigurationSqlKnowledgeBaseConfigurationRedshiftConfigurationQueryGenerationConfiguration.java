@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration {
-    /**
-     * @return Time after which query generation will time out.
-     * 
-     */
     private @Nullable Integer executionTimeoutSeconds;
-    /**
-     * @return Configurations for context to use during query generation. See `generationContext` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext generationContext;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration() {}
-    /**
-     * @return Time after which query generation will time out.
-     * 
-     */
     public Optional<Integer> executionTimeoutSeconds() {
         return Optional.ofNullable(this.executionTimeoutSeconds);
     }
-    /**
-     * @return Configurations for context to use during query generation. See `generationContext` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContext> generationContext() {
         return Optional.ofNullable(this.generationContext);
     }

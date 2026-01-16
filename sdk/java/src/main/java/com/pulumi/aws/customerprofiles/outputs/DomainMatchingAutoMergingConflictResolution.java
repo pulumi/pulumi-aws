@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainMatchingAutoMergingConflictResolution {
-    /**
-     * @return How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-     * 
-     */
     private String conflictResolvingModel;
-    /**
-     * @return The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-     * 
-     */
     private @Nullable String sourceName;
 
     private DomainMatchingAutoMergingConflictResolution() {}
-    /**
-     * @return How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
-     * 
-     */
     public String conflictResolvingModel() {
         return this.conflictResolvingModel;
     }
-    /**
-     * @return The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
-     * 
-     */
     public Optional<String> sourceName() {
         return Optional.ofNullable(this.sourceName);
     }

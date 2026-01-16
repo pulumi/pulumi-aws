@@ -12,9 +12,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the delivery stream.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

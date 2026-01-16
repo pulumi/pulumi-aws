@@ -9,77 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceQuotas
 {
-    /// <summary>
-    /// Manages an individual Service Quota.
-    /// 
-    /// &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceQuotas.ServiceQuota("example", new()
-    ///     {
-    ///         QuotaCode = "L-F678F1CE",
-    ///         ServiceCode = "vpc",
-    ///         Value = 75,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:
-    /// 
-    /// ~&gt; __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]
     public partial class ServiceQuota : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether the service quota can be increased.
-        /// </summary>
         [Output("adjustable")]
         public Output<bool> Adjustable { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service quota.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Default value of the service quota.
-        /// </summary>
         [Output("defaultValue")]
         public Output<double> DefaultValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        /// </summary>
         [Output("quotaCode")]
         public Output<string> QuotaCode { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the quota.
-        /// </summary>
         [Output("quotaName")]
         public Output<string> QuotaName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -89,27 +36,15 @@ namespace Pulumi.Aws.ServiceQuotas
         [Output("requestStatus")]
         public Output<string> RequestStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Code of the service to track. For example: `Vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        /// </summary>
         [Output("serviceCode")]
         public Output<string> ServiceCode { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the service.
-        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the measurement.
-        /// </summary>
         [Output("usageMetrics")]
         public Output<ImmutableArray<Outputs.ServiceQuotaUsageMetric>> UsageMetrics { get; private set; } = null!;
 
-        /// <summary>
-        /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        /// </summary>
         [Output("value")]
         public Output<double> Value { get; private set; } = null!;
 
@@ -159,27 +94,15 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class ServiceQuotaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        /// </summary>
         [Input("quotaCode", required: true)]
         public Input<string> QuotaCode { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Code of the service to track. For example: `Vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        /// </summary>
         [Input("serviceCode", required: true)]
         public Input<string> ServiceCode { get; set; } = null!;
 
-        /// <summary>
-        /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 
@@ -191,39 +114,21 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class ServiceQuotaState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the service quota can be increased.
-        /// </summary>
         [Input("adjustable")]
         public Input<bool>? Adjustable { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the service quota.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Default value of the service quota.
-        /// </summary>
         [Input("defaultValue")]
         public Input<double>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        /// </summary>
         [Input("quotaCode")]
         public Input<string>? QuotaCode { get; set; }
 
-        /// <summary>
-        /// Name of the quota.
-        /// </summary>
         [Input("quotaName")]
         public Input<string>? QuotaName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -233,33 +138,20 @@ namespace Pulumi.Aws.ServiceQuotas
         [Input("requestStatus")]
         public Input<string>? RequestStatus { get; set; }
 
-        /// <summary>
-        /// Code of the service to track. For example: `Vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        /// </summary>
         [Input("serviceCode")]
         public Input<string>? ServiceCode { get; set; }
 
-        /// <summary>
-        /// Name of the service.
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         [Input("usageMetrics")]
         private InputList<Inputs.ServiceQuotaUsageMetricGetArgs>? _usageMetrics;
-
-        /// <summary>
-        /// Information about the measurement.
-        /// </summary>
         public InputList<Inputs.ServiceQuotaUsageMetricGetArgs> UsageMetrics
         {
             get => _usageMetrics ?? (_usageMetrics = new InputList<Inputs.ServiceQuotaUsageMetricGetArgs>());
             set => _usageMetrics = value;
         }
 
-        /// <summary>
-        /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        /// </summary>
         [Input("value")]
         public Input<double>? Value { get; set; }
 

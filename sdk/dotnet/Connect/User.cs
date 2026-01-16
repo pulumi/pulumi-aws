@@ -9,276 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Provides an Amazon Connect User resource. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.User("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
-    ///         },
-    ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
-    ///         {
-    ///             FirstName = "example",
-    ///             LastName = "example2",
-    ///         },
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With HierarchyGroupId
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.User("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         HierarchyGroupId = exampleAwsConnectUserHierarchyGroup.HierarchyGroupId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
-    ///         },
-    ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
-    ///         {
-    ///             FirstName = "example",
-    ///             LastName = "example2",
-    ///         },
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With IdentityInfo filled
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.User("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
-    ///         },
-    ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
-    ///         {
-    ///             Email = "example@example.com",
-    ///             FirstName = "example",
-    ///             LastName = "example2",
-    ///             SecondaryEmail = "secondary@example.com",
-    ///         },
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With PhoneConfig phone type as desk phone
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.User("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
-    ///         },
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             PhoneType = "SOFT_PHONE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With multiple Security profile ids specified in SecurityProfileIds
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.User("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         Name = "example",
-    ///         Password = "Password123",
-    ///         RoutingProfileId = exampleAwsConnectRoutingProfile.RoutingProfileId,
-    ///         SecurityProfileIds = new[]
-    ///         {
-    ///             exampleAwsConnectSecurityProfile.SecurityProfileId,
-    ///             example2.SecurityProfileId,
-    ///         },
-    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///         {
-    ///             AfterContactWorkTimeLimit = 0,
-    ///             AutoAccept = false,
-    ///             DeskPhoneNumber = "+112345678912",
-    ///             PhoneType = "DESK_PHONE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the user.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        /// </summary>
         [Output("directoryUserId")]
         public Output<string> DirectoryUserId { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the hierarchy group for the user.
-        /// </summary>
         [Output("hierarchyGroupId")]
         public Output<string?> HierarchyGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// A block that contains information about the identity of the user. Documented below.
-        /// </summary>
         [Output("identityInfo")]
         public Output<Outputs.UserIdentityInfo?> IdentityInfo { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
-        /// <summary>
-        /// A block that contains information about the phone settings for the user. Documented below.
-        /// </summary>
         [Output("phoneConfig")]
         public Output<Outputs.UserPhoneConfig> PhoneConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the routing profile for the user.
-        /// </summary>
         [Output("routingProfileId")]
         public Output<string> RoutingProfileId { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        /// </summary>
         [Output("securityProfileIds")]
         public Output<ImmutableArray<string>> SecurityProfileIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the user. If configured with a provider
-        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier for the user.
-        /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
@@ -332,42 +104,23 @@ namespace Pulumi.Aws.Connect
 
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        /// </summary>
         [Input("directoryUserId")]
         public Input<string>? DirectoryUserId { get; set; }
 
-        /// <summary>
-        /// The identifier of the hierarchy group for the user.
-        /// </summary>
         [Input("hierarchyGroupId")]
         public Input<string>? HierarchyGroupId { get; set; }
 
-        /// <summary>
-        /// A block that contains information about the identity of the user. Documented below.
-        /// </summary>
         [Input("identityInfo")]
         public Input<Inputs.UserIdentityInfoArgs>? IdentityInfo { get; set; }
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -378,30 +131,17 @@ namespace Pulumi.Aws.Connect
             }
         }
 
-        /// <summary>
-        /// A block that contains information about the phone settings for the user. Documented below.
-        /// </summary>
         [Input("phoneConfig", required: true)]
         public Input<Inputs.UserPhoneConfigArgs> PhoneConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The identifier of the routing profile for the user.
-        /// </summary>
         [Input("routingProfileId", required: true)]
         public Input<string> RoutingProfileId { get; set; } = null!;
 
         [Input("securityProfileIds", required: true)]
         private InputList<string>? _securityProfileIds;
-
-        /// <summary>
-        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        /// </summary>
         public InputList<string> SecurityProfileIds
         {
             get => _securityProfileIds ?? (_securityProfileIds = new InputList<string>());
@@ -410,11 +150,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the user. If configured with a provider
-        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -429,48 +164,26 @@ namespace Pulumi.Aws.Connect
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the user.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        /// </summary>
         [Input("directoryUserId")]
         public Input<string>? DirectoryUserId { get; set; }
 
-        /// <summary>
-        /// The identifier of the hierarchy group for the user.
-        /// </summary>
         [Input("hierarchyGroupId")]
         public Input<string>? HierarchyGroupId { get; set; }
 
-        /// <summary>
-        /// A block that contains information about the identity of the user. Documented below.
-        /// </summary>
         [Input("identityInfo")]
         public Input<Inputs.UserIdentityInfoGetArgs>? IdentityInfo { get; set; }
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -481,30 +194,17 @@ namespace Pulumi.Aws.Connect
             }
         }
 
-        /// <summary>
-        /// A block that contains information about the phone settings for the user. Documented below.
-        /// </summary>
         [Input("phoneConfig")]
         public Input<Inputs.UserPhoneConfigGetArgs>? PhoneConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The identifier of the routing profile for the user.
-        /// </summary>
         [Input("routingProfileId")]
         public Input<string>? RoutingProfileId { get; set; }
 
         [Input("securityProfileIds")]
         private InputList<string>? _securityProfileIds;
-
-        /// <summary>
-        /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        /// </summary>
         public InputList<string> SecurityProfileIds
         {
             get => _securityProfileIds ?? (_securityProfileIds = new InputList<string>());
@@ -513,11 +213,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the user. If configured with a provider
-        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -526,19 +221,12 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The identifier for the user.
-        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

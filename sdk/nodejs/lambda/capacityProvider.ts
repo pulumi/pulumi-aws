@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Lambda Capacity Provider.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
- *     vpcConfig: {
- *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *         securityGroupIds: [exampleAwsSecurityGroup.id],
- *     },
- *     permissionsConfig: {
- *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
- * ```
- */
 export class CapacityProvider extends pulumi.CustomResource {
     /**
      * Get an existing CapacityProvider resource's state with the given name, ID, and optional extra
@@ -66,42 +35,16 @@ export class CapacityProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityProvider.__pulumiType;
     }
 
-    /**
-     * ARN of the Capacity Provider.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly capacityProviderScalingConfigs: pulumi.Output<outputs.lambda.CapacityProviderCapacityProviderScalingConfig[]>;
-    /**
-     * Configuration block for instance requirements settings. See Instance Requirements below.
-     */
     declare public readonly instanceRequirements: pulumi.Output<outputs.lambda.CapacityProviderInstanceRequirement[]>;
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
-    /**
-     * The name of the Capacity Provider.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Configuration block for permissions settings. See Permissions Config below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.lambda.CapacityProviderTimeouts | undefined>;
-    /**
-     * Configuration block for VPC settings. See VPC Config below.
-     */
     declare public readonly vpcConfig: pulumi.Output<outputs.lambda.CapacityProviderVpcConfig | undefined>;
 
     /**
@@ -151,42 +94,16 @@ export class CapacityProvider extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CapacityProvider resources.
  */
 export interface CapacityProviderState {
-    /**
-     * ARN of the Capacity Provider.
-     */
     arn?: pulumi.Input<string>;
     capacityProviderScalingConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderCapacityProviderScalingConfig>[]>;
-    /**
-     * Configuration block for instance requirements settings. See Instance Requirements below.
-     */
     instanceRequirements?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirement>[]>;
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The name of the Capacity Provider.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration block for permissions settings. See Permissions Config below.
-     *
-     * The following arguments are optional:
-     */
     permissionsConfig?: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.lambda.CapacityProviderTimeouts>;
-    /**
-     * Configuration block for VPC settings. See VPC Config below.
-     */
     vpcConfig?: pulumi.Input<inputs.lambda.CapacityProviderVpcConfig>;
 }
 
@@ -195,32 +112,12 @@ export interface CapacityProviderState {
  */
 export interface CapacityProviderArgs {
     capacityProviderScalingConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderCapacityProviderScalingConfig>[]>;
-    /**
-     * Configuration block for instance requirements settings. See Instance Requirements below.
-     */
     instanceRequirements?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirement>[]>;
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The name of the Capacity Provider.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration block for permissions settings. See Permissions Config below.
-     *
-     * The following arguments are optional:
-     */
     permissionsConfig?: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfig>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.lambda.CapacityProviderTimeouts>;
-    /**
-     * Configuration block for VPC settings. See VPC Config below.
-     */
     vpcConfig?: pulumi.Input<inputs.lambda.CapacityProviderVpcConfig>;
 }

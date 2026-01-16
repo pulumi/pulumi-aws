@@ -26,13 +26,6 @@ class ProductPortfolioAssociationArgs:
                  source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductPortfolioAssociation resource.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_portfolio_id: Identifier of the source portfolio.
         """
         pulumi.set(__self__, "portfolio_id", portfolio_id)
         pulumi.set(__self__, "product_id", product_id)
@@ -46,9 +39,6 @@ class ProductPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -58,11 +48,6 @@ class ProductPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Product identifier.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -72,9 +57,6 @@ class ProductPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -84,9 +66,6 @@ class ProductPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,9 +75,6 @@ class ProductPortfolioAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="sourcePortfolioId")
     def source_portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the source portfolio.
-        """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
@@ -116,13 +92,6 @@ class _ProductPortfolioAssociationState:
                  source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductPortfolioAssociation resources.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_portfolio_id: Identifier of the source portfolio.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -138,9 +107,6 @@ class _ProductPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -150,9 +116,6 @@ class _ProductPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -162,11 +125,6 @@ class _ProductPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Product identifier.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -176,9 +134,6 @@ class _ProductPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +143,6 @@ class _ProductPortfolioAssociationState:
     @_builtins.property
     @pulumi.getter(name="sourcePortfolioId")
     def source_portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the source portfolio.
-        """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
@@ -211,38 +163,9 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
                  source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Product Portfolio Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.ProductPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            product_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
-        ```
-
+        Create a ProductPortfolioAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_portfolio_id: Identifier of the source portfolio.
         """
         ...
     @overload
@@ -251,29 +174,7 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
                  args: ProductPortfolioAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Product Portfolio Association.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.ProductPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            product_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
-        ```
-
+        Create a ProductPortfolioAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProductPortfolioAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,13 +235,6 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_portfolio_id: Identifier of the source portfolio.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,42 +250,25 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Product identifier.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "product_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourcePortfolioId")
     def source_portfolio_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier of the source portfolio.
-        """
         return pulumi.get(self, "source_portfolio_id")
 

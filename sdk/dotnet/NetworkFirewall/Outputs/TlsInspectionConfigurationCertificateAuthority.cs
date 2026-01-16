@@ -13,21 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class TlsInspectionConfigurationCertificateAuthority
     {
-        /// <summary>
-        /// ARN of the certificate.
-        /// </summary>
         public readonly string CertificateArn;
-        /// <summary>
-        /// Serial number of the certificate.
-        /// </summary>
         public readonly string CertificateSerial;
-        /// <summary>
-        /// Status of the certificate.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Details about the certificate status, including information about certificate errors.
-        /// </summary>
         public readonly string StatusMessage;
 
         [OutputConstructor]

@@ -54,9 +54,6 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> _builtins.str:
-        """
-        PEM-encoded certificate value.
-        """
         return pulumi.get(self, "certificate")
 
     @_builtins.property
@@ -67,9 +64,6 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> _builtins.str:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @_builtins.property
@@ -105,22 +99,7 @@ def get_certificate(arn: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        certificate_authority_arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
-
-    :param _builtins.str arn: ARN of the certificate issued by the private certificate authority.
-    :param _builtins.str certificate_authority_arn: ARN of the certificate authority.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -141,22 +120,7 @@ def get_certificate_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        certificate_authority_arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
-
-    :param _builtins.str arn: ARN of the certificate issued by the private certificate authority.
-    :param _builtins.str certificate_authority_arn: ARN of the certificate authority.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

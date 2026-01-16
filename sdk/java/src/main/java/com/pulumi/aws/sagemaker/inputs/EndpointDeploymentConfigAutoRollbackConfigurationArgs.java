@@ -16,17 +16,9 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationArgs extends
 
     public static final EndpointDeploymentConfigAutoRollbackConfigurationArgs Empty = new EndpointDeploymentConfigAutoRollbackConfigurationArgs();
 
-    /**
-     * List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
-     * 
-     */
     @Import(name="alarms")
     private @Nullable Output<List<EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>> alarms;
 
-    /**
-     * @return List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
-     * 
-     */
     public Optional<Output<List<EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>>> alarms() {
         return Optional.ofNullable(this.alarms);
     }
@@ -55,33 +47,15 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationArgs extends
             $ = new EndpointDeploymentConfigAutoRollbackConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alarms List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(@Nullable Output<List<EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs>> alarms) {
             $.alarms = alarms;
             return this;
         }
 
-        /**
-         * @param alarms List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(List<EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs> alarms) {
             return alarms(Output.of(alarms));
         }
 
-        /**
-         * @param alarms List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs... alarms) {
             return alarms(List.of(alarms));
         }

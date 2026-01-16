@@ -4,84 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
- *
- * ## Example Usage
- *
- * ### Self-Signed Root Certificate Authority Certificate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
- *     type: "ROOT",
- *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
- *         subject: {
- *             commonName: "example.com",
- *         },
- *     },
- * });
- * const current = aws.getPartition({});
- * const exampleCertificate = new aws.acmpca.Certificate("example", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificateSigningRequest: exampleCertificateAuthority.certificateSigningRequest,
- *     signingAlgorithm: "SHA512WITHRSA",
- *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
- *     validity: {
- *         type: "YEARS",
- *         value: "1",
- *     },
- * });
- * const example = new aws.acmpca.CertificateAuthorityCertificate("example", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificate: exampleCertificate.certificate,
- *     certificateChain: exampleCertificate.certificateChain,
- * });
- * ```
- *
- * ### Certificate for Subordinate Certificate Authority
- *
- * Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const subordinateCertificateAuthority = new aws.acmpca.CertificateAuthority("subordinate", {
- *     type: "SUBORDINATE",
- *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_2048",
- *         signingAlgorithm: "SHA512WITHRSA",
- *         subject: {
- *             commonName: "sub.example.com",
- *         },
- *     },
- * });
- * const root = new aws.acmpca.CertificateAuthority("root", {});
- * const current = aws.getPartition({});
- * const subordinateCertificate = new aws.acmpca.Certificate("subordinate", {
- *     certificateAuthorityArn: root.arn,
- *     certificateSigningRequest: subordinateCertificateAuthority.certificateSigningRequest,
- *     signingAlgorithm: "SHA512WITHRSA",
- *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1`),
- *     validity: {
- *         type: "YEARS",
- *         value: "1",
- *     },
- * });
- * const subordinate = new aws.acmpca.CertificateAuthorityCertificate("subordinate", {
- *     certificateAuthorityArn: subordinateCertificateAuthority.arn,
- *     certificate: subordinateCertificate.certificate,
- *     certificateChain: subordinateCertificate.certificateChain,
- * });
- * const rootCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("root", {});
- * const rootCertificate = new aws.acmpca.Certificate("root", {});
- * ```
- */
 export class CertificateAuthorityCertificate extends pulumi.CustomResource {
     /**
      * Get an existing CertificateAuthorityCertificate resource's state with the given name, ID, and optional extra
@@ -110,21 +32,9 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificateAuthorityCertificate.__pulumiType;
     }
 
-    /**
-     * PEM-encoded certificate for the Certificate Authority.
-     */
     declare public readonly certificate: pulumi.Output<string>;
-    /**
-     * ARN of the Certificate Authority.
-     */
     declare public readonly certificateAuthorityArn: pulumi.Output<string>;
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-     */
     declare public readonly certificateChain: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -166,21 +76,9 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
  */
 export interface CertificateAuthorityCertificateState {
-    /**
-     * PEM-encoded certificate for the Certificate Authority.
-     */
     certificate?: pulumi.Input<string>;
-    /**
-     * ARN of the Certificate Authority.
-     */
     certificateAuthorityArn?: pulumi.Input<string>;
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-     */
     certificateChain?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -188,20 +86,8 @@ export interface CertificateAuthorityCertificateState {
  * The set of arguments for constructing a CertificateAuthorityCertificate resource.
  */
 export interface CertificateAuthorityCertificateArgs {
-    /**
-     * PEM-encoded certificate for the Certificate Authority.
-     */
     certificate: pulumi.Input<string>;
-    /**
-     * ARN of the Certificate Authority.
-     */
     certificateAuthorityArn: pulumi.Input<string>;
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-     */
     certificateChain?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

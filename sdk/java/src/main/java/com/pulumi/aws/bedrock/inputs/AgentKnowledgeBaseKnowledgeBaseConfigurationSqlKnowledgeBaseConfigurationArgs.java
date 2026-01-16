@@ -17,32 +17,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs();
 
-    /**
-     * Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
-     * 
-     */
     @Import(name="redshiftConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs> redshiftConfiguration;
 
-    /**
-     * @return Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs>> redshiftConfiguration() {
         return Optional.ofNullable(this.redshiftConfiguration);
     }
 
-    /**
-     * Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,44 +56,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param redshiftConfiguration Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs> redshiftConfiguration) {
             $.redshiftConfiguration = redshiftConfiguration;
             return this;
         }
 
-        /**
-         * @param redshiftConfiguration Configurations for a knowledge base connected to an Amazon Redshift database. See `redshiftConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs redshiftConfiguration) {
             return redshiftConfiguration(Output.of(redshiftConfiguration));
         }
 
-        /**
-         * @param type Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

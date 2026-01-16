@@ -12,27 +12,15 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        /// </summary>
         [Input("accessControlMaxAgeSec", required: true)]
         public Input<int> AccessControlMaxAgeSec { get; set; } = null!;
 
-        /// <summary>
-        /// Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-        /// </summary>
         [Input("includeSubdomains")]
         public Input<bool>? IncludeSubdomains { get; set; }
 
-        /// <summary>
-        /// Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-        /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
-        /// <summary>
-        /// Whether CloudFront includes the `Preload` directive in the `Strict-Transport-Security` HTTP response header.
-        /// </summary>
         [Input("preload")]
         public Input<bool>? Preload { get; set; }
 

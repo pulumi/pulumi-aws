@@ -4,58 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `aws.route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
- *
- * > **NOTE:** Unless explicit association ordering is required (e.g., a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the `aws.route53.Zone` resource instead.
- *
- * > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `aws.route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.ec2.Vpc("primary", {
- *     cidrBlock: "10.6.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const secondary = new aws.ec2.Vpc("secondary", {
- *     cidrBlock: "10.7.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const example = new aws.route53.Zone("example", {
- *     name: "example.com",
- *     vpcs: [{
- *         vpcId: primary.id,
- *     }],
- * });
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
- *     zoneId: example.zoneId,
- *     vpcId: secondary.id,
- * });
- * ```
- *
- * ## Import
- *
- * The VPC is _not_ in the same region where you have configured the AWS Provider:
- *
- * __Using `pulumi import` to import__ Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
- *
- * The VPC is in the same region where you have configured the AWS Provider:
- *
- * ```sh
- * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
- * ```
- * The VPC is _not_ in the same region where you have configured the AWS Provider:
- *
- * ```sh
- * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
- * ```
- */
 export class ZoneAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ZoneAssociation resource's state with the given name, ID, and optional extra
@@ -84,21 +32,9 @@ export class ZoneAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ZoneAssociation.__pulumiType;
     }
 
-    /**
-     * The account ID of the account that created the hosted zone.
-     */
     declare public /*out*/ readonly owningAccount: pulumi.Output<string>;
-    /**
-     * The VPC to associate with the private hosted zone.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
-    /**
-     * The VPC's region. Defaults to the region of the AWS provider.
-     */
     declare public readonly vpcRegion: pulumi.Output<string>;
-    /**
-     * The private hosted zone to associate.
-     */
     declare public readonly zoneId: pulumi.Output<string>;
 
     /**
@@ -140,21 +76,9 @@ export class ZoneAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ZoneAssociation resources.
  */
 export interface ZoneAssociationState {
-    /**
-     * The account ID of the account that created the hosted zone.
-     */
     owningAccount?: pulumi.Input<string>;
-    /**
-     * The VPC to associate with the private hosted zone.
-     */
     vpcId?: pulumi.Input<string>;
-    /**
-     * The VPC's region. Defaults to the region of the AWS provider.
-     */
     vpcRegion?: pulumi.Input<string>;
-    /**
-     * The private hosted zone to associate.
-     */
     zoneId?: pulumi.Input<string>;
 }
 
@@ -162,16 +86,7 @@ export interface ZoneAssociationState {
  * The set of arguments for constructing a ZoneAssociation resource.
  */
 export interface ZoneAssociationArgs {
-    /**
-     * The VPC to associate with the private hosted zone.
-     */
     vpcId: pulumi.Input<string>;
-    /**
-     * The VPC's region. Defaults to the region of the AWS provider.
-     */
     vpcRegion?: pulumi.Input<string>;
-    /**
-     * The private hosted zone to associate.
-     */
     zoneId: pulumi.Input<string>;
 }

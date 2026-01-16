@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
-        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
-        /// <summary>
-        /// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
-        /// </summary>
         [Input("min", required: true)]
         public Input<int> Min { get; set; } = null!;
 

@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a lifecycle configuration for SageMaker AI Notebook Instances.
- *
- * ## Example Usage
- *
- * Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const lc = new aws.sagemaker.NotebookInstanceLifecycleConfiguration("lc", {
- *     name: "foo",
- *     onCreate: std.base64encode({
- *         input: "echo foo",
- *     }).then(invoke => invoke.result),
- *     onStart: std.base64encode({
- *         input: "echo bar",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import models using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
- * ```
- */
 export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing NotebookInstanceLifecycleConfiguration resource's state with the given name, ID, and optional extra
@@ -63,33 +32,12 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
         return obj['__pulumiType'] === NotebookInstanceLifecycleConfiguration.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-     */
     declare public readonly onCreate: pulumi.Output<string | undefined>;
-    /**
-     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
-     */
     declare public readonly onStart: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -131,33 +79,12 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
  * Input properties used for looking up and filtering NotebookInstanceLifecycleConfiguration resources.
  */
 export interface NotebookInstanceLifecycleConfigurationState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-     */
     onCreate?: pulumi.Input<string>;
-    /**
-     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
-     */
     onStart?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -165,24 +92,9 @@ export interface NotebookInstanceLifecycleConfigurationState {
  * The set of arguments for constructing a NotebookInstanceLifecycleConfiguration resource.
  */
 export interface NotebookInstanceLifecycleConfigurationArgs {
-    /**
-     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-     */
     onCreate?: pulumi.Input<string>;
-    /**
-     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
-     */
     onStart?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

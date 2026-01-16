@@ -7,86 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic Load Balancer resource, also known as a "Classic
- * Load Balancer" after the release of
- * Application/Network Load Balancers.
- *
- * > **NOTE on ELB Instances and ELB Attachments:** This provider currently
- * provides both a standalone ELB Attachment resource
- * (describing an instance attached to an ELB), and an ELB resource with
- * `instances` defined in-line. At this time you cannot use an ELB with in-line
- * instances in conjunction with a ELB Attachment resources. Doing so will cause a
- * conflict and will overwrite attachments.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new load balancer
- * const bar = new aws.elb.LoadBalancer("bar", {
- *     name: "foobar-elb",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     accessLogs: {
- *         bucket: "foo",
- *         bucketPrefix: "bar",
- *         interval: 60,
- *     },
- *     listeners: [
- *         {
- *             instancePort: 8000,
- *             instanceProtocol: "http",
- *             lbPort: 80,
- *             lbProtocol: "http",
- *         },
- *         {
- *             instancePort: 8000,
- *             instanceProtocol: "http",
- *             lbPort: 443,
- *             lbProtocol: "https",
- *             sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
- *         },
- *     ],
- *     healthCheck: {
- *         healthyThreshold: 2,
- *         unhealthyThreshold: 2,
- *         timeout: 3,
- *         target: "HTTP:8000/",
- *         interval: 30,
- *     },
- *     instances: [foo.id],
- *     crossZoneLoadBalancing: true,
- *     idleTimeout: 400,
- *     connectionDraining: true,
- *     connectionDrainingTimeout: 400,
- *     tags: {
- *         Name: "foobar-elb",
- *     },
- * });
- * ```
- *
- * ## Note on ECDSA Key Algorithm
- *
- * If the ARN of the `sslCertificateId` that is pointed to references a
- * certificate that was signed by an ECDSA key, note that ELB only supports the
- * P256 and P384 curves.  Using a certificate signed by a key using a different
- * curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
- * browser.
- *
- * ## Import
- *
- * Using `pulumi import`, import ELBs using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
- * ```
- */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancer resource's state with the given name, ID, and optional extra
@@ -115,106 +35,28 @@ export class LoadBalancer extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancer.__pulumiType;
     }
 
-    /**
-     * An Access Logs block. Access Logs documented below.
-     */
     declare public readonly accessLogs: pulumi.Output<outputs.elb.LoadBalancerAccessLogs | undefined>;
-    /**
-     * The ARN of the ELB
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The AZ's to serve traffic in.
-     */
     declare public readonly availabilityZones: pulumi.Output<string[]>;
-    /**
-     * Boolean to enable connection draining. Default: `false`
-     */
     declare public readonly connectionDraining: pulumi.Output<boolean | undefined>;
-    /**
-     * The time in seconds to allow for connections to drain. Default: `300`
-     */
     declare public readonly connectionDrainingTimeout: pulumi.Output<number | undefined>;
-    /**
-     * Enable cross-zone load balancing. Default: `true`
-     */
     declare public readonly crossZoneLoadBalancing: pulumi.Output<boolean | undefined>;
-    /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-     */
     declare public readonly desyncMitigationMode: pulumi.Output<string | undefined>;
-    /**
-     * The DNS name of the ELB
-     */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
-    /**
-     * A healthCheck block. Health Check documented below.
-     */
     declare public readonly healthCheck: pulumi.Output<outputs.elb.LoadBalancerHealthCheck>;
-    /**
-     * The time in seconds that the connection is allowed to be idle. Default: `60`
-     */
     declare public readonly idleTimeout: pulumi.Output<number | undefined>;
-    /**
-     * A list of instance ids to place in the ELB pool.
-     */
     declare public readonly instances: pulumi.Output<string[]>;
-    /**
-     * If true, ELB will be an internal ELB.
-     */
     declare public readonly internal: pulumi.Output<boolean>;
-    /**
-     * A list of listener blocks. Listeners documented below.
-     */
     declare public readonly listeners: pulumi.Output<outputs.elb.LoadBalancerListener[]>;
-    /**
-     * The name of the ELB. By default generated by this provider.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     */
     declare public readonly namePrefix: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A list of security group IDs to assign to the ELB.
-     * Only valid if creating an ELB within a VPC
-     */
     declare public readonly securityGroups: pulumi.Output<string[]>;
-    /**
-     * The name of the security group that you can use as
-     * part of your inbound rules for your load balancer's back-end application
-     * instances. Use this for Classic or Default VPC only.
-     */
     declare public readonly sourceSecurityGroup: pulumi.Output<string>;
-    /**
-     * The ID of the security group that you can use as
-     * part of your inbound rules for your load balancer's back-end application
-     * instances. Only available on ELBs launched in a VPC.
-     */
     declare public /*out*/ readonly sourceSecurityGroupId: pulumi.Output<string>;
-    /**
-     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-     */
     declare public readonly subnets: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * Exactly one of `availabilityZones` or `subnets` must be specified: this
-     * determines if the ELB exists in a VPC or in EC2-classic.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
-     */
     declare public /*out*/ readonly zoneId: pulumi.Output<string>;
 
     /**
@@ -293,106 +135,28 @@ export class LoadBalancer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancer resources.
  */
 export interface LoadBalancerState {
-    /**
-     * An Access Logs block. Access Logs documented below.
-     */
     accessLogs?: pulumi.Input<inputs.elb.LoadBalancerAccessLogs>;
-    /**
-     * The ARN of the ELB
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The AZ's to serve traffic in.
-     */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Boolean to enable connection draining. Default: `false`
-     */
     connectionDraining?: pulumi.Input<boolean>;
-    /**
-     * The time in seconds to allow for connections to drain. Default: `300`
-     */
     connectionDrainingTimeout?: pulumi.Input<number>;
-    /**
-     * Enable cross-zone load balancing. Default: `true`
-     */
     crossZoneLoadBalancing?: pulumi.Input<boolean>;
-    /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-     */
     desyncMitigationMode?: pulumi.Input<string>;
-    /**
-     * The DNS name of the ELB
-     */
     dnsName?: pulumi.Input<string>;
-    /**
-     * A healthCheck block. Health Check documented below.
-     */
     healthCheck?: pulumi.Input<inputs.elb.LoadBalancerHealthCheck>;
-    /**
-     * The time in seconds that the connection is allowed to be idle. Default: `60`
-     */
     idleTimeout?: pulumi.Input<number>;
-    /**
-     * A list of instance ids to place in the ELB pool.
-     */
     instances?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * If true, ELB will be an internal ELB.
-     */
     internal?: pulumi.Input<boolean>;
-    /**
-     * A list of listener blocks. Listeners documented below.
-     */
     listeners?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerListener>[]>;
-    /**
-     * The name of the ELB. By default generated by this provider.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of security group IDs to assign to the ELB.
-     * Only valid if creating an ELB within a VPC
-     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the security group that you can use as
-     * part of your inbound rules for your load balancer's back-end application
-     * instances. Use this for Classic or Default VPC only.
-     */
     sourceSecurityGroup?: pulumi.Input<string>;
-    /**
-     * The ID of the security group that you can use as
-     * part of your inbound rules for your load balancer's back-end application
-     * instances. Only available on ELBs launched in a VPC.
-     */
     sourceSecurityGroupId?: pulumi.Input<string>;
-    /**
-     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-     */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * Exactly one of `availabilityZones` or `subnets` must be specified: this
-     * determines if the ELB exists in a VPC or in EC2-classic.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
-     */
     zoneId?: pulumi.Input<string>;
 }
 
@@ -400,83 +164,22 @@ export interface LoadBalancerState {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
-    /**
-     * An Access Logs block. Access Logs documented below.
-     */
     accessLogs?: pulumi.Input<inputs.elb.LoadBalancerAccessLogs>;
-    /**
-     * The AZ's to serve traffic in.
-     */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Boolean to enable connection draining. Default: `false`
-     */
     connectionDraining?: pulumi.Input<boolean>;
-    /**
-     * The time in seconds to allow for connections to drain. Default: `300`
-     */
     connectionDrainingTimeout?: pulumi.Input<number>;
-    /**
-     * Enable cross-zone load balancing. Default: `true`
-     */
     crossZoneLoadBalancing?: pulumi.Input<boolean>;
-    /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-     */
     desyncMitigationMode?: pulumi.Input<string>;
-    /**
-     * A healthCheck block. Health Check documented below.
-     */
     healthCheck?: pulumi.Input<inputs.elb.LoadBalancerHealthCheck>;
-    /**
-     * The time in seconds that the connection is allowed to be idle. Default: `60`
-     */
     idleTimeout?: pulumi.Input<number>;
-    /**
-     * A list of instance ids to place in the ELB pool.
-     */
     instances?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * If true, ELB will be an internal ELB.
-     */
     internal?: pulumi.Input<boolean>;
-    /**
-     * A list of listener blocks. Listeners documented below.
-     */
     listeners: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerListener>[]>;
-    /**
-     * The name of the ELB. By default generated by this provider.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A list of security group IDs to assign to the ELB.
-     * Only valid if creating an ELB within a VPC
-     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the security group that you can use as
-     * part of your inbound rules for your load balancer's back-end application
-     * instances. Use this for Classic or Default VPC only.
-     */
     sourceSecurityGroup?: pulumi.Input<string>;
-    /**
-     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
-     */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * Exactly one of `availabilityZones` or `subnets` must be specified: this
-     * determines if the ELB exists in a VPC or in EC2-classic.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

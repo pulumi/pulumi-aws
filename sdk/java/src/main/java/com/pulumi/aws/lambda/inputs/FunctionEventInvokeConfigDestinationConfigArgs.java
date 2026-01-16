@@ -16,32 +16,16 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
 
     public static final FunctionEventInvokeConfigDestinationConfigArgs Empty = new FunctionEventInvokeConfigDestinationConfigArgs();
 
-    /**
-     * Configuration block with destination configuration for failed asynchronous invocations. See below.
-     * 
-     */
     @Import(name="onFailure")
     private @Nullable Output<FunctionEventInvokeConfigDestinationConfigOnFailureArgs> onFailure;
 
-    /**
-     * @return Configuration block with destination configuration for failed asynchronous invocations. See below.
-     * 
-     */
     public Optional<Output<FunctionEventInvokeConfigDestinationConfigOnFailureArgs>> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
 
-    /**
-     * Configuration block with destination configuration for successful asynchronous invocations. See below.
-     * 
-     */
     @Import(name="onSuccess")
     private @Nullable Output<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs> onSuccess;
 
-    /**
-     * @return Configuration block with destination configuration for successful asynchronous invocations. See below.
-     * 
-     */
     public Optional<Output<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs>> onSuccess() {
         return Optional.ofNullable(this.onSuccess);
     }
@@ -71,44 +55,20 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
             $ = new FunctionEventInvokeConfigDestinationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onFailure Configuration block with destination configuration for failed asynchronous invocations. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onFailure(@Nullable Output<FunctionEventInvokeConfigDestinationConfigOnFailureArgs> onFailure) {
             $.onFailure = onFailure;
             return this;
         }
 
-        /**
-         * @param onFailure Configuration block with destination configuration for failed asynchronous invocations. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs onFailure) {
             return onFailure(Output.of(onFailure));
         }
 
-        /**
-         * @param onSuccess Configuration block with destination configuration for successful asynchronous invocations. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onSuccess(@Nullable Output<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs> onSuccess) {
             $.onSuccess = onSuccess;
             return this;
         }
 
-        /**
-         * @param onSuccess Configuration block with destination configuration for successful asynchronous invocations. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs onSuccess) {
             return onSuccess(Output.of(onSuccess));
         }

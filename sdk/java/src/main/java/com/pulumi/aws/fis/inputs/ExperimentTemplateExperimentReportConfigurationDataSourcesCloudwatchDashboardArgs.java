@@ -15,17 +15,9 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesClo
 
     public static final ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs Empty = new ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs();
 
-    /**
-     * The ARN of the CloudWatch dashboard.
-     * 
-     */
     @Import(name="dashboardArn")
     private @Nullable Output<String> dashboardArn;
 
-    /**
-     * @return The ARN of the CloudWatch dashboard.
-     * 
-     */
     public Optional<Output<String>> dashboardArn() {
         return Optional.ofNullable(this.dashboardArn);
     }
@@ -54,23 +46,11 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesClo
             $ = new ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dashboardArn The ARN of the CloudWatch dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardArn(@Nullable Output<String> dashboardArn) {
             $.dashboardArn = dashboardArn;
             return this;
         }
 
-        /**
-         * @param dashboardArn The ARN of the CloudWatch dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardArn(String dashboardArn) {
             return dashboardArn(Output.of(dashboardArn));
         }

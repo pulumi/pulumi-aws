@@ -12,24 +12,14 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-        /// </summary>
         [Input("edgeLocation", required: true)]
         public string EdgeLocation { get; set; } = null!;
 
-        /// <summary>
-        /// The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-        /// </summary>
         [Input("peerEdgeLocation", required: true)]
         public string PeerEdgeLocation { get; set; } = null!;
 
         [Input("routingPolicyNames", required: true)]
         private List<string>? _routingPolicyNames;
-
-        /// <summary>
-        /// A set of routing policy names to apply to this edge location pair.
-        /// </summary>
         public List<string> RoutingPolicyNames
         {
             get => _routingPolicyNames ?? (_routingPolicyNames = new List<string>());

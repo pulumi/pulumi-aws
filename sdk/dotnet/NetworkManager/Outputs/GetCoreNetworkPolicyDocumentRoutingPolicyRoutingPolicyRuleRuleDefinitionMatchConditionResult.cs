@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionResult
     {
-        /// <summary>
-        /// Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Value to match against, depending on the condition type.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

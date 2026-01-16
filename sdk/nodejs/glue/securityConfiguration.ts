@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Glue Security Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.SecurityConfiguration("example", {
- *     name: "example",
- *     encryptionConfiguration: {
- *         cloudwatchEncryption: {
- *             cloudwatchEncryptionMode: "DISABLED",
- *         },
- *         jobBookmarksEncryption: {
- *             jobBookmarksEncryptionMode: "DISABLED",
- *         },
- *         s3Encryption: {
- *             kmsKeyArn: exampleAwsKmsKey.arn,
- *             s3EncryptionMode: "SSE-KMS",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Glue Security Configurations using `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
- * ```
- */
 export class SecurityConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing SecurityConfiguration resource's state with the given name, ID, and optional extra
@@ -69,17 +35,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityConfiguration.__pulumiType;
     }
 
-    /**
-     * Configuration block containing encryption configuration. Detailed below.
-     */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.glue.SecurityConfigurationEncryptionConfiguration>;
-    /**
-     * Name of the security configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -116,17 +73,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityConfiguration resources.
  */
 export interface SecurityConfigurationState {
-    /**
-     * Configuration block containing encryption configuration. Detailed below.
-     */
     encryptionConfiguration?: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
-    /**
-     * Name of the security configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -134,16 +82,7 @@ export interface SecurityConfigurationState {
  * The set of arguments for constructing a SecurityConfiguration resource.
  */
 export interface SecurityConfigurationArgs {
-    /**
-     * Configuration block containing encryption configuration. Detailed below.
-     */
     encryptionConfiguration: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
-    /**
-     * Name of the security configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

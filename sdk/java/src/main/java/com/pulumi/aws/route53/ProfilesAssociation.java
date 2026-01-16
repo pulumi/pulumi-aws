@@ -16,68 +16,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Route 53 Profiles Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.ProfilesProfile;
- * import com.pulumi.aws.route53.ProfilesProfileArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.route53.ProfilesAssociation;
- * import com.pulumi.aws.route53.ProfilesAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProfilesProfile("example", ProfilesProfileArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
- *             .cidr("10.0.0.0/16")
- *             .build());
- * 
- *         var exampleProfilesAssociation = new ProfilesAssociation("exampleProfilesAssociation", ProfilesAssociationArgs.builder()
- *             .name("example")
- *             .profileId(example.id())
- *             .resourceId(exampleVpc.id())
- *             .tags(Map.of("Environment", "dev"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:route53/profilesAssociation:ProfilesAssociation")
 public class ProfilesAssociation extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -86,17 +24,9 @@ public class ProfilesAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -106,101 +36,45 @@ public class ProfilesAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * ID of the profile associated with the VPC.
-     * 
-     */
     @Export(name="profileId", refs={String.class}, tree="[0]")
     private Output<String> profileId;
 
-    /**
-     * @return ID of the profile associated with the VPC.
-     * 
-     */
     public Output<String> profileId() {
         return this.profileId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Resource ID of the VPC the profile to be associated with.
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return Resource ID of the VPC the profile to be associated with.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
-    /**
-     * Status of the Profile Association.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the Profile Association.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Status message of the Profile Association.
-     * 
-     */
     @Export(name="statusMessage", refs={String.class}, tree="[0]")
     private Output<String> statusMessage;
 
-    /**
-     * @return Status message of the Profile Association.
-     * 
-     */
     public Output<String> statusMessage() {
         return this.statusMessage;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

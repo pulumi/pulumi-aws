@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitoringScheduleMonitoringScheduleConfig {
-    /**
-     * @return The name of the monitoring job definition to schedule.
-     * 
-     */
     private String monitoringJobDefinitionName;
-    /**
-     * @return The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-     * 
-     */
     private String monitoringType;
-    /**
-     * @return Configures the monitoring schedule. Fields are documented below.
-     * 
-     */
     private @Nullable MonitoringScheduleMonitoringScheduleConfigScheduleConfig scheduleConfig;
 
     private MonitoringScheduleMonitoringScheduleConfig() {}
-    /**
-     * @return The name of the monitoring job definition to schedule.
-     * 
-     */
     public String monitoringJobDefinitionName() {
         return this.monitoringJobDefinitionName;
     }
-    /**
-     * @return The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-     * 
-     */
     public String monitoringType() {
         return this.monitoringType;
     }
-    /**
-     * @return Configures the monitoring schedule. Fields are documented below.
-     * 
-     */
     public Optional<MonitoringScheduleMonitoringScheduleConfigScheduleConfig> scheduleConfig() {
         return Optional.ofNullable(this.scheduleConfig);
     }

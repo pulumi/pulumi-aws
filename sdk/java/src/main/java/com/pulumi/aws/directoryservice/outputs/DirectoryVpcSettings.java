@@ -13,32 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DirectoryVpcSettings {
     private @Nullable List<String> availabilityZones;
-    /**
-     * @return The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return The identifier of the VPC that the directory is in.
-     * 
-     */
     private String vpcId;
 
     private DirectoryVpcSettings() {}
     public List<String> availabilityZones() {
         return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
-    /**
-     * @return The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return The identifier of the VPC that the directory is in.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

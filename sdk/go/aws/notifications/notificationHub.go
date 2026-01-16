@@ -12,47 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS User Notifications Notification Hub.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := notifications.NewNotificationHub(ctx, "example", &notifications.NotificationHubArgs{
-//				NotificationHubRegion: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
-//
-// ```sh
-// $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
-// ```
 type NotificationHub struct {
 	pulumi.CustomResourceState
 
-	// Notification Hub region.
 	NotificationHubRegion pulumi.StringOutput              `pulumi:"notificationHubRegion"`
 	Timeouts              NotificationHubTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -90,13 +52,11 @@ func GetNotificationHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationHub resources.
 type notificationHubState struct {
-	// Notification Hub region.
 	NotificationHubRegion *string                  `pulumi:"notificationHubRegion"`
 	Timeouts              *NotificationHubTimeouts `pulumi:"timeouts"`
 }
 
 type NotificationHubState struct {
-	// Notification Hub region.
 	NotificationHubRegion pulumi.StringPtrInput
 	Timeouts              NotificationHubTimeoutsPtrInput
 }
@@ -106,14 +66,12 @@ func (NotificationHubState) ElementType() reflect.Type {
 }
 
 type notificationHubArgs struct {
-	// Notification Hub region.
 	NotificationHubRegion string                   `pulumi:"notificationHubRegion"`
 	Timeouts              *NotificationHubTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a NotificationHub resource.
 type NotificationHubArgs struct {
-	// Notification Hub region.
 	NotificationHubRegion pulumi.StringInput
 	Timeouts              NotificationHubTimeoutsPtrInput
 }
@@ -205,7 +163,6 @@ func (o NotificationHubOutput) ToNotificationHubOutputWithContext(ctx context.Co
 	return o
 }
 
-// Notification Hub region.
 func (o NotificationHubOutput) NotificationHubRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationHub) pulumi.StringOutput { return v.NotificationHubRegion }).(pulumi.StringOutput)
 }

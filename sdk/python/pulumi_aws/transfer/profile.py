@@ -26,11 +26,6 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
-        :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        :param pulumi.Input[_builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "as2_id", as2_id)
         pulumi.set(__self__, "profile_type", profile_type)
@@ -44,9 +39,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="as2Id")
     def as2_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        """
         return pulumi.get(self, "as2_id")
 
     @as2_id.setter
@@ -56,9 +48,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The profile type should be LOCAL or PARTNER.
-        """
         return pulumi.get(self, "profile_type")
 
     @profile_type.setter
@@ -68,9 +57,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="certificateIds")
     def certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of certificate Ids from the imported certificate operation.
-        """
         return pulumi.get(self, "certificate_ids")
 
     @certificate_ids.setter
@@ -80,9 +66,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -92,9 +75,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,13 +95,6 @@ class _ProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Profile resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the profile.
-        :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
-        :param pulumi.Input[_builtins.str] profile_id: The unique identifier for the AS2 profile.
-        :param pulumi.Input[_builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -143,9 +116,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -155,9 +125,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="as2Id")
     def as2_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        """
         return pulumi.get(self, "as2_id")
 
     @as2_id.setter
@@ -167,9 +134,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="certificateIds")
     def certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The list of certificate Ids from the imported certificate operation.
-        """
         return pulumi.get(self, "certificate_ids")
 
     @certificate_ids.setter
@@ -179,9 +143,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier for the AS2 profile.
-        """
         return pulumi.get(self, "profile_id")
 
     @profile_id.setter
@@ -191,9 +152,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The profile type should be LOCAL or PARTNER.
-        """
         return pulumi.get(self, "profile_type")
 
     @profile_type.setter
@@ -203,9 +161,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -215,9 +170,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -247,37 +199,9 @@ class Profile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a AWS Transfer AS2 Profile resource.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.transfer.Profile("example",
-            as2_id="example",
-            certificate_ids=[example_aws_transfer_certificate["certificateId"]],
-            usage="LOCAL")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
-
-        ```sh
-        $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
-        ```
-
+        Create a Profile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
-        :param pulumi.Input[_builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -286,30 +210,7 @@ class Profile(pulumi.CustomResource):
                  args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a AWS Transfer AS2 Profile resource.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.transfer.Profile("example",
-            as2_id="example",
-            certificate_ids=[example_aws_transfer_certificate["certificateId"]],
-            usage="LOCAL")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
-
-        ```sh
-        $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
-        ```
-
+        Create a Profile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,13 +277,6 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the profile.
-        :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
-        :param pulumi.Input[_builtins.str] profile_id: The unique identifier for the AS2 profile.
-        :param pulumi.Input[_builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,57 +295,36 @@ class Profile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="as2Id")
     def as2_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
-        """
         return pulumi.get(self, "as2_id")
 
     @_builtins.property
     @pulumi.getter(name="certificateIds")
     def certificate_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The list of certificate Ids from the imported certificate operation.
-        """
         return pulumi.get(self, "certificate_ids")
 
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier for the AS2 profile.
-        """
         return pulumi.get(self, "profile_id")
 
     @_builtins.property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The profile type should be LOCAL or PARTNER.
-        """
         return pulumi.get(self, "profile_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

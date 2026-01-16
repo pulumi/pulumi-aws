@@ -26,10 +26,6 @@ class KeyValueStoreArgs:
                  timeouts: Optional[pulumi.Input['KeyValueStoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a KeyValueStore resource.
-        :param pulumi.Input[_builtins.str] comment: Comment.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
-               
-               The following arguments are optional:
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -41,9 +37,6 @@ class KeyValueStoreArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -53,11 +46,6 @@ class KeyValueStoreArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for your CloudFront KeyValueStore.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,12 +73,6 @@ class _KeyValueStoreState:
                  timeouts: Optional[pulumi.Input['KeyValueStoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering KeyValueStore resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        :param pulumi.Input[_builtins.str] comment: Comment.
-        :param pulumi.Input[_builtins.str] etag: ETag hash of the KeyValueStore.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -108,9 +90,6 @@ class _KeyValueStoreState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -120,9 +99,6 @@ class _KeyValueStoreState:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -132,9 +108,6 @@ class _KeyValueStoreState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ETag hash of the KeyValueStore.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -153,11 +126,6 @@ class _KeyValueStoreState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for your CloudFront KeyValueStore.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -185,43 +153,9 @@ class KeyValueStore(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudFront Key Value Store.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.KeyValueStore("example",
-            name="ExampleKeyValueStore",
-            comment="This is an example key value store")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` (String) Name of the CloudFront Key Value Store.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
-
-        % pulumi import aws_cloudfront_key_value_store.example example_store
-
+        Create a KeyValueStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Comment.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -230,37 +164,7 @@ class KeyValueStore(pulumi.CustomResource):
                  args: Optional[KeyValueStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudFront Key Value Store.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.KeyValueStore("example",
-            name="ExampleKeyValueStore",
-            comment="This is an example key value store")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` (String) Name of the CloudFront Key Value Store.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
-
-        % pulumi import aws_cloudfront_key_value_store.example example_store
-
+        Create a KeyValueStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KeyValueStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,12 +221,6 @@ class KeyValueStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        :param pulumi.Input[_builtins.str] comment: Comment.
-        :param pulumi.Input[_builtins.str] etag: ETag hash of the KeyValueStore.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,25 +237,16 @@ class KeyValueStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        ETag hash of the KeyValueStore.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
@@ -368,11 +257,6 @@ class KeyValueStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for your CloudFront KeyValueStore.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property

@@ -10,32 +10,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationResult {
-    /**
-     * @return ARN of the Application.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the Application.
-     * 
-     */
     private String description;
     private String id;
     private String name;
     private String region;
 
     private GetApplicationResult() {}
-    /**
-     * @return ARN of the Application.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the Application.
-     * 
-     */
     public String description() {
         return this.description;
     }

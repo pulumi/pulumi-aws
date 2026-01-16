@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.FastSnapshotRestore("example", {
- *     availabilityZone: "us-west-2a",
- *     snapshotId: exampleAwsEbsSnapshot.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `availability_zone` and `snapshot_id` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
- * ```
- */
 export class FastSnapshotRestore extends pulumi.CustomResource {
     /**
      * Get an existing FastSnapshotRestore resource's state with the given name, ID, and optional extra
@@ -60,21 +35,9 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
         return obj['__pulumiType'] === FastSnapshotRestore.__pulumiType;
     }
 
-    /**
-     * Availability zone in which to enable fast snapshot restores.
-     */
     declare public readonly availabilityZone: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the snapshot.
-     */
     declare public readonly snapshotId: pulumi.Output<string>;
-    /**
-     * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ebs.FastSnapshotRestoreTimeouts | undefined>;
 
@@ -119,21 +82,9 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FastSnapshotRestore resources.
  */
 export interface FastSnapshotRestoreState {
-    /**
-     * Availability zone in which to enable fast snapshot restores.
-     */
     availabilityZone?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the snapshot.
-     */
     snapshotId?: pulumi.Input<string>;
-    /**
-     * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
-     */
     state?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts>;
 }
@@ -142,17 +93,8 @@ export interface FastSnapshotRestoreState {
  * The set of arguments for constructing a FastSnapshotRestore resource.
  */
 export interface FastSnapshotRestoreArgs {
-    /**
-     * Availability zone in which to enable fast snapshot restores.
-     */
     availabilityZone: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the snapshot.
-     */
     snapshotId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts>;
 }

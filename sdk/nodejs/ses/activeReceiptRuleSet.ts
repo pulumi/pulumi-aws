@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to designate the active SES receipt rule set
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ses.ActiveReceiptRuleSet("main", {ruleSetName: "primary-rules"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
- *
- * ```sh
- * $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
- * ```
- */
 export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     /**
      * Get an existing ActiveReceiptRuleSet resource's state with the given name, ID, and optional extra
@@ -52,17 +32,8 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActiveReceiptRuleSet.__pulumiType;
     }
 
-    /**
-     * The SES receipt rule set ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the rule set
-     */
     declare public readonly ruleSetName: pulumi.Output<string>;
 
     /**
@@ -99,17 +70,8 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActiveReceiptRuleSet resources.
  */
 export interface ActiveReceiptRuleSetState {
-    /**
-     * The SES receipt rule set ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the rule set
-     */
     ruleSetName?: pulumi.Input<string>;
 }
 
@@ -117,12 +79,6 @@ export interface ActiveReceiptRuleSetState {
  * The set of arguments for constructing a ActiveReceiptRuleSet resource.
  */
 export interface ActiveReceiptRuleSetArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the rule set
-     */
     ruleSetName: pulumi.Input<string>;
 }

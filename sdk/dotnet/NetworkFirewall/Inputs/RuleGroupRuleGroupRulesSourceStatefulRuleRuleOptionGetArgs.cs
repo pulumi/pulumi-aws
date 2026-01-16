@@ -12,19 +12,11 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-        /// See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-        /// </summary>
         [Input("keyword", required: true)]
         public Input<string> Keyword { get; set; } = null!;
 
         [Input("settings")]
         private InputList<string>? _settings;
-
-        /// <summary>
-        /// Set of strings for additional settings to use in stateful rule inspection.
-        /// </summary>
         public InputList<string> Settings
         {
             get => _settings ?? (_settings = new InputList<string>());

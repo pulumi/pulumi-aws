@@ -11,50 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route53 CIDR collection resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewCidrCollection(ctx, "example", &route53.CidrCollectionArgs{
-//				Name: pulumi.String("collection-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CIDR collections using their ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
-// ```
 type CidrCollection struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the CIDR collection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Unique name for the CIDR collection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The lastest version of the CIDR collection.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Arn     pulumi.StringOutput `pulumi:"arn"`
+	Name    pulumi.StringOutput `pulumi:"name"`
+	Version pulumi.IntOutput    `pulumi:"version"`
 }
 
 // NewCidrCollection registers a new resource with the given unique name, arguments, and options.
@@ -87,20 +49,14 @@ func GetCidrCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CidrCollection resources.
 type cidrCollectionState struct {
-	// The Amazon Resource Name (ARN) of the CIDR collection.
-	Arn *string `pulumi:"arn"`
-	// Unique name for the CIDR collection.
-	Name *string `pulumi:"name"`
-	// The lastest version of the CIDR collection.
-	Version *int `pulumi:"version"`
+	Arn     *string `pulumi:"arn"`
+	Name    *string `pulumi:"name"`
+	Version *int    `pulumi:"version"`
 }
 
 type CidrCollectionState struct {
-	// The Amazon Resource Name (ARN) of the CIDR collection.
-	Arn pulumi.StringPtrInput
-	// Unique name for the CIDR collection.
-	Name pulumi.StringPtrInput
-	// The lastest version of the CIDR collection.
+	Arn     pulumi.StringPtrInput
+	Name    pulumi.StringPtrInput
 	Version pulumi.IntPtrInput
 }
 
@@ -109,13 +65,11 @@ func (CidrCollectionState) ElementType() reflect.Type {
 }
 
 type cidrCollectionArgs struct {
-	// Unique name for the CIDR collection.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a CidrCollection resource.
 type CidrCollectionArgs struct {
-	// Unique name for the CIDR collection.
 	Name pulumi.StringPtrInput
 }
 
@@ -206,17 +160,14 @@ func (o CidrCollectionOutput) ToCidrCollectionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the CIDR collection.
 func (o CidrCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CidrCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Unique name for the CIDR collection.
 func (o CidrCollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CidrCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The lastest version of the CIDR collection.
 func (o CidrCollectionOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *CidrCollection) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

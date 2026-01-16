@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.macie2.Account("example", {});
- * const exampleOrganizationAdminAccount = new aws.macie2.OrganizationAdminAccount("example", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
- * ```
- */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -55,13 +32,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     */
     declare public readonly adminAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -96,13 +67,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationAdminAccount resources.
  */
 export interface OrganizationAdminAccountState {
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     */
     adminAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -110,12 +75,6 @@ export interface OrganizationAdminAccountState {
  * The set of arguments for constructing a OrganizationAdminAccount resource.
  */
 export interface OrganizationAdminAccountArgs {
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     */
     adminAccountId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

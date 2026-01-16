@@ -18,77 +18,37 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
 
     public static final ReplicationSubnetGroupArgs Empty = new ReplicationSubnetGroupArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Description for the subnet group.
-     * 
-     */
     @Import(name="replicationSubnetGroupDescription", required=true)
     private Output<String> replicationSubnetGroupDescription;
 
-    /**
-     * @return Description for the subnet group.
-     * 
-     */
     public Output<String> replicationSubnetGroupDescription() {
         return this.replicationSubnetGroupDescription;
     }
 
-    /**
-     * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-     * 
-     */
     @Import(name="replicationSubnetGroupId", required=true)
     private Output<String> replicationSubnetGroupId;
 
-    /**
-     * @return Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-     * 
-     */
     public Output<String> replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
 
-    /**
-     * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,117 +81,51 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
             $ = new ReplicationSubnetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param replicationSubnetGroupDescription Description for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupDescription(Output<String> replicationSubnetGroupDescription) {
             $.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupDescription Description for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupDescription(String replicationSubnetGroupDescription) {
             return replicationSubnetGroupDescription(Output.of(replicationSubnetGroupDescription));
         }
 
-        /**
-         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(Output<String> replicationSubnetGroupId) {
             $.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
             return replicationSubnetGroupId(Output.of(replicationSubnetGroupId));
         }
 
-        /**
-         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

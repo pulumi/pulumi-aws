@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about a specific
-// QuickSight group. By using this data source, you can reference QuickSight group
-// properties without having to hard code ARNs or unique IDs as input.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.GetQuicksightGroup(ctx, &quicksight.GetQuicksightGroupArgs{
-//				GroupName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts ...pulumi.InvokeOption) (*GetQuicksightGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightGroupResult
@@ -55,30 +24,22 @@ func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts 
 // A collection of arguments for invoking getQuicksightGroup.
 type GetQuicksightGroupArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The name of the group that you want to match.
-	//
-	// The following arguments are optional:
-	GroupName string `pulumi:"groupName"`
-	// QuickSight namespace. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	GroupName    string  `pulumi:"groupName"`
+	Namespace    *string `pulumi:"namespace"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getQuicksightGroup.
 type GetQuicksightGroupResult struct {
-	// The Amazon Resource Name (ARN) for the group.
 	Arn          string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// The group description.
-	Description string `pulumi:"description"`
-	GroupName   string `pulumi:"groupName"`
+	Description  string `pulumi:"description"`
+	GroupName    string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
-	Namespace *string `pulumi:"namespace"`
-	// The principal ID of the group.
-	PrincipalId string `pulumi:"principalId"`
-	Region      string `pulumi:"region"`
+	Id          string  `pulumi:"id"`
+	Namespace   *string `pulumi:"namespace"`
+	PrincipalId string  `pulumi:"principalId"`
+	Region      string  `pulumi:"region"`
 }
 
 func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightGroupResultOutput {
@@ -93,14 +54,9 @@ func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutput
 // A collection of arguments for invoking getQuicksightGroup.
 type GetQuicksightGroupOutputArgs struct {
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	// The name of the group that you want to match.
-	//
-	// The following arguments are optional:
-	GroupName pulumi.StringInput `pulumi:"groupName"`
-	// QuickSight namespace. Defaults to `default`.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	GroupName    pulumi.StringInput    `pulumi:"groupName"`
+	Namespace    pulumi.StringPtrInput `pulumi:"namespace"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetQuicksightGroupOutputArgs) ElementType() reflect.Type {
@@ -122,7 +78,6 @@ func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the group.
 func (o GetQuicksightGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -131,7 +86,6 @@ func (o GetQuicksightGroupResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The group description.
 func (o GetQuicksightGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -149,7 +103,6 @@ func (o GetQuicksightGroupResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The principal ID of the group.
 func (o GetQuicksightGroupResultOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

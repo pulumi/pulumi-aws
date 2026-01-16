@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ResourceCollectionTags {
-    /**
-     * @return An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-     * 
-     */
     private String appBoundaryKey;
-    /**
-     * @return Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
-     * 
-     */
     private List<String> tagValues;
 
     private ResourceCollectionTags() {}
-    /**
-     * @return An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-     * 
-     */
     public String appBoundaryKey() {
         return this.appBoundaryKey;
     }
-    /**
-     * @return Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
-     * 
-     */
     public List<String> tagValues() {
         return this.tagValues;
     }

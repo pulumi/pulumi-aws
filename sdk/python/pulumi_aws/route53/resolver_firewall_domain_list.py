@@ -25,10 +25,6 @@ class ResolverFirewallDomainListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverFirewallDomainList resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if domains is not None:
             pulumi.set(__self__, "domains", domains)
@@ -42,9 +38,6 @@ class ResolverFirewallDomainListArgs:
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A array of domains for the firewall domain list.
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -54,9 +47,6 @@ class ResolverFirewallDomainListArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name that lets you identify the domain list, to manage and use it.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -66,9 +56,6 @@ class ResolverFirewallDomainListArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +65,6 @@ class ResolverFirewallDomainListArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,12 +83,6 @@ class _ResolverFirewallDomainListState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallDomainList resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the domain list.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -122,9 +100,6 @@ class _ResolverFirewallDomainListState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN (Amazon Resource Name) of the domain list.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -134,9 +109,6 @@ class _ResolverFirewallDomainListState:
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A array of domains for the firewall domain list.
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -146,9 +118,6 @@ class _ResolverFirewallDomainListState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name that lets you identify the domain list, to manage and use it.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -158,9 +127,6 @@ class _ResolverFirewallDomainListState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -170,9 +136,6 @@ class _ResolverFirewallDomainListState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -182,9 +145,6 @@ class _ResolverFirewallDomainListState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -204,31 +164,9 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Route 53 Resolver DNS Firewall domain list resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverFirewallDomainList("example", name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-        ```
-
+        Create a ResolverFirewallDomainList resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -237,25 +175,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
                  args: Optional[ResolverFirewallDomainListArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route 53 Resolver DNS Firewall domain list resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverFirewallDomainList("example", name="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
-        ```
-
+        Create a ResolverFirewallDomainList resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverFirewallDomainListArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,12 +233,6 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the domain list.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
-        :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,48 +249,30 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN (Amazon Resource Name) of the domain list.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def domains(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        A array of domains for the firewall domain list.
-        """
         return pulumi.get(self, "domains")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name that lets you identify the domain list, to manage and use it.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

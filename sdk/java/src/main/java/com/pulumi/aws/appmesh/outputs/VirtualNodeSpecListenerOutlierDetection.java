@@ -12,55 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecListenerOutlierDetection {
-    /**
-     * @return Base amount of time for which a host is ejected.
-     * 
-     */
     private VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration;
-    /**
-     * @return Time interval between ejection sweep analysis.
-     * 
-     */
     private VirtualNodeSpecListenerOutlierDetectionInterval interval;
-    /**
-     * @return Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-     * Minimum value of `0`. Maximum value of `100`.
-     * 
-     */
     private Integer maxEjectionPercent;
-    /**
-     * @return Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
-     * 
-     */
     private Integer maxServerErrors;
 
     private VirtualNodeSpecListenerOutlierDetection() {}
-    /**
-     * @return Base amount of time for which a host is ejected.
-     * 
-     */
     public VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration baseEjectionDuration() {
         return this.baseEjectionDuration;
     }
-    /**
-     * @return Time interval between ejection sweep analysis.
-     * 
-     */
     public VirtualNodeSpecListenerOutlierDetectionInterval interval() {
         return this.interval;
     }
-    /**
-     * @return Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-     * Minimum value of `0`. Maximum value of `100`.
-     * 
-     */
     public Integer maxEjectionPercent() {
         return this.maxEjectionPercent;
     }
-    /**
-     * @return Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
-     * 
-     */
     public Integer maxServerErrors() {
         return this.maxServerErrors;
     }

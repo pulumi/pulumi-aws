@@ -12,10 +12,6 @@ namespace Pulumi.Aws.AppStream.Inputs
 
     public sealed class StackStreamingExperienceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The preferred protocol that you want to use while streaming your application.
-        /// Valid values are `TCP` and `UDP`.
-        /// </summary>
         [Input("preferredProtocol")]
         public Input<string>? PreferredProtocol { get; set; }
 

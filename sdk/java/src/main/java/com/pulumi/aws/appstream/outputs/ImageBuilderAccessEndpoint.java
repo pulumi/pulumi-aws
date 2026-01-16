@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageBuilderAccessEndpoint {
-    /**
-     * @return Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-     * 
-     */
     private String endpointType;
-    /**
-     * @return Identifier (ID) of the interface VPC endpoint.
-     * 
-     */
     private @Nullable String vpceId;
 
     private ImageBuilderAccessEndpoint() {}
-    /**
-     * @return Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
-     * 
-     */
     public String endpointType() {
         return this.endpointType;
     }
-    /**
-     * @return Identifier (ID) of the interface VPC endpoint.
-     * 
-     */
     public Optional<String> vpceId() {
         return Optional.ofNullable(this.vpceId);
     }

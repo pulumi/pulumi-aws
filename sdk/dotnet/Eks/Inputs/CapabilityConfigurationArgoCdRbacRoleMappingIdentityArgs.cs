@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identity ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

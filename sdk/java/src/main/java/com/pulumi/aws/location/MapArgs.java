@@ -18,81 +18,37 @@ public final class MapArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MapArgs Empty = new MapArgs();
 
-    /**
-     * Configuration block with the map style selected from an available data provider. Detailed below.
-     * 
-     */
     @Import(name="configuration", required=true)
     private Output<MapConfigurationArgs> configuration;
 
-    /**
-     * @return Configuration block with the map style selected from an available data provider. Detailed below.
-     * 
-     */
     public Output<MapConfigurationArgs> configuration() {
         return this.configuration;
     }
 
-    /**
-     * An optional description for the map resource.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return An optional description for the map resource.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name for the map resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="mapName", required=true)
     private Output<String> mapName;
 
-    /**
-     * @return The name for the map resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> mapName() {
         return this.mapName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -125,111 +81,47 @@ public final class MapArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configuration Configuration block with the map style selected from an available data provider. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(Output<MapConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Configuration block with the map style selected from an available data provider. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(MapConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param description An optional description for the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description An optional description for the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param mapName The name for the map resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(Output<String> mapName) {
             $.mapName = mapName;
             return this;
         }
 
-        /**
-         * @param mapName The name for the map resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(String mapName) {
             return mapName(Output.of(mapName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

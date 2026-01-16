@@ -17,47 +17,23 @@ public final class GetStreamKeyArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetStreamKeyArgs Empty = new GetStreamKeyArgs();
 
-    /**
-     * ARN of the Channel.
-     * 
-     */
     @Import(name="channelArn", required=true)
     private Output<String> channelArn;
 
-    /**
-     * @return ARN of the Channel.
-     * 
-     */
     public Output<String> channelArn() {
         return this.channelArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetStreamKeyArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetStreamKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param channelArn ARN of the Channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channelArn(Output<String> channelArn) {
             $.channelArn = channelArn;
             return this;
         }
 
-        /**
-         * @param channelArn ARN of the Channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channelArn(String channelArn) {
             return channelArn(Output.of(channelArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

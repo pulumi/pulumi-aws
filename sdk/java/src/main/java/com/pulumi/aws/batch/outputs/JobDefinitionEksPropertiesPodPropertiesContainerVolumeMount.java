@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount {
     private String mountPath;
-    /**
-     * @return Name of the job definition.
-     * 
-     */
     private String name;
     private @Nullable Boolean readOnly;
 
@@ -25,10 +21,6 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount {
     public String mountPath() {
         return this.mountPath;
     }
-    /**
-     * @return Name of the job definition.
-     * 
-     */
     public String name() {
         return this.name;
     }

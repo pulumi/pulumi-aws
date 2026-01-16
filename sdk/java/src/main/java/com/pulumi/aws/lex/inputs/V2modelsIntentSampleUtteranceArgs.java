@@ -14,17 +14,9 @@ public final class V2modelsIntentSampleUtteranceArgs extends com.pulumi.resource
 
     public static final V2modelsIntentSampleUtteranceArgs Empty = new V2modelsIntentSampleUtteranceArgs();
 
-    /**
-     * Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-     * 
-     */
     @Import(name="utterance", required=true)
     private Output<String> utterance;
 
-    /**
-     * @return Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-     * 
-     */
     public Output<String> utterance() {
         return this.utterance;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentSampleUtteranceArgs extends com.pulumi.resource
             $ = new V2modelsIntentSampleUtteranceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param utterance Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder utterance(Output<String> utterance) {
             $.utterance = utterance;
             return this;
         }
 
-        /**
-         * @param utterance Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder utterance(String utterance) {
             return utterance(Output.of(utterance));
         }

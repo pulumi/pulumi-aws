@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class SessionLoggerLogConfiguration
     {
-        /// <summary>
-        /// Configuration block for S3 log delivery. See S3 Configuration below.
-        /// </summary>
         public readonly Outputs.SessionLoggerLogConfigurationS3? S3;
 
         [OutputConstructor]

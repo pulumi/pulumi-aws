@@ -16,66 +16,30 @@ public final class GetRuntimeVersionPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetRuntimeVersionPlainArgs Empty = new GetRuntimeVersionPlainArgs();
 
-    /**
-     * Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-     * 
-     */
     @Import(name="latest")
     private @Nullable Boolean latest;
 
-    /**
-     * @return Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-     * 
-     */
     public Optional<Boolean> latest() {
         return Optional.ofNullable(this.latest);
     }
 
-    /**
-     * Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="prefix", required=true)
     private String prefix;
 
-    /**
-     * @return Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-     * 
-     */
     @Import(name="version")
     private @Nullable String version;
 
-    /**
-     * @return Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
@@ -107,47 +71,21 @@ public final class GetRuntimeVersionPlainArgs extends com.pulumi.resources.Invok
             $ = new GetRuntimeVersionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param latest Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latest(@Nullable Boolean latest) {
             $.latest = latest;
             return this;
         }
 
-        /**
-         * @param prefix Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param version Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable String version) {
             $.version = version;
             return this;

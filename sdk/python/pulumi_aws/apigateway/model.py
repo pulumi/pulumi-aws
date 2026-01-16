@@ -27,12 +27,6 @@ class ModelArgs:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
-        :param pulumi.Input[_builtins.str] content_type: Content type of the model
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] description: Description of the model
-        :param pulumi.Input[_builtins.str] name: Name of the model
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] schema: Schema of the model in a JSON form
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -48,9 +42,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Content type of the model
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -60,9 +51,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -72,9 +60,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the model
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,9 +69,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the model
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,9 +78,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -108,9 +87,6 @@ class ModelArgs:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Schema of the model in a JSON form
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -129,12 +105,6 @@ class _ModelState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
-        :param pulumi.Input[_builtins.str] content_type: Content type of the model
-        :param pulumi.Input[_builtins.str] description: Description of the model
-        :param pulumi.Input[_builtins.str] name: Name of the model
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] schema: Schema of the model in a JSON form
         """
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -152,9 +122,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Content type of the model
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -164,9 +131,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the model
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -176,9 +140,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the model
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -188,9 +149,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -200,9 +158,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -212,9 +167,6 @@ class _ModelState:
     @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Schema of the model in a JSON form
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -236,44 +188,9 @@ class Model(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Model for a REST API Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
-            name="MyDemoAPI",
-            description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("MyDemoModel",
-            rest_api=my_demo_api.id,
-            name="user",
-            description="a JSON schema",
-            content_type="application/json",
-            schema=json.dumps({
-                "type": "object",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/model:Model example 12345abcde/example
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content_type: Content type of the model
-        :param pulumi.Input[_builtins.str] description: Description of the model
-        :param pulumi.Input[_builtins.str] name: Name of the model
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] schema: Schema of the model in a JSON form
         """
         ...
     @overload
@@ -282,36 +199,7 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Model for a REST API Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
-            name="MyDemoAPI",
-            description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("MyDemoModel",
-            rest_api=my_demo_api.id,
-            name="user",
-            description="a JSON schema",
-            content_type="application/json",
-            schema=json.dumps({
-                "type": "object",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/model:Model example 12345abcde/example
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,12 +263,6 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content_type: Content type of the model
-        :param pulumi.Input[_builtins.str] description: Description of the model
-        :param pulumi.Input[_builtins.str] name: Name of the model
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] schema: Schema of the model in a JSON form
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,48 +279,30 @@ class Model(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Content type of the model
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the model
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the model
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @_builtins.property
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Schema of the model in a JSON form
-        """
         return pulumi.get(self, "schema")
 

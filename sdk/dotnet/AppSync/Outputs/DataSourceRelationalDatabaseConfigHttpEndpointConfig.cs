@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceRelationalDatabaseConfigHttpEndpointConfig
     {
-        /// <summary>
-        /// AWS secret store ARN for database credentials.
-        /// </summary>
         public readonly string AwsSecretStoreArn;
-        /// <summary>
-        /// Logical database name.
-        /// </summary>
         public readonly string? DatabaseName;
-        /// <summary>
-        /// Amazon RDS cluster identifier.
-        /// </summary>
         public readonly string DbClusterIdentifier;
-        /// <summary>
-        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
-        /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// Logical schema name.
-        /// </summary>
         public readonly string? Schema;
 
         [OutputConstructor]

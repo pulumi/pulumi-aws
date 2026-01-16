@@ -50,10 +50,6 @@ class RepositoryAssociationKmsKeyDetails(dict):
     def __init__(__self__, *,
                  encryption_option: Optional[_builtins.str] = None,
                  kms_key_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str encryption_option: The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        :param _builtins.str kms_key_id: The ID of the AWS KMS key that is associated with a repository association.
-        """
         if encryption_option is not None:
             pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key_id is not None:
@@ -62,17 +58,11 @@ class RepositoryAssociationKmsKeyDetails(dict):
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> Optional[_builtins.str]:
-        """
-        The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        """
         return pulumi.get(self, "encryption_option")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the AWS KMS key that is associated with a repository association.
-        """
         return pulumi.get(self, "kms_key_id")
 
 
@@ -155,11 +145,6 @@ class RepositoryAssociationRepositoryBitbucket(dict):
                  connection_arn: _builtins.str,
                  name: _builtins.str,
                  owner: _builtins.str):
-        """
-        :param _builtins.str connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param _builtins.str name: The name of the third party source repository.
-        :param _builtins.str owner: The username for the account that owns the repository.
-        """
         pulumi.set(__self__, "connection_arn", connection_arn)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -167,25 +152,16 @@ class RepositoryAssociationRepositoryBitbucket(dict):
     @_builtins.property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         return pulumi.get(self, "connection_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the third party source repository.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
-        """
-        The username for the account that owns the repository.
-        """
         return pulumi.get(self, "owner")
 
 
@@ -193,17 +169,11 @@ class RepositoryAssociationRepositoryBitbucket(dict):
 class RepositoryAssociationRepositoryCodecommit(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the AWS CodeCommit repository.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the AWS CodeCommit repository.
-        """
         return pulumi.get(self, "name")
 
 
@@ -230,11 +200,6 @@ class RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
                  connection_arn: _builtins.str,
                  name: _builtins.str,
                  owner: _builtins.str):
-        """
-        :param _builtins.str connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param _builtins.str name: The name of the third party source repository.
-        :param _builtins.str owner: The username for the account that owns the repository.
-        """
         pulumi.set(__self__, "connection_arn", connection_arn)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -242,25 +207,16 @@ class RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
     @_builtins.property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         return pulumi.get(self, "connection_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the third party source repository.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
-        """
-        The username for the account that owns the repository.
-        """
         return pulumi.get(self, "owner")
 
 
@@ -286,27 +242,17 @@ class RepositoryAssociationRepositoryS3Bucket(dict):
     def __init__(__self__, *,
                  bucket_name: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        :param _builtins.str name: The name of the repository in the S3 bucket.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the repository in the S3 bucket.
-        """
         return pulumi.get(self, "name")
 
 
@@ -334,9 +280,6 @@ class RepositoryAssociationS3RepositoryDetail(dict):
     def __init__(__self__, *,
                  bucket_name: Optional[_builtins.str] = None,
                  code_artifacts: Optional[Sequence['outputs.RepositoryAssociationS3RepositoryDetailCodeArtifact']] = None):
-        """
-        :param _builtins.str bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if code_artifacts is not None:
@@ -345,9 +288,6 @@ class RepositoryAssociationS3RepositoryDetail(dict):
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property

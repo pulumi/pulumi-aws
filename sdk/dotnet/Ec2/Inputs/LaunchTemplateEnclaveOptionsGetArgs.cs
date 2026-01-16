@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateEnclaveOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If set to `True`, Nitro Enclaves will be enabled on the instance.
-        /// 
-        /// For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

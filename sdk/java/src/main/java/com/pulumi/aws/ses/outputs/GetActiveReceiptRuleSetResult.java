@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetActiveReceiptRuleSetResult {
-    /**
-     * @return SES receipt rule set ARN.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,17 +17,9 @@ public final class GetActiveReceiptRuleSetResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Name of the rule set
-     * 
-     */
     private String ruleSetName;
 
     private GetActiveReceiptRuleSetResult() {}
-    /**
-     * @return SES receipt rule set ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -45,10 +33,6 @@ public final class GetActiveReceiptRuleSetResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Name of the rule set
-     * 
-     */
     public String ruleSetName() {
         return this.ruleSetName;
     }

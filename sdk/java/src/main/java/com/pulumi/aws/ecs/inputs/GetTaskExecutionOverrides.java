@@ -16,77 +16,37 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
 
     public static final GetTaskExecutionOverrides Empty = new GetTaskExecutionOverrides();
 
-    /**
-     * One or more container overrides that are sent to a task. See below.
-     * 
-     */
     @Import(name="containerOverrides")
     private @Nullable List<GetTaskExecutionOverridesContainerOverride> containerOverrides;
 
-    /**
-     * @return One or more container overrides that are sent to a task. See below.
-     * 
-     */
     public Optional<List<GetTaskExecutionOverridesContainerOverride>> containerOverrides() {
         return Optional.ofNullable(this.containerOverrides);
     }
 
-    /**
-     * The CPU override for the task.
-     * 
-     */
     @Import(name="cpu")
     private @Nullable String cpu;
 
-    /**
-     * @return The CPU override for the task.
-     * 
-     */
     public Optional<String> cpu() {
         return Optional.ofNullable(this.cpu);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the task execution role override for the task.
-     * 
-     */
     @Import(name="executionRoleArn")
     private @Nullable String executionRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
-     * 
-     */
     public Optional<String> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
 
-    /**
-     * The memory override for the task.
-     * 
-     */
     @Import(name="memory")
     private @Nullable String memory;
 
-    /**
-     * @return The memory override for the task.
-     * 
-     */
     public Optional<String> memory() {
         return Optional.ofNullable(this.memory);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the role that containers in this task can assume.
-     * 
-     */
     @Import(name="taskRoleArn")
     private @Nullable String taskRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
-     * 
-     */
     public Optional<String> taskRoleArn() {
         return Optional.ofNullable(this.taskRoleArn);
     }
@@ -119,66 +79,30 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
             $ = new GetTaskExecutionOverrides(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerOverrides One or more container overrides that are sent to a task. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerOverrides(@Nullable List<GetTaskExecutionOverridesContainerOverride> containerOverrides) {
             $.containerOverrides = containerOverrides;
             return this;
         }
 
-        /**
-         * @param containerOverrides One or more container overrides that are sent to a task. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerOverrides(GetTaskExecutionOverridesContainerOverride... containerOverrides) {
             return containerOverrides(List.of(containerOverrides));
         }
 
-        /**
-         * @param cpu The CPU override for the task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(@Nullable String cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the task execution role override for the task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(@Nullable String executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
         }
 
-        /**
-         * @param memory The memory override for the task.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(@Nullable String memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param taskRoleArn Amazon Resource Name (ARN) of the role that containers in this task can assume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskRoleArn(@Nullable String taskRoleArn) {
             $.taskRoleArn = taskRoleArn;
             return this;

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentMemoryConfigurationSessionSummaryConfiguration {
-    /**
-     * @return Maximum number of recent session summaries to include in the agent&#39;s prompt context.
-     * 
-     */
     private Integer maxRecentSessions;
 
     private AgentAgentMemoryConfigurationSessionSummaryConfiguration() {}
-    /**
-     * @return Maximum number of recent session summaries to include in the agent&#39;s prompt context.
-     * 
-     */
     public Integer maxRecentSessions() {
         return this.maxRecentSessions;
     }

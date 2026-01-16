@@ -14,20 +14,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDeviceResult {
-    /**
-     * @return ARN of the device.
-     * 
-     */
     private String arn;
-    /**
-     * @return AWS location of the device. Documented below.
-     * 
-     */
     private List<GetDeviceAwsLocation> awsLocations;
-    /**
-     * @return Description of the device.
-     * 
-     */
     private String description;
     private String deviceId;
     private String globalNetworkId;
@@ -36,61 +24,21 @@ public final class GetDeviceResult {
      * 
      */
     private String id;
-    /**
-     * @return Location of the device. Documented below.
-     * 
-     */
     private List<GetDeviceLocation> locations;
-    /**
-     * @return Model of device.
-     * 
-     */
     private String model;
-    /**
-     * @return Serial number of the device.
-     * 
-     */
     private String serialNumber;
-    /**
-     * @return ID of the site.
-     * 
-     */
     private String siteId;
-    /**
-     * @return Key-value tags for the device.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of device.
-     * 
-     */
     private String type;
-    /**
-     * @return Vendor of the device.
-     * 
-     */
     private String vendor;
 
     private GetDeviceResult() {}
-    /**
-     * @return ARN of the device.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return AWS location of the device. Documented below.
-     * 
-     */
     public List<GetDeviceAwsLocation> awsLocations() {
         return this.awsLocations;
     }
-    /**
-     * @return Description of the device.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -107,52 +55,24 @@ public final class GetDeviceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Location of the device. Documented below.
-     * 
-     */
     public List<GetDeviceLocation> locations() {
         return this.locations;
     }
-    /**
-     * @return Model of device.
-     * 
-     */
     public String model() {
         return this.model;
     }
-    /**
-     * @return Serial number of the device.
-     * 
-     */
     public String serialNumber() {
         return this.serialNumber;
     }
-    /**
-     * @return ID of the site.
-     * 
-     */
     public String siteId() {
         return this.siteId;
     }
-    /**
-     * @return Key-value tags for the device.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of device.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Vendor of the device.
-     * 
-     */
     public String vendor() {
         return this.vendor;
     }

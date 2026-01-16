@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SpaceSpaceSharingSettings {
-    /**
-     * @return Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-     * 
-     */
     private String sharingType;
 
     private SpaceSpaceSharingSettings() {}
-    /**
-     * @return Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-     * 
-     */
     public String sharingType() {
         return this.sharingType;
     }

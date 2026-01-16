@@ -14,17 +14,9 @@ public final class SpaceSpaceSharingSettingsArgs extends com.pulumi.resources.Re
 
     public static final SpaceSpaceSharingSettingsArgs Empty = new SpaceSpaceSharingSettingsArgs();
 
-    /**
-     * Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-     * 
-     */
     @Import(name="sharingType", required=true)
     private Output<String> sharingType;
 
-    /**
-     * @return Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-     * 
-     */
     public Output<String> sharingType() {
         return this.sharingType;
     }
@@ -53,23 +45,11 @@ public final class SpaceSpaceSharingSettingsArgs extends com.pulumi.resources.Re
             $ = new SpaceSpaceSharingSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sharingType Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharingType(Output<String> sharingType) {
             $.sharingType = sharingType;
             return this;
         }
 
-        /**
-         * @param sharingType Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharingType(String sharingType) {
             return sharingType(Output.of(sharingType));
         }

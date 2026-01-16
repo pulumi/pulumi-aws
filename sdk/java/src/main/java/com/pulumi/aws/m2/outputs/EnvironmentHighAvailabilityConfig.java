@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EnvironmentHighAvailabilityConfig {
-    /**
-     * @return Desired number of instances for the Environment.
-     * 
-     */
     private Integer desiredCapacity;
 
     private EnvironmentHighAvailabilityConfig() {}
-    /**
-     * @return Desired number of instances for the Environment.
-     * 
-     */
     public Integer desiredCapacity() {
         return this.desiredCapacity;
     }

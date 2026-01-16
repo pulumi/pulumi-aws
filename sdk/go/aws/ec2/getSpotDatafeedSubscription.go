@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > There is only a single spot data feed subscription per account.
-//
-// Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSpotDatafeedSubscription(ctx, &ec2.LookupSpotDatafeedSubscriptionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSpotDatafeedSubscription(ctx *pulumi.Context, args *LookupSpotDatafeedSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSpotDatafeedSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpotDatafeedSubscriptionResult
@@ -50,17 +23,14 @@ func LookupSpotDatafeedSubscription(ctx *pulumi.Context, args *LookupSpotDatafee
 
 // A collection of arguments for invoking getSpotDatafeedSubscription.
 type LookupSpotDatafeedSubscriptionArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSpotDatafeedSubscription.
 type LookupSpotDatafeedSubscriptionResult struct {
-	// The name of the Amazon S3 bucket where the spot instance data feed is located.
 	Bucket string `pulumi:"bucket"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The prefix for the data feed files.
+	Id     string `pulumi:"id"`
 	Prefix string `pulumi:"prefix"`
 	Region string `pulumi:"region"`
 }
@@ -76,7 +46,6 @@ func LookupSpotDatafeedSubscriptionOutput(ctx *pulumi.Context, args LookupSpotDa
 
 // A collection of arguments for invoking getSpotDatafeedSubscription.
 type LookupSpotDatafeedSubscriptionOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -99,7 +68,6 @@ func (o LookupSpotDatafeedSubscriptionResultOutput) ToLookupSpotDatafeedSubscrip
 	return o
 }
 
-// The name of the Amazon S3 bucket where the spot instance data feed is located.
 func (o LookupSpotDatafeedSubscriptionResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -109,7 +77,6 @@ func (o LookupSpotDatafeedSubscriptionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The prefix for the data feed files.
 func (o LookupSpotDatafeedSubscriptionResultOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Prefix }).(pulumi.StringOutput)
 }

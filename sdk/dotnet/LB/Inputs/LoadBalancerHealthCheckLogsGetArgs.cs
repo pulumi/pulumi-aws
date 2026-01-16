@@ -12,21 +12,12 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class LoadBalancerHealthCheckLogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 bucket name to store the logs in.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean to enable / disable `HealthCheckLogs`. Defaults to `False`, even when `Bucket` is specified.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

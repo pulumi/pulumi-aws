@@ -12,165 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ### Pause Cluster Action
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"scheduler.redshift.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("redshift_scheduled_action"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"redshift:PauseCluster",
-//							"redshift:ResumeCluster",
-//							"redshift:ResizeCluster",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
-//				Name:   pulumi.String("redshift_scheduled_action"),
-//				Policy: pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: examplePolicy.Arn,
-//				Role:      exampleRole.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
-//				Name:     pulumi.String("tf-redshift-scheduled-action"),
-//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  exampleRole.Arn,
-//				TargetAction: &redshift.ScheduledActionTargetActionArgs{
-//					PauseCluster: &redshift.ScheduledActionTargetActionPauseClusterArgs{
-//						ClusterIdentifier: pulumi.String("tf-redshift001"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Resize Cluster Action
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
-//				Name:     pulumi.String("tf-redshift-scheduled-action"),
-//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  pulumi.Any(exampleAwsIamRole.Arn),
-//				TargetAction: &redshift.ScheduledActionTargetActionArgs{
-//					ResizeCluster: &redshift.ScheduledActionTargetActionResizeClusterArgs{
-//						ClusterIdentifier: pulumi.String("tf-redshift001"),
-//						ClusterType:       pulumi.String("multi-node"),
-//						NodeType:          pulumi.String("dc1.large"),
-//						NumberOfNodes:     pulumi.Int(2),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
-// ```
 type ScheduledAction struct {
 	pulumi.CustomResourceState
 
-	// The description of the scheduled action.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether to enable the scheduled action. Default is `true` .
-	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
-	// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
-	// The IAM role to assume to run the scheduled action.
-	IamRole pulumi.StringOutput `pulumi:"iamRole"`
-	// The scheduled action name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-	Schedule pulumi.StringOutput `pulumi:"schedule"`
-	// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// Target action. Documented below.
+	Description  pulumi.StringPtrOutput            `pulumi:"description"`
+	Enable       pulumi.BoolPtrOutput              `pulumi:"enable"`
+	EndTime      pulumi.StringPtrOutput            `pulumi:"endTime"`
+	IamRole      pulumi.StringOutput               `pulumi:"iamRole"`
+	Name         pulumi.StringOutput               `pulumi:"name"`
+	Region       pulumi.StringOutput               `pulumi:"region"`
+	Schedule     pulumi.StringOutput               `pulumi:"schedule"`
+	StartTime    pulumi.StringPtrOutput            `pulumi:"startTime"`
 	TargetAction ScheduledActionTargetActionOutput `pulumi:"targetAction"`
 }
 
@@ -213,44 +65,26 @@ func GetScheduledAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledAction resources.
 type scheduledActionState struct {
-	// The description of the scheduled action.
-	Description *string `pulumi:"description"`
-	// Whether to enable the scheduled action. Default is `true` .
-	Enable *bool `pulumi:"enable"`
-	// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	EndTime *string `pulumi:"endTime"`
-	// The IAM role to assume to run the scheduled action.
-	IamRole *string `pulumi:"iamRole"`
-	// The scheduled action name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-	Schedule *string `pulumi:"schedule"`
-	// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime *string `pulumi:"startTime"`
-	// Target action. Documented below.
+	Description  *string                      `pulumi:"description"`
+	Enable       *bool                        `pulumi:"enable"`
+	EndTime      *string                      `pulumi:"endTime"`
+	IamRole      *string                      `pulumi:"iamRole"`
+	Name         *string                      `pulumi:"name"`
+	Region       *string                      `pulumi:"region"`
+	Schedule     *string                      `pulumi:"schedule"`
+	StartTime    *string                      `pulumi:"startTime"`
 	TargetAction *ScheduledActionTargetAction `pulumi:"targetAction"`
 }
 
 type ScheduledActionState struct {
-	// The description of the scheduled action.
-	Description pulumi.StringPtrInput
-	// Whether to enable the scheduled action. Default is `true` .
-	Enable pulumi.BoolPtrInput
-	// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	EndTime pulumi.StringPtrInput
-	// The IAM role to assume to run the scheduled action.
-	IamRole pulumi.StringPtrInput
-	// The scheduled action name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-	Schedule pulumi.StringPtrInput
-	// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime pulumi.StringPtrInput
-	// Target action. Documented below.
+	Description  pulumi.StringPtrInput
+	Enable       pulumi.BoolPtrInput
+	EndTime      pulumi.StringPtrInput
+	IamRole      pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Schedule     pulumi.StringPtrInput
+	StartTime    pulumi.StringPtrInput
 	TargetAction ScheduledActionTargetActionPtrInput
 }
 
@@ -259,45 +93,27 @@ func (ScheduledActionState) ElementType() reflect.Type {
 }
 
 type scheduledActionArgs struct {
-	// The description of the scheduled action.
-	Description *string `pulumi:"description"`
-	// Whether to enable the scheduled action. Default is `true` .
-	Enable *bool `pulumi:"enable"`
-	// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	EndTime *string `pulumi:"endTime"`
-	// The IAM role to assume to run the scheduled action.
-	IamRole string `pulumi:"iamRole"`
-	// The scheduled action name.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-	Schedule string `pulumi:"schedule"`
-	// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime *string `pulumi:"startTime"`
-	// Target action. Documented below.
+	Description  *string                     `pulumi:"description"`
+	Enable       *bool                       `pulumi:"enable"`
+	EndTime      *string                     `pulumi:"endTime"`
+	IamRole      string                      `pulumi:"iamRole"`
+	Name         *string                     `pulumi:"name"`
+	Region       *string                     `pulumi:"region"`
+	Schedule     string                      `pulumi:"schedule"`
+	StartTime    *string                     `pulumi:"startTime"`
 	TargetAction ScheduledActionTargetAction `pulumi:"targetAction"`
 }
 
 // The set of arguments for constructing a ScheduledAction resource.
 type ScheduledActionArgs struct {
-	// The description of the scheduled action.
-	Description pulumi.StringPtrInput
-	// Whether to enable the scheduled action. Default is `true` .
-	Enable pulumi.BoolPtrInput
-	// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	EndTime pulumi.StringPtrInput
-	// The IAM role to assume to run the scheduled action.
-	IamRole pulumi.StringInput
-	// The scheduled action name.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-	Schedule pulumi.StringInput
-	// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime pulumi.StringPtrInput
-	// Target action. Documented below.
+	Description  pulumi.StringPtrInput
+	Enable       pulumi.BoolPtrInput
+	EndTime      pulumi.StringPtrInput
+	IamRole      pulumi.StringInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Schedule     pulumi.StringInput
+	StartTime    pulumi.StringPtrInput
 	TargetAction ScheduledActionTargetActionInput
 }
 
@@ -388,47 +204,38 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
-// The description of the scheduled action.
 func (o ScheduledActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable the scheduled action. Default is `true` .
 func (o ScheduledActionOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
 func (o ScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// The IAM role to assume to run the scheduled action.
 func (o ScheduledActionOutput) IamRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.IamRole }).(pulumi.StringOutput)
 }
 
-// The scheduled action name.
 func (o ScheduledActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScheduledActionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
 func (o ScheduledActionOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
 func (o ScheduledActionOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Target action. Documented below.
 func (o ScheduledActionOutput) TargetAction() ScheduledActionTargetActionOutput {
 	return o.ApplyT(func(v *ScheduledAction) ScheduledActionTargetActionOutput { return v.TargetAction }).(ScheduledActionTargetActionOutput)
 }

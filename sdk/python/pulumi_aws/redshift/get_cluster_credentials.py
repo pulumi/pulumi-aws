@@ -81,9 +81,6 @@ class GetClusterCredentialsResult:
     @_builtins.property
     @pulumi.getter(name="dbPassword")
     def db_password(self) -> _builtins.str:
-        """
-        Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
-        """
         return pulumi.get(self, "db_password")
 
     @_builtins.property
@@ -99,9 +96,6 @@ class GetClusterCredentialsResult:
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> _builtins.str:
-        """
-        Date and time the password in `db_password` expires.
-        """
         return pulumi.get(self, "expiration")
 
     @_builtins.property
@@ -145,26 +139,7 @@ def get_cluster_credentials(auto_create: Optional[_builtins.bool] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterCredentialsResult:
     """
-    Provides redshift cluster temporary credentials.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_cluster_credentials(cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
-        db_user=example_aws_redshift_cluster["masterUsername"])
-    ```
-
-
-    :param _builtins.bool auto_create: Create a database user with the name specified for the user named in `db_user` if one does not exist.
-    :param _builtins.str cluster_identifier: Unique identifier of the cluster that contains the database for which your are requesting credentials.
-    :param Sequence[_builtins.str] db_groups: List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-    :param _builtins.str db_name: Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
-    :param _builtins.str db_user: Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn't exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
-    :param _builtins.int duration_seconds: The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['autoCreate'] = auto_create
@@ -197,26 +172,7 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[_
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterCredentialsResult]:
     """
-    Provides redshift cluster temporary credentials.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_cluster_credentials(cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
-        db_user=example_aws_redshift_cluster["masterUsername"])
-    ```
-
-
-    :param _builtins.bool auto_create: Create a database user with the name specified for the user named in `db_user` if one does not exist.
-    :param _builtins.str cluster_identifier: Unique identifier of the cluster that contains the database for which your are requesting credentials.
-    :param Sequence[_builtins.str] db_groups: List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-    :param _builtins.str db_name: Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
-    :param _builtins.str db_user: Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn't exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
-    :param _builtins.int duration_seconds: The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['autoCreate'] = auto_create

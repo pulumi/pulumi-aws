@@ -9,53 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route53 CIDR collection resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.CidrCollection("example", new()
-    ///     {
-    ///         Name = "collection-1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CIDR collections using their ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/cidrCollection:CidrCollection")]
     public partial class CidrCollection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the CIDR collection.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name for the CIDR collection.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The lastest version of the CIDR collection.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -105,9 +67,6 @@ namespace Pulumi.Aws.Route53
 
     public sealed class CidrCollectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name for the CIDR collection.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -119,21 +78,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class CidrCollectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the CIDR collection.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique name for the CIDR collection.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The lastest version of the CIDR collection.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContainerRecipeInstanceConfiguration {
-    /**
-     * @return Set of objects with block device mappings for the instance configuration.
-     * 
-     */
     private List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
-    /**
-     * @return AMI ID of the base image for container build and test instance.
-     * 
-     */
     private String image;
 
     private GetContainerRecipeInstanceConfiguration() {}
-    /**
-     * @return Set of objects with block device mappings for the instance configuration.
-     * 
-     */
     public List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings() {
         return this.blockDeviceMappings;
     }
-    /**
-     * @return AMI ID of the base image for container build and test instance.
-     * 
-     */
     public String image() {
         return this.image;
     }

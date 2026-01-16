@@ -17,32 +17,16 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs();
 
-    /**
-     * Inline tool definition. See `inlinePayload` below.
-     * 
-     */
     @Import(name="inlinePayloads")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>> inlinePayloads;
 
-    /**
-     * @return Inline tool definition. See `inlinePayload` below.
-     * 
-     */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>>> inlinePayloads() {
         return Optional.ofNullable(this.inlinePayloads);
     }
 
-    /**
-     * S3-based tool definition. See `s3` below.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args> s3;
 
-    /**
-     * @return S3-based tool definition. See `s3` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -72,54 +56,24 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlinePayloads(@Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>> inlinePayloads) {
             $.inlinePayloads = inlinePayloads;
             return this;
         }
 
-        /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlinePayloads(List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs> inlinePayloads) {
             return inlinePayloads(Output.of(inlinePayloads));
         }
 
-        /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs... inlinePayloads) {
             return inlinePayloads(List.of(inlinePayloads));
         }
 
-        /**
-         * @param s3 S3-based tool definition. See `s3` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 S3-based tool definition. See `s3` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args s3) {
             return s3(Output.of(s3));
         }

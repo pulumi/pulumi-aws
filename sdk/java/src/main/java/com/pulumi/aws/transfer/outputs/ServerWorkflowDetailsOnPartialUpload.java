@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServerWorkflowDetailsOnPartialUpload {
-    /**
-     * @return Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-     * 
-     */
     private String executionRole;
-    /**
-     * @return A unique identifier for the workflow.
-     * 
-     */
     private String workflowId;
 
     private ServerWorkflowDetailsOnPartialUpload() {}
-    /**
-     * @return Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-     * 
-     */
     public String executionRole() {
         return this.executionRole;
     }
-    /**
-     * @return A unique identifier for the workflow.
-     * 
-     */
     public String workflowId() {
         return this.workflowId;
     }

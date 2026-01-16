@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages Amazon S3 Tables Table Bucket Replication configuration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3tables.TableBucketReplication("example", {
- *     tableBucketArn: source.arn,
- *     role: exampleAwsIamRole.arn,
- *     rule: {
- *         destinations: [{
- *             destinationTableBucketArn: target.arn,
- *         }],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Tables Table Bucket Replication using the `table_bucket_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:s3tables/tableBucketReplication:TableBucketReplication example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket'
- * ```
- */
 export class TableBucketReplication extends pulumi.CustomResource {
     /**
      * Get an existing TableBucketReplication resource's state with the given name, ID, and optional extra
@@ -65,21 +35,9 @@ export class TableBucketReplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableBucketReplication.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-     */
     declare public readonly role: pulumi.Output<string>;
-    /**
-     * Replication rules. See Rule below for more details.
-     */
     declare public readonly rule: pulumi.Output<outputs.s3tables.TableBucketReplicationRule | undefined>;
-    /**
-     * ARN referencing the Table Bucket that owns this replication configuration.
-     */
     declare public readonly tableBucketArn: pulumi.Output<string>;
     declare public /*out*/ readonly versionToken: pulumi.Output<string>;
 
@@ -124,21 +82,9 @@ export class TableBucketReplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TableBucketReplication resources.
  */
 export interface TableBucketReplicationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-     */
     role?: pulumi.Input<string>;
-    /**
-     * Replication rules. See Rule below for more details.
-     */
     rule?: pulumi.Input<inputs.s3tables.TableBucketReplicationRule>;
-    /**
-     * ARN referencing the Table Bucket that owns this replication configuration.
-     */
     tableBucketArn?: pulumi.Input<string>;
     versionToken?: pulumi.Input<string>;
 }
@@ -147,20 +93,8 @@ export interface TableBucketReplicationState {
  * The set of arguments for constructing a TableBucketReplication resource.
  */
 export interface TableBucketReplicationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-     */
     role: pulumi.Input<string>;
-    /**
-     * Replication rules. See Rule below for more details.
-     */
     rule?: pulumi.Input<inputs.s3tables.TableBucketReplicationRule>;
-    /**
-     * ARN referencing the Table Bucket that owns this replication configuration.
-     */
     tableBucketArn: pulumi.Input<string>;
 }

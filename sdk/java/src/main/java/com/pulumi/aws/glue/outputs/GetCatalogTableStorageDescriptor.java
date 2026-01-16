@@ -19,173 +19,61 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptor {
-    /**
-     * @return List of locations that point to the path where a Delta table is located
-     * 
-     */
     private List<String> additionalLocations;
-    /**
-     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-     * 
-     */
     private List<String> bucketColumns;
-    /**
-     * @return Configuration block for columns in the table. See `columns` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptorColumn> columns;
-    /**
-     * @return Whether the data in the table is compressed.
-     * 
-     */
     private Boolean compressed;
-    /**
-     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-     * 
-     */
     private String inputFormat;
-    /**
-     * @return Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-     * 
-     */
     private String location;
-    /**
-     * @return Is if the table contains any dimension columns.
-     * 
-     */
     private Integer numberOfBuckets;
-    /**
-     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-     * 
-     */
     private String outputFormat;
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     private Map<String,String> parameters;
-    /**
-     * @return Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences;
-    /**
-     * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `serDeInfo` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos;
-    /**
-     * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos;
-    /**
-     * @return Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptorSortColumn> sortColumns;
-    /**
-     * @return Whether the table data is stored in subdirectories.
-     * 
-     */
     private Boolean storedAsSubDirectories;
 
     private GetCatalogTableStorageDescriptor() {}
-    /**
-     * @return List of locations that point to the path where a Delta table is located
-     * 
-     */
     public List<String> additionalLocations() {
         return this.additionalLocations;
     }
-    /**
-     * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-     * 
-     */
     public List<String> bucketColumns() {
         return this.bucketColumns;
     }
-    /**
-     * @return Configuration block for columns in the table. See `columns` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptorColumn> columns() {
         return this.columns;
     }
-    /**
-     * @return Whether the data in the table is compressed.
-     * 
-     */
     public Boolean compressed() {
         return this.compressed;
     }
-    /**
-     * @return Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-     * 
-     */
     public String inputFormat() {
         return this.inputFormat;
     }
-    /**
-     * @return Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-     * 
-     */
     public String location() {
         return this.location;
     }
-    /**
-     * @return Is if the table contains any dimension columns.
-     * 
-     */
     public Integer numberOfBuckets() {
         return this.numberOfBuckets;
     }
-    /**
-     * @return Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-     * 
-     */
     public String outputFormat() {
         return this.outputFormat;
     }
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences() {
         return this.schemaReferences;
     }
-    /**
-     * @return Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `serDeInfo` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos() {
         return this.serDeInfos;
     }
-    /**
-     * @return Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos() {
         return this.skewedInfos;
     }
-    /**
-     * @return Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptorSortColumn> sortColumns() {
         return this.sortColumns;
     }
-    /**
-     * @return Whether the table data is stored in subdirectories.
-     * 
-     */
     public Boolean storedAsSubDirectories() {
         return this.storedAsSubDirectories;
     }

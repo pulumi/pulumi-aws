@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a SMB Location within AWS DataSync.
- *
- * > **NOTE:** The DataSync Agents must be available before creating this resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationSmb("example", {
- *     serverHostname: "smb.example.com",
- *     subdirectory: "/exported/path",
- *     user: "Guest",
- *     password: "ANotGreatPassword",
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
- *
- * Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
- *
- * % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- */
 export class LocationSmb extends pulumi.CustomResource {
     /**
      * Get an existing LocationSmb resource's state with the given name, ID, and optional extra
@@ -67,50 +35,17 @@ export class LocationSmb extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationSmb.__pulumiType;
     }
 
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     */
     declare public readonly agentArns: pulumi.Output<string[]>;
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the Windows domain the SMB server belongs to.
-     */
     declare public readonly domain: pulumi.Output<string>;
-    /**
-     * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
-     */
     declare public readonly mountOptions: pulumi.Output<outputs.datasync.LocationSmbMountOptions | undefined>;
-    /**
-     * The password of the user who can mount the share and has file permissions in the SMB.
-     */
     declare public readonly password: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
-     */
     declare public readonly serverHostname: pulumi.Output<string>;
-    /**
-     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     */
     declare public readonly subdirectory: pulumi.Output<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public /*out*/ readonly uri: pulumi.Output<string>;
-    /**
-     * The user who can mount the share and has file and folder permissions in the SMB share.
-     */
     declare public readonly user: pulumi.Output<string>;
 
     /**
@@ -179,50 +114,17 @@ export class LocationSmb extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LocationSmb resources.
  */
 export interface LocationSmbState {
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the Windows domain the SMB server belongs to.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
-     */
     mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
-    /**
-     * The password of the user who can mount the share and has file permissions in the SMB.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
-     */
     serverHostname?: pulumi.Input<string>;
-    /**
-     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     */
     subdirectory?: pulumi.Input<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
-    /**
-     * The user who can mount the share and has file and folder permissions in the SMB share.
-     */
     user?: pulumi.Input<string>;
 }
 
@@ -230,40 +132,13 @@ export interface LocationSmbState {
  * The set of arguments for constructing a LocationSmb resource.
  */
 export interface LocationSmbArgs {
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     */
     agentArns: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the Windows domain the SMB server belongs to.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
-     */
     mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
-    /**
-     * The password of the user who can mount the share and has file permissions in the SMB.
-     */
     password: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
-     */
     serverHostname: pulumi.Input<string>;
-    /**
-     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-     */
     subdirectory: pulumi.Input<string>;
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The user who can mount the share and has file and folder permissions in the SMB share.
-     */
     user: pulumi.Input<string>;
 }

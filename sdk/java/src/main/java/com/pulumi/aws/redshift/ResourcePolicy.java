@@ -13,106 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift Resource Policy.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.ResourcePolicy;
- * import com.pulumi.aws.redshift.ResourcePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsRedshiftCluster.clusterNamespaceArn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", "arn:aws:iam::12345678901:root")
- *                         )),
- *                         jsonProperty("Action", "redshift:CreateInboundIntegration"),
- *                         jsonProperty("Resource", exampleAwsRedshiftCluster.clusterNamespaceArn()),
- *                         jsonProperty("Sid", "")
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The content of the resource policy being updated.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The content of the resource policy being updated.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

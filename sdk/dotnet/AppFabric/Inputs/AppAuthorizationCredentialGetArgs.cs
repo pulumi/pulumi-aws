@@ -14,19 +14,12 @@ namespace Pulumi.Aws.AppFabric.Inputs
     {
         [Input("apiKeyCredentials")]
         private InputList<Inputs.AppAuthorizationCredentialApiKeyCredentialGetArgs>? _apiKeyCredentials;
-
-        /// <summary>
-        /// Contains API key credential information.
-        /// </summary>
         public InputList<Inputs.AppAuthorizationCredentialApiKeyCredentialGetArgs> ApiKeyCredentials
         {
             get => _apiKeyCredentials ?? (_apiKeyCredentials = new InputList<Inputs.AppAuthorizationCredentialApiKeyCredentialGetArgs>());
             set => _apiKeyCredentials = value;
         }
 
-        /// <summary>
-        /// Contains OAuth2 client credential information.
-        /// </summary>
         [Input("oauth2Credential")]
         public Input<Inputs.AppAuthorizationCredentialOauth2CredentialGetArgs>? Oauth2Credential { get; set; }
 

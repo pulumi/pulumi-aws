@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RevisionAssetsAssetImportAssetsFromSignedUrl {
-    /**
-     * @return The name of the file to import.
-     * 
-     */
     private String filename;
 
     private RevisionAssetsAssetImportAssetsFromSignedUrl() {}
-    /**
-     * @return The name of the file to import.
-     * 
-     */
     public String filename() {
         return this.filename;
     }

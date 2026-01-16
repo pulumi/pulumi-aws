@@ -11,68 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
-// you to deploy and manage applications in the AWS cloud without worrying about
-// the infrastructure that runs those applications.
-//
-// This resource creates an application that has one configuration template named
-// `default`, and no application versions
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Name:        pulumi.String("tf-test-name"),
-//				Description: pulumi.String("tf-test-desc"),
-//				AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
-//					ServiceRole:        pulumi.Any(beanstalkService.Arn),
-//					MaxCount:           pulumi.Int(128),
-//					DeleteSourceFromS3: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
 	AppversionLifecycle ApplicationAppversionLifecyclePtrOutput `pulumi:"appversionLifecycle"`
-	// The ARN assigned by AWS for this Elastic Beanstalk Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Short description of the application
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the application, must be unique within your account
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                 pulumi.StringOutput                     `pulumi:"arn"`
+	Description         pulumi.StringPtrOutput                  `pulumi:"description"`
+	Name                pulumi.StringOutput                     `pulumi:"name"`
+	Region              pulumi.StringOutput                     `pulumi:"region"`
+	Tags                pulumi.StringMapOutput                  `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                  `pulumi:"tagsAll"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -106,34 +54,22 @@ func GetApplication(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
 	AppversionLifecycle *ApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
-	// The ARN assigned by AWS for this Elastic Beanstalk Application.
-	Arn *string `pulumi:"arn"`
-	// Short description of the application
-	Description *string `pulumi:"description"`
-	// The name of the application, must be unique within your account
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                 *string                         `pulumi:"arn"`
+	Description         *string                         `pulumi:"description"`
+	Name                *string                         `pulumi:"name"`
+	Region              *string                         `pulumi:"region"`
+	Tags                map[string]string               `pulumi:"tags"`
+	TagsAll             map[string]string               `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
 	AppversionLifecycle ApplicationAppversionLifecyclePtrInput
-	// The ARN assigned by AWS for this Elastic Beanstalk Application.
-	Arn pulumi.StringPtrInput
-	// Short description of the application
-	Description pulumi.StringPtrInput
-	// The name of the application, must be unique within your account
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                 pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -142,27 +78,19 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	AppversionLifecycle *ApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
-	// Short description of the application
-	Description *string `pulumi:"description"`
-	// The name of the application, must be unique within your account
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description         *string                         `pulumi:"description"`
+	Name                *string                         `pulumi:"name"`
+	Region              *string                         `pulumi:"region"`
+	Tags                map[string]string               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	AppversionLifecycle ApplicationAppversionLifecyclePtrInput
-	// Short description of the application
-	Description pulumi.StringPtrInput
-	// The name of the application, must be unique within your account
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -256,32 +184,26 @@ func (o ApplicationOutput) AppversionLifecycle() ApplicationAppversionLifecycleP
 	return o.ApplyT(func(v *Application) ApplicationAppversionLifecyclePtrOutput { return v.AppversionLifecycle }).(ApplicationAppversionLifecyclePtrOutput)
 }
 
-// The ARN assigned by AWS for this Elastic Beanstalk Application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Short description of the application
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the application, must be unique within your account
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

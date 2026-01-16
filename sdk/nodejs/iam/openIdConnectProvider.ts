@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IAM OpenID Connect provider.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.iam.OpenIdConnectProvider("default", {
- *     url: "https://accounts.google.com",
- *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
- *     thumbprintLists: ["cf23df2207d99a74fbe169e3eba035e633b65d94"],
- * });
- * ```
- *
- * ### Without A Thumbprint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.iam.OpenIdConnectProvider("default", {
- *     url: "https://accounts.google.com",
- *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
- *
- * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
- *
- * % pulumi import aws_iam_openid_connect_provider.default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
- */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
      * Get an existing OpenIdConnectProvider resource's state with the given name, ID, and optional extra
@@ -74,26 +32,11 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === OpenIdConnectProvider.__pulumiType;
     }
 
-    /**
-     * ARN assigned by AWS for this provider.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
-     */
     declare public readonly clientIdLists: pulumi.Output<string[]>;
-    /**
-     * Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly thumbprintLists: pulumi.Output<string[]>;
-    /**
-     * URL of the identity provider, corresponding to the `iss` claim.
-     */
     declare public readonly url: pulumi.Output<string>;
 
     /**
@@ -139,26 +82,11 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OpenIdConnectProvider resources.
  */
 export interface OpenIdConnectProviderState {
-    /**
-     * ARN assigned by AWS for this provider.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
-     */
     clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL of the identity provider, corresponding to the `iss` claim.
-     */
     url?: pulumi.Input<string>;
 }
 
@@ -166,17 +94,8 @@ export interface OpenIdConnectProviderState {
  * The set of arguments for constructing a OpenIdConnectProvider resource.
  */
 export interface OpenIdConnectProviderArgs {
-    /**
-     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `clientId` parameter in OAuth requests.
-     */
     clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL of the identity provider, corresponding to the `iss` claim.
-     */
     url: pulumi.Input<string>;
 }

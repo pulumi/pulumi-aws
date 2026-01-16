@@ -15,32 +15,16 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvir
 
     public static final PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs Empty = new PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs();
 
-    /**
-     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -70,44 +54,20 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvir
             $ = new PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class S3LocationS3ConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the IAM Role used to connect to the S3 Bucket.
-        /// </summary>
         [Input("bucketAccessRoleArn", required: true)]
         public Input<string> BucketAccessRoleArn { get; set; } = null!;
 

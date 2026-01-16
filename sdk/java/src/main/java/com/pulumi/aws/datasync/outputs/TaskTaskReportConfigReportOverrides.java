@@ -11,57 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskTaskReportConfigReportOverrides {
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     private @Nullable String deletedOverride;
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     private @Nullable String skippedOverride;
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     private @Nullable String transferredOverride;
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     * &gt; **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-     * 
-     */
     private @Nullable String verifiedOverride;
 
     private TaskTaskReportConfigReportOverrides() {}
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<String> deletedOverride() {
         return Optional.ofNullable(this.deletedOverride);
     }
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<String> skippedOverride() {
         return Optional.ofNullable(this.skippedOverride);
     }
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<String> transferredOverride() {
         return Optional.ofNullable(this.transferredOverride);
     }
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     * &gt; **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-     * 
-     */
     public Optional<String> verifiedOverride() {
         return Optional.ofNullable(this.verifiedOverride);
     }

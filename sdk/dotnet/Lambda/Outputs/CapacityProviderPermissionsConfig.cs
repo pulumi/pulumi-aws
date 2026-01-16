@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderPermissionsConfig
     {
-        /// <summary>
-        /// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        /// </summary>
         public readonly string CapacityProviderOperatorRoleArn;
 
         [OutputConstructor]

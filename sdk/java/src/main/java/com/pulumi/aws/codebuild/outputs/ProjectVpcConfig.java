@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ProjectVpcConfig {
-    /**
-     * @return Security group IDs to assign to running builds.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return Subnet IDs within which to run builds.
-     * 
-     */
     private List<String> subnets;
-    /**
-     * @return ID of the VPC within which to run builds.
-     * 
-     */
     private String vpcId;
 
     private ProjectVpcConfig() {}
-    /**
-     * @return Security group IDs to assign to running builds.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return Subnet IDs within which to run builds.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }
-    /**
-     * @return ID of the VPC within which to run builds.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

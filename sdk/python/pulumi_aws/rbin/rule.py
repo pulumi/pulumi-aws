@@ -31,15 +31,6 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
-        :param pulumi.Input[_builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Retention rule description.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        :param pulumi.Input['RuleLockConfigurationArgs'] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "retention_period", retention_period)
@@ -59,9 +50,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -71,11 +59,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Input['RuleRetentionPeriodArgs']:
-        """
-        Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -85,9 +68,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Retention rule description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -97,9 +77,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]]:
-        """
-        Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @exclude_resource_tags.setter
@@ -109,9 +86,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> Optional[pulumi.Input['RuleLockConfigurationArgs']]:
-        """
-        Information about the retention rule lock configuration. See `lock_configuration` below.
-        """
         return pulumi.get(self, "lock_configuration")
 
     @lock_configuration.setter
@@ -121,9 +95,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -133,9 +104,6 @@ class RuleArgs:
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]]:
-        """
-        Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -170,18 +138,6 @@ class _RuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
-        :param pulumi.Input[_builtins.str] description: Retention rule description.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        :param pulumi.Input['RuleLockConfigurationArgs'] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[_builtins.str] lock_end_time: (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        :param pulumi.Input[_builtins.str] lock_state: (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        :param pulumi.Input[_builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] status: (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -222,9 +178,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Retention rule description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -234,9 +187,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]]:
-        """
-        Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @exclude_resource_tags.setter
@@ -246,9 +196,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> Optional[pulumi.Input['RuleLockConfigurationArgs']]:
-        """
-        Information about the retention rule lock configuration. See `lock_configuration` below.
-        """
         return pulumi.get(self, "lock_configuration")
 
     @lock_configuration.setter
@@ -258,9 +205,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="lockEndTime")
     def lock_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        """
         return pulumi.get(self, "lock_end_time")
 
     @lock_end_time.setter
@@ -270,9 +214,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="lockState")
     def lock_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        """
         return pulumi.get(self, "lock_state")
 
     @lock_state.setter
@@ -282,9 +223,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,9 +232,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]]:
-        """
-        Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -306,9 +241,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -318,11 +250,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input['RuleRetentionPeriodArgs']]:
-        """
-        Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -332,9 +259,6 @@ class _RuleState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -376,73 +300,9 @@ class Rule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS RBin Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rbin.Rule("example",
-            description="Example tag-level retention rule",
-            resource_type="EBS_SNAPSHOT",
-            resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
-            retention_period={
-                "retention_period_value": 10,
-                "retention_period_unit": "DAYS",
-            },
-            tags={
-                "test_tag_key": "test_tag_value",
-            })
-        ```
-
-        ### Region-Level Retention Rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rbin.Rule("example",
-            description="Example region-level retention rule with exclusion tags",
-            resource_type="EC2_IMAGE",
-            exclude_resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
-            retention_period={
-                "retention_period_value": 10,
-                "retention_period_unit": "DAYS",
-            },
-            tags={
-                "test_tag_key": "test_tag_value",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RBin Rule using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:rbin/rule:Rule example examplerule
-        ```
-
+        Create a Rule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Retention rule description.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        :param pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        :param pulumi.Input[_builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -451,62 +311,7 @@ class Rule(pulumi.CustomResource):
                  args: RuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS RBin Rule.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rbin.Rule("example",
-            description="Example tag-level retention rule",
-            resource_type="EBS_SNAPSHOT",
-            resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
-            retention_period={
-                "retention_period_value": 10,
-                "retention_period_unit": "DAYS",
-            },
-            tags={
-                "test_tag_key": "test_tag_value",
-            })
-        ```
-
-        ### Region-Level Retention Rule
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rbin.Rule("example",
-            description="Example region-level retention rule with exclusion tags",
-            resource_type="EC2_IMAGE",
-            exclude_resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
-            retention_period={
-                "retention_period_value": 10,
-                "retention_period_unit": "DAYS",
-            },
-            tags={
-                "test_tag_key": "test_tag_value",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RBin Rule using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:rbin/rule:Rule example examplerule
-        ```
-
+        Create a Rule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -586,18 +391,6 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Retention rule description.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        :param pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[_builtins.str] lock_end_time: (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        :param pulumi.Input[_builtins.str] lock_state: (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        :param pulumi.Input[_builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] status: (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -626,83 +419,51 @@ class Rule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Retention rule description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleExcludeResourceTag']]]:
-        """
-        Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
-        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @_builtins.property
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> pulumi.Output[Optional['outputs.RuleLockConfiguration']]:
-        """
-        Information about the retention rule lock configuration. See `lock_configuration` below.
-        """
         return pulumi.get(self, "lock_configuration")
 
     @_builtins.property
     @pulumi.getter(name="lockEndTime")
     def lock_end_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        """
         return pulumi.get(self, "lock_end_time")
 
     @_builtins.property
     @pulumi.getter(name="lockState")
     def lock_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        """
         return pulumi.get(self, "lock_state")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleResourceTag']]]:
-        """
-        Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        """
         return pulumi.get(self, "resource_tags")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output['outputs.RuleRetentionPeriod']:
-        """
-        Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "retention_period")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property

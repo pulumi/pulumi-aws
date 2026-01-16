@@ -14,131 +14,35 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS DynamoDB Resource Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dynamodb.ResourcePolicy;
- * import com.pulumi.aws.dynamodb.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsDynamodbTable.arn())
- *             .policy(test.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
- * 
- * Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
- * 
- * % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
- * 
- */
 @ResourceType(type="aws:dynamodb/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-     * 
-     */
     @Export(name="confirmRemoveSelfResourceAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> confirmRemoveSelfResourceAccess;
 
-    /**
-     * @return Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-     * 
-     */
     public Output<Boolean> confirmRemoveSelfResourceAccess() {
         return this.confirmRemoveSelfResourceAccess;
     }
-    /**
-     * n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
-     * 
-     */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
-    /**
-     * @return A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
-     * 
-     */
     public Output<String> revisionId() {
         return this.revisionId;
     }

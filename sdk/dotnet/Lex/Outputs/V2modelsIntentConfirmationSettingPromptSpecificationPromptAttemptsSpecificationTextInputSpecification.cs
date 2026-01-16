@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification
     {
-        /// <summary>
-        /// Time for which a bot waits before re-prompting a customer for text input.
-        /// </summary>
         public readonly int StartTimeoutMs;
 
         [OutputConstructor]

@@ -64,9 +64,6 @@ class GetNetworkAclsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the network ACL ids found.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -105,51 +102,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkAclsResult:
     """
-    ## Example Usage
-
-    The following shows outputting all network ACL ids in a vpc.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id)
-    pulumi.export("example", example.ids)
-    ```
-
-    The following example retrieves a list of all network ACL ids in a VPC with a custom
-    tag of `Tier` set to a value of "Private".
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id,
-        tags={
-            "Tier": "Private",
-        })
-    ```
-
-    The following example retrieves a network ACL id in a VPC which associated
-    with specific subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id,
-        filters=[{
-            "name": "association.subnet-id",
-            "values": [test["id"]],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired network ACLs.
-    :param _builtins.str vpc_id: VPC ID that you want to filter from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -172,51 +125,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkAclsResult]:
     """
-    ## Example Usage
-
-    The following shows outputting all network ACL ids in a vpc.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id)
-    pulumi.export("example", example.ids)
-    ```
-
-    The following example retrieves a list of all network ACL ids in a VPC with a custom
-    tag of `Tier` set to a value of "Private".
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id,
-        tags={
-            "Tier": "Private",
-        })
-    ```
-
-    The following example retrieves a network ACL id in a VPC which associated
-    with specific subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id,
-        filters=[{
-            "name": "association.subnet-id",
-            "values": [test["id"]],
-        }])
-    ```
-
-
-    :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired network ACLs.
-    :param _builtins.str vpc_id: VPC ID that you want to filter from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

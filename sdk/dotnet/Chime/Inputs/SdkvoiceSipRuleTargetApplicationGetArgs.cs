@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Chime.Inputs
 
     public sealed class SdkvoiceSipRuleTargetApplicationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Region of the target application.
-        /// </summary>
         [Input("awsRegion", required: true)]
         public Input<string> AwsRegion { get; set; } = null!;
 
-        /// <summary>
-        /// Priority of the SIP media application in the target list.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// The SIP media application ID.
-        /// </summary>
         [Input("sipMediaApplicationId", required: true)]
         public Input<string> SipMediaApplicationId { get; set; } = null!;
 

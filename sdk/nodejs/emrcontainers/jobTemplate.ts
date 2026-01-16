@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EMR Containers (EMR on EKS) Job Template.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrcontainers.JobTemplate("example", {
- *     jobTemplateData: {
- *         executionRoleArn: exampleAwsIamRole.arn,
- *         releaseLabel: "emr-6.10.0-latest",
- *         jobDriver: {
- *             sparkSqlJobDriver: {
- *                 entryPoint: "default",
- *             },
- *         },
- *     },
- *     name: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EKS job templates using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
- * ```
- */
 export class JobTemplate extends pulumi.CustomResource {
     /**
      * Get an existing JobTemplate resource's state with the given name, ID, and optional extra
@@ -68,33 +35,12 @@ export class JobTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobTemplate.__pulumiType;
     }
 
-    /**
-     * ARN of the job template.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The job template data which holds values of StartJobRun API request.
-     */
     declare public readonly jobTemplateData: pulumi.Output<outputs.emrcontainers.JobTemplateJobTemplateData>;
-    /**
-     * The KMS key ARN used to encrypt the job template.
-     */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
-    /**
-     * The specified name of the job template.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -139,33 +85,12 @@ export class JobTemplate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering JobTemplate resources.
  */
 export interface JobTemplateState {
-    /**
-     * ARN of the job template.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The job template data which holds values of StartJobRun API request.
-     */
     jobTemplateData?: pulumi.Input<inputs.emrcontainers.JobTemplateJobTemplateData>;
-    /**
-     * The KMS key ARN used to encrypt the job template.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The specified name of the job template.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -173,24 +98,9 @@ export interface JobTemplateState {
  * The set of arguments for constructing a JobTemplate resource.
  */
 export interface JobTemplateArgs {
-    /**
-     * The job template data which holds values of StartJobRun API request.
-     */
     jobTemplateData: pulumi.Input<inputs.emrcontainers.JobTemplateJobTemplateData>;
-    /**
-     * The KMS key ARN used to encrypt the job template.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The specified name of the job template.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

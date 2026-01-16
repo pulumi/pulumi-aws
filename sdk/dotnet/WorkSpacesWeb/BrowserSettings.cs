@@ -9,140 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Browser Settings resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.BrowserSettings("example", new()
-    ///     {
-    ///         BrowserPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["AdditionalSettings"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["DownloadsSettings"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Behavior"] = "DISABLE",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With All Arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "KMS key for WorkSpaces Web Browser Settings",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleBrowserSettings = new Aws.WorkSpacesWeb.BrowserSettings("example", new()
-    ///     {
-    ///         BrowserPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["chromePolicies"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["DefaultDownloadDirectory"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["value"] = "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
-    ///                 },
-    ///             },
-    ///         }),
-    ///         CustomerManagedKey = example.Arn,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-browser-settings" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browser_settings_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/browserSettings:BrowserSettings")]
     public partial class BrowserSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Additional encryption context for the browser settings.
-        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
-        /// <summary>
-        /// List of web portal ARNs to associate with the browser settings.
-        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("browserPolicy")]
         public Output<string> BrowserPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the browser settings resource.
-        /// </summary>
         [Output("browserSettingsArn")]
         public Output<string> BrowserSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the customer managed KMS key.
-        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -198,42 +88,23 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Additional encryption context for the browser settings.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
-        /// <summary>
-        /// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("browserPolicy", required: true)]
         public Input<string> BrowserPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the customer managed KMS key.
-        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -250,10 +121,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Additional encryption context for the browser settings.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
@@ -262,48 +129,26 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("associatedPortalArns")]
         private InputList<string>? _associatedPortalArns;
-
-        /// <summary>
-        /// List of web portal ARNs to associate with the browser settings.
-        /// </summary>
         public InputList<string> AssociatedPortalArns
         {
             get => _associatedPortalArns ?? (_associatedPortalArns = new InputList<string>());
             set => _associatedPortalArns = value;
         }
 
-        /// <summary>
-        /// Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("browserPolicy")]
         public Input<string>? BrowserPolicy { get; set; }
 
-        /// <summary>
-        /// ARN of the browser settings resource.
-        /// </summary>
         [Input("browserSettingsArn")]
         public Input<string>? BrowserSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the customer managed KMS key.
-        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -312,10 +157,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

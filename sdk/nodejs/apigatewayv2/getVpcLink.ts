@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS API Gateway V2 VPC Link.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigatewayv2.getVpcLink({
- *     vpcLinkId: "example",
- * });
- * ```
- */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getVpcLink:getVpcLink", {
@@ -33,17 +17,8 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * VPC Link Tags.
-     */
     tags?: {[key: string]: string};
-    /**
-     * VPC Link ID
-     */
     vpcLinkId: string;
 }
 
@@ -51,49 +26,18 @@ export interface GetVpcLinkArgs {
  * A collection of values returned by getVpcLink.
  */
 export interface GetVpcLinkResult {
-    /**
-     * ARN of the VPC Link.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * VPC Link Name.
-     */
     readonly name: string;
     readonly region: string;
-    /**
-     * List of security groups associated with the VPC Link.
-     */
     readonly securityGroupIds: string[];
-    /**
-     * List of subnets attached to the VPC Link.
-     */
     readonly subnetIds: string[];
-    /**
-     * VPC Link Tags.
-     */
     readonly tags: {[key: string]: string};
     readonly vpcLinkId: string;
 }
-/**
- * Data source for managing an AWS API Gateway V2 VPC Link.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigatewayv2.getVpcLink({
- *     vpcLinkId: "example",
- * });
- * ```
- */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigatewayv2/getVpcLink:getVpcLink", {
@@ -107,16 +51,7 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * VPC Link Tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC Link ID
-     */
     vpcLinkId: pulumi.Input<string>;
 }

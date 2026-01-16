@@ -9,106 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityLake
 {
-    /// <summary>
-    /// Resource for managing an AWS Security Lake Custom Log Source.
-    /// 
-    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `DependsOn` statement.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityLake.CustomLogSource("example", new()
-    ///     {
-    ///         SourceName = "example-name",
-    ///         SourceVersion = "1.0",
-    ///         EventClasses = new[]
-    ///         {
-    ///             "FILE_ACTIVITY",
-    ///         },
-    ///         Configuration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationArgs
-    ///         {
-    ///             CrawlerConfiguration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs
-    ///             {
-    ///                 RoleArn = customLog.Arn,
-    ///             },
-    ///             ProviderIdentity = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationProviderIdentityArgs
-    ///             {
-    ///                 ExternalId = "example-id",
-    ///                 Principal = "123456789012",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSecuritylakeDataLake,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Custom log sources using the source name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securitylake/customLogSource:CustomLogSource")]
     public partial class CustomLogSource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes of a third-party custom source.
-        /// </summary>
         [Output("attributes")]
         public Output<ImmutableArray<Outputs.CustomLogSourceAttribute>> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration for the third-party custom source.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.CustomLogSourceConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-        /// </summary>
         [Output("eventClasses")]
         public Output<ImmutableArray<string>> EventClasses { get; private set; } = null!;
 
-        /// <summary>
-        /// The details of the log provider for a third-party custom source.
-        /// </summary>
         [Output("providerDetails")]
         public Output<ImmutableArray<Outputs.CustomLogSourceProviderDetail>> ProviderDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify the name for a third-party custom source.
-        /// This must be a Regionally unique value.
-        /// Has a maximum length of 20.
-        /// </summary>
         [Output("sourceName")]
         public Output<string> SourceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-        /// </summary>
         [Output("sourceVersion")]
         public Output<string> SourceVersion { get; private set; } = null!;
 
@@ -158,41 +79,23 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class CustomLogSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration for the third-party custom source.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.CustomLogSourceConfigurationArgs>? Configuration { get; set; }
 
         [Input("eventClasses")]
         private InputList<string>? _eventClasses;
-
-        /// <summary>
-        /// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-        /// </summary>
         public InputList<string> EventClasses
         {
             get => _eventClasses ?? (_eventClasses = new InputList<string>());
             set => _eventClasses = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specify the name for a third-party custom source.
-        /// This must be a Regionally unique value.
-        /// Has a maximum length of 20.
-        /// </summary>
         [Input("sourceName", required: true)]
         public Input<string> SourceName { get; set; } = null!;
 
-        /// <summary>
-        /// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-        /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
 
@@ -206,28 +109,17 @@ namespace Pulumi.Aws.SecurityLake
     {
         [Input("attributes")]
         private InputList<Inputs.CustomLogSourceAttributeGetArgs>? _attributes;
-
-        /// <summary>
-        /// The attributes of a third-party custom source.
-        /// </summary>
         public InputList<Inputs.CustomLogSourceAttributeGetArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.CustomLogSourceAttributeGetArgs>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The configuration for the third-party custom source.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.CustomLogSourceConfigurationGetArgs>? Configuration { get; set; }
 
         [Input("eventClasses")]
         private InputList<string>? _eventClasses;
-
-        /// <summary>
-        /// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-        /// </summary>
         public InputList<string> EventClasses
         {
             get => _eventClasses ?? (_eventClasses = new InputList<string>());
@@ -236,33 +128,18 @@ namespace Pulumi.Aws.SecurityLake
 
         [Input("providerDetails")]
         private InputList<Inputs.CustomLogSourceProviderDetailGetArgs>? _providerDetails;
-
-        /// <summary>
-        /// The details of the log provider for a third-party custom source.
-        /// </summary>
         public InputList<Inputs.CustomLogSourceProviderDetailGetArgs> ProviderDetails
         {
             get => _providerDetails ?? (_providerDetails = new InputList<Inputs.CustomLogSourceProviderDetailGetArgs>());
             set => _providerDetails = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specify the name for a third-party custom source.
-        /// This must be a Regionally unique value.
-        /// Has a maximum length of 20.
-        /// </summary>
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }
 
-        /// <summary>
-        /// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-        /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
 

@@ -24,11 +24,6 @@ class AccountSettingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSetting resource.
-        :param pulumi.Input[_builtins.str] value: Setting value that is specified. Valid values are:
-               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -39,11 +34,6 @@ class AccountSettingArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Setting value that is specified. Valid values are:
-        * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -53,9 +43,6 @@ class AccountSettingArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -65,9 +52,6 @@ class AccountSettingArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -83,11 +67,6 @@ class _AccountSettingState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSetting resources.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: Setting value that is specified. Valid values are:
-               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -99,9 +78,6 @@ class _AccountSettingState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,9 +87,6 @@ class _AccountSettingState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -123,11 +96,6 @@ class _AccountSettingState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Setting value that is specified. Valid values are:
-        * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -146,47 +114,9 @@ class AccountSetting(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage AWS ECR Basic Scan Type
-
-        ## Example Usage
-
-        ### Configuring Basic Scanning
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        basic_scan_type_version = aws.ecr.AccountSetting("basic_scan_type_version",
-            name="BASIC_SCAN_TYPE_VERSION",
-            value="AWS_NATIVE")
-        ```
-
-        ### Configuring Registry Policy Scope
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        registry_policy_scope = aws.ecr.AccountSetting("registry_policy_scope",
-            name="REGISTRY_POLICY_SCOPE",
-            value="V2")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
-
-        ```sh
-        $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
-        ```
-
+        Create a AccountSetting resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: Setting value that is specified. Valid values are:
-               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         ...
     @overload
@@ -195,40 +125,7 @@ class AccountSetting(pulumi.CustomResource):
                  args: AccountSettingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage AWS ECR Basic Scan Type
-
-        ## Example Usage
-
-        ### Configuring Basic Scanning
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        basic_scan_type_version = aws.ecr.AccountSetting("basic_scan_type_version",
-            name="BASIC_SCAN_TYPE_VERSION",
-            value="AWS_NATIVE")
-        ```
-
-        ### Configuring Registry Policy Scope
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        registry_policy_scope = aws.ecr.AccountSetting("registry_policy_scope",
-            name="REGISTRY_POLICY_SCOPE",
-            value="V2")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
-
-        ```sh
-        $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
-        ```
-
+        Create a AccountSetting resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountSettingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,11 +178,6 @@ class AccountSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: Setting value that is specified. Valid values are:
-               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,26 +191,15 @@ class AccountSetting(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Setting value that is specified. Valid values are:
-        * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        """
         return pulumi.get(self, "value")
 

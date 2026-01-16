@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRouteMatchHeader {
-    /**
-     * @return If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-     * 
-     */
     private @Nullable Boolean invert;
-    /**
-     * @return Method and value to match the header value sent with a request. Specify one match method.
-     * 
-     */
     private @Nullable RouteSpecHttpRouteMatchHeaderMatch match;
-    /**
-     * @return Name for the HTTP header in the client request that will be matched on.
-     * 
-     */
     private String name;
 
     private RouteSpecHttpRouteMatchHeader() {}
-    /**
-     * @return If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-     * 
-     */
     public Optional<Boolean> invert() {
         return Optional.ofNullable(this.invert);
     }
-    /**
-     * @return Method and value to match the header value sent with a request. Specify one match method.
-     * 
-     */
     public Optional<RouteSpecHttpRouteMatchHeaderMatch> match() {
         return Optional.ofNullable(this.match);
     }
-    /**
-     * @return Name for the HTTP header in the client request that will be matched on.
-     * 
-     */
     public String name() {
         return this.name;
     }

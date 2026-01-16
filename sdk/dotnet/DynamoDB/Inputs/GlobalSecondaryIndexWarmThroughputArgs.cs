@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class GlobalSecondaryIndexWarmThroughputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of read operations this index can instantaneously support.
-        /// </summary>
         [Input("readUnitsPerSecond", required: true)]
         public Input<int> ReadUnitsPerSecond { get; set; } = null!;
 
-        /// <summary>
-        /// Number of write operations this index can instantaneously support.
-        /// </summary>
         [Input("writeUnitsPerSecond", required: true)]
         public Input<int> WriteUnitsPerSecond { get; set; } = null!;
 

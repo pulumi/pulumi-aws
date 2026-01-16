@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema
     {
-        /// <summary>
-        /// Inline tool definition. See `InlinePayload` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> InlinePayloads;
-        /// <summary>
-        /// S3-based tool definition. See `S3` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3? S3;
 
         [OutputConstructor]

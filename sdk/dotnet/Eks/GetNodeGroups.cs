@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Eks
 {
     public static class GetNodeGroups
     {
-        /// <summary>
-        /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroups.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        ///     var exampleGetNodeGroup = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNodeGroupsResult> InvokeAsync(GetNodeGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroups.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        ///     var exampleGetNodeGroup = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroups.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        ///     var exampleGetNodeGroup = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetNodeGroupsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetNodeGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -140,9 +59,6 @@ namespace Pulumi.Aws.Eks
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of all node group names in an EKS Cluster.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Region;
 

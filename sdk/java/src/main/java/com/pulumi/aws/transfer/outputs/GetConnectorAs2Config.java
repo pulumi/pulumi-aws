@@ -10,102 +10,38 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectorAs2Config {
-    /**
-     * @return Basic authentication for AS2 connector API. Returns a null value if not set.
-     * 
-     */
     private String basicAuthSecretId;
-    /**
-     * @return Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
-     * 
-     */
     private String compression;
-    /**
-     * @return Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
-     * 
-     */
     private String encryptionAlgorithm;
-    /**
-     * @return Unique identifier for AS2 local profile.
-     * 
-     */
     private String localProfileId;
-    /**
-     * @return Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
-     * 
-     */
     private String mdnResponse;
-    /**
-     * @return Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
-     * 
-     */
     private String mdnSigningAlgorithm;
-    /**
-     * @return Subject HTTP header attribute in outbound AS2 messages to the connector.
-     * 
-     */
     private String messageSubject;
-    /**
-     * @return Unique identifier used by connector for partner profile.
-     * 
-     */
     private String partnerProfileId;
     private String singingAlgorithm;
 
     private GetConnectorAs2Config() {}
-    /**
-     * @return Basic authentication for AS2 connector API. Returns a null value if not set.
-     * 
-     */
     public String basicAuthSecretId() {
         return this.basicAuthSecretId;
     }
-    /**
-     * @return Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
-     * 
-     */
     public String compression() {
         return this.compression;
     }
-    /**
-     * @return Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
-     * 
-     */
     public String encryptionAlgorithm() {
         return this.encryptionAlgorithm;
     }
-    /**
-     * @return Unique identifier for AS2 local profile.
-     * 
-     */
     public String localProfileId() {
         return this.localProfileId;
     }
-    /**
-     * @return Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
-     * 
-     */
     public String mdnResponse() {
         return this.mdnResponse;
     }
-    /**
-     * @return Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
-     * 
-     */
     public String mdnSigningAlgorithm() {
         return this.mdnSigningAlgorithm;
     }
-    /**
-     * @return Subject HTTP header attribute in outbound AS2 messages to the connector.
-     * 
-     */
     public String messageSubject() {
         return this.messageSubject;
     }
-    /**
-     * @return Unique identifier used by connector for partner profile.
-     * 
-     */
     public String partnerProfileId() {
         return this.partnerProfileId;
     }

@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
- *
- * > **NOTE:** Removing this resource disables serial console access.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SerialConsoleAccess("example", {enabled: true});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import serial console access state. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
- * ```
- */
 export class SerialConsoleAccess extends pulumi.CustomResource {
     /**
      * Get an existing SerialConsoleAccess resource's state with the given name, ID, and optional extra
@@ -54,13 +32,7 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === SerialConsoleAccess.__pulumiType;
     }
 
-    /**
-     * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -92,13 +64,7 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SerialConsoleAccess resources.
  */
 export interface SerialConsoleAccessState {
-    /**
-     * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -106,12 +72,6 @@ export interface SerialConsoleAccessState {
  * The set of arguments for constructing a SerialConsoleAccess resource.
  */
 export interface SerialConsoleAccessArgs {
-    /**
-     * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

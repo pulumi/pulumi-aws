@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings {
-    /**
-     * @return Setting to allow self signed or verified RTMP certificates.
-     * 
-     */
     private @Nullable String certificateMode;
-    /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-     * 
-     */
     private @Nullable Integer connectionRetryInterval;
-    /**
-     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination;
-    /**
-     * @return Number of retry attempts.
-     * 
-     */
     private @Nullable Integer numRetries;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings() {}
-    /**
-     * @return Setting to allow self signed or verified RTMP certificates.
-     * 
-     */
     public Optional<String> certificateMode() {
         return Optional.ofNullable(this.certificateMode);
     }
-    /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-     * 
-     */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
-    /**
-     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination() {
         return this.destination;
     }
-    /**
-     * @return Number of retry attempts.
-     * 
-     */
     public Optional<Integer> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }

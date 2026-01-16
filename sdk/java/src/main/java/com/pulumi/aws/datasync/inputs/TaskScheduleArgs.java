@@ -14,17 +14,9 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TaskScheduleArgs Empty = new TaskScheduleArgs();
 
-    /**
-     * Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-     * 
-     */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
-    /**
-     * @return Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-     * 
-     */
     public Output<String> scheduleExpression() {
         return this.scheduleExpression;
     }
@@ -53,23 +45,11 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TaskScheduleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param scheduleExpression Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(Output<String> scheduleExpression) {
             $.scheduleExpression = scheduleExpression;
             return this;
         }
 
-        /**
-         * @param scheduleExpression Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
         }

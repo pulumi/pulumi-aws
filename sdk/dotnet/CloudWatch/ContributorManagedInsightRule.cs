@@ -9,57 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Contributor Managed Insight Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.ContributorManagedInsightRule("example", new()
-    ///     {
-    ///         ResourceArn = test.Arn,
-    ///         TemplateName = "VpcEndpointService-BytesByEndpointId-v1",
-    ///         RuleState = "DISABLED",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")]
     public partial class ContributorManagedInsightRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Contributor Managed Insight Rule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -75,11 +33,6 @@ namespace Pulumi.Aws.CloudWatch
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("templateName")]
         public Output<string> TemplateName { get; private set; } = null!;
 
@@ -129,15 +82,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class ContributorManagedInsightRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -152,11 +99,6 @@ namespace Pulumi.Aws.CloudWatch
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
 
@@ -168,21 +110,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class ContributorManagedInsightRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Contributor Managed Insight Rule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
@@ -208,11 +141,6 @@ namespace Pulumi.Aws.CloudWatch
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
 

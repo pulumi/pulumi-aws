@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOriginOriginShield
     {
-        /// <summary>
-        /// Whether the distribution is enabled to accept end user requests for content.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
-        /// </summary>
         public readonly string? OriginShieldRegion;
 
         [OutputConstructor]

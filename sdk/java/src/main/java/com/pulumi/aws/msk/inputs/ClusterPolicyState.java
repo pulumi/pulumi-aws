@@ -15,17 +15,9 @@ public final class ClusterPolicyState extends com.pulumi.resources.ResourceArgs 
 
     public static final ClusterPolicyState Empty = new ClusterPolicyState();
 
-    /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     * 
-     */
     @Import(name="clusterArn")
     private @Nullable Output<String> clusterArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-     * 
-     */
     public Optional<Output<String>> clusterArn() {
         return Optional.ofNullable(this.clusterArn);
     }
@@ -37,32 +29,16 @@ public final class ClusterPolicyState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.currentVersion);
     }
 
-    /**
-     * Resource policy for cluster.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return Resource policy for cluster.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -94,23 +70,11 @@ public final class ClusterPolicyState extends com.pulumi.resources.ResourceArgs 
             $ = new ClusterPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(@Nullable Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param clusterArn The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
@@ -124,44 +88,20 @@ public final class ClusterPolicyState extends com.pulumi.resources.ResourceArgs 
             return currentVersion(Output.of(currentVersion));
         }
 
-        /**
-         * @param policy Resource policy for cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy Resource policy for cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

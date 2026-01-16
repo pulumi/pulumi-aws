@@ -12,170 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
-// It also sets the retention period, in hours, for the Amazon Kinesis data.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("vc-name-test"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
-//				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID(),
-//				DataRetention:    pulumi.Int(7),
-//				StreamingNotificationTargets: pulumi.StringArray{
-//					pulumi.String("SQS"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Example Usage With Media Insights
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("vc-name-test"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"mediapipelines.chime.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("ExampleResourceAccessRole"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("ExampleStream"),
-//				ShardCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "example", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("ExampleConfig"),
-//				ResourceAccessRoleArn: exampleRole.Arn,
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							LanguageCode: pulumi.String("en-US"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: exampleStream.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
-//				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID(),
-//				DataRetention:    pulumi.Int(7),
-//				StreamingNotificationTargets: pulumi.StringArray{
-//					pulumi.String("SQS"),
-//				},
-//				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
-//					Disabled:         pulumi.Bool(false),
-//					ConfigurationArn: example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
-// ```
 type VoiceConnectorStreaming struct {
 	pulumi.CustomResourceState
 
-	// The retention period, in hours, for the Amazon Kinesis data.
-	DataRetention pulumi.IntOutput `pulumi:"dataRetention"`
-	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
-	// The media insights configuration. See `mediaInsightsConfiguration`.
-	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput `pulumi:"mediaInsightsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-	StreamingNotificationTargets pulumi.StringArrayOutput `pulumi:"streamingNotificationTargets"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
+	DataRetention                pulumi.IntOutput                                           `pulumi:"dataRetention"`
+	Disabled                     pulumi.BoolPtrOutput                                       `pulumi:"disabled"`
+	MediaInsightsConfiguration   VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput `pulumi:"mediaInsightsConfiguration"`
+	Region                       pulumi.StringOutput                                        `pulumi:"region"`
+	StreamingNotificationTargets pulumi.StringArrayOutput                                   `pulumi:"streamingNotificationTargets"`
+	VoiceConnectorId             pulumi.StringOutput                                        `pulumi:"voiceConnectorId"`
 }
 
 // NewVoiceConnectorStreaming registers a new resource with the given unique name, arguments, and options.
@@ -214,33 +59,21 @@ func GetVoiceConnectorStreaming(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorStreaming resources.
 type voiceConnectorStreamingState struct {
-	// The retention period, in hours, for the Amazon Kinesis data.
-	DataRetention *int `pulumi:"dataRetention"`
-	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-	Disabled *bool `pulumi:"disabled"`
-	// The media insights configuration. See `mediaInsightsConfiguration`.
-	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
+	DataRetention                *int                                               `pulumi:"dataRetention"`
+	Disabled                     *bool                                              `pulumi:"disabled"`
+	MediaInsightsConfiguration   *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
+	Region                       *string                                            `pulumi:"region"`
+	StreamingNotificationTargets []string                                           `pulumi:"streamingNotificationTargets"`
+	VoiceConnectorId             *string                                            `pulumi:"voiceConnectorId"`
 }
 
 type VoiceConnectorStreamingState struct {
-	// The retention period, in hours, for the Amazon Kinesis data.
-	DataRetention pulumi.IntPtrInput
-	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-	Disabled pulumi.BoolPtrInput
-	// The media insights configuration. See `mediaInsightsConfiguration`.
-	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
+	DataRetention                pulumi.IntPtrInput
+	Disabled                     pulumi.BoolPtrInput
+	MediaInsightsConfiguration   VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
+	Region                       pulumi.StringPtrInput
 	StreamingNotificationTargets pulumi.StringArrayInput
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringPtrInput
+	VoiceConnectorId             pulumi.StringPtrInput
 }
 
 func (VoiceConnectorStreamingState) ElementType() reflect.Type {
@@ -248,34 +81,22 @@ func (VoiceConnectorStreamingState) ElementType() reflect.Type {
 }
 
 type voiceConnectorStreamingArgs struct {
-	// The retention period, in hours, for the Amazon Kinesis data.
-	DataRetention int `pulumi:"dataRetention"`
-	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-	Disabled *bool `pulumi:"disabled"`
-	// The media insights configuration. See `mediaInsightsConfiguration`.
-	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId string `pulumi:"voiceConnectorId"`
+	DataRetention                int                                                `pulumi:"dataRetention"`
+	Disabled                     *bool                                              `pulumi:"disabled"`
+	MediaInsightsConfiguration   *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
+	Region                       *string                                            `pulumi:"region"`
+	StreamingNotificationTargets []string                                           `pulumi:"streamingNotificationTargets"`
+	VoiceConnectorId             string                                             `pulumi:"voiceConnectorId"`
 }
 
 // The set of arguments for constructing a VoiceConnectorStreaming resource.
 type VoiceConnectorStreamingArgs struct {
-	// The retention period, in hours, for the Amazon Kinesis data.
-	DataRetention pulumi.IntInput
-	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-	Disabled pulumi.BoolPtrInput
-	// The media insights configuration. See `mediaInsightsConfiguration`.
-	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
+	DataRetention                pulumi.IntInput
+	Disabled                     pulumi.BoolPtrInput
+	MediaInsightsConfiguration   VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
+	Region                       pulumi.StringPtrInput
 	StreamingNotificationTargets pulumi.StringArrayInput
-	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringInput
+	VoiceConnectorId             pulumi.StringInput
 }
 
 func (VoiceConnectorStreamingArgs) ElementType() reflect.Type {
@@ -365,34 +186,28 @@ func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingOutputWithContex
 	return o
 }
 
-// The retention period, in hours, for the Amazon Kinesis data.
 func (o VoiceConnectorStreamingOutput) DataRetention() pulumi.IntOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.IntOutput { return v.DataRetention }).(pulumi.IntOutput)
 }
 
-// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 func (o VoiceConnectorStreamingOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The media insights configuration. See `mediaInsightsConfiguration`.
 func (o VoiceConnectorStreamingOutput) MediaInsightsConfiguration() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
 		return v.MediaInsightsConfiguration
 	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorStreamingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 func (o VoiceConnectorStreamingOutput) StreamingNotificationTargets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringArrayOutput { return v.StreamingNotificationTargets }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorStreamingOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringOutput { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }

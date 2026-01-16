@@ -12,123 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeBuild Fleet Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewFleet(ctx, "test", &codebuild.FleetArgs{
-//				BaseCapacity:     pulumi.Int(2),
-//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
-//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
-//				Name:             pulumi.String("full-example-codebuild-fleet"),
-//				OverflowBehavior: pulumi.String("QUEUE"),
-//				ScalingConfiguration: &codebuild.FleetScalingConfigurationArgs{
-//					MaxCapacity: pulumi.Int(5),
-//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
-//					TargetTrackingScalingConfigs: codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArray{
-//						&codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArgs{
-//							MetricType:  pulumi.String("FLEET_UTILIZATION_RATE"),
-//							TargetValue: pulumi.Float64(97.5),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewFleet(ctx, "example", &codebuild.FleetArgs{
-//				Name: pulumi.String("example-codebuild-fleet"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
-//
-// Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
-//
-// % pulumi import aws_codebuild_fleet.name fleet-name
 type Fleet struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Fleet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Number of machines allocated to the ﬂeet.
-	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
+	Arn                  pulumi.StringOutput                `pulumi:"arn"`
+	BaseCapacity         pulumi.IntOutput                   `pulumi:"baseCapacity"`
 	ComputeConfiguration FleetComputeConfigurationPtrOutput `pulumi:"computeConfiguration"`
-	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	ComputeType pulumi.StringOutput `pulumi:"computeType"`
-	// Creation time of the fleet.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	//
-	// The following arguments are optional:
-	EnvironmentType pulumi.StringOutput `pulumi:"environmentType"`
-	// The service role associated with the compute fleet.
-	FleetServiceRole pulumi.StringPtrOutput `pulumi:"fleetServiceRole"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
-	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
-	// Last modification time of the fleet.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// Fleet name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-	OverflowBehavior pulumi.StringOutput `pulumi:"overflowBehavior"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
+	ComputeType          pulumi.StringOutput                `pulumi:"computeType"`
+	Created              pulumi.StringOutput                `pulumi:"created"`
+	EnvironmentType      pulumi.StringOutput                `pulumi:"environmentType"`
+	FleetServiceRole     pulumi.StringPtrOutput             `pulumi:"fleetServiceRole"`
+	ImageId              pulumi.StringPtrOutput             `pulumi:"imageId"`
+	LastModified         pulumi.StringOutput                `pulumi:"lastModified"`
+	Name                 pulumi.StringOutput                `pulumi:"name"`
+	OverflowBehavior     pulumi.StringOutput                `pulumi:"overflowBehavior"`
+	Region               pulumi.StringOutput                `pulumi:"region"`
 	ScalingConfiguration FleetScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
-	// Nested attribute containing information about the current status of the fleet.
-	Statuses FleetStatusArrayOutput `pulumi:"statuses"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block. See `vpcConfig` below.
-	VpcConfigs FleetVpcConfigArrayOutput `pulumi:"vpcConfigs"`
+	Statuses             FleetStatusArrayOutput             `pulumi:"statuses"`
+	Tags                 pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput             `pulumi:"tagsAll"`
+	VpcConfigs           FleetVpcConfigArrayOutput          `pulumi:"vpcConfigs"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -170,79 +73,43 @@ func GetFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Fleet resources.
 type fleetState struct {
-	// ARN of the Fleet.
-	Arn *string `pulumi:"arn"`
-	// Number of machines allocated to the ﬂeet.
-	BaseCapacity *int `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
+	Arn                  *string                    `pulumi:"arn"`
+	BaseCapacity         *int                       `pulumi:"baseCapacity"`
 	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
-	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	ComputeType *string `pulumi:"computeType"`
-	// Creation time of the fleet.
-	Created *string `pulumi:"created"`
-	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	//
-	// The following arguments are optional:
-	EnvironmentType *string `pulumi:"environmentType"`
-	// The service role associated with the compute fleet.
-	FleetServiceRole *string `pulumi:"fleetServiceRole"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
-	ImageId *string `pulumi:"imageId"`
-	// Last modification time of the fleet.
-	LastModified *string `pulumi:"lastModified"`
-	// Fleet name.
-	Name *string `pulumi:"name"`
-	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-	OverflowBehavior *string `pulumi:"overflowBehavior"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
+	ComputeType          *string                    `pulumi:"computeType"`
+	Created              *string                    `pulumi:"created"`
+	EnvironmentType      *string                    `pulumi:"environmentType"`
+	FleetServiceRole     *string                    `pulumi:"fleetServiceRole"`
+	ImageId              *string                    `pulumi:"imageId"`
+	LastModified         *string                    `pulumi:"lastModified"`
+	Name                 *string                    `pulumi:"name"`
+	OverflowBehavior     *string                    `pulumi:"overflowBehavior"`
+	Region               *string                    `pulumi:"region"`
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
-	// Nested attribute containing information about the current status of the fleet.
-	Statuses []FleetStatus `pulumi:"statuses"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block. See `vpcConfig` below.
-	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
+	Statuses             []FleetStatus              `pulumi:"statuses"`
+	Tags                 map[string]string          `pulumi:"tags"`
+	TagsAll              map[string]string          `pulumi:"tagsAll"`
+	VpcConfigs           []FleetVpcConfig           `pulumi:"vpcConfigs"`
 }
 
 type FleetState struct {
-	// ARN of the Fleet.
-	Arn pulumi.StringPtrInput
-	// Number of machines allocated to the ﬂeet.
-	BaseCapacity pulumi.IntPtrInput
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
+	Arn                  pulumi.StringPtrInput
+	BaseCapacity         pulumi.IntPtrInput
 	ComputeConfiguration FleetComputeConfigurationPtrInput
-	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	ComputeType pulumi.StringPtrInput
-	// Creation time of the fleet.
-	Created pulumi.StringPtrInput
-	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	//
-	// The following arguments are optional:
-	EnvironmentType pulumi.StringPtrInput
-	// The service role associated with the compute fleet.
-	FleetServiceRole pulumi.StringPtrInput
-	// The Amazon Machine Image (AMI) of the compute fleet.
-	ImageId pulumi.StringPtrInput
-	// Last modification time of the fleet.
-	LastModified pulumi.StringPtrInput
-	// Fleet name.
-	Name pulumi.StringPtrInput
-	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-	OverflowBehavior pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
+	ComputeType          pulumi.StringPtrInput
+	Created              pulumi.StringPtrInput
+	EnvironmentType      pulumi.StringPtrInput
+	FleetServiceRole     pulumi.StringPtrInput
+	ImageId              pulumi.StringPtrInput
+	LastModified         pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	OverflowBehavior     pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 	ScalingConfiguration FleetScalingConfigurationPtrInput
-	// Nested attribute containing information about the current status of the fleet.
-	Statuses FleetStatusArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// Configuration block. See `vpcConfig` below.
-	VpcConfigs FleetVpcConfigArrayInput
+	Statuses             FleetStatusArrayInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	VpcConfigs           FleetVpcConfigArrayInput
 }
 
 func (FleetState) ElementType() reflect.Type {
@@ -250,62 +117,34 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// Number of machines allocated to the ﬂeet.
-	BaseCapacity int `pulumi:"baseCapacity"`
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
+	BaseCapacity         int                        `pulumi:"baseCapacity"`
 	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
-	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	ComputeType string `pulumi:"computeType"`
-	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	//
-	// The following arguments are optional:
-	EnvironmentType string `pulumi:"environmentType"`
-	// The service role associated with the compute fleet.
-	FleetServiceRole *string `pulumi:"fleetServiceRole"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
-	ImageId *string `pulumi:"imageId"`
-	// Fleet name.
-	Name *string `pulumi:"name"`
-	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-	OverflowBehavior *string `pulumi:"overflowBehavior"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
+	ComputeType          string                     `pulumi:"computeType"`
+	EnvironmentType      string                     `pulumi:"environmentType"`
+	FleetServiceRole     *string                    `pulumi:"fleetServiceRole"`
+	ImageId              *string                    `pulumi:"imageId"`
+	Name                 *string                    `pulumi:"name"`
+	OverflowBehavior     *string                    `pulumi:"overflowBehavior"`
+	Region               *string                    `pulumi:"region"`
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Configuration block. See `vpcConfig` below.
-	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
+	Tags                 map[string]string          `pulumi:"tags"`
+	VpcConfigs           []FleetVpcConfig           `pulumi:"vpcConfigs"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// Number of machines allocated to the ﬂeet.
-	BaseCapacity pulumi.IntInput
-	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
+	BaseCapacity         pulumi.IntInput
 	ComputeConfiguration FleetComputeConfigurationPtrInput
-	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	ComputeType pulumi.StringInput
-	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-	//
-	// The following arguments are optional:
-	EnvironmentType pulumi.StringInput
-	// The service role associated with the compute fleet.
-	FleetServiceRole pulumi.StringPtrInput
-	// The Amazon Machine Image (AMI) of the compute fleet.
-	ImageId pulumi.StringPtrInput
-	// Fleet name.
-	Name pulumi.StringPtrInput
-	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-	OverflowBehavior pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
+	ComputeType          pulumi.StringInput
+	EnvironmentType      pulumi.StringInput
+	FleetServiceRole     pulumi.StringPtrInput
+	ImageId              pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	OverflowBehavior     pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 	ScalingConfiguration FleetScalingConfigurationPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Configuration block. See `vpcConfig` below.
-	VpcConfigs FleetVpcConfigArrayInput
+	Tags                 pulumi.StringMapInput
+	VpcConfigs           FleetVpcConfigArrayInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -395,79 +234,62 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
-// ARN of the Fleet.
 func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Number of machines allocated to the ﬂeet.
 func (o FleetOutput) BaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.BaseCapacity }).(pulumi.IntOutput)
 }
 
-// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
 func (o FleetOutput) ComputeConfiguration() FleetComputeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeConfigurationPtrOutput { return v.ComputeConfiguration }).(FleetComputeConfigurationPtrOutput)
 }
 
-// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 func (o FleetOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.ComputeType }).(pulumi.StringOutput)
 }
 
-// Creation time of the fleet.
 func (o FleetOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
-// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-//
-// The following arguments are optional:
 func (o FleetOutput) EnvironmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.EnvironmentType }).(pulumi.StringOutput)
 }
 
-// The service role associated with the compute fleet.
 func (o FleetOutput) FleetServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FleetServiceRole }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) of the compute fleet.
 func (o FleetOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-// Last modification time of the fleet.
 func (o FleetOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// Fleet name.
 func (o FleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 func (o FleetOutput) OverflowBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OverflowBehavior }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 func (o FleetOutput) ScalingConfiguration() FleetScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetScalingConfigurationPtrOutput { return v.ScalingConfiguration }).(FleetScalingConfigurationPtrOutput)
 }
 
-// Nested attribute containing information about the current status of the fleet.
 func (o FleetOutput) Statuses() FleetStatusArrayOutput {
 	return o.ApplyT(func(v *Fleet) FleetStatusArrayOutput { return v.Statuses }).(FleetStatusArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FleetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -476,7 +298,6 @@ func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block. See `vpcConfig` below.
 func (o FleetOutput) VpcConfigs() FleetVpcConfigArrayOutput {
 	return o.ApplyT(func(v *Fleet) FleetVpcConfigArrayOutput { return v.VpcConfigs }).(FleetVpcConfigArrayOutput)
 }

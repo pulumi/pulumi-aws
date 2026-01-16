@@ -9,88 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a lifecycle configuration for SageMaker AI Notebook Instances.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lc = new Aws.Sagemaker.NotebookInstanceLifecycleConfiguration("lc", new()
-    ///     {
-    ///         Name = "foo",
-    ///         OnCreate = Std.Base64encode.Invoke(new()
-    ///         {
-    ///             Input = "echo foo",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         OnStart = Std.Base64encode.Invoke(new()
-    ///         {
-    ///             Input = "echo bar",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import models using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
     public partial class NotebookInstanceLifecycleConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-        /// </summary>
         [Output("onCreate")]
         public Output<string?> OnCreate { get; private set; } = null!;
 
-        /// <summary>
-        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
-        /// </summary>
         [Output("onStart")]
         public Output<string?> OnStart { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -140,36 +79,20 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-        /// </summary>
         [Input("onCreate")]
         public Input<string>? OnCreate { get; set; }
 
-        /// <summary>
-        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
-        /// </summary>
         [Input("onStart")]
         public Input<string>? OnStart { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -184,42 +107,23 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceLifecycleConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
-        /// </summary>
         [Input("onCreate")]
         public Input<string>? OnCreate { get; set; }
 
-        /// <summary>
-        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
-        /// </summary>
         [Input("onStart")]
         public Input<string>? OnStart { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -228,10 +132,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

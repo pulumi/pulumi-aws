@@ -9,157 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ImageBuilder
 {
-    /// <summary>
-    /// Resource for managing an AWS EC2 Image Builder Workflow.
-    /// 
-    /// &gt; Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.Workflow("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Version = "1.0.0",
-    ///         Type = "TEST",
-    ///         Data = @"name: example
-    /// description: Workflow to test an image
-    /// schemaVersion: 1.0
-    /// 
-    /// parameters:
-    ///   - name: waitForActionAtEnd
-    ///     type: boolean
-    /// 
-    /// steps:
-    ///   - name: LaunchTestInstance
-    ///     action: LaunchInstance
-    ///     onFailure: Abort
-    ///     inputs:
-    ///       waitFor: \""ssmAgent\""
-    /// 
-    ///   - name: TerminateTestInstance
-    ///     action: TerminateInstance
-    ///     onFailure: Continue
-    ///     inputs:
-    ///       instanceId.$: \""$.stepOutputs.LaunchTestInstance.instanceId\""
-    /// 
-    ///   - name: WaitForActionAtEnd
-    ///     action: WaitForAction
-    ///     if:
-    ///       booleanEquals: true
-    ///       value: \""$.parameters.waitForActionAtEnd\""
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
-    /// 
-    /// Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
-    /// 
-    /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
-    /// </summary>
     [AwsResourceType("aws:imagebuilder/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the workflow.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Change description of the workflow.
-        /// </summary>
         [Output("changeDescription")]
         public Output<string?> ChangeDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// Inline YAML string with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
-        /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
 
-        /// <summary>
-        /// Date the workflow was created.
-        /// </summary>
         [Output("dateCreated")]
         public Output<string> DateCreated { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the workflow.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the workflow.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Owner of the workflow.
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags for the workflow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the workflow. Valid values: `BUILD`, `TEST`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// S3 URI with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
-        /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the workflow.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -209,71 +100,38 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Change description of the workflow.
-        /// </summary>
         [Input("changeDescription")]
         public Input<string>? ChangeDescription { get; set; }
 
-        /// <summary>
-        /// Inline YAML string with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
-        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
-        /// <summary>
-        /// Description of the workflow.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Name of the workflow.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the workflow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Type of the workflow. Valid values: `BUILD`, `TEST`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// S3 URI with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
-        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
-        /// <summary>
-        /// Version of the workflow.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -285,66 +143,35 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the workflow.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Change description of the workflow.
-        /// </summary>
         [Input("changeDescription")]
         public Input<string>? ChangeDescription { get; set; }
 
-        /// <summary>
-        /// Inline YAML string with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
-        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
-        /// <summary>
-        /// Date the workflow was created.
-        /// </summary>
         [Input("dateCreated")]
         public Input<string>? DateCreated { get; set; }
 
-        /// <summary>
-        /// Description of the workflow.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Name of the workflow.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Owner of the workflow.
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the workflow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -359,23 +186,12 @@ namespace Pulumi.Aws.ImageBuilder
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Type of the workflow. Valid values: `BUILD`, `TEST`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// S3 URI with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
-        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
-        /// <summary>
-        /// Version of the workflow.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMonitoringConfigurationS3MonitoringConfiguration {
-    /**
-     * @return The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     private @Nullable String encryptionKeyArn;
-    /**
-     * @return The Amazon S3 destination URI for log publishing.
-     * 
-     */
     private @Nullable String logUri;
 
     private ApplicationMonitoringConfigurationS3MonitoringConfiguration() {}
-    /**
-     * @return The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-     * 
-     */
     public Optional<String> encryptionKeyArn() {
         return Optional.ofNullable(this.encryptionKeyArn);
     }
-    /**
-     * @return The Amazon S3 destination URI for log publishing.
-     * 
-     */
     public Optional<String> logUri() {
         return Optional.ofNullable(this.logUri);
     }

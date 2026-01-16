@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterZonalShiftConfig {
-    /**
-     * @return Whether zonal shift is enabled for the cluster.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private ClusterZonalShiftConfig() {}
-    /**
-     * @return Whether zonal shift is enabled for the cluster.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

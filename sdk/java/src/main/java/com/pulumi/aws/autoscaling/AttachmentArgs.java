@@ -16,62 +16,30 @@ public final class AttachmentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AttachmentArgs Empty = new AttachmentArgs();
 
-    /**
-     * Name of ASG to associate with the ELB.
-     * 
-     */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
-    /**
-     * @return Name of ASG to associate with the ELB.
-     * 
-     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
 
-    /**
-     * Name of the ELB.
-     * 
-     */
     @Import(name="elb")
     private @Nullable Output<String> elb;
 
-    /**
-     * @return Name of the ELB.
-     * 
-     */
     public Optional<Output<String>> elb() {
         return Optional.ofNullable(this.elb);
     }
 
-    /**
-     * ARN of a load balancer target group.
-     * 
-     */
     @Import(name="lbTargetGroupArn")
     private @Nullable Output<String> lbTargetGroupArn;
 
-    /**
-     * @return ARN of a load balancer target group.
-     * 
-     */
     public Optional<Output<String>> lbTargetGroupArn() {
         return Optional.ofNullable(this.lbTargetGroupArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class AttachmentArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoscalingGroupName Name of ASG to associate with the ELB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroupName(Output<String> autoscalingGroupName) {
             $.autoscalingGroupName = autoscalingGroupName;
             return this;
         }
 
-        /**
-         * @param autoscalingGroupName Name of ASG to associate with the ELB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroupName(String autoscalingGroupName) {
             return autoscalingGroupName(Output.of(autoscalingGroupName));
         }
 
-        /**
-         * @param elb Name of the ELB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elb(@Nullable Output<String> elb) {
             $.elb = elb;
             return this;
         }
 
-        /**
-         * @param elb Name of the ELB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elb(String elb) {
             return elb(Output.of(elb));
         }
 
-        /**
-         * @param lbTargetGroupArn ARN of a load balancer target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbTargetGroupArn(@Nullable Output<String> lbTargetGroupArn) {
             $.lbTargetGroupArn = lbTargetGroupArn;
             return this;
         }
 
-        /**
-         * @param lbTargetGroupArn ARN of a load balancer target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbTargetGroupArn(String lbTargetGroupArn) {
             return lbTargetGroupArn(Output.of(lbTargetGroupArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

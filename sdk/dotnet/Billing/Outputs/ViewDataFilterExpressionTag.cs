@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Billing.Outputs
     [OutputType]
     public sealed class ViewDataFilterExpressionTag
     {
-        /// <summary>
-        /// Key of the tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// List of values for the tag.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

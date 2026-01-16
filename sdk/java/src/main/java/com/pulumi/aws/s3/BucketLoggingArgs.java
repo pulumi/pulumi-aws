@@ -19,107 +19,51 @@ public final class BucketLoggingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketLoggingArgs Empty = new BucketLoggingArgs();
 
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the bucket where you want Amazon S3 to store server access logs.
-     * 
-     */
     @Import(name="targetBucket", required=true)
     private Output<String> targetBucket;
 
-    /**
-     * @return Name of the bucket where you want Amazon S3 to store server access logs.
-     * 
-     */
     public Output<String> targetBucket() {
         return this.targetBucket;
     }
 
-    /**
-     * Set of configuration blocks with information for granting permissions. See below.
-     * 
-     */
     @Import(name="targetGrants")
     private @Nullable Output<List<BucketLoggingTargetGrantArgs>> targetGrants;
 
-    /**
-     * @return Set of configuration blocks with information for granting permissions. See below.
-     * 
-     */
     public Optional<Output<List<BucketLoggingTargetGrantArgs>>> targetGrants() {
         return Optional.ofNullable(this.targetGrants);
     }
 
-    /**
-     * Amazon S3 key format for log objects. See below.
-     * 
-     */
     @Import(name="targetObjectKeyFormat")
     private @Nullable Output<BucketLoggingTargetObjectKeyFormatArgs> targetObjectKeyFormat;
 
-    /**
-     * @return Amazon S3 key format for log objects. See below.
-     * 
-     */
     public Optional<Output<BucketLoggingTargetObjectKeyFormatArgs>> targetObjectKeyFormat() {
         return Optional.ofNullable(this.targetObjectKeyFormat);
     }
 
-    /**
-     * Prefix for all log object keys.
-     * 
-     */
     @Import(name="targetPrefix", required=true)
     private Output<String> targetPrefix;
 
-    /**
-     * @return Prefix for all log object keys.
-     * 
-     */
     public Output<String> targetPrefix() {
         return this.targetPrefix;
     }
@@ -154,159 +98,69 @@ public final class BucketLoggingArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BucketLoggingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetBucket Name of the bucket where you want Amazon S3 to store server access logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetBucket(Output<String> targetBucket) {
             $.targetBucket = targetBucket;
             return this;
         }
 
-        /**
-         * @param targetBucket Name of the bucket where you want Amazon S3 to store server access logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetBucket(String targetBucket) {
             return targetBucket(Output.of(targetBucket));
         }
 
-        /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGrants(@Nullable Output<List<BucketLoggingTargetGrantArgs>> targetGrants) {
             $.targetGrants = targetGrants;
             return this;
         }
 
-        /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGrants(List<BucketLoggingTargetGrantArgs> targetGrants) {
             return targetGrants(Output.of(targetGrants));
         }
 
-        /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGrants(BucketLoggingTargetGrantArgs... targetGrants) {
             return targetGrants(List.of(targetGrants));
         }
 
-        /**
-         * @param targetObjectKeyFormat Amazon S3 key format for log objects. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetObjectKeyFormat(@Nullable Output<BucketLoggingTargetObjectKeyFormatArgs> targetObjectKeyFormat) {
             $.targetObjectKeyFormat = targetObjectKeyFormat;
             return this;
         }
 
-        /**
-         * @param targetObjectKeyFormat Amazon S3 key format for log objects. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetObjectKeyFormat(BucketLoggingTargetObjectKeyFormatArgs targetObjectKeyFormat) {
             return targetObjectKeyFormat(Output.of(targetObjectKeyFormat));
         }
 
-        /**
-         * @param targetPrefix Prefix for all log object keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetPrefix(Output<String> targetPrefix) {
             $.targetPrefix = targetPrefix;
             return this;
         }
 
-        /**
-         * @param targetPrefix Prefix for all log object keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetPrefix(String targetPrefix) {
             return targetPrefix(Output.of(targetPrefix));
         }

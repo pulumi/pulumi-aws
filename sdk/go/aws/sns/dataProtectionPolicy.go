@@ -12,86 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SNS data protection topic policy resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sns.NewTopic(ctx, "example", &sns.TopicArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Description": "Example data protection policy",
-//				"Name":        "__example_data_protection_policy",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"DataDirection": "Inbound",
-//						"DataIdentifier": []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//						},
-//						"Operation": map[string]interface{}{
-//							"Deny": map[string]interface{}{},
-//						},
-//						"Principal": []string{
-//							"*",
-//						},
-//						"Sid": "__deny_statement_11ba9d96",
-//					},
-//				},
-//				"Version": "2021-06-01",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sns.NewDataProtectionPolicy(ctx, "example", &sns.DataProtectionPolicyArgs{
-//				Arn:    example.Arn,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-//
-// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
-//
-// % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
 type DataProtectionPolicy struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the SNS topic
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+	Arn    pulumi.StringOutput `pulumi:"arn"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -131,20 +56,14 @@ func GetDataProtectionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataProtectionPolicy resources.
 type dataProtectionPolicyState struct {
-	// The ARN of the SNS topic
-	Arn *string `pulumi:"arn"`
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+	Arn    *string `pulumi:"arn"`
 	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type DataProtectionPolicyState struct {
-	// The ARN of the SNS topic
-	Arn pulumi.StringPtrInput
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+	Arn    pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -153,21 +72,15 @@ func (DataProtectionPolicyState) ElementType() reflect.Type {
 }
 
 type dataProtectionPolicyArgs struct {
-	// The ARN of the SNS topic
-	Arn string `pulumi:"arn"`
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    string  `pulumi:"arn"`
+	Policy string  `pulumi:"policy"`
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataProtectionPolicy resource.
 type DataProtectionPolicyArgs struct {
-	// The ARN of the SNS topic
-	Arn pulumi.StringInput
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+	Arn    pulumi.StringInput
 	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -258,17 +171,14 @@ func (o DataProtectionPolicyOutput) ToDataProtectionPolicyOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the SNS topic
 func (o DataProtectionPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 func (o DataProtectionPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataProtectionPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

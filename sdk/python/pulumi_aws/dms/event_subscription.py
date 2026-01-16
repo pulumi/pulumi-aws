@@ -29,14 +29,6 @@ class EventSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[_builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[_builtins.str] name: Name of event subscription.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_categories", event_categories)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -55,9 +47,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="eventCategories")
     def event_categories(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        """
         return pulumi.get(self, "event_categories")
 
     @event_categories.setter
@@ -67,9 +56,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        SNS topic arn to send events on.
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -79,9 +65,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of source for events. Valid values: `replication-instance` or `replication-task`
-        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -91,9 +74,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the event subscription should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -103,9 +83,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of event subscription.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -115,9 +92,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,9 +101,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIds")
     def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        """
         return pulumi.get(self, "source_ids")
 
     @source_ids.setter
@@ -139,9 +110,6 @@ class EventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -164,16 +132,6 @@ class _EventSubscriptionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventSubscription resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        :param pulumi.Input[_builtins.str] name: Name of event subscription.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        :param pulumi.Input[_builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -199,9 +157,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the DMS Event Subscription.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -211,9 +166,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the event subscription should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -223,9 +175,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="eventCategories")
     def event_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        """
         return pulumi.get(self, "event_categories")
 
     @event_categories.setter
@@ -235,9 +184,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of event subscription.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -247,9 +193,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -259,9 +202,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        SNS topic arn to send events on.
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -271,9 +211,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="sourceIds")
     def source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        """
         return pulumi.get(self, "source_ids")
 
     @source_ids.setter
@@ -283,9 +220,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of source for events. Valid values: `replication-instance` or `replication-task`
-        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -295,9 +229,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -307,9 +238,6 @@ class _EventSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -333,47 +261,9 @@ class EventSubscription(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a DMS (Data Migration Service) event subscription resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dms.EventSubscription("example",
-            enabled=True,
-            event_categories=[
-                "creation",
-                "failure",
-            ],
-            name="my-favorite-event-subscription",
-            sns_topic_arn=example_aws_sns_topic["arn"],
-            source_ids=[example_aws_dms_replication_task["replicationTaskId"]],
-            source_type="replication-task",
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import event subscriptions using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
-        ```
-
+        Create a EventSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        :param pulumi.Input[_builtins.str] name: Name of event subscription.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        :param pulumi.Input[_builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -382,37 +272,7 @@ class EventSubscription(pulumi.CustomResource):
                  args: EventSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a DMS (Data Migration Service) event subscription resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dms.EventSubscription("example",
-            enabled=True,
-            event_categories=[
-                "creation",
-                "failure",
-            ],
-            name="my-favorite-event-subscription",
-            sns_topic_arn=example_aws_sns_topic["arn"],
-            source_ids=[example_aws_dms_replication_task["replicationTaskId"]],
-            source_type="replication-task",
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import event subscriptions using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
-        ```
-
+        Create a EventSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -488,16 +348,6 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        :param pulumi.Input[_builtins.str] name: Name of event subscription.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        :param pulumi.Input[_builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -518,80 +368,50 @@ class EventSubscription(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the DMS Event Subscription.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether the event subscription should be enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="eventCategories")
     def event_categories(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-        """
         return pulumi.get(self, "event_categories")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of event subscription.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        SNS topic arn to send events on.
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @_builtins.property
     @pulumi.getter(name="sourceIds")
     def source_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-        """
         return pulumi.get(self, "source_ids")
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of source for events. Valid values: `replication-instance` or `replication-task`
-        """
         return pulumi.get(self, "source_type")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

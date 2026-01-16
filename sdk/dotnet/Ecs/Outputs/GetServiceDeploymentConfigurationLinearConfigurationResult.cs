@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentConfigurationLinearConfigurationResult
     {
-        /// <summary>
-        /// Time to wait between deployment steps
-        /// </summary>
         public readonly string StepBakeTimeInMinutes;
-        /// <summary>
-        /// Percentage of traffic to shift in each step
-        /// </summary>
         public readonly double StepPercent;
 
         [OutputConstructor]

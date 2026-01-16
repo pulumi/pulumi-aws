@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionConnectionFunctionAssociation {
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     private String id;
 
     private DistributionConnectionFunctionAssociation() {}
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     public String id() {
         return this.id;
     }

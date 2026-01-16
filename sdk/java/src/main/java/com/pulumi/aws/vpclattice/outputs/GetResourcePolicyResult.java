@@ -15,10 +15,6 @@ public final class GetResourcePolicyResult {
      * 
      */
     private String id;
-    /**
-     * @return JSON-encoded string representation of the applied resource policy.
-     * 
-     */
     private String policy;
     private String region;
     private String resourceArn;
@@ -31,10 +27,6 @@ public final class GetResourcePolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return JSON-encoded string representation of the applied resource policy.
-     * 
-     */
     public String policy() {
         return this.policy;
     }

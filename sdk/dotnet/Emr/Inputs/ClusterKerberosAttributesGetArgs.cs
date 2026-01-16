@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Emr.Inputs
     {
         [Input("adDomainJoinPassword")]
         private Input<string>? _adDomainJoinPassword;
-
-        /// <summary>
-        /// Active Directory password for `AdDomainJoinUser`. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public Input<string>? AdDomainJoinPassword
         {
             get => _adDomainJoinPassword;
@@ -28,18 +24,11 @@ namespace Pulumi.Aws.Emr.Inputs
             }
         }
 
-        /// <summary>
-        /// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         [Input("adDomainJoinUser")]
         public Input<string>? AdDomainJoinUser { get; set; }
 
         [Input("crossRealmTrustPrincipalPassword")]
         private Input<string>? _crossRealmTrustPrincipalPassword;
-
-        /// <summary>
-        /// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public Input<string>? CrossRealmTrustPrincipalPassword
         {
             get => _crossRealmTrustPrincipalPassword;
@@ -52,10 +41,6 @@ namespace Pulumi.Aws.Emr.Inputs
 
         [Input("kdcAdminPassword", required: true)]
         private Input<string>? _kdcAdminPassword;
-
-        /// <summary>
-        /// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public Input<string>? KdcAdminPassword
         {
             get => _kdcAdminPassword;
@@ -66,9 +51,6 @@ namespace Pulumi.Aws.Emr.Inputs
             }
         }
 
-        /// <summary>
-        /// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-        /// </summary>
         [Input("realm", required: true)]
         public Input<string> Realm { get; set; } = null!;
 

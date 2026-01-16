@@ -13,32 +13,16 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
 
     public static final GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier Empty = new GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier();
 
-    /**
-     * Name of the custom data idenfitier
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the custom data idenfitier
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Regular expression to match sensitive data
-     * 
-     */
     @Import(name="regex", required=true)
     private String regex;
 
-    /**
-     * @return Regular expression to match sensitive data
-     * 
-     */
     public String regex() {
         return this.regex;
     }
@@ -68,23 +52,11 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
             $ = new GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the custom data idenfitier
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param regex Regular expression to match sensitive data
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(String regex) {
             $.regex = regex;
             return this;

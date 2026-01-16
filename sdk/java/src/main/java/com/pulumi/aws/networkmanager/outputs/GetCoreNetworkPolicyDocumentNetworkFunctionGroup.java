@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentNetworkFunctionGroup {
-    /**
-     * @return Optional description of the network function group.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return This identifies the network function group container.
-     * 
-     */
     private String name;
-    /**
-     * @return This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-     * 
-     */
     private Boolean requireAttachmentAcceptance;
 
     private GetCoreNetworkPolicyDocumentNetworkFunctionGroup() {}
-    /**
-     * @return Optional description of the network function group.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return This identifies the network function group container.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-     * 
-     */
     public Boolean requireAttachmentAcceptance() {
         return this.requireAttachmentAcceptance;
     }

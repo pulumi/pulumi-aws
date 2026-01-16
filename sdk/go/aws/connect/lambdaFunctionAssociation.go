@@ -12,52 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Lambda Function Association. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewLambdaFunctionAssociation(ctx, "example", &connect.LambdaFunctionAssociationArgs{
-//				FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				InstanceId:  pulumi.Any(exampleAwsConnectInstance.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-// ```
 type LambdaFunctionAssociation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	InstanceId  pulumi.StringOutput `pulumi:"instanceId"`
+	Region      pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLambdaFunctionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -96,21 +56,15 @@ func GetLambdaFunctionAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LambdaFunctionAssociation resources.
 type lambdaFunctionAssociationState struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn *string `pulumi:"functionArn"`
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceId  *string `pulumi:"instanceId"`
+	Region      *string `pulumi:"region"`
 }
 
 type LambdaFunctionAssociationState struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringPtrInput
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	InstanceId  pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 }
 
 func (LambdaFunctionAssociationState) ElementType() reflect.Type {
@@ -118,22 +72,16 @@ func (LambdaFunctionAssociationState) ElementType() reflect.Type {
 }
 
 type lambdaFunctionAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-	FunctionArn string `pulumi:"functionArn"`
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	FunctionArn string  `pulumi:"functionArn"`
+	InstanceId  string  `pulumi:"instanceId"`
+	Region      *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LambdaFunctionAssociation resource.
 type LambdaFunctionAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringInput
-	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	InstanceId  pulumi.StringInput
+	Region      pulumi.StringPtrInput
 }
 
 func (LambdaFunctionAssociationArgs) ElementType() reflect.Type {
@@ -223,17 +171,14 @@ func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationOutputWithCo
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
 func (o LambdaFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
-// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 func (o LambdaFunctionAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LambdaFunctionAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

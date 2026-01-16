@@ -16,32 +16,16 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
 
     public static final MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs Empty = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs();
 
-    /**
-     * The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-     * 
-     */
     @Import(name="cloudwatchLogGroupName")
     private @Nullable Output<String> cloudwatchLogGroupName;
 
-    /**
-     * @return The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-     * 
-     */
     public Optional<Output<String>> cloudwatchLogGroupName() {
         return Optional.ofNullable(this.cloudwatchLogGroupName);
     }
 
-    /**
-     * Enables Systems Manager to send command output to CloudWatch Logs.
-     * 
-     */
     @Import(name="cloudwatchOutputEnabled")
     private @Nullable Output<Boolean> cloudwatchOutputEnabled;
 
-    /**
-     * @return Enables Systems Manager to send command output to CloudWatch Logs.
-     * 
-     */
     public Optional<Output<Boolean>> cloudwatchOutputEnabled() {
         return Optional.ofNullable(this.cloudwatchOutputEnabled);
     }
@@ -71,44 +55,20 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
             $ = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogGroupName The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogGroupName(@Nullable Output<String> cloudwatchLogGroupName) {
             $.cloudwatchLogGroupName = cloudwatchLogGroupName;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogGroupName The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogGroupName(String cloudwatchLogGroupName) {
             return cloudwatchLogGroupName(Output.of(cloudwatchLogGroupName));
         }
 
-        /**
-         * @param cloudwatchOutputEnabled Enables Systems Manager to send command output to CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchOutputEnabled(@Nullable Output<Boolean> cloudwatchOutputEnabled) {
             $.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
             return this;
         }
 
-        /**
-         * @param cloudwatchOutputEnabled Enables Systems Manager to send command output to CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchOutputEnabled(Boolean cloudwatchOutputEnabled) {
             return cloudwatchOutputEnabled(Output.of(cloudwatchOutputEnabled));
         }

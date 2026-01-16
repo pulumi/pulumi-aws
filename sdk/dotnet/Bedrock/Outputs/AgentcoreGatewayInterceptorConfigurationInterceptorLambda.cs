@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayInterceptorConfigurationInterceptorLambda
     {
-        /// <summary>
-        /// ARN of the Lambda function to invoke for the interceptor.
-        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

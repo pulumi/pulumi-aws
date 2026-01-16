@@ -15,92 +15,44 @@ public final class ScheduledQueryRecentlyFailedRunExecutionStatArgs extends com.
 
     public static final ScheduledQueryRecentlyFailedRunExecutionStatArgs Empty = new ScheduledQueryRecentlyFailedRunExecutionStatArgs();
 
-    /**
-     * Bytes metered for a single scheduled query run.
-     * 
-     */
     @Import(name="bytesMetered")
     private @Nullable Output<Integer> bytesMetered;
 
-    /**
-     * @return Bytes metered for a single scheduled query run.
-     * 
-     */
     public Optional<Output<Integer>> bytesMetered() {
         return Optional.ofNullable(this.bytesMetered);
     }
 
-    /**
-     * Bytes scanned for a single scheduled query run.
-     * 
-     */
     @Import(name="cumulativeBytesScanned")
     private @Nullable Output<Integer> cumulativeBytesScanned;
 
-    /**
-     * @return Bytes scanned for a single scheduled query run.
-     * 
-     */
     public Optional<Output<Integer>> cumulativeBytesScanned() {
         return Optional.ofNullable(this.cumulativeBytesScanned);
     }
 
-    /**
-     * Data writes metered for records ingested in a single scheduled query run.
-     * 
-     */
     @Import(name="dataWrites")
     private @Nullable Output<Integer> dataWrites;
 
-    /**
-     * @return Data writes metered for records ingested in a single scheduled query run.
-     * 
-     */
     public Optional<Output<Integer>> dataWrites() {
         return Optional.ofNullable(this.dataWrites);
     }
 
-    /**
-     * Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-     * 
-     */
     @Import(name="executionTimeInMillis")
     private @Nullable Output<Integer> executionTimeInMillis;
 
-    /**
-     * @return Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-     * 
-     */
     public Optional<Output<Integer>> executionTimeInMillis() {
         return Optional.ofNullable(this.executionTimeInMillis);
     }
 
-    /**
-     * Number of rows present in the output from running a query before ingestion to destination data source.
-     * 
-     */
     @Import(name="queryResultRows")
     private @Nullable Output<Integer> queryResultRows;
 
-    /**
-     * @return Number of rows present in the output from running a query before ingestion to destination data source.
-     * 
-     */
     public Optional<Output<Integer>> queryResultRows() {
         return Optional.ofNullable(this.queryResultRows);
     }
 
-    /**
-     * Number of records ingested for a single scheduled query run.
-     * 
-     */
     @Import(name="recordsIngested")
     private @Nullable Output<Integer> recordsIngested;
 
-    /**
-     * @return Number of records ingested for a single scheduled query run.
-     * 
-     */
     public Optional<Output<Integer>> recordsIngested() {
         return Optional.ofNullable(this.recordsIngested);
     }
@@ -134,128 +86,56 @@ public final class ScheduledQueryRecentlyFailedRunExecutionStatArgs extends com.
             $ = new ScheduledQueryRecentlyFailedRunExecutionStatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bytesMetered Bytes metered for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bytesMetered(@Nullable Output<Integer> bytesMetered) {
             $.bytesMetered = bytesMetered;
             return this;
         }
 
-        /**
-         * @param bytesMetered Bytes metered for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bytesMetered(Integer bytesMetered) {
             return bytesMetered(Output.of(bytesMetered));
         }
 
-        /**
-         * @param cumulativeBytesScanned Bytes scanned for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cumulativeBytesScanned(@Nullable Output<Integer> cumulativeBytesScanned) {
             $.cumulativeBytesScanned = cumulativeBytesScanned;
             return this;
         }
 
-        /**
-         * @param cumulativeBytesScanned Bytes scanned for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cumulativeBytesScanned(Integer cumulativeBytesScanned) {
             return cumulativeBytesScanned(Output.of(cumulativeBytesScanned));
         }
 
-        /**
-         * @param dataWrites Data writes metered for records ingested in a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataWrites(@Nullable Output<Integer> dataWrites) {
             $.dataWrites = dataWrites;
             return this;
         }
 
-        /**
-         * @param dataWrites Data writes metered for records ingested in a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataWrites(Integer dataWrites) {
             return dataWrites(Output.of(dataWrites));
         }
 
-        /**
-         * @param executionTimeInMillis Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionTimeInMillis(@Nullable Output<Integer> executionTimeInMillis) {
             $.executionTimeInMillis = executionTimeInMillis;
             return this;
         }
 
-        /**
-         * @param executionTimeInMillis Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionTimeInMillis(Integer executionTimeInMillis) {
             return executionTimeInMillis(Output.of(executionTimeInMillis));
         }
 
-        /**
-         * @param queryResultRows Number of rows present in the output from running a query before ingestion to destination data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryResultRows(@Nullable Output<Integer> queryResultRows) {
             $.queryResultRows = queryResultRows;
             return this;
         }
 
-        /**
-         * @param queryResultRows Number of rows present in the output from running a query before ingestion to destination data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryResultRows(Integer queryResultRows) {
             return queryResultRows(Output.of(queryResultRows));
         }
 
-        /**
-         * @param recordsIngested Number of records ingested for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordsIngested(@Nullable Output<Integer> recordsIngested) {
             $.recordsIngested = recordsIngested;
             return this;
         }
 
-        /**
-         * @param recordsIngested Number of records ingested for a single scheduled query run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordsIngested(Integer recordsIngested) {
             return recordsIngested(Output.of(recordsIngested));
         }

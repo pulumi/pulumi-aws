@@ -15,14 +15,14 @@ public final class ApplicationAttachmentsConfigurationArgs extends com.pulumi.re
     public static final ApplicationAttachmentsConfigurationArgs Empty = new ApplicationAttachmentsConfigurationArgs();
 
     /**
-     * Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+     * Status information about whether file upload functionality is activated or deactivated for your end user.
      * 
      */
     @Import(name="attachmentsControlMode", required=true)
     private Output<String> attachmentsControlMode;
 
     /**
-     * @return Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+     * @return Status information about whether file upload functionality is activated or deactivated for your end user.
      * 
      */
     public Output<String> attachmentsControlMode() {
@@ -54,7 +54,7 @@ public final class ApplicationAttachmentsConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param attachmentsControlMode Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+         * @param attachmentsControlMode Status information about whether file upload functionality is activated or deactivated for your end user.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationAttachmentsConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param attachmentsControlMode Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+         * @param attachmentsControlMode Status information about whether file upload functionality is activated or deactivated for your end user.
          * 
          * @return builder
          * 

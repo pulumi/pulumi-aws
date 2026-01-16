@@ -19,101 +19,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultSpaceSettings {
-    /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `customFileSystemConfig` Block below.
-     * 
-     */
     private @Nullable List<DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs;
-    /**
-     * @return Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsCustomPosixUserConfig customPosixUserConfig;
-    /**
-     * @return The execution role for the space.
-     * 
-     */
     private String executionRole;
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsJupyterLabAppSettings jupyterLabAppSettings;
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings;
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
-    /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return The storage settings for a private space. See `spaceStorageSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsSpaceStorageSettings spaceStorageSettings;
 
     private DomainDefaultSpaceSettings() {}
-    /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `customFileSystemConfig` Block below.
-     * 
-     */
     public List<DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs() {
         return this.customFileSystemConfigs == null ? List.of() : this.customFileSystemConfigs;
     }
-    /**
-     * @return Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsCustomPosixUserConfig> customPosixUserConfig() {
         return Optional.ofNullable(this.customPosixUserConfig);
     }
-    /**
-     * @return The execution role for the space.
-     * 
-     */
     public String executionRole() {
         return this.executionRole;
     }
-    /**
-     * @return The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsJupyterLabAppSettings> jupyterLabAppSettings() {
         return Optional.ofNullable(this.jupyterLabAppSettings);
     }
-    /**
-     * @return The Jupyter server&#39;s app settings. See `jupyterServerAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
-    /**
-     * @return The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
-    /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return The storage settings for a private space. See `spaceStorageSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsSpaceStorageSettings> spaceStorageSettings() {
         return Optional.ofNullable(this.spaceStorageSettings);
     }

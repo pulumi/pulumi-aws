@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Pipes.Inputs
     {
         [Input("commands")]
         private InputList<string>? _commands;
-
-        /// <summary>
-        /// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
@@ -26,28 +22,17 @@ namespace Pulumi.Aws.Pipes.Inputs
 
         [Input("environments")]
         private InputList<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentGetArgs>? _environments;
-
-        /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-        /// </summary>
         public InputList<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentGetArgs> Environments
         {
             get => _environments ?? (_environments = new InputList<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentGetArgs>());
             set => _environments = value;
         }
 
-        /// <summary>
-        /// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
         [Input("resourceRequirements")]
         private InputList<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementGetArgs>? _resourceRequirements;
-
-        /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-        /// </summary>
         public InputList<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementGetArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementGetArgs>());

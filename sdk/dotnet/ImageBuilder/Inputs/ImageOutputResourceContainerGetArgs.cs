@@ -14,19 +14,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     {
         [Input("imageUris")]
         private InputList<string>? _imageUris;
-
-        /// <summary>
-        /// Set of URIs for created containers.
-        /// </summary>
         public InputList<string> ImageUris
         {
             get => _imageUris ?? (_imageUris = new InputList<string>());
             set => _imageUris = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

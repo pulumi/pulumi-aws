@@ -16,32 +16,16 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
 
     public static final PolicyDefinitionStaticArgs Empty = new PolicyDefinitionStaticArgs();
 
-    /**
-     * The description of the static policy.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the static policy.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The statement of the static policy.
-     * 
-     */
     @Import(name="statement", required=true)
     private Output<String> statement;
 
-    /**
-     * @return The statement of the static policy.
-     * 
-     */
     public Output<String> statement() {
         return this.statement;
     }
@@ -71,44 +55,20 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
             $ = new PolicyDefinitionStaticArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description of the static policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the static policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param statement The statement of the static policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(Output<String> statement) {
             $.statement = statement;
             return this;
         }
 
-        /**
-         * @param statement The statement of the static policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(String statement) {
             return statement(Output.of(statement));
         }

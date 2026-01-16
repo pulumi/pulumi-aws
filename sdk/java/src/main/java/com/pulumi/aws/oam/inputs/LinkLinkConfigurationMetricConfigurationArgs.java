@@ -14,17 +14,9 @@ public final class LinkLinkConfigurationMetricConfigurationArgs extends com.pulu
 
     public static final LinkLinkConfigurationMetricConfigurationArgs Empty = new LinkLinkConfigurationMetricConfigurationArgs();
 
-    /**
-     * Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-     * 
-     */
     @Import(name="filter", required=true)
     private Output<String> filter;
 
-    /**
-     * @return Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-     * 
-     */
     public Output<String> filter() {
         return this.filter;
     }
@@ -53,23 +45,11 @@ public final class LinkLinkConfigurationMetricConfigurationArgs extends com.pulu
             $ = new LinkLinkConfigurationMetricConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(Output<String> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(String filter) {
             return filter(Output.of(filter));
         }

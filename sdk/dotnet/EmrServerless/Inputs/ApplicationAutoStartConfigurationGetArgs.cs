@@ -12,9 +12,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationAutoStartConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables the application to automatically start on job submission. Defaults to `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

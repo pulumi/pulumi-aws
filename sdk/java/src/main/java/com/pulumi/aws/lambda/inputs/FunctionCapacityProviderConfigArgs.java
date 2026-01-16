@@ -14,17 +14,9 @@ public final class FunctionCapacityProviderConfigArgs extends com.pulumi.resourc
 
     public static final FunctionCapacityProviderConfigArgs Empty = new FunctionCapacityProviderConfigArgs();
 
-    /**
-     * Configuration block for Lambda Managed Instances Capacity Provider. See below.
-     * 
-     */
     @Import(name="lambdaManagedInstancesCapacityProviderConfig", required=true)
     private Output<FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs> lambdaManagedInstancesCapacityProviderConfig;
 
-    /**
-     * @return Configuration block for Lambda Managed Instances Capacity Provider. See below.
-     * 
-     */
     public Output<FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs> lambdaManagedInstancesCapacityProviderConfig() {
         return this.lambdaManagedInstancesCapacityProviderConfig;
     }
@@ -53,23 +45,11 @@ public final class FunctionCapacityProviderConfigArgs extends com.pulumi.resourc
             $ = new FunctionCapacityProviderConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambdaManagedInstancesCapacityProviderConfig Configuration block for Lambda Managed Instances Capacity Provider. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaManagedInstancesCapacityProviderConfig(Output<FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs> lambdaManagedInstancesCapacityProviderConfig) {
             $.lambdaManagedInstancesCapacityProviderConfig = lambdaManagedInstancesCapacityProviderConfig;
             return this;
         }
 
-        /**
-         * @param lambdaManagedInstancesCapacityProviderConfig Configuration block for Lambda Managed Instances Capacity Provider. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaManagedInstancesCapacityProviderConfig(FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArgs lambdaManagedInstancesCapacityProviderConfig) {
             return lambdaManagedInstancesCapacityProviderConfig(Output.of(lambdaManagedInstancesCapacityProviderConfig));
         }

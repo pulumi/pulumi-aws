@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetPhysicalTableMapS3Source {
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     private String dataSourceArn;
-    /**
-     * @return Column schema of the table. See input_columns.
-     * 
-     */
     private List<DataSetPhysicalTableMapS3SourceInputColumn> inputColumns;
-    /**
-     * @return Information about the format for the S3 source file or files. See upload_settings.
-     * 
-     */
     private DataSetPhysicalTableMapS3SourceUploadSettings uploadSettings;
 
     private DataSetPhysicalTableMapS3Source() {}
-    /**
-     * @return ARN of the data source.
-     * 
-     */
     public String dataSourceArn() {
         return this.dataSourceArn;
     }
-    /**
-     * @return Column schema of the table. See input_columns.
-     * 
-     */
     public List<DataSetPhysicalTableMapS3SourceInputColumn> inputColumns() {
         return this.inputColumns;
     }
-    /**
-     * @return Information about the format for the S3 source file or files. See upload_settings.
-     * 
-     */
     public DataSetPhysicalTableMapS3SourceUploadSettings uploadSettings() {
         return this.uploadSettings;
     }

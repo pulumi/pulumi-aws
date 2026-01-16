@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Connect Worker Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.LookupWorkerConfiguration(ctx, &mskconnect.LookupWorkerConfigurationArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWorkerConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkerConfigurationResult
@@ -50,30 +23,22 @@ func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurat
 
 // A collection of arguments for invoking getWorkerConfiguration.
 type LookupWorkerConfigurationArgs struct {
-	// Name of the worker configuration.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getWorkerConfiguration.
 type LookupWorkerConfigurationResult struct {
-	// the ARN of the worker configuration.
-	Arn string `pulumi:"arn"`
-	// a summary description of the worker configuration.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// an ID of the latest successfully created revision of the worker configuration.
-	LatestRevision int    `pulumi:"latestRevision"`
-	Name           string `pulumi:"name"`
-	// contents of connect-distributed.properties file.
-	PropertiesFileContent string `pulumi:"propertiesFileContent"`
-	Region                string `pulumi:"region"`
-	// A map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id                    string            `pulumi:"id"`
+	LatestRevision        int               `pulumi:"latestRevision"`
+	Name                  string            `pulumi:"name"`
+	PropertiesFileContent string            `pulumi:"propertiesFileContent"`
+	Region                string            `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupWorkerConfigurationResultOutput {
@@ -87,12 +52,9 @@ func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfi
 
 // A collection of arguments for invoking getWorkerConfiguration.
 type LookupWorkerConfigurationOutputArgs struct {
-	// Name of the worker configuration.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupWorkerConfigurationOutputArgs) ElementType() reflect.Type {
@@ -114,12 +76,10 @@ func (o LookupWorkerConfigurationResultOutput) ToLookupWorkerConfigurationResult
 	return o
 }
 
-// the ARN of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// a summary description of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -129,7 +89,6 @@ func (o LookupWorkerConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// an ID of the latest successfully created revision of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) int { return v.LatestRevision }).(pulumi.IntOutput)
 }
@@ -138,7 +97,6 @@ func (o LookupWorkerConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// contents of connect-distributed.properties file.
 func (o LookupWorkerConfigurationResultOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.PropertiesFileContent }).(pulumi.StringOutput)
 }
@@ -147,7 +105,6 @@ func (o LookupWorkerConfigurationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource.
 func (o LookupWorkerConfigurationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

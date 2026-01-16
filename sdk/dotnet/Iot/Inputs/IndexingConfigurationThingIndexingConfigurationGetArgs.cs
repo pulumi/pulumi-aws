@@ -14,55 +14,32 @@ namespace Pulumi.Aws.Iot.Inputs
     {
         [Input("customFields")]
         private InputList<Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldGetArgs>? _customFields;
-
-        /// <summary>
-        /// Contains custom field names and their data type. See below.
-        /// </summary>
         public InputList<Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldGetArgs> CustomFields
         {
             get => _customFields ?? (_customFields = new InputList<Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldGetArgs>());
             set => _customFields = value;
         }
 
-        /// <summary>
-        /// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
-        /// </summary>
         [Input("deviceDefenderIndexingMode")]
         public Input<string>? DeviceDefenderIndexingMode { get; set; }
 
-        /// <summary>
-        /// Required if `NamedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `Filter` to fleet indexing configuration.
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.IndexingConfigurationThingIndexingConfigurationFilterGetArgs>? Filter { get; set; }
 
         [Input("managedFields")]
         private InputList<Inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldGetArgs>? _managedFields;
-
-        /// <summary>
-        /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-        /// </summary>
         public InputList<Inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldGetArgs> ManagedFields
         {
             get => _managedFields ?? (_managedFields = new InputList<Inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldGetArgs>());
             set => _managedFields = value;
         }
 
-        /// <summary>
-        /// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
-        /// </summary>
         [Input("namedShadowIndexingMode")]
         public Input<string>? NamedShadowIndexingMode { get; set; }
 
-        /// <summary>
-        /// Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
-        /// </summary>
         [Input("thingConnectivityIndexingMode")]
         public Input<string>? ThingConnectivityIndexingMode { get; set; }
 
-        /// <summary>
-        /// Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
-        /// </summary>
         [Input("thingIndexingMode", required: true)]
         public Input<string> ThingIndexingMode { get; set; } = null!;
 

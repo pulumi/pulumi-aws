@@ -18,17 +18,9 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
 
     public static final RouteSpecTcpRouteArgs Empty = new RouteSpecTcpRouteArgs();
 
-    /**
-     * Action to take if a match is determined.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<RouteSpecTcpRouteActionArgs> action;
 
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public Output<RouteSpecTcpRouteActionArgs> action() {
         return this.action;
     }
@@ -40,17 +32,9 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.match);
     }
 
-    /**
-     * Types of timeouts.
-     * 
-     */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecTcpRouteTimeoutArgs> timeout;
 
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     public Optional<Output<RouteSpecTcpRouteTimeoutArgs>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
@@ -81,23 +65,11 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
             $ = new RouteSpecTcpRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take if a match is determined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<RouteSpecTcpRouteActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action to take if a match is determined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(RouteSpecTcpRouteActionArgs action) {
             return action(Output.of(action));
         }
@@ -111,23 +83,11 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
             return match(Output.of(match));
         }
 
-        /**
-         * @param timeout Types of timeouts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(@Nullable Output<RouteSpecTcpRouteTimeoutArgs> timeout) {
             $.timeout = timeout;
             return this;
         }
 
-        /**
-         * @param timeout Types of timeouts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(RouteSpecTcpRouteTimeoutArgs timeout) {
             return timeout(Output.of(timeout));
         }

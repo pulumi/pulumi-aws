@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterRemoteNetworkConfigRemoteNodeNetworks {
-    /**
-     * @return List of network CIDRs that can contain hybrid nodes.
-     * 
-     */
     private @Nullable List<String> cidrs;
 
     private ClusterRemoteNetworkConfigRemoteNodeNetworks() {}
-    /**
-     * @return List of network CIDRs that can contain hybrid nodes.
-     * 
-     */
     public List<String> cidrs() {
         return this.cidrs == null ? List.of() : this.cidrs;
     }

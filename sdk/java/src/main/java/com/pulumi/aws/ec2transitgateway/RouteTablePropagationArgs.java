@@ -16,47 +16,23 @@ public final class RouteTablePropagationArgs extends com.pulumi.resources.Resour
 
     public static final RouteTablePropagationArgs Empty = new RouteTablePropagationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId", required=true)
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Route Table.
-     * 
-     */
     @Import(name="transitGatewayRouteTableId", required=true)
     private Output<String> transitGatewayRouteTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     */
     public Output<String> transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }
@@ -87,65 +63,29 @@ public final class RouteTablePropagationArgs extends com.pulumi.resources.Resour
             $ = new RouteTablePropagationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableId(Output<String> transitGatewayRouteTableId) {
             $.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;
         }
 
-        /**
-         * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
             return transitGatewayRouteTableId(Output.of(transitGatewayRouteTableId));
         }

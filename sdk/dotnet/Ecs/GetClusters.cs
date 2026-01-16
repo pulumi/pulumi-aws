@@ -11,72 +11,12 @@ namespace Pulumi.Aws.Ecs
 {
     public static class GetClusters
     {
-        /// <summary>
-        /// Data source for managing an AWS ECS (Elastic Container) Clusters.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetClustersResult> InvokeAsync(GetClustersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:ecs/getClusters:getClusters", args ?? new GetClustersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS ECS (Elastic Container) Clusters.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:ecs/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS ECS (Elastic Container) Clusters.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetClusters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:ecs/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
     }
@@ -84,9 +24,6 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetClustersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -98,9 +35,6 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetClustersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,9 +48,6 @@ namespace Pulumi.Aws.Ecs
     [OutputType]
     public sealed class GetClustersResult
     {
-        /// <summary>
-        /// List of ECS cluster ARNs associated with the account.
-        /// </summary>
         public readonly ImmutableArray<string> ClusterArns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

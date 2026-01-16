@@ -9,93 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VpcLattice
 {
-    /// <summary>
-    /// Resource for managing an AWS VPC Lattice Resource Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var example = new Aws.VpcLattice.ServiceNetwork("example", new()
-    ///     {
-    ///         Name = "example-vpclattice-service-network",
-    ///     });
-    /// 
-    ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("example", new()
-    ///     {
-    ///         ResourceArn = example.Arn,
-    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "test-pol-principals-6",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
-    ///                         {
-    ///                             var currentGetPartition = values.Item1;
-    ///                             var current = values.Item2;
-    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
-    ///                         }),
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
-    ///                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
-    ///                         "vpc-lattice:GetServiceNetwork",
-    ///                     },
-    ///                     ["Resource"] = example.Arn,
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpclattice/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -145,21 +67,12 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -171,21 +84,12 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

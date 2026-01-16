@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterClusterEndpoint {
-    /**
-     * @return DNS hostname of the node.
-     * 
-     */
     private String address;
-    /**
-     * @return Port number that this node is listening on.
-     * 
-     */
     private Integer port;
 
     private GetClusterClusterEndpoint() {}
-    /**
-     * @return DNS hostname of the node.
-     * 
-     */
     public String address() {
         return this.address;
     }
-    /**
-     * @return Port number that this node is listening on.
-     * 
-     */
     public Integer port() {
         return this.port;
     }

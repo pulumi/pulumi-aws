@@ -18,32 +18,16 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs();
 
-    /**
-     * Additional fields to be included in the model request for the Prompt node.
-     * 
-     */
     @Import(name="additionalModelRequestFields")
     private @Nullable Output<String> additionalModelRequestFields;
 
-    /**
-     * @return Additional fields to be included in the model request for the Prompt node.
-     * 
-     */
     public Optional<Output<String>> additionalModelRequestFields() {
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
 
-    /**
-     * Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs> inferenceConfiguration;
 
-    /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs>> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
@@ -55,32 +39,16 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         return this.modelId;
     }
 
-    /**
-     * Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-     * 
-     */
     @Import(name="templateConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs> templateConfiguration;
 
-    /**
-     * @return Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs>> templateConfiguration() {
         return Optional.ofNullable(this.templateConfiguration);
     }
 
-    /**
-     * The type of prompt template. Valid values: `TEXT`, `CHAT`.
-     * 
-     */
     @Import(name="templateType", required=true)
     private Output<String> templateType;
 
-    /**
-     * @return The type of prompt template. Valid values: `TEXT`, `CHAT`.
-     * 
-     */
     public Output<String> templateType() {
         return this.templateType;
     }
@@ -113,44 +81,20 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalModelRequestFields Additional fields to be included in the model request for the Prompt node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalModelRequestFields(@Nullable Output<String> additionalModelRequestFields) {
             $.additionalModelRequestFields = additionalModelRequestFields;
             return this;
         }
 
-        /**
-         * @param additionalModelRequestFields Additional fields to be included in the model request for the Prompt node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalModelRequestFields(String additionalModelRequestFields) {
             return additionalModelRequestFields(Output.of(additionalModelRequestFields));
         }
 
-        /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs> inferenceConfiguration) {
             $.inferenceConfiguration = inferenceConfiguration;
             return this;
         }
 
-        /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inferenceConfiguration(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs inferenceConfiguration) {
             return inferenceConfiguration(Output.of(inferenceConfiguration));
         }
@@ -164,44 +108,20 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             return modelId(Output.of(modelId));
         }
 
-        /**
-         * @param templateConfiguration Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs> templateConfiguration) {
             $.templateConfiguration = templateConfiguration;
             return this;
         }
 
-        /**
-         * @param templateConfiguration Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateConfiguration(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs templateConfiguration) {
             return templateConfiguration(Output.of(templateConfiguration));
         }
 
-        /**
-         * @param templateType The type of prompt template. Valid values: `TEXT`, `CHAT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateType(Output<String> templateType) {
             $.templateType = templateType;
             return this;
         }
 
-        /**
-         * @param templateType The type of prompt template. Valid values: `TEXT`, `CHAT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateType(String templateType) {
             return templateType(Output.of(templateType));
         }

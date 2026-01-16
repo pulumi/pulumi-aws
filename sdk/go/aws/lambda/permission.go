@@ -12,368 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lambda permission. Use this resource to grant external sources (e.g., EventBridge Rules, SNS, or S3) permission to invoke Lambda functions.
-//
-// ## Example Usage
-//
-// ### Basic Usage with EventBridge
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "lambda.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
-//				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testLambda, err := lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambdatest.zip"),
-//				Name:    pulumi.String("lambda_function_name"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAlias, err := lambda.NewAlias(ctx, "test_alias", &lambda.AliasArgs{
-//				Name:            pulumi.String("testalias"),
-//				Description:     pulumi.String("a sample description"),
-//				FunctionName:    testLambda.Name,
-//				FunctionVersion: pulumi.String("$LATEST"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewPermission(ctx, "allow_cloudwatch", &lambda.PermissionArgs{
-//				StatementId: pulumi.String("AllowExecutionFromCloudWatch"),
-//				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    testLambda.Name,
-//				Principal:   pulumi.String("events.amazonaws.com"),
-//				SourceArn:   pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
-//				Qualifier:   testAlias.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### SNS Integration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
-//				Name: pulumi.String("call-lambda-maybe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "lambda.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
-//				Name:             pulumi.String("iam_for_lambda_with_sns"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_func, err := lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambdatest.zip"),
-//				Name:    pulumi.String("lambda_called_from_sns"),
-//				Role:    defaultRole.Arn,
-//				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String(lambda.RuntimePython3d12),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewPermission(ctx, "with_sns", &lambda.PermissionArgs{
-//				StatementId: pulumi.String("AllowExecutionFromSNS"),
-//				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    _func.Name,
-//				Principal:   pulumi.String("sns.amazonaws.com"),
-//				SourceArn:   _default.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sns.NewTopicSubscription(ctx, "lambda", &sns.TopicSubscriptionArgs{
-//				Topic:    _default.Arn,
-//				Protocol: pulumi.String("lambda"),
-//				Endpoint: _func.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### API Gateway REST API Integration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "MyDemoAPI", &apigateway.RestApiArgs{
-//				Name:        pulumi.String("MyDemoAPI"),
-//				Description: pulumi.String("This is my API for demonstration purposes"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewPermission(ctx, "lambda_permission", &lambda.PermissionArgs{
-//				StatementId: pulumi.String("AllowMyDemoAPIInvoke"),
-//				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    pulumi.Any("MyDemoFunction"),
-//				Principal:   pulumi.String("apigateway.amazonaws.com"),
-//				SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-//					return fmt.Sprintf("%v/*", executionArn), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### CloudWatch Log Group Integration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := cloudwatch.NewLogGroup(ctx, "default", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("/default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"lambda.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
-//				Name:             pulumi.String("iam_for_lambda_called_from_cloudwatch_logs"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			loggingFunction, err := lambda.NewFunction(ctx, "logging", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lamba_logging.zip"),
-//				Name:    pulumi.String("lambda_called_from_cloudwatch_logs"),
-//				Handler: pulumi.String("exports.handler"),
-//				Role:    defaultRole.Arn,
-//				Runtime: pulumi.String(lambda.RuntimePython3d12),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			logging, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  loggingFunction.Name,
-//				Principal: pulumi.String("logs.eu-west-1.amazonaws.com"),
-//				SourceArn: _default.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf("%v:*", arn), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogSubscriptionFilter(ctx, "logging", &cloudwatch.LogSubscriptionFilterArgs{
-//				DestinationArn: loggingFunction.Arn,
-//				FilterPattern:  pulumi.String(""),
-//				LogGroup:       _default.Name,
-//				Name:           pulumi.String("logging_default"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				logging,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Cross-Account Function URL Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionUrl(ctx, "url", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(example.FunctionName),
-//				AuthorizationType: pulumi.String("AWS_IAM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewPermission(ctx, "url", &lambda.PermissionArgs{
-//				Action:              pulumi.String("lambda:InvokeFunctionUrl"),
-//				Function:            pulumi.Any(example.FunctionName),
-//				Principal:           pulumi.String("arn:aws:iam::444455556666:role/example"),
-//				SourceAccount:       pulumi.String("444455556666"),
-//				FunctionUrlAuthType: pulumi.String("AWS_IAM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Permission struct {
 	pulumi.CustomResourceState
 
-	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-	Action pulumi.StringOutput `pulumi:"action"`
-	// Event Source Token for Alexa Skills
-	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
-	// Name or ARN of the Lambda function
-	Function pulumi.StringOutput `pulumi:"function"`
-	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
-	FunctionUrlAuthType pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
-	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
-	InvokedViaFunctionUrl pulumi.BoolPtrOutput `pulumi:"invokedViaFunctionUrl"`
-	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
-	//
-	// The following arguments are optional:
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// AWS Organizations ID to grant permission to all accounts under this organization
-	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
-	// Lambda function version or alias name
-	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
-	Region pulumi.StringOutput `pulumi:"region"`
-	// AWS account ID of the source owner for cross-account access, S3, or SES
-	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
-	// ARN of the source resource granting permission to invoke the Lambda function
-	SourceArn pulumi.StringPtrOutput `pulumi:"sourceArn"`
-	// Statement identifier. Generated by Pulumi if not provided
-	StatementId pulumi.StringOutput `pulumi:"statementId"`
-	// Statement identifier prefix. Conflicts with `statementId`
-	StatementIdPrefix pulumi.StringOutput `pulumi:"statementIdPrefix"`
+	Action                pulumi.StringOutput    `pulumi:"action"`
+	EventSourceToken      pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
+	Function              pulumi.StringOutput    `pulumi:"function"`
+	FunctionUrlAuthType   pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
+	InvokedViaFunctionUrl pulumi.BoolPtrOutput   `pulumi:"invokedViaFunctionUrl"`
+	Principal             pulumi.StringOutput    `pulumi:"principal"`
+	PrincipalOrgId        pulumi.StringPtrOutput `pulumi:"principalOrgId"`
+	Qualifier             pulumi.StringPtrOutput `pulumi:"qualifier"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	SourceAccount         pulumi.StringPtrOutput `pulumi:"sourceAccount"`
+	SourceArn             pulumi.StringPtrOutput `pulumi:"sourceArn"`
+	StatementId           pulumi.StringOutput    `pulumi:"statementId"`
+	StatementIdPrefix     pulumi.StringOutput    `pulumi:"statementIdPrefix"`
 }
 
 // NewPermission registers a new resource with the given unique name, arguments, and options.
@@ -415,65 +69,35 @@ func GetPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Permission resources.
 type permissionState struct {
-	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-	Action *string `pulumi:"action"`
-	// Event Source Token for Alexa Skills
-	EventSourceToken *string `pulumi:"eventSourceToken"`
-	// Name or ARN of the Lambda function
-	Function interface{} `pulumi:"function"`
-	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
-	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
-	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
-	InvokedViaFunctionUrl *bool `pulumi:"invokedViaFunctionUrl"`
-	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
-	//
-	// The following arguments are optional:
-	Principal *string `pulumi:"principal"`
-	// AWS Organizations ID to grant permission to all accounts under this organization
-	PrincipalOrgId *string `pulumi:"principalOrgId"`
-	// Lambda function version or alias name
-	Qualifier *string `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
-	Region *string `pulumi:"region"`
-	// AWS account ID of the source owner for cross-account access, S3, or SES
-	SourceAccount *string `pulumi:"sourceAccount"`
-	// ARN of the source resource granting permission to invoke the Lambda function
-	SourceArn *string `pulumi:"sourceArn"`
-	// Statement identifier. Generated by Pulumi if not provided
-	StatementId *string `pulumi:"statementId"`
-	// Statement identifier prefix. Conflicts with `statementId`
-	StatementIdPrefix *string `pulumi:"statementIdPrefix"`
+	Action                *string     `pulumi:"action"`
+	EventSourceToken      *string     `pulumi:"eventSourceToken"`
+	Function              interface{} `pulumi:"function"`
+	FunctionUrlAuthType   *string     `pulumi:"functionUrlAuthType"`
+	InvokedViaFunctionUrl *bool       `pulumi:"invokedViaFunctionUrl"`
+	Principal             *string     `pulumi:"principal"`
+	PrincipalOrgId        *string     `pulumi:"principalOrgId"`
+	Qualifier             *string     `pulumi:"qualifier"`
+	Region                *string     `pulumi:"region"`
+	SourceAccount         *string     `pulumi:"sourceAccount"`
+	SourceArn             *string     `pulumi:"sourceArn"`
+	StatementId           *string     `pulumi:"statementId"`
+	StatementIdPrefix     *string     `pulumi:"statementIdPrefix"`
 }
 
 type PermissionState struct {
-	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-	Action pulumi.StringPtrInput
-	// Event Source Token for Alexa Skills
-	EventSourceToken pulumi.StringPtrInput
-	// Name or ARN of the Lambda function
-	Function pulumi.Input
-	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
-	FunctionUrlAuthType pulumi.StringPtrInput
-	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	Action                pulumi.StringPtrInput
+	EventSourceToken      pulumi.StringPtrInput
+	Function              pulumi.Input
+	FunctionUrlAuthType   pulumi.StringPtrInput
 	InvokedViaFunctionUrl pulumi.BoolPtrInput
-	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
-	//
-	// The following arguments are optional:
-	Principal pulumi.StringPtrInput
-	// AWS Organizations ID to grant permission to all accounts under this organization
-	PrincipalOrgId pulumi.StringPtrInput
-	// Lambda function version or alias name
-	Qualifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
-	Region pulumi.StringPtrInput
-	// AWS account ID of the source owner for cross-account access, S3, or SES
-	SourceAccount pulumi.StringPtrInput
-	// ARN of the source resource granting permission to invoke the Lambda function
-	SourceArn pulumi.StringPtrInput
-	// Statement identifier. Generated by Pulumi if not provided
-	StatementId pulumi.StringPtrInput
-	// Statement identifier prefix. Conflicts with `statementId`
-	StatementIdPrefix pulumi.StringPtrInput
+	Principal             pulumi.StringPtrInput
+	PrincipalOrgId        pulumi.StringPtrInput
+	Qualifier             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	SourceAccount         pulumi.StringPtrInput
+	SourceArn             pulumi.StringPtrInput
+	StatementId           pulumi.StringPtrInput
+	StatementIdPrefix     pulumi.StringPtrInput
 }
 
 func (PermissionState) ElementType() reflect.Type {
@@ -481,66 +105,36 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-	Action string `pulumi:"action"`
-	// Event Source Token for Alexa Skills
-	EventSourceToken *string `pulumi:"eventSourceToken"`
-	// Name or ARN of the Lambda function
-	Function interface{} `pulumi:"function"`
-	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
-	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
-	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
-	InvokedViaFunctionUrl *bool `pulumi:"invokedViaFunctionUrl"`
-	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
-	//
-	// The following arguments are optional:
-	Principal string `pulumi:"principal"`
-	// AWS Organizations ID to grant permission to all accounts under this organization
-	PrincipalOrgId *string `pulumi:"principalOrgId"`
-	// Lambda function version or alias name
-	Qualifier *string `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
-	Region *string `pulumi:"region"`
-	// AWS account ID of the source owner for cross-account access, S3, or SES
-	SourceAccount *string `pulumi:"sourceAccount"`
-	// ARN of the source resource granting permission to invoke the Lambda function
-	SourceArn *string `pulumi:"sourceArn"`
-	// Statement identifier. Generated by Pulumi if not provided
-	StatementId *string `pulumi:"statementId"`
-	// Statement identifier prefix. Conflicts with `statementId`
-	StatementIdPrefix *string `pulumi:"statementIdPrefix"`
+	Action                string      `pulumi:"action"`
+	EventSourceToken      *string     `pulumi:"eventSourceToken"`
+	Function              interface{} `pulumi:"function"`
+	FunctionUrlAuthType   *string     `pulumi:"functionUrlAuthType"`
+	InvokedViaFunctionUrl *bool       `pulumi:"invokedViaFunctionUrl"`
+	Principal             string      `pulumi:"principal"`
+	PrincipalOrgId        *string     `pulumi:"principalOrgId"`
+	Qualifier             *string     `pulumi:"qualifier"`
+	Region                *string     `pulumi:"region"`
+	SourceAccount         *string     `pulumi:"sourceAccount"`
+	SourceArn             *string     `pulumi:"sourceArn"`
+	StatementId           *string     `pulumi:"statementId"`
+	StatementIdPrefix     *string     `pulumi:"statementIdPrefix"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-	Action pulumi.StringInput
-	// Event Source Token for Alexa Skills
-	EventSourceToken pulumi.StringPtrInput
-	// Name or ARN of the Lambda function
-	Function pulumi.Input
-	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
-	FunctionUrlAuthType pulumi.StringPtrInput
-	// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
+	Action                pulumi.StringInput
+	EventSourceToken      pulumi.StringPtrInput
+	Function              pulumi.Input
+	FunctionUrlAuthType   pulumi.StringPtrInput
 	InvokedViaFunctionUrl pulumi.BoolPtrInput
-	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
-	//
-	// The following arguments are optional:
-	Principal pulumi.StringInput
-	// AWS Organizations ID to grant permission to all accounts under this organization
-	PrincipalOrgId pulumi.StringPtrInput
-	// Lambda function version or alias name
-	Qualifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
-	Region pulumi.StringPtrInput
-	// AWS account ID of the source owner for cross-account access, S3, or SES
-	SourceAccount pulumi.StringPtrInput
-	// ARN of the source resource granting permission to invoke the Lambda function
-	SourceArn pulumi.StringPtrInput
-	// Statement identifier. Generated by Pulumi if not provided
-	StatementId pulumi.StringPtrInput
-	// Statement identifier prefix. Conflicts with `statementId`
-	StatementIdPrefix pulumi.StringPtrInput
+	Principal             pulumi.StringInput
+	PrincipalOrgId        pulumi.StringPtrInput
+	Qualifier             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	SourceAccount         pulumi.StringPtrInput
+	SourceArn             pulumi.StringPtrInput
+	StatementId           pulumi.StringPtrInput
+	StatementIdPrefix     pulumi.StringPtrInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -630,69 +224,54 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 func (o PermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// Event Source Token for Alexa Skills
 func (o PermissionOutput) EventSourceToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.EventSourceToken }).(pulumi.StringPtrOutput)
 }
 
-// Name or ARN of the Lambda function
 func (o PermissionOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Function }).(pulumi.StringOutput)
 }
 
-// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 func (o PermissionOutput) FunctionUrlAuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.FunctionUrlAuthType }).(pulumi.StringPtrOutput)
 }
 
-// Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
 func (o PermissionOutput) InvokedViaFunctionUrl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.BoolPtrOutput { return v.InvokedViaFunctionUrl }).(pulumi.BoolPtrOutput)
 }
 
-// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
-//
-// The following arguments are optional:
 func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// AWS Organizations ID to grant permission to all accounts under this organization
 func (o PermissionOutput) PrincipalOrgId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgId }).(pulumi.StringPtrOutput)
 }
 
-// Lambda function version or alias name
 func (o PermissionOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 func (o PermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS account ID of the source owner for cross-account access, S3, or SES
 func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceAccount }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the source resource granting permission to invoke the Lambda function
 func (o PermissionOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
-// Statement identifier. Generated by Pulumi if not provided
 func (o PermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }
 
-// Statement identifier prefix. Conflicts with `statementId`
 func (o PermissionOutput) StatementIdPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.StatementIdPrefix }).(pulumi.StringOutput)
 }

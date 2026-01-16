@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("signingProfileVersionArns", required: true)]
         private InputList<string>? _signingProfileVersionArns;
-
-        /// <summary>
-        /// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-        /// </summary>
         public InputList<string> SigningProfileVersionArns
         {
             get => _signingProfileVersionArns ?? (_signingProfileVersionArns = new InputList<string>());

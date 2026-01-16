@@ -16,62 +16,30 @@ public final class PhoneNumberContactFlowAssociationArgs extends com.pulumi.reso
 
     public static final PhoneNumberContactFlowAssociationArgs Empty = new PhoneNumberContactFlowAssociationArgs();
 
-    /**
-     * Contact flow ID.
-     * 
-     */
     @Import(name="contactFlowId", required=true)
     private Output<String> contactFlowId;
 
-    /**
-     * @return Contact flow ID.
-     * 
-     */
     public Output<String> contactFlowId() {
         return this.contactFlowId;
     }
 
-    /**
-     * Amazon Connect instance ID.
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Amazon Connect instance ID.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Phone number ID.
-     * 
-     */
     @Import(name="phoneNumberId", required=true)
     private Output<String> phoneNumberId;
 
-    /**
-     * @return Phone number ID.
-     * 
-     */
     public Output<String> phoneNumberId() {
         return this.phoneNumberId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class PhoneNumberContactFlowAssociationArgs extends com.pulumi.reso
             $ = new PhoneNumberContactFlowAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactFlowId Contact flow ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactFlowId(Output<String> contactFlowId) {
             $.contactFlowId = contactFlowId;
             return this;
         }
 
-        /**
-         * @param contactFlowId Contact flow ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactFlowId(String contactFlowId) {
             return contactFlowId(Output.of(contactFlowId));
         }
 
-        /**
-         * @param instanceId Amazon Connect instance ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Amazon Connect instance ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param phoneNumberId Phone number ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumberId(Output<String> phoneNumberId) {
             $.phoneNumberId = phoneNumberId;
             return this;
         }
 
-        /**
-         * @param phoneNumberId Phone number ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phoneNumberId(String phoneNumberId) {
             return phoneNumberId(Output.of(phoneNumberId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -11,106 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information about the organization that the users account belongs to.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := organizations.LookupOrganization(ctx, map[string]interface{}{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// ctx.Export("accountIds", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,11-33)))
-// return nil
-// })
-// }
-// ```
-//
-// ### Limit SNS Topic Access to an Organization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := organizations.LookupOrganization(ctx, map[string]interface{}{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// snsTopic, err := sns.NewTopic(ctx, "sns_topic", &sns.TopicArgs{
-// Name: pulumi.String("my-sns-topic"),
-// })
-// if err != nil {
-// return err
-// }
-// snsTopicPolicy := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Actions: []string{
-// "SNS:Subscribe",
-// "SNS:Publish",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "aws:PrincipalOrgID",
-// Values: interface{}{
-// example.Id,
-// },
-// },
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Resources: []string{
-// arn,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "sns_topic_policy", &sns.TopicPolicyArgs{
-// Arn: snsTopic.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult
@@ -123,30 +23,19 @@ func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Look
 
 // A collection of values returned by getOrganization.
 type LookupOrganizationResult struct {
-	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
-	Accounts []GetOrganizationAccount `pulumi:"accounts"`
-	// ARN of the root.
-	Arn string `pulumi:"arn"`
-	// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
-	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`
-	// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
-	// FeatureSet of the organization.
-	FeatureSet string `pulumi:"featureSet"`
+	Accounts                   []GetOrganizationAccount `pulumi:"accounts"`
+	Arn                        string                   `pulumi:"arn"`
+	AwsServiceAccessPrincipals []string                 `pulumi:"awsServiceAccessPrincipals"`
+	EnabledPolicyTypes         []string                 `pulumi:"enabledPolicyTypes"`
+	FeatureSet                 string                   `pulumi:"featureSet"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the account that is designated as the master account for the organization.
-	MasterAccountArn string `pulumi:"masterAccountArn"`
-	// The email address that is associated with the AWS account that is designated as the master account for the organization.
-	MasterAccountEmail string `pulumi:"masterAccountEmail"`
-	// Unique identifier (ID) of the master account of an organization.
-	MasterAccountId string `pulumi:"masterAccountId"`
-	// Name of the master account of an organization.
-	MasterAccountName string `pulumi:"masterAccountName"`
-	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
-	// List of organization roots. All elements have these attributes:
-	Roots []GetOrganizationRoot `pulumi:"roots"`
+	Id                 string                            `pulumi:"id"`
+	MasterAccountArn   string                            `pulumi:"masterAccountArn"`
+	MasterAccountEmail string                            `pulumi:"masterAccountEmail"`
+	MasterAccountId    string                            `pulumi:"masterAccountId"`
+	MasterAccountName  string                            `pulumi:"masterAccountName"`
+	NonMasterAccounts  []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
+	Roots              []GetOrganizationRoot             `pulumi:"roots"`
 }
 
 func LookupOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
@@ -171,27 +60,22 @@ func (o LookupOrganizationResultOutput) ToLookupOrganizationResultOutputWithCont
 	return o
 }
 
-// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
 func (o LookupOrganizationResultOutput) Accounts() GetOrganizationAccountArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationAccount { return v.Accounts }).(GetOrganizationAccountArrayOutput)
 }
 
-// ARN of the root.
 func (o LookupOrganizationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
 func (o LookupOrganizationResultOutput) AwsServiceAccessPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) []string { return v.AwsServiceAccessPrincipals }).(pulumi.StringArrayOutput)
 }
 
-// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
 func (o LookupOrganizationResultOutput) EnabledPolicyTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) []string { return v.EnabledPolicyTypes }).(pulumi.StringArrayOutput)
 }
 
-// FeatureSet of the organization.
 func (o LookupOrganizationResultOutput) FeatureSet() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.FeatureSet }).(pulumi.StringOutput)
 }
@@ -201,32 +85,26 @@ func (o LookupOrganizationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the account that is designated as the master account for the organization.
 func (o LookupOrganizationResultOutput) MasterAccountArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountArn }).(pulumi.StringOutput)
 }
 
-// The email address that is associated with the AWS account that is designated as the master account for the organization.
 func (o LookupOrganizationResultOutput) MasterAccountEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountEmail }).(pulumi.StringOutput)
 }
 
-// Unique identifier (ID) of the master account of an organization.
 func (o LookupOrganizationResultOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountId }).(pulumi.StringOutput)
 }
 
-// Name of the master account of an organization.
 func (o LookupOrganizationResultOutput) MasterAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountName }).(pulumi.StringOutput)
 }
 
-// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 func (o LookupOrganizationResultOutput) NonMasterAccounts() GetOrganizationNonMasterAccountArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationNonMasterAccount { return v.NonMasterAccounts }).(GetOrganizationNonMasterAccountArrayOutput)
 }
 
-// List of organization roots. All elements have these attributes:
 func (o LookupOrganizationResultOutput) Roots() GetOrganizationRootArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationRoot { return v.Roots }).(GetOrganizationRootArrayOutput)
 }

@@ -9,50 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
-    /// in the current AWS Region.
-    /// 
-    /// If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
-    /// 
-    /// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
-    /// 
-    /// The `aws.ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
-    /// If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
-    /// By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
-    /// Set the `ForceDestroy` argument to `True` to delete the default VPC.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage with tags:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Ec2.DefaultVpc("default", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Default VPC" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/defaultVpc:DefaultVpc")]
     public partial class DefaultVpc : global::Pulumi.CustomResource
     {
@@ -62,9 +18,6 @@ namespace Pulumi.Aws.Ec2
         [Output("assignGeneratedIpv6CidrBlock")]
         public Output<bool?> AssignGeneratedIpv6CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// The primary IPv4 CIDR block for the VPC
-        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
@@ -92,15 +45,9 @@ namespace Pulumi.Aws.Ec2
         [Output("existingDefaultVpc")]
         public Output<bool> ExistingDefaultVpc { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether destroying the resource deletes the default VPC. Default: `False`
-        /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// The allowed tenancy of instances launched into the VPC
-        /// </summary>
         [Output("instanceTenancy")]
         public Output<string> InstanceTenancy { get; private set; } = null!;
 
@@ -192,9 +139,6 @@ namespace Pulumi.Aws.Ec2
         [Input("enableNetworkAddressUsageMetrics")]
         public Input<bool>? EnableNetworkAddressUsageMetrics { get; set; }
 
-        /// <summary>
-        /// Whether destroying the resource deletes the default VPC. Default: `False`
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
@@ -235,9 +179,6 @@ namespace Pulumi.Aws.Ec2
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
 
-        /// <summary>
-        /// The primary IPv4 CIDR block for the VPC
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
@@ -265,15 +206,9 @@ namespace Pulumi.Aws.Ec2
         [Input("existingDefaultVpc")]
         public Input<bool>? ExistingDefaultVpc { get; set; }
 
-        /// <summary>
-        /// Whether destroying the resource deletes the default VPC. Default: `False`
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// The allowed tenancy of instances launched into the VPC
-        /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 

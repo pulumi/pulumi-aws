@@ -26,8 +26,6 @@ class DelegationSignerRecordArgs:
                  timeouts: Optional[pulumi.Input['DelegationSignerRecordTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DelegationSignerRecord resource.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        :param pulumi.Input['DelegationSignerRecordSigningAttributesArgs'] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if signing_attributes is not None:
@@ -38,9 +36,6 @@ class DelegationSignerRecordArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -50,9 +45,6 @@ class DelegationSignerRecordArgs:
     @_builtins.property
     @pulumi.getter(name="signingAttributes")
     def signing_attributes(self) -> Optional[pulumi.Input['DelegationSignerRecordSigningAttributesArgs']]:
-        """
-        The information about a key, including the algorithm, public key-value, and flags.
-        """
         return pulumi.get(self, "signing_attributes")
 
     @signing_attributes.setter
@@ -78,9 +70,6 @@ class _DelegationSignerRecordState:
                  timeouts: Optional[pulumi.Input['DelegationSignerRecordTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DelegationSignerRecord resources.
-        :param pulumi.Input[_builtins.str] dnssec_key_id: An ID assigned to the created DS record.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        :param pulumi.Input['DelegationSignerRecordSigningAttributesArgs'] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
         """
         if dnssec_key_id is not None:
             pulumi.set(__self__, "dnssec_key_id", dnssec_key_id)
@@ -94,9 +83,6 @@ class _DelegationSignerRecordState:
     @_builtins.property
     @pulumi.getter(name="dnssecKeyId")
     def dnssec_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An ID assigned to the created DS record.
-        """
         return pulumi.get(self, "dnssec_key_id")
 
     @dnssec_key_id.setter
@@ -106,9 +92,6 @@ class _DelegationSignerRecordState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -118,9 +101,6 @@ class _DelegationSignerRecordState:
     @_builtins.property
     @pulumi.getter(name="signingAttributes")
     def signing_attributes(self) -> Optional[pulumi.Input['DelegationSignerRecordSigningAttributesArgs']]:
-        """
-        The information about a key, including the algorithm, public key-value, and flags.
-        """
         return pulumi.get(self, "signing_attributes")
 
     @signing_attributes.setter
@@ -148,99 +128,9 @@ class DelegationSignerRecord(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DelegationSignerRecordTimeoutsArgs', 'DelegationSignerRecordTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a [delegation signer record](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html#dns-configuring-dnssec-enable-signing-step-1) in the parent DNS zone for domains registered with Route53.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.kms.Key("example",
-            customer_master_key_spec="ECC_NIST_P256",
-            deletion_window_in_days=7,
-            key_usage="SIGN_VERIFY",
-            policy=json.dumps({
-                "Statement": [
-                    {
-                        "Action": [
-                            "kms:DescribeKey",
-                            "kms:GetPublicKey",
-                            "kms:Sign",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnLike": {
-                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
-                                "kms:GrantIsForAWSResource": "true",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
-                    },
-                ],
-                "Version": "2012-10-17",
-            }))
-        example_zone = aws.route53.Zone("example", name="example.com")
-        example_key_signing_key = aws.route53.KeySigningKey("example",
-            hosted_zone_id=test["id"],
-            key_management_service_arn=test_aws_kms_key["arn"],
-            name="example")
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts = pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
-        example_delegation_signer_record = aws.route53domains.DelegationSignerRecord("example",
-            domain_name="example.com",
-            signing_attributes={
-                "algorithm": example_key_signing_key.signing_algorithm_type,
-                "flags": example_key_signing_key.flag,
-                "public_key": example_key_signing_key.public_key,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
-        ```
-
+        Create a DelegationSignerRecord resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        :param pulumi.Input[Union['DelegationSignerRecordSigningAttributesArgs', 'DelegationSignerRecordSigningAttributesArgsDict']] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
         """
         ...
     @overload
@@ -249,95 +139,7 @@ class DelegationSignerRecord(pulumi.CustomResource):
                  args: DelegationSignerRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a [delegation signer record](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html#dns-configuring-dnssec-enable-signing-step-1) in the parent DNS zone for domains registered with Route53.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.kms.Key("example",
-            customer_master_key_spec="ECC_NIST_P256",
-            deletion_window_in_days=7,
-            key_usage="SIGN_VERIFY",
-            policy=json.dumps({
-                "Statement": [
-                    {
-                        "Action": [
-                            "kms:DescribeKey",
-                            "kms:GetPublicKey",
-                            "kms:Sign",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnLike": {
-                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
-                                "kms:GrantIsForAWSResource": "true",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
-                    },
-                ],
-                "Version": "2012-10-17",
-            }))
-        example_zone = aws.route53.Zone("example", name="example.com")
-        example_key_signing_key = aws.route53.KeySigningKey("example",
-            hosted_zone_id=test["id"],
-            key_management_service_arn=test_aws_kms_key["arn"],
-            name="example")
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts = pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
-        example_delegation_signer_record = aws.route53domains.DelegationSignerRecord("example",
-            domain_name="example.com",
-            signing_attributes={
-                "algorithm": example_key_signing_key.signing_algorithm_type,
-                "flags": example_key_signing_key.flag,
-                "public_key": example_key_signing_key.public_key,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import delegation signer records using the domain name and DNSSEC key ID, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
-        ```
-
+        Create a DelegationSignerRecord resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DelegationSignerRecordArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,9 +194,6 @@ class DelegationSignerRecord(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dnssec_key_id: An ID assigned to the created DS record.
-        :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        :param pulumi.Input[Union['DelegationSignerRecordSigningAttributesArgs', 'DelegationSignerRecordSigningAttributesArgsDict']] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -409,25 +208,16 @@ class DelegationSignerRecord(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dnssecKeyId")
     def dnssec_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        An ID assigned to the created DS record.
-        """
         return pulumi.get(self, "dnssec_key_id")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="signingAttributes")
     def signing_attributes(self) -> pulumi.Output[Optional['outputs.DelegationSignerRecordSigningAttributes']]:
-        """
-        The information about a key, including the algorithm, public key-value, and flags.
-        """
         return pulumi.get(self, "signing_attributes")
 
     @_builtins.property

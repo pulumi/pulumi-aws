@@ -29,17 +29,9 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
         return this.override;
     }
 
-    /**
-     * The value for the HTTP response header.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value for the HTTP response header.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -88,23 +80,11 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
             return override(Output.of(override));
         }
 
-        /**
-         * @param value The value for the HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value for the HTTP response header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

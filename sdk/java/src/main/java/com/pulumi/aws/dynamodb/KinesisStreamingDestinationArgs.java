@@ -16,62 +16,30 @@ public final class KinesisStreamingDestinationArgs extends com.pulumi.resources.
 
     public static final KinesisStreamingDestinationArgs Empty = new KinesisStreamingDestinationArgs();
 
-    /**
-     * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-     * 
-     */
     @Import(name="approximateCreationDateTimePrecision")
     private @Nullable Output<String> approximateCreationDateTimePrecision;
 
-    /**
-     * @return Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-     * 
-     */
     public Optional<Output<String>> approximateCreationDateTimePrecision() {
         return Optional.ofNullable(this.approximateCreationDateTimePrecision);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     * 
-     */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
-    /**
-     * @return The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     * 
-     */
     public Output<String> streamArn() {
         return this.streamArn;
     }
 
-    /**
-     * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -103,86 +71,38 @@ public final class KinesisStreamingDestinationArgs extends com.pulumi.resources.
             $ = new KinesisStreamingDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param approximateCreationDateTimePrecision Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder approximateCreationDateTimePrecision(@Nullable Output<String> approximateCreationDateTimePrecision) {
             $.approximateCreationDateTimePrecision = approximateCreationDateTimePrecision;
             return this;
         }
 
-        /**
-         * @param approximateCreationDateTimePrecision Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder approximateCreationDateTimePrecision(String approximateCreationDateTimePrecision) {
             return approximateCreationDateTimePrecision(Output.of(approximateCreationDateTimePrecision));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param streamArn The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(Output<String> streamArn) {
             $.streamArn = streamArn;
             return this;
         }
 
-        /**
-         * @param streamArn The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
         }
 
-        /**
-         * @param tableName The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

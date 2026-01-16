@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class OrganizationConfigurationOrganizationConfiguration {
-    /**
-     * @return Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-     * 
-     */
     private String configurationType;
 
     private OrganizationConfigurationOrganizationConfiguration() {}
-    /**
-     * @return Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
-     * 
-     */
     public String configurationType() {
         return this.configurationType;
     }

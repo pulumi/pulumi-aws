@@ -26,13 +26,6 @@ class BrowserSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrowserSettings resource.
-        :param pulumi.Input[_builtins.str] browser_policy: Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "browser_policy", browser_policy)
         if additional_encryption_context is not None:
@@ -47,11 +40,6 @@ class BrowserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="browserPolicy")
     def browser_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "browser_policy")
 
     @browser_policy.setter
@@ -61,9 +49,6 @@ class BrowserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the browser settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -73,9 +58,6 @@ class BrowserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -85,9 +67,6 @@ class BrowserSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +76,6 @@ class BrowserSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -120,16 +96,6 @@ class _BrowserSettingsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering BrowserSettings resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs to associate with the browser settings.
-        :param pulumi.Input[_builtins.str] browser_policy: Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings resource.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -151,9 +117,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Additional encryption context for the browser settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -163,9 +126,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of web portal ARNs to associate with the browser settings.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @associated_portal_arns.setter
@@ -175,11 +135,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter(name="browserPolicy")
     def browser_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "browser_policy")
 
     @browser_policy.setter
@@ -189,9 +144,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the browser settings resource.
-        """
         return pulumi.get(self, "browser_settings_arn")
 
     @browser_settings_arn.setter
@@ -201,9 +153,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -213,9 +162,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -225,9 +171,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -237,9 +180,6 @@ class _BrowserSettingsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -260,70 +200,9 @@ class BrowserSettings(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS WorkSpaces Web Browser Settings resource.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.BrowserSettings("example", browser_policy=json.dumps({
-            "AdditionalSettings": {
-                "DownloadsSettings": {
-                    "Behavior": "DISABLE",
-                },
-            },
-        }))
-        ```
-
-        ### With All Arguments
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Browser Settings",
-            deletion_window_in_days=7)
-        example_browser_settings = aws.workspacesweb.BrowserSettings("example",
-            browser_policy=json.dumps({
-                "chromePolicies": {
-                    "DefaultDownloadDirectory": {
-                        "value": "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
-                    },
-                },
-            }),
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            tags={
-                "Name": "example-browser-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browser_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
-        ```
-
+        Create a BrowserSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
-        :param pulumi.Input[_builtins.str] browser_policy: Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -332,61 +211,7 @@ class BrowserSettings(pulumi.CustomResource):
                  args: BrowserSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS WorkSpaces Web Browser Settings resource.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.workspacesweb.BrowserSettings("example", browser_policy=json.dumps({
-            "AdditionalSettings": {
-                "DownloadsSettings": {
-                    "Behavior": "DISABLE",
-                },
-            },
-        }))
-        ```
-
-        ### With All Arguments
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example",
-            description="KMS key for WorkSpaces Web Browser Settings",
-            deletion_window_in_days=7)
-        example_browser_settings = aws.workspacesweb.BrowserSettings("example",
-            browser_policy=json.dumps({
-                "chromePolicies": {
-                    "DefaultDownloadDirectory": {
-                        "value": "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
-                    },
-                },
-            }),
-            customer_managed_key=example.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-            },
-            tags={
-                "Name": "example-browser-settings",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browser_settings_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
-        ```
-
+        Create a BrowserSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BrowserSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -453,16 +278,6 @@ class BrowserSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs to associate with the browser settings.
-        :param pulumi.Input[_builtins.str] browser_policy: Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings resource.
-        :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -481,66 +296,40 @@ class BrowserSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Additional encryption context for the browser settings.
-        """
         return pulumi.get(self, "additional_encryption_context")
 
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of web portal ARNs to associate with the browser settings.
-        """
         return pulumi.get(self, "associated_portal_arns")
 
     @_builtins.property
     @pulumi.getter(name="browserPolicy")
     def browser_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "browser_policy")
 
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the browser settings resource.
-        """
         return pulumi.get(self, "browser_settings_arn")
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the customer managed KMS key.
-        """
         return pulumi.get(self, "customer_managed_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

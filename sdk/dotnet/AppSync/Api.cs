@@ -9,245 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.Api("example", new()
-    ///     {
-    ///         Name = "example-event-api",
-    ///         EventConfig = new Aws.AppSync.Inputs.ApiEventConfigArgs
-    ///         {
-    ///             AuthProviders = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigAuthProviderArgs
-    ///                 {
-    ///                     AuthType = "API_KEY",
-    ///                 },
-    ///             },
-    ///             ConnectionAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigConnectionAuthModeArgs
-    ///                 {
-    ///                     AuthType = "API_KEY",
-    ///                 },
-    ///             },
-    ///             DefaultPublishAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigDefaultPublishAuthModeArgs
-    ///                 {
-    ///                     AuthType = "API_KEY",
-    ///                 },
-    ///             },
-    ///             DefaultSubscribeAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigDefaultSubscribeAuthModeArgs
-    ///                 {
-    ///                     AuthType = "API_KEY",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Cognito Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cognito.UserPool("example", new()
-    ///     {
-    ///         Name = "example-user-pool",
-    ///     });
-    /// 
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleApi = new Aws.AppSync.Api("example", new()
-    ///     {
-    ///         Name = "example-event-api",
-    ///         EventConfig = new Aws.AppSync.Inputs.ApiEventConfigArgs
-    ///         {
-    ///             AuthProviders = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigAuthProviderArgs
-    ///                 {
-    ///                     AuthType = "AMAZON_COGNITO_USER_POOLS",
-    ///                     CognitoConfig = new Aws.AppSync.Inputs.ApiEventConfigAuthProviderCognitoConfigArgs
-    ///                     {
-    ///                         UserPoolId = example.Id,
-    ///                         AwsRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ConnectionAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigConnectionAuthModeArgs
-    ///                 {
-    ///                     AuthType = "AMAZON_COGNITO_USER_POOLS",
-    ///                 },
-    ///             },
-    ///             DefaultPublishAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigDefaultPublishAuthModeArgs
-    ///                 {
-    ///                     AuthType = "AMAZON_COGNITO_USER_POOLS",
-    ///                 },
-    ///             },
-    ///             DefaultSubscribeAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigDefaultSubscribeAuthModeArgs
-    ///                 {
-    ///                     AuthType = "AMAZON_COGNITO_USER_POOLS",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Lambda Authorizer
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.Api("example", new()
-    ///     {
-    ///         Name = "example-event-api",
-    ///         EventConfig = new Aws.AppSync.Inputs.ApiEventConfigArgs
-    ///         {
-    ///             AuthProviders = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigAuthProviderArgs
-    ///                 {
-    ///                     AuthType = "AWS_LAMBDA",
-    ///                     LambdaAuthorizerConfig = new Aws.AppSync.Inputs.ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs
-    ///                     {
-    ///                         AuthorizerUri = exampleAwsLambdaFunction.Arn,
-    ///                         AuthorizerResultTtlInSeconds = 300,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ConnectionAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigConnectionAuthModeArgs
-    ///                 {
-    ///                     AuthType = "AWS_LAMBDA",
-    ///                 },
-    ///             },
-    ///             DefaultPublishAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigDefaultPublishAuthModeArgs
-    ///                 {
-    ///                     AuthType = "AWS_LAMBDA",
-    ///                 },
-    ///             },
-    ///             DefaultSubscribeAuthModes = new[]
-    ///             {
-    ///                 new Aws.AppSync.Inputs.ApiEventConfigDefaultSubscribeAuthModeArgs
-    ///                 {
-    ///                     AuthType = "AWS_LAMBDA",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appsync/api:Api example example-api-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/api:Api")]
     public partial class Api : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Event API.
-        /// </summary>
         [Output("apiArn")]
         public Output<string> ApiArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Event API.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// DNS configuration for the Event API.
-        /// </summary>
         [Output("dns")]
         public Output<ImmutableDictionary<string, string>> Dns { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration for the Event API. See Event Config below.
-        /// </summary>
         [Output("eventConfig")]
         public Output<Outputs.ApiEventConfig?> EventConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Event API.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Contact information for the owner of the Event API.
-        /// </summary>
         [Output("ownerContact")]
         public Output<string?> OwnerContact { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the associated WAF web ACL.
-        /// </summary>
         [Output("wafWebAclArn")]
         public Output<string> WafWebAclArn { get; private set; } = null!;
 
@@ -300,38 +91,20 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class ApiArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for the Event API. See Event Config below.
-        /// </summary>
         [Input("eventConfig")]
         public Input<Inputs.ApiEventConfigArgs>? EventConfig { get; set; }
 
-        /// <summary>
-        /// Name of the Event API.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Contact information for the owner of the Event API.
-        /// </summary>
         [Input("ownerContact")]
         public Input<string>? OwnerContact { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -346,62 +119,34 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class ApiState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Event API.
-        /// </summary>
         [Input("apiArn")]
         public Input<string>? ApiArn { get; set; }
 
-        /// <summary>
-        /// ID of the Event API.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         [Input("dns")]
         private InputMap<string>? _dns;
-
-        /// <summary>
-        /// DNS configuration for the Event API.
-        /// </summary>
         public InputMap<string> Dns
         {
             get => _dns ?? (_dns = new InputMap<string>());
             set => _dns = value;
         }
 
-        /// <summary>
-        /// Configuration for the Event API. See Event Config below.
-        /// </summary>
         [Input("eventConfig")]
         public Input<Inputs.ApiEventConfigGetArgs>? EventConfig { get; set; }
 
-        /// <summary>
-        /// Name of the Event API.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Contact information for the owner of the Event API.
-        /// </summary>
         [Input("ownerContact")]
         public Input<string>? OwnerContact { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -410,19 +155,12 @@ namespace Pulumi.Aws.AppSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ARN of the associated WAF web ACL.
-        /// </summary>
         [Input("wafWebAclArn")]
         public Input<string>? WafWebAclArn { get; set; }
 

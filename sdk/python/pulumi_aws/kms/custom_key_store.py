@@ -34,11 +34,6 @@ class CustomKeyStoreArgs:
                  xks_proxy_vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomKeyStore resource.
-        :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "custom_key_store_name", custom_key_store_name)
         if cloud_hsm_cluster_id is not None:
@@ -65,11 +60,6 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="customKeyStoreName")
     def custom_key_store_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name for Custom Key Store.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "custom_key_store_name")
 
     @custom_key_store_name.setter
@@ -88,9 +78,6 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="customKeyStoreType")
     def custom_key_store_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        """
         return pulumi.get(self, "custom_key_store_type")
 
     @custom_key_store_type.setter
@@ -109,9 +96,6 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -189,11 +173,6 @@ class _CustomKeyStoreState:
                  xks_proxy_vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomKeyStore resources.
-        :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cloud_hsm_cluster_id is not None:
             pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
@@ -230,11 +209,6 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="customKeyStoreName")
     def custom_key_store_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for Custom Key Store.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "custom_key_store_name")
 
     @custom_key_store_name.setter
@@ -244,9 +218,6 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="customKeyStoreType")
     def custom_key_store_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        """
         return pulumi.get(self, "custom_key_store_type")
 
     @custom_key_store_type.setter
@@ -265,9 +236,6 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -348,76 +316,9 @@ class CustomKeyStore(pulumi.CustomResource):
                  xks_proxy_vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS KMS (Key Management) Custom Key Store.
-
-        ## Example Usage
-
-        ### CloudHSM
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
-            custom_key_store_name="kms-custom-key-store-test",
-            key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
-        ```
-
-        ### External Key Store (VPC)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.CustomKeyStore("example",
-            custom_key_store_name="example-vpc-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
-            xks_proxy_authentication_credential={
-                "access_key_id": ephemeral_access_key_id,
-                "raw_secret_access_key": ephemeral_secret_access_key,
-            },
-            xks_proxy_connectivity="VPC_ENDPOINT_SERVICE",
-            xks_proxy_uri_endpoint="https://myproxy-private.xks.example.com",
-            xks_proxy_uri_path="/kms/xks/v1",
-            xks_proxy_vpc_endpoint_service_name="com.amazonaws.vpce.us-east-1.vpce-svc-example")
-        ```
-
-        ### External Key Store (Public)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.CustomKeyStore("example",
-            custom_key_store_name="example-public-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
-            xks_proxy_authentication_credential={
-                "access_key_id": ephemeral_access_key_id,
-                "raw_secret_access_key": ephemeral_secret_access_key,
-            },
-            xks_proxy_connectivity="PUBLIC_ENDPOINT",
-            xks_proxy_uri_endpoint="https://myproxy.xks.example.com",
-            xks_proxy_uri_path="/kms/xks/v1")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-        ```
-
+        Create a CustomKeyStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -426,69 +327,7 @@ class CustomKeyStore(pulumi.CustomResource):
                  args: CustomKeyStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS KMS (Key Management) Custom Key Store.
-
-        ## Example Usage
-
-        ### CloudHSM
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
-            custom_key_store_name="kms-custom-key-store-test",
-            key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
-        ```
-
-        ### External Key Store (VPC)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.CustomKeyStore("example",
-            custom_key_store_name="example-vpc-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
-            xks_proxy_authentication_credential={
-                "access_key_id": ephemeral_access_key_id,
-                "raw_secret_access_key": ephemeral_secret_access_key,
-            },
-            xks_proxy_connectivity="VPC_ENDPOINT_SERVICE",
-            xks_proxy_uri_endpoint="https://myproxy-private.xks.example.com",
-            xks_proxy_uri_path="/kms/xks/v1",
-            xks_proxy_vpc_endpoint_service_name="com.amazonaws.vpce.us-east-1.vpce-svc-example")
-        ```
-
-        ### External Key Store (Public)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.CustomKeyStore("example",
-            custom_key_store_name="example-public-xks",
-            custom_key_store_type="EXTERNAL_KEY_STORE",
-            xks_proxy_authentication_credential={
-                "access_key_id": ephemeral_access_key_id,
-                "raw_secret_access_key": ephemeral_secret_access_key,
-            },
-            xks_proxy_connectivity="PUBLIC_ENDPOINT",
-            xks_proxy_uri_endpoint="https://myproxy.xks.example.com",
-            xks_proxy_uri_path="/kms/xks/v1")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-        ```
-
+        Create a CustomKeyStore resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomKeyStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -565,11 +404,6 @@ class CustomKeyStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -596,19 +430,11 @@ class CustomKeyStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="customKeyStoreName")
     def custom_key_store_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for Custom Key Store.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "custom_key_store_name")
 
     @_builtins.property
     @pulumi.getter(name="customKeyStoreType")
     def custom_key_store_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
-        """
         return pulumi.get(self, "custom_key_store_type")
 
     @_builtins.property
@@ -619,9 +445,6 @@ class CustomKeyStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

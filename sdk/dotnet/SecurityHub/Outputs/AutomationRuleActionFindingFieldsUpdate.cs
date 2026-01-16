@@ -13,41 +13,14 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleActionFindingFieldsUpdate
     {
-        /// <summary>
-        /// The rule action updates the `Confidence` field of a finding.
-        /// </summary>
         public readonly int? Confidence;
-        /// <summary>
-        /// The rule action updates the `Criticality` field of a finding.
-        /// </summary>
         public readonly int? Criticality;
-        /// <summary>
-        /// A resource block that updates the note. Documented below.
-        /// </summary>
         public readonly Outputs.AutomationRuleActionFindingFieldsUpdateNote? Note;
-        /// <summary>
-        /// A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding> RelatedFindings;
-        /// <summary>
-        /// A resource block that updates to the severity information for a finding. Documented below.
-        /// </summary>
         public readonly Outputs.AutomationRuleActionFindingFieldsUpdateSeverity? Severity;
-        /// <summary>
-        /// The rule action updates the `Types` field of a finding.
-        /// </summary>
         public readonly ImmutableArray<string> Types;
-        /// <summary>
-        /// The rule action updates the `UserDefinedFields` field of a finding.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? UserDefinedFields;
-        /// <summary>
-        /// The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
-        /// </summary>
         public readonly string? VerificationState;
-        /// <summary>
-        /// A resource block that is used to update information about the investigation into the finding. Documented below.
-        /// </summary>
         public readonly Outputs.AutomationRuleActionFindingFieldsUpdateWorkflow? Workflow;
 
         [OutputConstructor]

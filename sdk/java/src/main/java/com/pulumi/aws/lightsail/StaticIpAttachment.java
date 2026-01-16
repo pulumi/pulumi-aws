@@ -13,130 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a static IP address attachment - relationship between a Lightsail static IP and Lightsail instance.
- * 
- * Use this resource to attach a static IP address to a Lightsail instance to provide a consistent public IP address that persists across instance restarts.
- * 
- * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.StaticIp;
- * import com.pulumi.aws.lightsail.StaticIpArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.StaticIpAttachment;
- * import com.pulumi.aws.lightsail.StaticIpAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new StaticIp("example", StaticIpArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .name("example")
- *             .availabilityZone("us-east-1a")
- *             .blueprintId("ubuntu_20_04")
- *             .bundleId("nano_2_0")
- *             .build());
- * 
- *         var exampleStaticIpAttachment = new StaticIpAttachment("exampleStaticIpAttachment", StaticIpAttachmentArgs.builder()
- *             .staticIpName(example.id())
- *             .instanceName(exampleInstance.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_static_ip_attachment` using the static IP name. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/staticIpAttachment:StaticIpAttachment example example-static-ip
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/staticIpAttachment:StaticIpAttachment")
 public class StaticIpAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Lightsail instance to attach the IP to.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return Name of the Lightsail instance to attach the IP to.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * Allocated static IP address.
-     * 
-     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
-    /**
-     * @return Allocated static IP address.
-     * 
-     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the allocated static IP.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="staticIpName", refs={String.class}, tree="[0]")
     private Output<String> staticIpName;
 
-    /**
-     * @return Name of the allocated static IP.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> staticIpName() {
         return this.staticIpName;
     }

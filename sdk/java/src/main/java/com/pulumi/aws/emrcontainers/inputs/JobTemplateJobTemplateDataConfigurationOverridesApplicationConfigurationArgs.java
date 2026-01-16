@@ -19,47 +19,23 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
 
     public static final JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs Empty = new JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs();
 
-    /**
-     * The classification within a configuration.
-     * 
-     */
     @Import(name="classification", required=true)
     private Output<String> classification;
 
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     public Output<String> classification() {
         return this.classification;
     }
 
-    /**
-     * A list of additional configurations to apply within a configuration object.
-     * 
-     */
     @Import(name="configurations")
     private @Nullable Output<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs>> configurations;
 
-    /**
-     * @return A list of additional configurations to apply within a configuration object.
-     * 
-     */
     public Optional<Output<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs>>> configurations() {
         return Optional.ofNullable(this.configurations);
     }
 
-    /**
-     * A set of properties specified within a configuration classification.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<Map<String,String>> properties;
 
-    /**
-     * @return A set of properties specified within a configuration classification.
-     * 
-     */
     public Optional<Output<Map<String,String>>> properties() {
         return Optional.ofNullable(this.properties);
     }
@@ -90,75 +66,33 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
             $ = new JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param classification The classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(Output<String> classification) {
             $.classification = classification;
             return this;
         }
 
-        /**
-         * @param classification The classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(String classification) {
             return classification(Output.of(classification));
         }
 
-        /**
-         * @param configurations A list of additional configurations to apply within a configuration object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurations(@Nullable Output<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs>> configurations) {
             $.configurations = configurations;
             return this;
         }
 
-        /**
-         * @param configurations A list of additional configurations to apply within a configuration object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurations(List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs> configurations) {
             return configurations(Output.of(configurations));
         }
 
-        /**
-         * @param configurations A list of additional configurations to apply within a configuration object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurations(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs... configurations) {
             return configurations(List.of(configurations));
         }
 
-        /**
-         * @param properties A set of properties specified within a configuration classification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<Map<String,String>> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties A set of properties specified within a configuration classification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(Map<String,String> properties) {
             return properties(Output.of(properties));
         }

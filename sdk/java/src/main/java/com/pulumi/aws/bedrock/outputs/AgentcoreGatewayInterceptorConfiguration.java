@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayInterceptorConfiguration {
-    /**
-     * @return Input configuration for the interceptor. See `inputConfiguration` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayInterceptorConfigurationInputConfiguration inputConfiguration;
-    /**
-     * @return Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-     * 
-     */
     private List<String> interceptionPoints;
-    /**
-     * @return Interceptor infrastructure configuration. See `interceptor` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayInterceptorConfigurationInterceptor interceptor;
 
     private AgentcoreGatewayInterceptorConfiguration() {}
-    /**
-     * @return Input configuration for the interceptor. See `inputConfiguration` below.
-     * 
-     */
     public Optional<AgentcoreGatewayInterceptorConfigurationInputConfiguration> inputConfiguration() {
         return Optional.ofNullable(this.inputConfiguration);
     }
-    /**
-     * @return Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-     * 
-     */
     public List<String> interceptionPoints() {
         return this.interceptionPoints;
     }
-    /**
-     * @return Interceptor infrastructure configuration. See `interceptor` below.
-     * 
-     */
     public Optional<AgentcoreGatewayInterceptorConfigurationInterceptor> interceptor() {
         return Optional.ofNullable(this.interceptor);
     }

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
-    /**
-     * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-     * 
-     */
     private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters;
-    /**
-     * @return The type of record format. Valid values: `CSV`, `JSON`.
-     * 
-     */
     private String recordFormatType;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat() {}
-    /**
-     * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-     * 
-     */
     public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters() {
         return this.mappingParameters;
     }
-    /**
-     * @return The type of record format. Valid values: `CSV`, `JSON`.
-     * 
-     */
     public String recordFormatType() {
         return this.recordFormatType;
     }

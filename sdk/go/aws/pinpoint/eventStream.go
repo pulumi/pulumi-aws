@@ -12,119 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint Event Stream resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
-//				Name:       pulumi.String("pinpoint-kinesis-test"),
-//				ShardCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"pinpoint.us-east-1.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testRole, err := iam.NewRole(ctx, "test_role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewEventStream(ctx, "stream", &pinpoint.EventStreamArgs{
-//				ApplicationId:        app.ApplicationId,
-//				DestinationStreamArn: testStream.Arn,
-//				RoleArn:              testRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"kinesis:PutRecords",
-//							"kinesis:DescribeStream",
-//						},
-//						Resources: []string{
-//							"arn:aws:kinesis:us-east-1:*:*/*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "test_role_policy", &iam.RolePolicyArgs{
-//				Name:   pulumi.String("test_policy"),
-//				Role:   testRole.ID(),
-//				Policy: pulumi.String(testRolePolicy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
-//
-// ```sh
-// $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
-// ```
 type EventStream struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	ApplicationId        pulumi.StringOutput `pulumi:"applicationId"`
 	DestinationStreamArn pulumi.StringOutput `pulumi:"destinationStreamArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	Region               pulumi.StringOutput `pulumi:"region"`
+	RoleArn              pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewEventStream registers a new resource with the given unique name, arguments, and options.
@@ -166,25 +60,17 @@ func GetEventStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventStream resources.
 type eventStreamState struct {
-	// The application ID.
-	ApplicationId *string `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	ApplicationId        *string `pulumi:"applicationId"`
 	DestinationStreamArn *string `pulumi:"destinationStreamArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-	RoleArn *string `pulumi:"roleArn"`
+	Region               *string `pulumi:"region"`
+	RoleArn              *string `pulumi:"roleArn"`
 }
 
 type EventStreamState struct {
-	// The application ID.
-	ApplicationId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	ApplicationId        pulumi.StringPtrInput
 	DestinationStreamArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-	RoleArn pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	RoleArn              pulumi.StringPtrInput
 }
 
 func (EventStreamState) ElementType() reflect.Type {
@@ -192,26 +78,18 @@ func (EventStreamState) ElementType() reflect.Type {
 }
 
 type eventStreamArgs struct {
-	// The application ID.
-	ApplicationId string `pulumi:"applicationId"`
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-	DestinationStreamArn string `pulumi:"destinationStreamArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-	RoleArn string `pulumi:"roleArn"`
+	ApplicationId        string  `pulumi:"applicationId"`
+	DestinationStreamArn string  `pulumi:"destinationStreamArn"`
+	Region               *string `pulumi:"region"`
+	RoleArn              string  `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a EventStream resource.
 type EventStreamArgs struct {
-	// The application ID.
-	ApplicationId pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	ApplicationId        pulumi.StringInput
 	DestinationStreamArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-	RoleArn pulumi.StringInput
+	Region               pulumi.StringPtrInput
+	RoleArn              pulumi.StringInput
 }
 
 func (EventStreamArgs) ElementType() reflect.Type {
@@ -301,22 +179,18 @@ func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// The application ID.
 func (o EventStreamOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 func (o EventStreamOutput) DestinationStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.DestinationStreamArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventStreamOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
 func (o EventStreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

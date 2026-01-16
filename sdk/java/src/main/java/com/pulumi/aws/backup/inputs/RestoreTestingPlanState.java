@@ -18,107 +18,51 @@ public final class RestoreTestingPlanState extends com.pulumi.resources.Resource
 
     public static final RestoreTestingPlanState Empty = new RestoreTestingPlanState();
 
-    /**
-     * ARN of the Restore Testing Plan.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Restore Testing Plan.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     * 
-     */
     @Import(name="recoveryPointSelection")
     private @Nullable Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection;
 
-    /**
-     * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     * 
-     */
     public Optional<Output<RestoreTestingPlanRecoveryPointSelectionArgs>> recoveryPointSelection() {
         return Optional.ofNullable(this.recoveryPointSelection);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The schedule expression for the restore testing plan.
-     * 
-     */
     @Import(name="scheduleExpression")
     private @Nullable Output<String> scheduleExpression;
 
-    /**
-     * @return The schedule expression for the restore testing plan.
-     * 
-     */
     public Optional<Output<String>> scheduleExpression() {
         return Optional.ofNullable(this.scheduleExpression);
     }
 
-    /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
-     * 
-     */
     @Import(name="scheduleExpressionTimezone")
     private @Nullable Output<String> scheduleExpressionTimezone;
 
-    /**
-     * @return The timezone for the schedule expression. If not provided, the state value will be used.
-     * 
-     */
     public Optional<Output<String>> scheduleExpressionTimezone() {
         return Optional.ofNullable(this.scheduleExpressionTimezone);
     }
 
-    /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     * 
-     */
     @Import(name="startWindowHours")
     private @Nullable Output<Integer> startWindowHours;
 
-    /**
-     * @return The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     * 
-     */
     public Optional<Output<Integer>> startWindowHours() {
         return Optional.ofNullable(this.startWindowHours);
     }
@@ -130,17 +74,9 @@ public final class RestoreTestingPlanState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -177,149 +113,65 @@ public final class RestoreTestingPlanState extends com.pulumi.resources.Resource
             $ = new RestoreTestingPlanState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Restore Testing Plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Restore Testing Plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param recoveryPointSelection Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointSelection(@Nullable Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection) {
             $.recoveryPointSelection = recoveryPointSelection;
             return this;
         }
 
-        /**
-         * @param recoveryPointSelection Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointSelection(RestoreTestingPlanRecoveryPointSelectionArgs recoveryPointSelection) {
             return recoveryPointSelection(Output.of(recoveryPointSelection));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scheduleExpression The schedule expression for the restore testing plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(@Nullable Output<String> scheduleExpression) {
             $.scheduleExpression = scheduleExpression;
             return this;
         }
 
-        /**
-         * @param scheduleExpression The schedule expression for the restore testing plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
         }
 
-        /**
-         * @param scheduleExpressionTimezone The timezone for the schedule expression. If not provided, the state value will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpressionTimezone(@Nullable Output<String> scheduleExpressionTimezone) {
             $.scheduleExpressionTimezone = scheduleExpressionTimezone;
             return this;
         }
 
-        /**
-         * @param scheduleExpressionTimezone The timezone for the schedule expression. If not provided, the state value will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpressionTimezone(String scheduleExpressionTimezone) {
             return scheduleExpressionTimezone(Output.of(scheduleExpressionTimezone));
         }
 
-        /**
-         * @param startWindowHours The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startWindowHours(@Nullable Output<Integer> startWindowHours) {
             $.startWindowHours = startWindowHours;
             return this;
         }
 
-        /**
-         * @param startWindowHours The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startWindowHours(Integer startWindowHours) {
             return startWindowHours(Output.of(startWindowHours));
         }
@@ -333,23 +185,11 @@ public final class RestoreTestingPlanState extends com.pulumi.resources.Resource
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

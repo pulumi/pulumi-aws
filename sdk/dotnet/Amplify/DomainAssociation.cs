@@ -9,123 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amplify
 {
-    /// <summary>
-    /// Provides an Amplify Domain Association resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         Name = "app",
-    ///         CustomRules = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///             {
-    ///                 Source = "https://example.com",
-    ///                 Status = "302",
-    ///                 Target = "https://www.example.com",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var master = new Aws.Amplify.Branch("master", new()
-    ///     {
-    ///         AppId = example.Id,
-    ///         BranchName = "master",
-    ///     });
-    /// 
-    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("example", new()
-    ///     {
-    ///         AppId = example.Id,
-    ///         DomainName = "example.com",
-    ///         SubDomains = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
-    ///             {
-    ///                 BranchName = master.BranchName,
-    ///                 Prefix = "",
-    ///             },
-    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
-    ///             {
-    ///                 BranchName = master.BranchName,
-    ///                 Prefix = "www",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:amplify/domainAssociation:DomainAssociation")]
     public partial class DomainAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Unique ID for an Amplify app.
-        /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN for the domain association.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        /// </summary>
         [Output("certificateSettings")]
         public Output<Outputs.DomainAssociationCertificateSettings> CertificateSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-        /// </summary>
         [Output("certificateVerificationDnsRecord")]
         public Output<string> CertificateVerificationDnsRecord { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain name for the domain association.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables the automated creation of subdomains for branches.
-        /// </summary>
         [Output("enableAutoSubDomain")]
         public Output<bool?> EnableAutoSubDomain { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Setting for the subdomain. Documented below.
-        /// </summary>
         [Output("subDomains")]
         public Output<ImmutableArray<Outputs.DomainAssociationSubDomain>> SubDomains { get; private set; } = null!;
 
-        /// <summary>
-        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `False` will skip the process. Default: `True`.
-        /// </summary>
         [Output("waitForVerification")]
         public Output<bool?> WaitForVerification { get; private set; } = null!;
 
@@ -175,51 +85,29 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class DomainAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique ID for an Amplify app.
-        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
-        /// <summary>
-        /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        /// </summary>
         [Input("certificateSettings")]
         public Input<Inputs.DomainAssociationCertificateSettingsArgs>? CertificateSettings { get; set; }
 
-        /// <summary>
-        /// Domain name for the domain association.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Enables the automated creation of subdomains for branches.
-        /// </summary>
         [Input("enableAutoSubDomain")]
         public Input<bool>? EnableAutoSubDomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subDomains", required: true)]
         private InputList<Inputs.DomainAssociationSubDomainArgs>? _subDomains;
-
-        /// <summary>
-        /// Setting for the subdomain. Documented below.
-        /// </summary>
         public InputList<Inputs.DomainAssociationSubDomainArgs> SubDomains
         {
             get => _subDomains ?? (_subDomains = new InputList<Inputs.DomainAssociationSubDomainArgs>());
             set => _subDomains = value;
         }
 
-        /// <summary>
-        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `False` will skip the process. Default: `True`.
-        /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
 
@@ -231,63 +119,35 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class DomainAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique ID for an Amplify app.
-        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
-        /// <summary>
-        /// ARN for the domain association.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        /// </summary>
         [Input("certificateSettings")]
         public Input<Inputs.DomainAssociationCertificateSettingsGetArgs>? CertificateSettings { get; set; }
 
-        /// <summary>
-        /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
-        /// </summary>
         [Input("certificateVerificationDnsRecord")]
         public Input<string>? CertificateVerificationDnsRecord { get; set; }
 
-        /// <summary>
-        /// Domain name for the domain association.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Enables the automated creation of subdomains for branches.
-        /// </summary>
         [Input("enableAutoSubDomain")]
         public Input<bool>? EnableAutoSubDomain { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subDomains")]
         private InputList<Inputs.DomainAssociationSubDomainGetArgs>? _subDomains;
-
-        /// <summary>
-        /// Setting for the subdomain. Documented below.
-        /// </summary>
         public InputList<Inputs.DomainAssociationSubDomainGetArgs> SubDomains
         {
             get => _subDomains ?? (_subDomains = new InputList<Inputs.DomainAssociationSubDomainGetArgs>());
             set => _subDomains = value;
         }
 
-        /// <summary>
-        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `False` will skip the process. Default: `True`.
-        /// </summary>
         [Input("waitForVerification")]
         public Input<bool>? WaitForVerification { get; set; }
 

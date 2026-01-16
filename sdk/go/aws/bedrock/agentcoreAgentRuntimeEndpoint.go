@@ -12,69 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Agent Runtime Endpoint. Agent Runtime Endpoints provide a network-accessible interface for interacting with agent runtimes, enabling external systems to communicate with and invoke agent capabilities.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreAgentRuntimeEndpoint(ctx, "example", &bedrock.AgentcoreAgentRuntimeEndpointArgs{
-//				Name:           pulumi.String("example-endpoint"),
-//				AgentRuntimeId: pulumi.Any(exampleAwsBedrockagentcoreAgentRuntime.AgentRuntimeId),
-//				Description:    pulumi.String("Endpoint for agent runtime communication"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `agent_runtime_id` and `name` separated by a comma. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
-// ```
 type AgentcoreAgentRuntimeEndpoint struct {
 	pulumi.CustomResourceState
 
-	// ARN of the associated Agent Runtime.
-	AgentRuntimeArn pulumi.StringOutput `pulumi:"agentRuntimeArn"`
-	// ARN of the Agent Runtime Endpoint.
-	AgentRuntimeEndpointArn pulumi.StringOutput `pulumi:"agentRuntimeEndpointArn"`
-	// ID of the agent runtime this endpoint belongs to.
-	//
-	// The following arguments are optional:
-	AgentRuntimeId pulumi.StringOutput `pulumi:"agentRuntimeId"`
-	// Version of the agent runtime to use for this endpoint.
-	AgentRuntimeVersion pulumi.StringOutput `pulumi:"agentRuntimeVersion"`
-	// Description of the agent runtime endpoint.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the agent runtime endpoint.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
-	Timeouts AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
+	AgentRuntimeArn         pulumi.StringOutput                            `pulumi:"agentRuntimeArn"`
+	AgentRuntimeEndpointArn pulumi.StringOutput                            `pulumi:"agentRuntimeEndpointArn"`
+	AgentRuntimeId          pulumi.StringOutput                            `pulumi:"agentRuntimeId"`
+	AgentRuntimeVersion     pulumi.StringOutput                            `pulumi:"agentRuntimeVersion"`
+	Description             pulumi.StringPtrOutput                         `pulumi:"description"`
+	Name                    pulumi.StringOutput                            `pulumi:"name"`
+	Region                  pulumi.StringOutput                            `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	Timeouts                AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewAgentcoreAgentRuntimeEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -110,51 +60,29 @@ func GetAgentcoreAgentRuntimeEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreAgentRuntimeEndpoint resources.
 type agentcoreAgentRuntimeEndpointState struct {
-	// ARN of the associated Agent Runtime.
-	AgentRuntimeArn *string `pulumi:"agentRuntimeArn"`
-	// ARN of the Agent Runtime Endpoint.
-	AgentRuntimeEndpointArn *string `pulumi:"agentRuntimeEndpointArn"`
-	// ID of the agent runtime this endpoint belongs to.
-	//
-	// The following arguments are optional:
-	AgentRuntimeId *string `pulumi:"agentRuntimeId"`
-	// Version of the agent runtime to use for this endpoint.
-	AgentRuntimeVersion *string `pulumi:"agentRuntimeVersion"`
-	// Description of the agent runtime endpoint.
-	Description *string `pulumi:"description"`
-	// Name of the agent runtime endpoint.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                      `pulumi:"tagsAll"`
-	Timeouts *AgentcoreAgentRuntimeEndpointTimeouts `pulumi:"timeouts"`
+	AgentRuntimeArn         *string                                `pulumi:"agentRuntimeArn"`
+	AgentRuntimeEndpointArn *string                                `pulumi:"agentRuntimeEndpointArn"`
+	AgentRuntimeId          *string                                `pulumi:"agentRuntimeId"`
+	AgentRuntimeVersion     *string                                `pulumi:"agentRuntimeVersion"`
+	Description             *string                                `pulumi:"description"`
+	Name                    *string                                `pulumi:"name"`
+	Region                  *string                                `pulumi:"region"`
+	Tags                    map[string]string                      `pulumi:"tags"`
+	TagsAll                 map[string]string                      `pulumi:"tagsAll"`
+	Timeouts                *AgentcoreAgentRuntimeEndpointTimeouts `pulumi:"timeouts"`
 }
 
 type AgentcoreAgentRuntimeEndpointState struct {
-	// ARN of the associated Agent Runtime.
-	AgentRuntimeArn pulumi.StringPtrInput
-	// ARN of the Agent Runtime Endpoint.
+	AgentRuntimeArn         pulumi.StringPtrInput
 	AgentRuntimeEndpointArn pulumi.StringPtrInput
-	// ID of the agent runtime this endpoint belongs to.
-	//
-	// The following arguments are optional:
-	AgentRuntimeId pulumi.StringPtrInput
-	// Version of the agent runtime to use for this endpoint.
-	AgentRuntimeVersion pulumi.StringPtrInput
-	// Description of the agent runtime endpoint.
-	Description pulumi.StringPtrInput
-	// Name of the agent runtime endpoint.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts AgentcoreAgentRuntimeEndpointTimeoutsPtrInput
+	AgentRuntimeId          pulumi.StringPtrInput
+	AgentRuntimeVersion     pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Timeouts                AgentcoreAgentRuntimeEndpointTimeoutsPtrInput
 }
 
 func (AgentcoreAgentRuntimeEndpointState) ElementType() reflect.Type {
@@ -162,40 +90,24 @@ func (AgentcoreAgentRuntimeEndpointState) ElementType() reflect.Type {
 }
 
 type agentcoreAgentRuntimeEndpointArgs struct {
-	// ID of the agent runtime this endpoint belongs to.
-	//
-	// The following arguments are optional:
-	AgentRuntimeId string `pulumi:"agentRuntimeId"`
-	// Version of the agent runtime to use for this endpoint.
-	AgentRuntimeVersion *string `pulumi:"agentRuntimeVersion"`
-	// Description of the agent runtime endpoint.
-	Description *string `pulumi:"description"`
-	// Name of the agent runtime endpoint.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                      `pulumi:"tags"`
-	Timeouts *AgentcoreAgentRuntimeEndpointTimeouts `pulumi:"timeouts"`
+	AgentRuntimeId      string                                 `pulumi:"agentRuntimeId"`
+	AgentRuntimeVersion *string                                `pulumi:"agentRuntimeVersion"`
+	Description         *string                                `pulumi:"description"`
+	Name                *string                                `pulumi:"name"`
+	Region              *string                                `pulumi:"region"`
+	Tags                map[string]string                      `pulumi:"tags"`
+	Timeouts            *AgentcoreAgentRuntimeEndpointTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreAgentRuntimeEndpoint resource.
 type AgentcoreAgentRuntimeEndpointArgs struct {
-	// ID of the agent runtime this endpoint belongs to.
-	//
-	// The following arguments are optional:
-	AgentRuntimeId pulumi.StringInput
-	// Version of the agent runtime to use for this endpoint.
+	AgentRuntimeId      pulumi.StringInput
 	AgentRuntimeVersion pulumi.StringPtrInput
-	// Description of the agent runtime endpoint.
-	Description pulumi.StringPtrInput
-	// Name of the agent runtime endpoint.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts AgentcoreAgentRuntimeEndpointTimeoutsPtrInput
+	Description         pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	Timeouts            AgentcoreAgentRuntimeEndpointTimeoutsPtrInput
 }
 
 func (AgentcoreAgentRuntimeEndpointArgs) ElementType() reflect.Type {
@@ -285,49 +197,38 @@ func (o AgentcoreAgentRuntimeEndpointOutput) ToAgentcoreAgentRuntimeEndpointOutp
 	return o
 }
 
-// ARN of the associated Agent Runtime.
 func (o AgentcoreAgentRuntimeEndpointOutput) AgentRuntimeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.AgentRuntimeArn }).(pulumi.StringOutput)
 }
 
-// ARN of the Agent Runtime Endpoint.
 func (o AgentcoreAgentRuntimeEndpointOutput) AgentRuntimeEndpointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.AgentRuntimeEndpointArn }).(pulumi.StringOutput)
 }
 
-// ID of the agent runtime this endpoint belongs to.
-//
-// The following arguments are optional:
 func (o AgentcoreAgentRuntimeEndpointOutput) AgentRuntimeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.AgentRuntimeId }).(pulumi.StringOutput)
 }
 
-// Version of the agent runtime to use for this endpoint.
 func (o AgentcoreAgentRuntimeEndpointOutput) AgentRuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.AgentRuntimeVersion }).(pulumi.StringOutput)
 }
 
-// Description of the agent runtime endpoint.
 func (o AgentcoreAgentRuntimeEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the agent runtime endpoint.
 func (o AgentcoreAgentRuntimeEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreAgentRuntimeEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentcoreAgentRuntimeEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreAgentRuntimeEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

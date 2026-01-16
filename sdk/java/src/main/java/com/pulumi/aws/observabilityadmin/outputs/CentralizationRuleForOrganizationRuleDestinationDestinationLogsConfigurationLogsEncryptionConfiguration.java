@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration {
-    /**
-     * @return Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     private @Nullable String encryptionConflictResolutionStrategy;
-    /**
-     * @return Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-     * 
-     */
     private String encryptionStrategy;
-    /**
-     * @return ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-     * 
-     */
     private @Nullable String kmsKeyArn;
 
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration() {}
-    /**
-     * @return Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-     * 
-     */
     public Optional<String> encryptionConflictResolutionStrategy() {
         return Optional.ofNullable(this.encryptionConflictResolutionStrategy);
     }
-    /**
-     * @return Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-     * 
-     */
     public String encryptionStrategy() {
         return this.encryptionStrategy;
     }
-    /**
-     * @return ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }

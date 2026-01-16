@@ -16,197 +16,69 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUsersUser {
-    /**
-     * @return List of details about the user&#39;s address.
-     * 
-     */
     private List<GetUsersUserAddress> addresses;
-    /**
-     * @return Name that is typically displayed when the user is referenced.
-     * 
-     */
     private String displayName;
-    /**
-     * @return List of details about the user&#39;s email.
-     * 
-     */
     private List<GetUsersUserEmail> emails;
-    /**
-     * @return List of identifiers issued to this resource by an external identity provider.
-     * 
-     */
     private List<GetUsersUserExternalId> externalIds;
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     private String identityStoreId;
-    /**
-     * @return User&#39;s geographical region or location.
-     * 
-     */
     private String locale;
-    /**
-     * @return Details about the user&#39;s full name.
-     * 
-     */
     private List<GetUsersUserName> names;
-    /**
-     * @return An alternate name for the user.
-     * 
-     */
     private String nickname;
-    /**
-     * @return List of details about the user&#39;s phone number.
-     * 
-     */
     private List<GetUsersUserPhoneNumber> phoneNumbers;
-    /**
-     * @return Preferred language of the user.
-     * 
-     */
     private String preferredLanguage;
-    /**
-     * @return An URL that may be associated with the user.
-     * 
-     */
     private String profileUrl;
-    /**
-     * @return User&#39;s time zone.
-     * 
-     */
     private String timezone;
-    /**
-     * @return User&#39;s title.
-     * 
-     */
     private String title;
-    /**
-     * @return Identifier of the user in the Identity Store.
-     * 
-     */
     private String userId;
-    /**
-     * @return User&#39;s user name value.
-     * 
-     */
     private String userName;
-    /**
-     * @return User type.
-     * 
-     */
     private String userType;
 
     private GetUsersUser() {}
-    /**
-     * @return List of details about the user&#39;s address.
-     * 
-     */
     public List<GetUsersUserAddress> addresses() {
         return this.addresses;
     }
-    /**
-     * @return Name that is typically displayed when the user is referenced.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return List of details about the user&#39;s email.
-     * 
-     */
     public List<GetUsersUserEmail> emails() {
         return this.emails;
     }
-    /**
-     * @return List of identifiers issued to this resource by an external identity provider.
-     * 
-     */
     public List<GetUsersUserExternalId> externalIds() {
         return this.externalIds;
     }
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }
-    /**
-     * @return User&#39;s geographical region or location.
-     * 
-     */
     public String locale() {
         return this.locale;
     }
-    /**
-     * @return Details about the user&#39;s full name.
-     * 
-     */
     public List<GetUsersUserName> names() {
         return this.names;
     }
-    /**
-     * @return An alternate name for the user.
-     * 
-     */
     public String nickname() {
         return this.nickname;
     }
-    /**
-     * @return List of details about the user&#39;s phone number.
-     * 
-     */
     public List<GetUsersUserPhoneNumber> phoneNumbers() {
         return this.phoneNumbers;
     }
-    /**
-     * @return Preferred language of the user.
-     * 
-     */
     public String preferredLanguage() {
         return this.preferredLanguage;
     }
-    /**
-     * @return An URL that may be associated with the user.
-     * 
-     */
     public String profileUrl() {
         return this.profileUrl;
     }
-    /**
-     * @return User&#39;s time zone.
-     * 
-     */
     public String timezone() {
         return this.timezone;
     }
-    /**
-     * @return User&#39;s title.
-     * 
-     */
     public String title() {
         return this.title;
     }
-    /**
-     * @return Identifier of the user in the Identity Store.
-     * 
-     */
     public String userId() {
         return this.userId;
     }
-    /**
-     * @return User&#39;s user name value.
-     * 
-     */
     public String userName() {
         return this.userName;
     }
-    /**
-     * @return User type.
-     * 
-     */
     public String userType() {
         return this.userType;
     }

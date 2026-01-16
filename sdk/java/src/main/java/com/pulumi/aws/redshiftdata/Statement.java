@@ -17,132 +17,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Executes a Redshift Data Statement.
- * 
- * ## Example Usage
- * 
- * ### clusterIdentifier
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshiftdata.Statement;
- * import com.pulumi.aws.redshiftdata.StatementArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Statement("example", StatementArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
- *             .database(exampleAwsRedshiftCluster.databaseName())
- *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
- *             .sql("CREATE GROUP group_name;")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### workgroupName
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshiftdata.Statement;
- * import com.pulumi.aws.redshiftdata.StatementArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Statement("example", StatementArgs.builder()
- *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
- *             .database("dev")
- *             .sql("CREATE GROUP group_name;")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshiftdata/statement:Statement example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshiftdata/statement:Statement")
 public class Statement extends com.pulumi.resources.CustomResource {
-    /**
-     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     public Output<Optional<String>> clusterIdentifier() {
         return Codegen.optional(this.clusterIdentifier);
     }
-    /**
-     * The name of the database.
-     * 
-     */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
-    /**
-     * @return The name of the database.
-     * 
-     */
     public Output<String> database() {
         return this.database;
     }
-    /**
-     * The database user name.
-     * 
-     */
     @Export(name="dbUser", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbUser;
 
-    /**
-     * @return The database user name.
-     * 
-     */
     public Output<Optional<String>> dbUser() {
         return Codegen.optional(this.dbUser);
     }
@@ -152,91 +43,39 @@ public class Statement extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<StatementParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name or ARN of the secret that enables access to the database.
-     * 
-     */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretArn;
 
-    /**
-     * @return The name or ARN of the secret that enables access to the database.
-     * 
-     */
     public Output<Optional<String>> secretArn() {
         return Codegen.optional(this.secretArn);
     }
-    /**
-     * The SQL statement text to run.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="sql", refs={String.class}, tree="[0]")
     private Output<String> sql;
 
-    /**
-     * @return The SQL statement text to run.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> sql() {
         return this.sql;
     }
-    /**
-     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     * 
-     */
     @Export(name="statementName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> statementName;
 
-    /**
-     * @return The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     * 
-     */
     public Output<Optional<String>> statementName() {
         return Codegen.optional(this.statementName);
     }
-    /**
-     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     * 
-     */
     @Export(name="withEvent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withEvent;
 
-    /**
-     * @return A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     * 
-     */
     public Output<Optional<Boolean>> withEvent() {
         return Codegen.optional(this.withEvent);
     }
-    /**
-     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workgroupName;
 
-    /**
-     * @return The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-     * 
-     */
     public Output<Optional<String>> workgroupName() {
         return Codegen.optional(this.workgroupName);
     }

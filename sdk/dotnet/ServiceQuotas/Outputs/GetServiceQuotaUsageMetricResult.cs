@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
     [OutputType]
     public sealed class GetServiceQuotaUsageMetricResult
     {
-        /// <summary>
-        /// The metric dimensions.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceQuotaUsageMetricMetricDimensionResult> MetricDimensions;
-        /// <summary>
-        /// The name of the metric.
-        /// </summary>
         public readonly string MetricName;
-        /// <summary>
-        /// The namespace of the metric.
-        /// </summary>
         public readonly string MetricNamespace;
-        /// <summary>
-        /// The metric statistic that AWS recommend you use when determining quota usage.
-        /// </summary>
         public readonly string MetricStatisticRecommendation;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration
     {
-        /// <summary>
-        /// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor InputLambdaProcessor;
 
         [OutputConstructor]

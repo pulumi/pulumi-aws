@@ -11,87 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetDbNodes
     {
-        /// <summary>
-        /// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbNodes.Invoke(new()
-        ///     {
-        ///         CloudVmClusterId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDbNodesResult> InvokeAsync(GetDbNodesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbNodesResult>("aws:odb/getDbNodes:getDbNodes", args ?? new GetDbNodesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbNodes.Invoke(new()
-        ///     {
-        ///         CloudVmClusterId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDbNodesResult> Invoke(GetDbNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbNodesResult>("aws:odb/getDbNodes:getDbNodes", args ?? new GetDbNodesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbNodes.Invoke(new()
-        ///     {
-        ///         CloudVmClusterId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDbNodesResult> Invoke(GetDbNodesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbNodesResult>("aws:odb/getDbNodes:getDbNodes", args ?? new GetDbNodesInvokeArgs(), options.WithDefaults());
     }
@@ -99,17 +24,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetDbNodesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier of the cloud vm cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("cloudVmClusterId", required: true)]
         public string CloudVmClusterId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -121,17 +38,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetDbNodesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The unique identifier of the cloud vm cluster.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("cloudVmClusterId", required: true)]
         public Input<string> CloudVmClusterId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -146,9 +55,6 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbNodesResult
     {
         public readonly string CloudVmClusterId;
-        /// <summary>
-        /// The list of DB nodes along with their properties.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDbNodesDbNodeResult> DbNodes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanIntegrationPagerduty {
-    /**
-     * @return The name of the PagerDuty configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
-     * 
-     */
     private String secretId;
-    /**
-     * @return The ID of the PagerDuty service that the response plan associates with an incident when it launches.
-     * 
-     */
     private String serviceId;
 
     private GetResponsePlanIntegrationPagerduty() {}
-    /**
-     * @return The name of the PagerDuty configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
-     * 
-     */
     public String secretId() {
         return this.secretId;
     }
-    /**
-     * @return The ID of the PagerDuty service that the response plan associates with an incident when it launches.
-     * 
-     */
     public String serviceId() {
         return this.serviceId;
     }

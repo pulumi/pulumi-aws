@@ -16,66 +16,30 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetFunctionPlainArgs Empty = new GetFunctionPlainArgs();
 
-    /**
-     * Name of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="functionName", required=true)
     private String functionName;
 
-    /**
-     * @return Name of the Lambda function.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String functionName() {
         return this.functionName;
     }
 
-    /**
-     * Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
-    /**
-     * @return Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
-     * 
-     */
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the Lambda Function.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the Lambda Function.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -107,47 +71,21 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetFunctionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name of the Lambda function.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param qualifier Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable String qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the Lambda Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -9,89 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to create an association between a route table and a subnet or a route table and an
-    /// internet gateway or virtual private gateway.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var a = new Aws.Ec2.RouteTableAssociation("a", new()
-    ///     {
-    ///         SubnetId = foo.Id,
-    ///         RouteTableId = bar.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var b = new Aws.Ec2.RouteTableAssociation("b", new()
-    ///     {
-    ///         GatewayId = foo.Id,
-    ///         RouteTableId = bar.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// With EC2 Internet Gateways:
-    /// 
-    /// __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
-    /// 
-    /// With EC2 Subnets:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
-    /// ```
-    /// With EC2 Internet Gateways:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]
     public partial class RouteTableAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The gateway ID to create an association. Conflicts with `SubnetId`.
-        /// </summary>
         [Output("gatewayId")]
         public Output<string?> GatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the routing table to associate with.
-        /// 
-        /// &gt; **NOTE:** Please note that one of either `SubnetId` or `GatewayId` is required.
-        /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet ID to create an association. Conflicts with `GatewayId`.
-        /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
 
@@ -141,29 +70,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class RouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The gateway ID to create an association. Conflicts with `SubnetId`.
-        /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the routing table to associate with.
-        /// 
-        /// &gt; **NOTE:** Please note that one of either `SubnetId` or `GatewayId` is required.
-        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
-        /// <summary>
-        /// The subnet ID to create an association. Conflicts with `GatewayId`.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -175,29 +90,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class RouteTableAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The gateway ID to create an association. Conflicts with `SubnetId`.
-        /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the routing table to associate with.
-        /// 
-        /// &gt; **NOTE:** Please note that one of either `SubnetId` or `GatewayId` is required.
-        /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
-        /// <summary>
-        /// The subnet ID to create an association. Conflicts with `GatewayId`.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

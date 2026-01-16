@@ -11,58 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns a unique endpoint specific to the AWS account making the call.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.GetEndpoint(ctx, &iot.GetEndpointArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kubernetes.NewPod(ctx, "agent", &kubernetes.PodArgs{
-//				Metadata: []map[string]interface{}{
-//					map[string]interface{}{
-//						"name": "my-device",
-//					},
-//				},
-//				Spec: []map[string]interface{}{
-//					map[string]interface{}{
-//						"container": []map[string]interface{}{
-//							map[string]interface{}{
-//								"image": "gcr.io/my-project/image-name",
-//								"name":  "image-name",
-//								"env": []map[string]interface{}{
-//									map[string]interface{}{
-//										"name":  "IOT_ENDPOINT",
-//										"value": example.EndpointAddress,
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointResult
@@ -75,20 +23,12 @@ func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getEndpoint.
 type GetEndpointArgs struct {
-	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType *string `pulumi:"endpointType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEndpoint.
 type GetEndpointResult struct {
-	// Endpoint based on `endpointType`:
-	// * No `endpointType`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
-	// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
-	// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
-	// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-	// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 	EndpointAddress string  `pulumi:"endpointAddress"`
 	EndpointType    *string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
@@ -107,10 +47,8 @@ func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...
 
 // A collection of arguments for invoking getEndpoint.
 type GetEndpointOutputArgs struct {
-	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEndpointOutputArgs) ElementType() reflect.Type {
@@ -132,12 +70,6 @@ func (o GetEndpointResultOutput) ToGetEndpointResultOutputWithContext(ctx contex
 	return o
 }
 
-// Endpoint based on `endpointType`:
-// * No `endpointType`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
-// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
-// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
-// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 func (o GetEndpointResultOutput) EndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointResult) string { return v.EndpointAddress }).(pulumi.StringOutput)
 }

@@ -16,47 +16,23 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
 
     public static final GetScriptDagEdgeArgs Empty = new GetScriptDagEdgeArgs();
 
-    /**
-     * ID of the node at which the edge starts.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return ID of the node at which the edge starts.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * ID of the node at which the edge ends.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return ID of the node at which the edge ends.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
 
-    /**
-     * Target of the edge.
-     * 
-     */
     @Import(name="targetParameter")
     private @Nullable Output<String> targetParameter;
 
-    /**
-     * @return Target of the edge.
-     * 
-     */
     public Optional<Output<String>> targetParameter() {
         return Optional.ofNullable(this.targetParameter);
     }
@@ -87,65 +63,29 @@ public final class GetScriptDagEdgeArgs extends com.pulumi.resources.ResourceArg
             $ = new GetScriptDagEdgeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param source ID of the node at which the edge starts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source ID of the node at which the edge starts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param target ID of the node at which the edge ends.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target ID of the node at which the edge ends.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
-        /**
-         * @param targetParameter Target of the edge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetParameter(@Nullable Output<String> targetParameter) {
             $.targetParameter = targetParameter;
             return this;
         }
 
-        /**
-         * @param targetParameter Target of the edge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetParameter(String targetParameter) {
             return targetParameter(Output.of(targetParameter));
         }

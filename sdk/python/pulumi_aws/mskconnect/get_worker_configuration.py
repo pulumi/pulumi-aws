@@ -55,17 +55,11 @@ class GetWorkerConfigurationResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        the ARN of the worker configuration.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        a summary description of the worker configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -79,9 +73,6 @@ class GetWorkerConfigurationResult:
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> _builtins.int:
-        """
-        an ID of the latest successfully created revision of the worker configuration.
-        """
         return pulumi.get(self, "latest_revision")
 
     @_builtins.property
@@ -92,9 +83,6 @@ class GetWorkerConfigurationResult:
     @_builtins.property
     @pulumi.getter(name="propertiesFileContent")
     def properties_file_content(self) -> _builtins.str:
-        """
-        contents of connect-distributed.properties file.
-        """
         return pulumi.get(self, "properties_file_content")
 
     @_builtins.property
@@ -105,9 +93,6 @@ class GetWorkerConfigurationResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -132,21 +117,7 @@ def get_worker_configuration(name: Optional[_builtins.str] = None,
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkerConfigurationResult:
     """
-    Get information on an Amazon MSK Connect Worker Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_worker_configuration(name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the worker configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -169,21 +140,7 @@ def get_worker_configuration_output(name: Optional[pulumi.Input[_builtins.str]] 
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
-    Get information on an Amazon MSK Connect Worker Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_worker_configuration(name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the worker configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

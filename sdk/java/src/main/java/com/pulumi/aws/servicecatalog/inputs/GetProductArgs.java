@@ -17,66 +17,30 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetProductArgs Empty = new GetProductArgs();
 
-    /**
-     * Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-     * 
-     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * ID of the product.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return ID of the product.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags applied to the product.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags applied to the product.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -108,90 +72,38 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetProductArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
-        /**
-         * @param id ID of the product.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the product.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Tags applied to the product.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags applied to the product.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

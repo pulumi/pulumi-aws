@@ -9,38 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fms
 {
-    /// <summary>
-    /// Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Fms.AdminAccount("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:fms/adminAccount:AdminAccount")]
     public partial class AdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
@@ -90,9 +61,6 @@ namespace Pulumi.Aws.Fms
 
     public sealed class AdminAccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -104,9 +72,6 @@ namespace Pulumi.Aws.Fms
 
     public sealed class AdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

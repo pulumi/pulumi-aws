@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
-    /**
-     * @return The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-     * 
-     */
     private String repositoryName;
-    /**
-     * @return The service in which this image is registered. Valid values: `ECR`.
-     * 
-     */
     private String service;
 
     private DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository() {}
-    /**
-     * @return The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
-    /**
-     * @return The service in which this image is registered. Valid values: `ECR`.
-     * 
-     */
     public String service() {
         return this.service;
     }

@@ -12,151 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the `secretsmanager.Secret` resource.
-//
-// > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
-//
-// ## Example Usage
-//
-// ### Simple String Value
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
-//				SecretString: pulumi.String("example-string-to-protect"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Key-Value Pairs
-//
-// Secrets Manager also accepts key-value pairs in JSON.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			example := map[string]interface{}{
-//				"key1": "value1",
-//				"key2": "value2",
-//			}
-//			if param := cfg.GetObject("example"); param != nil {
-//				example = param
-//			}
-//			tmpJSON0, err := json.Marshal(example)
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// # Reading key-value pairs from JSON back into a native map
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ctx.Export("example", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
-//				Input: exampleAwsSecretsmanagerSecretVersion.SecretString,
-//			}, nil).Result.Key1))
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `secret_id` - (String) ID of the secret.
-//
-// * `version_id` - (String) ID of the secret version.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
-//
-// % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 type SecretVersion struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the secret.
-	Arn               pulumi.StringOutput `pulumi:"arn"`
-	HasSecretStringWo pulumi.BoolOutput   `pulumi:"hasSecretStringWo"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
-	SecretBinary pulumi.StringPtrOutput `pulumi:"secretBinary"`
-	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId pulumi.StringOutput `pulumi:"secretId"`
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
-	SecretString pulumi.StringPtrOutput `pulumi:"secretString"`
+	Arn               pulumi.StringOutput    `pulumi:"arn"`
+	HasSecretStringWo pulumi.BoolOutput      `pulumi:"hasSecretStringWo"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	SecretBinary      pulumi.StringPtrOutput `pulumi:"secretBinary"`
+	SecretId          pulumi.StringOutput    `pulumi:"secretId"`
+	SecretString      pulumi.StringPtrOutput `pulumi:"secretString"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
-	SecretStringWo pulumi.StringPtrOutput `pulumi:"secretStringWo"`
-	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
-	SecretStringWoVersion pulumi.IntPtrOutput `pulumi:"secretStringWoVersion"`
-	// The unique identifier of the version of the secret.
-	VersionId pulumi.StringOutput `pulumi:"versionId"`
-	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-	//
-	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-	VersionStages pulumi.StringArrayOutput `pulumi:"versionStages"`
+	SecretStringWo        pulumi.StringPtrOutput   `pulumi:"secretStringWo"`
+	SecretStringWoVersion pulumi.IntPtrOutput      `pulumi:"secretStringWoVersion"`
+	VersionId             pulumi.StringOutput      `pulumi:"versionId"`
+	VersionStages         pulumi.StringArrayOutput `pulumi:"versionStages"`
 }
 
 // NewSecretVersion registers a new resource with the given unique name, arguments, and options.
@@ -207,53 +76,31 @@ func GetSecretVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretVersion resources.
 type secretVersionState struct {
-	// The ARN of the secret.
 	Arn               *string `pulumi:"arn"`
 	HasSecretStringWo *bool   `pulumi:"hasSecretStringWo"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
-	SecretBinary *string `pulumi:"secretBinary"`
-	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId *string `pulumi:"secretId"`
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
-	SecretString *string `pulumi:"secretString"`
+	Region            *string `pulumi:"region"`
+	SecretBinary      *string `pulumi:"secretBinary"`
+	SecretId          *string `pulumi:"secretId"`
+	SecretString      *string `pulumi:"secretString"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
-	SecretStringWo *string `pulumi:"secretStringWo"`
-	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
-	SecretStringWoVersion *int `pulumi:"secretStringWoVersion"`
-	// The unique identifier of the version of the secret.
-	VersionId *string `pulumi:"versionId"`
-	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-	//
-	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-	VersionStages []string `pulumi:"versionStages"`
+	SecretStringWo        *string  `pulumi:"secretStringWo"`
+	SecretStringWoVersion *int     `pulumi:"secretStringWoVersion"`
+	VersionId             *string  `pulumi:"versionId"`
+	VersionStages         []string `pulumi:"versionStages"`
 }
 
 type SecretVersionState struct {
-	// The ARN of the secret.
 	Arn               pulumi.StringPtrInput
 	HasSecretStringWo pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
-	SecretBinary pulumi.StringPtrInput
-	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId pulumi.StringPtrInput
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
-	SecretString pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	SecretBinary      pulumi.StringPtrInput
+	SecretId          pulumi.StringPtrInput
+	SecretString      pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
-	SecretStringWo pulumi.StringPtrInput
-	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	SecretStringWo        pulumi.StringPtrInput
 	SecretStringWoVersion pulumi.IntPtrInput
-	// The unique identifier of the version of the secret.
-	VersionId pulumi.StringPtrInput
-	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-	//
-	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-	VersionStages pulumi.StringArrayInput
+	VersionId             pulumi.StringPtrInput
+	VersionStages         pulumi.StringArrayInput
 }
 
 func (SecretVersionState) ElementType() reflect.Type {
@@ -261,44 +108,26 @@ func (SecretVersionState) ElementType() reflect.Type {
 }
 
 type secretVersionArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
+	Region       *string `pulumi:"region"`
 	SecretBinary *string `pulumi:"secretBinary"`
-	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId string `pulumi:"secretId"`
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
+	SecretId     string  `pulumi:"secretId"`
 	SecretString *string `pulumi:"secretString"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
-	SecretStringWo *string `pulumi:"secretStringWo"`
-	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
-	SecretStringWoVersion *int `pulumi:"secretStringWoVersion"`
-	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-	//
-	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-	VersionStages []string `pulumi:"versionStages"`
+	SecretStringWo        *string  `pulumi:"secretStringWo"`
+	SecretStringWoVersion *int     `pulumi:"secretStringWoVersion"`
+	VersionStages         []string `pulumi:"versionStages"`
 }
 
 // The set of arguments for constructing a SecretVersion resource.
 type SecretVersionArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
+	Region       pulumi.StringPtrInput
 	SecretBinary pulumi.StringPtrInput
-	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId pulumi.StringInput
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
+	SecretId     pulumi.StringInput
 	SecretString pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
-	SecretStringWo pulumi.StringPtrInput
-	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	SecretStringWo        pulumi.StringPtrInput
 	SecretStringWoVersion pulumi.IntPtrInput
-	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-	//
-	// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
-	VersionStages pulumi.StringArrayInput
+	VersionStages         pulumi.StringArrayInput
 }
 
 func (SecretVersionArgs) ElementType() reflect.Type {
@@ -388,7 +217,6 @@ func (o SecretVersionOutput) ToSecretVersionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the secret.
 func (o SecretVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -397,45 +225,35 @@ func (o SecretVersionOutput) HasSecretStringWo() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.BoolOutput { return v.HasSecretStringWo }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecretVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 func (o SecretVersionOutput) SecretBinary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretBinary }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 func (o SecretVersionOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
 }
 
-// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 func (o SecretVersionOutput) SecretString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretString }).(pulumi.StringPtrOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
 func (o SecretVersionOutput) SecretStringWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretStringWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
 func (o SecretVersionOutput) SecretStringWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.IntPtrOutput { return v.SecretStringWoVersion }).(pulumi.IntPtrOutput)
 }
 
-// The unique identifier of the version of the secret.
 func (o SecretVersionOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
 }
 
-// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
-//
-// > **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
 func (o SecretVersionOutput) VersionStages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringArrayOutput { return v.VersionStages }).(pulumi.StringArrayOutput)
 }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableStorageDescriptorSchemaReference
     {
-        /// <summary>
-        /// Configuration block that contains schema identity fields. Either this or the `SchemaVersionId` has to be provided. See `SchemaId` below.
-        /// </summary>
         public readonly Outputs.CatalogTableStorageDescriptorSchemaReferenceSchemaId? SchemaId;
-        /// <summary>
-        /// Unique ID assigned to a version of the schema. Either this or the `SchemaId` has to be provided.
-        /// </summary>
         public readonly string? SchemaVersionId;
-        /// <summary>
-        /// Version number of the schema.
-        /// </summary>
         public readonly int SchemaVersionNumber;
 
         [OutputConstructor]

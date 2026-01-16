@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration {
-    /**
-     * @return Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration authConfiguration;
-    /**
-     * @return ID of the Amazon Redshift cluster.
-     * 
-     */
     private String clusterIdentifier;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration() {}
-    /**
-     * @return Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration> authConfiguration() {
         return Optional.ofNullable(this.authConfiguration);
     }
-    /**
-     * @return ID of the Amazon Redshift cluster.
-     * 
-     */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }

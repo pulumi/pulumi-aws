@@ -11,87 +11,12 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetPrincipalApplicationAssignments
     {
-        /// <summary>
-        /// Data source for viewing AWS SSO Admin Principal Application Assignments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
-        ///     {
-        ///         InstanceArn = test.Arns[0],
-        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
-        ///         PrincipalType = "USER",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPrincipalApplicationAssignmentsResult> InvokeAsync(GetPrincipalApplicationAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalApplicationAssignmentsResult>("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args ?? new GetPrincipalApplicationAssignmentsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for viewing AWS SSO Admin Principal Application Assignments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
-        ///     {
-        ///         InstanceArn = test.Arns[0],
-        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
-        ///         PrincipalType = "USER",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPrincipalApplicationAssignmentsResult> Invoke(GetPrincipalApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalApplicationAssignmentsResult>("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args ?? new GetPrincipalApplicationAssignmentsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for viewing AWS SSO Admin Principal Application Assignments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetPrincipalApplicationAssignments.Invoke(new()
-        ///     {
-        ///         InstanceArn = test.Arns[0],
-        ///         PrincipalId = testAwsIdentitystoreUser.UserId,
-        ///         PrincipalType = "USER",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPrincipalApplicationAssignmentsResult> Invoke(GetPrincipalApplicationAssignmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalApplicationAssignmentsResult>("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args ?? new GetPrincipalApplicationAssignmentsInvokeArgs(), options.WithDefaults());
     }
@@ -101,37 +26,21 @@ namespace Pulumi.Aws.SsoAdmin
     {
         [Input("applicationAssignments")]
         private List<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>? _applicationAssignments;
-
-        /// <summary>
-        /// List of principals assigned to the application. See the `ApplicationAssignments` attribute reference below.
-        /// </summary>
         public List<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs> ApplicationAssignments
         {
             get => _applicationAssignments ?? (_applicationAssignments = new List<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>());
             set => _applicationAssignments = value;
         }
 
-        /// <summary>
-        /// ARN of the instance of IAM Identity Center.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         [Input("principalId", required: true)]
         public string PrincipalId { get; set; } = null!;
 
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         [Input("principalType", required: true)]
         public string PrincipalType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -145,37 +54,21 @@ namespace Pulumi.Aws.SsoAdmin
     {
         [Input("applicationAssignments")]
         private InputList<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentInputArgs>? _applicationAssignments;
-
-        /// <summary>
-        /// List of principals assigned to the application. See the `ApplicationAssignments` attribute reference below.
-        /// </summary>
         public InputList<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentInputArgs> ApplicationAssignments
         {
             get => _applicationAssignments ?? (_applicationAssignments = new InputList<Inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentInputArgs>());
             set => _applicationAssignments = value;
         }
 
-        /// <summary>
-        /// ARN of the instance of IAM Identity Center.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -189,19 +82,10 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetPrincipalApplicationAssignmentsResult
     {
-        /// <summary>
-        /// List of principals assigned to the application. See the `ApplicationAssignments` attribute reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPrincipalApplicationAssignmentsApplicationAssignmentResult> ApplicationAssignments;
         public readonly string Id;
         public readonly string InstanceArn;
-        /// <summary>
-        /// An identifier for an object in IAM Identity Center, such as a user or group.
-        /// </summary>
         public readonly string PrincipalId;
-        /// <summary>
-        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        /// </summary>
         public readonly string PrincipalType;
         public readonly string Region;
 

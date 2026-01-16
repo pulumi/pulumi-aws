@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ExpressGatewayServicePrimaryContainerAwsLogsConfiguration
     {
-        /// <summary>
-        /// CloudWatch log group name.
-        /// </summary>
         public readonly string LogGroup;
-        /// <summary>
-        /// Prefix for log stream names. If not specified, a default prefix will be used.
-        /// </summary>
         public readonly string LogStreamPrefix;
 
         [OutputConstructor]

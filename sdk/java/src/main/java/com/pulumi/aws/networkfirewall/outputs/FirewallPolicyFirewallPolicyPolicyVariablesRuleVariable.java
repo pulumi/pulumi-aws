@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
-    /**
-     * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     private FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet ipSet;
-    /**
-     * @return An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
-     * 
-     */
     private String key;
 
     private FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable() {}
-    /**
-     * @return A configuration block that defines a set of IP addresses. See IP Set below for details.
-     * 
-     */
     public FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet ipSet() {
         return this.ipSet;
     }
-    /**
-     * @return An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
-     * 
-     */
     public String key() {
         return this.key;
     }

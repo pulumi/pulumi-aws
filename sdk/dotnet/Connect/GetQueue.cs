@@ -11,141 +11,12 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetQueue
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Queue.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// By `Name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQueue.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `QueueId`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQueue.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         QueueId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Queue.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// By `Name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQueue.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `QueueId`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQueue.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         QueueId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Queue.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// By `Name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQueue.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `QueueId`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetQueue.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         QueueId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
@@ -153,38 +24,20 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Returns information on a specific Queue by name
-        /// 
-        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QueueId` is required.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Returns information on a specific Queue by Queue id
-        /// </summary>
         [Input("queueId")]
         public string? QueueId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the Queue.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -199,38 +52,20 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Returns information on a specific Queue by name
-        /// 
-        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QueueId` is required.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Returns information on a specific Queue by Queue id
-        /// </summary>
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the Queue.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -247,44 +82,20 @@ namespace Pulumi.Aws.Connect
     [OutputType]
     public sealed class GetQueueResult
     {
-        /// <summary>
-        /// ARN of the Queue.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the Queue.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Specifies the identifier of the Hours of Operation.
-        /// </summary>
         public readonly string HoursOfOperationId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
-        /// <summary>
-        /// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-        /// </summary>
         public readonly int MaxContacts;
         public readonly string Name;
-        /// <summary>
-        /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetQueueOutboundCallerConfigResult> OutboundCallerConfigs;
-        /// <summary>
-        /// Identifier for the Queue.
-        /// </summary>
         public readonly string QueueId;
         public readonly string Region;
-        /// <summary>
-        /// Description of the Queue. Values are `ENABLED` or `DISABLED`.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Map of tags assigned to the Queue.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

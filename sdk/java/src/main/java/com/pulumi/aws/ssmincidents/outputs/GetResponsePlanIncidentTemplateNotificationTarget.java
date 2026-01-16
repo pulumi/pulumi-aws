@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanIncidentTemplateNotificationTarget {
-    /**
-     * @return The ARN of the Amazon SNS topic.
-     * 
-     */
     private String snsTopicArn;
 
     private GetResponsePlanIncidentTemplateNotificationTarget() {}
-    /**
-     * @return The ARN of the Amazon SNS topic.
-     * 
-     */
     public String snsTopicArn() {
         return this.snsTopicArn;
     }

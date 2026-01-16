@@ -15,17 +15,9 @@ public final class FeatureGroupOnlineStoreConfigSecurityConfigArgs extends com.p
 
     public static final FeatureGroupOnlineStoreConfigSecurityConfigArgs Empty = new FeatureGroupOnlineStoreConfigSecurityConfigArgs();
 
-    /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -54,23 +46,11 @@ public final class FeatureGroupOnlineStoreConfigSecurityConfigArgs extends com.p
             $ = new FeatureGroupOnlineStoreConfigSecurityConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

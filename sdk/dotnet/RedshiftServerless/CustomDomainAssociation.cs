@@ -9,83 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedshiftServerless
 {
-    /// <summary>
-    /// Resource for managing an AWS Redshift Serverless Custom Domain Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Acm.Certificate("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Aws.RedshiftServerless.Namespace("example", new()
-    ///     {
-    ///         NamespaceName = "example-namespace",
-    ///     });
-    /// 
-    ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("example", new()
-    ///     {
-    ///         WorkgroupName = "example-workgroup",
-    ///         NamespaceName = exampleNamespace.NamespaceName,
-    ///     });
-    /// 
-    ///     var exampleCustomDomainAssociation = new Aws.RedshiftServerless.CustomDomainAssociation("example", new()
-    ///     {
-    ///         WorkgroupName = exampleWorkgroup.WorkgroupName,
-    ///         CustomDomainName = "example.com",
-    ///         CustomDomainCertificateArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Serverless Custom Domain Association using the `workgroup_name` and `custom_domain_name`, separated by the coma. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation")]
     public partial class CustomDomainAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the certificate for the custom domain association.
-        /// </summary>
         [Output("customDomainCertificateArn")]
         public Output<string> CustomDomainCertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Expiration time for the certificate.
-        /// </summary>
         [Output("customDomainCertificateExpiryTime")]
         public Output<string> CustomDomainCertificateExpiryTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom domain to associate with the workgroup.
-        /// </summary>
         [Output("customDomainName")]
         public Output<string> CustomDomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Output("workgroupName")]
         public Output<string> WorkgroupName { get; private set; } = null!;
 
@@ -135,27 +73,15 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class CustomDomainAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate for the custom domain association.
-        /// </summary>
         [Input("customDomainCertificateArn", required: true)]
         public Input<string> CustomDomainCertificateArn { get; set; } = null!;
 
-        /// <summary>
-        /// Custom domain to associate with the workgroup.
-        /// </summary>
         [Input("customDomainName", required: true)]
         public Input<string> CustomDomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Input("workgroupName", required: true)]
         public Input<string> WorkgroupName { get; set; } = null!;
 
@@ -167,33 +93,18 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class CustomDomainAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate for the custom domain association.
-        /// </summary>
         [Input("customDomainCertificateArn")]
         public Input<string>? CustomDomainCertificateArn { get; set; }
 
-        /// <summary>
-        /// Expiration time for the certificate.
-        /// </summary>
         [Input("customDomainCertificateExpiryTime")]
         public Input<string>? CustomDomainCertificateExpiryTime { get; set; }
 
-        /// <summary>
-        /// Custom domain to associate with the workgroup.
-        /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }
 

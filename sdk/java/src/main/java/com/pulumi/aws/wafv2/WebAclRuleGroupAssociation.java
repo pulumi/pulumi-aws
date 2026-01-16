@@ -18,411 +18,79 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Associates a WAFv2 Rule Group (custom or managed) with a Web ACL by adding a rule that references the Rule Group. Use this resource to apply the rules defined in a Rule Group to a Web ACL without duplicating rule definitions.
- * 
- * This resource supports both:
- * 
- * - **Custom Rule Groups**: User-created rule groups that you manage within your AWS account
- * - **Managed Rule Groups**: Pre-configured rule groups provided by AWS or third-party vendors
- * 
- * !&gt; **Warning:** Verify the rule names in your `ruleActionOverride`s carefully. With managed rule groups, WAF silently ignores any override that uses an invalid rule name. With customer-owned rule groups, invalid rule names in your overrides will cause web ACL updates to fail. An invalid rule name is any name that doesn&#39;t exactly match the case-sensitive name of an existing rule in the rule group.
- * 
- * !&gt; **Warning:** Using this resource will cause the associated Web ACL resource to show configuration drift in the `rule` argument unless you add `lifecycle { ignoreChanges = [rule] }` to the Web ACL resource configuration. This is because this resource modifies the Web ACL&#39;s rules outside of the Web ACL resource&#39;s direct management.
- * 
- * &gt; **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group&#39;s individual rules are evaluated as a unit when requests are processed by the Web ACL.
- * ## Example Usage
- * 
- * ### Custom Rule Group - Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.RuleGroup;
- * import com.pulumi.aws.wafv2.RuleGroupArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionBlockArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.WebAcl;
- * import com.pulumi.aws.wafv2.WebAclArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociation;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()
- *             .name("example-rule-group")
- *             .scope("REGIONAL")
- *             .capacity(10)
- *             .rules(RuleGroupRuleArgs.builder()
- *                 .name("block-suspicious-requests")
- *                 .priority(1)
- *                 .action(RuleGroupRuleActionArgs.builder()
- *                     .block(RuleGroupRuleActionBlockArgs.builder()
- *                         .build())
- *                     .build())
- *                 .statement(RuleGroupRuleStatementArgs.builder()
- *                     .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
- *                         .countryCodes(                        
- *                             "CN",
- *                             "RU")
- *                         .build())
- *                     .build())
- *                 .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
- *                     .cloudwatchMetricsEnabled(true)
- *                     .metricName("block-suspicious-requests")
- *                     .sampledRequestsEnabled(true)
- *                     .build())
- *                 .build())
- *             .visibilityConfig(RuleGroupVisibilityConfigArgs.builder()
- *                 .cloudwatchMetricsEnabled(true)
- *                 .metricName("example-rule-group")
- *                 .sampledRequestsEnabled(true)
- *                 .build())
- *             .build());
- * 
- *         var exampleWebAcl = new WebAcl("exampleWebAcl", WebAclArgs.builder()
- *             .name("example-web-acl")
- *             .scope("REGIONAL")
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .allow(WebAclDefaultActionAllowArgs.builder()
- *                     .build())
- *                 .build())
- *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
- *                 .cloudwatchMetricsEnabled(true)
- *                 .metricName("example-web-acl")
- *                 .sampledRequestsEnabled(true)
- *                 .build())
- *             .build());
- * 
- *         var exampleWebAclRuleGroupAssociation = new WebAclRuleGroupAssociation("exampleWebAclRuleGroupAssociation", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("example-rule-group-rule")
- *             .priority(100)
- *             .webAclArn(exampleWebAcl.arn())
- *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
- *                 .arn(example.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * ### Managed Rule Group - Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.WebAcl;
- * import com.pulumi.aws.wafv2.WebAclArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociation;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WebAcl("example", WebAclArgs.builder()
- *             .name("example-web-acl")
- *             .scope("REGIONAL")
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .allow(WebAclDefaultActionAllowArgs.builder()
- *                     .build())
- *                 .build())
- *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
- *                 .cloudwatchMetricsEnabled(true)
- *                 .metricName("example-web-acl")
- *                 .sampledRequestsEnabled(true)
- *                 .build())
- *             .build());
- * 
- *         var managedExample = new WebAclRuleGroupAssociation("managedExample", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("aws-common-rule-set")
- *             .priority(50)
- *             .webAclArn(example.arn())
- *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
- *                 .name("AWSManagedRulesCommonRuleSet")
- *                 .vendorName("AWS")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * ### Managed Rule Group - With Version
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociation;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var managedVersioned = new WebAclRuleGroupAssociation("managedVersioned", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("aws-common-rule-set-versioned")
- *             .priority(60)
- *             .webAclArn(example.arn())
- *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
- *                 .name("AWSManagedRulesCommonRuleSet")
- *                 .vendorName("AWS")
- *                 .version("Version_1.0")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * ### Managed Rule Group - With Rule Action Overrides
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociation;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var managedWithOverrides = new WebAclRuleGroupAssociation("managedWithOverrides", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("aws-common-rule-set-with-overrides")
- *             .priority(70)
- *             .webAclArn(example.arn())
- *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
- *                 .name("AWSManagedRulesCommonRuleSet")
- *                 .vendorName("AWS")
- *                 .ruleActionOverrides(                
- *                     WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs.builder()
- *                         .name("GenericRFI_BODY")
- *                         .actionToUse(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs.builder()
- *                             .count(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs.builder()
- *                                 .customRequestHandling(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs.builder()
- *                                     .insertHeaders(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs.builder()
- *                                         .name("X-RFI-Override")
- *                                         .value("counted")
- *                                         .build())
- *                                     .build())
- *                                 .build())
- *                             .build())
- *                         .build(),
- *                     WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs.builder()
- *                         .name("SizeRestrictions_BODY")
- *                         .actionToUse(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs.builder()
- *                             .captcha(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs.builder()
- *                                 .build())
- *                             .build())
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * ### Custom Rule Group - With Override Action
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociation;
- * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("example-rule-group-rule")
- *             .priority(100)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
- *             .overrideAction("count")
- *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
- *                 .arn(exampleAwsWafv2RuleGroup.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAFv2 web ACL custom rule group associations using `WebACLARN,RuleGroupARN,RuleName`. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation example &#34;arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,arn:aws:wafv2:us-east-1:123456789012:regional/rulegroup/example-rule-group/87654321-4321-4321-4321-210987654321,example-rule-group-rule&#34;
- * ```
- * Using `pulumi import`, import WAFv2 web ACL managed rule group associations using `WebACLARN,VendorName:RuleGroupName[:Version],RuleName`. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation managed_example &#34;arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,AWS:AWSManagedRulesCommonRuleSet,aws-common-rule-set&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation")
 public class WebAclRuleGroupAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+     * Managed rule group configuration.
      * 
      */
     @Export(name="managedRuleGroup", refs={WebAclRuleGroupAssociationManagedRuleGroup.class}, tree="[0]")
     private Output</* @Nullable */ WebAclRuleGroupAssociationManagedRuleGroup> managedRuleGroup;
 
     /**
-     * @return Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
+     * @return Managed rule group configuration.
      * 
      */
     public Output<Optional<WebAclRuleGroupAssociationManagedRuleGroup>> managedRuleGroup() {
         return Codegen.optional(this.managedRuleGroup);
     }
     /**
-     * Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+     * Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
      * 
      */
     @Export(name="overrideAction", refs={String.class}, tree="[0]")
     private Output<String> overrideAction;
 
     /**
-     * @return Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
+     * @return Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
      * 
      */
     public Output<String> overrideAction() {
         return this.overrideAction;
     }
     /**
-     * Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+     * Priority of the rule within the Web ACL.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
+     * @return Priority of the rule within the Web ACL.
      * 
      */
     public Output<Integer> priority() {
         return this.priority;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+     * Rule Group reference configuration.
      * 
      */
     @Export(name="ruleGroupReference", refs={WebAclRuleGroupAssociationRuleGroupReference.class}, tree="[0]")
     private Output</* @Nullable */ WebAclRuleGroupAssociationRuleGroupReference> ruleGroupReference;
 
     /**
-     * @return Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
+     * @return Rule Group reference configuration.
      * 
      */
     public Output<Optional<WebAclRuleGroupAssociationRuleGroupReference>> ruleGroupReference() {
         return Codegen.optional(this.ruleGroupReference);
     }
     /**
-     * Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+     * Name of the rule to create in the Web ACL that references the rule group.
      * 
      */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
     /**
-     * @return Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
+     * @return Name of the rule to create in the Web ACL that references the rule group.
      * 
      */
     public Output<String> ruleName() {
@@ -437,16 +105,12 @@ public class WebAclRuleGroupAssociation extends com.pulumi.resources.CustomResou
     /**
      * ARN of the Web ACL to associate the Rule Group with.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="webAclArn", refs={String.class}, tree="[0]")
     private Output<String> webAclArn;
 
     /**
      * @return ARN of the Web ACL to associate the Rule Group with.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> webAclArn() {

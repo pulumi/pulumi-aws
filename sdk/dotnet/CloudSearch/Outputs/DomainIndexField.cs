@@ -13,45 +13,15 @@ namespace Pulumi.Aws.CloudSearch.Outputs
     [OutputType]
     public sealed class DomainIndexField
     {
-        /// <summary>
-        /// The analysis scheme you want to use for a `Text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
-        /// </summary>
         public readonly string? AnalysisScheme;
-        /// <summary>
-        /// The default value for the field. This value is used when no value is specified for the field in the document data.
-        /// </summary>
         public readonly string? DefaultValue;
-        /// <summary>
-        /// You can get facet information by enabling this.
-        /// </summary>
         public readonly bool? Facet;
-        /// <summary>
-        /// You can highlight information.
-        /// </summary>
         public readonly bool? Highlight;
-        /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `A`-`Z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `Score` is reserved and cannot be used as a field name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// You can enable returning the value of all searchable fields.
-        /// </summary>
         public readonly bool? Return;
-        /// <summary>
-        /// You can set whether this index should be searchable or not.
-        /// </summary>
         public readonly bool? Search;
-        /// <summary>
-        /// You can enable the property to be sortable.
-        /// </summary>
         public readonly bool? Sort;
-        /// <summary>
-        /// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
-        /// </summary>
         public readonly string? SourceFields;
-        /// <summary>
-        /// The field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Literal`, `literal-array`, `Text`, `text-array`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

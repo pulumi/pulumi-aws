@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Transfer
 {
     public static class GetConnector
     {
-        /// <summary>
-        /// Data source for managing an AWS Transfer Family Connector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
-        ///     {
-        ///         Id = "c-xxxxxxxxxxxxxx",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Transfer Family Connector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
-        ///     {
-        ///         Id = "c-xxxxxxxxxxxxxx",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Transfer Family Connector.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
-        ///     {
-        ///         Id = "c-xxxxxxxxxxxxxx",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique identifier for connector
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique identifier for connector
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,47 +54,17 @@ namespace Pulumi.Aws.Transfer
     [OutputType]
     public sealed class GetConnectorResult
     {
-        /// <summary>
-        /// ARN of the AWS Identity and Access Management role.
-        /// </summary>
         public readonly string AccessRole;
-        /// <summary>
-        /// ARN of the Connector.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Structure containing the parameters for an AS2 connector object. Contains the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectorAs2ConfigResult> As2Configs;
-        /// <summary>
-        /// Egress configuration for the connector. Contains the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectorEgressConfigResult> EgressConfigs;
         public readonly string Id;
-        /// <summary>
-        /// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
-        /// </summary>
         public readonly string LoggingRole;
         public readonly string Region;
-        /// <summary>
-        /// Name of security policy.
-        /// </summary>
         public readonly string SecurityPolicyName;
-        /// <summary>
-        /// List of egress Ip addresses.
-        /// </summary>
         public readonly ImmutableArray<string> ServiceManagedEgressIpAddresses;
-        /// <summary>
-        /// Object containing the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectorSftpConfigResult> SftpConfigs;
-        /// <summary>
-        /// Object containing the following attributes:
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// URL of the partner's AS2 or SFTP endpoint.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

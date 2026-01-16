@@ -16,138 +16,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS BCM Data Exports Export.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.bcmdata.Export;
- * import com.pulumi.aws.bcmdata.ExportArgs;
- * import com.pulumi.aws.bcmdata.inputs.ExportExportArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var test = new Export("test", ExportArgs.builder()
- *             .export(ExportExportArgs.builder()
- *                 .name("testexample")
- *                 .dataQueries(ExportExportDataQueryArgs.builder()
- *                     .queryStatement("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT")
- *                     .tableConfigurations(Map.of("COST_AND_USAGE_REPORT", Map.ofEntries(
- *                         Map.entry("BILLING_VIEW_ARN", String.format("arn:%s:billing::%s:billingview/primary", currentGetPartition.partition(),current.accountId())),
- *                         Map.entry("TIME_GRANULARITY", "HOURLY"),
- *                         Map.entry("INCLUDE_RESOURCES", "FALSE"),
- *                         Map.entry("INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY", "FALSE"),
- *                         Map.entry("INCLUDE_SPLIT_COST_ALLOCATION_DATA", "FALSE")
- *                     )))
- *                     .build())
- *                 .destinationConfigurations(ExportExportDestinationConfigurationArgs.builder()
- *                     .s3Destinations(ExportExportDestinationConfigurationS3DestinationArgs.builder()
- *                         .s3Bucket(testAwsS3Bucket.bucket())
- *                         .s3Prefix(testAwsS3Bucket.bucketPrefix())
- *                         .s3Region(testAwsS3Bucket.region())
- *                         .s3OutputConfigurations(ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.builder()
- *                             .overwrite("OVERWRITE_REPORT")
- *                             .format("TEXT_OR_CSV")
- *                             .compression("GZIP")
- *                             .outputType("CUSTOM")
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .refreshCadences(ExportExportRefreshCadenceArgs.builder()
- *                     .frequency("SYNCHRONOUS")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
- * 
- * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
- * 
- * % pulumi import aws_bcmdataexports_export.example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
- * 
- */
 @ResourceType(type="aws:bcmdata/export:Export")
 public class Export extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-     * 
-     */
     @com.pulumi.core.annotations.Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     * 
-     */
     @com.pulumi.core.annotations.Export(name="export", refs={ExportExport.class}, tree="[0]")
     private Output</* @Nullable */ ExportExport> export;
 
-    /**
-     * @return The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     * 
-     */
     public Output<Optional<ExportExport>> export() {
         return Codegen.optional(this.export);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @com.pulumi.core.annotations.Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

@@ -14,32 +14,16 @@ public final class ContainerRecipeComponentParameterArgs extends com.pulumi.reso
 
     public static final ContainerRecipeComponentParameterArgs Empty = new ContainerRecipeComponentParameterArgs();
 
-    /**
-     * The name of the component parameter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the component parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value for the named component parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value for the named component parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class ContainerRecipeComponentParameterArgs extends com.pulumi.reso
             $ = new ContainerRecipeComponentParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the component parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the component parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value for the named component parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value for the named component parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

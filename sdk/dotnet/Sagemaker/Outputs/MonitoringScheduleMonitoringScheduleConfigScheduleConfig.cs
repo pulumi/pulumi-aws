@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleMonitoringScheduleConfigScheduleConfig
     {
-        /// <summary>
-        /// A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
-        /// </summary>
         public readonly string ScheduleExpression;
 
         [OutputConstructor]

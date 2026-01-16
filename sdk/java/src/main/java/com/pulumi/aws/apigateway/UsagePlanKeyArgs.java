@@ -16,62 +16,30 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UsagePlanKeyArgs Empty = new UsagePlanKeyArgs();
 
-    /**
-     * Identifier of the API key resource.
-     * 
-     */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
-    /**
-     * @return Identifier of the API key resource.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
 
-    /**
-     * Type of the API key resource. Currently, the valid key type is API_KEY.
-     * 
-     */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
-    /**
-     * @return Type of the API key resource. Currently, the valid key type is API_KEY.
-     * 
-     */
     public Output<String> keyType() {
         return this.keyType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Id of the usage plan resource representing to associate the key to.
-     * 
-     */
     @Import(name="usagePlanId", required=true)
     private Output<String> usagePlanId;
 
-    /**
-     * @return Id of the usage plan resource representing to associate the key to.
-     * 
-     */
     public Output<String> usagePlanId() {
         return this.usagePlanId;
     }
@@ -103,86 +71,38 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UsagePlanKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyId Identifier of the API key resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId Identifier of the API key resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }
 
-        /**
-         * @param keyType Type of the API key resource. Currently, the valid key type is API_KEY.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyType(Output<String> keyType) {
             $.keyType = keyType;
             return this;
         }
 
-        /**
-         * @param keyType Type of the API key resource. Currently, the valid key type is API_KEY.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyType(String keyType) {
             return keyType(Output.of(keyType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param usagePlanId Id of the usage plan resource representing to associate the key to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usagePlanId(Output<String> usagePlanId) {
             $.usagePlanId = usagePlanId;
             return this;
         }
 
-        /**
-         * @param usagePlanId Id of the usage plan resource representing to associate the key to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usagePlanId(String usagePlanId) {
             return usagePlanId(Output.of(usagePlanId));
         }

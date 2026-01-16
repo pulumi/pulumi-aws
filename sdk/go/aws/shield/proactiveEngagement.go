@@ -12,113 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a AWS Shield Proactive Engagement.
-// Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "drt.shield.amazonaws.com",
-//						},
-//						"Action": "sts:AssumeRole",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDrtAccessRoleArnAssociation, err := shield.NewDrtAccessRoleArnAssociation(ctx, "example", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: exampleRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewProactiveEngagement(ctx, "example", &shield.ProactiveEngagementArgs{
-//				Enabled: pulumi.Bool(true),
-//				EmergencyContacts: shield.ProactiveEngagementEmergencyContactArray{
-//					&shield.ProactiveEngagementEmergencyContactArgs{
-//						ContactNotes: pulumi.String("Notes"),
-//						EmailAddress: pulumi.String("contact1@example.com"),
-//						PhoneNumber:  pulumi.String("+12358132134"),
-//					},
-//					&shield.ProactiveEngagementEmergencyContactArgs{
-//						ContactNotes: pulumi.String("Notes 2"),
-//						EmailAddress: pulumi.String("contact2@example.com"),
-//						PhoneNumber:  pulumi.String("+12358132134"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDrtAccessRoleArnAssociation,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
-//				ProtectionGroupId: pulumi.String("example"),
-//				Aggregation:       pulumi.String("MAX"),
-//				Pattern:           pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
-//
-// ```sh
-// $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
-// ```
 type ProactiveEngagement struct {
 	pulumi.CustomResourceState
 
-	// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 	EmergencyContacts ProactiveEngagementEmergencyContactArrayOutput `pulumi:"emergencyContacts"`
-	// Boolean value indicating if Proactive Engagement should be enabled or not.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	Enabled           pulumi.BoolOutput                              `pulumi:"enabled"`
 }
 
 // NewProactiveEngagement registers a new resource with the given unique name, arguments, and options.
@@ -154,17 +52,13 @@ func GetProactiveEngagement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProactiveEngagement resources.
 type proactiveEngagementState struct {
-	// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 	EmergencyContacts []ProactiveEngagementEmergencyContact `pulumi:"emergencyContacts"`
-	// Boolean value indicating if Proactive Engagement should be enabled or not.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled           *bool                                 `pulumi:"enabled"`
 }
 
 type ProactiveEngagementState struct {
-	// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 	EmergencyContacts ProactiveEngagementEmergencyContactArrayInput
-	// Boolean value indicating if Proactive Engagement should be enabled or not.
-	Enabled pulumi.BoolPtrInput
+	Enabled           pulumi.BoolPtrInput
 }
 
 func (ProactiveEngagementState) ElementType() reflect.Type {
@@ -172,18 +66,14 @@ func (ProactiveEngagementState) ElementType() reflect.Type {
 }
 
 type proactiveEngagementArgs struct {
-	// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 	EmergencyContacts []ProactiveEngagementEmergencyContact `pulumi:"emergencyContacts"`
-	// Boolean value indicating if Proactive Engagement should be enabled or not.
-	Enabled bool `pulumi:"enabled"`
+	Enabled           bool                                  `pulumi:"enabled"`
 }
 
 // The set of arguments for constructing a ProactiveEngagement resource.
 type ProactiveEngagementArgs struct {
-	// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 	EmergencyContacts ProactiveEngagementEmergencyContactArrayInput
-	// Boolean value indicating if Proactive Engagement should be enabled or not.
-	Enabled pulumi.BoolInput
+	Enabled           pulumi.BoolInput
 }
 
 func (ProactiveEngagementArgs) ElementType() reflect.Type {
@@ -273,14 +163,12 @@ func (o ProactiveEngagementOutput) ToProactiveEngagementOutputWithContext(ctx co
 	return o
 }
 
-// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
 func (o ProactiveEngagementOutput) EmergencyContacts() ProactiveEngagementEmergencyContactArrayOutput {
 	return o.ApplyT(func(v *ProactiveEngagement) ProactiveEngagementEmergencyContactArrayOutput {
 		return v.EmergencyContacts
 	}).(ProactiveEngagementEmergencyContactArrayOutput)
 }
 
-// Boolean value indicating if Proactive Engagement should be enabled or not.
 func (o ProactiveEngagementOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProactiveEngagement) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelNamespaceSubscribeAuthMode {
-    /**
-     * @return Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     private String authType;
 
     private ChannelNamespaceSubscribeAuthMode() {}
-    /**
-     * @return Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-     * 
-     */
     public String authType() {
         return this.authType;
     }

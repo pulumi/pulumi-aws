@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Amp.Outputs
     [OutputType]
     public sealed class ScraperSource
     {
-        /// <summary>
-        /// Configuration block for an EKS cluster source. See `Eks`.
-        /// </summary>
         public readonly Outputs.ScraperSourceEks? Eks;
 
         [OutputConstructor]

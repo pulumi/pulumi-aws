@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class SpaceSpaceSettingsCustomFileSystemEfsFileSystem
     {
-        /// <summary>
-        /// The ID of your Amazon EFS file system.
-        /// </summary>
         public readonly string FileSystemId;
 
         [OutputConstructor]

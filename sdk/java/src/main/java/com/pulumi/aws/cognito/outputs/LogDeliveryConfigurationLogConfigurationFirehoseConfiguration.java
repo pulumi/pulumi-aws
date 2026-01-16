@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogDeliveryConfigurationLogConfigurationFirehoseConfiguration {
-    /**
-     * @return The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-     * 
-     */
     private @Nullable String streamArn;
 
     private LogDeliveryConfigurationLogConfigurationFirehoseConfiguration() {}
-    /**
-     * @return The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-     * 
-     */
     public Optional<String> streamArn() {
         return Optional.ofNullable(this.streamArn);
     }

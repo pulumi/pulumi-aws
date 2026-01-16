@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.DelegatedAdministrator("example", {
- *     accountId: "123456789012",
- *     servicePrincipal: "principal",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `service_principal` (String) Service principal for the AWS service.
- *
- * * `delegated_account_id` (String) Account ID to be designated as a delegated administrator.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
- *
- * % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
- */
 export class DelegatedAdministrator extends pulumi.CustomResource {
     /**
      * Get an existing DelegatedAdministrator resource's state with the given name, ID, and optional extra
@@ -65,41 +32,14 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
         return obj['__pulumiType'] === DelegatedAdministrator.__pulumiType;
     }
 
-    /**
-     * The account ID number of the member account in the organization to register as a delegated administrator.
-     */
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator's account.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The date when the account was made a delegated administrator.
-     */
     declare public /*out*/ readonly delegationEnabledDate: pulumi.Output<string>;
-    /**
-     * The email address that is associated with the delegated administrator's AWS account.
-     */
     declare public /*out*/ readonly email: pulumi.Output<string>;
-    /**
-     * The method by which the delegated administrator's account joined the organization.
-     */
     declare public /*out*/ readonly joinedMethod: pulumi.Output<string>;
-    /**
-     * The date when the delegated administrator's account became a part of the organization.
-     */
     declare public /*out*/ readonly joinedTimestamp: pulumi.Output<string>;
-    /**
-     * The friendly name of the delegated administrator's account.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     */
     declare public readonly servicePrincipal: pulumi.Output<string>;
-    /**
-     * The status of the delegated administrator's account in the organization.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
@@ -151,41 +91,14 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DelegatedAdministrator resources.
  */
 export interface DelegatedAdministratorState {
-    /**
-     * The account ID number of the member account in the organization to register as a delegated administrator.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator's account.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The date when the account was made a delegated administrator.
-     */
     delegationEnabledDate?: pulumi.Input<string>;
-    /**
-     * The email address that is associated with the delegated administrator's AWS account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * The method by which the delegated administrator's account joined the organization.
-     */
     joinedMethod?: pulumi.Input<string>;
-    /**
-     * The date when the delegated administrator's account became a part of the organization.
-     */
     joinedTimestamp?: pulumi.Input<string>;
-    /**
-     * The friendly name of the delegated administrator's account.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     */
     servicePrincipal?: pulumi.Input<string>;
-    /**
-     * The status of the delegated administrator's account in the organization.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -193,12 +106,6 @@ export interface DelegatedAdministratorState {
  * The set of arguments for constructing a DelegatedAdministrator resource.
  */
 export interface DelegatedAdministratorArgs {
-    /**
-     * The account ID number of the member account in the organization to register as a delegated administrator.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     */
     servicePrincipal: pulumi.Input<string>;
 }

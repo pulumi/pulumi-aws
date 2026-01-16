@@ -16,32 +16,16 @@ public final class GetEndpointAssociationsArgs extends com.pulumi.resources.Invo
 
     public static final GetEndpointAssociationsArgs Empty = new GetEndpointAssociationsArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the specific VPC Endpoint to retrieve.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return ID of the specific VPC Endpoint to retrieve.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -71,44 +55,20 @@ public final class GetEndpointAssociationsArgs extends com.pulumi.resources.Invo
             $ = new GetEndpointAssociationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcEndpointId ID of the specific VPC Endpoint to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId ID of the specific VPC Endpoint to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

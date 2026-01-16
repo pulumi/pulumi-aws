@@ -9,97 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Outposts
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Outposts Endpoint.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Outposts.Endpoint("example", new()
-    ///     {
-    ///         OutpostId = exampleAwsOutpostsOutpost.Id,
-    ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
-    ///         SubnetId = exampleAwsSubnet.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3outposts/endpoint:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        /// </summary>
         [Output("accessType")]
         public Output<string> AccessType { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the endpoint.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC CIDR block of the endpoint.
-        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        /// </summary>
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-        /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.EndpointNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the Outpost to contain this endpoint.
-        /// </summary>
         [Output("outpostId")]
         public Output<string> OutpostId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the EC2 Security Group.
-        /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the EC2 Subnet.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -149,39 +88,21 @@ namespace Pulumi.Aws.S3Outposts
 
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        /// </summary>
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
-        /// <summary>
-        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
-        /// <summary>
-        /// Identifier of the Outpost to contain this endpoint.
-        /// </summary>
         [Input("outpostId", required: true)]
         public Input<string> OutpostId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the EC2 Security Group.
-        /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the EC2 Subnet.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -193,69 +114,38 @@ namespace Pulumi.Aws.S3Outposts
 
     public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        /// </summary>
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the endpoint.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// VPC CIDR block of the endpoint.
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         [Input("networkInterfaces")]
         private InputList<Inputs.EndpointNetworkInterfaceGetArgs>? _networkInterfaces;
-
-        /// <summary>
-        /// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-        /// </summary>
         public InputList<Inputs.EndpointNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.EndpointNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
 
-        /// <summary>
-        /// Identifier of the Outpost to contain this endpoint.
-        /// </summary>
         [Input("outpostId")]
         public Input<string>? OutpostId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the EC2 Security Group.
-        /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
 
-        /// <summary>
-        /// Identifier of the EC2 Subnet.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

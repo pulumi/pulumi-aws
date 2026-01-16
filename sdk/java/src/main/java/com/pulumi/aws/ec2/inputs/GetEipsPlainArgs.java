@@ -17,47 +17,23 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEipsPlainArgs Empty = new GetEipsPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetEipsFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetEipsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,44 +64,20 @@ public final class GetEipsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetEipsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetEipsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetEipsFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

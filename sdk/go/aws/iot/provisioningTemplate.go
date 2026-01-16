@@ -12,163 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			iotAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"iot.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			iotFleetProvisioning, err := iam.NewRole(ctx, "iot_fleet_provisioning", &iam.RoleArgs{
-//				Name:             pulumi.String("IoTProvisioningServiceRole"),
-//				Path:             pulumi.String("/service-role/"),
-//				AssumeRolePolicy: pulumi.String(iotAssumeRolePolicy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "iot_fleet_provisioning_registration", &iam.RolePolicyAttachmentArgs{
-//				Role:      iotFleetProvisioning.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			devicePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"iot:Subscribe",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			devicePolicyPolicy, err := iot.NewPolicy(ctx, "device_policy", &iot.PolicyArgs{
-//				Name:   pulumi.String("DevicePolicy"),
-//				Policy: pulumi.String(devicePolicy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewProvisioningTemplate(ctx, "fleet", &iot.ProvisioningTemplateArgs{
-//				Name:                pulumi.String("FleetTemplate"),
-//				Description:         pulumi.String("My provisioning template"),
-//				ProvisioningRoleArn: iotFleetProvisioning.Arn,
-//				Enabled:             pulumi.Bool(true),
-//				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Parameters": map[string]interface{}{
-//							"SerialNumber": map[string]interface{}{
-//								"Type": "String",
-//							},
-//						},
-//						"Resources": map[string]interface{}{
-//							"certificate": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"CertificateId": map[string]interface{}{
-//										"Ref": "AWS::IoT::Certificate::Id",
-//									},
-//									"Status": "Active",
-//								},
-//								"Type": "AWS::IoT::Certificate",
-//							},
-//							"policy": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"PolicyName": name,
-//								},
-//								"Type": "AWS::IoT::Policy",
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-// ```
 type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
 
-	// The ARN that identifies the provisioning template.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The default version of the fleet provisioning template.
-	DefaultVersionId pulumi.IntOutput `pulumi:"defaultVersionId"`
-	// The description of the fleet provisioning template.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// True to enable the fleet provisioning template, otherwise false.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The name of the fleet provisioning template.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a pre-provisioning hook template. Details below.
+	Arn                 pulumi.StringOutput                              `pulumi:"arn"`
+	DefaultVersionId    pulumi.IntOutput                                 `pulumi:"defaultVersionId"`
+	Description         pulumi.StringPtrOutput                           `pulumi:"description"`
+	Enabled             pulumi.BoolPtrOutput                             `pulumi:"enabled"`
+	Name                pulumi.StringOutput                              `pulumi:"name"`
 	PreProvisioningHook ProvisioningTemplatePreProvisioningHookPtrOutput `pulumi:"preProvisioningHook"`
-	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-	ProvisioningRoleArn pulumi.StringOutput `pulumi:"provisioningRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The JSON formatted contents of the fleet provisioning template.
-	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
-	// The type you define in a provisioning template.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningRoleArn pulumi.StringOutput                              `pulumi:"provisioningRoleArn"`
+	Region              pulumi.StringOutput                              `pulumi:"region"`
+	Tags                pulumi.StringMapOutput                           `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                           `pulumi:"tagsAll"`
+	TemplateBody        pulumi.StringOutput                              `pulumi:"templateBody"`
+	Type                pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewProvisioningTemplate registers a new resource with the given unique name, arguments, and options.
@@ -207,57 +65,33 @@ func GetProvisioningTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProvisioningTemplate resources.
 type provisioningTemplateState struct {
-	// The ARN that identifies the provisioning template.
-	Arn *string `pulumi:"arn"`
-	// The default version of the fleet provisioning template.
-	DefaultVersionId *int `pulumi:"defaultVersionId"`
-	// The description of the fleet provisioning template.
-	Description *string `pulumi:"description"`
-	// True to enable the fleet provisioning template, otherwise false.
-	Enabled *bool `pulumi:"enabled"`
-	// The name of the fleet provisioning template.
-	Name *string `pulumi:"name"`
-	// Creates a pre-provisioning hook template. Details below.
+	Arn                 *string                                  `pulumi:"arn"`
+	DefaultVersionId    *int                                     `pulumi:"defaultVersionId"`
+	Description         *string                                  `pulumi:"description"`
+	Enabled             *bool                                    `pulumi:"enabled"`
+	Name                *string                                  `pulumi:"name"`
 	PreProvisioningHook *ProvisioningTemplatePreProvisioningHook `pulumi:"preProvisioningHook"`
-	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The JSON formatted contents of the fleet provisioning template.
-	TemplateBody *string `pulumi:"templateBody"`
-	// The type you define in a provisioning template.
-	Type *string `pulumi:"type"`
+	ProvisioningRoleArn *string                                  `pulumi:"provisioningRoleArn"`
+	Region              *string                                  `pulumi:"region"`
+	Tags                map[string]string                        `pulumi:"tags"`
+	TagsAll             map[string]string                        `pulumi:"tagsAll"`
+	TemplateBody        *string                                  `pulumi:"templateBody"`
+	Type                *string                                  `pulumi:"type"`
 }
 
 type ProvisioningTemplateState struct {
-	// The ARN that identifies the provisioning template.
-	Arn pulumi.StringPtrInput
-	// The default version of the fleet provisioning template.
-	DefaultVersionId pulumi.IntPtrInput
-	// The description of the fleet provisioning template.
-	Description pulumi.StringPtrInput
-	// True to enable the fleet provisioning template, otherwise false.
-	Enabled pulumi.BoolPtrInput
-	// The name of the fleet provisioning template.
-	Name pulumi.StringPtrInput
-	// Creates a pre-provisioning hook template. Details below.
+	Arn                 pulumi.StringPtrInput
+	DefaultVersionId    pulumi.IntPtrInput
+	Description         pulumi.StringPtrInput
+	Enabled             pulumi.BoolPtrInput
+	Name                pulumi.StringPtrInput
 	PreProvisioningHook ProvisioningTemplatePreProvisioningHookPtrInput
-	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The JSON formatted contents of the fleet provisioning template.
-	TemplateBody pulumi.StringPtrInput
-	// The type you define in a provisioning template.
-	Type pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	TemplateBody        pulumi.StringPtrInput
+	Type                pulumi.StringPtrInput
 }
 
 func (ProvisioningTemplateState) ElementType() reflect.Type {
@@ -265,46 +99,28 @@ func (ProvisioningTemplateState) ElementType() reflect.Type {
 }
 
 type provisioningTemplateArgs struct {
-	// The description of the fleet provisioning template.
-	Description *string `pulumi:"description"`
-	// True to enable the fleet provisioning template, otherwise false.
-	Enabled *bool `pulumi:"enabled"`
-	// The name of the fleet provisioning template.
-	Name *string `pulumi:"name"`
-	// Creates a pre-provisioning hook template. Details below.
+	Description         *string                                  `pulumi:"description"`
+	Enabled             *bool                                    `pulumi:"enabled"`
+	Name                *string                                  `pulumi:"name"`
 	PreProvisioningHook *ProvisioningTemplatePreProvisioningHook `pulumi:"preProvisioningHook"`
-	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-	ProvisioningRoleArn string `pulumi:"provisioningRoleArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The JSON formatted contents of the fleet provisioning template.
-	TemplateBody string `pulumi:"templateBody"`
-	// The type you define in a provisioning template.
-	Type *string `pulumi:"type"`
+	ProvisioningRoleArn string                                   `pulumi:"provisioningRoleArn"`
+	Region              *string                                  `pulumi:"region"`
+	Tags                map[string]string                        `pulumi:"tags"`
+	TemplateBody        string                                   `pulumi:"templateBody"`
+	Type                *string                                  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ProvisioningTemplate resource.
 type ProvisioningTemplateArgs struct {
-	// The description of the fleet provisioning template.
-	Description pulumi.StringPtrInput
-	// True to enable the fleet provisioning template, otherwise false.
-	Enabled pulumi.BoolPtrInput
-	// The name of the fleet provisioning template.
-	Name pulumi.StringPtrInput
-	// Creates a pre-provisioning hook template. Details below.
+	Description         pulumi.StringPtrInput
+	Enabled             pulumi.BoolPtrInput
+	Name                pulumi.StringPtrInput
 	PreProvisioningHook ProvisioningTemplatePreProvisioningHookPtrInput
-	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The JSON formatted contents of the fleet provisioning template.
-	TemplateBody pulumi.StringInput
-	// The type you define in a provisioning template.
-	Type pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TemplateBody        pulumi.StringInput
+	Type                pulumi.StringPtrInput
 }
 
 func (ProvisioningTemplateArgs) ElementType() reflect.Type {
@@ -394,64 +210,52 @@ func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx 
 	return o
 }
 
-// The ARN that identifies the provisioning template.
 func (o ProvisioningTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The default version of the fleet provisioning template.
 func (o ProvisioningTemplateOutput) DefaultVersionId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.IntOutput { return v.DefaultVersionId }).(pulumi.IntOutput)
 }
 
-// The description of the fleet provisioning template.
 func (o ProvisioningTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// True to enable the fleet provisioning template, otherwise false.
 func (o ProvisioningTemplateOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the fleet provisioning template.
 func (o ProvisioningTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a pre-provisioning hook template. Details below.
 func (o ProvisioningTemplateOutput) PreProvisioningHook() ProvisioningTemplatePreProvisioningHookPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) ProvisioningTemplatePreProvisioningHookPtrOutput {
 		return v.PreProvisioningHook
 	}).(ProvisioningTemplatePreProvisioningHookPtrOutput)
 }
 
-// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 func (o ProvisioningTemplateOutput) ProvisioningRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.ProvisioningRoleArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProvisioningTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProvisioningTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProvisioningTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The JSON formatted contents of the fleet provisioning template.
 func (o ProvisioningTemplateOutput) TemplateBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.TemplateBody }).(pulumi.StringOutput)
 }
 
-// The type you define in a provisioning template.
 func (o ProvisioningTemplateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

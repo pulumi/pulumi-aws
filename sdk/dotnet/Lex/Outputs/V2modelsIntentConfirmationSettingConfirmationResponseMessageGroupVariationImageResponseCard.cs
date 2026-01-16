@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard
     {
-        /// <summary>
-        /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `Button`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardButton> Buttons;
-        /// <summary>
-        /// URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-        /// </summary>
         public readonly string? ImageUrl;
-        /// <summary>
-        /// Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-        /// </summary>
         public readonly string? Subtitle;
-        /// <summary>
-        /// Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

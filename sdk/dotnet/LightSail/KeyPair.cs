@@ -9,151 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail Key Pair for use with Lightsail Instances. Use this resource to create or import key pairs that are separate from EC2 Key Pairs and required for Lightsail instances.
-    /// 
-    /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Create New Key Pair
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.KeyPair("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Create New Key Pair with PGP Encrypted Private Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.KeyPair("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         PgpKey = "keybase:keybaseusername",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Existing Public Key Import
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.KeyPair("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         PublicKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "~/.ssh/id_rsa.pub",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
-    /// </summary>
     [AwsResourceType("aws:lightsail/keyPair:KeyPair")]
     public partial class KeyPair : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Lightsail key pair.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// MD5 public key fingerprint for the encrypted private key.
-        /// </summary>
         [Output("encryptedFingerprint")]
         public Output<string> EncryptedFingerprint { get; private set; } = null!;
 
-        /// <summary>
-        /// Private key material, base 64 encoded and encrypted with the given `PgpKey`. This is only populated when creating a new key and `PgpKey` is supplied.
-        /// </summary>
         [Output("encryptedPrivateKey")]
         public Output<string> EncryptedPrivateKey { get; private set; } = null!;
 
-        /// <summary>
-        /// MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        /// </summary>
         [Output("pgpKey")]
         public Output<string?> PgpKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Private key, base64 encoded. This is only populated when creating a new key, and when no `PgpKey` is provided.
-        /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Public key material. This public key will be imported into Lightsail.
-        /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `PgpKey` is ignored if `PublicKey` is supplied.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -203,44 +94,23 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
-        /// <summary>
-        /// Public key material. This public key will be imported into Lightsail.
-        /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `PgpKey` is ignored if `PublicKey` is supplied.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -255,74 +125,38 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class KeyPairState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Lightsail key pair.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// MD5 public key fingerprint for the encrypted private key.
-        /// </summary>
         [Input("encryptedFingerprint")]
         public Input<string>? EncryptedFingerprint { get; set; }
 
-        /// <summary>
-        /// Private key material, base 64 encoded and encrypted with the given `PgpKey`. This is only populated when creating a new key and `PgpKey` is supplied.
-        /// </summary>
         [Input("encryptedPrivateKey")]
         public Input<string>? EncryptedPrivateKey { get; set; }
 
-        /// <summary>
-        /// MD5 public key fingerprint as specified in section 4 of RFC 4716.
-        /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
-        /// <summary>
-        /// Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-        /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
-        /// <summary>
-        /// Private key, base64 encoded. This is only populated when creating a new key, and when no `PgpKey` is provided.
-        /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
-        /// <summary>
-        /// Public key material. This public key will be imported into Lightsail.
-        /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `PgpKey` is ignored if `PublicKey` is supplied.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -331,10 +165,6 @@ namespace Pulumi.Aws.LightSail
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

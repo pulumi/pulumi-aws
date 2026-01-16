@@ -15,14 +15,14 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
     public static final DistributionDefaultCacheBehaviorArgs Empty = new DistributionDefaultCacheBehaviorArgs();
 
     /**
-     * Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
+     * The cache behavior of the distribution.
      * 
      */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
     /**
-     * @return Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
+     * @return The cache behavior of the distribution.
      * 
      */
     public Output<String> behavior() {
@@ -54,7 +54,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param behavior Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
+         * @param behavior The cache behavior of the distribution.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param behavior Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
+         * @param behavior The cache behavior of the distribution.
          * 
          * @return builder
          * 

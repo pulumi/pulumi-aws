@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskTaskReportConfig {
-    /**
-     * @return Specifies the type of task report you&#39;d like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
-     * 
-     */
     private @Nullable String outputType;
-    /**
-     * @return Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn&#39;t. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     private @Nullable String reportLevel;
-    /**
-     * @return Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
-     * 
-     */
     private @Nullable TaskTaskReportConfigReportOverrides reportOverrides;
-    /**
-     * @return Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
-     * 
-     */
     private TaskTaskReportConfigS3Destination s3Destination;
-    /**
-     * @return Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
-     * 
-     */
     private @Nullable String s3ObjectVersioning;
 
     private TaskTaskReportConfig() {}
-    /**
-     * @return Specifies the type of task report you&#39;d like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
-     * 
-     */
     public Optional<String> outputType() {
         return Optional.ofNullable(this.outputType);
     }
-    /**
-     * @return Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn&#39;t. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<String> reportLevel() {
         return Optional.ofNullable(this.reportLevel);
     }
-    /**
-     * @return Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
-     * 
-     */
     public Optional<TaskTaskReportConfigReportOverrides> reportOverrides() {
         return Optional.ofNullable(this.reportOverrides);
     }
-    /**
-     * @return Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
-     * 
-     */
     public TaskTaskReportConfigS3Destination s3Destination() {
         return this.s3Destination;
     }
-    /**
-     * @return Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
-     * 
-     */
     public Optional<String> s3ObjectVersioning() {
         return Optional.ofNullable(this.s3ObjectVersioning);
     }

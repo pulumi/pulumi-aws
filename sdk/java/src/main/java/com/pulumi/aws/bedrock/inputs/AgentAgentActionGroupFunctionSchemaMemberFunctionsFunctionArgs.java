@@ -18,47 +18,23 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArg
 
     public static final AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs Empty = new AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs();
 
-    /**
-     * Description of the function and its purpose.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the function and its purpose.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name for the function.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name for the function.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>> parameters;
 
-    /**
-     * @return Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-     * 
-     */
     public Optional<Output<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
@@ -89,75 +65,33 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArg
             $ = new AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the function and its purpose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the function and its purpose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name for the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameters Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }

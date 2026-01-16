@@ -14,83 +14,35 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetOutpostResult {
     private String arn;
-    /**
-     * @return Availability Zone name.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Availability Zone identifier.
-     * 
-     */
     private String availabilityZoneId;
-    /**
-     * @return The description of the Outpost.
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return The life cycle status.
-     * 
-     */
     private String lifecycleStatus;
     private String name;
     private @Nullable String ownerId;
     private String region;
-    /**
-     * @return The Amazon Resource Name (ARN) of the site.
-     * 
-     */
     private String siteArn;
-    /**
-     * @return The ID of the site.
-     * 
-     */
     private String siteId;
-    /**
-     * @return The hardware type.
-     * 
-     */
     private String supportedHardwareType;
-    /**
-     * @return The Outpost tags.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetOutpostResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Availability Zone name.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Availability Zone identifier.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
-    /**
-     * @return The description of the Outpost.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The life cycle status.
-     * 
-     */
     public String lifecycleStatus() {
         return this.lifecycleStatus;
     }
@@ -103,31 +55,15 @@ public final class GetOutpostResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the site.
-     * 
-     */
     public String siteArn() {
         return this.siteArn;
     }
-    /**
-     * @return The ID of the site.
-     * 
-     */
     public String siteId() {
         return this.siteId;
     }
-    /**
-     * @return The hardware type.
-     * 
-     */
     public String supportedHardwareType() {
         return this.supportedHardwareType;
     }
-    /**
-     * @return The Outpost tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -22,170 +22,72 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
 
     public static final V2modelsSlotTypeArgs Empty = new V2modelsSlotTypeArgs();
 
-    /**
-     * Identifier of the bot associated with this slot type.
-     * 
-     */
     @Import(name="botId", required=true)
     private Output<String> botId;
 
-    /**
-     * @return Identifier of the bot associated with this slot type.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
 
-    /**
-     * Version of the bot associated with this slot type.
-     * 
-     */
     @Import(name="botVersion", required=true)
     private Output<String> botVersion;
 
-    /**
-     * @return Version of the bot associated with this slot type.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
 
-    /**
-     * Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     * 
-     */
     @Import(name="compositeSlotTypeSettings")
     private @Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingArgs>> compositeSlotTypeSettings;
 
-    /**
-     * @return Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeCompositeSlotTypeSettingArgs>>> compositeSlotTypeSettings() {
         return Optional.ofNullable(this.compositeSlotTypeSettings);
     }
 
-    /**
-     * Description of the slot type.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the slot type.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     * 
-     */
     @Import(name="externalSourceSettings")
     private @Nullable Output<List<V2modelsSlotTypeExternalSourceSettingArgs>> externalSourceSettings;
 
-    /**
-     * @return Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeExternalSourceSettingArgs>>> externalSourceSettings() {
         return Optional.ofNullable(this.externalSourceSettings);
     }
 
-    /**
-     * Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     * 
-     */
     @Import(name="localeId", required=true)
     private Output<String> localeId;
 
-    /**
-     * @return Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     * 
-     */
     public Output<String> localeId() {
         return this.localeId;
     }
 
-    /**
-     * Name of the slot type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the slot type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     * 
-     */
     @Import(name="parentSlotTypeSignature")
     private @Nullable Output<String> parentSlotTypeSignature;
 
-    /**
-     * @return Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     * 
-     */
     public Optional<Output<String>> parentSlotTypeSignature() {
         return Optional.ofNullable(this.parentSlotTypeSignature);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     * 
-     */
     @Import(name="slotTypeValues")
     private @Nullable Output<List<V2modelsSlotTypeSlotTypeValueArgs>> slotTypeValues;
 
-    /**
-     * @return List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     * 
-     */
     public Optional<Output<List<V2modelsSlotTypeSlotTypeValueArgs>>> slotTypeValues() {
         return Optional.ofNullable(this.slotTypeValues);
     }
@@ -197,19 +99,9 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     * 
-     */
     @Import(name="valueSelectionSetting")
     private @Nullable Output<V2modelsSlotTypeValueSelectionSettingArgs> valueSelectionSetting;
 
-    /**
-     * @return Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     * 
-     */
     public Optional<Output<V2modelsSlotTypeValueSelectionSettingArgs>> valueSelectionSetting() {
         return Optional.ofNullable(this.valueSelectionSetting);
     }
@@ -249,264 +141,104 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
             $ = new V2modelsSlotTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botId Identifier of the bot associated with this slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(Output<String> botId) {
             $.botId = botId;
             return this;
         }
 
-        /**
-         * @param botId Identifier of the bot associated with this slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(String botId) {
             return botId(Output.of(botId));
         }
 
-        /**
-         * @param botVersion Version of the bot associated with this slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(Output<String> botVersion) {
             $.botVersion = botVersion;
             return this;
         }
 
-        /**
-         * @param botVersion Version of the bot associated with this slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(String botVersion) {
             return botVersion(Output.of(botVersion));
         }
 
-        /**
-         * @param compositeSlotTypeSettings Specifications for a composite slot type.
-         * See `compositeSlotTypeSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compositeSlotTypeSettings(@Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingArgs>> compositeSlotTypeSettings) {
             $.compositeSlotTypeSettings = compositeSlotTypeSettings;
             return this;
         }
 
-        /**
-         * @param compositeSlotTypeSettings Specifications for a composite slot type.
-         * See `compositeSlotTypeSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compositeSlotTypeSettings(List<V2modelsSlotTypeCompositeSlotTypeSettingArgs> compositeSlotTypeSettings) {
             return compositeSlotTypeSettings(Output.of(compositeSlotTypeSettings));
         }
 
-        /**
-         * @param compositeSlotTypeSettings Specifications for a composite slot type.
-         * See `compositeSlotTypeSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder compositeSlotTypeSettings(V2modelsSlotTypeCompositeSlotTypeSettingArgs... compositeSlotTypeSettings) {
             return compositeSlotTypeSettings(List.of(compositeSlotTypeSettings));
         }
 
-        /**
-         * @param description Description of the slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param externalSourceSettings Type of external information used to create the slot type.
-         * See `externalSourceSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalSourceSettings(@Nullable Output<List<V2modelsSlotTypeExternalSourceSettingArgs>> externalSourceSettings) {
             $.externalSourceSettings = externalSourceSettings;
             return this;
         }
 
-        /**
-         * @param externalSourceSettings Type of external information used to create the slot type.
-         * See `externalSourceSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalSourceSettings(List<V2modelsSlotTypeExternalSourceSettingArgs> externalSourceSettings) {
             return externalSourceSettings(Output.of(externalSourceSettings));
         }
 
-        /**
-         * @param externalSourceSettings Type of external information used to create the slot type.
-         * See `externalSourceSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalSourceSettings(V2modelsSlotTypeExternalSourceSettingArgs... externalSourceSettings) {
             return externalSourceSettings(List.of(externalSourceSettings));
         }
 
-        /**
-         * @param localeId Identifier of the language and locale where this slot type is used.
-         * All of the bots, slot types, and slots used by the intent must have the same locale.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(Output<String> localeId) {
             $.localeId = localeId;
             return this;
         }
 
-        /**
-         * @param localeId Identifier of the language and locale where this slot type is used.
-         * All of the bots, slot types, and slots used by the intent must have the same locale.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(String localeId) {
             return localeId(Output.of(localeId));
         }
 
-        /**
-         * @param name Name of the slot type.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the slot type.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parentSlotTypeSignature Built-in slot type used as a parent of this slot type.
-         * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-         * Only `AMAZON.AlphaNumeric` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentSlotTypeSignature(@Nullable Output<String> parentSlotTypeSignature) {
             $.parentSlotTypeSignature = parentSlotTypeSignature;
             return this;
         }
 
-        /**
-         * @param parentSlotTypeSignature Built-in slot type used as a parent of this slot type.
-         * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-         * Only `AMAZON.AlphaNumeric` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentSlotTypeSignature(String parentSlotTypeSignature) {
             return parentSlotTypeSignature(Output.of(parentSlotTypeSignature));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take.
-         * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-         * See `slotTypeValues` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeValues(@Nullable Output<List<V2modelsSlotTypeSlotTypeValueArgs>> slotTypeValues) {
             $.slotTypeValues = slotTypeValues;
             return this;
         }
 
-        /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take.
-         * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-         * See `slotTypeValues` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeValues(List<V2modelsSlotTypeSlotTypeValueArgs> slotTypeValues) {
             return slotTypeValues(Output.of(slotTypeValues));
         }
 
-        /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take.
-         * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-         * See `slotTypeValues` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValueArgs... slotTypeValues) {
             return slotTypeValues(List.of(slotTypeValues));
         }
@@ -520,25 +252,11 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param valueSelectionSetting Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-         * See `valueSelectionSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueSelectionSetting(@Nullable Output<V2modelsSlotTypeValueSelectionSettingArgs> valueSelectionSetting) {
             $.valueSelectionSetting = valueSelectionSetting;
             return this;
         }
 
-        /**
-         * @param valueSelectionSetting Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-         * See `valueSelectionSetting` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueSelectionSetting(V2modelsSlotTypeValueSelectionSettingArgs valueSelectionSetting) {
             return valueSelectionSetting(Output.of(valueSelectionSetting));
         }

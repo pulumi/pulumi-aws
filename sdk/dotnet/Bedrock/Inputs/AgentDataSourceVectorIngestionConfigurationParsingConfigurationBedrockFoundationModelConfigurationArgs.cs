@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the model used to parse documents
-        /// </summary>
         [Input("modelArn", required: true)]
         public Input<string> ModelArn { get; set; } = null!;
 
-        /// <summary>
-        /// Instructions for interpreting the contents of the document. See `ParsingPrompt` block for details.
-        /// </summary>
         [Input("parsingPrompt")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs>? ParsingPrompt { get; set; }
 

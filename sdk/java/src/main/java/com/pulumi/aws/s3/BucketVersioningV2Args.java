@@ -17,77 +17,37 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
 
     public static final BucketVersioningV2Args Empty = new BucketVersioningV2Args();
 
-    /**
-     * Name of the S3 bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
-     * 
-     */
     @Import(name="mfa")
     private @Nullable Output<String> mfa;
 
-    /**
-     * @return Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
-     * 
-     */
     public Optional<Output<String>> mfa() {
         return Optional.ofNullable(this.mfa);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for the versioning parameters. See below.
-     * 
-     */
     @Import(name="versioningConfiguration", required=true)
     private Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration;
 
-    /**
-     * @return Configuration block for the versioning parameters. See below.
-     * 
-     */
     public Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration() {
         return this.versioningConfiguration;
     }
@@ -120,107 +80,47 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
             $ = new BucketVersioningV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param mfa Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfa(@Nullable Output<String> mfa) {
             $.mfa = mfa;
             return this;
         }
 
-        /**
-         * @param mfa Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfa(String mfa) {
             return mfa(Output.of(mfa));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param versioningConfiguration Configuration block for the versioning parameters. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versioningConfiguration(Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration) {
             $.versioningConfiguration = versioningConfiguration;
             return this;
         }
 
-        /**
-         * @param versioningConfiguration Configuration block for the versioning parameters. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs versioningConfiguration) {
             return versioningConfiguration(Output.of(versioningConfiguration));
         }

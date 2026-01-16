@@ -13,31 +13,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationVpcConfiguration {
-    /**
-     * @return The Security Group IDs used by the VPC configuration.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return The Subnet IDs used by the VPC configuration.
-     * 
-     */
     private List<String> subnetIds;
     private @Nullable String vpcConfigurationId;
     private @Nullable String vpcId;
 
     private ApplicationApplicationConfigurationVpcConfiguration() {}
-    /**
-     * @return The Security Group IDs used by the VPC configuration.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return The Subnet IDs used by the VPC configuration.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataJobDriver {
-    /**
-     * @return The job driver for job type.
-     * 
-     */
     private @Nullable JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver sparkSqlJobDriver;
-    /**
-     * @return The job driver parameters specified for spark submit.
-     * 
-     */
     private @Nullable JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver sparkSubmitJobDriver;
 
     private JobTemplateJobTemplateDataJobDriver() {}
-    /**
-     * @return The job driver for job type.
-     * 
-     */
     public Optional<JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver> sparkSqlJobDriver() {
         return Optional.ofNullable(this.sparkSqlJobDriver);
     }
-    /**
-     * @return The job driver parameters specified for spark submit.
-     * 
-     */
     public Optional<JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver> sparkSubmitJobDriver() {
         return Optional.ofNullable(this.sparkSubmitJobDriver);
     }

@@ -14,32 +14,16 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
 
     public static final ChannelDestinationMultiplexSettingsArgs Empty = new ChannelDestinationMultiplexSettingsArgs();
 
-    /**
-     * The ID of the Multiplex that the encoder is providing output to.
-     * 
-     */
     @Import(name="multiplexId", required=true)
     private Output<String> multiplexId;
 
-    /**
-     * @return The ID of the Multiplex that the encoder is providing output to.
-     * 
-     */
     public Output<String> multiplexId() {
         return this.multiplexId;
     }
 
-    /**
-     * The program name of the Multiplex program that the encoder is providing output to.
-     * 
-     */
     @Import(name="programName", required=true)
     private Output<String> programName;
 
-    /**
-     * @return The program name of the Multiplex program that the encoder is providing output to.
-     * 
-     */
     public Output<String> programName() {
         return this.programName;
     }
@@ -69,44 +53,20 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
             $ = new ChannelDestinationMultiplexSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param multiplexId The ID of the Multiplex that the encoder is providing output to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiplexId(Output<String> multiplexId) {
             $.multiplexId = multiplexId;
             return this;
         }
 
-        /**
-         * @param multiplexId The ID of the Multiplex that the encoder is providing output to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiplexId(String multiplexId) {
             return multiplexId(Output.of(multiplexId));
         }
 
-        /**
-         * @param programName The program name of the Multiplex program that the encoder is providing output to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder programName(Output<String> programName) {
             $.programName = programName;
             return this;
         }
 
-        /**
-         * @param programName The program name of the Multiplex program that the encoder is providing output to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder programName(String programName) {
             return programName(Output.of(programName));
         }

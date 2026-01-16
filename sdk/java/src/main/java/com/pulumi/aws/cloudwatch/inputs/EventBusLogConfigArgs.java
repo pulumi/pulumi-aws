@@ -15,32 +15,16 @@ public final class EventBusLogConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final EventBusLogConfigArgs Empty = new EventBusLogConfigArgs();
 
-    /**
-     * Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-     * 
-     */
     @Import(name="includeDetail")
     private @Nullable Output<String> includeDetail;
 
-    /**
-     * @return Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-     * 
-     */
     public Optional<Output<String>> includeDetail() {
         return Optional.ofNullable(this.includeDetail);
     }
 
-    /**
-     * Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-     * 
-     */
     @Import(name="level")
     private @Nullable Output<String> level;
 
-    /**
-     * @return Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-     * 
-     */
     public Optional<Output<String>> level() {
         return Optional.ofNullable(this.level);
     }
@@ -70,44 +54,20 @@ public final class EventBusLogConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new EventBusLogConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param includeDetail Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDetail(@Nullable Output<String> includeDetail) {
             $.includeDetail = includeDetail;
             return this;
         }
 
-        /**
-         * @param includeDetail Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeDetail(String includeDetail) {
             return includeDetail(Output.of(includeDetail));
         }
 
-        /**
-         * @param level Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder level(@Nullable Output<String> level) {
             $.level = level;
             return this;
         }
 
-        /**
-         * @param level Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder level(String level) {
             return level(Output.of(level));
         }

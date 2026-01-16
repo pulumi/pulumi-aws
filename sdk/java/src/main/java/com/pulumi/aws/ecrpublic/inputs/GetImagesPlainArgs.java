@@ -17,62 +17,30 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImagesPlainArgs Empty = new GetImagesPlainArgs();
 
-    /**
-     * One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-     * 
-     */
     @Import(name="imageIds")
     private @Nullable List<GetImagesImageId> imageIds;
 
-    /**
-     * @return One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-     * 
-     */
     public Optional<List<GetImagesImageId>> imageIds() {
         return Optional.ofNullable(this.imageIds);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable String registryId;
 
-    /**
-     * @return AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-     * 
-     */
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the public repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private String repositoryName;
 
-    /**
-     * @return Name of the public repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
@@ -104,55 +72,25 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImagesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageIds One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIds(@Nullable List<GetImagesImageId> imageIds) {
             $.imageIds = imageIds;
             return this;
         }
 
-        /**
-         * @param imageIds One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIds(GetImagesImageId... imageIds) {
             return imageIds(List.of(imageIds));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param registryId AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable String registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the public repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             $.repositoryName = repositoryName;
             return this;

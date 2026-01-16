@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
-    /**
-     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration kendraKnowledgeBaseConfiguration;
-    /**
-     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration sqlKnowledgeBaseConfiguration;
-    /**
-     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-     * 
-     */
     private String type;
-    /**
-     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration vectorKnowledgeBaseConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfiguration() {}
-    /**
-     * @return Settings for an Amazon Kendra knowledge base. See `kendraKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration> kendraKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.kendraKnowledgeBaseConfiguration);
     }
-    /**
-     * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration> sqlKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.sqlKnowledgeBaseConfiguration);
     }
-    /**
-     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Details about the model that&#39;s used to convert the data source into vector embeddings. See `vectorKnowledgeBaseConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration> vectorKnowledgeBaseConfiguration() {
         return Optional.ofNullable(this.vectorKnowledgeBaseConfiguration);
     }

@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC NAT Gateway EIP Association.
- *
- * !> **WARNING:** You should not use the `aws.ec2.NatGatewayEipAssociation` resource in conjunction with an `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGatewayEipAssociation("example", {
- *     allocationId: exampleAwsEip.id,
- *     natGatewayId: exampleAwsNatGateway.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC NAT Gateway EIP Association using the `nat_gateway_id,allocation_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
- * ```
- */
 export class NatGatewayEipAssociation extends pulumi.CustomResource {
     /**
      * Get an existing NatGatewayEipAssociation resource's state with the given name, ID, and optional extra
@@ -62,20 +35,9 @@ export class NatGatewayEipAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === NatGatewayEipAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     */
     declare public readonly allocationId: pulumi.Output<string>;
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
-    /**
-     * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly natGatewayId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.NatGatewayEipAssociationTimeouts | undefined>;
 
@@ -120,20 +82,9 @@ export class NatGatewayEipAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NatGatewayEipAssociation resources.
  */
 export interface NatGatewayEipAssociationState {
-    /**
-     * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     */
     allocationId?: pulumi.Input<string>;
     associationId?: pulumi.Input<string>;
-    /**
-     * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     *
-     * The following arguments are optional:
-     */
     natGatewayId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.NatGatewayEipAssociationTimeouts>;
 }
@@ -142,19 +93,8 @@ export interface NatGatewayEipAssociationState {
  * The set of arguments for constructing a NatGatewayEipAssociation resource.
  */
 export interface NatGatewayEipAssociationArgs {
-    /**
-     * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
-     */
     allocationId: pulumi.Input<string>;
-    /**
-     * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
-     *
-     * The following arguments are optional:
-     */
     natGatewayId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.NatGatewayEipAssociationTimeouts>;
 }

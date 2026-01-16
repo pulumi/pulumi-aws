@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class ServiceIntegrationOpsCenter
     {
-        /// <summary>
-        /// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         public readonly string? OptInStatus;
 
         [OutputConstructor]

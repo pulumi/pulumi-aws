@@ -13,122 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for associating accounts to existing Inspector instances.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.inspector2.MemberAssociation;
- * import com.pulumi.aws.inspector2.MemberAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new MemberAssociation("example", MemberAssociationArgs.builder()
- *             .accountId("123456789012")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:inspector2/memberAssociation:MemberAssociation")
 public class MemberAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the account to associate
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return ID of the account to associate
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Account ID of the delegated administrator account
-     * 
-     */
     @Export(name="delegatedAdminAccountId", refs={String.class}, tree="[0]")
     private Output<String> delegatedAdminAccountId;
 
-    /**
-     * @return Account ID of the delegated administrator account
-     * 
-     */
     public Output<String> delegatedAdminAccountId() {
         return this.delegatedAdminAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Status of the member relationship
-     * 
-     */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
-    /**
-     * @return Status of the member relationship
-     * 
-     */
     public Output<String> relationshipStatus() {
         return this.relationshipStatus;
     }
-    /**
-     * Date and time of the last update of the relationship
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return Date and time of the last update of the relationship
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

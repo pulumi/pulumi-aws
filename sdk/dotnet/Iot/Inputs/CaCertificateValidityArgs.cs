@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class CaCertificateValidityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The certificate is not valid after this date.
-        /// </summary>
         [Input("notAfter")]
         public Input<string>? NotAfter { get; set; }
 
-        /// <summary>
-        /// The certificate is not valid before this date.
-        /// </summary>
         [Input("notBefore")]
         public Input<string>? NotBefore { get; set; }
 

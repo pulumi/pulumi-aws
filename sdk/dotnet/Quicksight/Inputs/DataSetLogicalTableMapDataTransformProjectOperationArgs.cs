@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("projectedColumns", required: true)]
         private InputList<string>? _projectedColumns;
-
-        /// <summary>
-        /// Projected columns.
-        /// </summary>
         public InputList<string> ProjectedColumns
         {
             get => _projectedColumns ?? (_projectedColumns = new InputList<string>());

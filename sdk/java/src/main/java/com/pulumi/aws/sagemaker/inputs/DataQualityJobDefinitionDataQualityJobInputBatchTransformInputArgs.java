@@ -17,77 +17,37 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
     public static final DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs Empty = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs();
 
-    /**
-     * The Amazon S3 location being used to capture the data.
-     * 
-     */
     @Import(name="dataCapturedDestinationS3Uri", required=true)
     private Output<String> dataCapturedDestinationS3Uri;
 
-    /**
-     * @return The Amazon S3 location being used to capture the data.
-     * 
-     */
     public Output<String> dataCapturedDestinationS3Uri() {
         return this.dataCapturedDestinationS3Uri;
     }
 
-    /**
-     * The dataset format for your batch transform job. Fields are documented below.
-     * 
-     */
     @Import(name="datasetFormat", required=true)
     private Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs> datasetFormat;
 
-    /**
-     * @return The dataset format for your batch transform job. Fields are documented below.
-     * 
-     */
     public Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs> datasetFormat() {
         return this.datasetFormat;
     }
 
-    /**
-     * Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     @Import(name="localPath")
     private @Nullable Output<String> localPath;
 
-    /**
-     * @return Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     public Optional<Output<String>> localPath() {
         return Optional.ofNullable(this.localPath);
     }
 
-    /**
-     * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     @Import(name="s3DataDistributionType")
     private @Nullable Output<String> s3DataDistributionType;
 
-    /**
-     * @return Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     public Optional<Output<String>> s3DataDistributionType() {
         return Optional.ofNullable(this.s3DataDistributionType);
     }
 
-    /**
-     * Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     @Import(name="s3InputMode")
     private @Nullable Output<String> s3InputMode;
 
-    /**
-     * @return Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     public Optional<Output<String>> s3InputMode() {
         return Optional.ofNullable(this.s3InputMode);
     }
@@ -120,107 +80,47 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
             $ = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataCapturedDestinationS3Uri The Amazon S3 location being used to capture the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataCapturedDestinationS3Uri(Output<String> dataCapturedDestinationS3Uri) {
             $.dataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
             return this;
         }
 
-        /**
-         * @param dataCapturedDestinationS3Uri The Amazon S3 location being used to capture the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataCapturedDestinationS3Uri(String dataCapturedDestinationS3Uri) {
             return dataCapturedDestinationS3Uri(Output.of(dataCapturedDestinationS3Uri));
         }
 
-        /**
-         * @param datasetFormat The dataset format for your batch transform job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder datasetFormat(Output<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs> datasetFormat) {
             $.datasetFormat = datasetFormat;
             return this;
         }
 
-        /**
-         * @param datasetFormat The dataset format for your batch transform job. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder datasetFormat(DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs datasetFormat) {
             return datasetFormat(Output.of(datasetFormat));
         }
 
-        /**
-         * @param localPath Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localPath(@Nullable Output<String> localPath) {
             $.localPath = localPath;
             return this;
         }
 
-        /**
-         * @param localPath Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localPath(String localPath) {
             return localPath(Output.of(localPath));
         }
 
-        /**
-         * @param s3DataDistributionType Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataDistributionType(@Nullable Output<String> s3DataDistributionType) {
             $.s3DataDistributionType = s3DataDistributionType;
             return this;
         }
 
-        /**
-         * @param s3DataDistributionType Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataDistributionType(String s3DataDistributionType) {
             return s3DataDistributionType(Output.of(s3DataDistributionType));
         }
 
-        /**
-         * @param s3InputMode Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3InputMode(@Nullable Output<String> s3InputMode) {
             $.s3InputMode = s3InputMode;
             return this;
         }
 
-        /**
-         * @param s3InputMode Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3InputMode(String s3InputMode) {
             return s3InputMode(Output.of(s3InputMode));
         }

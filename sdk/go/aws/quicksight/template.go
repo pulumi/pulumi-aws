@@ -12,175 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a QuickSight Template.
-//
-// ## Example Usage
-//
-// ### From Source Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
-//				SourceEntity: &quicksight.TemplateSourceEntityArgs{
-//					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(source.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Definition
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
-//				Definition: map[string]interface{}{
-//					"dataSetConfigurations": []map[string]interface{}{
-//						map[string]interface{}{
-//							"dataSetSchema": map[string]interface{}{
-//								"columnSchemaLists": []map[string]interface{}{
-//									map[string]interface{}{
-//										"name":     "Column1",
-//										"dataType": "STRING",
-//									},
-//									map[string]interface{}{
-//										"name":     "Column2",
-//										"dataType": "INTEGER",
-//									},
-//								},
-//							},
-//							"placeholder": "1",
-//						},
-//					},
-//					"sheets": []map[string]interface{}{
-//						map[string]interface{}{
-//							"title":   "Test",
-//							"sheetId": "Test1",
-//							"visuals": []map[string]interface{}{
-//								map[string]interface{}{
-//									"barChartVisual": map[string]interface{}{
-//										"visualId": "BarChart",
-//										"chartConfiguration": map[string]interface{}{
-//											"fieldWells": map[string]interface{}{
-//												"barChartAggregatedFieldWells": map[string]interface{}{
-//													"categories": []map[string]interface{}{
-//														map[string]interface{}{
-//															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
-//																"column": map[string]interface{}{
-//																	"columnName":        "Column1",
-//																	"dataSetIdentifier": "1",
-//																},
-//															},
-//														},
-//													},
-//													"values": []map[string]interface{}{
-//														map[string]interface{}{
-//															"numericalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
-//																"column": map[string]interface{}{
-//																	"columnName":        "Column2",
-//																	"dataSetIdentifier": "1",
-//																},
-//																"aggregationFunction": map[string]interface{}{
-//																	"simpleNumericalAggregation": "SUM",
-//																},
-//															},
-//														},
-//													},
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
-// ```
 type Template struct {
 	pulumi.CustomResourceState
 
-	// ARN of the template.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The time that the template was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The time that the template was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Display name for the template.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
-	Permissions TemplatePermissionArrayOutput `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
-	// The template creation status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Identifier for the template.
-	TemplateId pulumi.StringOutput `pulumi:"templateId"`
-	// A description of the current template version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription pulumi.StringOutput `pulumi:"versionDescription"`
-	// The version number of the template version.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	Arn                pulumi.StringOutput           `pulumi:"arn"`
+	AwsAccountId       pulumi.StringOutput           `pulumi:"awsAccountId"`
+	CreatedTime        pulumi.StringOutput           `pulumi:"createdTime"`
+	LastUpdatedTime    pulumi.StringOutput           `pulumi:"lastUpdatedTime"`
+	Name               pulumi.StringOutput           `pulumi:"name"`
+	Permissions        TemplatePermissionArrayOutput `pulumi:"permissions"`
+	Region             pulumi.StringOutput           `pulumi:"region"`
+	SourceEntity       TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	SourceEntityArn    pulumi.StringOutput           `pulumi:"sourceEntityArn"`
+	Status             pulumi.StringOutput           `pulumi:"status"`
+	Tags               pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput        `pulumi:"tagsAll"`
+	TemplateId         pulumi.StringOutput           `pulumi:"templateId"`
+	VersionDescription pulumi.StringOutput           `pulumi:"versionDescription"`
+	VersionNumber      pulumi.IntOutput              `pulumi:"versionNumber"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -219,71 +68,39 @@ func GetTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Template resources.
 type templateState struct {
-	// ARN of the template.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The time that the template was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The time that the template was last updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Display name for the template.
-	Name *string `pulumi:"name"`
-	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
-	Permissions []TemplatePermission `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-	SourceEntityArn *string `pulumi:"sourceEntityArn"`
-	// The template creation status.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Identifier for the template.
-	TemplateId *string `pulumi:"templateId"`
-	// A description of the current template version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription *string `pulumi:"versionDescription"`
-	// The version number of the template version.
-	VersionNumber *int `pulumi:"versionNumber"`
+	Arn                *string               `pulumi:"arn"`
+	AwsAccountId       *string               `pulumi:"awsAccountId"`
+	CreatedTime        *string               `pulumi:"createdTime"`
+	LastUpdatedTime    *string               `pulumi:"lastUpdatedTime"`
+	Name               *string               `pulumi:"name"`
+	Permissions        []TemplatePermission  `pulumi:"permissions"`
+	Region             *string               `pulumi:"region"`
+	SourceEntity       *TemplateSourceEntity `pulumi:"sourceEntity"`
+	SourceEntityArn    *string               `pulumi:"sourceEntityArn"`
+	Status             *string               `pulumi:"status"`
+	Tags               map[string]string     `pulumi:"tags"`
+	TagsAll            map[string]string     `pulumi:"tagsAll"`
+	TemplateId         *string               `pulumi:"templateId"`
+	VersionDescription *string               `pulumi:"versionDescription"`
+	VersionNumber      *int                  `pulumi:"versionNumber"`
 }
 
 type TemplateState struct {
-	// ARN of the template.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// The time that the template was created.
-	CreatedTime pulumi.StringPtrInput
-	// The time that the template was last updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// Display name for the template.
-	Name pulumi.StringPtrInput
-	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
-	Permissions TemplatePermissionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity TemplateSourceEntityPtrInput
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
-	SourceEntityArn pulumi.StringPtrInput
-	// The template creation status.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Identifier for the template.
-	TemplateId pulumi.StringPtrInput
-	// A description of the current template version being created/updated.
-	//
-	// The following arguments are optional:
+	Arn                pulumi.StringPtrInput
+	AwsAccountId       pulumi.StringPtrInput
+	CreatedTime        pulumi.StringPtrInput
+	LastUpdatedTime    pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Permissions        TemplatePermissionArrayInput
+	Region             pulumi.StringPtrInput
+	SourceEntity       TemplateSourceEntityPtrInput
+	SourceEntityArn    pulumi.StringPtrInput
+	Status             pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	TemplateId         pulumi.StringPtrInput
 	VersionDescription pulumi.StringPtrInput
-	// The version number of the template version.
-	VersionNumber pulumi.IntPtrInput
+	VersionNumber      pulumi.IntPtrInput
 }
 
 func (TemplateState) ElementType() reflect.Type {
@@ -291,43 +108,25 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Display name for the template.
-	Name *string `pulumi:"name"`
-	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
-	Permissions []TemplatePermission `pulumi:"permissions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier for the template.
-	TemplateId string `pulumi:"templateId"`
-	// A description of the current template version being created/updated.
-	//
-	// The following arguments are optional:
-	VersionDescription string `pulumi:"versionDescription"`
+	AwsAccountId       *string               `pulumi:"awsAccountId"`
+	Name               *string               `pulumi:"name"`
+	Permissions        []TemplatePermission  `pulumi:"permissions"`
+	Region             *string               `pulumi:"region"`
+	SourceEntity       *TemplateSourceEntity `pulumi:"sourceEntity"`
+	Tags               map[string]string     `pulumi:"tags"`
+	TemplateId         string                `pulumi:"templateId"`
+	VersionDescription string                `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Display name for the template.
-	Name pulumi.StringPtrInput
-	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
-	Permissions TemplatePermissionArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-	SourceEntity TemplateSourceEntityPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Identifier for the template.
-	TemplateId pulumi.StringInput
-	// A description of the current template version being created/updated.
-	//
-	// The following arguments are optional:
+	AwsAccountId       pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Permissions        TemplatePermissionArrayInput
+	Region             pulumi.StringPtrInput
+	SourceEntity       TemplateSourceEntityPtrInput
+	Tags               pulumi.StringMapInput
+	TemplateId         pulumi.StringInput
 	VersionDescription pulumi.StringInput
 }
 
@@ -418,7 +217,6 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
-// ARN of the template.
 func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -427,69 +225,54 @@ func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The time that the template was created.
 func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The time that the template was last updated.
 func (o TemplateOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// Display name for the template.
 func (o TemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 func (o TemplateOutput) Permissions() TemplatePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplatePermissionArrayOutput { return v.Permissions }).(TemplatePermissionArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
 func (o TemplateOutput) SourceEntityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
 }
 
-// The template creation status.
 func (o TemplateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Identifier for the template.
 func (o TemplateOutput) TemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.TemplateId }).(pulumi.StringOutput)
 }
 
-// A description of the current template version being created/updated.
-//
-// The following arguments are optional:
 func (o TemplateOutput) VersionDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.VersionDescription }).(pulumi.StringOutput)
 }
 
-// The version number of the template version.
 func (o TemplateOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *Template) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

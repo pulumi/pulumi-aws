@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration
     {
-        /// <summary>
-        /// Configurations for authentication to a Redshift Serverless. See `AuthConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration? AuthConfiguration;
-        /// <summary>
-        /// ARN of the Amazon Redshift workgroup.
-        /// </summary>
         public readonly string WorkgroupArn;
 
         [OutputConstructor]

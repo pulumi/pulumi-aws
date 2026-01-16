@@ -14,17 +14,9 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs();
 
-    /**
-     * The maximum number of tokens that a chunk can contain in this layer.
-     * 
-     */
     @Import(name="maxTokens", required=true)
     private Output<Integer> maxTokens;
 
-    /**
-     * @return The maximum number of tokens that a chunk can contain in this layer.
-     * 
-     */
     public Output<Integer> maxTokens() {
         return this.maxTokens;
     }
@@ -53,23 +45,11 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             $ = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxTokens The maximum number of tokens that a chunk can contain in this layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTokens(Output<Integer> maxTokens) {
             $.maxTokens = maxTokens;
             return this;
         }
 
-        /**
-         * @param maxTokens The maximum number of tokens that a chunk can contain in this layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTokens(Integer maxTokens) {
             return maxTokens(Output.of(maxTokens));
         }

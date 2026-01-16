@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectEnvironmentFleet
     {
-        /// <summary>
-        /// Compute fleet ARN for the build project.
-        /// </summary>
         public readonly string? FleetArn;
 
         [OutputConstructor]

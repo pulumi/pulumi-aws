@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectEnvironmentDockerServer
     {
-        /// <summary>
-        /// Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
-        /// </summary>
         public readonly string ComputeType;
-        /// <summary>
-        /// List of security group IDs to assign to the Docker server.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
 
         [OutputConstructor]

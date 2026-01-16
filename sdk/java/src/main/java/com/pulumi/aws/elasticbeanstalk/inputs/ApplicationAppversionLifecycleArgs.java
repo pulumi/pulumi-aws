@@ -18,62 +18,30 @@ public final class ApplicationAppversionLifecycleArgs extends com.pulumi.resourc
 
     public static final ApplicationAppversionLifecycleArgs Empty = new ApplicationAppversionLifecycleArgs();
 
-    /**
-     * Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
-     * 
-     */
     @Import(name="deleteSourceFromS3")
     private @Nullable Output<Boolean> deleteSourceFromS3;
 
-    /**
-     * @return Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
-     * 
-     */
     public Optional<Output<Boolean>> deleteSourceFromS3() {
         return Optional.ofNullable(this.deleteSourceFromS3);
     }
 
-    /**
-     * The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     @Import(name="maxAgeInDays")
     private @Nullable Output<Integer> maxAgeInDays;
 
-    /**
-     * @return The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     public Optional<Output<Integer>> maxAgeInDays() {
         return Optional.ofNullable(this.maxAgeInDays);
     }
 
-    /**
-     * The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     @Import(name="maxCount")
     private @Nullable Output<Integer> maxCount;
 
-    /**
-     * @return The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-     * 
-     */
     public Optional<Output<Integer>> maxCount() {
         return Optional.ofNullable(this.maxCount);
     }
 
-    /**
-     * The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-     * 
-     */
     @Import(name="serviceRole", required=true)
     private Output<String> serviceRole;
 
-    /**
-     * @return The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-     * 
-     */
     public Output<String> serviceRole() {
         return this.serviceRole;
     }
@@ -105,86 +73,38 @@ public final class ApplicationAppversionLifecycleArgs extends com.pulumi.resourc
             $ = new ApplicationAppversionLifecycleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deleteSourceFromS3 Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteSourceFromS3(@Nullable Output<Boolean> deleteSourceFromS3) {
             $.deleteSourceFromS3 = deleteSourceFromS3;
             return this;
         }
 
-        /**
-         * @param deleteSourceFromS3 Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteSourceFromS3(Boolean deleteSourceFromS3) {
             return deleteSourceFromS3(Output.of(deleteSourceFromS3));
         }
 
-        /**
-         * @param maxAgeInDays The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAgeInDays(@Nullable Output<Integer> maxAgeInDays) {
             $.maxAgeInDays = maxAgeInDays;
             return this;
         }
 
-        /**
-         * @param maxAgeInDays The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAgeInDays(Integer maxAgeInDays) {
             return maxAgeInDays(Output.of(maxAgeInDays));
         }
 
-        /**
-         * @param maxCount The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCount(@Nullable Output<Integer> maxCount) {
             $.maxCount = maxCount;
             return this;
         }
 
-        /**
-         * @param maxCount The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCount(Integer maxCount) {
             return maxCount(Output.of(maxCount));
         }
 
-        /**
-         * @param serviceRole The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceRole(Output<String> serviceRole) {
             $.serviceRole = serviceRole;
             return this;
         }
 
-        /**
-         * @param serviceRole The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceRole(String serviceRole) {
             return serviceRole(Output.of(serviceRole));
         }

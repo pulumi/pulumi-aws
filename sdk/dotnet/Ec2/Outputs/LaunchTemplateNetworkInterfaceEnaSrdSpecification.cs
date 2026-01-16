@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateNetworkInterfaceEnaSrdSpecification
     {
-        /// <summary>
-        /// Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
-        /// </summary>
         public readonly bool? EnaSrdEnabled;
-        /// <summary>
-        /// Configuration for ENA Express UDP optimization. See details below.
-        /// </summary>
         public readonly Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification? EnaSrdUdpSpecification;
 
         [OutputConstructor]

@@ -16,32 +16,16 @@ public final class BucketAccessKeyArgs extends com.pulumi.resources.ResourceArgs
 
     public static final BucketAccessKeyArgs Empty = new BucketAccessKeyArgs();
 
-    /**
-     * Name of the bucket that the access key will belong to and grant access to.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return Name of the bucket that the access key will belong to and grant access to.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class BucketAccessKeyArgs extends com.pulumi.resources.ResourceArgs
             $ = new BucketAccessKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Name of the bucket that the access key will belong to and grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Name of the bucket that the access key will belong to and grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

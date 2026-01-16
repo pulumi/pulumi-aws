@@ -12,101 +12,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
-    /**
-     * @return Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-     * 
-     */
     private @Nullable String bias;
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     private @Nullable String endpointReference;
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     private @Nullable Boolean evaluateTargetHealth;
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     private @Nullable String healthCheck;
-    /**
-     * @return Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-     * 
-     */
     private @Nullable String latitude;
-    /**
-     * @return Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-     * 
-     */
     private @Nullable String longitude;
-    /**
-     * @return If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return References to a rule.
-     * 
-     */
     private @Nullable String ruleReference;
 
     private GetTrafficPolicyDocumentRuleGeoProximityLocation() {}
-    /**
-     * @return Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-     * 
-     */
     public Optional<String> bias() {
         return Optional.ofNullable(this.bias);
     }
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-     * 
-     */
     public Optional<String> latitude() {
         return Optional.ofNullable(this.latitude);
     }
-    /**
-     * @return Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-     * 
-     */
     public Optional<String> longitude() {
         return Optional.ofNullable(this.longitude);
     }
-    /**
-     * @return If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }

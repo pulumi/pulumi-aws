@@ -18,66 +18,30 @@ public final class AccountVdmAttributesArgs extends com.pulumi.resources.Resourc
 
     public static final AccountVdmAttributesArgs Empty = new AccountVdmAttributesArgs();
 
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     * 
-     */
     @Import(name="dashboardAttributes")
     private @Nullable Output<AccountVdmAttributesDashboardAttributesArgs> dashboardAttributes;
 
-    /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-     * 
-     */
     public Optional<Output<AccountVdmAttributesDashboardAttributesArgs>> dashboardAttributes() {
         return Optional.ofNullable(this.dashboardAttributes);
     }
 
-    /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     * 
-     */
     @Import(name="guardianAttributes")
     private @Nullable Output<AccountVdmAttributesGuardianAttributesArgs> guardianAttributes;
 
-    /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
-     * 
-     */
     public Optional<Output<AccountVdmAttributesGuardianAttributesArgs>> guardianAttributes() {
         return Optional.ofNullable(this.guardianAttributes);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="vdmEnabled", required=true)
     private Output<String> vdmEnabled;
 
-    /**
-     * @return Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vdmEnabled() {
         return this.vdmEnabled;
     }
@@ -109,90 +73,38 @@ public final class AccountVdmAttributesArgs extends com.pulumi.resources.Resourc
             $ = new AccountVdmAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dashboardAttributes Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardAttributes(@Nullable Output<AccountVdmAttributesDashboardAttributesArgs> dashboardAttributes) {
             $.dashboardAttributes = dashboardAttributes;
             return this;
         }
 
-        /**
-         * @param dashboardAttributes Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs dashboardAttributes) {
             return dashboardAttributes(Output.of(dashboardAttributes));
         }
 
-        /**
-         * @param guardianAttributes Specifies additional settings for your VDM configuration as applicable to the Guardian.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardianAttributes(@Nullable Output<AccountVdmAttributesGuardianAttributesArgs> guardianAttributes) {
             $.guardianAttributes = guardianAttributes;
             return this;
         }
 
-        /**
-         * @param guardianAttributes Specifies additional settings for your VDM configuration as applicable to the Guardian.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardianAttributes(AccountVdmAttributesGuardianAttributesArgs guardianAttributes) {
             return guardianAttributes(Output.of(guardianAttributes));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vdmEnabled Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vdmEnabled(Output<String> vdmEnabled) {
             $.vdmEnabled = vdmEnabled;
             return this;
         }
 
-        /**
-         * @param vdmEnabled Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vdmEnabled(String vdmEnabled) {
             return vdmEnabled(Output.of(vdmEnabled));
         }

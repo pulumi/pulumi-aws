@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Pricing.Outputs
     [OutputType]
     public sealed class GetProductFilterResult
     {
-        /// <summary>
-        /// Product attribute name that you want to filter on.
-        /// </summary>
         public readonly string Field;
-        /// <summary>
-        /// Product attribute value that you want to filter on.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

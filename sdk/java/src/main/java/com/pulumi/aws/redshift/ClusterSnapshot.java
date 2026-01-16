@@ -16,183 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a Redshift cluster snapshot
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.ClusterSnapshot;
- * import com.pulumi.aws.redshift.ClusterSnapshotArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ClusterSnapshot("example", ClusterSnapshotArgs.builder()
- *             .clusterSnapshotName("example")
- *             .clusterSnapshotContent(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("AllowDBUserOverride", "1"),
- *                     jsonProperty("Client_ID", "ExampleClientID"),
- *                     jsonProperty("App_ID", "example")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/clusterSnapshot:ClusterSnapshot")
 public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the snapshot.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the snapshot.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The cluster identifier for which you want a snapshot.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier for which you want a snapshot.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-     * 
-     */
     @Export(name="manualSnapshotRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> manualSnapshotRetentionPeriod;
 
-    /**
-     * @return The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-     * 
-     */
     public Output<Optional<Integer>> manualSnapshotRetentionPeriod() {
         return Codegen.optional(this.manualSnapshotRetentionPeriod);
     }
-    /**
-     * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-     * 
-     */
     @Export(name="ownerAccount", refs={String.class}, tree="[0]")
     private Output<String> ownerAccount;
 
-    /**
-     * @return For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-     * 
-     */
     public Output<String> ownerAccount() {
         return this.ownerAccount;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-     * 
-     */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> snapshotIdentifier;
 
-    /**
-     * @return A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-     * 
-     */
     public Output<String> snapshotIdentifier() {
         return this.snapshotIdentifier;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

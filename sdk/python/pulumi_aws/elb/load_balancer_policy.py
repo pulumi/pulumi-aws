@@ -28,11 +28,6 @@ class LoadBalancerPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerPolicy resource.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the load balancer policy.
-        :param pulumi.Input[_builtins.str] policy_type_name: The policy type.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "policy_name", policy_name)
@@ -45,9 +40,6 @@ class LoadBalancerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The load balancer on which the policy is defined.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
@@ -57,9 +49,6 @@ class LoadBalancerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the load balancer policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -69,9 +58,6 @@ class LoadBalancerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyTypeName")
     def policy_type_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy type.
-        """
         return pulumi.get(self, "policy_type_name")
 
     @policy_type_name.setter
@@ -81,9 +67,6 @@ class LoadBalancerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyAttributes")
     def policy_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
-        """
-        Policy attribute to apply to the policy.
-        """
         return pulumi.get(self, "policy_attributes")
 
     @policy_attributes.setter
@@ -93,9 +76,6 @@ class LoadBalancerPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,11 +93,6 @@ class _LoadBalancerPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerPolicy resources.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the load balancer policy.
-        :param pulumi.Input[_builtins.str] policy_type_name: The policy type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if load_balancer_name is not None:
             pulumi.set(__self__, "load_balancer_name", load_balancer_name)
@@ -133,9 +108,6 @@ class _LoadBalancerPolicyState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The load balancer on which the policy is defined.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
@@ -145,9 +117,6 @@ class _LoadBalancerPolicyState:
     @_builtins.property
     @pulumi.getter(name="policyAttributes")
     def policy_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
-        """
-        Policy attribute to apply to the policy.
-        """
         return pulumi.get(self, "policy_attributes")
 
     @policy_attributes.setter
@@ -157,9 +126,6 @@ class _LoadBalancerPolicyState:
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the load balancer policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -169,9 +135,6 @@ class _LoadBalancerPolicyState:
     @_builtins.property
     @pulumi.getter(name="policyTypeName")
     def policy_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy type.
-        """
         return pulumi.get(self, "policy_type_name")
 
     @policy_type_name.setter
@@ -181,9 +144,6 @@ class _LoadBalancerPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -204,83 +164,9 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a load balancer policy, which can be attached to an ELB listener or backend server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ca_pubkey_policy = aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ca-pubkey-policy",
-            policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[{
-                "name": "PublicKey",
-                "value": std.file(input="wu-tang-pubkey").result,
-            }])
-        wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-root-ca-backend-auth-policy",
-            policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[{
-                "name": "PublicKeyPolicyName",
-                "value": wu_tang_root_ca_pubkey_policy["policyName"],
-            }])
-        wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[
-                {
-                    "name": "ECDHE-ECDSA-AES128-GCM-SHA256",
-                    "value": "true",
-                },
-                {
-                    "name": "Protocol-TLSv1.2",
-                    "value": "true",
-                },
-            ])
-        wu_tang_ssl_tls_1_1 = aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[{
-                "name": "Reference-Security-Policy",
-                "value": "ELBSecurityPolicy-TLS-1-1-2017-01",
-            }])
-        wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
-            load_balancer_name=wu_tang.name,
-            instance_port=443,
-            policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl.policy_name])
-        ```
-
+        Create a LoadBalancerPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]] policy_attributes: Policy attribute to apply to the policy.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the load balancer policy.
-        :param pulumi.Input[_builtins.str] policy_type_name: The policy type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -289,76 +175,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  args: LoadBalancerPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a load balancer policy, which can be attached to an ELB listener or backend server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ca_pubkey_policy = aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ca-pubkey-policy",
-            policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[{
-                "name": "PublicKey",
-                "value": std.file(input="wu-tang-pubkey").result,
-            }])
-        wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-root-ca-backend-auth-policy",
-            policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[{
-                "name": "PublicKeyPolicyName",
-                "value": wu_tang_root_ca_pubkey_policy["policyName"],
-            }])
-        wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[
-                {
-                    "name": "ECDHE-ECDSA-AES128-GCM-SHA256",
-                    "value": "true",
-                },
-                {
-                    "name": "Protocol-TLSv1.2",
-                    "value": "true",
-                },
-            ])
-        wu_tang_ssl_tls_1_1 = aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[{
-                "name": "Reference-Security-Policy",
-                "value": "ELBSecurityPolicy-TLS-1-1-2017-01",
-            }])
-        wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
-            load_balancer_name=wu_tang.name,
-            instance_port=443,
-            policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl.policy_name])
-        ```
-
+        Create a LoadBalancerPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LoadBalancerPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,11 +240,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]] policy_attributes: Policy attribute to apply to the policy.
-        :param pulumi.Input[_builtins.str] policy_name: The name of the load balancer policy.
-        :param pulumi.Input[_builtins.str] policy_type_name: The policy type.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,40 +255,25 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The load balancer on which the policy is defined.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @_builtins.property
     @pulumi.getter(name="policyAttributes")
     def policy_attributes(self) -> pulumi.Output[Sequence['outputs.LoadBalancerPolicyPolicyAttribute']]:
-        """
-        Policy attribute to apply to the policy.
-        """
         return pulumi.get(self, "policy_attributes")
 
     @_builtins.property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the load balancer policy.
-        """
         return pulumi.get(self, "policy_name")
 
     @_builtins.property
     @pulumi.getter(name="policyTypeName")
     def policy_type_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy type.
-        """
         return pulumi.get(self, "policy_type_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

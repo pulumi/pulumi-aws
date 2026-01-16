@@ -18,32 +18,16 @@ public final class TrailAdvancedEventSelectorArgs extends com.pulumi.resources.R
 
     public static final TrailAdvancedEventSelectorArgs Empty = new TrailAdvancedEventSelectorArgs();
 
-    /**
-     * Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     @Import(name="fieldSelectors", required=true)
     private Output<List<TrailAdvancedEventSelectorFieldSelectorArgs>> fieldSelectors;
 
-    /**
-     * @return Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     public Output<List<TrailAdvancedEventSelectorFieldSelectorArgs>> fieldSelectors() {
         return this.fieldSelectors;
     }
 
-    /**
-     * Name of the trail.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the trail.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -73,54 +57,24 @@ public final class TrailAdvancedEventSelectorArgs extends com.pulumi.resources.R
             $ = new TrailAdvancedEventSelectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldSelectors Specifies the selector statements in an advanced event selector. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldSelectors(Output<List<TrailAdvancedEventSelectorFieldSelectorArgs>> fieldSelectors) {
             $.fieldSelectors = fieldSelectors;
             return this;
         }
 
-        /**
-         * @param fieldSelectors Specifies the selector statements in an advanced event selector. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldSelectors(List<TrailAdvancedEventSelectorFieldSelectorArgs> fieldSelectors) {
             return fieldSelectors(Output.of(fieldSelectors));
         }
 
-        /**
-         * @param fieldSelectors Specifies the selector statements in an advanced event selector. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldSelectors(TrailAdvancedEventSelectorFieldSelectorArgs... fieldSelectors) {
             return fieldSelectors(List.of(fieldSelectors));
         }
 
-        /**
-         * @param name Name of the trail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the trail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

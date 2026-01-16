@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
-    /**
-     * @return The ARN of the lambda to use for custom transformation.
-     * 
-     */
     private String lambdaArn;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration() {}
-    /**
-     * @return The ARN of the lambda to use for custom transformation.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }

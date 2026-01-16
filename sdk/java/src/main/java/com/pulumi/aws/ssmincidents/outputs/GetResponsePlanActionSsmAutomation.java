@@ -13,77 +13,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanActionSsmAutomation {
-    /**
-     * @return The automation document&#39;s name.
-     * 
-     */
     private String documentName;
-    /**
-     * @return The version of the automation document to use at runtime.
-     * 
-     */
     private String documentVersion;
-    /**
-     * @return The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-     * 
-     */
     private Map<String,String> dynamicParameters;
-    /**
-     * @return The key-value pair parameters used when the automation document runs. The following values are supported:
-     * 
-     */
     private List<GetResponsePlanActionSsmAutomationParameter> parameters;
-    /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The account that runs the automation document. This can be in either the management account or an application account.
-     * 
-     */
     private String targetAccount;
 
     private GetResponsePlanActionSsmAutomation() {}
-    /**
-     * @return The automation document&#39;s name.
-     * 
-     */
     public String documentName() {
         return this.documentName;
     }
-    /**
-     * @return The version of the automation document to use at runtime.
-     * 
-     */
     public String documentVersion() {
         return this.documentVersion;
     }
-    /**
-     * @return The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-     * 
-     */
     public Map<String,String> dynamicParameters() {
         return this.dynamicParameters;
     }
-    /**
-     * @return The key-value pair parameters used when the automation document runs. The following values are supported:
-     * 
-     */
     public List<GetResponsePlanActionSsmAutomationParameter> parameters() {
         return this.parameters;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The account that runs the automation document. This can be in either the management account or an application account.
-     * 
-     */
     public String targetAccount() {
         return this.targetAccount;
     }

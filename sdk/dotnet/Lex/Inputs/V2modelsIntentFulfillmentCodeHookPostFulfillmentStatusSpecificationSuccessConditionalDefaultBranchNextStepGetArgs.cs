@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `DialogAction`.
-        /// </summary>
         [Input("dialogAction")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepDialogActionGetArgs>? DialogAction { get; set; }
 
-        /// <summary>
-        /// Configuration block for override settings to configure the intent state. See `Intent`.
-        /// </summary>
         [Input("intent")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentGetArgs>? Intent { get; set; }
 
         [Input("sessionAttributes")]
         private InputMap<string>? _sessionAttributes;
-
-        /// <summary>
-        /// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-        /// </summary>
         public InputMap<string> SessionAttributes
         {
             get => _sessionAttributes ?? (_sessionAttributes = new InputMap<string>());

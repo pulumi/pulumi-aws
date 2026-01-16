@@ -17,32 +17,16 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
 
     public static final DataCellsFilterArgs Empty = new DataCellsFilterArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Information about the data cells filter. See Table Data below for details.
-     * 
-     */
     @Import(name="tableData")
     private @Nullable Output<DataCellsFilterTableDataArgs> tableData;
 
-    /**
-     * @return Information about the data cells filter. See Table Data below for details.
-     * 
-     */
     public Optional<Output<DataCellsFilterTableDataArgs>> tableData() {
         return Optional.ofNullable(this.tableData);
     }
@@ -80,44 +64,20 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
             $ = new DataCellsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tableData Information about the data cells filter. See Table Data below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableData(@Nullable Output<DataCellsFilterTableDataArgs> tableData) {
             $.tableData = tableData;
             return this;
         }
 
-        /**
-         * @param tableData Information about the data cells filter. See Table Data below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableData(DataCellsFilterTableDataArgs tableData) {
             return tableData(Output.of(tableData));
         }

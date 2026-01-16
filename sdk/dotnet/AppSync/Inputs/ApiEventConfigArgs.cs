@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppSync.Inputs
     {
         [Input("authProviders")]
         private InputList<Inputs.ApiEventConfigAuthProviderArgs>? _authProviders;
-
-        /// <summary>
-        /// List of authentication providers. See Auth Providers below.
-        /// </summary>
         public InputList<Inputs.ApiEventConfigAuthProviderArgs> AuthProviders
         {
             get => _authProviders ?? (_authProviders = new InputList<Inputs.ApiEventConfigAuthProviderArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
         [Input("connectionAuthModes")]
         private InputList<Inputs.ApiEventConfigConnectionAuthModeArgs>? _connectionAuthModes;
-
-        /// <summary>
-        /// List of authentication modes for connections. See Auth Modes below.
-        /// </summary>
         public InputList<Inputs.ApiEventConfigConnectionAuthModeArgs> ConnectionAuthModes
         {
             get => _connectionAuthModes ?? (_connectionAuthModes = new InputList<Inputs.ApiEventConfigConnectionAuthModeArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
         [Input("defaultPublishAuthModes")]
         private InputList<Inputs.ApiEventConfigDefaultPublishAuthModeArgs>? _defaultPublishAuthModes;
-
-        /// <summary>
-        /// List of default authentication modes for publishing. See Auth Modes below.
-        /// </summary>
         public InputList<Inputs.ApiEventConfigDefaultPublishAuthModeArgs> DefaultPublishAuthModes
         {
             get => _defaultPublishAuthModes ?? (_defaultPublishAuthModes = new InputList<Inputs.ApiEventConfigDefaultPublishAuthModeArgs>());
@@ -50,19 +38,12 @@ namespace Pulumi.Aws.AppSync.Inputs
 
         [Input("defaultSubscribeAuthModes")]
         private InputList<Inputs.ApiEventConfigDefaultSubscribeAuthModeArgs>? _defaultSubscribeAuthModes;
-
-        /// <summary>
-        /// List of default authentication modes for subscribing. See Auth Modes below.
-        /// </summary>
         public InputList<Inputs.ApiEventConfigDefaultSubscribeAuthModeArgs> DefaultSubscribeAuthModes
         {
             get => _defaultSubscribeAuthModes ?? (_defaultSubscribeAuthModes = new InputList<Inputs.ApiEventConfigDefaultSubscribeAuthModeArgs>());
             set => _defaultSubscribeAuthModes = value;
         }
 
-        /// <summary>
-        /// Logging configuration. See Log Config below.
-        /// </summary>
         [Input("logConfig")]
         public Input<Inputs.ApiEventConfigLogConfigArgs>? LogConfig { get; set; }
 

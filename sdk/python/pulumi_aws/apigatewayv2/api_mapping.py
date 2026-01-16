@@ -26,11 +26,6 @@ class ApiMappingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[_builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-        :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -43,9 +38,6 @@ class ApiMappingArgs:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -55,9 +47,6 @@ class ApiMappingArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -67,9 +56,6 @@ class ApiMappingArgs:
     @_builtins.property
     @pulumi.getter
     def stage(self) -> pulumi.Input[_builtins.str]:
-        """
-        API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -79,9 +65,6 @@ class ApiMappingArgs:
     @_builtins.property
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        """
         return pulumi.get(self, "api_mapping_key")
 
     @api_mapping_key.setter
@@ -91,9 +74,6 @@ class ApiMappingArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -111,11 +91,6 @@ class _ApiMappingState:
                  stage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiMapping resources.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        :param pulumi.Input[_builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -131,9 +106,6 @@ class _ApiMappingState:
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -143,9 +115,6 @@ class _ApiMappingState:
     @_builtins.property
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        """
         return pulumi.get(self, "api_mapping_key")
 
     @api_mapping_key.setter
@@ -155,9 +124,6 @@ class _ApiMappingState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -167,9 +133,6 @@ class _ApiMappingState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -179,9 +142,6 @@ class _ApiMappingState:
     @_builtins.property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -202,38 +162,9 @@ class ApiMapping(pulumi.CustomResource):
                  stage: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon API Gateway Version 2 API mapping.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.ApiMapping("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            domain_name=example_aws_apigatewayv2_domain_name["id"],
-            stage=example_aws_apigatewayv2_stage["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
-        ```
-
+        Create a ApiMapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        :param pulumi.Input[_builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         ...
     @overload
@@ -242,31 +173,7 @@ class ApiMapping(pulumi.CustomResource):
                  args: ApiMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon API Gateway Version 2 API mapping.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.ApiMapping("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            domain_name=example_aws_apigatewayv2_domain_name["id"],
-            stage=example_aws_apigatewayv2_stage["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
-
-        ```sh
-        $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
-        ```
-
+        Create a ApiMapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -329,11 +236,6 @@ class ApiMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        :param pulumi.Input[_builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -349,40 +251,25 @@ class ApiMapping(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @_builtins.property
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-        """
         return pulumi.get(self, "api_mapping_key")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def stage(self) -> pulumi.Output[_builtins.str]:
-        """
-        API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-        """
         return pulumi.get(self, "stage")
 

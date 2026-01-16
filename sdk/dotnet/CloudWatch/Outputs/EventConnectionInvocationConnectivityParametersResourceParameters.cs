@@ -14,9 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventConnectionInvocationConnectivityParametersResourceParameters
     {
         public readonly string? ResourceAssociationArn;
-        /// <summary>
-        /// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-        /// </summary>
         public readonly string ResourceConfigurationArn;
 
         [OutputConstructor]

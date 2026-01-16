@@ -14,32 +14,16 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFunctionArgs Empty = new GetFunctionArgs();
 
-    /**
-     * Name of the CloudFront function.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the CloudFront function.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Function’s stage, either `DEVELOPMENT` or `LIVE`.
-     * 
-     */
     @Import(name="stage", required=true)
     private Output<String> stage;
 
-    /**
-     * @return Function’s stage, either `DEVELOPMENT` or `LIVE`.
-     * 
-     */
     public Output<String> stage() {
         return this.stage;
     }
@@ -69,44 +53,20 @@ public final class GetFunctionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFunctionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the CloudFront function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the CloudFront function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param stage Function’s stage, either `DEVELOPMENT` or `LIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(Output<String> stage) {
             $.stage = stage;
             return this;
         }
 
-        /**
-         * @param stage Function’s stage, either `DEVELOPMENT` or `LIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(String stage) {
             return stage(Output.of(stage));
         }

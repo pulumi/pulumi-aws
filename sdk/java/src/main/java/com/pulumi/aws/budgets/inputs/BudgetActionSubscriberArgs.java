@@ -14,32 +14,16 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
 
     public static final BudgetActionSubscriberArgs Empty = new BudgetActionSubscriberArgs();
 
-    /**
-     * The address that AWS sends budget notifications to, either an SNS topic or an email.
-     * 
-     */
     @Import(name="address", required=true)
     private Output<String> address;
 
-    /**
-     * @return The address that AWS sends budget notifications to, either an SNS topic or an email.
-     * 
-     */
     public Output<String> address() {
         return this.address;
     }
 
-    /**
-     * The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-     * 
-     */
     @Import(name="subscriptionType", required=true)
     private Output<String> subscriptionType;
 
-    /**
-     * @return The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-     * 
-     */
     public Output<String> subscriptionType() {
         return this.subscriptionType;
     }
@@ -69,44 +53,20 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
             $ = new BudgetActionSubscriberArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address The address that AWS sends budget notifications to, either an SNS topic or an email.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address The address that AWS sends budget notifications to, either an SNS topic or an email.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
-        /**
-         * @param subscriptionType The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriptionType(Output<String> subscriptionType) {
             $.subscriptionType = subscriptionType;
             return this;
         }
 
-        /**
-         * @param subscriptionType The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriptionType(String subscriptionType) {
             return subscriptionType(Output.of(subscriptionType));
         }

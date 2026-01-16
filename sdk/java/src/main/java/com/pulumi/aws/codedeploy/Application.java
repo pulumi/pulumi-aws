@@ -16,247 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeDeploy application to be used as a basis for deployments
- * 
- * ## Example Usage
- * 
- * ### ECS Application
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codedeploy.Application;
- * import com.pulumi.aws.codedeploy.ApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()
- *             .computePlatform("ECS")
- *             .name("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Lambda Application
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codedeploy.Application;
- * import com.pulumi.aws.codedeploy.ApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()
- *             .computePlatform("Lambda")
- *             .name("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Server Application
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codedeploy.Application;
- * import com.pulumi.aws.codedeploy.ApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()
- *             .computePlatform("Server")
- *             .name("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:codedeploy/application:Application example my-application
- * ```
- * 
- */
 @ResourceType(type="aws:codedeploy/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * The ARN of the CodeDeploy application.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the CodeDeploy application.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-     * 
-     */
     @Export(name="computePlatform", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> computePlatform;
 
-    /**
-     * @return The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-     * 
-     */
     public Output<Optional<String>> computePlatform() {
         return Codegen.optional(this.computePlatform);
     }
-    /**
-     * The name for a connection to a GitHub account.
-     * 
-     */
     @Export(name="githubAccountName", refs={String.class}, tree="[0]")
     private Output<String> githubAccountName;
 
-    /**
-     * @return The name for a connection to a GitHub account.
-     * 
-     */
     public Output<String> githubAccountName() {
         return this.githubAccountName;
     }
-    /**
-     * Whether the user has authenticated with GitHub for the specified application.
-     * 
-     */
     @Export(name="linkedToGithub", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> linkedToGithub;
 
-    /**
-     * @return Whether the user has authenticated with GitHub for the specified application.
-     * 
-     */
     public Output<Boolean> linkedToGithub() {
         return this.linkedToGithub;
     }
-    /**
-     * The name of the application.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the application.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

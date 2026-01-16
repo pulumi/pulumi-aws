@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfiguration {
-    /**
-     * @return Account takeover risk configuration actions. See details below.
-     * 
-     */
     private RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
-    /**
-     * @return The notify configuration used to construct email notifications. See details below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
 
     private RiskConfigurationAccountTakeoverRiskConfiguration() {}
-    /**
-     * @return Account takeover risk configuration actions. See details below.
-     * 
-     */
     public RiskConfigurationAccountTakeoverRiskConfigurationActions actions() {
         return this.actions;
     }
-    /**
-     * @return The notify configuration used to construct email notifications. See details below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration> notifyConfiguration() {
         return Optional.ofNullable(this.notifyConfiguration);
     }

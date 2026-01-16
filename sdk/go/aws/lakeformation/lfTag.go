@@ -12,57 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("module"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("Orders"),
-//					pulumi.String("Sales"),
-//					pulumi.String("Customers"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-//
-// ```sh
-// $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-// ```
 type LfTag struct {
 	pulumi.CustomResourceState
 
-	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Key-name for the tag.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of possible values an attribute can take.
-	Values pulumi.StringArrayOutput `pulumi:"values"`
+	CatalogId pulumi.StringOutput      `pulumi:"catalogId"`
+	Key       pulumi.StringOutput      `pulumi:"key"`
+	Region    pulumi.StringOutput      `pulumi:"region"`
+	Values    pulumi.StringArrayOutput `pulumi:"values"`
 }
 
 // NewLfTag registers a new resource with the given unique name, arguments, and options.
@@ -101,25 +57,17 @@ func GetLfTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LfTag resources.
 type lfTagState struct {
-	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-	CatalogId *string `pulumi:"catalogId"`
-	// Key-name for the tag.
-	Key *string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of possible values an attribute can take.
-	Values []string `pulumi:"values"`
+	CatalogId *string  `pulumi:"catalogId"`
+	Key       *string  `pulumi:"key"`
+	Region    *string  `pulumi:"region"`
+	Values    []string `pulumi:"values"`
 }
 
 type LfTagState struct {
-	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	// Key-name for the tag.
-	Key pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of possible values an attribute can take.
-	Values pulumi.StringArrayInput
+	Key       pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Values    pulumi.StringArrayInput
 }
 
 func (LfTagState) ElementType() reflect.Type {
@@ -127,26 +75,18 @@ func (LfTagState) ElementType() reflect.Type {
 }
 
 type lfTagArgs struct {
-	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-	CatalogId *string `pulumi:"catalogId"`
-	// Key-name for the tag.
-	Key string `pulumi:"key"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of possible values an attribute can take.
-	Values []string `pulumi:"values"`
+	CatalogId *string  `pulumi:"catalogId"`
+	Key       string   `pulumi:"key"`
+	Region    *string  `pulumi:"region"`
+	Values    []string `pulumi:"values"`
 }
 
 // The set of arguments for constructing a LfTag resource.
 type LfTagArgs struct {
-	// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	// Key-name for the tag.
-	Key pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of possible values an attribute can take.
-	Values pulumi.StringArrayInput
+	Key       pulumi.StringInput
+	Region    pulumi.StringPtrInput
+	Values    pulumi.StringArrayInput
 }
 
 func (LfTagArgs) ElementType() reflect.Type {
@@ -236,22 +176,18 @@ func (o LfTagOutput) ToLfTagOutputWithContext(ctx context.Context) LfTagOutput {
 	return o
 }
 
-// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
 func (o LfTagOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Key-name for the tag.
 func (o LfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LfTagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of possible values an attribute can take.
 func (o LfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringArrayOutput { return v.Values }).(pulumi.StringArrayOutput)
 }

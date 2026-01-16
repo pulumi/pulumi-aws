@@ -16,32 +16,16 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
 
     public static final IngestionDestinationDestinationConfigurationAuditLogDestinationArgs Empty = new IngestionDestinationDestinationConfigurationAuditLogDestinationArgs();
 
-    /**
-     * Contains information about an Amazon Data Firehose delivery stream.
-     * 
-     */
     @Import(name="firehoseStream")
     private @Nullable Output<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs> firehoseStream;
 
-    /**
-     * @return Contains information about an Amazon Data Firehose delivery stream.
-     * 
-     */
     public Optional<Output<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs>> firehoseStream() {
         return Optional.ofNullable(this.firehoseStream);
     }
 
-    /**
-     * Contains information about an Amazon S3 bucket.
-     * 
-     */
     @Import(name="s3Bucket")
     private @Nullable Output<IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs> s3Bucket;
 
-    /**
-     * @return Contains information about an Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs>> s3Bucket() {
         return Optional.ofNullable(this.s3Bucket);
     }
@@ -71,44 +55,20 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
             $ = new IngestionDestinationDestinationConfigurationAuditLogDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firehoseStream Contains information about an Amazon Data Firehose delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseStream(@Nullable Output<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs> firehoseStream) {
             $.firehoseStream = firehoseStream;
             return this;
         }
 
-        /**
-         * @param firehoseStream Contains information about an Amazon Data Firehose delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehoseStream(IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs firehoseStream) {
             return firehoseStream(Output.of(firehoseStream));
         }
 
-        /**
-         * @param s3Bucket Contains information about an Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(@Nullable Output<IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs> s3Bucket) {
             $.s3Bucket = s3Bucket;
             return this;
         }
 
-        /**
-         * @param s3Bucket Contains information about an Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Bucket(IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs s3Bucket) {
             return s3Bucket(Output.of(s3Bucket));
         }

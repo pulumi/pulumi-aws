@@ -16,32 +16,16 @@ public final class BucketReplicationConfigurationRuleDestinationMetricsArgs exte
 
     public static final BucketReplicationConfigurationRuleDestinationMetricsArgs Empty = new BucketReplicationConfigurationRuleDestinationMetricsArgs();
 
-    /**
-     * Threshold within which objects are to be replicated. The only valid value is `15`.
-     * 
-     */
     @Import(name="minutes")
     private @Nullable Output<Integer> minutes;
 
-    /**
-     * @return Threshold within which objects are to be replicated. The only valid value is `15`.
-     * 
-     */
     public Optional<Output<Integer>> minutes() {
         return Optional.ofNullable(this.minutes);
     }
 
-    /**
-     * Status of replication metrics. Either `Enabled` or `Disabled`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of replication metrics. Either `Enabled` or `Disabled`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -71,44 +55,20 @@ public final class BucketReplicationConfigurationRuleDestinationMetricsArgs exte
             $ = new BucketReplicationConfigurationRuleDestinationMetricsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param minutes Threshold within which objects are to be replicated. The only valid value is `15`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minutes(@Nullable Output<Integer> minutes) {
             $.minutes = minutes;
             return this;
         }
 
-        /**
-         * @param minutes Threshold within which objects are to be replicated. The only valid value is `15`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minutes(Integer minutes) {
             return minutes(Output.of(minutes));
         }
 
-        /**
-         * @param status Status of replication metrics. Either `Enabled` or `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of replication metrics. Either `Enabled` or `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

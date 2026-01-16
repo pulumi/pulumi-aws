@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class SchedulingPolicyFairSharePolicyShareDistributionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        /// </summary>
         [Input("shareIdentifier", required: true)]
         public Input<string> ShareIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        /// </summary>
         [Input("weightFactor")]
         public Input<double>? WeightFactor { get; set; }
 

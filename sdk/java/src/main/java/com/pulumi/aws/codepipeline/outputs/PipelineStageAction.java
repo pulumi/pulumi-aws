@@ -15,161 +15,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStageAction {
-    /**
-     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-     * 
-     */
     private String category;
-    /**
-     * @return A map of the action declaration&#39;s configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
-     * 
-     */
     private @Nullable Map<String,String> configuration;
-    /**
-     * @return A list of artifact names to be worked on.
-     * 
-     */
     private @Nullable List<String> inputArtifacts;
-    /**
-     * @return The action declaration&#39;s name.
-     * 
-     */
     private String name;
-    /**
-     * @return The namespace all output variables will be accessed from.
-     * 
-     */
     private @Nullable String namespace;
-    /**
-     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline.
-     * 
-     */
     private @Nullable List<String> outputArtifacts;
-    /**
-     * @return The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-     * 
-     */
     private String owner;
-    /**
-     * @return The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-     * 
-     */
     private String provider;
-    /**
-     * @return The region in which to run the action.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-     * 
-     */
     private @Nullable String roleArn;
-    /**
-     * @return The order in which actions are run.
-     * 
-     */
     private @Nullable Integer runOrder;
-    /**
-     * @return The action timeout for the rule.
-     * 
-     */
     private @Nullable Integer timeoutInMinutes;
-    /**
-     * @return A string that identifies the action type.
-     * 
-     */
     private String version;
 
     private PipelineStageAction() {}
-    /**
-     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-     * 
-     */
     public String category() {
         return this.category;
     }
-    /**
-     * @return A map of the action declaration&#39;s configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
-     * 
-     */
     public Map<String,String> configuration() {
         return this.configuration == null ? Map.of() : this.configuration;
     }
-    /**
-     * @return A list of artifact names to be worked on.
-     * 
-     */
     public List<String> inputArtifacts() {
         return this.inputArtifacts == null ? List.of() : this.inputArtifacts;
     }
-    /**
-     * @return The action declaration&#39;s name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The namespace all output variables will be accessed from.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline.
-     * 
-     */
     public List<String> outputArtifacts() {
         return this.outputArtifacts == null ? List.of() : this.outputArtifacts;
     }
-    /**
-     * @return The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-     * 
-     */
     public String provider() {
         return this.provider;
     }
-    /**
-     * @return The region in which to run the action.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-     * 
-     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
-    /**
-     * @return The order in which actions are run.
-     * 
-     */
     public Optional<Integer> runOrder() {
         return Optional.ofNullable(this.runOrder);
     }
-    /**
-     * @return The action timeout for the rule.
-     * 
-     */
     public Optional<Integer> timeoutInMinutes() {
         return Optional.ofNullable(this.timeoutInMinutes);
     }
-    /**
-     * @return A string that identifies the action type.
-     * 
-     */
     public String version() {
         return this.version;
     }

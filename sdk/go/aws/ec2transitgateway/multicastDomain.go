@@ -12,232 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Multicast Domain.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			amazonLinux, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
-//				},
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"amzn-ami-hvm-*-x86_64-gp2",
-//						},
-//					},
-//					{
-//						Name: "owner-alias",
-//						Values: []string{
-//							"amazon",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			vpc1, err := ec2.NewVpc(ctx, "vpc1", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpc2, err := ec2.NewVpc(ctx, "vpc2", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			subnet1, err := ec2.NewSubnet(ctx, "subnet1", &ec2.SubnetArgs{
-//				VpcId:            vpc1.ID(),
-//				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			subnet2, err := ec2.NewSubnet(ctx, "subnet2", &ec2.SubnetArgs{
-//				VpcId:            vpc1.ID(),
-//				CidrBlock:        pulumi.String("10.0.2.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[1]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			subnet3, err := ec2.NewSubnet(ctx, "subnet3", &ec2.SubnetArgs{
-//				VpcId:            vpc2.ID(),
-//				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			instance1, err := ec2.NewInstance(ctx, "instance1", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amazonLinux.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     subnet1.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			instance2, err := ec2.NewInstance(ctx, "instance2", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amazonLinux.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     subnet2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			instance3, err := ec2.NewInstance(ctx, "instance3", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amazonLinux.Id),
-//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     subnet3.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tgw, err := ec2transitgateway.NewTransitGateway(ctx, "tgw", &ec2transitgateway.TransitGatewayArgs{
-//				MulticastSupport: pulumi.String("enable"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			attachment1, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment1", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					subnet1.ID(),
-//					subnet2.ID(),
-//				},
-//				TransitGatewayId: tgw.ID(),
-//				VpcId:            vpc1.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			attachment2, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment2", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					subnet3.ID(),
-//				},
-//				TransitGatewayId: tgw.ID(),
-//				VpcId:            vpc2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			domain, err := ec2transitgateway.NewMulticastDomain(ctx, "domain", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId:     tgw.ID(),
-//				StaticSourcesSupport: pulumi.String("enable"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Transit_Gateway_Multicast_Domain_Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			association3, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association3", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        subnet3.ID(),
-//				TransitGatewayAttachmentId:      attachment2.ID(),
-//				TransitGatewayMulticastDomainId: domain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastGroupSource(ctx, "source", &ec2transitgateway.MulticastGroupSourceArgs{
-//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
-//				NetworkInterfaceId:              instance3.PrimaryNetworkInterfaceId,
-//				TransitGatewayMulticastDomainId: association3.TransitGatewayMulticastDomainId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			association1, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association1", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        subnet1.ID(),
-//				TransitGatewayAttachmentId:      attachment1.ID(),
-//				TransitGatewayMulticastDomainId: domain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "association2", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        subnet2.ID(),
-//				TransitGatewayAttachmentId:      attachment2.ID(),
-//				TransitGatewayMulticastDomainId: domain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastGroupMember(ctx, "member1", &ec2transitgateway.MulticastGroupMemberArgs{
-//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
-//				NetworkInterfaceId:              instance1.PrimaryNetworkInterfaceId,
-//				TransitGatewayMulticastDomainId: association1.TransitGatewayMulticastDomainId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastGroupMember(ctx, "member2", &ec2transitgateway.MulticastGroupMemberArgs{
-//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
-//				NetworkInterfaceId:              instance2.PrimaryNetworkInterfaceId,
-//				TransitGatewayMulticastDomainId: association1.TransitGatewayMulticastDomainId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
-// ```
 type MulticastDomain struct {
 	pulumi.CustomResourceState
 
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+	Arn                          pulumi.StringOutput    `pulumi:"arn"`
 	AutoAcceptSharedAssociations pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAssociations"`
-	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	Igmpv2Support pulumi.StringPtrOutput `pulumi:"igmpv2Support"`
-	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport pulumi.StringPtrOutput `pulumi:"staticSourcesSupport"`
-	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	Igmpv2Support                pulumi.StringPtrOutput `pulumi:"igmpv2Support"`
+	OwnerId                      pulumi.StringOutput    `pulumi:"ownerId"`
+	Region                       pulumi.StringOutput    `pulumi:"region"`
+	StaticSourcesSupport         pulumi.StringPtrOutput `pulumi:"staticSourcesSupport"`
+	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TransitGatewayId             pulumi.StringOutput    `pulumi:"transitGatewayId"`
 }
 
 // NewMulticastDomain registers a new resource with the given unique name, arguments, and options.
@@ -273,45 +59,27 @@ func GetMulticastDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MulticastDomain resources.
 type multicastDomainState struct {
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-	Arn *string `pulumi:"arn"`
-	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAssociations *string `pulumi:"autoAcceptSharedAssociations"`
-	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	Igmpv2Support *string `pulumi:"igmpv2Support"`
-	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport *string `pulumi:"staticSourcesSupport"`
-	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	Arn                          *string           `pulumi:"arn"`
+	AutoAcceptSharedAssociations *string           `pulumi:"autoAcceptSharedAssociations"`
+	Igmpv2Support                *string           `pulumi:"igmpv2Support"`
+	OwnerId                      *string           `pulumi:"ownerId"`
+	Region                       *string           `pulumi:"region"`
+	StaticSourcesSupport         *string           `pulumi:"staticSourcesSupport"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TagsAll                      map[string]string `pulumi:"tagsAll"`
+	TransitGatewayId             *string           `pulumi:"transitGatewayId"`
 }
 
 type MulticastDomainState struct {
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-	Arn pulumi.StringPtrInput
-	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+	Arn                          pulumi.StringPtrInput
 	AutoAcceptSharedAssociations pulumi.StringPtrInput
-	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	Igmpv2Support pulumi.StringPtrInput
-	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-	TransitGatewayId pulumi.StringPtrInput
+	Igmpv2Support                pulumi.StringPtrInput
+	OwnerId                      pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	StaticSourcesSupport         pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	TransitGatewayId             pulumi.StringPtrInput
 }
 
 func (MulticastDomainState) ElementType() reflect.Type {
@@ -319,34 +87,22 @@ func (MulticastDomainState) ElementType() reflect.Type {
 }
 
 type multicastDomainArgs struct {
-	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	AutoAcceptSharedAssociations *string `pulumi:"autoAcceptSharedAssociations"`
-	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	Igmpv2Support *string `pulumi:"igmpv2Support"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport *string `pulumi:"staticSourcesSupport"`
-	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	AutoAcceptSharedAssociations *string           `pulumi:"autoAcceptSharedAssociations"`
+	Igmpv2Support                *string           `pulumi:"igmpv2Support"`
+	Region                       *string           `pulumi:"region"`
+	StaticSourcesSupport         *string           `pulumi:"staticSourcesSupport"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TransitGatewayId             string            `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a MulticastDomain resource.
 type MulticastDomainArgs struct {
-	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAssociations pulumi.StringPtrInput
-	// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	Igmpv2Support pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-	StaticSourcesSupport pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
-	TransitGatewayId pulumi.StringInput
+	Igmpv2Support                pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	StaticSourcesSupport         pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TransitGatewayId             pulumi.StringInput
 }
 
 func (MulticastDomainArgs) ElementType() reflect.Type {
@@ -436,47 +192,38 @@ func (o MulticastDomainOutput) ToMulticastDomainOutputWithContext(ctx context.Co
 	return o
 }
 
-// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
 func (o MulticastDomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o MulticastDomainOutput) AutoAcceptSharedAssociations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringPtrOutput { return v.AutoAcceptSharedAssociations }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o MulticastDomainOutput) Igmpv2Support() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringPtrOutput { return v.Igmpv2Support }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 func (o MulticastDomainOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MulticastDomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o MulticastDomainOutput) StaticSourcesSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringPtrOutput { return v.StaticSourcesSupport }).(pulumi.StringPtrOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MulticastDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MulticastDomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
 func (o MulticastDomainOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

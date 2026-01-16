@@ -17,62 +17,30 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs extends
 
     public static final DataQualityJobDefinitionJobResourcesClusterConfigArgs Empty = new DataQualityJobDefinitionJobResourcesClusterConfigArgs();
 
-    /**
-     * The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
-     * 
-     */
     @Import(name="instanceCount", required=true)
     private Output<Integer> instanceCount;
 
-    /**
-     * @return The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
-     * 
-     */
     public Output<Integer> instanceCount() {
         return this.instanceCount;
     }
 
-    /**
-     * The ML compute instance type for the processing job.
-     * 
-     */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
-    /**
-     * @return The ML compute instance type for the processing job.
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
 
-    /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-     * 
-     */
     @Import(name="volumeKmsKeyId")
     private @Nullable Output<String> volumeKmsKeyId;
 
-    /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-     * 
-     */
     public Optional<Output<String>> volumeKmsKeyId() {
         return Optional.ofNullable(this.volumeKmsKeyId);
     }
 
-    /**
-     * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-     * 
-     */
     @Import(name="volumeSizeInGb", required=true)
     private Output<Integer> volumeSizeInGb;
 
-    /**
-     * @return The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-     * 
-     */
     public Output<Integer> volumeSizeInGb() {
         return this.volumeSizeInGb;
     }
@@ -104,86 +72,38 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs extends
             $ = new DataQualityJobDefinitionJobResourcesClusterConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceCount The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(Output<Integer> instanceCount) {
             $.instanceCount = instanceCount;
             return this;
         }
 
-        /**
-         * @param instanceCount The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(Integer instanceCount) {
             return instanceCount(Output.of(instanceCount));
         }
 
-        /**
-         * @param instanceType The ML compute instance type for the processing job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType The ML compute instance type for the processing job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param volumeKmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeKmsKeyId(@Nullable Output<String> volumeKmsKeyId) {
             $.volumeKmsKeyId = volumeKmsKeyId;
             return this;
         }
 
-        /**
-         * @param volumeKmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeKmsKeyId(String volumeKmsKeyId) {
             return volumeKmsKeyId(Output.of(volumeKmsKeyId));
         }
 
-        /**
-         * @param volumeSizeInGb The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeSizeInGb(Output<Integer> volumeSizeInGb) {
             $.volumeSizeInGb = volumeSizeInGb;
             return this;
         }
 
-        /**
-         * @param volumeSizeInGb The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeSizeInGb(Integer volumeSizeInGb) {
             return volumeSizeInGb(Output.of(volumeSizeInGb));
         }

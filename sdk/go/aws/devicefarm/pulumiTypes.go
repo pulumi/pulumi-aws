@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DevicePoolRule struct {
-	// The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
 	Attribute *string `pulumi:"attribute"`
-	// Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-	Operator *string `pulumi:"operator"`
-	// The rule's value.
-	Value *string `pulumi:"value"`
+	Operator  *string `pulumi:"operator"`
+	Value     *string `pulumi:"value"`
 }
 
 // DevicePoolRuleInput is an input type that accepts DevicePoolRuleArgs and DevicePoolRuleOutput values.
@@ -34,12 +31,9 @@ type DevicePoolRuleInput interface {
 }
 
 type DevicePoolRuleArgs struct {
-	// The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	// Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The rule's value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Operator  pulumi.StringPtrInput `pulumi:"operator"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (DevicePoolRuleArgs) ElementType() reflect.Type {
@@ -93,17 +87,14 @@ func (o DevicePoolRuleOutput) ToDevicePoolRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
 func (o DevicePoolRuleOutput) Attribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevicePoolRule) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
 func (o DevicePoolRuleOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevicePoolRule) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The rule's value.
 func (o DevicePoolRuleOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevicePoolRule) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -129,12 +120,9 @@ func (o DevicePoolRuleArrayOutput) Index(i pulumi.IntInput) DevicePoolRuleOutput
 }
 
 type TestGridProjectVpcConfig struct {
-	// A list of VPC security group IDs in your Amazon VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of VPC subnet IDs in your Amazon VPC.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// The ID of the Amazon VPC.
-	VpcId string `pulumi:"vpcId"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+	VpcId            string   `pulumi:"vpcId"`
 }
 
 // TestGridProjectVpcConfigInput is an input type that accepts TestGridProjectVpcConfigArgs and TestGridProjectVpcConfigOutput values.
@@ -149,12 +137,9 @@ type TestGridProjectVpcConfigInput interface {
 }
 
 type TestGridProjectVpcConfigArgs struct {
-	// A list of VPC security group IDs in your Amazon VPC.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of VPC subnet IDs in your Amazon VPC.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The ID of the Amazon VPC.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId            pulumi.StringInput      `pulumi:"vpcId"`
 }
 
 func (TestGridProjectVpcConfigArgs) ElementType() reflect.Type {
@@ -234,17 +219,14 @@ func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigPtrOutputWithC
 	}).(TestGridProjectVpcConfigPtrOutput)
 }
 
-// A list of VPC security group IDs in your Amazon VPC.
 func (o TestGridProjectVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TestGridProjectVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of VPC subnet IDs in your Amazon VPC.
 func (o TestGridProjectVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TestGridProjectVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Amazon VPC.
 func (o TestGridProjectVpcConfigOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v TestGridProjectVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -273,7 +255,6 @@ func (o TestGridProjectVpcConfigPtrOutput) Elem() TestGridProjectVpcConfigOutput
 	}).(TestGridProjectVpcConfigOutput)
 }
 
-// A list of VPC security group IDs in your Amazon VPC.
 func (o TestGridProjectVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TestGridProjectVpcConfig) []string {
 		if v == nil {
@@ -283,7 +264,6 @@ func (o TestGridProjectVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of VPC subnet IDs in your Amazon VPC.
 func (o TestGridProjectVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TestGridProjectVpcConfig) []string {
 		if v == nil {
@@ -293,7 +273,6 @@ func (o TestGridProjectVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Amazon VPC.
 func (o TestGridProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestGridProjectVpcConfig) *string {
 		if v == nil {

@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class StreamProcessorRegionsOfInterest {
     /**
-     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+     * @return The box representing a region of interest on screen.
      * 
      */
     private StreamProcessorRegionsOfInterestBoundingBox boundingBox;
     /**
-     * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+     * @return Specifies a shape made of 3 to 10 Point objects that define a region of interest.
      * 
      */
     private List<StreamProcessorRegionsOfInterestPolygon> polygons;
 
     private StreamProcessorRegionsOfInterest() {}
     /**
-     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+     * @return The box representing a region of interest on screen.
      * 
      */
     public StreamProcessorRegionsOfInterestBoundingBox boundingBox() {
         return this.boundingBox;
     }
     /**
-     * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+     * @return Specifies a shape made of 3 to 10 Point objects that define a region of interest.
      * 
      */
     public List<StreamProcessorRegionsOfInterestPolygon> polygons() {

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RecordingConfigurationDestinationConfiguration {
-    /**
-     * @return S3 destination configuration where recorded videos will be stored.
-     * 
-     */
     private RecordingConfigurationDestinationConfigurationS3 s3;
 
     private RecordingConfigurationDestinationConfiguration() {}
-    /**
-     * @return S3 destination configuration where recorded videos will be stored.
-     * 
-     */
     public RecordingConfigurationDestinationConfigurationS3 s3() {
         return this.s3;
     }

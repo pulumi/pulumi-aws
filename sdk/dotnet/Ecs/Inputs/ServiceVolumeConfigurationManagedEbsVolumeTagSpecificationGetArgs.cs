@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-        /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }
 
-        /// <summary>
-        /// The type of volume resource. Valid values, `Volume`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

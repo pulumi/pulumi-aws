@@ -12,86 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Direct Connect private virtual interface resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewPrivateVirtualInterface(ctx, "foo", &directconnect.PrivateVirtualInterfaceArgs{
-//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
-//				Name:          pulumi.String("vif-foo"),
-//				Vlan:          pulumi.Int(4094),
-//				AddressFamily: pulumi.String("ipv4"),
-//				BgpAsn:        pulumi.Int(65352),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
-// ```
 type PrivateVirtualInterface struct {
 	pulumi.CustomResourceState
 
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
-	// The ARN of the virtual interface.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
-	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId pulumi.StringPtrOutput `pulumi:"dxGatewayId"`
-	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
-	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
-	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
-	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
-	// The name for the virtual interface.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether to enable or disable SiteLink.
-	SitelinkEnabled pulumi.BoolPtrOutput `pulumi:"sitelinkEnabled"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VLAN ID.
-	Vlan pulumi.IntOutput `pulumi:"vlan"`
-	// The ID of the virtual private gateway to which to connect the virtual interface.
-	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
+	AddressFamily     pulumi.StringOutput    `pulumi:"addressFamily"`
+	AmazonAddress     pulumi.StringOutput    `pulumi:"amazonAddress"`
+	AmazonSideAsn     pulumi.StringOutput    `pulumi:"amazonSideAsn"`
+	Arn               pulumi.StringOutput    `pulumi:"arn"`
+	AwsDevice         pulumi.StringOutput    `pulumi:"awsDevice"`
+	BgpAsn            pulumi.IntOutput       `pulumi:"bgpAsn"`
+	BgpAuthKey        pulumi.StringOutput    `pulumi:"bgpAuthKey"`
+	ConnectionId      pulumi.StringOutput    `pulumi:"connectionId"`
+	CustomerAddress   pulumi.StringOutput    `pulumi:"customerAddress"`
+	DxGatewayId       pulumi.StringPtrOutput `pulumi:"dxGatewayId"`
+	JumboFrameCapable pulumi.BoolOutput      `pulumi:"jumboFrameCapable"`
+	Mtu               pulumi.IntPtrOutput    `pulumi:"mtu"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	SitelinkEnabled   pulumi.BoolPtrOutput   `pulumi:"sitelinkEnabled"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Vlan              pulumi.IntOutput       `pulumi:"vlan"`
+	VpnGatewayId      pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewPrivateVirtualInterface registers a new resource with the given unique name, arguments, and options.
@@ -136,85 +78,47 @@ func GetPrivateVirtualInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateVirtualInterface resources.
 type privateVirtualInterfaceState struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily *string `pulumi:"addressFamily"`
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress *string `pulumi:"amazonAddress"`
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// The ARN of the virtual interface.
-	Arn *string `pulumi:"arn"`
-	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice *string `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn *int `pulumi:"bgpAsn"`
-	// The authentication key for BGP configuration.
-	BgpAuthKey *string `pulumi:"bgpAuthKey"`
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId *string `pulumi:"connectionId"`
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress *string `pulumi:"customerAddress"`
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `pulumi:"jumboFrameCapable"`
-	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
-	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
-	Mtu *int `pulumi:"mtu"`
-	// The name for the virtual interface.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether to enable or disable SiteLink.
-	SitelinkEnabled *bool `pulumi:"sitelinkEnabled"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VLAN ID.
-	Vlan *int `pulumi:"vlan"`
-	// The ID of the virtual private gateway to which to connect the virtual interface.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	AddressFamily     *string           `pulumi:"addressFamily"`
+	AmazonAddress     *string           `pulumi:"amazonAddress"`
+	AmazonSideAsn     *string           `pulumi:"amazonSideAsn"`
+	Arn               *string           `pulumi:"arn"`
+	AwsDevice         *string           `pulumi:"awsDevice"`
+	BgpAsn            *int              `pulumi:"bgpAsn"`
+	BgpAuthKey        *string           `pulumi:"bgpAuthKey"`
+	ConnectionId      *string           `pulumi:"connectionId"`
+	CustomerAddress   *string           `pulumi:"customerAddress"`
+	DxGatewayId       *string           `pulumi:"dxGatewayId"`
+	JumboFrameCapable *bool             `pulumi:"jumboFrameCapable"`
+	Mtu               *int              `pulumi:"mtu"`
+	Name              *string           `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	SitelinkEnabled   *bool             `pulumi:"sitelinkEnabled"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
+	Vlan              *int              `pulumi:"vlan"`
+	VpnGatewayId      *string           `pulumi:"vpnGatewayId"`
 }
 
 type PrivateVirtualInterfaceState struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily pulumi.StringPtrInput
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringPtrInput
-	AmazonSideAsn pulumi.StringPtrInput
-	// The ARN of the virtual interface.
-	Arn pulumi.StringPtrInput
-	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntPtrInput
-	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringPtrInput
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId pulumi.StringPtrInput
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress pulumi.StringPtrInput
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId pulumi.StringPtrInput
-	// Indicates whether jumbo frames (9001 MTU) are supported.
+	AddressFamily     pulumi.StringPtrInput
+	AmazonAddress     pulumi.StringPtrInput
+	AmazonSideAsn     pulumi.StringPtrInput
+	Arn               pulumi.StringPtrInput
+	AwsDevice         pulumi.StringPtrInput
+	BgpAsn            pulumi.IntPtrInput
+	BgpAuthKey        pulumi.StringPtrInput
+	ConnectionId      pulumi.StringPtrInput
+	CustomerAddress   pulumi.StringPtrInput
+	DxGatewayId       pulumi.StringPtrInput
 	JumboFrameCapable pulumi.BoolPtrInput
-	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
-	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
-	Mtu pulumi.IntPtrInput
-	// The name for the virtual interface.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether to enable or disable SiteLink.
-	SitelinkEnabled pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The VLAN ID.
-	Vlan pulumi.IntPtrInput
-	// The ID of the virtual private gateway to which to connect the virtual interface.
-	VpnGatewayId pulumi.StringPtrInput
+	Mtu               pulumi.IntPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	SitelinkEnabled   pulumi.BoolPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	Vlan              pulumi.IntPtrInput
+	VpnGatewayId      pulumi.StringPtrInput
 }
 
 func (PrivateVirtualInterfaceState) ElementType() reflect.Type {
@@ -222,68 +126,38 @@ func (PrivateVirtualInterfaceState) ElementType() reflect.Type {
 }
 
 type privateVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily string `pulumi:"addressFamily"`
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress *string `pulumi:"amazonAddress"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn int `pulumi:"bgpAsn"`
-	// The authentication key for BGP configuration.
-	BgpAuthKey *string `pulumi:"bgpAuthKey"`
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId string `pulumi:"connectionId"`
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress *string `pulumi:"customerAddress"`
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
-	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
-	Mtu *int `pulumi:"mtu"`
-	// The name for the virtual interface.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether to enable or disable SiteLink.
-	SitelinkEnabled *bool `pulumi:"sitelinkEnabled"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The VLAN ID.
-	Vlan int `pulumi:"vlan"`
-	// The ID of the virtual private gateway to which to connect the virtual interface.
-	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	AddressFamily   string            `pulumi:"addressFamily"`
+	AmazonAddress   *string           `pulumi:"amazonAddress"`
+	BgpAsn          int               `pulumi:"bgpAsn"`
+	BgpAuthKey      *string           `pulumi:"bgpAuthKey"`
+	ConnectionId    string            `pulumi:"connectionId"`
+	CustomerAddress *string           `pulumi:"customerAddress"`
+	DxGatewayId     *string           `pulumi:"dxGatewayId"`
+	Mtu             *int              `pulumi:"mtu"`
+	Name            *string           `pulumi:"name"`
+	Region          *string           `pulumi:"region"`
+	SitelinkEnabled *bool             `pulumi:"sitelinkEnabled"`
+	Tags            map[string]string `pulumi:"tags"`
+	Vlan            int               `pulumi:"vlan"`
+	VpnGatewayId    *string           `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a PrivateVirtualInterface resource.
 type PrivateVirtualInterfaceArgs struct {
-	// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-	AddressFamily pulumi.StringInput
-	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntInput
-	// The authentication key for BGP configuration.
-	BgpAuthKey pulumi.StringPtrInput
-	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId pulumi.StringInput
-	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+	AddressFamily   pulumi.StringInput
+	AmazonAddress   pulumi.StringPtrInput
+	BgpAsn          pulumi.IntInput
+	BgpAuthKey      pulumi.StringPtrInput
+	ConnectionId    pulumi.StringInput
 	CustomerAddress pulumi.StringPtrInput
-	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId pulumi.StringPtrInput
-	// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
-	// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
-	Mtu pulumi.IntPtrInput
-	// The name for the virtual interface.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether to enable or disable SiteLink.
+	DxGatewayId     pulumi.StringPtrInput
+	Mtu             pulumi.IntPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	SitelinkEnabled pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The VLAN ID.
-	Vlan pulumi.IntInput
-	// The ID of the virtual private gateway to which to connect the virtual interface.
-	VpnGatewayId pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	Vlan            pulumi.IntInput
+	VpnGatewayId    pulumi.StringPtrInput
 }
 
 func (PrivateVirtualInterfaceArgs) ElementType() reflect.Type {
@@ -373,12 +247,10 @@ func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfaceOutputWithContex
 	return o
 }
 
-// The address family for the BGP peer. ` ipv4  ` or `ipv6`.
 func (o PrivateVirtualInterfaceOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 func (o PrivateVirtualInterfaceOutput) AmazonAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AmazonAddress }).(pulumi.StringOutput)
 }
@@ -387,83 +259,66 @@ func (o PrivateVirtualInterfaceOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
 
-// The ARN of the virtual interface.
 func (o PrivateVirtualInterfaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Direct Connect endpoint on which the virtual interface terminates.
 func (o PrivateVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 func (o PrivateVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
 }
 
-// The authentication key for BGP configuration.
 func (o PrivateVirtualInterfaceOutput) BgpAuthKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.BgpAuthKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
 func (o PrivateVirtualInterfaceOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
 func (o PrivateVirtualInterfaceOutput) CustomerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
 }
 
-// The ID of the Direct Connect gateway to which to connect the virtual interface.
 func (o PrivateVirtualInterfaceOutput) DxGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.DxGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether jumbo frames (9001 MTU) are supported.
 func (o PrivateVirtualInterfaceOutput) JumboFrameCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
 }
 
-// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
-// The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
 func (o PrivateVirtualInterfaceOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.IntPtrOutput { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
-// The name for the virtual interface.
 func (o PrivateVirtualInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PrivateVirtualInterfaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether to enable or disable SiteLink.
 func (o PrivateVirtualInterfaceOutput) SitelinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.BoolPtrOutput { return v.SitelinkEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PrivateVirtualInterfaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PrivateVirtualInterfaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VLAN ID.
 func (o PrivateVirtualInterfaceOutput) Vlan() pulumi.IntOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.IntOutput { return v.Vlan }).(pulumi.IntOutput)
 }
 
-// The ID of the virtual private gateway to which to connect the virtual interface.
 func (o PrivateVirtualInterfaceOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

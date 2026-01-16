@@ -17,32 +17,16 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
 
     public static final GetReplicationInstanceArgs Empty = new GetReplicationInstanceArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The replication instance identifier.
-     * 
-     */
     @Import(name="replicationInstanceId", required=true)
     private Output<String> replicationInstanceId;
 
-    /**
-     * @return The replication instance identifier.
-     * 
-     */
     public Output<String> replicationInstanceId() {
         return this.replicationInstanceId;
     }
@@ -80,44 +64,20 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
             $ = new GetReplicationInstanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param replicationInstanceId The replication instance identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationInstanceId(Output<String> replicationInstanceId) {
             $.replicationInstanceId = replicationInstanceId;
             return this;
         }
 
-        /**
-         * @param replicationInstanceId The replication instance identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationInstanceId(String replicationInstanceId) {
             return replicationInstanceId(Output.of(replicationInstanceId));
         }

@@ -9,130 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Network Settings Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSubnet = new List&lt;Aws.Ec2.Subnet&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
-    ///         {
-    ///             VpcId = example.Id,
-    ///             CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
-    ///             {
-    ///                 Input = cidrBlock,
-    ///                 Newbits = 8,
-    ///                 Netnum = range.Value,
-    ///             })).Apply(invoke =&gt; invoke.Result),
-    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///         }));
-    ///     }
-    ///     var exampleSecurityGroup = new List&lt;Aws.Ec2.SecurityGroup&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         exampleSecurityGroup.Add(new Aws.Ec2.SecurityGroup($"example-{range.Value}", new()
-    ///         {
-    ///             VpcId = example.Id,
-    ///             Name = $"example-{range.Value}",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///         }));
-    ///     }
-    ///     var examplePortal = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleNetworkSettings = new Aws.WorkSpacesWeb.NetworkSettings("example", new()
-    ///     {
-    ///         VpcId = example.Id,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleSubnet[0].Id,
-    ///             exampleSubnet[1].Id,
-    ///         },
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             exampleSecurityGroup[0].Id,
-    ///             exampleSecurityGroup[1].Id,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleNetworkSettingsAssociation = new Aws.WorkSpacesWeb.NetworkSettingsAssociation("example", new()
-    ///     {
-    ///         NetworkSettingsArn = exampleNetworkSettings.NetworkSettingsArn,
-    ///         PortalArn = examplePortal.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/networkSettingsAssociation:NetworkSettingsAssociation")]
     public partial class NetworkSettingsAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the network settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("networkSettingsArn")]
         public Output<string> NetworkSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the network settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -182,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class NetworkSettingsAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the network settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("networkSettingsArn", required: true)]
         public Input<string> NetworkSettingsArn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal to associate with the network settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -210,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class NetworkSettingsAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the network settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the portal to associate with the network settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

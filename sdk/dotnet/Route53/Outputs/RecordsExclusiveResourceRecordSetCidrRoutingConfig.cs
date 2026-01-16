@@ -13,17 +13,7 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class RecordsExclusiveResourceRecordSetCidrRoutingConfig
     {
-        /// <summary>
-        /// CIDR collection ID.
-        /// See the `aws.route53.CidrCollection` resource for more details.
-        /// </summary>
         public readonly string CollectionId;
-        /// <summary>
-        /// CIDR collection location name.
-        /// See the `aws.route53.CidrLocation` resource for more details.
-        /// A `LocationName` with an asterisk `"*"` can be used to create a default CIDR record.
-        /// `CollectionId` is still required for a default record.
-        /// </summary>
         public readonly string LocationName;
 
         [OutputConstructor]

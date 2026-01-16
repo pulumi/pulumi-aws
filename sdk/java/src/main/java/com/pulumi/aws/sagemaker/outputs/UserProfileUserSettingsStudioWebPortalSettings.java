@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsStudioWebPortalSettings {
-    /**
-     * @return The Applications supported in Studio that are hidden from the Studio left navigation pane.
-     * 
-     */
     private @Nullable List<String> hiddenAppTypes;
-    /**
-     * @return The instance types you are hiding from the Studio user interface.
-     * 
-     */
     private @Nullable List<String> hiddenInstanceTypes;
-    /**
-     * @return The machine learning tools that are hidden from the Studio left navigation pane.
-     * 
-     */
     private @Nullable List<String> hiddenMlTools;
 
     private UserProfileUserSettingsStudioWebPortalSettings() {}
-    /**
-     * @return The Applications supported in Studio that are hidden from the Studio left navigation pane.
-     * 
-     */
     public List<String> hiddenAppTypes() {
         return this.hiddenAppTypes == null ? List.of() : this.hiddenAppTypes;
     }
-    /**
-     * @return The instance types you are hiding from the Studio user interface.
-     * 
-     */
     public List<String> hiddenInstanceTypes() {
         return this.hiddenInstanceTypes == null ? List.of() : this.hiddenInstanceTypes;
     }
-    /**
-     * @return The machine learning tools that are hidden from the Studio left navigation pane.
-     * 
-     */
     public List<String> hiddenMlTools() {
         return this.hiddenMlTools == null ? List.of() : this.hiddenMlTools;
     }

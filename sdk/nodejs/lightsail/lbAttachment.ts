@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const example = new aws.lightsail.Lb("example", {
- *     name: "example-load-balancer",
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const exampleInstance = new aws.lightsail.Instance("example", {
- *     name: "example-instance",
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_3_0",
- * });
- * const exampleLbAttachment = new aws.lightsail.LbAttachment("example", {
- *     lbName: example.name,
- *     instanceName: exampleInstance.name,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
- *
- * ```sh
- * $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
- * ```
- */
 export class LbAttachment extends pulumi.CustomResource {
     /**
      * Get an existing LbAttachment resource's state with the given name, ID, and optional extra
@@ -76,19 +32,8 @@ export class LbAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbAttachment.__pulumiType;
     }
 
-    /**
-     * Name of the instance to attach to the load balancer.
-     */
     declare public readonly instanceName: pulumi.Output<string>;
-    /**
-     * Name of the Lightsail load balancer.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly lbName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -128,19 +73,8 @@ export class LbAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbAttachment resources.
  */
 export interface LbAttachmentState {
-    /**
-     * Name of the instance to attach to the load balancer.
-     */
     instanceName?: pulumi.Input<string>;
-    /**
-     * Name of the Lightsail load balancer.
-     *
-     * The following arguments are optional:
-     */
     lbName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -148,18 +82,7 @@ export interface LbAttachmentState {
  * The set of arguments for constructing a LbAttachment resource.
  */
 export interface LbAttachmentArgs {
-    /**
-     * Name of the instance to attach to the load balancer.
-     */
     instanceName: pulumi.Input<string>;
-    /**
-     * Name of the Lightsail load balancer.
-     *
-     * The following arguments are optional:
-     */
     lbName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

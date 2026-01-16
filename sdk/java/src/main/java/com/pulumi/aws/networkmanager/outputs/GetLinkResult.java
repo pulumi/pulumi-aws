@@ -13,20 +13,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinkResult {
-    /**
-     * @return ARN of the link.
-     * 
-     */
     private String arn;
-    /**
-     * @return Upload speed and download speed of the link as documented below
-     * 
-     */
     private List<GetLinkBandwidth> bandwidths;
-    /**
-     * @return Description of the link.
-     * 
-     */
     private String description;
     private String globalNetworkId;
     /**
@@ -35,46 +23,18 @@ public final class GetLinkResult {
      */
     private String id;
     private String linkId;
-    /**
-     * @return Provider of the link.
-     * 
-     */
     private String providerName;
-    /**
-     * @return ID of the site.
-     * 
-     */
     private String siteId;
-    /**
-     * @return Key-value tags for the link.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of the link.
-     * 
-     */
     private String type;
 
     private GetLinkResult() {}
-    /**
-     * @return ARN of the link.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Upload speed and download speed of the link as documented below
-     * 
-     */
     public List<GetLinkBandwidth> bandwidths() {
         return this.bandwidths;
     }
-    /**
-     * @return Description of the link.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -91,31 +51,15 @@ public final class GetLinkResult {
     public String linkId() {
         return this.linkId;
     }
-    /**
-     * @return Provider of the link.
-     * 
-     */
     public String providerName() {
         return this.providerName;
     }
-    /**
-     * @return ID of the site.
-     * 
-     */
     public String siteId() {
         return this.siteId;
     }
-    /**
-     * @return Key-value tags for the link.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of the link.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -21,10 +21,6 @@ public final class GetProvisioningArtifactsResult {
      */
     private String id;
     private String productId;
-    /**
-     * @return List with information about the provisioning artifacts. See details below.
-     * 
-     */
     private List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails;
     private String region;
 
@@ -42,10 +38,6 @@ public final class GetProvisioningArtifactsResult {
     public String productId() {
         return this.productId;
     }
-    /**
-     * @return List with information about the provisioning artifacts. See details below.
-     * 
-     */
     public List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails() {
         return this.provisioningArtifactDetails;
     }

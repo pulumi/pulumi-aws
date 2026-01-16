@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentAgentActionGroupFunctionSchemaMemberFunctions
     {
-        /// <summary>
-        /// Functions that each define an action in the action group. See `Functions` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction> Functions;
 
         [OutputConstructor]

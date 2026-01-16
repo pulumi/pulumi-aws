@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup vault notifications resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTopic = new aws.sns.Topic("test", {name: "backup-vault-events"});
- * const test = aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
- *     statements: [{
- *         actions: ["SNS:Publish"],
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["backup.amazonaws.com"],
- *         }],
- *         resources: [testTopic.arn],
- *         sid: "__default_statement_ID",
- *     }],
- * });
- * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
- *     arn: testTopic.arn,
- *     policy: test.apply(test => test.json),
- * });
- * const testVaultNotifications = new aws.backup.VaultNotifications("test", {
- *     backupVaultName: "example_backup_vault",
- *     snsTopicArn: testTopic.arn,
- *     backupVaultEvents: [
- *         "BACKUP_JOB_STARTED",
- *         "RESTORE_JOB_COMPLETED",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup vault notifications using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
- * ```
- */
 export class VaultNotifications extends pulumi.CustomResource {
     /**
      * Get an existing VaultNotifications resource's state with the given name, ID, and optional extra
@@ -77,25 +32,10 @@ export class VaultNotifications extends pulumi.CustomResource {
         return obj['__pulumiType'] === VaultNotifications.__pulumiType;
     }
 
-    /**
-     * The ARN of the vault.
-     */
     declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
-    /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
-     */
     declare public readonly backupVaultEvents: pulumi.Output<string[]>;
-    /**
-     * Name of the backup vault to add notifications for.
-     */
     declare public readonly backupVaultName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-     */
     declare public readonly snsTopicArn: pulumi.Output<string>;
 
     /**
@@ -142,25 +82,10 @@ export class VaultNotifications extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VaultNotifications resources.
  */
 export interface VaultNotificationsState {
-    /**
-     * The ARN of the vault.
-     */
     backupVaultArn?: pulumi.Input<string>;
-    /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
-     */
     backupVaultEvents?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the backup vault to add notifications for.
-     */
     backupVaultName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-     */
     snsTopicArn?: pulumi.Input<string>;
 }
 
@@ -168,20 +93,8 @@ export interface VaultNotificationsState {
  * The set of arguments for constructing a VaultNotifications resource.
  */
 export interface VaultNotificationsArgs {
-    /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
-     */
     backupVaultEvents: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of the backup vault to add notifications for.
-     */
     backupVaultName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-     */
     snsTopicArn: pulumi.Input<string>;
 }

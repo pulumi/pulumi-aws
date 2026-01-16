@@ -17,51 +17,23 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs extends com.pulu
 
     public static final DeploymentGroupBlueGreenDeploymentConfigArgs Empty = new DeploymentGroupBlueGreenDeploymentConfigArgs();
 
-    /**
-     * Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-     * 
-     */
     @Import(name="deploymentReadyOption")
     private @Nullable Output<DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs> deploymentReadyOption;
 
-    /**
-     * @return Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-     * 
-     */
     public Optional<Output<DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs>> deploymentReadyOption() {
         return Optional.ofNullable(this.deploymentReadyOption);
     }
 
-    /**
-     * Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-     * 
-     */
     @Import(name="greenFleetProvisioningOption")
     private @Nullable Output<DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs> greenFleetProvisioningOption;
 
-    /**
-     * @return Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-     * 
-     */
     public Optional<Output<DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs>> greenFleetProvisioningOption() {
         return Optional.ofNullable(this.greenFleetProvisioningOption);
     }
 
-    /**
-     * Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-     * 
-     * _Only one `blueGreenDeploymentConfig` is allowed_.
-     * 
-     */
     @Import(name="terminateBlueInstancesOnDeploymentSuccess")
     private @Nullable Output<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs> terminateBlueInstancesOnDeploymentSuccess;
 
-    /**
-     * @return Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-     * 
-     * _Only one `blueGreenDeploymentConfig` is allowed_.
-     * 
-     */
     public Optional<Output<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs>> terminateBlueInstancesOnDeploymentSuccess() {
         return Optional.ofNullable(this.terminateBlueInstancesOnDeploymentSuccess);
     }
@@ -92,69 +64,29 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs extends com.pulu
             $ = new DeploymentGroupBlueGreenDeploymentConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deploymentReadyOption Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentReadyOption(@Nullable Output<DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs> deploymentReadyOption) {
             $.deploymentReadyOption = deploymentReadyOption;
             return this;
         }
 
-        /**
-         * @param deploymentReadyOption Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs deploymentReadyOption) {
             return deploymentReadyOption(Output.of(deploymentReadyOption));
         }
 
-        /**
-         * @param greenFleetProvisioningOption Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder greenFleetProvisioningOption(@Nullable Output<DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs> greenFleetProvisioningOption) {
             $.greenFleetProvisioningOption = greenFleetProvisioningOption;
             return this;
         }
 
-        /**
-         * @param greenFleetProvisioningOption Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder greenFleetProvisioningOption(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs greenFleetProvisioningOption) {
             return greenFleetProvisioningOption(Output.of(greenFleetProvisioningOption));
         }
 
-        /**
-         * @param terminateBlueInstancesOnDeploymentSuccess Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-         * 
-         * _Only one `blueGreenDeploymentConfig` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminateBlueInstancesOnDeploymentSuccess(@Nullable Output<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs> terminateBlueInstancesOnDeploymentSuccess) {
             $.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
             return this;
         }
 
-        /**
-         * @param terminateBlueInstancesOnDeploymentSuccess Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-         * 
-         * _Only one `blueGreenDeploymentConfig` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs terminateBlueInstancesOnDeploymentSuccess) {
             return terminateBlueInstancesOnDeploymentSuccess(Output.of(terminateBlueInstancesOnDeploymentSuccess));
         }

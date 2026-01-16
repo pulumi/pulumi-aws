@@ -12,9 +12,6 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerRuleTransformUrlRewriteConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-        /// </summary>
         [Input("rewrite")]
         public Input<Inputs.ListenerRuleTransformUrlRewriteConfigRewriteGetArgs>? Rewrite { get; set; }
 

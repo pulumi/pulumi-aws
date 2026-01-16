@@ -17,32 +17,16 @@ public final class MultitenantDistributionOriginOriginShieldArgs extends com.pul
 
     public static final MultitenantDistributionOriginOriginShieldArgs Empty = new MultitenantDistributionOriginOriginShieldArgs();
 
-    /**
-     * Whether Origin Shield is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether Origin Shield is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * AWS Region for Origin Shield. Required when `enabled` is `true`.
-     * 
-     */
     @Import(name="originShieldRegion")
     private @Nullable Output<String> originShieldRegion;
 
-    /**
-     * @return AWS Region for Origin Shield. Required when `enabled` is `true`.
-     * 
-     */
     public Optional<Output<String>> originShieldRegion() {
         return Optional.ofNullable(this.originShieldRegion);
     }
@@ -72,44 +56,20 @@ public final class MultitenantDistributionOriginOriginShieldArgs extends com.pul
             $ = new MultitenantDistributionOriginOriginShieldArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether Origin Shield is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether Origin Shield is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param originShieldRegion AWS Region for Origin Shield. Required when `enabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originShieldRegion(@Nullable Output<String> originShieldRegion) {
             $.originShieldRegion = originShieldRegion;
             return this;
         }
 
-        /**
-         * @param originShieldRegion AWS Region for Origin Shield. Required when `enabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originShieldRegion(String originShieldRegion) {
             return originShieldRegion(Output.of(originShieldRegion));
         }

@@ -17,47 +17,23 @@ public final class TopicRuleRepublishArgs extends com.pulumi.resources.ResourceA
 
     public static final TopicRuleRepublishArgs Empty = new TopicRuleRepublishArgs();
 
-    /**
-     * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-     * 
-     */
     @Import(name="qos")
     private @Nullable Output<Integer> qos;
 
-    /**
-     * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-     * 
-     */
     public Optional<Output<Integer>> qos() {
         return Optional.ofNullable(this.qos);
     }
 
-    /**
-     * The ARN of the IAM role that grants access.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The name of the MQTT topic the message should be republished to.
-     * 
-     */
     @Import(name="topic", required=true)
     private Output<String> topic;
 
-    /**
-     * @return The name of the MQTT topic the message should be republished to.
-     * 
-     */
     public Output<String> topic() {
         return this.topic;
     }
@@ -88,65 +64,29 @@ public final class TopicRuleRepublishArgs extends com.pulumi.resources.ResourceA
             $ = new TopicRuleRepublishArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param qos The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qos(@Nullable Output<Integer> qos) {
             $.qos = qos;
             return this;
         }
 
-        /**
-         * @param qos The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qos(Integer qos) {
             return qos(Output.of(qos));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param topic The name of the MQTT topic the message should be republished to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topic(Output<String> topic) {
             $.topic = topic;
             return this;
         }
 
-        /**
-         * @param topic The name of the MQTT topic the message should be republished to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topic(String topic) {
             return topic(Output.of(topic));
         }

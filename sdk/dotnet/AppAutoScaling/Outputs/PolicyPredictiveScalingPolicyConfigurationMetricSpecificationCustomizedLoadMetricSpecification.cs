@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification
     {
-        /// <summary>
-        /// One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> MetricDataQueries;
 
         [OutputConstructor]

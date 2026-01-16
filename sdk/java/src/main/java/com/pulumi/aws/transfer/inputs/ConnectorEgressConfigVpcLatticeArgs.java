@@ -17,32 +17,16 @@ public final class ConnectorEgressConfigVpcLatticeArgs extends com.pulumi.resour
 
     public static final ConnectorEgressConfigVpcLatticeArgs Empty = new ConnectorEgressConfigVpcLatticeArgs();
 
-    /**
-     * Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
-     * 
-     */
     @Import(name="portNumber")
     private @Nullable Output<Integer> portNumber;
 
-    /**
-     * @return Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
-     * 
-     */
     public Optional<Output<Integer>> portNumber() {
         return Optional.ofNullable(this.portNumber);
     }
 
-    /**
-     * ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
-     * 
-     */
     @Import(name="resourceConfigurationArn", required=true)
     private Output<String> resourceConfigurationArn;
 
-    /**
-     * @return ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
-     * 
-     */
     public Output<String> resourceConfigurationArn() {
         return this.resourceConfigurationArn;
     }
@@ -72,44 +56,20 @@ public final class ConnectorEgressConfigVpcLatticeArgs extends com.pulumi.resour
             $ = new ConnectorEgressConfigVpcLatticeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param portNumber Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portNumber(@Nullable Output<Integer> portNumber) {
             $.portNumber = portNumber;
             return this;
         }
 
-        /**
-         * @param portNumber Port number for connecting to the SFTP server through VPC Lattice. Defaults to 22 if not specified. Must match the port on which the target SFTP server is listening. Valid values are between 1 and 65535.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portNumber(Integer portNumber) {
             return portNumber(Output.of(portNumber));
         }
 
-        /**
-         * @param resourceConfigurationArn ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationArn(Output<String> resourceConfigurationArn) {
             $.resourceConfigurationArn = resourceConfigurationArn;
             return this;
         }
 
-        /**
-         * @param resourceConfigurationArn ARN of the VPC Lattice Resource Configuration that defines the target SFTP server location. Must point to a valid Resource Configuration in a VPC with appropriate network connectivity to the SFTP server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationArn(String resourceConfigurationArn) {
             return resourceConfigurationArn(Output.of(resourceConfigurationArn));
         }

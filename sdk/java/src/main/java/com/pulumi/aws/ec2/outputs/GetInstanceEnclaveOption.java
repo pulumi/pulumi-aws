@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceEnclaveOption {
-    /**
-     * @return Whether Nitro Enclaves are enabled.
-     * 
-     */
     private Boolean enabled;
 
     private GetInstanceEnclaveOption() {}
-    /**
-     * @return Whether Nitro Enclaves are enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

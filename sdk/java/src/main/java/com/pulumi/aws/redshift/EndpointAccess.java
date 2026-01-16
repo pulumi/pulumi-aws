@@ -16,178 +16,59 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift endpoint access.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.EndpointAccess;
- * import com.pulumi.aws.redshift.EndpointAccessArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EndpointAccess("example", EndpointAccessArgs.builder()
- *             .endpointName("example")
- *             .subnetGroupName(exampleAwsRedshiftSubnetGroup.id())
- *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/endpointAccess:EndpointAccess")
 public class EndpointAccess extends com.pulumi.resources.CustomResource {
-    /**
-     * The DNS address of the endpoint.
-     * 
-     */
     @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
-    /**
-     * @return The DNS address of the endpoint.
-     * 
-     */
     public Output<String> address() {
         return this.address;
     }
-    /**
-     * The cluster identifier of the cluster to access.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier of the cluster to access.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * The Redshift-managed VPC endpoint name.
-     * 
-     */
     @Export(name="endpointName", refs={String.class}, tree="[0]")
     private Output<String> endpointName;
 
-    /**
-     * @return The Redshift-managed VPC endpoint name.
-     * 
-     */
     public Output<String> endpointName() {
         return this.endpointName;
     }
-    /**
-     * The port number on which the cluster accepts incoming connections.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
-    /**
-     * @return The port number on which the cluster accepts incoming connections.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     * 
-     */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
     private Output<String> resourceOwner;
 
-    /**
-     * @return The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-     * 
-     */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
-    /**
-     * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     * 
-     */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> subnetGroupName;
 
-    /**
-     * @return The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-     * 
-     */
     public Output<String> subnetGroupName() {
         return this.subnetGroupName;
     }
-    /**
-     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-     * 
-     */
     @Export(name="vpcEndpoints", refs={List.class,EndpointAccessVpcEndpoint.class}, tree="[0,1]")
     private Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
 
-    /**
-     * @return The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-     * 
-     */
     public Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints() {
         return this.vpcEndpoints;
     }
-    /**
-     * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     * 
-     */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
-    /**
-     * @return The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-     * 
-     */
     public Output<List<String>> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }

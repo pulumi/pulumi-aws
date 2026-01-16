@@ -12,89 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Opensearch Package.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myOpensearchPackages, err := s3.NewBucket(ctx, "my_opensearch_packages", &s3.BucketArgs{
-//				Bucket: pulumi.String("my-opensearch-packages"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFilemd5, err := std.Filemd5(ctx, &std.Filemd5Args{
-//				Input: "./example.txt",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: myOpensearchPackages.Bucket,
-//				Key:    pulumi.String("example.txt"),
-//				Source: pulumi.NewFileAsset("./example.txt"),
-//				Etag:   pulumi.String(invokeFilemd5.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewPackage(ctx, "example", &opensearch.PackageArgs{
-//				PackageName: pulumi.String("example-txt"),
-//				PackageSource: &opensearch.PackagePackageSourceArgs{
-//					S3BucketName: myOpensearchPackages.Bucket,
-//					S3Key:        example.Key,
-//				},
-//				PackageType: pulumi.String("TXT-DICTIONARY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/package:Package example package-id
-// ```
 type Package struct {
 	pulumi.CustomResourceState
 
-	// The current version of the package.
-	AvailablePackageVersion pulumi.StringOutput `pulumi:"availablePackageVersion"`
-	// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
-	// Description of the package.
-	PackageDescription pulumi.StringPtrOutput `pulumi:"packageDescription"`
-	PackageId          pulumi.StringOutput    `pulumi:"packageId"`
-	// Unique name for the package.
-	PackageName pulumi.StringOutput `pulumi:"packageName"`
-	// Configuration block for the package source options.
-	PackageSource PackagePackageSourceOutput `pulumi:"packageSource"`
-	// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AvailablePackageVersion pulumi.StringOutput        `pulumi:"availablePackageVersion"`
+	EngineVersion           pulumi.StringPtrOutput     `pulumi:"engineVersion"`
+	PackageDescription      pulumi.StringPtrOutput     `pulumi:"packageDescription"`
+	PackageId               pulumi.StringOutput        `pulumi:"packageId"`
+	PackageName             pulumi.StringOutput        `pulumi:"packageName"`
+	PackageSource           PackagePackageSourceOutput `pulumi:"packageSource"`
+	PackageType             pulumi.StringOutput        `pulumi:"packageType"`
+	Region                  pulumi.StringOutput        `pulumi:"region"`
 }
 
 // NewPackage registers a new resource with the given unique name, arguments, and options.
@@ -136,39 +64,25 @@ func GetPackage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Package resources.
 type packageState struct {
-	// The current version of the package.
-	AvailablePackageVersion *string `pulumi:"availablePackageVersion"`
-	// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// Description of the package.
-	PackageDescription *string `pulumi:"packageDescription"`
-	PackageId          *string `pulumi:"packageId"`
-	// Unique name for the package.
-	PackageName *string `pulumi:"packageName"`
-	// Configuration block for the package source options.
-	PackageSource *PackagePackageSource `pulumi:"packageSource"`
-	// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-	PackageType *string `pulumi:"packageType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AvailablePackageVersion *string               `pulumi:"availablePackageVersion"`
+	EngineVersion           *string               `pulumi:"engineVersion"`
+	PackageDescription      *string               `pulumi:"packageDescription"`
+	PackageId               *string               `pulumi:"packageId"`
+	PackageName             *string               `pulumi:"packageName"`
+	PackageSource           *PackagePackageSource `pulumi:"packageSource"`
+	PackageType             *string               `pulumi:"packageType"`
+	Region                  *string               `pulumi:"region"`
 }
 
 type PackageState struct {
-	// The current version of the package.
 	AvailablePackageVersion pulumi.StringPtrInput
-	// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-	EngineVersion pulumi.StringPtrInput
-	// Description of the package.
-	PackageDescription pulumi.StringPtrInput
-	PackageId          pulumi.StringPtrInput
-	// Unique name for the package.
-	PackageName pulumi.StringPtrInput
-	// Configuration block for the package source options.
-	PackageSource PackagePackageSourcePtrInput
-	// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-	PackageType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	EngineVersion           pulumi.StringPtrInput
+	PackageDescription      pulumi.StringPtrInput
+	PackageId               pulumi.StringPtrInput
+	PackageName             pulumi.StringPtrInput
+	PackageSource           PackagePackageSourcePtrInput
+	PackageType             pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 }
 
 func (PackageState) ElementType() reflect.Type {
@@ -176,34 +90,22 @@ func (PackageState) ElementType() reflect.Type {
 }
 
 type packageArgs struct {
-	// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// Description of the package.
-	PackageDescription *string `pulumi:"packageDescription"`
-	// Unique name for the package.
-	PackageName string `pulumi:"packageName"`
-	// Configuration block for the package source options.
-	PackageSource PackagePackageSource `pulumi:"packageSource"`
-	// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-	PackageType string `pulumi:"packageType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	EngineVersion      *string              `pulumi:"engineVersion"`
+	PackageDescription *string              `pulumi:"packageDescription"`
+	PackageName        string               `pulumi:"packageName"`
+	PackageSource      PackagePackageSource `pulumi:"packageSource"`
+	PackageType        string               `pulumi:"packageType"`
+	Region             *string              `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Package resource.
 type PackageArgs struct {
-	// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
-	EngineVersion pulumi.StringPtrInput
-	// Description of the package.
+	EngineVersion      pulumi.StringPtrInput
 	PackageDescription pulumi.StringPtrInput
-	// Unique name for the package.
-	PackageName pulumi.StringInput
-	// Configuration block for the package source options.
-	PackageSource PackagePackageSourceInput
-	// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
-	PackageType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PackageName        pulumi.StringInput
+	PackageSource      PackagePackageSourceInput
+	PackageType        pulumi.StringInput
+	Region             pulumi.StringPtrInput
 }
 
 func (PackageArgs) ElementType() reflect.Type {
@@ -293,17 +195,14 @@ func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOu
 	return o
 }
 
-// The current version of the package.
 func (o PackageOutput) AvailablePackageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.AvailablePackageVersion }).(pulumi.StringOutput)
 }
 
-// Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
 func (o PackageOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// Description of the package.
 func (o PackageOutput) PackageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringPtrOutput { return v.PackageDescription }).(pulumi.StringPtrOutput)
 }
@@ -312,22 +211,18 @@ func (o PackageOutput) PackageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
 }
 
-// Unique name for the package.
 func (o PackageOutput) PackageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
 }
 
-// Configuration block for the package source options.
 func (o PackageOutput) PackageSource() PackagePackageSourceOutput {
 	return o.ApplyT(func(v *Package) PackagePackageSourceOutput { return v.PackageSource }).(PackagePackageSourceOutput)
 }
 
-// The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
 func (o PackageOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PackageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

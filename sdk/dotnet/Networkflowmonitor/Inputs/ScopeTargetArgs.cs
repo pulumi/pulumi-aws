@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Networkflowmonitor.Inputs
 
     public sealed class ScopeTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        /// <summary>
-        /// A target identifier is a pair of identifying information for a scope.
-        /// </summary>
         [Input("targetIdentifier")]
         public Input<Inputs.ScopeTargetTargetIdentifierArgs>? TargetIdentifier { get; set; }
 

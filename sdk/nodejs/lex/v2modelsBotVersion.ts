@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Lex V2 Models Bot Version.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lex.V2modelsBotVersion("test", {
- *     botId: testAwsLexv2modelsBot.id,
- *     localeSpecification: {
- *         en_US: {
- *             sourceBotVersion: "DRAFT",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
- * ```
- */
 export class V2modelsBotVersion extends pulumi.CustomResource {
     /**
      * Get an existing V2modelsBotVersion resource's state with the given name, ID, and optional extra
@@ -64,26 +35,10 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === V2modelsBotVersion.__pulumiType;
     }
 
-    /**
-     * Idientifier of the bot to create the version for.
-     */
     declare public readonly botId: pulumi.Output<string>;
-    /**
-     * Version number assigned to the version.
-     */
     declare public readonly botVersion: pulumi.Output<string>;
-    /**
-     * A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     */
     declare public readonly localeSpecification: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
 
@@ -130,26 +85,10 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering V2modelsBotVersion resources.
  */
 export interface V2modelsBotVersionState {
-    /**
-     * Idientifier of the bot to create the version for.
-     */
     botId?: pulumi.Input<string>;
-    /**
-     * Version number assigned to the version.
-     */
     botVersion?: pulumi.Input<string>;
-    /**
-     * A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     */
     localeSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
 }
@@ -158,26 +97,10 @@ export interface V2modelsBotVersionState {
  * The set of arguments for constructing a V2modelsBotVersion resource.
  */
 export interface V2modelsBotVersionArgs {
-    /**
-     * Idientifier of the bot to create the version for.
-     */
     botId: pulumi.Input<string>;
-    /**
-     * Version number assigned to the version.
-     */
     botVersion?: pulumi.Input<string>;
-    /**
-     * A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     */
     localeSpecification: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
 }

@@ -17,62 +17,30 @@ public final class TopicRuleErrorActionIotEventsArgs extends com.pulumi.resource
 
     public static final TopicRuleErrorActionIotEventsArgs Empty = new TopicRuleErrorActionIotEventsArgs();
 
-    /**
-     * The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-     * 
-     */
     @Import(name="batchMode")
     private @Nullable Output<Boolean> batchMode;
 
-    /**
-     * @return The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-     * 
-     */
     public Optional<Output<Boolean>> batchMode() {
         return Optional.ofNullable(this.batchMode);
     }
 
-    /**
-     * The name of the AWS IoT Events input.
-     * 
-     */
     @Import(name="inputName", required=true)
     private Output<String> inputName;
 
-    /**
-     * @return The name of the AWS IoT Events input.
-     * 
-     */
     public Output<String> inputName() {
         return this.inputName;
     }
 
-    /**
-     * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-     * 
-     */
     @Import(name="messageId")
     private @Nullable Output<String> messageId;
 
-    /**
-     * @return Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-     * 
-     */
     public Optional<Output<String>> messageId() {
         return Optional.ofNullable(this.messageId);
     }
 
-    /**
-     * The ARN of the IAM role that grants access.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -104,86 +72,38 @@ public final class TopicRuleErrorActionIotEventsArgs extends com.pulumi.resource
             $ = new TopicRuleErrorActionIotEventsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchMode The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchMode(@Nullable Output<Boolean> batchMode) {
             $.batchMode = batchMode;
             return this;
         }
 
-        /**
-         * @param batchMode The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchMode(Boolean batchMode) {
             return batchMode(Output.of(batchMode));
         }
 
-        /**
-         * @param inputName The name of the AWS IoT Events input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputName(Output<String> inputName) {
             $.inputName = inputName;
             return this;
         }
 
-        /**
-         * @param inputName The name of the AWS IoT Events input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputName(String inputName) {
             return inputName(Output.of(inputName));
         }
 
-        /**
-         * @param messageId Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageId(@Nullable Output<String> messageId) {
             $.messageId = messageId;
             return this;
         }
 
-        /**
-         * @param messageId Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageId(String messageId) {
             return messageId(Output.of(messageId));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

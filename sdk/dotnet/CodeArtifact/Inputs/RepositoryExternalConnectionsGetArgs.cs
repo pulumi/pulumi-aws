@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodeArtifact.Inputs
 
     public sealed class RepositoryExternalConnectionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the external connection associated with a repository.
-        /// </summary>
         [Input("externalConnectionName", required: true)]
         public Input<string> ExternalConnectionName { get; set; } = null!;
 

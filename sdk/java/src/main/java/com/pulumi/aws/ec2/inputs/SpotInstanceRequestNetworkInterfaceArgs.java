@@ -18,62 +18,30 @@ public final class SpotInstanceRequestNetworkInterfaceArgs extends com.pulumi.re
 
     public static final SpotInstanceRequestNetworkInterfaceArgs Empty = new SpotInstanceRequestNetworkInterfaceArgs();
 
-    /**
-     * Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-     * 
-     */
     @Import(name="deleteOnTermination")
     private @Nullable Output<Boolean> deleteOnTermination;
 
-    /**
-     * @return Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-     * 
-     */
     public Optional<Output<Boolean>> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
 
-    /**
-     * Integer index of the network interface attachment. Limited by instance type.
-     * 
-     */
     @Import(name="deviceIndex", required=true)
     private Output<Integer> deviceIndex;
 
-    /**
-     * @return Integer index of the network interface attachment. Limited by instance type.
-     * 
-     */
     public Output<Integer> deviceIndex() {
         return this.deviceIndex;
     }
 
-    /**
-     * Integer index of the network card. Limited by instance type. The default index is `0`.
-     * 
-     */
     @Import(name="networkCardIndex")
     private @Nullable Output<Integer> networkCardIndex;
 
-    /**
-     * @return Integer index of the network card. Limited by instance type. The default index is `0`.
-     * 
-     */
     public Optional<Output<Integer>> networkCardIndex() {
         return Optional.ofNullable(this.networkCardIndex);
     }
 
-    /**
-     * ID of the network interface to attach.
-     * 
-     */
     @Import(name="networkInterfaceId", required=true)
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return ID of the network interface to attach.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
@@ -105,86 +73,38 @@ public final class SpotInstanceRequestNetworkInterfaceArgs extends com.pulumi.re
             $ = new SpotInstanceRequestNetworkInterfaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deleteOnTermination Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteOnTermination(@Nullable Output<Boolean> deleteOnTermination) {
             $.deleteOnTermination = deleteOnTermination;
             return this;
         }
 
-        /**
-         * @param deleteOnTermination Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
             return deleteOnTermination(Output.of(deleteOnTermination));
         }
 
-        /**
-         * @param deviceIndex Integer index of the network interface attachment. Limited by instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceIndex(Output<Integer> deviceIndex) {
             $.deviceIndex = deviceIndex;
             return this;
         }
 
-        /**
-         * @param deviceIndex Integer index of the network interface attachment. Limited by instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceIndex(Integer deviceIndex) {
             return deviceIndex(Output.of(deviceIndex));
         }
 
-        /**
-         * @param networkCardIndex Integer index of the network card. Limited by instance type. The default index is `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkCardIndex(@Nullable Output<Integer> networkCardIndex) {
             $.networkCardIndex = networkCardIndex;
             return this;
         }
 
-        /**
-         * @param networkCardIndex Integer index of the network card. Limited by instance type. The default index is `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkCardIndex(Integer networkCardIndex) {
             return networkCardIndex(Output.of(networkCardIndex));
         }
 
-        /**
-         * @param networkInterfaceId ID of the network interface to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId ID of the network interface to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }

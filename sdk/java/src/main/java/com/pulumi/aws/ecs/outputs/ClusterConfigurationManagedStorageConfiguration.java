@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterConfigurationManagedStorageConfiguration {
-    /**
-     * @return AWS Key Management Service key ARN for the Fargate ephemeral storage.
-     * 
-     */
     private @Nullable String fargateEphemeralStorageKmsKeyId;
-    /**
-     * @return AWS Key Management Service key ARN to encrypt the managed storage.
-     * 
-     */
     private @Nullable String kmsKeyId;
 
     private ClusterConfigurationManagedStorageConfiguration() {}
-    /**
-     * @return AWS Key Management Service key ARN for the Fargate ephemeral storage.
-     * 
-     */
     public Optional<String> fargateEphemeralStorageKmsKeyId() {
         return Optional.ofNullable(this.fargateEphemeralStorageKmsKeyId);
     }
-    /**
-     * @return AWS Key Management Service key ARN to encrypt the managed storage.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }

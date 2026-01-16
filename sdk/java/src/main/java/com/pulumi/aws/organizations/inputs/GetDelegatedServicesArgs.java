@@ -14,17 +14,9 @@ public final class GetDelegatedServicesArgs extends com.pulumi.resources.InvokeA
 
     public static final GetDelegatedServicesArgs Empty = new GetDelegatedServicesArgs();
 
-    /**
-     * Account ID number of a delegated administrator account in the organization.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return Account ID number of a delegated administrator account in the organization.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
@@ -53,23 +45,11 @@ public final class GetDelegatedServicesArgs extends com.pulumi.resources.InvokeA
             $ = new GetDelegatedServicesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Account ID number of a delegated administrator account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Account ID number of a delegated administrator account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

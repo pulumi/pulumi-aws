@@ -61,10 +61,6 @@ class GetEbsVolumesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of all the EBS Volume IDs found. This data source will fail if
-        no volumes match the provided criteria.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -96,36 +92,7 @@ def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEbsVolumesResult:
     """
-    `ebs_get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
-
-    This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-
-    ## Example Usage
-
-    The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ebs.get_ebs_volumes(tags={
-        "VolumeSet": "TestVolumeSet",
-    })
-    example_get_volume = {__key: aws.ebs.get_volume(filters=[{
-        "name": "volume-id",
-        "values": [__value],
-    }]) for __key, __value in example.ids}
-    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
-    ```
-
-
-    :param Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired volumes.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -145,36 +112,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEbsVolumesResult]:
     """
-    `ebs_get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
-
-    This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-
-    ## Example Usage
-
-    The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ebs.get_ebs_volumes(tags={
-        "VolumeSet": "TestVolumeSet",
-    })
-    example_get_volume = {__key: aws.ebs.get_volume(filters=[{
-        "name": "volume-id",
-        "values": [__value],
-    }]) for __key, __value in example.ids}
-    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
-    ```
-
-
-    :param Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired volumes.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

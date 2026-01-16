@@ -16,32 +16,16 @@ public final class CrawlerLakeFormationConfigurationArgs extends com.pulumi.reso
 
     public static final CrawlerLakeFormationConfigurationArgs Empty = new CrawlerLakeFormationConfigurationArgs();
 
-    /**
-     * Required for cross account crawls. For same account crawls as the target data, this can omitted.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return Required for cross account crawls. For same account crawls as the target data, this can omitted.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-     * 
-     */
     @Import(name="useLakeFormationCredentials")
     private @Nullable Output<Boolean> useLakeFormationCredentials;
 
-    /**
-     * @return Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-     * 
-     */
     public Optional<Output<Boolean>> useLakeFormationCredentials() {
         return Optional.ofNullable(this.useLakeFormationCredentials);
     }
@@ -71,44 +55,20 @@ public final class CrawlerLakeFormationConfigurationArgs extends com.pulumi.reso
             $ = new CrawlerLakeFormationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Required for cross account crawls. For same account crawls as the target data, this can omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Required for cross account crawls. For same account crawls as the target data, this can omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param useLakeFormationCredentials Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLakeFormationCredentials(@Nullable Output<Boolean> useLakeFormationCredentials) {
             $.useLakeFormationCredentials = useLakeFormationCredentials;
             return this;
         }
 
-        /**
-         * @param useLakeFormationCredentials Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLakeFormationCredentials(Boolean useLakeFormationCredentials) {
             return useLakeFormationCredentials(Output.of(useLakeFormationCredentials));
         }

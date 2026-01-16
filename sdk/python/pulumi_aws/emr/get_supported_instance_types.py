@@ -59,9 +59,6 @@ class GetSupportedInstanceTypesResult:
     @_builtins.property
     @pulumi.getter(name="supportedInstanceTypes")
     def supported_instance_types(self) -> Sequence['outputs.GetSupportedInstanceTypesSupportedInstanceTypeResult']:
-        """
-        List of supported instance types. See `supported_instance_types` below.
-        """
         return pulumi.get(self, "supported_instance_types")
 
 
@@ -81,40 +78,7 @@ def get_supported_instance_types(region: Optional[_builtins.str] = None,
                                  release_label: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportedInstanceTypesResult:
     """
-    Data source for managing AWS EMR Supported Instance Types.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
-    ```
-
-    ### With a Lifecycle Pre-Condition
-
-    This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    instance_type = "r7g.large"
-    release_label = "emr-6.15.0"
-    test = aws.emr.get_supported_instance_types(release_label=release_label)
-    test_cluster = aws.emr.Cluster("test",
-        release_label=release_label,
-        master_instance_group={
-            "instance_type": instance_type,
-        })
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -131,40 +95,7 @@ def get_supported_instance_types_output(region: Optional[pulumi.Input[Optional[_
                                         release_label: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSupportedInstanceTypesResult]:
     """
-    Data source for managing AWS EMR Supported Instance Types.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
-    ```
-
-    ### With a Lifecycle Pre-Condition
-
-    This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    instance_type = "r7g.large"
-    release_label = "emr-6.15.0"
-    test = aws.emr.get_supported_instance_types(release_label=release_label)
-    test_cluster = aws.emr.Cluster("test",
-        release_label=release_label,
-        master_instance_group={
-            "instance_type": instance_type,
-        })
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

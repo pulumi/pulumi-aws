@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapabilityConfiguration {
-    /**
-     * @return ArgoCD configuration. See `argoCd` below.
-     * 
-     */
     private @Nullable CapabilityConfigurationArgoCd argoCd;
 
     private CapabilityConfiguration() {}
-    /**
-     * @return ArgoCD configuration. See `argoCd` below.
-     * 
-     */
     public Optional<CapabilityConfigurationArgoCd> argoCd() {
         return Optional.ofNullable(this.argoCd);
     }

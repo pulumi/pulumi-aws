@@ -29,14 +29,6 @@ class ManagedLoginBrandingArgs:
                  use_cognito_provided_values: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedLoginBranding resource.
-        :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetArgs']]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] settings: JSON document with the the settings to apply to the style.
-        :param pulumi.Input[_builtins.bool] use_cognito_provided_values: When `true`, applies the default branding style options.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -52,9 +44,6 @@ class ManagedLoginBrandingArgs:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        App client that the branding style is for.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -64,11 +53,6 @@ class ManagedLoginBrandingArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        User pool the client belongs to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -78,9 +62,6 @@ class ManagedLoginBrandingArgs:
     @_builtins.property
     @pulumi.getter
     def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetArgs']]]]:
-        """
-        Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        """
         return pulumi.get(self, "assets")
 
     @assets.setter
@@ -90,9 +71,6 @@ class ManagedLoginBrandingArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -102,9 +80,6 @@ class ManagedLoginBrandingArgs:
     @_builtins.property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON document with the the settings to apply to the style.
-        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -114,9 +89,6 @@ class ManagedLoginBrandingArgs:
     @_builtins.property
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When `true`, applies the default branding style options.
-        """
         return pulumi.get(self, "use_cognito_provided_values")
 
     @use_cognito_provided_values.setter
@@ -137,16 +109,6 @@ class _ManagedLoginBrandingState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedLoginBranding resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetArgs']]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
-        :param pulumi.Input[_builtins.str] managed_login_branding_id: ID of the managed login branding style.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] settings: JSON document with the the settings to apply to the style.
-        :param pulumi.Input[_builtins.str] settings_all: Settings including Amazon Cognito defaults.
-        :param pulumi.Input[_builtins.bool] use_cognito_provided_values: When `true`, applies the default branding style options.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
-               
-               The following arguments are optional:
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -168,9 +130,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter
     def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetArgs']]]]:
-        """
-        Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        """
         return pulumi.get(self, "assets")
 
     @assets.setter
@@ -180,9 +139,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        App client that the branding style is for.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -192,9 +148,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter(name="managedLoginBrandingId")
     def managed_login_branding_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the managed login branding style.
-        """
         return pulumi.get(self, "managed_login_branding_id")
 
     @managed_login_branding_id.setter
@@ -204,9 +157,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -216,9 +166,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON document with the the settings to apply to the style.
-        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -228,9 +175,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter(name="settingsAll")
     def settings_all(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Settings including Amazon Cognito defaults.
-        """
         return pulumi.get(self, "settings_all")
 
     @settings_all.setter
@@ -240,9 +184,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        When `true`, applies the default branding style options.
-        """
         return pulumi.get(self, "use_cognito_provided_values")
 
     @use_cognito_provided_values.setter
@@ -252,11 +193,6 @@ class _ManagedLoginBrandingState:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User pool the client belongs to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -278,60 +214,9 @@ class ManagedLoginBranding(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages branding settings for a user pool style and associates it with an app client.
-
-        ## Example Usage
-
-        ### Default Branding Style
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        client = aws.cognito.ManagedLoginBranding("client",
-            client_id=example["id"],
-            user_pool_id=example_aws_cognito_user_pool["id"],
-            use_cognito_provided_values=True)
-        ```
-
-        ### Custom Branding Style
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        client = aws.cognito.ManagedLoginBranding("client",
-            client_id=example["id"],
-            user_pool_id=example_aws_cognito_user_pool["id"],
-            assets=[{
-                "bytes": std.filebase64(input="login_branding_asset.svg").result,
-                "category": "PAGE_HEADER_BACKGROUND",
-                "color_mode": "DARK",
-                "extension": "SVG",
-            }],
-            settings=json.dumps({}))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
-        ```
-
+        Create a ManagedLoginBranding resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] settings: JSON document with the the settings to apply to the style.
-        :param pulumi.Input[_builtins.bool] use_cognito_provided_values: When `true`, applies the default branding style options.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -340,50 +225,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
                  args: ManagedLoginBrandingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages branding settings for a user pool style and associates it with an app client.
-
-        ## Example Usage
-
-        ### Default Branding Style
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        client = aws.cognito.ManagedLoginBranding("client",
-            client_id=example["id"],
-            user_pool_id=example_aws_cognito_user_pool["id"],
-            use_cognito_provided_values=True)
-        ```
-
-        ### Custom Branding Style
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        client = aws.cognito.ManagedLoginBranding("client",
-            client_id=example["id"],
-            user_pool_id=example_aws_cognito_user_pool["id"],
-            assets=[{
-                "bytes": std.filebase64(input="login_branding_asset.svg").result,
-                "category": "PAGE_HEADER_BACKGROUND",
-                "color_mode": "DARK",
-                "extension": "SVG",
-            }],
-            settings=json.dumps({}))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
-        ```
-
+        Create a ManagedLoginBranding resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ManagedLoginBrandingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -451,16 +293,6 @@ class ManagedLoginBranding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
-        :param pulumi.Input[_builtins.str] managed_login_branding_id: ID of the managed login branding style.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] settings: JSON document with the the settings to apply to the style.
-        :param pulumi.Input[_builtins.str] settings_all: Settings including Amazon Cognito defaults.
-        :param pulumi.Input[_builtins.bool] use_cognito_provided_values: When `true`, applies the default branding style options.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -479,66 +311,40 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def assets(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedLoginBrandingAsset']]]:
-        """
-        Image files to apply to roles like backgrounds, logos, and icons. See details below.
-        """
         return pulumi.get(self, "assets")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        App client that the branding style is for.
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="managedLoginBrandingId")
     def managed_login_branding_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the managed login branding style.
-        """
         return pulumi.get(self, "managed_login_branding_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def settings(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        JSON document with the the settings to apply to the style.
-        """
         return pulumi.get(self, "settings")
 
     @_builtins.property
     @pulumi.getter(name="settingsAll")
     def settings_all(self) -> pulumi.Output[_builtins.str]:
-        """
-        Settings including Amazon Cognito defaults.
-        """
         return pulumi.get(self, "settings_all")
 
     @_builtins.property
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> pulumi.Output[_builtins.bool]:
-        """
-        When `true`, applies the default branding style options.
-        """
         return pulumi.get(self, "use_cognito_provided_values")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        User pool the client belongs to.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_pool_id")
 

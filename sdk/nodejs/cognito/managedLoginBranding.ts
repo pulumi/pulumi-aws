@@ -7,54 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages branding settings for a user pool style and associates it with an app client.
- *
- * ## Example Usage
- *
- * ### Default Branding Style
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const client = new aws.cognito.ManagedLoginBranding("client", {
- *     clientId: example.id,
- *     userPoolId: exampleAwsCognitoUserPool.id,
- *     useCognitoProvidedValues: true,
- * });
- * ```
- *
- * ### Custom Branding Style
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const client = new aws.cognito.ManagedLoginBranding("client", {
- *     clientId: example.id,
- *     userPoolId: exampleAwsCognitoUserPool.id,
- *     assets: [{
- *         bytes: std.filebase64({
- *             input: "login_branding_asset.svg",
- *         }).then(invoke => invoke.result),
- *         category: "PAGE_HEADER_BACKGROUND",
- *         colorMode: "DARK",
- *         extension: "SVG",
- *     }],
- *     settings: JSON.stringify({}),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
- * ```
- */
 export class ManagedLoginBranding extends pulumi.CustomResource {
     /**
      * Get an existing ManagedLoginBranding resource's state with the given name, ID, and optional extra
@@ -83,39 +35,13 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedLoginBranding.__pulumiType;
     }
 
-    /**
-     * Image files to apply to roles like backgrounds, logos, and icons. See details below.
-     */
     declare public readonly assets: pulumi.Output<outputs.cognito.ManagedLoginBrandingAsset[] | undefined>;
-    /**
-     * App client that the branding style is for.
-     */
     declare public readonly clientId: pulumi.Output<string>;
-    /**
-     * ID of the managed login branding style.
-     */
     declare public /*out*/ readonly managedLoginBrandingId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * JSON document with the the settings to apply to the style.
-     */
     declare public readonly settings: pulumi.Output<string | undefined>;
-    /**
-     * Settings including Amazon Cognito defaults.
-     */
     declare public /*out*/ readonly settingsAll: pulumi.Output<string>;
-    /**
-     * When `true`, applies the default branding style options.
-     */
     declare public readonly useCognitoProvidedValues: pulumi.Output<boolean>;
-    /**
-     * User pool the client belongs to.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
@@ -165,39 +91,13 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ManagedLoginBranding resources.
  */
 export interface ManagedLoginBrandingState {
-    /**
-     * Image files to apply to roles like backgrounds, logos, and icons. See details below.
-     */
     assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAsset>[]>;
-    /**
-     * App client that the branding style is for.
-     */
     clientId?: pulumi.Input<string>;
-    /**
-     * ID of the managed login branding style.
-     */
     managedLoginBrandingId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * JSON document with the the settings to apply to the style.
-     */
     settings?: pulumi.Input<string>;
-    /**
-     * Settings including Amazon Cognito defaults.
-     */
     settingsAll?: pulumi.Input<string>;
-    /**
-     * When `true`, applies the default branding style options.
-     */
     useCognitoProvidedValues?: pulumi.Input<boolean>;
-    /**
-     * User pool the client belongs to.
-     *
-     * The following arguments are optional:
-     */
     userPoolId?: pulumi.Input<string>;
 }
 
@@ -205,30 +105,10 @@ export interface ManagedLoginBrandingState {
  * The set of arguments for constructing a ManagedLoginBranding resource.
  */
 export interface ManagedLoginBrandingArgs {
-    /**
-     * Image files to apply to roles like backgrounds, logos, and icons. See details below.
-     */
     assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAsset>[]>;
-    /**
-     * App client that the branding style is for.
-     */
     clientId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * JSON document with the the settings to apply to the style.
-     */
     settings?: pulumi.Input<string>;
-    /**
-     * When `true`, applies the default branding style options.
-     */
     useCognitoProvidedValues?: pulumi.Input<boolean>;
-    /**
-     * User pool the client belongs to.
-     *
-     * The following arguments are optional:
-     */
     userPoolId: pulumi.Input<string>;
 }

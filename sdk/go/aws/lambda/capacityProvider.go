@@ -11,74 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Lambda Capacity Provider.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
-// Name: pulumi.String("example"),
-// VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
-// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
-// SecurityGroupIds: pulumi.StringArray{
-// exampleAwsSecurityGroup.Id,
-// },
-// },
-// PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
-// CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
-// ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Capacity Provider.
 	Arn                            pulumi.StringOutput                                      `pulumi:"arn"`
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayOutput `pulumi:"capacityProviderScalingConfigs"`
-	// Configuration block for instance requirements settings. See Instance Requirements below.
-	InstanceRequirements CapacityProviderInstanceRequirementArrayOutput `pulumi:"instanceRequirements"`
-	KmsKeyArn            pulumi.StringPtrOutput                         `pulumi:"kmsKeyArn"`
-	// The name of the Capacity Provider.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration block for permissions settings. See Permissions Config below.
-	//
-	// The following arguments are optional:
-	PermissionsConfig CapacityProviderPermissionsConfigPtrOutput `pulumi:"permissionsConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
-	Timeouts CapacityProviderTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Configuration block for VPC settings. See VPC Config below.
-	VpcConfig CapacityProviderVpcConfigPtrOutput `pulumi:"vpcConfig"`
+	InstanceRequirements           CapacityProviderInstanceRequirementArrayOutput           `pulumi:"instanceRequirements"`
+	KmsKeyArn                      pulumi.StringPtrOutput                                   `pulumi:"kmsKeyArn"`
+	Name                           pulumi.StringOutput                                      `pulumi:"name"`
+	PermissionsConfig              CapacityProviderPermissionsConfigPtrOutput               `pulumi:"permissionsConfig"`
+	Region                         pulumi.StringOutput                                      `pulumi:"region"`
+	Tags                           pulumi.StringMapOutput                                   `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput                                   `pulumi:"tagsAll"`
+	Timeouts                       CapacityProviderTimeoutsPtrOutput                        `pulumi:"timeouts"`
+	VpcConfig                      CapacityProviderVpcConfigPtrOutput                       `pulumi:"vpcConfig"`
 }
 
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
@@ -111,51 +57,31 @@ func GetCapacityProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityProvider resources.
 type capacityProviderState struct {
-	// ARN of the Capacity Provider.
 	Arn                            *string                                         `pulumi:"arn"`
 	CapacityProviderScalingConfigs []CapacityProviderCapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfigs"`
-	// Configuration block for instance requirements settings. See Instance Requirements below.
-	InstanceRequirements []CapacityProviderInstanceRequirement `pulumi:"instanceRequirements"`
-	KmsKeyArn            *string                               `pulumi:"kmsKeyArn"`
-	// The name of the Capacity Provider.
-	Name *string `pulumi:"name"`
-	// Configuration block for permissions settings. See Permissions Config below.
-	//
-	// The following arguments are optional:
-	PermissionsConfig *CapacityProviderPermissionsConfig `pulumi:"permissionsConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string         `pulumi:"tagsAll"`
-	Timeouts *CapacityProviderTimeouts `pulumi:"timeouts"`
-	// Configuration block for VPC settings. See VPC Config below.
-	VpcConfig *CapacityProviderVpcConfig `pulumi:"vpcConfig"`
+	InstanceRequirements           []CapacityProviderInstanceRequirement           `pulumi:"instanceRequirements"`
+	KmsKeyArn                      *string                                         `pulumi:"kmsKeyArn"`
+	Name                           *string                                         `pulumi:"name"`
+	PermissionsConfig              *CapacityProviderPermissionsConfig              `pulumi:"permissionsConfig"`
+	Region                         *string                                         `pulumi:"region"`
+	Tags                           map[string]string                               `pulumi:"tags"`
+	TagsAll                        map[string]string                               `pulumi:"tagsAll"`
+	Timeouts                       *CapacityProviderTimeouts                       `pulumi:"timeouts"`
+	VpcConfig                      *CapacityProviderVpcConfig                      `pulumi:"vpcConfig"`
 }
 
 type CapacityProviderState struct {
-	// ARN of the Capacity Provider.
 	Arn                            pulumi.StringPtrInput
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayInput
-	// Configuration block for instance requirements settings. See Instance Requirements below.
-	InstanceRequirements CapacityProviderInstanceRequirementArrayInput
-	KmsKeyArn            pulumi.StringPtrInput
-	// The name of the Capacity Provider.
-	Name pulumi.StringPtrInput
-	// Configuration block for permissions settings. See Permissions Config below.
-	//
-	// The following arguments are optional:
-	PermissionsConfig CapacityProviderPermissionsConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts CapacityProviderTimeoutsPtrInput
-	// Configuration block for VPC settings. See VPC Config below.
-	VpcConfig CapacityProviderVpcConfigPtrInput
+	InstanceRequirements           CapacityProviderInstanceRequirementArrayInput
+	KmsKeyArn                      pulumi.StringPtrInput
+	Name                           pulumi.StringPtrInput
+	PermissionsConfig              CapacityProviderPermissionsConfigPtrInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
+	Timeouts                       CapacityProviderTimeoutsPtrInput
+	VpcConfig                      CapacityProviderVpcConfigPtrInput
 }
 
 func (CapacityProviderState) ElementType() reflect.Type {
@@ -164,43 +90,27 @@ func (CapacityProviderState) ElementType() reflect.Type {
 
 type capacityProviderArgs struct {
 	CapacityProviderScalingConfigs []CapacityProviderCapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfigs"`
-	// Configuration block for instance requirements settings. See Instance Requirements below.
-	InstanceRequirements []CapacityProviderInstanceRequirement `pulumi:"instanceRequirements"`
-	KmsKeyArn            *string                               `pulumi:"kmsKeyArn"`
-	// The name of the Capacity Provider.
-	Name *string `pulumi:"name"`
-	// Configuration block for permissions settings. See Permissions Config below.
-	//
-	// The following arguments are optional:
-	PermissionsConfig *CapacityProviderPermissionsConfig `pulumi:"permissionsConfig"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string         `pulumi:"tags"`
-	Timeouts *CapacityProviderTimeouts `pulumi:"timeouts"`
-	// Configuration block for VPC settings. See VPC Config below.
-	VpcConfig *CapacityProviderVpcConfig `pulumi:"vpcConfig"`
+	InstanceRequirements           []CapacityProviderInstanceRequirement           `pulumi:"instanceRequirements"`
+	KmsKeyArn                      *string                                         `pulumi:"kmsKeyArn"`
+	Name                           *string                                         `pulumi:"name"`
+	PermissionsConfig              *CapacityProviderPermissionsConfig              `pulumi:"permissionsConfig"`
+	Region                         *string                                         `pulumi:"region"`
+	Tags                           map[string]string                               `pulumi:"tags"`
+	Timeouts                       *CapacityProviderTimeouts                       `pulumi:"timeouts"`
+	VpcConfig                      *CapacityProviderVpcConfig                      `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayInput
-	// Configuration block for instance requirements settings. See Instance Requirements below.
-	InstanceRequirements CapacityProviderInstanceRequirementArrayInput
-	KmsKeyArn            pulumi.StringPtrInput
-	// The name of the Capacity Provider.
-	Name pulumi.StringPtrInput
-	// Configuration block for permissions settings. See Permissions Config below.
-	//
-	// The following arguments are optional:
-	PermissionsConfig CapacityProviderPermissionsConfigPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts CapacityProviderTimeoutsPtrInput
-	// Configuration block for VPC settings. See VPC Config below.
-	VpcConfig CapacityProviderVpcConfigPtrInput
+	InstanceRequirements           CapacityProviderInstanceRequirementArrayInput
+	KmsKeyArn                      pulumi.StringPtrInput
+	Name                           pulumi.StringPtrInput
+	PermissionsConfig              CapacityProviderPermissionsConfigPtrInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	Timeouts                       CapacityProviderTimeoutsPtrInput
+	VpcConfig                      CapacityProviderVpcConfigPtrInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {
@@ -290,7 +200,6 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the Capacity Provider.
 func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -301,7 +210,6 @@ func (o CapacityProviderOutput) CapacityProviderScalingConfigs() CapacityProvide
 	}).(CapacityProviderCapacityProviderScalingConfigArrayOutput)
 }
 
-// Configuration block for instance requirements settings. See Instance Requirements below.
 func (o CapacityProviderOutput) InstanceRequirements() CapacityProviderInstanceRequirementArrayOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderInstanceRequirementArrayOutput {
 		return v.InstanceRequirements
@@ -312,29 +220,22 @@ func (o CapacityProviderOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Capacity Provider.
 func (o CapacityProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block for permissions settings. See Permissions Config below.
-//
-// The following arguments are optional:
 func (o CapacityProviderOutput) PermissionsConfig() CapacityProviderPermissionsConfigPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderPermissionsConfigPtrOutput { return v.PermissionsConfig }).(CapacityProviderPermissionsConfigPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CapacityProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CapacityProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CapacityProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -343,7 +244,6 @@ func (o CapacityProviderOutput) Timeouts() CapacityProviderTimeoutsPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderTimeoutsPtrOutput { return v.Timeouts }).(CapacityProviderTimeoutsPtrOutput)
 }
 
-// Configuration block for VPC settings. See VPC Config below.
 func (o CapacityProviderOutput) VpcConfig() CapacityProviderVpcConfigPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderVpcConfigPtrOutput { return v.VpcConfig }).(CapacityProviderVpcConfigPtrOutput)
 }

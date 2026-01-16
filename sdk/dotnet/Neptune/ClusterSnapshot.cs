@@ -9,102 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Neptune
 {
-    /// <summary>
-    /// Manages a Neptune database cluster snapshot.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Neptune.ClusterSnapshot("example", new()
-    ///     {
-    ///         DbClusterIdentifier = exampleAwsNeptuneCluster.Id,
-    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:neptune/clusterSnapshot:ClusterSnapshot")]
     public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
-        /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
 
-        /// <summary>
-        /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
-        /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
-        /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Identifier for the snapshot.
-        /// </summary>
         [Output("dbClusterSnapshotIdentifier")]
         public Output<string> DbClusterSnapshotIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the database engine.
-        /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the database engine for this DB cluster snapshot.
-        /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// If StorageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// License model information for the restored DB cluster.
-        /// </summary>
         [Output("licenseModel")]
         public Output<string> LicenseModel { get; private set; } = null!;
 
-        /// <summary>
-        /// Port that the DB cluster was listening on at the time of the snapshot.
-        /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -114,21 +51,12 @@ namespace Pulumi.Aws.Neptune
         [Output("sourceDbClusterSnapshotArn")]
         public Output<string> SourceDbClusterSnapshotArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of this DB Cluster Snapshot.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
-        /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -178,21 +106,12 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
-        /// </summary>
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The Identifier for the snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotIdentifier", required: true)]
         public Input<string> DbClusterSnapshotIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -204,75 +123,41 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
-        /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
-        /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
-        /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }
 
-        /// <summary>
-        /// The Identifier for the snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotIdentifier")]
         public Input<string>? DbClusterSnapshotIdentifier { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the database engine.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        /// <summary>
-        /// Version of the database engine for this DB cluster snapshot.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
-        /// <summary>
-        /// If StorageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// License model information for the restored DB cluster.
-        /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
 
-        /// <summary>
-        /// Port that the DB cluster was listening on at the time of the snapshot.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -282,21 +167,12 @@ namespace Pulumi.Aws.Neptune
         [Input("sourceDbClusterSnapshotArn")]
         public Input<string>? SourceDbClusterSnapshotArn { get; set; }
 
-        /// <summary>
-        /// The status of this DB Cluster Snapshot.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
-        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
-        /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -15,17 +15,9 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringA
 
     public static final RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs Empty = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs();
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-     * 
-     */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations() {
         return this.textTransformations;
     }
@@ -54,33 +46,15 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringA
             $ = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }

@@ -13,56 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight Role Membership.
- * 
- * &gt; The role membership APIs are disabled for identities managed by QuickSight. This resource can only be used when the QuickSight account subscription uses the Active Directory or IAM Identity Center authentication method.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.RoleMembership;
- * import com.pulumi.aws.quicksight.RoleMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RoleMembership("example", RoleMembershipArgs.builder()
- *             .memberName("example-group")
- *             .role("READER")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/roleMembership:RoleMembership")
 public class RoleMembership extends com.pulumi.resources.CustomResource {
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
@@ -71,63 +21,27 @@ public class RoleMembership extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Name of the group to be added to the role.
-     * 
-     */
     @Export(name="memberName", refs={String.class}, tree="[0]")
     private Output<String> memberName;
 
-    /**
-     * @return Name of the group to be added to the role.
-     * 
-     */
     public Output<String> memberName() {
         return this.memberName;
     }
-    /**
-     * Name of the namespace. Defaults to `default`.
-     * 
-     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
-    /**
-     * @return Name of the namespace. Defaults to `default`.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
-    /**
-     * @return Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }

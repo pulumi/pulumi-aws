@@ -189,20 +189,13 @@ func (o IndexTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SearchResource struct {
-	// Amazon resource name of resource.
-	Arn string `pulumi:"arn"`
-	// The date and time that the information about this resource property was last updated.
-	LastReportedAt string `pulumi:"lastReportedAt"`
-	// Amazon Web Services account that owns the resource.
-	OwningAccountId string `pulumi:"owningAccountId"`
-	// Structure with additional type-specific details about the resource.  See `properties` below.
-	Properties []SearchResourceProperty `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region string `pulumi:"region"`
-	// Type of the resource.
-	ResourceType string `pulumi:"resourceType"`
-	// Amazon Web Service that owns the resource and is responsible for creating and updating it.
-	Service string `pulumi:"service"`
+	Arn             string                   `pulumi:"arn"`
+	LastReportedAt  string                   `pulumi:"lastReportedAt"`
+	OwningAccountId string                   `pulumi:"owningAccountId"`
+	Properties      []SearchResourceProperty `pulumi:"properties"`
+	Region          string                   `pulumi:"region"`
+	ResourceType    string                   `pulumi:"resourceType"`
+	Service         string                   `pulumi:"service"`
 }
 
 // SearchResourceInput is an input type that accepts SearchResourceArgs and SearchResourceOutput values.
@@ -217,20 +210,13 @@ type SearchResourceInput interface {
 }
 
 type SearchResourceArgs struct {
-	// Amazon resource name of resource.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// The date and time that the information about this resource property was last updated.
-	LastReportedAt pulumi.StringInput `pulumi:"lastReportedAt"`
-	// Amazon Web Services account that owns the resource.
-	OwningAccountId pulumi.StringInput `pulumi:"owningAccountId"`
-	// Structure with additional type-specific details about the resource.  See `properties` below.
-	Properties SearchResourcePropertyArrayInput `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringInput `pulumi:"region"`
-	// Type of the resource.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Amazon Web Service that owns the resource and is responsible for creating and updating it.
-	Service pulumi.StringInput `pulumi:"service"`
+	Arn             pulumi.StringInput               `pulumi:"arn"`
+	LastReportedAt  pulumi.StringInput               `pulumi:"lastReportedAt"`
+	OwningAccountId pulumi.StringInput               `pulumi:"owningAccountId"`
+	Properties      SearchResourcePropertyArrayInput `pulumi:"properties"`
+	Region          pulumi.StringInput               `pulumi:"region"`
+	ResourceType    pulumi.StringInput               `pulumi:"resourceType"`
+	Service         pulumi.StringInput               `pulumi:"service"`
 }
 
 func (SearchResourceArgs) ElementType() reflect.Type {
@@ -284,37 +270,30 @@ func (o SearchResourceOutput) ToSearchResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon resource name of resource.
 func (o SearchResourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that the information about this resource property was last updated.
 func (o SearchResourceOutput) LastReportedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.LastReportedAt }).(pulumi.StringOutput)
 }
 
-// Amazon Web Services account that owns the resource.
 func (o SearchResourceOutput) OwningAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.OwningAccountId }).(pulumi.StringOutput)
 }
 
-// Structure with additional type-specific details about the resource.  See `properties` below.
 func (o SearchResourceOutput) Properties() SearchResourcePropertyArrayOutput {
 	return o.ApplyT(func(v SearchResource) []SearchResourceProperty { return v.Properties }).(SearchResourcePropertyArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SearchResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Type of the resource.
 func (o SearchResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Amazon Web Service that owns the resource and is responsible for creating and updating it.
 func (o SearchResourceOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.Service }).(pulumi.StringOutput)
 }
@@ -340,10 +319,8 @@ func (o SearchResourceArrayOutput) Index(i pulumi.IntInput) SearchResourceOutput
 }
 
 type SearchResourceCount struct {
-	// Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
-	Complete bool `pulumi:"complete"`
-	// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
-	TotalResources int `pulumi:"totalResources"`
+	Complete       bool `pulumi:"complete"`
+	TotalResources int  `pulumi:"totalResources"`
 }
 
 // SearchResourceCountInput is an input type that accepts SearchResourceCountArgs and SearchResourceCountOutput values.
@@ -358,10 +335,8 @@ type SearchResourceCountInput interface {
 }
 
 type SearchResourceCountArgs struct {
-	// Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
-	Complete pulumi.BoolInput `pulumi:"complete"`
-	// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
-	TotalResources pulumi.IntInput `pulumi:"totalResources"`
+	Complete       pulumi.BoolInput `pulumi:"complete"`
+	TotalResources pulumi.IntInput  `pulumi:"totalResources"`
 }
 
 func (SearchResourceCountArgs) ElementType() reflect.Type {
@@ -415,12 +390,10 @@ func (o SearchResourceCountOutput) ToSearchResourceCountOutputWithContext(ctx co
 	return o
 }
 
-// Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
 func (o SearchResourceCountOutput) Complete() pulumi.BoolOutput {
 	return o.ApplyT(func(v SearchResourceCount) bool { return v.Complete }).(pulumi.BoolOutput)
 }
 
-// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
 func (o SearchResourceCountOutput) TotalResources() pulumi.IntOutput {
 	return o.ApplyT(func(v SearchResourceCount) int { return v.TotalResources }).(pulumi.IntOutput)
 }
@@ -446,12 +419,9 @@ func (o SearchResourceCountArrayOutput) Index(i pulumi.IntInput) SearchResourceC
 }
 
 type SearchResourceProperty struct {
-	// Details about this property. The content of this field is a JSON object that varies based on the resource type.
-	Data string `pulumi:"data"`
-	// The date and time that the information about this resource property was last updated.
+	Data           string `pulumi:"data"`
 	LastReportedAt string `pulumi:"lastReportedAt"`
-	// Name of this property of the resource.
-	Name string `pulumi:"name"`
+	Name           string `pulumi:"name"`
 }
 
 // SearchResourcePropertyInput is an input type that accepts SearchResourcePropertyArgs and SearchResourcePropertyOutput values.
@@ -466,12 +436,9 @@ type SearchResourcePropertyInput interface {
 }
 
 type SearchResourcePropertyArgs struct {
-	// Details about this property. The content of this field is a JSON object that varies based on the resource type.
-	Data pulumi.StringInput `pulumi:"data"`
-	// The date and time that the information about this resource property was last updated.
+	Data           pulumi.StringInput `pulumi:"data"`
 	LastReportedAt pulumi.StringInput `pulumi:"lastReportedAt"`
-	// Name of this property of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name           pulumi.StringInput `pulumi:"name"`
 }
 
 func (SearchResourcePropertyArgs) ElementType() reflect.Type {
@@ -525,17 +492,14 @@ func (o SearchResourcePropertyOutput) ToSearchResourcePropertyOutputWithContext(
 	return o
 }
 
-// Details about this property. The content of this field is a JSON object that varies based on the resource type.
 func (o SearchResourcePropertyOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResourceProperty) string { return v.Data }).(pulumi.StringOutput)
 }
 
-// The date and time that the information about this resource property was last updated.
 func (o SearchResourcePropertyOutput) LastReportedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResourceProperty) string { return v.LastReportedAt }).(pulumi.StringOutput)
 }
 
-// Name of this property of the resource.
 func (o SearchResourcePropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResourceProperty) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -561,7 +525,6 @@ func (o SearchResourcePropertyArrayOutput) Index(i pulumi.IntInput) SearchResour
 }
 
 type ViewFilters struct {
-	// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
 	FilterString string `pulumi:"filterString"`
 }
 
@@ -577,7 +540,6 @@ type ViewFiltersInput interface {
 }
 
 type ViewFiltersArgs struct {
-	// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
 	FilterString pulumi.StringInput `pulumi:"filterString"`
 }
 
@@ -658,7 +620,6 @@ func (o ViewFiltersOutput) ToViewFiltersPtrOutputWithContext(ctx context.Context
 	}).(ViewFiltersPtrOutput)
 }
 
-// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
 func (o ViewFiltersOutput) FilterString() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewFilters) string { return v.FilterString }).(pulumi.StringOutput)
 }
@@ -687,7 +648,6 @@ func (o ViewFiltersPtrOutput) Elem() ViewFiltersOutput {
 	}).(ViewFiltersOutput)
 }
 
-// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
 func (o ViewFiltersPtrOutput) FilterString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ViewFilters) *string {
 		if v == nil {
@@ -698,7 +658,6 @@ func (o ViewFiltersPtrOutput) FilterString() pulumi.StringPtrOutput {
 }
 
 type ViewIncludedProperty struct {
-	// The name of the property that is included in this view. Valid values: `tags`.
 	Name string `pulumi:"name"`
 }
 
@@ -714,7 +673,6 @@ type ViewIncludedPropertyInput interface {
 }
 
 type ViewIncludedPropertyArgs struct {
-	// The name of the property that is included in this view. Valid values: `tags`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -769,7 +727,6 @@ func (o ViewIncludedPropertyOutput) ToViewIncludedPropertyOutputWithContext(ctx 
 	return o
 }
 
-// The name of the property that is included in this view. Valid values: `tags`.
 func (o ViewIncludedPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewIncludedProperty) string { return v.Name }).(pulumi.StringOutput)
 }

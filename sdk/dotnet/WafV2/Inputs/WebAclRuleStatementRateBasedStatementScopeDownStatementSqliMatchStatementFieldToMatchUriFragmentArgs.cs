@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
-        /// </summary>
         [Input("fallbackBehavior")]
         public Input<string>? FallbackBehavior { get; set; }
 

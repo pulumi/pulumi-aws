@@ -9,144 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cfg
 {
-    /// <summary>
-    /// Manages status (recording / stopped) of an AWS Config Configuration Recorder.
-    /// 
-    /// &gt; **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `DependsOn` (as shown below) is recommended to avoid race conditions.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var b = new Aws.S3.Bucket("b", new()
-    ///     {
-    ///         BucketName = "awsconfig-example",
-    ///     });
-    /// 
-    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         S3BucketName = b.BucketName,
-    ///     });
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "config.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var r = new Aws.Iam.Role("r", new()
-    ///     {
-    ///         Name = "example-awsconfig",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var fooRecorder = new Aws.Cfg.Recorder("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
-    ///     });
-    /// 
-    ///     var foo = new Aws.Cfg.RecorderStatus("foo", new()
-    ///     {
-    ///         Name = fooRecorder.Name,
-    ///         IsEnabled = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             fooDeliveryChannel,
-    ///         },
-    ///     });
-    /// 
-    ///     var a = new Aws.Iam.RolePolicyAttachment("a", new()
-    ///     {
-    ///         Role = r.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
-    ///     });
-    /// 
-    ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     b.Arn,
-    ///                     $"{b.Arn}/*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var pRolePolicy = new Aws.Iam.RolePolicy("p", new()
-    ///     {
-    ///         Name = "awsconfig-example",
-    ///         Role = r.Id,
-    ///         Policy = p.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]
     public partial class RecorderStatus : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether the configuration recorder should be enabled or disabled.
-        /// </summary>
         [Output("isEnabled")]
         public Output<bool> IsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the recorder
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -196,21 +67,12 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RecorderStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the configuration recorder should be enabled or disabled.
-        /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the recorder
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -222,21 +84,12 @@ namespace Pulumi.Aws.Cfg
 
     public sealed class RecorderStatusState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the configuration recorder should be enabled or disabled.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// The name of the recorder
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

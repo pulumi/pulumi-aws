@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionViewerMtlsConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The mode for viewer mTLS. Valid values: `Required`, `Optional`.
-        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        /// <summary>
-        /// The trust store configuration for viewer mTLS (maximum one).
-        /// </summary>
         [Input("trustStoreConfig")]
         public Input<Inputs.DistributionViewerMtlsConfigTrustStoreConfigGetArgs>? TrustStoreConfig { get; set; }
 

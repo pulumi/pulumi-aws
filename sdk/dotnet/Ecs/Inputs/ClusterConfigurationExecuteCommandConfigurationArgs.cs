@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ClusterConfigurationExecuteCommandConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS Key Management Service key ID to encrypt the data between the local client and the container.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Log configuration for the results of the execute command actions. Required when `Logging` is `OVERRIDE`. See `LogConfiguration` Block for details.
-        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs>? LogConfiguration { get; set; }
 
-        /// <summary>
-        /// Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-        /// </summary>
         [Input("logging")]
         public Input<string>? Logging { get; set; }
 

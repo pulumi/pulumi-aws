@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
-    /**
-     * @return Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-     * 
-     */
     private String type;
-    /**
-     * @return ARN of a Secrets Manager secret for authentication.
-     * 
-     */
     private @Nullable String usernamePasswordSecretArn;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration() {}
-    /**
-     * @return Type of authentication to use. Valid values: `IAM`, `USERNAME_PASSWORD`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return ARN of a Secrets Manager secret for authentication.
-     * 
-     */
     public Optional<String> usernamePasswordSecretArn() {
         return Optional.ofNullable(this.usernamePasswordSecretArn);
     }

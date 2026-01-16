@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleOverrideAction {
-    /**
-     * @return valid values are: `NONE` or `COUNT`
-     * 
-     */
     private String type;
 
     private WebAclRuleOverrideAction() {}
-    /**
-     * @return valid values are: `NONE` or `COUNT`
-     * 
-     */
     public String type() {
         return this.type;
     }

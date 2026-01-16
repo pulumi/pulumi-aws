@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class QuicksetupConfigurationManagerStatusSummary
     {
-        /// <summary>
-        /// Current status.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-        /// </summary>
         public readonly string StatusMessage;
-        /// <summary>
-        /// Type of a status summary.
-        /// </summary>
         public readonly string StatusType;
 
         [OutputConstructor]

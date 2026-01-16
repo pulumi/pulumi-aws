@@ -12,204 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Manager site-to-site VPN attachment.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewSiteToSiteVpnAttachment(ctx, "example", &networkmanager.SiteToSiteVpnAttachmentArgs{
-//				CoreNetworkId:    pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-//				VpnConnectionArn: pulumi.Any(exampleAwsVpnConnection.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Full Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi-awscc/sdk/go/awscc"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// testCustomerGateway, err := ec2.NewCustomerGateway(ctx, "test", &ec2.CustomerGatewayArgs{
-// BgpAsn: pulumi.String("65000"),
-// IpAddress: pulumi.String("172.0.0.1"),
-// Type: pulumi.String("ipsec.1"),
-// })
-// if err != nil {
-// return err
-// }
-// testVpnConnection, err := ec2.NewVpnConnection(ctx, "test", &ec2.VpnConnectionArgs{
-// CustomerGatewayId: testCustomerGateway.ID(),
-// Type: pulumi.String("ipsec.1"),
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("test"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// testGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "test", &networkmanager.GlobalNetworkArgs{
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("test"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// test, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
-// CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
-// {
-// VpnEcmpSupport: pulumi.BoolRef(false),
-// AsnRanges: []string{
-// "64512-64555",
-// },
-// EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
-// {
-// Location: current.Region,
-// Asn: pulumi.StringRef("64512"),
-// },
-// },
-// },
-// },
-// Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
-// {
-// Name: "shared",
-// Description: pulumi.StringRef("SegmentForSharedServices"),
-// RequireAttachmentAcceptance: pulumi.BoolRef(true),
-// },
-// },
-// SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
-// {
-// Action: "share",
-// Mode: pulumi.StringRef("attachment-route"),
-// Segment: "shared",
-// ShareWiths: []string{
-// "*",
-// },
-// },
-// },
-// AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
-// {
-// RuleNumber: 1,
-// ConditionLogic: pulumi.StringRef("or"),
-// Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
-// {
-// Type: "tag-value",
-// Operator: pulumi.StringRef("equals"),
-// Key: pulumi.StringRef("segment"),
-// Value: pulumi.StringRef("shared"),
-// },
-// },
-// Action: {
-// AssociationMethod: pulumi.StringRef("constant"),
-// Segment: pulumi.StringRef("shared"),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// testNetworkmanagerCoreNetwork, err := awscc.NewNetworkmanagerCoreNetwork(ctx, "test", &awscc.NetworkmanagerCoreNetworkArgs{
-// GlobalNetworkId: testGlobalNetwork.ID(),
-// PolicyDocument: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
-// })
-// if err != nil {
-// return err
-// }
-// testSiteToSiteVpnAttachment, err := networkmanager.NewSiteToSiteVpnAttachment(ctx, "test", &networkmanager.SiteToSiteVpnAttachmentArgs{
-// CoreNetworkId: testNetworkmanagerCoreNetwork.Id,
-// VpnConnectionArn: testVpnConnection.Arn,
-// Tags: pulumi.StringMap{
-// "segment": pulumi.String("shared"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: testSiteToSiteVpnAttachment.ID(),
-// AttachmentType: testSiteToSiteVpnAttachment.AttachmentType,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
-// ```
 type SiteToSiteVpnAttachment struct {
 	pulumi.CustomResourceState
 
-	// ARN of the attachment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment.
-	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// ARN of a core network.
-	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// ID of a core network for the VPN attachment.
-	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// Region where the edge is located.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Attachment resource ARN.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
-	// Name of the segment attachment.
-	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
-	// State of the attachment.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of the site-to-site VPN connection.
-	//
-	// The following arguments are optional:
-	VpnConnectionArn pulumi.StringOutput `pulumi:"vpnConnectionArn"`
+	Arn                        pulumi.StringOutput    `pulumi:"arn"`
+	AttachmentPolicyRuleNumber pulumi.IntOutput       `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             pulumi.StringOutput    `pulumi:"attachmentType"`
+	CoreNetworkArn             pulumi.StringOutput    `pulumi:"coreNetworkArn"`
+	CoreNetworkId              pulumi.StringOutput    `pulumi:"coreNetworkId"`
+	EdgeLocation               pulumi.StringOutput    `pulumi:"edgeLocation"`
+	OwnerAccountId             pulumi.StringOutput    `pulumi:"ownerAccountId"`
+	ResourceArn                pulumi.StringOutput    `pulumi:"resourceArn"`
+	RoutingPolicyLabel         pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
+	SegmentName                pulumi.StringOutput    `pulumi:"segmentName"`
+	State                      pulumi.StringOutput    `pulumi:"state"`
+	Tags                       pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VpnConnectionArn           pulumi.StringOutput    `pulumi:"vpnConnectionArn"`
 }
 
 // NewSiteToSiteVpnAttachment registers a new resource with the given unique name, arguments, and options.
@@ -248,69 +67,37 @@ func GetSiteToSiteVpnAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteToSiteVpnAttachment resources.
 type siteToSiteVpnAttachmentState struct {
-	// ARN of the attachment.
-	Arn *string `pulumi:"arn"`
-	// Policy rule number associated with the attachment.
-	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// Type of attachment.
-	AttachmentType *string `pulumi:"attachmentType"`
-	// ARN of a core network.
-	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// ID of a core network for the VPN attachment.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// Region where the edge is located.
-	EdgeLocation *string `pulumi:"edgeLocation"`
-	// ID of the attachment account owner.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Attachment resource ARN.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
-	// Name of the segment attachment.
-	SegmentName *string `pulumi:"segmentName"`
-	// State of the attachment.
-	State *string `pulumi:"state"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of the site-to-site VPN connection.
-	//
-	// The following arguments are optional:
-	VpnConnectionArn *string `pulumi:"vpnConnectionArn"`
+	Arn                        *string           `pulumi:"arn"`
+	AttachmentPolicyRuleNumber *int              `pulumi:"attachmentPolicyRuleNumber"`
+	AttachmentType             *string           `pulumi:"attachmentType"`
+	CoreNetworkArn             *string           `pulumi:"coreNetworkArn"`
+	CoreNetworkId              *string           `pulumi:"coreNetworkId"`
+	EdgeLocation               *string           `pulumi:"edgeLocation"`
+	OwnerAccountId             *string           `pulumi:"ownerAccountId"`
+	ResourceArn                *string           `pulumi:"resourceArn"`
+	RoutingPolicyLabel         *string           `pulumi:"routingPolicyLabel"`
+	SegmentName                *string           `pulumi:"segmentName"`
+	State                      *string           `pulumi:"state"`
+	Tags                       map[string]string `pulumi:"tags"`
+	TagsAll                    map[string]string `pulumi:"tagsAll"`
+	VpnConnectionArn           *string           `pulumi:"vpnConnectionArn"`
 }
 
 type SiteToSiteVpnAttachmentState struct {
-	// ARN of the attachment.
-	Arn pulumi.StringPtrInput
-	// Policy rule number associated with the attachment.
+	Arn                        pulumi.StringPtrInput
 	AttachmentPolicyRuleNumber pulumi.IntPtrInput
-	// Type of attachment.
-	AttachmentType pulumi.StringPtrInput
-	// ARN of a core network.
-	CoreNetworkArn pulumi.StringPtrInput
-	// ID of a core network for the VPN attachment.
-	CoreNetworkId pulumi.StringPtrInput
-	// Region where the edge is located.
-	EdgeLocation pulumi.StringPtrInput
-	// ID of the attachment account owner.
-	OwnerAccountId pulumi.StringPtrInput
-	// Attachment resource ARN.
-	ResourceArn pulumi.StringPtrInput
-	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel pulumi.StringPtrInput
-	// Name of the segment attachment.
-	SegmentName pulumi.StringPtrInput
-	// State of the attachment.
-	State pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ARN of the site-to-site VPN connection.
-	//
-	// The following arguments are optional:
-	VpnConnectionArn pulumi.StringPtrInput
+	AttachmentType             pulumi.StringPtrInput
+	CoreNetworkArn             pulumi.StringPtrInput
+	CoreNetworkId              pulumi.StringPtrInput
+	EdgeLocation               pulumi.StringPtrInput
+	OwnerAccountId             pulumi.StringPtrInput
+	ResourceArn                pulumi.StringPtrInput
+	RoutingPolicyLabel         pulumi.StringPtrInput
+	SegmentName                pulumi.StringPtrInput
+	State                      pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
+	VpnConnectionArn           pulumi.StringPtrInput
 }
 
 func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
@@ -318,30 +105,18 @@ func (SiteToSiteVpnAttachmentState) ElementType() reflect.Type {
 }
 
 type siteToSiteVpnAttachmentArgs struct {
-	// ID of a core network for the VPN attachment.
-	CoreNetworkId string `pulumi:"coreNetworkId"`
-	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// ARN of the site-to-site VPN connection.
-	//
-	// The following arguments are optional:
-	VpnConnectionArn string `pulumi:"vpnConnectionArn"`
+	CoreNetworkId      string            `pulumi:"coreNetworkId"`
+	RoutingPolicyLabel *string           `pulumi:"routingPolicyLabel"`
+	Tags               map[string]string `pulumi:"tags"`
+	VpnConnectionArn   string            `pulumi:"vpnConnectionArn"`
 }
 
 // The set of arguments for constructing a SiteToSiteVpnAttachment resource.
 type SiteToSiteVpnAttachmentArgs struct {
-	// ID of a core network for the VPN attachment.
-	CoreNetworkId pulumi.StringInput
-	// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
+	CoreNetworkId      pulumi.StringInput
 	RoutingPolicyLabel pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// ARN of the site-to-site VPN connection.
-	//
-	// The following arguments are optional:
-	VpnConnectionArn pulumi.StringInput
+	Tags               pulumi.StringMapInput
+	VpnConnectionArn   pulumi.StringInput
 }
 
 func (SiteToSiteVpnAttachmentArgs) ElementType() reflect.Type {
@@ -431,74 +206,58 @@ func (o SiteToSiteVpnAttachmentOutput) ToSiteToSiteVpnAttachmentOutputWithContex
 	return o
 }
 
-// ARN of the attachment.
 func (o SiteToSiteVpnAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Policy rule number associated with the attachment.
 func (o SiteToSiteVpnAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
 }
 
-// Type of attachment.
 func (o SiteToSiteVpnAttachmentOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// ARN of a core network.
 func (o SiteToSiteVpnAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// ID of a core network for the VPN attachment.
 func (o SiteToSiteVpnAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// Region where the edge is located.
 func (o SiteToSiteVpnAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// ID of the attachment account owner.
 func (o SiteToSiteVpnAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Attachment resource ARN.
 func (o SiteToSiteVpnAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
 func (o SiteToSiteVpnAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
-// Name of the segment attachment.
 func (o SiteToSiteVpnAttachmentOutput) SegmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
 }
 
-// State of the attachment.
 func (o SiteToSiteVpnAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SiteToSiteVpnAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SiteToSiteVpnAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of the site-to-site VPN connection.
-//
-// The following arguments are optional:
 func (o SiteToSiteVpnAttachmentOutput) VpnConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.VpnConnectionArn }).(pulumi.StringOutput)
 }

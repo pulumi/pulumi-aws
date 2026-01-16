@@ -56,9 +56,6 @@ class GetContactChannelResult:
     @_builtins.property
     @pulumi.getter(name="activationStatus")
     def activation_status(self) -> _builtins.str:
-        """
-        Whether the contact channel is activated.
-        """
         return pulumi.get(self, "activation_status")
 
     @_builtins.property
@@ -69,17 +66,11 @@ class GetContactChannelResult:
     @_builtins.property
     @pulumi.getter(name="contactId")
     def contact_id(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-        """
         return pulumi.get(self, "contact_id")
 
     @_builtins.property
     @pulumi.getter(name="deliveryAddresses")
     def delivery_addresses(self) -> Sequence['outputs.GetContactChannelDeliveryAddressResult']:
-        """
-        Details used to engage the contact channel.
-        """
         return pulumi.get(self, "delivery_addresses")
 
     @_builtins.property
@@ -93,9 +84,6 @@ class GetContactChannelResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the contact channel.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -106,9 +94,6 @@ class GetContactChannelResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of the contact channel.
-        """
         return pulumi.get(self, "type")
 
 
@@ -132,22 +117,7 @@ def get_contact_channel(arn: Optional[_builtins.str] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactChannelResult:
     """
-    Data source for managing an AWS SSM Contacts Contact Channel.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact_channel(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
-    ```
-
-
-    :param _builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -168,22 +138,7 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[_builtins.str]] = None
                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactChannelResult]:
     """
-    Data source for managing an AWS SSM Contacts Contact Channel.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact_channel(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
-    ```
-
-
-    :param _builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

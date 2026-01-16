@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectLogsConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("cloudwatchLogs")]
         public Input<Inputs.ProjectLogsConfigCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("s3Logs")]
         public Input<Inputs.ProjectLogsConfigS3LogsGetArgs>? S3Logs { get; set; }
 

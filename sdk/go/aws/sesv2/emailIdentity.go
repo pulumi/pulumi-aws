@@ -12,159 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ### Email Address Identity
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("testing@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Domain Identity
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Configuration Set
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity:        pulumi.String("example.com"),
-//				ConfigurationSetName: example.ConfigurationSetName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### DKIM Signing Attributes (BYODKIM)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("example.com"),
-//				DkimSigningAttributes: &sesv2.EmailIdentityDkimSigningAttributesArgs{
-//					DomainSigningPrivateKey: pulumi.String("MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM..."),
-//					DomainSigningSelector:   pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
-//
-// ```sh
-// $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-// ```
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Email Identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-	ConfigurationSetName pulumi.StringPtrOutput `pulumi:"configurationSetName"`
-	// The configuration of the DKIM authentication settings for an email domain identity.
-	DkimSigningAttributes EmailIdentityDkimSigningAttributesOutput `pulumi:"dkimSigningAttributes"`
-	// The email address or domain to verify.
-	//
-	// The following arguments are optional:
-	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
-	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-	IdentityType pulumi.StringOutput `pulumi:"identityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-	VerificationStatus pulumi.StringOutput `pulumi:"verificationStatus"`
-	// Specifies whether or not the identity is verified.
-	VerifiedForSendingStatus pulumi.BoolOutput `pulumi:"verifiedForSendingStatus"`
+	Arn                      pulumi.StringOutput                      `pulumi:"arn"`
+	ConfigurationSetName     pulumi.StringPtrOutput                   `pulumi:"configurationSetName"`
+	DkimSigningAttributes    EmailIdentityDkimSigningAttributesOutput `pulumi:"dkimSigningAttributes"`
+	EmailIdentity            pulumi.StringOutput                      `pulumi:"emailIdentity"`
+	IdentityType             pulumi.StringOutput                      `pulumi:"identityType"`
+	Region                   pulumi.StringOutput                      `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	VerificationStatus       pulumi.StringOutput                      `pulumi:"verificationStatus"`
+	VerifiedForSendingStatus pulumi.BoolOutput                        `pulumi:"verifiedForSendingStatus"`
 }
 
 // NewEmailIdentity registers a new resource with the given unique name, arguments, and options.
@@ -200,52 +60,28 @@ func GetEmailIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentity resources.
 type emailIdentityState struct {
-	// ARN of the Email Identity.
-	Arn *string `pulumi:"arn"`
-	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-	ConfigurationSetName *string `pulumi:"configurationSetName"`
-	// The configuration of the DKIM authentication settings for an email domain identity.
-	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
-	// The email address or domain to verify.
-	//
-	// The following arguments are optional:
-	EmailIdentity *string `pulumi:"emailIdentity"`
-	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-	IdentityType *string `pulumi:"identityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-	VerificationStatus *string `pulumi:"verificationStatus"`
-	// Specifies whether or not the identity is verified.
-	VerifiedForSendingStatus *bool `pulumi:"verifiedForSendingStatus"`
+	Arn                      *string                             `pulumi:"arn"`
+	ConfigurationSetName     *string                             `pulumi:"configurationSetName"`
+	DkimSigningAttributes    *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
+	EmailIdentity            *string                             `pulumi:"emailIdentity"`
+	IdentityType             *string                             `pulumi:"identityType"`
+	Region                   *string                             `pulumi:"region"`
+	Tags                     map[string]string                   `pulumi:"tags"`
+	TagsAll                  map[string]string                   `pulumi:"tagsAll"`
+	VerificationStatus       *string                             `pulumi:"verificationStatus"`
+	VerifiedForSendingStatus *bool                               `pulumi:"verifiedForSendingStatus"`
 }
 
 type EmailIdentityState struct {
-	// ARN of the Email Identity.
-	Arn pulumi.StringPtrInput
-	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-	ConfigurationSetName pulumi.StringPtrInput
-	// The configuration of the DKIM authentication settings for an email domain identity.
-	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrInput
-	// The email address or domain to verify.
-	//
-	// The following arguments are optional:
-	EmailIdentity pulumi.StringPtrInput
-	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-	IdentityType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-	VerificationStatus pulumi.StringPtrInput
-	// Specifies whether or not the identity is verified.
+	Arn                      pulumi.StringPtrInput
+	ConfigurationSetName     pulumi.StringPtrInput
+	DkimSigningAttributes    EmailIdentityDkimSigningAttributesPtrInput
+	EmailIdentity            pulumi.StringPtrInput
+	IdentityType             pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	VerificationStatus       pulumi.StringPtrInput
 	VerifiedForSendingStatus pulumi.BoolPtrInput
 }
 
@@ -254,34 +90,20 @@ func (EmailIdentityState) ElementType() reflect.Type {
 }
 
 type emailIdentityArgs struct {
-	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-	ConfigurationSetName *string `pulumi:"configurationSetName"`
-	// The configuration of the DKIM authentication settings for an email domain identity.
+	ConfigurationSetName  *string                             `pulumi:"configurationSetName"`
 	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
-	// The email address or domain to verify.
-	//
-	// The following arguments are optional:
-	EmailIdentity string `pulumi:"emailIdentity"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	EmailIdentity         string                              `pulumi:"emailIdentity"`
+	Region                *string                             `pulumi:"region"`
+	Tags                  map[string]string                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
 type EmailIdentityArgs struct {
-	// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-	ConfigurationSetName pulumi.StringPtrInput
-	// The configuration of the DKIM authentication settings for an email domain identity.
+	ConfigurationSetName  pulumi.StringPtrInput
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrInput
-	// The email address or domain to verify.
-	//
-	// The following arguments are optional:
-	EmailIdentity pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	EmailIdentity         pulumi.StringInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (EmailIdentityArgs) ElementType() reflect.Type {
@@ -371,54 +193,42 @@ func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ARN of the Email Identity.
 func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
 func (o EmailIdentityOutput) ConfigurationSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringPtrOutput { return v.ConfigurationSetName }).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the DKIM authentication settings for an email domain identity.
 func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesOutput {
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimSigningAttributesOutput { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesOutput)
 }
 
-// The email address or domain to verify.
-//
-// The following arguments are optional:
 func (o EmailIdentityOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }
 
-// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 func (o EmailIdentityOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EmailIdentityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EmailIdentityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
 func (o EmailIdentityOutput) VerificationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.VerificationStatus }).(pulumi.StringOutput)
 }
 
-// Specifies whether or not the identity is verified.
 func (o EmailIdentityOutput) VerifiedForSendingStatus() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.BoolOutput { return v.VerifiedForSendingStatus }).(pulumi.BoolOutput)
 }

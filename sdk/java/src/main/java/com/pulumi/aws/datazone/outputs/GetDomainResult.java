@@ -10,125 +10,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainResult {
-    /**
-     * @return ARN of the Domain.
-     * 
-     */
     private String arn;
-    /**
-     * @return The date and time the Domain was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description of the Domain.
-     * 
-     */
     private String description;
-    /**
-     * @return Version of the Domain.
-     * 
-     */
     private String domainVersion;
     private String id;
-    /**
-     * @return The date and time the Domain was last updated.
-     * 
-     */
     private String lastUpdatedAt;
-    /**
-     * @return The AWS account ID that owns the Domain.
-     * 
-     */
     private String managedAccountId;
     private String name;
-    /**
-     * @return URL of the Domain.
-     * 
-     */
     private String portalUrl;
     private String region;
-    /**
-     * @return ID of the root domain unit.
-     * 
-     */
     private String rootDomainUnitId;
-    /**
-     * @return Status of the Domain.
-     * 
-     */
     private String status;
 
     private GetDomainResult() {}
-    /**
-     * @return ARN of the Domain.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The date and time the Domain was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description of the Domain.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Version of the Domain.
-     * 
-     */
     public String domainVersion() {
         return this.domainVersion;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The date and time the Domain was last updated.
-     * 
-     */
     public String lastUpdatedAt() {
         return this.lastUpdatedAt;
     }
-    /**
-     * @return The AWS account ID that owns the Domain.
-     * 
-     */
     public String managedAccountId() {
         return this.managedAccountId;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return URL of the Domain.
-     * 
-     */
     public String portalUrl() {
         return this.portalUrl;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ID of the root domain unit.
-     * 
-     */
     public String rootDomainUnitId() {
         return this.rootDomainUnitId;
     }
-    /**
-     * @return Status of the Domain.
-     * 
-     */
     public String status() {
         return this.status;
     }

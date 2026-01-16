@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType
     {
-        /// <summary>
-        /// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

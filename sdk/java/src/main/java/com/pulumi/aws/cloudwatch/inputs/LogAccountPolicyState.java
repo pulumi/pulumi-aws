@@ -15,92 +15,44 @@ public final class LogAccountPolicyState extends com.pulumi.resources.ResourceAr
 
     public static final LogAccountPolicyState Empty = new LogAccountPolicyState();
 
-    /**
-     * Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-     * 
-     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
-    /**
-     * @return Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-     * 
-     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
-    /**
-     * Name of the account policy.
-     * 
-     */
     @Import(name="policyName")
     private @Nullable Output<String> policyName;
 
-    /**
-     * @return Name of the account policy.
-     * 
-     */
     public Optional<Output<String>> policyName() {
         return Optional.ofNullable(this.policyName);
     }
 
-    /**
-     * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-     * 
-     */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
-    /**
-     * @return Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-     * 
-     */
     public Optional<Output<String>> policyType() {
         return Optional.ofNullable(this.policyType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Currently defaults to and only accepts the value: `ALL`.
-     * 
-     */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
-    /**
-     * @return Currently defaults to and only accepts the value: `ALL`.
-     * 
-     */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
     }
 
-    /**
-     * Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-     * 
-     */
     @Import(name="selectionCriteria")
     private @Nullable Output<String> selectionCriteria;
 
-    /**
-     * @return Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-     * 
-     */
     public Optional<Output<String>> selectionCriteria() {
         return Optional.ofNullable(this.selectionCriteria);
     }
@@ -134,128 +86,56 @@ public final class LogAccountPolicyState extends com.pulumi.resources.ResourceAr
             $ = new LogAccountPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyDocument Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
 
-        /**
-         * @param policyName Name of the account policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(@Nullable Output<String> policyName) {
             $.policyName = policyName;
             return this;
         }
 
-        /**
-         * @param policyName Name of the account policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyName(String policyName) {
             return policyName(Output.of(policyName));
         }
 
-        /**
-         * @param policyType Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyType(@Nullable Output<String> policyType) {
             $.policyType = policyType;
             return this;
         }
 
-        /**
-         * @param policyType Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyType(String policyType) {
             return policyType(Output.of(policyType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scope Currently defaults to and only accepts the value: `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(@Nullable Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope Currently defaults to and only accepts the value: `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
-        /**
-         * @param selectionCriteria Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionCriteria(@Nullable Output<String> selectionCriteria) {
             $.selectionCriteria = selectionCriteria;
             return this;
         }
 
-        /**
-         * @param selectionCriteria Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionCriteria(String selectionCriteria) {
             return selectionCriteria(Output.of(selectionCriteria));
         }

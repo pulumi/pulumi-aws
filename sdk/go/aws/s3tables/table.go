@@ -12,184 +12,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Tables Table.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTableBucket, err := s3tables.NewTableBucket(ctx, "example", &s3tables.TableBucketArgs{
-//				Name: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := s3tables.NewNamespace(ctx, "example", &s3tables.NamespaceArgs{
-//				Namespace:      pulumi.String("example_namespace"),
-//				TableBucketArn: exampleTableBucket.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3tables.NewTable(ctx, "example", &s3tables.TableArgs{
-//				Name:           pulumi.String("example_table"),
-//				Namespace:      exampleNamespace.Namespace,
-//				TableBucketArn: exampleNamespace.TableBucketArn,
-//				Format:         pulumi.String("ICEBERG"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Metadata Schema
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTableBucket, err := s3tables.NewTableBucket(ctx, "example", &s3tables.TableBucketArgs{
-//				Name: pulumi.String("example-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := s3tables.NewNamespace(ctx, "example", &s3tables.NamespaceArgs{
-//				Namespace:      pulumi.String("example_namespace"),
-//				TableBucketArn: exampleTableBucket.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3tables.NewTable(ctx, "example", &s3tables.TableArgs{
-//				Name:           pulumi.String("example_table"),
-//				Namespace:      exampleNamespace.Namespace,
-//				TableBucketArn: exampleNamespace.TableBucketArn,
-//				Format:         pulumi.String("ICEBERG"),
-//				Metadata: &s3tables.TableMetadataArgs{
-//					Iceberg: &s3tables.TableMetadataIcebergArgs{
-//						Schema: &s3tables.TableMetadataIcebergSchemaArgs{
-//							Fields: s3tables.TableMetadataIcebergSchemaFieldArray{
-//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
-//									Name:     pulumi.String("id"),
-//									Type:     pulumi.String("long"),
-//									Required: pulumi.Bool(true),
-//								},
-//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
-//									Name:     pulumi.String("name"),
-//									Type:     pulumi.String("string"),
-//									Required: pulumi.Bool(true),
-//								},
-//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
-//									Name:     pulumi.String("created_at"),
-//									Type:     pulumi.String("timestamp"),
-//									Required: pulumi.Bool(false),
-//								},
-//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
-//									Name:     pulumi.String("price"),
-//									Type:     pulumi.String("decimal(10,2)"),
-//									Required: pulumi.Bool(false),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-// ```
 type Table struct {
 	pulumi.CustomResourceState
 
-	// ARN of the table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date and time when the namespace was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Account ID of the account that created the namespace.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
-	EncryptionConfiguration TableEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
-	// Format of the table.
-	// Must be `ICEBERG`.
-	Format pulumi.StringOutput `pulumi:"format"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	Arn                      pulumi.StringOutput                 `pulumi:"arn"`
+	CreatedAt                pulumi.StringOutput                 `pulumi:"createdAt"`
+	CreatedBy                pulumi.StringOutput                 `pulumi:"createdBy"`
+	EncryptionConfiguration  TableEncryptionConfigurationOutput  `pulumi:"encryptionConfiguration"`
+	Format                   pulumi.StringOutput                 `pulumi:"format"`
 	MaintenanceConfiguration TableMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
-	Metadata TableMetadataPtrOutput `pulumi:"metadata"`
-	// Location of table metadata.
-	MetadataLocation pulumi.StringOutput `pulumi:"metadataLocation"`
-	// Date and time when the namespace was last modified.
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
-	// Account ID of the account that last modified the namespace.
-	ModifiedBy pulumi.StringOutput `pulumi:"modifiedBy"`
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Account ID of the account that owns the namespace.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN referencing the Table Bucket that contains this Namespace.
-	//
-	// The following arguments are optional:
-	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the table.
-	// One of `customer` or `aws`.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Identifier for the current version of table data.
-	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
-	// S3 URI pointing to the S3 Bucket that contains the table data.
-	WarehouseLocation pulumi.StringOutput `pulumi:"warehouseLocation"`
+	Metadata                 TableMetadataPtrOutput              `pulumi:"metadata"`
+	MetadataLocation         pulumi.StringOutput                 `pulumi:"metadataLocation"`
+	ModifiedAt               pulumi.StringOutput                 `pulumi:"modifiedAt"`
+	ModifiedBy               pulumi.StringOutput                 `pulumi:"modifiedBy"`
+	Name                     pulumi.StringOutput                 `pulumi:"name"`
+	Namespace                pulumi.StringOutput                 `pulumi:"namespace"`
+	OwnerAccountId           pulumi.StringOutput                 `pulumi:"ownerAccountId"`
+	Region                   pulumi.StringOutput                 `pulumi:"region"`
+	TableBucketArn           pulumi.StringOutput                 `pulumi:"tableBucketArn"`
+	Tags                     pulumi.StringMapOutput              `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput              `pulumi:"tagsAll"`
+	Type                     pulumi.StringOutput                 `pulumi:"type"`
+	VersionToken             pulumi.StringOutput                 `pulumi:"versionToken"`
+	WarehouseLocation        pulumi.StringOutput                 `pulumi:"warehouseLocation"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -231,113 +76,49 @@ func GetTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
-	// ARN of the table.
-	Arn *string `pulumi:"arn"`
-	// Date and time when the namespace was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Account ID of the account that created the namespace.
-	CreatedBy *string `pulumi:"createdBy"`
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
-	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// Format of the table.
-	// Must be `ICEBERG`.
-	Format *string `pulumi:"format"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	Arn                      *string                        `pulumi:"arn"`
+	CreatedAt                *string                        `pulumi:"createdAt"`
+	CreatedBy                *string                        `pulumi:"createdBy"`
+	EncryptionConfiguration  *TableEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	Format                   *string                        `pulumi:"format"`
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
-	Metadata *TableMetadata `pulumi:"metadata"`
-	// Location of table metadata.
-	MetadataLocation *string `pulumi:"metadataLocation"`
-	// Date and time when the namespace was last modified.
-	ModifiedAt *string `pulumi:"modifiedAt"`
-	// Account ID of the account that last modified the namespace.
-	ModifiedBy *string `pulumi:"modifiedBy"`
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace *string `pulumi:"namespace"`
-	// Account ID of the account that owns the namespace.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the Table Bucket that contains this Namespace.
-	//
-	// The following arguments are optional:
-	TableBucketArn *string `pulumi:"tableBucketArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the table.
-	// One of `customer` or `aws`.
-	Type *string `pulumi:"type"`
-	// Identifier for the current version of table data.
-	VersionToken *string `pulumi:"versionToken"`
-	// S3 URI pointing to the S3 Bucket that contains the table data.
-	WarehouseLocation *string `pulumi:"warehouseLocation"`
+	Metadata                 *TableMetadata                 `pulumi:"metadata"`
+	MetadataLocation         *string                        `pulumi:"metadataLocation"`
+	ModifiedAt               *string                        `pulumi:"modifiedAt"`
+	ModifiedBy               *string                        `pulumi:"modifiedBy"`
+	Name                     *string                        `pulumi:"name"`
+	Namespace                *string                        `pulumi:"namespace"`
+	OwnerAccountId           *string                        `pulumi:"ownerAccountId"`
+	Region                   *string                        `pulumi:"region"`
+	TableBucketArn           *string                        `pulumi:"tableBucketArn"`
+	Tags                     map[string]string              `pulumi:"tags"`
+	TagsAll                  map[string]string              `pulumi:"tagsAll"`
+	Type                     *string                        `pulumi:"type"`
+	VersionToken             *string                        `pulumi:"versionToken"`
+	WarehouseLocation        *string                        `pulumi:"warehouseLocation"`
 }
 
 type TableState struct {
-	// ARN of the table.
-	Arn pulumi.StringPtrInput
-	// Date and time when the namespace was created.
-	CreatedAt pulumi.StringPtrInput
-	// Account ID of the account that created the namespace.
-	CreatedBy pulumi.StringPtrInput
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
-	EncryptionConfiguration TableEncryptionConfigurationPtrInput
-	// Format of the table.
-	// Must be `ICEBERG`.
-	Format pulumi.StringPtrInput
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	Arn                      pulumi.StringPtrInput
+	CreatedAt                pulumi.StringPtrInput
+	CreatedBy                pulumi.StringPtrInput
+	EncryptionConfiguration  TableEncryptionConfigurationPtrInput
+	Format                   pulumi.StringPtrInput
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
-	Metadata TableMetadataPtrInput
-	// Location of table metadata.
-	MetadataLocation pulumi.StringPtrInput
-	// Date and time when the namespace was last modified.
-	ModifiedAt pulumi.StringPtrInput
-	// Account ID of the account that last modified the namespace.
-	ModifiedBy pulumi.StringPtrInput
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringPtrInput
-	// Account ID of the account that owns the namespace.
-	OwnerAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the Table Bucket that contains this Namespace.
-	//
-	// The following arguments are optional:
-	TableBucketArn pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type of the table.
-	// One of `customer` or `aws`.
-	Type pulumi.StringPtrInput
-	// Identifier for the current version of table data.
-	VersionToken pulumi.StringPtrInput
-	// S3 URI pointing to the S3 Bucket that contains the table data.
-	WarehouseLocation pulumi.StringPtrInput
+	Metadata                 TableMetadataPtrInput
+	MetadataLocation         pulumi.StringPtrInput
+	ModifiedAt               pulumi.StringPtrInput
+	ModifiedBy               pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Namespace                pulumi.StringPtrInput
+	OwnerAccountId           pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	TableBucketArn           pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	Type                     pulumi.StringPtrInput
+	VersionToken             pulumi.StringPtrInput
+	WarehouseLocation        pulumi.StringPtrInput
 }
 
 func (TableState) ElementType() reflect.Type {
@@ -345,68 +126,28 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
-	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// Format of the table.
-	// Must be `ICEBERG`.
-	Format string `pulumi:"format"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	EncryptionConfiguration  *TableEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	Format                   string                         `pulumi:"format"`
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
-	Metadata *TableMetadata `pulumi:"metadata"`
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN referencing the Table Bucket that contains this Namespace.
-	//
-	// The following arguments are optional:
-	TableBucketArn string `pulumi:"tableBucketArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Metadata                 *TableMetadata                 `pulumi:"metadata"`
+	Name                     *string                        `pulumi:"name"`
+	Namespace                string                         `pulumi:"namespace"`
+	Region                   *string                        `pulumi:"region"`
+	TableBucketArn           string                         `pulumi:"tableBucketArn"`
+	Tags                     map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
-	EncryptionConfiguration TableEncryptionConfigurationPtrInput
-	// Format of the table.
-	// Must be `ICEBERG`.
-	Format pulumi.StringInput
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	EncryptionConfiguration  TableEncryptionConfigurationPtrInput
+	Format                   pulumi.StringInput
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
-	Metadata TableMetadataPtrInput
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN referencing the Table Bucket that contains this Namespace.
-	//
-	// The following arguments are optional:
-	TableBucketArn pulumi.StringInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Metadata                 TableMetadataPtrInput
+	Name                     pulumi.StringPtrInput
+	Namespace                pulumi.StringInput
+	Region                   pulumi.StringPtrInput
+	TableBucketArn           pulumi.StringInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -496,114 +237,82 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
-// ARN of the table.
 func (o TableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date and time when the namespace was created.
 func (o TableOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Account ID of the account that created the namespace.
 func (o TableOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// A single table bucket encryption configuration object.
-// See `encryptionConfiguration` below.
 func (o TableOutput) EncryptionConfiguration() TableEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(TableEncryptionConfigurationOutput)
 }
 
-// Format of the table.
-// Must be `ICEBERG`.
 func (o TableOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// A single table bucket maintenance configuration object.
-// See `maintenanceConfiguration` below.
 func (o TableOutput) MaintenanceConfiguration() TableMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableMaintenanceConfigurationOutput)
 }
 
-// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-// See `metadata` below.
 func (o TableOutput) Metadata() TableMetadataPtrOutput {
 	return o.ApplyT(func(v *Table) TableMetadataPtrOutput { return v.Metadata }).(TableMetadataPtrOutput)
 }
 
-// Location of table metadata.
 func (o TableOutput) MetadataLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.MetadataLocation }).(pulumi.StringOutput)
 }
 
-// Date and time when the namespace was last modified.
 func (o TableOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-// Account ID of the account that last modified the namespace.
 func (o TableOutput) ModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.ModifiedBy }).(pulumi.StringOutput)
 }
 
-// Name of the table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the namespace for this table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o TableOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Account ID of the account that owns the namespace.
 func (o TableOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN referencing the Table Bucket that contains this Namespace.
-//
-// The following arguments are optional:
 func (o TableOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the table.
-// One of `customer` or `aws`.
 func (o TableOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Identifier for the current version of table data.
 func (o TableOutput) VersionToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.VersionToken }).(pulumi.StringOutput)
 }
 
-// S3 URI pointing to the S3 Bucket that contains the table data.
 func (o TableOutput) WarehouseLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.WarehouseLocation }).(pulumi.StringOutput)
 }

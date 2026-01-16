@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerlessClusterVpcConfig {
-    /**
-     * @return Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return A list of subnets in at least two different Availability Zones that host your client applications.
-     * 
-     */
     private List<String> subnetIds;
 
     private ServerlessClusterVpcConfig() {}
-    /**
-     * @return Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return A list of subnets in at least two different Availability Zones that host your client applications.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

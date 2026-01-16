@@ -12,21 +12,12 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class SiteLocationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Address of the location.
-        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
-        /// <summary>
-        /// Latitude of the location.
-        /// </summary>
         [Input("latitude")]
         public Input<string>? Latitude { get; set; }
 
-        /// <summary>
-        /// Longitude of the location.
-        /// </summary>
         [Input("longitude")]
         public Input<string>? Longitude { get; set; }
 

@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigTypeConverter {
-    /**
-     * @return Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigTypeConverterEntry> entries;
 
     private LogTransformerTransformerConfigTypeConverter() {}
-    /**
-     * @return Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigTypeConverterEntry> entries() {
         return this.entries;
     }

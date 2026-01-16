@@ -14,123 +14,23 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages HTTPS redirection for a Lightsail Load Balancer.
- * 
- * Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Lb;
- * import com.pulumi.aws.lightsail.LbArgs;
- * import com.pulumi.aws.lightsail.LbCertificate;
- * import com.pulumi.aws.lightsail.LbCertificateArgs;
- * import com.pulumi.aws.lightsail.LbCertificateAttachment;
- * import com.pulumi.aws.lightsail.LbCertificateAttachmentArgs;
- * import com.pulumi.aws.lightsail.LbHttpsRedirectionPolicy;
- * import com.pulumi.aws.lightsail.LbHttpsRedirectionPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Lb("example", LbArgs.builder()
- *             .name("example-load-balancer")
- *             .healthCheckPath("/")
- *             .instancePort(80)
- *             .tags(Map.of("foo", "bar"))
- *             .build());
- * 
- *         var exampleLbCertificate = new LbCertificate("exampleLbCertificate", LbCertificateArgs.builder()
- *             .name("example-load-balancer-certificate")
- *             .lbName(example.id())
- *             .domainName("example.com")
- *             .build());
- * 
- *         var exampleLbCertificateAttachment = new LbCertificateAttachment("exampleLbCertificateAttachment", LbCertificateAttachmentArgs.builder()
- *             .lbName(example.name())
- *             .certificateName(exampleLbCertificate.name())
- *             .build());
- * 
- *         var exampleLbHttpsRedirectionPolicy = new LbHttpsRedirectionPolicy("exampleLbHttpsRedirectionPolicy", LbHttpsRedirectionPolicyArgs.builder()
- *             .lbName(example.name())
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")
 public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
-    /**
-     * @return Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -12,134 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS App Mesh virtual gateway resource.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
-//				Name:     pulumi.String("example-virtual-gateway"),
-//				MeshName: pulumi.String("example-service-mesh"),
-//				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
-//						&appmesh.VirtualGatewaySpecListenerArgs{
-//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Access Logs and TLS
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
-//				Name:     pulumi.String("example-virtual-gateway"),
-//				MeshName: pulumi.String("example-service-mesh"),
-//				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
-//						&appmesh.VirtualGatewaySpecListenerArgs{
-//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//							Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
-//								Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
-//									Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
-//										CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
-//									},
-//								},
-//								Mode: pulumi.String("STRICT"),
-//							},
-//						},
-//					},
-//					Logging: &appmesh.VirtualGatewaySpecLoggingArgs{
-//						AccessLog: &appmesh.VirtualGatewaySpecLoggingAccessLogArgs{
-//							File: &appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs{
-//								Path: pulumi.String("/var/log/access.log"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-// ```
 type VirtualGateway struct {
 	pulumi.CustomResourceState
 
-	// ARN of the virtual gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Creation date of the virtual gateway.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Last update date of the virtual gateway.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
-	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// Virtual gateway specification to apply.
-	Spec VirtualGatewaySpecOutput `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput      `pulumi:"arn"`
+	CreatedDate     pulumi.StringOutput      `pulumi:"createdDate"`
+	LastUpdatedDate pulumi.StringOutput      `pulumi:"lastUpdatedDate"`
+	MeshName        pulumi.StringOutput      `pulumi:"meshName"`
+	MeshOwner       pulumi.StringOutput      `pulumi:"meshOwner"`
+	Name            pulumi.StringOutput      `pulumi:"name"`
+	Region          pulumi.StringOutput      `pulumi:"region"`
+	ResourceOwner   pulumi.StringOutput      `pulumi:"resourceOwner"`
+	Spec            VirtualGatewaySpecOutput `pulumi:"spec"`
+	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewVirtualGateway registers a new resource with the given unique name, arguments, and options.
@@ -178,53 +64,31 @@ func GetVirtualGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualGateway resources.
 type virtualGatewayState struct {
-	// ARN of the virtual gateway.
-	Arn *string `pulumi:"arn"`
-	// Creation date of the virtual gateway.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Last update date of the virtual gateway.
-	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-	MeshName *string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource owner's AWS account ID.
-	ResourceOwner *string `pulumi:"resourceOwner"`
-	// Virtual gateway specification to apply.
-	Spec *VirtualGatewaySpec `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string             `pulumi:"arn"`
+	CreatedDate     *string             `pulumi:"createdDate"`
+	LastUpdatedDate *string             `pulumi:"lastUpdatedDate"`
+	MeshName        *string             `pulumi:"meshName"`
+	MeshOwner       *string             `pulumi:"meshOwner"`
+	Name            *string             `pulumi:"name"`
+	Region          *string             `pulumi:"region"`
+	ResourceOwner   *string             `pulumi:"resourceOwner"`
+	Spec            *VirtualGatewaySpec `pulumi:"spec"`
+	Tags            map[string]string   `pulumi:"tags"`
+	TagsAll         map[string]string   `pulumi:"tagsAll"`
 }
 
 type VirtualGatewayState struct {
-	// ARN of the virtual gateway.
-	Arn pulumi.StringPtrInput
-	// Creation date of the virtual gateway.
-	CreatedDate pulumi.StringPtrInput
-	// Last update date of the virtual gateway.
+	Arn             pulumi.StringPtrInput
+	CreatedDate     pulumi.StringPtrInput
 	LastUpdatedDate pulumi.StringPtrInput
-	// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringPtrInput
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner pulumi.StringPtrInput
-	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource owner's AWS account ID.
-	ResourceOwner pulumi.StringPtrInput
-	// Virtual gateway specification to apply.
-	Spec VirtualGatewaySpecPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	MeshName        pulumi.StringPtrInput
+	MeshOwner       pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	ResourceOwner   pulumi.StringPtrInput
+	Spec            VirtualGatewaySpecPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (VirtualGatewayState) ElementType() reflect.Type {
@@ -232,34 +96,22 @@ func (VirtualGatewayState) ElementType() reflect.Type {
 }
 
 type virtualGatewayArgs struct {
-	// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-	MeshName string `pulumi:"meshName"`
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-	MeshOwner *string `pulumi:"meshOwner"`
-	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Virtual gateway specification to apply.
-	Spec VirtualGatewaySpec `pulumi:"spec"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	MeshName  string             `pulumi:"meshName"`
+	MeshOwner *string            `pulumi:"meshOwner"`
+	Name      *string            `pulumi:"name"`
+	Region    *string            `pulumi:"region"`
+	Spec      VirtualGatewaySpec `pulumi:"spec"`
+	Tags      map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualGateway resource.
 type VirtualGatewayArgs struct {
-	// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
-	MeshName pulumi.StringInput
-	// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
+	MeshName  pulumi.StringInput
 	MeshOwner pulumi.StringPtrInput
-	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Virtual gateway specification to apply.
-	Spec VirtualGatewaySpecInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Spec      VirtualGatewaySpecInput
+	Tags      pulumi.StringMapInput
 }
 
 func (VirtualGatewayArgs) ElementType() reflect.Type {
@@ -349,57 +201,46 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN of the virtual gateway.
 func (o VirtualGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation date of the virtual gateway.
 func (o VirtualGatewayOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Last update date of the virtual gateway.
 func (o VirtualGatewayOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
 func (o VirtualGatewayOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.MeshName }).(pulumi.StringOutput)
 }
 
-// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
 func (o VirtualGatewayOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.MeshOwner }).(pulumi.StringOutput)
 }
 
-// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
 func (o VirtualGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VirtualGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Resource owner's AWS account ID.
 func (o VirtualGatewayOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual gateway specification to apply.
 func (o VirtualGatewayOutput) Spec() VirtualGatewaySpecOutput {
 	return o.ApplyT(func(v *VirtualGateway) VirtualGatewaySpecOutput { return v.Spec }).(VirtualGatewaySpecOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VirtualGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

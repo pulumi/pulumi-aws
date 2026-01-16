@@ -14,47 +14,23 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
 
     public static final FlowMetadataCatalogConfigGlueDataCatalogArgs Empty = new FlowMetadataCatalogConfigGlueDataCatalogArgs();
 
-    /**
-     * The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * A naming prefix for each Data Catalog table that Amazon AppFlow creates
-     * 
-     */
     @Import(name="tablePrefix", required=true)
     private Output<String> tablePrefix;
 
-    /**
-     * @return A naming prefix for each Data Catalog table that Amazon AppFlow creates
-     * 
-     */
     public Output<String> tablePrefix() {
         return this.tablePrefix;
     }
@@ -85,65 +61,29 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
             $ = new FlowMetadataCatalogConfigGlueDataCatalogArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param roleArn The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param tablePrefix A naming prefix for each Data Catalog table that Amazon AppFlow creates
-         * 
-         * @return builder
-         * 
-         */
         public Builder tablePrefix(Output<String> tablePrefix) {
             $.tablePrefix = tablePrefix;
             return this;
         }
 
-        /**
-         * @param tablePrefix A naming prefix for each Data Catalog table that Amazon AppFlow creates
-         * 
-         * @return builder
-         * 
-         */
         public Builder tablePrefix(String tablePrefix) {
             return tablePrefix(Output.of(tablePrefix));
         }

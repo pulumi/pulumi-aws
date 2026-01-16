@@ -24,9 +24,6 @@ class RegistryPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param pulumi.Input[_builtins.str] policy: Resource Policy for EventBridge Schema Registry
-        :param pulumi.Input[_builtins.str] registry_name: Name of EventBridge Schema Registry
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -36,9 +33,6 @@ class RegistryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource Policy for EventBridge Schema Registry
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,9 +42,6 @@ class RegistryPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of EventBridge Schema Registry
-        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -60,9 +51,6 @@ class RegistryPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _RegistryPolicyState:
                  registry_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryPolicy resources.
-        :param pulumi.Input[_builtins.str] policy: Resource Policy for EventBridge Schema Registry
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_name: Name of EventBridge Schema Registry
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -92,9 +77,6 @@ class _RegistryPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Resource Policy for EventBridge Schema Registry
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -104,9 +86,6 @@ class _RegistryPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _RegistryPolicyState:
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of EventBridge Schema Registry
-        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -137,47 +113,9 @@ class RegistryPolicy(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EventBridge Schemas Registry Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "example",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["109876543210"],
-            }],
-            "actions": ["schemas:*"],
-            "resources": [
-                "arn:aws:schemas:us-east-1:123456789012:registry/example",
-                "arn:aws:schemas:us-east-1:123456789012:schema/example*",
-            ],
-        }])
-        example_registry_policy = aws.schemas.RegistryPolicy("example",
-            registry_name="example",
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
-
-        ```sh
-        $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
-        ```
-
+        Create a RegistryPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: Resource Policy for EventBridge Schema Registry
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_name: Name of EventBridge Schema Registry
         """
         ...
     @overload
@@ -186,42 +124,7 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EventBridge Schemas Registry Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "example",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": ["109876543210"],
-            }],
-            "actions": ["schemas:*"],
-            "resources": [
-                "arn:aws:schemas:us-east-1:123456789012:registry/example",
-                "arn:aws:schemas:us-east-1:123456789012:schema/example*",
-            ],
-        }])
-        example_registry_policy = aws.schemas.RegistryPolicy("example",
-            registry_name="example",
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
-
-        ```sh
-        $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
-        ```
-
+        Create a RegistryPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,9 +179,6 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: Resource Policy for EventBridge Schema Registry
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_name: Name of EventBridge Schema Registry
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,24 +192,15 @@ class RegistryPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource Policy for EventBridge Schema Registry
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of EventBridge Schema Registry
-        """
         return pulumi.get(self, "registry_name")
 

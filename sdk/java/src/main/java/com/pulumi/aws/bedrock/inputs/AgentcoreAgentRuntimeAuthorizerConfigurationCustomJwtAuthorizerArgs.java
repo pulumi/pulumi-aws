@@ -17,47 +17,23 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
 
     public static final AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs Empty = new AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs();
 
-    /**
-     * Set of allowed audience values for JWT token validation.
-     * 
-     */
     @Import(name="allowedAudiences")
     private @Nullable Output<List<String>> allowedAudiences;
 
-    /**
-     * @return Set of allowed audience values for JWT token validation.
-     * 
-     */
     public Optional<Output<List<String>>> allowedAudiences() {
         return Optional.ofNullable(this.allowedAudiences);
     }
 
-    /**
-     * Set of allowed client IDs for JWT token validation.
-     * 
-     */
     @Import(name="allowedClients")
     private @Nullable Output<List<String>> allowedClients;
 
-    /**
-     * @return Set of allowed client IDs for JWT token validation.
-     * 
-     */
     public Optional<Output<List<String>>> allowedClients() {
         return Optional.ofNullable(this.allowedClients);
     }
 
-    /**
-     * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-     * 
-     */
     @Import(name="discoveryUrl", required=true)
     private Output<String> discoveryUrl;
 
-    /**
-     * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-     * 
-     */
     public Output<String> discoveryUrl() {
         return this.discoveryUrl;
     }
@@ -88,85 +64,37 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
             $ = new AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedAudiences Set of allowed audience values for JWT token validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedAudiences(@Nullable Output<List<String>> allowedAudiences) {
             $.allowedAudiences = allowedAudiences;
             return this;
         }
 
-        /**
-         * @param allowedAudiences Set of allowed audience values for JWT token validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedAudiences(List<String> allowedAudiences) {
             return allowedAudiences(Output.of(allowedAudiences));
         }
 
-        /**
-         * @param allowedAudiences Set of allowed audience values for JWT token validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedAudiences(String... allowedAudiences) {
             return allowedAudiences(List.of(allowedAudiences));
         }
 
-        /**
-         * @param allowedClients Set of allowed client IDs for JWT token validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedClients(@Nullable Output<List<String>> allowedClients) {
             $.allowedClients = allowedClients;
             return this;
         }
 
-        /**
-         * @param allowedClients Set of allowed client IDs for JWT token validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedClients(List<String> allowedClients) {
             return allowedClients(Output.of(allowedClients));
         }
 
-        /**
-         * @param allowedClients Set of allowed client IDs for JWT token validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedClients(String... allowedClients) {
             return allowedClients(List.of(allowedClients));
         }
 
-        /**
-         * @param discoveryUrl URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryUrl(Output<String> discoveryUrl) {
             $.discoveryUrl = discoveryUrl;
             return this;
         }
 
-        /**
-         * @param discoveryUrl URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryUrl(String discoveryUrl) {
             return discoveryUrl(Output.of(discoveryUrl));
         }

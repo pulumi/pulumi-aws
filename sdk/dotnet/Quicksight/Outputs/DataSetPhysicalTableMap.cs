@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetPhysicalTableMap
     {
-        /// <summary>
-        /// A physical table type built from the results of the custom SQL query. See custom_sql.
-        /// </summary>
         public readonly Outputs.DataSetPhysicalTableMapCustomSql? CustomSql;
-        /// <summary>
-        /// Key of the physical table map.
-        /// </summary>
         public readonly string PhysicalTableMapId;
-        /// <summary>
-        /// A physical table type for relational data sources. See relational_table.
-        /// </summary>
         public readonly Outputs.DataSetPhysicalTableMapRelationalTable? RelationalTable;
-        /// <summary>
-        /// A physical table type for as S3 data source. See s3_source.
-        /// </summary>
         public readonly Outputs.DataSetPhysicalTableMapS3Source? S3Source;
 
         [OutputConstructor]

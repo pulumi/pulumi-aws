@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class PlanRuleScanAction
     {
-        /// <summary>
-        /// Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-        /// </summary>
         public readonly string MalwareScanner;
-        /// <summary>
-        /// Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-        /// </summary>
         public readonly string ScanMode;
 
         [OutputConstructor]

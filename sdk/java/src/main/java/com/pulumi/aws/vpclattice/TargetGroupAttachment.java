@@ -14,91 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides the ability to register a target with an AWS VPC Lattice Target Group.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.TargetGroupAttachment;
- * import com.pulumi.aws.vpclattice.TargetGroupAttachmentArgs;
- * import com.pulumi.aws.vpclattice.inputs.TargetGroupAttachmentTargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TargetGroupAttachment("example", TargetGroupAttachmentArgs.builder()
- *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
- *             .target(TargetGroupAttachmentTargetArgs.builder()
- *                 .id(exampleAwsLb.arn())
- *                 .port(80)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")
 public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The target.
-     * 
-     */
     @Export(name="target", refs={TargetGroupAttachmentTarget.class}, tree="[0]")
     private Output<TargetGroupAttachmentTarget> target;
 
-    /**
-     * @return The target.
-     * 
-     */
     public Output<TargetGroupAttachmentTarget> target() {
         return this.target;
     }
-    /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     @Export(name="targetGroupIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetGroupIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     public Output<String> targetGroupIdentifier() {
         return this.targetGroupIdentifier;
     }

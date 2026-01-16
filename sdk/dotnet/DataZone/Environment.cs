@@ -9,159 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataZone
 {
-    /// <summary>
-    /// Resource for managing an AWS DataZone Environment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataZone.Environment("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         BlueprintIdentifier = test.EnvironmentBlueprintId,
-    ///         ProfileIdentifier = testAwsDatazoneEnvironmentProfile.Id,
-    ///         ProjectIdentifier = testAwsDatazoneProject.Id,
-    ///         DomainIdentifier = testAwsDatazoneDomain.Id,
-    ///         UserParameters = new[]
-    ///         {
-    ///             new Aws.DataZone.Inputs.EnvironmentUserParameterArgs
-    ///             {
-    ///                 Name = "consumerGlueDbName",
-    ///                 Value = "consumer",
-    ///             },
-    ///             new Aws.DataZone.Inputs.EnvironmentUserParameterArgs
-    ///             {
-    ///                 Name = "producerGlueDbName",
-    ///                 Value = "producer",
-    ///             },
-    ///             new Aws.DataZone.Inputs.EnvironmentUserParameterArgs
-    ///             {
-    ///                 Name = "workgroupName",
-    ///                 Value = "workgroup",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datazone/environment:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the Amazon Web Services account where the environment exists
-        /// </summary>
         [Output("accountIdentifier")]
         public Output<string> AccountIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Web Services region where the environment exists.
-        /// </summary>
         [Output("accountRegion")]
         public Output<string> AccountRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// The blueprint with which the environment is created.
-        /// </summary>
         [Output("blueprintIdentifier")]
         public Output<string> BlueprintIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The time the environment was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The user who created the environment.
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the environment.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the domain where the environment exists.
-        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The business glossary terms that can be used in this environment.
-        /// </summary>
         [Output("glossaryTerms")]
         public Output<ImmutableArray<string>> GlossaryTerms { get; private set; } = null!;
 
-        /// <summary>
-        /// The details of the last deployment of the environment.
-        /// </summary>
         [Output("lastDeployments")]
         public Output<ImmutableArray<Outputs.EnvironmentLastDeployment>> LastDeployments { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the profile with which the environment is created.
-        /// </summary>
         [Output("profileIdentifier")]
         public Output<string> ProfileIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the project where the environment exists.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("projectIdentifier")]
         public Output<string> ProjectIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The provider of the environment.
-        /// </summary>
         [Output("providerEnvironment")]
         public Output<string> ProviderEnvironment { get; private set; } = null!;
 
         [Output("provisionedResources")]
         public Output<ImmutableArray<Outputs.EnvironmentProvisionedResource>> ProvisionedResources { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.EnvironmentTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The user parameters that are used in the environment.
-        /// See User Parameters for more information.
-        /// Changing these values recreates the resource.
-        /// </summary>
         [Output("userParameters")]
         public Output<ImmutableArray<Outputs.EnvironmentUserParameter>> UserParameters { get; private set; } = null!;
 
@@ -211,71 +109,38 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Amazon Web Services account where the environment exists
-        /// </summary>
         [Input("accountIdentifier")]
         public Input<string>? AccountIdentifier { get; set; }
 
-        /// <summary>
-        /// The Amazon Web Services region where the environment exists.
-        /// </summary>
         [Input("accountRegion")]
         public Input<string>? AccountRegion { get; set; }
 
-        /// <summary>
-        /// The blueprint with which the environment is created.
-        /// </summary>
         [Input("blueprintIdentifier")]
         public Input<string>? BlueprintIdentifier { get; set; }
 
-        /// <summary>
-        /// The description of the environment.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the domain where the environment exists.
-        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
         [Input("glossaryTerms")]
         private InputList<string>? _glossaryTerms;
-
-        /// <summary>
-        /// The business glossary terms that can be used in this environment.
-        /// </summary>
         public InputList<string> GlossaryTerms
         {
             get => _glossaryTerms ?? (_glossaryTerms = new InputList<string>());
             set => _glossaryTerms = value;
         }
 
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the profile with which the environment is created.
-        /// </summary>
         [Input("profileIdentifier", required: true)]
         public Input<string> ProfileIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the project where the environment exists.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("projectIdentifier", required: true)]
         public Input<string> ProjectIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -284,12 +149,6 @@ namespace Pulumi.Aws.DataZone
 
         [Input("userParameters")]
         private InputList<Inputs.EnvironmentUserParameterArgs>? _userParameters;
-
-        /// <summary>
-        /// The user parameters that are used in the environment.
-        /// See User Parameters for more information.
-        /// Changing these values recreates the resource.
-        /// </summary>
         public InputList<Inputs.EnvironmentUserParameterArgs> UserParameters
         {
             get => _userParameters ?? (_userParameters = new InputList<Inputs.EnvironmentUserParameterArgs>());
@@ -304,54 +163,29 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Amazon Web Services account where the environment exists
-        /// </summary>
         [Input("accountIdentifier")]
         public Input<string>? AccountIdentifier { get; set; }
 
-        /// <summary>
-        /// The Amazon Web Services region where the environment exists.
-        /// </summary>
         [Input("accountRegion")]
         public Input<string>? AccountRegion { get; set; }
 
-        /// <summary>
-        /// The blueprint with which the environment is created.
-        /// </summary>
         [Input("blueprintIdentifier")]
         public Input<string>? BlueprintIdentifier { get; set; }
 
-        /// <summary>
-        /// The time the environment was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// The user who created the environment.
-        /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
-        /// <summary>
-        /// The description of the environment.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the domain where the environment exists.
-        /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
 
         [Input("glossaryTerms")]
         private InputList<string>? _glossaryTerms;
-
-        /// <summary>
-        /// The business glossary terms that can be used in this environment.
-        /// </summary>
         public InputList<string> GlossaryTerms
         {
             get => _glossaryTerms ?? (_glossaryTerms = new InputList<string>());
@@ -360,39 +194,21 @@ namespace Pulumi.Aws.DataZone
 
         [Input("lastDeployments")]
         private InputList<Inputs.EnvironmentLastDeploymentGetArgs>? _lastDeployments;
-
-        /// <summary>
-        /// The details of the last deployment of the environment.
-        /// </summary>
         public InputList<Inputs.EnvironmentLastDeploymentGetArgs> LastDeployments
         {
             get => _lastDeployments ?? (_lastDeployments = new InputList<Inputs.EnvironmentLastDeploymentGetArgs>());
             set => _lastDeployments = value;
         }
 
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the profile with which the environment is created.
-        /// </summary>
         [Input("profileIdentifier")]
         public Input<string>? ProfileIdentifier { get; set; }
 
-        /// <summary>
-        /// The ID of the project where the environment exists.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("projectIdentifier")]
         public Input<string>? ProjectIdentifier { get; set; }
 
-        /// <summary>
-        /// The provider of the environment.
-        /// </summary>
         [Input("providerEnvironment")]
         public Input<string>? ProviderEnvironment { get; set; }
 
@@ -404,9 +220,6 @@ namespace Pulumi.Aws.DataZone
             set => _provisionedResources = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -415,12 +228,6 @@ namespace Pulumi.Aws.DataZone
 
         [Input("userParameters")]
         private InputList<Inputs.EnvironmentUserParameterGetArgs>? _userParameters;
-
-        /// <summary>
-        /// The user parameters that are used in the environment.
-        /// See User Parameters for more information.
-        /// Changing these values recreates the resource.
-        /// </summary>
         public InputList<Inputs.EnvironmentUserParameterGetArgs> UserParameters
         {
             get => _userParameters ?? (_userParameters = new InputList<Inputs.EnvironmentUserParameterGetArgs>());

@@ -11,101 +11,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserAddress {
-    /**
-     * @return The country that this address is in.
-     * 
-     */
     private String country;
-    /**
-     * @return The name that is typically displayed when the name is shown for display.
-     * 
-     */
     private String formatted;
-    /**
-     * @return The address locality.
-     * 
-     */
     private String locality;
-    /**
-     * @return The postal code of the address.
-     * 
-     */
     private String postalCode;
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     private Boolean primary;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private String region;
-    /**
-     * @return The street of the address.
-     * 
-     */
     private String streetAddress;
-    /**
-     * @return The type of phone number.
-     * 
-     */
     private String type;
 
     private GetUserAddress() {}
-    /**
-     * @return The country that this address is in.
-     * 
-     */
     public String country() {
         return this.country;
     }
-    /**
-     * @return The name that is typically displayed when the name is shown for display.
-     * 
-     */
     public String formatted() {
         return this.formatted;
     }
-    /**
-     * @return The address locality.
-     * 
-     */
     public String locality() {
         return this.locality;
     }
-    /**
-     * @return The postal code of the address.
-     * 
-     */
     public String postalCode() {
         return this.postalCode;
     }
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     public Boolean primary() {
         return this.primary;
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return The street of the address.
-     * 
-     */
     public String streetAddress() {
         return this.streetAddress;
     }
-    /**
-     * @return The type of phone number.
-     * 
-     */
     public String type() {
         return this.type;
     }

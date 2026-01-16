@@ -13,9 +13,6 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationImageConfiguration
     {
-        /// <summary>
-        /// The image URI.
-        /// </summary>
         public readonly string ImageUri;
 
         [OutputConstructor]

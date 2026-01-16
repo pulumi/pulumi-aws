@@ -15,17 +15,9 @@ public final class ClusterServerSideEncryptionArgs extends com.pulumi.resources.
 
     public static final ClusterServerSideEncryptionArgs Empty = new ClusterServerSideEncryptionArgs();
 
-    /**
-     * Whether to enable encryption at rest. Defaults to `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable encryption at rest. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class ClusterServerSideEncryptionArgs extends com.pulumi.resources.
             $ = new ClusterServerSideEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to enable encryption at rest. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable encryption at rest. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

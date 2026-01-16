@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetAppsyncTarget
     {
-        /// <summary>
-        /// Contains the GraphQL mutation to be parsed and executed.
-        /// </summary>
         public readonly string? GraphqlOperation;
 
         [OutputConstructor]

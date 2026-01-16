@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
-    /**
-     * @return Account ID of the S3 bucket owner.
-     * 
-     */
     private @Nullable String bucketOwnerAccountId;
-    /**
-     * @return S3 URI where the schema is stored.
-     * 
-     */
     private @Nullable String uri;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3() {}
-    /**
-     * @return Account ID of the S3 bucket owner.
-     * 
-     */
     public Optional<String> bucketOwnerAccountId() {
         return Optional.ofNullable(this.bucketOwnerAccountId);
     }
-    /**
-     * @return S3 URI where the schema is stored.
-     * 
-     */
     public Optional<String> uri() {
         return Optional.ofNullable(this.uri);
     }

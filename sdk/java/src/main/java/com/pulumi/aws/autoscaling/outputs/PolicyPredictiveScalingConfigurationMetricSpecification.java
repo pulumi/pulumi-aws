@@ -18,89 +18,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecification {
-    /**
-     * @return Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
-     * 
-     */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
-    /**
-     * @return Customized load metric specification.
-     * 
-     */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
-    /**
-     * @return Customized scaling metric specification.
-     * 
-     */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
-    /**
-     * @return Predefined load metric specification.
-     * 
-     */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
-    /**
-     * @return Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
-     * 
-     */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
-    /**
-     * @return Predefined scaling metric specification.
-     * 
-     */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     private Double targetValue;
 
     private PolicyPredictiveScalingConfigurationMetricSpecification() {}
-    /**
-     * @return Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
-     * 
-     */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification> customizedCapacityMetricSpecification() {
         return Optional.ofNullable(this.customizedCapacityMetricSpecification);
     }
-    /**
-     * @return Customized load metric specification.
-     * 
-     */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification> customizedLoadMetricSpecification() {
         return Optional.ofNullable(this.customizedLoadMetricSpecification);
     }
-    /**
-     * @return Customized scaling metric specification.
-     * 
-     */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification> customizedScalingMetricSpecification() {
         return Optional.ofNullable(this.customizedScalingMetricSpecification);
     }
-    /**
-     * @return Predefined load metric specification.
-     * 
-     */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification> predefinedLoadMetricSpecification() {
         return Optional.ofNullable(this.predefinedLoadMetricSpecification);
     }
-    /**
-     * @return Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
-     * 
-     */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification> predefinedMetricPairSpecification() {
         return Optional.ofNullable(this.predefinedMetricPairSpecification);
     }
-    /**
-     * @return Predefined scaling metric specification.
-     * 
-     */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification> predefinedScalingMetricSpecification() {
         return Optional.ofNullable(this.predefinedScalingMetricSpecification);
     }
-    /**
-     * @return Target value for the metric.
-     * 
-     */
     public Double targetValue() {
         return this.targetValue;
     }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentProfileUserParameter {
-    /**
-     * @return Name of the environment profile parameter.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Value of the environment profile parameter.
-     * 
-     */
     private @Nullable String value;
 
     private EnvironmentProfileUserParameter() {}
-    /**
-     * @return Name of the environment profile parameter.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Value of the environment profile parameter.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

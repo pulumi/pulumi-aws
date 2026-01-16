@@ -12,94 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Redshift Logging configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewLogging(ctx, "example", &redshift.LoggingArgs{
-//				ClusterIdentifier:  pulumi.Any(exampleAwsRedshiftCluster.Id),
-//				LogDestinationType: pulumi.String("cloudwatch"),
-//				LogExports: pulumi.StringArray{
-//					pulumi.String("connectionlog"),
-//					pulumi.String("userlog"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### S3 Destination Type
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewLogging(ctx, "example", &redshift.LoggingArgs{
-//				ClusterIdentifier:  pulumi.Any(exampleAwsRedshiftCluster.Id),
-//				LogDestinationType: pulumi.String("s3"),
-//				BucketName:         pulumi.Any(exampleAwsS3Bucket.Id),
-//				S3KeyPrefix:        pulumi.String("example-prefix/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Logging using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
-// ```
 type Logging struct {
 	pulumi.CustomResourceState
 
-	// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
-	// Identifier of the source cluster.
-	//
-	// The following arguments are optional:
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// Log destination type. Valid values are `s3` and `cloudwatch`.
-	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
-	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-	LogExports pulumi.StringArrayOutput `pulumi:"logExports"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Prefix applied to the log file names.
-	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
+	BucketName         pulumi.StringPtrOutput   `pulumi:"bucketName"`
+	ClusterIdentifier  pulumi.StringOutput      `pulumi:"clusterIdentifier"`
+	LogDestinationType pulumi.StringPtrOutput   `pulumi:"logDestinationType"`
+	LogExports         pulumi.StringArrayOutput `pulumi:"logExports"`
+	Region             pulumi.StringOutput      `pulumi:"region"`
+	S3KeyPrefix        pulumi.StringPtrOutput   `pulumi:"s3KeyPrefix"`
 }
 
 // NewLogging registers a new resource with the given unique name, arguments, and options.
@@ -135,37 +56,21 @@ func GetLogging(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Logging resources.
 type loggingState struct {
-	// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName *string `pulumi:"bucketName"`
-	// Identifier of the source cluster.
-	//
-	// The following arguments are optional:
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// Log destination type. Valid values are `s3` and `cloudwatch`.
-	LogDestinationType *string `pulumi:"logDestinationType"`
-	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-	LogExports []string `pulumi:"logExports"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Prefix applied to the log file names.
-	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	BucketName         *string  `pulumi:"bucketName"`
+	ClusterIdentifier  *string  `pulumi:"clusterIdentifier"`
+	LogDestinationType *string  `pulumi:"logDestinationType"`
+	LogExports         []string `pulumi:"logExports"`
+	Region             *string  `pulumi:"region"`
+	S3KeyPrefix        *string  `pulumi:"s3KeyPrefix"`
 }
 
 type LoggingState struct {
-	// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName pulumi.StringPtrInput
-	// Identifier of the source cluster.
-	//
-	// The following arguments are optional:
-	ClusterIdentifier pulumi.StringPtrInput
-	// Log destination type. Valid values are `s3` and `cloudwatch`.
+	BucketName         pulumi.StringPtrInput
+	ClusterIdentifier  pulumi.StringPtrInput
 	LogDestinationType pulumi.StringPtrInput
-	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-	LogExports pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Prefix applied to the log file names.
-	S3KeyPrefix pulumi.StringPtrInput
+	LogExports         pulumi.StringArrayInput
+	Region             pulumi.StringPtrInput
+	S3KeyPrefix        pulumi.StringPtrInput
 }
 
 func (LoggingState) ElementType() reflect.Type {
@@ -173,38 +78,22 @@ func (LoggingState) ElementType() reflect.Type {
 }
 
 type loggingArgs struct {
-	// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName *string `pulumi:"bucketName"`
-	// Identifier of the source cluster.
-	//
-	// The following arguments are optional:
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// Log destination type. Valid values are `s3` and `cloudwatch`.
-	LogDestinationType *string `pulumi:"logDestinationType"`
-	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-	LogExports []string `pulumi:"logExports"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Prefix applied to the log file names.
-	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	BucketName         *string  `pulumi:"bucketName"`
+	ClusterIdentifier  string   `pulumi:"clusterIdentifier"`
+	LogDestinationType *string  `pulumi:"logDestinationType"`
+	LogExports         []string `pulumi:"logExports"`
+	Region             *string  `pulumi:"region"`
+	S3KeyPrefix        *string  `pulumi:"s3KeyPrefix"`
 }
 
 // The set of arguments for constructing a Logging resource.
 type LoggingArgs struct {
-	// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName pulumi.StringPtrInput
-	// Identifier of the source cluster.
-	//
-	// The following arguments are optional:
-	ClusterIdentifier pulumi.StringInput
-	// Log destination type. Valid values are `s3` and `cloudwatch`.
+	BucketName         pulumi.StringPtrInput
+	ClusterIdentifier  pulumi.StringInput
 	LogDestinationType pulumi.StringPtrInput
-	// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-	LogExports pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Prefix applied to the log file names.
-	S3KeyPrefix pulumi.StringPtrInput
+	LogExports         pulumi.StringArrayInput
+	Region             pulumi.StringPtrInput
+	S3KeyPrefix        pulumi.StringPtrInput
 }
 
 func (LoggingArgs) ElementType() reflect.Type {
@@ -294,34 +183,26 @@ func (o LoggingOutput) ToLoggingOutputWithContext(ctx context.Context) LoggingOu
 	return o
 }
 
-// Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o LoggingOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the source cluster.
-//
-// The following arguments are optional:
 func (o LoggingOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// Log destination type. Valid values are `s3` and `cloudwatch`.
 func (o LoggingOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringPtrOutput { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }
 
-// Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
 func (o LoggingOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringArrayOutput { return v.LogExports }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoggingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Prefix applied to the log file names.
 func (o LoggingOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Logging) pulumi.StringPtrOutput { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }

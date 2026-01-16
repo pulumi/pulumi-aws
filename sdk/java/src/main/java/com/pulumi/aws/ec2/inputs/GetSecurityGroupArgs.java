@@ -18,102 +18,44 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSecurityGroupArgs Empty = new GetSecurityGroupArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetSecurityGroupFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<Output<List<GetSecurityGroupFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Id of the specific security group to retrieve.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Id of the specific security group to retrieve.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired security group.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired security group.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Id of the VPC that the desired security group belongs to.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return Id of the VPC that the desired security group belongs to.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -147,148 +89,60 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetSecurityGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetSecurityGroupFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetSecurityGroupFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSecurityGroupFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Id of the specific security group to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Id of the specific security group to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired security group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired security group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId Id of the VPC that the desired security group belongs to.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId Id of the VPC that the desired security group belongs to.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorSettingsFaceSearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of a collection that contains faces that you want to search for.
+        /// The ID of a collection that contains faces that you want to search for.
         /// </summary>
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;

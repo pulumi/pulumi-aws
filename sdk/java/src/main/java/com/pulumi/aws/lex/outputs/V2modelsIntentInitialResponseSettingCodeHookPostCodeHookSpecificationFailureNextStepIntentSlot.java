@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
-    /**
-     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     private String mapBlockKey;
-    /**
-     * @return When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
-     * 
-     */
     private @Nullable String shape;
-    /**
-     * @return Configuration block for the current value of the slot. See `value`.
-     * 
-     */
     private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue value;
 
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot() {}
-    /**
-     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     public String mapBlockKey() {
         return this.mapBlockKey;
     }
-    /**
-     * @return When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
-     * 
-     */
     public Optional<String> shape() {
         return Optional.ofNullable(this.shape);
     }
-    /**
-     * @return Configuration block for the current value of the slot. See `value`.
-     * 
-     */
     public Optional<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue> value() {
         return Optional.ofNullable(this.value);
     }

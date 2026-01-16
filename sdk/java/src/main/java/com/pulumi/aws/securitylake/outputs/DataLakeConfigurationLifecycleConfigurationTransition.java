@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataLakeConfigurationLifecycleConfigurationTransition {
-    /**
-     * @return Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-     * 
-     */
     private @Nullable Integer days;
-    /**
-     * @return The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-     * 
-     */
     private @Nullable String storageClass;
 
     private DataLakeConfigurationLifecycleConfigurationTransition() {}
-    /**
-     * @return Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-     * 
-     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
-    /**
-     * @return The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-     * 
-     */
     public Optional<String> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }

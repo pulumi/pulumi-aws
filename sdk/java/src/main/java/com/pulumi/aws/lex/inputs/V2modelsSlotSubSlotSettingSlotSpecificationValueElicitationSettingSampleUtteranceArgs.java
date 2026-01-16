@@ -14,17 +14,9 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     public static final V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs Empty = new V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs();
 
-    /**
-     * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-     * 
-     */
     @Import(name="utterance", required=true)
     private Output<String> utterance;
 
-    /**
-     * @return The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-     * 
-     */
     public Output<String> utterance() {
         return this.utterance;
     }
@@ -53,23 +45,11 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
             $ = new V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param utterance The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder utterance(Output<String> utterance) {
             $.utterance = utterance;
             return this;
         }
 
-        /**
-         * @param utterance The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder utterance(String utterance) {
             return utterance(Output.of(utterance));
         }

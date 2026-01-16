@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecHttpRouteMatchHeaderMatchRange
     {
-        /// <summary>
-        /// End of the range.
-        /// </summary>
         public readonly int End;
-        /// <summary>
-        /// Start of the range.
-        /// </summary>
         public readonly int Start;
 
         [OutputConstructor]

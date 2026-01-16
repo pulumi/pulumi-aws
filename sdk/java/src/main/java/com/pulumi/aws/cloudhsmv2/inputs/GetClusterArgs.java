@@ -16,47 +16,23 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetClusterArgs Empty = new GetClusterArgs();
 
-    /**
-     * ID of Cloud HSM v2 cluster.
-     * 
-     */
     @Import(name="clusterId", required=true)
     private Output<String> clusterId;
 
-    /**
-     * @return ID of Cloud HSM v2 cluster.
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
 
-    /**
-     * State of the cluster to be found.
-     * 
-     */
     @Import(name="clusterState")
     private @Nullable Output<String> clusterState;
 
-    /**
-     * @return State of the cluster to be found.
-     * 
-     */
     public Optional<Output<String>> clusterState() {
         return Optional.ofNullable(this.clusterState);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterId ID of Cloud HSM v2 cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
-        /**
-         * @param clusterId ID of Cloud HSM v2 cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(String clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
-        /**
-         * @param clusterState State of the cluster to be found.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterState(@Nullable Output<String> clusterState) {
             $.clusterState = clusterState;
             return this;
         }
 
-        /**
-         * @param clusterState State of the cluster to be found.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterState(String clusterState) {
             return clusterState(Output.of(clusterState));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

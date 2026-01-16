@@ -14,25 +14,15 @@ namespace Pulumi.Aws.DataPipeline.Inputs
     {
         [Input("fields")]
         private InputList<Inputs.PipelineDefinitionPipelineObjectFieldArgs>? _fields;
-
-        /// <summary>
-        /// Configuration block for Key-value pairs that define the properties of the object. See below
-        /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectFieldArgs> Fields
         {
             get => _fields ?? (_fields = new InputList<Inputs.PipelineDefinitionPipelineObjectFieldArgs>());
             set => _fields = value;
         }
 
-        /// <summary>
-        /// ID of the object.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the storage connector.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

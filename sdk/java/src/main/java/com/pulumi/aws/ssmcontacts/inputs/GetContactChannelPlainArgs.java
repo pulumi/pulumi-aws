@@ -15,32 +15,16 @@ public final class GetContactChannelPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetContactChannelPlainArgs Empty = new GetContactChannelPlainArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the contact channel.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the contact channel.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetContactChannelPlainArgs extends com.pulumi.resources.Invok
             $ = new GetContactChannelPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the contact channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

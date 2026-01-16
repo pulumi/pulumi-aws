@@ -16,269 +16,113 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a version of a CloudFormation Type.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
- * ```
- * 
- */
 @ResourceType(type="aws:cloudformation/cloudFormationType:CloudFormationType")
 public class CloudFormationType extends com.pulumi.resources.CustomResource {
-    /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Identifier of the CloudFormation Type default version.
-     * 
-     */
     @Export(name="defaultVersionId", refs={String.class}, tree="[0]")
     private Output<String> defaultVersionId;
 
-    /**
-     * @return Identifier of the CloudFormation Type default version.
-     * 
-     */
     public Output<String> defaultVersionId() {
         return this.defaultVersionId;
     }
-    /**
-     * Deprecation status of the version.
-     * 
-     */
     @Export(name="deprecatedStatus", refs={String.class}, tree="[0]")
     private Output<String> deprecatedStatus;
 
-    /**
-     * @return Deprecation status of the version.
-     * 
-     */
     public Output<String> deprecatedStatus() {
         return this.deprecatedStatus;
     }
-    /**
-     * Description of the version.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the version.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * URL of the documentation for the CloudFormation Type.
-     * 
-     */
     @Export(name="documentationUrl", refs={String.class}, tree="[0]")
     private Output<String> documentationUrl;
 
-    /**
-     * @return URL of the documentation for the CloudFormation Type.
-     * 
-     */
     public Output<String> documentationUrl() {
         return this.documentationUrl;
     }
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-     * 
-     */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-     * 
-     */
     public Output<Optional<String>> executionRoleArn() {
         return Codegen.optional(this.executionRoleArn);
     }
-    /**
-     * Whether the CloudFormation Type version is the default version.
-     * 
-     */
     @Export(name="isDefaultVersion", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefaultVersion;
 
-    /**
-     * @return Whether the CloudFormation Type version is the default version.
-     * 
-     */
     public Output<Boolean> isDefaultVersion() {
         return this.isDefaultVersion;
     }
-    /**
-     * Configuration block containing logging configuration.
-     * 
-     */
     @Export(name="loggingConfig", refs={CloudFormationTypeLoggingConfig.class}, tree="[0]")
     private Output</* @Nullable */ CloudFormationTypeLoggingConfig> loggingConfig;
 
-    /**
-     * @return Configuration block containing logging configuration.
-     * 
-     */
     public Output<Optional<CloudFormationTypeLoggingConfig>> loggingConfig() {
         return Codegen.optional(this.loggingConfig);
     }
-    /**
-     * Provisioning behavior of the CloudFormation Type.
-     * 
-     */
     @Export(name="provisioningType", refs={String.class}, tree="[0]")
     private Output<String> provisioningType;
 
-    /**
-     * @return Provisioning behavior of the CloudFormation Type.
-     * 
-     */
     public Output<String> provisioningType() {
         return this.provisioningType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * JSON document of the CloudFormation Type schema.
-     * 
-     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
-    /**
-     * @return JSON document of the CloudFormation Type schema.
-     * 
-     */
     public Output<String> schema() {
         return this.schema;
     }
-    /**
-     * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-     * 
-     */
     @Export(name="schemaHandlerPackage", refs={String.class}, tree="[0]")
     private Output<String> schemaHandlerPackage;
 
-    /**
-     * @return URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-     * 
-     */
     public Output<String> schemaHandlerPackage() {
         return this.schemaHandlerPackage;
     }
-    /**
-     * URL of the source code for the CloudFormation Type.
-     * 
-     */
     @Export(name="sourceUrl", refs={String.class}, tree="[0]")
     private Output<String> sourceUrl;
 
-    /**
-     * @return URL of the source code for the CloudFormation Type.
-     * 
-     */
     public Output<String> sourceUrl() {
         return this.sourceUrl;
     }
-    /**
-     * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
-     * 
-     */
     @Export(name="typeArn", refs={String.class}, tree="[0]")
     private Output<String> typeArn;
 
-    /**
-     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
-     * 
-     */
     public Output<String> typeArn() {
         return this.typeArn;
     }
-    /**
-     * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-     * 
-     */
     @Export(name="typeName", refs={String.class}, tree="[0]")
     private Output<String> typeName;
 
-    /**
-     * @return CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-     * 
-     */
     public Output<String> typeName() {
         return this.typeName;
     }
-    /**
-     * (Optional) Identifier of the CloudFormation Type version.
-     * 
-     */
     @Export(name="versionId", refs={String.class}, tree="[0]")
     private Output<String> versionId;
 
-    /**
-     * @return (Optional) Identifier of the CloudFormation Type version.
-     * 
-     */
     public Output<String> versionId() {
         return this.versionId;
     }
-    /**
-     * Scope of the CloudFormation Type.
-     * 
-     */
     @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output<String> visibility;
 
-    /**
-     * @return Scope of the CloudFormation Type.
-     * 
-     */
     public Output<String> visibility() {
         return this.visibility;
     }

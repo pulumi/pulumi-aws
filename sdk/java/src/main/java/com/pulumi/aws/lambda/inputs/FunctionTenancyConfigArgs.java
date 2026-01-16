@@ -14,17 +14,9 @@ public final class FunctionTenancyConfigArgs extends com.pulumi.resources.Resour
 
     public static final FunctionTenancyConfigArgs Empty = new FunctionTenancyConfigArgs();
 
-    /**
-     * Tenant Isolation Mode. Valid values: `PER_TENANT`.
-     * 
-     */
     @Import(name="tenantIsolationMode", required=true)
     private Output<String> tenantIsolationMode;
 
-    /**
-     * @return Tenant Isolation Mode. Valid values: `PER_TENANT`.
-     * 
-     */
     public Output<String> tenantIsolationMode() {
         return this.tenantIsolationMode;
     }
@@ -53,23 +45,11 @@ public final class FunctionTenancyConfigArgs extends com.pulumi.resources.Resour
             $ = new FunctionTenancyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tenantIsolationMode Tenant Isolation Mode. Valid values: `PER_TENANT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantIsolationMode(Output<String> tenantIsolationMode) {
             $.tenantIsolationMode = tenantIsolationMode;
             return this;
         }
 
-        /**
-         * @param tenantIsolationMode Tenant Isolation Mode. Valid values: `PER_TENANT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantIsolationMode(String tenantIsolationMode) {
             return tenantIsolationMode(Output.of(tenantIsolationMode));
         }

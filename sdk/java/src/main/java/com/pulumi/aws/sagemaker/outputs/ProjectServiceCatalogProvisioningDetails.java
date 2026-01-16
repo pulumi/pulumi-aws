@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectServiceCatalogProvisioningDetails {
-    /**
-     * @return The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
-     * 
-     */
     private @Nullable String pathId;
-    /**
-     * @return The ID of the product to provision.
-     * 
-     */
     private String productId;
-    /**
-     * @return The ID of the provisioning artifact.
-     * 
-     */
     private @Nullable String provisioningArtifactId;
-    /**
-     * @return A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
-     * 
-     */
     private @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters;
 
     private ProjectServiceCatalogProvisioningDetails() {}
-    /**
-     * @return The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
-     * 
-     */
     public Optional<String> pathId() {
         return Optional.ofNullable(this.pathId);
     }
-    /**
-     * @return The ID of the product to provision.
-     * 
-     */
     public String productId() {
         return this.productId;
     }
-    /**
-     * @return The ID of the provisioning artifact.
-     * 
-     */
     public Optional<String> provisioningArtifactId() {
         return Optional.ofNullable(this.provisioningArtifactId);
     }
-    /**
-     * @return A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
-     * 
-     */
     public List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters() {
         return this.provisioningParameters == null ? List.of() : this.provisioningParameters;
     }

@@ -13,32 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScraperSourceEks {
     private String clusterArn;
-    /**
-     * @return List of the security group IDs for the Amazon EKS cluster VPC configuration.
-     * 
-     */
     private @Nullable List<String> securityGroupIds;
-    /**
-     * @return List of subnet IDs. Must be in at least two different availability zones.
-     * 
-     */
     private List<String> subnetIds;
 
     private ScraperSourceEks() {}
     public String clusterArn() {
         return this.clusterArn;
     }
-    /**
-     * @return List of the security group IDs for the Amazon EKS cluster VPC configuration.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
-    /**
-     * @return List of subnet IDs. Must be in at least two different availability zones.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

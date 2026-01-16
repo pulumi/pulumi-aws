@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleErrorActionHttpArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The HTTPS URL used to verify ownership of `Url`.
-        /// </summary>
         [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }
 
         [Input("httpHeaders")]
         private InputList<Inputs.TopicRuleErrorActionHttpHttpHeaderArgs>? _httpHeaders;
-
-        /// <summary>
-        /// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-        /// </summary>
         public InputList<Inputs.TopicRuleErrorActionHttpHttpHeaderArgs> HttpHeaders
         {
             get => _httpHeaders ?? (_httpHeaders = new InputList<Inputs.TopicRuleErrorActionHttpHttpHeaderArgs>());
             set => _httpHeaders = value;
         }
 
-        /// <summary>
-        /// The HTTPS URL.
-        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

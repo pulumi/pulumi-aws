@@ -15,135 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Grant cross-account access to an Elastic network interface (ENI).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NetworkInterface;
- * import com.pulumi.aws.ec2.NetworkInterfaceArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkInterfaceAttachmentArgs;
- * import com.pulumi.aws.ec2.NetworkInterfacePermission;
- * import com.pulumi.aws.ec2.NetworkInterfacePermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NetworkInterface("example", NetworkInterfaceArgs.builder()
- *             .subnetId(exampleAwsSubnet.id())
- *             .privateIps("10.0.0.50")
- *             .securityGroups(exampleAwsSecurityGroup.id())
- *             .attachments(NetworkInterfaceAttachmentArgs.builder()
- *                 .instance(exampleAwsInstance.id())
- *                 .deviceIndex(1)
- *                 .build())
- *             .build());
- * 
- *         var exampleNetworkInterfacePermission = new NetworkInterfacePermission("exampleNetworkInterfacePermission", NetworkInterfacePermissionArgs.builder()
- *             .networkInterfaceId(example.id())
- *             .awsAccountId("123456789012")
- *             .permission("INSTANCE-ATTACH")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Interface Permissions using the `network_interface_permission_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/networkInterfacePermission:NetworkInterfacePermission")
 public class NetworkInterfacePermission extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Web Services account ID.
-     * 
-     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
-    /**
-     * @return The Amazon Web Services account ID.
-     * 
-     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * The ID of the network interface.
-     * 
-     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return The ID of the network interface.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * ENI permission ID.
-     * 
-     */
     @Export(name="networkInterfacePermissionId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfacePermissionId;
 
-    /**
-     * @return ENI permission ID.
-     * 
-     */
     public Output<String> networkInterfacePermissionId() {
         return this.networkInterfacePermissionId;
     }
-    /**
-     * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     * 
-     */
     @Export(name="permission", refs={String.class}, tree="[0]")
     private Output<String> permission;
 
-    /**
-     * @return The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     * 
-     */
     public Output<String> permission() {
         return this.permission;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -12,88 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Chatbot Microsoft Teams Channel Configuration.
-//
-// > **NOTE:** We provide this resource on a best-effort basis. If you are able to test it and find it useful, we welcome your input at GitHub.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chatbot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chatbot.NewTeamsChannelConfiguration(ctx, "test", &chatbot.TeamsChannelConfigurationArgs{
-//				ChannelId:         pulumi.String("C07EZ1ABC23"),
-//				ConfigurationName: pulumi.String("mitt-lags-kanal"),
-//				IamRoleArn:        pulumi.Any(testAwsIamRole.Arn),
-//				TeamId:            pulumi.String("74361522-da01-538d-aa2e-ac7918c6bb92"),
-//				TenantId:          pulumi.String("1234"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("mitt-lags-kanal"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chatbot Microsoft Teams Channel Configuration using the `team_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
-// ```
 type TeamsChannelConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ID of the Microsoft Teams channel.
-	ChannelId pulumi.StringOutput `pulumi:"channelId"`
-	// Name of the Microsoft Teams channel.
-	ChannelName pulumi.StringOutput `pulumi:"channelName"`
-	// ARN of the Microsoft Teams channel configuration.
-	ChatConfigurationArn pulumi.StringOutput `pulumi:"chatConfigurationArn"`
-	// Name of the Microsoft Teams channel configuration.
-	ConfigurationName pulumi.StringOutput `pulumi:"configurationName"`
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns pulumi.StringArrayOutput `pulumi:"guardrailPolicyArns"`
-	// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel pulumi.StringOutput `pulumi:"loggingLevel"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-	TeamId pulumi.StringOutput `pulumi:"teamId"`
-	// Name of the Microsoft Teams team.
-	TeamName pulumi.StringOutput `pulumi:"teamName"`
-	// ID of the Microsoft Teams tenant.
-	//
-	// The following arguments are optional:
-	TenantId pulumi.StringOutput                        `pulumi:"tenantId"`
-	Timeouts TeamsChannelConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Enables use of a user role requirement in your chat configuration.
-	UserAuthorizationRequired pulumi.BoolOutput `pulumi:"userAuthorizationRequired"`
+	ChannelId                 pulumi.StringOutput                        `pulumi:"channelId"`
+	ChannelName               pulumi.StringOutput                        `pulumi:"channelName"`
+	ChatConfigurationArn      pulumi.StringOutput                        `pulumi:"chatConfigurationArn"`
+	ConfigurationName         pulumi.StringOutput                        `pulumi:"configurationName"`
+	GuardrailPolicyArns       pulumi.StringArrayOutput                   `pulumi:"guardrailPolicyArns"`
+	IamRoleArn                pulumi.StringOutput                        `pulumi:"iamRoleArn"`
+	LoggingLevel              pulumi.StringOutput                        `pulumi:"loggingLevel"`
+	Region                    pulumi.StringOutput                        `pulumi:"region"`
+	SnsTopicArns              pulumi.StringArrayOutput                   `pulumi:"snsTopicArns"`
+	Tags                      pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	TeamId                    pulumi.StringOutput                        `pulumi:"teamId"`
+	TeamName                  pulumi.StringOutput                        `pulumi:"teamName"`
+	TenantId                  pulumi.StringOutput                        `pulumi:"tenantId"`
+	Timeouts                  TeamsChannelConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
+	UserAuthorizationRequired pulumi.BoolOutput                          `pulumi:"userAuthorizationRequired"`
 }
 
 // NewTeamsChannelConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -141,74 +78,40 @@ func GetTeamsChannelConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamsChannelConfiguration resources.
 type teamsChannelConfigurationState struct {
-	// ID of the Microsoft Teams channel.
-	ChannelId *string `pulumi:"channelId"`
-	// Name of the Microsoft Teams channel.
-	ChannelName *string `pulumi:"channelName"`
-	// ARN of the Microsoft Teams channel configuration.
-	ChatConfigurationArn *string `pulumi:"chatConfigurationArn"`
-	// Name of the Microsoft Teams channel configuration.
-	ConfigurationName *string `pulumi:"configurationName"`
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns []string `pulumi:"guardrailPolicyArns"`
-	// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel *string `pulumi:"loggingLevel"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns []string `pulumi:"snsTopicArns"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-	TeamId *string `pulumi:"teamId"`
-	// Name of the Microsoft Teams team.
-	TeamName *string `pulumi:"teamName"`
-	// ID of the Microsoft Teams tenant.
-	//
-	// The following arguments are optional:
-	TenantId *string                            `pulumi:"tenantId"`
-	Timeouts *TeamsChannelConfigurationTimeouts `pulumi:"timeouts"`
-	// Enables use of a user role requirement in your chat configuration.
-	UserAuthorizationRequired *bool `pulumi:"userAuthorizationRequired"`
+	ChannelId                 *string                            `pulumi:"channelId"`
+	ChannelName               *string                            `pulumi:"channelName"`
+	ChatConfigurationArn      *string                            `pulumi:"chatConfigurationArn"`
+	ConfigurationName         *string                            `pulumi:"configurationName"`
+	GuardrailPolicyArns       []string                           `pulumi:"guardrailPolicyArns"`
+	IamRoleArn                *string                            `pulumi:"iamRoleArn"`
+	LoggingLevel              *string                            `pulumi:"loggingLevel"`
+	Region                    *string                            `pulumi:"region"`
+	SnsTopicArns              []string                           `pulumi:"snsTopicArns"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	TagsAll                   map[string]string                  `pulumi:"tagsAll"`
+	TeamId                    *string                            `pulumi:"teamId"`
+	TeamName                  *string                            `pulumi:"teamName"`
+	TenantId                  *string                            `pulumi:"tenantId"`
+	Timeouts                  *TeamsChannelConfigurationTimeouts `pulumi:"timeouts"`
+	UserAuthorizationRequired *bool                              `pulumi:"userAuthorizationRequired"`
 }
 
 type TeamsChannelConfigurationState struct {
-	// ID of the Microsoft Teams channel.
-	ChannelId pulumi.StringPtrInput
-	// Name of the Microsoft Teams channel.
-	ChannelName pulumi.StringPtrInput
-	// ARN of the Microsoft Teams channel configuration.
-	ChatConfigurationArn pulumi.StringPtrInput
-	// Name of the Microsoft Teams channel configuration.
-	ConfigurationName pulumi.StringPtrInput
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns pulumi.StringArrayInput
-	// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-	IamRoleArn pulumi.StringPtrInput
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns pulumi.StringArrayInput
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-	TeamId pulumi.StringPtrInput
-	// Name of the Microsoft Teams team.
-	TeamName pulumi.StringPtrInput
-	// ID of the Microsoft Teams tenant.
-	//
-	// The following arguments are optional:
-	TenantId pulumi.StringPtrInput
-	Timeouts TeamsChannelConfigurationTimeoutsPtrInput
-	// Enables use of a user role requirement in your chat configuration.
+	ChannelId                 pulumi.StringPtrInput
+	ChannelName               pulumi.StringPtrInput
+	ChatConfigurationArn      pulumi.StringPtrInput
+	ConfigurationName         pulumi.StringPtrInput
+	GuardrailPolicyArns       pulumi.StringArrayInput
+	IamRoleArn                pulumi.StringPtrInput
+	LoggingLevel              pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	SnsTopicArns              pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	TeamId                    pulumi.StringPtrInput
+	TeamName                  pulumi.StringPtrInput
+	TenantId                  pulumi.StringPtrInput
+	Timeouts                  TeamsChannelConfigurationTimeoutsPtrInput
 	UserAuthorizationRequired pulumi.BoolPtrInput
 }
 
@@ -217,67 +120,37 @@ func (TeamsChannelConfigurationState) ElementType() reflect.Type {
 }
 
 type teamsChannelConfigurationArgs struct {
-	// ID of the Microsoft Teams channel.
-	ChannelId string `pulumi:"channelId"`
-	// Name of the Microsoft Teams channel.
-	ChannelName *string `pulumi:"channelName"`
-	// Name of the Microsoft Teams channel configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns []string `pulumi:"guardrailPolicyArns"`
-	// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-	IamRoleArn string `pulumi:"iamRoleArn"`
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel *string `pulumi:"loggingLevel"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns []string `pulumi:"snsTopicArns"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-	TeamId string `pulumi:"teamId"`
-	// Name of the Microsoft Teams team.
-	TeamName *string `pulumi:"teamName"`
-	// ID of the Microsoft Teams tenant.
-	//
-	// The following arguments are optional:
-	TenantId string                             `pulumi:"tenantId"`
-	Timeouts *TeamsChannelConfigurationTimeouts `pulumi:"timeouts"`
-	// Enables use of a user role requirement in your chat configuration.
-	UserAuthorizationRequired *bool `pulumi:"userAuthorizationRequired"`
+	ChannelId                 string                             `pulumi:"channelId"`
+	ChannelName               *string                            `pulumi:"channelName"`
+	ConfigurationName         string                             `pulumi:"configurationName"`
+	GuardrailPolicyArns       []string                           `pulumi:"guardrailPolicyArns"`
+	IamRoleArn                string                             `pulumi:"iamRoleArn"`
+	LoggingLevel              *string                            `pulumi:"loggingLevel"`
+	Region                    *string                            `pulumi:"region"`
+	SnsTopicArns              []string                           `pulumi:"snsTopicArns"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	TeamId                    string                             `pulumi:"teamId"`
+	TeamName                  *string                            `pulumi:"teamName"`
+	TenantId                  string                             `pulumi:"tenantId"`
+	Timeouts                  *TeamsChannelConfigurationTimeouts `pulumi:"timeouts"`
+	UserAuthorizationRequired *bool                              `pulumi:"userAuthorizationRequired"`
 }
 
 // The set of arguments for constructing a TeamsChannelConfiguration resource.
 type TeamsChannelConfigurationArgs struct {
-	// ID of the Microsoft Teams channel.
-	ChannelId pulumi.StringInput
-	// Name of the Microsoft Teams channel.
-	ChannelName pulumi.StringPtrInput
-	// Name of the Microsoft Teams channel configuration.
-	ConfigurationName pulumi.StringInput
-	// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
-	GuardrailPolicyArns pulumi.StringArrayInput
-	// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
-	IamRoleArn pulumi.StringInput
-	// Logging levels include `ERROR`, `INFO`, or `NONE`.
-	LoggingLevel pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
-	SnsTopicArns pulumi.StringArrayInput
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput
-	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
-	TeamId pulumi.StringInput
-	// Name of the Microsoft Teams team.
-	TeamName pulumi.StringPtrInput
-	// ID of the Microsoft Teams tenant.
-	//
-	// The following arguments are optional:
-	TenantId pulumi.StringInput
-	Timeouts TeamsChannelConfigurationTimeoutsPtrInput
-	// Enables use of a user role requirement in your chat configuration.
+	ChannelId                 pulumi.StringInput
+	ChannelName               pulumi.StringPtrInput
+	ConfigurationName         pulumi.StringInput
+	GuardrailPolicyArns       pulumi.StringArrayInput
+	IamRoleArn                pulumi.StringInput
+	LoggingLevel              pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
+	SnsTopicArns              pulumi.StringArrayInput
+	Tags                      pulumi.StringMapInput
+	TeamId                    pulumi.StringInput
+	TeamName                  pulumi.StringPtrInput
+	TenantId                  pulumi.StringInput
+	Timeouts                  TeamsChannelConfigurationTimeoutsPtrInput
 	UserAuthorizationRequired pulumi.BoolPtrInput
 }
 
@@ -368,74 +241,58 @@ func (o TeamsChannelConfigurationOutput) ToTeamsChannelConfigurationOutputWithCo
 	return o
 }
 
-// ID of the Microsoft Teams channel.
 func (o TeamsChannelConfigurationOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }
 
-// Name of the Microsoft Teams channel.
 func (o TeamsChannelConfigurationOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
-// ARN of the Microsoft Teams channel configuration.
 func (o TeamsChannelConfigurationOutput) ChatConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.ChatConfigurationArn }).(pulumi.StringOutput)
 }
 
-// Name of the Microsoft Teams channel configuration.
 func (o TeamsChannelConfigurationOutput) ConfigurationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.ConfigurationName }).(pulumi.StringOutput)
 }
 
-// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
 func (o TeamsChannelConfigurationOutput) GuardrailPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringArrayOutput { return v.GuardrailPolicyArns }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
 func (o TeamsChannelConfigurationOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// Logging levels include `ERROR`, `INFO`, or `NONE`.
 func (o TeamsChannelConfigurationOutput) LoggingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.LoggingLevel }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TeamsChannelConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 func (o TeamsChannelConfigurationOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringArrayOutput { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags assigned to the resource.
 func (o TeamsChannelConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TeamsChannelConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
 func (o TeamsChannelConfigurationOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
-// Name of the Microsoft Teams team.
 func (o TeamsChannelConfigurationOutput) TeamName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.TeamName }).(pulumi.StringOutput)
 }
 
-// ID of the Microsoft Teams tenant.
-//
-// The following arguments are optional:
 func (o TeamsChannelConfigurationOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -444,7 +301,6 @@ func (o TeamsChannelConfigurationOutput) Timeouts() TeamsChannelConfigurationTim
 	return o.ApplyT(func(v *TeamsChannelConfiguration) TeamsChannelConfigurationTimeoutsPtrOutput { return v.Timeouts }).(TeamsChannelConfigurationTimeoutsPtrOutput)
 }
 
-// Enables use of a user role requirement in your chat configuration.
 func (o TeamsChannelConfigurationOutput) UserAuthorizationRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.BoolOutput { return v.UserAuthorizationRequired }).(pulumi.BoolOutput)
 }

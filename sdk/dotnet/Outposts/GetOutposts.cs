@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Outposts
 {
     public static class GetOutposts
     {
-        /// <summary>
-        /// Provides details about multiple Outposts.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
-        ///     {
-        ///         SiteId = id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOutpostsResult> InvokeAsync(GetOutpostsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutpostsResult>("aws:outposts/getOutposts:getOutposts", args ?? new GetOutpostsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about multiple Outposts.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
-        ///     {
-        ///         SiteId = id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOutpostsResult> Invoke(GetOutpostsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostsResult>("aws:outposts/getOutposts:getOutposts", args ?? new GetOutpostsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about multiple Outposts.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutposts.Invoke(new()
-        ///     {
-        ///         SiteId = id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOutpostsResult> Invoke(GetOutpostsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostsResult>("aws:outposts/getOutposts:getOutposts", args ?? new GetOutpostsInvokeArgs(), options.WithDefaults());
     }
@@ -87,33 +24,18 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetOutpostsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Availability Zone name.
-        /// </summary>
         [Input("availabilityZone")]
         public string? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// Availability Zone identifier.
-        /// </summary>
         [Input("availabilityZoneId")]
         public string? AvailabilityZoneId { get; set; }
 
-        /// <summary>
-        /// AWS Account identifier of the Outpost owner.
-        /// </summary>
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Site identifier.
-        /// </summary>
         [Input("siteId")]
         public string? SiteId { get; set; }
 
@@ -125,33 +47,18 @@ namespace Pulumi.Aws.Outposts
 
     public sealed class GetOutpostsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Availability Zone name.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// Availability Zone identifier.
-        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
-        /// <summary>
-        /// AWS Account identifier of the Outpost owner.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Site identifier.
-        /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
 
@@ -165,9 +72,6 @@ namespace Pulumi.Aws.Outposts
     [OutputType]
     public sealed class GetOutpostsResult
     {
-        /// <summary>
-        /// Set of Amazon Resource Names (ARNs).
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly string AvailabilityZone;
         public readonly string AvailabilityZoneId;
@@ -175,9 +79,6 @@ namespace Pulumi.Aws.Outposts
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string OwnerId;
         public readonly string Region;

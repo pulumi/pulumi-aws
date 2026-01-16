@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class GuardrailTopicPolicyConfigTopicsConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Definition of topic in topic policy.
-        /// </summary>
         [Input("definition", required: true)]
         public Input<string> Definition { get; set; } = null!;
 
         [Input("examples")]
         private InputList<string>? _examples;
-
-        /// <summary>
-        /// List of text examples.
-        /// </summary>
         public InputList<string> Examples
         {
             get => _examples ?? (_examples = new InputList<string>());
             set => _examples = value;
         }
 
-        /// <summary>
-        /// Name of topic in topic policy.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Type of topic in a policy.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -13,33 +13,12 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainRuleBasedMatching
     {
-        /// <summary>
-        /// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
-        /// </summary>
         public readonly Outputs.DomainRuleBasedMatchingAttributeTypesSelector? AttributeTypesSelector;
-        /// <summary>
-        /// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
-        /// </summary>
         public readonly Outputs.DomainRuleBasedMatchingConflictResolution? ConflictResolution;
-        /// <summary>
-        /// The flag that enables the rule-based matching process of duplicate profiles.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
-        /// </summary>
         public readonly Outputs.DomainRuleBasedMatchingExportingConfig? ExportingConfig;
-        /// <summary>
-        /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `Rule` in the `NatchingRules`. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DomainRuleBasedMatchingMatchingRule> MatchingRules;
-        /// <summary>
-        /// Indicates the maximum allowed rule level for matching.
-        /// </summary>
         public readonly int? MaxAllowedRuleLevelForMatching;
-        /// <summary>
-        /// Indicates the maximum allowed rule level for merging.
-        /// </summary>
         public readonly int? MaxAllowedRuleLevelForMerging;
         public readonly string? Status;
 

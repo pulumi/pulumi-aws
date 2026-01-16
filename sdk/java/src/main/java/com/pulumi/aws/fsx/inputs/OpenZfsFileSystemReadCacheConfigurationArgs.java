@@ -16,32 +16,16 @@ public final class OpenZfsFileSystemReadCacheConfigurationArgs extends com.pulum
 
     public static final OpenZfsFileSystemReadCacheConfigurationArgs Empty = new OpenZfsFileSystemReadCacheConfigurationArgs();
 
-    /**
-     * Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
-     * 
-     */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
-    /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
-     * 
-     */
     public Optional<Output<Integer>> size() {
         return Optional.ofNullable(this.size);
     }
 
-    /**
-     * Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-     * 
-     */
     @Import(name="sizingMode")
     private @Nullable Output<String> sizingMode;
 
-    /**
-     * @return Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-     * 
-     */
     public Optional<Output<String>> sizingMode() {
         return Optional.ofNullable(this.sizingMode);
     }
@@ -71,44 +55,20 @@ public final class OpenZfsFileSystemReadCacheConfigurationArgs extends com.pulum
             $ = new OpenZfsFileSystemReadCacheConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(@Nullable Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }
 
-        /**
-         * @param sizingMode Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizingMode(@Nullable Output<String> sizingMode) {
             $.sizingMode = sizingMode;
             return this;
         }
 
-        /**
-         * @param sizingMode Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizingMode(String sizingMode) {
             return sizingMode(Output.of(sizingMode));
         }

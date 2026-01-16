@@ -42,25 +42,6 @@ class DeploymentGroupArgs:
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
-        :param pulumi.Input[_builtins.str] app_name: The name of the application.
-        :param pulumi.Input[_builtins.str] deployment_group_name: The name of the deployment group.
-        :param pulumi.Input[_builtins.str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input['DeploymentGroupAlarmConfigurationArgs'] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
-        :param pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs'] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
-        :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs'] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        :param pulumi.Input['DeploymentGroupDeploymentStyleArgs'] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        :param pulumi.Input['DeploymentGroupEcsServiceArgs'] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
-        :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
-        :param pulumi.Input[_builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         pulumi.set(__self__, "app_name", app_name)
         pulumi.set(__self__, "deployment_group_name", deployment_group_name)
@@ -101,9 +82,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="appName")
     def app_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "app_name")
 
     @app_name.setter
@@ -113,9 +91,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentGroupName")
     def deployment_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the deployment group.
-        """
         return pulumi.get(self, "deployment_group_name")
 
     @deployment_group_name.setter
@@ -125,9 +100,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The service role ARN that allows deployments.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -137,9 +109,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="alarmConfiguration")
     def alarm_configuration(self) -> Optional[pulumi.Input['DeploymentGroupAlarmConfigurationArgs']]:
-        """
-        Configuration block of alarms associated with the deployment group (documented below).
-        """
         return pulumi.get(self, "alarm_configuration")
 
     @alarm_configuration.setter
@@ -149,9 +118,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="autoRollbackConfiguration")
     def auto_rollback_configuration(self) -> Optional[pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs']]:
-        """
-        Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        """
         return pulumi.get(self, "auto_rollback_configuration")
 
     @auto_rollback_configuration.setter
@@ -161,9 +127,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Autoscaling groups associated with the deployment group.
-        """
         return pulumi.get(self, "autoscaling_groups")
 
     @autoscaling_groups.setter
@@ -173,9 +136,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="blueGreenDeploymentConfig")
     def blue_green_deployment_config(self) -> Optional[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs']]:
-        """
-        Configuration block of the blue/green deployment options for a deployment group (documented below).
-        """
         return pulumi.get(self, "blue_green_deployment_config")
 
     @blue_green_deployment_config.setter
@@ -185,9 +145,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
@@ -197,9 +154,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentStyle")
     def deployment_style(self) -> Optional[pulumi.Input['DeploymentGroupDeploymentStyleArgs']]:
-        """
-        Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        """
         return pulumi.get(self, "deployment_style")
 
     @deployment_style.setter
@@ -209,9 +163,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="ec2TagFilters")
     def ec2_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
-        """
-        Tag filters associated with the deployment group. See the AWS docs for details.
-        """
         return pulumi.get(self, "ec2_tag_filters")
 
     @ec2_tag_filters.setter
@@ -221,9 +172,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="ec2TagSets")
     def ec2_tag_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]]]:
-        """
-        Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        """
         return pulumi.get(self, "ec2_tag_sets")
 
     @ec2_tag_sets.setter
@@ -233,9 +181,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="ecsService")
     def ecs_service(self) -> Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']]:
-        """
-        Configuration block(s) of the ECS services for a deployment group (documented below).
-        """
         return pulumi.get(self, "ecs_service")
 
     @ecs_service.setter
@@ -245,9 +190,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancerInfo")
     def load_balancer_info(self) -> Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']]:
-        """
-        Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        """
         return pulumi.get(self, "load_balancer_info")
 
     @load_balancer_info.setter
@@ -257,9 +199,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="onPremisesInstanceTagFilters")
     def on_premises_instance_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]:
-        """
-        On premise tag filters associated with the group. See the AWS docs for details.
-        """
         return pulumi.get(self, "on_premises_instance_tag_filters")
 
     @on_premises_instance_tag_filters.setter
@@ -269,9 +208,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="outdatedInstancesStrategy")
     def outdated_instances_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        """
         return pulumi.get(self, "outdated_instances_strategy")
 
     @outdated_instances_strategy.setter
@@ -281,9 +217,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -293,9 +226,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -305,9 +235,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="terminationHookEnabled")
     def termination_hook_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        """
         return pulumi.get(self, "termination_hook_enabled")
 
     @termination_hook_enabled.setter
@@ -317,9 +244,6 @@ class DeploymentGroupArgs:
     @_builtins.property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]]:
-        """
-        Configuration block(s) of the triggers for the deployment group (documented below).
-        """
         return pulumi.get(self, "trigger_configurations")
 
     @trigger_configurations.setter
@@ -355,29 +279,6 @@ class _DeploymentGroupState:
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
         Input properties used for looking up and filtering DeploymentGroup resources.
-        :param pulumi.Input['DeploymentGroupAlarmConfigurationArgs'] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
-        :param pulumi.Input[_builtins.str] app_name: The name of the application.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the CodeDeploy deployment group.
-        :param pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs'] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
-        :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs'] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
-        :param pulumi.Input[_builtins.str] compute_platform: The destination platform type for the deployment.
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        :param pulumi.Input[_builtins.str] deployment_group_id: The ID of the CodeDeploy deployment group.
-        :param pulumi.Input[_builtins.str] deployment_group_name: The name of the deployment group.
-        :param pulumi.Input['DeploymentGroupDeploymentStyleArgs'] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        :param pulumi.Input['DeploymentGroupEcsServiceArgs'] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
-        :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
-        :param pulumi.Input[_builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         if alarm_configuration is not None:
             pulumi.set(__self__, "alarm_configuration", alarm_configuration)
@@ -429,9 +330,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="alarmConfiguration")
     def alarm_configuration(self) -> Optional[pulumi.Input['DeploymentGroupAlarmConfigurationArgs']]:
-        """
-        Configuration block of alarms associated with the deployment group (documented below).
-        """
         return pulumi.get(self, "alarm_configuration")
 
     @alarm_configuration.setter
@@ -441,9 +339,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="appName")
     def app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "app_name")
 
     @app_name.setter
@@ -453,9 +348,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the CodeDeploy deployment group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -465,9 +357,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="autoRollbackConfiguration")
     def auto_rollback_configuration(self) -> Optional[pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs']]:
-        """
-        Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        """
         return pulumi.get(self, "auto_rollback_configuration")
 
     @auto_rollback_configuration.setter
@@ -477,9 +366,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Autoscaling groups associated with the deployment group.
-        """
         return pulumi.get(self, "autoscaling_groups")
 
     @autoscaling_groups.setter
@@ -489,9 +375,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="blueGreenDeploymentConfig")
     def blue_green_deployment_config(self) -> Optional[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigArgs']]:
-        """
-        Configuration block of the blue/green deployment options for a deployment group (documented below).
-        """
         return pulumi.get(self, "blue_green_deployment_config")
 
     @blue_green_deployment_config.setter
@@ -501,9 +384,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The destination platform type for the deployment.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -513,9 +393,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
@@ -525,9 +402,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="deploymentGroupId")
     def deployment_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the CodeDeploy deployment group.
-        """
         return pulumi.get(self, "deployment_group_id")
 
     @deployment_group_id.setter
@@ -537,9 +411,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="deploymentGroupName")
     def deployment_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the deployment group.
-        """
         return pulumi.get(self, "deployment_group_name")
 
     @deployment_group_name.setter
@@ -549,9 +420,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="deploymentStyle")
     def deployment_style(self) -> Optional[pulumi.Input['DeploymentGroupDeploymentStyleArgs']]:
-        """
-        Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        """
         return pulumi.get(self, "deployment_style")
 
     @deployment_style.setter
@@ -561,9 +429,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="ec2TagFilters")
     def ec2_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
-        """
-        Tag filters associated with the deployment group. See the AWS docs for details.
-        """
         return pulumi.get(self, "ec2_tag_filters")
 
     @ec2_tag_filters.setter
@@ -573,9 +438,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="ec2TagSets")
     def ec2_tag_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetArgs']]]]:
-        """
-        Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        """
         return pulumi.get(self, "ec2_tag_sets")
 
     @ec2_tag_sets.setter
@@ -585,9 +447,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="ecsService")
     def ecs_service(self) -> Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']]:
-        """
-        Configuration block(s) of the ECS services for a deployment group (documented below).
-        """
         return pulumi.get(self, "ecs_service")
 
     @ecs_service.setter
@@ -597,9 +456,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerInfo")
     def load_balancer_info(self) -> Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']]:
-        """
-        Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        """
         return pulumi.get(self, "load_balancer_info")
 
     @load_balancer_info.setter
@@ -609,9 +465,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="onPremisesInstanceTagFilters")
     def on_premises_instance_tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]:
-        """
-        On premise tag filters associated with the group. See the AWS docs for details.
-        """
         return pulumi.get(self, "on_premises_instance_tag_filters")
 
     @on_premises_instance_tag_filters.setter
@@ -621,9 +474,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="outdatedInstancesStrategy")
     def outdated_instances_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        """
         return pulumi.get(self, "outdated_instances_strategy")
 
     @outdated_instances_strategy.setter
@@ -633,9 +483,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -645,9 +492,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The service role ARN that allows deployments.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -657,9 +501,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -669,9 +510,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -681,9 +519,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="terminationHookEnabled")
     def termination_hook_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        """
         return pulumi.get(self, "termination_hook_enabled")
 
     @termination_hook_enabled.setter
@@ -693,9 +528,6 @@ class _DeploymentGroupState:
     @_builtins.property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]]:
-        """
-        Configuration block(s) of the triggers for the deployment group (documented below).
-        """
         return pulumi.get(self, "trigger_configurations")
 
     @trigger_configurations.setter
@@ -730,181 +562,9 @@ class DeploymentGroup(pulumi.CustomResource):
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a CodeDeploy Deployment Group for a CodeDeploy Application
-
-        > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["codedeploy.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example = aws.iam.Role("example",
-            name="example-role",
-            assume_role_policy=assume_role.json)
-        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("AWSCodeDeployRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-            role=example.name)
-        example_application = aws.codedeploy.Application("example", name="example-app")
-        example_topic = aws.sns.Topic("example", name="example-topic")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=example.arn,
-            ec2_tag_sets=[{
-                "ec2_tag_filters": [
-                    {
-                        "key": "filterkey1",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
-                    {
-                        "key": "filterkey2",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
-                ],
-            }],
-            trigger_configurations=[{
-                "trigger_events": ["DeploymentFailure"],
-                "trigger_name": "example-trigger",
-                "trigger_target_arn": example_topic.arn,
-            }],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
-            outdated_instances_strategy="UPDATE")
-        ```
-
-        ### Blue Green Deployments with ECS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example",
-            compute_platform="ECS",
-            name="example")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
-            service_role_arn=example_aws_iam_role["arn"],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            blue_green_deployment_config={
-                "deployment_ready_option": {
-                    "action_on_timeout": "CONTINUE_DEPLOYMENT",
-                },
-                "terminate_blue_instances_on_deployment_success": {
-                    "action": "TERMINATE",
-                    "termination_wait_time_in_minutes": 5,
-                },
-            },
-            deployment_style={
-                "deployment_option": "WITH_TRAFFIC_CONTROL",
-                "deployment_type": "BLUE_GREEN",
-            },
-            ecs_service={
-                "cluster_name": example_aws_ecs_cluster["name"],
-                "service_name": example_aws_ecs_service["name"],
-            },
-            load_balancer_info={
-                "target_group_pair_info": {
-                    "prod_traffic_route": {
-                        "listener_arns": [example_aws_lb_listener["arn"]],
-                    },
-                    "target_groups": [
-                        {
-                            "name": blue["name"],
-                        },
-                        {
-                            "name": green["name"],
-                        },
-                    ],
-                },
-            })
-        ```
-
-        ### Blue Green Deployments with Servers and Classic ELB
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", name="example-app")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_group_name="example-group",
-            service_role_arn=example_aws_iam_role["arn"],
-            deployment_style={
-                "deployment_option": "WITH_TRAFFIC_CONTROL",
-                "deployment_type": "BLUE_GREEN",
-            },
-            load_balancer_info={
-                "elb_infos": [{
-                    "name": example_aws_elb["name"],
-                }],
-            },
-            blue_green_deployment_config={
-                "deployment_ready_option": {
-                    "action_on_timeout": "STOP_DEPLOYMENT",
-                    "wait_time_in_minutes": 60,
-                },
-                "green_fleet_provisioning_option": {
-                    "action": "DISCOVER_EXISTING",
-                },
-                "terminate_blue_instances_on_deployment_success": {
-                    "action": "KEEP_ALIVE",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-        ```
-
+        Create a DeploymentGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
-        :param pulumi.Input[_builtins.str] app_name: The name of the application.
-        :param pulumi.Input[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict']] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
-        :param pulumi.Input[Union['DeploymentGroupBlueGreenDeploymentConfigArgs', 'DeploymentGroupBlueGreenDeploymentConfigArgsDict']] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        :param pulumi.Input[_builtins.str] deployment_group_name: The name of the deployment group.
-        :param pulumi.Input[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']]]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        :param pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
-        :param pulumi.Input[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupOnPremisesInstanceTagFilterArgs', 'DeploymentGroupOnPremisesInstanceTagFilterArgsDict']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
-        :param pulumi.Input[_builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         ...
     @overload
@@ -913,160 +573,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  args: DeploymentGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeDeploy Deployment Group for a CodeDeploy Application
-
-        > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["codedeploy.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example = aws.iam.Role("example",
-            name="example-role",
-            assume_role_policy=assume_role.json)
-        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("AWSCodeDeployRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-            role=example.name)
-        example_application = aws.codedeploy.Application("example", name="example-app")
-        example_topic = aws.sns.Topic("example", name="example-topic")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=example.arn,
-            ec2_tag_sets=[{
-                "ec2_tag_filters": [
-                    {
-                        "key": "filterkey1",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
-                    {
-                        "key": "filterkey2",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
-                ],
-            }],
-            trigger_configurations=[{
-                "trigger_events": ["DeploymentFailure"],
-                "trigger_name": "example-trigger",
-                "trigger_target_arn": example_topic.arn,
-            }],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
-            outdated_instances_strategy="UPDATE")
-        ```
-
-        ### Blue Green Deployments with ECS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example",
-            compute_platform="ECS",
-            name="example")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
-            service_role_arn=example_aws_iam_role["arn"],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            blue_green_deployment_config={
-                "deployment_ready_option": {
-                    "action_on_timeout": "CONTINUE_DEPLOYMENT",
-                },
-                "terminate_blue_instances_on_deployment_success": {
-                    "action": "TERMINATE",
-                    "termination_wait_time_in_minutes": 5,
-                },
-            },
-            deployment_style={
-                "deployment_option": "WITH_TRAFFIC_CONTROL",
-                "deployment_type": "BLUE_GREEN",
-            },
-            ecs_service={
-                "cluster_name": example_aws_ecs_cluster["name"],
-                "service_name": example_aws_ecs_service["name"],
-            },
-            load_balancer_info={
-                "target_group_pair_info": {
-                    "prod_traffic_route": {
-                        "listener_arns": [example_aws_lb_listener["arn"]],
-                    },
-                    "target_groups": [
-                        {
-                            "name": blue["name"],
-                        },
-                        {
-                            "name": green["name"],
-                        },
-                    ],
-                },
-            })
-        ```
-
-        ### Blue Green Deployments with Servers and Classic ELB
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", name="example-app")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("example",
-            app_name=example.name,
-            deployment_group_name="example-group",
-            service_role_arn=example_aws_iam_role["arn"],
-            deployment_style={
-                "deployment_option": "WITH_TRAFFIC_CONTROL",
-                "deployment_type": "BLUE_GREEN",
-            },
-            load_balancer_info={
-                "elb_infos": [{
-                    "name": example_aws_elb["name"],
-                }],
-            },
-            blue_green_deployment_config={
-                "deployment_ready_option": {
-                    "action_on_timeout": "STOP_DEPLOYMENT",
-                    "wait_time_in_minutes": 60,
-                },
-                "green_fleet_provisioning_option": {
-                    "action": "DISCOVER_EXISTING",
-                },
-                "terminate_blue_instances_on_deployment_success": {
-                    "action": "KEEP_ALIVE",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
-
-        ```sh
-        $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-        ```
-
+        Create a DeploymentGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1179,29 +686,6 @@ class DeploymentGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
-        :param pulumi.Input[_builtins.str] app_name: The name of the application.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the CodeDeploy deployment group.
-        :param pulumi.Input[Union['DeploymentGroupAutoRollbackConfigurationArgs', 'DeploymentGroupAutoRollbackConfigurationArgsDict']] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
-        :param pulumi.Input[Union['DeploymentGroupBlueGreenDeploymentConfigArgs', 'DeploymentGroupBlueGreenDeploymentConfigArgsDict']] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
-        :param pulumi.Input[_builtins.str] compute_platform: The destination platform type for the deployment.
-        :param pulumi.Input[_builtins.str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        :param pulumi.Input[_builtins.str] deployment_group_id: The ID of the CodeDeploy deployment group.
-        :param pulumi.Input[_builtins.str] deployment_group_name: The name of the deployment group.
-        :param pulumi.Input[Union['DeploymentGroupDeploymentStyleArgs', 'DeploymentGroupDeploymentStyleArgsDict']] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagFilterArgs', 'DeploymentGroupEc2TagFilterArgsDict']]]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupEc2TagSetArgs', 'DeploymentGroupEc2TagSetArgsDict']]]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        :param pulumi.Input[Union['DeploymentGroupEcsServiceArgs', 'DeploymentGroupEcsServiceArgsDict']] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
-        :param pulumi.Input[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupOnPremisesInstanceTagFilterArgs', 'DeploymentGroupOnPremisesInstanceTagFilterArgsDict']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
-        :param pulumi.Input[_builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1235,184 +719,115 @@ class DeploymentGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="alarmConfiguration")
     def alarm_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentGroupAlarmConfiguration']]:
-        """
-        Configuration block of alarms associated with the deployment group (documented below).
-        """
         return pulumi.get(self, "alarm_configuration")
 
     @_builtins.property
     @pulumi.getter(name="appName")
     def app_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "app_name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the CodeDeploy deployment group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoRollbackConfiguration")
     def auto_rollback_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentGroupAutoRollbackConfiguration']]:
-        """
-        Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        """
         return pulumi.get(self, "auto_rollback_configuration")
 
     @_builtins.property
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Autoscaling groups associated with the deployment group.
-        """
         return pulumi.get(self, "autoscaling_groups")
 
     @_builtins.property
     @pulumi.getter(name="blueGreenDeploymentConfig")
     def blue_green_deployment_config(self) -> pulumi.Output['outputs.DeploymentGroupBlueGreenDeploymentConfig']:
-        """
-        Configuration block of the blue/green deployment options for a deployment group (documented below).
-        """
         return pulumi.get(self, "blue_green_deployment_config")
 
     @_builtins.property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[_builtins.str]:
-        """
-        The destination platform type for the deployment.
-        """
         return pulumi.get(self, "compute_platform")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-        """
         return pulumi.get(self, "deployment_config_name")
 
     @_builtins.property
     @pulumi.getter(name="deploymentGroupId")
     def deployment_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the CodeDeploy deployment group.
-        """
         return pulumi.get(self, "deployment_group_id")
 
     @_builtins.property
     @pulumi.getter(name="deploymentGroupName")
     def deployment_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the deployment group.
-        """
         return pulumi.get(self, "deployment_group_name")
 
     @_builtins.property
     @pulumi.getter(name="deploymentStyle")
     def deployment_style(self) -> pulumi.Output[Optional['outputs.DeploymentGroupDeploymentStyle']]:
-        """
-        Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        """
         return pulumi.get(self, "deployment_style")
 
     @_builtins.property
     @pulumi.getter(name="ec2TagFilters")
     def ec2_tag_filters(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']]]:
-        """
-        Tag filters associated with the deployment group. See the AWS docs for details.
-        """
         return pulumi.get(self, "ec2_tag_filters")
 
     @_builtins.property
     @pulumi.getter(name="ec2TagSets")
     def ec2_tag_sets(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEc2TagSet']]]:
-        """
-        Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-        """
         return pulumi.get(self, "ec2_tag_sets")
 
     @_builtins.property
     @pulumi.getter(name="ecsService")
     def ecs_service(self) -> pulumi.Output[Optional['outputs.DeploymentGroupEcsService']]:
-        """
-        Configuration block(s) of the ECS services for a deployment group (documented below).
-        """
         return pulumi.get(self, "ecs_service")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerInfo")
     def load_balancer_info(self) -> pulumi.Output[Optional['outputs.DeploymentGroupLoadBalancerInfo']]:
-        """
-        Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        """
         return pulumi.get(self, "load_balancer_info")
 
     @_builtins.property
     @pulumi.getter(name="onPremisesInstanceTagFilters")
     def on_premises_instance_tag_filters(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupOnPremisesInstanceTagFilter']]]:
-        """
-        On premise tag filters associated with the group. See the AWS docs for details.
-        """
         return pulumi.get(self, "on_premises_instance_tag_filters")
 
     @_builtins.property
     @pulumi.getter(name="outdatedInstancesStrategy")
     def outdated_instances_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        """
         return pulumi.get(self, "outdated_instances_strategy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The service role ARN that allows deployments.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="terminationHookEnabled")
     def termination_hook_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
-        """
         return pulumi.get(self, "termination_hook_enabled")
 
     @_builtins.property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupTriggerConfiguration']]]:
-        """
-        Configuration block(s) of the triggers for the deployment group (documented below).
-        """
         return pulumi.get(self, "trigger_configurations")
 

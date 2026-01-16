@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class GetSigningProfileSigningMaterialResult
     {
-        /// <summary>
-        /// ARN of the certificate used for signing.
-        /// </summary>
         public readonly string CertificateArn;
 
         [OutputConstructor]

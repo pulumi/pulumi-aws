@@ -14,28 +14,17 @@ namespace Pulumi.Aws.BcmData.Inputs
     {
         [Input("dataQueries")]
         private InputList<Inputs.ExportExportDataQueryArgs>? _dataQueries;
-
-        /// <summary>
-        /// Data query for this specific data export. See the `DataQuery` argument reference below.
-        /// </summary>
         public InputList<Inputs.ExportExportDataQueryArgs> DataQueries
         {
             get => _dataQueries ?? (_dataQueries = new InputList<Inputs.ExportExportDataQueryArgs>());
             set => _dataQueries = value;
         }
 
-        /// <summary>
-        /// Description for this specific data export.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destinationConfigurations")]
         private InputList<Inputs.ExportExportDestinationConfigurationArgs>? _destinationConfigurations;
-
-        /// <summary>
-        /// Destination configuration for this specific data export. See the `DestinationConfigurations` argument reference below.
-        /// </summary>
         public InputList<Inputs.ExportExportDestinationConfigurationArgs> DestinationConfigurations
         {
             get => _destinationConfigurations ?? (_destinationConfigurations = new InputList<Inputs.ExportExportDestinationConfigurationArgs>());
@@ -45,18 +34,11 @@ namespace Pulumi.Aws.BcmData.Inputs
         [Input("exportArn")]
         public Input<string>? ExportArn { get; set; }
 
-        /// <summary>
-        /// Name of this specific data export.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("refreshCadences")]
         private InputList<Inputs.ExportExportRefreshCadenceArgs>? _refreshCadences;
-
-        /// <summary>
-        /// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `RefreshCadence` argument reference below.
-        /// </summary>
         public InputList<Inputs.ExportExportRefreshCadenceArgs> RefreshCadences
         {
             get => _refreshCadences ?? (_refreshCadences = new InputList<Inputs.ExportExportRefreshCadenceArgs>());

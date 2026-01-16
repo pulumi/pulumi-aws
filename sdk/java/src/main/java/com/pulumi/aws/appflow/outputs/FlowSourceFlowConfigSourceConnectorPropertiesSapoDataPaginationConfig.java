@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
-    /**
-     * @return he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-     * 
-     */
     private Integer maxPageSize;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig() {}
-    /**
-     * @return he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-     * 
-     */
     public Integer maxPageSize() {
         return this.maxPageSize;
     }

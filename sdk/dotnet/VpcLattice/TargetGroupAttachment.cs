@@ -9,52 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VpcLattice
 {
-    /// <summary>
-    /// Provides the ability to register a target with an AWS VPC Lattice Target Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.TargetGroupAttachment("example", new()
-    ///     {
-    ///         TargetGroupIdentifier = exampleAwsVpclatticeTargetGroup.Id,
-    ///         Target = new Aws.VpcLattice.Inputs.TargetGroupAttachmentTargetArgs
-    ///         {
-    ///             Id = exampleAwsLb.Arn,
-    ///             Port = 80,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The target.
-        /// </summary>
         [Output("target")]
         public Output<Outputs.TargetGroupAttachmentTarget> Target { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the target group.
-        /// </summary>
         [Output("targetGroupIdentifier")]
         public Output<string> TargetGroupIdentifier { get; private set; } = null!;
 
@@ -104,21 +67,12 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class TargetGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The target.
-        /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.TargetGroupAttachmentTargetArgs> Target { get; set; } = null!;
 
-        /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the target group.
-        /// </summary>
         [Input("targetGroupIdentifier", required: true)]
         public Input<string> TargetGroupIdentifier { get; set; } = null!;
 
@@ -130,21 +84,12 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class TargetGroupAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The target.
-        /// </summary>
         [Input("target")]
         public Input<Inputs.TargetGroupAttachmentTargetGetArgs>? Target { get; set; }
 
-        /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the target group.
-        /// </summary>
         [Input("targetGroupIdentifier")]
         public Input<string>? TargetGroupIdentifier { get; set; }
 

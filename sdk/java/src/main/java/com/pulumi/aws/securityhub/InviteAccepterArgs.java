@@ -16,32 +16,16 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final InviteAccepterArgs Empty = new InviteAccepterArgs();
 
-    /**
-     * The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-     * 
-     */
     @Import(name="masterId", required=true)
     private Output<String> masterId;
 
-    /**
-     * @return The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-     * 
-     */
     public Output<String> masterId() {
         return this.masterId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -71,44 +55,20 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
             $ = new InviteAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param masterId The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterId(Output<String> masterId) {
             $.masterId = masterId;
             return this;
         }
 
-        /**
-         * @param masterId The account ID of the master Security Hub account whose invitation you&#39;re accepting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterId(String masterId) {
             return masterId(Output.of(masterId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

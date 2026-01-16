@@ -40,9 +40,6 @@ class GetRulesPackagesResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -73,34 +70,7 @@ class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
 def get_rules_packages(region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesPackagesResult:
     """
-    The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
-    Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
-    configured in the provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    rules = aws.inspector.get_rules_packages()
-    # e.g., Use in aws_inspector_assessment_template
-    group = aws.inspector.ResourceGroup("group", tags={
-        "test": "test",
-    })
-    assessment = aws.inspector.AssessmentTarget("assessment",
-        name="test",
-        resource_group_arn=group.arn)
-    assessment_assessment_template = aws.inspector.AssessmentTemplate("assessment",
-        name="Test",
-        target_arn=assessment.arn,
-        duration=60,
-        rules_package_arns=rules.arns)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -114,34 +84,7 @@ def get_rules_packages(region: Optional[_builtins.str] = None,
 def get_rules_packages_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesPackagesResult]:
     """
-    The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
-    Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
-    configured in the provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    rules = aws.inspector.get_rules_packages()
-    # e.g., Use in aws_inspector_assessment_template
-    group = aws.inspector.ResourceGroup("group", tags={
-        "test": "test",
-    })
-    assessment = aws.inspector.AssessmentTarget("assessment",
-        name="test",
-        resource_group_arn=group.arn)
-    assessment_assessment_template = aws.inspector.AssessmentTemplate("assessment",
-        name="Test",
-        target_arn=assessment.arn,
-        duration=60,
-        rules_package_arns=rules.arns)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

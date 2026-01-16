@@ -16,53 +16,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataLakeConfiguration {
-    /**
-     * @return Provides encryption details of Amazon Security Lake object.
-     * 
-     */
     private @Nullable List<DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations;
-    /**
-     * @return Provides lifecycle details of Amazon Security Lake object.
-     * 
-     */
     private @Nullable DataLakeConfigurationLifecycleConfiguration lifecycleConfiguration;
-    /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
-     * 
-     */
     private String region;
-    /**
-     * @return Provides replication details of Amazon Security Lake object.
-     * 
-     */
     private @Nullable DataLakeConfigurationReplicationConfiguration replicationConfiguration;
 
     private DataLakeConfiguration() {}
-    /**
-     * @return Provides encryption details of Amazon Security Lake object.
-     * 
-     */
     public List<DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations == null ? List.of() : this.encryptionConfigurations;
     }
-    /**
-     * @return Provides lifecycle details of Amazon Security Lake object.
-     * 
-     */
     public Optional<DataLakeConfigurationLifecycleConfiguration> lifecycleConfiguration() {
         return Optional.ofNullable(this.lifecycleConfiguration);
     }
-    /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Provides replication details of Amazon Security Lake object.
-     * 
-     */
     public Optional<DataLakeConfigurationReplicationConfiguration> replicationConfiguration() {
         return Optional.ofNullable(this.replicationConfiguration);
     }

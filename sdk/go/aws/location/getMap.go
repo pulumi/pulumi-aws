@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Location Service Map.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupMap(ctx, &location.LookupMapArgs{
-//				MapName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOption) (*LookupMapResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMapResult
@@ -50,32 +23,23 @@ func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getMap.
 type LookupMapArgs struct {
-	// Name of the map resource.
-	MapName string `pulumi:"mapName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the map.
-	Tags map[string]string `pulumi:"tags"`
+	MapName string            `pulumi:"mapName"`
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getMap.
 type LookupMapResult struct {
-	// List of configurations that specify the map tile style selected from a partner data provider.
 	Configurations []GetMapConfiguration `pulumi:"configurations"`
-	// Timestamp for when the map resource was created in ISO 8601 format.
-	CreateTime string `pulumi:"createTime"`
-	// Optional description for the map resource.
-	Description string `pulumi:"description"`
+	CreateTime     string                `pulumi:"createTime"`
+	Description    string                `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN for the map resource.
-	MapArn  string `pulumi:"mapArn"`
-	MapName string `pulumi:"mapName"`
-	Region  string `pulumi:"region"`
-	// Key-value map of resource tags for the map.
-	Tags map[string]string `pulumi:"tags"`
-	// Timestamp for when the map resource was last updated in ISO 8601 format.
-	UpdateTime string `pulumi:"updateTime"`
+	Id         string            `pulumi:"id"`
+	MapArn     string            `pulumi:"mapArn"`
+	MapName    string            `pulumi:"mapName"`
+	Region     string            `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
+	UpdateTime string            `pulumi:"updateTime"`
 }
 
 func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
@@ -89,12 +53,9 @@ func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getMap.
 type LookupMapOutputArgs struct {
-	// Name of the map resource.
-	MapName pulumi.StringInput `pulumi:"mapName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags for the map.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	MapName pulumi.StringInput    `pulumi:"mapName"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
+	Tags    pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupMapOutputArgs) ElementType() reflect.Type {
@@ -116,17 +77,14 @@ func (o LookupMapResultOutput) ToLookupMapResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of configurations that specify the map tile style selected from a partner data provider.
 func (o LookupMapResultOutput) Configurations() GetMapConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupMapResult) []GetMapConfiguration { return v.Configurations }).(GetMapConfigurationArrayOutput)
 }
 
-// Timestamp for when the map resource was created in ISO 8601 format.
 func (o LookupMapResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// Optional description for the map resource.
 func (o LookupMapResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -136,7 +94,6 @@ func (o LookupMapResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN for the map resource.
 func (o LookupMapResultOutput) MapArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.MapArn }).(pulumi.StringOutput)
 }
@@ -149,12 +106,10 @@ func (o LookupMapResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the map.
 func (o LookupMapResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupMapResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Timestamp for when the map resource was last updated in ISO 8601 format.
 func (o LookupMapResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

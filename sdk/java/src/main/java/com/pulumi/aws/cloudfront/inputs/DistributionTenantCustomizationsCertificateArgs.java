@@ -15,17 +15,9 @@ public final class DistributionTenantCustomizationsCertificateArgs extends com.p
 
     public static final DistributionTenantCustomizationsCertificateArgs Empty = new DistributionTenantCustomizationsCertificateArgs();
 
-    /**
-     * ARN of the distribution tenant.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the distribution tenant.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -54,23 +46,11 @@ public final class DistributionTenantCustomizationsCertificateArgs extends com.p
             $ = new DistributionTenantCustomizationsCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

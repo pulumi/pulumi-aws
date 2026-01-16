@@ -11,80 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing AWS Audit Manager Account Registration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAccountRegistration(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Deregister On Destroy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAccountRegistration(ctx, "example", &auditmanager.AccountRegistrationArgs{
-//				DeregisterOnDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
-// ```
 type AccountRegistration struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the delegated administrator account.
 	DelegatedAdminAccount pulumi.StringPtrOutput `pulumi:"delegatedAdminAccount"`
-	// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-	DeregisterOnDestroy pulumi.BoolPtrOutput `pulumi:"deregisterOnDestroy"`
-	// KMS key identifier.
-	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the account registration request.
-	Status pulumi.StringOutput `pulumi:"status"`
+	DeregisterOnDestroy   pulumi.BoolPtrOutput   `pulumi:"deregisterOnDestroy"`
+	KmsKey                pulumi.StringPtrOutput `pulumi:"kmsKey"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	Status                pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewAccountRegistration registers a new resource with the given unique name, arguments, and options.
@@ -117,29 +51,19 @@ func GetAccountRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountRegistration resources.
 type accountRegistrationState struct {
-	// Identifier for the delegated administrator account.
 	DelegatedAdminAccount *string `pulumi:"delegatedAdminAccount"`
-	// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-	DeregisterOnDestroy *bool `pulumi:"deregisterOnDestroy"`
-	// KMS key identifier.
-	KmsKey *string `pulumi:"kmsKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the account registration request.
-	Status *string `pulumi:"status"`
+	DeregisterOnDestroy   *bool   `pulumi:"deregisterOnDestroy"`
+	KmsKey                *string `pulumi:"kmsKey"`
+	Region                *string `pulumi:"region"`
+	Status                *string `pulumi:"status"`
 }
 
 type AccountRegistrationState struct {
-	// Identifier for the delegated administrator account.
 	DelegatedAdminAccount pulumi.StringPtrInput
-	// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-	DeregisterOnDestroy pulumi.BoolPtrInput
-	// KMS key identifier.
-	KmsKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the account registration request.
-	Status pulumi.StringPtrInput
+	DeregisterOnDestroy   pulumi.BoolPtrInput
+	KmsKey                pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Status                pulumi.StringPtrInput
 }
 
 func (AccountRegistrationState) ElementType() reflect.Type {
@@ -147,26 +71,18 @@ func (AccountRegistrationState) ElementType() reflect.Type {
 }
 
 type accountRegistrationArgs struct {
-	// Identifier for the delegated administrator account.
 	DelegatedAdminAccount *string `pulumi:"delegatedAdminAccount"`
-	// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-	DeregisterOnDestroy *bool `pulumi:"deregisterOnDestroy"`
-	// KMS key identifier.
-	KmsKey *string `pulumi:"kmsKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DeregisterOnDestroy   *bool   `pulumi:"deregisterOnDestroy"`
+	KmsKey                *string `pulumi:"kmsKey"`
+	Region                *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccountRegistration resource.
 type AccountRegistrationArgs struct {
-	// Identifier for the delegated administrator account.
 	DelegatedAdminAccount pulumi.StringPtrInput
-	// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-	DeregisterOnDestroy pulumi.BoolPtrInput
-	// KMS key identifier.
-	KmsKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	DeregisterOnDestroy   pulumi.BoolPtrInput
+	KmsKey                pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 }
 
 func (AccountRegistrationArgs) ElementType() reflect.Type {
@@ -256,27 +172,22 @@ func (o AccountRegistrationOutput) ToAccountRegistrationOutputWithContext(ctx co
 	return o
 }
 
-// Identifier for the delegated administrator account.
 func (o AccountRegistrationOutput) DelegatedAdminAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountRegistration) pulumi.StringPtrOutput { return v.DelegatedAdminAccount }).(pulumi.StringPtrOutput)
 }
 
-// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
 func (o AccountRegistrationOutput) DeregisterOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountRegistration) pulumi.BoolPtrOutput { return v.DeregisterOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// KMS key identifier.
 func (o AccountRegistrationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountRegistration) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountRegistrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountRegistration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the account registration request.
 func (o AccountRegistrationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountRegistration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

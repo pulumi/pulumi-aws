@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Audit Manager Assessment Report.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.auditmanager.AssessmentReport("test", {
- *     name: "example",
- *     assessmentId: testAwsAuditmanagerAssessment.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
- * ```
- */
 export class AssessmentReport extends pulumi.CustomResource {
     /**
      * Get an existing AssessmentReport resource's state with the given name, ID, and optional extra
@@ -57,31 +32,11 @@ export class AssessmentReport extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssessmentReport.__pulumiType;
     }
 
-    /**
-     * Unique identifier of the assessment to create the report from.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly assessmentId: pulumi.Output<string>;
-    /**
-     * Name of the user who created the assessment report.
-     */
     declare public /*out*/ readonly author: pulumi.Output<string>;
-    /**
-     * Description of the assessment report.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the assessment report.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
@@ -124,31 +79,11 @@ export class AssessmentReport extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AssessmentReport resources.
  */
 export interface AssessmentReportState {
-    /**
-     * Unique identifier of the assessment to create the report from.
-     *
-     * The following arguments are optional:
-     */
     assessmentId?: pulumi.Input<string>;
-    /**
-     * Name of the user who created the assessment report.
-     */
     author?: pulumi.Input<string>;
-    /**
-     * Description of the assessment report.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the assessment report.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -156,22 +91,8 @@ export interface AssessmentReportState {
  * The set of arguments for constructing a AssessmentReport resource.
  */
 export interface AssessmentReportArgs {
-    /**
-     * Unique identifier of the assessment to create the report from.
-     *
-     * The following arguments are optional:
-     */
     assessmentId: pulumi.Input<string>;
-    /**
-     * Description of the assessment report.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the assessment report.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

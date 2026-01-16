@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelContainerModelDataSourceS3DataSource {
-    /**
-     * @return How the model data is prepared. Allowed values are: `None` and `Gzip`.
-     * 
-     */
     private String compressionType;
-    /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
-     * 
-     */
     private @Nullable ModelContainerModelDataSourceS3DataSourceModelAccessConfig modelAccessConfig;
-    /**
-     * @return Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-     * 
-     */
     private String s3DataType;
-    /**
-     * @return The S3 path of model data to deploy.
-     * 
-     */
     private String s3Uri;
 
     private ModelContainerModelDataSourceS3DataSource() {}
-    /**
-     * @return How the model data is prepared. Allowed values are: `None` and `Gzip`.
-     * 
-     */
     public String compressionType() {
         return this.compressionType;
     }
-    /**
-     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. See Model Access Config.
-     * 
-     */
     public Optional<ModelContainerModelDataSourceS3DataSourceModelAccessConfig> modelAccessConfig() {
         return Optional.ofNullable(this.modelAccessConfig);
     }
-    /**
-     * @return Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-     * 
-     */
     public String s3DataType() {
         return this.s3DataType;
     }
-    /**
-     * @return The S3 path of model data to deploy.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

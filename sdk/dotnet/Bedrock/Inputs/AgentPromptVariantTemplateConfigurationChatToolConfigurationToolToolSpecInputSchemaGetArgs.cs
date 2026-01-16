@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A JSON object defining the input schema for the tool.
-        /// </summary>
         [Input("json")]
         public Input<string>? Json { get; set; }
 

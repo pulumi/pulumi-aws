@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FrameworkControlSetControl {
-    /**
-     * @return Unique identifier of the control.
-     * 
-     */
     private String id;
 
     private FrameworkControlSetControl() {}
-    /**
-     * @return Unique identifier of the control.
-     * 
-     */
     public String id() {
         return this.id;
     }

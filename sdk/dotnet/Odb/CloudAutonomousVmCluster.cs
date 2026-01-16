@@ -9,132 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Odb
 {
-    /// <summary>
-    /// Resource managing cloud autonomous vm cluster in AWS for Oracle Database@AWS.
-    /// 
-    /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var avmcWithMinimumParameters = new Aws.Odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters", new()
-    ///     {
-    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
-    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
-    ///         DisplayName = "my_autonomous_vm_cluster",
-    ///         AutonomousDataStorageSizeInTbs = 5,
-    ///         MemoryPerOracleComputeUnitInGbs = 2,
-    ///         TotalContainerDatabases = 1,
-    ///         CpuCoreCountPerNode = 40,
-    ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DbServers = new[]
-    ///         {
-    ///             "&lt;my_db_server_id&gt;",
-    ///         },
-    ///         ScanListenerPortTls = 8561,
-    ///         ScanListenerPortNonTls = 1024,
-    ///         MaintenanceWindow = new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs
-    ///         {
-    ///             Preference = "NO_PREFERENCE",
-    ///         },
-    ///     });
-    /// 
-    ///     var avmcWithAllParams = new Aws.Odb.CloudAutonomousVmCluster("avmc_with_all_params", new()
-    ///     {
-    ///         Description = "my first avmc",
-    ///         TimeZone = "UTC",
-    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
-    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
-    ///         DisplayName = "my_autonomous_vm_cluster",
-    ///         AutonomousDataStorageSizeInTbs = 5,
-    ///         MemoryPerOracleComputeUnitInGbs = 2,
-    ///         TotalContainerDatabases = 1,
-    ///         CpuCoreCountPerNode = 40,
-    ///         LicenseModel = "LICENSE_INCLUDED",
-    ///         DbServers = new[]
-    ///         {
-    ///             "&lt;my_db_server_1&gt;",
-    ///             "&lt;my_db_server_2&gt;",
-    ///         },
-    ///         ScanListenerPortTls = 8561,
-    ///         ScanListenerPortNonTls = 1024,
-    ///         MaintenanceWindow = new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowArgs
-    ///         {
-    ///             DaysOfWeeks = new[]
-    ///             {
-    ///                 new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs
-    ///                 {
-    ///                     Name = "MONDAY",
-    ///                 },
-    ///                 new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs
-    ///                 {
-    ///                     Name = "TUESDAY",
-    ///                 },
-    ///             },
-    ///             HoursOfDays = new[]
-    ///             {
-    ///                 4,
-    ///                 16,
-    ///             },
-    ///             LeadTimeInWeeks = 3,
-    ///             Months = new[]
-    ///             {
-    ///                 new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthArgs
-    ///                 {
-    ///                     Name = "FEBRUARY",
-    ///                 },
-    ///                 new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthArgs
-    ///                 {
-    ///                     Name = "MAY",
-    ///                 },
-    ///                 new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthArgs
-    ///                 {
-    ///                     Name = "AUGUST",
-    ///                 },
-    ///                 new Aws.Odb.Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthArgs
-    ///                 {
-    ///                     Name = "NOVEMBER",
-    ///                 },
-    ///             },
-    ///             Preference = "CUSTOM_PREFERENCE",
-    ///             WeeksOfMonths = new[]
-    ///             {
-    ///                 2,
-    ///                 4,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "env", "dev" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import cloud autonomous vm cluster `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster")]
     public partial class CloudAutonomousVmCluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -160,7 +37,7 @@ namespace Pulumi.Aws.Odb
         public Output<int> AvailableContainerDatabases { get; private set; } = null!;
 
         /// <summary>
-        /// The number of CPU cores available for allocation to Autonomous Databases.
+        /// The number of CPU cores available for allocation to Autonomous Databases
         /// </summary>
         [Output("availableCpus")]
         public Output<double> AvailableCpus { get; private set; } = null!;
@@ -301,7 +178,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> OdbNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        /// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
         /// </summary>
         [Output("odbNodeStorageSizeInGbs")]
         public Output<int> OdbNodeStorageSizeInGbs { get; private set; } = null!;
@@ -336,9 +213,6 @@ namespace Pulumi.Aws.Odb
         [Output("reclaimableCpus")]
         public Output<double> ReclaimableCpus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -361,7 +235,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> Shape { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+        /// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -372,15 +246,9 @@ namespace Pulumi.Aws.Odb
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The combined set of user-defined and provider-defined tags.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -390,9 +258,6 @@ namespace Pulumi.Aws.Odb
         [Output("timeDatabaseSslCertificateExpires")]
         public Output<string> TimeDatabaseSslCertificateExpires { get; private set; } = null!;
 
-        /// <summary>
-        /// The expiration date and time of the ORDS certificate.
-        /// </summary>
         [Output("timeOrdsCertificateExpires")]
         public Output<string> TimeOrdsCertificateExpires { get; private set; } = null!;
 
@@ -498,9 +363,6 @@ namespace Pulumi.Aws.Odb
         [Input("odbNetworkId", required: true)]
         public Input<string> OdbNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -512,10 +374,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -539,9 +397,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class CloudAutonomousVmClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -567,7 +422,7 @@ namespace Pulumi.Aws.Odb
         public Input<int>? AvailableContainerDatabases { get; set; }
 
         /// <summary>
-        /// The number of CPU cores available for allocation to Autonomous Databases.
+        /// The number of CPU cores available for allocation to Autonomous Databases
         /// </summary>
         [Input("availableCpus")]
         public Input<double>? AvailableCpus { get; set; }
@@ -713,7 +568,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? OdbNetworkId { get; set; }
 
         /// <summary>
-        /// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        /// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
         /// </summary>
         [Input("odbNodeStorageSizeInGbs")]
         public Input<int>? OdbNodeStorageSizeInGbs { get; set; }
@@ -748,9 +603,6 @@ namespace Pulumi.Aws.Odb
         [Input("reclaimableCpus")]
         public Input<double>? ReclaimableCpus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -773,7 +625,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Shape { get; set; }
 
         /// <summary>
-        /// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+        /// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -786,10 +638,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -798,10 +646,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// The combined set of user-defined and provider-defined tags.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -814,9 +658,6 @@ namespace Pulumi.Aws.Odb
         [Input("timeDatabaseSslCertificateExpires")]
         public Input<string>? TimeDatabaseSslCertificateExpires { get; set; }
 
-        /// <summary>
-        /// The expiration date and time of the ORDS certificate.
-        /// </summary>
         [Input("timeOrdsCertificateExpires")]
         public Input<string>? TimeOrdsCertificateExpires { get; set; }
 

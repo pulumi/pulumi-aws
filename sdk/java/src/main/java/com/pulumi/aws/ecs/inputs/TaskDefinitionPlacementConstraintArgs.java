@@ -16,32 +16,16 @@ public final class TaskDefinitionPlacementConstraintArgs extends com.pulumi.reso
 
     public static final TaskDefinitionPlacementConstraintArgs Empty = new TaskDefinitionPlacementConstraintArgs();
 
-    /**
-     * Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class TaskDefinitionPlacementConstraintArgs extends com.pulumi.reso
             $ = new TaskDefinitionPlacementConstraintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expression Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param type Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

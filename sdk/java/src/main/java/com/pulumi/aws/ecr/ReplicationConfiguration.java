@@ -15,218 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Replication Configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionsArgs;
- * import com.pulumi.aws.ecr.ReplicationConfiguration;
- * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var example = AwsFunctions.getRegions(GetRegionsArgs.builder()
- *             .build());
- * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
- *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
- *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(example.names()[0])
- *                         .registryId(current.accountId())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Multiple Region Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionsArgs;
- * import com.pulumi.aws.ecr.ReplicationConfiguration;
- * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var example = AwsFunctions.getRegions(GetRegionsArgs.builder()
- *             .build());
- * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
- *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
- *                     .destinations(                    
- *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(example.names()[0])
- *                             .registryId(current.accountId())
- *                             .build(),
- *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(example.names()[1])
- *                             .registryId(current.accountId())
- *                             .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Repository Filter Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionsArgs;
- * import com.pulumi.aws.ecr.ReplicationConfiguration;
- * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var example = AwsFunctions.getRegions(GetRegionsArgs.builder()
- *             .build());
- * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
- *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
- *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(example.names()[0])
- *                         .registryId(current.accountId())
- *                         .build())
- *                     .repositoryFilters(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter("prod-microservice")
- *                         .filterType("PREFIX_MATCH")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/replicationConfiguration:ReplicationConfiguration")
 public class ReplicationConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The registry ID where the replication configuration was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the replication configuration was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     * 
-     */
     @Export(name="replicationConfiguration", refs={ReplicationConfigurationReplicationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ReplicationConfigurationReplicationConfiguration> replicationConfiguration;
 
-    /**
-     * @return Replication configuration for a registry. See Replication Configuration.
-     * 
-     */
     public Output<Optional<ReplicationConfigurationReplicationConfiguration>> replicationConfiguration() {
         return Codegen.optional(this.replicationConfiguration);
     }

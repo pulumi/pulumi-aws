@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
-    /**
-     * @return The text of a description for a column.
-     * 
-     */
     private @Nullable String text;
 
     private DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription() {}
-    /**
-     * @return The text of a description for a column.
-     * 
-     */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }

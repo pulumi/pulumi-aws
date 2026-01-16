@@ -12,73 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivs"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "./public-key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivs.NewPlaybackKeyPair(ctx, "example", &ivs.PlaybackKeyPairArgs{
-//				PublicKey: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
-//
-// Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
-//
-// % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
 type PlaybackKeyPair struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Playback Key Pair.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Key-pair identifier.
-	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// Playback Key Pair name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-	//
-	// The following arguments are optional:
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Fingerprint pulumi.StringOutput    `pulumi:"fingerprint"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	PublicKey   pulumi.StringOutput    `pulumi:"publicKey"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPlaybackKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -114,41 +57,23 @@ func GetPlaybackKeyPair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlaybackKeyPair resources.
 type playbackKeyPairState struct {
-	// ARN of the Playback Key Pair.
-	Arn *string `pulumi:"arn"`
-	// Key-pair identifier.
-	Fingerprint *string `pulumi:"fingerprint"`
-	// Playback Key Pair name.
-	Name *string `pulumi:"name"`
-	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-	//
-	// The following arguments are optional:
-	PublicKey *string `pulumi:"publicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Fingerprint *string           `pulumi:"fingerprint"`
+	Name        *string           `pulumi:"name"`
+	PublicKey   *string           `pulumi:"publicKey"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type PlaybackKeyPairState struct {
-	// ARN of the Playback Key Pair.
-	Arn pulumi.StringPtrInput
-	// Key-pair identifier.
+	Arn         pulumi.StringPtrInput
 	Fingerprint pulumi.StringPtrInput
-	// Playback Key Pair name.
-	Name pulumi.StringPtrInput
-	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-	//
-	// The following arguments are optional:
-	PublicKey pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	PublicKey   pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (PlaybackKeyPairState) ElementType() reflect.Type {
@@ -156,30 +81,18 @@ func (PlaybackKeyPairState) ElementType() reflect.Type {
 }
 
 type playbackKeyPairArgs struct {
-	// Playback Key Pair name.
-	Name *string `pulumi:"name"`
-	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-	//
-	// The following arguments are optional:
-	PublicKey string `pulumi:"publicKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name      *string           `pulumi:"name"`
+	PublicKey string            `pulumi:"publicKey"`
+	Region    *string           `pulumi:"region"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaybackKeyPair resource.
 type PlaybackKeyPairArgs struct {
-	// Playback Key Pair name.
-	Name pulumi.StringPtrInput
-	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-	//
-	// The following arguments are optional:
+	Name      pulumi.StringPtrInput
 	PublicKey pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region    pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
 }
 
 func (PlaybackKeyPairArgs) ElementType() reflect.Type {
@@ -269,39 +182,30 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the Playback Key Pair.
 func (o PlaybackKeyPairOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Key-pair identifier.
 func (o PlaybackKeyPairOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// Playback Key Pair name.
 func (o PlaybackKeyPairOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
-//
-// The following arguments are optional:
 func (o PlaybackKeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PlaybackKeyPairOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PlaybackKeyPairOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlaybackKeyPairOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

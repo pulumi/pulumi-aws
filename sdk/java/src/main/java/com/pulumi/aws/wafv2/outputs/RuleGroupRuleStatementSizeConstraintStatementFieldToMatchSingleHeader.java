@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
-    /**
-     * @return The name of the query header to inspect. This setting must be provided as lower case characters.
-     * 
-     */
     private String name;
 
     private RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader() {}
-    /**
-     * @return The name of the query header to inspect. This setting must be provided as lower case characters.
-     * 
-     */
     public String name() {
         return this.name;
     }

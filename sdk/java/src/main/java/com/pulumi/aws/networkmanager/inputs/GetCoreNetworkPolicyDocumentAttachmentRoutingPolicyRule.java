@@ -19,77 +19,37 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule exten
 
     public static final GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule Empty = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule();
 
-    /**
-     * Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     @Import(name="action", required=true)
     private GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction action;
 
-    /**
-     * @return Block defining the action to take when conditions match. Detailed below.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction action() {
         return this.action;
     }
 
-    /**
-     * A block argument. Detailed below.
-     * 
-     */
     @Import(name="conditions", required=true)
     private List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition> conditions;
 
-    /**
-     * @return A block argument. Detailed below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition> conditions() {
         return this.conditions;
     }
 
-    /**
-     * A user-defined description that further helps identify the rule.
-     * 
-     */
     @Import(name="description")
     private @Nullable String description;
 
-    /**
-     * @return A user-defined description that further helps identify the rule.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * A set of AWS Region codes where this rule applies.
-     * 
-     */
     @Import(name="edgeLocations")
     private @Nullable List<String> edgeLocations;
 
-    /**
-     * @return A set of AWS Region codes where this rule applies.
-     * 
-     */
     public Optional<List<String>> edgeLocations() {
         return Optional.ofNullable(this.edgeLocations);
     }
 
-    /**
-     * An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
-     * 
-     */
     @Import(name="ruleNumber", required=true)
     private Integer ruleNumber;
 
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }
@@ -122,76 +82,34 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule exten
             $ = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRule(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Block defining the action to take when conditions match. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param conditions A block argument. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(List<GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions A block argument. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param description A user-defined description that further helps identify the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable String description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param edgeLocations A set of AWS Region codes where this rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(@Nullable List<String> edgeLocations) {
             $.edgeLocations = edgeLocations;
             return this;
         }
 
-        /**
-         * @param edgeLocations A set of AWS Region codes where this rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(String... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
 
-        /**
-         * @param ruleNumber An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Integer ruleNumber) {
             $.ruleNumber = ruleNumber;
             return this;

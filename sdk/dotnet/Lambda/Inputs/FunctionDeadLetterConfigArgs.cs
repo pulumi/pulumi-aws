@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionDeadLetterConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of an SNS topic or SQS queue to notify when an invocation fails.
-        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 

@@ -35,21 +35,6 @@ class EnvironmentArgs:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where the environment exists.
-        :param pulumi.Input[_builtins.str] profile_identifier: The ID of the profile with which the environment is created.
-        :param pulumi.Input[_builtins.str] project_identifier: The ID of the project where the environment exists.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] account_identifier: The ID of the Amazon Web Services account where the environment exists
-        :param pulumi.Input[_builtins.str] account_region: The Amazon Web Services region where the environment exists.
-        :param pulumi.Input[_builtins.str] blueprint_identifier: The blueprint with which the environment is created.
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment.
-               See User Parameters for more information.
-               Changing these values recreates the resource.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "profile_identifier", profile_identifier)
@@ -76,9 +61,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the domain where the environment exists.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -88,9 +70,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="profileIdentifier")
     def profile_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the profile with which the environment is created.
-        """
         return pulumi.get(self, "profile_identifier")
 
     @profile_identifier.setter
@@ -100,11 +79,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="projectIdentifier")
     def project_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the project where the environment exists.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "project_identifier")
 
     @project_identifier.setter
@@ -114,9 +88,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Amazon Web Services account where the environment exists
-        """
         return pulumi.get(self, "account_identifier")
 
     @account_identifier.setter
@@ -126,9 +97,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="accountRegion")
     def account_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Web Services region where the environment exists.
-        """
         return pulumi.get(self, "account_region")
 
     @account_region.setter
@@ -138,9 +106,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="blueprintIdentifier")
     def blueprint_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The blueprint with which the environment is created.
-        """
         return pulumi.get(self, "blueprint_identifier")
 
     @blueprint_identifier.setter
@@ -150,9 +115,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the environment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -162,9 +124,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The business glossary terms that can be used in this environment.
-        """
         return pulumi.get(self, "glossary_terms")
 
     @glossary_terms.setter
@@ -174,9 +133,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -186,9 +142,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -207,11 +160,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]]:
-        """
-        The user parameters that are used in the environment.
-        See User Parameters for more information.
-        Changing these values recreates the resource.
-        """
         return pulumi.get(self, "user_parameters")
 
     @user_parameters.setter
@@ -241,25 +189,6 @@ class _EnvironmentState:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
-        :param pulumi.Input[_builtins.str] account_identifier: The ID of the Amazon Web Services account where the environment exists
-        :param pulumi.Input[_builtins.str] account_region: The Amazon Web Services region where the environment exists.
-        :param pulumi.Input[_builtins.str] blueprint_identifier: The blueprint with which the environment is created.
-        :param pulumi.Input[_builtins.str] created_at: The time the environment was created.
-        :param pulumi.Input[_builtins.str] created_by: The user who created the environment.
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where the environment exists.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentArgs']]] last_deployments: The details of the last deployment of the environment.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] profile_identifier: The ID of the profile with which the environment is created.
-        :param pulumi.Input[_builtins.str] project_identifier: The ID of the project where the environment exists.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] provider_environment: The provider of the environment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment.
-               See User Parameters for more information.
-               Changing these values recreates the resource.
         """
         if account_identifier is not None:
             pulumi.set(__self__, "account_identifier", account_identifier)
@@ -299,9 +228,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Amazon Web Services account where the environment exists
-        """
         return pulumi.get(self, "account_identifier")
 
     @account_identifier.setter
@@ -311,9 +237,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="accountRegion")
     def account_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Web Services region where the environment exists.
-        """
         return pulumi.get(self, "account_region")
 
     @account_region.setter
@@ -323,9 +246,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="blueprintIdentifier")
     def blueprint_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The blueprint with which the environment is created.
-        """
         return pulumi.get(self, "blueprint_identifier")
 
     @blueprint_identifier.setter
@@ -335,9 +255,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The time the environment was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -347,9 +264,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user who created the environment.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -359,9 +273,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the environment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -371,9 +282,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the domain where the environment exists.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -383,9 +291,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The business glossary terms that can be used in this environment.
-        """
         return pulumi.get(self, "glossary_terms")
 
     @glossary_terms.setter
@@ -395,9 +300,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="lastDeployments")
     def last_deployments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentArgs']]]]:
-        """
-        The details of the last deployment of the environment.
-        """
         return pulumi.get(self, "last_deployments")
 
     @last_deployments.setter
@@ -407,9 +309,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -419,9 +318,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="profileIdentifier")
     def profile_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the profile with which the environment is created.
-        """
         return pulumi.get(self, "profile_identifier")
 
     @profile_identifier.setter
@@ -431,11 +327,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="projectIdentifier")
     def project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the project where the environment exists.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "project_identifier")
 
     @project_identifier.setter
@@ -445,9 +336,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="providerEnvironment")
     def provider_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The provider of the environment.
-        """
         return pulumi.get(self, "provider_environment")
 
     @provider_environment.setter
@@ -466,9 +354,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -487,11 +372,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]]:
-        """
-        The user parameters that are used in the environment.
-        See User Parameters for more information.
-        Changing these values recreates the resource.
-        """
         return pulumi.get(self, "user_parameters")
 
     @user_parameters.setter
@@ -519,63 +399,9 @@ class Environment(pulumi.CustomResource):
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataZone Environment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datazone.Environment("example",
-            name="example",
-            blueprint_identifier=test["environmentBlueprintId"],
-            profile_identifier=test_aws_datazone_environment_profile["id"],
-            project_identifier=test_aws_datazone_project["id"],
-            domain_identifier=test_aws_datazone_domain["id"],
-            user_parameters=[
-                {
-                    "name": "consumerGlueDbName",
-                    "value": "consumer",
-                },
-                {
-                    "name": "producerGlueDbName",
-                    "value": "producer",
-                },
-                {
-                    "name": "workgroupName",
-                    "value": "workgroup",
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_identifier: The ID of the Amazon Web Services account where the environment exists
-        :param pulumi.Input[_builtins.str] account_region: The Amazon Web Services region where the environment exists.
-        :param pulumi.Input[_builtins.str] blueprint_identifier: The blueprint with which the environment is created.
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where the environment exists.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] profile_identifier: The ID of the profile with which the environment is created.
-        :param pulumi.Input[_builtins.str] project_identifier: The ID of the project where the environment exists.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment.
-               See User Parameters for more information.
-               Changing these values recreates the resource.
         """
         ...
     @overload
@@ -584,46 +410,7 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataZone Environment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datazone.Environment("example",
-            name="example",
-            blueprint_identifier=test["environmentBlueprintId"],
-            profile_identifier=test_aws_datazone_environment_profile["id"],
-            project_identifier=test_aws_datazone_project["id"],
-            domain_identifier=test_aws_datazone_domain["id"],
-            user_parameters=[
-                {
-                    "name": "consumerGlueDbName",
-                    "value": "consumer",
-                },
-                {
-                    "name": "producerGlueDbName",
-                    "value": "producer",
-                },
-                {
-                    "name": "workgroupName",
-                    "value": "workgroup",
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
-
-        ```sh
-        $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -717,25 +504,6 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_identifier: The ID of the Amazon Web Services account where the environment exists
-        :param pulumi.Input[_builtins.str] account_region: The Amazon Web Services region where the environment exists.
-        :param pulumi.Input[_builtins.str] blueprint_identifier: The blueprint with which the environment is created.
-        :param pulumi.Input[_builtins.str] created_at: The time the environment was created.
-        :param pulumi.Input[_builtins.str] created_by: The user who created the environment.
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where the environment exists.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict']]]] last_deployments: The details of the last deployment of the environment.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] profile_identifier: The ID of the profile with which the environment is created.
-        :param pulumi.Input[_builtins.str] project_identifier: The ID of the project where the environment exists.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] provider_environment: The provider of the environment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment.
-               See User Parameters for more information.
-               Changing these values recreates the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -763,107 +531,66 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the Amazon Web Services account where the environment exists
-        """
         return pulumi.get(self, "account_identifier")
 
     @_builtins.property
     @pulumi.getter(name="accountRegion")
     def account_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Web Services region where the environment exists.
-        """
         return pulumi.get(self, "account_region")
 
     @_builtins.property
     @pulumi.getter(name="blueprintIdentifier")
     def blueprint_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The blueprint with which the environment is created.
-        """
         return pulumi.get(self, "blueprint_identifier")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The time the environment was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user who created the environment.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the environment.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the domain where the environment exists.
-        """
         return pulumi.get(self, "domain_identifier")
 
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The business glossary terms that can be used in this environment.
-        """
         return pulumi.get(self, "glossary_terms")
 
     @_builtins.property
     @pulumi.getter(name="lastDeployments")
     def last_deployments(self) -> pulumi.Output[Sequence['outputs.EnvironmentLastDeployment']]:
-        """
-        The details of the last deployment of the environment.
-        """
         return pulumi.get(self, "last_deployments")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="profileIdentifier")
     def profile_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the profile with which the environment is created.
-        """
         return pulumi.get(self, "profile_identifier")
 
     @_builtins.property
     @pulumi.getter(name="projectIdentifier")
     def project_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the project where the environment exists.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "project_identifier")
 
     @_builtins.property
     @pulumi.getter(name="providerEnvironment")
     def provider_environment(self) -> pulumi.Output[_builtins.str]:
-        """
-        The provider of the environment.
-        """
         return pulumi.get(self, "provider_environment")
 
     @_builtins.property
@@ -874,9 +601,6 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -887,10 +611,5 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentUserParameter']]]:
-        """
-        The user parameters that are used in the environment.
-        See User Parameters for more information.
-        Changing these values recreates the resource.
-        """
         return pulumi.get(self, "user_parameters")
 

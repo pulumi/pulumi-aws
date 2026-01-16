@@ -61,9 +61,6 @@ class GetContactFlowResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Contact Flow.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -74,17 +71,11 @@ class GetContactFlowResult:
     @_builtins.property
     @pulumi.getter
     def content(self) -> _builtins.str:
-        """
-        Logic of the Contact Flow.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Contact Flow.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -113,17 +104,11 @@ class GetContactFlowResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags to assign to the Contact Flow.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of Contact Flow.
-        """
         return pulumi.get(self, "type")
 
 
@@ -153,39 +138,7 @@ def get_contact_flow(contact_flow_id: Optional[_builtins.str] = None,
                      type: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactFlowResult:
     """
-    Provides details about a specific Amazon Connect Contact Flow.
-
-    ## Example Usage
-
-    By name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By contact_flow_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Contact Flow by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags to assign to the Contact Flow.
-    :param _builtins.str type: Type of Contact Flow.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['contactFlowId'] = contact_flow_id
@@ -216,39 +169,7 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[_bui
                             type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowResult]:
     """
-    Provides details about a specific Amazon Connect Contact Flow.
-
-    ## Example Usage
-
-    By name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By contact_flow_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Contact Flow by name
-           
-           > **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags to assign to the Contact Flow.
-    :param _builtins.str type: Type of Contact Flow.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['contactFlowId'] = contact_flow_id

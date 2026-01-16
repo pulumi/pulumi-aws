@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevel {
-    /**
-     * @return S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics activityMetrics;
-    /**
-     * @return Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics advancedCostOptimizationMetrics;
-    /**
-     * @return Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics advancedDataProtectionMetrics;
-    /**
-     * @return S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-     * 
-     */
     private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel bucketLevel;
-    /**
-     * @return Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics detailedStatusCodeMetrics;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevel() {}
-    /**
-     * @return S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics> activityMetrics() {
         return Optional.ofNullable(this.activityMetrics);
     }
-    /**
-     * @return Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics> advancedCostOptimizationMetrics() {
         return Optional.ofNullable(this.advancedCostOptimizationMetrics);
     }
-    /**
-     * @return Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics> advancedDataProtectionMetrics() {
         return Optional.ofNullable(this.advancedDataProtectionMetrics);
     }
-    /**
-     * @return S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-     * 
-     */
     public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel bucketLevel() {
         return this.bucketLevel;
     }
-    /**
-     * @return Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics> detailedStatusCodeMetrics() {
         return Optional.ofNullable(this.detailedStatusCodeMetrics);
     }

@@ -24,13 +24,7 @@ MYPY = False
 if not MYPY:
     class GetResourcesTagFilterArgsDict(TypedDict):
         key: _builtins.str
-        """
-        One part of a key-value pair that makes up a tag.
-        """
         values: NotRequired[Sequence[_builtins.str]]
-        """
-        Optional part of a key-value pair that make up a tag.
-        """
 elif False:
     GetResourcesTagFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -39,10 +33,6 @@ class GetResourcesTagFilterArgs:
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str key: One part of a key-value pair that makes up a tag.
-        :param Sequence[_builtins.str] values: Optional part of a key-value pair that make up a tag.
-        """
         pulumi.set(__self__, "key", key)
         if values is not None:
             pulumi.set(__self__, "values", values)
@@ -50,9 +40,6 @@ class GetResourcesTagFilterArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        One part of a key-value pair that makes up a tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -62,9 +49,6 @@ class GetResourcesTagFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Optional part of a key-value pair that make up a tag.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

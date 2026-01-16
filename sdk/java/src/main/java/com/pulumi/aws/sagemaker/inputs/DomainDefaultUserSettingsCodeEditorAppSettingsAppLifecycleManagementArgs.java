@@ -15,17 +15,9 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleMan
 
     public static final DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs Empty = new DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs();
 
-    /**
-     * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     @Import(name="idleSettings")
     private @Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings;
 
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs>> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }
@@ -54,23 +46,11 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleMan
             $ = new DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(@Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings) {
             $.idleSettings = idleSettings;
             return this;
         }
 
-        /**
-         * @param idleSettings Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleSettings(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs idleSettings) {
             return idleSettings(Output.of(idleSettings));
         }

@@ -17,69 +17,35 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateState Empty = new TemplateState();
 
-    /**
-     * AWS Region to which the template applies.
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return AWS Region to which the template applies.
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
-    /**
-     * Indicates whether the quota is global.
-     * 
-     */
     @Import(name="globalQuota")
     private @Nullable Output<Boolean> globalQuota;
 
-    /**
-     * @return Indicates whether the quota is global.
-     * 
-     */
     public Optional<Output<Boolean>> globalQuota() {
         return Optional.ofNullable(this.globalQuota);
     }
 
-    /**
-     * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     * 
-     */
     @Import(name="quotaCode")
     private @Nullable Output<String> quotaCode;
 
-    /**
-     * @return Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-     * 
-     */
     public Optional<Output<String>> quotaCode() {
         return Optional.ofNullable(this.quotaCode);
     }
 
-    /**
-     * Quota name.
-     * 
-     */
     @Import(name="quotaName")
     private @Nullable Output<String> quotaName;
 
-    /**
-     * @return Quota name.
-     * 
-     */
     public Optional<Output<String>> quotaName() {
         return Optional.ofNullable(this.quotaName);
     }
 
     /**
-     * AWS Region to which the template applies. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -89,8 +55,6 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -100,62 +64,30 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     * 
-     */
     @Import(name="serviceCode")
     private @Nullable Output<String> serviceCode;
 
-    /**
-     * @return Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-     * 
-     */
     public Optional<Output<String>> serviceCode() {
         return Optional.ofNullable(this.serviceCode);
     }
 
-    /**
-     * Service name.
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
-    /**
-     * @return Service name.
-     * 
-     */
     public Optional<Output<String>> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
-    /**
-     * Unit of measurement.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Unit of measurement.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
 
-    /**
-     * The new, increased value for the quota.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Double> value;
 
-    /**
-     * @return The new, increased value for the quota.
-     * 
-     */
     public Optional<Output<Double>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -192,93 +124,43 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
             $ = new TemplateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion AWS Region to which the template applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion AWS Region to which the template applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param globalQuota Indicates whether the quota is global.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalQuota(@Nullable Output<Boolean> globalQuota) {
             $.globalQuota = globalQuota;
             return this;
         }
 
-        /**
-         * @param globalQuota Indicates whether the quota is global.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalQuota(Boolean globalQuota) {
             return globalQuota(Output.of(globalQuota));
         }
 
-        /**
-         * @param quotaCode Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(@Nullable Output<String> quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
 
-        /**
-         * @param quotaCode Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(String quotaCode) {
             return quotaCode(Output.of(quotaCode));
         }
 
-        /**
-         * @param quotaName Quota name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaName(@Nullable Output<String> quotaName) {
             $.quotaName = quotaName;
             return this;
         }
 
-        /**
-         * @param quotaName Quota name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaName(String quotaName) {
             return quotaName(Output.of(quotaName));
         }
 
         /**
-         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -292,8 +174,6 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -305,86 +185,38 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceCode Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(@Nullable Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
 
-        /**
-         * @param serviceCode Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(String serviceCode) {
             return serviceCode(Output.of(serviceCode));
         }
 
-        /**
-         * @param serviceName Service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
-        /**
-         * @param unit Unit of measurement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of measurement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value The new, increased value for the quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The new, increased value for the quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Override action to use, in place of the configured action of the rule in the rule group. See `Action` for details.
-        /// </summary>
         [Input("actionToUse", required: true)]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseGetArgs> ActionToUse { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

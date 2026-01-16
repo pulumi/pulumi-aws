@@ -11,31 +11,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionResult {
-    /**
-     * @return ARN of the connection.
-     * 
-     */
     private String arn;
-    /**
-     * @return ID of the second device in the connection.
-     * 
-     */
     private String connectedDeviceId;
-    /**
-     * @return ID of the link for the second device.
-     * 
-     */
     private String connectedLinkId;
     private String connectionId;
-    /**
-     * @return Description of the connection.
-     * 
-     */
     private String description;
-    /**
-     * @return ID of the first device in the connection.
-     * 
-     */
     private String deviceId;
     private String globalNetworkId;
     /**
@@ -43,53 +23,25 @@ public final class GetConnectionResult {
      * 
      */
     private String id;
-    /**
-     * @return ID of the link for the first device.
-     * 
-     */
     private String linkId;
-    /**
-     * @return Key-value tags for the connection.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetConnectionResult() {}
-    /**
-     * @return ARN of the connection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ID of the second device in the connection.
-     * 
-     */
     public String connectedDeviceId() {
         return this.connectedDeviceId;
     }
-    /**
-     * @return ID of the link for the second device.
-     * 
-     */
     public String connectedLinkId() {
         return this.connectedLinkId;
     }
     public String connectionId() {
         return this.connectionId;
     }
-    /**
-     * @return Description of the connection.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return ID of the first device in the connection.
-     * 
-     */
     public String deviceId() {
         return this.deviceId;
     }
@@ -103,17 +55,9 @@ public final class GetConnectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ID of the link for the first device.
-     * 
-     */
     public String linkId() {
         return this.linkId;
     }
-    /**
-     * @return Key-value tags for the connection.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

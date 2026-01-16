@@ -22,190 +22,86 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StageArgs Empty = new StageArgs();
 
-    /**
-     * Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
-     * 
-     */
     @Import(name="accessLogSettings")
     private @Nullable Output<StageAccessLogSettingsArgs> accessLogSettings;
 
-    /**
-     * @return Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
-     * 
-     */
     public Optional<Output<StageAccessLogSettingsArgs>> accessLogSettings() {
         return Optional.ofNullable(this.accessLogSettings);
     }
 
-    /**
-     * API identifier.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-     * 
-     */
     @Import(name="autoDeploy")
     private @Nullable Output<Boolean> autoDeploy;
 
-    /**
-     * @return Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-     * 
-     */
     public Optional<Output<Boolean>> autoDeploy() {
         return Optional.ofNullable(this.autoDeploy);
     }
 
-    /**
-     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
-     * 
-     */
     @Import(name="clientCertificateId")
     private @Nullable Output<String> clientCertificateId;
 
-    /**
-     * @return Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
-     * 
-     */
     public Optional<Output<String>> clientCertificateId() {
         return Optional.ofNullable(this.clientCertificateId);
     }
 
-    /**
-     * Default route settings for the stage.
-     * 
-     */
     @Import(name="defaultRouteSettings")
     private @Nullable Output<StageDefaultRouteSettingsArgs> defaultRouteSettings;
 
-    /**
-     * @return Default route settings for the stage.
-     * 
-     */
     public Optional<Output<StageDefaultRouteSettingsArgs>> defaultRouteSettings() {
         return Optional.ofNullable(this.defaultRouteSettings);
     }
 
-    /**
-     * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
-     * 
-     */
     @Import(name="deploymentId")
     private @Nullable Output<String> deploymentId;
 
-    /**
-     * @return Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
-     * 
-     */
     public Optional<Output<String>> deploymentId() {
         return Optional.ofNullable(this.deploymentId);
     }
 
-    /**
-     * Description for the stage. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description for the stage. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the stage. Must be between 1 and 128 characters in length.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the stage. Must be between 1 and 128 characters in length.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Route settings for the stage.
-     * 
-     */
     @Import(name="routeSettings")
     private @Nullable Output<List<StageRouteSettingArgs>> routeSettings;
 
-    /**
-     * @return Route settings for the stage.
-     * 
-     */
     public Optional<Output<List<StageRouteSettingArgs>>> routeSettings() {
         return Optional.ofNullable(this.routeSettings);
     }
 
-    /**
-     * Map that defines the stage variables for the stage.
-     * 
-     */
     @Import(name="stageVariables")
     private @Nullable Output<Map<String,String>> stageVariables;
 
-    /**
-     * @return Map that defines the stage variables for the stage.
-     * 
-     */
     public Optional<Output<Map<String,String>>> stageVariables() {
         return Optional.ofNullable(this.stageVariables);
     }
 
-    /**
-     * Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -245,272 +141,114 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
             $ = new StageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessLogSettings Settings for logging access in this stage.
-         * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessLogSettings(@Nullable Output<StageAccessLogSettingsArgs> accessLogSettings) {
             $.accessLogSettings = accessLogSettings;
             return this;
         }
 
-        /**
-         * @param accessLogSettings Settings for logging access in this stage.
-         * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessLogSettings(StageAccessLogSettingsArgs accessLogSettings) {
             return accessLogSettings(Output.of(accessLogSettings));
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param autoDeploy Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoDeploy(@Nullable Output<Boolean> autoDeploy) {
             $.autoDeploy = autoDeploy;
             return this;
         }
 
-        /**
-         * @param autoDeploy Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoDeploy(Boolean autoDeploy) {
             return autoDeploy(Output.of(autoDeploy));
         }
 
-        /**
-         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-         * Supported only for WebSocket APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientCertificateId(@Nullable Output<String> clientCertificateId) {
             $.clientCertificateId = clientCertificateId;
             return this;
         }
 
-        /**
-         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-         * Supported only for WebSocket APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientCertificateId(String clientCertificateId) {
             return clientCertificateId(Output.of(clientCertificateId));
         }
 
-        /**
-         * @param defaultRouteSettings Default route settings for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRouteSettings(@Nullable Output<StageDefaultRouteSettingsArgs> defaultRouteSettings) {
             $.defaultRouteSettings = defaultRouteSettings;
             return this;
         }
 
-        /**
-         * @param defaultRouteSettings Default route settings for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRouteSettings(StageDefaultRouteSettingsArgs defaultRouteSettings) {
             return defaultRouteSettings(Output.of(defaultRouteSettings));
         }
 
-        /**
-         * @param deploymentId Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentId(@Nullable Output<String> deploymentId) {
             $.deploymentId = deploymentId;
             return this;
         }
 
-        /**
-         * @param deploymentId Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentId(String deploymentId) {
             return deploymentId(Output.of(deploymentId));
         }
 
-        /**
-         * @param description Description for the stage. Must be less than or equal to 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description for the stage. Must be less than or equal to 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the stage. Must be between 1 and 128 characters in length.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the stage. Must be between 1 and 128 characters in length.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeSettings Route settings for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeSettings(@Nullable Output<List<StageRouteSettingArgs>> routeSettings) {
             $.routeSettings = routeSettings;
             return this;
         }
 
-        /**
-         * @param routeSettings Route settings for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeSettings(List<StageRouteSettingArgs> routeSettings) {
             return routeSettings(Output.of(routeSettings));
         }
 
-        /**
-         * @param routeSettings Route settings for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeSettings(StageRouteSettingArgs... routeSettings) {
             return routeSettings(List.of(routeSettings));
         }
 
-        /**
-         * @param stageVariables Map that defines the stage variables for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageVariables(@Nullable Output<Map<String,String>> stageVariables) {
             $.stageVariables = stageVariables;
             return this;
         }
 
-        /**
-         * @param stageVariables Map that defines the stage variables for the stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageVariables(Map<String,String> stageVariables) {
             return stageVariables(Output.of(stageVariables));
         }
 
-        /**
-         * @param tags Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -17,92 +17,44 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkflowArgs Empty = new WorkflowArgs();
 
-    /**
-     * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-     * 
-     */
     @Import(name="defaultRunProperties")
     private @Nullable Output<Map<String,String>> defaultRunProperties;
 
-    /**
-     * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-     * 
-     */
     public Optional<Output<Map<String,String>>> defaultRunProperties() {
         return Optional.ofNullable(this.defaultRunProperties);
     }
 
-    /**
-     * Description of the workflow.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the workflow.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-     * 
-     */
     @Import(name="maxConcurrentRuns")
     private @Nullable Output<Integer> maxConcurrentRuns;
 
-    /**
-     * @return Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentRuns() {
         return Optional.ofNullable(this.maxConcurrentRuns);
     }
 
-    /**
-     * The name you assign to this workflow.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name you assign to this workflow.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -136,128 +88,56 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
             $ = new WorkflowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultRunProperties A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRunProperties(@Nullable Output<Map<String,String>> defaultRunProperties) {
             $.defaultRunProperties = defaultRunProperties;
             return this;
         }
 
-        /**
-         * @param defaultRunProperties A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultRunProperties(Map<String,String> defaultRunProperties) {
             return defaultRunProperties(Output.of(defaultRunProperties));
         }
 
-        /**
-         * @param description Description of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param maxConcurrentRuns Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentRuns(@Nullable Output<Integer> maxConcurrentRuns) {
             $.maxConcurrentRuns = maxConcurrentRuns;
             return this;
         }
 
-        /**
-         * @param maxConcurrentRuns Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentRuns(Integer maxConcurrentRuns) {
             return maxConcurrentRuns(Output.of(maxConcurrentRuns));
         }
 
-        /**
-         * @param name The name you assign to this workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name you assign to this workflow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

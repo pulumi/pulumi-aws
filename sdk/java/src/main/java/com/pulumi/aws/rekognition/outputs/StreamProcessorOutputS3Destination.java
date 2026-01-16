@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorOutputS3Destination {
     /**
-     * @return Name of the Amazon S3 bucket you want to associate with the streaming video project.
+     * @return The name of the Amazon S3 bucket you want to associate with the streaming video project.
      * 
      */
     private @Nullable String bucket;
@@ -24,7 +24,7 @@ public final class StreamProcessorOutputS3Destination {
 
     private StreamProcessorOutputS3Destination() {}
     /**
-     * @return Name of the Amazon S3 bucket you want to associate with the streaming video project.
+     * @return The name of the Amazon S3 bucket you want to associate with the streaming video project.
      * 
      */
     public Optional<String> bucket() {

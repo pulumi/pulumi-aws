@@ -13,108 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing a Verified Access Instance Trust Provider Attachment.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedaccess.Instance;
- * import com.pulumi.aws.verifiedaccess.TrustProvider;
- * import com.pulumi.aws.verifiedaccess.TrustProviderArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.TrustProviderDeviceOptionsArgs;
- * import com.pulumi.aws.verifiedaccess.InstanceTrustProviderAttachment;
- * import com.pulumi.aws.verifiedaccess.InstanceTrustProviderAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Instance("example");
- * 
- *         var exampleTrustProvider = new TrustProvider("exampleTrustProvider", TrustProviderArgs.builder()
- *             .deviceTrustProviderType("jamf")
- *             .policyReferenceName("example")
- *             .trustProviderType("device")
- *             .deviceOptions(TrustProviderDeviceOptionsArgs.builder()
- *                 .tenantId("example")
- *                 .build())
- *             .build());
- * 
- *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", InstanceTrustProviderAttachmentArgs.builder()
- *             .verifiedaccessInstanceId(example.id())
- *             .verifiedaccessTrustProviderId(exampleTrustProvider.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
- * ```
- * 
- */
 @ResourceType(type="aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment")
 public class InstanceTrustProviderAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
-     * 
-     */
     @Export(name="verifiedaccessInstanceId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessInstanceId;
 
-    /**
-     * @return The ID of the Verified Access instance to attach the Trust Provider to.
-     * 
-     */
     public Output<String> verifiedaccessInstanceId() {
         return this.verifiedaccessInstanceId;
     }
-    /**
-     * The ID of the Verified Access trust provider.
-     * 
-     */
     @Export(name="verifiedaccessTrustProviderId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessTrustProviderId;
 
-    /**
-     * @return The ID of the Verified Access trust provider.
-     * 
-     */
     public Output<String> verifiedaccessTrustProviderId() {
         return this.verifiedaccessTrustProviderId;
     }

@@ -11,140 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Portal.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName:  pulumi.String("example-portal"),
-//				InstanceType: pulumi.String("standard.regular"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Complete Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS key for WorkSpaces Web Portal"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName:           pulumi.String("example-portal"),
-//				InstanceType:          pulumi.String("standard.large"),
-//				AuthenticationType:    pulumi.String("IAM_Identity_Center"),
-//				CustomerManagedKey:    example.Arn,
-//				MaxConcurrentSessions: pulumi.Int(10),
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-portal"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Portal using the `portal_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
-// ```
 type Portal struct {
 	pulumi.CustomResourceState
 
-	// Additional encryption context for the customer managed key. Forces replacement if changed.
-	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
-	// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// ARN of the browser settings to use for the portal.
-	BrowserSettingsArn pulumi.StringOutput `pulumi:"browserSettingsArn"`
-	// Browser type of the portal.
-	BrowserType pulumi.StringOutput `pulumi:"browserType"`
-	// Creation date of the portal.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// ARN of the customer managed key. Forces replacement if changed.
-	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
-	// ARN of the data protection settings associated with the portal.
-	DataProtectionSettingsArn pulumi.StringOutput `pulumi:"dataProtectionSettingsArn"`
-	// Display name of the portal.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// ARN of the IP access settings associated with the portal.
-	IpAccessSettingsArn pulumi.StringOutput `pulumi:"ipAccessSettingsArn"`
-	// Maximum number of concurrent sessions for the portal.
-	MaxConcurrentSessions pulumi.IntOutput `pulumi:"maxConcurrentSessions"`
-	// ARN of the network settings associated with the portal.
-	NetworkSettingsArn pulumi.StringOutput `pulumi:"networkSettingsArn"`
-	// ARN of the portal.
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Endpoint URL of the portal.
-	PortalEndpoint pulumi.StringOutput `pulumi:"portalEndpoint"`
-	// Status of the portal.
-	PortalStatus pulumi.StringOutput `pulumi:"portalStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Renderer type of the portal.
-	RendererType pulumi.StringOutput `pulumi:"rendererType"`
-	// ARN of the session logger associated with the portal.
-	SessionLoggerArn pulumi.StringOutput `pulumi:"sessionLoggerArn"`
-	// Reason for the current status of the portal.
-	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
-	Timeouts PortalTimeoutsPtrOutput `pulumi:"timeouts"`
-	// ARN of the trust store associated with the portal.
-	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
-	// ARN of the user access logging settings associated with the portal.
-	UserAccessLoggingSettingsArn pulumi.StringOutput `pulumi:"userAccessLoggingSettingsArn"`
-	// ARN of the user settings associated with the portal.
-	UserSettingsArn pulumi.StringOutput `pulumi:"userSettingsArn"`
+	AdditionalEncryptionContext  pulumi.StringMapOutput  `pulumi:"additionalEncryptionContext"`
+	AuthenticationType           pulumi.StringOutput     `pulumi:"authenticationType"`
+	BrowserSettingsArn           pulumi.StringOutput     `pulumi:"browserSettingsArn"`
+	BrowserType                  pulumi.StringOutput     `pulumi:"browserType"`
+	CreationDate                 pulumi.StringOutput     `pulumi:"creationDate"`
+	CustomerManagedKey           pulumi.StringPtrOutput  `pulumi:"customerManagedKey"`
+	DataProtectionSettingsArn    pulumi.StringOutput     `pulumi:"dataProtectionSettingsArn"`
+	DisplayName                  pulumi.StringOutput     `pulumi:"displayName"`
+	InstanceType                 pulumi.StringOutput     `pulumi:"instanceType"`
+	IpAccessSettingsArn          pulumi.StringOutput     `pulumi:"ipAccessSettingsArn"`
+	MaxConcurrentSessions        pulumi.IntOutput        `pulumi:"maxConcurrentSessions"`
+	NetworkSettingsArn           pulumi.StringOutput     `pulumi:"networkSettingsArn"`
+	PortalArn                    pulumi.StringOutput     `pulumi:"portalArn"`
+	PortalEndpoint               pulumi.StringOutput     `pulumi:"portalEndpoint"`
+	PortalStatus                 pulumi.StringOutput     `pulumi:"portalStatus"`
+	Region                       pulumi.StringOutput     `pulumi:"region"`
+	RendererType                 pulumi.StringOutput     `pulumi:"rendererType"`
+	SessionLoggerArn             pulumi.StringOutput     `pulumi:"sessionLoggerArn"`
+	StatusReason                 pulumi.StringOutput     `pulumi:"statusReason"`
+	Tags                         pulumi.StringMapOutput  `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput  `pulumi:"tagsAll"`
+	Timeouts                     PortalTimeoutsPtrOutput `pulumi:"timeouts"`
+	TrustStoreArn                pulumi.StringOutput     `pulumi:"trustStoreArn"`
+	UserAccessLoggingSettingsArn pulumi.StringOutput     `pulumi:"userAccessLoggingSettingsArn"`
+	UserSettingsArn              pulumi.StringOutput     `pulumi:"userSettingsArn"`
 }
 
 // NewPortal registers a new resource with the given unique name, arguments, and options.
@@ -177,107 +71,59 @@ func GetPortal(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Portal resources.
 type portalState struct {
-	// Additional encryption context for the customer managed key. Forces replacement if changed.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// ARN of the browser settings to use for the portal.
-	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
-	// Browser type of the portal.
-	BrowserType *string `pulumi:"browserType"`
-	// Creation date of the portal.
-	CreationDate *string `pulumi:"creationDate"`
-	// ARN of the customer managed key. Forces replacement if changed.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// ARN of the data protection settings associated with the portal.
-	DataProtectionSettingsArn *string `pulumi:"dataProtectionSettingsArn"`
-	// Display name of the portal.
-	DisplayName *string `pulumi:"displayName"`
-	// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-	InstanceType *string `pulumi:"instanceType"`
-	// ARN of the IP access settings associated with the portal.
-	IpAccessSettingsArn *string `pulumi:"ipAccessSettingsArn"`
-	// Maximum number of concurrent sessions for the portal.
-	MaxConcurrentSessions *int `pulumi:"maxConcurrentSessions"`
-	// ARN of the network settings associated with the portal.
-	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
-	// ARN of the portal.
-	PortalArn *string `pulumi:"portalArn"`
-	// Endpoint URL of the portal.
-	PortalEndpoint *string `pulumi:"portalEndpoint"`
-	// Status of the portal.
-	PortalStatus *string `pulumi:"portalStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Renderer type of the portal.
-	RendererType *string `pulumi:"rendererType"`
-	// ARN of the session logger associated with the portal.
-	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
-	// Reason for the current status of the portal.
-	StatusReason *string `pulumi:"statusReason"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *PortalTimeouts   `pulumi:"timeouts"`
-	// ARN of the trust store associated with the portal.
-	TrustStoreArn *string `pulumi:"trustStoreArn"`
-	// ARN of the user access logging settings associated with the portal.
-	UserAccessLoggingSettingsArn *string `pulumi:"userAccessLoggingSettingsArn"`
-	// ARN of the user settings associated with the portal.
-	UserSettingsArn *string `pulumi:"userSettingsArn"`
+	AdditionalEncryptionContext  map[string]string `pulumi:"additionalEncryptionContext"`
+	AuthenticationType           *string           `pulumi:"authenticationType"`
+	BrowserSettingsArn           *string           `pulumi:"browserSettingsArn"`
+	BrowserType                  *string           `pulumi:"browserType"`
+	CreationDate                 *string           `pulumi:"creationDate"`
+	CustomerManagedKey           *string           `pulumi:"customerManagedKey"`
+	DataProtectionSettingsArn    *string           `pulumi:"dataProtectionSettingsArn"`
+	DisplayName                  *string           `pulumi:"displayName"`
+	InstanceType                 *string           `pulumi:"instanceType"`
+	IpAccessSettingsArn          *string           `pulumi:"ipAccessSettingsArn"`
+	MaxConcurrentSessions        *int              `pulumi:"maxConcurrentSessions"`
+	NetworkSettingsArn           *string           `pulumi:"networkSettingsArn"`
+	PortalArn                    *string           `pulumi:"portalArn"`
+	PortalEndpoint               *string           `pulumi:"portalEndpoint"`
+	PortalStatus                 *string           `pulumi:"portalStatus"`
+	Region                       *string           `pulumi:"region"`
+	RendererType                 *string           `pulumi:"rendererType"`
+	SessionLoggerArn             *string           `pulumi:"sessionLoggerArn"`
+	StatusReason                 *string           `pulumi:"statusReason"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TagsAll                      map[string]string `pulumi:"tagsAll"`
+	Timeouts                     *PortalTimeouts   `pulumi:"timeouts"`
+	TrustStoreArn                *string           `pulumi:"trustStoreArn"`
+	UserAccessLoggingSettingsArn *string           `pulumi:"userAccessLoggingSettingsArn"`
+	UserSettingsArn              *string           `pulumi:"userSettingsArn"`
 }
 
 type PortalState struct {
-	// Additional encryption context for the customer managed key. Forces replacement if changed.
-	AdditionalEncryptionContext pulumi.StringMapInput
-	// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-	AuthenticationType pulumi.StringPtrInput
-	// ARN of the browser settings to use for the portal.
-	BrowserSettingsArn pulumi.StringPtrInput
-	// Browser type of the portal.
-	BrowserType pulumi.StringPtrInput
-	// Creation date of the portal.
-	CreationDate pulumi.StringPtrInput
-	// ARN of the customer managed key. Forces replacement if changed.
-	CustomerManagedKey pulumi.StringPtrInput
-	// ARN of the data protection settings associated with the portal.
-	DataProtectionSettingsArn pulumi.StringPtrInput
-	// Display name of the portal.
-	DisplayName pulumi.StringPtrInput
-	// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-	InstanceType pulumi.StringPtrInput
-	// ARN of the IP access settings associated with the portal.
-	IpAccessSettingsArn pulumi.StringPtrInput
-	// Maximum number of concurrent sessions for the portal.
-	MaxConcurrentSessions pulumi.IntPtrInput
-	// ARN of the network settings associated with the portal.
-	NetworkSettingsArn pulumi.StringPtrInput
-	// ARN of the portal.
-	PortalArn pulumi.StringPtrInput
-	// Endpoint URL of the portal.
-	PortalEndpoint pulumi.StringPtrInput
-	// Status of the portal.
-	PortalStatus pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Renderer type of the portal.
-	RendererType pulumi.StringPtrInput
-	// ARN of the session logger associated with the portal.
-	SessionLoggerArn pulumi.StringPtrInput
-	// Reason for the current status of the portal.
-	StatusReason pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts PortalTimeoutsPtrInput
-	// ARN of the trust store associated with the portal.
-	TrustStoreArn pulumi.StringPtrInput
-	// ARN of the user access logging settings associated with the portal.
+	AdditionalEncryptionContext  pulumi.StringMapInput
+	AuthenticationType           pulumi.StringPtrInput
+	BrowserSettingsArn           pulumi.StringPtrInput
+	BrowserType                  pulumi.StringPtrInput
+	CreationDate                 pulumi.StringPtrInput
+	CustomerManagedKey           pulumi.StringPtrInput
+	DataProtectionSettingsArn    pulumi.StringPtrInput
+	DisplayName                  pulumi.StringPtrInput
+	InstanceType                 pulumi.StringPtrInput
+	IpAccessSettingsArn          pulumi.StringPtrInput
+	MaxConcurrentSessions        pulumi.IntPtrInput
+	NetworkSettingsArn           pulumi.StringPtrInput
+	PortalArn                    pulumi.StringPtrInput
+	PortalEndpoint               pulumi.StringPtrInput
+	PortalStatus                 pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	RendererType                 pulumi.StringPtrInput
+	SessionLoggerArn             pulumi.StringPtrInput
+	StatusReason                 pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	Timeouts                     PortalTimeoutsPtrInput
+	TrustStoreArn                pulumi.StringPtrInput
 	UserAccessLoggingSettingsArn pulumi.StringPtrInput
-	// ARN of the user settings associated with the portal.
-	UserSettingsArn pulumi.StringPtrInput
+	UserSettingsArn              pulumi.StringPtrInput
 }
 
 func (PortalState) ElementType() reflect.Type {
@@ -285,48 +131,30 @@ func (PortalState) ElementType() reflect.Type {
 }
 
 type portalArgs struct {
-	// Additional encryption context for the customer managed key. Forces replacement if changed.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// ARN of the browser settings to use for the portal.
-	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
-	// ARN of the customer managed key. Forces replacement if changed.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// Display name of the portal.
-	DisplayName *string `pulumi:"displayName"`
-	// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-	InstanceType *string `pulumi:"instanceType"`
-	// Maximum number of concurrent sessions for the portal.
-	MaxConcurrentSessions *int `pulumi:"maxConcurrentSessions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string `pulumi:"tags"`
-	Timeouts *PortalTimeouts   `pulumi:"timeouts"`
+	AuthenticationType          *string           `pulumi:"authenticationType"`
+	BrowserSettingsArn          *string           `pulumi:"browserSettingsArn"`
+	CustomerManagedKey          *string           `pulumi:"customerManagedKey"`
+	DisplayName                 *string           `pulumi:"displayName"`
+	InstanceType                *string           `pulumi:"instanceType"`
+	MaxConcurrentSessions       *int              `pulumi:"maxConcurrentSessions"`
+	Region                      *string           `pulumi:"region"`
+	Tags                        map[string]string `pulumi:"tags"`
+	Timeouts                    *PortalTimeouts   `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Portal resource.
 type PortalArgs struct {
-	// Additional encryption context for the customer managed key. Forces replacement if changed.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-	AuthenticationType pulumi.StringPtrInput
-	// ARN of the browser settings to use for the portal.
-	BrowserSettingsArn pulumi.StringPtrInput
-	// ARN of the customer managed key. Forces replacement if changed.
-	CustomerManagedKey pulumi.StringPtrInput
-	// Display name of the portal.
-	DisplayName pulumi.StringPtrInput
-	// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-	InstanceType pulumi.StringPtrInput
-	// Maximum number of concurrent sessions for the portal.
-	MaxConcurrentSessions pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts PortalTimeoutsPtrInput
+	AuthenticationType          pulumi.StringPtrInput
+	BrowserSettingsArn          pulumi.StringPtrInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	DisplayName                 pulumi.StringPtrInput
+	InstanceType                pulumi.StringPtrInput
+	MaxConcurrentSessions       pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	Timeouts                    PortalTimeoutsPtrInput
 }
 
 func (PortalArgs) ElementType() reflect.Type {
@@ -416,107 +244,86 @@ func (o PortalOutput) ToPortalOutputWithContext(ctx context.Context) PortalOutpu
 	return o
 }
 
-// Additional encryption context for the customer managed key. Forces replacement if changed.
 func (o PortalOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
-// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
 func (o PortalOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// ARN of the browser settings to use for the portal.
 func (o PortalOutput) BrowserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.BrowserSettingsArn }).(pulumi.StringOutput)
 }
 
-// Browser type of the portal.
 func (o PortalOutput) BrowserType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.BrowserType }).(pulumi.StringOutput)
 }
 
-// Creation date of the portal.
 func (o PortalOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// ARN of the customer managed key. Forces replacement if changed.
 func (o PortalOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the data protection settings associated with the portal.
 func (o PortalOutput) DataProtectionSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.DataProtectionSettingsArn }).(pulumi.StringOutput)
 }
 
-// Display name of the portal.
 func (o PortalOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
 func (o PortalOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// ARN of the IP access settings associated with the portal.
 func (o PortalOutput) IpAccessSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.IpAccessSettingsArn }).(pulumi.StringOutput)
 }
 
-// Maximum number of concurrent sessions for the portal.
 func (o PortalOutput) MaxConcurrentSessions() pulumi.IntOutput {
 	return o.ApplyT(func(v *Portal) pulumi.IntOutput { return v.MaxConcurrentSessions }).(pulumi.IntOutput)
 }
 
-// ARN of the network settings associated with the portal.
 func (o PortalOutput) NetworkSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.NetworkSettingsArn }).(pulumi.StringOutput)
 }
 
-// ARN of the portal.
 func (o PortalOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Endpoint URL of the portal.
 func (o PortalOutput) PortalEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalEndpoint }).(pulumi.StringOutput)
 }
 
-// Status of the portal.
 func (o PortalOutput) PortalStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.PortalStatus }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PortalOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Renderer type of the portal.
 func (o PortalOutput) RendererType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.RendererType }).(pulumi.StringOutput)
 }
 
-// ARN of the session logger associated with the portal.
 func (o PortalOutput) SessionLoggerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.SessionLoggerArn }).(pulumi.StringOutput)
 }
 
-// Reason for the current status of the portal.
 func (o PortalOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PortalOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PortalOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -525,17 +332,14 @@ func (o PortalOutput) Timeouts() PortalTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Portal) PortalTimeoutsPtrOutput { return v.Timeouts }).(PortalTimeoutsPtrOutput)
 }
 
-// ARN of the trust store associated with the portal.
 func (o PortalOutput) TrustStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.TrustStoreArn }).(pulumi.StringOutput)
 }
 
-// ARN of the user access logging settings associated with the portal.
 func (o PortalOutput) UserAccessLoggingSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.UserAccessLoggingSettingsArn }).(pulumi.StringOutput)
 }
 
-// ARN of the user settings associated with the portal.
 func (o PortalOutput) UserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.UserSettingsArn }).(pulumi.StringOutput)
 }

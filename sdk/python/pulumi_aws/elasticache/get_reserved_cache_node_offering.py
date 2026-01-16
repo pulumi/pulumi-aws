@@ -65,9 +65,6 @@ class GetReservedCacheNodeOfferingResult:
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
     def fixed_price(self) -> _builtins.float:
-        """
-        Fixed price charged for this reserved cache node.
-        """
         return pulumi.get(self, "fixed_price")
 
     @_builtins.property
@@ -81,9 +78,6 @@ class GetReservedCacheNodeOfferingResult:
     @_builtins.property
     @pulumi.getter(name="offeringId")
     def offering_id(self) -> _builtins.str:
-        """
-        Unique identifier for the reservation.
-        """
         return pulumi.get(self, "offering_id")
 
     @_builtins.property
@@ -125,33 +119,7 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[_builtins.str] = 
                                      region: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReservedCacheNodeOfferingResult:
     """
-    Information about a single ElastiCache Reserved Cache Node Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticache.get_reserved_cache_node_offering(cache_node_type="cache.t4g.small",
-        duration="P1Y",
-        offering_type="No Upfront",
-        product_description="redis")
-    ```
-
-
-    :param _builtins.str cache_node_type: Node type for the reserved cache node.
-           See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-           See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-    :param _builtins.str duration: Duration of the reservation in RFC3339 duration format.
-           Valid values are `P1Y` (one year) and `P3Y` (three years).
-    :param _builtins.str offering_type: Offering type of this reserved cache node.
-           For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-           For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-           For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-    :param _builtins.str product_description: Engine type for the reserved cache node.
-           Valid values are `redis`, `valkey` and `memcached`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type
@@ -178,33 +146,7 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
                                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedCacheNodeOfferingResult]:
     """
-    Information about a single ElastiCache Reserved Cache Node Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticache.get_reserved_cache_node_offering(cache_node_type="cache.t4g.small",
-        duration="P1Y",
-        offering_type="No Upfront",
-        product_description="redis")
-    ```
-
-
-    :param _builtins.str cache_node_type: Node type for the reserved cache node.
-           See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-           See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-    :param _builtins.str duration: Duration of the reservation in RFC3339 duration format.
-           Valid values are `P1Y` (one year) and `P3Y` (three years).
-    :param _builtins.str offering_type: Offering type of this reserved cache node.
-           For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-           For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-           For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-    :param _builtins.str product_description: Engine type for the reserved cache node.
-           Valid values are `redis`, `valkey` and `memcached`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type

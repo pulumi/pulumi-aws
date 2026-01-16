@@ -13,21 +13,9 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class FleetEc2InboundPermission
     {
-        /// <summary>
-        /// Starting value for a range of allowed port numbers.
-        /// </summary>
         public readonly int FromPort;
-        /// <summary>
-        /// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-        /// </summary>
         public readonly string IpRange;
-        /// <summary>
-        /// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
-        /// </summary>
         public readonly string Protocol;
-        /// <summary>
-        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `FromPort`.
-        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

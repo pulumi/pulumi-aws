@@ -12,117 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Identity Provider.
-//
-// ## Example Usage
-//
-// ### Basic Usage with SAML
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewIdentityProvider(ctx, "example", &workspacesweb.IdentityProviderArgs{
-//				IdentityProviderName: pulumi.String("example-saml"),
-//				IdentityProviderType: pulumi.String("SAML"),
-//				PortalArn:            example.PortalArn,
-//				IdentityProviderDetails: pulumi.StringMap{
-//					"MetadataURL": pulumi.String("https://example.com/metadata"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### OIDC Identity Provider
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := workspacesweb.NewPortal(ctx, "test", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewIdentityProvider(ctx, "test", &workspacesweb.IdentityProviderArgs{
-//				IdentityProviderName: pulumi.String("test-updated"),
-//				IdentityProviderType: pulumi.String("OIDC"),
-//				PortalArn:            test.PortalArn,
-//				IdentityProviderDetails: pulumi.StringMap{
-//					"client_id":                 pulumi.String("test-client-id"),
-//					"client_secret":             pulumi.String("test-client-secret"),
-//					"oidc_issuer":               pulumi.String("https://accounts.google.com"),
-//					"attributes_request_method": pulumi.String("POST"),
-//					"authorize_scopes":          pulumi.String("openid, email"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Identity Provider using the `identity_provider_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
-// ```
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
-	// ARN of the identity provider.
-	IdentityProviderArn pulumi.StringOutput `pulumi:"identityProviderArn"`
-	// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-	// * For Google and Login with Amazon:
+	IdentityProviderArn     pulumi.StringOutput    `pulumi:"identityProviderArn"`
 	IdentityProviderDetails pulumi.StringMapOutput `pulumi:"identityProviderDetails"`
-	// Identity provider name.
-	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
-	// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-	IdentityProviderType pulumi.StringOutput `pulumi:"identityProviderType"`
-	// ARN of the web portal. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	IdentityProviderName    pulumi.StringOutput    `pulumi:"identityProviderName"`
+	IdentityProviderType    pulumi.StringOutput    `pulumi:"identityProviderType"`
+	PortalArn               pulumi.StringOutput    `pulumi:"portalArn"`
+	Region                  pulumi.StringOutput    `pulumi:"region"`
+	Tags                    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
@@ -167,47 +67,25 @@ func GetIdentityProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityProvider resources.
 type identityProviderState struct {
-	// ARN of the identity provider.
-	IdentityProviderArn *string `pulumi:"identityProviderArn"`
-	// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-	// * For Google and Login with Amazon:
+	IdentityProviderArn     *string           `pulumi:"identityProviderArn"`
 	IdentityProviderDetails map[string]string `pulumi:"identityProviderDetails"`
-	// Identity provider name.
-	IdentityProviderName *string `pulumi:"identityProviderName"`
-	// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-	IdentityProviderType *string `pulumi:"identityProviderType"`
-	// ARN of the web portal. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	IdentityProviderName    *string           `pulumi:"identityProviderName"`
+	IdentityProviderType    *string           `pulumi:"identityProviderType"`
+	PortalArn               *string           `pulumi:"portalArn"`
+	Region                  *string           `pulumi:"region"`
+	Tags                    map[string]string `pulumi:"tags"`
+	TagsAll                 map[string]string `pulumi:"tagsAll"`
 }
 
 type IdentityProviderState struct {
-	// ARN of the identity provider.
-	IdentityProviderArn pulumi.StringPtrInput
-	// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-	// * For Google and Login with Amazon:
+	IdentityProviderArn     pulumi.StringPtrInput
 	IdentityProviderDetails pulumi.StringMapInput
-	// Identity provider name.
-	IdentityProviderName pulumi.StringPtrInput
-	// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-	IdentityProviderType pulumi.StringPtrInput
-	// ARN of the web portal. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	IdentityProviderName    pulumi.StringPtrInput
+	IdentityProviderType    pulumi.StringPtrInput
+	PortalArn               pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (IdentityProviderState) ElementType() reflect.Type {
@@ -215,40 +93,22 @@ func (IdentityProviderState) ElementType() reflect.Type {
 }
 
 type identityProviderArgs struct {
-	// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-	// * For Google and Login with Amazon:
 	IdentityProviderDetails map[string]string `pulumi:"identityProviderDetails"`
-	// Identity provider name.
-	IdentityProviderName string `pulumi:"identityProviderName"`
-	// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-	IdentityProviderType string `pulumi:"identityProviderType"`
-	// ARN of the web portal. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	IdentityProviderName    string            `pulumi:"identityProviderName"`
+	IdentityProviderType    string            `pulumi:"identityProviderType"`
+	PortalArn               string            `pulumi:"portalArn"`
+	Region                  *string           `pulumi:"region"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
 type IdentityProviderArgs struct {
-	// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-	// * For Google and Login with Amazon:
 	IdentityProviderDetails pulumi.StringMapInput
-	// Identity provider name.
-	IdentityProviderName pulumi.StringInput
-	// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-	IdentityProviderType pulumi.StringInput
-	// ARN of the web portal. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	IdentityProviderName    pulumi.StringInput
+	IdentityProviderType    pulumi.StringInput
+	PortalArn               pulumi.StringInput
+	Region                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (IdentityProviderArgs) ElementType() reflect.Type {
@@ -338,45 +198,34 @@ func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the identity provider.
 func (o IdentityProviderOutput) IdentityProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.IdentityProviderArn }).(pulumi.StringOutput)
 }
 
-// Identity provider details. The following list describes the provider detail keys for each identity provider type:
-// * For Google and Login with Amazon:
 func (o IdentityProviderOutput) IdentityProviderDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.IdentityProviderDetails }).(pulumi.StringMapOutput)
 }
 
-// Identity provider name.
 func (o IdentityProviderOutput) IdentityProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.IdentityProviderName }).(pulumi.StringOutput)
 }
 
-// Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
 func (o IdentityProviderOutput) IdentityProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.IdentityProviderType }).(pulumi.StringOutput)
 }
 
-// ARN of the web portal. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o IdentityProviderOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IdentityProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IdentityProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

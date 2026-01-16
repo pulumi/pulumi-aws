@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     {
         [Input("approverRoles")]
         private InputList<string>? _approverRoles;
-
-        /// <summary>
-        /// List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `RequiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
-        /// </summary>
         public InputList<string> ApproverRoles
         {
             get => _approverRoles ?? (_approverRoles = new InputList<string>());
             set => _approverRoles = value;
         }
 
-        /// <summary>
-        /// Specifies when comment-based approval is required before triggering a build on pull requests. Valid values are: `DISABLED`, `ALL_PULL_REQUESTS`, and `FORK_PULL_REQUESTS`.
-        /// </summary>
         [Input("requiresCommentApproval", required: true)]
         public Input<string> RequiresCommentApproval { get; set; } = null!;
 

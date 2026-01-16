@@ -13,15 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class GetDistributionTenantDomainResult
     {
-        /// <summary>
-        /// An associated domain of the distribution tenant. Exactly one of `Id` or `Domain` must be specified.
-        /// </summary>
         public readonly string Domain;
-        /// <summary>
-        /// Current status of the distribution tenant. `Deployed` if the
-        /// distribution tenant's information is fully propagated throughout the Amazon
-        /// CloudFront system.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

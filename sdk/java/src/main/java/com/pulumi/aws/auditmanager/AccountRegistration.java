@@ -15,152 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing AWS Audit Manager Account Registration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.AccountRegistration;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccountRegistration("example");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Deregister On Destroy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.auditmanager.AccountRegistration;
- * import com.pulumi.aws.auditmanager.AccountRegistrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccountRegistration("example", AccountRegistrationArgs.builder()
- *             .deregisterOnDestroy(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:auditmanager/accountRegistration:AccountRegistration")
 public class AccountRegistration extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier for the delegated administrator account.
-     * 
-     */
     @Export(name="delegatedAdminAccount", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delegatedAdminAccount;
 
-    /**
-     * @return Identifier for the delegated administrator account.
-     * 
-     */
     public Output<Optional<String>> delegatedAdminAccount() {
         return Codegen.optional(this.delegatedAdminAccount);
     }
-    /**
-     * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     * 
-     */
     @Export(name="deregisterOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deregisterOnDestroy;
 
-    /**
-     * @return Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     * 
-     */
     public Output<Optional<Boolean>> deregisterOnDestroy() {
         return Codegen.optional(this.deregisterOnDestroy);
     }
-    /**
-     * KMS key identifier.
-     * 
-     */
     @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKey;
 
-    /**
-     * @return KMS key identifier.
-     * 
-     */
     public Output<Optional<String>> kmsKey() {
         return Codegen.optional(this.kmsKey);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Status of the account registration request.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the account registration request.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

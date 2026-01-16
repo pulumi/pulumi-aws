@@ -17,96 +17,44 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AliasArgs Empty = new AliasArgs();
 
-    /**
-     * Description of the alias.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the alias.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name or ARN of the Lambda function.
-     * 
-     */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
-    /**
-     * @return Name or ARN of the Lambda function.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
 
-    /**
-     * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-     * 
-     */
     @Import(name="functionVersion", required=true)
     private Output<String> functionVersion;
 
-    /**
-     * @return Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-     * 
-     */
     public Output<String> functionVersion() {
         return this.functionVersion;
     }
 
-    /**
-     * Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Lambda alias&#39; route configuration settings. See below.
-     * 
-     */
     @Import(name="routingConfig")
     private @Nullable Output<AliasRoutingConfigArgs> routingConfig;
 
-    /**
-     * @return Lambda alias&#39; route configuration settings. See below.
-     * 
-     */
     public Optional<Output<AliasRoutingConfigArgs>> routingConfig() {
         return Optional.ofNullable(this.routingConfig);
     }
@@ -140,132 +88,56 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name or ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param functionVersion Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionVersion(Output<String> functionVersion) {
             $.functionVersion = functionVersion;
             return this;
         }
 
-        /**
-         * @param functionVersion Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionVersion(String functionVersion) {
             return functionVersion(Output.of(functionVersion));
         }
 
-        /**
-         * @param name Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routingConfig Lambda alias&#39; route configuration settings. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfig(@Nullable Output<AliasRoutingConfigArgs> routingConfig) {
             $.routingConfig = routingConfig;
             return this;
         }
 
-        /**
-         * @param routingConfig Lambda alias&#39; route configuration settings. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingConfig(AliasRoutingConfigArgs routingConfig) {
             return routingConfig(Output.of(routingConfig));
         }

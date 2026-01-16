@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class DataCellsFilterTableDataRowFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Optional) A wildcard that matches all rows.
-        /// </summary>
         [Input("allRowsWildcard")]
         public Input<Inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardGetArgs>? AllRowsWildcard { get; set; }
 
-        /// <summary>
-        /// (Optional) A filter expression.
-        /// </summary>
         [Input("filterExpression")]
         public Input<string>? FilterExpression { get; set; }
 

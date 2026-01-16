@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class S3LocationS3Config {
-    /**
-     * @return ARN of the IAM Role used to connect to the S3 Bucket.
-     * 
-     */
     private String bucketAccessRoleArn;
 
     private S3LocationS3Config() {}
-    /**
-     * @return ARN of the IAM Role used to connect to the S3 Bucket.
-     * 
-     */
     public String bucketAccessRoleArn() {
         return this.bucketAccessRoleArn;
     }

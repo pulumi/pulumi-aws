@@ -27,8 +27,6 @@ class QueuePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueuePolicy resource.
-        :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "queue_url", queue_url)
@@ -47,9 +45,6 @@ class QueuePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Input[_builtins.str]:
-        """
-        URL of the SQS Queue to which to attach the policy.
-        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -59,9 +54,6 @@ class QueuePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -77,8 +69,6 @@ class _QueuePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueuePolicy resources.
-        :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -99,9 +89,6 @@ class _QueuePolicyState:
     @_builtins.property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URL of the SQS Queue to which to attach the policy.
-        """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
@@ -111,9 +98,6 @@ class _QueuePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,83 +116,9 @@ class QueuePolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
-
-        !> AWS will hang indefinitely when creating or updating an `sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        q = aws.sqs.Queue("q", name="examplequeue")
-        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
-            "sid": "First",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": [arn],
-            "conditions": [{
-                "test": "ArnEquals",
-                "variable": "aws:SourceArn",
-                "values": [example["arn"]],
-            }],
-        }]))
-        test_queue_policy = aws.sqs.QueuePolicy("test",
-            queue_url=q.id,
-            policy=test.json)
-        ```
-
-        ### Timeout Problems Creating/Updating
-
-        If `Version = "2012-10-17"` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="brodobaggins")
-        example_queue = aws.sqs.Queue("example", name="be-giant")
-        example_queue_policy = aws.sqs.QueuePolicy("example",
-            queue_url=example_queue.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Cejuwdam",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "s3.amazonaws.com",
-                    },
-                    "Action": "SQS:SendMessage",
-                    "Resource": example_queue.arn,
-                    "Condition": {
-                        "ArnLike": {
-                            "aws:SourceArn": example.arn,
-                        },
-                    },
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
-
-        ```sh
-        $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/123456789012/myqueue
-        ```
-
+        Create a QueuePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -217,79 +127,7 @@ class QueuePolicy(pulumi.CustomResource):
                  args: QueuePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
-
-        !> AWS will hang indefinitely when creating or updating an `sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        q = aws.sqs.Queue("q", name="examplequeue")
-        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
-            "sid": "First",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["sqs:SendMessage"],
-            "resources": [arn],
-            "conditions": [{
-                "test": "ArnEquals",
-                "variable": "aws:SourceArn",
-                "values": [example["arn"]],
-            }],
-        }]))
-        test_queue_policy = aws.sqs.QueuePolicy("test",
-            queue_url=q.id,
-            policy=test.json)
-        ```
-
-        ### Timeout Problems Creating/Updating
-
-        If `Version = "2012-10-17"` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="brodobaggins")
-        example_queue = aws.sqs.Queue("example", name="be-giant")
-        example_queue_policy = aws.sqs.QueuePolicy("example",
-            queue_url=example_queue.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Cejuwdam",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "s3.amazonaws.com",
-                    },
-                    "Action": "SQS:SendMessage",
-                    "Resource": example_queue.arn,
-                    "Condition": {
-                        "ArnLike": {
-                            "aws:SourceArn": example.arn,
-                        },
-                    },
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
-
-        ```sh
-        $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/123456789012/myqueue
-        ```
-
+        Create a QueuePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param QueuePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -344,8 +182,6 @@ class QueuePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -364,16 +200,10 @@ class QueuePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        URL of the SQS Queue to which to attach the policy.
-        """
         return pulumi.get(self, "queue_url")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

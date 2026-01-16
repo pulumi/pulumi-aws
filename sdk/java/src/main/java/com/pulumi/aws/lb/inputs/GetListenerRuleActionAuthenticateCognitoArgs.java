@@ -16,124 +16,58 @@ public final class GetListenerRuleActionAuthenticateCognitoArgs extends com.pulu
 
     public static final GetListenerRuleActionAuthenticateCognitoArgs Empty = new GetListenerRuleActionAuthenticateCognitoArgs();
 
-    /**
-     * Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     @Import(name="authenticationRequestExtraParams", required=true)
     private Output<Map<String,String>> authenticationRequestExtraParams;
 
-    /**
-     * @return Set of additional parameters for the request.
-     * Detailed below.
-     * 
-     */
     public Output<Map<String,String>> authenticationRequestExtraParams() {
         return this.authenticationRequestExtraParams;
     }
 
-    /**
-     * Behavior when the client is not authenticated.
-     * 
-     */
     @Import(name="onUnauthenticatedRequest", required=true)
     private Output<String> onUnauthenticatedRequest;
 
-    /**
-     * @return Behavior when the client is not authenticated.
-     * 
-     */
     public Output<String> onUnauthenticatedRequest() {
         return this.onUnauthenticatedRequest;
     }
 
-    /**
-     * Set of user claims requested.
-     * 
-     */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
-    /**
-     * @return Set of user claims requested.
-     * 
-     */
     public Output<String> scope() {
         return this.scope;
     }
 
-    /**
-     * Name of the cookie used to maintain session information.
-     * 
-     */
     @Import(name="sessionCookieName", required=true)
     private Output<String> sessionCookieName;
 
-    /**
-     * @return Name of the cookie used to maintain session information.
-     * 
-     */
     public Output<String> sessionCookieName() {
         return this.sessionCookieName;
     }
 
-    /**
-     * Maximum duration of the authentication session in seconds.
-     * 
-     */
     @Import(name="sessionTimeout", required=true)
     private Output<Integer> sessionTimeout;
 
-    /**
-     * @return Maximum duration of the authentication session in seconds.
-     * 
-     */
     public Output<Integer> sessionTimeout() {
         return this.sessionTimeout;
     }
 
-    /**
-     * ARN of the Cognito user pool.
-     * 
-     */
     @Import(name="userPoolArn", required=true)
     private Output<String> userPoolArn;
 
-    /**
-     * @return ARN of the Cognito user pool.
-     * 
-     */
     public Output<String> userPoolArn() {
         return this.userPoolArn;
     }
 
-    /**
-     * ID of the Cognito user pool client.
-     * 
-     */
     @Import(name="userPoolClientId", required=true)
     private Output<String> userPoolClientId;
 
-    /**
-     * @return ID of the Cognito user pool client.
-     * 
-     */
     public Output<String> userPoolClientId() {
         return this.userPoolClientId;
     }
 
-    /**
-     * Domain prefix or fully-qualified domain name of the Cognito user pool.
-     * 
-     */
     @Import(name="userPoolDomain", required=true)
     private Output<String> userPoolDomain;
 
-    /**
-     * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
-     * 
-     */
     public Output<String> userPoolDomain() {
         return this.userPoolDomain;
     }
@@ -169,172 +103,74 @@ public final class GetListenerRuleActionAuthenticateCognitoArgs extends com.pulu
             $ = new GetListenerRuleActionAuthenticateCognitoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationRequestExtraParams Set of additional parameters for the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationRequestExtraParams(Output<Map<String,String>> authenticationRequestExtraParams) {
             $.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
 
-        /**
-         * @param authenticationRequestExtraParams Set of additional parameters for the request.
-         * Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
             return authenticationRequestExtraParams(Output.of(authenticationRequestExtraParams));
         }
 
-        /**
-         * @param onUnauthenticatedRequest Behavior when the client is not authenticated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnauthenticatedRequest(Output<String> onUnauthenticatedRequest) {
             $.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
 
-        /**
-         * @param onUnauthenticatedRequest Behavior when the client is not authenticated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
             return onUnauthenticatedRequest(Output.of(onUnauthenticatedRequest));
         }
 
-        /**
-         * @param scope Set of user claims requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope Set of user claims requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
-        /**
-         * @param sessionCookieName Name of the cookie used to maintain session information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionCookieName(Output<String> sessionCookieName) {
             $.sessionCookieName = sessionCookieName;
             return this;
         }
 
-        /**
-         * @param sessionCookieName Name of the cookie used to maintain session information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionCookieName(String sessionCookieName) {
             return sessionCookieName(Output.of(sessionCookieName));
         }
 
-        /**
-         * @param sessionTimeout Maximum duration of the authentication session in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeout(Output<Integer> sessionTimeout) {
             $.sessionTimeout = sessionTimeout;
             return this;
         }
 
-        /**
-         * @param sessionTimeout Maximum duration of the authentication session in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionTimeout(Integer sessionTimeout) {
             return sessionTimeout(Output.of(sessionTimeout));
         }
 
-        /**
-         * @param userPoolArn ARN of the Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolArn(Output<String> userPoolArn) {
             $.userPoolArn = userPoolArn;
             return this;
         }
 
-        /**
-         * @param userPoolArn ARN of the Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolArn(String userPoolArn) {
             return userPoolArn(Output.of(userPoolArn));
         }
 
-        /**
-         * @param userPoolClientId ID of the Cognito user pool client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolClientId(Output<String> userPoolClientId) {
             $.userPoolClientId = userPoolClientId;
             return this;
         }
 
-        /**
-         * @param userPoolClientId ID of the Cognito user pool client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolClientId(String userPoolClientId) {
             return userPoolClientId(Output.of(userPoolClientId));
         }
 
-        /**
-         * @param userPoolDomain Domain prefix or fully-qualified domain name of the Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolDomain(Output<String> userPoolDomain) {
             $.userPoolDomain = userPoolDomain;
             return this;
         }
 
-        /**
-         * @param userPoolDomain Domain prefix or fully-qualified domain name of the Cognito user pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolDomain(String userPoolDomain) {
             return userPoolDomain(Output.of(userPoolDomain));
         }

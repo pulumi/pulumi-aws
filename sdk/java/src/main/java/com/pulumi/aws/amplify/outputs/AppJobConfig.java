@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppJobConfig {
-    /**
-     * @return Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-     * 
-     */
     private @Nullable String buildComputeType;
 
     private AppJobConfig() {}
-    /**
-     * @return Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-     * 
-     */
     public Optional<String> buildComputeType() {
         return Optional.ofNullable(this.buildComputeType);
     }

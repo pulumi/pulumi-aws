@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchGroup {
-    /**
-     * @return Specifies the description of the launch group.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Specifies the name of the feature that the launch is using.
-     * 
-     */
     private String feature;
-    /**
-     * @return Specifies the name of the lahnch group.
-     * 
-     */
     private String name;
-    /**
-     * @return Specifies the feature variation to use for this launch group.
-     * 
-     */
     private String variation;
 
     private LaunchGroup() {}
-    /**
-     * @return Specifies the description of the launch group.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Specifies the name of the feature that the launch is using.
-     * 
-     */
     public String feature() {
         return this.feature;
     }
-    /**
-     * @return Specifies the name of the lahnch group.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Specifies the feature variation to use for this launch group.
-     * 
-     */
     public String variation() {
         return this.variation;
     }

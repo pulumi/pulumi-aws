@@ -17,92 +17,44 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ScriptArgs Empty = new ScriptArgs();
 
-    /**
-     * Name of the script
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the script
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Information indicating where your game script files are stored. See below.
-     * 
-     */
     @Import(name="storageLocation")
     private @Nullable Output<ScriptStorageLocationArgs> storageLocation;
 
-    /**
-     * @return Information indicating where your game script files are stored. See below.
-     * 
-     */
     public Optional<Output<ScriptStorageLocationArgs>> storageLocation() {
         return Optional.ofNullable(this.storageLocation);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Version that is associated with this script.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version that is associated with this script.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
 
-    /**
-     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-     * 
-     */
     @Import(name="zipFile")
     private @Nullable Output<String> zipFile;
 
-    /**
-     * @return A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-     * 
-     */
     public Optional<Output<String>> zipFile() {
         return Optional.ofNullable(this.zipFile);
     }
@@ -136,128 +88,56 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ScriptArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the script
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the script
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param storageLocation Information indicating where your game script files are stored. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageLocation(@Nullable Output<ScriptStorageLocationArgs> storageLocation) {
             $.storageLocation = storageLocation;
             return this;
         }
 
-        /**
-         * @param storageLocation Information indicating where your game script files are stored. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageLocation(ScriptStorageLocationArgs storageLocation) {
             return storageLocation(Output.of(storageLocation));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param version Version that is associated with this script.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version that is associated with this script.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }
 
-        /**
-         * @param zipFile A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zipFile(@Nullable Output<String> zipFile) {
             $.zipFile = zipFile;
             return this;
         }
 
-        /**
-         * @param zipFile A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zipFile(String zipFile) {
             return zipFile(Output.of(zipFile));
         }

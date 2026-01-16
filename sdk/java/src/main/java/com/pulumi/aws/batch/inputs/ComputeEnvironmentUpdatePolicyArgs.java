@@ -16,32 +16,16 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
 
     public static final ComputeEnvironmentUpdatePolicyArgs Empty = new ComputeEnvironmentUpdatePolicyArgs();
 
-    /**
-     * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-     * 
-     */
     @Import(name="jobExecutionTimeoutMinutes")
     private @Nullable Output<Integer> jobExecutionTimeoutMinutes;
 
-    /**
-     * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-     * 
-     */
     public Optional<Output<Integer>> jobExecutionTimeoutMinutes() {
         return Optional.ofNullable(this.jobExecutionTimeoutMinutes);
     }
 
-    /**
-     * Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-     * 
-     */
     @Import(name="terminateJobsOnUpdate")
     private @Nullable Output<Boolean> terminateJobsOnUpdate;
 
-    /**
-     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-     * 
-     */
     public Optional<Output<Boolean>> terminateJobsOnUpdate() {
         return Optional.ofNullable(this.terminateJobsOnUpdate);
     }
@@ -71,44 +55,20 @@ public final class ComputeEnvironmentUpdatePolicyArgs extends com.pulumi.resourc
             $ = new ComputeEnvironmentUpdatePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param jobExecutionTimeoutMinutes Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobExecutionTimeoutMinutes(@Nullable Output<Integer> jobExecutionTimeoutMinutes) {
             $.jobExecutionTimeoutMinutes = jobExecutionTimeoutMinutes;
             return this;
         }
 
-        /**
-         * @param jobExecutionTimeoutMinutes Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jobExecutionTimeoutMinutes(Integer jobExecutionTimeoutMinutes) {
             return jobExecutionTimeoutMinutes(Output.of(jobExecutionTimeoutMinutes));
         }
 
-        /**
-         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminateJobsOnUpdate(@Nullable Output<Boolean> terminateJobsOnUpdate) {
             $.terminateJobsOnUpdate = terminateJobsOnUpdate;
             return this;
         }
 
-        /**
-         * @param terminateJobsOnUpdate Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminateJobsOnUpdate(Boolean terminateJobsOnUpdate) {
             return terminateJobsOnUpdate(Output.of(terminateJobsOnUpdate));
         }

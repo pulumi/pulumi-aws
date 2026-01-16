@@ -63,9 +63,6 @@ class GetPeeringAttachmentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -81,25 +78,16 @@ class GetPeeringAttachmentResult:
     @_builtins.property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> _builtins.str:
-        """
-        Identifier of the peer AWS account.
-        """
         return pulumi.get(self, "peer_account_id")
 
     @_builtins.property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> _builtins.str:
-        """
-        Identifier of the peer AWS region.
-        """
         return pulumi.get(self, "peer_region")
 
     @_builtins.property
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> _builtins.str:
-        """
-        Identifier of the peer EC2 Transit Gateway.
-        """
         return pulumi.get(self, "peer_transit_gateway_id")
 
     @_builtins.property
@@ -120,9 +108,6 @@ class GetPeeringAttachmentResult:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> _builtins.str:
-        """
-        Identifier of the local EC2 Transit Gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
 
@@ -150,40 +135,7 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
                            tags: Optional[Mapping[str, _builtins.str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringAttachmentResult:
     """
-    Get information on an EC2 Transit Gateway Peering Attachment.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_peering_attachment(filters=[{
-        "name": "transit-gateway-attachment-id",
-        "values": ["tgw-attach-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str id: Identifier of the EC2 Transit Gateway Peering Attachment.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -210,40 +162,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringAttachmentResult]:
     """
-    Get information on an EC2 Transit Gateway Peering Attachment.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_peering_attachment(filters=[{
-        "name": "transit-gateway-attachment-id",
-        "values": ["tgw-attach-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str id: Identifier of the EC2 Transit Gateway Peering Attachment.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

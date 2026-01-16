@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
-    /**
-     * @return Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     private @Nullable String emailMessage;
-    /**
-     * @return Subject line for email messages.
-     * 
-     */
     private @Nullable String emailSubject;
-    /**
-     * @return Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     private @Nullable String smsMessage;
 
     private UserPoolAdminCreateUserConfigInviteMessageTemplate() {}
-    /**
-     * @return Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     public Optional<String> emailMessage() {
         return Optional.ofNullable(this.emailMessage);
     }
-    /**
-     * @return Subject line for email messages.
-     * 
-     */
     public Optional<String> emailSubject() {
         return Optional.ofNullable(this.emailSubject);
     }
-    /**
-     * @return Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
-     * 
-     */
     public Optional<String> smsMessage() {
         return Optional.ofNullable(this.smsMessage);
     }

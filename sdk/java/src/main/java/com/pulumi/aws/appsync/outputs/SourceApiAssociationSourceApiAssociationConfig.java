@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SourceApiAssociationSourceApiAssociationConfig {
-    /**
-     * @return Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-     * 
-     */
     private String mergeType;
 
     private SourceApiAssociationSourceApiAssociationConfig() {}
-    /**
-     * @return Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-     * 
-     */
     public String mergeType() {
         return this.mergeType;
     }

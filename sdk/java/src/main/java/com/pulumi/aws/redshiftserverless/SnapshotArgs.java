@@ -17,62 +17,30 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SnapshotArgs Empty = new SnapshotArgs();
 
-    /**
-     * The namespace to create a snapshot for.
-     * 
-     */
     @Import(name="namespaceName", required=true)
     private Output<String> namespaceName;
 
-    /**
-     * @return The namespace to create a snapshot for.
-     * 
-     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * How long to retain the created snapshot. Default value is `-1`.
-     * 
-     */
     @Import(name="retentionPeriod")
     private @Nullable Output<Integer> retentionPeriod;
 
-    /**
-     * @return How long to retain the created snapshot. Default value is `-1`.
-     * 
-     */
     public Optional<Output<Integer>> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }
 
-    /**
-     * The name of the snapshot.
-     * 
-     */
     @Import(name="snapshotName", required=true)
     private Output<String> snapshotName;
 
-    /**
-     * @return The name of the snapshot.
-     * 
-     */
     public Output<String> snapshotName() {
         return this.snapshotName;
     }
@@ -104,86 +72,38 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SnapshotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namespaceName The namespace to create a snapshot for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceName(Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
-        /**
-         * @param namespaceName The namespace to create a snapshot for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param retentionPeriod How long to retain the created snapshot. Default value is `-1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(@Nullable Output<Integer> retentionPeriod) {
             $.retentionPeriod = retentionPeriod;
             return this;
         }
 
-        /**
-         * @param retentionPeriod How long to retain the created snapshot. Default value is `-1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(Integer retentionPeriod) {
             return retentionPeriod(Output.of(retentionPeriod));
         }
 
-        /**
-         * @param snapshotName The name of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(Output<String> snapshotName) {
             $.snapshotName = snapshotName;
             return this;
         }
 
-        /**
-         * @param snapshotName The name of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(String snapshotName) {
             return snapshotName(Output.of(snapshotName));
         }

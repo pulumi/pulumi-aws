@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class DocumentClassifierOutputDataConfig
     {
-        /// <summary>
-        /// KMS Key used to encrypt the output documents.
-        /// Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// Full path for the output documents.
-        /// </summary>
         public readonly string? OutputS3Uri;
-        /// <summary>
-        /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `OutputS3Uri`.
-        /// </summary>
         public readonly string S3Uri;
 
         [OutputConstructor]

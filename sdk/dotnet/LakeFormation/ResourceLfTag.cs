@@ -9,81 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Resource for managing an AWS Lake Formation Resource LF Tag.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LakeFormation.ResourceLfTag("example", new()
-    ///     {
-    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagDatabaseArgs
-    ///         {
-    ///             Name = exampleAwsGlueCatalogDatabase.Name,
-    ///         },
-    ///         LfTag = new Aws.LakeFormation.Inputs.ResourceLfTagLfTagArgs
-    ///         {
-    ///             Key = exampleAwsLakeformationLfTag.Key,
-    ///             Value = "stowe",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import this resource.
-    /// </summary>
     [AwsResourceType("aws:lakeformation/resourceLfTag:ResourceLfTag")]
     public partial class ResourceLfTag : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        /// </summary>
         [Output("catalogId")]
         public Output<string?> CatalogId { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a database resource. See Database for more details.
-        /// </summary>
         [Output("database")]
         public Output<Outputs.ResourceLfTagDatabase?> Database { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of LF-tags to attach to the resource. See LF Tag for more details.
-        /// 
-        /// Exactly one of the following is required:
-        /// </summary>
         [Output("lfTag")]
         public Output<Outputs.ResourceLfTagLfTag?> LfTag { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a table resource. See Table for more details.
-        /// </summary>
         [Output("table")]
         public Output<Outputs.ResourceLfTagTable?> Table { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a table with columns resource. See Table With Columns for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("tableWithColumns")]
         public Output<Outputs.ResourceLfTagTableWithColumns?> TableWithColumns { get; private set; } = null!;
 
@@ -136,43 +79,21 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceLfTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Configuration block for a database resource. See Database for more details.
-        /// </summary>
         [Input("database")]
         public Input<Inputs.ResourceLfTagDatabaseArgs>? Database { get; set; }
 
-        /// <summary>
-        /// Set of LF-tags to attach to the resource. See LF Tag for more details.
-        /// 
-        /// Exactly one of the following is required:
-        /// </summary>
         [Input("lfTag")]
         public Input<Inputs.ResourceLfTagLfTagArgs>? LfTag { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for a table resource. See Table for more details.
-        /// </summary>
         [Input("table")]
         public Input<Inputs.ResourceLfTagTableArgs>? Table { get; set; }
 
-        /// <summary>
-        /// Configuration block for a table with columns resource. See Table With Columns for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.ResourceLfTagTableWithColumnsArgs>? TableWithColumns { get; set; }
 
@@ -187,43 +108,21 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceLfTagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Configuration block for a database resource. See Database for more details.
-        /// </summary>
         [Input("database")]
         public Input<Inputs.ResourceLfTagDatabaseGetArgs>? Database { get; set; }
 
-        /// <summary>
-        /// Set of LF-tags to attach to the resource. See LF Tag for more details.
-        /// 
-        /// Exactly one of the following is required:
-        /// </summary>
         [Input("lfTag")]
         public Input<Inputs.ResourceLfTagLfTagGetArgs>? LfTag { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configuration block for a table resource. See Table for more details.
-        /// </summary>
         [Input("table")]
         public Input<Inputs.ResourceLfTagTableGetArgs>? Table { get; set; }
 
-        /// <summary>
-        /// Configuration block for a table with columns resource. See Table With Columns for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.ResourceLfTagTableWithColumnsGetArgs>? TableWithColumns { get; set; }
 

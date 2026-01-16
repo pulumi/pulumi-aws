@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class InstanceStorageConfigStorageConfigS3Config
     {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// The S3 bucket prefix.
-        /// </summary>
         public readonly string BucketPrefix;
-        /// <summary>
-        /// The encryption configuration. Documented below.
-        /// </summary>
         public readonly Outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig? EncryptionConfig;
 
         [OutputConstructor]

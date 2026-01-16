@@ -14,32 +14,16 @@ public final class FormTypeImportArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final FormTypeImportArgs Empty = new FormTypeImportArgs();
 
-    /**
-     * Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the form type. Must be the name of the structure in smithy document.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Revision of the Form Type.
-     * 
-     */
     @Import(name="revision", required=true)
     private Output<String> revision;
 
-    /**
-     * @return Revision of the Form Type.
-     * 
-     */
     public Output<String> revision() {
         return this.revision;
     }
@@ -69,44 +53,20 @@ public final class FormTypeImportArgs extends com.pulumi.resources.ResourceArgs 
             $ = new FormTypeImportArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the form type. Must be the name of the structure in smithy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the form type. Must be the name of the structure in smithy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param revision Revision of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(Output<String> revision) {
             $.revision = revision;
             return this;
         }
 
-        /**
-         * @param revision Revision of the Form Type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(String revision) {
             return revision(Output.of(revision));
         }

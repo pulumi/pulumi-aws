@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterUpgradePolicy {
-    /**
-     * @return Support type to use for the cluster.
-     * 
-     */
     private String supportType;
 
     private GetClusterUpgradePolicy() {}
-    /**
-     * @return Support type to use for the cluster.
-     * 
-     */
     public String supportType() {
         return this.supportType;
     }

@@ -23,62 +23,30 @@ public final class ConfigurationPolicyState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Defines how Security Hub is configured. See below.
-     * 
-     */
     @Import(name="configurationPolicy")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicyArgs> configurationPolicy;
 
-    /**
-     * @return Defines how Security Hub is configured. See below.
-     * 
-     */
     public Optional<Output<ConfigurationPolicyConfigurationPolicyArgs>> configurationPolicy() {
         return Optional.ofNullable(this.configurationPolicy);
     }
 
-    /**
-     * The description of the configuration policy.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the configuration policy.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the configuration policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the configuration policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,86 +88,38 @@ public final class ConfigurationPolicyState extends com.pulumi.resources.Resourc
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param configurationPolicy Defines how Security Hub is configured. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationPolicy(@Nullable Output<ConfigurationPolicyConfigurationPolicyArgs> configurationPolicy) {
             $.configurationPolicy = configurationPolicy;
             return this;
         }
 
-        /**
-         * @param configurationPolicy Defines how Security Hub is configured. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs configurationPolicy) {
             return configurationPolicy(Output.of(configurationPolicy));
         }
 
-        /**
-         * @param description The description of the configuration policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the configuration policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of the configuration policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the configuration policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -14,32 +14,16 @@ public final class FilterFilterCriteriaNetworkProtocolArgs extends com.pulumi.re
 
     public static final FilterFilterCriteriaNetworkProtocolArgs Empty = new FilterFilterCriteriaNetworkProtocolArgs();
 
-    /**
-     * (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     @Import(name="comparison", required=true)
     private Output<String> comparison;
 
-    /**
-     * @return (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     public Output<String> comparison() {
         return this.comparison;
     }
 
-    /**
-     * (Required) The value to filter on.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return (Required) The value to filter on.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class FilterFilterCriteriaNetworkProtocolArgs extends com.pulumi.re
             $ = new FilterFilterCriteriaNetworkProtocolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparison (Required) The comparison operator. Valid values: `EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(Output<String> comparison) {
             $.comparison = comparison;
             return this;
         }
 
-        /**
-         * @param comparison (Required) The comparison operator. Valid values: `EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(String comparison) {
             return comparison(Output.of(comparison));
         }
 
-        /**
-         * @param value (Required) The value to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value (Required) The value to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

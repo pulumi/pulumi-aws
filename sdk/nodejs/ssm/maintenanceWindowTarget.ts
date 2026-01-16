@@ -7,79 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SSM Maintenance Window Target resource
- *
- * ## Example Usage
- *
- * ### Instance Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const window = new aws.ssm.MaintenanceWindow("window", {
- *     name: "maintenance-window-webapp",
- *     schedule: "cron(0 16 ? * TUE *)",
- *     duration: 3,
- *     cutoff: 1,
- * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     windowId: window.id,
- *     name: "maintenance-window-target",
- *     description: "This is a maintenance window target",
- *     resourceType: "INSTANCE",
- *     targets: [{
- *         key: "tag:Name",
- *         values: ["acceptance_test"],
- *     }],
- * });
- * ```
- *
- * ### Resource Group Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const window = new aws.ssm.MaintenanceWindow("window", {
- *     name: "maintenance-window-webapp",
- *     schedule: "cron(0 16 ? * TUE *)",
- *     duration: 3,
- *     cutoff: 1,
- * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     windowId: window.id,
- *     name: "maintenance-window-target",
- *     description: "This is a maintenance window target",
- *     resourceType: "RESOURCE_GROUP",
- *     targets: [{
- *         key: "resource-groups:ResourceTypeFilters",
- *         values: ["AWS::EC2::Instance"],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `window_id` - (String) ID of the maintenance window.
- *
- * * `id` - (String) ID of the maintenance window target.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
- *
- * % pulumi import aws_ssm_maintenance_window_target.example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
- */
 export class MaintenanceWindowTarget extends pulumi.CustomResource {
     /**
      * Get an existing MaintenanceWindowTarget resource's state with the given name, ID, and optional extra
@@ -108,34 +35,12 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceWindowTarget.__pulumiType;
     }
 
-    /**
-     * The description of the maintenance window target.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the maintenance window target.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-     */
     declare public readonly ownerInformation: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
-     */
     declare public readonly resourceType: pulumi.Output<string>;
-    /**
-     * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
-     * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
-     */
     declare public readonly targets: pulumi.Output<outputs.ssm.MaintenanceWindowTargetTarget[]>;
-    /**
-     * The Id of the maintenance window to register the target with.
-     */
     declare public readonly windowId: pulumi.Output<string>;
 
     /**
@@ -186,34 +91,12 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MaintenanceWindowTarget resources.
  */
 export interface MaintenanceWindowTargetState {
-    /**
-     * The description of the maintenance window target.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the maintenance window target.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-     */
     ownerInformation?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
-     */
     resourceType?: pulumi.Input<string>;
-    /**
-     * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
-     * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
-     */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
-    /**
-     * The Id of the maintenance window to register the target with.
-     */
     windowId?: pulumi.Input<string>;
 }
 
@@ -221,33 +104,11 @@ export interface MaintenanceWindowTargetState {
  * The set of arguments for constructing a MaintenanceWindowTarget resource.
  */
 export interface MaintenanceWindowTargetArgs {
-    /**
-     * The description of the maintenance window target.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the maintenance window target.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-     */
     ownerInformation?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
-     */
     resourceType: pulumi.Input<string>;
-    /**
-     * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
-     * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
-     */
     targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
-    /**
-     * The Id of the maintenance window to register the target with.
-     */
     windowId: pulumi.Input<string>;
 }

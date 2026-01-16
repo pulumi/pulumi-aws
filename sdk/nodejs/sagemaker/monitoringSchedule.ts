@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker AI monitoring schedule resource.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.MonitoringSchedule("test", {
- *     name: "my-monitoring-schedule",
- *     monitoringScheduleConfig: {
- *         monitoringJobDefinitionName: testAwsSagemakerDataQualityJobDefinition.name,
- *         monitoringType: "DataQuality",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import monitoring schedules using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
- * ```
- */
 export class MonitoringSchedule extends pulumi.CustomResource {
     /**
      * Get an existing MonitoringSchedule resource's state with the given name, ID, and optional extra
@@ -63,29 +35,11 @@ export class MonitoringSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringSchedule.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-     */
     declare public readonly monitoringScheduleConfig: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
-    /**
-     * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -128,29 +82,11 @@ export class MonitoringSchedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MonitoringSchedule resources.
  */
 export interface MonitoringScheduleState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-     */
     monitoringScheduleConfig?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
-    /**
-     * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -158,20 +94,8 @@ export interface MonitoringScheduleState {
  * The set of arguments for constructing a MonitoringSchedule resource.
  */
 export interface MonitoringScheduleArgs {
-    /**
-     * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
-     */
     monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
-    /**
-     * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

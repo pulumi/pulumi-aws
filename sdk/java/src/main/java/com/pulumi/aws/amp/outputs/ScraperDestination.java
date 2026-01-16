@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScraperDestination {
-    /**
-     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-     * 
-     */
     private @Nullable ScraperDestinationAmp amp;
 
     private ScraperDestination() {}
-    /**
-     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-     * 
-     */
     public Optional<ScraperDestinationAmp> amp() {
         return Optional.ofNullable(this.amp);
     }

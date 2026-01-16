@@ -15,51 +15,23 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
 
     public static final LbAttachmentState Empty = new LbAttachmentState();
 
-    /**
-     * Name of the instance to attach to the load balancer.
-     * 
-     */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
-    /**
-     * @return Name of the instance to attach to the load balancer.
-     * 
-     */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
     }
 
-    /**
-     * Name of the Lightsail load balancer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
-    /**
-     * @return Name of the Lightsail load balancer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> lbName() {
         return Optional.ofNullable(this.lbName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,69 +62,29 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
             $ = new LbAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceName Name of the instance to attach to the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
-        /**
-         * @param instanceName Name of the instance to attach to the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
-        /**
-         * @param lbName Name of the Lightsail load balancer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(@Nullable Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName Name of the Lightsail load balancer.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

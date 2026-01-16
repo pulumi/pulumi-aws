@@ -16,62 +16,30 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
 
     public static final RoleAssociationArgs Empty = new RoleAssociationArgs();
 
-    /**
-     * DB Instance Identifier to associate with the IAM Role.
-     * 
-     */
     @Import(name="dbInstanceIdentifier", required=true)
     private Output<String> dbInstanceIdentifier;
 
-    /**
-     * @return DB Instance Identifier to associate with the IAM Role.
-     * 
-     */
     public Output<String> dbInstanceIdentifier() {
         return this.dbInstanceIdentifier;
     }
 
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     @Import(name="featureName", required=true)
     private Output<String> featureName;
 
-    /**
-     * @return Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     public Output<String> featureName() {
         return this.featureName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -103,86 +71,38 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
             $ = new RoleAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbInstanceIdentifier DB Instance Identifier to associate with the IAM Role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(Output<String> dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param dbInstanceIdentifier DB Instance Identifier to associate with the IAM Role.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(String dbInstanceIdentifier) {
             return dbInstanceIdentifier(Output.of(dbInstanceIdentifier));
         }
 
-        /**
-         * @param featureName Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureName(Output<String> featureName) {
             $.featureName = featureName;
             return this;
         }
 
-        /**
-         * @param featureName Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder featureName(String featureName) {
             return featureName(Output.of(featureName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

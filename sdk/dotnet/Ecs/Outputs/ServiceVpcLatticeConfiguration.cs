@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceVpcLatticeConfiguration
     {
-        /// <summary>
-        /// The name of the port for a target group associated with the VPC Lattice configuration.
-        /// </summary>
         public readonly string PortName;
-        /// <summary>
-        /// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The full ARN of the target group or groups associated with the VPC Lattice configuration.
-        /// </summary>
         public readonly string TargetGroupArn;
 
         [OutputConstructor]

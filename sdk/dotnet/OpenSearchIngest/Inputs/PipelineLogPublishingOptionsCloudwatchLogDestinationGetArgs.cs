@@ -12,9 +12,6 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
 
     public sealed class PipelineLogPublishingOptionsCloudwatchLogDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
-        /// </summary>
         [Input("logGroup", required: true)]
         public Input<string> LogGroup { get; set; } = null!;
 

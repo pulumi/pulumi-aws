@@ -12,261 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages selection conditions for AWS Backup plan resources.
-//
-// ## Example Usage
-//
-// ### IAM Role
-//
-// > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
-//
-// The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"backup.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"),
-//				Role:      example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Selecting Backups By Tag
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:       pulumi.String("my_example_backup_selection"),
-//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
-//				SelectionTags: backup.SelectionSelectionTagArray{
-//					&backup.SelectionSelectionTagArgs{
-//						Type:  pulumi.String("STRINGEQUALS"),
-//						Key:   pulumi.String("foo"),
-//						Value: pulumi.String("bar"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Selecting Backups By Conditions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:       pulumi.String("my_example_backup_selection"),
-//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
-//				Resources: pulumi.StringArray{
-//					pulumi.String("*"),
-//				},
-//				Conditions: backup.SelectionConditionArray{
-//					&backup.SelectionConditionArgs{
-//						StringEquals: backup.SelectionConditionStringEqualArray{
-//							&backup.SelectionConditionStringEqualArgs{
-//								Key:   pulumi.String("aws:ResourceTag/Component"),
-//								Value: pulumi.String("rds"),
-//							},
-//						},
-//						StringLikes: backup.SelectionConditionStringLikeArray{
-//							&backup.SelectionConditionStringLikeArgs{
-//								Key:   pulumi.String("aws:ResourceTag/Application"),
-//								Value: pulumi.String("app*"),
-//							},
-//						},
-//						StringNotEquals: backup.SelectionConditionStringNotEqualArray{
-//							&backup.SelectionConditionStringNotEqualArgs{
-//								Key:   pulumi.String("aws:ResourceTag/Backup"),
-//								Value: pulumi.String("false"),
-//							},
-//						},
-//						StringNotLikes: backup.SelectionConditionStringNotLikeArray{
-//							&backup.SelectionConditionStringNotLikeArgs{
-//								Key:   pulumi.String("aws:ResourceTag/Environment"),
-//								Value: pulumi.String("test*"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Selecting Backups By Resource
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:       pulumi.String("my_example_backup_selection"),
-//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
-//				Resources: pulumi.StringArray{
-//					exampleAwsDbInstance.Arn,
-//					exampleAwsEbsVolume.Arn,
-//					exampleAwsEfsFileSystem.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Selecting Backups By Not Resource
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
-//				IamRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Name:       pulumi.String("my_example_backup_selection"),
-//				PlanId:     pulumi.Any(exampleAwsBackupPlan.Id),
-//				NotResources: pulumi.StringArray{
-//					exampleAwsDbInstance.Arn,
-//					exampleAwsEbsVolume.Arn,
-//					exampleAwsEfsFileSystem.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
-// ```
 type Selection struct {
 	pulumi.CustomResourceState
 
-	// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
-	Conditions SelectionConditionArrayOutput `pulumi:"conditions"`
-	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// The display name of a resource selection document.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
-	NotResources pulumi.StringArrayOutput `pulumi:"notResources"`
-	// The backup plan ID to be associated with the selection of resources.
-	PlanId pulumi.StringOutput `pulumi:"planId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-	Resources pulumi.StringArrayOutput `pulumi:"resources"`
-	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
+	Conditions    SelectionConditionArrayOutput    `pulumi:"conditions"`
+	IamRoleArn    pulumi.StringOutput              `pulumi:"iamRoleArn"`
+	Name          pulumi.StringOutput              `pulumi:"name"`
+	NotResources  pulumi.StringArrayOutput         `pulumi:"notResources"`
+	PlanId        pulumi.StringOutput              `pulumi:"planId"`
+	Region        pulumi.StringOutput              `pulumi:"region"`
+	Resources     pulumi.StringArrayOutput         `pulumi:"resources"`
 	SelectionTags SelectionSelectionTagArrayOutput `pulumi:"selectionTags"`
 }
 
@@ -306,40 +61,24 @@ func GetSelection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Selection resources.
 type selectionState struct {
-	// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
-	Conditions []SelectionCondition `pulumi:"conditions"`
-	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The display name of a resource selection document.
-	Name *string `pulumi:"name"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
-	NotResources []string `pulumi:"notResources"`
-	// The backup plan ID to be associated with the selection of resources.
-	PlanId *string `pulumi:"planId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-	Resources []string `pulumi:"resources"`
-	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
+	Conditions    []SelectionCondition    `pulumi:"conditions"`
+	IamRoleArn    *string                 `pulumi:"iamRoleArn"`
+	Name          *string                 `pulumi:"name"`
+	NotResources  []string                `pulumi:"notResources"`
+	PlanId        *string                 `pulumi:"planId"`
+	Region        *string                 `pulumi:"region"`
+	Resources     []string                `pulumi:"resources"`
 	SelectionTags []SelectionSelectionTag `pulumi:"selectionTags"`
 }
 
 type SelectionState struct {
-	// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
-	Conditions SelectionConditionArrayInput
-	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn pulumi.StringPtrInput
-	// The display name of a resource selection document.
-	Name pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
-	NotResources pulumi.StringArrayInput
-	// The backup plan ID to be associated with the selection of resources.
-	PlanId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-	Resources pulumi.StringArrayInput
-	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
+	Conditions    SelectionConditionArrayInput
+	IamRoleArn    pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	NotResources  pulumi.StringArrayInput
+	PlanId        pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	Resources     pulumi.StringArrayInput
 	SelectionTags SelectionSelectionTagArrayInput
 }
 
@@ -348,41 +87,25 @@ func (SelectionState) ElementType() reflect.Type {
 }
 
 type selectionArgs struct {
-	// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
-	Conditions []SelectionCondition `pulumi:"conditions"`
-	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn string `pulumi:"iamRoleArn"`
-	// The display name of a resource selection document.
-	Name *string `pulumi:"name"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
-	NotResources []string `pulumi:"notResources"`
-	// The backup plan ID to be associated with the selection of resources.
-	PlanId string `pulumi:"planId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-	Resources []string `pulumi:"resources"`
-	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
+	Conditions    []SelectionCondition    `pulumi:"conditions"`
+	IamRoleArn    string                  `pulumi:"iamRoleArn"`
+	Name          *string                 `pulumi:"name"`
+	NotResources  []string                `pulumi:"notResources"`
+	PlanId        string                  `pulumi:"planId"`
+	Region        *string                 `pulumi:"region"`
+	Resources     []string                `pulumi:"resources"`
 	SelectionTags []SelectionSelectionTag `pulumi:"selectionTags"`
 }
 
 // The set of arguments for constructing a Selection resource.
 type SelectionArgs struct {
-	// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
-	Conditions SelectionConditionArrayInput
-	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn pulumi.StringInput
-	// The display name of a resource selection document.
-	Name pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
-	NotResources pulumi.StringArrayInput
-	// The backup plan ID to be associated with the selection of resources.
-	PlanId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-	Resources pulumi.StringArrayInput
-	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
+	Conditions    SelectionConditionArrayInput
+	IamRoleArn    pulumi.StringInput
+	Name          pulumi.StringPtrInput
+	NotResources  pulumi.StringArrayInput
+	PlanId        pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	Resources     pulumi.StringArrayInput
 	SelectionTags SelectionSelectionTagArrayInput
 }
 
@@ -473,42 +196,34 @@ func (o SelectionOutput) ToSelectionOutputWithContext(ctx context.Context) Selec
 	return o
 }
 
-// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
 func (o SelectionOutput) Conditions() SelectionConditionArrayOutput {
 	return o.ApplyT(func(v *Selection) SelectionConditionArrayOutput { return v.Conditions }).(SelectionConditionArrayOutput)
 }
 
-// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
 func (o SelectionOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// The display name of a resource selection document.
 func (o SelectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
 func (o SelectionOutput) NotResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringArrayOutput { return v.NotResources }).(pulumi.StringArrayOutput)
 }
 
-// The backup plan ID to be associated with the selection of resources.
 func (o SelectionOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SelectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 func (o SelectionOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
 func (o SelectionOutput) SelectionTags() SelectionSelectionTagArrayOutput {
 	return o.ApplyT(func(v *Selection) SelectionSelectionTagArrayOutput { return v.SelectionTags }).(SelectionSelectionTagArrayOutput)
 }

@@ -16,47 +16,23 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetResourceArgs Empty = new GetResourceArgs();
 
-    /**
-     * Full path of the resource.  If no path is found, an error will be returned.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return Full path of the resource.  If no path is found, an error will be returned.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * REST API id that owns the resource. If no REST API is found, an error will be returned.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
-    /**
-     * @return REST API id that owns the resource. If no REST API is found, an error will be returned.
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
@@ -87,65 +63,29 @@ public final class GetResourceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path Full path of the resource.  If no path is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Full path of the resource.  If no path is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }

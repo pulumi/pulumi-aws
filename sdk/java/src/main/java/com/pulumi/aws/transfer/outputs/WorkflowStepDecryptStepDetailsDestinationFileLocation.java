@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowStepDecryptStepDetailsDestinationFileLocation {
-    /**
-     * @return Specifies the details for the EFS file being copied.
-     * 
-     */
     private @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation;
-    /**
-     * @return Specifies the details for the S3 file being copied.
-     * 
-     */
     private @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation s3FileLocation;
 
     private WorkflowStepDecryptStepDetailsDestinationFileLocation() {}
-    /**
-     * @return Specifies the details for the EFS file being copied.
-     * 
-     */
     public Optional<WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation> efsFileLocation() {
         return Optional.ofNullable(this.efsFileLocation);
     }
-    /**
-     * @return Specifies the details for the S3 file being copied.
-     * 
-     */
     public Optional<WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation> s3FileLocation() {
         return Optional.ofNullable(this.s3FileLocation);
     }

@@ -48,9 +48,6 @@ class GetTablesResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        A list of all the DynamoDB table names found.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -73,22 +70,7 @@ class AwaitableGetTablesResult(GetTablesResult):
 def get_tables(region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablesResult:
     """
-    Returns a list of all AWS DynamoDB table names in a region.
-
-    ## Example Usage
-
-    The following example retrieves a list of all DynamoDB table names in a region.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.dynamodb.get_tables()
-    pulumi.export("tableNames", all.names)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -102,22 +84,7 @@ def get_tables(region: Optional[_builtins.str] = None,
 def get_tables_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablesResult]:
     """
-    Returns a list of all AWS DynamoDB table names in a region.
-
-    ## Example Usage
-
-    The following example retrieves a list of all DynamoDB table names in a region.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.dynamodb.get_tables()
-    pulumi.export("tableNames", all.names)
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -15,32 +15,16 @@ public final class PackageAssociationState extends com.pulumi.resources.Resource
 
     public static final PackageAssociationState Empty = new PackageAssociationState();
 
-    /**
-     * Name of the domain to associate the package with.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return Name of the domain to associate the package with.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Internal ID of the package to associate with a domain.
-     * 
-     */
     @Import(name="packageId")
     private @Nullable Output<String> packageId;
 
-    /**
-     * @return Internal ID of the package to associate with a domain.
-     * 
-     */
     public Optional<Output<String>> packageId() {
         return Optional.ofNullable(this.packageId);
     }
@@ -52,17 +36,9 @@ public final class PackageAssociationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.referencePath);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -94,44 +70,20 @@ public final class PackageAssociationState extends com.pulumi.resources.Resource
             $ = new PackageAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Name of the domain to associate the package with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Name of the domain to associate the package with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param packageId Internal ID of the package to associate with a domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageId(@Nullable Output<String> packageId) {
             $.packageId = packageId;
             return this;
         }
 
-        /**
-         * @param packageId Internal ID of the package to associate with a domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageId(String packageId) {
             return packageId(Output.of(packageId));
         }
@@ -145,23 +97,11 @@ public final class PackageAssociationState extends com.pulumi.resources.Resource
             return referencePath(Output.of(referencePath));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

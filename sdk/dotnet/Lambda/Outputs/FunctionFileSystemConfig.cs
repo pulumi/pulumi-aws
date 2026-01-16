@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionFileSystemConfig
     {
-        /// <summary>
-        /// ARN of the Amazon EFS Access Point.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Path where the function can access the file system. Must start with `/mnt/`.
-        /// </summary>
         public readonly string LocalMountPath;
 
         [OutputConstructor]

@@ -11,15 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetProtectionResult {
     private String id;
-    /**
-     * @return Name of the protection.
-     * 
-     */
     private String name;
-    /**
-     * @return ARN of the protection.
-     * 
-     */
     private String protectionArn;
     private String protectionId;
     private String resourceArn;
@@ -28,17 +20,9 @@ public final class GetProtectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the protection.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return ARN of the protection.
-     * 
-     */
     public String protectionArn() {
         return this.protectionArn;
     }

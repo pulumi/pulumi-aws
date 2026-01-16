@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route53 CIDR location resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.CidrCollection("example", {name: "collection-1"});
- * const exampleCidrLocation = new aws.route53.CidrLocation("example", {
- *     cidrCollectionId: example.id,
- *     name: "office",
- *     cidrBlocks: [
- *         "200.5.3.0/24",
- *         "200.6.3.0/24",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
- * ```
- */
 export class CidrLocation extends pulumi.CustomResource {
     /**
      * Get an existing CidrLocation resource's state with the given name, ID, and optional extra
@@ -60,17 +32,8 @@ export class CidrLocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === CidrLocation.__pulumiType;
     }
 
-    /**
-     * CIDR blocks for the location.
-     */
     declare public readonly cidrBlocks: pulumi.Output<string[]>;
-    /**
-     * The ID of the CIDR collection to update.
-     */
     declare public readonly cidrCollectionId: pulumi.Output<string>;
-    /**
-     * Name for the CIDR location.
-     */
     declare public readonly name: pulumi.Output<string>;
 
     /**
@@ -110,17 +73,8 @@ export class CidrLocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CidrLocation resources.
  */
 export interface CidrLocationState {
-    /**
-     * CIDR blocks for the location.
-     */
     cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID of the CIDR collection to update.
-     */
     cidrCollectionId?: pulumi.Input<string>;
-    /**
-     * Name for the CIDR location.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -128,16 +82,7 @@ export interface CidrLocationState {
  * The set of arguments for constructing a CidrLocation resource.
  */
 export interface CidrLocationArgs {
-    /**
-     * CIDR blocks for the location.
-     */
     cidrBlocks: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID of the CIDR collection to update.
-     */
     cidrCollectionId: pulumi.Input<string>;
-    /**
-     * Name for the CIDR location.
-     */
     name?: pulumi.Input<string>;
 }

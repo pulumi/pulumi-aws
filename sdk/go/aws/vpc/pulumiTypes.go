@@ -307,9 +307,7 @@ func (o RouteServerEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type RouteServerPeerBgpOptions struct {
-	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-	PeerAsn int `pulumi:"peerAsn"`
-	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+	PeerAsn               int     `pulumi:"peerAsn"`
 	PeerLivenessDetection *string `pulumi:"peerLivenessDetection"`
 }
 
@@ -325,9 +323,7 @@ type RouteServerPeerBgpOptionsInput interface {
 }
 
 type RouteServerPeerBgpOptionsArgs struct {
-	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-	PeerAsn pulumi.IntInput `pulumi:"peerAsn"`
-	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+	PeerAsn               pulumi.IntInput       `pulumi:"peerAsn"`
 	PeerLivenessDetection pulumi.StringPtrInput `pulumi:"peerLivenessDetection"`
 }
 
@@ -408,12 +404,10 @@ func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsPtrOutputWit
 	}).(RouteServerPeerBgpOptionsPtrOutput)
 }
 
-// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 func (o RouteServerPeerBgpOptionsOutput) PeerAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteServerPeerBgpOptions) int { return v.PeerAsn }).(pulumi.IntOutput)
 }
 
-// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
 func (o RouteServerPeerBgpOptionsOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteServerPeerBgpOptions) *string { return v.PeerLivenessDetection }).(pulumi.StringPtrOutput)
 }
@@ -442,7 +436,6 @@ func (o RouteServerPeerBgpOptionsPtrOutput) Elem() RouteServerPeerBgpOptionsOutp
 	}).(RouteServerPeerBgpOptionsOutput)
 }
 
-// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 func (o RouteServerPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *int {
 		if v == nil {
@@ -452,7 +445,6 @@ func (o RouteServerPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
 func (o RouteServerPeerBgpOptionsPtrOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *string {
 		if v == nil {
@@ -1262,23 +1254,15 @@ func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrO
 }
 
 type GetEndpointAssociationsAssociation struct {
-	// Accessibility of the resource.
-	AssociatedResourceAccessibility string `pulumi:"associatedResourceAccessibility"`
-	// ARN of the resource for this association.
-	AssociatedResourceArn string `pulumi:"associatedResourceArn"`
-	// DNS entries for the Association. DNS entry blocks are documented below.
-	DnsEntries []GetEndpointAssociationsAssociationDnsEntry `pulumi:"dnsEntries"`
-	Id         string                                       `pulumi:"id"`
-	// DNS entries for the Association. Private DNS entry blocks are documented below.
-	PrivateDnsEntries []GetEndpointAssociationsAssociationPrivateDnsEntry `pulumi:"privateDnsEntries"`
-	// ARN of the Resource Group if the Resource is a member of a group.
-	ResourceConfigurationGroupArn string `pulumi:"resourceConfigurationGroupArn"`
-	// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkArn string `pulumi:"serviceNetworkArn"`
-	// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkName string `pulumi:"serviceNetworkName"`
-	// Tags of the association.
-	Tags map[string]string `pulumi:"tags"`
+	AssociatedResourceAccessibility string                                              `pulumi:"associatedResourceAccessibility"`
+	AssociatedResourceArn           string                                              `pulumi:"associatedResourceArn"`
+	DnsEntries                      []GetEndpointAssociationsAssociationDnsEntry        `pulumi:"dnsEntries"`
+	Id                              string                                              `pulumi:"id"`
+	PrivateDnsEntries               []GetEndpointAssociationsAssociationPrivateDnsEntry `pulumi:"privateDnsEntries"`
+	ResourceConfigurationGroupArn   string                                              `pulumi:"resourceConfigurationGroupArn"`
+	ServiceNetworkArn               string                                              `pulumi:"serviceNetworkArn"`
+	ServiceNetworkName              string                                              `pulumi:"serviceNetworkName"`
+	Tags                            map[string]string                                   `pulumi:"tags"`
 }
 
 // GetEndpointAssociationsAssociationInput is an input type that accepts GetEndpointAssociationsAssociationArgs and GetEndpointAssociationsAssociationOutput values.
@@ -1293,23 +1277,15 @@ type GetEndpointAssociationsAssociationInput interface {
 }
 
 type GetEndpointAssociationsAssociationArgs struct {
-	// Accessibility of the resource.
-	AssociatedResourceAccessibility pulumi.StringInput `pulumi:"associatedResourceAccessibility"`
-	// ARN of the resource for this association.
-	AssociatedResourceArn pulumi.StringInput `pulumi:"associatedResourceArn"`
-	// DNS entries for the Association. DNS entry blocks are documented below.
-	DnsEntries GetEndpointAssociationsAssociationDnsEntryArrayInput `pulumi:"dnsEntries"`
-	Id         pulumi.StringInput                                   `pulumi:"id"`
-	// DNS entries for the Association. Private DNS entry blocks are documented below.
-	PrivateDnsEntries GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput `pulumi:"privateDnsEntries"`
-	// ARN of the Resource Group if the Resource is a member of a group.
-	ResourceConfigurationGroupArn pulumi.StringInput `pulumi:"resourceConfigurationGroupArn"`
-	// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkArn pulumi.StringInput `pulumi:"serviceNetworkArn"`
-	// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkName pulumi.StringInput `pulumi:"serviceNetworkName"`
-	// Tags of the association.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	AssociatedResourceAccessibility pulumi.StringInput                                          `pulumi:"associatedResourceAccessibility"`
+	AssociatedResourceArn           pulumi.StringInput                                          `pulumi:"associatedResourceArn"`
+	DnsEntries                      GetEndpointAssociationsAssociationDnsEntryArrayInput        `pulumi:"dnsEntries"`
+	Id                              pulumi.StringInput                                          `pulumi:"id"`
+	PrivateDnsEntries               GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput `pulumi:"privateDnsEntries"`
+	ResourceConfigurationGroupArn   pulumi.StringInput                                          `pulumi:"resourceConfigurationGroupArn"`
+	ServiceNetworkArn               pulumi.StringInput                                          `pulumi:"serviceNetworkArn"`
+	ServiceNetworkName              pulumi.StringInput                                          `pulumi:"serviceNetworkName"`
+	Tags                            pulumi.StringMapInput                                       `pulumi:"tags"`
 }
 
 func (GetEndpointAssociationsAssociationArgs) ElementType() reflect.Type {
@@ -1363,17 +1339,14 @@ func (o GetEndpointAssociationsAssociationOutput) ToGetEndpointAssociationsAssoc
 	return o
 }
 
-// Accessibility of the resource.
 func (o GetEndpointAssociationsAssociationOutput) AssociatedResourceAccessibility() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.AssociatedResourceAccessibility }).(pulumi.StringOutput)
 }
 
-// ARN of the resource for this association.
 func (o GetEndpointAssociationsAssociationOutput) AssociatedResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.AssociatedResourceArn }).(pulumi.StringOutput)
 }
 
-// DNS entries for the Association. DNS entry blocks are documented below.
 func (o GetEndpointAssociationsAssociationOutput) DnsEntries() GetEndpointAssociationsAssociationDnsEntryArrayOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) []GetEndpointAssociationsAssociationDnsEntry {
 		return v.DnsEntries
@@ -1384,29 +1357,24 @@ func (o GetEndpointAssociationsAssociationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// DNS entries for the Association. Private DNS entry blocks are documented below.
 func (o GetEndpointAssociationsAssociationOutput) PrivateDnsEntries() GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) []GetEndpointAssociationsAssociationPrivateDnsEntry {
 		return v.PrivateDnsEntries
 	}).(GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput)
 }
 
-// ARN of the Resource Group if the Resource is a member of a group.
 func (o GetEndpointAssociationsAssociationOutput) ResourceConfigurationGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.ResourceConfigurationGroupArn }).(pulumi.StringOutput)
 }
 
-// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
 func (o GetEndpointAssociationsAssociationOutput) ServiceNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.ServiceNetworkArn }).(pulumi.StringOutput)
 }
 
-// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
 func (o GetEndpointAssociationsAssociationOutput) ServiceNetworkName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.ServiceNetworkName }).(pulumi.StringOutput)
 }
 
-// Tags of the association.
 func (o GetEndpointAssociationsAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -1432,9 +1400,7 @@ func (o GetEndpointAssociationsAssociationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetEndpointAssociationsAssociationDnsEntry struct {
-	// DNS name.
-	DnsName string `pulumi:"dnsName"`
-	// ID of the private hosted zone.
+	DnsName      string `pulumi:"dnsName"`
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
@@ -1450,9 +1416,7 @@ type GetEndpointAssociationsAssociationDnsEntryInput interface {
 }
 
 type GetEndpointAssociationsAssociationDnsEntryArgs struct {
-	// DNS name.
-	DnsName pulumi.StringInput `pulumi:"dnsName"`
-	// ID of the private hosted zone.
+	DnsName      pulumi.StringInput `pulumi:"dnsName"`
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
@@ -1507,12 +1471,10 @@ func (o GetEndpointAssociationsAssociationDnsEntryOutput) ToGetEndpointAssociati
 	return o
 }
 
-// DNS name.
 func (o GetEndpointAssociationsAssociationDnsEntryOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociationDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// ID of the private hosted zone.
 func (o GetEndpointAssociationsAssociationDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociationDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -1538,9 +1500,7 @@ func (o GetEndpointAssociationsAssociationDnsEntryArrayOutput) Index(i pulumi.In
 }
 
 type GetEndpointAssociationsAssociationPrivateDnsEntry struct {
-	// DNS name.
-	DnsName string `pulumi:"dnsName"`
-	// ID of the private hosted zone.
+	DnsName      string `pulumi:"dnsName"`
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
@@ -1556,9 +1516,7 @@ type GetEndpointAssociationsAssociationPrivateDnsEntryInput interface {
 }
 
 type GetEndpointAssociationsAssociationPrivateDnsEntryArgs struct {
-	// DNS name.
-	DnsName pulumi.StringInput `pulumi:"dnsName"`
-	// ID of the private hosted zone.
+	DnsName      pulumi.StringInput `pulumi:"dnsName"`
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
@@ -1613,12 +1571,10 @@ func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) ToGetEndpointAs
 	return o
 }
 
-// DNS name.
 func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociationPrivateDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// ID of the private hosted zone.
 func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsAssociationPrivateDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -1644,9 +1600,7 @@ func (o GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) Index(i pu
 }
 
 type GetSecurityGroupRuleFilter struct {
-	// Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1662,9 +1616,7 @@ type GetSecurityGroupRuleFilterInput interface {
 }
 
 type GetSecurityGroupRuleFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1719,12 +1671,10 @@ func (o GetSecurityGroupRuleFilterOutput) ToGetSecurityGroupRuleFilterOutputWith
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
 func (o GetSecurityGroupRuleFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRuleFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetSecurityGroupRuleFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupRuleFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1750,12 +1700,7 @@ func (o GetSecurityGroupRuleFilterArrayOutput) Index(i pulumi.IntInput) GetSecur
 }
 
 type GetSecurityGroupRulesFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	//
-	// Security group rule IDs will be selected if any one of the given values match.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1771,12 +1716,7 @@ type GetSecurityGroupRulesFilterInput interface {
 }
 
 type GetSecurityGroupRulesFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	//
-	// Security group rule IDs will be selected if any one of the given values match.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1831,15 +1771,10 @@ func (o GetSecurityGroupRulesFilterOutput) ToGetSecurityGroupRulesFilterOutputWi
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
 func (o GetSecurityGroupRulesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-//
-// Security group rule IDs will be selected if any one of the given values match.
 func (o GetSecurityGroupRulesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

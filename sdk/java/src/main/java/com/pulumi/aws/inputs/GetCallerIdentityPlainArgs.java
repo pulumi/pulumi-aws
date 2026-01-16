@@ -14,17 +14,9 @@ public final class GetCallerIdentityPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetCallerIdentityPlainArgs Empty = new GetCallerIdentityPlainArgs();
 
-    /**
-     * Account ID number of the account that owns or contains the calling entity.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Account ID number of the account that owns or contains the calling entity.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -53,12 +45,6 @@ public final class GetCallerIdentityPlainArgs extends com.pulumi.resources.Invok
             $ = new GetCallerIdentityPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Account ID number of the account that owns or contains the calling entity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

@@ -15,17 +15,9 @@ public final class WebAclRuleActionChallengeArgs extends com.pulumi.resources.Re
 
     public static final WebAclRuleActionChallengeArgs Empty = new WebAclRuleActionChallengeArgs();
 
-    /**
-     * Defines custom handling for the web request. See `customRequestHandling` below for details.
-     * 
-     */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleActionChallengeCustomRequestHandlingArgs> customRequestHandling;
 
-    /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleActionChallengeCustomRequestHandlingArgs>> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleActionChallengeArgs extends com.pulumi.resources.Re
             $ = new WebAclRuleActionChallengeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(@Nullable Output<WebAclRuleActionChallengeCustomRequestHandlingArgs> customRequestHandling) {
             $.customRequestHandling = customRequestHandling;
             return this;
         }
 
-        /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRequestHandling(WebAclRuleActionChallengeCustomRequestHandlingArgs customRequestHandling) {
             return customRequestHandling(Output.of(customRequestHandling));
         }

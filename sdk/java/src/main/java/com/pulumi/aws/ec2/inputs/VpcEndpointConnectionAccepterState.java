@@ -15,62 +15,30 @@ public final class VpcEndpointConnectionAccepterState extends com.pulumi.resourc
 
     public static final VpcEndpointConnectionAccepterState Empty = new VpcEndpointConnectionAccepterState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * AWS VPC Endpoint ID.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return AWS VPC Endpoint ID.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
-    /**
-     * AWS VPC Endpoint Service ID.
-     * 
-     */
     @Import(name="vpcEndpointServiceId")
     private @Nullable Output<String> vpcEndpointServiceId;
 
-    /**
-     * @return AWS VPC Endpoint Service ID.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointServiceId() {
         return Optional.ofNullable(this.vpcEndpointServiceId);
     }
 
-    /**
-     * State of the VPC Endpoint.
-     * 
-     */
     @Import(name="vpcEndpointState")
     private @Nullable Output<String> vpcEndpointState;
 
-    /**
-     * @return State of the VPC Endpoint.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointState() {
         return Optional.ofNullable(this.vpcEndpointState);
     }
@@ -102,86 +70,38 @@ public final class VpcEndpointConnectionAccepterState extends com.pulumi.resourc
             $ = new VpcEndpointConnectionAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcEndpointId AWS VPC Endpoint ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId AWS VPC Endpoint ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
-        /**
-         * @param vpcEndpointServiceId AWS VPC Endpoint Service ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(@Nullable Output<String> vpcEndpointServiceId) {
             $.vpcEndpointServiceId = vpcEndpointServiceId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointServiceId AWS VPC Endpoint Service ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(String vpcEndpointServiceId) {
             return vpcEndpointServiceId(Output.of(vpcEndpointServiceId));
         }
 
-        /**
-         * @param vpcEndpointState State of the VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointState(@Nullable Output<String> vpcEndpointState) {
             $.vpcEndpointState = vpcEndpointState;
             return this;
         }
 
-        /**
-         * @param vpcEndpointState State of the VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointState(String vpcEndpointState) {
             return vpcEndpointState(Output.of(vpcEndpointState));
         }

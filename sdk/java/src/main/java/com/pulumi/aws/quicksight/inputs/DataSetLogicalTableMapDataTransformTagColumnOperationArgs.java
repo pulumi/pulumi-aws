@@ -16,32 +16,16 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs ext
 
     public static final DataSetLogicalTableMapDataTransformTagColumnOperationArgs Empty = new DataSetLogicalTableMapDataTransformTagColumnOperationArgs();
 
-    /**
-     * Column name.
-     * 
-     */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
-    /**
-     * @return Column name.
-     * 
-     */
     public Output<String> columnName() {
         return this.columnName;
     }
 
-    /**
-     * The dataset column tag, currently only used for geospatial type tagging. See tags.
-     * 
-     */
     @Import(name="tags", required=true)
     private Output<List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>> tags;
 
-    /**
-     * @return The dataset column tag, currently only used for geospatial type tagging. See tags.
-     * 
-     */
     public Output<List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>> tags() {
         return this.tags;
     }
@@ -71,54 +55,24 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs ext
             $ = new DataSetLogicalTableMapDataTransformTagColumnOperationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnName Column name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(Output<String> columnName) {
             $.columnName = columnName;
             return this;
         }
 
-        /**
-         * @param columnName Column name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(String columnName) {
             return columnName(Output.of(columnName));
         }
 
-        /**
-         * @param tags The dataset column tag, currently only used for geospatial type tagging. See tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Output<List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The dataset column tag, currently only used for geospatial type tagging. See tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tags The dataset column tag, currently only used for geospatial type tagging. See tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs... tags) {
             return tags(List.of(tags));
         }

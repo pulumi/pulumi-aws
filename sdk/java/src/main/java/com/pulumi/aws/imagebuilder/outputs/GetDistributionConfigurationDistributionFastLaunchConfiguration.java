@@ -15,65 +15,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionFastLaunchConfiguration {
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     private String accountId;
-    /**
-     * @return A Boolean that represents the current state of faster launching for the Windows AMI.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates;
-    /**
-     * @return The maximum number of parallel instances that are launched for creating resources.
-     * 
-     */
     private Integer maxParallelLaunches;
-    /**
-     * @return Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
-     * 
-     */
     private List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations;
 
     private GetDistributionConfigurationDistributionFastLaunchConfiguration() {}
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return A Boolean that represents the current state of faster launching for the Windows AMI.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates() {
         return this.launchTemplates;
     }
-    /**
-     * @return The maximum number of parallel instances that are launched for creating resources.
-     * 
-     */
     public Integer maxParallelLaunches() {
         return this.maxParallelLaunches;
     }
-    /**
-     * @return Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
-     * 
-     */
     public List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations() {
         return this.snapshotConfigurations;
     }

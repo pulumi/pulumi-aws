@@ -20,62 +20,30 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
 
     public static final TlsInspectionConfigurationArgs Empty = new TlsInspectionConfigurationArgs();
 
-    /**
-     * Description of the TLS inspection configuration.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the TLS inspection configuration.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Encryption configuration block. Detailed below.
-     * 
-     */
     @Import(name="encryptionConfigurations")
     private @Nullable Output<List<TlsInspectionConfigurationEncryptionConfigurationArgs>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration block. Detailed below.
-     * 
-     */
     public Optional<Output<List<TlsInspectionConfigurationEncryptionConfigurationArgs>>> encryptionConfigurations() {
         return Optional.ofNullable(this.encryptionConfigurations);
     }
 
-    /**
-     * Descriptive name of the TLS inspection configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Descriptive name of the TLS inspection configuration.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -94,21 +62,9 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * TLS inspection configuration block. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="tlsInspectionConfiguration")
     private @Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration;
 
-    /**
-     * @return TLS inspection configuration block. Detailed below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs>> tlsInspectionConfiguration() {
         return Optional.ofNullable(this.tlsInspectionConfiguration);
     }
@@ -143,96 +99,42 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
             $ = new TlsInspectionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(@Nullable Output<List<TlsInspectionConfigurationEncryptionConfigurationArgs>> encryptionConfigurations) {
             $.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(List<TlsInspectionConfigurationEncryptionConfigurationArgs> encryptionConfigurations) {
             return encryptionConfigurations(Output.of(encryptionConfigurations));
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
 
-        /**
-         * @param name Descriptive name of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Descriptive name of the TLS inspection configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -255,27 +157,11 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.R
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param tlsInspectionConfiguration TLS inspection configuration block. Detailed below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsInspectionConfiguration(@Nullable Output<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration) {
             $.tlsInspectionConfiguration = tlsInspectionConfiguration;
             return this;
         }
 
-        /**
-         * @param tlsInspectionConfiguration TLS inspection configuration block. Detailed below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs tlsInspectionConfiguration) {
             return tlsInspectionConfiguration(Output.of(tlsInspectionConfiguration));
         }

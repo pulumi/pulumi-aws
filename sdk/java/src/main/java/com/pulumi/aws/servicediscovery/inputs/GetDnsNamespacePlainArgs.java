@@ -16,62 +16,30 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetDnsNamespacePlainArgs Empty = new GetDnsNamespacePlainArgs();
 
-    /**
-     * Name of the namespace.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the namespace.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
-     * 
-     */
     public String type() {
         return this.type;
     }
@@ -103,45 +71,21 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetDnsNamespacePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param type Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;

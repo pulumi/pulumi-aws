@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SSO Admin Application Assignment Configuration.
- *
- * By default, applications will require users to have an explicit assignment in order to access an application.
- * This resource can be used to adjust this default behavior if necessary.
- *
- * > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignmentRequired = true`).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssoadmin.ApplicationAssignmentConfiguration("example", {
- *     applicationArn: exampleAwsSsoadminApplication.arn,
- *     assignmentRequired: true,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
- *
- * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
- *
- * % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
- */
 export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationAssignmentConfiguration resource's state with the given name, ID, and optional extra
@@ -66,17 +32,8 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationAssignmentConfiguration.__pulumiType;
     }
 
-    /**
-     * ARN of the application.
-     */
     declare public readonly applicationArn: pulumi.Output<string>;
-    /**
-     * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     */
     declare public readonly assignmentRequired: pulumi.Output<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -116,17 +73,8 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationAssignmentConfiguration resources.
  */
 export interface ApplicationAssignmentConfigurationState {
-    /**
-     * ARN of the application.
-     */
     applicationArn?: pulumi.Input<string>;
-    /**
-     * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     */
     assignmentRequired?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -134,16 +82,7 @@ export interface ApplicationAssignmentConfigurationState {
  * The set of arguments for constructing a ApplicationAssignmentConfiguration resource.
  */
 export interface ApplicationAssignmentConfigurationArgs {
-    /**
-     * ARN of the application.
-     */
     applicationArn: pulumi.Input<string>;
-    /**
-     * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     */
     assignmentRequired: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

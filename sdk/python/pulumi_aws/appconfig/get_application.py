@@ -46,17 +46,11 @@ class GetApplicationResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Application.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Application.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -93,23 +87,7 @@ def get_application(id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Provides details about an AWS AppConfig Application.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_application(name="my-appconfig-application")
-    ```
-
-
-    :param _builtins.str id: ID of the Application. Either `id` or `name` must be specified.
-    :param _builtins.str name: AWS AppConfig Application name. Either `name` or `id` must be specified.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -129,23 +107,7 @@ def get_application_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] =
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Provides details about an AWS AppConfig Application.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_application(name="my-appconfig-application")
-    ```
-
-
-    :param _builtins.str id: ID of the Application. Either `id` or `name` must be specified.
-    :param _builtins.str name: AWS AppConfig Application name. Either `name` or `id` must be specified.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

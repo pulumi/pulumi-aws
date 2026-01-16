@@ -11,22 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalysisParametersStringParameter {
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
     private List<String> values;
 
     private AnalysisParametersStringParameter() {}
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

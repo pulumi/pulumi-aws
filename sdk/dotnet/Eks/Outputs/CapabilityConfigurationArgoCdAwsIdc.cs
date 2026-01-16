@@ -13,14 +13,8 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfigurationArgoCdAwsIdc
     {
-        /// <summary>
-        /// ARN of the IAM Identity Center instance.
-        /// </summary>
         public readonly string IdcInstanceArn;
         public readonly string? IdcManagedApplicationArn;
-        /// <summary>
-        /// Region of the IAM Identity Center instance.
-        /// </summary>
         public readonly string? IdcRegion;
 
         [OutputConstructor]

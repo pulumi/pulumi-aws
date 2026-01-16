@@ -15,17 +15,9 @@ public final class DataSetColumnGroupArgs extends com.pulumi.resources.ResourceA
 
     public static final DataSetColumnGroupArgs Empty = new DataSetColumnGroupArgs();
 
-    /**
-     * Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
-     * 
-     */
     @Import(name="geoSpatialColumnGroup")
     private @Nullable Output<DataSetColumnGroupGeoSpatialColumnGroupArgs> geoSpatialColumnGroup;
 
-    /**
-     * @return Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
-     * 
-     */
     public Optional<Output<DataSetColumnGroupGeoSpatialColumnGroupArgs>> geoSpatialColumnGroup() {
         return Optional.ofNullable(this.geoSpatialColumnGroup);
     }
@@ -54,23 +46,11 @@ public final class DataSetColumnGroupArgs extends com.pulumi.resources.ResourceA
             $ = new DataSetColumnGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param geoSpatialColumnGroup Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoSpatialColumnGroup(@Nullable Output<DataSetColumnGroupGeoSpatialColumnGroupArgs> geoSpatialColumnGroup) {
             $.geoSpatialColumnGroup = geoSpatialColumnGroup;
             return this;
         }
 
-        /**
-         * @param geoSpatialColumnGroup Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder geoSpatialColumnGroup(DataSetColumnGroupGeoSpatialColumnGroupArgs geoSpatialColumnGroup) {
             return geoSpatialColumnGroup(Output.of(geoSpatialColumnGroup));
         }

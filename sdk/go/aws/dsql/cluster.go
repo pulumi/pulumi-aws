@@ -11,74 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Aurora DSQL Cluster.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dsql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dsql.NewCluster(ctx, "example", &dsql.ClusterArgs{
-//				DeletionProtectionEnabled: pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("TestCluster"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether deletion protection is enabled in this cluster.
-	// Default value is `false`.
-	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
-	// Encryption configuration details for the DSQL Cluster.
-	EncryptionDetails ClusterEncryptionDetailArrayOutput `pulumi:"encryptionDetails"`
-	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-	// Default value is `false`.
-	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
-	// Cluster Identifier.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-	KmsEncryptionKey pulumi.StringOutput `pulumi:"kmsEncryptionKey"`
-	// Multi-region properties of the DSQL Cluster.
-	MultiRegionProperties ClusterMultiRegionPropertiesPtrOutput `pulumi:"multiRegionProperties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Set of tags to be associated with the AWS DSQL Cluster resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
-	Timeouts ClusterTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The DSQL Cluster's VPC endpoint service name.
-	VpcEndpointServiceName pulumi.StringOutput `pulumi:"vpcEndpointServiceName"`
+	Arn                       pulumi.StringOutput                   `pulumi:"arn"`
+	DeletionProtectionEnabled pulumi.BoolOutput                     `pulumi:"deletionProtectionEnabled"`
+	EncryptionDetails         ClusterEncryptionDetailArrayOutput    `pulumi:"encryptionDetails"`
+	ForceDestroy              pulumi.BoolOutput                     `pulumi:"forceDestroy"`
+	Identifier                pulumi.StringOutput                   `pulumi:"identifier"`
+	KmsEncryptionKey          pulumi.StringOutput                   `pulumi:"kmsEncryptionKey"`
+	MultiRegionProperties     ClusterMultiRegionPropertiesPtrOutput `pulumi:"multiRegionProperties"`
+	Region                    pulumi.StringOutput                   `pulumi:"region"`
+	Tags                      pulumi.StringMapOutput                `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                `pulumi:"tagsAll"`
+	Timeouts                  ClusterTimeoutsPtrOutput              `pulumi:"timeouts"`
+	VpcEndpointServiceName    pulumi.StringOutput                   `pulumi:"vpcEndpointServiceName"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -111,59 +58,33 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// ARN of the Cluster.
-	Arn *string `pulumi:"arn"`
-	// Whether deletion protection is enabled in this cluster.
-	// Default value is `false`.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// Encryption configuration details for the DSQL Cluster.
-	EncryptionDetails []ClusterEncryptionDetail `pulumi:"encryptionDetails"`
-	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-	// Default value is `false`.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Cluster Identifier.
-	Identifier *string `pulumi:"identifier"`
-	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
-	// Multi-region properties of the DSQL Cluster.
-	MultiRegionProperties *ClusterMultiRegionProperties `pulumi:"multiRegionProperties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set of tags to be associated with the AWS DSQL Cluster resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string `pulumi:"tagsAll"`
-	Timeouts *ClusterTimeouts  `pulumi:"timeouts"`
-	// The DSQL Cluster's VPC endpoint service name.
-	VpcEndpointServiceName *string `pulumi:"vpcEndpointServiceName"`
+	Arn                       *string                       `pulumi:"arn"`
+	DeletionProtectionEnabled *bool                         `pulumi:"deletionProtectionEnabled"`
+	EncryptionDetails         []ClusterEncryptionDetail     `pulumi:"encryptionDetails"`
+	ForceDestroy              *bool                         `pulumi:"forceDestroy"`
+	Identifier                *string                       `pulumi:"identifier"`
+	KmsEncryptionKey          *string                       `pulumi:"kmsEncryptionKey"`
+	MultiRegionProperties     *ClusterMultiRegionProperties `pulumi:"multiRegionProperties"`
+	Region                    *string                       `pulumi:"region"`
+	Tags                      map[string]string             `pulumi:"tags"`
+	TagsAll                   map[string]string             `pulumi:"tagsAll"`
+	Timeouts                  *ClusterTimeouts              `pulumi:"timeouts"`
+	VpcEndpointServiceName    *string                       `pulumi:"vpcEndpointServiceName"`
 }
 
 type ClusterState struct {
-	// ARN of the Cluster.
-	Arn pulumi.StringPtrInput
-	// Whether deletion protection is enabled in this cluster.
-	// Default value is `false`.
+	Arn                       pulumi.StringPtrInput
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	// Encryption configuration details for the DSQL Cluster.
-	EncryptionDetails ClusterEncryptionDetailArrayInput
-	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-	// Default value is `false`.
-	ForceDestroy pulumi.BoolPtrInput
-	// Cluster Identifier.
-	Identifier pulumi.StringPtrInput
-	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-	KmsEncryptionKey pulumi.StringPtrInput
-	// Multi-region properties of the DSQL Cluster.
-	MultiRegionProperties ClusterMultiRegionPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set of tags to be associated with the AWS DSQL Cluster resource.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ClusterTimeoutsPtrInput
-	// The DSQL Cluster's VPC endpoint service name.
-	VpcEndpointServiceName pulumi.StringPtrInput
+	EncryptionDetails         ClusterEncryptionDetailArrayInput
+	ForceDestroy              pulumi.BoolPtrInput
+	Identifier                pulumi.StringPtrInput
+	KmsEncryptionKey          pulumi.StringPtrInput
+	MultiRegionProperties     ClusterMultiRegionPropertiesPtrInput
+	Region                    pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	Timeouts                  ClusterTimeoutsPtrInput
+	VpcEndpointServiceName    pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -171,40 +92,24 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Whether deletion protection is enabled in this cluster.
-	// Default value is `false`.
-	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-	// Default value is `false`.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
-	// Multi-region properties of the DSQL Cluster.
-	MultiRegionProperties *ClusterMultiRegionProperties `pulumi:"multiRegionProperties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Set of tags to be associated with the AWS DSQL Cluster resource.
-	Tags     map[string]string `pulumi:"tags"`
-	Timeouts *ClusterTimeouts  `pulumi:"timeouts"`
+	DeletionProtectionEnabled *bool                         `pulumi:"deletionProtectionEnabled"`
+	ForceDestroy              *bool                         `pulumi:"forceDestroy"`
+	KmsEncryptionKey          *string                       `pulumi:"kmsEncryptionKey"`
+	MultiRegionProperties     *ClusterMultiRegionProperties `pulumi:"multiRegionProperties"`
+	Region                    *string                       `pulumi:"region"`
+	Tags                      map[string]string             `pulumi:"tags"`
+	Timeouts                  *ClusterTimeouts              `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Whether deletion protection is enabled in this cluster.
-	// Default value is `false`.
 	DeletionProtectionEnabled pulumi.BoolPtrInput
-	// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-	// Default value is `false`.
-	ForceDestroy pulumi.BoolPtrInput
-	// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
-	KmsEncryptionKey pulumi.StringPtrInput
-	// Multi-region properties of the DSQL Cluster.
-	MultiRegionProperties ClusterMultiRegionPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Set of tags to be associated with the AWS DSQL Cluster resource.
-	Tags     pulumi.StringMapInput
-	Timeouts ClusterTimeoutsPtrInput
+	ForceDestroy              pulumi.BoolPtrInput
+	KmsEncryptionKey          pulumi.StringPtrInput
+	MultiRegionProperties     ClusterMultiRegionPropertiesPtrInput
+	Region                    pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	Timeouts                  ClusterTimeoutsPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -294,54 +199,42 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// ARN of the Cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether deletion protection is enabled in this cluster.
-// Default value is `false`.
 func (o ClusterOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
 
-// Encryption configuration details for the DSQL Cluster.
 func (o ClusterOutput) EncryptionDetails() ClusterEncryptionDetailArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEncryptionDetailArrayOutput { return v.EncryptionDetails }).(ClusterEncryptionDetailArrayOutput)
 }
 
-// Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
-// Default value is `false`.
 func (o ClusterOutput) ForceDestroy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.ForceDestroy }).(pulumi.BoolOutput)
 }
 
-// Cluster Identifier.
 func (o ClusterOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
 func (o ClusterOutput) KmsEncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsEncryptionKey }).(pulumi.StringOutput)
 }
 
-// Multi-region properties of the DSQL Cluster.
 func (o ClusterOutput) MultiRegionProperties() ClusterMultiRegionPropertiesPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterMultiRegionPropertiesPtrOutput { return v.MultiRegionProperties }).(ClusterMultiRegionPropertiesPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Set of tags to be associated with the AWS DSQL Cluster resource.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -350,7 +243,6 @@ func (o ClusterOutput) Timeouts() ClusterTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterTimeoutsPtrOutput { return v.Timeouts }).(ClusterTimeoutsPtrOutput)
 }
 
-// The DSQL Cluster's VPC endpoint service name.
 func (o ClusterOutput) VpcEndpointServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
 }

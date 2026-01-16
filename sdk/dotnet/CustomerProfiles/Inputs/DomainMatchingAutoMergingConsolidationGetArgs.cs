@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
     {
         [Input("matchingAttributesLists", required: true)]
         private InputList<ImmutableArray<string>>? _matchingAttributesLists;
-
-        /// <summary>
-        /// A list of matching criteria.
-        /// </summary>
         public InputList<ImmutableArray<string>> MatchingAttributesLists
         {
             get => _matchingAttributesLists ?? (_matchingAttributesLists = new InputList<ImmutableArray<string>>());

@@ -17,193 +17,57 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource creates a WAFv2 Web ACL Logging Configuration.
- * 
- * !&gt; **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
- * 
- * ## Example Usage
- * 
- * ### With Redacted Fields
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.WebAclLoggingConfiguration;
- * import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()
- *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *             .resourceArn(exampleAwsWafv2WebAcl.arn())
- *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
- *                 .singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs.builder()
- *                     .name("user-agent")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Logging Filter
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafv2.WebAclLoggingConfiguration;
- * import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationLoggingFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()
- *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *             .resourceArn(exampleAwsWafv2WebAcl.arn())
- *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()
- *                 .defaultBehavior("KEEP")
- *                 .filters(                
- *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior("DROP")
- *                         .conditions(                        
- *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
- *                                 .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
- *                                     .action("COUNT")
- *                                     .build())
- *                                 .build(),
- *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
- *                                 .labelNameCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.builder()
- *                                     .labelName("awswaf:111122223333:rulegroup:testRules:LabelNameZ")
- *                                     .build())
- *                                 .build())
- *                         .requirement("MEETS_ALL")
- *                         .build(),
- *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior("KEEP")
- *                         .conditions(WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
- *                             .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
- *                                 .action("ALLOW")
- *                                 .build())
- *                             .build())
- *                         .requirement("MEETS_ANY")
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
- * ```
- * 
- */
 @ResourceType(type="aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")
 public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * AWS Kinesis Firehose Delivery Stream ARNs
      * 
      */
     @Export(name="logDestinationConfigs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logDestinationConfigs;
 
     /**
-     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * @return AWS Kinesis Firehose Delivery Stream ARNs
      * 
      */
     public Output<List<String>> logDestinationConfigs() {
         return this.logDestinationConfigs;
     }
-    /**
-     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     * 
-     */
     @Export(name="loggingFilter", refs={WebAclLoggingConfigurationLoggingFilter.class}, tree="[0]")
     private Output</* @Nullable */ WebAclLoggingConfigurationLoggingFilter> loggingFilter;
 
-    /**
-     * @return Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     * 
-     */
     public Output<Optional<WebAclLoggingConfigurationLoggingFilter>> loggingFilter() {
         return Codegen.optional(this.loggingFilter);
     }
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * Parts of the request to exclude from logs
      * 
      */
     @Export(name="redactedFields", refs={List.class,WebAclLoggingConfigurationRedactedField.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclLoggingConfigurationRedactedField>> redactedFields;
 
     /**
-     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * @return Parts of the request to exclude from logs
      * 
      */
     public Output<Optional<List<WebAclLoggingConfigurationRedactedField>>> redactedFields() {
         return Codegen.optional(this.redactedFields);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * AWS WebACL ARN
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * @return AWS WebACL ARN
      * 
      */
     public Output<String> resourceArn() {

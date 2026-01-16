@@ -16,32 +16,16 @@ public final class AppImageConfigJupyterLabImageConfigArgs extends com.pulumi.re
 
     public static final AppImageConfigJupyterLabImageConfigArgs Empty = new AppImageConfigJupyterLabImageConfigArgs();
 
-    /**
-     * The configuration used to run the application image container. See Container Config details below.
-     * 
-     */
     @Import(name="containerConfig")
     private @Nullable Output<AppImageConfigJupyterLabImageConfigContainerConfigArgs> containerConfig;
 
-    /**
-     * @return The configuration used to run the application image container. See Container Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigJupyterLabImageConfigContainerConfigArgs>> containerConfig() {
         return Optional.ofNullable(this.containerConfig);
     }
 
-    /**
-     * The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     @Import(name="fileSystemConfig")
     private @Nullable Output<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs> fileSystemConfig;
 
-    /**
-     * @return The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs>> fileSystemConfig() {
         return Optional.ofNullable(this.fileSystemConfig);
     }
@@ -71,44 +55,20 @@ public final class AppImageConfigJupyterLabImageConfigArgs extends com.pulumi.re
             $ = new AppImageConfigJupyterLabImageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerConfig The configuration used to run the application image container. See Container Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerConfig(@Nullable Output<AppImageConfigJupyterLabImageConfigContainerConfigArgs> containerConfig) {
             $.containerConfig = containerConfig;
             return this;
         }
 
-        /**
-         * @param containerConfig The configuration used to run the application image container. See Container Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerConfig(AppImageConfigJupyterLabImageConfigContainerConfigArgs containerConfig) {
             return containerConfig(Output.of(containerConfig));
         }
 
-        /**
-         * @param fileSystemConfig The URL where the Git repository is located. See File System Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemConfig(@Nullable Output<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs> fileSystemConfig) {
             $.fileSystemConfig = fileSystemConfig;
             return this;
         }
 
-        /**
-         * @param fileSystemConfig The URL where the Git repository is located. See File System Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemConfig(AppImageConfigJupyterLabImageConfigFileSystemConfigArgs fileSystemConfig) {
             return fileSystemConfig(Output.of(fileSystemConfig));
         }

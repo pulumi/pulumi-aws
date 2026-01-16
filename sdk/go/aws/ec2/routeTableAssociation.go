@@ -12,90 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an association between a route table and a subnet or a route table and an
-// internet gateway or virtual private gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "a", &ec2.RouteTableAssociationArgs{
-//				SubnetId:     pulumi.Any(foo.Id),
-//				RouteTableId: pulumi.Any(bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "b", &ec2.RouteTableAssociationArgs{
-//				GatewayId:    pulumi.Any(foo.Id),
-//				RouteTableId: pulumi.Any(bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// With EC2 Internet Gateways:
-//
-// __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
-//
-// With EC2 Subnets:
-//
-// ```sh
-// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
-// ```
-// With EC2 Internet Gateways:
-//
-// ```sh
-// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-// ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the routing table to associate with.
-	//
-	// > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	GatewayId    pulumi.StringPtrOutput `pulumi:"gatewayId"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	RouteTableId pulumi.StringOutput    `pulumi:"routeTableId"`
+	SubnetId     pulumi.StringPtrOutput `pulumi:"subnetId"`
 }
 
 // NewRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
@@ -131,29 +54,17 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId *string `pulumi:"gatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the routing table to associate with.
-	//
-	// > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
+	GatewayId    *string `pulumi:"gatewayId"`
+	Region       *string `pulumi:"region"`
 	RouteTableId *string `pulumi:"routeTableId"`
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId *string `pulumi:"subnetId"`
+	SubnetId     *string `pulumi:"subnetId"`
 }
 
 type RouteTableAssociationState struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the routing table to associate with.
-	//
-	// > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
+	GatewayId    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 	RouteTableId pulumi.StringPtrInput
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId pulumi.StringPtrInput
+	SubnetId     pulumi.StringPtrInput
 }
 
 func (RouteTableAssociationState) ElementType() reflect.Type {
@@ -161,30 +72,18 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId *string `pulumi:"gatewayId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the routing table to associate with.
-	//
-	// > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
-	RouteTableId string `pulumi:"routeTableId"`
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId *string `pulumi:"subnetId"`
+	GatewayId    *string `pulumi:"gatewayId"`
+	Region       *string `pulumi:"region"`
+	RouteTableId string  `pulumi:"routeTableId"`
+	SubnetId     *string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the routing table to associate with.
-	//
-	// > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
+	GatewayId    pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 	RouteTableId pulumi.StringInput
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId pulumi.StringPtrInput
+	SubnetId     pulumi.StringPtrInput
 }
 
 func (RouteTableAssociationArgs) ElementType() reflect.Type {
@@ -274,24 +173,18 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ct
 	return o
 }
 
-// The gateway ID to create an association. Conflicts with `subnetId`.
 func (o RouteTableAssociationOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the routing table to associate with.
-//
-// > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
 func (o RouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// The subnet ID to create an association. Conflicts with `gatewayId`.
 func (o RouteTableAssociationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }

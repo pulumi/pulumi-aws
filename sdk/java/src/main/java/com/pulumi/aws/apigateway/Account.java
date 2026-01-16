@@ -15,163 +15,35 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.apigateway.Account;
- * import com.pulumi.aws.apigateway.AccountArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("apigateway.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var cloudwatchRole = new Role("cloudwatchRole", RoleArgs.builder()
- *             .name("api_gateway_cloudwatch_global")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var demo = new Account("demo", AccountArgs.builder()
- *             .cloudwatchRoleArn(cloudwatchRole.arn())
- *             .build());
- * 
- *         final var cloudwatch = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions(                
- *                     "logs:CreateLogGroup",
- *                     "logs:CreateLogStream",
- *                     "logs:DescribeLogGroups",
- *                     "logs:DescribeLogStreams",
- *                     "logs:PutLogEvents",
- *                     "logs:GetLogEvents",
- *                     "logs:FilterLogEvents")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var cloudwatchRolePolicy = new RolePolicy("cloudwatchRolePolicy", RolePolicyArgs.builder()
- *             .name("default")
- *             .role(cloudwatchRole.id())
- *             .policy(cloudwatch.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/account:Account demo 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
-    /**
-     * The version of the API keys used for the account.
-     * 
-     */
     @Export(name="apiKeyVersion", refs={String.class}, tree="[0]")
     private Output<String> apiKeyVersion;
 
-    /**
-     * @return The version of the API keys used for the account.
-     * 
-     */
     public Output<String> apiKeyVersion() {
         return this.apiKeyVersion;
     }
-    /**
-     * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-     * 
-     */
     @Export(name="cloudwatchRoleArn", refs={String.class}, tree="[0]")
     private Output<String> cloudwatchRoleArn;
 
-    /**
-     * @return ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-     * 
-     */
     public Output<String> cloudwatchRoleArn() {
         return this.cloudwatchRoleArn;
     }
-    /**
-     * A list of features supported for the account.
-     * 
-     */
     @Export(name="features", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> features;
 
-    /**
-     * @return A list of features supported for the account.
-     * 
-     */
     public Output<List<String>> features() {
         return this.features;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Account-Level throttle settings. See exported fields below.
-     * 
-     */
     @Export(name="throttleSettings", refs={List.class,AccountThrottleSetting.class}, tree="[0,1]")
     private Output<List<AccountThrottleSetting>> throttleSettings;
 
-    /**
-     * @return Account-Level throttle settings. See exported fields below.
-     * 
-     */
     public Output<List<AccountThrottleSetting>> throttleSettings() {
         return this.throttleSettings;
     }

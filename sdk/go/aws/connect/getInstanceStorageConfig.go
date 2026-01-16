@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect Instance Storage Config.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupInstanceStorageConfig(ctx, &connect.LookupInstanceStorageConfigArgs{
-//				AssociationId: "1234567891234567890122345678912345678901223456789123456789012234",
-//				InstanceId:    "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				ResourceType:  "CONTACT_TRACE_RECORDS",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorageConfigArgs, opts ...pulumi.InvokeOption) (*LookupInstanceStorageConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceStorageConfigResult
@@ -52,25 +23,20 @@ func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorag
 
 // A collection of arguments for invoking getInstanceStorageConfig.
 type LookupInstanceStorageConfigArgs struct {
-	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-	AssociationId string `pulumi:"associationId"`
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
-	ResourceType string `pulumi:"resourceType"`
+	AssociationId string  `pulumi:"associationId"`
+	InstanceId    string  `pulumi:"instanceId"`
+	Region        *string `pulumi:"region"`
+	ResourceType  string  `pulumi:"resourceType"`
 }
 
 // A collection of values returned by getInstanceStorageConfig.
 type LookupInstanceStorageConfigResult struct {
 	AssociationId string `pulumi:"associationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string `pulumi:"id"`
-	InstanceId   string `pulumi:"instanceId"`
-	Region       string `pulumi:"region"`
-	ResourceType string `pulumi:"resourceType"`
-	// Specifies the storage configuration options for the Connect Instance. Documented below.
+	Id             string                                  `pulumi:"id"`
+	InstanceId     string                                  `pulumi:"instanceId"`
+	Region         string                                  `pulumi:"region"`
+	ResourceType   string                                  `pulumi:"resourceType"`
 	StorageConfigs []GetInstanceStorageConfigStorageConfig `pulumi:"storageConfigs"`
 }
 
@@ -85,14 +51,10 @@ func LookupInstanceStorageConfigOutput(ctx *pulumi.Context, args LookupInstanceS
 
 // A collection of arguments for invoking getInstanceStorageConfig.
 type LookupInstanceStorageConfigOutputArgs struct {
-	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-	AssociationId pulumi.StringInput `pulumi:"associationId"`
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	AssociationId pulumi.StringInput    `pulumi:"associationId"`
+	InstanceId    pulumi.StringInput    `pulumi:"instanceId"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
+	ResourceType  pulumi.StringInput    `pulumi:"resourceType"`
 }
 
 func (LookupInstanceStorageConfigOutputArgs) ElementType() reflect.Type {
@@ -135,7 +97,6 @@ func (o LookupInstanceStorageConfigResultOutput) ResourceType() pulumi.StringOut
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Specifies the storage configuration options for the Connect Instance. Documented below.
 func (o LookupInstanceStorageConfigResultOutput) StorageConfigs() GetInstanceStorageConfigStorageConfigArrayOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) []GetInstanceStorageConfigStorageConfig {
 		return v.StorageConfigs

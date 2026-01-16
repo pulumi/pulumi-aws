@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleActionFindingFieldsUpdateRelatedFinding
     {
-        /// <summary>
-        /// The product-generated identifier for a related finding.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The ARN of the product that generated a related finding.
-        /// </summary>
         public readonly string ProductArn;
 
         [OutputConstructor]

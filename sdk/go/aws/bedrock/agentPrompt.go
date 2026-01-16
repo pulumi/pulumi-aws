@@ -11,126 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Bedrock Agents Prompt.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentPrompt(ctx, "example", &bedrock.AgentPromptArgs{
-//				Name:        pulumi.String("MyPrompt"),
-//				Description: pulumi.String("My prompt description."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Variants
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentPrompt(ctx, "example", &bedrock.AgentPromptArgs{
-//				Name:           pulumi.String("MakePlaylist"),
-//				Description:    pulumi.String("My first prompt."),
-//				DefaultVariant: pulumi.String("Variant1"),
-//				Variants: bedrock.AgentPromptVariantArray{
-//					&bedrock.AgentPromptVariantArgs{
-//						Name:    pulumi.String("Variant1"),
-//						ModelId: pulumi.String("amazon.titan-text-express-v1"),
-//						InferenceConfiguration: &bedrock.AgentPromptVariantInferenceConfigurationArgs{
-//							Text: &bedrock.AgentPromptVariantInferenceConfigurationTextArgs{
-//								Temperature: pulumi.Float64(0.8),
-//							},
-//						},
-//						TemplateType: pulumi.String("TEXT"),
-//						TemplateConfiguration: &bedrock.AgentPromptVariantTemplateConfigurationArgs{
-//							Text: &bedrock.AgentPromptVariantTemplateConfigurationTextArgs{
-//								Text: pulumi.String("Make me a {{genre}} playlist consisting of the following number of songs: {{number}}."),
-//								InputVariables: bedrock.AgentPromptVariantTemplateConfigurationTextInputVariableArray{
-//									&bedrock.AgentPromptVariantTemplateConfigurationTextInputVariableArgs{
-//										Name: pulumi.String("genre"),
-//									},
-//									&bedrock.AgentPromptVariantTemplateConfigurationTextInputVariableArgs{
-//										Name: pulumi.String("number"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
-// ```
 type AgentPrompt struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the prompt.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Time at which the prompt was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-	CustomerEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"customerEncryptionKeyArn"`
-	// Name of the default variant for your prompt.
-	DefaultVariant pulumi.StringPtrOutput `pulumi:"defaultVariant"`
-	// Description of the prompt.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Time at which the prompt was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-	Variants AgentPromptVariantArrayOutput `pulumi:"variants"`
-	// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Arn                      pulumi.StringOutput           `pulumi:"arn"`
+	CreatedAt                pulumi.StringOutput           `pulumi:"createdAt"`
+	CustomerEncryptionKeyArn pulumi.StringPtrOutput        `pulumi:"customerEncryptionKeyArn"`
+	DefaultVariant           pulumi.StringPtrOutput        `pulumi:"defaultVariant"`
+	Description              pulumi.StringPtrOutput        `pulumi:"description"`
+	Name                     pulumi.StringOutput           `pulumi:"name"`
+	Region                   pulumi.StringOutput           `pulumi:"region"`
+	Tags                     pulumi.StringMapOutput        `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput        `pulumi:"tagsAll"`
+	UpdatedAt                pulumi.StringOutput           `pulumi:"updatedAt"`
+	Variants                 AgentPromptVariantArrayOutput `pulumi:"variants"`
+	Version                  pulumi.StringOutput           `pulumi:"version"`
 }
 
 // NewAgentPrompt registers a new resource with the given unique name, arguments, and options.
@@ -163,61 +58,33 @@ func GetAgentPrompt(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentPrompt resources.
 type agentPromptState struct {
-	// Amazon Resource Name (ARN) of the prompt.
-	Arn *string `pulumi:"arn"`
-	// Time at which the prompt was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
-	// Name of the default variant for your prompt.
-	DefaultVariant *string `pulumi:"defaultVariant"`
-	// Description of the prompt.
-	Description *string `pulumi:"description"`
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Time at which the prompt was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-	Variants []AgentPromptVariant `pulumi:"variants"`
-	// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-	Version *string `pulumi:"version"`
+	Arn                      *string              `pulumi:"arn"`
+	CreatedAt                *string              `pulumi:"createdAt"`
+	CustomerEncryptionKeyArn *string              `pulumi:"customerEncryptionKeyArn"`
+	DefaultVariant           *string              `pulumi:"defaultVariant"`
+	Description              *string              `pulumi:"description"`
+	Name                     *string              `pulumi:"name"`
+	Region                   *string              `pulumi:"region"`
+	Tags                     map[string]string    `pulumi:"tags"`
+	TagsAll                  map[string]string    `pulumi:"tagsAll"`
+	UpdatedAt                *string              `pulumi:"updatedAt"`
+	Variants                 []AgentPromptVariant `pulumi:"variants"`
+	Version                  *string              `pulumi:"version"`
 }
 
 type AgentPromptState struct {
-	// Amazon Resource Name (ARN) of the prompt.
-	Arn pulumi.StringPtrInput
-	// Time at which the prompt was created.
-	CreatedAt pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+	Arn                      pulumi.StringPtrInput
+	CreatedAt                pulumi.StringPtrInput
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
-	// Name of the default variant for your prompt.
-	DefaultVariant pulumi.StringPtrInput
-	// Description of the prompt.
-	Description pulumi.StringPtrInput
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Time at which the prompt was last updated.
-	UpdatedAt pulumi.StringPtrInput
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-	Variants AgentPromptVariantArrayInput
-	// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-	Version pulumi.StringPtrInput
+	DefaultVariant           pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	UpdatedAt                pulumi.StringPtrInput
+	Variants                 AgentPromptVariantArrayInput
+	Version                  pulumi.StringPtrInput
 }
 
 func (AgentPromptState) ElementType() reflect.Type {
@@ -225,42 +92,24 @@ func (AgentPromptState) ElementType() reflect.Type {
 }
 
 type agentPromptArgs struct {
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
-	// Name of the default variant for your prompt.
-	DefaultVariant *string `pulumi:"defaultVariant"`
-	// Description of the prompt.
-	Description *string `pulumi:"description"`
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-	Variants []AgentPromptVariant `pulumi:"variants"`
+	CustomerEncryptionKeyArn *string              `pulumi:"customerEncryptionKeyArn"`
+	DefaultVariant           *string              `pulumi:"defaultVariant"`
+	Description              *string              `pulumi:"description"`
+	Name                     *string              `pulumi:"name"`
+	Region                   *string              `pulumi:"region"`
+	Tags                     map[string]string    `pulumi:"tags"`
+	Variants                 []AgentPromptVariant `pulumi:"variants"`
 }
 
 // The set of arguments for constructing a AgentPrompt resource.
 type AgentPromptArgs struct {
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
-	// Name of the default variant for your prompt.
-	DefaultVariant pulumi.StringPtrInput
-	// Description of the prompt.
-	Description pulumi.StringPtrInput
-	// Name of the prompt.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-	Variants AgentPromptVariantArrayInput
+	DefaultVariant           pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	Variants                 AgentPromptVariantArrayInput
 }
 
 func (AgentPromptArgs) ElementType() reflect.Type {
@@ -350,64 +199,50 @@ func (o AgentPromptOutput) ToAgentPromptOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the prompt.
 func (o AgentPromptOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time at which the prompt was created.
 func (o AgentPromptOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
 func (o AgentPromptOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringPtrOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the default variant for your prompt.
 func (o AgentPromptOutput) DefaultVariant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringPtrOutput { return v.DefaultVariant }).(pulumi.StringPtrOutput)
 }
 
-// Description of the prompt.
 func (o AgentPromptOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the prompt.
-//
-// The following arguments are optional:
 func (o AgentPromptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentPromptOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentPromptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentPromptOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Time at which the prompt was last updated.
 func (o AgentPromptOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
 func (o AgentPromptOutput) Variants() AgentPromptVariantArrayOutput {
 	return o.ApplyT(func(v *AgentPrompt) AgentPromptVariantArrayOutput { return v.Variants }).(AgentPromptVariantArrayOutput)
 }
 
-// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
 func (o AgentPromptOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

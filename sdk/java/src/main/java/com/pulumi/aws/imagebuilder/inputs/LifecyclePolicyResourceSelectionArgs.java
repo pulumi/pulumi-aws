@@ -18,32 +18,16 @@ public final class LifecyclePolicyResourceSelectionArgs extends com.pulumi.resou
 
     public static final LifecyclePolicyResourceSelectionArgs Empty = new LifecyclePolicyResourceSelectionArgs();
 
-    /**
-     * A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     @Import(name="recipes")
     private @Nullable Output<List<LifecyclePolicyResourceSelectionRecipeArgs>> recipes;
 
-    /**
-     * @return A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-     * 
-     */
     public Optional<Output<List<LifecyclePolicyResourceSelectionRecipeArgs>>> recipes() {
         return Optional.ofNullable(this.recipes);
     }
 
-    /**
-     * A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-     * 
-     */
     @Import(name="tagMap")
     private @Nullable Output<Map<String,String>> tagMap;
 
-    /**
-     * @return A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagMap() {
         return Optional.ofNullable(this.tagMap);
     }
@@ -73,54 +57,24 @@ public final class LifecyclePolicyResourceSelectionArgs extends com.pulumi.resou
             $ = new LifecyclePolicyResourceSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recipes A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recipes(@Nullable Output<List<LifecyclePolicyResourceSelectionRecipeArgs>> recipes) {
             $.recipes = recipes;
             return this;
         }
 
-        /**
-         * @param recipes A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recipes(List<LifecyclePolicyResourceSelectionRecipeArgs> recipes) {
             return recipes(Output.of(recipes));
         }
 
-        /**
-         * @param recipes A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recipes(LifecyclePolicyResourceSelectionRecipeArgs... recipes) {
             return recipes(List.of(recipes));
         }
 
-        /**
-         * @param tagMap A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMap(@Nullable Output<Map<String,String>> tagMap) {
             $.tagMap = tagMap;
             return this;
         }
 
-        /**
-         * @param tagMap A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMap(Map<String,String> tagMap) {
             return tagMap(Output.of(tagMap));
         }

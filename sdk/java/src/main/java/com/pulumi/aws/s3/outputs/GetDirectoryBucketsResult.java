@@ -11,31 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDirectoryBucketsResult {
-    /**
-     * @return Bucket ARNs.
-     * 
-     */
     private List<String> arns;
-    /**
-     * @return Buckets names.
-     * 
-     */
     private List<String> buckets;
     private String id;
     private String region;
 
     private GetDirectoryBucketsResult() {}
-    /**
-     * @return Bucket ARNs.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
-    /**
-     * @return Buckets names.
-     * 
-     */
     public List<String> buckets() {
         return this.buckets;
     }

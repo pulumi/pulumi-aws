@@ -24,13 +24,7 @@ MYPY = False
 if not MYPY:
     class AssessmentTemplateEventSubscriptionArgsDict(TypedDict):
         event: pulumi.Input[_builtins.str]
-        """
-        The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        """
         topic_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic to which notifications are sent.
-        """
 elif False:
     AssessmentTemplateEventSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -39,19 +33,12 @@ class AssessmentTemplateEventSubscriptionArgs:
     def __init__(__self__, *,
                  event: pulumi.Input[_builtins.str],
                  topic_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] event: The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of the SNS topic to which notifications are sent.
-        """
         pulumi.set(__self__, "event", event)
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @_builtins.property
     @pulumi.getter
     def event(self) -> pulumi.Input[_builtins.str]:
-        """
-        The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        """
         return pulumi.get(self, "event")
 
     @event.setter
@@ -61,9 +48,6 @@ class AssessmentTemplateEventSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the SNS topic to which notifications are sent.
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter

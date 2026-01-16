@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `Origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        /// </summary>
         [Input("referrerPolicy", required: true)]
         public Input<string> ReferrerPolicy { get; set; } = null!;
 

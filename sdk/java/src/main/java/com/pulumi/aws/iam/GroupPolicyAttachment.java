@@ -13,95 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a Managed IAM Policy to an IAM group
- * 
- * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Group;
- * import com.pulumi.aws.iam.GroupArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.GroupPolicyAttachment;
- * import com.pulumi.aws.iam.GroupPolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var group = new Group("group", GroupArgs.builder()
- *             .name("test-group")
- *             .build());
- * 
- *         var policy = new Policy("policy", PolicyArgs.builder()
- *             .name("test-policy")
- *             .description("A test policy")
- *             .policy("{ ... policy JSON ... }")
- *             .build());
- * 
- *         var test_attach = new GroupPolicyAttachment("test-attach", GroupPolicyAttachmentArgs.builder()
- *             .group(group.name())
- *             .policyArn(policy.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- * ```
- * 
- */
 @ResourceType(type="aws:iam/groupPolicyAttachment:GroupPolicyAttachment")
 public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The group the policy should be applied to
-     * 
-     */
     @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
-    /**
-     * @return The group the policy should be applied to
-     * 
-     */
     public Output<String> group() {
         return this.group;
     }
-    /**
-     * The ARN of the policy you want to apply
-     * 
-     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
-    /**
-     * @return The ARN of the policy you want to apply
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettingsSpaceStorageSettings
     {
-        /// <summary>
-        /// The default EBS storage settings for a private space. See `DefaultEbsStorageSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings? DefaultEbsStorageSettings;
 
         [OutputConstructor]

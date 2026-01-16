@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerDynamodbTarget {
-    /**
-     * @return The name of the DynamoDB table to crawl.
-     * 
-     */
     private String path;
-    /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
-     * 
-     */
     private @Nullable Boolean scanAll;
-    /**
-     * @return The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-     * 
-     */
     private @Nullable Double scanRate;
 
     private CrawlerDynamodbTarget() {}
-    /**
-     * @return The name of the DynamoDB table to crawl.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
-     * 
-     */
     public Optional<Boolean> scanAll() {
         return Optional.ofNullable(this.scanAll);
     }
-    /**
-     * @return The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-     * 
-     */
     public Optional<Double> scanRate() {
         return Optional.ofNullable(this.scanRate);
     }

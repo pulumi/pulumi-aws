@@ -10,75 +10,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessLifecyclePolicyResult {
-    /**
-     * @return The date the lifecycle policy was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Description of the policy. Typically used to store information about the permissions defined in the policy.
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return The date the lifecycle policy was last modified.
-     * 
-     */
     private String lastModifiedDate;
     private String name;
-    /**
-     * @return JSON policy document to use as the content for the new policy.
-     * 
-     */
     private String policy;
-    /**
-     * @return Version of the policy.
-     * 
-     */
     private String policyVersion;
     private String region;
     private String type;
 
     private GetServerlessLifecyclePolicyResult() {}
-    /**
-     * @return The date the lifecycle policy was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the policy. Typically used to store information about the permissions defined in the policy.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The date the lifecycle policy was last modified.
-     * 
-     */
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return JSON policy document to use as the content for the new policy.
-     * 
-     */
     public String policy() {
         return this.policy;
     }
-    /**
-     * @return Version of the policy.
-     * 
-     */
     public String policyVersion() {
         return this.policyVersion;
     }

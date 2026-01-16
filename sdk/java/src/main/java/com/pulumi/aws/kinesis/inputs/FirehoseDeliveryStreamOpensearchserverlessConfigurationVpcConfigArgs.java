@@ -17,47 +17,23 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcCon
 
     public static final FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs Empty = new FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs();
 
-    /**
-     * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * A list of security group IDs to associate with Kinesis Firehose.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return A list of security group IDs to associate with Kinesis Firehose.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * A list of subnet IDs to associate with Kinesis Firehose.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of subnet IDs to associate with Kinesis Firehose.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
@@ -96,85 +72,37 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcCon
             $ = new FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param securityGroupIds A list of security group IDs to associate with Kinesis Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds A list of security group IDs to associate with Kinesis Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds A list of security group IDs to associate with Kinesis Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs to associate with Kinesis Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs to associate with Kinesis Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs to associate with Kinesis Firehose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

@@ -17,133 +17,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an Amazon CloudFront VPC origin.
- * 
- * For information about CloudFront VPC origins, see
- * [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
- * 
- * ## Example Usage
- * 
- * ### Application Load Balancer
- * 
- * The following example below creates a CloudFront VPC origin for a Application Load Balancer.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.VpcOrigin;
- * import com.pulumi.aws.cloudfront.VpcOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.VpcOriginVpcOriginEndpointConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var alb = new VpcOrigin("alb", VpcOriginArgs.builder()
- *             .vpcOriginEndpointConfig(VpcOriginVpcOriginEndpointConfigArgs.builder()
- *                 .name("example-vpc-origin")
- *                 .arn(this_.arn())
- *                 .httpPort(8080)
- *                 .httpsPort(8443)
- *                 .originProtocolPolicy("https-only")
- *                 .originSslProtocols(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.builder()
- *                     .items("TLSv1.2")
- *                     .quantity(1)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * terraform
- * 
- * import {
- * 
- *   to = aws_cloudfront_vpc_origin.origin
- * 
- *   id = &#34;vo_JQEa410sssUFoY6wMkx69j&#34;
- * 
- * }
- * 
- * Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
- * 
- * % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
- * 
- */
 @ResourceType(type="aws:cloudfront/vpcOrigin:VpcOrigin")
 public class VpcOrigin extends com.pulumi.resources.CustomResource {
-    /**
-     * The VPC origin ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The VPC origin ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The current version of the origin.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return The current version of the origin.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -153,21 +49,9 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
     public Output<Optional<VpcOriginTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The VPC origin endpoint configuration.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vpcOriginEndpointConfig", refs={VpcOriginVpcOriginEndpointConfig.class}, tree="[0]")
     private Output</* @Nullable */ VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig;
 
-    /**
-     * @return The VPC origin endpoint configuration.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<VpcOriginVpcOriginEndpointConfig>> vpcOriginEndpointConfig() {
         return Codegen.optional(this.vpcOriginEndpointConfig);
     }

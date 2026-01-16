@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapDataTransformTagColumnOperationTagGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for a column. See column_description.
-        /// </summary>
         [Input("columnDescription")]
         public Input<Inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionGetArgs>? ColumnDescription { get; set; }
 
-        /// <summary>
-        /// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-        /// </summary>
         [Input("columnGeographicRole")]
         public Input<string>? ColumnGeographicRole { get; set; }
 

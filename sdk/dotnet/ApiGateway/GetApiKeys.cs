@@ -11,66 +11,12 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetApiKeys
     {
-        /// <summary>
-        /// Data source for managing AWS API Gateway API Keys.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetApiKeys.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetApiKeysResult> InvokeAsync(GetApiKeysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiKeysResult>("aws:apigateway/getApiKeys:getApiKeys", args ?? new GetApiKeysArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS API Gateway API Keys.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetApiKeys.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApiKeysResult> Invoke(GetApiKeysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeysResult>("aws:apigateway/getApiKeys:getApiKeys", args ?? new GetApiKeysInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS API Gateway API Keys.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetApiKeys.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApiKeysResult> Invoke(GetApiKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeysResult>("aws:apigateway/getApiKeys:getApiKeys", args ?? new GetApiKeysInvokeArgs(), options.WithDefaults());
     }
@@ -78,21 +24,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetApiKeysArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-        /// </summary>
         [Input("customerId")]
         public string? CustomerId { get; set; }
 
-        /// <summary>
-        /// Set this value to `True` if you wish the result contains the key value. Defaults to `False`.
-        /// </summary>
         [Input("includeValues")]
         public bool? IncludeValues { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -104,21 +41,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetApiKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-        /// </summary>
         [Input("customerId")]
         public Input<string>? CustomerId { get; set; }
 
-        /// <summary>
-        /// Set this value to `True` if you wish the result contains the key value. Defaults to `False`.
-        /// </summary>
         [Input("includeValues")]
         public Input<bool>? IncludeValues { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -132,18 +60,9 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetApiKeysResult
     {
-        /// <summary>
-        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-        /// </summary>
         public readonly string? CustomerId;
-        /// <summary>
-        /// ID of the API Key.
-        /// </summary>
         public readonly string Id;
         public readonly bool? IncludeValues;
-        /// <summary>
-        /// List of objects containing API Key information. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetApiKeysItemResult> Items;
         public readonly string Region;
 

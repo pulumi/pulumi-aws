@@ -17,47 +17,23 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserProfileArgs Empty = new UserProfileArgs();
 
-    /**
-     * The domain identifier.
-     * 
-     */
     @Import(name="domainIdentifier", required=true)
     private Output<String> domainIdentifier;
 
-    /**
-     * @return The domain identifier.
-     * 
-     */
     public Output<String> domainIdentifier() {
         return this.domainIdentifier;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The user profile status.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The user profile status.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -69,36 +45,16 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The user identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userIdentifier", required=true)
     private Output<String> userIdentifier;
 
-    /**
-     * @return The user identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userIdentifier() {
         return this.userIdentifier;
     }
 
-    /**
-     * The user type.
-     * 
-     */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
-    /**
-     * @return The user type.
-     * 
-     */
     public Optional<Output<String>> userType() {
         return Optional.ofNullable(this.userType);
     }
@@ -132,65 +88,29 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UserProfileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainIdentifier The domain identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier The domain identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status The user profile status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The user profile status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
@@ -204,48 +124,20 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param userIdentifier The user identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIdentifier(Output<String> userIdentifier) {
             $.userIdentifier = userIdentifier;
             return this;
         }
 
-        /**
-         * @param userIdentifier The user identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIdentifier(String userIdentifier) {
             return userIdentifier(Output.of(userIdentifier));
         }
 
-        /**
-         * @param userType The user type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userType(@Nullable Output<String> userType) {
             $.userType = userType;
             return this;
         }
 
-        /**
-         * @param userType The user type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userType(String userType) {
             return userType(Output.of(userType));
         }

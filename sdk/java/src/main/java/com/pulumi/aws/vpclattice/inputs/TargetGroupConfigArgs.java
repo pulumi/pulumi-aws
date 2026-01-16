@@ -17,107 +17,51 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final TargetGroupConfigArgs Empty = new TargetGroupConfigArgs();
 
-    /**
-     * The health check configuration.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable Output<TargetGroupConfigHealthCheckArgs> healthCheck;
 
-    /**
-     * @return The health check configuration.
-     * 
-     */
     public Optional<Output<TargetGroupConfigHealthCheckArgs>> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-     * 
-     */
     @Import(name="lambdaEventStructureVersion")
     private @Nullable Output<String> lambdaEventStructureVersion;
 
-    /**
-     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-     * 
-     */
     public Optional<Output<String>> lambdaEventStructureVersion() {
         return Optional.ofNullable(this.lambdaEventStructureVersion);
     }
 
-    /**
-     * The port on which the targets are listening.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port on which the targets are listening.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
-    /**
-     * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-     * 
-     */
     @Import(name="protocolVersion")
     private @Nullable Output<String> protocolVersion;
 
-    /**
-     * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-     * 
-     */
     public Optional<Output<String>> protocolVersion() {
         return Optional.ofNullable(this.protocolVersion);
     }
 
-    /**
-     * The ID of the VPC.
-     * 
-     */
     @Import(name="vpcIdentifier")
     private @Nullable Output<String> vpcIdentifier;
 
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Optional<Output<String>> vpcIdentifier() {
         return Optional.ofNullable(this.vpcIdentifier);
     }
@@ -152,149 +96,65 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new TargetGroupConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthCheck The health check configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable Output<TargetGroupConfigHealthCheckArgs> healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param healthCheck The health check configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(TargetGroupConfigHealthCheckArgs healthCheck) {
             return healthCheck(Output.of(healthCheck));
         }
 
-        /**
-         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param lambdaEventStructureVersion The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaEventStructureVersion(@Nullable Output<String> lambdaEventStructureVersion) {
             $.lambdaEventStructureVersion = lambdaEventStructureVersion;
             return this;
         }
 
-        /**
-         * @param lambdaEventStructureVersion The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaEventStructureVersion(String lambdaEventStructureVersion) {
             return lambdaEventStructureVersion(Output.of(lambdaEventStructureVersion));
         }
 
-        /**
-         * @param port The port on which the targets are listening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port on which the targets are listening.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param protocolVersion The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocolVersion(@Nullable Output<String> protocolVersion) {
             $.protocolVersion = protocolVersion;
             return this;
         }
 
-        /**
-         * @param protocolVersion The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocolVersion(String protocolVersion) {
             return protocolVersion(Output.of(protocolVersion));
         }
 
-        /**
-         * @param vpcIdentifier The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIdentifier(@Nullable Output<String> vpcIdentifier) {
             $.vpcIdentifier = vpcIdentifier;
             return this;
         }
 
-        /**
-         * @param vpcIdentifier The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcIdentifier(String vpcIdentifier) {
             return vpcIdentifier(Output.of(vpcIdentifier));
         }

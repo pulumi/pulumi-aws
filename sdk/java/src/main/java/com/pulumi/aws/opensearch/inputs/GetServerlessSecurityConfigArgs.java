@@ -18,47 +18,23 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
 
     public static final GetServerlessSecurityConfigArgs Empty = new GetServerlessSecurityConfigArgs();
 
-    /**
-     * The unique identifier of the security configuration.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The unique identifier of the security configuration.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * SAML options for the security configuration.
-     * 
-     */
     @Import(name="samlOptions")
     private @Nullable Output<List<GetServerlessSecurityConfigSamlOptionArgs>> samlOptions;
 
-    /**
-     * @return SAML options for the security configuration.
-     * 
-     */
     public Optional<Output<List<GetServerlessSecurityConfigSamlOptionArgs>>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
@@ -89,75 +65,33 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
             $ = new GetServerlessSecurityConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The unique identifier of the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The unique identifier of the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param samlOptions SAML options for the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(@Nullable Output<List<GetServerlessSecurityConfigSamlOptionArgs>> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
 
-        /**
-         * @param samlOptions SAML options for the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(List<GetServerlessSecurityConfigSamlOptionArgs> samlOptions) {
             return samlOptions(Output.of(samlOptions));
         }
 
-        /**
-         * @param samlOptions SAML options for the security configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(GetServerlessSecurityConfigSamlOptionArgs... samlOptions) {
             return samlOptions(List.of(samlOptions));
         }

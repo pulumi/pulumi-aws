@@ -11,74 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
-// See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := s3.GetCanonicalUserId(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.GetLogDeliveryCanonicalUserId(ctx, &cloudfront.GetLogDeliveryCanonicalUserIdArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucket.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID(),
-//				AccessControlPolicy: &s3.BucketAclAccessControlPolicyArgs{
-//					Grants: s3.BucketAclAccessControlPolicyGrantArray{
-//						&s3.BucketAclAccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
-//								Id:   pulumi.String(example.Id),
-//								Type: pulumi.String("CanonicalUser"),
-//							},
-//							Permission: pulumi.String("FULL_CONTROL"),
-//						},
-//					},
-//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
-//						Id: pulumi.String(current.Id),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDeliveryCanonicalUserIdResult
@@ -91,7 +23,6 @@ func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCano
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdArgs struct {
-	// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -113,7 +44,6 @@ func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliver
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdOutputArgs struct {
-	// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

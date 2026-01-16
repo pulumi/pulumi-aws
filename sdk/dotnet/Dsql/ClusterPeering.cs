@@ -9,95 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Dsql
 {
-    /// <summary>
-    /// Resource for managing an Amazon Aurora DSQL Cluster Peering.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example1 = new Aws.Dsql.Cluster("example_1", new()
-    ///     {
-    ///         MultiRegionProperties = new Aws.Dsql.Inputs.ClusterMultiRegionPropertiesArgs
-    ///         {
-    ///             WitnessRegion = "us-west-2",
-    ///         },
-    ///     });
-    /// 
-    ///     var example2 = new Aws.Dsql.Cluster("example_2", new()
-    ///     {
-    ///         MultiRegionProperties = new Aws.Dsql.Inputs.ClusterMultiRegionPropertiesArgs
-    ///         {
-    ///             WitnessRegion = "us-west-2",
-    ///         },
-    ///     });
-    /// 
-    ///     var example1ClusterPeering = new Aws.Dsql.ClusterPeering("example_1", new()
-    ///     {
-    ///         Identifier = example1.Identifier,
-    ///         Clusters = new[]
-    ///         {
-    ///             example2.Arn,
-    ///         },
-    ///         WitnessRegion = example1.MultiRegionProperties.Apply(multiRegionProperties =&gt; multiRegionProperties?.WitnessRegion),
-    ///     });
-    /// 
-    ///     var example2ClusterPeering = new Aws.Dsql.ClusterPeering("example_2", new()
-    ///     {
-    ///         Identifier = example2.Identifier,
-    ///         Clusters = new[]
-    ///         {
-    ///             example1.Arn,
-    ///         },
-    ///         WitnessRegion = example2.MultiRegionProperties.Apply(multiRegionProperties =&gt; multiRegionProperties?.WitnessRegion),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DSQL Cluster Peering using the `identifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dsql/clusterPeering:ClusterPeering")]
     public partial class ClusterPeering : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of DSQL Cluster ARNs to be peered to this cluster.
-        /// </summary>
         [Output("clusters")]
         public Output<ImmutableArray<string>> Clusters { get; private set; } = null!;
 
-        /// <summary>
-        /// DSQL Cluster Identifier.
-        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.ClusterPeeringTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Witness region for a multi-region cluster.
-        /// </summary>
         [Output("witnessRegion")]
         public Output<string> WitnessRegion { get; private set; } = null!;
 
@@ -149,34 +75,21 @@ namespace Pulumi.Aws.Dsql
     {
         [Input("clusters", required: true)]
         private InputList<string>? _clusters;
-
-        /// <summary>
-        /// List of DSQL Cluster ARNs to be peered to this cluster.
-        /// </summary>
         public InputList<string> Clusters
         {
             get => _clusters ?? (_clusters = new InputList<string>());
             set => _clusters = value;
         }
 
-        /// <summary>
-        /// DSQL Cluster Identifier.
-        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.ClusterPeeringTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Witness region for a multi-region cluster.
-        /// </summary>
         [Input("witnessRegion", required: true)]
         public Input<string> WitnessRegion { get; set; } = null!;
 
@@ -190,34 +103,21 @@ namespace Pulumi.Aws.Dsql
     {
         [Input("clusters")]
         private InputList<string>? _clusters;
-
-        /// <summary>
-        /// List of DSQL Cluster ARNs to be peered to this cluster.
-        /// </summary>
         public InputList<string> Clusters
         {
             get => _clusters ?? (_clusters = new InputList<string>());
             set => _clusters = value;
         }
 
-        /// <summary>
-        /// DSQL Cluster Identifier.
-        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.ClusterPeeringTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Witness region for a multi-region cluster.
-        /// </summary>
         [Input("witnessRegion")]
         public Input<string>? WitnessRegion { get; set; }
 

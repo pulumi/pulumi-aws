@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineTriggerGitConfiguration
     {
-        /// <summary>
-        /// The field where the repository event that will start the pipeline is specified as pull requests. A `PullRequest` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerGitConfigurationPullRequest> PullRequests;
-        /// <summary>
-        /// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `Push` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerGitConfigurationPush> Pushes;
-        /// <summary>
-        /// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-        /// </summary>
         public readonly string SourceActionName;
 
         [OutputConstructor]

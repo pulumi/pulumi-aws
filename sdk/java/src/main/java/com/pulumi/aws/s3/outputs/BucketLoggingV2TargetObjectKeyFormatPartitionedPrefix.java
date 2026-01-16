@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
-    /**
-     * @return Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-     * 
-     */
     private String partitionDateSource;
 
     private BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix() {}
-    /**
-     * @return Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
-     * 
-     */
     public String partitionDateSource() {
         return this.partitionDateSource;
     }

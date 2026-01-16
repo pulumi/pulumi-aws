@@ -12,61 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS QuickSight Template Alias.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTemplateAlias(ctx, "example", &quicksight.TemplateAliasArgs{
-//				AliasName:             pulumi.String("example-alias"),
-//				TemplateId:            pulumi.Any(test.TemplateId),
-//				TemplateVersionNumber: pulumi.Any(test.VersionNumber),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
-// ```
 type TemplateAlias struct {
 	pulumi.CustomResourceState
 
-	// Display name of the template alias.
-	AliasName pulumi.StringOutput `pulumi:"aliasName"`
-	// Amazon Resource Name (ARN) of the template alias.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID of the template.
-	TemplateId pulumi.StringOutput `pulumi:"templateId"`
-	// Version number of the template.
-	//
-	// The following arguments are optional:
-	TemplateVersionNumber pulumi.IntOutput `pulumi:"templateVersionNumber"`
+	AliasName             pulumi.StringOutput `pulumi:"aliasName"`
+	Arn                   pulumi.StringOutput `pulumi:"arn"`
+	AwsAccountId          pulumi.StringOutput `pulumi:"awsAccountId"`
+	Region                pulumi.StringOutput `pulumi:"region"`
+	TemplateId            pulumi.StringOutput `pulumi:"templateId"`
+	TemplateVersionNumber pulumi.IntOutput    `pulumi:"templateVersionNumber"`
 }
 
 // NewTemplateAlias registers a new resource with the given unique name, arguments, and options.
@@ -108,34 +62,20 @@ func GetTemplateAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateAlias resources.
 type templateAliasState struct {
-	// Display name of the template alias.
-	AliasName *string `pulumi:"aliasName"`
-	// Amazon Resource Name (ARN) of the template alias.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the template.
-	TemplateId *string `pulumi:"templateId"`
-	// Version number of the template.
-	//
-	// The following arguments are optional:
-	TemplateVersionNumber *int `pulumi:"templateVersionNumber"`
+	AliasName             *string `pulumi:"aliasName"`
+	Arn                   *string `pulumi:"arn"`
+	AwsAccountId          *string `pulumi:"awsAccountId"`
+	Region                *string `pulumi:"region"`
+	TemplateId            *string `pulumi:"templateId"`
+	TemplateVersionNumber *int    `pulumi:"templateVersionNumber"`
 }
 
 type TemplateAliasState struct {
-	// Display name of the template alias.
-	AliasName pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the template alias.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the template.
-	TemplateId pulumi.StringPtrInput
-	// Version number of the template.
-	//
-	// The following arguments are optional:
+	AliasName             pulumi.StringPtrInput
+	Arn                   pulumi.StringPtrInput
+	AwsAccountId          pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	TemplateId            pulumi.StringPtrInput
 	TemplateVersionNumber pulumi.IntPtrInput
 }
 
@@ -144,31 +84,19 @@ func (TemplateAliasState) ElementType() reflect.Type {
 }
 
 type templateAliasArgs struct {
-	// Display name of the template alias.
-	AliasName    string  `pulumi:"aliasName"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the template.
-	TemplateId string `pulumi:"templateId"`
-	// Version number of the template.
-	//
-	// The following arguments are optional:
-	TemplateVersionNumber int `pulumi:"templateVersionNumber"`
+	AliasName             string  `pulumi:"aliasName"`
+	AwsAccountId          *string `pulumi:"awsAccountId"`
+	Region                *string `pulumi:"region"`
+	TemplateId            string  `pulumi:"templateId"`
+	TemplateVersionNumber int     `pulumi:"templateVersionNumber"`
 }
 
 // The set of arguments for constructing a TemplateAlias resource.
 type TemplateAliasArgs struct {
-	// Display name of the template alias.
-	AliasName    pulumi.StringInput
-	AwsAccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID of the template.
-	TemplateId pulumi.StringInput
-	// Version number of the template.
-	//
-	// The following arguments are optional:
+	AliasName             pulumi.StringInput
+	AwsAccountId          pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	TemplateId            pulumi.StringInput
 	TemplateVersionNumber pulumi.IntInput
 }
 
@@ -259,12 +187,10 @@ func (o TemplateAliasOutput) ToTemplateAliasOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Display name of the template alias.
 func (o TemplateAliasOutput) AliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.AliasName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the template alias.
 func (o TemplateAliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -273,19 +199,14 @@ func (o TemplateAliasOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TemplateAliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID of the template.
 func (o TemplateAliasOutput) TemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.TemplateId }).(pulumi.StringOutput)
 }
 
-// Version number of the template.
-//
-// The following arguments are optional:
 func (o TemplateAliasOutput) TemplateVersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.IntOutput { return v.TemplateVersionNumber }).(pulumi.IntOutput)
 }

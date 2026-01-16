@@ -18,32 +18,16 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
 
     public static final V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs Empty = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs();
 
-    /**
-     * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     @Import(name="message", required=true)
     private Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message;
 
-    /**
-     * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-     * 
-     */
     public Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message() {
         return this.message;
     }
 
-    /**
-     * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     @Import(name="variations")
     private @Nullable Output<List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs>> variations;
 
-    /**
-     * @return Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-     * 
-     */
     public Optional<Output<List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs>>> variations() {
         return Optional.ofNullable(this.variations);
     }
@@ -73,54 +57,24 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
             $ = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(@Nullable Output<List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs>> variations) {
             $.variations = variations;
             return this;
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs> variations) {
             return variations(Output.of(variations));
         }
 
-        /**
-         * @param variations Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variations(V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs... variations) {
             return variations(List.of(variations));
         }

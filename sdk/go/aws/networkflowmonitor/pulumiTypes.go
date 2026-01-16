@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type MonitorLocalResource struct {
-	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier string `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-	Type string `pulumi:"type"`
+	Type       string `pulumi:"type"`
 }
 
 // MonitorLocalResourceInput is an input type that accepts MonitorLocalResourceArgs and MonitorLocalResourceOutput values.
@@ -32,10 +30,8 @@ type MonitorLocalResourceInput interface {
 }
 
 type MonitorLocalResourceArgs struct {
-	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput `pulumi:"type"`
 }
 
 func (MonitorLocalResourceArgs) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o MonitorLocalResourceOutput) ToMonitorLocalResourceOutputWithContext(ctx 
 	return o
 }
 
-// The identifier of the resource. For VPC resources, this is the VPC ARN.
 func (o MonitorLocalResourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorLocalResource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 func (o MonitorLocalResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorLocalResource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -120,10 +114,8 @@ func (o MonitorLocalResourceArrayOutput) Index(i pulumi.IntInput) MonitorLocalRe
 }
 
 type MonitorRemoteResource struct {
-	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier string `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-	Type string `pulumi:"type"`
+	Type       string `pulumi:"type"`
 }
 
 // MonitorRemoteResourceInput is an input type that accepts MonitorRemoteResourceArgs and MonitorRemoteResourceOutput values.
@@ -138,10 +130,8 @@ type MonitorRemoteResourceInput interface {
 }
 
 type MonitorRemoteResourceArgs struct {
-	// The identifier of the resource. For VPC resources, this is the VPC ARN.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput `pulumi:"type"`
 }
 
 func (MonitorRemoteResourceArgs) ElementType() reflect.Type {
@@ -195,12 +185,10 @@ func (o MonitorRemoteResourceOutput) ToMonitorRemoteResourceOutputWithContext(ct
 	return o
 }
 
-// The identifier of the resource. For VPC resources, this is the VPC ARN.
 func (o MonitorRemoteResourceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorRemoteResource) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
 func (o MonitorRemoteResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorRemoteResource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -401,9 +389,7 @@ func (o MonitorTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ScopeTarget struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region string `pulumi:"region"`
-	// A target identifier is a pair of identifying information for a scope.
+	Region           string                       `pulumi:"region"`
 	TargetIdentifier *ScopeTargetTargetIdentifier `pulumi:"targetIdentifier"`
 }
 
@@ -419,9 +405,7 @@ type ScopeTargetInput interface {
 }
 
 type ScopeTargetArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringInput `pulumi:"region"`
-	// A target identifier is a pair of identifying information for a scope.
+	Region           pulumi.StringInput                  `pulumi:"region"`
 	TargetIdentifier ScopeTargetTargetIdentifierPtrInput `pulumi:"targetIdentifier"`
 }
 
@@ -476,12 +460,10 @@ func (o ScopeTargetOutput) ToScopeTargetOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScopeTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ScopeTarget) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A target identifier is a pair of identifying information for a scope.
 func (o ScopeTargetOutput) TargetIdentifier() ScopeTargetTargetIdentifierPtrOutput {
 	return o.ApplyT(func(v ScopeTarget) *ScopeTargetTargetIdentifier { return v.TargetIdentifier }).(ScopeTargetTargetIdentifierPtrOutput)
 }
@@ -507,10 +489,8 @@ func (o ScopeTargetArrayOutput) Index(i pulumi.IntInput) ScopeTargetOutput {
 }
 
 type ScopeTargetTargetIdentifier struct {
-	// The identifier for a target, which is currently always an account ID.
-	TargetId *ScopeTargetTargetIdentifierTargetId `pulumi:"targetId"`
-	// The type of a target. A target type is currently always `ACCOUNT`.
-	TargetType string `pulumi:"targetType"`
+	TargetId   *ScopeTargetTargetIdentifierTargetId `pulumi:"targetId"`
+	TargetType string                               `pulumi:"targetType"`
 }
 
 // ScopeTargetTargetIdentifierInput is an input type that accepts ScopeTargetTargetIdentifierArgs and ScopeTargetTargetIdentifierOutput values.
@@ -525,10 +505,8 @@ type ScopeTargetTargetIdentifierInput interface {
 }
 
 type ScopeTargetTargetIdentifierArgs struct {
-	// The identifier for a target, which is currently always an account ID.
-	TargetId ScopeTargetTargetIdentifierTargetIdPtrInput `pulumi:"targetId"`
-	// The type of a target. A target type is currently always `ACCOUNT`.
-	TargetType pulumi.StringInput `pulumi:"targetType"`
+	TargetId   ScopeTargetTargetIdentifierTargetIdPtrInput `pulumi:"targetId"`
+	TargetType pulumi.StringInput                          `pulumi:"targetType"`
 }
 
 func (ScopeTargetTargetIdentifierArgs) ElementType() reflect.Type {
@@ -608,12 +586,10 @@ func (o ScopeTargetTargetIdentifierOutput) ToScopeTargetTargetIdentifierPtrOutpu
 	}).(ScopeTargetTargetIdentifierPtrOutput)
 }
 
-// The identifier for a target, which is currently always an account ID.
 func (o ScopeTargetTargetIdentifierOutput) TargetId() ScopeTargetTargetIdentifierTargetIdPtrOutput {
 	return o.ApplyT(func(v ScopeTargetTargetIdentifier) *ScopeTargetTargetIdentifierTargetId { return v.TargetId }).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
 }
 
-// The type of a target. A target type is currently always `ACCOUNT`.
 func (o ScopeTargetTargetIdentifierOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScopeTargetTargetIdentifier) string { return v.TargetType }).(pulumi.StringOutput)
 }
@@ -642,7 +618,6 @@ func (o ScopeTargetTargetIdentifierPtrOutput) Elem() ScopeTargetTargetIdentifier
 	}).(ScopeTargetTargetIdentifierOutput)
 }
 
-// The identifier for a target, which is currently always an account ID.
 func (o ScopeTargetTargetIdentifierPtrOutput) TargetId() ScopeTargetTargetIdentifierTargetIdPtrOutput {
 	return o.ApplyT(func(v *ScopeTargetTargetIdentifier) *ScopeTargetTargetIdentifierTargetId {
 		if v == nil {
@@ -652,7 +627,6 @@ func (o ScopeTargetTargetIdentifierPtrOutput) TargetId() ScopeTargetTargetIdenti
 	}).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
 }
 
-// The type of a target. A target type is currently always `ACCOUNT`.
 func (o ScopeTargetTargetIdentifierPtrOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeTargetTargetIdentifier) *string {
 		if v == nil {
@@ -663,7 +637,6 @@ func (o ScopeTargetTargetIdentifierPtrOutput) TargetType() pulumi.StringPtrOutpu
 }
 
 type ScopeTargetTargetIdentifierTargetId struct {
-	// AWS account ID.
 	AccountId string `pulumi:"accountId"`
 }
 
@@ -679,7 +652,6 @@ type ScopeTargetTargetIdentifierTargetIdInput interface {
 }
 
 type ScopeTargetTargetIdentifierTargetIdArgs struct {
-	// AWS account ID.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -760,7 +732,6 @@ func (o ScopeTargetTargetIdentifierTargetIdOutput) ToScopeTargetTargetIdentifier
 	}).(ScopeTargetTargetIdentifierTargetIdPtrOutput)
 }
 
-// AWS account ID.
 func (o ScopeTargetTargetIdentifierTargetIdOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ScopeTargetTargetIdentifierTargetId) string { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -789,7 +760,6 @@ func (o ScopeTargetTargetIdentifierTargetIdPtrOutput) Elem() ScopeTargetTargetId
 	}).(ScopeTargetTargetIdentifierTargetIdOutput)
 }
 
-// AWS account ID.
 func (o ScopeTargetTargetIdentifierTargetIdPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeTargetTargetIdentifierTargetId) *string {
 		if v == nil {

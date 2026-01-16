@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Redshift Serverless Custom Domain Association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.acm.Certificate("example", {domainName: "example.com"});
- * const exampleNamespace = new aws.redshiftserverless.Namespace("example", {namespaceName: "example-namespace"});
- * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("example", {
- *     workgroupName: "example-workgroup",
- *     namespaceName: exampleNamespace.namespaceName,
- * });
- * const exampleCustomDomainAssociation = new aws.redshiftserverless.CustomDomainAssociation("example", {
- *     workgroupName: exampleWorkgroup.workgroupName,
- *     customDomainName: "example.com",
- *     customDomainCertificateArn: example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Serverless Custom Domain Association using the `workgroup_name` and `custom_domain_name`, separated by the coma. For example:
- *
- * ```sh
- * $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
- * ```
- */
 export class CustomDomainAssociation extends pulumi.CustomResource {
     /**
      * Get an existing CustomDomainAssociation resource's state with the given name, ID, and optional extra
@@ -62,25 +32,10 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomDomainAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the certificate for the custom domain association.
-     */
     declare public readonly customDomainCertificateArn: pulumi.Output<string>;
-    /**
-     * Expiration time for the certificate.
-     */
     declare public /*out*/ readonly customDomainCertificateExpiryTime: pulumi.Output<string>;
-    /**
-     * Custom domain to associate with the workgroup.
-     */
     declare public readonly customDomainName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Name of the workgroup.
-     */
     declare public readonly workgroupName: pulumi.Output<string>;
 
     /**
@@ -127,25 +82,10 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomDomainAssociation resources.
  */
 export interface CustomDomainAssociationState {
-    /**
-     * ARN of the certificate for the custom domain association.
-     */
     customDomainCertificateArn?: pulumi.Input<string>;
-    /**
-     * Expiration time for the certificate.
-     */
     customDomainCertificateExpiryTime?: pulumi.Input<string>;
-    /**
-     * Custom domain to associate with the workgroup.
-     */
     customDomainName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the workgroup.
-     */
     workgroupName?: pulumi.Input<string>;
 }
 
@@ -153,20 +93,8 @@ export interface CustomDomainAssociationState {
  * The set of arguments for constructing a CustomDomainAssociation resource.
  */
 export interface CustomDomainAssociationArgs {
-    /**
-     * ARN of the certificate for the custom domain association.
-     */
     customDomainCertificateArn: pulumi.Input<string>;
-    /**
-     * Custom domain to associate with the workgroup.
-     */
     customDomainName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the workgroup.
-     */
     workgroupName: pulumi.Input<string>;
 }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class NotificationChannelFilters
     {
-        /// <summary>
-        /// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
-        /// </summary>
         public readonly ImmutableArray<string> MessageTypes;
-        /// <summary>
-        /// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-        /// </summary>
         public readonly ImmutableArray<string> Severities;
 
         [OutputConstructor]

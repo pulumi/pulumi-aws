@@ -13,37 +13,13 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
     [OutputType]
     public sealed class GetTemplatesTemplateResult
     {
-        /// <summary>
-        /// Indicates whether the quota is global.
-        /// </summary>
         public readonly bool GlobalQuota;
-        /// <summary>
-        /// Quota identifier.
-        /// </summary>
         public readonly string QuotaCode;
-        /// <summary>
-        /// Quota name.
-        /// </summary>
         public readonly string QuotaName;
-        /// <summary>
-        /// AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Service identifier.
-        /// </summary>
         public readonly string ServiceCode;
-        /// <summary>
-        /// Service name.
-        /// </summary>
         public readonly string ServiceName;
-        /// <summary>
-        /// Unit of measurement.
-        /// </summary>
         public readonly string Unit;
-        /// <summary>
-        /// The new, increased value for the quota.
-        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

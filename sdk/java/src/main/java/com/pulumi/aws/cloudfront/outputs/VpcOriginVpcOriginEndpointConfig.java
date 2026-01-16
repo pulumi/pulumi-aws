@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcOriginVpcOriginEndpointConfig {
-    /**
-     * @return The VPC origin ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return The HTTP port for the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     private Integer httpPort;
-    /**
-     * @return The HTTPS port for the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     private Integer httpsPort;
-    /**
-     * @return The name of the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     private String originProtocolPolicy;
-    /**
-     * @return A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-     * 
-     */
     private @Nullable VpcOriginVpcOriginEndpointConfigOriginSslProtocols originSslProtocols;
 
     private VpcOriginVpcOriginEndpointConfig() {}
-    /**
-     * @return The VPC origin ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The HTTP port for the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     public Integer httpPort() {
         return this.httpPort;
     }
-    /**
-     * @return The HTTPS port for the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     public Integer httpsPort() {
         return this.httpsPort;
     }
-    /**
-     * @return The name of the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-     * 
-     */
     public String originProtocolPolicy() {
         return this.originProtocolPolicy;
     }
-    /**
-     * @return A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-     * 
-     */
     public Optional<VpcOriginVpcOriginEndpointConfigOriginSslProtocols> originSslProtocols() {
         return Optional.ofNullable(this.originSslProtocols);
     }

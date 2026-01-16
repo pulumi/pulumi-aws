@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineTriggerAllGitConfigurationPullRequest
     {
-        /// <summary>
-        /// The field that specifies to filter on branches for the pull request trigger configuration. A `Branches` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfigurationPullRequestBranch> Branches;
-        /// <summary>
-        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
-        /// </summary>
         public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `FilePaths` block is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerAllGitConfigurationPullRequestFilePath> FilePaths;
 
         [OutputConstructor]

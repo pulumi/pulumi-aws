@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("cidrs", required: true)]
         private InputList<string>? _cidrs;
-
-        /// <summary>
-        /// A list of up to 10 CIDR values.
-        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleResult
     {
-        /// <summary>
-        /// Defines the match conditions and actions for the rule. Detailed below.
-        /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionResult RuleDefinition;
-        /// <summary>
-        /// Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-        /// </summary>
         public readonly int RuleNumber;
 
         [OutputConstructor]

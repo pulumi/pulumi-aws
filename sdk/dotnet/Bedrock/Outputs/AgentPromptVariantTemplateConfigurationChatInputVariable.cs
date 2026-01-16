@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfigurationChatInputVariable
     {
-        /// <summary>
-        /// The name of the variable.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

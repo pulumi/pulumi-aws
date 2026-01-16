@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardDashboardPublishOptionsSheetControlsOption {
-    /**
-     * @return Visibility state. Possibles values: EXPANDED, COLLAPSED.
-     * 
-     */
     private @Nullable String visibilityState;
 
     private DashboardDashboardPublishOptionsSheetControlsOption() {}
-    /**
-     * @return Visibility state. Possibles values: EXPANDED, COLLAPSED.
-     * 
-     */
     public Optional<String> visibilityState() {
         return Optional.ofNullable(this.visibilityState);
     }

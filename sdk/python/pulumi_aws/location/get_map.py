@@ -59,25 +59,16 @@ class GetMapResult:
     @_builtins.property
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.GetMapConfigurationResult']:
-        """
-        List of configurations that specify the map tile style selected from a partner data provider.
-        """
         return pulumi.get(self, "configurations")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        Timestamp for when the map resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Optional description for the map resource.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -91,9 +82,6 @@ class GetMapResult:
     @_builtins.property
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> _builtins.str:
-        """
-        ARN for the map resource.
-        """
         return pulumi.get(self, "map_arn")
 
     @_builtins.property
@@ -109,17 +97,11 @@ class GetMapResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the map.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> _builtins.str:
-        """
-        Timestamp for when the map resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 
 
@@ -145,21 +127,7 @@ def get_map(map_name: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMapResult:
     """
-    Retrieve information about a Location Service Map.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_map(map_name="example")
-    ```
-
-
-    :param _builtins.str map_name: Name of the map resource.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the map.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['mapName'] = map_name
@@ -183,21 +151,7 @@ def get_map_output(map_name: Optional[pulumi.Input[_builtins.str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
-    Retrieve information about a Location Service Map.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_map(map_name="example")
-    ```
-
-
-    :param _builtins.str map_name: Name of the map resource.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the map.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['mapName'] = map_name

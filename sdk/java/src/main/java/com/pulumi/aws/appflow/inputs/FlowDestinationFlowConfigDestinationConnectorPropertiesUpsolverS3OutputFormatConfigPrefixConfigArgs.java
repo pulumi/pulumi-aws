@@ -17,47 +17,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs();
 
-    /**
-     * Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-     * 
-     */
     @Import(name="prefixFormat")
     private @Nullable Output<String> prefixFormat;
 
-    /**
-     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-     * 
-     */
     public Optional<Output<String>> prefixFormat() {
         return Optional.ofNullable(this.prefixFormat);
     }
 
-    /**
-     * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-     * 
-     */
     @Import(name="prefixHierarchies")
     private @Nullable Output<List<String>> prefixHierarchies;
 
-    /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-     * 
-     */
     public Optional<Output<List<String>>> prefixHierarchies() {
         return Optional.ofNullable(this.prefixHierarchies);
     }
 
-    /**
-     * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-     * 
-     */
     @Import(name="prefixType", required=true)
     private Output<String> prefixType;
 
-    /**
-     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-     * 
-     */
     public Output<String> prefixType() {
         return this.prefixType;
     }
@@ -88,75 +64,33 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefixFormat Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixFormat(@Nullable Output<String> prefixFormat) {
             $.prefixFormat = prefixFormat;
             return this;
         }
 
-        /**
-         * @param prefixFormat Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixFormat(String prefixFormat) {
             return prefixFormat(Output.of(prefixFormat));
         }
 
-        /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixHierarchies(@Nullable Output<List<String>> prefixHierarchies) {
             $.prefixHierarchies = prefixHierarchies;
             return this;
         }
 
-        /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixHierarchies(List<String> prefixHierarchies) {
             return prefixHierarchies(Output.of(prefixHierarchies));
         }
 
-        /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixHierarchies(String... prefixHierarchies) {
             return prefixHierarchies(List.of(prefixHierarchies));
         }
 
-        /**
-         * @param prefixType Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixType(Output<String> prefixType) {
             $.prefixType = prefixType;
             return this;
         }
 
-        /**
-         * @param prefixType Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixType(String prefixType) {
             return prefixType(Output.of(prefixType));
         }

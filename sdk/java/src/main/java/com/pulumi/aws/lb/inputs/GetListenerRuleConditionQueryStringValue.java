@@ -13,32 +13,16 @@ public final class GetListenerRuleConditionQueryStringValue extends com.pulumi.r
 
     public static final GetListenerRuleConditionQueryStringValue Empty = new GetListenerRuleConditionQueryStringValue();
 
-    /**
-     * Key of query parameter
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return Key of query parameter
-     * 
-     */
     public String key() {
         return this.key;
     }
 
-    /**
-     * Value of query parameter
-     * 
-     */
     @Import(name="value", required=true)
     private String value;
 
-    /**
-     * @return Value of query parameter
-     * 
-     */
     public String value() {
         return this.value;
     }
@@ -68,23 +52,11 @@ public final class GetListenerRuleConditionQueryStringValue extends com.pulumi.r
             $ = new GetListenerRuleConditionQueryStringValue(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key of query parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param value Value of query parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             $.value = value;
             return this;

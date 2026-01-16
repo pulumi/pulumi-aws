@@ -14,17 +14,9 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupC
 
     public static final IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs Empty = new IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs();
 
-    /**
-     * The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-     * 
-     */
     @Import(name="groupEntityType", required=true)
     private Output<String> groupEntityType;
 
-    /**
-     * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-     * 
-     */
     public Output<String> groupEntityType() {
         return this.groupEntityType;
     }
@@ -53,23 +45,11 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupC
             $ = new IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupEntityType The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupEntityType(Output<String> groupEntityType) {
             $.groupEntityType = groupEntityType;
             return this;
         }
 
-        /**
-         * @param groupEntityType The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupEntityType(String groupEntityType) {
             return groupEntityType(Output.of(groupEntityType));
         }

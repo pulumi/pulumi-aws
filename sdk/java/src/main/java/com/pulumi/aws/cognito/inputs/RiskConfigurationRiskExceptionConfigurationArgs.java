@@ -16,40 +16,16 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
 
     public static final RiskConfigurationRiskExceptionConfigurationArgs Empty = new RiskConfigurationRiskExceptionConfigurationArgs();
 
-    /**
-     * Overrides the risk decision to always block the pre-authentication requests.
-     * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-     * Can contain a maximum of 200 items.
-     * 
-     */
     @Import(name="blockedIpRangeLists")
     private @Nullable Output<List<String>> blockedIpRangeLists;
 
-    /**
-     * @return Overrides the risk decision to always block the pre-authentication requests.
-     * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-     * Can contain a maximum of 200 items.
-     * 
-     */
     public Optional<Output<List<String>>> blockedIpRangeLists() {
         return Optional.ofNullable(this.blockedIpRangeLists);
     }
 
-    /**
-     * Risk detection isn&#39;t performed on the IP addresses in this range list.
-     * The IP range is in CIDR notation.
-     * Can contain a maximum of 200 items.
-     * 
-     */
     @Import(name="skippedIpRangeLists")
     private @Nullable Output<List<String>> skippedIpRangeLists;
 
-    /**
-     * @return Risk detection isn&#39;t performed on the IP addresses in this range list.
-     * The IP range is in CIDR notation.
-     * Can contain a maximum of 200 items.
-     * 
-     */
     public Optional<Output<List<String>>> skippedIpRangeLists() {
         return Optional.ofNullable(this.skippedIpRangeLists);
     }
@@ -79,76 +55,28 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
             $ = new RiskConfigurationRiskExceptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests.
-         * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-         * Can contain a maximum of 200 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedIpRangeLists(@Nullable Output<List<String>> blockedIpRangeLists) {
             $.blockedIpRangeLists = blockedIpRangeLists;
             return this;
         }
 
-        /**
-         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests.
-         * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-         * Can contain a maximum of 200 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedIpRangeLists(List<String> blockedIpRangeLists) {
             return blockedIpRangeLists(Output.of(blockedIpRangeLists));
         }
 
-        /**
-         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests.
-         * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-         * Can contain a maximum of 200 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedIpRangeLists(String... blockedIpRangeLists) {
             return blockedIpRangeLists(List.of(blockedIpRangeLists));
         }
 
-        /**
-         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list.
-         * The IP range is in CIDR notation.
-         * Can contain a maximum of 200 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skippedIpRangeLists(@Nullable Output<List<String>> skippedIpRangeLists) {
             $.skippedIpRangeLists = skippedIpRangeLists;
             return this;
         }
 
-        /**
-         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list.
-         * The IP range is in CIDR notation.
-         * Can contain a maximum of 200 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skippedIpRangeLists(List<String> skippedIpRangeLists) {
             return skippedIpRangeLists(Output.of(skippedIpRangeLists));
         }
 
-        /**
-         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list.
-         * The IP range is in CIDR notation.
-         * Can contain a maximum of 200 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skippedIpRangeLists(String... skippedIpRangeLists) {
             return skippedIpRangeLists(List.of(skippedIpRangeLists));
         }

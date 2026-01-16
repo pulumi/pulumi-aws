@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionDurableConfigResult
     {
-        /// <summary>
-        /// Maximum execution time in seconds for the durable function.
-        /// </summary>
         public readonly int ExecutionTimeout;
-        /// <summary>
-        /// Number of days to retain the function's execution state.
-        /// </summary>
         public readonly int RetentionPeriod;
 
         [OutputConstructor]

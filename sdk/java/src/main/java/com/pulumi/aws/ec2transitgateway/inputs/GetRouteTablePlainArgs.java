@@ -17,62 +17,30 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetRouteTablePlainArgs Empty = new GetRouteTablePlainArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetRouteTableFilter> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     public Optional<List<GetRouteTableFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Identifier of the EC2 Transit Gateway Route Table.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier of the EC2 Transit Gateway Route Table.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Route Table
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,55 +72,25 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetRouteTablePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetRouteTableFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetRouteTableFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Identifier of the EC2 Transit Gateway Route Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Route Table
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

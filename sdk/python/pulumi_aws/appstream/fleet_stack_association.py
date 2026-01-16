@@ -24,9 +24,6 @@ class FleetStackAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetStackAssociation resource.
-        :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
-        :param pulumi.Input[_builtins.str] stack_name: Name of the stack.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "stack_name", stack_name)
@@ -36,9 +33,6 @@ class FleetStackAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the fleet.
-        """
         return pulumi.get(self, "fleet_name")
 
     @fleet_name.setter
@@ -48,9 +42,6 @@ class FleetStackAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the stack.
-        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -60,9 +51,6 @@ class FleetStackAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _FleetStackAssociationState:
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FleetStackAssociation resources.
-        :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: Name of the stack.
         """
         if fleet_name is not None:
             pulumi.set(__self__, "fleet_name", fleet_name)
@@ -92,9 +77,6 @@ class _FleetStackAssociationState:
     @_builtins.property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the fleet.
-        """
         return pulumi.get(self, "fleet_name")
 
     @fleet_name.setter
@@ -104,9 +86,6 @@ class _FleetStackAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _FleetStackAssociationState:
     @_builtins.property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the stack.
-        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -137,40 +113,9 @@ class FleetStackAssociation(pulumi.CustomResource):
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AppStream Fleet Stack association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appstream.Fleet("example",
-            name="NAME",
-            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
-            instance_type="stream.standard.small",
-            compute_capacity={
-                "desired_instances": 1,
-            })
-        example_stack = aws.appstream.Stack("example", name="STACK NAME")
-        example_fleet_stack_association = aws.appstream.FleetStackAssociation("example",
-            fleet_name=example.name,
-            stack_name=example_stack.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-        ```
-
+        Create a FleetStackAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: Name of the stack.
         """
         ...
     @overload
@@ -179,35 +124,7 @@ class FleetStackAssociation(pulumi.CustomResource):
                  args: FleetStackAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AppStream Fleet Stack association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appstream.Fleet("example",
-            name="NAME",
-            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
-            instance_type="stream.standard.small",
-            compute_capacity={
-                "desired_instances": 1,
-            })
-        example_stack = aws.appstream.Stack("example", name="STACK NAME")
-        example_fleet_stack_association = aws.appstream.FleetStackAssociation("example",
-            fleet_name=example.name,
-            stack_name=example_stack.name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-        ```
-
+        Create a FleetStackAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FleetStackAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,9 +179,6 @@ class FleetStackAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stack_name: Name of the stack.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,24 +192,15 @@ class FleetStackAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the fleet.
-        """
         return pulumi.get(self, "fleet_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the stack.
-        """
         return pulumi.get(self, "stack_name")
 

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation {
-    /**
-     * @return S3 bucket name.
-     * 
-     */
     private @Nullable String bucketName;
-    /**
-     * @return S3 key.
-     * 
-     */
     private @Nullable String objectKey;
 
     private ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation() {}
-    /**
-     * @return S3 bucket name.
-     * 
-     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
-    /**
-     * @return S3 key.
-     * 
-     */
     public Optional<String> objectKey() {
         return Optional.ofNullable(this.objectKey);
     }

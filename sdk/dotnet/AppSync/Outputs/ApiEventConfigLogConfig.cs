@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ApiEventConfigLogConfig
     {
-        /// <summary>
-        /// ARN of the IAM role for CloudWatch logs.
-        /// </summary>
         public readonly string CloudwatchLogsRoleArn;
-        /// <summary>
-        /// Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-        /// </summary>
         public readonly string LogLevel;
 
         [OutputConstructor]

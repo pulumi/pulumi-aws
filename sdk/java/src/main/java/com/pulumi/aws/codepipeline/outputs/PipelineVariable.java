@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineVariable {
-    /**
-     * @return The default value of a pipeline-level variable.
-     * 
-     */
     private @Nullable String defaultValue;
-    /**
-     * @return The description of a pipeline-level variable.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The name of a pipeline-level variable.
-     * 
-     */
     private String name;
 
     private PipelineVariable() {}
-    /**
-     * @return The default value of a pipeline-level variable.
-     * 
-     */
     public Optional<String> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
-    /**
-     * @return The description of a pipeline-level variable.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The name of a pipeline-level variable.
-     * 
-     */
     public String name() {
         return this.name;
     }

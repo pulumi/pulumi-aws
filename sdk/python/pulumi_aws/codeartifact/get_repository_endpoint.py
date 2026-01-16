@@ -85,9 +85,6 @@ class GetRepositoryEndpointResult:
     @_builtins.property
     @pulumi.getter(name="repositoryEndpoint")
     def repository_endpoint(self) -> _builtins.str:
-        """
-        URL of the returned endpoint.
-        """
         return pulumi.get(self, "repository_endpoint")
 
 
@@ -113,25 +110,7 @@ def get_repository_endpoint(domain: Optional[_builtins.str] = None,
                             repository: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryEndpointResult:
     """
-    The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.codeartifact.get_repository_endpoint(domain=test_aws_codeartifact_domain["domain"],
-        repository=test_aws_codeartifact_repository["repository"],
-        format="npm")
-    ```
-
-
-    :param _builtins.str domain: Name of the domain that contains the repository.
-    :param _builtins.str domain_owner: Account number of the AWS account that owns the domain.
-    :param _builtins.str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str repository: Name of the repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -157,25 +136,7 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[_builtins.str]]
                                    repository: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEndpointResult]:
     """
-    The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.codeartifact.get_repository_endpoint(domain=test_aws_codeartifact_domain["domain"],
-        repository=test_aws_codeartifact_repository["repository"],
-        format="npm")
-    ```
-
-
-    :param _builtins.str domain: Name of the domain that contains the repository.
-    :param _builtins.str domain_owner: Account number of the AWS account that owns the domain.
-    :param _builtins.str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str repository: Name of the repository.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain

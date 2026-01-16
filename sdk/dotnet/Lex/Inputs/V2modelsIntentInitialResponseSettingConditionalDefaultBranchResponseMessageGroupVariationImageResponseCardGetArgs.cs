@@ -14,31 +14,18 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("buttons")]
         private InputList<Inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonGetArgs>? _buttons;
-
-        /// <summary>
-        /// Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `Button`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonGetArgs> Buttons
         {
             get => _buttons ?? (_buttons = new InputList<Inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonGetArgs>());
             set => _buttons = value;
         }
 
-        /// <summary>
-        /// URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
-        /// </summary>
         [Input("imageUrl")]
         public Input<string>? ImageUrl { get; set; }
 
-        /// <summary>
-        /// Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
-        /// </summary>
         [Input("subtitle")]
         public Input<string>? Subtitle { get; set; }
 
-        /// <summary>
-        /// Title to display on the response card. The format of the title is determined by the platform displaying the response card.
-        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

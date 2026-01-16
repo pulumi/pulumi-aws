@@ -55,9 +55,6 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the image.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -76,9 +73,6 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the image.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -94,17 +88,11 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="requiredTenancy")
     def required_tenancy(self) -> _builtins.str:
-        """
-        Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-        """
         return pulumi.get(self, "required_tenancy")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        The status of the image.
-        """
         return pulumi.get(self, "state")
 
 
@@ -128,20 +116,7 @@ def get_image(image_id: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
-    Use this data source to get information about a Workspaces image.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
-    ```
-
-
-    :param _builtins.str image_id: ID of the image.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['imageId'] = image_id
@@ -162,20 +137,7 @@ def get_image_output(image_id: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
-    Use this data source to get information about a Workspaces image.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
-    ```
-
-
-    :param _builtins.str image_id: ID of the image.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['imageId'] = image_id

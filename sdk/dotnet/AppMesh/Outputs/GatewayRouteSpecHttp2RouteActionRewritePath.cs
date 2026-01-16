@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttp2RouteActionRewritePath
     {
-        /// <summary>
-        /// The exact path to match on.
-        /// </summary>
         public readonly string Exact;
 
         [OutputConstructor]

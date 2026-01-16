@@ -17,17 +17,9 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
 
     public static final EmailTemplateEmailTemplateArgs Empty = new EmailTemplateEmailTemplateArgs();
 
-    /**
-     * JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
-     * 
-     */
     @Import(name="defaultSubstitutions")
     private @Nullable Output<String> defaultSubstitutions;
 
-    /**
-     * @return JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
-     * 
-     */
     public Optional<Output<String>> defaultSubstitutions() {
         return Optional.ofNullable(this.defaultSubstitutions);
     }
@@ -46,62 +38,30 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-     * 
-     */
     @Import(name="htmlPart")
     private @Nullable Output<String> htmlPart;
 
-    /**
-     * @return The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-     * 
-     */
     public Optional<Output<String>> htmlPart() {
         return Optional.ofNullable(this.htmlPart);
     }
 
-    /**
-     * The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-     * 
-     */
     @Import(name="recommenderId")
     private @Nullable Output<String> recommenderId;
 
-    /**
-     * @return The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-     * 
-     */
     public Optional<Output<String>> recommenderId() {
         return Optional.ofNullable(this.recommenderId);
     }
 
-    /**
-     * Subject line, or title, to use in email messages that are based on the message template.
-     * 
-     */
     @Import(name="subject")
     private @Nullable Output<String> subject;
 
-    /**
-     * @return Subject line, or title, to use in email messages that are based on the message template.
-     * 
-     */
     public Optional<Output<String>> subject() {
         return Optional.ofNullable(this.subject);
     }
 
-    /**
-     * Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-     * 
-     */
     @Import(name="textPart")
     private @Nullable Output<String> textPart;
 
-    /**
-     * @return Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-     * 
-     */
     public Optional<Output<String>> textPart() {
         return Optional.ofNullable(this.textPart);
     }
@@ -136,23 +96,11 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
             $ = new EmailTemplateEmailTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultSubstitutions JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSubstitutions(@Nullable Output<String> defaultSubstitutions) {
             $.defaultSubstitutions = defaultSubstitutions;
             return this;
         }
 
-        /**
-         * @param defaultSubstitutions JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSubstitutions(String defaultSubstitutions) {
             return defaultSubstitutions(Output.of(defaultSubstitutions));
         }
@@ -179,86 +127,38 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
             return headers(List.of(headers));
         }
 
-        /**
-         * @param htmlPart The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlPart(@Nullable Output<String> htmlPart) {
             $.htmlPart = htmlPart;
             return this;
         }
 
-        /**
-         * @param htmlPart The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlPart(String htmlPart) {
             return htmlPart(Output.of(htmlPart));
         }
 
-        /**
-         * @param recommenderId The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recommenderId(@Nullable Output<String> recommenderId) {
             $.recommenderId = recommenderId;
             return this;
         }
 
-        /**
-         * @param recommenderId The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recommenderId(String recommenderId) {
             return recommenderId(Output.of(recommenderId));
         }
 
-        /**
-         * @param subject Subject line, or title, to use in email messages that are based on the message template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(@Nullable Output<String> subject) {
             $.subject = subject;
             return this;
         }
 
-        /**
-         * @param subject Subject line, or title, to use in email messages that are based on the message template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(String subject) {
             return subject(Output.of(subject));
         }
 
-        /**
-         * @param textPart Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textPart(@Nullable Output<String> textPart) {
             $.textPart = textPart;
             return this;
         }
 
-        /**
-         * @param textPart Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textPart(String textPart) {
             return textPart(Output.of(textPart));
         }

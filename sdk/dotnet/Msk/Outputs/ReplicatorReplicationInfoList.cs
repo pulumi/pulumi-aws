@@ -13,27 +13,12 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ReplicatorReplicationInfoList
     {
-        /// <summary>
-        /// Configuration relating to consumer group replication.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication> ConsumerGroupReplications;
         public readonly string? SourceKafkaClusterAlias;
-        /// <summary>
-        /// The ARN of the source Kafka cluster.
-        /// </summary>
         public readonly string SourceKafkaClusterArn;
-        /// <summary>
-        /// The type of compression to use writing records to target Kafka cluster.
-        /// </summary>
         public readonly string TargetCompressionType;
         public readonly string? TargetKafkaClusterAlias;
-        /// <summary>
-        /// The ARN of the target Kafka cluster.
-        /// </summary>
         public readonly string TargetKafkaClusterArn;
-        /// <summary>
-        /// Configuration relating to topic replication.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfoListTopicReplication> TopicReplications;
 
         [OutputConstructor]

@@ -11,53 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get a list of members in an Identity Store Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
-//				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
-//					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
-//						AttributePath:  "DisplayName",
-//						AttributeValue: "ExampleGroup",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = identitystore.GetGroupMemberships(ctx, &identitystore.GetGroupMembershipsArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
-//				GroupId:         exampleGetGroup.GroupId,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetGroupMemberships(ctx *pulumi.Context, args *GetGroupMembershipsArgs, opts ...pulumi.InvokeOption) (*GetGroupMembershipsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGroupMembershipsResult
@@ -70,23 +23,17 @@ func GetGroupMemberships(ctx *pulumi.Context, args *GetGroupMembershipsArgs, opt
 
 // A collection of arguments for invoking getGroupMemberships.
 type GetGroupMembershipsArgs struct {
-	// The identifier for a group in the Identity Store.
-	GroupId string `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	GroupId         string  `pulumi:"groupId"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroupMemberships.
 type GetGroupMembershipsResult struct {
-	// Group identifier.
-	GroupId string `pulumi:"groupId"`
-	// A list of group membership objects. See `groupMemberships` below.
+	GroupId          string                               `pulumi:"groupId"`
 	GroupMemberships []GetGroupMembershipsGroupMembership `pulumi:"groupMemberships"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Identity store identifier.
+	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	Region          string `pulumi:"region"`
 }
@@ -102,12 +49,9 @@ func GetGroupMembershipsOutput(ctx *pulumi.Context, args GetGroupMembershipsOutp
 
 // A collection of arguments for invoking getGroupMemberships.
 type GetGroupMembershipsOutputArgs struct {
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringInput `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	GroupId         pulumi.StringInput    `pulumi:"groupId"`
+	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetGroupMembershipsOutputArgs) ElementType() reflect.Type {
@@ -129,12 +73,10 @@ func (o GetGroupMembershipsResultOutput) ToGetGroupMembershipsResultOutputWithCo
 	return o
 }
 
-// Group identifier.
 func (o GetGroupMembershipsResultOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMembershipsResult) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// A list of group membership objects. See `groupMemberships` below.
 func (o GetGroupMembershipsResultOutput) GroupMemberships() GetGroupMembershipsGroupMembershipArrayOutput {
 	return o.ApplyT(func(v GetGroupMembershipsResult) []GetGroupMembershipsGroupMembership { return v.GroupMemberships }).(GetGroupMembershipsGroupMembershipArrayOutput)
 }
@@ -144,7 +86,6 @@ func (o GetGroupMembershipsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMembershipsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Identity store identifier.
 func (o GetGroupMembershipsResultOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMembershipsResult) string { return v.IdentityStoreId }).(pulumi.StringOutput)
 }

@@ -13,68 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight Ingestion.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.Ingestion;
- * import com.pulumi.aws.quicksight.IngestionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Ingestion("example", IngestionArgs.builder()
- *             .dataSetId(exampleAwsQuicksightDataSet.dataSetId())
- *             .ingestionId("example-id")
- *             .ingestionType("FULL_REFRESH")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/ingestion:Ingestion")
 public class Ingestion extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Ingestion.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Ingestion.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -84,77 +27,33 @@ public class Ingestion extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * ID of the dataset used in the ingestion.
-     * 
-     */
     @Export(name="dataSetId", refs={String.class}, tree="[0]")
     private Output<String> dataSetId;
 
-    /**
-     * @return ID of the dataset used in the ingestion.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
-    /**
-     * ID for the ingestion.
-     * 
-     */
     @Export(name="ingestionId", refs={String.class}, tree="[0]")
     private Output<String> ingestionId;
 
-    /**
-     * @return ID for the ingestion.
-     * 
-     */
     public Output<String> ingestionId() {
         return this.ingestionId;
     }
-    /**
-     * Ingestion status.
-     * 
-     */
     @Export(name="ingestionStatus", refs={String.class}, tree="[0]")
     private Output<String> ingestionStatus;
 
-    /**
-     * @return Ingestion status.
-     * 
-     */
     public Output<String> ingestionStatus() {
         return this.ingestionStatus;
     }
-    /**
-     * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="ingestionType", refs={String.class}, tree="[0]")
     private Output<String> ingestionType;
 
-    /**
-     * @return Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> ingestionType() {
         return this.ingestionType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

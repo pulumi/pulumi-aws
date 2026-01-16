@@ -12,33 +12,18 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorCapacityAutoscalingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum number of workers allocated to the connector.
-        /// </summary>
         [Input("maxWorkerCount", required: true)]
         public Input<int> MaxWorkerCount { get; set; } = null!;
 
-        /// <summary>
-        /// The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        /// </summary>
         [Input("mcuCount")]
         public Input<int>? McuCount { get; set; }
 
-        /// <summary>
-        /// The minimum number of workers allocated to the connector.
-        /// </summary>
         [Input("minWorkerCount", required: true)]
         public Input<int> MinWorkerCount { get; set; } = null!;
 
-        /// <summary>
-        /// The scale-in policy for the connector. See `ScaleInPolicy` Block for details.
-        /// </summary>
         [Input("scaleInPolicy")]
         public Input<Inputs.ConnectorCapacityAutoscalingScaleInPolicyGetArgs>? ScaleInPolicy { get; set; }
 
-        /// <summary>
-        /// The scale-out policy for the connector. See `ScaleOutPolicy` Block for details.
-        /// </summary>
         [Input("scaleOutPolicy")]
         public Input<Inputs.ConnectorCapacityAutoscalingScaleOutPolicyGetArgs>? ScaleOutPolicy { get; set; }
 

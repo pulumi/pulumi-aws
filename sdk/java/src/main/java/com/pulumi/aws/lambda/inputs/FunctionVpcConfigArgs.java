@@ -18,62 +18,30 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
 
     public static final FunctionVpcConfigArgs Empty = new FunctionVpcConfigArgs();
 
-    /**
-     * Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-     * 
-     */
     @Import(name="ipv6AllowedForDualStack")
     private @Nullable Output<Boolean> ipv6AllowedForDualStack;
 
-    /**
-     * @return Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ipv6AllowedForDualStack() {
         return Optional.ofNullable(this.ipv6AllowedForDualStack);
     }
 
-    /**
-     * List of security group IDs associated with the Lambda function.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of security group IDs associated with the Lambda function.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * List of subnet IDs associated with the Lambda function.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return List of subnet IDs associated with the Lambda function.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * ID of the VPC.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return ID of the VPC.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -105,106 +73,46 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
             $ = new FunctionVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipv6AllowedForDualStack Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6AllowedForDualStack(@Nullable Output<Boolean> ipv6AllowedForDualStack) {
             $.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             return this;
         }
 
-        /**
-         * @param ipv6AllowedForDualStack Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6AllowedForDualStack(Boolean ipv6AllowedForDualStack) {
             return ipv6AllowedForDualStack(Output.of(ipv6AllowedForDualStack));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs associated with the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs associated with the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs associated with the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds List of subnet IDs associated with the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds List of subnet IDs associated with the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds List of subnet IDs associated with the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param vpcId ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

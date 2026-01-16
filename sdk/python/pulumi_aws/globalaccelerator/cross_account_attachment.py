@@ -27,12 +27,6 @@ class CrossAccountAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CrossAccountAttachment resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Cross Account Attachment.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: List of AWS account IDs that are allowed to associate resources with the accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input['CrossAccountAttachmentResourceArgs']]] resources: List of resources to be associated with the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -46,11 +40,6 @@ class CrossAccountAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Cross Account Attachment.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60,9 +49,6 @@ class CrossAccountAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of AWS account IDs that are allowed to associate resources with the accelerator.
-        """
         return pulumi.get(self, "principals")
 
     @principals.setter
@@ -72,9 +58,6 @@ class CrossAccountAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrossAccountAttachmentResourceArgs']]]]:
-        """
-        List of resources to be associated with the accelerator.
-        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -84,9 +67,6 @@ class CrossAccountAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -107,16 +87,6 @@ class _CrossAccountAttachmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CrossAccountAttachment resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Cross Account Attachment.
-        :param pulumi.Input[_builtins.str] created_time: Creation Time when the Cross Account Attachment.
-        :param pulumi.Input[_builtins.str] last_modified_time: Last modified time of the Cross Account Attachment.
-        :param pulumi.Input[_builtins.str] name: Name of the Cross Account Attachment.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: List of AWS account IDs that are allowed to associate resources with the accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input['CrossAccountAttachmentResourceArgs']]] resources: List of resources to be associated with the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -138,9 +108,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Cross Account Attachment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -150,9 +117,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation Time when the Cross Account Attachment.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -162,9 +126,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last modified time of the Cross Account Attachment.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
@@ -174,11 +135,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Cross Account Attachment.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -188,9 +144,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of AWS account IDs that are allowed to associate resources with the accelerator.
-        """
         return pulumi.get(self, "principals")
 
     @principals.setter
@@ -200,9 +153,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrossAccountAttachmentResourceArgs']]]]:
-        """
-        List of resources to be associated with the accelerator.
-        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -212,9 +162,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +171,6 @@ class _CrossAccountAttachmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -246,54 +190,9 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Global Accelerator Cross Account Attachment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.CrossAccountAttachment("example", name="example-cross-account-attachment")
-        ```
-
-        ### Usage with Optional Arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.CrossAccountAttachment("example",
-            name="example-cross-account-attachment",
-            principals=["123456789012"],
-            resources=[{
-                "endpoint_id": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-                "region": "us-west-2",
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
-
-        Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
-
-        % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
-
+        Create a CrossAccountAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the Cross Account Attachment.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: List of AWS account IDs that are allowed to associate resources with the accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]] resources: List of resources to be associated with the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -302,46 +201,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  args: Optional[CrossAccountAttachmentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Global Accelerator Cross Account Attachment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.CrossAccountAttachment("example", name="example-cross-account-attachment")
-        ```
-
-        ### Usage with Optional Arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.CrossAccountAttachment("example",
-            name="example-cross-account-attachment",
-            principals=["123456789012"],
-            resources=[{
-                "endpoint_id": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-                "region": "us-west-2",
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
-
-        Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
-
-        % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
-
+        Create a CrossAccountAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CrossAccountAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -403,16 +263,6 @@ class CrossAccountAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Cross Account Attachment.
-        :param pulumi.Input[_builtins.str] created_time: Creation Time when the Cross Account Attachment.
-        :param pulumi.Input[_builtins.str] last_modified_time: Last modified time of the Cross Account Attachment.
-        :param pulumi.Input[_builtins.str] name: Name of the Cross Account Attachment.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: List of AWS account IDs that are allowed to associate resources with the accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CrossAccountAttachmentResourceArgs', 'CrossAccountAttachmentResourceArgsDict']]]] resources: List of resources to be associated with the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -431,66 +281,40 @@ class CrossAccountAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Cross Account Attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation Time when the Cross Account Attachment.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last modified time of the Cross Account Attachment.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Cross Account Attachment.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def principals(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of AWS account IDs that are allowed to associate resources with the accelerator.
-        """
         return pulumi.get(self, "principals")
 
     @_builtins.property
     @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence['outputs.CrossAccountAttachmentResource']]]:
-        """
-        List of resources to be associated with the accelerator.
-        """
         return pulumi.get(self, "resources")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

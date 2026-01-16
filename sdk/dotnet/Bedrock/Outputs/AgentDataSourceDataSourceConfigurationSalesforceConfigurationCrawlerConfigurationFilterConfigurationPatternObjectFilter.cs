@@ -13,11 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter
     {
-        /// <summary>
-        /// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
-        /// 
-        /// Each filter object should contain the following configuration:
-        /// </summary>
         public readonly ImmutableArray<Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter> Filters;
 
         [OutputConstructor]

@@ -13,59 +13,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteResult {
-    /**
-     * @return ARN of the route.
-     * 
-     */
     private String arn;
-    /**
-     * @return Creation date of the route.
-     * 
-     */
     private String createdDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Last update date of the route.
-     * 
-     */
     private String lastUpdatedDate;
     private String meshName;
     private String meshOwner;
     private String name;
     private String region;
-    /**
-     * @return Resource owner&#39;s AWS account ID.
-     * 
-     */
     private String resourceOwner;
-    /**
-     * @return Route specification. See the `aws.appmesh.Route` resource for details.
-     * 
-     */
     private List<GetRouteSpec> specs;
-    /**
-     * @return Map of tags.
-     * 
-     */
     private Map<String,String> tags;
     private String virtualRouterName;
 
     private GetRouteResult() {}
-    /**
-     * @return ARN of the route.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Creation date of the route.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
@@ -76,10 +44,6 @@ public final class GetRouteResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Last update date of the route.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
@@ -95,24 +59,12 @@ public final class GetRouteResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Resource owner&#39;s AWS account ID.
-     * 
-     */
     public String resourceOwner() {
         return this.resourceOwner;
     }
-    /**
-     * @return Route specification. See the `aws.appmesh.Route` resource for details.
-     * 
-     */
     public List<GetRouteSpec> specs() {
         return this.specs;
     }
-    /**
-     * @return Map of tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

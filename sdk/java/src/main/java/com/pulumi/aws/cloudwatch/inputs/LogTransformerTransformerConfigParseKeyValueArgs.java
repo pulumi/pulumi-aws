@@ -16,107 +16,51 @@ public final class LogTransformerTransformerConfigParseKeyValueArgs extends com.
 
     public static final LogTransformerTransformerConfigParseKeyValueArgs Empty = new LogTransformerTransformerConfigParseKeyValueArgs();
 
-    /**
-     * Specifies the destination field to put the extracted key-value pairs into.
-     * 
-     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
-    /**
-     * @return Specifies the destination field to put the extracted key-value pairs into.
-     * 
-     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
-    /**
-     * Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&amp;` character.
-     * 
-     */
     @Import(name="fieldDelimiter")
     private @Nullable Output<String> fieldDelimiter;
 
-    /**
-     * @return Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&amp;` character.
-     * 
-     */
     public Optional<Output<String>> fieldDelimiter() {
         return Optional.ofNullable(this.fieldDelimiter);
     }
 
-    /**
-     * Specifies a prefix that will be added to all transformed keys.
-     * 
-     */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
-    /**
-     * @return Specifies a prefix that will be added to all transformed keys.
-     * 
-     */
     public Optional<Output<String>> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
 
-    /**
-     * Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-     * 
-     */
     @Import(name="keyValueDelimiter")
     private @Nullable Output<String> keyValueDelimiter;
 
-    /**
-     * @return Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-     * 
-     */
     public Optional<Output<String>> keyValueDelimiter() {
         return Optional.ofNullable(this.keyValueDelimiter);
     }
 
-    /**
-     * Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-     * 
-     */
     @Import(name="nonMatchValue")
     private @Nullable Output<String> nonMatchValue;
 
-    /**
-     * @return Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-     * 
-     */
     public Optional<Output<String>> nonMatchValue() {
         return Optional.ofNullable(this.nonMatchValue);
     }
 
-    /**
-     * Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * 
-     */
     @Import(name="overwriteIfExists")
     private @Nullable Output<Boolean> overwriteIfExists;
 
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
 
-    /**
-     * Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -151,149 +95,65 @@ public final class LogTransformerTransformerConfigParseKeyValueArgs extends com.
             $ = new LogTransformerTransformerConfigParseKeyValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Specifies the destination field to put the extracted key-value pairs into.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Specifies the destination field to put the extracted key-value pairs into.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param fieldDelimiter Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&amp;` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldDelimiter(@Nullable Output<String> fieldDelimiter) {
             $.fieldDelimiter = fieldDelimiter;
             return this;
         }
 
-        /**
-         * @param fieldDelimiter Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&amp;` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldDelimiter(String fieldDelimiter) {
             return fieldDelimiter(Output.of(fieldDelimiter));
         }
 
-        /**
-         * @param keyPrefix Specifies a prefix that will be added to all transformed keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(@Nullable Output<String> keyPrefix) {
             $.keyPrefix = keyPrefix;
             return this;
         }
 
-        /**
-         * @param keyPrefix Specifies a prefix that will be added to all transformed keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(String keyPrefix) {
             return keyPrefix(Output.of(keyPrefix));
         }
 
-        /**
-         * @param keyValueDelimiter Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueDelimiter(@Nullable Output<String> keyValueDelimiter) {
             $.keyValueDelimiter = keyValueDelimiter;
             return this;
         }
 
-        /**
-         * @param keyValueDelimiter Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueDelimiter(String keyValueDelimiter) {
             return keyValueDelimiter(Output.of(keyValueDelimiter));
         }
 
-        /**
-         * @param nonMatchValue Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonMatchValue(@Nullable Output<String> nonMatchValue) {
             $.nonMatchValue = nonMatchValue;
             return this;
         }
 
-        /**
-         * @param nonMatchValue Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nonMatchValue(String nonMatchValue) {
             return nonMatchValue(Output.of(nonMatchValue));
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(@Nullable Output<Boolean> overwriteIfExists) {
             $.overwriteIfExists = overwriteIfExists;
             return this;
         }
 
-        /**
-         * @param overwriteIfExists Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overwriteIfExists(Boolean overwriteIfExists) {
             return overwriteIfExists(Output.of(overwriteIfExists));
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

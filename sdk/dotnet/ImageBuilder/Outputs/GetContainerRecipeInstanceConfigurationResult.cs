@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetContainerRecipeInstanceConfigurationResult
     {
-        /// <summary>
-        /// Set of objects with block device mappings for the instance configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult> BlockDeviceMappings;
-        /// <summary>
-        /// AMI ID of the base image for container build and test instance.
-        /// </summary>
         public readonly string Image;
 
         [OutputConstructor]

@@ -17,47 +17,23 @@ public final class GetMapArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetMapArgs Empty = new GetMapArgs();
 
-    /**
-     * Name of the map resource.
-     * 
-     */
     @Import(name="mapName", required=true)
     private Output<String> mapName;
 
-    /**
-     * @return Name of the map resource.
-     * 
-     */
     public Output<String> mapName() {
         return this.mapName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the map.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the map.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetMapArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetMapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapName Name of the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(Output<String> mapName) {
             $.mapName = mapName;
             return this;
         }
 
-        /**
-         * @param mapName Name of the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(String mapName) {
             return mapName(Output.of(mapName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -39,18 +39,12 @@ __all__ = [
 class ApplicationAutoStartConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Enables the application to automatically start on job submission. Defaults to `true`.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Enables the application to automatically start on job submission. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -76,10 +70,6 @@ class ApplicationAutoStopConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  idle_timeout_minutes: Optional[_builtins.int] = None):
-        """
-        :param _builtins.bool enabled: Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-        :param _builtins.int idle_timeout_minutes: The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if idle_timeout_minutes is not None:
@@ -88,17 +78,11 @@ class ApplicationAutoStopConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutMinutes")
     def idle_timeout_minutes(self) -> Optional[_builtins.int]:
-        """
-        The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-        """
         return pulumi.get(self, "idle_timeout_minutes")
 
 
@@ -123,17 +107,11 @@ class ApplicationImageConfiguration(dict):
 
     def __init__(__self__, *,
                  image_uri: _builtins.str):
-        """
-        :param _builtins.str image_uri: The image URI.
-        """
         pulumi.set(__self__, "image_uri", image_uri)
 
     @_builtins.property
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> _builtins.str:
-        """
-        The image URI.
-        """
         return pulumi.get(self, "image_uri")
 
 
@@ -161,10 +139,6 @@ class ApplicationInitialCapacity(dict):
     def __init__(__self__, *,
                  initial_capacity_type: _builtins.str,
                  initial_capacity_config: Optional['outputs.ApplicationInitialCapacityInitialCapacityConfig'] = None):
-        """
-        :param _builtins.str initial_capacity_type: The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        :param 'ApplicationInitialCapacityInitialCapacityConfigArgs' initial_capacity_config: The initial capacity configuration per worker.
-        """
         pulumi.set(__self__, "initial_capacity_type", initial_capacity_type)
         if initial_capacity_config is not None:
             pulumi.set(__self__, "initial_capacity_config", initial_capacity_config)
@@ -172,17 +146,11 @@ class ApplicationInitialCapacity(dict):
     @_builtins.property
     @pulumi.getter(name="initialCapacityType")
     def initial_capacity_type(self) -> _builtins.str:
-        """
-        The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        """
         return pulumi.get(self, "initial_capacity_type")
 
     @_builtins.property
     @pulumi.getter(name="initialCapacityConfig")
     def initial_capacity_config(self) -> Optional['outputs.ApplicationInitialCapacityInitialCapacityConfig']:
-        """
-        The initial capacity configuration per worker.
-        """
         return pulumi.get(self, "initial_capacity_config")
 
 
@@ -210,10 +178,6 @@ class ApplicationInitialCapacityInitialCapacityConfig(dict):
     def __init__(__self__, *,
                  worker_count: _builtins.int,
                  worker_configuration: Optional['outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration'] = None):
-        """
-        :param _builtins.int worker_count: The number of workers in the initial capacity configuration.
-        :param 'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs' worker_configuration: The resource configuration of the initial capacity configuration.
-        """
         pulumi.set(__self__, "worker_count", worker_count)
         if worker_configuration is not None:
             pulumi.set(__self__, "worker_configuration", worker_configuration)
@@ -221,17 +185,11 @@ class ApplicationInitialCapacityInitialCapacityConfig(dict):
     @_builtins.property
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> _builtins.int:
-        """
-        The number of workers in the initial capacity configuration.
-        """
         return pulumi.get(self, "worker_count")
 
     @_builtins.property
     @pulumi.getter(name="workerConfiguration")
     def worker_configuration(self) -> Optional['outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration']:
-        """
-        The resource configuration of the initial capacity configuration.
-        """
         return pulumi.get(self, "worker_configuration")
 
 
@@ -241,11 +199,6 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration(dict):
                  cpu: _builtins.str,
                  memory: _builtins.str,
                  disk: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str cpu: The CPU requirements for every worker instance of the worker type.
-        :param _builtins.str memory: The memory requirements for every worker instance of the worker type.
-        :param _builtins.str disk: The disk requirements for every worker instance of the worker type.
-        """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
         if disk is not None:
@@ -254,25 +207,16 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> _builtins.str:
-        """
-        The CPU requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "cpu")
 
     @_builtins.property
     @pulumi.getter
     def memory(self) -> _builtins.str:
-        """
-        The memory requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "memory")
 
     @_builtins.property
     @pulumi.getter
     def disk(self) -> Optional[_builtins.str]:
-        """
-        The disk requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "disk")
 
 
@@ -300,10 +244,6 @@ class ApplicationInteractiveConfiguration(dict):
     def __init__(__self__, *,
                  livy_endpoint_enabled: Optional[_builtins.bool] = None,
                  studio_enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool livy_endpoint_enabled: Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-        :param _builtins.bool studio_enabled: Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-        """
         if livy_endpoint_enabled is not None:
             pulumi.set(__self__, "livy_endpoint_enabled", livy_endpoint_enabled)
         if studio_enabled is not None:
@@ -312,17 +252,11 @@ class ApplicationInteractiveConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="livyEndpointEnabled")
     def livy_endpoint_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-        """
         return pulumi.get(self, "livy_endpoint_enabled")
 
     @_builtins.property
     @pulumi.getter(name="studioEnabled")
     def studio_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-        """
         return pulumi.get(self, "studio_enabled")
 
 
@@ -332,11 +266,6 @@ class ApplicationMaximumCapacity(dict):
                  cpu: _builtins.str,
                  memory: _builtins.str,
                  disk: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str cpu: The maximum allowed CPU for an application.
-        :param _builtins.str memory: The maximum allowed resources for an application.
-        :param _builtins.str disk: The maximum allowed disk for an application.
-        """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
         if disk is not None:
@@ -345,25 +274,16 @@ class ApplicationMaximumCapacity(dict):
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> _builtins.str:
-        """
-        The maximum allowed CPU for an application.
-        """
         return pulumi.get(self, "cpu")
 
     @_builtins.property
     @pulumi.getter
     def memory(self) -> _builtins.str:
-        """
-        The maximum allowed resources for an application.
-        """
         return pulumi.get(self, "memory")
 
     @_builtins.property
     @pulumi.getter
     def disk(self) -> Optional[_builtins.str]:
-        """
-        The maximum allowed disk for an application.
-        """
         return pulumi.get(self, "disk")
 
 
@@ -397,12 +317,6 @@ class ApplicationMonitoringConfiguration(dict):
                  managed_persistence_monitoring_configuration: Optional['outputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration'] = None,
                  prometheus_monitoring_configuration: Optional['outputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration'] = None,
                  s3_monitoring_configuration: Optional['outputs.ApplicationMonitoringConfigurationS3MonitoringConfiguration'] = None):
-        """
-        :param 'ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs' cloudwatch_logging_configuration: The Amazon CloudWatch configuration for monitoring logs.
-        :param 'ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs' managed_persistence_monitoring_configuration: The managed log persistence configuration for monitoring logs.
-        :param 'ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs' prometheus_monitoring_configuration: The Prometheus configuration for monitoring metrics.
-        :param 'ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs' s3_monitoring_configuration: The Amazon S3 configuration for monitoring log publishing.
-        """
         if cloudwatch_logging_configuration is not None:
             pulumi.set(__self__, "cloudwatch_logging_configuration", cloudwatch_logging_configuration)
         if managed_persistence_monitoring_configuration is not None:
@@ -415,33 +329,21 @@ class ApplicationMonitoringConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="cloudwatchLoggingConfiguration")
     def cloudwatch_logging_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration']:
-        """
-        The Amazon CloudWatch configuration for monitoring logs.
-        """
         return pulumi.get(self, "cloudwatch_logging_configuration")
 
     @_builtins.property
     @pulumi.getter(name="managedPersistenceMonitoringConfiguration")
     def managed_persistence_monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration']:
-        """
-        The managed log persistence configuration for monitoring logs.
-        """
         return pulumi.get(self, "managed_persistence_monitoring_configuration")
 
     @_builtins.property
     @pulumi.getter(name="prometheusMonitoringConfiguration")
     def prometheus_monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration']:
-        """
-        The Prometheus configuration for monitoring metrics.
-        """
         return pulumi.get(self, "prometheus_monitoring_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3MonitoringConfiguration")
     def s3_monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationS3MonitoringConfiguration']:
-        """
-        The Amazon S3 configuration for monitoring log publishing.
-        """
         return pulumi.get(self, "s3_monitoring_configuration")
 
 
@@ -476,13 +378,6 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration(dict):
                  log_group_name: Optional[_builtins.str] = None,
                  log_stream_name_prefix: Optional[_builtins.str] = None,
                  log_types: Optional[Sequence['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType']] = None):
-        """
-        :param _builtins.bool enabled: Enables CloudWatch logging.
-        :param _builtins.str encryption_key_arn: The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
-        :param _builtins.str log_group_name: The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-        :param _builtins.str log_stream_name_prefix: Prefix for the CloudWatch log stream name.
-        :param Sequence['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs'] log_types: The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if encryption_key_arn is not None:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
@@ -496,41 +391,26 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Enables CloudWatch logging.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[_builtins.str]:
-        """
-        The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-        """
         return pulumi.get(self, "log_group_name")
 
     @_builtins.property
     @pulumi.getter(name="logStreamNamePrefix")
     def log_stream_name_prefix(self) -> Optional[_builtins.str]:
-        """
-        Prefix for the CloudWatch log stream name.
-        """
         return pulumi.get(self, "log_stream_name_prefix")
 
     @_builtins.property
     @pulumi.getter(name="logTypes")
     def log_types(self) -> Optional[Sequence['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType']]:
-        """
-        The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
-        """
         return pulumi.get(self, "log_types")
 
 
@@ -539,27 +419,17 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType(di
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-        :param Sequence[_builtins.str] values: The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
-        """
         return pulumi.get(self, "values")
 
 
@@ -585,10 +455,6 @@ class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguratio
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
                  encryption_key_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Enables managed log persistence for monitoring logs.
-        :param _builtins.str encryption_key_arn: The KMS key ARN to encrypt the logs stored in managed persistence.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if encryption_key_arn is not None:
@@ -597,17 +463,11 @@ class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguratio
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Enables managed log persistence for monitoring logs.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[_builtins.str]:
-        """
-        The KMS key ARN to encrypt the logs stored in managed persistence.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
 
@@ -632,18 +492,12 @@ class ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration(dict):
 
     def __init__(__self__, *,
                  remote_write_url: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str remote_write_url: The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-        """
         if remote_write_url is not None:
             pulumi.set(__self__, "remote_write_url", remote_write_url)
 
     @_builtins.property
     @pulumi.getter(name="remoteWriteUrl")
     def remote_write_url(self) -> Optional[_builtins.str]:
-        """
-        The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-        """
         return pulumi.get(self, "remote_write_url")
 
 
@@ -671,10 +525,6 @@ class ApplicationMonitoringConfigurationS3MonitoringConfiguration(dict):
     def __init__(__self__, *,
                  encryption_key_arn: Optional[_builtins.str] = None,
                  log_uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str encryption_key_arn: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-        :param _builtins.str log_uri: The Amazon S3 destination URI for log publishing.
-        """
         if encryption_key_arn is not None:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if log_uri is not None:
@@ -683,17 +533,11 @@ class ApplicationMonitoringConfigurationS3MonitoringConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[_builtins.str]:
-        """
-        The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="logUri")
     def log_uri(self) -> Optional[_builtins.str]:
-        """
-        The Amazon S3 destination URI for log publishing.
-        """
         return pulumi.get(self, "log_uri")
 
 
@@ -721,10 +565,6 @@ class ApplicationNetworkConfiguration(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] security_group_ids: The array of security group Ids for customer VPC connectivity.
-        :param Sequence[_builtins.str] subnet_ids: The array of subnet Ids for customer VPC connectivity.
-        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -733,17 +573,11 @@ class ApplicationNetworkConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The array of security group Ids for customer VPC connectivity.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The array of subnet Ids for customer VPC connectivity.
-        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -752,10 +586,6 @@ class ApplicationRuntimeConfiguration(dict):
     def __init__(__self__, *,
                  classification: _builtins.str,
                  properties: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str classification: The classification within a configuration.
-        :param Mapping[str, _builtins.str] properties: A set of properties specified within a configuration classification.
-        """
         pulumi.set(__self__, "classification", classification)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -763,17 +593,11 @@ class ApplicationRuntimeConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def classification(self) -> _builtins.str:
-        """
-        The classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        A set of properties specified within a configuration classification.
-        """
         return pulumi.get(self, "properties")
 
 
@@ -801,10 +625,6 @@ class ApplicationSchedulerConfiguration(dict):
     def __init__(__self__, *,
                  max_concurrent_runs: Optional[_builtins.int] = None,
                  queue_timeout_minutes: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int max_concurrent_runs: Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-        :param _builtins.int queue_timeout_minutes: Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-        """
         if max_concurrent_runs is not None:
             pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
         if queue_timeout_minutes is not None:
@@ -813,17 +633,11 @@ class ApplicationSchedulerConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="maxConcurrentRuns")
     def max_concurrent_runs(self) -> Optional[_builtins.int]:
-        """
-        Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-        """
         return pulumi.get(self, "max_concurrent_runs")
 
     @_builtins.property
     @pulumi.getter(name="queueTimeoutMinutes")
     def queue_timeout_minutes(self) -> Optional[_builtins.int]:
-        """
-        Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-        """
         return pulumi.get(self, "queue_timeout_minutes")
 
 

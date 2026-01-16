@@ -11,77 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolVerificationMessageTemplate {
-    /**
-     * @return Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-     * 
-     */
     private @Nullable String defaultEmailOption;
-    /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
-     * 
-     */
     private @Nullable String emailMessage;
-    /**
-     * @return Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-     * 
-     */
     private @Nullable String emailMessageByLink;
-    /**
-     * @return Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
-     * 
-     */
     private @Nullable String emailSubject;
-    /**
-     * @return Subject line for the email message template for sending a confirmation link to the user.
-     * 
-     */
     private @Nullable String emailSubjectByLink;
-    /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
-     * 
-     */
     private @Nullable String smsMessage;
 
     private UserPoolVerificationMessageTemplate() {}
-    /**
-     * @return Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-     * 
-     */
     public Optional<String> defaultEmailOption() {
         return Optional.ofNullable(this.defaultEmailOption);
     }
-    /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
-     * 
-     */
     public Optional<String> emailMessage() {
         return Optional.ofNullable(this.emailMessage);
     }
-    /**
-     * @return Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-     * 
-     */
     public Optional<String> emailMessageByLink() {
         return Optional.ofNullable(this.emailMessageByLink);
     }
-    /**
-     * @return Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
-     * 
-     */
     public Optional<String> emailSubject() {
         return Optional.ofNullable(this.emailSubject);
     }
-    /**
-     * @return Subject line for the email message template for sending a confirmation link to the user.
-     * 
-     */
     public Optional<String> emailSubjectByLink() {
         return Optional.ofNullable(this.emailSubjectByLink);
     }
-    /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
-     * 
-     */
     public Optional<String> smsMessage() {
         return Optional.ofNullable(this.smsMessage);
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        /// </summary>
         [Input("cachePoint")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs>? CachePoint { get; set; }
 
-        /// <summary>
-        /// The specification for the tool. See Tool Specification for more information.
-        /// </summary>
         [Input("toolSpec")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs>? ToolSpec { get; set; }
 

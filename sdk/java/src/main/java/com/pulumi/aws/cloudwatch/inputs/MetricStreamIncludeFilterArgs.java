@@ -17,32 +17,16 @@ public final class MetricStreamIncludeFilterArgs extends com.pulumi.resources.Re
 
     public static final MetricStreamIncludeFilterArgs Empty = new MetricStreamIncludeFilterArgs();
 
-    /**
-     * An array that defines the metrics you want to include for this metric namespace
-     * 
-     */
     @Import(name="metricNames")
     private @Nullable Output<List<String>> metricNames;
 
-    /**
-     * @return An array that defines the metrics you want to include for this metric namespace
-     * 
-     */
     public Optional<Output<List<String>>> metricNames() {
         return Optional.ofNullable(this.metricNames);
     }
 
-    /**
-     * Name of the metric namespace in the filter.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Name of the metric namespace in the filter.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -72,54 +56,24 @@ public final class MetricStreamIncludeFilterArgs extends com.pulumi.resources.Re
             $ = new MetricStreamIncludeFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricNames An array that defines the metrics you want to include for this metric namespace
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricNames(@Nullable Output<List<String>> metricNames) {
             $.metricNames = metricNames;
             return this;
         }
 
-        /**
-         * @param metricNames An array that defines the metrics you want to include for this metric namespace
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricNames(List<String> metricNames) {
             return metricNames(Output.of(metricNames));
         }
 
-        /**
-         * @param metricNames An array that defines the metrics you want to include for this metric namespace
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricNames(String... metricNames) {
             return metricNames(List.of(metricNames));
         }
 
-        /**
-         * @param namespace Name of the metric namespace in the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Name of the metric namespace in the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceLfTagsDatabase {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return Name of the database resource. Unique to the Data Catalog.
-     * 
-     * The following argument is optional:
-     * 
-     */
     private String name;
 
     private ResourceLfTagsDatabase() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Name of the database resource. Unique to the Data Catalog.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

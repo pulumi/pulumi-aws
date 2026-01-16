@@ -17,47 +17,23 @@ public final class ScheduleTargetEcsParametersCapacityProviderStrategyArgs exten
 
     public static final ScheduleTargetEcsParametersCapacityProviderStrategyArgs Empty = new ScheduleTargetEcsParametersCapacityProviderStrategyArgs();
 
-    /**
-     * How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-     * 
-     */
     @Import(name="base")
     private @Nullable Output<Integer> base;
 
-    /**
-     * @return How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-     * 
-     */
     public Optional<Output<Integer>> base() {
         return Optional.ofNullable(this.base);
     }
 
-    /**
-     * Short name of the capacity provider.
-     * 
-     */
     @Import(name="capacityProvider", required=true)
     private Output<String> capacityProvider;
 
-    /**
-     * @return Short name of the capacity provider.
-     * 
-     */
     public Output<String> capacityProvider() {
         return this.capacityProvider;
     }
 
-    /**
-     * Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-     * 
-     */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
-    /**
-     * @return Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-     * 
-     */
     public Optional<Output<Integer>> weight() {
         return Optional.ofNullable(this.weight);
     }
@@ -88,65 +64,29 @@ public final class ScheduleTargetEcsParametersCapacityProviderStrategyArgs exten
             $ = new ScheduleTargetEcsParametersCapacityProviderStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param base How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder base(@Nullable Output<Integer> base) {
             $.base = base;
             return this;
         }
 
-        /**
-         * @param base How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder base(Integer base) {
             return base(Output.of(base));
         }
 
-        /**
-         * @param capacityProvider Short name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProvider(Output<String> capacityProvider) {
             $.capacityProvider = capacityProvider;
             return this;
         }
 
-        /**
-         * @param capacityProvider Short name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProvider(String capacityProvider) {
             return capacityProvider(Output.of(capacityProvider));
         }
 
-        /**
-         * @param weight Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(@Nullable Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

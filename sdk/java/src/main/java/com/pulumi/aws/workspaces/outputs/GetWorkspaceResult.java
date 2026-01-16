@@ -14,15 +14,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkspaceResult {
-    /**
-     * @return ID of the bundle for the WorkSpace.
-     * 
-     */
     private String bundleId;
-    /**
-     * @return Name of the WorkSpace, as seen by the operating system.
-     * 
-     */
     private String computerName;
     private String directoryId;
     /**
@@ -30,58 +22,21 @@ public final class GetWorkspaceResult {
      * 
      */
     private String id;
-    /**
-     * @return IP address of the WorkSpace.
-     * 
-     */
     private String ipAddress;
     private String region;
-    /**
-     * @return Indicates whether the data stored on the root volume is encrypted.
-     * 
-     */
     private Boolean rootVolumeEncryptionEnabled;
-    /**
-     * @return Operational state of the WorkSpace.
-     * 
-     */
     private String state;
-    /**
-     * @return Tags for the WorkSpace.
-     * 
-     */
     private Map<String,String> tags;
     private String userName;
-    /**
-     * @return Indicates whether the data stored on the user volume
-     * is encrypted.
-     * 
-     */
     private Boolean userVolumeEncryptionEnabled;
-    /**
-     * @return Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-     * 
-     */
     private String volumeEncryptionKey;
     private String workspaceId;
-    /**
-     * @return WorkSpace properties.
-     * 
-     */
     private List<GetWorkspaceWorkspaceProperty> workspaceProperties;
 
     private GetWorkspaceResult() {}
-    /**
-     * @return ID of the bundle for the WorkSpace.
-     * 
-     */
     public String bundleId() {
         return this.bundleId;
     }
-    /**
-     * @return Name of the WorkSpace, as seen by the operating system.
-     * 
-     */
     public String computerName() {
         return this.computerName;
     }
@@ -95,62 +50,33 @@ public final class GetWorkspaceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IP address of the WorkSpace.
-     * 
-     */
     public String ipAddress() {
         return this.ipAddress;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Indicates whether the data stored on the root volume is encrypted.
-     * 
-     */
     public Boolean rootVolumeEncryptionEnabled() {
         return this.rootVolumeEncryptionEnabled;
     }
-    /**
-     * @return Operational state of the WorkSpace.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Tags for the WorkSpace.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
     public String userName() {
         return this.userName;
     }
-    /**
-     * @return Indicates whether the data stored on the user volume
-     * is encrypted.
-     * 
-     */
     public Boolean userVolumeEncryptionEnabled() {
         return this.userVolumeEncryptionEnabled;
     }
-    /**
-     * @return Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-     * 
-     */
     public String volumeEncryptionKey() {
         return this.volumeEncryptionKey;
     }
     public String workspaceId() {
         return this.workspaceId;
     }
-    /**
-     * @return WorkSpace properties.
-     * 
-     */
     public List<GetWorkspaceWorkspaceProperty> workspaceProperties() {
         return this.workspaceProperties;
     }

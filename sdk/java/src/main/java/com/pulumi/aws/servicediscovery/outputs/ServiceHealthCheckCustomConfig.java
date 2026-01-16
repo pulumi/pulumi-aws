@@ -12,8 +12,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceHealthCheckCustomConfig {
     /**
-     * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-     * 
      * @deprecated
      * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 
@@ -23,8 +21,6 @@ public final class ServiceHealthCheckCustomConfig {
 
     private ServiceHealthCheckCustomConfig() {}
     /**
-     * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-     * 
      * @deprecated
      * failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
      * 

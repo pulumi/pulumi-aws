@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImagePipelineLoggingConfiguration {
-    /**
-     * @return Name of the CloudWatch Log Group to send image logs to.
-     * 
-     */
     private @Nullable String imageLogGroupName;
-    /**
-     * @return Name of the CloudWatch Log Group to send pipeline logs to.
-     * 
-     */
     private @Nullable String pipelineLogGroupName;
 
     private ImagePipelineLoggingConfiguration() {}
-    /**
-     * @return Name of the CloudWatch Log Group to send image logs to.
-     * 
-     */
     public Optional<String> imageLogGroupName() {
         return Optional.ofNullable(this.imageLogGroupName);
     }
-    /**
-     * @return Name of the CloudWatch Log Group to send pipeline logs to.
-     * 
-     */
     public Optional<String> pipelineLogGroupName() {
         return Optional.ofNullable(this.pipelineLogGroupName);
     }

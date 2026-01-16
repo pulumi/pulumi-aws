@@ -13,161 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
- * 
- * ## Example Usage
- * 
- * ### For a Firewall Policy resource
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.ResourcePolicy;
- * import com.pulumi.aws.networkfirewall.ResourcePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", jsonArray(
- *                             "network-firewall:ListFirewallPolicies", 
- *                             "network-firewall:CreateFirewall", 
- *                             "network-firewall:UpdateFirewall", 
- *                             "network-firewall:AssociateFirewallPolicy"
- *                         )),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", exampleAwsNetworkfirewallFirewallPolicy.arn()),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", "arn:aws:iam::123456789012:root")
- *                         ))
- *                     ))),
- *                     jsonProperty("Version", "2012-10-17")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### For a Rule Group resource
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.ResourcePolicy;
- * import com.pulumi.aws.networkfirewall.ResourcePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Action", jsonArray(
- *                             "network-firewall:ListRuleGroups", 
- *                             "network-firewall:CreateFirewallPolicy", 
- *                             "network-firewall:UpdateFirewallPolicy"
- *                         )),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Resource", exampleAwsNetworkfirewallRuleGroup.arn()),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", "arn:aws:iam::123456789012:root")
- *                         ))
- *                     ))),
- *                     jsonProperty("Version", "2012-10-17")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
- * ```sh
- * $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the rule group or firewall policy.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

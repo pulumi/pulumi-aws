@@ -11,75 +11,12 @@ namespace Pulumi.Aws.MemoryDb
 {
     public static class GetSnapshot
     {
-        /// <summary>
-        /// Provides information about a MemoryDB Snapshot.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetSnapshot.Invoke(new()
-        ///     {
-        ///         Name = "my-snapshot",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:memorydb/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a MemoryDB Snapshot.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetSnapshot.Invoke(new()
-        ///     {
-        ///         Name = "my-snapshot",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:memorydb/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a MemoryDB Snapshot.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetSnapshot.Invoke(new()
-        ///     {
-        ///         Name = "my-snapshot",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:memorydb/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the snapshot.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the snapshot.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,38 +70,17 @@ namespace Pulumi.Aws.MemoryDb
     [OutputType]
     public sealed class GetSnapshotResult
     {
-        /// <summary>
-        /// ARN of the snapshot.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The configuration of the cluster from which the snapshot was taken.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSnapshotClusterConfigurationResult> ClusterConfigurations;
-        /// <summary>
-        /// Name of the MemoryDB cluster that this snapshot was taken from.
-        /// </summary>
         public readonly string ClusterName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN of the KMS key used to encrypt the snapshot at rest.
-        /// </summary>
         public readonly string KmsKeyArn;
-        /// <summary>
-        /// Name of the cluster.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Whether the snapshot is from an automatic backup (`Automated`) or was created manually (`Manual`).
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// Map of tags assigned to the snapshot.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -16,32 +16,16 @@ public final class AccessPointRootDirectoryArgs extends com.pulumi.resources.Res
 
     public static final AccessPointRootDirectoryArgs Empty = new AccessPointRootDirectoryArgs();
 
-    /**
-     * POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
-     * 
-     */
     @Import(name="creationInfo")
     private @Nullable Output<AccessPointRootDirectoryCreationInfoArgs> creationInfo;
 
-    /**
-     * @return POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
-     * 
-     */
     public Optional<Output<AccessPointRootDirectoryCreationInfoArgs>> creationInfo() {
         return Optional.ofNullable(this.creationInfo);
     }
 
-    /**
-     * Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -71,44 +55,20 @@ public final class AccessPointRootDirectoryArgs extends com.pulumi.resources.Res
             $ = new AccessPointRootDirectoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param creationInfo POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationInfo(@Nullable Output<AccessPointRootDirectoryCreationInfoArgs> creationInfo) {
             $.creationInfo = creationInfo;
             return this;
         }
 
-        /**
-         * @param creationInfo POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationInfo(AccessPointRootDirectoryCreationInfoArgs creationInfo) {
             return creationInfo(Output.of(creationInfo));
         }
 
-        /**
-         * @param path Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

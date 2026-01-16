@@ -15,32 +15,16 @@ public final class BucketLoggingV2TargetGrantArgs extends com.pulumi.resources.R
 
     public static final BucketLoggingV2TargetGrantArgs Empty = new BucketLoggingV2TargetGrantArgs();
 
-    /**
-     * Configuration block for the person being granted permissions. See below.
-     * 
-     */
     @Import(name="grantee", required=true)
     private Output<BucketLoggingV2TargetGrantGranteeArgs> grantee;
 
-    /**
-     * @return Configuration block for the person being granted permissions. See below.
-     * 
-     */
     public Output<BucketLoggingV2TargetGrantGranteeArgs> grantee() {
         return this.grantee;
     }
 
-    /**
-     * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-     * 
-     */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
-    /**
-     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-     * 
-     */
     public Output<String> permission() {
         return this.permission;
     }
@@ -70,44 +54,20 @@ public final class BucketLoggingV2TargetGrantArgs extends com.pulumi.resources.R
             $ = new BucketLoggingV2TargetGrantArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grantee Configuration block for the person being granted permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantee(Output<BucketLoggingV2TargetGrantGranteeArgs> grantee) {
             $.grantee = grantee;
             return this;
         }
 
-        /**
-         * @param grantee Configuration block for the person being granted permissions. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantee(BucketLoggingV2TargetGrantGranteeArgs grantee) {
             return grantee(Output.of(grantee));
         }
 
-        /**
-         * @param permission Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(Output<String> permission) {
             $.permission = permission;
             return this;
         }
 
-        /**
-         * @param permission Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
         }

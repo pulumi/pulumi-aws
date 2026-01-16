@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     private List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig> encryptionConfigs;
-    /**
-     * @return The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
-     * 
-     */
     private String prefix;
-    /**
-     * @return The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-     * 
-     */
     private Integer retentionPeriodHours;
 
     private GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig() {}
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     public List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig> encryptionConfigs() {
         return this.encryptionConfigs;
     }
-    /**
-     * @return The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }
-    /**
-     * @return The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-     * 
-     */
     public Integer retentionPeriodHours() {
         return this.retentionPeriodHours;
     }

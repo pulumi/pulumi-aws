@@ -10,93 +10,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOriginAccessControlResult {
-    /**
-     * @return The origin access control ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return A description of the origin access control.
-     * 
-     */
     private String description;
-    /**
-     * @return Current version of the origin access control&#39;s information. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     private String etag;
     private String id;
-    /**
-     * @return A name to identify the origin access control.
-     * 
-     */
     private String name;
-    /**
-     * @return The type of origin that this origin access control is for.
-     * 
-     */
     private String originAccessControlOriginType;
-    /**
-     * @return Specifies which requests CloudFront signs.
-     * 
-     */
     private String signingBehavior;
-    /**
-     * @return The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests.
-     * 
-     */
     private String signingProtocol;
 
     private GetOriginAccessControlResult() {}
-    /**
-     * @return The origin access control ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return A description of the origin access control.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Current version of the origin access control&#39;s information. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     public String etag() {
         return this.etag;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return A name to identify the origin access control.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The type of origin that this origin access control is for.
-     * 
-     */
     public String originAccessControlOriginType() {
         return this.originAccessControlOriginType;
     }
-    /**
-     * @return Specifies which requests CloudFront signs.
-     * 
-     */
     public String signingBehavior() {
         return this.signingBehavior;
     }
-    /**
-     * @return The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests.
-     * 
-     */
     public String signingProtocol() {
         return this.signingProtocol;
     }

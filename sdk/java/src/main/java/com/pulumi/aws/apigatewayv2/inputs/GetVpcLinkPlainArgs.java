@@ -16,47 +16,23 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcLinkPlainArgs Empty = new GetVpcLinkPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * VPC Link Tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return VPC Link Tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * VPC Link ID
-     * 
-     */
     @Import(name="vpcLinkId", required=true)
     private String vpcLinkId;
 
-    /**
-     * @return VPC Link ID
-     * 
-     */
     public String vpcLinkId() {
         return this.vpcLinkId;
     }
@@ -87,34 +63,16 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcLinkPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags VPC Link Tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param vpcLinkId VPC Link ID
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcLinkId(String vpcLinkId) {
             $.vpcLinkId = vpcLinkId;
             return this;

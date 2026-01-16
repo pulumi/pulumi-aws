@@ -17,16 +17,8 @@ public final class GetContributorManagedInsightRulesResult {
      * 
      */
     private String id;
-    /**
-     * @return Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
-     * 
-     */
     private List<GetContributorManagedInsightRulesManagedRule> managedRules;
     private String region;
-    /**
-     * @return If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
-     * 
-     */
     private String resourceArn;
 
     private GetContributorManagedInsightRulesResult() {}
@@ -37,20 +29,12 @@ public final class GetContributorManagedInsightRulesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
-     * 
-     */
     public List<GetContributorManagedInsightRulesManagedRule> managedRules() {
         return this.managedRules;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }

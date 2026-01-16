@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementAsnMatchStatement
     {
-        /// <summary>
-        /// List of Autonomous System Numbers (ASNs).
-        /// </summary>
         public readonly ImmutableArray<int> AsnLists;
-        /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ForwardedIpConfig` below for more details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAsnMatchStatementForwardedIpConfig? ForwardedIpConfig;
 
         [OutputConstructor]

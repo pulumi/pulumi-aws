@@ -17,32 +17,16 @@ public final class GetSitesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSitesArgs Empty = new GetSitesArgs();
 
-    /**
-     * ID of the Global Network of the sites to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the sites to retrieve.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Restricts the list to the sites with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Restricts the list to the sites with these tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,44 +56,20 @@ public final class GetSitesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSitesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the sites to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the sites to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param tags Restricts the list to the sites with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Restricts the list to the sites with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

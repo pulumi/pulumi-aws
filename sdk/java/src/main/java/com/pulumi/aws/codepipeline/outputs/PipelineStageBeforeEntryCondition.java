@@ -14,29 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStageBeforeEntryCondition {
-    /**
-     * @return The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     private @Nullable String result;
-    /**
-     * @return The rules that make up the condition. Defined as a `rule` block below.
-     * 
-     */
     private List<PipelineStageBeforeEntryConditionRule> rules;
 
     private PipelineStageBeforeEntryCondition() {}
-    /**
-     * @return The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     public Optional<String> result() {
         return Optional.ofNullable(this.result);
     }
-    /**
-     * @return The rules that make up the condition. Defined as a `rule` block below.
-     * 
-     */
     public List<PipelineStageBeforeEntryConditionRule> rules() {
         return this.rules;
     }

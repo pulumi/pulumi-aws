@@ -70,81 +70,51 @@ class GetBootstrapBrokersResult:
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokers")
     def bootstrap_brokers(self) -> _builtins.str:
-        """
-        Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
-        """
         return pulumi.get(self, "bootstrap_brokers")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersPublicSaslIam")
     def bootstrap_brokers_public_sasl_iam(self) -> _builtins.str:
-        """
-        One or more DNS names (or IP addresses) and SASL IAM port pairs.
-        """
         return pulumi.get(self, "bootstrap_brokers_public_sasl_iam")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersPublicSaslScram")
     def bootstrap_brokers_public_sasl_scram(self) -> _builtins.str:
-        """
-        One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-        """
         return pulumi.get(self, "bootstrap_brokers_public_sasl_scram")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersPublicTls")
     def bootstrap_brokers_public_tls(self) -> _builtins.str:
-        """
-        One or more DNS names (or IP addresses) and TLS port pairs.
-        """
         return pulumi.get(self, "bootstrap_brokers_public_tls")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersSaslIam")
     def bootstrap_brokers_sasl_iam(self) -> _builtins.str:
-        """
-        One or more DNS names (or IP addresses) and SASL IAM port pairs.
-        """
         return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> _builtins.str:
-        """
-        One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-        """
         return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> _builtins.str:
-        """
-        One or more DNS names (or IP addresses) and TLS port pairs.
-        """
         return pulumi.get(self, "bootstrap_brokers_tls")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
     def bootstrap_brokers_vpc_connectivity_sasl_iam(self) -> _builtins.str:
-        """
-        A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
-        """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_iam")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslScram")
     def bootstrap_brokers_vpc_connectivity_sasl_scram(self) -> _builtins.str:
-        """
-        A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
-        """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_scram")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivityTls")
     def bootstrap_brokers_vpc_connectivity_tls(self) -> _builtins.str:
-        """
-        A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
-        """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_tls")
 
     @_builtins.property
@@ -191,20 +161,7 @@ def get_bootstrap_brokers(cluster_arn: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBootstrapBrokersResult:
     """
-    Get a list of brokers that a client application can use to bootstrap.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_bootstrap_brokers(cluster_arn=example_aws_msk_cluster["arn"])
-    ```
-
-
-    :param _builtins.str cluster_arn: ARN of the cluster the nodes belong to.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
@@ -230,20 +187,7 @@ def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[_builtins.st
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
     """
-    Get a list of brokers that a client application can use to bootstrap.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_bootstrap_brokers(cluster_arn=example_aws_msk_cluster["arn"])
-    ```
-
-
-    :param _builtins.str cluster_arn: ARN of the cluster the nodes belong to.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebhookFilter {
-    /**
-     * @return The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-     * 
-     */
     private String jsonPath;
-    /**
-     * @return The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
-     * 
-     */
     private String matchEquals;
 
     private WebhookFilter() {}
-    /**
-     * @return The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-     * 
-     */
     public String jsonPath() {
         return this.jsonPath;
     }
-    /**
-     * @return The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
-     * 
-     */
     public String matchEquals() {
         return this.matchEquals;
     }

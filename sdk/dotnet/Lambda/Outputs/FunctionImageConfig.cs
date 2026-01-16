@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionImageConfig
     {
-        /// <summary>
-        /// Parameters to pass to the container image.
-        /// </summary>
         public readonly ImmutableArray<string> Commands;
-        /// <summary>
-        /// Entry point to your application.
-        /// </summary>
         public readonly ImmutableArray<string> EntryPoints;
-        /// <summary>
-        /// Working directory for the container image.
-        /// </summary>
         public readonly string? WorkingDirectory;
 
         [OutputConstructor]

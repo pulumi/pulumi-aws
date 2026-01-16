@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclDefaultActionAllowCustomRequestHandling
     {
-        /// <summary>
-        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See `InsertHeader` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader> InsertHeaders;
 
         [OutputConstructor]

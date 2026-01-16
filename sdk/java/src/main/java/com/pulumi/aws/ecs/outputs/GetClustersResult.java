@@ -11,10 +11,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClustersResult {
-    /**
-     * @return List of ECS cluster ARNs associated with the account.
-     * 
-     */
     private List<String> clusterArns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,10 +20,6 @@ public final class GetClustersResult {
     private String region;
 
     private GetClustersResult() {}
-    /**
-     * @return List of ECS cluster ARNs associated with the account.
-     * 
-     */
     public List<String> clusterArns() {
         return this.clusterArns;
     }

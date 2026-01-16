@@ -13,17 +13,8 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionJwtValidationResult
     {
-        /// <summary>
-        /// Additional claims to validate.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionJwtValidationAdditionalClaimResult> AdditionalClaims;
-        /// <summary>
-        /// Issuer of the JWT.
-        /// </summary>
         public readonly string Issuer;
-        /// <summary>
-        /// JSON Web Key Set (JWKS) endpoint.
-        /// </summary>
         public readonly string JwksEndpoint;
 
         [OutputConstructor]

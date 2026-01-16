@@ -77,15 +77,6 @@ class SearchResourceResult(dict):
                  region: _builtins.str,
                  resource_type: _builtins.str,
                  service: _builtins.str):
-        """
-        :param _builtins.str arn: Amazon resource name of resource.
-        :param _builtins.str last_reported_at: The date and time that the information about this resource property was last updated.
-        :param _builtins.str owning_account_id: Amazon Web Services account that owns the resource.
-        :param Sequence['SearchResourcePropertyArgs'] properties: Structure with additional type-specific details about the resource.  See `properties` below.
-        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param _builtins.str resource_type: Type of the resource.
-        :param _builtins.str service: Amazon Web Service that owns the resource and is responsible for creating and updating it.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "last_reported_at", last_reported_at)
         pulumi.set(__self__, "owning_account_id", owning_account_id)
@@ -97,57 +88,36 @@ class SearchResourceResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon resource name of resource.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="lastReportedAt")
     def last_reported_at(self) -> _builtins.str:
-        """
-        The date and time that the information about this resource property was last updated.
-        """
         return pulumi.get(self, "last_reported_at")
 
     @_builtins.property
     @pulumi.getter(name="owningAccountId")
     def owning_account_id(self) -> _builtins.str:
-        """
-        Amazon Web Services account that owns the resource.
-        """
         return pulumi.get(self, "owning_account_id")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Sequence['outputs.SearchResourcePropertyResult']:
-        """
-        Structure with additional type-specific details about the resource.  See `properties` below.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> _builtins.str:
-        """
-        Type of the resource.
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter
     def service(self) -> _builtins.str:
-        """
-        Amazon Web Service that owns the resource and is responsible for creating and updating it.
-        """
         return pulumi.get(self, "service")
 
 
@@ -156,27 +126,17 @@ class SearchResourceCountResult(dict):
     def __init__(__self__, *,
                  complete: _builtins.bool,
                  total_resources: _builtins.int):
-        """
-        :param _builtins.bool complete: Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
-        :param _builtins.int total_resources: Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
-        """
         pulumi.set(__self__, "complete", complete)
         pulumi.set(__self__, "total_resources", total_resources)
 
     @_builtins.property
     @pulumi.getter
     def complete(self) -> _builtins.bool:
-        """
-        Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
-        """
         return pulumi.get(self, "complete")
 
     @_builtins.property
     @pulumi.getter(name="totalResources")
     def total_resources(self) -> _builtins.int:
-        """
-        Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
-        """
         return pulumi.get(self, "total_resources")
 
 
@@ -186,11 +146,6 @@ class SearchResourcePropertyResult(dict):
                  data: _builtins.str,
                  last_reported_at: _builtins.str,
                  name: _builtins.str):
-        """
-        :param _builtins.str data: Details about this property. The content of this field is a JSON object that varies based on the resource type.
-        :param _builtins.str last_reported_at: The date and time that the information about this resource property was last updated.
-        :param _builtins.str name: Name of this property of the resource.
-        """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "last_reported_at", last_reported_at)
         pulumi.set(__self__, "name", name)
@@ -198,25 +153,16 @@ class SearchResourcePropertyResult(dict):
     @_builtins.property
     @pulumi.getter
     def data(self) -> _builtins.str:
-        """
-        Details about this property. The content of this field is a JSON object that varies based on the resource type.
-        """
         return pulumi.get(self, "data")
 
     @_builtins.property
     @pulumi.getter(name="lastReportedAt")
     def last_reported_at(self) -> _builtins.str:
-        """
-        The date and time that the information about this resource property was last updated.
-        """
         return pulumi.get(self, "last_reported_at")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of this property of the resource.
-        """
         return pulumi.get(self, "name")
 
 
@@ -241,17 +187,11 @@ class ViewFilters(dict):
 
     def __init__(__self__, *,
                  filter_string: _builtins.str):
-        """
-        :param _builtins.str filter_string: The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-        """
         pulumi.set(__self__, "filter_string", filter_string)
 
     @_builtins.property
     @pulumi.getter(name="filterString")
     def filter_string(self) -> _builtins.str:
-        """
-        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-        """
         return pulumi.get(self, "filter_string")
 
 
@@ -259,17 +199,11 @@ class ViewFilters(dict):
 class ViewIncludedProperty(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: The name of the property that is included in this view. Valid values: `tags`.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the property that is included in this view. Valid values: `tags`.
-        """
         return pulumi.get(self, "name")
 
 

@@ -14,9 +14,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
     {
         public readonly string ApiKey;
-        /// <summary>
-        /// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
-        /// </summary>
         public readonly string ApplicationKey;
 
         [OutputConstructor]

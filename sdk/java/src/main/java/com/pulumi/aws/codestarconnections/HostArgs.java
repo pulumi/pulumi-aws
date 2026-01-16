@@ -17,77 +17,37 @@ public final class HostArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HostArgs Empty = new HostArgs();
 
-    /**
-     * The name of the host to be created. The name must be unique in the calling AWS account.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the host to be created. The name must be unique in the calling AWS account.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The endpoint of the infrastructure to be represented by the host after it is created.
-     * 
-     */
     @Import(name="providerEndpoint", required=true)
     private Output<String> providerEndpoint;
 
-    /**
-     * @return The endpoint of the infrastructure to be represented by the host after it is created.
-     * 
-     */
     public Output<String> providerEndpoint() {
         return this.providerEndpoint;
     }
 
-    /**
-     * The name of the external provider where your third-party code repository is configured.
-     * 
-     */
     @Import(name="providerType", required=true)
     private Output<String> providerType;
 
-    /**
-     * @return The name of the external provider where your third-party code repository is configured.
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-     * 
-     */
     @Import(name="vpcConfiguration")
     private @Nullable Output<HostVpcConfigurationArgs> vpcConfiguration;
 
-    /**
-     * @return The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-     * 
-     */
     public Optional<Output<HostVpcConfigurationArgs>> vpcConfiguration() {
         return Optional.ofNullable(this.vpcConfiguration);
     }
@@ -120,107 +80,47 @@ public final class HostArgs extends com.pulumi.resources.ResourceArgs {
             $ = new HostArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the host to be created. The name must be unique in the calling AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the host to be created. The name must be unique in the calling AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param providerEndpoint The endpoint of the infrastructure to be represented by the host after it is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerEndpoint(Output<String> providerEndpoint) {
             $.providerEndpoint = providerEndpoint;
             return this;
         }
 
-        /**
-         * @param providerEndpoint The endpoint of the infrastructure to be represented by the host after it is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerEndpoint(String providerEndpoint) {
             return providerEndpoint(Output.of(providerEndpoint));
         }
 
-        /**
-         * @param providerType The name of the external provider where your third-party code repository is configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(Output<String> providerType) {
             $.providerType = providerType;
             return this;
         }
 
-        /**
-         * @param providerType The name of the external provider where your third-party code repository is configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerType(String providerType) {
             return providerType(Output.of(providerType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcConfiguration The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(@Nullable Output<HostVpcConfigurationArgs> vpcConfiguration) {
             $.vpcConfiguration = vpcConfiguration;
             return this;
         }
 
-        /**
-         * @param vpcConfiguration The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfiguration(HostVpcConfigurationArgs vpcConfiguration) {
             return vpcConfiguration(Output.of(vpcConfiguration));
         }

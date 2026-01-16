@@ -80,9 +80,6 @@ class GetImageRecipeResult:
     @_builtins.property
     @pulumi.getter(name="amiTags")
     def ami_tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
-        """
         return pulumi.get(self, "ami_tags")
 
     @_builtins.property
@@ -93,33 +90,21 @@ class GetImageRecipeResult:
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Sequence['outputs.GetImageRecipeBlockDeviceMappingResult']:
-        """
-        Set of objects with block device mappings for the image recipe.
-        """
         return pulumi.get(self, "block_device_mappings")
 
     @_builtins.property
     @pulumi.getter
     def components(self) -> Sequence['outputs.GetImageRecipeComponentResult']:
-        """
-        List of objects with components for the image recipe.
-        """
         return pulumi.get(self, "components")
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> _builtins.str:
-        """
-        Date the image recipe was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the image recipe.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -133,33 +118,21 @@ class GetImageRecipeResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the image recipe.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
-        """
-        Owner of the image recipe.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> _builtins.str:
-        """
-        Base image of the image recipe.
-        """
         return pulumi.get(self, "parent_image")
 
     @_builtins.property
     @pulumi.getter
     def platform(self) -> _builtins.str:
-        """
-        Platform of the image recipe.
-        """
         return pulumi.get(self, "platform")
 
     @_builtins.property
@@ -170,33 +143,21 @@ class GetImageRecipeResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the image recipe.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> _builtins.str:
-        """
-        Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Version of the image recipe.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> _builtins.str:
-        """
-        Working directory used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 
 
@@ -229,21 +190,7 @@ def get_image_recipe(arn: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRecipeResult:
     """
-    Provides details about an Image Builder Image Recipe.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
-    ```
-
-
-    :param _builtins.str arn: ARN of the image recipe.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the image recipe.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -274,21 +221,7 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
-    Provides details about an Image Builder Image Recipe.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
-    ```
-
-
-    :param _builtins.str arn: ARN of the image recipe.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the image recipe.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -17,77 +17,37 @@ public final class SdkvoiceVoiceProfileDomainState extends com.pulumi.resources.
 
     public static final SdkvoiceVoiceProfileDomainState Empty = new SdkvoiceVoiceProfileDomainState();
 
-    /**
-     * ARN of the Voice Profile Domain.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Voice Profile Domain.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Description of Voice Profile Domain.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of Voice Profile Domain.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of Voice Profile Domain.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of Voice Profile Domain.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration for server side encryption.
-     * 
-     */
     @Import(name="serverSideEncryptionConfiguration")
     private @Nullable Output<SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
-    /**
-     * @return Configuration for server side encryption.
-     * 
-     */
     public Optional<Output<SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
         return Optional.ofNullable(this.serverSideEncryptionConfiguration);
     }
@@ -136,107 +96,47 @@ public final class SdkvoiceVoiceProfileDomainState extends com.pulumi.resources.
             $ = new SdkvoiceVoiceProfileDomainState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Voice Profile Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Voice Profile Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Description of Voice Profile Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of Voice Profile Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of Voice Profile Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of Voice Profile Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverSideEncryptionConfiguration Configuration for server side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryptionConfiguration(@Nullable Output<SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration) {
             $.serverSideEncryptionConfiguration = serverSideEncryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param serverSideEncryptionConfiguration Configuration for server side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryptionConfiguration(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs serverSideEncryptionConfiguration) {
             return serverSideEncryptionConfiguration(Output.of(serverSideEncryptionConfiguration));
         }

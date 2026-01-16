@@ -10,45 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration {
-    /**
-     * @return Name of S3 bucket.
-     * 
-     */
     private String bucketName;
     private String encryptionOption;
-    /**
-     * @return AWS KMS key ID for S3 location with AWS maanged key.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return Object key preview for S3 location.
-     * 
-     */
     private String objectKeyPrefix;
 
     private GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration() {}
-    /**
-     * @return Name of S3 bucket.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
     public String encryptionOption() {
         return this.encryptionOption;
     }
-    /**
-     * @return AWS KMS key ID for S3 location with AWS maanged key.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return Object key preview for S3 location.
-     * 
-     */
     public String objectKeyPrefix() {
         return this.objectKeyPrefix;
     }

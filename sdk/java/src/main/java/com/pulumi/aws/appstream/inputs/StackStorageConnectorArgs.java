@@ -17,49 +17,23 @@ public final class StackStorageConnectorArgs extends com.pulumi.resources.Resour
 
     public static final StackStorageConnectorArgs Empty = new StackStorageConnectorArgs();
 
-    /**
-     * Type of storage connector.
-     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-     * 
-     */
     @Import(name="connectorType", required=true)
     private Output<String> connectorType;
 
-    /**
-     * @return Type of storage connector.
-     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-     * 
-     */
     public Output<String> connectorType() {
         return this.connectorType;
     }
 
-    /**
-     * Names of the domains for the account.
-     * 
-     */
     @Import(name="domains")
     private @Nullable Output<List<String>> domains;
 
-    /**
-     * @return Names of the domains for the account.
-     * 
-     */
     public Optional<Output<List<String>>> domains() {
         return Optional.ofNullable(this.domains);
     }
 
-    /**
-     * ARN of the storage connector.
-     * 
-     */
     @Import(name="resourceIdentifier")
     private @Nullable Output<String> resourceIdentifier;
 
-    /**
-     * @return ARN of the storage connector.
-     * 
-     */
     public Optional<Output<String>> resourceIdentifier() {
         return Optional.ofNullable(this.resourceIdentifier);
     }
@@ -90,77 +64,33 @@ public final class StackStorageConnectorArgs extends com.pulumi.resources.Resour
             $ = new StackStorageConnectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectorType Type of storage connector.
-         * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorType(Output<String> connectorType) {
             $.connectorType = connectorType;
             return this;
         }
 
-        /**
-         * @param connectorType Type of storage connector.
-         * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorType(String connectorType) {
             return connectorType(Output.of(connectorType));
         }
 
-        /**
-         * @param domains Names of the domains for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domains(@Nullable Output<List<String>> domains) {
             $.domains = domains;
             return this;
         }
 
-        /**
-         * @param domains Names of the domains for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domains(List<String> domains) {
             return domains(Output.of(domains));
         }
 
-        /**
-         * @param domains Names of the domains for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domains(String... domains) {
             return domains(List.of(domains));
         }
 
-        /**
-         * @param resourceIdentifier ARN of the storage connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(@Nullable Output<String> resourceIdentifier) {
             $.resourceIdentifier = resourceIdentifier;
             return this;
         }
 
-        /**
-         * @param resourceIdentifier ARN of the storage connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceIdentifier(String resourceIdentifier) {
             return resourceIdentifier(Output.of(resourceIdentifier));
         }

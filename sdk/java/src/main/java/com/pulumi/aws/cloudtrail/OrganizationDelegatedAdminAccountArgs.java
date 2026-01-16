@@ -14,17 +14,9 @@ public final class OrganizationDelegatedAdminAccountArgs extends com.pulumi.reso
 
     public static final OrganizationDelegatedAdminAccountArgs Empty = new OrganizationDelegatedAdminAccountArgs();
 
-    /**
-     * An organization member account ID that you want to designate as a delegated administrator.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return An organization member account ID that you want to designate as a delegated administrator.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
@@ -53,23 +45,11 @@ public final class OrganizationDelegatedAdminAccountArgs extends com.pulumi.reso
             $ = new OrganizationDelegatedAdminAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId An organization member account ID that you want to designate as a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId An organization member account ID that you want to designate as a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

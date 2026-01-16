@@ -16,89 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryTargetConfigurationTimestreamConfiguration {
-    /**
-     * @return Name of Timestream database to which the query result will be written.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
-     * 
-     */
     private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings;
-    /**
-     * @return Name of the measure column.
-     * 
-     */
     private @Nullable String measureNameColumn;
-    /**
-     * @return Configuration block for how to map measures to multi-measure records. See below.
-     * 
-     */
     private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping> mixedMeasureMappings;
-    /**
-     * @return Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
-     * 
-     */
     private @Nullable ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings multiMeasureMappings;
-    /**
-     * @return Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
-     * 
-     */
     private String tableName;
-    /**
-     * @return Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
-     * 
-     */
     private String timeColumn;
 
     private ScheduledQueryTargetConfigurationTimestreamConfiguration() {}
-    /**
-     * @return Name of Timestream database to which the query result will be written.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
-     * 
-     */
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping> dimensionMappings() {
         return this.dimensionMappings == null ? List.of() : this.dimensionMappings;
     }
-    /**
-     * @return Name of the measure column.
-     * 
-     */
     public Optional<String> measureNameColumn() {
         return Optional.ofNullable(this.measureNameColumn);
     }
-    /**
-     * @return Configuration block for how to map measures to multi-measure records. See below.
-     * 
-     */
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping> mixedMeasureMappings() {
         return this.mixedMeasureMappings == null ? List.of() : this.mixedMeasureMappings;
     }
-    /**
-     * @return Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
-     * 
-     */
     public Optional<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings> multiMeasureMappings() {
         return Optional.ofNullable(this.multiMeasureMappings);
     }
-    /**
-     * @return Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }
-    /**
-     * @return Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
-     * 
-     */
     public String timeColumn() {
         return this.timeColumn;
     }

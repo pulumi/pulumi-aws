@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionLaunchTemplateConfiguration {
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean default_;
-    /**
-     * @return The ID of the Amazon EC2 launch template to use.
-     * 
-     */
     private String launchTemplateId;
 
     private DistributionConfigurationDistributionLaunchTemplateConfiguration() {}
-    /**
-     * @return The account ID that this configuration applies to.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> default_() {
         return Optional.ofNullable(this.default_);
     }
-    /**
-     * @return The ID of the Amazon EC2 launch template to use.
-     * 
-     */
     public String launchTemplateId() {
         return this.launchTemplateId;
     }

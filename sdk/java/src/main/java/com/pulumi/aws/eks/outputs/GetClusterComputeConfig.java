@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterComputeConfig {
-    /**
-     * @return Whether zonal shift is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return List of node pools for the EKS Auto Mode compute capability.
-     * 
-     */
     private List<String> nodePools;
-    /**
-     * @return The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
-     * 
-     */
     private String nodeRoleArn;
 
     private GetClusterComputeConfig() {}
-    /**
-     * @return Whether zonal shift is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return List of node pools for the EKS Auto Mode compute capability.
-     * 
-     */
     public List<String> nodePools() {
         return this.nodePools;
     }
-    /**
-     * @return The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
-     * 
-     */
     public String nodeRoleArn() {
         return this.nodeRoleArn;
     }

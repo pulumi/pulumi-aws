@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ResolverRuntime {
-    /**
-     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-     * 
-     */
     private String name;
-    /**
-     * @return The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-     * 
-     */
     private String runtimeVersion;
 
     private ResolverRuntime() {}
-    /**
-     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-     * 
-     */
     public String runtimeVersion() {
         return this.runtimeVersion;
     }

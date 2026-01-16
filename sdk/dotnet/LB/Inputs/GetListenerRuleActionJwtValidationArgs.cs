@@ -14,25 +14,15 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("additionalClaims")]
         private InputList<Inputs.GetListenerRuleActionJwtValidationAdditionalClaimInputArgs>? _additionalClaims;
-
-        /// <summary>
-        /// Additional claims to validate.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleActionJwtValidationAdditionalClaimInputArgs> AdditionalClaims
         {
             get => _additionalClaims ?? (_additionalClaims = new InputList<Inputs.GetListenerRuleActionJwtValidationAdditionalClaimInputArgs>());
             set => _additionalClaims = value;
         }
 
-        /// <summary>
-        /// Issuer of the JWT.
-        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
-        /// <summary>
-        /// JSON Web Key Set (JWKS) endpoint.
-        /// </summary>
         [Input("jwksEndpoint", required: true)]
         public Input<string> JwksEndpoint { get; set; } = null!;
 

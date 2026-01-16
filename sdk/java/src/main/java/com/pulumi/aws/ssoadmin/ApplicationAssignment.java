@@ -13,145 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SSO Admin Application Assignment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.ApplicationAssignment;
- * import com.pulumi.aws.ssoadmin.ApplicationAssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApplicationAssignment("example", ApplicationAssignmentArgs.builder()
- *             .applicationArn(exampleAwsSsoadminApplication.arn())
- *             .principalId(exampleAwsIdentitystoreUser.userId())
- *             .principalType("USER")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Group Type
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.ApplicationAssignment;
- * import com.pulumi.aws.ssoadmin.ApplicationAssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApplicationAssignment("example", ApplicationAssignmentArgs.builder()
- *             .applicationArn(exampleAwsSsoadminApplication.arn())
- *             .principalId(exampleAwsIdentitystoreGroup.groupId())
- *             .principalType("GROUP")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/applicationAssignment:ApplicationAssignment")
 public class ApplicationAssignment extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the application.
-     * 
-     */
     @Export(name="applicationArn", refs={String.class}, tree="[0]")
     private Output<String> applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Output<String> applicationArn() {
         return this.applicationArn;
     }
-    /**
-     * An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
-    /**
-     * @return An identifier for an object in IAM Identity Center, such as a user or group.
-     * 
-     */
     public Output<String> principalId() {
         return this.principalId;
     }
-    /**
-     * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
-    /**
-     * @return Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public Output<String> principalType() {
         return this.principalType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

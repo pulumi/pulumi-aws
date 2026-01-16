@@ -9,171 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages an EC2 Transit Gateway Route Table propagation.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.RouteTablePropagation("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
-    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Direct Connect Gateway Propagation
-    /// 
-    /// When propagating routes from a Direct Connect Gateway attachment, reference the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource (available in v6.5.0+):
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         AmazonSideAsn = "64512",
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("example", new()
-    ///     {
-    ///         DxGatewayId = example.Id,
-    ///         AssociatedGatewayId = exampleTransitGateway.Id,
-    ///         AllowedPrefixes = new[]
-    ///         {
-    ///             "10.0.0.0/16",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRouteTable = new Aws.Ec2TransitGateway.RouteTable("example", new()
-    ///     {
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///     });
-    /// 
-    ///     // Correct: Reference the attachment ID directly from the association resource
-    ///     var exampleRouteTablePropagation = new Aws.Ec2TransitGateway.RouteTablePropagation("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = exampleGatewayAssociation.TransitGatewayAttachmentId,
-    ///         TransitGatewayRouteTableId = exampleRouteTable.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **NOTE:** Avoid using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `AllowedPrefixes`). Always reference the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource when available.
-    /// 
-    /// ### VPC Attachment Propagation
-    /// 
-    /// For VPC attachments, always reference the attachment resource's `Id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
-    ///     {
-    ///         VpcId = example.Id,
-    ///         CidrBlock = "10.0.1.0/24",
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleSubnet.Id,
-    ///         },
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         VpcId = example.Id,
-    ///     });
-    /// 
-    ///     var exampleRouteTable = new Aws.Ec2TransitGateway.RouteTable("example", new()
-    ///     {
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///     });
-    /// 
-    ///     // Correct: Reference the VPC attachment ID directly
-    ///     var exampleRouteTablePropagation = new Aws.Ec2TransitGateway.RouteTablePropagation("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = exampleVpcAttachment.Id,
-    ///         TransitGatewayRouteTableId = exampleRouteTable.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **NOTE:** When the `TransitGatewayAttachmentId` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table propagation.
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation")]
     public partial class RouteTablePropagation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the resource
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the resource
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Output("transitGatewayRouteTableId")]
         public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
 
@@ -223,21 +73,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class RouteTablePropagationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
 
@@ -249,33 +90,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class RouteTablePropagationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the resource
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
-        /// <summary>
-        /// Type of the resource
-        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Route Table.
-        /// </summary>
         [Input("transitGatewayRouteTableId")]
         public Input<string>? TransitGatewayRouteTableId { get; set; }
 

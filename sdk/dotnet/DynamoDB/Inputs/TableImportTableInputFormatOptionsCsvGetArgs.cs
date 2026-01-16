@@ -12,18 +12,11 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableImportTableInputFormatOptionsCsvGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The delimiter used for separating items in the CSV file being imported.
-        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
         [Input("headerLists")]
         private InputList<string>? _headerLists;
-
-        /// <summary>
-        /// List of the headers used to specify a common header for all source CSV files being imported.
-        /// </summary>
         public InputList<string> HeaderLists
         {
             get => _headerLists ?? (_headerLists = new InputList<string>());

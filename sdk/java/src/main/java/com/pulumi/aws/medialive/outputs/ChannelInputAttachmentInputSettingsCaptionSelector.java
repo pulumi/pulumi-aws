@@ -14,12 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelector {
     private @Nullable String languageCode;
-    /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings selectorSettings;
 
@@ -27,12 +21,6 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
-    /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

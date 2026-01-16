@@ -10,19 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EntityRecognizerInputDataConfigEntityType {
-    /**
-     * @return An entity type to be matched by the Entity Recognizer.
-     * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-     * 
-     */
     private String type;
 
     private EntityRecognizerInputDataConfigEntityType() {}
-    /**
-     * @return An entity type to be matched by the Entity Recognizer.
-     * Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-     * 
-     */
     public String type() {
         return this.type;
     }

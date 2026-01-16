@@ -12,74 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Redshift cluster snapshot
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AllowDBUserOverride": "1",
-//				"Client_ID":           "ExampleClientID",
-//				"App_ID":              "example",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = redshift.NewClusterSnapshot(ctx, "example", &redshift.ClusterSnapshotArgs{
-//				ClusterSnapshotName:    "example",
-//				ClusterSnapshotContent: json0,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-// ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The cluster identifier for which you want a snapshot.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
-	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-	SnapshotIdentifier pulumi.StringOutput `pulumi:"snapshotIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                           pulumi.StringOutput    `pulumi:"arn"`
+	ClusterIdentifier             pulumi.StringOutput    `pulumi:"clusterIdentifier"`
+	KmsKeyId                      pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput    `pulumi:"manualSnapshotRetentionPeriod"`
+	OwnerAccount                  pulumi.StringOutput    `pulumi:"ownerAccount"`
+	Region                        pulumi.StringOutput    `pulumi:"region"`
+	SnapshotIdentifier            pulumi.StringOutput    `pulumi:"snapshotIdentifier"`
+	Tags                          pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewClusterSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -118,45 +62,27 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.
 type clusterSnapshotState struct {
-	// Amazon Resource Name (ARN) of the snapshot.
-	Arn *string `pulumi:"arn"`
-	// The cluster identifier for which you want a snapshot.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-	OwnerAccount *string `pulumi:"ownerAccount"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                           *string           `pulumi:"arn"`
+	ClusterIdentifier             *string           `pulumi:"clusterIdentifier"`
+	KmsKeyId                      *string           `pulumi:"kmsKeyId"`
+	ManualSnapshotRetentionPeriod *int              `pulumi:"manualSnapshotRetentionPeriod"`
+	OwnerAccount                  *string           `pulumi:"ownerAccount"`
+	Region                        *string           `pulumi:"region"`
+	SnapshotIdentifier            *string           `pulumi:"snapshotIdentifier"`
+	Tags                          map[string]string `pulumi:"tags"`
+	TagsAll                       map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterSnapshotState struct {
-	// Amazon Resource Name (ARN) of the snapshot.
-	Arn pulumi.StringPtrInput
-	// The cluster identifier for which you want a snapshot.
-	ClusterIdentifier pulumi.StringPtrInput
-	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-	KmsKeyId pulumi.StringPtrInput
-	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
+	Arn                           pulumi.StringPtrInput
+	ClusterIdentifier             pulumi.StringPtrInput
+	KmsKeyId                      pulumi.StringPtrInput
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-	OwnerAccount pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-	SnapshotIdentifier pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	OwnerAccount                  pulumi.StringPtrInput
+	Region                        pulumi.StringPtrInput
+	SnapshotIdentifier            pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
 }
 
 func (ClusterSnapshotState) ElementType() reflect.Type {
@@ -164,30 +90,20 @@ func (ClusterSnapshotState) ElementType() reflect.Type {
 }
 
 type clusterSnapshotArgs struct {
-	// The cluster identifier for which you want a snapshot.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-	SnapshotIdentifier string `pulumi:"snapshotIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ClusterIdentifier             string            `pulumi:"clusterIdentifier"`
+	ManualSnapshotRetentionPeriod *int              `pulumi:"manualSnapshotRetentionPeriod"`
+	Region                        *string           `pulumi:"region"`
+	SnapshotIdentifier            string            `pulumi:"snapshotIdentifier"`
+	Tags                          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
 type ClusterSnapshotArgs struct {
-	// The cluster identifier for which you want a snapshot.
-	ClusterIdentifier pulumi.StringInput
-	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
+	ClusterIdentifier             pulumi.StringInput
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-	SnapshotIdentifier pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region                        pulumi.StringPtrInput
+	SnapshotIdentifier            pulumi.StringInput
+	Tags                          pulumi.StringMapInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {
@@ -277,47 +193,38 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the snapshot.
 func (o ClusterSnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The cluster identifier for which you want a snapshot.
 func (o ClusterSnapshotOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 func (o ClusterSnapshotOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntPtrOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
 func (o ClusterSnapshotOutput) OwnerAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterSnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 func (o ClusterSnapshotOutput) SnapshotIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SnapshotIdentifier }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterSnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterSnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

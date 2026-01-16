@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineDefinitionParameterValue
     {
-        /// <summary>
-        /// ID of the parameter value.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Field value, expressed as a String.
-        /// </summary>
         public readonly string StringValue;
 
         [OutputConstructor]

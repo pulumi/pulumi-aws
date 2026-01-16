@@ -16,160 +16,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Data Exchange Event Action.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dataexchange.EventAction;
- * import com.pulumi.aws.dataexchange.EventActionArgs;
- * import com.pulumi.aws.dataexchange.inputs.EventActionEventArgs;
- * import com.pulumi.aws.dataexchange.inputs.EventActionEventRevisionPublishedArgs;
- * import com.pulumi.aws.dataexchange.inputs.EventActionActionArgs;
- * import com.pulumi.aws.dataexchange.inputs.EventActionActionExportRevisionToS3Args;
- * import com.pulumi.aws.dataexchange.inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs;
- * import com.pulumi.aws.dataexchange.inputs.EventActionActionExportRevisionToS3EncryptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventAction("example", EventActionArgs.builder()
- *             .event(EventActionEventArgs.builder()
- *                 .revisionPublished(EventActionEventRevisionPublishedArgs.builder()
- *                     .dataSetId(exampleAwsDataexchangeDataSet.id())
- *                     .build())
- *                 .build())
- *             .action(EventActionActionArgs.builder()
- *                 .exportRevisionToS3(EventActionActionExportRevisionToS3Args.builder()
- *                     .revisionDestination(EventActionActionExportRevisionToS3RevisionDestinationArgs.builder()
- *                         .bucket(exampleAwsS3Bucket.bucket())
- *                         .keyPattern("${Revision.CreatedAt}/${Asset.Name}")
- *                         .build())
- *                     .encryption(EventActionActionExportRevisionToS3EncryptionArgs.builder()
- *                         .type("aws:kms")
- *                         .kmsKeyArn(exampleAwsKmsKey.arn())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Data Exchange Event Action using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id
- * ```
- * 
- */
 @ResourceType(type="aws:dataexchange/eventAction:EventAction")
 public class EventAction extends com.pulumi.resources.CustomResource {
-    /**
-     * Describes the action to take.
-     * Described in `action` Configuration Block below.
-     * 
-     */
     @Export(name="action", refs={EventActionAction.class}, tree="[0]")
     private Output</* @Nullable */ EventActionAction> action;
 
-    /**
-     * @return Describes the action to take.
-     * Described in `action` Configuration Block below.
-     * 
-     */
     public Output<Optional<EventActionAction>> action() {
         return Codegen.optional(this.action);
     }
-    /**
-     * Amazon Resource Name (ARN) of the event action.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the event action.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Date and time when the resource was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Date and time when the resource was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     * 
-     */
     @Export(name="event", refs={EventActionEvent.class}, tree="[0]")
     private Output</* @Nullable */ EventActionEvent> event;
 
-    /**
-     * @return Describes the event that triggers the `action`.
-     * Described in `event` Configuration Block below.
-     * 
-     */
     public Output<Optional<EventActionEvent>> event() {
         return Codegen.optional(this.event);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Data and time when the resource was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return Data and time when the resource was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

@@ -15,62 +15,30 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceState Empty = new ResourceState();
 
-    /**
-     * Name or ARN of the resource group to add resources to.
-     * 
-     */
     @Import(name="groupArn")
     private @Nullable Output<String> groupArn;
 
-    /**
-     * @return Name or ARN of the resource group to add resources to.
-     * 
-     */
     public Optional<Output<String>> groupArn() {
         return Optional.ofNullable(this.groupArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the resource to be added to the group.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource to be added to the group.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * The resource type of a resource, such as `AWS::EC2::Instance`.
-     * 
-     */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
-    /**
-     * @return The resource type of a resource, such as `AWS::EC2::Instance`.
-     * 
-     */
     public Optional<Output<String>> resourceType() {
         return Optional.ofNullable(this.resourceType);
     }
@@ -102,86 +70,38 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupArn Name or ARN of the resource group to add resources to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupArn(@Nullable Output<String> groupArn) {
             $.groupArn = groupArn;
             return this;
         }
 
-        /**
-         * @param groupArn Name or ARN of the resource group to add resources to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupArn(String groupArn) {
             return groupArn(Output.of(groupArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn ARN of the resource to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the resource to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param resourceType The resource type of a resource, such as `AWS::EC2::Instance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(@Nullable Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType The resource type of a resource, such as `AWS::EC2::Instance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }

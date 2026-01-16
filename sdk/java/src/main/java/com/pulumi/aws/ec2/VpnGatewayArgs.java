@@ -16,77 +16,37 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VpnGatewayArgs Empty = new VpnGatewayArgs();
 
-    /**
-     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
-     * 
-     */
     @Import(name="amazonSideAsn")
     private @Nullable Output<String> amazonSideAsn;
 
-    /**
-     * @return The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
-     * 
-     */
     public Optional<Output<String>> amazonSideAsn() {
         return Optional.ofNullable(this.amazonSideAsn);
     }
 
-    /**
-     * The Availability Zone for the virtual private gateway.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone for the virtual private gateway.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The VPC ID to create in.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The VPC ID to create in.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -119,107 +79,47 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VpnGatewayArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amazonSideAsn The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonSideAsn(@Nullable Output<String> amazonSideAsn) {
             $.amazonSideAsn = amazonSideAsn;
             return this;
         }
 
-        /**
-         * @param amazonSideAsn The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonSideAsn(String amazonSideAsn) {
             return amazonSideAsn(Output.of(amazonSideAsn));
         }
 
-        /**
-         * @param availabilityZone The Availability Zone for the virtual private gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The Availability Zone for the virtual private gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId The VPC ID to create in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC ID to create in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LocationFsxOntapFileSystemProtocolSmb {
-    /**
-     * @return Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-     * 
-     */
     private @Nullable String domain;
-    /**
-     * @return Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-     * 
-     */
     private LocationFsxOntapFileSystemProtocolSmbMountOptions mountOptions;
-    /**
-     * @return Password of a user who has permission to access your SVM.
-     * 
-     */
     private String password;
-    /**
-     * @return Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-     * 
-     */
     private String user;
 
     private LocationFsxOntapFileSystemProtocolSmb() {}
-    /**
-     * @return Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-     * 
-     */
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
     }
-    /**
-     * @return Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-     * 
-     */
     public LocationFsxOntapFileSystemProtocolSmbMountOptions mountOptions() {
         return this.mountOptions;
     }
-    /**
-     * @return Password of a user who has permission to access your SVM.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-     * 
-     */
     public String user() {
         return this.user;
     }

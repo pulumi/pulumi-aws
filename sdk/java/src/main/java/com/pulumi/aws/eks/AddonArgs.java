@@ -20,195 +20,79 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AddonArgs Empty = new AddonArgs();
 
-    /**
-     * Name of the EKS add-on. The name must match one of
-     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     * 
-     */
     @Import(name="addonName", required=true)
     private Output<String> addonName;
 
-    /**
-     * @return Name of the EKS add-on. The name must match one of
-     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     * 
-     */
     public Output<String> addonName() {
         return this.addonName;
     }
 
-    /**
-     * The version of the EKS add-on. The version must
-     * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     * 
-     */
     @Import(name="addonVersion")
     private @Nullable Output<String> addonVersion;
 
-    /**
-     * @return The version of the EKS add-on. The version must
-     * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     * 
-     */
     public Optional<Output<String>> addonVersion() {
         return Optional.ofNullable(this.addonVersion);
     }
 
-    /**
-     * Name of the EKS Cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the EKS Cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
 
-    /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-     * 
-     */
     @Import(name="configurationValues")
     private @Nullable Output<String> configurationValues;
 
-    /**
-     * @return custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-     * 
-     */
     public Optional<Output<String>> configurationValues() {
         return Optional.ofNullable(this.configurationValues);
     }
 
-    /**
-     * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
-     * 
-     */
     @Import(name="podIdentityAssociations")
     private @Nullable Output<List<AddonPodIdentityAssociationArgs>> podIdentityAssociations;
 
-    /**
-     * @return Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
-     * 
-     */
     public Optional<Output<List<AddonPodIdentityAssociationArgs>>> podIdentityAssociations() {
         return Optional.ofNullable(this.podIdentityAssociations);
     }
 
-    /**
-     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
-     * 
-     */
     @Import(name="preserve")
     private @Nullable Output<Boolean> preserve;
 
-    /**
-     * @return Indicates if you want to preserve the created resources when deleting the EKS add-on.
-     * 
-     */
     public Optional<Output<Boolean>> preserve() {
         return Optional.ofNullable(this.preserve);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
-     * 
-     */
     @Import(name="resolveConflictsOnCreate")
     private @Nullable Output<String> resolveConflictsOnCreate;
 
-    /**
-     * @return How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
-     * 
-     */
     public Optional<Output<String>> resolveConflictsOnCreate() {
         return Optional.ofNullable(this.resolveConflictsOnCreate);
     }
 
-    /**
-     * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-     * 
-     */
     @Import(name="resolveConflictsOnUpdate")
     private @Nullable Output<String> resolveConflictsOnUpdate;
 
-    /**
-     * @return How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-     * 
-     */
     public Optional<Output<String>> resolveConflictsOnUpdate() {
         return Optional.ofNullable(this.resolveConflictsOnUpdate);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of an
-     * existing IAM role to bind to the add-on&#39;s service account. The role must be
-     * assigned the IAM permissions required by the add-on. If you don&#39;t specify
-     * an existing IAM role, then the add-on uses the permissions assigned to the node
-     * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-     * in the Amazon EKS User Guide.
-     * 
-     * &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
-     * provider created for your cluster. For more information, [see Enabling IAM roles
-     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
-     * in the Amazon EKS User Guide.
-     * 
-     */
     @Import(name="serviceAccountRoleArn")
     private @Nullable Output<String> serviceAccountRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an
-     * existing IAM role to bind to the add-on&#39;s service account. The role must be
-     * assigned the IAM permissions required by the add-on. If you don&#39;t specify
-     * an existing IAM role, then the add-on uses the permissions assigned to the node
-     * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-     * in the Amazon EKS User Guide.
-     * 
-     * &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
-     * provider created for your cluster. For more information, [see Enabling IAM roles
-     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
-     * in the Amazon EKS User Guide.
-     * 
-     */
     public Optional<Output<String>> serviceAccountRoleArn() {
         return Optional.ofNullable(this.serviceAccountRoleArn);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -247,271 +131,105 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AddonArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param addonName Name of the EKS add-on. The name must match one of
-         * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder addonName(Output<String> addonName) {
             $.addonName = addonName;
             return this;
         }
 
-        /**
-         * @param addonName Name of the EKS add-on. The name must match one of
-         * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder addonName(String addonName) {
             return addonName(Output.of(addonName));
         }
 
-        /**
-         * @param addonVersion The version of the EKS add-on. The version must
-         * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder addonVersion(@Nullable Output<String> addonVersion) {
             $.addonVersion = addonVersion;
             return this;
         }
 
-        /**
-         * @param addonVersion The version of the EKS add-on. The version must
-         * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder addonVersion(String addonVersion) {
             return addonVersion(Output.of(addonVersion));
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param configurationValues custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationValues(@Nullable Output<String> configurationValues) {
             $.configurationValues = configurationValues;
             return this;
         }
 
-        /**
-         * @param configurationValues custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationValues(String configurationValues) {
             return configurationValues(Output.of(configurationValues));
         }
 
-        /**
-         * @param podIdentityAssociations Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder podIdentityAssociations(@Nullable Output<List<AddonPodIdentityAssociationArgs>> podIdentityAssociations) {
             $.podIdentityAssociations = podIdentityAssociations;
             return this;
         }
 
-        /**
-         * @param podIdentityAssociations Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder podIdentityAssociations(List<AddonPodIdentityAssociationArgs> podIdentityAssociations) {
             return podIdentityAssociations(Output.of(podIdentityAssociations));
         }
 
-        /**
-         * @param podIdentityAssociations Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder podIdentityAssociations(AddonPodIdentityAssociationArgs... podIdentityAssociations) {
             return podIdentityAssociations(List.of(podIdentityAssociations));
         }
 
-        /**
-         * @param preserve Indicates if you want to preserve the created resources when deleting the EKS add-on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preserve(@Nullable Output<Boolean> preserve) {
             $.preserve = preserve;
             return this;
         }
 
-        /**
-         * @param preserve Indicates if you want to preserve the created resources when deleting the EKS add-on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preserve(Boolean preserve) {
             return preserve(Output.of(preserve));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resolveConflictsOnCreate How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolveConflictsOnCreate(@Nullable Output<String> resolveConflictsOnCreate) {
             $.resolveConflictsOnCreate = resolveConflictsOnCreate;
             return this;
         }
 
-        /**
-         * @param resolveConflictsOnCreate How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolveConflictsOnCreate(String resolveConflictsOnCreate) {
             return resolveConflictsOnCreate(Output.of(resolveConflictsOnCreate));
         }
 
-        /**
-         * @param resolveConflictsOnUpdate How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolveConflictsOnUpdate(@Nullable Output<String> resolveConflictsOnUpdate) {
             $.resolveConflictsOnUpdate = resolveConflictsOnUpdate;
             return this;
         }
 
-        /**
-         * @param resolveConflictsOnUpdate How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolveConflictsOnUpdate(String resolveConflictsOnUpdate) {
             return resolveConflictsOnUpdate(Output.of(resolveConflictsOnUpdate));
         }
 
-        /**
-         * @param serviceAccountRoleArn The Amazon Resource Name (ARN) of an
-         * existing IAM role to bind to the add-on&#39;s service account. The role must be
-         * assigned the IAM permissions required by the add-on. If you don&#39;t specify
-         * an existing IAM role, then the add-on uses the permissions assigned to the node
-         * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-         * in the Amazon EKS User Guide.
-         * 
-         * &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
-         * provider created for your cluster. For more information, [see Enabling IAM roles
-         * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
-         * in the Amazon EKS User Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountRoleArn(@Nullable Output<String> serviceAccountRoleArn) {
             $.serviceAccountRoleArn = serviceAccountRoleArn;
             return this;
         }
 
-        /**
-         * @param serviceAccountRoleArn The Amazon Resource Name (ARN) of an
-         * existing IAM role to bind to the add-on&#39;s service account. The role must be
-         * assigned the IAM permissions required by the add-on. If you don&#39;t specify
-         * an existing IAM role, then the add-on uses the permissions assigned to the node
-         * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-         * in the Amazon EKS User Guide.
-         * 
-         * &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
-         * provider created for your cluster. For more information, [see Enabling IAM roles
-         * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
-         * in the Amazon EKS User Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccountRoleArn(String serviceAccountRoleArn) {
             return serviceAccountRoleArn(Output.of(serviceAccountRoleArn));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

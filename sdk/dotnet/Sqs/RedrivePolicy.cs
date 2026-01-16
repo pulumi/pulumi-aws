@@ -9,82 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sqs
 {
-    /// <summary>
-    /// Allows you to set a redrive policy of an SQS Queue
-    /// while referencing ARN of the dead letter queue inside the redrive policy.
-    /// 
-    /// This is useful when you want to set a dedicated
-    /// dead letter queue for a standard or FIFO queue, but need
-    /// the dead letter queue to exist before setting the redrive policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var q = new Aws.Sqs.Queue("q", new()
-    ///     {
-    ///         Name = "examplequeue",
-    ///     });
-    /// 
-    ///     var ddl = new Aws.Sqs.Queue("ddl", new()
-    ///     {
-    ///         Name = "examplequeue-ddl",
-    ///         RedriveAllowPolicy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["redrivePermission"] = "byQueue",
-    ///             ["sourceQueueArns"] = new[]
-    ///             {
-    ///                 q.Arn,
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    ///     var qRedrivePolicy = new Aws.Sqs.RedrivePolicy("q", new()
-    ///     {
-    ///         QueueUrl = q.Id,
-    ///         RedrivePolicyName = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["deadLetterTargetArn"] = ddl.Arn,
-    ///             ["maxReceiveCount"] = 4,
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sqs/redrivePolicy:RedrivePolicy")]
     public partial class RedrivePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The URL of the SQS Queue to which to attach the policy
-        /// </summary>
         [Output("queueUrl")]
         public Output<string> QueueUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        /// </summary>
         [Output("redrivePolicy")]
         public Output<string> RedrivePolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -134,21 +67,12 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class RedrivePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL of the SQS Queue to which to attach the policy
-        /// </summary>
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        /// </summary>
         [Input("redrivePolicy", required: true)]
         public Input<string> RedrivePolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -160,21 +84,12 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class RedrivePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL of the SQS Queue to which to attach the policy
-        /// </summary>
         [Input("queueUrl")]
         public Input<string>? QueueUrl { get; set; }
 
-        /// <summary>
-        /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-        /// </summary>
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicyName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

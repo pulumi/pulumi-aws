@@ -15,32 +15,16 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
 
     public static final VpcIngressConnectionIngressVpcConfigurationArgs Empty = new VpcIngressConnectionIngressVpcConfigurationArgs();
 
-    /**
-     * The ID of the VPC endpoint that your App Runner service connects to.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return The ID of the VPC endpoint that your App Runner service connects to.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
-    /**
-     * The ID of the VPC that is used for the VPC endpoint.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC that is used for the VPC endpoint.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -70,44 +54,20 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
             $ = new VpcIngressConnectionIngressVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpcEndpointId The ID of the VPC endpoint that your App Runner service connects to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The ID of the VPC endpoint that your App Runner service connects to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
-        /**
-         * @param vpcId The ID of the VPC that is used for the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC that is used for the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

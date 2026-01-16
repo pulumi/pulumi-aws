@@ -16,62 +16,30 @@ public final class MultiplexMultiplexSettingsArgs extends com.pulumi.resources.R
 
     public static final MultiplexMultiplexSettingsArgs Empty = new MultiplexMultiplexSettingsArgs();
 
-    /**
-     * Maximum video buffer delay.
-     * 
-     */
     @Import(name="maximumVideoBufferDelayMilliseconds")
     private @Nullable Output<Integer> maximumVideoBufferDelayMilliseconds;
 
-    /**
-     * @return Maximum video buffer delay.
-     * 
-     */
     public Optional<Output<Integer>> maximumVideoBufferDelayMilliseconds() {
         return Optional.ofNullable(this.maximumVideoBufferDelayMilliseconds);
     }
 
-    /**
-     * Transport stream bit rate.
-     * 
-     */
     @Import(name="transportStreamBitrate", required=true)
     private Output<Integer> transportStreamBitrate;
 
-    /**
-     * @return Transport stream bit rate.
-     * 
-     */
     public Output<Integer> transportStreamBitrate() {
         return this.transportStreamBitrate;
     }
 
-    /**
-     * Unique ID for each multiplex.
-     * 
-     */
     @Import(name="transportStreamId", required=true)
     private Output<Integer> transportStreamId;
 
-    /**
-     * @return Unique ID for each multiplex.
-     * 
-     */
     public Output<Integer> transportStreamId() {
         return this.transportStreamId;
     }
 
-    /**
-     * Transport stream reserved bit rate.
-     * 
-     */
     @Import(name="transportStreamReservedBitrate")
     private @Nullable Output<Integer> transportStreamReservedBitrate;
 
-    /**
-     * @return Transport stream reserved bit rate.
-     * 
-     */
     public Optional<Output<Integer>> transportStreamReservedBitrate() {
         return Optional.ofNullable(this.transportStreamReservedBitrate);
     }
@@ -103,86 +71,38 @@ public final class MultiplexMultiplexSettingsArgs extends com.pulumi.resources.R
             $ = new MultiplexMultiplexSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumVideoBufferDelayMilliseconds Maximum video buffer delay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumVideoBufferDelayMilliseconds(@Nullable Output<Integer> maximumVideoBufferDelayMilliseconds) {
             $.maximumVideoBufferDelayMilliseconds = maximumVideoBufferDelayMilliseconds;
             return this;
         }
 
-        /**
-         * @param maximumVideoBufferDelayMilliseconds Maximum video buffer delay.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumVideoBufferDelayMilliseconds(Integer maximumVideoBufferDelayMilliseconds) {
             return maximumVideoBufferDelayMilliseconds(Output.of(maximumVideoBufferDelayMilliseconds));
         }
 
-        /**
-         * @param transportStreamBitrate Transport stream bit rate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportStreamBitrate(Output<Integer> transportStreamBitrate) {
             $.transportStreamBitrate = transportStreamBitrate;
             return this;
         }
 
-        /**
-         * @param transportStreamBitrate Transport stream bit rate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportStreamBitrate(Integer transportStreamBitrate) {
             return transportStreamBitrate(Output.of(transportStreamBitrate));
         }
 
-        /**
-         * @param transportStreamId Unique ID for each multiplex.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportStreamId(Output<Integer> transportStreamId) {
             $.transportStreamId = transportStreamId;
             return this;
         }
 
-        /**
-         * @param transportStreamId Unique ID for each multiplex.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportStreamId(Integer transportStreamId) {
             return transportStreamId(Output.of(transportStreamId));
         }
 
-        /**
-         * @param transportStreamReservedBitrate Transport stream reserved bit rate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportStreamReservedBitrate(@Nullable Output<Integer> transportStreamReservedBitrate) {
             $.transportStreamReservedBitrate = transportStreamReservedBitrate;
             return this;
         }
 
-        /**
-         * @param transportStreamReservedBitrate Transport stream reserved bit rate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transportStreamReservedBitrate(Integer transportStreamReservedBitrate) {
             return transportStreamReservedBitrate(Output.of(transportStreamReservedBitrate));
         }

@@ -9,123 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sns
 {
-    /// <summary>
-    /// Provides an SNS topic policy resource
-    /// 
-    /// &gt; **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Sns.Topic("test", new()
-    ///     {
-    ///         Name = "my-topic-with-policy",
-    ///     });
-    /// 
-    ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         PolicyId = "__default_policy_ID",
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Subscribe",
-    ///                     "SNS:SetTopicAttributes",
-    ///                     "SNS:RemovePermission",
-    ///                     "SNS:Receive",
-    ///                     "SNS:Publish",
-    ///                     "SNS:ListSubscriptionsByTopic",
-    ///                     "SNS:GetTopicAttributes",
-    ///                     "SNS:DeleteTopic",
-    ///                     "SNS:AddPermission",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "AWS:SourceOwner",
-    ///                         Values = new[]
-    ///                         {
-    ///                             account_id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     test.Arn,
-    ///                 },
-    ///                 Sid = "__default_statement_ID",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var @default = new Aws.Sns.TopicPolicy("default", new()
-    ///     {
-    ///         Arn = test.Arn,
-    ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-    /// 
-    /// Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
-    /// 
-    /// % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
-    /// </summary>
     [AwsResourceType("aws:sns/topicPolicy:TopicPolicy")]
     public partial class TopicPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS Account ID of the SNS topic owner
-        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -175,21 +70,12 @@ namespace Pulumi.Aws.Sns
 
     public sealed class TopicPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON.
-        /// </summary>
         [Input("policy", required: true)]
         public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -201,27 +87,15 @@ namespace Pulumi.Aws.Sns
 
     public sealed class TopicPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the SNS topic
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The AWS Account ID of the SNS topic owner
-        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON.
-        /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -16,17 +16,9 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs extend
 
     public static final AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs Empty = new AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs();
 
-    /**
-     * Functions that each define an action in the action group. See `functions` Block for details.
-     * 
-     */
     @Import(name="functions")
     private @Nullable Output<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs>> functions;
 
-    /**
-     * @return Functions that each define an action in the action group. See `functions` Block for details.
-     * 
-     */
     public Optional<Output<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs>>> functions() {
         return Optional.ofNullable(this.functions);
     }
@@ -55,33 +47,15 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs extend
             $ = new AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functions Functions that each define an action in the action group. See `functions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functions(@Nullable Output<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs>> functions) {
             $.functions = functions;
             return this;
         }
 
-        /**
-         * @param functions Functions that each define an action in the action group. See `functions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functions(List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs> functions) {
             return functions(Output.of(functions));
         }
 
-        /**
-         * @param functions Functions that each define an action in the action group. See `functions` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functions(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs... functions) {
             return functions(List.of(functions));
         }

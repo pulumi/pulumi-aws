@@ -13,33 +13,12 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainSamlOptionsSamlOptions
     {
-        /// <summary>
-        /// Whether SAML authentication is enabled.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Information from your identity provider.
-        /// </summary>
         public readonly Outputs.DomainSamlOptionsSamlOptionsIdp? Idp;
-        /// <summary>
-        /// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-        /// </summary>
         public readonly string? MasterBackendRole;
-        /// <summary>
-        /// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-        /// </summary>
         public readonly string? MasterUserName;
-        /// <summary>
-        /// Element of the SAML assertion to use for backend roles. Default is roles.
-        /// </summary>
         public readonly string? RolesKey;
-        /// <summary>
-        /// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-        /// </summary>
         public readonly int? SessionTimeoutMinutes;
-        /// <summary>
-        /// Element of the SAML assertion to use for username. Default is NameID.
-        /// </summary>
         public readonly string? SubjectKey;
 
         [OutputConstructor]

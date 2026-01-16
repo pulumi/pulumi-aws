@@ -70,17 +70,11 @@ class GetAuthorizerResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the API Gateway Authorizer.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="authorizerCredentials")
     def authorizer_credentials(self) -> _builtins.str:
-        """
-        Credentials required for the authorizer.
-        """
         return pulumi.get(self, "authorizer_credentials")
 
     @_builtins.property
@@ -91,17 +85,11 @@ class GetAuthorizerResult:
     @_builtins.property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> _builtins.int:
-        """
-        TTL of cached authorizer results in seconds.
-        """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @_builtins.property
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> _builtins.str:
-        """
-        Authorizer's Uniform Resource Identifier (URI).
-        """
         return pulumi.get(self, "authorizer_uri")
 
     @_builtins.property
@@ -115,33 +103,21 @@ class GetAuthorizerResult:
     @_builtins.property
     @pulumi.getter(name="identitySource")
     def identity_source(self) -> _builtins.str:
-        """
-        Source of the identity in an incoming request.
-        """
         return pulumi.get(self, "identity_source")
 
     @_builtins.property
     @pulumi.getter(name="identityValidationExpression")
     def identity_validation_expression(self) -> _builtins.str:
-        """
-        Validation expression for the incoming identity.
-        """
         return pulumi.get(self, "identity_validation_expression")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the authorizer.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="providerArns")
     def provider_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of the Amazon Cognito user pool ARNs.
-        """
         return pulumi.get(self, "provider_arns")
 
     @_builtins.property
@@ -157,9 +133,6 @@ class GetAuthorizerResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of the authorizer.
-        """
         return pulumi.get(self, "type")
 
 
@@ -189,22 +162,7 @@ def get_authorizer(authorizer_id: Optional[_builtins.str] = None,
                    rest_api_id: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizerResult:
     """
-    Provides details about a specific API Gateway Authorizer.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_authorizer(rest_api_id=example_aws_api_gateway_rest_api["id"],
-        authorizer_id=example_aws_api_gateway_authorizers["ids"][0])
-    ```
-
-
-    :param _builtins.str authorizer_id: Authorizer identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: ID of the associated REST API.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['authorizerId'] = authorizer_id
@@ -232,22 +190,7 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[_builtins.str]] =
                           rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
-    Provides details about a specific API Gateway Authorizer.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_authorizer(rest_api_id=example_aws_api_gateway_rest_api["id"],
-        authorizer_id=example_aws_api_gateway_authorizers["ids"][0])
-    ```
-
-
-    :param _builtins.str authorizer_id: Authorizer identifier.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: ID of the associated REST API.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['authorizerId'] = authorizer_id

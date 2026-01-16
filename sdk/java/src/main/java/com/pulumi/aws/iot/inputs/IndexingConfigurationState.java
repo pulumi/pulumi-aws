@@ -17,47 +17,23 @@ public final class IndexingConfigurationState extends com.pulumi.resources.Resou
 
     public static final IndexingConfigurationState Empty = new IndexingConfigurationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Thing group indexing configuration. See below.
-     * 
-     */
     @Import(name="thingGroupIndexingConfiguration")
     private @Nullable Output<IndexingConfigurationThingGroupIndexingConfigurationArgs> thingGroupIndexingConfiguration;
 
-    /**
-     * @return Thing group indexing configuration. See below.
-     * 
-     */
     public Optional<Output<IndexingConfigurationThingGroupIndexingConfigurationArgs>> thingGroupIndexingConfiguration() {
         return Optional.ofNullable(this.thingGroupIndexingConfiguration);
     }
 
-    /**
-     * Thing indexing configuration. See below.
-     * 
-     */
     @Import(name="thingIndexingConfiguration")
     private @Nullable Output<IndexingConfigurationThingIndexingConfigurationArgs> thingIndexingConfiguration;
 
-    /**
-     * @return Thing indexing configuration. See below.
-     * 
-     */
     public Optional<Output<IndexingConfigurationThingIndexingConfigurationArgs>> thingIndexingConfiguration() {
         return Optional.ofNullable(this.thingIndexingConfiguration);
     }
@@ -88,65 +64,29 @@ public final class IndexingConfigurationState extends com.pulumi.resources.Resou
             $ = new IndexingConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param thingGroupIndexingConfiguration Thing group indexing configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingGroupIndexingConfiguration(@Nullable Output<IndexingConfigurationThingGroupIndexingConfigurationArgs> thingGroupIndexingConfiguration) {
             $.thingGroupIndexingConfiguration = thingGroupIndexingConfiguration;
             return this;
         }
 
-        /**
-         * @param thingGroupIndexingConfiguration Thing group indexing configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingGroupIndexingConfiguration(IndexingConfigurationThingGroupIndexingConfigurationArgs thingGroupIndexingConfiguration) {
             return thingGroupIndexingConfiguration(Output.of(thingGroupIndexingConfiguration));
         }
 
-        /**
-         * @param thingIndexingConfiguration Thing indexing configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingIndexingConfiguration(@Nullable Output<IndexingConfigurationThingIndexingConfigurationArgs> thingIndexingConfiguration) {
             $.thingIndexingConfiguration = thingIndexingConfiguration;
             return this;
         }
 
-        /**
-         * @param thingIndexingConfiguration Thing indexing configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs thingIndexingConfiguration) {
             return thingIndexingConfiguration(Output.of(thingIndexingConfiguration));
         }

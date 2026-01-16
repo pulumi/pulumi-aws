@@ -17,134 +17,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Global Accelerator custom routing endpoint group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.globalaccelerator.CustomRoutingEndpointGroup;
- * import com.pulumi.aws.globalaccelerator.CustomRoutingEndpointGroupArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomRoutingEndpointGroup("example", CustomRoutingEndpointGroupArgs.builder()
- *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.arn())
- *             .destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs.builder()
- *                 .fromPort(80)
- *                 .toPort(8080)
- *                 .protocols("TCP")
- *                 .build())
- *             .endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(exampleAwsSubnet.id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
- * 
- * Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
- * 
- * % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
- * 
- */
 @ResourceType(type="aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")
 public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the custom routing endpoint group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     * 
-     */
     @Export(name="destinationConfigurations", refs={List.class,CustomRoutingEndpointGroupDestinationConfiguration.class}, tree="[0,1]")
     private Output<List<CustomRoutingEndpointGroupDestinationConfiguration>> destinationConfigurations;
 
-    /**
-     * @return The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
-     * 
-     */
     public Output<List<CustomRoutingEndpointGroupDestinationConfiguration>> destinationConfigurations() {
         return this.destinationConfigurations;
     }
-    /**
-     * The list of endpoint objects. Fields documented below.
-     * 
-     */
     @Export(name="endpointConfigurations", refs={List.class,CustomRoutingEndpointGroupEndpointConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomRoutingEndpointGroupEndpointConfiguration>> endpointConfigurations;
 
-    /**
-     * @return The list of endpoint objects. Fields documented below.
-     * 
-     */
     public Output<Optional<List<CustomRoutingEndpointGroupEndpointConfiguration>>> endpointConfigurations() {
         return Codegen.optional(this.endpointConfigurations);
     }
-    /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
-     * 
-     */
     @Export(name="endpointGroupRegion", refs={String.class}, tree="[0]")
     private Output<String> endpointGroupRegion;
 
-    /**
-     * @return The name of the AWS Region where the custom routing endpoint group is located.
-     * 
-     */
     public Output<String> endpointGroupRegion() {
         return this.endpointGroupRegion;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
-     * 
-     */
     @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the custom routing listener.
-     * 
-     */
     public Output<String> listenerArn() {
         return this.listenerArn;
     }

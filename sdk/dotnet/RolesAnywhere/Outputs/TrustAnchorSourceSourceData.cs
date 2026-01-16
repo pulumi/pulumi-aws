@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RolesAnywhere.Outputs
     [OutputType]
     public sealed class TrustAnchorSourceSourceData
     {
-        /// <summary>
-        /// The ARN of an ACM Private Certificate Authority.
-        /// </summary>
         public readonly string? AcmPcaArn;
         public readonly string? X509CertificateData;
 

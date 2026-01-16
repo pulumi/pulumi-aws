@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EventSourcesConfigEventSource struct {
-	// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
 	AmazonCodeGuruProfilers []EventSourcesConfigEventSourceAmazonCodeGuruProfiler `pulumi:"amazonCodeGuruProfilers"`
 }
 
@@ -30,7 +29,6 @@ type EventSourcesConfigEventSourceInput interface {
 }
 
 type EventSourcesConfigEventSourceArgs struct {
-	// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
 	AmazonCodeGuruProfilers EventSourcesConfigEventSourceAmazonCodeGuruProfilerArrayInput `pulumi:"amazonCodeGuruProfilers"`
 }
 
@@ -85,7 +83,6 @@ func (o EventSourcesConfigEventSourceOutput) ToEventSourcesConfigEventSourceOutp
 	return o
 }
 
-// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
 func (o EventSourcesConfigEventSourceOutput) AmazonCodeGuruProfilers() EventSourcesConfigEventSourceAmazonCodeGuruProfilerArrayOutput {
 	return o.ApplyT(func(v EventSourcesConfigEventSource) []EventSourcesConfigEventSourceAmazonCodeGuruProfiler {
 		return v.AmazonCodeGuruProfilers
@@ -113,7 +110,6 @@ func (o EventSourcesConfigEventSourceArrayOutput) Index(i pulumi.IntInput) Event
 }
 
 type EventSourcesConfigEventSourceAmazonCodeGuruProfiler struct {
-	// Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
 	Status string `pulumi:"status"`
 }
 
@@ -129,7 +125,6 @@ type EventSourcesConfigEventSourceAmazonCodeGuruProfilerInput interface {
 }
 
 type EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs struct {
-	// Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -184,7 +179,6 @@ func (o EventSourcesConfigEventSourceAmazonCodeGuruProfilerOutput) ToEventSource
 	return o
 }
 
-// Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
 func (o EventSourcesConfigEventSourceAmazonCodeGuruProfilerOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourcesConfigEventSourceAmazonCodeGuruProfiler) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -210,10 +204,8 @@ func (o EventSourcesConfigEventSourceAmazonCodeGuruProfilerArrayOutput) Index(i 
 }
 
 type NotificationChannelFilters struct {
-	// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
 	MessageTypes []string `pulumi:"messageTypes"`
-	// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-	Severities []string `pulumi:"severities"`
+	Severities   []string `pulumi:"severities"`
 }
 
 // NotificationChannelFiltersInput is an input type that accepts NotificationChannelFiltersArgs and NotificationChannelFiltersOutput values.
@@ -228,10 +220,8 @@ type NotificationChannelFiltersInput interface {
 }
 
 type NotificationChannelFiltersArgs struct {
-	// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
 	MessageTypes pulumi.StringArrayInput `pulumi:"messageTypes"`
-	// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
-	Severities pulumi.StringArrayInput `pulumi:"severities"`
+	Severities   pulumi.StringArrayInput `pulumi:"severities"`
 }
 
 func (NotificationChannelFiltersArgs) ElementType() reflect.Type {
@@ -311,12 +301,10 @@ func (o NotificationChannelFiltersOutput) ToNotificationChannelFiltersPtrOutputW
 	}).(NotificationChannelFiltersPtrOutput)
 }
 
-// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
 func (o NotificationChannelFiltersOutput) MessageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationChannelFilters) []string { return v.MessageTypes }).(pulumi.StringArrayOutput)
 }
 
-// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
 func (o NotificationChannelFiltersOutput) Severities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationChannelFilters) []string { return v.Severities }).(pulumi.StringArrayOutput)
 }
@@ -345,7 +333,6 @@ func (o NotificationChannelFiltersPtrOutput) Elem() NotificationChannelFiltersOu
 	}).(NotificationChannelFiltersOutput)
 }
 
-// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
 func (o NotificationChannelFiltersPtrOutput) MessageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotificationChannelFilters) []string {
 		if v == nil {
@@ -355,7 +342,6 @@ func (o NotificationChannelFiltersPtrOutput) MessageTypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
 func (o NotificationChannelFiltersPtrOutput) Severities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotificationChannelFilters) []string {
 		if v == nil {
@@ -366,7 +352,6 @@ func (o NotificationChannelFiltersPtrOutput) Severities() pulumi.StringArrayOutp
 }
 
 type NotificationChannelSns struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -382,7 +367,6 @@ type NotificationChannelSnsInput interface {
 }
 
 type NotificationChannelSnsArgs struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -463,7 +447,6 @@ func (o NotificationChannelSnsOutput) ToNotificationChannelSnsPtrOutputWithConte
 	}).(NotificationChannelSnsPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 func (o NotificationChannelSnsOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationChannelSns) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -492,7 +475,6 @@ func (o NotificationChannelSnsPtrOutput) Elem() NotificationChannelSnsOutput {
 	}).(NotificationChannelSnsOutput)
 }
 
-// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 func (o NotificationChannelSnsPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationChannelSns) *string {
 		if v == nil {
@@ -503,7 +485,6 @@ func (o NotificationChannelSnsPtrOutput) TopicArn() pulumi.StringPtrOutput {
 }
 
 type ResourceCollectionCloudformation struct {
-	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
 	StackNames []string `pulumi:"stackNames"`
 }
 
@@ -519,7 +500,6 @@ type ResourceCollectionCloudformationInput interface {
 }
 
 type ResourceCollectionCloudformationArgs struct {
-	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
 	StackNames pulumi.StringArrayInput `pulumi:"stackNames"`
 }
 
@@ -600,7 +580,6 @@ func (o ResourceCollectionCloudformationOutput) ToResourceCollectionCloudformati
 	}).(ResourceCollectionCloudformationPtrOutput)
 }
 
-// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
 func (o ResourceCollectionCloudformationOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceCollectionCloudformation) []string { return v.StackNames }).(pulumi.StringArrayOutput)
 }
@@ -629,7 +608,6 @@ func (o ResourceCollectionCloudformationPtrOutput) Elem() ResourceCollectionClou
 	}).(ResourceCollectionCloudformationOutput)
 }
 
-// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
 func (o ResourceCollectionCloudformationPtrOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceCollectionCloudformation) []string {
 		if v == nil {
@@ -640,10 +618,8 @@ func (o ResourceCollectionCloudformationPtrOutput) StackNames() pulumi.StringArr
 }
 
 type ResourceCollectionTags struct {
-	// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-	AppBoundaryKey string `pulumi:"appBoundaryKey"`
-	// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
-	TagValues []string `pulumi:"tagValues"`
+	AppBoundaryKey string   `pulumi:"appBoundaryKey"`
+	TagValues      []string `pulumi:"tagValues"`
 }
 
 // ResourceCollectionTagsInput is an input type that accepts ResourceCollectionTagsArgs and ResourceCollectionTagsOutput values.
@@ -658,10 +634,8 @@ type ResourceCollectionTagsInput interface {
 }
 
 type ResourceCollectionTagsArgs struct {
-	// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
-	AppBoundaryKey pulumi.StringInput `pulumi:"appBoundaryKey"`
-	// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
-	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+	AppBoundaryKey pulumi.StringInput      `pulumi:"appBoundaryKey"`
+	TagValues      pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
 func (ResourceCollectionTagsArgs) ElementType() reflect.Type {
@@ -741,12 +715,10 @@ func (o ResourceCollectionTagsOutput) ToResourceCollectionTagsPtrOutputWithConte
 	}).(ResourceCollectionTagsPtrOutput)
 }
 
-// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
 func (o ResourceCollectionTagsOutput) AppBoundaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceCollectionTags) string { return v.AppBoundaryKey }).(pulumi.StringOutput)
 }
 
-// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
 func (o ResourceCollectionTagsOutput) TagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceCollectionTags) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }
@@ -775,7 +747,6 @@ func (o ResourceCollectionTagsPtrOutput) Elem() ResourceCollectionTagsOutput {
 	}).(ResourceCollectionTagsOutput)
 }
 
-// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
 func (o ResourceCollectionTagsPtrOutput) AppBoundaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceCollectionTags) *string {
 		if v == nil {
@@ -785,7 +756,6 @@ func (o ResourceCollectionTagsPtrOutput) AppBoundaryKey() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
 func (o ResourceCollectionTagsPtrOutput) TagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceCollectionTags) []string {
 		if v == nil {
@@ -796,12 +766,9 @@ func (o ResourceCollectionTagsPtrOutput) TagValues() pulumi.StringArrayOutput {
 }
 
 type ServiceIntegrationKmsServerSideEncryption struct {
-	// KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
+	KmsKeyId    *string `pulumi:"kmsKeyId"`
 	OptInStatus *string `pulumi:"optInStatus"`
-	// Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-	Type *string `pulumi:"type"`
+	Type        *string `pulumi:"type"`
 }
 
 // ServiceIntegrationKmsServerSideEncryptionInput is an input type that accepts ServiceIntegrationKmsServerSideEncryptionArgs and ServiceIntegrationKmsServerSideEncryptionOutput values.
@@ -816,12 +783,9 @@ type ServiceIntegrationKmsServerSideEncryptionInput interface {
 }
 
 type ServiceIntegrationKmsServerSideEncryptionArgs struct {
-	// KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
+	KmsKeyId    pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	OptInStatus pulumi.StringPtrInput `pulumi:"optInStatus"`
-	// Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ServiceIntegrationKmsServerSideEncryptionArgs) ElementType() reflect.Type {
@@ -901,17 +865,14 @@ func (o ServiceIntegrationKmsServerSideEncryptionOutput) ToServiceIntegrationKms
 	}).(ServiceIntegrationKmsServerSideEncryptionPtrOutput)
 }
 
-// KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
 func (o ServiceIntegrationKmsServerSideEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationKmsServerSideEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
 func (o ServiceIntegrationKmsServerSideEncryptionOutput) OptInStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationKmsServerSideEncryption) *string { return v.OptInStatus }).(pulumi.StringPtrOutput)
 }
 
-// Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
 func (o ServiceIntegrationKmsServerSideEncryptionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationKmsServerSideEncryption) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -940,7 +901,6 @@ func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) Elem() ServiceIntegr
 	}).(ServiceIntegrationKmsServerSideEncryptionOutput)
 }
 
-// KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
 func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegrationKmsServerSideEncryption) *string {
 		if v == nil {
@@ -950,7 +910,6 @@ func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) KmsKeyId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
 func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) OptInStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegrationKmsServerSideEncryption) *string {
 		if v == nil {
@@ -960,7 +919,6 @@ func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) OptInStatus() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
 func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegrationKmsServerSideEncryption) *string {
 		if v == nil {
@@ -971,7 +929,6 @@ func (o ServiceIntegrationKmsServerSideEncryptionPtrOutput) Type() pulumi.String
 }
 
 type ServiceIntegrationLogsAnomalyDetection struct {
-	// Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
 	OptInStatus *string `pulumi:"optInStatus"`
 }
 
@@ -987,7 +944,6 @@ type ServiceIntegrationLogsAnomalyDetectionInput interface {
 }
 
 type ServiceIntegrationLogsAnomalyDetectionArgs struct {
-	// Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
 	OptInStatus pulumi.StringPtrInput `pulumi:"optInStatus"`
 }
 
@@ -1068,7 +1024,6 @@ func (o ServiceIntegrationLogsAnomalyDetectionOutput) ToServiceIntegrationLogsAn
 	}).(ServiceIntegrationLogsAnomalyDetectionPtrOutput)
 }
 
-// Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
 func (o ServiceIntegrationLogsAnomalyDetectionOutput) OptInStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationLogsAnomalyDetection) *string { return v.OptInStatus }).(pulumi.StringPtrOutput)
 }
@@ -1097,7 +1052,6 @@ func (o ServiceIntegrationLogsAnomalyDetectionPtrOutput) Elem() ServiceIntegrati
 	}).(ServiceIntegrationLogsAnomalyDetectionOutput)
 }
 
-// Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
 func (o ServiceIntegrationLogsAnomalyDetectionPtrOutput) OptInStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegrationLogsAnomalyDetection) *string {
 		if v == nil {
@@ -1108,7 +1062,6 @@ func (o ServiceIntegrationLogsAnomalyDetectionPtrOutput) OptInStatus() pulumi.St
 }
 
 type ServiceIntegrationOpsCenter struct {
-	// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
 	OptInStatus *string `pulumi:"optInStatus"`
 }
 
@@ -1124,7 +1077,6 @@ type ServiceIntegrationOpsCenterInput interface {
 }
 
 type ServiceIntegrationOpsCenterArgs struct {
-	// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
 	OptInStatus pulumi.StringPtrInput `pulumi:"optInStatus"`
 }
 
@@ -1205,7 +1157,6 @@ func (o ServiceIntegrationOpsCenterOutput) ToServiceIntegrationOpsCenterPtrOutpu
 	}).(ServiceIntegrationOpsCenterPtrOutput)
 }
 
-// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
 func (o ServiceIntegrationOpsCenterOutput) OptInStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationOpsCenter) *string { return v.OptInStatus }).(pulumi.StringPtrOutput)
 }
@@ -1234,7 +1185,6 @@ func (o ServiceIntegrationOpsCenterPtrOutput) Elem() ServiceIntegrationOpsCenter
 	}).(ServiceIntegrationOpsCenterOutput)
 }
 
-// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
 func (o ServiceIntegrationOpsCenterPtrOutput) OptInStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegrationOpsCenter) *string {
 		if v == nil {
@@ -1245,10 +1195,8 @@ func (o ServiceIntegrationOpsCenterPtrOutput) OptInStatus() pulumi.StringPtrOutp
 }
 
 type GetNotificationChannelFilter struct {
-	// Events to receive notifications for.
 	MessageTypes []string `pulumi:"messageTypes"`
-	// Severity levels to receive notifications for.
-	Severities []string `pulumi:"severities"`
+	Severities   []string `pulumi:"severities"`
 }
 
 // GetNotificationChannelFilterInput is an input type that accepts GetNotificationChannelFilterArgs and GetNotificationChannelFilterOutput values.
@@ -1263,10 +1211,8 @@ type GetNotificationChannelFilterInput interface {
 }
 
 type GetNotificationChannelFilterArgs struct {
-	// Events to receive notifications for.
 	MessageTypes pulumi.StringArrayInput `pulumi:"messageTypes"`
-	// Severity levels to receive notifications for.
-	Severities pulumi.StringArrayInput `pulumi:"severities"`
+	Severities   pulumi.StringArrayInput `pulumi:"severities"`
 }
 
 func (GetNotificationChannelFilterArgs) ElementType() reflect.Type {
@@ -1320,12 +1266,10 @@ func (o GetNotificationChannelFilterOutput) ToGetNotificationChannelFilterOutput
 	return o
 }
 
-// Events to receive notifications for.
 func (o GetNotificationChannelFilterOutput) MessageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNotificationChannelFilter) []string { return v.MessageTypes }).(pulumi.StringArrayOutput)
 }
 
-// Severity levels to receive notifications for.
 func (o GetNotificationChannelFilterOutput) Severities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNotificationChannelFilter) []string { return v.Severities }).(pulumi.StringArrayOutput)
 }
@@ -1351,7 +1295,6 @@ func (o GetNotificationChannelFilterArrayOutput) Index(i pulumi.IntInput) GetNot
 }
 
 type GetNotificationChannelSn struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -1367,7 +1310,6 @@ type GetNotificationChannelSnInput interface {
 }
 
 type GetNotificationChannelSnArgs struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1422,7 +1364,6 @@ func (o GetNotificationChannelSnOutput) ToGetNotificationChannelSnOutputWithCont
 	return o
 }
 
-// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 func (o GetNotificationChannelSnOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelSn) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1448,7 +1389,6 @@ func (o GetNotificationChannelSnArrayOutput) Index(i pulumi.IntInput) GetNotific
 }
 
 type GetResourceCollectionCloudformation struct {
-	// Array of the names of the AWS CloudFormation stacks.
 	StackNames []string `pulumi:"stackNames"`
 }
 
@@ -1464,7 +1404,6 @@ type GetResourceCollectionCloudformationInput interface {
 }
 
 type GetResourceCollectionCloudformationArgs struct {
-	// Array of the names of the AWS CloudFormation stacks.
 	StackNames pulumi.StringArrayInput `pulumi:"stackNames"`
 }
 
@@ -1519,7 +1458,6 @@ func (o GetResourceCollectionCloudformationOutput) ToGetResourceCollectionCloudf
 	return o
 }
 
-// Array of the names of the AWS CloudFormation stacks.
 func (o GetResourceCollectionCloudformationOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetResourceCollectionCloudformation) []string { return v.StackNames }).(pulumi.StringArrayOutput)
 }
@@ -1545,10 +1483,8 @@ func (o GetResourceCollectionCloudformationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetResourceCollectionTag struct {
-	// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-	AppBoundaryKey string `pulumi:"appBoundaryKey"`
-	// Array of tag values.
-	TagValues []string `pulumi:"tagValues"`
+	AppBoundaryKey string   `pulumi:"appBoundaryKey"`
+	TagValues      []string `pulumi:"tagValues"`
 }
 
 // GetResourceCollectionTagInput is an input type that accepts GetResourceCollectionTagArgs and GetResourceCollectionTagOutput values.
@@ -1563,10 +1499,8 @@ type GetResourceCollectionTagInput interface {
 }
 
 type GetResourceCollectionTagArgs struct {
-	// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-	AppBoundaryKey pulumi.StringInput `pulumi:"appBoundaryKey"`
-	// Array of tag values.
-	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
+	AppBoundaryKey pulumi.StringInput      `pulumi:"appBoundaryKey"`
+	TagValues      pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
 func (GetResourceCollectionTagArgs) ElementType() reflect.Type {
@@ -1620,12 +1554,10 @@ func (o GetResourceCollectionTagOutput) ToGetResourceCollectionTagOutputWithCont
 	return o
 }
 
-// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
 func (o GetResourceCollectionTagOutput) AppBoundaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourceCollectionTag) string { return v.AppBoundaryKey }).(pulumi.StringOutput)
 }
 
-// Array of tag values.
 func (o GetResourceCollectionTagOutput) TagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetResourceCollectionTag) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }

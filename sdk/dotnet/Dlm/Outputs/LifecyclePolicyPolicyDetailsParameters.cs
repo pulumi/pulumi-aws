@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsParameters
     {
-        /// <summary>
-        /// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `False`.
-        /// </summary>
         public readonly bool? ExcludeBootVolume;
-        /// <summary>
-        /// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `True` indicates that targeted instances are not rebooted when the policy runs. `False` indicates that target instances are rebooted when the policy runs. The default is `True` (instances are not rebooted).
-        /// </summary>
         public readonly bool? NoReboot;
 
         [OutputConstructor]

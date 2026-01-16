@@ -10,65 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDirectorySelfServicePermission {
-    /**
-     * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
-     * 
-     */
     private Boolean changeComputeType;
-    /**
-     * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
-     * 
-     */
     private Boolean increaseVolumeSize;
-    /**
-     * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
-     * 
-     */
     private Boolean rebuildWorkspace;
-    /**
-     * @return Whether WorkSpaces directory users can restart their workspace.
-     * 
-     */
     private Boolean restartWorkspace;
-    /**
-     * @return Whether WorkSpaces directory users can switch the running mode of their workspace.
-     * 
-     */
     private Boolean switchRunningMode;
 
     private GetDirectorySelfServicePermission() {}
-    /**
-     * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
-     * 
-     */
     public Boolean changeComputeType() {
         return this.changeComputeType;
     }
-    /**
-     * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
-     * 
-     */
     public Boolean increaseVolumeSize() {
         return this.increaseVolumeSize;
     }
-    /**
-     * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
-     * 
-     */
     public Boolean rebuildWorkspace() {
         return this.rebuildWorkspace;
     }
-    /**
-     * @return Whether WorkSpaces directory users can restart their workspace.
-     * 
-     */
     public Boolean restartWorkspace() {
         return this.restartWorkspace;
     }
-    /**
-     * @return Whether WorkSpaces directory users can switch the running mode of their workspace.
-     * 
-     */
     public Boolean switchRunningMode() {
         return this.switchRunningMode;
     }

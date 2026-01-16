@@ -18,137 +18,65 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
 
     public static final ClusterSnapshotState Empty = new ClusterSnapshotState();
 
-    /**
-     * List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-     * 
-     */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
-    /**
-     * @return List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-     * 
-     */
     public Optional<Output<List<String>>> availabilityZones() {
         return Optional.ofNullable(this.availabilityZones);
     }
 
-    /**
-     * The DocumentDB Cluster Identifier from which to take the snapshot.
-     * 
-     */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
-    /**
-     * @return The DocumentDB Cluster Identifier from which to take the snapshot.
-     * 
-     */
     public Optional<Output<String>> dbClusterIdentifier() {
         return Optional.ofNullable(this.dbClusterIdentifier);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-     * 
-     */
     @Import(name="dbClusterSnapshotArn")
     private @Nullable Output<String> dbClusterSnapshotArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-     * 
-     */
     public Optional<Output<String>> dbClusterSnapshotArn() {
         return Optional.ofNullable(this.dbClusterSnapshotArn);
     }
 
-    /**
-     * The Identifier for the snapshot.
-     * 
-     */
     @Import(name="dbClusterSnapshotIdentifier")
     private @Nullable Output<String> dbClusterSnapshotIdentifier;
 
-    /**
-     * @return The Identifier for the snapshot.
-     * 
-     */
     public Optional<Output<String>> dbClusterSnapshotIdentifier() {
         return Optional.ofNullable(this.dbClusterSnapshotIdentifier);
     }
 
-    /**
-     * Specifies the name of the database engine.
-     * 
-     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
-    /**
-     * @return Specifies the name of the database engine.
-     * 
-     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
-    /**
-     * Version of the database engine for this DocumentDB cluster snapshot.
-     * 
-     */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
-    /**
-     * @return Version of the database engine for this DocumentDB cluster snapshot.
-     * 
-     */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
 
-    /**
-     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Port that the DocumentDB cluster was listening on at the time of the snapshot.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return Port that the DocumentDB cluster was listening on at the time of the snapshot.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -167,47 +95,23 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.sourceDbClusterSnapshotArn);
     }
 
-    /**
-     * The status of this DocumentDB Cluster Snapshot.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of this DocumentDB Cluster Snapshot.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Specifies whether the DocumentDB cluster snapshot is encrypted.
-     * 
-     */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
-    /**
-     * @return Specifies whether the DocumentDB cluster snapshot is encrypted.
-     * 
-     */
     public Optional<Output<Boolean>> storageEncrypted() {
         return Optional.ofNullable(this.storageEncrypted);
     }
 
-    /**
-     * The VPC ID associated with the DocumentDB cluster snapshot.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The VPC ID associated with the DocumentDB cluster snapshot.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -249,201 +153,87 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
             $ = new ClusterSnapshotState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZones List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZones(@Nullable Output<List<String>> availabilityZones) {
             $.availabilityZones = availabilityZones;
             return this;
         }
 
-        /**
-         * @param availabilityZones List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZones(List<String> availabilityZones) {
             return availabilityZones(Output.of(availabilityZones));
         }
 
-        /**
-         * @param availabilityZones List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
 
-        /**
-         * @param dbClusterIdentifier The DocumentDB Cluster Identifier from which to take the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(@Nullable Output<String> dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterIdentifier The DocumentDB Cluster Identifier from which to take the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(String dbClusterIdentifier) {
             return dbClusterIdentifier(Output.of(dbClusterIdentifier));
         }
 
-        /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotArn(@Nullable Output<String> dbClusterSnapshotArn) {
             $.dbClusterSnapshotArn = dbClusterSnapshotArn;
             return this;
         }
 
-        /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotArn(String dbClusterSnapshotArn) {
             return dbClusterSnapshotArn(Output.of(dbClusterSnapshotArn));
         }
 
-        /**
-         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotIdentifier(@Nullable Output<String> dbClusterSnapshotIdentifier) {
             $.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotIdentifier(String dbClusterSnapshotIdentifier) {
             return dbClusterSnapshotIdentifier(Output.of(dbClusterSnapshotIdentifier));
         }
 
-        /**
-         * @param engine Specifies the name of the database engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
-        /**
-         * @param engine Specifies the name of the database engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
-        /**
-         * @param engineVersion Version of the database engine for this DocumentDB cluster snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(@Nullable Output<String> engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
-        /**
-         * @param engineVersion Version of the database engine for this DocumentDB cluster snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
         }
 
-        /**
-         * @param kmsKeyId If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param port Port that the DocumentDB cluster was listening on at the time of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port Port that the DocumentDB cluster was listening on at the time of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -466,65 +256,29 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
             return sourceDbClusterSnapshotArn(Output.of(sourceDbClusterSnapshotArn));
         }
 
-        /**
-         * @param status The status of this DocumentDB Cluster Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of this DocumentDB Cluster Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param storageEncrypted Specifies whether the DocumentDB cluster snapshot is encrypted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageEncrypted(@Nullable Output<Boolean> storageEncrypted) {
             $.storageEncrypted = storageEncrypted;
             return this;
         }
 
-        /**
-         * @param storageEncrypted Specifies whether the DocumentDB cluster snapshot is encrypted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
         }
 
-        /**
-         * @param vpcId The VPC ID associated with the DocumentDB cluster snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC ID associated with the DocumentDB cluster snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

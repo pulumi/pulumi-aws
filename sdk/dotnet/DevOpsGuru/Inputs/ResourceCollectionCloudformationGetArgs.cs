@@ -14,10 +14,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
     {
         [Input("stackNames", required: true)]
         private InputList<string>? _stackNames;
-
-        /// <summary>
-        /// Array of the names of the AWS CloudFormation stacks. If `Type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
-        /// </summary>
         public InputList<string> StackNames
         {
             get => _stackNames ?? (_stackNames = new InputList<string>());

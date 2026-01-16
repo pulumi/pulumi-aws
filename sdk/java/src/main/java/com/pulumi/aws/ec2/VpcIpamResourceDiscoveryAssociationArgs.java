@@ -17,62 +17,30 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
 
     public static final VpcIpamResourceDiscoveryAssociationArgs Empty = new VpcIpamResourceDiscoveryAssociationArgs();
 
-    /**
-     * The ID of the IPAM to associate.
-     * 
-     */
     @Import(name="ipamId", required=true)
     private Output<String> ipamId;
 
-    /**
-     * @return The ID of the IPAM to associate.
-     * 
-     */
     public Output<String> ipamId() {
         return this.ipamId;
     }
 
-    /**
-     * The ID of the Resource Discovery to associate.
-     * 
-     */
     @Import(name="ipamResourceDiscoveryId", required=true)
     private Output<String> ipamResourceDiscoveryId;
 
-    /**
-     * @return The ID of the Resource Discovery to associate.
-     * 
-     */
     public Output<String> ipamResourceDiscoveryId() {
         return this.ipamResourceDiscoveryId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to add to the IPAM resource discovery association resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to add to the IPAM resource discovery association resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
             $ = new VpcIpamResourceDiscoveryAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipamId The ID of the IPAM to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamId(Output<String> ipamId) {
             $.ipamId = ipamId;
             return this;
         }
 
-        /**
-         * @param ipamId The ID of the IPAM to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamId(String ipamId) {
             return ipamId(Output.of(ipamId));
         }
 
-        /**
-         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamResourceDiscoveryId(Output<String> ipamResourceDiscoveryId) {
             $.ipamResourceDiscoveryId = ipamResourceDiscoveryId;
             return this;
         }
 
-        /**
-         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamResourceDiscoveryId(String ipamResourceDiscoveryId) {
             return ipamResourceDiscoveryId(Output.of(ipamResourceDiscoveryId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to add to the IPAM resource discovery association resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to add to the IPAM resource discovery association resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

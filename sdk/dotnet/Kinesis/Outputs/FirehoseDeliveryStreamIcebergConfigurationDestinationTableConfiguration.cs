@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration
     {
-        /// <summary>
-        /// The name of the Apache Iceberg database.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
-        /// </summary>
         public readonly string? S3ErrorOutputPrefix;
-        /// <summary>
-        /// The name of the Apache Iceberg Table.
-        /// </summary>
         public readonly string TableName;
-        /// <summary>
-        /// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
-        /// </summary>
         public readonly ImmutableArray<string> UniqueKeys;
 
         [OutputConstructor]

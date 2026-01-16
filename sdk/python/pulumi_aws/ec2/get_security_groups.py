@@ -54,9 +54,6 @@ class GetSecurityGroupsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        ARNs of the matched security groups.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -75,9 +72,6 @@ class GetSecurityGroupsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the matches security groups.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -93,9 +87,6 @@ class GetSecurityGroupsResult:
     @_builtins.property
     @pulumi.getter(name="vpcIds")
     def vpc_ids(self) -> Sequence[_builtins.str]:
-        """
-        VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
-        """
         return pulumi.get(self, "vpc_ids")
 
 
@@ -119,40 +110,7 @@ def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilte
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupsResult:
     """
-    Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(tags={
-        "Application": "k8s",
-        "Environment": "dev",
-    })
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(filters=[
-        {
-            "name": "group-name",
-            "values": ["*nodes*"],
-        },
-        {
-            "name": "vpc-id",
-            "values": [vpc_id],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match for desired security groups.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -174,40 +132,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
-    Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(tags={
-        "Application": "k8s",
-        "Environment": "dev",
-    })
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(filters=[
-        {
-            "name": "group-name",
-            "values": ["*nodes*"],
-        },
-        {
-            "name": "vpc-id",
-            "values": [vpc_id],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match for desired security groups.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

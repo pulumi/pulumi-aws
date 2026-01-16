@@ -14,17 +14,9 @@ public final class GetPrimaryContactPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetPrimaryContactPlainArgs Empty = new GetPrimaryContactPlainArgs();
 
-    /**
-     * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable String accountId;
 
-    /**
-     * @return The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
@@ -53,12 +45,6 @@ public final class GetPrimaryContactPlainArgs extends com.pulumi.resources.Invok
             $ = new GetPrimaryContactPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;

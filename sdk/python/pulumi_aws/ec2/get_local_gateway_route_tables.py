@@ -61,9 +61,6 @@ class GetLocalGatewayRouteTablesResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of Local Gateway Route Table identifiers
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -95,28 +92,7 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[Union['GetLocalGat
                                    tags: Optional[Mapping[str, _builtins.str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTablesResult:
     """
-    Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputting all Local Gateway Route Table Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_local_gateway_route_tables()
-    pulumi.export("foo", foo.ids)
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -136,28 +112,7 @@ def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optiona
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTablesResult]:
     """
-    Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputting all Local Gateway Route Table Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_local_gateway_route_tables()
-    pulumi.export("foo", foo.ids)
-    ```
-
-
-    :param Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

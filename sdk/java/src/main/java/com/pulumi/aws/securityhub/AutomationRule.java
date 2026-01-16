@@ -20,210 +20,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Security Hub Automation Rule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.AutomationRule;
- * import com.pulumi.aws.securityhub.AutomationRuleArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateSeverityArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateNoteArgs;
- * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AutomationRule("example", AutomationRuleArgs.builder()
- *             .description("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk")
- *             .ruleName("Elevate severity of findings that relate to important resources")
- *             .ruleOrder(1)
- *             .actions(AutomationRuleActionArgs.builder()
- *                 .findingFieldsUpdate(AutomationRuleActionFindingFieldsUpdateArgs.builder()
- *                     .severity(AutomationRuleActionFindingFieldsUpdateSeverityArgs.builder()
- *                         .label("CRITICAL")
- *                         .product(0.0)
- *                         .build())
- *                     .note(AutomationRuleActionFindingFieldsUpdateNoteArgs.builder()
- *                         .text("This is a critical resource. Please review ASAP.")
- *                         .updatedBy("sechub-automation")
- *                         .build())
- *                     .types("Software and Configuration Checks/Industry and Regulatory Standards")
- *                     .userDefinedFields(Map.of("key", "value"))
- *                     .build())
- *                 .type("FINDING_FIELDS_UPDATE")
- *                 .build())
- *             .criteria(AutomationRuleCriteriaArgs.builder()
- *                 .resourceIds(AutomationRuleCriteriaResourceIdArgs.builder()
- *                     .comparison("EQUALS")
- *                     .value("arn:aws:s3:::examplebucket/*")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
- * 
- * Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
- * 
- * % pulumi import aws_securityhub_automation_rule.example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
- * 
- */
 @ResourceType(type="aws:securityhub/automationRule:AutomationRule")
 public class AutomationRule extends com.pulumi.resources.CustomResource {
-    /**
-     * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-     * 
-     */
     @Export(name="actions", refs={List.class,AutomationRuleAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AutomationRuleAction>> actions;
 
-    /**
-     * @return A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-     * 
-     */
     public Output<Optional<List<AutomationRuleAction>>> actions() {
         return Codegen.optional(this.actions);
     }
-    /**
-     * The ARN of the Security Hub automation rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Security Hub automation rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-     * 
-     */
     @Export(name="criteria", refs={AutomationRuleCriteria.class}, tree="[0]")
     private Output</* @Nullable */ AutomationRuleCriteria> criteria;
 
-    /**
-     * @return A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-     * 
-     */
     public Output<Optional<AutomationRuleCriteria>> criteria() {
         return Codegen.optional(this.criteria);
     }
-    /**
-     * The description of the rule.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return The description of the rule.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-     * 
-     */
     @Export(name="isTerminal", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isTerminal;
 
-    /**
-     * @return Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-     * 
-     */
     public Output<Boolean> isTerminal() {
         return this.isTerminal;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the rule.
-     * 
-     */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
-    /**
-     * @return The name of the rule.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
-    /**
-     * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-     * 
-     */
     @Export(name="ruleOrder", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleOrder;
 
-    /**
-     * @return An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-     * 
-     */
     public Output<Integer> ruleOrder() {
         return this.ruleOrder;
     }
-    /**
-     * Whether the rule is active after it is created.
-     * 
-     */
     @Export(name="ruleStatus", refs={String.class}, tree="[0]")
     private Output<String> ruleStatus;
 
-    /**
-     * @return Whether the rule is active after it is created.
-     * 
-     */
     public Output<String> ruleStatus() {
         return this.ruleStatus;
     }

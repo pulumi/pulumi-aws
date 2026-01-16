@@ -17,32 +17,16 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs extend
 
     public static final ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs Empty = new ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs();
 
-    /**
-     * Unique name of the data source that has been configured on the API.
-     * 
-     */
     @Import(name="dataSourceName", required=true)
     private Output<String> dataSourceName;
 
-    /**
-     * @return Unique name of the data source that has been configured on the API.
-     * 
-     */
     public Output<String> dataSourceName() {
         return this.dataSourceName;
     }
 
-    /**
-     * Configuration for a Lambda data source. See Lambda Config below.
-     * 
-     */
     @Import(name="lambdaConfig")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs> lambdaConfig;
 
-    /**
-     * @return Configuration for a Lambda data source. See Lambda Config below.
-     * 
-     */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs>> lambdaConfig() {
         return Optional.ofNullable(this.lambdaConfig);
     }
@@ -72,44 +56,20 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs extend
             $ = new ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSourceName Unique name of the data source that has been configured on the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceName(Output<String> dataSourceName) {
             $.dataSourceName = dataSourceName;
             return this;
         }
 
-        /**
-         * @param dataSourceName Unique name of the data source that has been configured on the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceName(String dataSourceName) {
             return dataSourceName(Output.of(dataSourceName));
         }
 
-        /**
-         * @param lambdaConfig Configuration for a Lambda data source. See Lambda Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaConfig(@Nullable Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs> lambdaConfig) {
             $.lambdaConfig = lambdaConfig;
             return this;
         }
 
-        /**
-         * @param lambdaConfig Configuration for a Lambda data source. See Lambda Config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaConfig(ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs lambdaConfig) {
             return lambdaConfig(Output.of(lambdaConfig));
         }

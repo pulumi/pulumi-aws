@@ -12,53 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDeliveryDestinationPolicy(ctx, "example", &cloudwatch.LogDeliveryDestinationPolicyArgs{
-//				DeliveryDestinationName:   pulumi.Any(exampleAwsCloudwatchLogDeliveryDestination.Name),
-//				DeliveryDestinationPolicy: pulumi.Any(exampleAwsIamPolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
-// ```
 type LogDeliveryDestinationPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the delivery destination to assign this policy to.
-	DeliveryDestinationName pulumi.StringOutput `pulumi:"deliveryDestinationName"`
-	// The contents of the policy.
+	DeliveryDestinationName   pulumi.StringOutput `pulumi:"deliveryDestinationName"`
 	DeliveryDestinationPolicy pulumi.StringOutput `pulumi:"deliveryDestinationPolicy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region                    pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogDeliveryDestinationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -97,21 +56,15 @@ func GetLogDeliveryDestinationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDeliveryDestinationPolicy resources.
 type logDeliveryDestinationPolicyState struct {
-	// The name of the delivery destination to assign this policy to.
-	DeliveryDestinationName *string `pulumi:"deliveryDestinationName"`
-	// The contents of the policy.
+	DeliveryDestinationName   *string `pulumi:"deliveryDestinationName"`
 	DeliveryDestinationPolicy *string `pulumi:"deliveryDestinationPolicy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                    *string `pulumi:"region"`
 }
 
 type LogDeliveryDestinationPolicyState struct {
-	// The name of the delivery destination to assign this policy to.
-	DeliveryDestinationName pulumi.StringPtrInput
-	// The contents of the policy.
+	DeliveryDestinationName   pulumi.StringPtrInput
 	DeliveryDestinationPolicy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
 }
 
 func (LogDeliveryDestinationPolicyState) ElementType() reflect.Type {
@@ -119,22 +72,16 @@ func (LogDeliveryDestinationPolicyState) ElementType() reflect.Type {
 }
 
 type logDeliveryDestinationPolicyArgs struct {
-	// The name of the delivery destination to assign this policy to.
-	DeliveryDestinationName string `pulumi:"deliveryDestinationName"`
-	// The contents of the policy.
-	DeliveryDestinationPolicy string `pulumi:"deliveryDestinationPolicy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DeliveryDestinationName   string  `pulumi:"deliveryDestinationName"`
+	DeliveryDestinationPolicy string  `pulumi:"deliveryDestinationPolicy"`
+	Region                    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
 type LogDeliveryDestinationPolicyArgs struct {
-	// The name of the delivery destination to assign this policy to.
-	DeliveryDestinationName pulumi.StringInput
-	// The contents of the policy.
+	DeliveryDestinationName   pulumi.StringInput
 	DeliveryDestinationPolicy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                    pulumi.StringPtrInput
 }
 
 func (LogDeliveryDestinationPolicyArgs) ElementType() reflect.Type {
@@ -224,17 +171,14 @@ func (o LogDeliveryDestinationPolicyOutput) ToLogDeliveryDestinationPolicyOutput
 	return o
 }
 
-// The name of the delivery destination to assign this policy to.
 func (o LogDeliveryDestinationPolicyOutput) DeliveryDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.DeliveryDestinationName }).(pulumi.StringOutput)
 }
 
-// The contents of the policy.
 func (o LogDeliveryDestinationPolicyOutput) DeliveryDestinationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.DeliveryDestinationPolicy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDeliveryDestinationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

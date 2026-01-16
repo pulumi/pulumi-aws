@@ -12,121 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a VPC Endpoint Service resource.
-// Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
-//
-// > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-// both a standalone VPC Endpoint Service Allowed Principal resource
-// and a VPC Endpoint Service resource with an `allowedPrincipals` attribute. Do not use the same principal ARN in both
-// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-// and will overwrite the association.
-//
-// ## Example Usage
-//
-// ### Network Load Balancers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				NetworkLoadBalancerArns: pulumi.StringArray{
-//					exampleAwsLb.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Gateway Load Balancers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				GatewayLoadBalancerArns: pulumi.StringArray{
-//					exampleAwsLb.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
-// ```
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
 
-	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired pulumi.BoolOutput `pulumi:"acceptanceRequired"`
-	// The ARNs of one or more principals allowed to discover the endpoint service.
-	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
-	// The Amazon Resource Name (ARN) of the VPC endpoint service.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A set of Availability Zones in which the service is available.
-	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// A set of DNS names for the service.
-	BaseEndpointDnsNames pulumi.StringArrayOutput `pulumi:"baseEndpointDnsNames"`
-	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-	GatewayLoadBalancerArns pulumi.StringArrayOutput `pulumi:"gatewayLoadBalancerArns"`
-	// Whether or not the service manages its VPC endpoints - `true` or `false`.
-	ManagesVpcEndpoints pulumi.BoolOutput `pulumi:"managesVpcEndpoints"`
-	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
-	// The private DNS name for the service.
-	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
-	// List of objects containing information about the endpoint service private DNS name configuration.
+	AcceptanceRequired           pulumi.BoolOutput                                        `pulumi:"acceptanceRequired"`
+	AllowedPrincipals            pulumi.StringArrayOutput                                 `pulumi:"allowedPrincipals"`
+	Arn                          pulumi.StringOutput                                      `pulumi:"arn"`
+	AvailabilityZones            pulumi.StringArrayOutput                                 `pulumi:"availabilityZones"`
+	BaseEndpointDnsNames         pulumi.StringArrayOutput                                 `pulumi:"baseEndpointDnsNames"`
+	GatewayLoadBalancerArns      pulumi.StringArrayOutput                                 `pulumi:"gatewayLoadBalancerArns"`
+	ManagesVpcEndpoints          pulumi.BoolOutput                                        `pulumi:"managesVpcEndpoints"`
+	NetworkLoadBalancerArns      pulumi.StringArrayOutput                                 `pulumi:"networkLoadBalancerArns"`
+	PrivateDnsName               pulumi.StringOutput                                      `pulumi:"privateDnsName"`
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayOutput `pulumi:"privateDnsNameConfigurations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The service name.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// The service type, `Gateway` or `Interface`.
-	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
-	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
-	SupportedIpAddressTypes pulumi.StringArrayOutput `pulumi:"supportedIpAddressTypes"`
-	// The set of regions from which service consumers can access the service.
-	SupportedRegions pulumi.StringArrayOutput `pulumi:"supportedRegions"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region                       pulumi.StringOutput                                      `pulumi:"region"`
+	ServiceName                  pulumi.StringOutput                                      `pulumi:"serviceName"`
+	ServiceType                  pulumi.StringOutput                                      `pulumi:"serviceType"`
+	State                        pulumi.StringOutput                                      `pulumi:"state"`
+	SupportedIpAddressTypes      pulumi.StringArrayOutput                                 `pulumi:"supportedIpAddressTypes"`
+	SupportedRegions             pulumi.StringArrayOutput                                 `pulumi:"supportedRegions"`
+	Tags                         pulumi.StringMapOutput                                   `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput                                   `pulumi:"tagsAll"`
 }
 
 // NewVpcEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -162,81 +68,45 @@ func GetVpcEndpointService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointService resources.
 type vpcEndpointServiceState struct {
-	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
-	// The ARNs of one or more principals allowed to discover the endpoint service.
-	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
-	// The Amazon Resource Name (ARN) of the VPC endpoint service.
-	Arn *string `pulumi:"arn"`
-	// A set of Availability Zones in which the service is available.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// A set of DNS names for the service.
-	BaseEndpointDnsNames []string `pulumi:"baseEndpointDnsNames"`
-	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
-	// Whether or not the service manages its VPC endpoints - `true` or `false`.
-	ManagesVpcEndpoints *bool `pulumi:"managesVpcEndpoints"`
-	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	// The private DNS name for the service.
-	PrivateDnsName *string `pulumi:"privateDnsName"`
-	// List of objects containing information about the endpoint service private DNS name configuration.
+	AcceptanceRequired           *bool                                           `pulumi:"acceptanceRequired"`
+	AllowedPrincipals            []string                                        `pulumi:"allowedPrincipals"`
+	Arn                          *string                                         `pulumi:"arn"`
+	AvailabilityZones            []string                                        `pulumi:"availabilityZones"`
+	BaseEndpointDnsNames         []string                                        `pulumi:"baseEndpointDnsNames"`
+	GatewayLoadBalancerArns      []string                                        `pulumi:"gatewayLoadBalancerArns"`
+	ManagesVpcEndpoints          *bool                                           `pulumi:"managesVpcEndpoints"`
+	NetworkLoadBalancerArns      []string                                        `pulumi:"networkLoadBalancerArns"`
+	PrivateDnsName               *string                                         `pulumi:"privateDnsName"`
 	PrivateDnsNameConfigurations []VpcEndpointServicePrivateDnsNameConfiguration `pulumi:"privateDnsNameConfigurations"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The service name.
-	ServiceName *string `pulumi:"serviceName"`
-	// The service type, `Gateway` or `Interface`.
-	ServiceType *string `pulumi:"serviceType"`
-	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-	State *string `pulumi:"state"`
-	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
-	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
-	// The set of regions from which service consumers can access the service.
-	SupportedRegions []string `pulumi:"supportedRegions"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region                       *string                                         `pulumi:"region"`
+	ServiceName                  *string                                         `pulumi:"serviceName"`
+	ServiceType                  *string                                         `pulumi:"serviceType"`
+	State                        *string                                         `pulumi:"state"`
+	SupportedIpAddressTypes      []string                                        `pulumi:"supportedIpAddressTypes"`
+	SupportedRegions             []string                                        `pulumi:"supportedRegions"`
+	Tags                         map[string]string                               `pulumi:"tags"`
+	TagsAll                      map[string]string                               `pulumi:"tagsAll"`
 }
 
 type VpcEndpointServiceState struct {
-	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired pulumi.BoolPtrInput
-	// The ARNs of one or more principals allowed to discover the endpoint service.
-	AllowedPrincipals pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) of the VPC endpoint service.
-	Arn pulumi.StringPtrInput
-	// A set of Availability Zones in which the service is available.
-	AvailabilityZones pulumi.StringArrayInput
-	// A set of DNS names for the service.
-	BaseEndpointDnsNames pulumi.StringArrayInput
-	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-	GatewayLoadBalancerArns pulumi.StringArrayInput
-	// Whether or not the service manages its VPC endpoints - `true` or `false`.
-	ManagesVpcEndpoints pulumi.BoolPtrInput
-	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-	NetworkLoadBalancerArns pulumi.StringArrayInput
-	// The private DNS name for the service.
-	PrivateDnsName pulumi.StringPtrInput
-	// List of objects containing information about the endpoint service private DNS name configuration.
+	AcceptanceRequired           pulumi.BoolPtrInput
+	AllowedPrincipals            pulumi.StringArrayInput
+	Arn                          pulumi.StringPtrInput
+	AvailabilityZones            pulumi.StringArrayInput
+	BaseEndpointDnsNames         pulumi.StringArrayInput
+	GatewayLoadBalancerArns      pulumi.StringArrayInput
+	ManagesVpcEndpoints          pulumi.BoolPtrInput
+	NetworkLoadBalancerArns      pulumi.StringArrayInput
+	PrivateDnsName               pulumi.StringPtrInput
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The service name.
-	ServiceName pulumi.StringPtrInput
-	// The service type, `Gateway` or `Interface`.
-	ServiceType pulumi.StringPtrInput
-	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-	State pulumi.StringPtrInput
-	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
-	SupportedIpAddressTypes pulumi.StringArrayInput
-	// The set of regions from which service consumers can access the service.
-	SupportedRegions pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                       pulumi.StringPtrInput
+	ServiceName                  pulumi.StringPtrInput
+	ServiceType                  pulumi.StringPtrInput
+	State                        pulumi.StringPtrInput
+	SupportedIpAddressTypes      pulumi.StringArrayInput
+	SupportedRegions             pulumi.StringArrayInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
 }
 
 func (VpcEndpointServiceState) ElementType() reflect.Type {
@@ -244,46 +114,28 @@ func (VpcEndpointServiceState) ElementType() reflect.Type {
 }
 
 type vpcEndpointServiceArgs struct {
-	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
-	// The ARNs of one or more principals allowed to discover the endpoint service.
-	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
-	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-	GatewayLoadBalancerArns []string `pulumi:"gatewayLoadBalancerArns"`
-	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	// The private DNS name for the service.
-	PrivateDnsName *string `pulumi:"privateDnsName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
-	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
-	// The set of regions from which service consumers can access the service.
-	SupportedRegions []string `pulumi:"supportedRegions"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AcceptanceRequired      bool              `pulumi:"acceptanceRequired"`
+	AllowedPrincipals       []string          `pulumi:"allowedPrincipals"`
+	GatewayLoadBalancerArns []string          `pulumi:"gatewayLoadBalancerArns"`
+	NetworkLoadBalancerArns []string          `pulumi:"networkLoadBalancerArns"`
+	PrivateDnsName          *string           `pulumi:"privateDnsName"`
+	Region                  *string           `pulumi:"region"`
+	SupportedIpAddressTypes []string          `pulumi:"supportedIpAddressTypes"`
+	SupportedRegions        []string          `pulumi:"supportedRegions"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcEndpointService resource.
 type VpcEndpointServiceArgs struct {
-	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired pulumi.BoolInput
-	// The ARNs of one or more principals allowed to discover the endpoint service.
-	AllowedPrincipals pulumi.StringArrayInput
-	// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+	AcceptanceRequired      pulumi.BoolInput
+	AllowedPrincipals       pulumi.StringArrayInput
 	GatewayLoadBalancerArns pulumi.StringArrayInput
-	// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
-	// The private DNS name for the service.
-	PrivateDnsName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+	PrivateDnsName          pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
 	SupportedIpAddressTypes pulumi.StringArrayInput
-	// The set of regions from which service consumers can access the service.
-	SupportedRegions pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	SupportedRegions        pulumi.StringArrayInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {
@@ -373,94 +225,76 @@ func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutputWithContext(ctx cont
 	return o
 }
 
-// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
 func (o VpcEndpointServiceOutput) AcceptanceRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.BoolOutput { return v.AcceptanceRequired }).(pulumi.BoolOutput)
 }
 
-// The ARNs of one or more principals allowed to discover the endpoint service.
 func (o VpcEndpointServiceOutput) AllowedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.AllowedPrincipals }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the VPC endpoint service.
 func (o VpcEndpointServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A set of Availability Zones in which the service is available.
 func (o VpcEndpointServiceOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// A set of DNS names for the service.
 func (o VpcEndpointServiceOutput) BaseEndpointDnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.BaseEndpointDnsNames }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
 func (o VpcEndpointServiceOutput) GatewayLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.GatewayLoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
-// Whether or not the service manages its VPC endpoints - `true` or `false`.
 func (o VpcEndpointServiceOutput) ManagesVpcEndpoints() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.BoolOutput { return v.ManagesVpcEndpoints }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
 func (o VpcEndpointServiceOutput) NetworkLoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.NetworkLoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
-// The private DNS name for the service.
 func (o VpcEndpointServiceOutput) PrivateDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.PrivateDnsName }).(pulumi.StringOutput)
 }
 
-// List of objects containing information about the endpoint service private DNS name configuration.
 func (o VpcEndpointServiceOutput) PrivateDnsNameConfigurations() VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) VpcEndpointServicePrivateDnsNameConfigurationArrayOutput {
 		return v.PrivateDnsNameConfigurations
 	}).(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The service name.
 func (o VpcEndpointServiceOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// The service type, `Gateway` or `Interface`.
 func (o VpcEndpointServiceOutput) ServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceType }).(pulumi.StringOutput)
 }
 
-// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 func (o VpcEndpointServiceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 func (o VpcEndpointServiceOutput) SupportedIpAddressTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.SupportedIpAddressTypes }).(pulumi.StringArrayOutput)
 }
 
-// The set of regions from which service consumers can access the service.
 func (o VpcEndpointServiceOutput) SupportedRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.SupportedRegions }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcEndpointServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcEndpointServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

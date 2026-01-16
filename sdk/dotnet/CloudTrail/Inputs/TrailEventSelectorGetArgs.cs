@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
     {
         [Input("dataResources")]
         private InputList<Inputs.TrailEventSelectorDataResourceGetArgs>? _dataResources;
-
-        /// <summary>
-        /// Configuration block for data events. See details below.
-        /// </summary>
         public InputList<Inputs.TrailEventSelectorDataResourceGetArgs> DataResources
         {
             get => _dataResources ?? (_dataResources = new InputList<Inputs.TrailEventSelectorDataResourceGetArgs>());
@@ -26,25 +22,15 @@ namespace Pulumi.Aws.CloudTrail.Inputs
 
         [Input("excludeManagementEventSources")]
         private InputList<string>? _excludeManagementEventSources;
-
-        /// <summary>
-        /// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `IncludeManagementEvents` must be set to`True` to allow this.
-        /// </summary>
         public InputList<string> ExcludeManagementEventSources
         {
             get => _excludeManagementEventSources ?? (_excludeManagementEventSources = new InputList<string>());
             set => _excludeManagementEventSources = value;
         }
 
-        /// <summary>
-        /// Whether to include management events for your trail. Defaults to `True`.
-        /// </summary>
         [Input("includeManagementEvents")]
         public Input<bool>? IncludeManagementEvents { get; set; }
 
-        /// <summary>
-        /// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
-        /// </summary>
         [Input("readWriteType")]
         public Input<string>? ReadWriteType { get; set; }
 

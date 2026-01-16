@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.GetRepositories(ctx, &ecr.GetRepositoriesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoriesResult
@@ -50,15 +23,12 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRepositories.
 type GetRepositoriesResult struct {
-	// AWS Region.
-	Id string `pulumi:"id"`
-	// A list if AWS Elastic Container Registries for the region.
+	Id     string   `pulumi:"id"`
 	Names  []string `pulumi:"names"`
 	Region string   `pulumi:"region"`
 }
@@ -74,7 +44,6 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -97,12 +66,10 @@ func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutputWithContext(ct
 	return o
 }
 
-// AWS Region.
 func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list if AWS Elastic Container Registries for the region.
 func (o GetRepositoriesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

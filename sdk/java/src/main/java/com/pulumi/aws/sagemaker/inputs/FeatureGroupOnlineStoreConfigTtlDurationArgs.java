@@ -16,32 +16,16 @@ public final class FeatureGroupOnlineStoreConfigTtlDurationArgs extends com.pulu
 
     public static final FeatureGroupOnlineStoreConfigTtlDurationArgs Empty = new FeatureGroupOnlineStoreConfigTtlDurationArgs();
 
-    /**
-     * TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
 
-    /**
-     * TtlDuration time value.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
-    /**
-     * @return TtlDuration time value.
-     * 
-     */
     public Optional<Output<Integer>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -71,44 +55,20 @@ public final class FeatureGroupOnlineStoreConfigTtlDurationArgs extends com.pulu
             $ = new FeatureGroupOnlineStoreConfigTtlDurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unit TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value TtlDuration time value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value TtlDuration time value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

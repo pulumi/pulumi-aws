@@ -16,62 +16,30 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
 
     public static final JobDefinitionRetryStrategyEvaluateOnExitArgs Empty = new JobDefinitionRetryStrategyEvaluateOnExitArgs();
 
-    /**
-     * Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<String> action;
 
-    /**
-     * @return Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
 
-    /**
-     * Glob pattern to match against the decimal representation of the exit code returned for a job.
-     * 
-     */
     @Import(name="onExitCode")
     private @Nullable Output<String> onExitCode;
 
-    /**
-     * @return Glob pattern to match against the decimal representation of the exit code returned for a job.
-     * 
-     */
     public Optional<Output<String>> onExitCode() {
         return Optional.ofNullable(this.onExitCode);
     }
 
-    /**
-     * Glob pattern to match against the reason returned for a job.
-     * 
-     */
     @Import(name="onReason")
     private @Nullable Output<String> onReason;
 
-    /**
-     * @return Glob pattern to match against the reason returned for a job.
-     * 
-     */
     public Optional<Output<String>> onReason() {
         return Optional.ofNullable(this.onReason);
     }
 
-    /**
-     * Glob pattern to match against the status reason returned for a job.
-     * 
-     */
     @Import(name="onStatusReason")
     private @Nullable Output<String> onStatusReason;
 
-    /**
-     * @return Glob pattern to match against the status reason returned for a job.
-     * 
-     */
     public Optional<Output<String>> onStatusReason() {
         return Optional.ofNullable(this.onStatusReason);
     }
@@ -103,86 +71,38 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
             $ = new JobDefinitionRetryStrategyEvaluateOnExitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param onExitCode Glob pattern to match against the decimal representation of the exit code returned for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onExitCode(@Nullable Output<String> onExitCode) {
             $.onExitCode = onExitCode;
             return this;
         }
 
-        /**
-         * @param onExitCode Glob pattern to match against the decimal representation of the exit code returned for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onExitCode(String onExitCode) {
             return onExitCode(Output.of(onExitCode));
         }
 
-        /**
-         * @param onReason Glob pattern to match against the reason returned for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onReason(@Nullable Output<String> onReason) {
             $.onReason = onReason;
             return this;
         }
 
-        /**
-         * @param onReason Glob pattern to match against the reason returned for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onReason(String onReason) {
             return onReason(Output.of(onReason));
         }
 
-        /**
-         * @param onStatusReason Glob pattern to match against the status reason returned for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onStatusReason(@Nullable Output<String> onStatusReason) {
             $.onStatusReason = onStatusReason;
             return this;
         }
 
-        /**
-         * @param onStatusReason Glob pattern to match against the status reason returned for a job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onStatusReason(String onStatusReason) {
             return onStatusReason(Output.of(onStatusReason));
         }

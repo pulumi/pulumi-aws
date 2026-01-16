@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS DevOps Guru Notification Channel.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.devopsguru.NotificationChannel("example", {sns: {
- *     topicArn: exampleAwsSnsTopic.arn,
- * }});
- * ```
- *
- * ### Filters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.devopsguru.NotificationChannel("example", {
- *     sns: {
- *         topicArn: exampleAwsSnsTopic.arn,
- *     },
- *     filters: {
- *         messageTypes: ["NEW_INSIGHT"],
- *         severities: ["HIGH"],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import DevOps Guru Notification Channel using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678
- * ```
- */
 export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannel resource's state with the given name, ID, and optional extra
@@ -76,19 +35,8 @@ export class NotificationChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannel.__pulumiType;
     }
 
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     */
     declare public readonly filters: pulumi.Output<outputs.devopsguru.NotificationChannelFilters | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * SNS noficiation channel configurations. See the `sns` argument reference below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly sns: pulumi.Output<outputs.devopsguru.NotificationChannelSns | undefined>;
 
     /**
@@ -122,19 +70,8 @@ export class NotificationChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationChannel resources.
  */
 export interface NotificationChannelState {
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     */
     filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * SNS noficiation channel configurations. See the `sns` argument reference below.
-     *
-     * The following arguments are optional:
-     */
     sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
 }
 
@@ -142,18 +79,7 @@ export interface NotificationChannelState {
  * The set of arguments for constructing a NotificationChannel resource.
  */
 export interface NotificationChannelArgs {
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     */
     filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * SNS noficiation channel configurations. See the `sns` argument reference below.
-     *
-     * The following arguments are optional:
-     */
     sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
 }

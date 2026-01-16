@@ -13,133 +13,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionResult {
-    /**
-     * @return ARN of the Glue Connection.
-     * 
-     */
     private String arn;
-    /**
-     * @return A map of connection properties specific to the Athena compute environment.
-     * 
-     */
     private Map<String,String> athenaProperties;
-    /**
-     * @return Catalog ID of the Glue Connection.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return A map of connection properties.
-     * 
-     */
     private Map<String,String> connectionProperties;
-    /**
-     * @return Type of Glue Connection.
-     * 
-     */
     private String connectionType;
-    /**
-     * @return Description of the connection.
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return A list of criteria that can be used in selecting this connection.
-     * 
-     */
     private List<String> matchCriterias;
-    /**
-     * @return Name of the Glue Connection.
-     * 
-     */
     private String name;
-    /**
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup.
-     * 
-     */
     private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
     private String region;
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     private Map<String,String> tags;
 
     private GetConnectionResult() {}
-    /**
-     * @return ARN of the Glue Connection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return A map of connection properties specific to the Athena compute environment.
-     * 
-     */
     public Map<String,String> athenaProperties() {
         return this.athenaProperties;
     }
-    /**
-     * @return Catalog ID of the Glue Connection.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return A map of connection properties.
-     * 
-     */
     public Map<String,String> connectionProperties() {
         return this.connectionProperties;
     }
-    /**
-     * @return Type of Glue Connection.
-     * 
-     */
     public String connectionType() {
         return this.connectionType;
     }
-    /**
-     * @return Description of the connection.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return A list of criteria that can be used in selecting this connection.
-     * 
-     */
     public List<String> matchCriterias() {
         return this.matchCriterias;
     }
-    /**
-     * @return Name of the Glue Connection.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup.
-     * 
-     */
     public List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements() {
         return this.physicalConnectionRequirements;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

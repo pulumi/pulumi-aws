@@ -16,32 +16,16 @@ public final class BucketIntelligentTieringConfigurationFilterArgs extends com.p
 
     public static final BucketIntelligentTieringConfigurationFilterArgs Empty = new BucketIntelligentTieringConfigurationFilterArgs();
 
-    /**
-     * Object key name prefix that identifies the subset of objects to which the configuration applies.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Object key name prefix that identifies the subset of objects to which the configuration applies.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * All of these tags must exist in the object&#39;s tag set in order for the configuration to apply.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return All of these tags must exist in the object&#39;s tag set in order for the configuration to apply.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class BucketIntelligentTieringConfigurationFilterArgs extends com.p
             $ = new BucketIntelligentTieringConfigurationFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefix Object key name prefix that identifies the subset of objects to which the configuration applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Object key name prefix that identifies the subset of objects to which the configuration applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param tags All of these tags must exist in the object&#39;s tag set in order for the configuration to apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags All of these tags must exist in the object&#39;s tag set in order for the configuration to apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

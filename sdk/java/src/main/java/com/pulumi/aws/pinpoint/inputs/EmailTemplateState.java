@@ -18,47 +18,23 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
 
     public static final EmailTemplateState Empty = new EmailTemplateState();
 
-    /**
-     * Amazon Resource Name (ARN) of the message template.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the message template.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     * 
-     */
     @Import(name="emailTemplates")
     private @Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates;
 
-    /**
-     * @return Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     * 
-     */
     public Optional<Output<List<EmailTemplateEmailTemplateArgs>>> emailTemplates() {
         return Optional.ofNullable(this.emailTemplates);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -77,17 +53,9 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     * 
-     */
     @Import(name="templateName")
     private @Nullable Output<String> templateName;
 
-    /**
-     * @return name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     * 
-     */
     public Optional<Output<String>> templateName() {
         return Optional.ofNullable(this.templateName);
     }
@@ -121,75 +89,33 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
             $ = new EmailTemplateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the message template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the message template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param emailTemplates Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailTemplates(@Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates) {
             $.emailTemplates = emailTemplates;
             return this;
         }
 
-        /**
-         * @param emailTemplates Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailTemplates(List<EmailTemplateEmailTemplateArgs> emailTemplates) {
             return emailTemplates(Output.of(emailTemplates));
         }
 
-        /**
-         * @param emailTemplates Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailTemplates(EmailTemplateEmailTemplateArgs... emailTemplates) {
             return emailTemplates(List.of(emailTemplates));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -212,23 +138,11 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param templateName name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateName(@Nullable Output<String> templateName) {
             $.templateName = templateName;
             return this;
         }
 
-        /**
-         * @param templateName name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateName(String templateName) {
             return templateName(Output.of(templateName));
         }

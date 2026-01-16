@@ -14,17 +14,9 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
 
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs();
 
-    /**
-     * Instructions for interpreting the contents of the document.
-     * 
-     */
     @Import(name="parsingPromptString", required=true)
     private Output<String> parsingPromptString;
 
-    /**
-     * @return Instructions for interpreting the contents of the document.
-     * 
-     */
     public Output<String> parsingPromptString() {
         return this.parsingPromptString;
     }
@@ -53,23 +45,11 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
             $ = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parsingPromptString Instructions for interpreting the contents of the document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingPromptString(Output<String> parsingPromptString) {
             $.parsingPromptString = parsingPromptString;
             return this;
         }
 
-        /**
-         * @param parsingPromptString Instructions for interpreting the contents of the document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingPromptString(String parsingPromptString) {
             return parsingPromptString(Output.of(parsingPromptString));
         }

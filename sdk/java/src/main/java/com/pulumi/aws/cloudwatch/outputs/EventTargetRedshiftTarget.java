@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventTargetRedshiftTarget {
-    /**
-     * @return The name of the database.
-     * 
-     */
     private String database;
-    /**
-     * @return The database user name.
-     * 
-     */
     private @Nullable String dbUser;
-    /**
-     * @return The name or ARN of the secret that enables access to the database.
-     * 
-     */
     private @Nullable String secretsManagerArn;
-    /**
-     * @return The SQL statement text to run.
-     * 
-     */
     private @Nullable String sql;
-    /**
-     * @return The name of the SQL statement.
-     * 
-     */
     private @Nullable String statementName;
-    /**
-     * @return Indicates whether to send an event back to EventBridge after the SQL statement runs.
-     * 
-     */
     private @Nullable Boolean withEvent;
 
     private EventTargetRedshiftTarget() {}
-    /**
-     * @return The name of the database.
-     * 
-     */
     public String database() {
         return this.database;
     }
-    /**
-     * @return The database user name.
-     * 
-     */
     public Optional<String> dbUser() {
         return Optional.ofNullable(this.dbUser);
     }
-    /**
-     * @return The name or ARN of the secret that enables access to the database.
-     * 
-     */
     public Optional<String> secretsManagerArn() {
         return Optional.ofNullable(this.secretsManagerArn);
     }
-    /**
-     * @return The SQL statement text to run.
-     * 
-     */
     public Optional<String> sql() {
         return Optional.ofNullable(this.sql);
     }
-    /**
-     * @return The name of the SQL statement.
-     * 
-     */
     public Optional<String> statementName() {
         return Optional.ofNullable(this.statementName);
     }
-    /**
-     * @return Indicates whether to send an event back to EventBridge after the SQL statement runs.
-     * 
-     */
     public Optional<Boolean> withEvent() {
         return Optional.ofNullable(this.withEvent);
     }

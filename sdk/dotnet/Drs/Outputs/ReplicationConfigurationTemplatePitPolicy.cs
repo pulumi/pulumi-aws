@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Drs.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationTemplatePitPolicy
     {
-        /// <summary>
-        /// Whether this rule is enabled or not.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// How often, in the chosen units, a snapshot should be taken.
-        /// </summary>
         public readonly int Interval;
-        /// <summary>
-        /// Duration to retain a snapshot for, in the chosen `Units`.
-        /// </summary>
         public readonly int RetentionDuration;
-        /// <summary>
-        /// ID of the rule. Valid values are integers.
-        /// </summary>
         public readonly int? RuleId;
-        /// <summary>
-        /// Units used to measure the `Interval` and `RetentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-        /// </summary>
         public readonly string Units;
 
         [OutputConstructor]

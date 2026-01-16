@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfiguration {
-    /**
-     * @return Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration;
-    /**
-     * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration;
-    /**
-     * @return Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration;
-    /**
-     * @return Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
-    /**
-     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
-     * 
-     */
     private String type;
-    /**
-     * @return Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration;
 
     private AgentDataSourceDataSourceConfiguration() {}
-    /**
-     * @return Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationConfluenceConfiguration> confluenceConfiguration() {
         return Optional.ofNullable(this.confluenceConfiguration);
     }
-    /**
-     * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
-    /**
-     * @return Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationSalesforceConfiguration> salesforceConfiguration() {
         return Optional.ofNullable(this.salesforceConfiguration);
     }
-    /**
-     * @return Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationSharePointConfiguration> sharePointConfiguration() {
         return Optional.ofNullable(this.sharePointConfiguration);
     }
-    /**
-     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
-     * 
-     */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfiguration> webConfiguration() {
         return Optional.ofNullable(this.webConfiguration);
     }

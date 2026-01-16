@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the S3 Vectors index. Conflicts with `IndexName` and `VectorBucketArn`.
-        /// </summary>
         [Input("indexArn")]
         public Input<string>? IndexArn { get; set; }
 
-        /// <summary>
-        /// Name of the S3 Vectors index. Must be specified with `VectorBucketArn`. Conflicts with `IndexArn`.
-        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
-        /// <summary>
-        /// ARN of the S3 Vectors vector bucket. Must be specified with `IndexName`. Conflicts with `IndexArn`.
-        /// </summary>
         [Input("vectorBucketArn")]
         public Input<string>? VectorBucketArn { get; set; }
 

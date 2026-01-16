@@ -16,17 +16,9 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationArgs extends c
 
     public static final GetLogDataProtectionPolicyDocumentConfigurationArgs Empty = new GetLogDataProtectionPolicyDocumentConfigurationArgs();
 
-    /**
-     * Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-     * 
-     */
     @Import(name="customDataIdentifiers")
     private @Nullable Output<List<GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>> customDataIdentifiers;
 
-    /**
-     * @return Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-     * 
-     */
     public Optional<Output<List<GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>>> customDataIdentifiers() {
         return Optional.ofNullable(this.customDataIdentifiers);
     }
@@ -55,33 +47,15 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationArgs extends c
             $ = new GetLogDataProtectionPolicyDocumentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customDataIdentifiers Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDataIdentifiers(@Nullable Output<List<GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>> customDataIdentifiers) {
             $.customDataIdentifiers = customDataIdentifiers;
             return this;
         }
 
-        /**
-         * @param customDataIdentifiers Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDataIdentifiers(List<GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs> customDataIdentifiers) {
             return customDataIdentifiers(Output.of(customDataIdentifiers));
         }
 
-        /**
-         * @param customDataIdentifiers Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDataIdentifiers(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs... customDataIdentifiers) {
             return customDataIdentifiers(List.of(customDataIdentifiers));
         }

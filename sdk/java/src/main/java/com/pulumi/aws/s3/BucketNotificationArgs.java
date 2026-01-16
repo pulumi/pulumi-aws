@@ -21,96 +21,44 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
 
     public static final BucketNotificationArgs Empty = new BucketNotificationArgs();
 
-    /**
-     * Name of the bucket for notification configuration.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket for notification configuration.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-     * 
-     */
     @Import(name="eventbridge")
     private @Nullable Output<Boolean> eventbridge;
 
-    /**
-     * @return Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> eventbridge() {
         return Optional.ofNullable(this.eventbridge);
     }
 
-    /**
-     * Used to configure notifications to a Lambda Function. See below.
-     * 
-     */
     @Import(name="lambdaFunctions")
     private @Nullable Output<List<BucketNotificationLambdaFunctionArgs>> lambdaFunctions;
 
-    /**
-     * @return Used to configure notifications to a Lambda Function. See below.
-     * 
-     */
     public Optional<Output<List<BucketNotificationLambdaFunctionArgs>>> lambdaFunctions() {
         return Optional.ofNullable(this.lambdaFunctions);
     }
 
-    /**
-     * Notification configuration to SQS Queue. See below.
-     * 
-     */
     @Import(name="queues")
     private @Nullable Output<List<BucketNotificationQueueArgs>> queues;
 
-    /**
-     * @return Notification configuration to SQS Queue. See below.
-     * 
-     */
     public Optional<Output<List<BucketNotificationQueueArgs>>> queues() {
         return Optional.ofNullable(this.queues);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Notification configuration to SNS Topic. See below.
-     * 
-     */
     @Import(name="topics")
     private @Nullable Output<List<BucketNotificationTopicArgs>> topics;
 
-    /**
-     * @return Notification configuration to SNS Topic. See below.
-     * 
-     */
     public Optional<Output<List<BucketNotificationTopicArgs>>> topics() {
         return Optional.ofNullable(this.topics);
     }
@@ -144,162 +92,68 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
             $ = new BucketNotificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket for notification configuration.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket for notification configuration.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param eventbridge Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventbridge(@Nullable Output<Boolean> eventbridge) {
             $.eventbridge = eventbridge;
             return this;
         }
 
-        /**
-         * @param eventbridge Whether to enable Amazon EventBridge notifications. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventbridge(Boolean eventbridge) {
             return eventbridge(Output.of(eventbridge));
         }
 
-        /**
-         * @param lambdaFunctions Used to configure notifications to a Lambda Function. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctions(@Nullable Output<List<BucketNotificationLambdaFunctionArgs>> lambdaFunctions) {
             $.lambdaFunctions = lambdaFunctions;
             return this;
         }
 
-        /**
-         * @param lambdaFunctions Used to configure notifications to a Lambda Function. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctions(List<BucketNotificationLambdaFunctionArgs> lambdaFunctions) {
             return lambdaFunctions(Output.of(lambdaFunctions));
         }
 
-        /**
-         * @param lambdaFunctions Used to configure notifications to a Lambda Function. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctions(BucketNotificationLambdaFunctionArgs... lambdaFunctions) {
             return lambdaFunctions(List.of(lambdaFunctions));
         }
 
-        /**
-         * @param queues Notification configuration to SQS Queue. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queues(@Nullable Output<List<BucketNotificationQueueArgs>> queues) {
             $.queues = queues;
             return this;
         }
 
-        /**
-         * @param queues Notification configuration to SQS Queue. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queues(List<BucketNotificationQueueArgs> queues) {
             return queues(Output.of(queues));
         }
 
-        /**
-         * @param queues Notification configuration to SQS Queue. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queues(BucketNotificationQueueArgs... queues) {
             return queues(List.of(queues));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param topics Notification configuration to SNS Topic. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(@Nullable Output<List<BucketNotificationTopicArgs>> topics) {
             $.topics = topics;
             return this;
         }
 
-        /**
-         * @param topics Notification configuration to SNS Topic. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(List<BucketNotificationTopicArgs> topics) {
             return topics(Output.of(topics));
         }
 
-        /**
-         * @param topics Notification configuration to SNS Topic. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(BucketNotificationTopicArgs... topics) {
             return topics(List.of(topics));
         }

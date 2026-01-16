@@ -9,59 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
-    /// <summary>
-    /// Provides a DynamoDB contributor insights resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.DynamoDB.ContributorInsights("test", new()
-    ///     {
-    ///         TableName = "ExampleTableName",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dynamodb/contributorInsights:ContributorInsights")]
     public partial class ContributorInsights : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The global secondary index name
-        /// </summary>
         [Output("indexName")]
         public Output<string?> IndexName { get; private set; } = null!;
 
-        /// <summary>
-        /// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-        /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the table to enable contributor insights
-        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -111,27 +70,15 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class ContributorInsightsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The global secondary index name
-        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
-        /// <summary>
-        /// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the table to enable contributor insights
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -143,27 +90,15 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class ContributorInsightsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The global secondary index name
-        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
-        /// <summary>
-        /// argument to specify the [CloudWatch contributor insights mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html#contributorinsights_HowItWorks.Modes)
-        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the table to enable contributor insights
-        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 

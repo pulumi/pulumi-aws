@@ -13,71 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LoadBalancerListener {
-    /**
-     * @return The port on the instance to route to
-     * 
-     */
     private Integer instancePort;
-    /**
-     * @return The protocol to use to the instance. Valid
-     * values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-     * 
-     */
     private String instanceProtocol;
-    /**
-     * @return The port to listen on for the load balancer
-     * 
-     */
     private Integer lbPort;
-    /**
-     * @return The protocol to listen on. Valid values are `HTTP`,
-     * `HTTPS`, `TCP`, or `SSL`
-     * 
-     */
     private String lbProtocol;
-    /**
-     * @return The ARN of an SSL certificate you have
-     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
-     * 
-     */
     private @Nullable String sslCertificateId;
 
     private LoadBalancerListener() {}
-    /**
-     * @return The port on the instance to route to
-     * 
-     */
     public Integer instancePort() {
         return this.instancePort;
     }
-    /**
-     * @return The protocol to use to the instance. Valid
-     * values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-     * 
-     */
     public String instanceProtocol() {
         return this.instanceProtocol;
     }
-    /**
-     * @return The port to listen on for the load balancer
-     * 
-     */
     public Integer lbPort() {
         return this.lbPort;
     }
-    /**
-     * @return The protocol to listen on. Valid values are `HTTP`,
-     * `HTTPS`, `TCP`, or `SSL`
-     * 
-     */
     public String lbProtocol() {
         return this.lbProtocol;
     }
-    /**
-     * @return The ARN of an SSL certificate you have
-     * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
-     * 
-     */
     public Optional<String> sslCertificateId() {
         return Optional.ofNullable(this.sslCertificateId);
     }

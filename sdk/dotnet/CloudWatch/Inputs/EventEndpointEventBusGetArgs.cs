@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventEndpointEventBusGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the event bus the endpoint is associated with.
-        /// </summary>
         [Input("eventBusArn", required: true)]
         public Input<string> EventBusArn { get; set; } = null!;
 

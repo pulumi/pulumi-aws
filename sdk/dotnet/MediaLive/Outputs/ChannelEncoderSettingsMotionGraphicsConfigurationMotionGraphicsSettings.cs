@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings
     {
-        /// <summary>
-        /// Html Motion Graphics Settings.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings? HtmlMotionGraphicsSettings;
 
         [OutputConstructor]

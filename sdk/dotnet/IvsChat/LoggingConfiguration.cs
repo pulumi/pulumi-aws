@@ -9,203 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.IvsChat
 {
-    /// <summary>
-    /// Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage - Logging to CloudWatch
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.LogGroup("example");
-    /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             CloudwatchLogs = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs
-    ///             {
-    ///                 LogGroupName = example.Name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketPrefix = "tf-ivschat-logging-bucket",
-    ///     });
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "firehose.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "firehose_example_role",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var example = new Aws.Kinesis.FirehoseDeliveryStream("example", new()
-    ///     {
-    ///         Name = "pulumi-kinesis-firehose-extended-s3-example-stream",
-    ///         Destination = "extended_s3",
-    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = exampleRole.Arn,
-    ///             BucketArn = exampleBucket.Arn,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "LogDeliveryEnabled", "true" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
-    ///     {
-    ///         Bucket = exampleBucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             Firehose = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs
-    ///             {
-    ///                 DeliveryStreamName = example.Name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Basic Usage - Logging to S3
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "tf-ivschat-logging",
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             S3 = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationS3Args
-    ///             {
-    ///                 BucketName = example.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
-    /// 
-    /// Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
-    /// 
-    /// % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
-    /// </summary>
     [AwsResourceType("aws:ivschat/loggingConfiguration:LoggingConfiguration")]
     public partial class LoggingConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Logging Configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.LoggingConfigurationDestinationConfiguration?> DestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Logging Configuration name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the Logging Configuration.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -255,30 +79,17 @@ namespace Pulumi.Aws.IvsChat
 
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationArgs>? DestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// Logging Configuration name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -293,42 +104,23 @@ namespace Pulumi.Aws.IvsChat
 
     public sealed class LoggingConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Logging Configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-        /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationGetArgs>? DestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// Logging Configuration name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the Logging Configuration.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -337,10 +129,6 @@ namespace Pulumi.Aws.IvsChat
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

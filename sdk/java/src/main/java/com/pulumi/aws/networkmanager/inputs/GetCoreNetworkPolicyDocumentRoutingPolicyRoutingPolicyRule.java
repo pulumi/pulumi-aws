@@ -14,32 +14,16 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule ex
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule Empty = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule();
 
-    /**
-     * Defines the match conditions and actions for the rule. Detailed below.
-     * 
-     */
     @Import(name="ruleDefinition", required=true)
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition ruleDefinition;
 
-    /**
-     * @return Defines the match conditions and actions for the rule. Detailed below.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition ruleDefinition() {
         return this.ruleDefinition;
     }
 
-    /**
-     * Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     @Import(name="ruleNumber", required=true)
     private Integer ruleNumber;
 
-    /**
-     * @return Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }
@@ -69,23 +53,11 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule ex
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ruleDefinition Defines the match conditions and actions for the rule. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleDefinition(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinition ruleDefinition) {
             $.ruleDefinition = ruleDefinition;
             return this;
         }
 
-        /**
-         * @param ruleNumber Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Integer ruleNumber) {
             $.ruleNumber = ruleNumber;
             return this;

@@ -17,77 +17,37 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
 
-    /**
-     * The version of the API keys used for the account.
-     * 
-     */
     @Import(name="apiKeyVersion")
     private @Nullable Output<String> apiKeyVersion;
 
-    /**
-     * @return The version of the API keys used for the account.
-     * 
-     */
     public Optional<Output<String>> apiKeyVersion() {
         return Optional.ofNullable(this.apiKeyVersion);
     }
 
-    /**
-     * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-     * 
-     */
     @Import(name="cloudwatchRoleArn")
     private @Nullable Output<String> cloudwatchRoleArn;
 
-    /**
-     * @return ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-     * 
-     */
     public Optional<Output<String>> cloudwatchRoleArn() {
         return Optional.ofNullable(this.cloudwatchRoleArn);
     }
 
-    /**
-     * A list of features supported for the account.
-     * 
-     */
     @Import(name="features")
     private @Nullable Output<List<String>> features;
 
-    /**
-     * @return A list of features supported for the account.
-     * 
-     */
     public Optional<Output<List<String>>> features() {
         return Optional.ofNullable(this.features);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Account-Level throttle settings. See exported fields below.
-     * 
-     */
     @Import(name="throttleSettings")
     private @Nullable Output<List<AccountThrottleSettingArgs>> throttleSettings;
 
-    /**
-     * @return Account-Level throttle settings. See exported fields below.
-     * 
-     */
     public Optional<Output<List<AccountThrottleSettingArgs>>> throttleSettings() {
         return Optional.ofNullable(this.throttleSettings);
     }
@@ -120,127 +80,55 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             $ = new AccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKeyVersion The version of the API keys used for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyVersion(@Nullable Output<String> apiKeyVersion) {
             $.apiKeyVersion = apiKeyVersion;
             return this;
         }
 
-        /**
-         * @param apiKeyVersion The version of the API keys used for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyVersion(String apiKeyVersion) {
             return apiKeyVersion(Output.of(apiKeyVersion));
         }
 
-        /**
-         * @param cloudwatchRoleArn ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchRoleArn(@Nullable Output<String> cloudwatchRoleArn) {
             $.cloudwatchRoleArn = cloudwatchRoleArn;
             return this;
         }
 
-        /**
-         * @param cloudwatchRoleArn ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchRoleArn(String cloudwatchRoleArn) {
             return cloudwatchRoleArn(Output.of(cloudwatchRoleArn));
         }
 
-        /**
-         * @param features A list of features supported for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder features(@Nullable Output<List<String>> features) {
             $.features = features;
             return this;
         }
 
-        /**
-         * @param features A list of features supported for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder features(List<String> features) {
             return features(Output.of(features));
         }
 
-        /**
-         * @param features A list of features supported for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder features(String... features) {
             return features(List.of(features));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param throttleSettings Account-Level throttle settings. See exported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throttleSettings(@Nullable Output<List<AccountThrottleSettingArgs>> throttleSettings) {
             $.throttleSettings = throttleSettings;
             return this;
         }
 
-        /**
-         * @param throttleSettings Account-Level throttle settings. See exported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throttleSettings(List<AccountThrottleSettingArgs> throttleSettings) {
             return throttleSettings(Output.of(throttleSettings));
         }
 
-        /**
-         * @param throttleSettings Account-Level throttle settings. See exported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throttleSettings(AccountThrottleSettingArgs... throttleSettings) {
             return throttleSettings(List.of(throttleSettings));
         }

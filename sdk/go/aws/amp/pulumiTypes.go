@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type QueryLoggingConfigurationDestination struct {
-	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
 	CloudwatchLogs *QueryLoggingConfigurationDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-	Filters *QueryLoggingConfigurationDestinationFilters `pulumi:"filters"`
+	Filters        *QueryLoggingConfigurationDestinationFilters        `pulumi:"filters"`
 }
 
 // QueryLoggingConfigurationDestinationInput is an input type that accepts QueryLoggingConfigurationDestinationArgs and QueryLoggingConfigurationDestinationOutput values.
@@ -32,10 +30,8 @@ type QueryLoggingConfigurationDestinationInput interface {
 }
 
 type QueryLoggingConfigurationDestinationArgs struct {
-	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
 	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-	Filters QueryLoggingConfigurationDestinationFiltersPtrInput `pulumi:"filters"`
+	Filters        QueryLoggingConfigurationDestinationFiltersPtrInput        `pulumi:"filters"`
 }
 
 func (QueryLoggingConfigurationDestinationArgs) ElementType() reflect.Type {
@@ -89,14 +85,12 @@ func (o QueryLoggingConfigurationDestinationOutput) ToQueryLoggingConfigurationD
 	return o
 }
 
-// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
 func (o QueryLoggingConfigurationDestinationOutput) CloudwatchLogs() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestination) *QueryLoggingConfigurationDestinationCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
 }
 
-// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
 func (o QueryLoggingConfigurationDestinationOutput) Filters() QueryLoggingConfigurationDestinationFiltersPtrOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestination) *QueryLoggingConfigurationDestinationFilters {
 		return v.Filters
@@ -124,7 +118,6 @@ func (o QueryLoggingConfigurationDestinationArrayOutput) Index(i pulumi.IntInput
 }
 
 type QueryLoggingConfigurationDestinationCloudwatchLogs struct {
-	// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -140,7 +133,6 @@ type QueryLoggingConfigurationDestinationCloudwatchLogsInput interface {
 }
 
 type QueryLoggingConfigurationDestinationCloudwatchLogsArgs struct {
-	// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -221,7 +213,6 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLogging
 	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
 }
 
-// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationCloudwatchLogs) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -250,7 +241,6 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) Elem() Quer
 	}).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
 }
 
-// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationCloudwatchLogs) *string {
 		if v == nil {
@@ -261,7 +251,6 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) LogGroupArn
 }
 
 type QueryLoggingConfigurationDestinationFilters struct {
-	// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 	QspThreshold int `pulumi:"qspThreshold"`
 }
 
@@ -277,7 +266,6 @@ type QueryLoggingConfigurationDestinationFiltersInput interface {
 }
 
 type QueryLoggingConfigurationDestinationFiltersArgs struct {
-	// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 	QspThreshold pulumi.IntInput `pulumi:"qspThreshold"`
 }
 
@@ -358,7 +346,6 @@ func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigu
 	}).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
 }
 
-// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 func (o QueryLoggingConfigurationDestinationFiltersOutput) QspThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationFilters) int { return v.QspThreshold }).(pulumi.IntOutput)
 }
@@ -387,7 +374,6 @@ func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) Elem() QueryLoggin
 	}).(QueryLoggingConfigurationDestinationFiltersOutput)
 }
 
-// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) QspThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationFilters) *int {
 		if v == nil {
@@ -748,7 +734,6 @@ func (o ResourcePolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ScraperDestination struct {
-	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
 	Amp *ScraperDestinationAmp `pulumi:"amp"`
 }
 
@@ -764,7 +749,6 @@ type ScraperDestinationInput interface {
 }
 
 type ScraperDestinationArgs struct {
-	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
 	Amp ScraperDestinationAmpPtrInput `pulumi:"amp"`
 }
 
@@ -845,7 +829,6 @@ func (o ScraperDestinationOutput) ToScraperDestinationPtrOutputWithContext(ctx c
 	}).(ScraperDestinationPtrOutput)
 }
 
-// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
 func (o ScraperDestinationOutput) Amp() ScraperDestinationAmpPtrOutput {
 	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationAmp { return v.Amp }).(ScraperDestinationAmpPtrOutput)
 }
@@ -874,7 +857,6 @@ func (o ScraperDestinationPtrOutput) Elem() ScraperDestinationOutput {
 	}).(ScraperDestinationOutput)
 }
 
-// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
 func (o ScraperDestinationPtrOutput) Amp() ScraperDestinationAmpPtrOutput {
 	return o.ApplyT(func(v *ScraperDestination) *ScraperDestinationAmp {
 		if v == nil {
@@ -885,7 +867,6 @@ func (o ScraperDestinationPtrOutput) Amp() ScraperDestinationAmpPtrOutput {
 }
 
 type ScraperDestinationAmp struct {
-	// The Amazon Resource Name (ARN) of the prometheus workspace.
 	WorkspaceArn string `pulumi:"workspaceArn"`
 }
 
@@ -901,7 +882,6 @@ type ScraperDestinationAmpInput interface {
 }
 
 type ScraperDestinationAmpArgs struct {
-	// The Amazon Resource Name (ARN) of the prometheus workspace.
 	WorkspaceArn pulumi.StringInput `pulumi:"workspaceArn"`
 }
 
@@ -982,7 +962,6 @@ func (o ScraperDestinationAmpOutput) ToScraperDestinationAmpPtrOutputWithContext
 	}).(ScraperDestinationAmpPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the prometheus workspace.
 func (o ScraperDestinationAmpOutput) WorkspaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScraperDestinationAmp) string { return v.WorkspaceArn }).(pulumi.StringOutput)
 }
@@ -1011,7 +990,6 @@ func (o ScraperDestinationAmpPtrOutput) Elem() ScraperDestinationAmpOutput {
 	}).(ScraperDestinationAmpOutput)
 }
 
-// The Amazon Resource Name (ARN) of the prometheus workspace.
 func (o ScraperDestinationAmpPtrOutput) WorkspaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperDestinationAmp) *string {
 		if v == nil {
@@ -1022,9 +1000,7 @@ func (o ScraperDestinationAmpPtrOutput) WorkspaceArn() pulumi.StringPtrOutput {
 }
 
 type ScraperRoleConfiguration struct {
-	// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
 	SourceRoleArn *string `pulumi:"sourceRoleArn"`
-	// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
 	TargetRoleArn *string `pulumi:"targetRoleArn"`
 }
 
@@ -1040,9 +1016,7 @@ type ScraperRoleConfigurationInput interface {
 }
 
 type ScraperRoleConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
 	SourceRoleArn pulumi.StringPtrInput `pulumi:"sourceRoleArn"`
-	// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
 	TargetRoleArn pulumi.StringPtrInput `pulumi:"targetRoleArn"`
 }
 
@@ -1123,12 +1097,10 @@ func (o ScraperRoleConfigurationOutput) ToScraperRoleConfigurationPtrOutputWithC
 	}).(ScraperRoleConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationOutput) SourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperRoleConfiguration) *string { return v.SourceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperRoleConfiguration) *string { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -1157,7 +1129,6 @@ func (o ScraperRoleConfigurationPtrOutput) Elem() ScraperRoleConfigurationOutput
 	}).(ScraperRoleConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationPtrOutput) SourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperRoleConfiguration) *string {
 		if v == nil {
@@ -1167,7 +1138,6 @@ func (o ScraperRoleConfigurationPtrOutput) SourceRoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperRoleConfiguration) *string {
 		if v == nil {
@@ -1178,7 +1148,6 @@ func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutpu
 }
 
 type ScraperSource struct {
-	// Configuration block for an EKS cluster source. See `eks`.
 	Eks *ScraperSourceEks `pulumi:"eks"`
 }
 
@@ -1194,7 +1163,6 @@ type ScraperSourceInput interface {
 }
 
 type ScraperSourceArgs struct {
-	// Configuration block for an EKS cluster source. See `eks`.
 	Eks ScraperSourceEksPtrInput `pulumi:"eks"`
 }
 
@@ -1275,7 +1243,6 @@ func (o ScraperSourceOutput) ToScraperSourcePtrOutputWithContext(ctx context.Con
 	}).(ScraperSourcePtrOutput)
 }
 
-// Configuration block for an EKS cluster source. See `eks`.
 func (o ScraperSourceOutput) Eks() ScraperSourceEksPtrOutput {
 	return o.ApplyT(func(v ScraperSource) *ScraperSourceEks { return v.Eks }).(ScraperSourceEksPtrOutput)
 }
@@ -1304,7 +1271,6 @@ func (o ScraperSourcePtrOutput) Elem() ScraperSourceOutput {
 	}).(ScraperSourceOutput)
 }
 
-// Configuration block for an EKS cluster source. See `eks`.
 func (o ScraperSourcePtrOutput) Eks() ScraperSourceEksPtrOutput {
 	return o.ApplyT(func(v *ScraperSource) *ScraperSourceEks {
 		if v == nil {
@@ -1315,11 +1281,9 @@ func (o ScraperSourcePtrOutput) Eks() ScraperSourceEksPtrOutput {
 }
 
 type ScraperSourceEks struct {
-	ClusterArn string `pulumi:"clusterArn"`
-	// List of the security group IDs for the Amazon EKS cluster VPC configuration.
+	ClusterArn       string   `pulumi:"clusterArn"`
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of subnet IDs. Must be in at least two different availability zones.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
 // ScraperSourceEksInput is an input type that accepts ScraperSourceEksArgs and ScraperSourceEksOutput values.
@@ -1334,11 +1298,9 @@ type ScraperSourceEksInput interface {
 }
 
 type ScraperSourceEksArgs struct {
-	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
-	// List of the security group IDs for the Amazon EKS cluster VPC configuration.
+	ClusterArn       pulumi.StringInput      `pulumi:"clusterArn"`
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// List of subnet IDs. Must be in at least two different availability zones.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ScraperSourceEksArgs) ElementType() reflect.Type {
@@ -1422,12 +1384,10 @@ func (o ScraperSourceEksOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScraperSourceEks) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
-// List of the security group IDs for the Amazon EKS cluster VPC configuration.
 func (o ScraperSourceEksOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScraperSourceEks) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// List of subnet IDs. Must be in at least two different availability zones.
 func (o ScraperSourceEksOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScraperSourceEks) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1465,7 +1425,6 @@ func (o ScraperSourceEksPtrOutput) ClusterArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of the security group IDs for the Amazon EKS cluster VPC configuration.
 func (o ScraperSourceEksPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScraperSourceEks) []string {
 		if v == nil {
@@ -1475,7 +1434,6 @@ func (o ScraperSourceEksPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of subnet IDs. Must be in at least two different availability zones.
 func (o ScraperSourceEksPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScraperSourceEks) []string {
 		if v == nil {
@@ -1661,10 +1619,8 @@ func (o ScraperTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type WorkspaceConfigurationLimitsPerLabelSet struct {
-	// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-	LabelSet map[string]string `pulumi:"labelSet"`
-	// Configuration block for the limits to apply to the specified label set. Detailed below.
-	Limits *WorkspaceConfigurationLimitsPerLabelSetLimits `pulumi:"limits"`
+	LabelSet map[string]string                              `pulumi:"labelSet"`
+	Limits   *WorkspaceConfigurationLimitsPerLabelSetLimits `pulumi:"limits"`
 }
 
 // WorkspaceConfigurationLimitsPerLabelSetInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetArgs and WorkspaceConfigurationLimitsPerLabelSetOutput values.
@@ -1679,10 +1635,8 @@ type WorkspaceConfigurationLimitsPerLabelSetInput interface {
 }
 
 type WorkspaceConfigurationLimitsPerLabelSetArgs struct {
-	// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-	LabelSet pulumi.StringMapInput `pulumi:"labelSet"`
-	// Configuration block for the limits to apply to the specified label set. Detailed below.
-	Limits WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput `pulumi:"limits"`
+	LabelSet pulumi.StringMapInput                                 `pulumi:"labelSet"`
+	Limits   WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput `pulumi:"limits"`
 }
 
 func (WorkspaceConfigurationLimitsPerLabelSetArgs) ElementType() reflect.Type {
@@ -1736,12 +1690,10 @@ func (o WorkspaceConfigurationLimitsPerLabelSetOutput) ToWorkspaceConfigurationL
 	return o
 }
 
-// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
 func (o WorkspaceConfigurationLimitsPerLabelSetOutput) LabelSet() pulumi.StringMapOutput {
 	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSet) map[string]string { return v.LabelSet }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for the limits to apply to the specified label set. Detailed below.
 func (o WorkspaceConfigurationLimitsPerLabelSetOutput) Limits() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
 	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSet) *WorkspaceConfigurationLimitsPerLabelSetLimits {
 		return v.Limits
@@ -1769,7 +1721,6 @@ func (o WorkspaceConfigurationLimitsPerLabelSetArrayOutput) Index(i pulumi.IntIn
 }
 
 type WorkspaceConfigurationLimitsPerLabelSetLimits struct {
-	// Maximum number of active time series that can be ingested for metrics matching the label set.
 	MaxSeries int `pulumi:"maxSeries"`
 }
 
@@ -1785,7 +1736,6 @@ type WorkspaceConfigurationLimitsPerLabelSetLimitsInput interface {
 }
 
 type WorkspaceConfigurationLimitsPerLabelSetLimitsArgs struct {
-	// Maximum number of active time series that can be ingested for metrics matching the label set.
 	MaxSeries pulumi.IntInput `pulumi:"maxSeries"`
 }
 
@@ -1866,7 +1816,6 @@ func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigur
 	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
 }
 
-// Maximum number of active time series that can be ingested for metrics matching the label set.
 func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) MaxSeries() pulumi.IntOutput {
 	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSetLimits) int { return v.MaxSeries }).(pulumi.IntOutput)
 }
@@ -1895,7 +1844,6 @@ func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) Elem() Workspace
 	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput)
 }
 
-// Maximum number of active time series that can be ingested for metrics matching the label set.
 func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) MaxSeries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceConfigurationLimitsPerLabelSetLimits) *int {
 		if v == nil {
@@ -2062,7 +2010,6 @@ func (o WorkspaceConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput
 }
 
 type WorkspaceLoggingConfiguration struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -2078,7 +2025,6 @@ type WorkspaceLoggingConfigurationInput interface {
 }
 
 type WorkspaceLoggingConfigurationArgs struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -2159,7 +2105,6 @@ func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrO
 	}).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceLoggingConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -2188,7 +2133,6 @@ func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigura
 	}).(WorkspaceLoggingConfigurationOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
 func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceLoggingConfiguration) *string {
 		if v == nil {

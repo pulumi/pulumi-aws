@@ -9,66 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages an EC2 Transit Gateway Policy Table association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.PolicyTableAssociation("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = exampleAwsNetworkmanagerTransitGatewayPeering.TransitGatewayPeeringAttachmentId,
-    ///         TransitGatewayPolicyTableId = exampleAwsEc2TransitGatewayPolicyTable.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation")]
     public partial class PolicyTableAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the resource
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the resource
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Policy Table.
-        /// </summary>
         [Output("transitGatewayPolicyTableId")]
         public Output<string> TransitGatewayPolicyTableId { get; private set; } = null!;
 
@@ -118,21 +73,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PolicyTableAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Policy Table.
-        /// </summary>
         [Input("transitGatewayPolicyTableId", required: true)]
         public Input<string> TransitGatewayPolicyTableId { get; set; } = null!;
 
@@ -144,33 +90,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PolicyTableAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Identifier of the resource
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
-        /// <summary>
-        /// Type of the resource
-        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway Policy Table.
-        /// </summary>
         [Input("transitGatewayPolicyTableId")]
         public Input<string>? TransitGatewayPolicyTableId { get; set; }
 

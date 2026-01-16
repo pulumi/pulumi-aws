@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetInfrastructureConfigurationPlacementResult
     {
-        /// <summary>
-        /// Availability Zone where your build and test instances will launch.
-        /// </summary>
         public readonly string AvailabilityZone;
-        /// <summary>
-        /// ID of the Dedicated Host on which build and test instances run.
-        /// </summary>
         public readonly string HostId;
-        /// <summary>
-        /// ARN of the host resource group in which to launch build and test instances.
-        /// </summary>
         public readonly string HostResourceGroupArn;
-        /// <summary>
-        /// Placement tenancy of the instance.
-        /// </summary>
         public readonly string Tenancy;
 
         [OutputConstructor]

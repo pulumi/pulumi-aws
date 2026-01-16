@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig
     {
-        /// <summary>
-        /// Configuration block for authentication Lambda uses to access the schema registry.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig> AccessConfigs;
-        /// <summary>
-        /// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        /// </summary>
         public readonly string? EventRecordFormat;
-        /// <summary>
-        /// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        /// </summary>
         public readonly string? SchemaRegistryUri;
-        /// <summary>
-        /// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig> SchemaValidationConfigs;
 
         [OutputConstructor]

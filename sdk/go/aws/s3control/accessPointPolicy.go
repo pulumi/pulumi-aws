@@ -12,98 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Access Point resource policy.
-//
-// > **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("example"),
-//				PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
-//					BlockPublicAcls:       pulumi.Bool(true),
-//					BlockPublicPolicy:     pulumi.Bool(false),
-//					IgnorePublicAcls:      pulumi.Bool(true),
-//					RestrictPublicBuckets: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewAccessPointPolicy(ctx, "example", &s3control.AccessPointPolicyArgs{
-//				AccessPointArn: exampleAccessPoint.Arn,
-//				Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2008-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": "s3:GetObjectTagging",
-//								"Principal": map[string]interface{}{
-//									"AWS": "*",
-//								},
-//								"Resource": fmt.Sprintf("%v/object/*", arn),
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
-// ```
 type AccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the access point that you want to associate with the specified policy.
-	AccessPointArn pulumi.StringOutput `pulumi:"accessPointArn"`
-	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
-	// The policy that you want to apply to the specified access point.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AccessPointArn        pulumi.StringOutput `pulumi:"accessPointArn"`
+	HasPublicAccessPolicy pulumi.BoolOutput   `pulumi:"hasPublicAccessPolicy"`
+	Policy                pulumi.StringOutput `pulumi:"policy"`
+	Region                pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -142,25 +57,17 @@ func GetAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPointPolicy resources.
 type accessPointPolicyState struct {
-	// The ARN of the access point that you want to associate with the specified policy.
-	AccessPointArn *string `pulumi:"accessPointArn"`
-	// Indicates whether this access point currently has a policy that allows public access.
-	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
-	// The policy that you want to apply to the specified access point.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccessPointArn        *string `pulumi:"accessPointArn"`
+	HasPublicAccessPolicy *bool   `pulumi:"hasPublicAccessPolicy"`
+	Policy                *string `pulumi:"policy"`
+	Region                *string `pulumi:"region"`
 }
 
 type AccessPointPolicyState struct {
-	// The ARN of the access point that you want to associate with the specified policy.
-	AccessPointArn pulumi.StringPtrInput
-	// Indicates whether this access point currently has a policy that allows public access.
+	AccessPointArn        pulumi.StringPtrInput
 	HasPublicAccessPolicy pulumi.BoolPtrInput
-	// The policy that you want to apply to the specified access point.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy                pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 }
 
 func (AccessPointPolicyState) ElementType() reflect.Type {
@@ -168,22 +75,16 @@ func (AccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type accessPointPolicyArgs struct {
-	// The ARN of the access point that you want to associate with the specified policy.
-	AccessPointArn string `pulumi:"accessPointArn"`
-	// The policy that you want to apply to the specified access point.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccessPointArn string  `pulumi:"accessPointArn"`
+	Policy         string  `pulumi:"policy"`
+	Region         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccessPointPolicy resource.
 type AccessPointPolicyArgs struct {
-	// The ARN of the access point that you want to associate with the specified policy.
 	AccessPointArn pulumi.StringInput
-	// The policy that you want to apply to the specified access point.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy         pulumi.StringInput
+	Region         pulumi.StringPtrInput
 }
 
 func (AccessPointPolicyArgs) ElementType() reflect.Type {
@@ -273,22 +174,18 @@ func (o AccessPointPolicyOutput) ToAccessPointPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// The ARN of the access point that you want to associate with the specified policy.
 func (o AccessPointPolicyOutput) AccessPointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.AccessPointArn }).(pulumi.StringOutput)
 }
 
-// Indicates whether this access point currently has a policy that allows public access.
 func (o AccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
 }
 
-// The policy that you want to apply to the specified access point.
 func (o AccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessPointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

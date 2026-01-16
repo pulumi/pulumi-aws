@@ -15,47 +15,23 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImagesPlainArgs Empty = new GetImagesPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the Registry where the repository resides.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable String registryId;
 
-    /**
-     * @return ID of the Registry where the repository resides.
-     * 
-     */
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the ECR Repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private String repositoryName;
 
-    /**
-     * @return Name of the ECR Repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
@@ -86,34 +62,16 @@ public final class GetImagesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImagesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param registryId ID of the Registry where the repository resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable String registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the ECR Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             $.repositoryName = repositoryName;
             return this;

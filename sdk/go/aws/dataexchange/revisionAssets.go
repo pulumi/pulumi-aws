@@ -12,75 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing AWS Data Exchange Revision Assets.
-//
-// > Note: This resource creates a new revision and adds associated assets. Destroying this resource will delete the revision and all associated assets.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dataexchange"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dataexchange.NewRevisionAssets(ctx, "example", &dataexchange.RevisionAssetsArgs{
-//				DataSetId: pulumi.String("example-data-set-id"),
-//				Assets: dataexchange.RevisionAssetsAssetArray{
-//					&dataexchange.RevisionAssetsAssetArgs{
-//						CreateS3DataAccessFromS3Bucket: &dataexchange.RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs{
-//							AssetSource: &dataexchange.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs{
-//								Bucket: pulumi.String("example-bucket"),
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type RevisionAssets struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Data Exchange Revision Assets.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block to define the asset associated with the revision. See Asset for more details.
-	//
-	// The following arguments are optional:
-	Assets RevisionAssetsAssetArrayOutput `pulumi:"assets"`
-	// A comment for the revision. Maximum length is 16,348 characters.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The timestamp when the revision was created, in RFC3339 format.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Unique identifier for the data set associated with the revision.
-	DataSetId    pulumi.StringOutput  `pulumi:"dataSetId"`
-	Finalized    pulumi.BoolOutput    `pulumi:"finalized"`
-	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput          `pulumi:"tagsAll"`
-	Timeouts RevisionAssetsTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The timestamp when the revision was last updated, in RFC3339 format.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	Arn          pulumi.StringOutput             `pulumi:"arn"`
+	Assets       RevisionAssetsAssetArrayOutput  `pulumi:"assets"`
+	Comment      pulumi.StringPtrOutput          `pulumi:"comment"`
+	CreatedAt    pulumi.StringOutput             `pulumi:"createdAt"`
+	DataSetId    pulumi.StringOutput             `pulumi:"dataSetId"`
+	Finalized    pulumi.BoolOutput               `pulumi:"finalized"`
+	ForceDestroy pulumi.BoolPtrOutput            `pulumi:"forceDestroy"`
+	Region       pulumi.StringOutput             `pulumi:"region"`
+	Tags         pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput          `pulumi:"tagsAll"`
+	Timeouts     RevisionAssetsTimeoutsPtrOutput `pulumi:"timeouts"`
+	UpdatedAt    pulumi.StringOutput             `pulumi:"updatedAt"`
 }
 
 // NewRevisionAssets registers a new resource with the given unique name, arguments, and options.
@@ -116,55 +62,33 @@ func GetRevisionAssets(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RevisionAssets resources.
 type revisionAssetsState struct {
-	// The ARN of the Data Exchange Revision Assets.
-	Arn *string `pulumi:"arn"`
-	// A block to define the asset associated with the revision. See Asset for more details.
-	//
-	// The following arguments are optional:
-	Assets []RevisionAssetsAsset `pulumi:"assets"`
-	// A comment for the revision. Maximum length is 16,348 characters.
-	Comment *string `pulumi:"comment"`
-	// The timestamp when the revision was created, in RFC3339 format.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Unique identifier for the data set associated with the revision.
-	DataSetId    *string `pulumi:"dataSetId"`
-	Finalized    *bool   `pulumi:"finalized"`
-	ForceDestroy *bool   `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string       `pulumi:"tagsAll"`
-	Timeouts *RevisionAssetsTimeouts `pulumi:"timeouts"`
-	// The timestamp when the revision was last updated, in RFC3339 format.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	Arn          *string                 `pulumi:"arn"`
+	Assets       []RevisionAssetsAsset   `pulumi:"assets"`
+	Comment      *string                 `pulumi:"comment"`
+	CreatedAt    *string                 `pulumi:"createdAt"`
+	DataSetId    *string                 `pulumi:"dataSetId"`
+	Finalized    *bool                   `pulumi:"finalized"`
+	ForceDestroy *bool                   `pulumi:"forceDestroy"`
+	Region       *string                 `pulumi:"region"`
+	Tags         map[string]string       `pulumi:"tags"`
+	TagsAll      map[string]string       `pulumi:"tagsAll"`
+	Timeouts     *RevisionAssetsTimeouts `pulumi:"timeouts"`
+	UpdatedAt    *string                 `pulumi:"updatedAt"`
 }
 
 type RevisionAssetsState struct {
-	// The ARN of the Data Exchange Revision Assets.
-	Arn pulumi.StringPtrInput
-	// A block to define the asset associated with the revision. See Asset for more details.
-	//
-	// The following arguments are optional:
-	Assets RevisionAssetsAssetArrayInput
-	// A comment for the revision. Maximum length is 16,348 characters.
-	Comment pulumi.StringPtrInput
-	// The timestamp when the revision was created, in RFC3339 format.
-	CreatedAt pulumi.StringPtrInput
-	// Unique identifier for the data set associated with the revision.
+	Arn          pulumi.StringPtrInput
+	Assets       RevisionAssetsAssetArrayInput
+	Comment      pulumi.StringPtrInput
+	CreatedAt    pulumi.StringPtrInput
 	DataSetId    pulumi.StringPtrInput
 	Finalized    pulumi.BoolPtrInput
 	ForceDestroy pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts RevisionAssetsTimeoutsPtrInput
-	// The timestamp when the revision was last updated, in RFC3339 format.
-	UpdatedAt pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     RevisionAssetsTimeoutsPtrInput
+	UpdatedAt    pulumi.StringPtrInput
 }
 
 func (RevisionAssetsState) ElementType() reflect.Type {
@@ -172,40 +96,26 @@ func (RevisionAssetsState) ElementType() reflect.Type {
 }
 
 type revisionAssetsArgs struct {
-	// A block to define the asset associated with the revision. See Asset for more details.
-	//
-	// The following arguments are optional:
-	Assets []RevisionAssetsAsset `pulumi:"assets"`
-	// A comment for the revision. Maximum length is 16,348 characters.
-	Comment *string `pulumi:"comment"`
-	// Unique identifier for the data set associated with the revision.
-	DataSetId    string `pulumi:"dataSetId"`
-	Finalized    *bool  `pulumi:"finalized"`
-	ForceDestroy *bool  `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string       `pulumi:"tags"`
-	Timeouts *RevisionAssetsTimeouts `pulumi:"timeouts"`
+	Assets       []RevisionAssetsAsset   `pulumi:"assets"`
+	Comment      *string                 `pulumi:"comment"`
+	DataSetId    string                  `pulumi:"dataSetId"`
+	Finalized    *bool                   `pulumi:"finalized"`
+	ForceDestroy *bool                   `pulumi:"forceDestroy"`
+	Region       *string                 `pulumi:"region"`
+	Tags         map[string]string       `pulumi:"tags"`
+	Timeouts     *RevisionAssetsTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a RevisionAssets resource.
 type RevisionAssetsArgs struct {
-	// A block to define the asset associated with the revision. See Asset for more details.
-	//
-	// The following arguments are optional:
-	Assets RevisionAssetsAssetArrayInput
-	// A comment for the revision. Maximum length is 16,348 characters.
-	Comment pulumi.StringPtrInput
-	// Unique identifier for the data set associated with the revision.
+	Assets       RevisionAssetsAssetArrayInput
+	Comment      pulumi.StringPtrInput
 	DataSetId    pulumi.StringInput
 	Finalized    pulumi.BoolPtrInput
 	ForceDestroy pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts RevisionAssetsTimeoutsPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	Timeouts     RevisionAssetsTimeoutsPtrInput
 }
 
 func (RevisionAssetsArgs) ElementType() reflect.Type {
@@ -295,29 +205,22 @@ func (o RevisionAssetsOutput) ToRevisionAssetsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ARN of the Data Exchange Revision Assets.
 func (o RevisionAssetsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block to define the asset associated with the revision. See Asset for more details.
-//
-// The following arguments are optional:
 func (o RevisionAssetsOutput) Assets() RevisionAssetsAssetArrayOutput {
 	return o.ApplyT(func(v *RevisionAssets) RevisionAssetsAssetArrayOutput { return v.Assets }).(RevisionAssetsAssetArrayOutput)
 }
 
-// A comment for the revision. Maximum length is 16,348 characters.
 func (o RevisionAssetsOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp when the revision was created, in RFC3339 format.
 func (o RevisionAssetsOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Unique identifier for the data set associated with the revision.
 func (o RevisionAssetsOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
@@ -330,17 +233,14 @@ func (o RevisionAssetsOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RevisionAssetsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RevisionAssetsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RevisionAssetsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -349,7 +249,6 @@ func (o RevisionAssetsOutput) Timeouts() RevisionAssetsTimeoutsPtrOutput {
 	return o.ApplyT(func(v *RevisionAssets) RevisionAssetsTimeoutsPtrOutput { return v.Timeouts }).(RevisionAssetsTimeoutsPtrOutput)
 }
 
-// The timestamp when the revision was last updated, in RFC3339 format.
 func (o RevisionAssetsOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

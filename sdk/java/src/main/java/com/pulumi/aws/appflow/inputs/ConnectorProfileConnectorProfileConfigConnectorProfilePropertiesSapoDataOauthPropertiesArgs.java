@@ -15,32 +15,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs();
 
-    /**
-     * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-     * 
-     */
     @Import(name="authCodeUrl", required=true)
     private Output<String> authCodeUrl;
 
-    /**
-     * @return The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-     * 
-     */
     public Output<String> authCodeUrl() {
         return this.authCodeUrl;
     }
 
-    /**
-     * The OAuth scopes required for OAuth type authentication.
-     * 
-     */
     @Import(name="oauthScopes", required=true)
     private Output<List<String>> oauthScopes;
 
-    /**
-     * @return The OAuth scopes required for OAuth type authentication.
-     * 
-     */
     public Output<List<String>> oauthScopes() {
         return this.oauthScopes;
     }
@@ -78,54 +62,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authCodeUrl The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authCodeUrl(Output<String> authCodeUrl) {
             $.authCodeUrl = authCodeUrl;
             return this;
         }
 
-        /**
-         * @param authCodeUrl The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authCodeUrl(String authCodeUrl) {
             return authCodeUrl(Output.of(authCodeUrl));
         }
 
-        /**
-         * @param oauthScopes The OAuth scopes required for OAuth type authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthScopes(Output<List<String>> oauthScopes) {
             $.oauthScopes = oauthScopes;
             return this;
         }
 
-        /**
-         * @param oauthScopes The OAuth scopes required for OAuth type authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthScopes(List<String> oauthScopes) {
             return oauthScopes(Output.of(oauthScopes));
         }
 
-        /**
-         * @param oauthScopes The OAuth scopes required for OAuth type authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
         }

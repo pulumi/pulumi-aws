@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppIntegrations.Outputs
     [OutputType]
     public sealed class GetEventIntegrationEventFilterResult
     {
-        /// <summary>
-        /// The source of the events.
-        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

@@ -16,79 +16,37 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
 
     public static final ClusterRestoreToPointInTimeArgs Empty = new ClusterRestoreToPointInTimeArgs();
 
-    /**
-     * Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
-     * 
-     */
     @Import(name="restoreToTime")
     private @Nullable Output<String> restoreToTime;
 
-    /**
-     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
-     * 
-     */
     public Optional<Output<String>> restoreToTime() {
         return Optional.ofNullable(this.restoreToTime);
     }
 
-    /**
-     * Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
-     * 
-     */
     @Import(name="restoreType")
     private @Nullable Output<String> restoreType;
 
-    /**
-     * @return Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
-     * 
-     */
     public Optional<Output<String>> restoreType() {
         return Optional.ofNullable(this.restoreType);
     }
 
-    /**
-     * Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-     * 
-     */
     @Import(name="sourceClusterIdentifier")
     private @Nullable Output<String> sourceClusterIdentifier;
 
-    /**
-     * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-     * 
-     */
     public Optional<Output<String>> sourceClusterIdentifier() {
         return Optional.ofNullable(this.sourceClusterIdentifier);
     }
 
-    /**
-     * Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-     * 
-     */
     @Import(name="sourceClusterResourceId")
     private @Nullable Output<String> sourceClusterResourceId;
 
-    /**
-     * @return Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-     * 
-     */
     public Optional<Output<String>> sourceClusterResourceId() {
         return Optional.ofNullable(this.sourceClusterResourceId);
     }
 
-    /**
-     * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
-     * 
-     */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
-    /**
-     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
-     * 
-     */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }
@@ -121,109 +79,47 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
             $ = new ClusterRestoreToPointInTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreToTime(@Nullable Output<String> restoreToTime) {
             $.restoreToTime = restoreToTime;
             return this;
         }
 
-        /**
-         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreToTime(String restoreToTime) {
             return restoreToTime(Output.of(restoreToTime));
         }
 
-        /**
-         * @param restoreType Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreType(@Nullable Output<String> restoreType) {
             $.restoreType = restoreType;
             return this;
         }
 
-        /**
-         * @param restoreType Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restoreType(String restoreType) {
             return restoreType(Output.of(restoreType));
         }
 
-        /**
-         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceClusterIdentifier(@Nullable Output<String> sourceClusterIdentifier) {
             $.sourceClusterIdentifier = sourceClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
             return sourceClusterIdentifier(Output.of(sourceClusterIdentifier));
         }
 
-        /**
-         * @param sourceClusterResourceId Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceClusterResourceId(@Nullable Output<String> sourceClusterResourceId) {
             $.sourceClusterResourceId = sourceClusterResourceId;
             return this;
         }
 
-        /**
-         * @param sourceClusterResourceId Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceClusterResourceId(String sourceClusterResourceId) {
             return sourceClusterResourceId(Output.of(sourceClusterResourceId));
         }
 
-        /**
-         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLatestRestorableTime(@Nullable Output<Boolean> useLatestRestorableTime) {
             $.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }
 
-        /**
-         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useLatestRestorableTime(Boolean useLatestRestorableTime) {
             return useLatestRestorableTime(Output.of(useLatestRestorableTime));
         }

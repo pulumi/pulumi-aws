@@ -11,111 +11,12 @@ namespace Pulumi.Aws.LicenseManager
 {
     public static class GetReceivedLicenses
     {
-        /// <summary>
-        /// This resource can be used to get a set of license ARNs matching a filter.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.LicenseManager.GetReceivedLicenses.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetReceivedLicensesFilterInputArgs
-        ///             {
-        ///                 Name = "IssuerName",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "AWS/Marketplace",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetReceivedLicensesResult> InvokeAsync(GetReceivedLicensesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be used to get a set of license ARNs matching a filter.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.LicenseManager.GetReceivedLicenses.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetReceivedLicensesFilterInputArgs
-        ///             {
-        ///                 Name = "IssuerName",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "AWS/Marketplace",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReceivedLicensesResult> Invoke(GetReceivedLicensesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be used to get a set of license ARNs matching a filter.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.LicenseManager.GetReceivedLicenses.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetReceivedLicensesFilterInputArgs
-        ///             {
-        ///                 Name = "IssuerName",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "AWS/Marketplace",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReceivedLicensesResult> Invoke(GetReceivedLicensesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesInvokeArgs(), options.WithDefaults());
     }
@@ -125,19 +26,12 @@ namespace Pulumi.Aws.LicenseManager
     {
         [Input("filters")]
         private List<Inputs.GetReceivedLicensesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetReceivedLicensesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetReceivedLicensesFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -151,19 +45,12 @@ namespace Pulumi.Aws.LicenseManager
     {
         [Input("filters")]
         private InputList<Inputs.GetReceivedLicensesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetReceivedLicensesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetReceivedLicensesFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -177,9 +64,6 @@ namespace Pulumi.Aws.LicenseManager
     [OutputType]
     public sealed class GetReceivedLicensesResult
     {
-        /// <summary>
-        /// List of all the license ARNs found.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetReceivedLicensesFilterResult> Filters;
         /// <summary>

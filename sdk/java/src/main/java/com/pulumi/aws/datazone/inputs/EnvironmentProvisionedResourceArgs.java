@@ -14,17 +14,9 @@ public final class EnvironmentProvisionedResourceArgs extends com.pulumi.resourc
 
     public static final EnvironmentProvisionedResourceArgs Empty = new EnvironmentProvisionedResourceArgs();
 
-    /**
-     * The name of the environment.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the environment.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -43,17 +35,9 @@ public final class EnvironmentProvisionedResourceArgs extends com.pulumi.resourc
         return this.type;
     }
 
-    /**
-     * The value of an environment profile parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of an environment profile parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -85,23 +69,11 @@ public final class EnvironmentProvisionedResourceArgs extends com.pulumi.resourc
             $ = new EnvironmentProvisionedResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -124,23 +96,11 @@ public final class EnvironmentProvisionedResourceArgs extends com.pulumi.resourc
             return type(Output.of(type));
         }
 
-        /**
-         * @param value The value of an environment profile parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of an environment profile parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

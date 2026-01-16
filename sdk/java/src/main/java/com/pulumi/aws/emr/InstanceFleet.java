@@ -18,219 +18,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic MapReduce Cluster Instance Fleet configuration.
- * See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
- * 
- * &gt; **NOTE:** At this time, Instance Fleets cannot be destroyed through the API nor
- * web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
- * the provider will resize any Instance Fleet to zero when destroying the resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.InstanceFleet;
- * import com.pulumi.aws.emr.InstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()
- *             .clusterId(cluster.id())
- *             .instanceTypeConfigs(            
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type("gp2")
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType("m4.xlarge")
- *                     .weightedCapacity(1)
- *                     .build(),
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type("gp2")
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType("m4.2xlarge")
- *                     .weightedCapacity(2)
- *                     .build())
- *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
- *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                     .allocationStrategy("capacity-optimized")
- *                     .blockDurationMinutes(0)
- *                     .timeoutAction("TERMINATE_CLUSTER")
- *                     .timeoutDurationMinutes(10)
- *                     .build())
- *                 .build())
- *             .name("task fleet")
- *             .targetOnDemandCapacity(1)
- *             .targetSpotCapacity(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
- * ```
- * 
- */
 @ResourceType(type="aws:emr/instanceFleet:InstanceFleet")
 public class InstanceFleet extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
-    /**
-     * @return ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
-    /**
-     * Configuration block for instance fleet
-     * 
-     */
     @Export(name="instanceTypeConfigs", refs={List.class,InstanceFleetInstanceTypeConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InstanceFleetInstanceTypeConfig>> instanceTypeConfigs;
 
-    /**
-     * @return Configuration block for instance fleet
-     * 
-     */
     public Output<Optional<List<InstanceFleetInstanceTypeConfig>>> instanceTypeConfigs() {
         return Codegen.optional(this.instanceTypeConfigs);
     }
-    /**
-     * Configuration block for launch specification
-     * 
-     */
     @Export(name="launchSpecifications", refs={InstanceFleetLaunchSpecifications.class}, tree="[0]")
     private Output</* @Nullable */ InstanceFleetLaunchSpecifications> launchSpecifications;
 
-    /**
-     * @return Configuration block for launch specification
-     * 
-     */
     public Output<Optional<InstanceFleetLaunchSpecifications>> launchSpecifications() {
         return Codegen.optional(this.launchSpecifications);
     }
-    /**
-     * Friendly name given to the instance fleet.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Friendly name given to the instance fleet.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The number of On-Demand units that have been provisioned for the instance
-     * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-     * 
-     */
     @Export(name="provisionedOnDemandCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedOnDemandCapacity;
 
-    /**
-     * @return The number of On-Demand units that have been provisioned for the instance
-     * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
-     * 
-     */
     public Output<Integer> provisionedOnDemandCapacity() {
         return this.provisionedOnDemandCapacity;
     }
-    /**
-     * The number of Spot units that have been provisioned for this instance fleet
-     * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-     * 
-     */
     @Export(name="provisionedSpotCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedSpotCapacity;
 
-    /**
-     * @return The number of Spot units that have been provisioned for this instance fleet
-     * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
-     * 
-     */
     public Output<Integer> provisionedSpotCapacity() {
         return this.provisionedSpotCapacity;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     @Export(name="targetOnDemandCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> targetOnDemandCapacity;
 
-    /**
-     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     public Output<Optional<Integer>> targetOnDemandCapacity() {
         return Codegen.optional(this.targetOnDemandCapacity);
     }
-    /**
-     * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     @Export(name="targetSpotCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> targetSpotCapacity;
 
-    /**
-     * @return The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     public Output<Optional<Integer>> targetSpotCapacity() {
         return Codegen.optional(this.targetSpotCapacity);
     }

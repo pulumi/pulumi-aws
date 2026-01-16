@@ -31,14 +31,6 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Filter resource.
-        :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
-        :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[_builtins.str] description: Description of the filter.
-        :param pulumi.Input[_builtins.str] name: The name of your filter.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -56,9 +48,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -68,9 +57,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of a GuardDuty detector, attached to your account.
-        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -80,9 +66,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Input['FilterFindingCriteriaArgs']:
-        """
-        Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        """
         return pulumi.get(self, "finding_criteria")
 
     @finding_criteria.setter
@@ -92,9 +75,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Input[_builtins.int]:
-        """
-        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -104,9 +84,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the filter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -116,9 +93,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of your filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,9 +102,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,9 +111,6 @@ class FilterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -165,16 +133,6 @@ class _FilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Filter resources.
-        :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the GuardDuty filter.
-        :param pulumi.Input[_builtins.str] description: Description of the filter.
-        :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
-        :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        :param pulumi.Input[_builtins.str] name: The name of your filter.
-        :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -200,9 +158,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -212,9 +167,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the GuardDuty filter.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -224,9 +176,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the filter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -236,9 +185,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of a GuardDuty detector, attached to your account.
-        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -248,9 +194,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> Optional[pulumi.Input['FilterFindingCriteriaArgs']]:
-        """
-        Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        """
         return pulumi.get(self, "finding_criteria")
 
     @finding_criteria.setter
@@ -260,9 +203,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of your filter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -272,9 +212,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -284,9 +221,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -296,9 +230,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -308,9 +239,6 @@ class _FilterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -334,63 +262,9 @@ class Filter(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a GuardDuty filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_filter = aws.guardduty.Filter("MyFilter",
-            name="MyFilter",
-            action="ARCHIVE",
-            detector_id=example["id"],
-            rank=1,
-            finding_criteria={
-                "criterions": [
-                    {
-                        "field": "region",
-                        "equals": ["eu-west-1"],
-                    },
-                    {
-                        "field": "service.additionalInfo.threatListName",
-                        "not_equals": [
-                            "some-threat",
-                            "another-threat",
-                        ],
-                    },
-                    {
-                        "field": "updatedAt",
-                        "greater_than": "2020-01-01T00:00:00Z",
-                        "less_than": "2020-02-01T00:00:00Z",
-                    },
-                    {
-                        "field": "severity",
-                        "greater_than_or_equal": "4",
-                    },
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
-
-        ```sh
-        $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
-        ```
-
+        Create a Filter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        :param pulumi.Input[_builtins.str] description: Description of the filter.
-        :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
-        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        :param pulumi.Input[_builtins.str] name: The name of your filter.
-        :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -399,53 +273,7 @@ class Filter(pulumi.CustomResource):
                  args: FilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a GuardDuty filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_filter = aws.guardduty.Filter("MyFilter",
-            name="MyFilter",
-            action="ARCHIVE",
-            detector_id=example["id"],
-            rank=1,
-            finding_criteria={
-                "criterions": [
-                    {
-                        "field": "region",
-                        "equals": ["eu-west-1"],
-                    },
-                    {
-                        "field": "service.additionalInfo.threatListName",
-                        "not_equals": [
-                            "some-threat",
-                            "another-threat",
-                        ],
-                    },
-                    {
-                        "field": "updatedAt",
-                        "greater_than": "2020-01-01T00:00:00Z",
-                        "less_than": "2020-02-01T00:00:00Z",
-                    },
-                    {
-                        "field": "severity",
-                        "greater_than_or_equal": "4",
-                    },
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
-
-        ```sh
-        $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
-        ```
-
+        Create a Filter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -523,16 +351,6 @@ class Filter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the GuardDuty filter.
-        :param pulumi.Input[_builtins.str] description: Description of the filter.
-        :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
-        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        :param pulumi.Input[_builtins.str] name: The name of your filter.
-        :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -553,80 +371,50 @@ class Filter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the GuardDuty filter.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the filter.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of a GuardDuty detector, attached to your account.
-        """
         return pulumi.get(self, "detector_id")
 
     @_builtins.property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Output['outputs.FilterFindingCriteria']:
-        """
-        Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-        """
         return pulumi.get(self, "finding_criteria")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of your filter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[_builtins.int]:
-        """
-        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

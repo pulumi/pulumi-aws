@@ -15,108 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Adds an IoT Thing to an IoT Thing Group.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.ThingGroupMembership;
- * import com.pulumi.aws.iot.ThingGroupMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ThingGroupMembership("example", ThingGroupMembershipArgs.builder()
- *             .thingName("example-thing")
- *             .thingGroupName("example-group")
- *             .overrideDynamicGroup(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
- * ```
- * 
- */
 @ResourceType(type="aws:iot/thingGroupMembership:ThingGroupMembership")
 public class ThingGroupMembership extends com.pulumi.resources.CustomResource {
-    /**
-     * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-     * 
-     */
     @Export(name="overrideDynamicGroup", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overrideDynamicGroup;
 
-    /**
-     * @return Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-     * 
-     */
     public Output<Optional<Boolean>> overrideDynamicGroup() {
         return Codegen.optional(this.overrideDynamicGroup);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the group to which you are adding a thing.
-     * 
-     */
     @Export(name="thingGroupName", refs={String.class}, tree="[0]")
     private Output<String> thingGroupName;
 
-    /**
-     * @return The name of the group to which you are adding a thing.
-     * 
-     */
     public Output<String> thingGroupName() {
         return this.thingGroupName;
     }
-    /**
-     * The name of the thing to add to a group.
-     * 
-     */
     @Export(name="thingName", refs={String.class}, tree="[0]")
     private Output<String> thingName;
 
-    /**
-     * @return The name of the thing to add to a group.
-     * 
-     */
     public Output<String> thingName() {
         return this.thingName;
     }

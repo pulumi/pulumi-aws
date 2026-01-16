@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an Amazon MSK VPC Connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getVpcConnection({
- *     arn: exampleAwsMskVpcConnection.arn,
- * });
- * ```
- */
 export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getVpcConnection:getVpcConnection", {
@@ -31,17 +17,8 @@ export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getVpcConnection.
  */
 export interface GetVpcConnectionArgs {
-    /**
-     * ARN of the VPC Connection.
-     */
     arn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of key-value pairs assigned to the VPC Connection.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -50,50 +27,18 @@ export interface GetVpcConnectionArgs {
  */
 export interface GetVpcConnectionResult {
     readonly arn: string;
-    /**
-     * The authentication type for the client VPC Connection.
-     */
     readonly authentication: string;
-    /**
-     * The list of subnets in the client VPC.
-     */
     readonly clientSubnets: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * The security groups attached to the ENIs for the broker nodes.
-     */
     readonly securityGroups: string[];
-    /**
-     * Map of key-value pairs assigned to the VPC Connection.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * The Amazon Resource Name (ARN) of the cluster.
-     */
     readonly targetClusterArn: string;
-    /**
-     * The VPC ID of the remote client.
-     */
     readonly vpcId: string;
 }
-/**
- * Get information on an Amazon MSK VPC Connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getVpcConnection({
- *     arn: exampleAwsMskVpcConnection.arn,
- * });
- * ```
- */
 export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getVpcConnection:getVpcConnection", {
@@ -107,16 +52,7 @@ export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: 
  * A collection of arguments for invoking getVpcConnection.
  */
 export interface GetVpcConnectionOutputArgs {
-    /**
-     * ARN of the VPC Connection.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of key-value pairs assigned to the VPC Connection.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

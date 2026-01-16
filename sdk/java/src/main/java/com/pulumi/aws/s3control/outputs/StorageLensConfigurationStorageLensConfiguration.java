@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfiguration {
-    /**
-     * @return The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-     * 
-     */
     private StorageLensConfigurationStorageLensConfigurationAccountLevel accountLevel;
-    /**
-     * @return The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAwsOrg awsOrg;
-    /**
-     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExport dataExport;
-    /**
-     * @return Whether the S3 Storage Lens configuration is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExclude exclude;
-    /**
-     * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationInclude include;
 
     private StorageLensConfigurationStorageLensConfiguration() {}
-    /**
-     * @return The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-     * 
-     */
     public StorageLensConfigurationStorageLensConfigurationAccountLevel accountLevel() {
         return this.accountLevel;
     }
-    /**
-     * @return The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationAwsOrg> awsOrg() {
         return Optional.ofNullable(this.awsOrg);
     }
-    /**
-     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExport> dataExport() {
         return Optional.ofNullable(this.dataExport);
     }
-    /**
-     * @return Whether the S3 Storage Lens configuration is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationExclude> exclude() {
         return Optional.ofNullable(this.exclude);
     }
-    /**
-     * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationInclude> include() {
         return Optional.ofNullable(this.include);
     }

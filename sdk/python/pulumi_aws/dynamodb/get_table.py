@@ -273,20 +273,7 @@ def get_table(name: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
-    Provides information about a DynamoDB table.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    table_name = aws.dynamodb.get_table(name="tableName")
-    ```
-
-
-    :param _builtins.str name: Name of the DynamoDB table.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -328,20 +315,7 @@ def get_table_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
-    Provides information about a DynamoDB table.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    table_name = aws.dynamodb.get_table(name="tableName")
-    ```
-
-
-    :param _builtins.str name: Name of the DynamoDB table.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

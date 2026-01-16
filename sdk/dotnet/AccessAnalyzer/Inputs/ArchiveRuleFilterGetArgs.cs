@@ -14,46 +14,28 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
     {
         [Input("contains")]
         private InputList<string>? _contains;
-
-        /// <summary>
-        /// Contains comparator.
-        /// </summary>
         public InputList<string> Contains
         {
             get => _contains ?? (_contains = new InputList<string>());
             set => _contains = value;
         }
 
-        /// <summary>
-        /// Filter criteria.
-        /// </summary>
         [Input("criteria", required: true)]
         public Input<string> Criteria { get; set; } = null!;
 
         [Input("eqs")]
         private InputList<string>? _eqs;
-
-        /// <summary>
-        /// Equals comparator.
-        /// </summary>
         public InputList<string> Eqs
         {
             get => _eqs ?? (_eqs = new InputList<string>());
             set => _eqs = value;
         }
 
-        /// <summary>
-        /// Boolean comparator.
-        /// </summary>
         [Input("exists")]
         public Input<string>? Exists { get; set; }
 
         [Input("neqs")]
         private InputList<string>? _neqs;
-
-        /// <summary>
-        /// Not Equals comparator.
-        /// </summary>
         public InputList<string> Neqs
         {
             get => _neqs ?? (_neqs = new InputList<string>());

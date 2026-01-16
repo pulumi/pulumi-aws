@@ -15,17 +15,9 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
 
     public static final DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs Empty = new DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs();
 
-    /**
-     * A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
-     * 
-     */
     @Import(name="s3Prefix")
     private @Nullable Output<String> s3Prefix;
 
-    /**
-     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
-     * 
-     */
     public Optional<Output<String>> s3Prefix() {
         return Optional.ofNullable(this.s3Prefix);
     }
@@ -54,23 +46,11 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
             $ = new DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Prefix A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(@Nullable Output<String> s3Prefix) {
             $.s3Prefix = s3Prefix;
             return this;
         }
 
-        /**
-         * @param s3Prefix A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Prefix(String s3Prefix) {
             return s3Prefix(Output.of(s3Prefix));
         }

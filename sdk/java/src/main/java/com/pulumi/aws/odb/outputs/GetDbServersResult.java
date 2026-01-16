@@ -13,10 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetDbServersResult {
     private String cloudExadataInfrastructureId;
-    /**
-     * @return the list of DB servers along with their properties.
-     * 
-     */
     private List<GetDbServersDbServer> dbServers;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,10 +25,6 @@ public final class GetDbServersResult {
     public String cloudExadataInfrastructureId() {
         return this.cloudExadataInfrastructureId;
     }
-    /**
-     * @return the list of DB servers along with their properties.
-     * 
-     */
     public List<GetDbServersDbServer> dbServers() {
         return this.dbServers;
     }

@@ -9,145 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route 53 Resolver endpoint resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Route53.ResolverEndpoint("foo", new()
-    ///     {
-    ///         Name = "foo",
-    ///         Direction = "INBOUND",
-    ///         ResolverEndpointType = "IPV4",
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             sg1.Id,
-    ///             sg2.Id,
-    ///         },
-    ///         IpAddresses = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
-    ///             {
-    ///                 SubnetId = sn1.Id,
-    ///             },
-    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
-    ///             {
-    ///                 SubnetId = sn2.Id,
-    ///                 Ip = "10.0.64.4",
-    ///             },
-    ///         },
-    ///         Protocols = new[]
-    ///         {
-    ///             "Do53",
-    ///             "DoH",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Prod" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
     public partial class ResolverEndpoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Route 53 Resolver endpoint.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        /// </summary>
         [Output("direction")]
         public Output<string> Direction { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the VPC that you want to create the resolver endpoint in.
-        /// </summary>
         [Output("hostVpcId")]
         public Output<string> HostVpcId { get; private set; } = null!;
 
-        /// <summary>
-        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-        /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        /// </summary>
         [Output("ipAddresses")]
         public Output<ImmutableArray<Outputs.ResolverEndpointIpAddress>> IpAddresses { get; private set; } = null!;
 
-        /// <summary>
-        /// Friendly name of the Route 53 Resolver endpoint.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Protocols you want to use for the Route 53 Resolver endpoint.
-        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
-        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        /// </summary>
         [Output("resolverEndpointType")]
         public Output<string> ResolverEndpointType { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `False`. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
-        /// </summary>
         [Output("rniEnhancedMetricsEnabled")]
         public Output<bool> RniEnhancedMetricsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of one or more security groups that you want to use to control access to this VPC.
-        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `False`. This argument is supported only for outbound endpoints. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
-        /// </summary>
         [Output("targetNameServerMetricsEnabled")]
         public Output<bool> TargetNameServerMetricsEnabled { get; private set; } = null!;
 
@@ -197,70 +97,39 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverEndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        /// </summary>
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
 
         [Input("ipAddresses", required: true)]
         private InputList<Inputs.ResolverEndpointIpAddressArgs>? _ipAddresses;
-
-        /// <summary>
-        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-        /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        /// </summary>
         public InputList<Inputs.ResolverEndpointIpAddressArgs> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressArgs>());
             set => _ipAddresses = value;
         }
 
-        /// <summary>
-        /// Friendly name of the Route 53 Resolver endpoint.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("protocols")]
         private InputList<string>? _protocols;
-
-        /// <summary>
-        /// Protocols you want to use for the Route 53 Resolver endpoint.
-        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
-        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        /// </summary>
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
 
-        /// <summary>
-        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `False`. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
-        /// </summary>
         [Input("rniEnhancedMetricsEnabled")]
         public Input<bool>? RniEnhancedMetricsEnabled { get; set; }
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// ID of one or more security groups that you want to use to control access to this VPC.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -269,19 +138,12 @@ namespace Pulumi.Aws.Route53
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `False`. This argument is supported only for outbound endpoints. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
-        /// </summary>
         [Input("targetNameServerMetricsEnabled")]
         public Input<bool>? TargetNameServerMetricsEnabled { get; set; }
 
@@ -293,82 +155,45 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverEndpointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Route 53 Resolver endpoint.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
-        /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-        /// </summary>
         [Input("direction")]
         public Input<string>? Direction { get; set; }
 
-        /// <summary>
-        /// ID of the VPC that you want to create the resolver endpoint in.
-        /// </summary>
         [Input("hostVpcId")]
         public Input<string>? HostVpcId { get; set; }
 
         [Input("ipAddresses")]
         private InputList<Inputs.ResolverEndpointIpAddressGetArgs>? _ipAddresses;
-
-        /// <summary>
-        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-        /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-        /// </summary>
         public InputList<Inputs.ResolverEndpointIpAddressGetArgs> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressGetArgs>());
             set => _ipAddresses = value;
         }
 
-        /// <summary>
-        /// Friendly name of the Route 53 Resolver endpoint.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("protocols")]
         private InputList<string>? _protocols;
-
-        /// <summary>
-        /// Protocols you want to use for the Route 53 Resolver endpoint.
-        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
-        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-        /// </summary>
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
 
-        /// <summary>
-        /// Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `False`. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
-        /// </summary>
         [Input("rniEnhancedMetricsEnabled")]
         public Input<bool>? RniEnhancedMetricsEnabled { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// ID of one or more security groups that you want to use to control access to this VPC.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -377,10 +202,6 @@ namespace Pulumi.Aws.Route53
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -389,19 +210,12 @@ namespace Pulumi.Aws.Route53
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `False`. This argument is supported only for outbound endpoints. Once set, changing the value back to `False` requires explicitly specifying `False` rather than removing the argument.
-        /// </summary>
         [Input("targetNameServerMetricsEnabled")]
         public Input<bool>? TargetNameServerMetricsEnabled { get; set; }
 

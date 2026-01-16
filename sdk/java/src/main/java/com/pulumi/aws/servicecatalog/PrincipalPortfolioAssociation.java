@@ -14,127 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Service Catalog Principal Portfolio Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.PrincipalPortfolioAssociation;
- * import com.pulumi.aws.servicecatalog.PrincipalPortfolioAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PrincipalPortfolioAssociation("example", PrincipalPortfolioAssociationArgs.builder()
- *             .portfolioId("port-68656c6c6f")
- *             .principalArn("arn:aws:iam::123456789012:user/Eleanor")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")
 public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Output<Optional<String>> acceptLanguage() {
         return Codegen.optional(this.acceptLanguage);
     }
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Export(name="portfolioId", refs={String.class}, tree="[0]")
     private Output<String> portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
-    /**
-     * Principal ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
-    /**
-     * @return Principal ARN.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> principalArn() {
         return this.principalArn;
     }
-    /**
-     * Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-     * 
-     */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> principalType;
 
-    /**
-     * @return Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-     * 
-     */
     public Output<Optional<String>> principalType() {
         return Codegen.optional(this.principalType);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

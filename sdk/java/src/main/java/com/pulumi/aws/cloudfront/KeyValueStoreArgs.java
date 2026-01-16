@@ -16,36 +16,16 @@ public final class KeyValueStoreArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeyValueStoreArgs Empty = new KeyValueStoreArgs();
 
-    /**
-     * Comment.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Unique name for your CloudFront KeyValueStore.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name for your CloudFront KeyValueStore.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -83,48 +63,20 @@ public final class KeyValueStoreArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeyValueStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment Comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param name Unique name for your CloudFront KeyValueStore.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name for your CloudFront KeyValueStore.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

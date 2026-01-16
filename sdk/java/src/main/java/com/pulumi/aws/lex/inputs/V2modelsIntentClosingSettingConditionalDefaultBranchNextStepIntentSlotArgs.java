@@ -17,47 +17,23 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepI
 
     public static final V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs Empty = new V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs();
 
-    /**
-     * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     @Import(name="mapBlockKey", required=true)
     private Output<String> mapBlockKey;
 
-    /**
-     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     public Output<String> mapBlockKey() {
         return this.mapBlockKey;
     }
 
-    /**
-     * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
-     * 
-     */
     @Import(name="shape")
     private @Nullable Output<String> shape;
 
-    /**
-     * @return When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
-     * 
-     */
     public Optional<Output<String>> shape() {
         return Optional.ofNullable(this.shape);
     }
 
-    /**
-     * Configuration block for the current value of the slot. See `value`.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs> value;
 
-    /**
-     * @return Configuration block for the current value of the slot. See `value`.
-     * 
-     */
     public Optional<Output<V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -88,65 +64,29 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepI
             $ = new V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapBlockKey Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapBlockKey(Output<String> mapBlockKey) {
             $.mapBlockKey = mapBlockKey;
             return this;
         }
 
-        /**
-         * @param mapBlockKey Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapBlockKey(String mapBlockKey) {
             return mapBlockKey(Output.of(mapBlockKey));
         }
 
-        /**
-         * @param shape When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shape(@Nullable Output<String> shape) {
             $.shape = shape;
             return this;
         }
 
-        /**
-         * @param shape When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shape(String shape) {
             return shape(Output.of(shape));
         }
 
-        /**
-         * @param value Configuration block for the current value of the slot. See `value`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Configuration block for the current value of the slot. See `value`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs value) {
             return value(Output.of(value));
         }

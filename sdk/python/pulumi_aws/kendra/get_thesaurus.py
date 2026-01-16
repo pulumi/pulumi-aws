@@ -83,41 +83,26 @@ class GetThesaurusResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Thesaurus.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
-        """
-        Unix datetime that the Thesaurus was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the Thesaurus.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> _builtins.str:
-        """
-        When the `status` field value is `FAILED`, this contains a message that explains why.
-        """
         return pulumi.get(self, "error_message")
 
     @_builtins.property
     @pulumi.getter(name="fileSizeBytes")
     def file_size_bytes(self) -> _builtins.int:
-        """
-        Size of the Thesaurus file in bytes.
-        """
         return pulumi.get(self, "file_size_bytes")
 
     @_builtins.property
@@ -136,9 +121,6 @@ class GetThesaurusResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Thesaurus.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -149,49 +131,31 @@ class GetThesaurusResult:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="sourceS3Paths")
     def source_s3_paths(self) -> Sequence['outputs.GetThesaurusSourceS3PathResult']:
-        """
-        S3 location of the Thesaurus input data. Detailed below.
-        """
         return pulumi.get(self, "source_s3_paths")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="synonymRuleCount")
     def synonym_rule_count(self) -> _builtins.int:
-        """
-        Number of synonym rules in the Thesaurus file.
-        """
         return pulumi.get(self, "synonym_rule_count")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Metadata that helps organize the Thesaurus you create.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="termCount")
     def term_count(self) -> _builtins.int:
-        """
-        Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=>d`, the term count would be 4.
-        """
         return pulumi.get(self, "term_count")
 
     @_builtins.property
@@ -202,9 +166,6 @@ class GetThesaurusResult:
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> _builtins.str:
-        """
-        Date and time that the Thesaurus was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -239,23 +200,7 @@ def get_thesaurus(index_id: Optional[_builtins.str] = None,
                   thesaurus_id: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThesaurusResult:
     """
-    Provides details about a specific Amazon Kendra Thesaurus.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_thesaurus(index_id="12345678-1234-1234-1234-123456789123",
-        thesaurus_id="87654321-1234-4321-4321-321987654321")
-    ```
-
-
-    :param _builtins.str index_id: Identifier of the index that contains the Thesaurus.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that helps organize the Thesaurus you create.
-    :param _builtins.str thesaurus_id: Identifier of the Thesaurus.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
@@ -289,23 +234,7 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[_builtins.str]] = None,
                          thesaurus_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThesaurusResult]:
     """
-    Provides details about a specific Amazon Kendra Thesaurus.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_thesaurus(index_id="12345678-1234-1234-1234-123456789123",
-        thesaurus_id="87654321-1234-4321-4321-321987654321")
-    ```
-
-
-    :param _builtins.str index_id: Identifier of the index that contains the Thesaurus.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that helps organize the Thesaurus you create.
-    :param _builtins.str thesaurus_id: Identifier of the Thesaurus.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['indexId'] = index_id

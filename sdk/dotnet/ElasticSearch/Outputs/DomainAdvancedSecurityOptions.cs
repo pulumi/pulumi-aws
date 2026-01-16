@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptions
     {
-        /// <summary>
-        /// Whether advanced security is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Whether the internal user database is enabled. If not set, defaults to `False` by the AWS API.
-        /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
-        /// <summary>
-        /// Configuration block for the main user. Detailed below.
-        /// </summary>
         public readonly Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions;
 
         [OutputConstructor]

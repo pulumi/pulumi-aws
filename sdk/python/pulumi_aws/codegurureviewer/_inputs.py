@@ -38,13 +38,7 @@ MYPY = False
 if not MYPY:
     class RepositoryAssociationKmsKeyDetailsArgsDict(TypedDict):
         encryption_option: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        """
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the AWS KMS key that is associated with a repository association.
-        """
 elif False:
     RepositoryAssociationKmsKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53,10 +47,6 @@ class RepositoryAssociationKmsKeyDetailsArgs:
     def __init__(__self__, *,
                  encryption_option: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] encryption_option: The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS KMS key that is associated with a repository association.
-        """
         if encryption_option is not None:
             pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key_id is not None:
@@ -65,9 +55,6 @@ class RepositoryAssociationKmsKeyDetailsArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
@@ -77,9 +64,6 @@ class RepositoryAssociationKmsKeyDetailsArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AWS KMS key that is associated with a repository association.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -152,17 +136,8 @@ class RepositoryAssociationRepositoryArgs:
 if not MYPY:
     class RepositoryAssociationRepositoryBitbucketArgsDict(TypedDict):
         connection_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the third party source repository.
-        """
         owner: pulumi.Input[_builtins.str]
-        """
-        The username for the account that owns the repository.
-        """
 elif False:
     RepositoryAssociationRepositoryBitbucketArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -172,11 +147,6 @@ class RepositoryAssociationRepositoryBitbucketArgs:
                  connection_arn: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  owner: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param pulumi.Input[_builtins.str] name: The name of the third party source repository.
-        :param pulumi.Input[_builtins.str] owner: The username for the account that owns the repository.
-        """
         pulumi.set(__self__, "connection_arn", connection_arn)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -184,9 +154,6 @@ class RepositoryAssociationRepositoryBitbucketArgs:
     @_builtins.property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
@@ -196,9 +163,6 @@ class RepositoryAssociationRepositoryBitbucketArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the third party source repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -208,9 +172,6 @@ class RepositoryAssociationRepositoryBitbucketArgs:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Input[_builtins.str]:
-        """
-        The username for the account that owns the repository.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -221,9 +182,6 @@ class RepositoryAssociationRepositoryBitbucketArgs:
 if not MYPY:
     class RepositoryAssociationRepositoryCodecommitArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the AWS CodeCommit repository.
-        """
 elif False:
     RepositoryAssociationRepositoryCodecommitArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -231,17 +189,11 @@ elif False:
 class RepositoryAssociationRepositoryCodecommitArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the AWS CodeCommit repository.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the AWS CodeCommit repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -252,17 +204,8 @@ class RepositoryAssociationRepositoryCodecommitArgs:
 if not MYPY:
     class RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict(TypedDict):
         connection_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the third party source repository.
-        """
         owner: pulumi.Input[_builtins.str]
-        """
-        The username for the account that owns the repository.
-        """
 elif False:
     RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -272,11 +215,6 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
                  connection_arn: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  owner: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param pulumi.Input[_builtins.str] name: The name of the third party source repository.
-        :param pulumi.Input[_builtins.str] owner: The username for the account that owns the repository.
-        """
         pulumi.set(__self__, "connection_arn", connection_arn)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -284,9 +222,6 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
     @_builtins.property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
@@ -296,9 +231,6 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the third party source repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -308,9 +240,6 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Input[_builtins.str]:
-        """
-        The username for the account that owns the repository.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -321,13 +250,7 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
 if not MYPY:
     class RepositoryAssociationRepositoryS3BucketArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the repository in the S3 bucket.
-        """
 elif False:
     RepositoryAssociationRepositoryS3BucketArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -336,19 +259,12 @@ class RepositoryAssociationRepositoryS3BucketArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        :param pulumi.Input[_builtins.str] name: The name of the repository in the S3 bucket.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -358,9 +274,6 @@ class RepositoryAssociationRepositoryS3BucketArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the repository in the S3 bucket.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -371,9 +284,6 @@ class RepositoryAssociationRepositoryS3BucketArgs:
 if not MYPY:
     class RepositoryAssociationS3RepositoryDetailArgsDict(TypedDict):
         bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         code_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict']]]]
 elif False:
     RepositoryAssociationS3RepositoryDetailArgsDict: TypeAlias = Mapping[str, Any]
@@ -383,9 +293,6 @@ class RepositoryAssociationS3RepositoryDetailArgs:
     def __init__(__self__, *,
                  bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  code_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if code_artifacts is not None:
@@ -394,9 +301,6 @@ class RepositoryAssociationS3RepositoryDetailArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter

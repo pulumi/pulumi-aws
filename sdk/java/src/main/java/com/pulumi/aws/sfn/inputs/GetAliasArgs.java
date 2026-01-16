@@ -16,62 +16,30 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAliasArgs Empty = new GetAliasArgs();
 
-    /**
-     * Description of state machine alias.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of state machine alias.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the State Machine alias.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the State Machine alias.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the State Machine.
-     * 
-     */
     @Import(name="statemachineArn", required=true)
     private Output<String> statemachineArn;
 
-    /**
-     * @return ARN of the State Machine.
-     * 
-     */
     public Output<String> statemachineArn() {
         return this.statemachineArn;
     }
@@ -103,86 +71,38 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of state machine alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of state machine alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the State Machine alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the State Machine alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param statemachineArn ARN of the State Machine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statemachineArn(Output<String> statemachineArn) {
             $.statemachineArn = statemachineArn;
             return this;
         }
 
-        /**
-         * @param statemachineArn ARN of the State Machine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statemachineArn(String statemachineArn) {
             return statemachineArn(Output.of(statemachineArn));
         }

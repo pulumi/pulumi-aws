@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationRuntimeConfiguration
     {
-        /// <summary>
-        /// The classification within a configuration.
-        /// </summary>
         public readonly string Classification;
-        /// <summary>
-        /// A set of properties specified within a configuration classification.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
 
         [OutputConstructor]

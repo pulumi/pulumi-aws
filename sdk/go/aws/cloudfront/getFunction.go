@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a CloudFront Function.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			functionName := cfg.Require("functionName")
-//			_, err := cloudfront.LookupFunction(ctx, &cloudfront.LookupFunctionArgs{
-//				Name:  functionName,
-//				Stage: "LIVE",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionResult
@@ -54,34 +23,24 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 
 // A collection of arguments for invoking getFunction.
 type LookupFunctionArgs struct {
-	// Name of the CloudFront function.
-	Name string `pulumi:"name"`
-	// Function’s stage, either `DEVELOPMENT` or `LIVE`.
+	Name  string `pulumi:"name"`
 	Stage string `pulumi:"stage"`
 }
 
 // A collection of values returned by getFunction.
 type LookupFunctionResult struct {
-	// ARN identifying your CloudFront Function.
-	Arn string `pulumi:"arn"`
-	// Source code of the function
-	Code string `pulumi:"code"`
-	// Comment.
+	Arn     string `pulumi:"arn"`
+	Code    string `pulumi:"code"`
 	Comment string `pulumi:"comment"`
-	// ETag hash of the function
-	Etag string `pulumi:"etag"`
+	Etag    string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of `cloudfront.KeyValueStore` ARNs associated to the function.
+	Id                        string   `pulumi:"id"`
 	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
-	// When this resource was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	Name             string `pulumi:"name"`
-	// Identifier of the function's runtime.
-	Runtime string `pulumi:"runtime"`
-	Stage   string `pulumi:"stage"`
-	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-	Status string `pulumi:"status"`
+	LastModifiedTime          string   `pulumi:"lastModifiedTime"`
+	Name                      string   `pulumi:"name"`
+	Runtime                   string   `pulumi:"runtime"`
+	Stage                     string   `pulumi:"stage"`
+	Status                    string   `pulumi:"status"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -95,9 +54,7 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 
 // A collection of arguments for invoking getFunction.
 type LookupFunctionOutputArgs struct {
-	// Name of the CloudFront function.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Function’s stage, either `DEVELOPMENT` or `LIVE`.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Stage pulumi.StringInput `pulumi:"stage"`
 }
 
@@ -120,22 +77,18 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN identifying your CloudFront Function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Source code of the function
 func (o LookupFunctionResultOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Comment.
 func (o LookupFunctionResultOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// ETag hash of the function
 func (o LookupFunctionResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Etag }).(pulumi.StringOutput)
 }
@@ -145,12 +98,10 @@ func (o LookupFunctionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of `cloudfront.KeyValueStore` ARNs associated to the function.
 func (o LookupFunctionResultOutput) KeyValueStoreAssociations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []string { return v.KeyValueStoreAssociations }).(pulumi.StringArrayOutput)
 }
 
-// When this resource was last modified.
 func (o LookupFunctionResultOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
@@ -159,7 +110,6 @@ func (o LookupFunctionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Identifier of the function's runtime.
 func (o LookupFunctionResultOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Runtime }).(pulumi.StringOutput)
 }
@@ -168,7 +118,6 @@ func (o LookupFunctionResultOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 func (o LookupFunctionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Status }).(pulumi.StringOutput)
 }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("customDataIdentifiers")]
         private List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>? _customDataIdentifiers;
-
-        /// <summary>
-        /// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-        /// </summary>
         public List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs> CustomDataIdentifiers
         {
             get => _customDataIdentifiers ?? (_customDataIdentifiers = new List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>());

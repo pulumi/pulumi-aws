@@ -16,32 +16,16 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
 
     public static final ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs Empty = new ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs();
 
-    /**
-     * An object that specifies parameter values for a control in a configuration policy. See below.
-     * 
-     */
     @Import(name="parameters", required=true)
     private Output<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs>> parameters;
 
-    /**
-     * @return An object that specifies parameter values for a control in a configuration policy. See below.
-     * 
-     */
     public Output<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs>> parameters() {
         return this.parameters;
     }
 
-    /**
-     * The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     @Import(name="securityControlId", required=true)
     private Output<String> securityControlId;
 
-    /**
-     * @return The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-     * 
-     */
     public Output<String> securityControlId() {
         return this.securityControlId;
     }
@@ -71,54 +55,24 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
             $ = new ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameters An object that specifies parameter values for a control in a configuration policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Output<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters An object that specifies parameter values for a control in a configuration policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters An object that specifies parameter values for a control in a configuration policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param securityControlId The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlId(Output<String> securityControlId) {
             $.securityControlId = securityControlId;
             return this;
         }
 
-        /**
-         * @param securityControlId The ID of the security control. For more information see the [Security Hub controls reference] documentation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlId(String securityControlId) {
             return securityControlId(Output.of(securityControlId));
         }

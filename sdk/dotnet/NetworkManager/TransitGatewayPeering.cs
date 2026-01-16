@@ -9,111 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages a Network Manager transit gateway peering connection. Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.TransitGatewayPeering("example", new()
-    ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransitGatewayArn = exampleAwsEc2TransitGateway.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsEc2TransitGatewayPolicyTable,
-    ///             exampleAwsNetworkmanagerCoreNetworkPolicyAttachment,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")]
     public partial class TransitGatewayPeering : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Peering ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the core network.
-        /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of a core network.
-        /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Edge location for the peer.
-        /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the account owner.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of peering. This will be `TRANSIT_GATEWAY`.
-        /// </summary>
         [Output("peeringType")]
         public Output<string> PeeringType { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource ARN of the peer.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the peering. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the transit gateway for the peering request.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("transitGatewayArn")]
         public Output<string> TransitGatewayArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the transit gateway peering attachment.
-        /// </summary>
         [Output("transitGatewayPeeringAttachmentId")]
         public Output<string> TransitGatewayPeeringAttachmentId { get; private set; } = null!;
 
@@ -163,29 +91,17 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayPeeringArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of a core network.
-        /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the peering. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ARN of the transit gateway for the peering request.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transitGatewayArn", required: true)]
         public Input<string> TransitGatewayArn { get; set; } = null!;
 
@@ -197,54 +113,29 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayPeeringState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Peering ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the core network.
-        /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
-        /// <summary>
-        /// ID of a core network.
-        /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
-        /// <summary>
-        /// Edge location for the peer.
-        /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
 
-        /// <summary>
-        /// ID of the account owner.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// Type of peering. This will be `TRANSIT_GATEWAY`.
-        /// </summary>
         [Input("peeringType")]
         public Input<string>? PeeringType { get; set; }
 
-        /// <summary>
-        /// Resource ARN of the peer.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the peering. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -253,27 +144,15 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ARN of the transit gateway for the peering request.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("transitGatewayArn")]
         public Input<string>? TransitGatewayArn { get; set; }
 
-        /// <summary>
-        /// ID of the transit gateway peering attachment.
-        /// </summary>
         [Input("transitGatewayPeeringAttachmentId")]
         public Input<string>? TransitGatewayPeeringAttachmentId { get; set; }
 

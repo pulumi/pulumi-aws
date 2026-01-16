@@ -7,58 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS MediaLive MultiplexProgram.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const example = new aws.medialive.Multiplex("example", {
- *     name: "example-multiplex-changed",
- *     availabilityZones: [
- *         available.then(available => available.names?.[0]),
- *         available.then(available => available.names?.[1]),
- *     ],
- *     multiplexSettings: {
- *         transportStreamBitrate: 1000000,
- *         transportStreamId: 1,
- *         transportStreamReservedBitrate: 1,
- *         maximumVideoBufferDelayMilliseconds: 1000,
- *     },
- *     startMultiplex: true,
- *     tags: {
- *         tag1: "value1",
- *     },
- * });
- * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("example", {
- *     programName: "example_program",
- *     multiplexId: example.id,
- *     multiplexProgramSettings: {
- *         programNumber: 1,
- *         preferredChannelPipeline: "CURRENTLY_ACTIVE",
- *         videoSettings: {
- *             constantBitrate: 100000,
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
- *
- * ```sh
- * $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
- * ```
- */
 export class MultiplexProgram extends pulumi.CustomResource {
     /**
      * Get an existing MultiplexProgram resource's state with the given name, ID, and optional extra
@@ -87,23 +35,9 @@ export class MultiplexProgram extends pulumi.CustomResource {
         return obj['__pulumiType'] === MultiplexProgram.__pulumiType;
     }
 
-    /**
-     * Multiplex ID.
-     */
     declare public readonly multiplexId: pulumi.Output<string>;
-    /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly multiplexProgramSettings: pulumi.Output<outputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
-    /**
-     * Unique program name.
-     */
     declare public readonly programName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.medialive.MultiplexProgramTimeouts | undefined>;
 
@@ -148,23 +82,9 @@ export class MultiplexProgram extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MultiplexProgram resources.
  */
 export interface MultiplexProgramState {
-    /**
-     * Multiplex ID.
-     */
     multiplexId?: pulumi.Input<string>;
-    /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     *
-     * The following arguments are optional:
-     */
     multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings>;
-    /**
-     * Unique program name.
-     */
     programName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
 }
@@ -173,23 +93,9 @@ export interface MultiplexProgramState {
  * The set of arguments for constructing a MultiplexProgram resource.
  */
 export interface MultiplexProgramArgs {
-    /**
-     * Multiplex ID.
-     */
     multiplexId: pulumi.Input<string>;
-    /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     *
-     * The following arguments are optional:
-     */
     multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings>;
-    /**
-     * Unique program name.
-     */
     programName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
 }

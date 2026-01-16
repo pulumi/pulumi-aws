@@ -19,81 +19,37 @@ public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.reso
 
     public static final ServiceNetworkResourceAssociationArgs Empty = new ServiceNetworkResourceAssociationArgs();
 
-    /**
-     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     * 
-     */
     @Import(name="privateDnsEnabled")
     private @Nullable Output<Boolean> privateDnsEnabled;
 
-    /**
-     * @return Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     * 
-     */
     public Optional<Output<Boolean>> privateDnsEnabled() {
         return Optional.ofNullable(this.privateDnsEnabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of Resource Configuration to associate to the Service Network.
-     * 
-     */
     @Import(name="resourceConfigurationIdentifier", required=true)
     private Output<String> resourceConfigurationIdentifier;
 
-    /**
-     * @return Identifier of Resource Configuration to associate to the Service Network.
-     * 
-     */
     public Output<String> resourceConfigurationIdentifier() {
         return this.resourceConfigurationIdentifier;
     }
 
-    /**
-     * Identifier of the Service Network to associate the Resource to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="serviceNetworkIdentifier", required=true)
     private Output<String> serviceNetworkIdentifier;
 
-    /**
-     * @return Identifier of the Service Network to associate the Resource to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
 
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -134,111 +90,47 @@ public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.reso
             $ = new ServiceNetworkResourceAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param privateDnsEnabled Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsEnabled(@Nullable Output<Boolean> privateDnsEnabled) {
             $.privateDnsEnabled = privateDnsEnabled;
             return this;
         }
 
-        /**
-         * @param privateDnsEnabled Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
             return privateDnsEnabled(Output.of(privateDnsEnabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceConfigurationIdentifier Identifier of Resource Configuration to associate to the Service Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationIdentifier(Output<String> resourceConfigurationIdentifier) {
             $.resourceConfigurationIdentifier = resourceConfigurationIdentifier;
             return this;
         }
 
-        /**
-         * @param resourceConfigurationIdentifier Identifier of Resource Configuration to associate to the Service Network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationIdentifier(String resourceConfigurationIdentifier) {
             return resourceConfigurationIdentifier(Output.of(resourceConfigurationIdentifier));
         }
 
-        /**
-         * @param serviceNetworkIdentifier Identifier of the Service Network to associate the Resource to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkIdentifier(Output<String> serviceNetworkIdentifier) {
             $.serviceNetworkIdentifier = serviceNetworkIdentifier;
             return this;
         }
 
-        /**
-         * @param serviceNetworkIdentifier Identifier of the Service Network to associate the Resource to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkIdentifier(String serviceNetworkIdentifier) {
             return serviceNetworkIdentifier(Output.of(serviceNetworkIdentifier));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

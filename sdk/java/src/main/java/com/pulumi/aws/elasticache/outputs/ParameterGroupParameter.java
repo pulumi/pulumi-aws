@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ParameterGroupParameter {
-    /**
-     * @return The name of the ElastiCache parameter.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the ElastiCache parameter.
-     * 
-     */
     private String value;
 
     private ParameterGroupParameter() {}
-    /**
-     * @return The name of the ElastiCache parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the ElastiCache parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

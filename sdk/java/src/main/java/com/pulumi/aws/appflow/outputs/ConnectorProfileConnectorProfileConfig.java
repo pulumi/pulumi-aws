@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfig {
-    /**
-     * @return The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-     * 
-     */
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials;
-    /**
-     * @return The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-     * 
-     */
     private ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties;
 
     private ConnectorProfileConnectorProfileConfig() {}
-    /**
-     * @return The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-     * 
-     */
     public ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials() {
         return this.connectorProfileCredentials;
     }
-    /**
-     * @return The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-     * 
-     */
     public ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties() {
         return this.connectorProfileProperties;
     }

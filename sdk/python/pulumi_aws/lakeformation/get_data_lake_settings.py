@@ -71,33 +71,21 @@ class GetDataLakeSettingsResult:
     @_builtins.property
     @pulumi.getter
     def admins(self) -> Sequence[_builtins.str]:
-        """
-        List of ARNs of AWS Lake Formation principals (IAM users or roles).
-        """
         return pulumi.get(self, "admins")
 
     @_builtins.property
     @pulumi.getter(name="allowExternalDataFiltering")
     def allow_external_data_filtering(self) -> _builtins.bool:
-        """
-        Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        """
         return pulumi.get(self, "allow_external_data_filtering")
 
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
     def allow_full_table_external_data_access(self) -> _builtins.bool:
-        """
-        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValueLists")
     def authorized_session_tag_value_lists(self) -> Sequence[_builtins.str]:
-        """
-        Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
     @_builtins.property
@@ -108,25 +96,16 @@ class GetDataLakeSettingsResult:
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> Sequence['outputs.GetDataLakeSettingsCreateDatabaseDefaultPermissionResult']:
-        """
-        Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        """
         return pulumi.get(self, "create_database_default_permissions")
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Sequence['outputs.GetDataLakeSettingsCreateTableDefaultPermissionResult']:
-        """
-        Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @_builtins.property
     @pulumi.getter(name="externalDataFilteringAllowLists")
     def external_data_filtering_allow_lists(self) -> Sequence[_builtins.str]:
-        """
-        A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        """
         return pulumi.get(self, "external_data_filtering_allow_lists")
 
     @_builtins.property
@@ -140,17 +119,11 @@ class GetDataLakeSettingsResult:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="readOnlyAdmins")
     def read_only_admins(self) -> Sequence[_builtins.str]:
-        """
-        List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        """
         return pulumi.get(self, "read_only_admins")
 
     @_builtins.property
@@ -161,9 +134,6 @@ class GetDataLakeSettingsResult:
     @_builtins.property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> Sequence[_builtins.str]:
-        """
-        List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-        """
         return pulumi.get(self, "trusted_resource_owners")
 
 
@@ -192,20 +162,7 @@ def get_data_lake_settings(catalog_id: Optional[_builtins.str] = None,
                            region: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataLakeSettingsResult:
     """
-    Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
-    ```
-
-
-    :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -231,20 +188,7 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[_bu
                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
     """
-    Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
-    ```
-
-
-    :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id

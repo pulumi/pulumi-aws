@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EnvironmentStorageConfigurationEfs {
-    /**
-     * @return Id of the EFS filesystem to mount.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return Path to mount the filesystem on, must start with `/m2/mount/`.
-     * 
-     */
     private String mountPoint;
 
     private EnvironmentStorageConfigurationEfs() {}
-    /**
-     * @return Id of the EFS filesystem to mount.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return Path to mount the filesystem on, must start with `/m2/mount/`.
-     * 
-     */
     public String mountPoint() {
         return this.mountPoint;
     }

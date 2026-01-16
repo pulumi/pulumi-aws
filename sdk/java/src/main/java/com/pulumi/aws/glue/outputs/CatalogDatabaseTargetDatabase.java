@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogDatabaseTargetDatabase {
-    /**
-     * @return ID of the Data Catalog in which the database resides.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return Name of the catalog database.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Region of the target database.
-     * 
-     */
     private @Nullable String region;
 
     private CatalogDatabaseTargetDatabase() {}
-    /**
-     * @return ID of the Data Catalog in which the database resides.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return Name of the catalog database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Region of the target database.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

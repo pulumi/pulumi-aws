@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class AnalysisPermission
     {
-        /// <summary>
-        /// List of IAM actions to grant or revoke permissions on.
-        /// </summary>
         public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-        /// </summary>
         public readonly string Principal;
 
         [OutputConstructor]

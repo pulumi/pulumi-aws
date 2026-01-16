@@ -15,62 +15,30 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDocumentPlainArgs Empty = new GetDocumentPlainArgs();
 
-    /**
-     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-     * 
-     */
     @Import(name="documentFormat")
     private @Nullable String documentFormat;
 
-    /**
-     * @return The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-     * 
-     */
     public Optional<String> documentFormat() {
         return Optional.ofNullable(this.documentFormat);
     }
 
-    /**
-     * The document version.
-     * 
-     */
     @Import(name="documentVersion")
     private @Nullable String documentVersion;
 
-    /**
-     * @return The document version.
-     * 
-     */
     public Optional<String> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
 
-    /**
-     * The name of the document.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return The name of the document.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,45 +70,21 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDocumentPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param documentFormat The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder documentFormat(@Nullable String documentFormat) {
             $.documentFormat = documentFormat;
             return this;
         }
 
-        /**
-         * @param documentVersion The document version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder documentVersion(@Nullable String documentVersion) {
             $.documentVersion = documentVersion;
             return this;
         }
 
-        /**
-         * @param name The name of the document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

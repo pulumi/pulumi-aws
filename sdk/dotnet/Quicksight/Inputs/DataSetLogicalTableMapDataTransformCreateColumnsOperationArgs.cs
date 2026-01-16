@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("columns", required: true)]
         private InputList<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>? _columns;
-
-        /// <summary>
-        /// Calculated columns to create. See columns.
-        /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs>());

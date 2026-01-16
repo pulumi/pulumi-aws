@@ -13,14 +13,7 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class EventActionActionExportRevisionToS3RevisionDestination
     {
-        /// <summary>
-        /// The S3 bucket where the revision will be exported.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Pattern for naming revisions in the S3 bucket.
-        /// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-        /// </summary>
         public readonly string? KeyPattern;
 
         [OutputConstructor]

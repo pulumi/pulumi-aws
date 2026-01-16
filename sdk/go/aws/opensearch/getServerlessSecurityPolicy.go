@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessSecurityPolicy(ctx, &opensearch.LookupServerlessSecurityPolicyArgs{
-//				Name: "example-security-policy",
-//				Type: "encryption",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessSecurityPolicyResult
@@ -51,31 +23,23 @@ func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessS
 
 // A collection of arguments for invoking getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyArgs struct {
-	// Name of the policy
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   string  `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// Type of security policy. One of `encryption` or `network`.
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // A collection of values returned by getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyResult struct {
-	// The date the security policy was created.
 	CreatedDate string `pulumi:"createdDate"`
-	// Description of the security policy.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The date the security policy was last modified.
+	Id               string `pulumi:"id"`
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	Name             string `pulumi:"name"`
-	// The JSON policy document without any whitespaces.
-	Policy string `pulumi:"policy"`
-	// Version of the policy.
-	PolicyVersion string `pulumi:"policyVersion"`
-	Region        string `pulumi:"region"`
-	Type          string `pulumi:"type"`
+	Policy           string `pulumi:"policy"`
+	PolicyVersion    string `pulumi:"policyVersion"`
+	Region           string `pulumi:"region"`
+	Type             string `pulumi:"type"`
 }
 
 func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServerlessSecurityPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityPolicyResultOutput {
@@ -89,12 +53,9 @@ func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServer
 
 // A collection of arguments for invoking getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyOutputArgs struct {
-	// Name of the policy
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of security policy. One of `encryption` or `network`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput    `pulumi:"type"`
 }
 
 func (LookupServerlessSecurityPolicyOutputArgs) ElementType() reflect.Type {
@@ -116,12 +77,10 @@ func (o LookupServerlessSecurityPolicyResultOutput) ToLookupServerlessSecurityPo
 	return o
 }
 
-// The date the security policy was created.
 func (o LookupServerlessSecurityPolicyResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the security policy.
 func (o LookupServerlessSecurityPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -131,7 +90,6 @@ func (o LookupServerlessSecurityPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date the security policy was last modified.
 func (o LookupServerlessSecurityPolicyResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
@@ -140,12 +98,10 @@ func (o LookupServerlessSecurityPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The JSON policy document without any whitespaces.
 func (o LookupServerlessSecurityPolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Version of the policy.
 func (o LookupServerlessSecurityPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
 }

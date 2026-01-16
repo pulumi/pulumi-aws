@@ -9,59 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DevOpsGuru
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DevOpsGuru.EventSourcesConfig("example", new()
-    ///     {
-    ///         EventSources = new[]
-    ///         {
-    ///             new Aws.DevOpsGuru.Inputs.EventSourcesConfigEventSourceArgs
-    ///             {
-    ///                 AmazonCodeGuruProfilers = new[]
-    ///                 {
-    ///                     new Aws.DevOpsGuru.Inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs
-    ///                     {
-    ///                         Status = "ENABLED",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:devopsguru/eventSourcesConfig:EventSourcesConfig")]
     public partial class EventSourcesConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `EventSources` below.
-        /// </summary>
         [Output("eventSources")]
         public Output<ImmutableArray<Outputs.EventSourcesConfigEventSource>> EventSources { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -113,19 +66,12 @@ namespace Pulumi.Aws.DevOpsGuru
     {
         [Input("eventSources")]
         private InputList<Inputs.EventSourcesConfigEventSourceArgs>? _eventSources;
-
-        /// <summary>
-        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `EventSources` below.
-        /// </summary>
         public InputList<Inputs.EventSourcesConfigEventSourceArgs> EventSources
         {
             get => _eventSources ?? (_eventSources = new InputList<Inputs.EventSourcesConfigEventSourceArgs>());
             set => _eventSources = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -139,19 +85,12 @@ namespace Pulumi.Aws.DevOpsGuru
     {
         [Input("eventSources")]
         private InputList<Inputs.EventSourcesConfigEventSourceGetArgs>? _eventSources;
-
-        /// <summary>
-        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `EventSources` below.
-        /// </summary>
         public InputList<Inputs.EventSourcesConfigEventSourceGetArgs> EventSources
         {
             get => _eventSources ?? (_eventSources = new InputList<Inputs.EventSourcesConfigEventSourceGetArgs>());
             set => _eventSources = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

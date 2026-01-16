@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the primary message that Amazon Lex should send to the user. See `Message`.
-        /// </summary>
         [Input("message", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs> Message { get; set; } = null!;
 
         [Input("variations")]
         private InputList<Inputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgs>? _variations;
-
-        /// <summary>
-        /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `Variation`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgs> Variations
         {
             get => _variations ?? (_variations = new InputList<Inputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgs>());

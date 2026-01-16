@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorOutputS3DestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Amazon S3 bucket you want to associate with the streaming video project.
+        /// The name of the Amazon S3 bucket you want to associate with the streaming video project.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

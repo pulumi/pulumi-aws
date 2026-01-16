@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateExperimentReportConfigurationDataSources {
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     private @Nullable List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard> cloudwatchDashboards;
 
     private ExperimentTemplateExperimentReportConfigurationDataSources() {}
-    /**
-     * @return The data sources for the experiment report. See below.
-     * 
-     */
     public List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard> cloudwatchDashboards() {
         return this.cloudwatchDashboards == null ? List.of() : this.cloudwatchDashboards;
     }

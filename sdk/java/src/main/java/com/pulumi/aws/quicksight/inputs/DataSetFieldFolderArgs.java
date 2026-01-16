@@ -17,47 +17,23 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
 
     public static final DataSetFieldFolderArgs Empty = new DataSetFieldFolderArgs();
 
-    /**
-     * An array of column names to add to the folder. A column can only be in one folder.
-     * 
-     */
     @Import(name="columns")
     private @Nullable Output<List<String>> columns;
 
-    /**
-     * @return An array of column names to add to the folder. A column can only be in one folder.
-     * 
-     */
     public Optional<Output<List<String>>> columns() {
         return Optional.ofNullable(this.columns);
     }
 
-    /**
-     * Field folder description.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Field folder description.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Key of the field folder map.
-     * 
-     */
     @Import(name="fieldFoldersId", required=true)
     private Output<String> fieldFoldersId;
 
-    /**
-     * @return Key of the field folder map.
-     * 
-     */
     public Output<String> fieldFoldersId() {
         return this.fieldFoldersId;
     }
@@ -88,75 +64,33 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
             $ = new DataSetFieldFolderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columns An array of column names to add to the folder. A column can only be in one folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(@Nullable Output<List<String>> columns) {
             $.columns = columns;
             return this;
         }
 
-        /**
-         * @param columns An array of column names to add to the folder. A column can only be in one folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(List<String> columns) {
             return columns(Output.of(columns));
         }
 
-        /**
-         * @param columns An array of column names to add to the folder. A column can only be in one folder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(String... columns) {
             return columns(List.of(columns));
         }
 
-        /**
-         * @param description Field folder description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Field folder description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param fieldFoldersId Key of the field folder map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldFoldersId(Output<String> fieldFoldersId) {
             $.fieldFoldersId = fieldFoldersId;
             return this;
         }
 
-        /**
-         * @param fieldFoldersId Key of the field folder map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldFoldersId(String fieldFoldersId) {
             return fieldFoldersId(Output.of(fieldFoldersId));
         }

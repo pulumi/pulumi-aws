@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `waf.IpSet` Retrieves a WAF IP Set Resource Id.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.GetIpset(ctx, &waf.GetIpsetArgs{
-//				Name: "tfWAFIPSet",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOption) (*GetIpsetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpsetResult
@@ -50,7 +23,6 @@ func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getIpset.
 type GetIpsetArgs struct {
-	// Name of the WAF IP set.
 	Name string `pulumi:"name"`
 }
 
@@ -72,7 +44,6 @@ func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getIpset.
 type GetIpsetOutputArgs struct {
-	// Name of the WAF IP set.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

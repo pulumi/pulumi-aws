@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageOutputResourceAmi {
-    /**
-     * @return Account identifier of the AMI.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return Description of the AMI.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Identifier of the AMI.
-     * 
-     */
     private @Nullable String image;
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     private @Nullable String region;
 
     private ImageOutputResourceAmi() {}
-    /**
-     * @return Account identifier of the AMI.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return Description of the AMI.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Identifier of the AMI.
-     * 
-     */
     public Optional<String> image() {
         return Optional.ofNullable(this.image);
     }
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

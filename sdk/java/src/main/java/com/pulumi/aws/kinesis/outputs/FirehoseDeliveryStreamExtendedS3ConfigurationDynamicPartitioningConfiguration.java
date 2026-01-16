@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
-    /**
-     * @return Enables or disables dynamic partitioning. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
-     * 
-     * &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
-     * 
-     */
     private @Nullable Integer retryDuration;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration() {}
-    /**
-     * @return Enables or disables dynamic partitioning. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
-     * 
-     * &gt; **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }

@@ -12,76 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Amazon S3 Metadata for a bucket.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketMetadataConfiguration(ctx, "example", &s3.BucketMetadataConfigurationArgs{
-//				Bucket: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//				MetadataConfiguration: &s3.BucketMetadataConfigurationMetadataConfigurationArgs{
-//					InventoryTableConfiguration: &s3.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs{
-//						ConfigurationState: pulumi.String("ENABLED"),
-//					},
-//					JournalTableConfiguration: &s3.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs{
-//						RecordExpiration: &s3.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs{
-//							Days:       pulumi.Int(7),
-//							Expiration: pulumi.String("ENABLED"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// __Using `pulumi import` to import__ S3 bucket metadata configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-//
-// If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `bucket`:
-//
-// ```sh
-// $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
-// ```
-// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-//
-// ```sh
-// $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name,123456789012
-// ```
 type BucketMetadataConfiguration struct {
 	pulumi.CustomResourceState
 
-	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              pulumi.StringOutput    `pulumi:"bucket"`
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Metadata configuration. See `metadataConfiguration` Block for details.
-	//
-	// The following arguments are optional:
+	Bucket                pulumi.StringOutput                                       `pulumi:"bucket"`
+	ExpectedBucketOwner   pulumi.StringPtrOutput                                    `pulumi:"expectedBucketOwner"`
 	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringOutput                          `pulumi:"region"`
-	Timeouts BucketMetadataConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
+	Region                pulumi.StringOutput                                       `pulumi:"region"`
+	Timeouts              BucketMetadataConfigurationTimeoutsPtrOutput              `pulumi:"timeouts"`
 }
 
 // NewBucketMetadataConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -117,29 +55,19 @@ func GetBucketMetadataConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketMetadataConfiguration resources.
 type bucketMetadataConfigurationState struct {
-	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              *string `pulumi:"bucket"`
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Metadata configuration. See `metadataConfiguration` Block for details.
-	//
-	// The following arguments are optional:
+	Bucket                *string                                           `pulumi:"bucket"`
+	ExpectedBucketOwner   *string                                           `pulumi:"expectedBucketOwner"`
 	MetadataConfiguration *BucketMetadataConfigurationMetadataConfiguration `pulumi:"metadataConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                              `pulumi:"region"`
-	Timeouts *BucketMetadataConfigurationTimeouts `pulumi:"timeouts"`
+	Region                *string                                           `pulumi:"region"`
+	Timeouts              *BucketMetadataConfigurationTimeouts              `pulumi:"timeouts"`
 }
 
 type BucketMetadataConfigurationState struct {
-	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              pulumi.StringPtrInput
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// Metadata configuration. See `metadataConfiguration` Block for details.
-	//
-	// The following arguments are optional:
+	Bucket                pulumi.StringPtrInput
+	ExpectedBucketOwner   pulumi.StringPtrInput
 	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts BucketMetadataConfigurationTimeoutsPtrInput
+	Region                pulumi.StringPtrInput
+	Timeouts              BucketMetadataConfigurationTimeoutsPtrInput
 }
 
 func (BucketMetadataConfigurationState) ElementType() reflect.Type {
@@ -147,30 +75,20 @@ func (BucketMetadataConfigurationState) ElementType() reflect.Type {
 }
 
 type bucketMetadataConfigurationArgs struct {
-	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              string  `pulumi:"bucket"`
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Metadata configuration. See `metadataConfiguration` Block for details.
-	//
-	// The following arguments are optional:
+	Bucket                string                                            `pulumi:"bucket"`
+	ExpectedBucketOwner   *string                                           `pulumi:"expectedBucketOwner"`
 	MetadataConfiguration *BucketMetadataConfigurationMetadataConfiguration `pulumi:"metadataConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                              `pulumi:"region"`
-	Timeouts *BucketMetadataConfigurationTimeouts `pulumi:"timeouts"`
+	Region                *string                                           `pulumi:"region"`
+	Timeouts              *BucketMetadataConfigurationTimeouts              `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a BucketMetadataConfiguration resource.
 type BucketMetadataConfigurationArgs struct {
-	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              pulumi.StringInput
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// Metadata configuration. See `metadataConfiguration` Block for details.
-	//
-	// The following arguments are optional:
+	Bucket                pulumi.StringInput
+	ExpectedBucketOwner   pulumi.StringPtrInput
 	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts BucketMetadataConfigurationTimeoutsPtrInput
+	Region                pulumi.StringPtrInput
+	Timeouts              BucketMetadataConfigurationTimeoutsPtrInput
 }
 
 func (BucketMetadataConfigurationArgs) ElementType() reflect.Type {
@@ -260,7 +178,6 @@ func (o BucketMetadataConfigurationOutput) ToBucketMetadataConfigurationOutputWi
 	return o
 }
 
-// General purpose bucket that you want to create the metadata configuration for.
 func (o BucketMetadataConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetadataConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -269,16 +186,12 @@ func (o BucketMetadataConfigurationOutput) ExpectedBucketOwner() pulumi.StringPt
 	return o.ApplyT(func(v *BucketMetadataConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Metadata configuration. See `metadataConfiguration` Block for details.
-//
-// The following arguments are optional:
 func (o BucketMetadataConfigurationOutput) MetadataConfiguration() BucketMetadataConfigurationMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *BucketMetadataConfiguration) BucketMetadataConfigurationMetadataConfigurationPtrOutput {
 		return v.MetadataConfiguration
 	}).(BucketMetadataConfigurationMetadataConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketMetadataConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetadataConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

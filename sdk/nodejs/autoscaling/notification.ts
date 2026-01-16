@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
- * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
- * Services, and are applied to each AutoScaling Group you supply.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sns.Topic("example", {name: "example-topic"});
- * const bar = new aws.autoscaling.Group("bar", {name: "foobar1-test"});
- * const foo = new aws.autoscaling.Group("foo", {name: "barfoo-test"});
- * const exampleNotifications = new aws.autoscaling.Notification("example_notifications", {
- *     groupNames: [
- *         bar.name,
- *         foo.name,
- *     ],
- *     notifications: [
- *         aws.autoscaling.NotificationType.InstanceLaunch,
- *         aws.autoscaling.NotificationType.InstanceTerminate,
- *         aws.autoscaling.NotificationType.InstanceLaunchError,
- *         aws.autoscaling.NotificationType.InstanceTerminateError,
- *     ],
- *     topicArn: example.arn,
- * });
- * ```
- */
 export class Notification extends pulumi.CustomResource {
     /**
      * Get an existing Notification resource's state with the given name, ID, and optional extra
@@ -66,22 +35,9 @@ export class Notification extends pulumi.CustomResource {
         return obj['__pulumiType'] === Notification.__pulumiType;
     }
 
-    /**
-     * List of AutoScaling Group Names
-     */
     declare public readonly groupNames: pulumi.Output<string[]>;
-    /**
-     * List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     */
     declare public readonly notifications: pulumi.Output<enums.autoscaling.NotificationType[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Topic ARN for notifications to be sent through
-     */
     declare public readonly topicArn: pulumi.Output<string>;
 
     /**
@@ -126,22 +82,9 @@ export class Notification extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Notification resources.
  */
 export interface NotificationState {
-    /**
-     * List of AutoScaling Group Names
-     */
     groupNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     */
     notifications?: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Topic ARN for notifications to be sent through
-     */
     topicArn?: pulumi.Input<string>;
 }
 
@@ -149,21 +92,8 @@ export interface NotificationState {
  * The set of arguments for constructing a Notification resource.
  */
 export interface NotificationArgs {
-    /**
-     * List of AutoScaling Group Names
-     */
     groupNames: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     */
     notifications: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Topic ARN for notifications to be sent through
-     */
     topicArn: pulumi.Input<string>;
 }

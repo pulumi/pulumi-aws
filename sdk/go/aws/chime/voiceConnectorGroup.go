@@ -11,78 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
-//
-// You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vc1, err := chime.NewVoiceConnector(ctx, "vc1", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("connector-test-1"),
-//				RequireEncryption: pulumi.Bool(true),
-//				AwsRegion:         pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vc2, err := chime.NewVoiceConnector(ctx, "vc2", &chime.VoiceConnectorArgs{
-//				Name:              pulumi.String("connector-test-2"),
-//				RequireEncryption: pulumi.Bool(true),
-//				AwsRegion:         pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
-//				Name: pulumi.String("test-group"),
-//				Connectors: chime.VoiceConnectorGroupConnectorArray{
-//					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc1.ID(),
-//						Priority:         pulumi.Int(1),
-//					},
-//					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc2.ID(),
-//						Priority:         pulumi.Int(3),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Configuration Recorder using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
-// ```
 type VoiceConnectorGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors VoiceConnectorGroupConnectorArrayOutput `pulumi:"connectors"`
-	// The name of the Amazon Chime Voice Connector group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
+	Region     pulumi.StringOutput                     `pulumi:"region"`
 }
 
 // NewVoiceConnectorGroup registers a new resource with the given unique name, arguments, and options.
@@ -115,21 +49,15 @@ func GetVoiceConnectorGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorGroup resources.
 type voiceConnectorGroupState struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`
-	// The name of the Amazon Chime Voice Connector group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name       *string                        `pulumi:"name"`
+	Region     *string                        `pulumi:"region"`
 }
 
 type VoiceConnectorGroupState struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors VoiceConnectorGroupConnectorArrayInput
-	// The name of the Amazon Chime Voice Connector group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (VoiceConnectorGroupState) ElementType() reflect.Type {
@@ -137,22 +65,16 @@ func (VoiceConnectorGroupState) ElementType() reflect.Type {
 }
 
 type voiceConnectorGroupArgs struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`
-	// The name of the Amazon Chime Voice Connector group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Name       *string                        `pulumi:"name"`
+	Region     *string                        `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VoiceConnectorGroup resource.
 type VoiceConnectorGroupArgs struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors VoiceConnectorGroupConnectorArrayInput
-	// The name of the Amazon Chime Voice Connector group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 }
 
 func (VoiceConnectorGroupArgs) ElementType() reflect.Type {
@@ -242,17 +164,14 @@ func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupOutputWithContext(ctx co
 	return o
 }
 
-// The Amazon Chime Voice Connectors to route inbound calls to.
 func (o VoiceConnectorGroupOutput) Connectors() VoiceConnectorGroupConnectorArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) VoiceConnectorGroupConnectorArrayOutput { return v.Connectors }).(VoiceConnectorGroupConnectorArrayOutput)
 }
 
-// The name of the Amazon Chime Voice Connector group.
 func (o VoiceConnectorGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

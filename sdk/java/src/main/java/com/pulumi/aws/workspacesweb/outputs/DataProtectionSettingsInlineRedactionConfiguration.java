@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataProtectionSettingsInlineRedactionConfiguration {
-    /**
-     * @return The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-     * 
-     */
     private @Nullable Integer globalConfidenceLevel;
-    /**
-     * @return The global enforced URL configuration for the inline redaction configuration.
-     * 
-     */
     private @Nullable List<String> globalEnforcedUrls;
-    /**
-     * @return The global exempt URL configuration for the inline redaction configuration.
-     * 
-     */
     private @Nullable List<String> globalExemptUrls;
-    /**
-     * @return The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-     * 
-     */
     private @Nullable List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns;
 
     private DataProtectionSettingsInlineRedactionConfiguration() {}
-    /**
-     * @return The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-     * 
-     */
     public Optional<Integer> globalConfidenceLevel() {
         return Optional.ofNullable(this.globalConfidenceLevel);
     }
-    /**
-     * @return The global enforced URL configuration for the inline redaction configuration.
-     * 
-     */
     public List<String> globalEnforcedUrls() {
         return this.globalEnforcedUrls == null ? List.of() : this.globalEnforcedUrls;
     }
-    /**
-     * @return The global exempt URL configuration for the inline redaction configuration.
-     * 
-     */
     public List<String> globalExemptUrls() {
         return this.globalExemptUrls == null ? List.of() : this.globalExemptUrls;
     }
-    /**
-     * @return The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
-     * 
-     */
     public List<DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern> inlineRedactionPatterns() {
         return this.inlineRedactionPatterns == null ? List.of() : this.inlineRedactionPatterns;
     }

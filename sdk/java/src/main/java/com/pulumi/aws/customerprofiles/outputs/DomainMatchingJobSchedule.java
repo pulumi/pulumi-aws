@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainMatchingJobSchedule {
-    /**
-     * @return The day when the Identity Resolution Job should run every week.
-     * 
-     */
     private String dayOfTheWeek;
-    /**
-     * @return The time when the Identity Resolution Job should run every week.
-     * 
-     */
     private String time;
 
     private DomainMatchingJobSchedule() {}
-    /**
-     * @return The day when the Identity Resolution Job should run every week.
-     * 
-     */
     public String dayOfTheWeek() {
         return this.dayOfTheWeek;
     }
-    /**
-     * @return The time when the Identity Resolution Job should run every week.
-     * 
-     */
     public String time() {
         return this.time;
     }

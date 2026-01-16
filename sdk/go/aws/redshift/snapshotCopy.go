@@ -12,61 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Redshift Snapshot Copy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewSnapshotCopy(ctx, "example", &redshift.SnapshotCopyArgs{
-//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.Id),
-//				DestinationRegion: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Snapshot Copy using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
-// ```
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the source cluster.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// AWS Region to copy snapshots to.
-	//
-	// The following arguments are optional:
-	DestinationRegion pulumi.StringOutput `pulumi:"destinationRegion"`
-	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-	ManualSnapshotRetentionPeriod pulumi.IntOutput `pulumi:"manualSnapshotRetentionPeriod"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-	RetentionPeriod pulumi.IntOutput `pulumi:"retentionPeriod"`
-	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-	SnapshotCopyGrantName pulumi.StringPtrOutput `pulumi:"snapshotCopyGrantName"`
+	ClusterIdentifier             pulumi.StringOutput    `pulumi:"clusterIdentifier"`
+	DestinationRegion             pulumi.StringOutput    `pulumi:"destinationRegion"`
+	ManualSnapshotRetentionPeriod pulumi.IntOutput       `pulumi:"manualSnapshotRetentionPeriod"`
+	Region                        pulumi.StringOutput    `pulumi:"region"`
+	RetentionPeriod               pulumi.IntOutput       `pulumi:"retentionPeriod"`
+	SnapshotCopyGrantName         pulumi.StringPtrOutput `pulumi:"snapshotCopyGrantName"`
 }
 
 // NewSnapshotCopy registers a new resource with the given unique name, arguments, and options.
@@ -105,37 +59,21 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCopy resources.
 type snapshotCopyState struct {
-	// Identifier of the source cluster.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// AWS Region to copy snapshots to.
-	//
-	// The following arguments are optional:
-	DestinationRegion *string `pulumi:"destinationRegion"`
-	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
+	ClusterIdentifier             *string `pulumi:"clusterIdentifier"`
+	DestinationRegion             *string `pulumi:"destinationRegion"`
+	ManualSnapshotRetentionPeriod *int    `pulumi:"manualSnapshotRetentionPeriod"`
+	Region                        *string `pulumi:"region"`
+	RetentionPeriod               *int    `pulumi:"retentionPeriod"`
+	SnapshotCopyGrantName         *string `pulumi:"snapshotCopyGrantName"`
 }
 
 type SnapshotCopyState struct {
-	// Identifier of the source cluster.
-	ClusterIdentifier pulumi.StringPtrInput
-	// AWS Region to copy snapshots to.
-	//
-	// The following arguments are optional:
-	DestinationRegion pulumi.StringPtrInput
-	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+	ClusterIdentifier             pulumi.StringPtrInput
+	DestinationRegion             pulumi.StringPtrInput
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-	RetentionPeriod pulumi.IntPtrInput
-	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-	SnapshotCopyGrantName pulumi.StringPtrInput
+	Region                        pulumi.StringPtrInput
+	RetentionPeriod               pulumi.IntPtrInput
+	SnapshotCopyGrantName         pulumi.StringPtrInput
 }
 
 func (SnapshotCopyState) ElementType() reflect.Type {
@@ -143,38 +81,22 @@ func (SnapshotCopyState) ElementType() reflect.Type {
 }
 
 type snapshotCopyArgs struct {
-	// Identifier of the source cluster.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// AWS Region to copy snapshots to.
-	//
-	// The following arguments are optional:
-	DestinationRegion string `pulumi:"destinationRegion"`
-	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
+	ClusterIdentifier             string  `pulumi:"clusterIdentifier"`
+	DestinationRegion             string  `pulumi:"destinationRegion"`
+	ManualSnapshotRetentionPeriod *int    `pulumi:"manualSnapshotRetentionPeriod"`
+	Region                        *string `pulumi:"region"`
+	RetentionPeriod               *int    `pulumi:"retentionPeriod"`
+	SnapshotCopyGrantName         *string `pulumi:"snapshotCopyGrantName"`
 }
 
 // The set of arguments for constructing a SnapshotCopy resource.
 type SnapshotCopyArgs struct {
-	// Identifier of the source cluster.
-	ClusterIdentifier pulumi.StringInput
-	// AWS Region to copy snapshots to.
-	//
-	// The following arguments are optional:
-	DestinationRegion pulumi.StringInput
-	// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+	ClusterIdentifier             pulumi.StringInput
+	DestinationRegion             pulumi.StringInput
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-	RetentionPeriod pulumi.IntPtrInput
-	// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-	SnapshotCopyGrantName pulumi.StringPtrInput
+	Region                        pulumi.StringPtrInput
+	RetentionPeriod               pulumi.IntPtrInput
+	SnapshotCopyGrantName         pulumi.StringPtrInput
 }
 
 func (SnapshotCopyArgs) ElementType() reflect.Type {
@@ -264,34 +186,26 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Identifier of the source cluster.
 func (o SnapshotCopyOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// AWS Region to copy snapshots to.
-//
-// The following arguments are optional:
 func (o SnapshotCopyOutput) DestinationRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.DestinationRegion }).(pulumi.StringOutput)
 }
 
-// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
 func (o SnapshotCopyOutput) ManualSnapshotRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotCopyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
 func (o SnapshotCopyOutput) RetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntOutput { return v.RetentionPeriod }).(pulumi.IntOutput)
 }
 
-// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o SnapshotCopyOutput) SnapshotCopyGrantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.SnapshotCopyGrantName }).(pulumi.StringPtrOutput)
 }

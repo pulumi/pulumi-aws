@@ -16,96 +16,44 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeyPairArgs Empty = new KeyPairArgs();
 
-    /**
-     * Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-     * 
-     */
     @Import(name="pgpKey")
     private @Nullable Output<String> pgpKey;
 
-    /**
-     * @return PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-     * 
-     */
     public Optional<Output<String>> pgpKey() {
         return Optional.ofNullable(this.pgpKey);
     }
 
-    /**
-     * Public key material. This public key will be imported into Lightsail.
-     * 
-     */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
-    /**
-     * @return Public key material. This public key will be imported into Lightsail.
-     * 
-     */
     public Optional<Output<String>> publicKey() {
         return Optional.ofNullable(this.publicKey);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -139,132 +87,56 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeyPairArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param pgpKey PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pgpKey(@Nullable Output<String> pgpKey) {
             $.pgpKey = pgpKey;
             return this;
         }
 
-        /**
-         * @param pgpKey PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pgpKey(String pgpKey) {
             return pgpKey(Output.of(pgpKey));
         }
 
-        /**
-         * @param publicKey Public key material. This public key will be imported into Lightsail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicKey(@Nullable Output<String> publicKey) {
             $.publicKey = publicKey;
             return this;
         }
 
-        /**
-         * @param publicKey Public key material. This public key will be imported into Lightsail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicKey(String publicKey) {
             return publicKey(Output.of(publicKey));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

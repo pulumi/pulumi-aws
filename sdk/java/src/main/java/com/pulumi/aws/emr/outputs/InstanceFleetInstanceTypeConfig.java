@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceFleetInstanceTypeConfig {
-    /**
-     * @return The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-     * 
-     */
     private @Nullable String bidPrice;
-    /**
-     * @return The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-     * 
-     */
     private @Nullable Double bidPriceAsPercentageOfOnDemandPrice;
-    /**
-     * @return A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-     * 
-     */
     private @Nullable List<InstanceFleetInstanceTypeConfigConfiguration> configurations;
-    /**
-     * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-     * 
-     */
     private @Nullable List<InstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs;
-    /**
-     * @return An EC2 instance type, such as m4.xlarge.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
-     * 
-     */
     private @Nullable Integer weightedCapacity;
 
     private InstanceFleetInstanceTypeConfig() {}
-    /**
-     * @return The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-     * 
-     */
     public Optional<String> bidPrice() {
         return Optional.ofNullable(this.bidPrice);
     }
-    /**
-     * @return The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
-     * 
-     */
     public Optional<Double> bidPriceAsPercentageOfOnDemandPrice() {
         return Optional.ofNullable(this.bidPriceAsPercentageOfOnDemandPrice);
     }
-    /**
-     * @return A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-     * 
-     */
     public List<InstanceFleetInstanceTypeConfigConfiguration> configurations() {
         return this.configurations == null ? List.of() : this.configurations;
     }
-    /**
-     * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-     * 
-     */
     public List<InstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs() {
         return this.ebsConfigs == null ? List.of() : this.ebsConfigs;
     }
-    /**
-     * @return An EC2 instance type, such as m4.xlarge.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
-     * 
-     */
     public Optional<Integer> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }

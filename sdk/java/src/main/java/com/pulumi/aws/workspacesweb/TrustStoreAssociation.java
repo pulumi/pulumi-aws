@@ -13,118 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Trust Store Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.TrustStore;
- * import com.pulumi.aws.workspacesweb.TrustStoreArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
- * import com.pulumi.std.inputs.Base64encodeArgs;
- * import com.pulumi.aws.workspacesweb.TrustStoreAssociation;
- * import com.pulumi.aws.workspacesweb.TrustStoreAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Portal("example", PortalArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleTrustStore = new TrustStore("exampleTrustStore", TrustStoreArgs.builder()
- *             .certificateList(List.of(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(StdFunctions.file(FileArgs.builder()
- *                     .input("certificate.pem")
- *                     .build()).result())
- *                 .build()).result()))
- *             .build());
- * 
- *         var exampleTrustStoreAssociation = new TrustStoreAssociation("exampleTrustStoreAssociation", TrustStoreAssociationArgs.builder()
- *             .trustStoreArn(exampleTrustStore.trustStoreArn())
- *             .portalArn(example.portalArn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation")
 public class TrustStoreAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the portal to associate with the trust store. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portalArn", refs={String.class}, tree="[0]")
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the trust store. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the trust store to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Export(name="trustStoreArn", refs={String.class}, tree="[0]")
     private Output<String> trustStoreArn;
 
-    /**
-     * @return ARN of the trust store to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> trustStoreArn() {
         return this.trustStoreArn;
     }

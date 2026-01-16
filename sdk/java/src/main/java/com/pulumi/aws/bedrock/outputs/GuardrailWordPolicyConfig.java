@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GuardrailWordPolicyConfig {
-    /**
-     * @return A config for the list of managed words. See Managed Word Lists Config for more information.
-     * 
-     */
     private @Nullable List<GuardrailWordPolicyConfigManagedWordListsConfig> managedWordListsConfigs;
-    /**
-     * @return List of custom word configs. See Words Config for more information.
-     * 
-     */
     private @Nullable List<GuardrailWordPolicyConfigWordsConfig> wordsConfigs;
 
     private GuardrailWordPolicyConfig() {}
-    /**
-     * @return A config for the list of managed words. See Managed Word Lists Config for more information.
-     * 
-     */
     public List<GuardrailWordPolicyConfigManagedWordListsConfig> managedWordListsConfigs() {
         return this.managedWordListsConfigs == null ? List.of() : this.managedWordListsConfigs;
     }
-    /**
-     * @return List of custom word configs. See Words Config for more information.
-     * 
-     */
     public List<GuardrailWordPolicyConfigWordsConfig> wordsConfigs() {
         return this.wordsConfigs == null ? List.of() : this.wordsConfigs;
     }

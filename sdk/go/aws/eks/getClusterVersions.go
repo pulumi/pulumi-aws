@@ -11,63 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ### Filter by Cluster Type
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.GetClusterVersions(ctx, &eks.GetClusterVersionsArgs{
-//				ClusterType: pulumi.StringRef("eks"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by Version Status
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.GetClusterVersions(ctx, &eks.GetClusterVersionsArgs{
-//				VersionStatus: pulumi.StringRef("STANDARD_SUPPORT"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClusterVersions(ctx *pulumi.Context, args *GetClusterVersionsArgs, opts ...pulumi.InvokeOption) (*GetClusterVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterVersionsResult
@@ -80,34 +23,24 @@ func GetClusterVersions(ctx *pulumi.Context, args *GetClusterVersionsArgs, opts 
 
 // A collection of arguments for invoking getClusterVersions.
 type GetClusterVersionsArgs struct {
-	// Type of clusters to filter by.
-	// Currently, the only valid value is `eks`.
 	ClusterType           *string  `pulumi:"clusterType"`
 	ClusterVersionsOnlies []string `pulumi:"clusterVersionsOnlies"`
-	// Whether to show only the default versions of Kubernetes supported by EKS.
-	DefaultOnly *bool `pulumi:"defaultOnly"`
-	// Whether to include all kubernetes versions in the response.
-	IncludeAll *bool `pulumi:"includeAll"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the EKS cluster versions to list.
-	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-	VersionStatus *string `pulumi:"versionStatus"`
+	DefaultOnly           *bool    `pulumi:"defaultOnly"`
+	IncludeAll            *bool    `pulumi:"includeAll"`
+	Region                *string  `pulumi:"region"`
+	VersionStatus         *string  `pulumi:"versionStatus"`
 }
 
 // A collection of values returned by getClusterVersions.
 type GetClusterVersionsResult struct {
-	// Type of cluster that the version belongs to.
-	ClusterType *string `pulumi:"clusterType"`
-	// A list of Kubernetes version information.
+	ClusterType           *string                            `pulumi:"clusterType"`
 	ClusterVersions       []GetClusterVersionsClusterVersion `pulumi:"clusterVersions"`
 	ClusterVersionsOnlies []string                           `pulumi:"clusterVersionsOnlies"`
 	DefaultOnly           *bool                              `pulumi:"defaultOnly"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	IncludeAll *bool  `pulumi:"includeAll"`
-	Region     string `pulumi:"region"`
-	// Status of the EKS cluster version.
+	Id            string  `pulumi:"id"`
+	IncludeAll    *bool   `pulumi:"includeAll"`
+	Region        string  `pulumi:"region"`
 	VersionStatus *string `pulumi:"versionStatus"`
 }
 
@@ -122,19 +55,12 @@ func GetClusterVersionsOutput(ctx *pulumi.Context, args GetClusterVersionsOutput
 
 // A collection of arguments for invoking getClusterVersions.
 type GetClusterVersionsOutputArgs struct {
-	// Type of clusters to filter by.
-	// Currently, the only valid value is `eks`.
 	ClusterType           pulumi.StringPtrInput   `pulumi:"clusterType"`
 	ClusterVersionsOnlies pulumi.StringArrayInput `pulumi:"clusterVersionsOnlies"`
-	// Whether to show only the default versions of Kubernetes supported by EKS.
-	DefaultOnly pulumi.BoolPtrInput `pulumi:"defaultOnly"`
-	// Whether to include all kubernetes versions in the response.
-	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Status of the EKS cluster versions to list.
-	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
+	DefaultOnly           pulumi.BoolPtrInput     `pulumi:"defaultOnly"`
+	IncludeAll            pulumi.BoolPtrInput     `pulumi:"includeAll"`
+	Region                pulumi.StringPtrInput   `pulumi:"region"`
+	VersionStatus         pulumi.StringPtrInput   `pulumi:"versionStatus"`
 }
 
 func (GetClusterVersionsOutputArgs) ElementType() reflect.Type {
@@ -156,12 +82,10 @@ func (o GetClusterVersionsResultOutput) ToGetClusterVersionsResultOutputWithCont
 	return o
 }
 
-// Type of cluster that the version belongs to.
 func (o GetClusterVersionsResultOutput) ClusterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
 }
 
-// A list of Kubernetes version information.
 func (o GetClusterVersionsResultOutput) ClusterVersions() GetClusterVersionsClusterVersionArrayOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) []GetClusterVersionsClusterVersion { return v.ClusterVersions }).(GetClusterVersionsClusterVersionArrayOutput)
 }
@@ -187,7 +111,6 @@ func (o GetClusterVersionsResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the EKS cluster version.
 func (o GetClusterVersionsResultOutput) VersionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) *string { return v.VersionStatus }).(pulumi.StringPtrOutput)
 }

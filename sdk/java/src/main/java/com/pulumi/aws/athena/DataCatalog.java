@@ -15,281 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Athena data catalog.
- * 
- * More information about Athena and Athena data catalogs can be found in the [Athena User Guide](https://docs.aws.amazon.com/athena/latest/ug/what-is.html).
- * 
- * &gt; **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.athena.DataCatalog;
- * import com.pulumi.aws.athena.DataCatalogArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()
- *             .name("athena-data-catalog")
- *             .description("Example Athena data catalog")
- *             .type("LAMBDA")
- *             .parameters(Map.of("function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"))
- *             .tags(Map.of("Name", "example-athena-data-catalog"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Hive based Data Catalog
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.athena.DataCatalog;
- * import com.pulumi.aws.athena.DataCatalogArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()
- *             .name("hive-data-catalog")
- *             .description("Hive based Data Catalog")
- *             .type("HIVE")
- *             .parameters(Map.of("metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Glue based Data Catalog
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.athena.DataCatalog;
- * import com.pulumi.aws.athena.DataCatalogArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()
- *             .name("glue-data-catalog")
- *             .description("Glue based Data Catalog")
- *             .type("GLUE")
- *             .parameters(Map.of("catalog-id", "123456789012"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Lambda based Data Catalog
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.athena.DataCatalog;
- * import com.pulumi.aws.athena.DataCatalogArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()
- *             .name("lambda-data-catalog")
- *             .description("Lambda based Data Catalog")
- *             .type("LAMBDA")
- *             .parameters(Map.ofEntries(
- *                 Map.entry("metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1"),
- *                 Map.entry("record-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import data catalogs using their `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
- * ```
- * 
- */
 @ResourceType(type="aws:athena/dataCatalog:DataCatalog")
 public class DataCatalog extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the data catalog.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the data catalog.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the data catalog.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the data catalog.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-     * 
-     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
-    /**
-     * @return Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-     * 
-     */
     public Output<Map<String,String>> parameters() {
         return this.parameters;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

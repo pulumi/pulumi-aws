@@ -13,118 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Allows you to set a redrive policy of an SQS Queue
- * while referencing ARN of the dead letter queue inside the redrive policy.
- * 
- * This is useful when you want to set a dedicated
- * dead letter queue for a standard or FIFO queue, but need
- * the dead letter queue to exist before setting the redrive policy.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sqs.QueueArgs;
- * import com.pulumi.aws.sqs.RedrivePolicy;
- * import com.pulumi.aws.sqs.RedrivePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var q = new Queue("q", QueueArgs.builder()
- *             .name("examplequeue")
- *             .build());
- * 
- *         var ddl = new Queue("ddl", QueueArgs.builder()
- *             .name("examplequeue-ddl")
- *             .redriveAllowPolicy(q.arn().applyValue(_arn -> serializeJson(
- *                 jsonObject(
- *                     jsonProperty("redrivePermission", "byQueue"),
- *                     jsonProperty("sourceQueueArns", jsonArray(_arn))
- *                 ))))
- *             .build());
- * 
- *         var qRedrivePolicy = new RedrivePolicy("qRedrivePolicy", RedrivePolicyArgs.builder()
- *             .queueUrl(q.id())
- *             .redrivePolicy(ddl.arn().applyValue(_arn -> serializeJson(
- *                 jsonObject(
- *                     jsonProperty("deadLetterTargetArn", _arn),
- *                     jsonProperty("maxReceiveCount", 4)
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
- * 
- * ```sh
- * $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
- * ```
- * 
- */
 @ResourceType(type="aws:sqs/redrivePolicy:RedrivePolicy")
 public class RedrivePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
-    /**
-     * @return The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
-    /**
-     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     @Export(name="redrivePolicy", refs={String.class}, tree="[0]")
     private Output<String> redrivePolicy;
 
-    /**
-     * @return The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     public Output<String> redrivePolicy() {
         return this.redrivePolicy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -17,32 +17,16 @@ public final class MultitenantDistributionActiveTrustedKeyGroupArgs extends com.
 
     public static final MultitenantDistributionActiveTrustedKeyGroupArgs Empty = new MultitenantDistributionActiveTrustedKeyGroupArgs();
 
-    /**
-     * Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * List of key groups. See Key Group Items below.
-     * 
-     */
     @Import(name="items")
     private @Nullable Output<List<MultitenantDistributionActiveTrustedKeyGroupItemArgs>> items;
 
-    /**
-     * @return List of key groups. See Key Group Items below.
-     * 
-     */
     public Optional<Output<List<MultitenantDistributionActiveTrustedKeyGroupItemArgs>>> items() {
         return Optional.ofNullable(this.items);
     }
@@ -72,54 +56,24 @@ public final class MultitenantDistributionActiveTrustedKeyGroupArgs extends com.
             $ = new MultitenantDistributionActiveTrustedKeyGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param items List of key groups. See Key Group Items below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(@Nullable Output<List<MultitenantDistributionActiveTrustedKeyGroupItemArgs>> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items List of key groups. See Key Group Items below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(List<MultitenantDistributionActiveTrustedKeyGroupItemArgs> items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param items List of key groups. See Key Group Items below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(MultitenantDistributionActiveTrustedKeyGroupItemArgs... items) {
             return items(List.of(items));
         }

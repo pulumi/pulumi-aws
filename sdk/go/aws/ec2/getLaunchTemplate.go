@@ -11,66 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Launch Template.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
-//				Name: pulumi.StringRef("my-launch-template"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
-//				Filters: []ec2.GetLaunchTemplateFilter{
-//					{
-//						Name: "launch-template-name",
-//						Values: []string{
-//							"some-template",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, opts ...pulumi.InvokeOption) (*LookupLaunchTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchTemplateResult
@@ -83,16 +23,11 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, o
 
 // A collection of arguments for invoking getLaunchTemplate.
 type LookupLaunchTemplateArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetLaunchTemplateFilter `pulumi:"filters"`
-	// ID of the specific launch template to retrieve.
-	Id *string `pulumi:"id"`
-	// Name of the launch template.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags map[string]string `pulumi:"tags"`
+	Id      *string                   `pulumi:"id"`
+	Name    *string                   `pulumi:"name"`
+	Region  *string                   `pulumi:"region"`
+	Tags    map[string]string         `pulumi:"tags"`
 }
 
 // A collection of values returned by getLaunchTemplate.
@@ -111,31 +46,30 @@ type LookupLaunchTemplateResult struct {
 	Filters                           []GetLaunchTemplateFilter                           `pulumi:"filters"`
 	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
 	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
-	// ID of the launch template.
-	Id                                string                                  `pulumi:"id"`
-	ImageId                           string                                  `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior string                                  `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption `pulumi:"instanceMarketOptions"`
-	InstanceRequirements              []GetLaunchTemplateInstanceRequirement  `pulumi:"instanceRequirements"`
-	InstanceType                      string                                  `pulumi:"instanceType"`
-	KernelId                          string                                  `pulumi:"kernelId"`
-	KeyName                           string                                  `pulumi:"keyName"`
-	LatestVersion                     int                                     `pulumi:"latestVersion"`
-	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
-	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption    `pulumi:"maintenanceOptions"`
-	MetadataOptions                   []GetLaunchTemplateMetadataOption       `pulumi:"metadataOptions"`
-	Monitorings                       []GetLaunchTemplateMonitoring           `pulumi:"monitorings"`
-	Name                              string                                  `pulumi:"name"`
-	NetworkInterfaces                 []GetLaunchTemplateNetworkInterface     `pulumi:"networkInterfaces"`
-	Placements                        []GetLaunchTemplatePlacement            `pulumi:"placements"`
-	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
-	RamDiskId                         string                                  `pulumi:"ramDiskId"`
-	Region                            string                                  `pulumi:"region"`
-	SecurityGroupNames                []string                                `pulumi:"securityGroupNames"`
-	TagSpecifications                 []GetLaunchTemplateTagSpecification     `pulumi:"tagSpecifications"`
-	Tags                              map[string]string                       `pulumi:"tags"`
-	UserData                          string                                  `pulumi:"userData"`
-	VpcSecurityGroupIds               []string                                `pulumi:"vpcSecurityGroupIds"`
+	Id                                string                                              `pulumi:"id"`
+	ImageId                           string                                              `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior string                                              `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption             `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              []GetLaunchTemplateInstanceRequirement              `pulumi:"instanceRequirements"`
+	InstanceType                      string                                              `pulumi:"instanceType"`
+	KernelId                          string                                              `pulumi:"kernelId"`
+	KeyName                           string                                              `pulumi:"keyName"`
+	LatestVersion                     int                                                 `pulumi:"latestVersion"`
+	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification             `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption                `pulumi:"maintenanceOptions"`
+	MetadataOptions                   []GetLaunchTemplateMetadataOption                   `pulumi:"metadataOptions"`
+	Monitorings                       []GetLaunchTemplateMonitoring                       `pulumi:"monitorings"`
+	Name                              string                                              `pulumi:"name"`
+	NetworkInterfaces                 []GetLaunchTemplateNetworkInterface                 `pulumi:"networkInterfaces"`
+	Placements                        []GetLaunchTemplatePlacement                        `pulumi:"placements"`
+	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption             `pulumi:"privateDnsNameOptions"`
+	RamDiskId                         string                                              `pulumi:"ramDiskId"`
+	Region                            string                                              `pulumi:"region"`
+	SecurityGroupNames                []string                                            `pulumi:"securityGroupNames"`
+	TagSpecifications                 []GetLaunchTemplateTagSpecification                 `pulumi:"tagSpecifications"`
+	Tags                              map[string]string                                   `pulumi:"tags"`
+	UserData                          string                                              `pulumi:"userData"`
+	VpcSecurityGroupIds               []string                                            `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
@@ -149,16 +83,11 @@ func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOu
 
 // A collection of arguments for invoking getLaunchTemplate.
 type LookupLaunchTemplateOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetLaunchTemplateFilterArrayInput `pulumi:"filters"`
-	// ID of the specific launch template to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the launch template.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Id      pulumi.StringPtrInput             `pulumi:"id"`
+	Name    pulumi.StringPtrInput             `pulumi:"name"`
+	Region  pulumi.StringPtrInput             `pulumi:"region"`
+	Tags    pulumi.StringMapInput             `pulumi:"tags"`
 }
 
 func (LookupLaunchTemplateOutputArgs) ElementType() reflect.Type {
@@ -240,7 +169,6 @@ func (o LookupLaunchTemplateResultOutput) IamInstanceProfiles() GetLaunchTemplat
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateIamInstanceProfile { return v.IamInstanceProfiles }).(GetLaunchTemplateIamInstanceProfileArrayOutput)
 }
 
-// ID of the launch template.
 func (o LookupLaunchTemplateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Id }).(pulumi.StringOutput)
 }

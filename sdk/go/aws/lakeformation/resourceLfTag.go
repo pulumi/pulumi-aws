@@ -11,63 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lake Formation Resource LF Tag.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewResourceLfTag(ctx, "example", &lakeformation.ResourceLfTagArgs{
-//				Database: &lakeformation.ResourceLfTagDatabaseArgs{
-//					Name: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
-//				},
-//				LfTag: &lakeformation.ResourceLfTagLfTagArgs{
-//					Key:   pulumi.Any(exampleAwsLakeformationLfTag.Key),
-//					Value: pulumi.String("stowe"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import this resource.
 type ResourceLfTag struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
-	// Configuration block for a database resource. See Database for more details.
-	Database ResourceLfTagDatabasePtrOutput `pulumi:"database"`
-	// Set of LF-tags to attach to the resource. See LF Tag for more details.
-	//
-	// Exactly one of the following is required:
-	LfTag ResourceLfTagLfTagPtrOutput `pulumi:"lfTag"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for a table resource. See Table for more details.
-	Table ResourceLfTagTablePtrOutput `pulumi:"table"`
-	// Configuration block for a table with columns resource. See Table With Columns for more details.
-	//
-	// The following arguments are optional:
+	CatalogId        pulumi.StringPtrOutput                 `pulumi:"catalogId"`
+	Database         ResourceLfTagDatabasePtrOutput         `pulumi:"database"`
+	LfTag            ResourceLfTagLfTagPtrOutput            `pulumi:"lfTag"`
+	Region           pulumi.StringOutput                    `pulumi:"region"`
+	Table            ResourceLfTagTablePtrOutput            `pulumi:"table"`
 	TableWithColumns ResourceLfTagTableWithColumnsPtrOutput `pulumi:"tableWithColumns"`
 	Timeouts         ResourceLfTagTimeoutsPtrOutput         `pulumi:"timeouts"`
 }
@@ -102,41 +53,21 @@ func GetResourceLfTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceLfTag resources.
 type resourceLfTagState struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-	CatalogId *string `pulumi:"catalogId"`
-	// Configuration block for a database resource. See Database for more details.
-	Database *ResourceLfTagDatabase `pulumi:"database"`
-	// Set of LF-tags to attach to the resource. See LF Tag for more details.
-	//
-	// Exactly one of the following is required:
-	LfTag *ResourceLfTagLfTag `pulumi:"lfTag"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for a table resource. See Table for more details.
-	Table *ResourceLfTagTable `pulumi:"table"`
-	// Configuration block for a table with columns resource. See Table With Columns for more details.
-	//
-	// The following arguments are optional:
+	CatalogId        *string                        `pulumi:"catalogId"`
+	Database         *ResourceLfTagDatabase         `pulumi:"database"`
+	LfTag            *ResourceLfTagLfTag            `pulumi:"lfTag"`
+	Region           *string                        `pulumi:"region"`
+	Table            *ResourceLfTagTable            `pulumi:"table"`
 	TableWithColumns *ResourceLfTagTableWithColumns `pulumi:"tableWithColumns"`
 	Timeouts         *ResourceLfTagTimeouts         `pulumi:"timeouts"`
 }
 
 type ResourceLfTagState struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-	CatalogId pulumi.StringPtrInput
-	// Configuration block for a database resource. See Database for more details.
-	Database ResourceLfTagDatabasePtrInput
-	// Set of LF-tags to attach to the resource. See LF Tag for more details.
-	//
-	// Exactly one of the following is required:
-	LfTag ResourceLfTagLfTagPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for a table resource. See Table for more details.
-	Table ResourceLfTagTablePtrInput
-	// Configuration block for a table with columns resource. See Table With Columns for more details.
-	//
-	// The following arguments are optional:
+	CatalogId        pulumi.StringPtrInput
+	Database         ResourceLfTagDatabasePtrInput
+	LfTag            ResourceLfTagLfTagPtrInput
+	Region           pulumi.StringPtrInput
+	Table            ResourceLfTagTablePtrInput
 	TableWithColumns ResourceLfTagTableWithColumnsPtrInput
 	Timeouts         ResourceLfTagTimeoutsPtrInput
 }
@@ -146,42 +77,22 @@ func (ResourceLfTagState) ElementType() reflect.Type {
 }
 
 type resourceLfTagArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-	CatalogId *string `pulumi:"catalogId"`
-	// Configuration block for a database resource. See Database for more details.
-	Database *ResourceLfTagDatabase `pulumi:"database"`
-	// Set of LF-tags to attach to the resource. See LF Tag for more details.
-	//
-	// Exactly one of the following is required:
-	LfTag *ResourceLfTagLfTag `pulumi:"lfTag"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for a table resource. See Table for more details.
-	Table *ResourceLfTagTable `pulumi:"table"`
-	// Configuration block for a table with columns resource. See Table With Columns for more details.
-	//
-	// The following arguments are optional:
+	CatalogId        *string                        `pulumi:"catalogId"`
+	Database         *ResourceLfTagDatabase         `pulumi:"database"`
+	LfTag            *ResourceLfTagLfTag            `pulumi:"lfTag"`
+	Region           *string                        `pulumi:"region"`
+	Table            *ResourceLfTagTable            `pulumi:"table"`
 	TableWithColumns *ResourceLfTagTableWithColumns `pulumi:"tableWithColumns"`
 	Timeouts         *ResourceLfTagTimeouts         `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ResourceLfTag resource.
 type ResourceLfTagArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-	CatalogId pulumi.StringPtrInput
-	// Configuration block for a database resource. See Database for more details.
-	Database ResourceLfTagDatabasePtrInput
-	// Set of LF-tags to attach to the resource. See LF Tag for more details.
-	//
-	// Exactly one of the following is required:
-	LfTag ResourceLfTagLfTagPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for a table resource. See Table for more details.
-	Table ResourceLfTagTablePtrInput
-	// Configuration block for a table with columns resource. See Table With Columns for more details.
-	//
-	// The following arguments are optional:
+	CatalogId        pulumi.StringPtrInput
+	Database         ResourceLfTagDatabasePtrInput
+	LfTag            ResourceLfTagLfTagPtrInput
+	Region           pulumi.StringPtrInput
+	Table            ResourceLfTagTablePtrInput
 	TableWithColumns ResourceLfTagTableWithColumnsPtrInput
 	Timeouts         ResourceLfTagTimeoutsPtrInput
 }
@@ -273,36 +184,26 @@ func (o ResourceLfTagOutput) ToResourceLfTagOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 func (o ResourceLfTagOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTag) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for a database resource. See Database for more details.
 func (o ResourceLfTagOutput) Database() ResourceLfTagDatabasePtrOutput {
 	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagDatabasePtrOutput { return v.Database }).(ResourceLfTagDatabasePtrOutput)
 }
 
-// Set of LF-tags to attach to the resource. See LF Tag for more details.
-//
-// Exactly one of the following is required:
 func (o ResourceLfTagOutput) LfTag() ResourceLfTagLfTagPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagLfTagPtrOutput { return v.LfTag }).(ResourceLfTagLfTagPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceLfTagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceLfTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for a table resource. See Table for more details.
 func (o ResourceLfTagOutput) Table() ResourceLfTagTablePtrOutput {
 	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagTablePtrOutput { return v.Table }).(ResourceLfTagTablePtrOutput)
 }
 
-// Configuration block for a table with columns resource. See Table With Columns for more details.
-//
-// The following arguments are optional:
 func (o ResourceLfTagOutput) TableWithColumns() ResourceLfTagTableWithColumnsPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagTableWithColumnsPtrOutput { return v.TableWithColumns }).(ResourceLfTagTableWithColumnsPtrOutput)
 }

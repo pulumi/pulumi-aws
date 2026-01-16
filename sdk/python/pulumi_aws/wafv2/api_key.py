@@ -24,9 +24,8 @@ class ApiKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "token_domains", token_domains)
@@ -37,7 +36,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
         """
         return pulumi.get(self, "scope")
 
@@ -49,7 +48,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="tokenDomains")
     def token_domains(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         return pulumi.get(self, "token_domains")
 
@@ -60,9 +59,6 @@ class ApiKeyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,10 +75,9 @@ class _ApiKeyState:
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
-        :param pulumi.Input[_builtins.str] api_key: The generated API key. This value is sensitive.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] api_key: The API key value. This is sensitive and not included in responses.
+        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -97,7 +92,7 @@ class _ApiKeyState:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The generated API key. This value is sensitive.
+        The API key value. This is sensitive and not included in responses.
         """
         return pulumi.get(self, "api_key")
 
@@ -108,9 +103,6 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,7 +113,7 @@ class _ApiKeyState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
         """
         return pulumi.get(self, "scope")
 
@@ -133,7 +125,7 @@ class _ApiKeyState:
     @pulumi.getter(name="tokenDomains")
     def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         return pulumi.get(self, "token_domains")
 
@@ -153,32 +145,11 @@ class ApiKey(pulumi.CustomResource):
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS WAFv2 API Key resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.ApiKey("example",
-            scope="REGIONAL",
-            token_domains=["example.com"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WAFv2 API Key using `api_key,scope`. For example:
-
-        ```sh
-        $ pulumi import aws:wafv2/apiKey:ApiKey example a1b2c3d4-5678-90ab-cdef-EXAMPLE11111,REGIONAL
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         ...
     @overload
@@ -187,27 +158,7 @@ class ApiKey(pulumi.CustomResource):
                  args: ApiKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS WAFv2 API Key resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.ApiKey("example",
-            scope="REGIONAL",
-            token_domains=["example.com"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import WAFv2 API Key using `api_key,scope`. For example:
-
-        ```sh
-        $ pulumi import aws:wafv2/apiKey:ApiKey example a1b2c3d4-5678-90ab-cdef-EXAMPLE11111,REGIONAL
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,10 +217,9 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: The generated API key. This value is sensitive.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] api_key: The API key value. This is sensitive and not included in responses.
+        :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] token_domains: The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,23 +235,20 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:
         """
-        The generated API key. This value is sensitive.
+        The API key value. This is sensitive and not included in responses.
         """
         return pulumi.get(self, "api_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
         """
         return pulumi.get(self, "scope")
 
@@ -309,7 +256,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="tokenDomains")
     def token_domains(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         """
         return pulumi.get(self, "token_domains")
 

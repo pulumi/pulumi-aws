@@ -14,88 +14,40 @@ import java.util.Objects;
 @CustomType
 public final class GetContactsRotationResult {
     private String arn;
-    /**
-     * @return The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-     * 
-     */
     private List<String> contactIds;
     private String id;
-    /**
-     * @return The name for the rotation.
-     * 
-     */
     private String name;
-    /**
-     * @return Information about when an on-call rotation is in effect and how long the rotation period lasts.
-     * 
-     */
     private List<GetContactsRotationRecurrence> recurrences;
     private String region;
-    /**
-     * @return The date and time, in RFC 3339 format, that the rotation goes into effect.
-     * 
-     */
     private String startTime;
-    /**
-     * @return A map of tags to assign to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-     * 
-     */
     private String timeZoneId;
 
     private GetContactsRotationResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-     * 
-     */
     public List<String> contactIds() {
         return this.contactIds;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return The name for the rotation.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Information about when an on-call rotation is in effect and how long the rotation period lasts.
-     * 
-     */
     public List<GetContactsRotationRecurrence> recurrences() {
         return this.recurrences;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The date and time, in RFC 3339 format, that the rotation goes into effect.
-     * 
-     */
     public String startTime() {
         return this.startTime;
     }
-    /**
-     * @return A map of tags to assign to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-     * 
-     */
     public String timeZoneId() {
         return this.timeZoneId;
     }

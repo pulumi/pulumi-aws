@@ -15,32 +15,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     private String objectPath;
-    /**
-     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig paginationConfig;
-    /**
-     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig parallelismConfig;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoData() {}
     public String objectPath() {
         return this.objectPath;
     }
-    /**
-     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig> paginationConfig() {
         return Optional.ofNullable(this.paginationConfig);
     }
-    /**
-     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig> parallelismConfig() {
         return Optional.ofNullable(this.parallelismConfig);
     }

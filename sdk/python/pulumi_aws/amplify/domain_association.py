@@ -30,13 +30,6 @@ class DomainAssociationArgs:
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DomainAssociation resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] domain_name: Domain name for the domain association.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
-        :param pulumi.Input['DomainAssociationCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        :param pulumi.Input[_builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -53,9 +46,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -65,9 +55,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Domain name for the domain association.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -77,9 +64,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]:
-        """
-        Setting for the subdomain. Documented below.
-        """
         return pulumi.get(self, "sub_domains")
 
     @sub_domains.setter
@@ -89,9 +73,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="certificateSettings")
     def certificate_settings(self) -> Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]:
-        """
-        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        """
         return pulumi.get(self, "certificate_settings")
 
     @certificate_settings.setter
@@ -101,9 +82,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="enableAutoSubDomain")
     def enable_auto_sub_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables the automated creation of subdomains for branches.
-        """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @enable_auto_sub_domain.setter
@@ -113,9 +91,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -125,9 +100,6 @@ class DomainAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
     def wait_for_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-        """
         return pulumi.get(self, "wait_for_verification")
 
     @wait_for_verification.setter
@@ -149,15 +121,6 @@ class _DomainAssociationState:
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DomainAssociation resources.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] arn: ARN for the domain association.
-        :param pulumi.Input['DomainAssociationCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        :param pulumi.Input[_builtins.str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        :param pulumi.Input[_builtins.str] domain_name: Domain name for the domain association.
-        :param pulumi.Input[_builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
-        :param pulumi.Input[_builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -181,9 +144,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -193,9 +153,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the domain association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -205,9 +162,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="certificateSettings")
     def certificate_settings(self) -> Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]:
-        """
-        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        """
         return pulumi.get(self, "certificate_settings")
 
     @certificate_settings.setter
@@ -217,9 +171,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="certificateVerificationDnsRecord")
     def certificate_verification_dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        """
         return pulumi.get(self, "certificate_verification_dns_record")
 
     @certificate_verification_dns_record.setter
@@ -229,9 +180,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Domain name for the domain association.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -241,9 +189,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="enableAutoSubDomain")
     def enable_auto_sub_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables the automated creation of subdomains for branches.
-        """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @enable_auto_sub_domain.setter
@@ -253,9 +198,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -265,9 +207,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]:
-        """
-        Setting for the subdomain. Documented below.
-        """
         return pulumi.get(self, "sub_domains")
 
     @sub_domains.setter
@@ -277,9 +216,6 @@ class _DomainAssociationState:
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
     def wait_for_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-        """
         return pulumi.get(self, "wait_for_verification")
 
     @wait_for_verification.setter
@@ -302,56 +238,9 @@ class DomainAssociation(pulumi.CustomResource):
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an Amplify Domain Association resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example",
-            name="app",
-            custom_rules=[{
-                "source": "https://example.com",
-                "status": "302",
-                "target": "https://www.example.com",
-            }])
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master")
-        example_domain_association = aws.amplify.DomainAssociation("example",
-            app_id=example.id,
-            domain_name="example.com",
-            sub_domains=[
-                {
-                    "branch_name": master.branch_name,
-                    "prefix": "",
-                },
-                {
-                    "branch_name": master.branch_name,
-                    "prefix": "www",
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
-
-        ```sh
-        $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-        ```
-
+        Create a DomainAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        :param pulumi.Input[_builtins.str] domain_name: Domain name for the domain association.
-        :param pulumi.Input[_builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
-        :param pulumi.Input[_builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         ...
     @overload
@@ -360,47 +249,7 @@ class DomainAssociation(pulumi.CustomResource):
                  args: DomainAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amplify Domain Association resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example",
-            name="app",
-            custom_rules=[{
-                "source": "https://example.com",
-                "status": "302",
-                "target": "https://www.example.com",
-            }])
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master")
-        example_domain_association = aws.amplify.DomainAssociation("example",
-            app_id=example.id,
-            domain_name="example.com",
-            sub_domains=[
-                {
-                    "branch_name": master.branch_name,
-                    "prefix": "",
-                },
-                {
-                    "branch_name": master.branch_name,
-                    "prefix": "www",
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
-
-        ```sh
-        $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-        ```
-
+        Create a DomainAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -473,15 +322,6 @@ class DomainAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[_builtins.str] arn: ARN for the domain association.
-        :param pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        :param pulumi.Input[_builtins.str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        :param pulumi.Input[_builtins.str] domain_name: Domain name for the domain association.
-        :param pulumi.Input[_builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
-        :param pulumi.Input[_builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -501,72 +341,45 @@ class DomainAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the domain association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateSettings")
     def certificate_settings(self) -> pulumi.Output['outputs.DomainAssociationCertificateSettings']:
-        """
-        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        """
         return pulumi.get(self, "certificate_settings")
 
     @_builtins.property
     @pulumi.getter(name="certificateVerificationDnsRecord")
     def certificate_verification_dns_record(self) -> pulumi.Output[_builtins.str]:
-        """
-        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        """
         return pulumi.get(self, "certificate_verification_dns_record")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Domain name for the domain association.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="enableAutoSubDomain")
     def enable_auto_sub_domain(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Enables the automated creation of subdomains for branches.
-        """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> pulumi.Output[Sequence['outputs.DomainAssociationSubDomain']]:
-        """
-        Setting for the subdomain. Documented below.
-        """
         return pulumi.get(self, "sub_domains")
 
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
     def wait_for_verification(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-        """
         return pulumi.get(self, "wait_for_verification")
 

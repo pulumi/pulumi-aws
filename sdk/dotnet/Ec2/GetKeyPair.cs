@@ -11,135 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetKeyPair
     {
-        /// <summary>
-        /// Use this data source to get information about a specific EC2 Key Pair.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
-        ///     {
-        ///         KeyName = "test",
-        ///         IncludePublicKey = true,
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Component",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "web",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["fingerprint"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Fingerprint),
-        ///         ["name"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.KeyName),
-        ///         ["id"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetKeyPairResult> InvokeAsync(GetKeyPairArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a specific EC2 Key Pair.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
-        ///     {
-        ///         KeyName = "test",
-        ///         IncludePublicKey = true,
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Component",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "web",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["fingerprint"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Fingerprint),
-        ///         ["name"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.KeyName),
-        ///         ["id"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a specific EC2 Key Pair.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
-        ///     {
-        ///         KeyName = "test",
-        ///         IncludePublicKey = true,
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Component",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "web",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["fingerprint"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Fingerprint),
-        ///         ["name"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.KeyName),
-        ///         ["id"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
     }
@@ -149,50 +26,26 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetKeyPairFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Key Pairs. The given filters must match exactly one Key Pair
-        /// whose data will be exported as attributes.
-        /// </summary>
         public List<Inputs.GetKeyPairFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetKeyPairFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Whether to include the public key material in the response.
-        /// </summary>
         [Input("includePublicKey")]
         public bool? IncludePublicKey { get; set; }
 
-        /// <summary>
-        /// Key Pair name.
-        /// </summary>
         [Input("keyName")]
         public string? KeyName { get; set; }
 
-        /// <summary>
-        /// Key Pair ID.
-        /// </summary>
         [Input("keyPairId")]
         public string? KeyPairId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Any tags assigned to the Key Pair.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -209,50 +62,26 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetKeyPairFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Key Pairs. The given filters must match exactly one Key Pair
-        /// whose data will be exported as attributes.
-        /// </summary>
         public InputList<Inputs.GetKeyPairFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetKeyPairFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Whether to include the public key material in the response.
-        /// </summary>
         [Input("includePublicKey")]
         public Input<bool>? IncludePublicKey { get; set; }
 
-        /// <summary>
-        /// Key Pair name.
-        /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
-        /// <summary>
-        /// Key Pair ID.
-        /// </summary>
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Any tags assigned to the Key Pair.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -269,18 +98,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetKeyPairResult
     {
-        /// <summary>
-        /// ARN of the Key Pair.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Timestamp for when the key pair was created in ISO 8601 format.
-        /// </summary>
         public readonly string CreateTime;
         public readonly ImmutableArray<Outputs.GetKeyPairFilterResult> Filters;
-        /// <summary>
-        /// SHA-1 digest of the DER encoded private key.
-        /// </summary>
         public readonly string Fingerprint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -289,18 +109,9 @@ namespace Pulumi.Aws.Ec2
         public readonly bool? IncludePublicKey;
         public readonly string? KeyName;
         public readonly string? KeyPairId;
-        /// <summary>
-        /// Type of key pair.
-        /// </summary>
         public readonly string KeyType;
-        /// <summary>
-        /// Public key material.
-        /// </summary>
         public readonly string PublicKey;
         public readonly string Region;
-        /// <summary>
-        /// Any tags assigned to the Key Pair.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

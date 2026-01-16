@@ -14,32 +14,16 @@ public final class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
 
     public static final BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs Empty = new BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs();
 
-    /**
-     * The final port in the range of TCP ports.
-     * 
-     */
     @Import(name="maxRange", required=true)
     private Output<Integer> maxRange;
 
-    /**
-     * @return The final port in the range of TCP ports.
-     * 
-     */
     public Output<Integer> maxRange() {
         return this.maxRange;
     }
 
-    /**
-     * The first port in the range of TCP ports.
-     * 
-     */
     @Import(name="minRange", required=true)
     private Output<Integer> minRange;
 
-    /**
-     * @return The first port in the range of TCP ports.
-     * 
-     */
     public Output<Integer> minRange() {
         return this.minRange;
     }
@@ -69,44 +53,20 @@ public final class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
             $ = new BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxRange The final port in the range of TCP ports.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRange(Output<Integer> maxRange) {
             $.maxRange = maxRange;
             return this;
         }
 
-        /**
-         * @param maxRange The final port in the range of TCP ports.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxRange(Integer maxRange) {
             return maxRange(Output.of(maxRange));
         }
 
-        /**
-         * @param minRange The first port in the range of TCP ports.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRange(Output<Integer> minRange) {
             $.minRange = minRange;
             return this;
         }
 
-        /**
-         * @param minRange The first port in the range of TCP ports.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minRange(Integer minRange) {
             return minRange(Output.of(minRange));
         }

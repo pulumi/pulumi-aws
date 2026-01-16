@@ -4,57 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Attaches a load balancer policy to an ELB backend server.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
- *     name: "wu-tang",
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [{
- *         instancePort: 443,
- *         instanceProtocol: "http",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
- *     }],
- *     tags: {
- *         Name: "wu-tang",
- *     },
- * });
- * const wu_tang_ca_pubkey_policy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-ca-pubkey-policy",
- *     policyTypeName: "PublicKeyPolicyType",
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: std.file({
- *             input: "wu-tang-pubkey",
- *         }).then(invoke => invoke.result),
- *     }],
- * });
- * const wu_tang_root_ca_backend_auth_policy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-root-ca-backend-auth-policy",
- *     policyTypeName: "BackendServerAuthenticationPolicyType",
- *     policyAttributes: [{
- *         name: "PublicKeyPolicyName",
- *         value: wu_tang_root_ca_pubkey_policy.policyName,
- *     }],
- * });
- * const wu_tang_backend_auth_policies_443 = new aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
- *     loadBalancerName: wu_tang.name,
- *     instancePort: 443,
- *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
- * });
- * ```
- */
 export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancerBackendServerPolicy resource's state with the given name, ID, and optional extra
@@ -83,21 +32,9 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancerBackendServerPolicy.__pulumiType;
     }
 
-    /**
-     * The instance port to apply the policy to.
-     */
     declare public readonly instancePort: pulumi.Output<number>;
-    /**
-     * The load balancer to attach the policy to.
-     */
     declare public readonly loadBalancerName: pulumi.Output<string>;
-    /**
-     * List of Policy Names to apply to the backend server.
-     */
     declare public readonly policyNames: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -141,21 +78,9 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancerBackendServerPolicy resources.
  */
 export interface LoadBalancerBackendServerPolicyState {
-    /**
-     * The instance port to apply the policy to.
-     */
     instancePort?: pulumi.Input<number>;
-    /**
-     * The load balancer to attach the policy to.
-     */
     loadBalancerName?: pulumi.Input<string>;
-    /**
-     * List of Policy Names to apply to the backend server.
-     */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -163,20 +88,8 @@ export interface LoadBalancerBackendServerPolicyState {
  * The set of arguments for constructing a LoadBalancerBackendServerPolicy resource.
  */
 export interface LoadBalancerBackendServerPolicyArgs {
-    /**
-     * The instance port to apply the policy to.
-     */
     instancePort: pulumi.Input<number>;
-    /**
-     * The load balancer to attach the policy to.
-     */
     loadBalancerName: pulumi.Input<string>;
-    /**
-     * List of Policy Names to apply to the backend server.
-     */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

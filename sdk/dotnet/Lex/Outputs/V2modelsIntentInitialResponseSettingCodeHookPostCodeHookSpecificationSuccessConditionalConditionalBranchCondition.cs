@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition
     {
-        /// <summary>
-        /// Expression string that is evaluated.
-        /// </summary>
         public readonly string ExpressionString;
 
         [OutputConstructor]

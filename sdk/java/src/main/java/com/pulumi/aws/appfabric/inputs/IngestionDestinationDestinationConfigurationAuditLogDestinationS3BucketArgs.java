@@ -23,17 +23,9 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
         return this.bucketName;
     }
 
-    /**
-     * The object key to use.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The object key to use.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -72,23 +64,11 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param prefix The object key to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The object key to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

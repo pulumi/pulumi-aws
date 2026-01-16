@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryTargetConfiguration {
-    /**
-     * @return Configuration block for information needed to write data into the Timestream database and table. See below.
-     * 
-     */
     private @Nullable ScheduledQueryTargetConfigurationTimestreamConfiguration timestreamConfiguration;
 
     private ScheduledQueryTargetConfiguration() {}
-    /**
-     * @return Configuration block for information needed to write data into the Timestream database and table. See below.
-     * 
-     */
     public Optional<ScheduledQueryTargetConfigurationTimestreamConfiguration> timestreamConfiguration() {
         return Optional.ofNullable(this.timestreamConfiguration);
     }

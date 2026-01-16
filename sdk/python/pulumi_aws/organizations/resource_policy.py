@@ -23,8 +23,6 @@ class ResourcePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[_builtins.str] content: Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content", content)
         if tags is not None:
@@ -33,9 +31,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Input[_builtins.str]:
-        """
-        Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -45,9 +40,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,10 +56,6 @@ class _ResourcePolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource policy.
-        :param pulumi.Input[_builtins.str] content: Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -81,9 +69,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the resource policy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -93,9 +78,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -105,9 +87,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,9 +96,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -137,59 +113,9 @@ class ResourcePolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.ResourcePolicy("example", content=\"\"\"{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Statement\\": [
-            {
-              \\"Sid\\": \\"DelegatingNecessaryDescribeListActions\\",
-              \\"Effect\\": \\"Allow\\",
-              \\"Principal\\": {
-                \\"AWS\\": \\"arn:aws:iam::123456789012:root\\"
-              },
-              \\"Action\\": [
-                \\"organizations:DescribeOrganization\\",
-                \\"organizations:DescribeOrganizationalUnit\\",
-                \\"organizations:DescribeAccount\\",
-                \\"organizations:DescribePolicy\\",
-                \\"organizations:DescribeEffectivePolicy\\",
-                \\"organizations:ListRoots\\",
-                \\"organizations:ListOrganizationalUnitsForParent\\",
-                \\"organizations:ListParents\\",
-                \\"organizations:ListChildren\\",
-                \\"organizations:ListAccounts\\",
-                \\"organizations:ListAccountsForParent\\",
-                \\"organizations:ListPolicies\\",
-                \\"organizations:ListPoliciesForTarget\\",
-                \\"organizations:ListTargetsForPolicy\\",
-                \\"organizations:ListTagsForResource\\"
-              ],
-              \\"Resource\\": \\"*\\"
-            }
-          ]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
-
-        ```sh
-        $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -198,55 +124,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.organizations.ResourcePolicy("example", content=\"\"\"{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Statement\\": [
-            {
-              \\"Sid\\": \\"DelegatingNecessaryDescribeListActions\\",
-              \\"Effect\\": \\"Allow\\",
-              \\"Principal\\": {
-                \\"AWS\\": \\"arn:aws:iam::123456789012:root\\"
-              },
-              \\"Action\\": [
-                \\"organizations:DescribeOrganization\\",
-                \\"organizations:DescribeOrganizationalUnit\\",
-                \\"organizations:DescribeAccount\\",
-                \\"organizations:DescribePolicy\\",
-                \\"organizations:DescribeEffectivePolicy\\",
-                \\"organizations:ListRoots\\",
-                \\"organizations:ListOrganizationalUnitsForParent\\",
-                \\"organizations:ListParents\\",
-                \\"organizations:ListChildren\\",
-                \\"organizations:ListAccounts\\",
-                \\"organizations:ListAccountsForParent\\",
-                \\"organizations:ListPolicies\\",
-                \\"organizations:ListPoliciesForTarget\\",
-                \\"organizations:ListTargetsForPolicy\\",
-                \\"organizations:ListTagsForResource\\"
-              ],
-              \\"Resource\\": \\"*\\"
-            }
-          ]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
-
-        ```sh
-        $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,10 +178,6 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource policy.
-        :param pulumi.Input[_builtins.str] content: Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -318,32 +192,20 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the resource policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:
-        """
-        Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

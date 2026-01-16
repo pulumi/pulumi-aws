@@ -17,47 +17,23 @@ public final class DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage
 
     public static final DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs Empty = new DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs();
 
-    /**
-     * The name of the App Image Config.
-     * 
-     */
     @Import(name="appImageConfigName", required=true)
     private Output<String> appImageConfigName;
 
-    /**
-     * @return The name of the App Image Config.
-     * 
-     */
     public Output<String> appImageConfigName() {
         return this.appImageConfigName;
     }
 
-    /**
-     * The name of the Custom Image.
-     * 
-     */
     @Import(name="imageName", required=true)
     private Output<String> imageName;
 
-    /**
-     * @return The name of the Custom Image.
-     * 
-     */
     public Output<String> imageName() {
         return this.imageName;
     }
 
-    /**
-     * The version number of the Custom Image.
-     * 
-     */
     @Import(name="imageVersionNumber")
     private @Nullable Output<Integer> imageVersionNumber;
 
-    /**
-     * @return The version number of the Custom Image.
-     * 
-     */
     public Optional<Output<Integer>> imageVersionNumber() {
         return Optional.ofNullable(this.imageVersionNumber);
     }
@@ -88,65 +64,29 @@ public final class DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage
             $ = new DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appImageConfigName The name of the App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appImageConfigName(Output<String> appImageConfigName) {
             $.appImageConfigName = appImageConfigName;
             return this;
         }
 
-        /**
-         * @param appImageConfigName The name of the App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appImageConfigName(String appImageConfigName) {
             return appImageConfigName(Output.of(appImageConfigName));
         }
 
-        /**
-         * @param imageName The name of the Custom Image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageName(Output<String> imageName) {
             $.imageName = imageName;
             return this;
         }
 
-        /**
-         * @param imageName The name of the Custom Image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageName(String imageName) {
             return imageName(Output.of(imageName));
         }
 
-        /**
-         * @param imageVersionNumber The version number of the Custom Image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageVersionNumber(@Nullable Output<Integer> imageVersionNumber) {
             $.imageVersionNumber = imageVersionNumber;
             return this;
         }
 
-        /**
-         * @param imageVersionNumber The version number of the Custom Image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageVersionNumber(Integer imageVersionNumber) {
             return imageVersionNumber(Output.of(imageVersionNumber));
         }

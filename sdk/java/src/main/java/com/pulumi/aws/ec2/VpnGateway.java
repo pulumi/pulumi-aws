@@ -15,149 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a VPC VPN Gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var vpnGw = new VpnGateway("vpnGw", VpnGatewayArgs.builder()
- *             .vpcId(main.id())
- *             .tags(Map.of("Name", "main"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpnGateway:VpnGateway")
 public class VpnGateway extends com.pulumi.resources.CustomResource {
-    /**
-     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
-     * 
-     */
     @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
-    /**
-     * @return The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
-     * 
-     */
     public Output<String> amazonSideAsn() {
         return this.amazonSideAsn;
     }
-    /**
-     * Amazon Resource Name (ARN) of the VPN Gateway.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the VPN Gateway.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The Availability Zone for the virtual private gateway.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZone;
 
-    /**
-     * @return The Availability Zone for the virtual private gateway.
-     * 
-     */
     public Output<Optional<String>> availabilityZone() {
         return Codegen.optional(this.availabilityZone);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The VPC ID to create in.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The VPC ID to create in.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

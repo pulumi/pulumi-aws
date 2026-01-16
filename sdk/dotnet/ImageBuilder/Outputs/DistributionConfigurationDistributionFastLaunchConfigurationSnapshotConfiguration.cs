@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration
     {
-        /// <summary>
-        /// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-        /// </summary>
         public readonly int? TargetResourceCount;
 
         [OutputConstructor]

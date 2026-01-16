@@ -17,107 +17,51 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificateArgs Empty = new CertificateArgs();
 
-    /**
-     * The valid certificate file required for the transfer.
-     * 
-     */
     @Import(name="certificate", required=true)
     private Output<String> certificate;
 
-    /**
-     * @return The valid certificate file required for the transfer.
-     * 
-     */
     public Output<String> certificate() {
         return this.certificate;
     }
 
-    /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
-     * 
-     */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
-    /**
-     * @return The optional list of certificate that make up the chain for the certificate that is being imported.
-     * 
-     */
     public Optional<Output<String>> certificateChain() {
         return Optional.ofNullable(this.certificateChain);
     }
 
-    /**
-     * A short description that helps identify the certificate.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A short description that helps identify the certificate.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The private key associated with the certificate being imported.
-     * 
-     */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
-    /**
-     * @return The private key associated with the certificate being imported.
-     * 
-     */
     public Optional<Output<String>> privateKey() {
         return Optional.ofNullable(this.privateKey);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
-     * 
-     */
     @Import(name="usage", required=true)
     private Output<String> usage;
 
-    /**
-     * @return Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
-     * 
-     */
     public Output<String> usage() {
         return this.usage;
     }
@@ -152,149 +96,65 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate The valid certificate file required for the transfer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(Output<String> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate The valid certificate file required for the transfer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(String certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param certificateChain The optional list of certificate that make up the chain for the certificate that is being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(@Nullable Output<String> certificateChain) {
             $.certificateChain = certificateChain;
             return this;
         }
 
-        /**
-         * @param certificateChain The optional list of certificate that make up the chain for the certificate that is being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(String certificateChain) {
             return certificateChain(Output.of(certificateChain));
         }
 
-        /**
-         * @param description A short description that helps identify the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A short description that helps identify the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param privateKey The private key associated with the certificate being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(@Nullable Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
-        /**
-         * @param privateKey The private key associated with the certificate being imported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param usage Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usage(Output<String> usage) {
             $.usage = usage;
             return this;
         }
 
-        /**
-         * @param usage Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usage(String usage) {
             return usage(Output.of(usage));
         }

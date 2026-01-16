@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureGroupOnlineStoreConfigTtlDuration {
-    /**
-     * @return TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-     * 
-     */
     private @Nullable String unit;
-    /**
-     * @return TtlDuration time value.
-     * 
-     */
     private @Nullable Integer value;
 
     private FeatureGroupOnlineStoreConfigTtlDuration() {}
-    /**
-     * @return TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }
-    /**
-     * @return TtlDuration time value.
-     * 
-     */
     public Optional<Integer> value() {
         return Optional.ofNullable(this.value);
     }

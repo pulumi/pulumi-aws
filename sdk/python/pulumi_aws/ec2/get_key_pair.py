@@ -69,17 +69,11 @@ class GetKeyPairResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Key Pair.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        Timestamp for when the key pair was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
@@ -90,9 +84,6 @@ class GetKeyPairResult:
     @_builtins.property
     @pulumi.getter
     def fingerprint(self) -> _builtins.str:
-        """
-        SHA-1 digest of the DER encoded private key.
-        """
         return pulumi.get(self, "fingerprint")
 
     @_builtins.property
@@ -121,17 +112,11 @@ class GetKeyPairResult:
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> _builtins.str:
-        """
-        Type of key pair.
-        """
         return pulumi.get(self, "key_type")
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> _builtins.str:
-        """
-        Public key material.
-        """
         return pulumi.get(self, "public_key")
 
     @_builtins.property
@@ -142,9 +127,6 @@ class GetKeyPairResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Any tags assigned to the Key Pair.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -176,38 +158,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyPairResult:
     """
-    Use this data source to get information about a specific EC2 Key Pair.
-
-    ## Example Usage
-
-    The following example shows how to get a EC2 Key Pair including the public key material from its name.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[{
-            "name": "tag:Component",
-            "values": ["web"],
-        }])
-    pulumi.export("fingerprint", example.fingerprint)
-    pulumi.export("name", example.key_name)
-    pulumi.export("id", example.id)
-    ```
-
-
-    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available
-           Key Pairs. The given filters must match exactly one Key Pair
-           whose data will be exported as attributes.
-    :param _builtins.bool include_public_key: Whether to include the public key material in the response.
-    :param _builtins.str key_name: Key Pair name.
-    :param _builtins.str key_pair_id: Key Pair ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Any tags assigned to the Key Pair.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -240,38 +191,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
-    Use this data source to get information about a specific EC2 Key Pair.
-
-    ## Example Usage
-
-    The following example shows how to get a EC2 Key Pair including the public key material from its name.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[{
-            "name": "tag:Component",
-            "values": ["web"],
-        }])
-    pulumi.export("fingerprint", example.fingerprint)
-    pulumi.export("name", example.key_name)
-    pulumi.export("id", example.id)
-    ```
-
-
-    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available
-           Key Pairs. The given filters must match exactly one Key Pair
-           whose data will be exported as attributes.
-    :param _builtins.bool include_public_key: Whether to include the public key material in the response.
-    :param _builtins.str key_name: Key Pair name.
-    :param _builtins.str key_pair_id: Key Pair ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Any tags assigned to the Key Pair.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

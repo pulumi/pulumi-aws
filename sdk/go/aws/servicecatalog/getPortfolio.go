@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information for a Service Catalog Portfolio.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupPortfolio(ctx, &servicecatalog.LookupPortfolioArgs{
-//				Id: "port-07052002",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortfolioResult
@@ -50,35 +23,23 @@ func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pul
 
 // A collection of arguments for invoking getPortfolio.
 type LookupPortfolioArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	//
-	// The following arguments are optional:
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags applied to the portfolio.
-	Tags map[string]string `pulumi:"tags"`
+	AcceptLanguage *string           `pulumi:"acceptLanguage"`
+	Id             string            `pulumi:"id"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPortfolio.
 type LookupPortfolioResult struct {
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio ARN.
-	Arn string `pulumi:"arn"`
-	// Time the portfolio was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// Description of the portfolio
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	// Portfolio name.
-	Name string `pulumi:"name"`
-	// Name of the person or organization who owns the portfolio.
-	ProviderName string `pulumi:"providerName"`
-	Region       string `pulumi:"region"`
-	// Tags applied to the portfolio.
-	Tags map[string]string `pulumi:"tags"`
+	AcceptLanguage *string           `pulumi:"acceptLanguage"`
+	Arn            string            `pulumi:"arn"`
+	CreatedTime    string            `pulumi:"createdTime"`
+	Description    string            `pulumi:"description"`
+	Id             string            `pulumi:"id"`
+	Name           string            `pulumi:"name"`
+	ProviderName   string            `pulumi:"providerName"`
+	Region         string            `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioResultOutput {
@@ -92,16 +53,10 @@ func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, 
 
 // A collection of arguments for invoking getPortfolio.
 type LookupPortfolioOutputArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	//
-	// The following arguments are optional:
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tags applied to the portfolio.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Id             pulumi.StringInput    `pulumi:"id"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupPortfolioOutputArgs) ElementType() reflect.Type {
@@ -127,17 +82,14 @@ func (o LookupPortfolioResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Portfolio ARN.
 func (o LookupPortfolioResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time the portfolio was created.
 func (o LookupPortfolioResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of the portfolio
 func (o LookupPortfolioResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -146,12 +98,10 @@ func (o LookupPortfolioResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Portfolio name.
 func (o LookupPortfolioResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the person or organization who owns the portfolio.
 func (o LookupPortfolioResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.ProviderName }).(pulumi.StringOutput)
 }
@@ -160,7 +110,6 @@ func (o LookupPortfolioResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags applied to the portfolio.
 func (o LookupPortfolioResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

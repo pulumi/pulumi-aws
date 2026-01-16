@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps
     {
-        /// <summary>
-        /// Maximum.
-        /// </summary>
         public readonly double? Max;
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

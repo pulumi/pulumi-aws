@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository {
-    /**
-     * @return The URL of the Git repository.
-     * 
-     */
     private String repositoryUrl;
 
     private DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository() {}
-    /**
-     * @return The URL of the Git repository.
-     * 
-     */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }

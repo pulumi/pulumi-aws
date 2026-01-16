@@ -15,17 +15,9 @@ public final class WebAppIdentityProviderDetailsArgs extends com.pulumi.resource
 
     public static final WebAppIdentityProviderDetailsArgs Empty = new WebAppIdentityProviderDetailsArgs();
 
-    /**
-     * Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-     * 
-     */
     @Import(name="identityCenterConfig")
     private @Nullable Output<WebAppIdentityProviderDetailsIdentityCenterConfigArgs> identityCenterConfig;
 
-    /**
-     * @return Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-     * 
-     */
     public Optional<Output<WebAppIdentityProviderDetailsIdentityCenterConfigArgs>> identityCenterConfig() {
         return Optional.ofNullable(this.identityCenterConfig);
     }
@@ -54,23 +46,11 @@ public final class WebAppIdentityProviderDetailsArgs extends com.pulumi.resource
             $ = new WebAppIdentityProviderDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityCenterConfig Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterConfig(@Nullable Output<WebAppIdentityProviderDetailsIdentityCenterConfigArgs> identityCenterConfig) {
             $.identityCenterConfig = identityCenterConfig;
             return this;
         }
 
-        /**
-         * @param identityCenterConfig Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityCenterConfig(WebAppIdentityProviderDetailsIdentityCenterConfigArgs identityCenterConfig) {
             return identityCenterConfig(Output.of(identityCenterConfig));
         }

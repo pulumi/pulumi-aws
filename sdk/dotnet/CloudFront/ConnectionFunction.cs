@@ -9,193 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Manages an AWS CloudFront Connection Function.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
-    ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
-    ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
-    ///         {
-    ///             Runtime = "cloudfront-js-2.0",
-    ///             Comment = "Example connection function",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Publish Enabled
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
-    ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
-    ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
-    ///         {
-    ///             Runtime = "cloudfront-js-2.0",
-    ///             Comment = "Example connection function",
-    ///         },
-    ///         Publish = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Key Value Store Associations
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.KeyValueStore("example", new()
-    ///     {
-    ///         Name = "example-kvs",
-    ///         Comment = "Example key value store",
-    ///     });
-    /// 
-    ///     var exampleConnectionFunction = new Aws.CloudFront.ConnectionFunction("example", new()
-    ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
-    ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
-    ///         {
-    ///             Runtime = "cloudfront-js-2.0",
-    ///             Comment = "Example connection function",
-    ///             KeyValueStoreAssociation = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs
-    ///             {
-    ///                 KeyValueStoreArn = example.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.ConnectionFunction("example", new()
-    ///     {
-    ///         Name = "example-connection-function",
-    ///         ConnectionFunctionCode = "function handler(event) { return event.request; }",
-    ///         ConnectionFunctionConfig = new Aws.CloudFront.Inputs.ConnectionFunctionConnectionFunctionConfigArgs
-    ///         {
-    ///             Runtime = "cloudfront-js-2.0",
-    ///             Comment = "Example connection function",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Team", "web" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront Connection Function using the function ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/connectionFunction:ConnectionFunction")]
     public partial class ConnectionFunction : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the connection function.
-        /// </summary>
         [Output("connectionFunctionArn")]
         public Output<string> ConnectionFunctionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Code for the connection function. Maximum length is 40960 characters.
-        /// </summary>
         [Output("connectionFunctionCode")]
         public Output<string> ConnectionFunctionCode { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration information for the connection function. See `ConnectionFunctionConfig` below.
-        /// </summary>
         [Output("connectionFunctionConfig")]
         public Output<Outputs.ConnectionFunctionConnectionFunctionConfig?> ConnectionFunctionConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// ETag of the connection function.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// ETag of the function's LIVE stage. Will be empty if the function has not been published.
-        /// </summary>
         [Output("liveStageEtag")]
         public Output<string> LiveStageEtag { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `False`.
-        /// </summary>
         [Output("publish")]
         public Output<bool> Publish { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the connection function.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -245,38 +88,20 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ConnectionFunctionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Code for the connection function. Maximum length is 40960 characters.
-        /// </summary>
         [Input("connectionFunctionCode", required: true)]
         public Input<string> ConnectionFunctionCode { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration information for the connection function. See `ConnectionFunctionConfig` below.
-        /// </summary>
         [Input("connectionFunctionConfig")]
         public Input<Inputs.ConnectionFunctionConnectionFunctionConfigArgs>? ConnectionFunctionConfig { get; set; }
 
-        /// <summary>
-        /// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `False`.
-        /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -291,62 +116,32 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ConnectionFunctionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the connection function.
-        /// </summary>
         [Input("connectionFunctionArn")]
         public Input<string>? ConnectionFunctionArn { get; set; }
 
-        /// <summary>
-        /// Code for the connection function. Maximum length is 40960 characters.
-        /// </summary>
         [Input("connectionFunctionCode")]
         public Input<string>? ConnectionFunctionCode { get; set; }
 
-        /// <summary>
-        /// Configuration information for the connection function. See `ConnectionFunctionConfig` below.
-        /// </summary>
         [Input("connectionFunctionConfig")]
         public Input<Inputs.ConnectionFunctionConnectionFunctionConfigGetArgs>? ConnectionFunctionConfig { get; set; }
 
-        /// <summary>
-        /// ETag of the connection function.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// ETag of the function's LIVE stage. Will be empty if the function has not been published.
-        /// </summary>
         [Input("liveStageEtag")]
         public Input<string>? LiveStageEtag { get; set; }
 
-        /// <summary>
-        /// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `False`.
-        /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
 
-        /// <summary>
-        /// Status of the connection function.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -355,10 +150,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

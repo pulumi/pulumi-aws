@@ -13,22 +13,10 @@ namespace Pulumi.Aws.Billing.Outputs
     [OutputType]
     public sealed class GetViewsBillingViewResult
     {
-        /// <summary>
-        /// ARN of the billing view.
-        /// </summary>
         public readonly string Arn;
         public readonly string BillingViewType;
-        /// <summary>
-        /// Description of the billing view.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Name of the billing view.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Account ID of the billing view owner.
-        /// </summary>
         public readonly string OwnerAccountId;
 
         [OutputConstructor]

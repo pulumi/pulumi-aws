@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsTensorBoardAppSettings {
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private DomainDefaultUserSettingsTensorBoardAppSettings() {}
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }

@@ -14,17 +14,9 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArnResour
 
     public static final ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs Empty = new ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs();
 
-    /**
-     * The ARN of the Resource for this configuration.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Resource for this configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -53,23 +45,11 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArnResour
             $ = new ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the Resource for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the Resource for this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

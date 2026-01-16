@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorInputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Kinesis input stream. See `KinesisVideoStream`.
+        /// Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
         /// </summary>
         [Input("kinesisVideoStream")]
         public Input<Inputs.StreamProcessorInputKinesisVideoStreamGetArgs>? KinesisVideoStream { get; set; }

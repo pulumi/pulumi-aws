@@ -44,9 +44,6 @@ class GetGiVersionsResult:
     @_builtins.property
     @pulumi.getter(name="giVersions")
     def gi_versions(self) -> Sequence['outputs.GetGiVersionsGiVersionResult']:
-        """
-        Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
-        """
         return pulumi.get(self, "gi_versions")
 
     @_builtins.property
@@ -84,15 +81,7 @@ def get_gi_versions(region: Optional[_builtins.str] = None,
                     shape: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGiVersionsResult:
     """
-    Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str shape: The system shape.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -109,15 +98,7 @@ def get_gi_versions_output(region: Optional[pulumi.Input[Optional[_builtins.str]
                            shape: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGiVersionsResult]:
     """
-    Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str shape: The system shape.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class LoadBalancerIpamPoolsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the IPv4 IPAM pool.
-        /// </summary>
         [Input("ipv4IpamPoolId", required: true)]
         public Input<string> Ipv4IpamPoolId { get; set; } = null!;
 

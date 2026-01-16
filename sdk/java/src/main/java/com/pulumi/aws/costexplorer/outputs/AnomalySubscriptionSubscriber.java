@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AnomalySubscriptionSubscriber {
-    /**
-     * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-     * 
-     */
     private String address;
-    /**
-     * @return The type of subscription. Valid Values: `SNS` | `EMAIL`.
-     * 
-     */
     private String type;
 
     private AnomalySubscriptionSubscriber() {}
-    /**
-     * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
-     * 
-     */
     public String address() {
         return this.address;
     }
-    /**
-     * @return The type of subscription. Valid Values: `SNS` | `EMAIL`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TableTtl
     {
-        /// <summary>
-        /// Valid values: `ENABLED`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

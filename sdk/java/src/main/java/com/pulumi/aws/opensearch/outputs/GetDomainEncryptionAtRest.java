@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainEncryptionAtRest {
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return KMS key id used to encrypt data at rest.
-     * 
-     */
     private String kmsKeyId;
 
     private GetDomainEncryptionAtRest() {}
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return KMS key id used to encrypt data at rest.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }

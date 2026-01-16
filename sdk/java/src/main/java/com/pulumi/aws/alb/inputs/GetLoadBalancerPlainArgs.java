@@ -15,66 +15,30 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetLoadBalancerPlainArgs Empty = new GetLoadBalancerPlainArgs();
 
-    /**
-     * Full ARN of the load balancer.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return Full ARN of the load balancer.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name of the load balancer.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Unique name of the load balancer.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-     * 
-     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-     * 
-     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -106,47 +70,21 @@ public final class GetLoadBalancerPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetLoadBalancerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Full ARN of the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name Unique name of the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
-         * 
-         * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

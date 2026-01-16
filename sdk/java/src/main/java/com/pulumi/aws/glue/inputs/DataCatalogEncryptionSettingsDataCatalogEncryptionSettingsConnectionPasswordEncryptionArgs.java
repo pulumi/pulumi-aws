@@ -17,32 +17,16 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsCon
 
     public static final DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs Empty = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs();
 
-    /**
-     * A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
-     * 
-     */
     @Import(name="awsKmsKeyId")
     private @Nullable Output<String> awsKmsKeyId;
 
-    /**
-     * @return A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
-     * 
-     */
     public Optional<Output<String>> awsKmsKeyId() {
         return Optional.ofNullable(this.awsKmsKeyId);
     }
 
-    /**
-     * When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-     * 
-     */
     @Import(name="returnConnectionPasswordEncrypted", required=true)
     private Output<Boolean> returnConnectionPasswordEncrypted;
 
-    /**
-     * @return When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-     * 
-     */
     public Output<Boolean> returnConnectionPasswordEncrypted() {
         return this.returnConnectionPasswordEncrypted;
     }
@@ -72,44 +56,20 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsCon
             $ = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsKmsKeyId A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsKmsKeyId(@Nullable Output<String> awsKmsKeyId) {
             $.awsKmsKeyId = awsKmsKeyId;
             return this;
         }
 
-        /**
-         * @param awsKmsKeyId A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsKmsKeyId(String awsKmsKeyId) {
             return awsKmsKeyId(Output.of(awsKmsKeyId));
         }
 
-        /**
-         * @param returnConnectionPasswordEncrypted When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnConnectionPasswordEncrypted(Output<Boolean> returnConnectionPasswordEncrypted) {
             $.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
             return this;
         }
 
-        /**
-         * @param returnConnectionPasswordEncrypted When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnConnectionPasswordEncrypted(Boolean returnConnectionPasswordEncrypted) {
             return returnConnectionPasswordEncrypted(Output.of(returnConnectionPasswordEncrypted));
         }

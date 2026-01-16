@@ -15,111 +15,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
- * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
- * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributes;
- * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributesArgs;
- * import com.pulumi.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
- *             .build());
- * 
- *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes("exampleInstanceAccessControlAttributes", InstanceAccessControlAttributesArgs.builder()
- *             .instanceArn(example.arns()[0])
- *             .attributes(            
- *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key("name")
- *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
- *                         .sources("${path:name.givenName}")
- *                         .build())
- *                     .build(),
- *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key("last")
- *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
- *                         .sources("${path:name.familyName}")
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")
 public class InstanceAccessControlAttributes extends com.pulumi.resources.CustomResource {
-    /**
-     * See AccessControlAttribute for more details.
-     * 
-     */
     @Export(name="attributes", refs={List.class,InstanceAccessControlAttributesAttribute.class}, tree="[0,1]")
     private Output<List<InstanceAccessControlAttributesAttribute>> attributes;
 
-    /**
-     * @return See AccessControlAttribute for more details.
-     * 
-     */
     public Output<List<InstanceAccessControlAttributesAttribute>> attributes() {
         return this.attributes;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

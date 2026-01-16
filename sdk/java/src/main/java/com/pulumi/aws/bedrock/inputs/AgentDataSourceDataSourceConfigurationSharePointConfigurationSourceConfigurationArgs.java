@@ -17,92 +17,44 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs();
 
-    /**
-     * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
-    /**
-     * @return The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
 
-    /**
-     * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
-    /**
-     * @return The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-     * 
-     */
     public Output<String> credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
 
-    /**
-     * The domain of your SharePoint instance or site URL/URLs.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return The domain of your SharePoint instance or site URL/URLs.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
 
-    /**
-     * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-     * 
-     */
     @Import(name="hostType", required=true)
     private Output<String> hostType;
 
-    /**
-     * @return The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-     * 
-     */
     public Output<String> hostType() {
         return this.hostType;
     }
 
-    /**
-     * A list of one or more SharePoint site URLs.
-     * 
-     */
     @Import(name="siteUrls", required=true)
     private Output<List<String>> siteUrls;
 
-    /**
-     * @return A list of one or more SharePoint site URLs.
-     * 
-     */
     public Output<List<String>> siteUrls() {
         return this.siteUrls;
     }
 
-    /**
-     * The identifier of your Microsoft 365 tenant.
-     * 
-     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
-    /**
-     * @return The identifier of your Microsoft 365 tenant.
-     * 
-     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
@@ -136,138 +88,60 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authType The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }
 
-        /**
-         * @param credentialsSecretArn The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(Output<String> credentialsSecretArn) {
             $.credentialsSecretArn = credentialsSecretArn;
             return this;
         }
 
-        /**
-         * @param credentialsSecretArn The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(String credentialsSecretArn) {
             return credentialsSecretArn(Output.of(credentialsSecretArn));
         }
 
-        /**
-         * @param domain The domain of your SharePoint instance or site URL/URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The domain of your SharePoint instance or site URL/URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param hostType The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostType(Output<String> hostType) {
             $.hostType = hostType;
             return this;
         }
 
-        /**
-         * @param hostType The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostType(String hostType) {
             return hostType(Output.of(hostType));
         }
 
-        /**
-         * @param siteUrls A list of one or more SharePoint site URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteUrls(Output<List<String>> siteUrls) {
             $.siteUrls = siteUrls;
             return this;
         }
 
-        /**
-         * @param siteUrls A list of one or more SharePoint site URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteUrls(List<String> siteUrls) {
             return siteUrls(Output.of(siteUrls));
         }
 
-        /**
-         * @param siteUrls A list of one or more SharePoint site URLs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteUrls(String... siteUrls) {
             return siteUrls(List.of(siteUrls));
         }
 
-        /**
-         * @param tenantId The identifier of your Microsoft 365 tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
-        /**
-         * @param tenantId The identifier of your Microsoft 365 tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }

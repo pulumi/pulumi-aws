@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceVpcConnectionProperties
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the VPC connection.
-        /// </summary>
         public readonly string VpcConnectionArn;
 
         [OutputConstructor]

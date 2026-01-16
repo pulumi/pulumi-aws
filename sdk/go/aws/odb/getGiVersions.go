@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
 func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.InvokeOption) (*GetGiVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGiVersionsResult
@@ -28,15 +23,12 @@ func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getGiVersions.
 type GetGiVersionsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The system shape.
-	Shape *string `pulumi:"shape"`
+	Shape  *string `pulumi:"shape"`
 }
 
 // A collection of values returned by getGiVersions.
 type GetGiVersionsResult struct {
-	// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
 	GiVersions []GetGiVersionsGiVersion `pulumi:"giVersions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string  `pulumi:"id"`
@@ -55,10 +47,8 @@ func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts
 
 // A collection of arguments for invoking getGiVersions.
 type GetGiVersionsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The system shape.
-	Shape pulumi.StringPtrInput `pulumi:"shape"`
+	Shape  pulumi.StringPtrInput `pulumi:"shape"`
 }
 
 func (GetGiVersionsOutputArgs) ElementType() reflect.Type {
@@ -80,7 +70,6 @@ func (o GetGiVersionsResultOutput) ToGetGiVersionsResultOutputWithContext(ctx co
 	return o
 }
 
-// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
 func (o GetGiVersionsResultOutput) GiVersions() GetGiVersionsGiVersionArrayOutput {
 	return o.ApplyT(func(v GetGiVersionsResult) []GetGiVersionsGiVersion { return v.GiVersions }).(GetGiVersionsGiVersionArrayOutput)
 }

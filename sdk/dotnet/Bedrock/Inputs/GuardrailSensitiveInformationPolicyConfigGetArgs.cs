@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("piiEntitiesConfigs")]
         private InputList<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigGetArgs>? _piiEntitiesConfigs;
-
-        /// <summary>
-        /// List of entities. See PII Entities Config for more information.
-        /// </summary>
         public InputList<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigGetArgs> PiiEntitiesConfigs
         {
             get => _piiEntitiesConfigs ?? (_piiEntitiesConfigs = new InputList<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("regexesConfigs")]
         private InputList<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigGetArgs>? _regexesConfigs;
-
-        /// <summary>
-        /// List of regex. See Regexes Config for more information.
-        /// </summary>
         public InputList<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigGetArgs> RegexesConfigs
         {
             get => _regexesConfigs ?? (_regexesConfigs = new InputList<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigGetArgs>());

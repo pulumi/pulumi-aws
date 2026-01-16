@@ -17,17 +17,9 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
 
     public static final ThesaurusState Empty = new ThesaurusState();
 
-    /**
-     * ARN of the thesaurus.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the thesaurus.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -39,32 +31,16 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The identifier of the index for a thesaurus.
-     * 
-     */
     @Import(name="indexId")
     private @Nullable Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for a thesaurus.
-     * 
-     */
     public Optional<Output<String>> indexId() {
         return Optional.ofNullable(this.indexId);
     }
 
-    /**
-     * The name for the thesaurus.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for the thesaurus.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -76,47 +52,23 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     */
     @Import(name="sourceS3Path")
     private @Nullable Output<ThesaurusSourceS3PathArgs> sourceS3Path;
 
-    /**
-     * @return The S3 path where your thesaurus file sits in S3. Detailed below.
-     * 
-     */
     public Optional<Output<ThesaurusSourceS3PathArgs>> sourceS3Path() {
         return Optional.ofNullable(this.sourceS3Path);
     }
 
-    /**
-     * The current status of the thesaurus.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The current status of the thesaurus.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -128,17 +80,9 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -184,23 +128,11 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             $ = new ThesaurusState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -214,44 +146,20 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param indexId The identifier of the index for a thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(@Nullable Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId The identifier of the index for a thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
 
-        /**
-         * @param name The name for the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -265,65 +173,29 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceS3Path(@Nullable Output<ThesaurusSourceS3PathArgs> sourceS3Path) {
             $.sourceS3Path = sourceS3Path;
             return this;
         }
 
-        /**
-         * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceS3Path(ThesaurusSourceS3PathArgs sourceS3Path) {
             return sourceS3Path(Output.of(sourceS3Path));
         }
 
-        /**
-         * @param status The current status of the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The current status of the thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
@@ -337,23 +209,11 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

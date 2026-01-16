@@ -14,193 +14,29 @@ import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Service Discovery Instance resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.servicediscovery.PrivateDnsNamespace;
- * import com.pulumi.aws.servicediscovery.PrivateDnsNamespaceArgs;
- * import com.pulumi.aws.servicediscovery.Service;
- * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
- * import com.pulumi.aws.servicediscovery.Instance;
- * import com.pulumi.aws.servicediscovery.InstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build());
- * 
- *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()
- *             .name("example.domain.local")
- *             .description("example")
- *             .vpc(example.id())
- *             .build());
- * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example")
- *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePrivateDnsNamespace.id())
- *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
- *                     .ttl(10)
- *                     .type("A")
- *                     .build())
- *                 .routingPolicy("MULTIVALUE")
- *                 .build())
- *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
- *                 .failureThreshold(1)
- *                 .build())
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .instanceId("example-instance-id")
- *             .serviceId(exampleService.id())
- *             .attributes(Map.ofEntries(
- *                 Map.entry("AWS_INSTANCE_IPV4", "172.18.0.1"),
- *                 Map.entry("custom_attribute", "custom")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicediscovery.HttpNamespace;
- * import com.pulumi.aws.servicediscovery.HttpNamespaceArgs;
- * import com.pulumi.aws.servicediscovery.Service;
- * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.Instance;
- * import com.pulumi.aws.servicediscovery.InstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()
- *             .name("example.domain.test")
- *             .description("example")
- *             .build());
- * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example")
- *             .namespaceId(example.id())
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .instanceId("example-instance-id")
- *             .serviceId(exampleService.id())
- *             .attributes(Map.of("AWS_EC2_INSTANCE_ID", "i-0abdg374kd892cj6dl"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
- * ```
- * 
- */
 @ResourceType(type="aws:servicediscovery/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
-    /**
-     * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-     * 
-     */
     @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> attributes;
 
-    /**
-     * @return A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
-     * 
-     */
     public Output<Map<String,String>> attributes() {
         return this.attributes;
     }
-    /**
-     * The ID of the service instance.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return The ID of the service instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the service that you want to use to create the instance.
-     * 
-     */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
-    /**
-     * @return The ID of the service that you want to use to create the instance.
-     * 
-     */
     public Output<String> serviceId() {
         return this.serviceId;
     }

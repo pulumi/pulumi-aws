@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CloudTrail.Inputs
     {
         [Input("fieldSelectors", required: true)]
         private InputList<Inputs.TrailAdvancedEventSelectorFieldSelectorGetArgs>? _fieldSelectors;
-
-        /// <summary>
-        /// Specifies the selector statements in an advanced event selector. Fields documented below.
-        /// </summary>
         public InputList<Inputs.TrailAdvancedEventSelectorFieldSelectorGetArgs> FieldSelectors
         {
             get => _fieldSelectors ?? (_fieldSelectors = new InputList<Inputs.TrailAdvancedEventSelectorFieldSelectorGetArgs>());
             set => _fieldSelectors = value;
         }
 
-        /// <summary>
-        /// Name of the trail.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

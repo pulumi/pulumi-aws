@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver DNSSEC config resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const exampleResolverDnsSecConfig = new aws.route53.ResolverDnsSecConfig("example", {resourceId: example.id});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
- * ```
- */
 export class ResolverDnsSecConfig extends pulumi.CustomResource {
     /**
      * Get an existing ResolverDnsSecConfig resource's state with the given name, ID, and optional extra
@@ -57,25 +32,10 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverDnsSecConfig.__pulumiType;
     }
 
-    /**
-     * The ARN for a configuration for DNSSEC validation.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-     */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-     */
     declare public readonly resourceId: pulumi.Output<string>;
-    /**
-     * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-     */
     declare public /*out*/ readonly validationStatus: pulumi.Output<string>;
 
     /**
@@ -116,25 +76,10 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverDnsSecConfig resources.
  */
 export interface ResolverDnsSecConfigState {
-    /**
-     * The ARN for a configuration for DNSSEC validation.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-     */
     validationStatus?: pulumi.Input<string>;
 }
 
@@ -142,12 +87,6 @@ export interface ResolverDnsSecConfigState {
  * The set of arguments for constructing a ResolverDnsSecConfig resource.
  */
 export interface ResolverDnsSecConfigArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-     */
     resourceId: pulumi.Input<string>;
 }

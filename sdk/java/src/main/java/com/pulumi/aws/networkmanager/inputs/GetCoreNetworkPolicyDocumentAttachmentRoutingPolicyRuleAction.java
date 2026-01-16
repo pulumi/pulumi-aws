@@ -14,17 +14,9 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction
 
     public static final GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction Empty = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction();
 
-    /**
-     * Set of routing policy names to associate when the conditions match.
-     * 
-     */
     @Import(name="associateRoutingPolicies", required=true)
     private List<String> associateRoutingPolicies;
 
-    /**
-     * @return Set of routing policy names to associate when the conditions match.
-     * 
-     */
     public List<String> associateRoutingPolicies() {
         return this.associateRoutingPolicies;
     }
@@ -53,23 +45,11 @@ public final class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction
             $ = new GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleAction(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param associateRoutingPolicies Set of routing policy names to associate when the conditions match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateRoutingPolicies(List<String> associateRoutingPolicies) {
             $.associateRoutingPolicies = associateRoutingPolicies;
             return this;
         }
 
-        /**
-         * @param associateRoutingPolicies Set of routing policy names to associate when the conditions match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateRoutingPolicies(String... associateRoutingPolicies) {
             return associateRoutingPolicies(List.of(associateRoutingPolicies));
         }

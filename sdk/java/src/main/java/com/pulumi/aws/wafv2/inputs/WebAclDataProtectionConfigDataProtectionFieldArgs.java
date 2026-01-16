@@ -17,32 +17,16 @@ public final class WebAclDataProtectionConfigDataProtectionFieldArgs extends com
 
     public static final WebAclDataProtectionConfigDataProtectionFieldArgs Empty = new WebAclDataProtectionConfigDataProtectionFieldArgs();
 
-    /**
-     * Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-     * 
-     */
     @Import(name="fieldKeys")
     private @Nullable Output<List<String>> fieldKeys;
 
-    /**
-     * @return Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-     * 
-     */
     public Optional<Output<List<String>>> fieldKeys() {
         return Optional.ofNullable(this.fieldKeys);
     }
 
-    /**
-     * Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-     * 
-     */
     @Import(name="fieldType", required=true)
     private Output<String> fieldType;
 
-    /**
-     * @return Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-     * 
-     */
     public Output<String> fieldType() {
         return this.fieldType;
     }
@@ -72,54 +56,24 @@ public final class WebAclDataProtectionConfigDataProtectionFieldArgs extends com
             $ = new WebAclDataProtectionConfigDataProtectionFieldArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldKeys Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldKeys(@Nullable Output<List<String>> fieldKeys) {
             $.fieldKeys = fieldKeys;
             return this;
         }
 
-        /**
-         * @param fieldKeys Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldKeys(List<String> fieldKeys) {
             return fieldKeys(Output.of(fieldKeys));
         }
 
-        /**
-         * @param fieldKeys Array of strings to specify the keys to protect for the specified field type. If you don&#39;t specify any key, then all keys for the field type are protected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldKeys(String... fieldKeys) {
             return fieldKeys(List.of(fieldKeys));
         }
 
-        /**
-         * @param fieldType Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldType(Output<String> fieldType) {
             $.fieldType = fieldType;
             return this;
         }
 
-        /**
-         * @param fieldType Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldType(String fieldType) {
             return fieldType(Output.of(fieldType));
         }

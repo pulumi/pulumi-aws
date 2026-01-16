@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
-    /**
-     * @return The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
-     * 
-     */
     private String cidrBlock;
-    /**
-     * @return Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
-     * 
-     */
     private @Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode icmpTypeCode;
-    /**
-     * @return Range of ports the rule applies to. Defined below.
-     * 
-     */
     private @Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange portRange;
-    /**
-     * @return Protocol number. A value of `1` means all the protocols.
-     * 
-     */
     private String protocol;
-    /**
-     * @return Indicates whether to `allow` or `deny` the traffic that matches the rule.
-     * 
-     */
     private String ruleAction;
-    /**
-     * @return Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
-     * 
-     */
     private Integer ruleNumber;
 
     private KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration() {}
-    /**
-     * @return The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
-     * 
-     */
     public String cidrBlock() {
         return this.cidrBlock;
     }
-    /**
-     * @return Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
-     * 
-     */
     public Optional<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode> icmpTypeCode() {
         return Optional.ofNullable(this.icmpTypeCode);
     }
-    /**
-     * @return Range of ports the rule applies to. Defined below.
-     * 
-     */
     public Optional<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange> portRange() {
         return Optional.ofNullable(this.portRange);
     }
-    /**
-     * @return Protocol number. A value of `1` means all the protocols.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return Indicates whether to `allow` or `deny` the traffic that matches the rule.
-     * 
-     */
     public String ruleAction() {
         return this.ruleAction;
     }
-    /**
-     * @return Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }

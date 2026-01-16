@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Fms.Outputs
     [OutputType]
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry
     {
-        /// <summary>
-        /// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-        /// </summary>
         public readonly string? CidrBlock;
-        /// <summary>
-        /// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-        /// </summary>
         public readonly bool Egress;
-        /// <summary>
-        /// A configuration block for ICMP protocol: The ICMP type and code. See the `IcmpTypeCode` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode> IcmpTypeCodes;
-        /// <summary>
-        /// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-        /// </summary>
         public readonly string? Ipv6CidrBlock;
-        /// <summary>
-        /// A configuration block for PortRange. See the `PortRange` block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange> PortRanges;
-        /// <summary>
-        /// The protocol number. A value of "-1" means all protocols.
-        /// </summary>
         public readonly string Protocol;
-        /// <summary>
-        /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `Allow`, `Deny`.
-        /// </summary>
         public readonly string RuleAction;
 
         [OutputConstructor]

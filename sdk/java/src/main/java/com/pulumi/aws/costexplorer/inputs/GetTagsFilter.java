@@ -20,92 +20,44 @@ public final class GetTagsFilter extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsFilter Empty = new GetTagsFilter();
 
-    /**
-     * Return results that match both `Dimension` objects.
-     * 
-     */
     @Import(name="ands")
     private @Nullable List<GetTagsFilterAnd> ands;
 
-    /**
-     * @return Return results that match both `Dimension` objects.
-     * 
-     */
     public Optional<List<GetTagsFilterAnd>> ands() {
         return Optional.ofNullable(this.ands);
     }
 
-    /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
-     * 
-     */
     @Import(name="costCategory")
     private @Nullable GetTagsFilterCostCategory costCategory;
 
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
-     * 
-     */
     public Optional<GetTagsFilterCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
-    /**
-     * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     @Import(name="dimension")
     private @Nullable GetTagsFilterDimension dimension;
 
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     public Optional<GetTagsFilterDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
 
-    /**
-     * Return results that match both `Dimension` object.
-     * 
-     */
     @Import(name="not")
     private @Nullable GetTagsFilterNot not;
 
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     public Optional<GetTagsFilterNot> not() {
         return Optional.ofNullable(this.not);
     }
 
-    /**
-     * Return results that match both `Dimension` object.
-     * 
-     */
     @Import(name="ors")
     private @Nullable List<GetTagsFilterOr> ors;
 
-    /**
-     * @return Return results that match both `Dimension` object.
-     * 
-     */
     public Optional<List<GetTagsFilterOr>> ors() {
         return Optional.ofNullable(this.ors);
     }
 
-    /**
-     * Tags that match your request.
-     * 
-     */
     @Import(name="tags")
     private @Nullable GetTagsFilterTags tags;
 
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     public Optional<GetTagsFilterTags> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -139,87 +91,39 @@ public final class GetTagsFilter extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ands Return results that match both `Dimension` objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ands(@Nullable List<GetTagsFilterAnd> ands) {
             $.ands = ands;
             return this;
         }
 
-        /**
-         * @param ands Return results that match both `Dimension` objects.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ands(GetTagsFilterAnd... ands) {
             return ands(List.of(ands));
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(@Nullable GetTagsFilterCostCategory costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
-        /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(@Nullable GetTagsFilterDimension dimension) {
             $.dimension = dimension;
             return this;
         }
 
-        /**
-         * @param not Return results that match both `Dimension` object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder not(@Nullable GetTagsFilterNot not) {
             $.not = not;
             return this;
         }
 
-        /**
-         * @param ors Return results that match both `Dimension` object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ors(@Nullable List<GetTagsFilterOr> ors) {
             $.ors = ors;
             return this;
         }
 
-        /**
-         * @param ors Return results that match both `Dimension` object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ors(GetTagsFilterOr... ors) {
             return ors(List.of(ors));
         }
 
-        /**
-         * @param tags Tags that match your request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable GetTagsFilterTags tags) {
             $.tags = tags;
             return this;

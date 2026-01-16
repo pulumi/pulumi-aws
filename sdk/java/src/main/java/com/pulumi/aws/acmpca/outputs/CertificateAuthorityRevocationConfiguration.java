@@ -12,31 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateAuthorityRevocationConfiguration {
-    /**
-     * @return Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-     * 
-     */
     private @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration;
-    /**
-     * @return Nested argument containing configuration of
-     * the custom OCSP responder endpoint. Defined below.
-     * 
-     */
     private @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration;
 
     private CertificateAuthorityRevocationConfiguration() {}
-    /**
-     * @return Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-     * 
-     */
     public Optional<CertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfiguration() {
         return Optional.ofNullable(this.crlConfiguration);
     }
-    /**
-     * @return Nested argument containing configuration of
-     * the custom OCSP responder endpoint. Defined below.
-     * 
-     */
     public Optional<CertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfiguration() {
         return Optional.ofNullable(this.ocspConfiguration);
     }

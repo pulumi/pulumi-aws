@@ -63,25 +63,16 @@ class GetPortfolioResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Portfolio ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> _builtins.str:
-        """
-        Time the portfolio was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the portfolio
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -92,17 +83,11 @@ class GetPortfolioResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Portfolio name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> _builtins.str:
-        """
-        Name of the person or organization who owns the portfolio.
-        """
         return pulumi.get(self, "provider_name")
 
     @_builtins.property
@@ -113,9 +98,6 @@ class GetPortfolioResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags applied to the portfolio.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -142,24 +124,7 @@ def get_portfolio(accept_language: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPortfolioResult:
     """
-    Provides information for a Service Catalog Portfolio.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param _builtins.str id: Portfolio identifier.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags applied to the portfolio.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -185,24 +150,7 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[_builti
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioResult]:
     """
-    Provides information for a Service Catalog Portfolio.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param _builtins.str id: Portfolio identifier.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags applied to the portfolio.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

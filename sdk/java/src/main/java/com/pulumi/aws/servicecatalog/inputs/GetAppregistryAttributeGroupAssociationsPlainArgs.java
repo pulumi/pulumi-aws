@@ -14,49 +14,23 @@ public final class GetAppregistryAttributeGroupAssociationsPlainArgs extends com
 
     public static final GetAppregistryAttributeGroupAssociationsPlainArgs Empty = new GetAppregistryAttributeGroupAssociationsPlainArgs();
 
-    /**
-     * ID of the application to which attribute groups are associated.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the application to which attribute groups are associated.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the application to which attribute groups are associated.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the application to which attribute groups are associated.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; Exactly one of `id`or `name` must be set.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; Exactly one of `id`or `name` must be set.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,35 +61,16 @@ public final class GetAppregistryAttributeGroupAssociationsPlainArgs extends com
             $ = new GetAppregistryAttributeGroupAssociationsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the application to which attribute groups are associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Name of the application to which attribute groups are associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; Exactly one of `id`or `name` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

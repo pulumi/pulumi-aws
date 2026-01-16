@@ -12,21 +12,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDocumentResult {
-    /**
-     * @return ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-     * 
-     */
     private String arn;
-    /**
-     * @return The content for the SSM document in JSON or YAML format.
-     * 
-     */
     private String content;
     private @Nullable String documentFormat;
-    /**
-     * @return The type of the document.
-     * 
-     */
     private String documentType;
     private @Nullable String documentVersion;
     /**
@@ -38,27 +26,15 @@ public final class GetDocumentResult {
     private String region;
 
     private GetDocumentResult() {}
-    /**
-     * @return ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The content for the SSM document in JSON or YAML format.
-     * 
-     */
     public String content() {
         return this.content;
     }
     public Optional<String> documentFormat() {
         return Optional.ofNullable(this.documentFormat);
     }
-    /**
-     * @return The type of the document.
-     * 
-     */
     public String documentType() {
         return this.documentType;
     }

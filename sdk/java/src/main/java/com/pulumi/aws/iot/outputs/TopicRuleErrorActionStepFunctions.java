@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleErrorActionStepFunctions {
-    /**
-     * @return The prefix used to generate, along with a UUID, the unique state machine execution name.
-     * 
-     */
     private @Nullable String executionNamePrefix;
-    /**
-     * @return The ARN of the IAM role that grants access to start execution of the state machine.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The name of the Step Functions state machine whose execution will be started.
-     * 
-     */
     private String stateMachineName;
 
     private TopicRuleErrorActionStepFunctions() {}
-    /**
-     * @return The prefix used to generate, along with a UUID, the unique state machine execution name.
-     * 
-     */
     public Optional<String> executionNamePrefix() {
         return Optional.ofNullable(this.executionNamePrefix);
     }
-    /**
-     * @return The ARN of the IAM role that grants access to start execution of the state machine.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The name of the Step Functions state machine whose execution will be started.
-     * 
-     */
     public String stateMachineName() {
         return this.stateMachineName;
     }

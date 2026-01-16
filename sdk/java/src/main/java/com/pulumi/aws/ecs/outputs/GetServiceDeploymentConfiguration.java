@@ -17,113 +17,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentConfiguration {
-    /**
-     * @return CloudWatch alarms configuration. See `alarms` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentConfigurationAlarm> alarms;
-    /**
-     * @return Time to wait after deployment before terminating old tasks
-     * 
-     */
     private String bakeTimeInMinutes;
-    /**
-     * @return Canary deployment configuration. See `canaryConfiguration` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentConfigurationCanaryConfiguration> canaryConfigurations;
-    /**
-     * @return Circuit breaker configuration. See `deploymentCircuitBreaker` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentConfigurationDeploymentCircuitBreaker> deploymentCircuitBreakers;
-    /**
-     * @return Lifecycle hooks for deployments. See `lifecycleHook` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentConfigurationLifecycleHook> lifecycleHooks;
-    /**
-     * @return Linear deployment configuration. See `linearConfiguration` Block for details.
-     * 
-     */
     private List<GetServiceDeploymentConfigurationLinearConfiguration> linearConfigurations;
-    /**
-     * @return Upper limit on tasks during deployment
-     * 
-     */
     private Integer maximumPercent;
-    /**
-     * @return Lower limit on healthy tasks during deployment
-     * 
-     */
     private Integer minimumHealthyPercent;
-    /**
-     * @return Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
-     * 
-     */
     private String strategy;
 
     private GetServiceDeploymentConfiguration() {}
-    /**
-     * @return CloudWatch alarms configuration. See `alarms` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentConfigurationAlarm> alarms() {
         return this.alarms;
     }
-    /**
-     * @return Time to wait after deployment before terminating old tasks
-     * 
-     */
     public String bakeTimeInMinutes() {
         return this.bakeTimeInMinutes;
     }
-    /**
-     * @return Canary deployment configuration. See `canaryConfiguration` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentConfigurationCanaryConfiguration> canaryConfigurations() {
         return this.canaryConfigurations;
     }
-    /**
-     * @return Circuit breaker configuration. See `deploymentCircuitBreaker` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentConfigurationDeploymentCircuitBreaker> deploymentCircuitBreakers() {
         return this.deploymentCircuitBreakers;
     }
-    /**
-     * @return Lifecycle hooks for deployments. See `lifecycleHook` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentConfigurationLifecycleHook> lifecycleHooks() {
         return this.lifecycleHooks;
     }
-    /**
-     * @return Linear deployment configuration. See `linearConfiguration` Block for details.
-     * 
-     */
     public List<GetServiceDeploymentConfigurationLinearConfiguration> linearConfigurations() {
         return this.linearConfigurations;
     }
-    /**
-     * @return Upper limit on tasks during deployment
-     * 
-     */
     public Integer maximumPercent() {
         return this.maximumPercent;
     }
-    /**
-     * @return Lower limit on healthy tasks during deployment
-     * 
-     */
     public Integer minimumHealthyPercent() {
         return this.minimumHealthyPercent;
     }
-    /**
-     * @return Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
-     * 
-     */
     public String strategy() {
         return this.strategy;
     }

@@ -18,62 +18,30 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs();
 
-    /**
-     * Configures inspection of the response body. See `bodyContains` for more details.
-     * 
-     */
     @Import(name="bodyContains")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs> bodyContains;
 
-    /**
-     * @return Configures inspection of the response body. See `bodyContains` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs>> bodyContains() {
         return Optional.ofNullable(this.bodyContains);
     }
 
-    /**
-     * Configures inspection of the response header.See `header` for more details.
-     * 
-     */
     @Import(name="header")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs> header;
 
-    /**
-     * @return Configures inspection of the response header.See `header` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs>> header() {
         return Optional.ofNullable(this.header);
     }
 
-    /**
-     * Configures inspection of the response JSON. See `json` for more details.
-     * 
-     */
     @Import(name="json")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs> json;
 
-    /**
-     * @return Configures inspection of the response JSON. See `json` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs>> json() {
         return Optional.ofNullable(this.json);
     }
 
-    /**
-     * Configures inspection of the response status code.See `statusCode` for more details.
-     * 
-     */
     @Import(name="statusCode")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs> statusCode;
 
-    /**
-     * @return Configures inspection of the response status code.See `statusCode` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
@@ -105,86 +73,38 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bodyContains Configures inspection of the response body. See `bodyContains` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bodyContains(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs> bodyContains) {
             $.bodyContains = bodyContains;
             return this;
         }
 
-        /**
-         * @param bodyContains Configures inspection of the response body. See `bodyContains` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bodyContains(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs bodyContains) {
             return bodyContains(Output.of(bodyContains));
         }
 
-        /**
-         * @param header Configures inspection of the response header.See `header` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs> header) {
             $.header = header;
             return this;
         }
 
-        /**
-         * @param header Configures inspection of the response header.See `header` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs header) {
             return header(Output.of(header));
         }
 
-        /**
-         * @param json Configures inspection of the response JSON. See `json` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder json(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs> json) {
             $.json = json;
             return this;
         }
 
-        /**
-         * @param json Configures inspection of the response JSON. See `json` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder json(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs json) {
             return json(Output.of(json));
         }
 
-        /**
-         * @param statusCode Configures inspection of the response status code.See `statusCode` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode Configures inspection of the response status code.See `statusCode` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs statusCode) {
             return statusCode(Output.of(statusCode));
         }

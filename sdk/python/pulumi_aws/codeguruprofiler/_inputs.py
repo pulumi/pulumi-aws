@@ -24,9 +24,6 @@ MYPY = False
 if not MYPY:
     class ProfilingGroupAgentOrchestrationConfigArgsDict(TypedDict):
         profiling_enabled: pulumi.Input[_builtins.bool]
-        """
-        (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        """
 elif False:
     ProfilingGroupAgentOrchestrationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -34,17 +31,11 @@ elif False:
 class ProfilingGroupAgentOrchestrationConfigArgs:
     def __init__(__self__, *,
                  profiling_enabled: pulumi.Input[_builtins.bool]):
-        """
-        :param pulumi.Input[_builtins.bool] profiling_enabled: (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        """
         pulumi.set(__self__, "profiling_enabled", profiling_enabled)
 
     @_builtins.property
     @pulumi.getter(name="profilingEnabled")
     def profiling_enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        """
         return pulumi.get(self, "profiling_enabled")
 
     @profiling_enabled.setter

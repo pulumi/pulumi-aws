@@ -18,36 +18,16 @@ public final class RuleGroupRuleStatementXssMatchStatementArgs extends com.pulum
 
     public static final RuleGroupRuleStatementXssMatchStatementArgs Empty = new RuleGroupRuleStatementXssMatchStatementArgs();
 
-    /**
-     * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     @Import(name="fieldToMatch")
     private @Nullable Output<RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs>> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementXssMatchStatementTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementXssMatchStatementTextTransformationArgs>> textTransformations() {
         return this.textTransformations;
     }
@@ -77,60 +57,24 @@ public final class RuleGroupRuleStatementXssMatchStatementArgs extends com.pulum
             $ = new RuleGroupRuleStatementXssMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(@Nullable Output<RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(Output<List<RuleGroupRuleStatementXssMatchStatementTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<RuleGroupRuleStatementXssMatchStatementTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(RuleGroupRuleStatementXssMatchStatementTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }

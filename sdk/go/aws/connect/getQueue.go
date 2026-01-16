@@ -11,63 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect Queue.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupQueue(ctx, &connect.LookupQueueArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `queueId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupQueue(ctx, &connect.LookupQueueArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				QueueId:    pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult
@@ -80,43 +23,28 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Returns information on a specific Queue by name
-	//
-	// > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
-	Name *string `pulumi:"name"`
-	// Returns information on a specific Queue by Queue id
-	QueueId *string `pulumi:"queueId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the Queue.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceId string            `pulumi:"instanceId"`
+	Name       *string           `pulumi:"name"`
+	QueueId    *string           `pulumi:"queueId"`
+	Region     *string           `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
-	// ARN of the Queue.
-	Arn string `pulumi:"arn"`
-	// Description of the Queue.
-	Description string `pulumi:"description"`
-	// Specifies the identifier of the Hours of Operation.
+	Arn                string `pulumi:"arn"`
+	Description        string `pulumi:"description"`
 	HoursOfOperationId string `pulumi:"hoursOfOperationId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
-	MaxContacts int    `pulumi:"maxContacts"`
-	Name        string `pulumi:"name"`
-	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+	Id                    string                         `pulumi:"id"`
+	InstanceId            string                         `pulumi:"instanceId"`
+	MaxContacts           int                            `pulumi:"maxContacts"`
+	Name                  string                         `pulumi:"name"`
 	OutboundCallerConfigs []GetQueueOutboundCallerConfig `pulumi:"outboundCallerConfigs"`
-	// Identifier for the Queue.
-	QueueId string `pulumi:"queueId"`
-	Region  string `pulumi:"region"`
-	// Description of the Queue. Values are `ENABLED` or `DISABLED`.
-	Status string `pulumi:"status"`
-	// Map of tags assigned to the Queue.
-	Tags map[string]string `pulumi:"tags"`
+	QueueId               string                         `pulumi:"queueId"`
+	Region                string                         `pulumi:"region"`
+	Status                string                         `pulumi:"status"`
+	Tags                  map[string]string              `pulumi:"tags"`
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
@@ -130,18 +58,11 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 
 // A collection of arguments for invoking getQueue.
 type LookupQueueOutputArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Returns information on a specific Queue by name
-	//
-	// > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Returns information on a specific Queue by Queue id
-	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags assigned to the Queue.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	InstanceId pulumi.StringInput    `pulumi:"instanceId"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	QueueId    pulumi.StringPtrInput `pulumi:"queueId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupQueueOutputArgs) ElementType() reflect.Type {
@@ -163,17 +84,14 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the Queue.
 func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the Queue.
 func (o LookupQueueResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier of the Hours of Operation.
 func (o LookupQueueResultOutput) HoursOfOperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.HoursOfOperationId }).(pulumi.StringOutput)
 }
@@ -187,7 +105,6 @@ func (o LookupQueueResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
 func (o LookupQueueResultOutput) MaxContacts() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQueueResult) int { return v.MaxContacts }).(pulumi.IntOutput)
 }
@@ -196,12 +113,10 @@ func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 func (o LookupQueueResultOutput) OutboundCallerConfigs() GetQueueOutboundCallerConfigArrayOutput {
 	return o.ApplyT(func(v LookupQueueResult) []GetQueueOutboundCallerConfig { return v.OutboundCallerConfigs }).(GetQueueOutboundCallerConfigArrayOutput)
 }
 
-// Identifier for the Queue.
 func (o LookupQueueResultOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.QueueId }).(pulumi.StringOutput)
 }
@@ -210,12 +125,10 @@ func (o LookupQueueResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Description of the Queue. Values are `ENABLED` or `DISABLED`.
 func (o LookupQueueResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the Queue.
 func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

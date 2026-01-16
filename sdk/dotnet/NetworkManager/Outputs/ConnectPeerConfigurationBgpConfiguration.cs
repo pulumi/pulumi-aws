@@ -13,20 +13,9 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class ConnectPeerConfigurationBgpConfiguration
     {
-        /// <summary>
-        /// Connect peer core network address.
-        /// </summary>
         public readonly string? CoreNetworkAddress;
         public readonly int? CoreNetworkAsn;
-        /// <summary>
-        /// Connect peer address.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string? PeerAddress;
-        /// <summary>
-        /// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-        /// </summary>
         public readonly string? PeerAsn;
 
         [OutputConstructor]

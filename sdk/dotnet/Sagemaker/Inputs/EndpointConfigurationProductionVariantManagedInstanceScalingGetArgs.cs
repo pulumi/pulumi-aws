@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class EndpointConfigurationProductionVariantManagedInstanceScalingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-        /// </summary>
         [Input("maxInstanceCount")]
         public Input<int>? MaxInstanceCount { get; set; }
 
-        /// <summary>
-        /// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-        /// </summary>
         [Input("minInstanceCount")]
         public Input<int>? MinInstanceCount { get; set; }
 
-        /// <summary>
-        /// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

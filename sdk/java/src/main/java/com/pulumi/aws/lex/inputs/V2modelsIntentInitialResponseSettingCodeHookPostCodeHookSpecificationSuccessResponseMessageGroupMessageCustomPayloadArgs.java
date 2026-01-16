@@ -14,17 +14,9 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
 
     public static final V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs Empty = new V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs();
 
-    /**
-     * String that is sent to your application.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return String that is sent to your application.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
             $ = new V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value String that is sent to your application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value String that is sent to your application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

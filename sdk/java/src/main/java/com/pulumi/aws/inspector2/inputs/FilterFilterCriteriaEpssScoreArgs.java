@@ -14,32 +14,16 @@ public final class FilterFilterCriteriaEpssScoreArgs extends com.pulumi.resource
 
     public static final FilterFilterCriteriaEpssScoreArgs Empty = new FilterFilterCriteriaEpssScoreArgs();
 
-    /**
-     * (Optional) Lower bound of the range, inclusive.
-     * 
-     */
     @Import(name="lowerInclusive", required=true)
     private Output<Double> lowerInclusive;
 
-    /**
-     * @return (Optional) Lower bound of the range, inclusive.
-     * 
-     */
     public Output<Double> lowerInclusive() {
         return this.lowerInclusive;
     }
 
-    /**
-     * (Optional) Upper bound of the range, inclusive.
-     * 
-     */
     @Import(name="upperInclusive", required=true)
     private Output<Double> upperInclusive;
 
-    /**
-     * @return (Optional) Upper bound of the range, inclusive.
-     * 
-     */
     public Output<Double> upperInclusive() {
         return this.upperInclusive;
     }
@@ -69,44 +53,20 @@ public final class FilterFilterCriteriaEpssScoreArgs extends com.pulumi.resource
             $ = new FilterFilterCriteriaEpssScoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lowerInclusive (Optional) Lower bound of the range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lowerInclusive(Output<Double> lowerInclusive) {
             $.lowerInclusive = lowerInclusive;
             return this;
         }
 
-        /**
-         * @param lowerInclusive (Optional) Lower bound of the range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lowerInclusive(Double lowerInclusive) {
             return lowerInclusive(Output.of(lowerInclusive));
         }
 
-        /**
-         * @param upperInclusive (Optional) Upper bound of the range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder upperInclusive(Output<Double> upperInclusive) {
             $.upperInclusive = upperInclusive;
             return this;
         }
 
-        /**
-         * @param upperInclusive (Optional) Upper bound of the range, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder upperInclusive(Double upperInclusive) {
             return upperInclusive(Output.of(upperInclusive));
         }

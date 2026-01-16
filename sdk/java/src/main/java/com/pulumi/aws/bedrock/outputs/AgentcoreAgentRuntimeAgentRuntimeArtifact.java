@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeAgentRuntimeArtifact {
-    /**
-     * @return Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
-     * 
-     */
     private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration codeConfiguration;
-    /**
-     * @return Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
-     * 
-     */
     private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration containerConfiguration;
 
     private AgentcoreAgentRuntimeAgentRuntimeArtifact() {}
-    /**
-     * @return Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `codeConfiguration` below.
-     * 
-     */
     public Optional<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration> codeConfiguration() {
         return Optional.ofNullable(this.codeConfiguration);
     }
-    /**
-     * @return Container configuration block for the agent artifact. Exactly one of `codeConfiguration` or `containerConfiguration` must be specified. See `containerConfiguration` below.
-     * 
-     */
     public Optional<AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration> containerConfiguration() {
         return Optional.ofNullable(this.containerConfiguration);
     }

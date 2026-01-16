@@ -12,102 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mediastore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := mediastore.NewContainer(ctx, "example", &mediastore.ContainerArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("MediaStoreFullAccess"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("mediastore:*"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Region, currentGetCallerIdentity.AccountId, name), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("Bool"),
-//								Variable: pulumi.String("aws:SecureTransport"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("true"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = mediastore.NewContainerPolicy(ctx, "example", &mediastore.ContainerPolicyArgs{
-//				ContainerName: exampleContainer.Name,
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
-//
-// ```sh
-// $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-// ```
 type ContainerPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the container.
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The contents of the policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Policy        pulumi.StringOutput `pulumi:"policy"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewContainerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -146,21 +56,15 @@ func GetContainerPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerPolicy resources.
 type containerPolicyState struct {
-	// The name of the container.
 	ContainerName *string `pulumi:"containerName"`
-	// The contents of the policy.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Policy        *string `pulumi:"policy"`
+	Region        *string `pulumi:"region"`
 }
 
 type ContainerPolicyState struct {
-	// The name of the container.
 	ContainerName pulumi.StringPtrInput
-	// The contents of the policy.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy        pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (ContainerPolicyState) ElementType() reflect.Type {
@@ -168,22 +72,16 @@ func (ContainerPolicyState) ElementType() reflect.Type {
 }
 
 type containerPolicyArgs struct {
-	// The name of the container.
-	ContainerName string `pulumi:"containerName"`
-	// The contents of the policy.
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ContainerName string  `pulumi:"containerName"`
+	Policy        string  `pulumi:"policy"`
+	Region        *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ContainerPolicy resource.
 type ContainerPolicyArgs struct {
-	// The name of the container.
 	ContainerName pulumi.StringInput
-	// The contents of the policy.
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Policy        pulumi.StringInput
+	Region        pulumi.StringPtrInput
 }
 
 func (ContainerPolicyArgs) ElementType() reflect.Type {
@@ -273,17 +171,14 @@ func (o ContainerPolicyOutput) ToContainerPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the container.
 func (o ContainerPolicyOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The contents of the policy.
 func (o ContainerPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContainerPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

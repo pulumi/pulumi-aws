@@ -32,55 +32,23 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.assignIpv6AddressOnCreation);
     }
 
-    /**
-     * is required
-     * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
-     * * The default value for `mapPublicIpOnLaunch` is `true`
-     * 
-     * This resource supports the following additional arguments:
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return is required
-     * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
-     * * The default value for `mapPublicIpOnLaunch` is `true`
-     * 
-     * This resource supports the following additional arguments:
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
-    /**
-     * The AZ ID of the subnet
-     * 
-     */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
-    /**
-     * @return The AZ ID of the subnet
-     * 
-     */
     public Optional<Output<String>> availabilityZoneId() {
         return Optional.ofNullable(this.availabilityZoneId);
     }
 
-    /**
-     * The IPv4 CIDR block assigned to the subnet
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return The IPv4 CIDR block assigned to the subnet
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
@@ -127,17 +95,9 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.existingDefaultSubnet);
     }
 
-    /**
-     * Whether destroying the resource deletes the default subnet. Default: `false`
-     * 
-     */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
-    /**
-     * @return Whether destroying the resource deletes the default subnet. Default: `false`
-     * 
-     */
     public Optional<Output<Boolean>> forceDestroy() {
         return Optional.ofNullable(this.forceDestroy);
     }
@@ -219,17 +179,9 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The ID of the VPC the subnet is in
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC the subnet is in
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -299,73 +251,29 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
             return assignIpv6AddressOnCreation(Output.of(assignIpv6AddressOnCreation));
         }
 
-        /**
-         * @param availabilityZone is required
-         * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
-         * * The default value for `mapPublicIpOnLaunch` is `true`
-         * 
-         * This resource supports the following additional arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone is required
-         * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
-         * * The default value for `mapPublicIpOnLaunch` is `true`
-         * 
-         * This resource supports the following additional arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param availabilityZoneId The AZ ID of the subnet
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(@Nullable Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
-        /**
-         * @param availabilityZoneId The AZ ID of the subnet
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
-        /**
-         * @param cidrBlock The IPv4 CIDR block assigned to the subnet
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock The IPv4 CIDR block assigned to the subnet
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
@@ -424,23 +332,11 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
             return existingDefaultSubnet(Output.of(existingDefaultSubnet));
         }
 
-        /**
-         * @param forceDestroy Whether destroying the resource deletes the default subnet. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
             $.forceDestroy = forceDestroy;
             return this;
         }
 
-        /**
-         * @param forceDestroy Whether destroying the resource deletes the default subnet. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDestroy(Boolean forceDestroy) {
             return forceDestroy(Output.of(forceDestroy));
         }
@@ -544,23 +440,11 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param vpcId The ID of the VPC the subnet is in
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC the subnet is in
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

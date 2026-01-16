@@ -41,9 +41,6 @@ class GetOrganizationalUnitDescendantOrganizationalUnitsResult:
     @_builtins.property
     @pulumi.getter
     def childrens(self) -> Sequence['outputs.GetOrganizationalUnitDescendantOrganizationalUnitsChildrenResult']:
-        """
-        List of child organizational units, which have the following attributes:
-        """
         return pulumi.get(self, "childrens")
 
     @_builtins.property
@@ -74,20 +71,7 @@ class AwaitableGetOrganizationalUnitDescendantOrganizationalUnitsResult(GetOrgan
 def get_organizational_unit_descendant_organizational_units(parent_id: Optional[_builtins.str] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationalUnitDescendantOrganizationalUnitsResult:
     """
-    Get all direct child organizational units under a parent organizational unit. This provides all children.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ous = aws.organizations.get_organizational_unit_descendant_organizational_units(parent_id=org.roots[0].id)
-    ```
-
-
-    :param _builtins.str parent_id: Parent ID of the organizational unit.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parentId'] = parent_id
@@ -101,20 +85,7 @@ def get_organizational_unit_descendant_organizational_units(parent_id: Optional[
 def get_organizational_unit_descendant_organizational_units_output(parent_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitDescendantOrganizationalUnitsResult]:
     """
-    Get all direct child organizational units under a parent organizational unit. This provides all children.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ous = aws.organizations.get_organizational_unit_descendant_organizational_units(parent_id=org.roots[0].id)
-    ```
-
-
-    :param _builtins.str parent_id: Parent ID of the organizational unit.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parentId'] = parent_id

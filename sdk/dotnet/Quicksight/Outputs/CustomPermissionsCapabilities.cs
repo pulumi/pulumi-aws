@@ -13,97 +13,28 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class CustomPermissionsCapabilities
     {
-        /// <summary>
-        /// The ability to add or run anomaly detection. Valid values: `DENY`.
-        /// </summary>
         public readonly string? AddOrRunAnomalyDetectionForAnalyses;
-        /// <summary>
-        /// The ability to create and update email reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateAndUpdateDashboardEmailReports;
-        /// <summary>
-        /// The ability to create and update data sources. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateAndUpdateDataSources;
-        /// <summary>
-        /// The ability to create and update datasets. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateAndUpdateDatasets;
-        /// <summary>
-        /// The ability to export to create and update themes. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateAndUpdateThemes;
-        /// <summary>
-        /// The ability to create and update threshold alerts. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateAndUpdateThresholdAlerts;
-        /// <summary>
-        /// The ability to create shared folders. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateSharedFolders;
-        /// <summary>
-        /// The ability to create a SPICE dataset. Valid values: `DENY`.
-        /// </summary>
         public readonly string? CreateSpiceDataset;
-        /// <summary>
-        /// The ability to export to CSV files from the UI. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ExportToCsv;
-        /// <summary>
-        /// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ExportToCsvInScheduledReports;
-        /// <summary>
-        /// The ability to export to Excel files from the UI. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ExportToExcel;
-        /// <summary>
-        /// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ExportToExcelInScheduledReports;
-        /// <summary>
-        /// The ability to export to PDF files from the UI. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ExportToPdf;
-        /// <summary>
-        /// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ExportToPdfInScheduledReports;
-        /// <summary>
-        /// The ability to include content in scheduled email reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? IncludeContentInScheduledReportsEmail;
-        /// <summary>
-        /// The ability to print reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? PrintReports;
-        /// <summary>
-        /// The ability to rename shared folders. Valid values: `DENY`.
-        /// </summary>
         public readonly string? RenameSharedFolders;
-        /// <summary>
-        /// The ability to share analyses. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ShareAnalyses;
-        /// <summary>
-        /// The ability to share dashboards. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ShareDashboards;
-        /// <summary>
-        /// The ability to share data sources. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ShareDataSources;
-        /// <summary>
-        /// The ability to share datasets. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ShareDatasets;
-        /// <summary>
-        /// The ability to subscribe to email reports. Valid values: `DENY`.
-        /// </summary>
         public readonly string? SubscribeDashboardEmailReports;
-        /// <summary>
-        /// The ability to view account SPICE capacity. Valid values: `DENY`.
-        /// </summary>
         public readonly string? ViewAccountSpiceCapacity;
 
         [OutputConstructor]

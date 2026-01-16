@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleErrorActionIotAnalytics {
-    /**
-     * @return The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
-     * 
-     */
     private @Nullable Boolean batchMode;
-    /**
-     * @return Name of AWS IOT Analytics channel.
-     * 
-     */
     private String channelName;
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleErrorActionIotAnalytics() {}
-    /**
-     * @return The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
-     * 
-     */
     public Optional<Boolean> batchMode() {
         return Optional.ofNullable(this.batchMode);
     }
-    /**
-     * @return Name of AWS IOT Analytics channel.
-     * 
-     */
     public String channelName() {
         return this.channelName;
     }
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

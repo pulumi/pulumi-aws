@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-//
-// ## Example Usage
-//
-// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.GetOntapStorageVirtualMachines(ctx, &fsx.GetOntapStorageVirtualMachinesArgs{
-//				Filters: []fsx.GetOntapStorageVirtualMachinesFilter{
-//					{
-//						Name: "file-system-id",
-//						Values: []string{
-//							"fs-12345678",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOntapStorageVirtualMachines(ctx *pulumi.Context, args *GetOntapStorageVirtualMachinesArgs, opts ...pulumi.InvokeOption) (*GetOntapStorageVirtualMachinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOntapStorageVirtualMachinesResult
@@ -59,18 +23,15 @@ func GetOntapStorageVirtualMachines(ctx *pulumi.Context, args *GetOntapStorageVi
 
 // A collection of arguments for invoking getOntapStorageVirtualMachines.
 type GetOntapStorageVirtualMachinesArgs struct {
-	// Configuration block. Detailed below.
 	Filters []GetOntapStorageVirtualMachinesFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                                `pulumi:"region"`
 }
 
 // A collection of values returned by getOntapStorageVirtualMachines.
 type GetOntapStorageVirtualMachinesResult struct {
 	Filters []GetOntapStorageVirtualMachinesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all SVM IDs found.
+	Id     string   `pulumi:"id"`
 	Ids    []string `pulumi:"ids"`
 	Region string   `pulumi:"region"`
 }
@@ -86,10 +47,8 @@ func GetOntapStorageVirtualMachinesOutput(ctx *pulumi.Context, args GetOntapStor
 
 // A collection of arguments for invoking getOntapStorageVirtualMachines.
 type GetOntapStorageVirtualMachinesOutputArgs struct {
-	// Configuration block. Detailed below.
 	Filters GetOntapStorageVirtualMachinesFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput                          `pulumi:"region"`
 }
 
 func (GetOntapStorageVirtualMachinesOutputArgs) ElementType() reflect.Type {
@@ -120,7 +79,6 @@ func (o GetOntapStorageVirtualMachinesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachinesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all SVM IDs found.
 func (o GetOntapStorageVirtualMachinesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachinesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

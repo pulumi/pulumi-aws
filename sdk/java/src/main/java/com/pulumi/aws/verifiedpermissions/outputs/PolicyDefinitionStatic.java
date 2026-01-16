@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyDefinitionStatic {
-    /**
-     * @return The description of the static policy.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The statement of the static policy.
-     * 
-     */
     private String statement;
 
     private PolicyDefinitionStatic() {}
-    /**
-     * @return The description of the static policy.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The statement of the static policy.
-     * 
-     */
     public String statement() {
         return this.statement;
     }

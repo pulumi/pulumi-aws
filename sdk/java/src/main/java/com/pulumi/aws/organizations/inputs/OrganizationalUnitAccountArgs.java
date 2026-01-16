@@ -15,62 +15,30 @@ public final class OrganizationalUnitAccountArgs extends com.pulumi.resources.Re
 
     public static final OrganizationalUnitAccountArgs Empty = new OrganizationalUnitAccountArgs();
 
-    /**
-     * ARN of the organizational unit
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the organizational unit
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Email of the account
-     * 
-     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
-    /**
-     * @return Email of the account
-     * 
-     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * Identifier of the organization unit
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier of the organization unit
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The name for the organizational unit
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for the organizational unit
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -102,86 +70,38 @@ public final class OrganizationalUnitAccountArgs extends com.pulumi.resources.Re
             $ = new OrganizationalUnitAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param email Email of the account
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email Email of the account
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param id Identifier of the organization unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier of the organization unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name The name for the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

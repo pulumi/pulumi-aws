@@ -14,17 +14,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs();
 
-    /**
-     * ARN of the Amazon Kendra index.
-     * 
-     */
     @Import(name="kendraIndexArn", required=true)
     private Output<String> kendraIndexArn;
 
-    /**
-     * @return ARN of the Amazon Kendra index.
-     * 
-     */
     public Output<String> kendraIndexArn() {
         return this.kendraIndexArn;
     }
@@ -53,23 +45,11 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kendraIndexArn ARN of the Amazon Kendra index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraIndexArn(Output<String> kendraIndexArn) {
             $.kendraIndexArn = kendraIndexArn;
             return this;
         }
 
-        /**
-         * @param kendraIndexArn ARN of the Amazon Kendra index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kendraIndexArn(String kendraIndexArn) {
             return kendraIndexArn(Output.of(kendraIndexArn));
         }

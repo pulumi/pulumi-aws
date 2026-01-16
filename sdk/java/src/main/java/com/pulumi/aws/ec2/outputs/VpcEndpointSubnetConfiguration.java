@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcEndpointSubnetConfiguration {
-    /**
-     * @return The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
-     * 
-     */
     private @Nullable String ipv4;
-    /**
-     * @return The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
-     * 
-     */
     private @Nullable String ipv6;
-    /**
-     * @return The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
-     * 
-     */
     private @Nullable String subnetId;
 
     private VpcEndpointSubnetConfiguration() {}
-    /**
-     * @return The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
-     * 
-     */
     public Optional<String> ipv4() {
         return Optional.ofNullable(this.ipv4);
     }
-    /**
-     * @return The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
-     * 
-     */
     public Optional<String> ipv6() {
         return Optional.ofNullable(this.ipv6);
     }
-    /**
-     * @return The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }

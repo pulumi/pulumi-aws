@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-        /// </summary>
         [Input("condition")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionGetArgs>? Condition { get; set; }
 
-        /// <summary>
-        /// `TRUE` to delete content if the condition used for the target attribute is met.
-        /// </summary>
         [Input("documentContentDeletion")]
         public Input<bool>? DocumentContentDeletion { get; set; }
 
-        /// <summary>
-        /// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-        /// </summary>
         [Input("target")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetGetArgs>? Target { get; set; }
 

@@ -12,162 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web IP Access Settings resource. Once associated with a web portal, IP access settings control which IP addresses users can connect from.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
-//					&workspacesweb.IpAccessSettingsIpRuleArgs{
-//						IpRange: pulumi.String("10.0.0.0/16"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Multiple IP Rules
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//				Description: pulumi.String("Example IP access settings"),
-//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
-//					&workspacesweb.IpAccessSettingsIpRuleArgs{
-//						IpRange:     pulumi.String("10.0.0.0/16"),
-//						Description: pulumi.String("Main office"),
-//					},
-//					&workspacesweb.IpAccessSettingsIpRuleArgs{
-//						IpRange:     pulumi.String("192.168.0.0/24"),
-//						Description: pulumi.String("Branch office"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With All Arguments
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS key for WorkSpaces Web IP Access Settings"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
-//				DisplayName:        pulumi.String("example"),
-//				Description:        pulumi.String("Example IP access settings"),
-//				CustomerManagedKey: example.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
-//					&workspacesweb.IpAccessSettingsIpRuleArgs{
-//						IpRange:     pulumi.String("10.0.0.0/16"),
-//						Description: pulumi.String("Main office"),
-//					},
-//					&workspacesweb.IpAccessSettingsIpRuleArgs{
-//						IpRange:     pulumi.String("192.168.0.0/24"),
-//						Description: pulumi.String("Branch office"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-ip-access-settings"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ip_access_settings_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
-// ```
 type IpAccessSettings struct {
 	pulumi.CustomResourceState
 
-	// Additional encryption context for the IP access settings.
-	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
-	// List of web portal ARNs that this IP access settings resource is associated with.
-	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
-	// The description of the IP access settings.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the IP access settings.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// ARN of the IP access settings resource.
-	IpAccessSettingsArn pulumi.StringOutput `pulumi:"ipAccessSettingsArn"`
-	// The IP rules of the IP access settings. See IP Rule below.
-	//
-	// The following arguments are optional:
-	IpRules IpAccessSettingsIpRuleArrayOutput `pulumi:"ipRules"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AdditionalEncryptionContext pulumi.StringMapOutput            `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        pulumi.StringArrayOutput          `pulumi:"associatedPortalArns"`
+	CustomerManagedKey          pulumi.StringPtrOutput            `pulumi:"customerManagedKey"`
+	Description                 pulumi.StringPtrOutput            `pulumi:"description"`
+	DisplayName                 pulumi.StringOutput               `pulumi:"displayName"`
+	IpAccessSettingsArn         pulumi.StringOutput               `pulumi:"ipAccessSettingsArn"`
+	IpRules                     IpAccessSettingsIpRuleArrayOutput `pulumi:"ipRules"`
+	Region                      pulumi.StringOutput               `pulumi:"region"`
+	Tags                        pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewIpAccessSettings registers a new resource with the given unique name, arguments, and options.
@@ -203,53 +60,29 @@ func GetIpAccessSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpAccessSettings resources.
 type ipAccessSettingsState struct {
-	// Additional encryption context for the IP access settings.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// List of web portal ARNs that this IP access settings resource is associated with.
-	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// The description of the IP access settings.
-	Description *string `pulumi:"description"`
-	// The display name of the IP access settings.
-	DisplayName *string `pulumi:"displayName"`
-	// ARN of the IP access settings resource.
-	IpAccessSettingsArn *string `pulumi:"ipAccessSettingsArn"`
-	// The IP rules of the IP access settings. See IP Rule below.
-	//
-	// The following arguments are optional:
-	IpRules []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AdditionalEncryptionContext map[string]string        `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        []string                 `pulumi:"associatedPortalArns"`
+	CustomerManagedKey          *string                  `pulumi:"customerManagedKey"`
+	Description                 *string                  `pulumi:"description"`
+	DisplayName                 *string                  `pulumi:"displayName"`
+	IpAccessSettingsArn         *string                  `pulumi:"ipAccessSettingsArn"`
+	IpRules                     []IpAccessSettingsIpRule `pulumi:"ipRules"`
+	Region                      *string                  `pulumi:"region"`
+	Tags                        map[string]string        `pulumi:"tags"`
+	TagsAll                     map[string]string        `pulumi:"tagsAll"`
 }
 
 type IpAccessSettingsState struct {
-	// Additional encryption context for the IP access settings.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// List of web portal ARNs that this IP access settings resource is associated with.
-	AssociatedPortalArns pulumi.StringArrayInput
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrInput
-	// The description of the IP access settings.
-	Description pulumi.StringPtrInput
-	// The display name of the IP access settings.
-	DisplayName pulumi.StringPtrInput
-	// ARN of the IP access settings resource.
-	IpAccessSettingsArn pulumi.StringPtrInput
-	// The IP rules of the IP access settings. See IP Rule below.
-	//
-	// The following arguments are optional:
-	IpRules IpAccessSettingsIpRuleArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	AssociatedPortalArns        pulumi.StringArrayInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	Description                 pulumi.StringPtrInput
+	DisplayName                 pulumi.StringPtrInput
+	IpAccessSettingsArn         pulumi.StringPtrInput
+	IpRules                     IpAccessSettingsIpRuleArrayInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (IpAccessSettingsState) ElementType() reflect.Type {
@@ -257,42 +90,24 @@ func (IpAccessSettingsState) ElementType() reflect.Type {
 }
 
 type ipAccessSettingsArgs struct {
-	// Additional encryption context for the IP access settings.
-	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// The description of the IP access settings.
-	Description *string `pulumi:"description"`
-	// The display name of the IP access settings.
-	DisplayName string `pulumi:"displayName"`
-	// The IP rules of the IP access settings. See IP Rule below.
-	//
-	// The following arguments are optional:
-	IpRules []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AdditionalEncryptionContext map[string]string        `pulumi:"additionalEncryptionContext"`
+	CustomerManagedKey          *string                  `pulumi:"customerManagedKey"`
+	Description                 *string                  `pulumi:"description"`
+	DisplayName                 string                   `pulumi:"displayName"`
+	IpRules                     []IpAccessSettingsIpRule `pulumi:"ipRules"`
+	Region                      *string                  `pulumi:"region"`
+	Tags                        map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpAccessSettings resource.
 type IpAccessSettingsArgs struct {
-	// Additional encryption context for the IP access settings.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	// ARN of the customer managed KMS key.
-	CustomerManagedKey pulumi.StringPtrInput
-	// The description of the IP access settings.
-	Description pulumi.StringPtrInput
-	// The display name of the IP access settings.
-	DisplayName pulumi.StringInput
-	// The IP rules of the IP access settings. See IP Rule below.
-	//
-	// The following arguments are optional:
-	IpRules IpAccessSettingsIpRuleArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	CustomerManagedKey          pulumi.StringPtrInput
+	Description                 pulumi.StringPtrInput
+	DisplayName                 pulumi.StringInput
+	IpRules                     IpAccessSettingsIpRuleArrayInput
+	Region                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (IpAccessSettingsArgs) ElementType() reflect.Type {
@@ -382,54 +197,42 @@ func (o IpAccessSettingsOutput) ToIpAccessSettingsOutputWithContext(ctx context.
 	return o
 }
 
-// Additional encryption context for the IP access settings.
 func (o IpAccessSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
-// List of web portal ARNs that this IP access settings resource is associated with.
 func (o IpAccessSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the customer managed KMS key.
 func (o IpAccessSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-// The description of the IP access settings.
 func (o IpAccessSettingsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the IP access settings.
 func (o IpAccessSettingsOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// ARN of the IP access settings resource.
 func (o IpAccessSettingsOutput) IpAccessSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringOutput { return v.IpAccessSettingsArn }).(pulumi.StringOutput)
 }
 
-// The IP rules of the IP access settings. See IP Rule below.
-//
-// The following arguments are optional:
 func (o IpAccessSettingsOutput) IpRules() IpAccessSettingsIpRuleArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) IpAccessSettingsIpRuleArrayOutput { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IpAccessSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IpAccessSettingsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IpAccessSettingsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpAccessSettings) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class CapacityProviderPermissionsConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
-        /// </summary>
         [Input("capacityProviderOperatorRoleArn", required: true)]
         public Input<string> CapacityProviderOperatorRoleArn { get; set; } = null!;
 

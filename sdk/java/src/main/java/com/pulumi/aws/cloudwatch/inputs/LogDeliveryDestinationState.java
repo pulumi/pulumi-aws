@@ -17,122 +17,58 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
 
     public static final LogDeliveryDestinationState Empty = new LogDeliveryDestinationState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the delivery destination.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delivery destination.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-     * 
-     */
     @Import(name="deliveryDestinationConfiguration")
     private @Nullable Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs> deliveryDestinationConfiguration;
 
-    /**
-     * @return The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-     * 
-     */
     public Optional<Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs>> deliveryDestinationConfiguration() {
         return Optional.ofNullable(this.deliveryDestinationConfiguration);
     }
 
-    /**
-     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-     * 
-     */
     @Import(name="deliveryDestinationType")
     private @Nullable Output<String> deliveryDestinationType;
 
-    /**
-     * @return The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-     * 
-     */
     public Optional<Output<String>> deliveryDestinationType() {
         return Optional.ofNullable(this.deliveryDestinationType);
     }
 
-    /**
-     * The name for this delivery destination.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for this delivery destination.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-     * 
-     */
     @Import(name="outputFormat")
     private @Nullable Output<String> outputFormat;
 
-    /**
-     * @return The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-     * 
-     */
     public Optional<Output<String>> outputFormat() {
         return Optional.ofNullable(this.outputFormat);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -168,170 +104,74 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
             $ = new LogDeliveryDestinationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the delivery destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the delivery destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationConfiguration(@Nullable Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs> deliveryDestinationConfiguration) {
             $.deliveryDestinationConfiguration = deliveryDestinationConfiguration;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs deliveryDestinationConfiguration) {
             return deliveryDestinationConfiguration(Output.of(deliveryDestinationConfiguration));
         }
 
-        /**
-         * @param deliveryDestinationType The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationType(@Nullable Output<String> deliveryDestinationType) {
             $.deliveryDestinationType = deliveryDestinationType;
             return this;
         }
 
-        /**
-         * @param deliveryDestinationType The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryDestinationType(String deliveryDestinationType) {
             return deliveryDestinationType(Output.of(deliveryDestinationType));
         }
 
-        /**
-         * @param name The name for this delivery destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for this delivery destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param outputFormat The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputFormat(@Nullable Output<String> outputFormat) {
             $.outputFormat = outputFormat;
             return this;
         }
 
-        /**
-         * @param outputFormat The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputFormat(String outputFormat) {
             return outputFormat(Output.of(outputFormat));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

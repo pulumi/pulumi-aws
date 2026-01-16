@@ -28,18 +28,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               
-               **Standard API Key (choose one approach):**
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -55,11 +44,6 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-
-        **Write-Only API Key (choose one approach):**
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -71,7 +55,6 @@ class AgentcoreApiKeyCredentialProviderArgs:
     def api_key_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -82,9 +65,6 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @_builtins.property
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        """
         return pulumi.get(self, "api_key_wo_version")
 
     @api_key_wo_version.setter
@@ -94,11 +74,6 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the API Key credential provider. Forces replacement when changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -108,11 +83,6 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-
-        **Standard API Key (choose one approach):**
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -132,20 +102,7 @@ class _AgentcoreApiKeyCredentialProviderState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
-        :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               
-               **Standard API Key (choose one approach):**
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -165,11 +122,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-
-        **Write-Only API Key (choose one approach):**
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -179,9 +131,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     @_builtins.property
     @pulumi.getter(name="apiKeySecretArns")
     def api_key_secret_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]]]:
-        """
-        ARN of the AWS Secrets Manager secret containing the API key.
-        """
         return pulumi.get(self, "api_key_secret_arns")
 
     @api_key_secret_arns.setter
@@ -193,7 +142,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     def api_key_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -204,9 +152,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     @_builtins.property
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        """
         return pulumi.get(self, "api_key_wo_version")
 
     @api_key_wo_version.setter
@@ -216,9 +161,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     @_builtins.property
     @pulumi.getter(name="credentialProviderArn")
     def credential_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the API Key credential provider.
-        """
         return pulumi.get(self, "credential_provider_arn")
 
     @credential_provider_arn.setter
@@ -228,11 +170,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the API Key credential provider. Forces replacement when changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -242,11 +179,6 @@ class _AgentcoreApiKeyCredentialProviderState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-
-        **Standard API Key (choose one approach):**
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -267,53 +199,10 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
-            name="example-api-key-provider",
-            api_key="your-api-key-here")
-        ```
-
-        ### Write-Only API Key (Recommended for Production)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
-            name="example-api-key-provider",
-            api_key_wo="your-api-key-here",
-            api_key_wo_version=1)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
-        ```
-
+        Create a AgentcoreApiKeyCredentialProvider resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               
-               **Standard API Key (choose one approach):**
         """
         ...
     @overload
@@ -322,39 +211,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                  args: Optional[AgentcoreApiKeyCredentialProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
-            name="example-api-key-provider",
-            api_key="your-api-key-here")
-        ```
-
-        ### Write-Only API Key (Recommended for Production)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
-            name="example-api-key-provider",
-            api_key_wo="your-api-key-here",
-            api_key_wo_version=1)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
-        ```
-
+        Create a AgentcoreApiKeyCredentialProvider resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreApiKeyCredentialProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -417,20 +274,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-               
-               **Write-Only API Key (choose one approach):**
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
-        :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               
-               **Standard API Key (choose one approach):**
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -448,19 +292,11 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
-
-        **Write-Only API Key (choose one approach):**
-        """
         return pulumi.get(self, "api_key")
 
     @_builtins.property
     @pulumi.getter(name="apiKeySecretArns")
     def api_key_secret_arns(self) -> pulumi.Output[Sequence['outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]:
-        """
-        ARN of the AWS Secrets Manager secret containing the API key.
-        """
         return pulumi.get(self, "api_key_secret_arns")
 
     @_builtins.property
@@ -468,43 +304,26 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     def api_key_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         """
         return pulumi.get(self, "api_key_wo")
 
     @_builtins.property
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
-        """
         return pulumi.get(self, "api_key_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderArn")
     def credential_provider_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the API Key credential provider.
-        """
         return pulumi.get(self, "credential_provider_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the API Key credential provider. Forces replacement when changed.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-
-        **Standard API Key (choose one approach):**
-        """
         return pulumi.get(self, "region")
 

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
-    /**
-     * @return Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
-     * 
-     */
     private String credentials;
-    /**
-     * @return The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
-     * 
-     */
     private String host;
-    /**
-     * @return The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-     * 
-     */
     private Integer port;
 
     private DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication() {}
-    /**
-     * @return Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
-     * 
-     */
     public String credentials() {
         return this.credentials;
     }
-    /**
-     * @return The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
-     * 
-     */
     public String host() {
         return this.host;
     }
-    /**
-     * @return The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-     * 
-     */
     public Integer port() {
         return this.port;
     }

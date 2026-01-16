@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionViewerMtlsConfigTrustStoreConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to advertise the trust store CA names to clients. Defaults to `False`.
-        /// </summary>
         [Input("advertiseTrustStoreCaNames")]
         public Input<bool>? AdvertiseTrustStoreCaNames { get; set; }
 
-        /// <summary>
-        /// Whether to ignore certificate expiry for viewer mTLS. Defaults to `False`.
-        /// </summary>
         [Input("ignoreCertificateExpiry")]
         public Input<bool>? IgnoreCertificateExpiry { get; set; }
 
-        /// <summary>
-        /// Identifier of the trust store to use for viewer mTLS.
-        /// </summary>
         [Input("trustStoreId", required: true)]
         public Input<string> TrustStoreId { get; set; } = null!;
 

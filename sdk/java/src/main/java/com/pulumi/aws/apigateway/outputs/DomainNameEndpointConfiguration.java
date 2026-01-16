@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainNameEndpointConfiguration {
     private @Nullable String ipAddressType;
-    /**
-     * @return A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-     * 
-     */
     private String types;
 
     private DomainNameEndpointConfiguration() {}
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
-    /**
-     * @return A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-     * 
-     */
     public String types() {
         return this.types;
     }

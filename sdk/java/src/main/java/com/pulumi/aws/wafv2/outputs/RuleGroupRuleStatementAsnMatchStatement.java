@@ -14,29 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementAsnMatchStatement {
-    /**
-     * @return List of Autonomous System Numbers (ASNs).
-     * 
-     */
     private List<Integer> asnLists;
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for more details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig forwardedIpConfig;
 
     private RuleGroupRuleStatementAsnMatchStatement() {}
-    /**
-     * @return List of Autonomous System Numbers (ASNs).
-     * 
-     */
     public List<Integer> asnLists() {
         return this.asnLists;
     }
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for more details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }

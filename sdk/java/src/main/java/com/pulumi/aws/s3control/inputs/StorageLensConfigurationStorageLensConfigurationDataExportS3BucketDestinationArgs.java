@@ -17,92 +17,44 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
 
     public static final StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs();
 
-    /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Encryption of the metrics exports in this bucket. See Encryption below for more details.
-     * 
-     */
     @Import(name="encryption")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs> encryption;
 
-    /**
-     * @return Encryption of the metrics exports in this bucket. See Encryption below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs>> encryption() {
         return Optional.ofNullable(this.encryption);
     }
 
-    /**
-     * The export format. Valid values: `CSV`, `Parquet`.
-     * 
-     */
     @Import(name="format", required=true)
     private Output<String> format;
 
-    /**
-     * @return The export format. Valid values: `CSV`, `Parquet`.
-     * 
-     */
     public Output<String> format() {
         return this.format;
     }
 
-    /**
-     * The schema version of the export file. Valid values: `V_1`.
-     * 
-     */
     @Import(name="outputSchemaVersion", required=true)
     private Output<String> outputSchemaVersion;
 
-    /**
-     * @return The schema version of the export file. Valid values: `V_1`.
-     * 
-     */
     public Output<String> outputSchemaVersion() {
         return this.outputSchemaVersion;
     }
 
-    /**
-     * The prefix of the destination bucket where the metrics export will be delivered.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The prefix of the destination bucket where the metrics export will be delivered.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -136,128 +88,56 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
             $ = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param encryption Encryption of the metrics exports in this bucket. See Encryption below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryption(@Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs> encryption) {
             $.encryption = encryption;
             return this;
         }
 
-        /**
-         * @param encryption Encryption of the metrics exports in this bucket. See Encryption below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryption(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs encryption) {
             return encryption(Output.of(encryption));
         }
 
-        /**
-         * @param format The export format. Valid values: `CSV`, `Parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(Output<String> format) {
             $.format = format;
             return this;
         }
 
-        /**
-         * @param format The export format. Valid values: `CSV`, `Parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder format(String format) {
             return format(Output.of(format));
         }
 
-        /**
-         * @param outputSchemaVersion The schema version of the export file. Valid values: `V_1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputSchemaVersion(Output<String> outputSchemaVersion) {
             $.outputSchemaVersion = outputSchemaVersion;
             return this;
         }
 
-        /**
-         * @param outputSchemaVersion The schema version of the export file. Valid values: `V_1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputSchemaVersion(String outputSchemaVersion) {
             return outputSchemaVersion(Output.of(outputSchemaVersion));
         }
 
-        /**
-         * @param prefix The prefix of the destination bucket where the metrics export will be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The prefix of the destination bucket where the metrics export will be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

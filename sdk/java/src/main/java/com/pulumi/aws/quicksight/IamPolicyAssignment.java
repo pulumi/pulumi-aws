@@ -15,104 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight IAM Policy Assignment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.IamPolicyAssignment;
- * import com.pulumi.aws.quicksight.IamPolicyAssignmentArgs;
- * import com.pulumi.aws.quicksight.inputs.IamPolicyAssignmentIdentitiesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new IamPolicyAssignment("example", IamPolicyAssignmentArgs.builder()
- *             .assignmentName("example")
- *             .assignmentStatus("ENABLED")
- *             .policyArn(exampleAwsIamPolicy.arn())
- *             .identities(IamPolicyAssignmentIdentitiesArgs.builder()
- *                 .users(exampleAwsQuicksightUser.userName())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")
 public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
-    /**
-     * Assignment ID.
-     * 
-     */
     @Export(name="assignmentId", refs={String.class}, tree="[0]")
     private Output<String> assignmentId;
 
-    /**
-     * @return Assignment ID.
-     * 
-     */
     public Output<String> assignmentId() {
         return this.assignmentId;
     }
-    /**
-     * Name of the assignment.
-     * 
-     */
     @Export(name="assignmentName", refs={String.class}, tree="[0]")
     private Output<String> assignmentName;
 
-    /**
-     * @return Name of the assignment.
-     * 
-     */
     public Output<String> assignmentName() {
         return this.assignmentName;
     }
-    /**
-     * Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="assignmentStatus", refs={String.class}, tree="[0]")
     private Output<String> assignmentStatus;
 
-    /**
-     * @return Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> assignmentStatus() {
         return this.assignmentStatus;
     }
@@ -122,59 +41,27 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-     * 
-     */
     @Export(name="identities", refs={IamPolicyAssignmentIdentities.class}, tree="[0]")
     private Output</* @Nullable */ IamPolicyAssignmentIdentities> identities;
 
-    /**
-     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-     * 
-     */
     public Output<Optional<IamPolicyAssignmentIdentities>> identities() {
         return Codegen.optional(this.identities);
     }
-    /**
-     * Namespace that contains the assignment. Defaults to `default`.
-     * 
-     */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
-    /**
-     * @return Namespace that contains the assignment. Defaults to `default`.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
-    /**
-     * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-     * 
-     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyArn;
 
-    /**
-     * @return ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-     * 
-     */
     public Output<Optional<String>> policyArn() {
         return Codegen.optional(this.policyArn);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

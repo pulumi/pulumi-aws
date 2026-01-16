@@ -13,17 +13,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReservedInstanceOfferingResult {
-    /**
-     * @return Currency code for the reserved DB instance.
-     * 
-     */
     private String currencyCode;
     private String dbInstanceClass;
     private Integer duration;
-    /**
-     * @return Fixed price charged for this reserved DB instance.
-     * 
-     */
     private Double fixedPrice;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -31,20 +23,12 @@ public final class GetReservedInstanceOfferingResult {
      */
     private String id;
     private Boolean multiAz;
-    /**
-     * @return Unique identifier for the reservation.
-     * 
-     */
     private String offeringId;
     private String offeringType;
     private String productDescription;
     private String region;
 
     private GetReservedInstanceOfferingResult() {}
-    /**
-     * @return Currency code for the reserved DB instance.
-     * 
-     */
     public String currencyCode() {
         return this.currencyCode;
     }
@@ -54,10 +38,6 @@ public final class GetReservedInstanceOfferingResult {
     public Integer duration() {
         return this.duration;
     }
-    /**
-     * @return Fixed price charged for this reserved DB instance.
-     * 
-     */
     public Double fixedPrice() {
         return this.fixedPrice;
     }
@@ -71,10 +51,6 @@ public final class GetReservedInstanceOfferingResult {
     public Boolean multiAz() {
         return this.multiAz;
     }
-    /**
-     * @return Unique identifier for the reservation.
-     * 
-     */
     public String offeringId() {
         return this.offeringId;
     }

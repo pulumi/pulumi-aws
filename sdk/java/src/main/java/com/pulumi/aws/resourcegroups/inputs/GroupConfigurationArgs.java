@@ -18,32 +18,16 @@ public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceA
 
     public static final GroupConfigurationArgs Empty = new GroupConfigurationArgs();
 
-    /**
-     * A collection of parameters for this group configuration item. See below for details.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<GroupConfigurationParameterArgs>> parameters;
 
-    /**
-     * @return A collection of parameters for this group configuration item. See below for details.
-     * 
-     */
     public Optional<Output<List<GroupConfigurationParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Specifies the type of group configuration item.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Specifies the type of group configuration item.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -73,54 +57,24 @@ public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceA
             $ = new GroupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameters A collection of parameters for this group configuration item. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<GroupConfigurationParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters A collection of parameters for this group configuration item. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<GroupConfigurationParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters A collection of parameters for this group configuration item. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(GroupConfigurationParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param type Specifies the type of group configuration item.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies the type of group configuration item.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

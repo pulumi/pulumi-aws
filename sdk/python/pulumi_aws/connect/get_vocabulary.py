@@ -67,25 +67,16 @@ class GetVocabularyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the Vocabulary.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> _builtins.str:
-        """
-        The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> _builtins.str:
-        """
-        The reason why the custom vocabulary was not created.
-        """
         return pulumi.get(self, "failure_reason")
 
     @_builtins.property
@@ -104,17 +95,11 @@ class GetVocabularyResult:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> _builtins.str:
-        """
-        The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> _builtins.str:
-        """
-        The timestamp when the custom vocabulary was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
@@ -130,25 +115,16 @@ class GetVocabularyResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assign to the Vocabulary.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyId")
     def vocabulary_id(self) -> _builtins.str:
-        """
-        The identifier of the custom vocabulary.
-        """
         return pulumi.get(self, "vocabulary_id")
 
 
@@ -179,38 +155,7 @@ def get_vocabulary(instance_id: Optional[_builtins.str] = None,
                    vocabulary_id: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVocabularyResult:
     """
-    Provides details about a specific Amazon Connect Vocabulary.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_vocabulary(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `vocabulary_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_vocabulary(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        vocabulary_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Vocabulary by name
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assign to the Vocabulary.
-    :param _builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
-           
-           > **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -241,38 +186,7 @@ def get_vocabulary_output(instance_id: Optional[pulumi.Input[_builtins.str]] = N
                           vocabulary_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVocabularyResult]:
     """
-    Provides details about a specific Amazon Connect Vocabulary.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_vocabulary(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `vocabulary_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_vocabulary(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        vocabulary_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Vocabulary by name
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags to assign to the Vocabulary.
-    :param _builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
-           
-           > **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

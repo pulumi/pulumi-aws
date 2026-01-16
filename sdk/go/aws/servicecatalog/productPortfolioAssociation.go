@@ -12,58 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Product Portfolio Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProductPortfolioAssociation(ctx, "example", &servicecatalog.ProductPortfolioAssociationArgs{
-//				PortfolioId: pulumi.String("port-68656c6c6f"),
-//				ProductId:   pulumi.String("prod-dnigbtea24ste"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
-// ```
 type ProductPortfolioAssociation struct {
 	pulumi.CustomResourceState
 
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId pulumi.StringOutput `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the source portfolio.
+	AcceptLanguage    pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	PortfolioId       pulumi.StringOutput    `pulumi:"portfolioId"`
+	ProductId         pulumi.StringOutput    `pulumi:"productId"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
 	SourcePortfolioId pulumi.StringPtrOutput `pulumi:"sourcePortfolioId"`
 }
 
@@ -103,32 +58,18 @@ func GetProductPortfolioAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProductPortfolioAssociation resources.
 type productPortfolioAssociationState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId *string `pulumi:"portfolioId"`
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId *string `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the source portfolio.
+	AcceptLanguage    *string `pulumi:"acceptLanguage"`
+	PortfolioId       *string `pulumi:"portfolioId"`
+	ProductId         *string `pulumi:"productId"`
+	Region            *string `pulumi:"region"`
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
 }
 
 type ProductPortfolioAssociationState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage pulumi.StringPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringPtrInput
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the source portfolio.
+	AcceptLanguage    pulumi.StringPtrInput
+	PortfolioId       pulumi.StringPtrInput
+	ProductId         pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	SourcePortfolioId pulumi.StringPtrInput
 }
 
@@ -137,33 +78,19 @@ func (ProductPortfolioAssociationState) ElementType() reflect.Type {
 }
 
 type productPortfolioAssociationArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId string `pulumi:"productId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the source portfolio.
+	AcceptLanguage    *string `pulumi:"acceptLanguage"`
+	PortfolioId       string  `pulumi:"portfolioId"`
+	ProductId         string  `pulumi:"productId"`
+	Region            *string `pulumi:"region"`
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
 }
 
 // The set of arguments for constructing a ProductPortfolioAssociation resource.
 type ProductPortfolioAssociationArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage pulumi.StringPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput
-	// Product identifier.
-	//
-	// The following arguments are optional:
-	ProductId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the source portfolio.
+	AcceptLanguage    pulumi.StringPtrInput
+	PortfolioId       pulumi.StringInput
+	ProductId         pulumi.StringInput
+	Region            pulumi.StringPtrInput
 	SourcePortfolioId pulumi.StringPtrInput
 }
 
@@ -254,29 +181,22 @@ func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationOutputWi
 	return o
 }
 
-// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 func (o ProductPortfolioAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Portfolio identifier.
 func (o ProductPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-// Product identifier.
-//
-// The following arguments are optional:
 func (o ProductPortfolioAssociationOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProductPortfolioAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the source portfolio.
 func (o ProductPortfolioAssociationOutput) SourcePortfolioId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringPtrOutput { return v.SourcePortfolioId }).(pulumi.StringPtrOutput)
 }

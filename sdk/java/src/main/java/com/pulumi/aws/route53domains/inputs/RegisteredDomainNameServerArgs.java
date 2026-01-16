@@ -17,32 +17,16 @@ public final class RegisteredDomainNameServerArgs extends com.pulumi.resources.R
 
     public static final RegisteredDomainNameServerArgs Empty = new RegisteredDomainNameServerArgs();
 
-    /**
-     * Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-     * 
-     */
     @Import(name="glueIps")
     private @Nullable Output<List<String>> glueIps;
 
-    /**
-     * @return Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-     * 
-     */
     public Optional<Output<List<String>>> glueIps() {
         return Optional.ofNullable(this.glueIps);
     }
 
-    /**
-     * The fully qualified host name of the name server.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The fully qualified host name of the name server.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -72,54 +56,24 @@ public final class RegisteredDomainNameServerArgs extends com.pulumi.resources.R
             $ = new RegisteredDomainNameServerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param glueIps Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glueIps(@Nullable Output<List<String>> glueIps) {
             $.glueIps = glueIps;
             return this;
         }
 
-        /**
-         * @param glueIps Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glueIps(List<String> glueIps) {
             return glueIps(Output.of(glueIps));
         }
 
-        /**
-         * @param glueIps Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glueIps(String... glueIps) {
             return glueIps(List.of(glueIps));
         }
 
-        /**
-         * @param name The fully qualified host name of the name server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The fully qualified host name of the name server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

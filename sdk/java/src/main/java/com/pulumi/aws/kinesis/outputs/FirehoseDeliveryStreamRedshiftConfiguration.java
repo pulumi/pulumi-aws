@@ -18,167 +18,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamRedshiftConfiguration {
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
-    /**
-     * @return The jdbcurl of the redshift cluster.
-     * 
-     */
     private String clusterJdbcurl;
-    /**
-     * @return Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
-     * 
-     */
     private @Nullable String copyOptions;
-    /**
-     * @return The data table columns that will be targeted by the copy command.
-     * 
-     */
     private @Nullable String dataTableColumns;
-    /**
-     * @return The name of the table in the redshift cluster that the s3 bucket will copy to.
-     * 
-     */
     private String dataTableName;
-    /**
-     * @return The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     private @Nullable String password;
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
-    /**
-     * @return The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-     * 
-     */
     private @Nullable Integer retryDuration;
-    /**
-     * @return The arn of the role the stream assumes.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
-    /**
-     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-     * 
-     */
     private @Nullable String s3BackupMode;
-    /**
-     * @return The S3 Configuration. See s3Configuration below for details.
-     * 
-     */
     private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
-    /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     private @Nullable String username;
 
     private FirehoseDeliveryStreamRedshiftConfiguration() {}
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
-    /**
-     * @return The jdbcurl of the redshift cluster.
-     * 
-     */
     public String clusterJdbcurl() {
         return this.clusterJdbcurl;
     }
-    /**
-     * @return Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
-     * 
-     */
     public Optional<String> copyOptions() {
         return Optional.ofNullable(this.copyOptions);
     }
-    /**
-     * @return The data table columns that will be targeted by the copy command.
-     * 
-     */
     public Optional<String> dataTableColumns() {
         return Optional.ofNullable(this.dataTableColumns);
     }
-    /**
-     * @return The name of the table in the redshift cluster that the s3 bucket will copy to.
-     * 
-     */
     public String dataTableName() {
         return this.dataTableName;
     }
-    /**
-     * @return The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
-    /**
-     * @return The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
-    /**
-     * @return The arn of the role the stream assumes.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration> s3BackupConfiguration() {
         return Optional.ofNullable(this.s3BackupConfiguration);
     }
-    /**
-     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-     * 
-     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
-    /**
-     * @return The S3 Configuration. See s3Configuration below for details.
-     * 
-     */
     public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
-    /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
-     * 
-     */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }

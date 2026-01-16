@@ -17,32 +17,16 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
 
     public static final ServiceObservabilityConfigurationArgs Empty = new ServiceObservabilityConfigurationArgs();
 
-    /**
-     * ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
-     * 
-     */
     @Import(name="observabilityConfigurationArn")
     private @Nullable Output<String> observabilityConfigurationArn;
 
-    /**
-     * @return ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
-     * 
-     */
     public Optional<Output<String>> observabilityConfigurationArn() {
         return Optional.ofNullable(this.observabilityConfigurationArn);
     }
 
-    /**
-     * When `true`, an observability configuration resource is associated with the service.
-     * 
-     */
     @Import(name="observabilityEnabled", required=true)
     private Output<Boolean> observabilityEnabled;
 
-    /**
-     * @return When `true`, an observability configuration resource is associated with the service.
-     * 
-     */
     public Output<Boolean> observabilityEnabled() {
         return this.observabilityEnabled;
     }
@@ -72,44 +56,20 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
             $ = new ServiceObservabilityConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder observabilityConfigurationArn(@Nullable Output<String> observabilityConfigurationArn) {
             $.observabilityConfigurationArn = observabilityConfigurationArn;
             return this;
         }
 
-        /**
-         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder observabilityConfigurationArn(String observabilityConfigurationArn) {
             return observabilityConfigurationArn(Output.of(observabilityConfigurationArn));
         }
 
-        /**
-         * @param observabilityEnabled When `true`, an observability configuration resource is associated with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder observabilityEnabled(Output<Boolean> observabilityEnabled) {
             $.observabilityEnabled = observabilityEnabled;
             return this;
         }
 
-        /**
-         * @param observabilityEnabled When `true`, an observability configuration resource is associated with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder observabilityEnabled(Boolean observabilityEnabled) {
             return observabilityEnabled(Output.of(observabilityEnabled));
         }

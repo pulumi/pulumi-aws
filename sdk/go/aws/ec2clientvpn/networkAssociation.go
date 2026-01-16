@@ -12,56 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
-// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2clientvpn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
-//				ClientVpnEndpointId: pulumi.Any(exampleAwsEc2ClientVpnEndpoint.Id),
-//				SubnetId:            pulumi.Any(exampleAwsSubnet.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
-// ```
 type NetworkAssociation struct {
 	pulumi.CustomResourceState
 
-	// The unique ID of the target network association.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// The ID of the Client VPN endpoint.
+	AssociationId       pulumi.StringOutput `pulumi:"associationId"`
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the VPC in which the target subnet is located.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Region              pulumi.StringOutput `pulumi:"region"`
+	SubnetId            pulumi.StringOutput `pulumi:"subnetId"`
+	VpcId               pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkAssociation registers a new resource with the given unique name, arguments, and options.
@@ -100,29 +58,19 @@ func GetNetworkAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkAssociation resources.
 type networkAssociationState struct {
-	// The unique ID of the target network association.
-	AssociationId *string `pulumi:"associationId"`
-	// The ID of the Client VPN endpoint.
+	AssociationId       *string `pulumi:"associationId"`
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the VPC in which the target subnet is located.
-	VpcId *string `pulumi:"vpcId"`
+	Region              *string `pulumi:"region"`
+	SubnetId            *string `pulumi:"subnetId"`
+	VpcId               *string `pulumi:"vpcId"`
 }
 
 type NetworkAssociationState struct {
-	// The unique ID of the target network association.
-	AssociationId pulumi.StringPtrInput
-	// The ID of the Client VPN endpoint.
+	AssociationId       pulumi.StringPtrInput
 	ClientVpnEndpointId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId pulumi.StringPtrInput
-	// The ID of the VPC in which the target subnet is located.
-	VpcId pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	SubnetId            pulumi.StringPtrInput
+	VpcId               pulumi.StringPtrInput
 }
 
 func (NetworkAssociationState) ElementType() reflect.Type {
@@ -130,22 +78,16 @@ func (NetworkAssociationState) ElementType() reflect.Type {
 }
 
 type networkAssociationArgs struct {
-	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId string `pulumi:"subnetId"`
+	ClientVpnEndpointId string  `pulumi:"clientVpnEndpointId"`
+	Region              *string `pulumi:"region"`
+	SubnetId            string  `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a NetworkAssociation resource.
 type NetworkAssociationArgs struct {
-	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId pulumi.StringInput
+	Region              pulumi.StringPtrInput
+	SubnetId            pulumi.StringInput
 }
 
 func (NetworkAssociationArgs) ElementType() reflect.Type {
@@ -235,27 +177,22 @@ func (o NetworkAssociationOutput) ToNetworkAssociationOutputWithContext(ctx cont
 	return o
 }
 
-// The unique ID of the target network association.
 func (o NetworkAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The ID of the Client VPN endpoint.
 func (o NetworkAssociationOutput) ClientVpnEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet to associate with the Client VPN endpoint.
 func (o NetworkAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC in which the target subnet is located.
 func (o NetworkAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

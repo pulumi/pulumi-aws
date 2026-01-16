@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfiguration {
-    /**
-     * @return Destination information for the S3 Metadata configuration.
-     * 
-     */
     private @Nullable List<BucketMetadataConfigurationMetadataConfigurationDestination> destinations;
-    /**
-     * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-     * 
-     */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration;
-    /**
-     * @return Journal table configuration. See `journalTableConfiguration` Block for details.
-     * 
-     */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration;
 
     private BucketMetadataConfigurationMetadataConfiguration() {}
-    /**
-     * @return Destination information for the S3 Metadata configuration.
-     * 
-     */
     public List<BucketMetadataConfigurationMetadataConfigurationDestination> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
     }
-    /**
-     * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-     * 
-     */
     public Optional<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration> inventoryTableConfiguration() {
         return Optional.ofNullable(this.inventoryTableConfiguration);
     }
-    /**
-     * @return Journal table configuration. See `journalTableConfiguration` Block for details.
-     * 
-     */
     public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration> journalTableConfiguration() {
         return Optional.ofNullable(this.journalTableConfiguration);
     }

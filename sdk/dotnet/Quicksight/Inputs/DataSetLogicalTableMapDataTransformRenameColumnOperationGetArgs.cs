@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSetLogicalTableMapDataTransformRenameColumnOperationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Column to be renamed.
-        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
-        /// <summary>
-        /// New name for the column.
-        /// </summary>
         [Input("newColumnName", required: true)]
         public Input<string> NewColumnName { get; set; } = null!;
 

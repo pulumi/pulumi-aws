@@ -14,17 +14,9 @@ public final class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssoci
 
     public static final ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs Empty = new ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs();
 
-    /**
-     * ARN of the key value store.
-     * 
-     */
     @Import(name="keyValueStoreArn", required=true)
     private Output<String> keyValueStoreArn;
 
-    /**
-     * @return ARN of the key value store.
-     * 
-     */
     public Output<String> keyValueStoreArn() {
         return this.keyValueStoreArn;
     }
@@ -53,23 +45,11 @@ public final class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssoci
             $ = new ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyValueStoreArn ARN of the key value store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreArn(Output<String> keyValueStoreArn) {
             $.keyValueStoreArn = keyValueStoreArn;
             return this;
         }
 
-        /**
-         * @param keyValueStoreArn ARN of the key value store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyValueStoreArn(String keyValueStoreArn) {
             return keyValueStoreArn(Output.of(keyValueStoreArn));
         }

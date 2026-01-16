@@ -25,96 +25,44 @@ public final class GatewaySmbActiveDirectorySettingsArgs extends com.pulumi.reso
         return Optional.ofNullable(this.activeDirectoryStatus);
     }
 
-    /**
-     * List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-     * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-     * 
-     */
     @Import(name="domainControllers")
     private @Nullable Output<List<String>> domainControllers;
 
-    /**
-     * @return List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-     * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-     * 
-     */
     public Optional<Output<List<String>>> domainControllers() {
         return Optional.ofNullable(this.domainControllers);
     }
 
-    /**
-     * The name of the domain that you want the gateway to join.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return The name of the domain that you want the gateway to join.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-     * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
-     * 
-     */
     @Import(name="organizationalUnit")
     private @Nullable Output<String> organizationalUnit;
 
-    /**
-     * @return The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-     * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
-     * 
-     */
     public Optional<Output<String>> organizationalUnit() {
         return Optional.ofNullable(this.organizationalUnit);
     }
 
-    /**
-     * The password of the user who has permission to add the gateway to the Active Directory domain.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return The password of the user who has permission to add the gateway to the Active Directory domain.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
-     * 
-     */
     @Import(name="timeoutInSeconds")
     private @Nullable Output<Integer> timeoutInSeconds;
 
-    /**
-     * @return Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
-     * 
-     */
     public Optional<Output<Integer>> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
 
-    /**
-     * The user name of user who has permission to add the gateway to the Active Directory domain.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return The user name of user who has permission to add the gateway to the Active Directory domain.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -158,143 +106,60 @@ public final class GatewaySmbActiveDirectorySettingsArgs extends com.pulumi.reso
             return activeDirectoryStatus(Output.of(activeDirectoryStatus));
         }
 
-        /**
-         * @param domainControllers List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-         * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainControllers(@Nullable Output<List<String>> domainControllers) {
             $.domainControllers = domainControllers;
             return this;
         }
 
-        /**
-         * @param domainControllers List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-         * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainControllers(List<String> domainControllers) {
             return domainControllers(Output.of(domainControllers));
         }
 
-        /**
-         * @param domainControllers List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-         * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainControllers(String... domainControllers) {
             return domainControllers(List.of(domainControllers));
         }
 
-        /**
-         * @param domainName The name of the domain that you want the gateway to join.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The name of the domain that you want the gateway to join.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param organizationalUnit The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-         * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnit(@Nullable Output<String> organizationalUnit) {
             $.organizationalUnit = organizationalUnit;
             return this;
         }
 
-        /**
-         * @param organizationalUnit The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-         * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnit(String organizationalUnit) {
             return organizationalUnit(Output.of(organizationalUnit));
         }
 
-        /**
-         * @param password The password of the user who has permission to add the gateway to the Active Directory domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password The password of the user who has permission to add the gateway to the Active Directory domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param timeoutInSeconds Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(@Nullable Output<Integer> timeoutInSeconds) {
             $.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
 
-        /**
-         * @param timeoutInSeconds Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
             return timeoutInSeconds(Output.of(timeoutInSeconds));
         }
 
-        /**
-         * @param username The user name of user who has permission to add the gateway to the Active Directory domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The user name of user who has permission to add the gateway to the Active Directory domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

@@ -14,25 +14,15 @@ namespace Pulumi.Aws.RedShift.Inputs
     {
         [Input("networkInterfaces")]
         private InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs>? _networkInterfaces;
-
-        /// <summary>
-        /// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        /// </summary>
         public InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.EndpointAccessVpcEndpointNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
 
-        /// <summary>
-        /// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
-        /// <summary>
-        /// The VPC identifier that the endpoint is associated.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

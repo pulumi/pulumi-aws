@@ -13,129 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a Managed IAM Policy to an IAM role
- * 
- * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
- * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role&#39;s managed policy attachments and Pulumi will show a permanent difference.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("ec2.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var role = new Role("role", RoleArgs.builder()
- *             .name("test-role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("ec2:Describe*")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var policyPolicy = new Policy("policyPolicy", PolicyArgs.builder()
- *             .name("test-policy")
- *             .description("A test policy")
- *             .policy(policy.json())
- *             .build());
- * 
- *         var test_attach = new RolePolicyAttachment("test-attach", RolePolicyAttachmentArgs.builder()
- *             .role(role.name())
- *             .policyArn(policyPolicy.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `role` (String) Name of the IAM role.
- * 
- * * `policy_arn` (String) ARN of the IAM policy.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
- * 
- * % pulumi import aws_iam_role_policy_attachment.example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- * 
- */
 @ResourceType(type="aws:iam/rolePolicyAttachment:RolePolicyAttachment")
 public class RolePolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the policy you want to apply
-     * 
-     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
-    /**
-     * @return The ARN of the policy you want to apply
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
-    /**
-     * The name of the IAM role to which the policy should be applied
-     * 
-     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
-    /**
-     * @return The name of the IAM role to which the policy should be applied
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }

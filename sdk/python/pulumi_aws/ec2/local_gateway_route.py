@@ -25,10 +25,6 @@ class LocalGatewayRouteArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalGatewayRoute resource.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
-        :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
@@ -39,9 +35,6 @@ class LocalGatewayRouteArgs:
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[_builtins.str]:
-        """
-        IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -51,9 +44,6 @@ class LocalGatewayRouteArgs:
     @_builtins.property
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Local Gateway Route Table.
-        """
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @local_gateway_route_table_id.setter
@@ -63,9 +53,6 @@ class LocalGatewayRouteArgs:
     @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
     def local_gateway_virtual_interface_group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Local Gateway Virtual Interface Group.
-        """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @local_gateway_virtual_interface_group_id.setter
@@ -75,9 +62,6 @@ class LocalGatewayRouteArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,10 +78,6 @@ class _LocalGatewayRouteState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalGatewayRoute resources.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
-        :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if destination_cidr_block is not None:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -111,9 +91,6 @@ class _LocalGatewayRouteState:
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -123,9 +100,6 @@ class _LocalGatewayRouteState:
     @_builtins.property
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Local Gateway Route Table.
-        """
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @local_gateway_route_table_id.setter
@@ -135,9 +109,6 @@ class _LocalGatewayRouteState:
     @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
     def local_gateway_virtual_interface_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Local Gateway Virtual Interface Group.
-        """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @local_gateway_virtual_interface_group_id.setter
@@ -147,9 +118,6 @@ class _LocalGatewayRouteState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -169,34 +137,9 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.LocalGatewayRoute("example",
-            destination_cidr_block="172.16.0.0/16",
-            local_gateway_route_table_id=example_aws_ec2_local_gateway_route_table["id"],
-            local_gateway_virtual_interface_group_id=example_aws_ec2_local_gateway_virtual_interface_group["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
-
-        ```sh
-        $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
-        ```
-
+        Create a LocalGatewayRoute resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
-        :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -205,28 +148,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  args: LocalGatewayRouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.LocalGatewayRoute("example",
-            destination_cidr_block="172.16.0.0/16",
-            local_gateway_route_table_id=example_aws_ec2_local_gateway_route_table["id"],
-            local_gateway_virtual_interface_group_id=example_aws_ec2_local_gateway_virtual_interface_group["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
-
-        ```sh
-        $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
-        ```
-
+        Create a LocalGatewayRoute resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,10 +208,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
-        :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,32 +222,20 @@ class LocalGatewayRoute(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[_builtins.str]:
-        """
-        IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @_builtins.property
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Local Gateway Route Table.
-        """
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
     def local_gateway_virtual_interface_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Local Gateway Virtual Interface Group.
-        """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

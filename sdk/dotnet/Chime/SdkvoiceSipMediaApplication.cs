@@ -9,86 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Chime.SdkvoiceSipMediaApplication("example", new()
-    ///     {
-    ///         AwsRegion = "us-east-1",
-    ///         Name = "example-sip-media-application",
-    ///         Endpoints = new Aws.Chime.Inputs.SdkvoiceSipMediaApplicationEndpointsArgs
-    ///         {
-    ///             LambdaArn = test.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")]
     public partial class SdkvoiceSipMediaApplication : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-        /// </summary>
         [Output("awsRegion")]
         public Output<string> AwsRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
-        /// </summary>
         [Output("endpoints")]
         public Output<Outputs.SdkvoiceSipMediaApplicationEndpoints> Endpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the AWS Chime SDK Voice Sip Media Application.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -138,38 +79,20 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceSipMediaApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-        /// </summary>
         [Input("awsRegion", required: true)]
         public Input<string> AwsRegion { get; set; } = null!;
 
-        /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
-        /// </summary>
         [Input("endpoints", required: true)]
         public Input<Inputs.SdkvoiceSipMediaApplicationEndpointsArgs> Endpoints { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the AWS Chime SDK Voice Sip Media Application.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -184,44 +107,23 @@ namespace Pulumi.Aws.Chime
 
     public sealed class SdkvoiceSipMediaApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
-        /// </summary>
         [Input("endpoints")]
         public Input<Inputs.SdkvoiceSipMediaApplicationEndpointsGetArgs>? Endpoints { get; set; }
 
-        /// <summary>
-        /// The name of the AWS Chime SDK Voice Sip Media Application.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -230,10 +132,6 @@ namespace Pulumi.Aws.Chime
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

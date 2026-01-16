@@ -11,84 +11,12 @@ namespace Pulumi.Aws.AppMesh
 {
     public static class GetVirtualGateway
     {
-        /// <summary>
-        /// Data source for managing an AWS App Mesh Virtual Gateway.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppMesh.GetVirtualGateway.Invoke(new()
-        ///     {
-        ///         MeshName = "mesh-gateway",
-        ///         Name = "example-mesh",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVirtualGatewayResult> InvokeAsync(GetVirtualGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGatewayResult>("aws:appmesh/getVirtualGateway:getVirtualGateway", args ?? new GetVirtualGatewayArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS App Mesh Virtual Gateway.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppMesh.GetVirtualGateway.Invoke(new()
-        ///     {
-        ///         MeshName = "mesh-gateway",
-        ///         Name = "example-mesh",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVirtualGatewayResult> Invoke(GetVirtualGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGatewayResult>("aws:appmesh/getVirtualGateway:getVirtualGateway", args ?? new GetVirtualGatewayInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS App Mesh Virtual Gateway.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppMesh.GetVirtualGateway.Invoke(new()
-        ///     {
-        ///         MeshName = "mesh-gateway",
-        ///         Name = "example-mesh",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVirtualGatewayResult> Invoke(GetVirtualGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGatewayResult>("aws:appmesh/getVirtualGateway:getVirtualGateway", args ?? new GetVirtualGatewayInvokeArgs(), options.WithDefaults());
     }
@@ -96,30 +24,17 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetVirtualGatewayArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which the virtual gateway exists.
-        /// </summary>
         [Input("meshName", required: true)]
         public string MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the virtual gateway.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -134,30 +49,17 @@ namespace Pulumi.Aws.AppMesh
 
     public sealed class GetVirtualGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the service mesh in which the virtual gateway exists.
-        /// </summary>
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the virtual gateway.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -174,37 +76,19 @@ namespace Pulumi.Aws.AppMesh
     [OutputType]
     public sealed class GetVirtualGatewayResult
     {
-        /// <summary>
-        /// ARN of the virtual gateway.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Creation date of the virtual gateway.
-        /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Last update date of the virtual gateway.
-        /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshName;
         public readonly string MeshOwner;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Resource owner's AWS account ID.
-        /// </summary>
         public readonly string ResourceOwner;
-        /// <summary>
-        /// Virtual gateway specification. See the `aws.appmesh.VirtualGateway` resource for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecResult> Specs;
-        /// <summary>
-        /// Map of tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

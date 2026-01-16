@@ -12,109 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSM Contacts Contact Channel.
-//
-// > **NOTE:** The contact channel needs to be activated in the AWS Systems Manager console, otherwise it can't be used to engage the contact. See the [Contacts section of the Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/contacts.html) for more information.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewContactChannel(ctx, "example", &ssmcontacts.ContactChannelArgs{
-//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
-//				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
-//					SimpleAddress: pulumi.String("email@example.com"),
-//				},
-//				Name: pulumi.String("Example contact channel"),
-//				Type: pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with SSM Contact
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleContact, err := ssmcontacts.NewContact(ctx, "example_contact", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("example_contact"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmcontacts.NewContactChannel(ctx, "example", &ssmcontacts.ContactChannelArgs{
-//				ContactId: exampleContact.Arn,
-//				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
-//					SimpleAddress: pulumi.String("email@example.com"),
-//				},
-//				Name: pulumi.String("Example contact channel"),
-//				Type: pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
-//
-// Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
-//
-// % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 type ContactChannel struct {
 	pulumi.CustomResourceState
 
-	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-	ActivationStatus pulumi.StringOutput `pulumi:"activationStatus"`
-	// Amazon Resource Name (ARN) of the contact channel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId pulumi.StringOutput `pulumi:"contactId"`
-	// Block that contains contact engagement details. See details below.
-	DeliveryAddress ContactChannelDeliveryAddressOutput `pulumi:"deliveryAddress"`
-	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ActivationStatus pulumi.StringOutput                 `pulumi:"activationStatus"`
+	Arn              pulumi.StringOutput                 `pulumi:"arn"`
+	ContactId        pulumi.StringOutput                 `pulumi:"contactId"`
+	DeliveryAddress  ContactChannelDeliveryAddressOutput `pulumi:"deliveryAddress"`
+	Name             pulumi.StringOutput                 `pulumi:"name"`
+	Region           pulumi.StringOutput                 `pulumi:"region"`
+	Type             pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewContactChannel registers a new resource with the given unique name, arguments, and options.
@@ -156,37 +63,23 @@ func GetContactChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactChannel resources.
 type contactChannelState struct {
-	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
-	ActivationStatus *string `pulumi:"activationStatus"`
-	// Amazon Resource Name (ARN) of the contact channel.
-	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId *string `pulumi:"contactId"`
-	// Block that contains contact engagement details. See details below.
-	DeliveryAddress *ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
-	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-	Type *string `pulumi:"type"`
+	ActivationStatus *string                        `pulumi:"activationStatus"`
+	Arn              *string                        `pulumi:"arn"`
+	ContactId        *string                        `pulumi:"contactId"`
+	DeliveryAddress  *ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
+	Name             *string                        `pulumi:"name"`
+	Region           *string                        `pulumi:"region"`
+	Type             *string                        `pulumi:"type"`
 }
 
 type ContactChannelState struct {
-	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
 	ActivationStatus pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the contact channel.
-	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId pulumi.StringPtrInput
-	// Block that contains contact engagement details. See details below.
-	DeliveryAddress ContactChannelDeliveryAddressPtrInput
-	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-	Type pulumi.StringPtrInput
+	Arn              pulumi.StringPtrInput
+	ContactId        pulumi.StringPtrInput
+	DeliveryAddress  ContactChannelDeliveryAddressPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Type             pulumi.StringPtrInput
 }
 
 func (ContactChannelState) ElementType() reflect.Type {
@@ -194,30 +87,20 @@ func (ContactChannelState) ElementType() reflect.Type {
 }
 
 type contactChannelArgs struct {
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId string `pulumi:"contactId"`
-	// Block that contains contact engagement details. See details below.
+	ContactId       string                        `pulumi:"contactId"`
 	DeliveryAddress ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
-	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-	Type string `pulumi:"type"`
+	Name            *string                       `pulumi:"name"`
+	Region          *string                       `pulumi:"region"`
+	Type            string                        `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ContactChannel resource.
 type ContactChannelArgs struct {
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
-	ContactId pulumi.StringInput
-	// Block that contains contact engagement details. See details below.
+	ContactId       pulumi.StringInput
 	DeliveryAddress ContactChannelDeliveryAddressInput
-	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-	Type pulumi.StringInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Type            pulumi.StringInput
 }
 
 func (ContactChannelArgs) ElementType() reflect.Type {
@@ -307,37 +190,30 @@ func (o ContactChannelOutput) ToContactChannelOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
 func (o ContactChannelOutput) ActivationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.ActivationStatus }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the contact channel.
 func (o ContactChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
 func (o ContactChannelOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
 }
 
-// Block that contains contact engagement details. See details below.
 func (o ContactChannelOutput) DeliveryAddress() ContactChannelDeliveryAddressOutput {
 	return o.ApplyT(func(v *ContactChannel) ContactChannelDeliveryAddressOutput { return v.DeliveryAddress }).(ContactChannelDeliveryAddressOutput)
 }
 
-// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 func (o ContactChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 func (o ContactChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -13,38 +13,14 @@ namespace Pulumi.Aws.Vpc.Outputs
     [OutputType]
     public sealed class GetEndpointAssociationsAssociationResult
     {
-        /// <summary>
-        /// Accessibility of the resource.
-        /// </summary>
         public readonly string AssociatedResourceAccessibility;
-        /// <summary>
-        /// ARN of the resource for this association.
-        /// </summary>
         public readonly string AssociatedResourceArn;
-        /// <summary>
-        /// DNS entries for the Association. DNS entry blocks are documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointAssociationsAssociationDnsEntryResult> DnsEntries;
         public readonly string Id;
-        /// <summary>
-        /// DNS entries for the Association. Private DNS entry blocks are documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointAssociationsAssociationPrivateDnsEntryResult> PrivateDnsEntries;
-        /// <summary>
-        /// ARN of the Resource Group if the Resource is a member of a group.
-        /// </summary>
         public readonly string ResourceConfigurationGroupArn;
-        /// <summary>
-        /// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-        /// </summary>
         public readonly string ServiceNetworkArn;
-        /// <summary>
-        /// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-        /// </summary>
         public readonly string ServiceNetworkName;
-        /// <summary>
-        /// Tags of the association.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

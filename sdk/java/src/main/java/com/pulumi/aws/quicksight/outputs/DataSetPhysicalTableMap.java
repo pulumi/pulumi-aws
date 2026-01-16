@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetPhysicalTableMap {
-    /**
-     * @return A physical table type built from the results of the custom SQL query. See custom_sql.
-     * 
-     */
     private @Nullable DataSetPhysicalTableMapCustomSql customSql;
-    /**
-     * @return Key of the physical table map.
-     * 
-     */
     private String physicalTableMapId;
-    /**
-     * @return A physical table type for relational data sources. See relational_table.
-     * 
-     */
     private @Nullable DataSetPhysicalTableMapRelationalTable relationalTable;
-    /**
-     * @return A physical table type for as S3 data source. See s3_source.
-     * 
-     */
     private @Nullable DataSetPhysicalTableMapS3Source s3Source;
 
     private DataSetPhysicalTableMap() {}
-    /**
-     * @return A physical table type built from the results of the custom SQL query. See custom_sql.
-     * 
-     */
     public Optional<DataSetPhysicalTableMapCustomSql> customSql() {
         return Optional.ofNullable(this.customSql);
     }
-    /**
-     * @return Key of the physical table map.
-     * 
-     */
     public String physicalTableMapId() {
         return this.physicalTableMapId;
     }
-    /**
-     * @return A physical table type for relational data sources. See relational_table.
-     * 
-     */
     public Optional<DataSetPhysicalTableMapRelationalTable> relationalTable() {
         return Optional.ofNullable(this.relationalTable);
     }
-    /**
-     * @return A physical table type for as S3 data source. See s3_source.
-     * 
-     */
     public Optional<DataSetPhysicalTableMapS3Source> s3Source() {
         return Optional.ofNullable(this.s3Source);
     }

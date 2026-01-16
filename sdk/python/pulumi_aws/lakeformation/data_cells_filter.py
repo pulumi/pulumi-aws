@@ -26,8 +26,6 @@ class DataCellsFilterArgs:
                  timeouts: Optional[pulumi.Input['DataCellsFilterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DataCellsFilter resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DataCellsFilterTableDataArgs'] table_data: Information about the data cells filter. See Table Data below for details.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -39,9 +37,6 @@ class DataCellsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -51,9 +46,6 @@ class DataCellsFilterArgs:
     @_builtins.property
     @pulumi.getter(name="tableData")
     def table_data(self) -> Optional[pulumi.Input['DataCellsFilterTableDataArgs']]:
-        """
-        Information about the data cells filter. See Table Data below for details.
-        """
         return pulumi.get(self, "table_data")
 
     @table_data.setter
@@ -78,8 +70,6 @@ class _DataCellsFilterState:
                  timeouts: Optional[pulumi.Input['DataCellsFilterTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DataCellsFilter resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DataCellsFilterTableDataArgs'] table_data: Information about the data cells filter. See Table Data below for details.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -91,9 +81,6 @@ class _DataCellsFilterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -103,9 +90,6 @@ class _DataCellsFilterState:
     @_builtins.property
     @pulumi.getter(name="tableData")
     def table_data(self) -> Optional[pulumi.Input['DataCellsFilterTableDataArgs']]:
-        """
-        Information about the data cells filter. See Table Data below for details.
-        """
         return pulumi.get(self, "table_data")
 
     @table_data.setter
@@ -133,40 +117,9 @@ class DataCellsFilter(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lake Formation Data Cells Filter.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "database_name": test["name"],
-            "name": "example",
-            "table_catalog_id": current["accountId"],
-            "table_name": test_aws_glue_catalog_table["name"],
-            "column_names": ["my_column"],
-            "row_filter": {
-                "filter_expression": "my_column='example'",
-            },
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
-        ```
-
+        Create a DataCellsFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         ...
     @overload
@@ -175,36 +128,7 @@ class DataCellsFilter(pulumi.CustomResource):
                  args: Optional[DataCellsFilterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lake Formation Data Cells Filter.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "database_name": test["name"],
-            "name": "example",
-            "table_catalog_id": current["accountId"],
-            "table_name": test_aws_glue_catalog_table["name"],
-            "column_names": ["my_column"],
-            "row_filter": {
-                "filter_expression": "my_column='example'",
-            },
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
-        ```
-
+        Create a DataCellsFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DataCellsFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,8 +179,6 @@ class DataCellsFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,17 +192,11 @@ class DataCellsFilter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableData")
     def table_data(self) -> pulumi.Output[Optional['outputs.DataCellsFilterTableData']]:
-        """
-        Information about the data cells filter. See Table Data below for details.
-        """
         return pulumi.get(self, "table_data")
 
     @_builtins.property

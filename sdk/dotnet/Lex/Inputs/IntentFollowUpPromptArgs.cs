@@ -12,17 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class IntentFollowUpPromptArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Prompts for information from the user. Attributes are documented under prompt.
-        /// </summary>
         [Input("prompt", required: true)]
         public Input<Inputs.IntentFollowUpPromptPromptArgs> Prompt { get; set; } = null!;
 
-        /// <summary>
-        /// If the user answers "no" to the question defined in the prompt field,
-        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-        /// documented below under statement.
-        /// </summary>
         [Input("rejectionStatement", required: true)]
         public Input<Inputs.IntentFollowUpPromptRejectionStatementArgs> RejectionStatement { get; set; } = null!;
 

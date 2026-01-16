@@ -15,36 +15,16 @@ public final class GetCustomRoutingAcceleratorPlainArgs extends com.pulumi.resou
 
     public static final GetCustomRoutingAcceleratorPlainArgs Empty = new GetCustomRoutingAcceleratorPlainArgs();
 
-    /**
-     * Full ARN of the custom routing accelerator.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return Full ARN of the custom routing accelerator.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name of the custom routing accelerator.
-     * 
-     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Unique name of the custom routing accelerator.
-     * 
-     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -82,25 +62,11 @@ public final class GetCustomRoutingAcceleratorPlainArgs extends com.pulumi.resou
             $ = new GetCustomRoutingAcceleratorPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Full ARN of the custom routing accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name Unique name of the custom routing accelerator.
-         * 
-         * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

@@ -70,17 +70,11 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateCreationDate")
     def certificate_creation_date(self) -> _builtins.str:
-        """
-        The date that the certificate was created.
-        """
         return pulumi.get(self, "certificate_creation_date")
 
     @_builtins.property
@@ -91,25 +85,16 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter(name="certificateOwner")
     def certificate_owner(self) -> _builtins.str:
-        """
-        The owner of the certificate.
-        """
         return pulumi.get(self, "certificate_owner")
 
     @_builtins.property
     @pulumi.getter(name="certificatePem")
     def certificate_pem(self) -> _builtins.str:
-        """
-        The contents of a .pem file, which contains an X.509 certificate.
-        """
         return pulumi.get(self, "certificate_pem")
 
     @_builtins.property
     @pulumi.getter(name="certificateWallet")
     def certificate_wallet(self) -> _builtins.str:
-        """
-        The owner of the certificate.
-        """
         return pulumi.get(self, "certificate_wallet")
 
     @_builtins.property
@@ -123,9 +108,6 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter(name="keyLength")
     def key_length(self) -> _builtins.int:
-        """
-        The key length of the cryptographic algorithm being used.
-        """
         return pulumi.get(self, "key_length")
 
     @_builtins.property
@@ -136,9 +118,6 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> _builtins.str:
-        """
-        The algorithm for the certificate.
-        """
         return pulumi.get(self, "signing_algorithm")
 
     @_builtins.property
@@ -149,17 +128,11 @@ class GetCertificateResult:
     @_builtins.property
     @pulumi.getter(name="validFromDate")
     def valid_from_date(self) -> _builtins.str:
-        """
-        The beginning date that the certificate is valid.
-        """
         return pulumi.get(self, "valid_from_date")
 
     @_builtins.property
     @pulumi.getter(name="validToDate")
     def valid_to_date(self) -> _builtins.str:
-        """
-        The final date that the certificate is valid.
-        """
         return pulumi.get(self, "valid_to_date")
 
 
@@ -189,22 +162,7 @@ def get_certificate(certificate_id: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Data source for managing an AWS DMS (Database Migration) Certificate.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.dms.get_certificate(certificate_id=test["certificateId"])
-    ```
-
-
-    :param _builtins.str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id
@@ -232,22 +190,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[_builtins.str]]
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Data source for managing an AWS DMS (Database Migration) Certificate.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.dms.get_certificate(certificate_id=test["certificateId"])
-    ```
-
-
-    :param _builtins.str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id

@@ -14,25 +14,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReportPlanResult {
-    /**
-     * @return ARN of the backup report plan.
-     * 
-     */
     private String arn;
-    /**
-     * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-     * 
-     */
     private String creationTime;
-    /**
-     * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-     * 
-     */
     private String deploymentStatus;
-    /**
-     * @return Description of the report plan.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -41,48 +25,20 @@ public final class GetReportPlanResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-     * 
-     */
     private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
-    /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-     * 
-     */
     private List<GetReportPlanReportSetting> reportSettings;
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetReportPlanResult() {}
-    /**
-     * @return ARN of the backup report plan.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
-     * 
-     */
     public String deploymentStatus() {
         return this.deploymentStatus;
     }
-    /**
-     * @return Description of the report plan.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -99,24 +55,12 @@ public final class GetReportPlanResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-     * 
-     */
     public List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels() {
         return this.reportDeliveryChannels;
     }
-    /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
-     * 
-     */
     public List<GetReportPlanReportSetting> reportSettings() {
         return this.reportSettings;
     }
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

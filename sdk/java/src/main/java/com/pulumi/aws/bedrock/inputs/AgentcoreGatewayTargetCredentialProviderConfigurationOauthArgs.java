@@ -18,47 +18,23 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
 
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs();
 
-    /**
-     * Map of custom parameters to include in OAuth requests.
-     * 
-     */
     @Import(name="customParameters")
     private @Nullable Output<Map<String,String>> customParameters;
 
-    /**
-     * @return Map of custom parameters to include in OAuth requests.
-     * 
-     */
     public Optional<Output<Map<String,String>>> customParameters() {
         return Optional.ofNullable(this.customParameters);
     }
 
-    /**
-     * ARN of the OIDC provider for OAuth authentication.
-     * 
-     */
     @Import(name="providerArn", required=true)
     private Output<String> providerArn;
 
-    /**
-     * @return ARN of the OIDC provider for OAuth authentication.
-     * 
-     */
     public Output<String> providerArn() {
         return this.providerArn;
     }
 
-    /**
-     * Set of OAuth scopes to request.
-     * 
-     */
     @Import(name="scopes", required=true)
     private Output<List<String>> scopes;
 
-    /**
-     * @return Set of OAuth scopes to request.
-     * 
-     */
     public Output<List<String>> scopes() {
         return this.scopes;
     }
@@ -89,75 +65,33 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
             $ = new AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customParameters Map of custom parameters to include in OAuth requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customParameters(@Nullable Output<Map<String,String>> customParameters) {
             $.customParameters = customParameters;
             return this;
         }
 
-        /**
-         * @param customParameters Map of custom parameters to include in OAuth requests.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customParameters(Map<String,String> customParameters) {
             return customParameters(Output.of(customParameters));
         }
 
-        /**
-         * @param providerArn ARN of the OIDC provider for OAuth authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerArn(Output<String> providerArn) {
             $.providerArn = providerArn;
             return this;
         }
 
-        /**
-         * @param providerArn ARN of the OIDC provider for OAuth authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerArn(String providerArn) {
             return providerArn(Output.of(providerArn));
         }
 
-        /**
-         * @param scopes Set of OAuth scopes to request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopes(Output<List<String>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
-        /**
-         * @param scopes Set of OAuth scopes to request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopes(List<String> scopes) {
             return scopes(Output.of(scopes));
         }
 
-        /**
-         * @param scopes Set of OAuth scopes to request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
         }

@@ -17,62 +17,30 @@ public final class NetworkInsightsPathFilterAtSourceArgs extends com.pulumi.reso
 
     public static final NetworkInsightsPathFilterAtSourceArgs Empty = new NetworkInsightsPathFilterAtSourceArgs();
 
-    /**
-     * The destination IPv4 address.
-     * 
-     */
     @Import(name="destinationAddress")
     private @Nullable Output<String> destinationAddress;
 
-    /**
-     * @return The destination IPv4 address.
-     * 
-     */
     public Optional<Output<String>> destinationAddress() {
         return Optional.ofNullable(this.destinationAddress);
     }
 
-    /**
-     * The destination port range. See below for details.
-     * 
-     */
     @Import(name="destinationPortRange")
     private @Nullable Output<NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs> destinationPortRange;
 
-    /**
-     * @return The destination port range. See below for details.
-     * 
-     */
     public Optional<Output<NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs>> destinationPortRange() {
         return Optional.ofNullable(this.destinationPortRange);
     }
 
-    /**
-     * IP address of the source resource.
-     * 
-     */
     @Import(name="sourceAddress")
     private @Nullable Output<String> sourceAddress;
 
-    /**
-     * @return IP address of the source resource.
-     * 
-     */
     public Optional<Output<String>> sourceAddress() {
         return Optional.ofNullable(this.sourceAddress);
     }
 
-    /**
-     * The source port range. See below for details.
-     * 
-     */
     @Import(name="sourcePortRange")
     private @Nullable Output<NetworkInsightsPathFilterAtSourceSourcePortRangeArgs> sourcePortRange;
 
-    /**
-     * @return The source port range. See below for details.
-     * 
-     */
     public Optional<Output<NetworkInsightsPathFilterAtSourceSourcePortRangeArgs>> sourcePortRange() {
         return Optional.ofNullable(this.sourcePortRange);
     }
@@ -104,86 +72,38 @@ public final class NetworkInsightsPathFilterAtSourceArgs extends com.pulumi.reso
             $ = new NetworkInsightsPathFilterAtSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationAddress The destination IPv4 address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationAddress(@Nullable Output<String> destinationAddress) {
             $.destinationAddress = destinationAddress;
             return this;
         }
 
-        /**
-         * @param destinationAddress The destination IPv4 address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationAddress(String destinationAddress) {
             return destinationAddress(Output.of(destinationAddress));
         }
 
-        /**
-         * @param destinationPortRange The destination port range. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPortRange(@Nullable Output<NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs> destinationPortRange) {
             $.destinationPortRange = destinationPortRange;
             return this;
         }
 
-        /**
-         * @param destinationPortRange The destination port range. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationPortRange(NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs destinationPortRange) {
             return destinationPortRange(Output.of(destinationPortRange));
         }
 
-        /**
-         * @param sourceAddress IP address of the source resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAddress(@Nullable Output<String> sourceAddress) {
             $.sourceAddress = sourceAddress;
             return this;
         }
 
-        /**
-         * @param sourceAddress IP address of the source resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceAddress(String sourceAddress) {
             return sourceAddress(Output.of(sourceAddress));
         }
 
-        /**
-         * @param sourcePortRange The source port range. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePortRange(@Nullable Output<NetworkInsightsPathFilterAtSourceSourcePortRangeArgs> sourcePortRange) {
             $.sourcePortRange = sourcePortRange;
             return this;
         }
 
-        /**
-         * @param sourcePortRange The source port range. See below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePortRange(NetworkInsightsPathFilterAtSourceSourcePortRangeArgs sourcePortRange) {
             return sourcePortRange(Output.of(sourcePortRange));
         }

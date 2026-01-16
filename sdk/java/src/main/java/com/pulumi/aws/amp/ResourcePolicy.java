@@ -15,262 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Resource Policy.
- * 
- * Resource-based policies allow you to grant permissions to other AWS accounts or services to access your Prometheus workspace. This enables cross-account access and fine-grained permissions for workspace sharing.
- * 
- * ## Example Usage
- * 
- * ### Basic Resource Policy
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.amp.ResourcePolicy;
- * import com.pulumi.aws.amp.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
- *             .alias("example-workspace")
- *             .build());
- * 
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var example = exampleWorkspace.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers(current.accountId())
- *                     .build())
- *                 .actions(                
- *                     "aps:RemoteWrite",
- *                     "aps:QueryMetrics",
- *                     "aps:GetSeries",
- *                     "aps:GetLabels",
- *                     "aps:GetMetricMetadata")
- *                 .resources(_arn)
- *                 .build())
- *             .build()));
- * 
- *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
- *             .workspaceId(exampleWorkspace.id())
- *             .policyDocument(example.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Cross-Account Access
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.amp.ResourcePolicy;
- * import com.pulumi.aws.amp.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workspace("example", WorkspaceArgs.builder()
- *             .alias("example-workspace")
- *             .build());
- * 
- *         final var crossAccount = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("arn:aws:iam::123456789012:root")
- *                     .build())
- *                 .actions(                
- *                     "aps:RemoteWrite",
- *                     "aps:QueryMetrics")
- *                 .resources(example.arn())
- *                 .build())
- *             .build());
- * 
- *         var crossAccountResourcePolicy = new ResourcePolicy("crossAccountResourcePolicy", ResourcePolicyArgs.builder()
- *             .workspaceId(example.id())
- *             .policyDocument(crossAccount.applyValue(_crossAccount -> _crossAccount.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Service-Specific Access
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.amp.ResourcePolicy;
- * import com.pulumi.aws.amp.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workspace("example", WorkspaceArgs.builder()
- *             .alias("example-workspace")
- *             .build());
- * 
- *         final var serviceAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("grafana.amazonaws.com")
- *                     .build())
- *                 .actions(                
- *                     "aps:QueryMetrics",
- *                     "aps:GetSeries",
- *                     "aps:GetLabels",
- *                     "aps:GetMetricMetadata")
- *                 .resources(example.arn())
- *                 .build())
- *             .build());
- * 
- *         var serviceAccessResourcePolicy = new ResourcePolicy("serviceAccessResourcePolicy", ResourcePolicyArgs.builder()
- *             .workspaceId(example.id())
- *             .policyDocument(serviceAccess.applyValue(_serviceAccess -> _serviceAccess.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Supported Actions
- * 
- * The following actions are supported in resource policies for Prometheus workspaces:
- * 
- * * `aps:RemoteWrite` - Allows writing metrics to the workspace
- * * `aps:QueryMetrics` - Allows querying metrics from the workspace
- * * `aps:GetSeries` - Allows retrieving time series data
- * * `aps:GetLabels` - Allows retrieving label names and values
- * * `aps:GetMetricMetadata` - Allows retrieving metric metadata
- * 
- * ## Notes
- * 
- * * Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored.
- * * If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants.
- * * The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
- * * Resource policies enable cross-account access and fine-grained permissions for Prometheus workspaces.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AMP Resource Policies using the workspace ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
- * ```
- * 
- */
 @ResourceType(type="aws:amp/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The revision ID of the current resource-based policy.
-     * 
-     */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
-    /**
-     * @return The revision ID of the current resource-based policy.
-     * 
-     */
     public Output<String> revisionId() {
         return this.revisionId;
     }
@@ -280,17 +41,9 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
     public Output<Optional<ResourcePolicyTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the workspace to attach the resource-based policy to.
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The ID of the workspace to attach the resource-based policy to.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

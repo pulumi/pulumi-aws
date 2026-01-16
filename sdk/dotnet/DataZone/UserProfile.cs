@@ -9,86 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataZone
 {
-    /// <summary>
-    /// Resource for managing an AWS DataZone User Profile.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataZone.UserProfile("example", new()
-    ///     {
-    ///         UserIdentifier = exampleAwsIamUser.Arn,
-    ///         DomainIdentifier = exampleAwsDatazoneDomain.Id,
-    ///         UserType = "IAM_USER",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:datazone/userProfile:UserProfile")]
     public partial class UserProfile : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Details about the user profile.
-        /// </summary>
         [Output("details")]
         public Output<ImmutableArray<Outputs.UserProfileDetail>> Details { get; private set; } = null!;
 
-        /// <summary>
-        /// The domain identifier.
-        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The user profile status.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.UserProfileTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The user profile type.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// The user identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("userIdentifier")]
         public Output<string> UserIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The user type.
-        /// </summary>
         [Output("userType")]
         public Output<string> UserType { get; private set; } = null!;
 
@@ -138,38 +82,21 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class UserProfileArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The domain identifier.
-        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The user profile status.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.UserProfileTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The user identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userIdentifier", required: true)]
         public Input<string> UserIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The user type.
-        /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
 
@@ -183,54 +110,30 @@ namespace Pulumi.Aws.DataZone
     {
         [Input("details")]
         private InputList<Inputs.UserProfileDetailGetArgs>? _details;
-
-        /// <summary>
-        /// Details about the user profile.
-        /// </summary>
         public InputList<Inputs.UserProfileDetailGetArgs> Details
         {
             get => _details ?? (_details = new InputList<Inputs.UserProfileDetailGetArgs>());
             set => _details = value;
         }
 
-        /// <summary>
-        /// The domain identifier.
-        /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The user profile status.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.UserProfileTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The user profile type.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The user identifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userIdentifier")]
         public Input<string>? UserIdentifier { get; set; }
 
-        /// <summary>
-        /// The user type.
-        /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
 

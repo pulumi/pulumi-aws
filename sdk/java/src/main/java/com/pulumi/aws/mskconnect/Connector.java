@@ -23,349 +23,107 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon MSK Connect Connector resource.
- * 
- * ## Example Usage
- * 
- * ### Basic configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.mskconnect.Connector;
- * import com.pulumi.aws.mskconnect.ConnectorArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingScaleInPolicyArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingScaleOutPolicyArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterApacheKafkaClusterArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterClientAuthenticationArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterEncryptionInTransitArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorPluginArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorPluginCustomPluginArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Connector("example", ConnectorArgs.builder()
- *             .name("example")
- *             .kafkaconnectVersion("2.7.1")
- *             .capacity(ConnectorCapacityArgs.builder()
- *                 .autoscaling(ConnectorCapacityAutoscalingArgs.builder()
- *                     .mcuCount(1)
- *                     .minWorkerCount(1)
- *                     .maxWorkerCount(2)
- *                     .scaleInPolicy(ConnectorCapacityAutoscalingScaleInPolicyArgs.builder()
- *                         .cpuUtilizationPercentage(20)
- *                         .build())
- *                     .scaleOutPolicy(ConnectorCapacityAutoscalingScaleOutPolicyArgs.builder()
- *                         .cpuUtilizationPercentage(80)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .connectorConfiguration(Map.ofEntries(
- *                 Map.entry("connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
- *                 Map.entry("tasks.max", "1"),
- *                 Map.entry("topics", "example")
- *             ))
- *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
- *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
- *                     .vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs.builder()
- *                         .securityGroups(exampleAwsSecurityGroup.id())
- *                         .subnets(                        
- *                             example1.id(),
- *                             example2.id(),
- *                             example3.id())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .kafkaClusterClientAuthentication(ConnectorKafkaClusterClientAuthenticationArgs.builder()
- *                 .authenticationType("NONE")
- *                 .build())
- *             .kafkaClusterEncryptionInTransit(ConnectorKafkaClusterEncryptionInTransitArgs.builder()
- *                 .encryptionType("TLS")
- *                 .build())
- *             .plugins(ConnectorPluginArgs.builder()
- *                 .customPlugin(ConnectorPluginCustomPluginArgs.builder()
- *                     .arn(exampleAwsMskconnectCustomPlugin.arn())
- *                     .revision(exampleAwsMskconnectCustomPlugin.latestRevision())
- *                     .build())
- *                 .build())
- *             .serviceExecutionRoleArn(exampleAwsIamRole.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MSK Connect Connector using the connector&#39;s `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:mskconnect/connector:Connector example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3&#39;
- * ```
- * 
- */
 @ResourceType(type="aws:mskconnect/connector:Connector")
 public class Connector extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the connector.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the connector.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Information about the capacity allocated to the connector. See `capacity` Block for details.
-     * 
-     */
     @Export(name="capacity", refs={ConnectorCapacity.class}, tree="[0]")
     private Output<ConnectorCapacity> capacity;
 
-    /**
-     * @return Information about the capacity allocated to the connector. See `capacity` Block for details.
-     * 
-     */
     public Output<ConnectorCapacity> capacity() {
         return this.capacity;
     }
-    /**
-     * A map of keys to values that represent the configuration for the connector.
-     * 
-     */
     @Export(name="connectorConfiguration", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> connectorConfiguration;
 
-    /**
-     * @return A map of keys to values that represent the configuration for the connector.
-     * 
-     */
     public Output<Map<String,String>> connectorConfiguration() {
         return this.connectorConfiguration;
     }
-    /**
-     * A summary description of the connector.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A summary description of the connector.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
-     * 
-     */
     @Export(name="kafkaCluster", refs={ConnectorKafkaCluster.class}, tree="[0]")
     private Output<ConnectorKafkaCluster> kafkaCluster;
 
-    /**
-     * @return Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
-     * 
-     */
     public Output<ConnectorKafkaCluster> kafkaCluster() {
         return this.kafkaCluster;
     }
-    /**
-     * Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
-     * 
-     */
     @Export(name="kafkaClusterClientAuthentication", refs={ConnectorKafkaClusterClientAuthentication.class}, tree="[0]")
     private Output<ConnectorKafkaClusterClientAuthentication> kafkaClusterClientAuthentication;
 
-    /**
-     * @return Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
-     * 
-     */
     public Output<ConnectorKafkaClusterClientAuthentication> kafkaClusterClientAuthentication() {
         return this.kafkaClusterClientAuthentication;
     }
-    /**
-     * Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
-     * 
-     */
     @Export(name="kafkaClusterEncryptionInTransit", refs={ConnectorKafkaClusterEncryptionInTransit.class}, tree="[0]")
     private Output<ConnectorKafkaClusterEncryptionInTransit> kafkaClusterEncryptionInTransit;
 
-    /**
-     * @return Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
-     * 
-     */
     public Output<ConnectorKafkaClusterEncryptionInTransit> kafkaClusterEncryptionInTransit() {
         return this.kafkaClusterEncryptionInTransit;
     }
-    /**
-     * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
-     * 
-     */
     @Export(name="kafkaconnectVersion", refs={String.class}, tree="[0]")
     private Output<String> kafkaconnectVersion;
 
-    /**
-     * @return The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
-     * 
-     */
     public Output<String> kafkaconnectVersion() {
         return this.kafkaconnectVersion;
     }
-    /**
-     * Details about log delivery. See `logDelivery` Block for details.
-     * 
-     */
     @Export(name="logDelivery", refs={ConnectorLogDelivery.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorLogDelivery> logDelivery;
 
-    /**
-     * @return Details about log delivery. See `logDelivery` Block for details.
-     * 
-     */
     public Output<Optional<ConnectorLogDelivery>> logDelivery() {
         return Codegen.optional(this.logDelivery);
     }
-    /**
-     * The name of the connector.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the connector.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies which plugins to use for the connector. See `plugin` Block for details.
-     * 
-     */
     @Export(name="plugins", refs={List.class,ConnectorPlugin.class}, tree="[0,1]")
     private Output<List<ConnectorPlugin>> plugins;
 
-    /**
-     * @return Specifies which plugins to use for the connector. See `plugin` Block for details.
-     * 
-     */
     public Output<List<ConnectorPlugin>> plugins() {
         return this.plugins;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="serviceExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRoleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> serviceExecutionRoleArn() {
         return this.serviceExecutionRoleArn;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The current version of the connector.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The current version of the connector.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
-    /**
-     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
-     * 
-     */
     @Export(name="workerConfiguration", refs={ConnectorWorkerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorWorkerConfiguration> workerConfiguration;
 
-    /**
-     * @return Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
-     * 
-     */
     public Output<Optional<ConnectorWorkerConfiguration>> workerConfiguration() {
         return Codegen.optional(this.workerConfiguration);
     }

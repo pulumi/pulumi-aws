@@ -12,121 +12,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The "AMI from instance" resource allows the creation of an Amazon Machine
-// Image (AMI) modeled after an existing EBS-backed EC2 instance.
-//
-// The created AMI will refer to implicitly-created snapshots of the instance's
-// EBS volumes and mimick its assigned block device configuration at the time
-// the resource is created.
-//
-// This resource is best applied to an instance that is stopped when this instance
-// is created, so that the contents of the created image are predictable. When
-// applied to an instance that is running, *the instance will be stopped before taking
-// the snapshots and then started back up again*, resulting in a period of
-// downtime.
-//
-// Note that the source instance is inspected only at the initial creation of this
-// resource. Ongoing updates to the referenced instance will not be propagated into
-// the generated AMI. Users may taint or otherwise recreate the resource in order
-// to produce a fresh snapshot.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmiFromInstance(ctx, "example", &ec2.AmiFromInstanceArgs{
-//				Name:             pulumi.String("example"),
-//				SourceInstanceId: pulumi.String("i-xxxxxxxx"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type AmiFromInstance struct {
 	pulumi.CustomResourceState
 
-	// Machine architecture for created instances. Defaults to `x8664`.
-	Architecture pulumi.StringOutput `pulumi:"architecture"`
-	// ARN of the AMI.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-	BootMode pulumi.StringOutput `pulumi:"bootMode"`
-	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	DeprecationTime pulumi.StringPtrOutput `pulumi:"deprecationTime"`
-	// Longer, human-readable description for the AMI.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Nested block describing an EBS block device that should be
-	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices AmiFromInstanceEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
-	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport pulumi.BoolOutput `pulumi:"enaSupport"`
-	// Nested block describing an ephemeral block device that
-	// should be attached to created instances. The structure of this block is described below.
+	Architecture          pulumi.StringOutput                            `pulumi:"architecture"`
+	Arn                   pulumi.StringOutput                            `pulumi:"arn"`
+	BootMode              pulumi.StringOutput                            `pulumi:"bootMode"`
+	DeprecationTime       pulumi.StringPtrOutput                         `pulumi:"deprecationTime"`
+	Description           pulumi.StringPtrOutput                         `pulumi:"description"`
+	EbsBlockDevices       AmiFromInstanceEbsBlockDeviceArrayOutput       `pulumi:"ebsBlockDevices"`
+	EnaSupport            pulumi.BoolOutput                              `pulumi:"enaSupport"`
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	Hypervisor            pulumi.StringOutput                            `pulumi:"hypervisor"`
-	// Path to an S3 object containing an image manifest, e.g., created
-	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation   pulumi.StringOutput `pulumi:"imageLocation"`
-	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
-	ImageType       pulumi.StringOutput `pulumi:"imageType"`
-	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-	ImdsSupport pulumi.StringOutput `pulumi:"imdsSupport"`
-	// ID of the kernel image (AKI) that will be used as the paravirtual
-	// kernel in created instances.
-	KernelId pulumi.StringOutput `pulumi:"kernelId"`
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-	LastLaunchedTime   pulumi.StringOutput `pulumi:"lastLaunchedTime"`
-	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
-	// Region-unique name for the AMI.
-	Name            pulumi.StringOutput `pulumi:"name"`
-	OwnerId         pulumi.StringOutput `pulumi:"ownerId"`
-	Platform        pulumi.StringOutput `pulumi:"platform"`
-	PlatformDetails pulumi.StringOutput `pulumi:"platformDetails"`
-	Public          pulumi.BoolOutput   `pulumi:"public"`
-	// ID of an initrd image (ARI) that will be used when booting the
-	// created instances.
-	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
-	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
-	// Boolean that overrides the behavior of stopping
-	// the instance before snapshotting. This is risky since it may cause a snapshot of an
-	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-	// guarantees that no filesystem writes will be underway at the time of snapshot.
-	SnapshotWithoutReboot pulumi.BoolPtrOutput `pulumi:"snapshotWithoutReboot"`
-	// ID of the instance to use as the basis of the AMI.
-	SourceInstanceId pulumi.StringOutput `pulumi:"sourceInstanceId"`
-	// When set to "simple" (the default), enables enhanced networking
-	// for created instances. No other value is supported at this time.
-	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport pulumi.StringOutput `pulumi:"tpmSupport"`
-	// Base64 representation of the non-volatile UEFI variable store.
-	UefiData       pulumi.StringOutput `pulumi:"uefiData"`
-	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-	// changes the set of further arguments that are required, as described below.
-	VirtualizationType pulumi.StringOutput `pulumi:"virtualizationType"`
+	ImageLocation         pulumi.StringOutput                            `pulumi:"imageLocation"`
+	ImageOwnerAlias       pulumi.StringOutput                            `pulumi:"imageOwnerAlias"`
+	ImageType             pulumi.StringOutput                            `pulumi:"imageType"`
+	ImdsSupport           pulumi.StringOutput                            `pulumi:"imdsSupport"`
+	KernelId              pulumi.StringOutput                            `pulumi:"kernelId"`
+	LastLaunchedTime      pulumi.StringOutput                            `pulumi:"lastLaunchedTime"`
+	ManageEbsSnapshots    pulumi.BoolOutput                              `pulumi:"manageEbsSnapshots"`
+	Name                  pulumi.StringOutput                            `pulumi:"name"`
+	OwnerId               pulumi.StringOutput                            `pulumi:"ownerId"`
+	Platform              pulumi.StringOutput                            `pulumi:"platform"`
+	PlatformDetails       pulumi.StringOutput                            `pulumi:"platformDetails"`
+	Public                pulumi.BoolOutput                              `pulumi:"public"`
+	RamdiskId             pulumi.StringOutput                            `pulumi:"ramdiskId"`
+	Region                pulumi.StringOutput                            `pulumi:"region"`
+	RootDeviceName        pulumi.StringOutput                            `pulumi:"rootDeviceName"`
+	RootSnapshotId        pulumi.StringOutput                            `pulumi:"rootSnapshotId"`
+	SnapshotWithoutReboot pulumi.BoolPtrOutput                           `pulumi:"snapshotWithoutReboot"`
+	SourceInstanceId      pulumi.StringOutput                            `pulumi:"sourceInstanceId"`
+	SriovNetSupport       pulumi.StringOutput                            `pulumi:"sriovNetSupport"`
+	Tags                  pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	TpmSupport            pulumi.StringOutput                            `pulumi:"tpmSupport"`
+	UefiData              pulumi.StringOutput                            `pulumi:"uefiData"`
+	UsageOperation        pulumi.StringOutput                            `pulumi:"usageOperation"`
+	VirtualizationType    pulumi.StringOutput                            `pulumi:"virtualizationType"`
 }
 
 // NewAmiFromInstance registers a new resource with the given unique name, arguments, and options.
@@ -162,145 +84,77 @@ func GetAmiFromInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AmiFromInstance resources.
 type amiFromInstanceState struct {
-	// Machine architecture for created instances. Defaults to `x8664`.
-	Architecture *string `pulumi:"architecture"`
-	// ARN of the AMI.
-	Arn *string `pulumi:"arn"`
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-	BootMode *string `pulumi:"bootMode"`
-	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	DeprecationTime *string `pulumi:"deprecationTime"`
-	// Longer, human-readable description for the AMI.
-	Description *string `pulumi:"description"`
-	// Nested block describing an EBS block device that should be
-	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices []AmiFromInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport *bool `pulumi:"enaSupport"`
-	// Nested block describing an ephemeral block device that
-	// should be attached to created instances. The structure of this block is described below.
+	Architecture          *string                               `pulumi:"architecture"`
+	Arn                   *string                               `pulumi:"arn"`
+	BootMode              *string                               `pulumi:"bootMode"`
+	DeprecationTime       *string                               `pulumi:"deprecationTime"`
+	Description           *string                               `pulumi:"description"`
+	EbsBlockDevices       []AmiFromInstanceEbsBlockDevice       `pulumi:"ebsBlockDevices"`
+	EnaSupport            *bool                                 `pulumi:"enaSupport"`
 	EphemeralBlockDevices []AmiFromInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	Hypervisor            *string                               `pulumi:"hypervisor"`
-	// Path to an S3 object containing an image manifest, e.g., created
-	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation   *string `pulumi:"imageLocation"`
-	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
-	ImageType       *string `pulumi:"imageType"`
-	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-	ImdsSupport *string `pulumi:"imdsSupport"`
-	// ID of the kernel image (AKI) that will be used as the paravirtual
-	// kernel in created instances.
-	KernelId *string `pulumi:"kernelId"`
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-	LastLaunchedTime   *string `pulumi:"lastLaunchedTime"`
-	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
-	// Region-unique name for the AMI.
-	Name            *string `pulumi:"name"`
-	OwnerId         *string `pulumi:"ownerId"`
-	Platform        *string `pulumi:"platform"`
-	PlatformDetails *string `pulumi:"platformDetails"`
-	Public          *bool   `pulumi:"public"`
-	// ID of an initrd image (ARI) that will be used when booting the
-	// created instances.
-	RamdiskId *string `pulumi:"ramdiskId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName *string `pulumi:"rootDeviceName"`
-	RootSnapshotId *string `pulumi:"rootSnapshotId"`
-	// Boolean that overrides the behavior of stopping
-	// the instance before snapshotting. This is risky since it may cause a snapshot of an
-	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-	// guarantees that no filesystem writes will be underway at the time of snapshot.
-	SnapshotWithoutReboot *bool `pulumi:"snapshotWithoutReboot"`
-	// ID of the instance to use as the basis of the AMI.
-	SourceInstanceId *string `pulumi:"sourceInstanceId"`
-	// When set to "simple" (the default), enables enhanced networking
-	// for created instances. No other value is supported at this time.
-	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport *string `pulumi:"tpmSupport"`
-	// Base64 representation of the non-volatile UEFI variable store.
-	UefiData       *string `pulumi:"uefiData"`
-	UsageOperation *string `pulumi:"usageOperation"`
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-	// changes the set of further arguments that are required, as described below.
-	VirtualizationType *string `pulumi:"virtualizationType"`
+	ImageLocation         *string                               `pulumi:"imageLocation"`
+	ImageOwnerAlias       *string                               `pulumi:"imageOwnerAlias"`
+	ImageType             *string                               `pulumi:"imageType"`
+	ImdsSupport           *string                               `pulumi:"imdsSupport"`
+	KernelId              *string                               `pulumi:"kernelId"`
+	LastLaunchedTime      *string                               `pulumi:"lastLaunchedTime"`
+	ManageEbsSnapshots    *bool                                 `pulumi:"manageEbsSnapshots"`
+	Name                  *string                               `pulumi:"name"`
+	OwnerId               *string                               `pulumi:"ownerId"`
+	Platform              *string                               `pulumi:"platform"`
+	PlatformDetails       *string                               `pulumi:"platformDetails"`
+	Public                *bool                                 `pulumi:"public"`
+	RamdiskId             *string                               `pulumi:"ramdiskId"`
+	Region                *string                               `pulumi:"region"`
+	RootDeviceName        *string                               `pulumi:"rootDeviceName"`
+	RootSnapshotId        *string                               `pulumi:"rootSnapshotId"`
+	SnapshotWithoutReboot *bool                                 `pulumi:"snapshotWithoutReboot"`
+	SourceInstanceId      *string                               `pulumi:"sourceInstanceId"`
+	SriovNetSupport       *string                               `pulumi:"sriovNetSupport"`
+	Tags                  map[string]string                     `pulumi:"tags"`
+	TagsAll               map[string]string                     `pulumi:"tagsAll"`
+	TpmSupport            *string                               `pulumi:"tpmSupport"`
+	UefiData              *string                               `pulumi:"uefiData"`
+	UsageOperation        *string                               `pulumi:"usageOperation"`
+	VirtualizationType    *string                               `pulumi:"virtualizationType"`
 }
 
 type AmiFromInstanceState struct {
-	// Machine architecture for created instances. Defaults to `x8664`.
-	Architecture pulumi.StringPtrInput
-	// ARN of the AMI.
-	Arn pulumi.StringPtrInput
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-	BootMode pulumi.StringPtrInput
-	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	DeprecationTime pulumi.StringPtrInput
-	// Longer, human-readable description for the AMI.
-	Description pulumi.StringPtrInput
-	// Nested block describing an EBS block device that should be
-	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices AmiFromInstanceEbsBlockDeviceArrayInput
-	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport pulumi.BoolPtrInput
-	// Nested block describing an ephemeral block device that
-	// should be attached to created instances. The structure of this block is described below.
+	Architecture          pulumi.StringPtrInput
+	Arn                   pulumi.StringPtrInput
+	BootMode              pulumi.StringPtrInput
+	DeprecationTime       pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	EbsBlockDevices       AmiFromInstanceEbsBlockDeviceArrayInput
+	EnaSupport            pulumi.BoolPtrInput
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayInput
 	Hypervisor            pulumi.StringPtrInput
-	// Path to an S3 object containing an image manifest, e.g., created
-	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation   pulumi.StringPtrInput
-	ImageOwnerAlias pulumi.StringPtrInput
-	ImageType       pulumi.StringPtrInput
-	// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-	ImdsSupport pulumi.StringPtrInput
-	// ID of the kernel image (AKI) that will be used as the paravirtual
-	// kernel in created instances.
-	KernelId pulumi.StringPtrInput
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-	LastLaunchedTime   pulumi.StringPtrInput
-	ManageEbsSnapshots pulumi.BoolPtrInput
-	// Region-unique name for the AMI.
-	Name            pulumi.StringPtrInput
-	OwnerId         pulumi.StringPtrInput
-	Platform        pulumi.StringPtrInput
-	PlatformDetails pulumi.StringPtrInput
-	Public          pulumi.BoolPtrInput
-	// ID of an initrd image (ARI) that will be used when booting the
-	// created instances.
-	RamdiskId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName pulumi.StringPtrInput
-	RootSnapshotId pulumi.StringPtrInput
-	// Boolean that overrides the behavior of stopping
-	// the instance before snapshotting. This is risky since it may cause a snapshot of an
-	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-	// guarantees that no filesystem writes will be underway at the time of snapshot.
+	ImageLocation         pulumi.StringPtrInput
+	ImageOwnerAlias       pulumi.StringPtrInput
+	ImageType             pulumi.StringPtrInput
+	ImdsSupport           pulumi.StringPtrInput
+	KernelId              pulumi.StringPtrInput
+	LastLaunchedTime      pulumi.StringPtrInput
+	ManageEbsSnapshots    pulumi.BoolPtrInput
+	Name                  pulumi.StringPtrInput
+	OwnerId               pulumi.StringPtrInput
+	Platform              pulumi.StringPtrInput
+	PlatformDetails       pulumi.StringPtrInput
+	Public                pulumi.BoolPtrInput
+	RamdiskId             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	RootDeviceName        pulumi.StringPtrInput
+	RootSnapshotId        pulumi.StringPtrInput
 	SnapshotWithoutReboot pulumi.BoolPtrInput
-	// ID of the instance to use as the basis of the AMI.
-	SourceInstanceId pulumi.StringPtrInput
-	// When set to "simple" (the default), enables enhanced networking
-	// for created instances. No other value is supported at this time.
-	SriovNetSupport pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport pulumi.StringPtrInput
-	// Base64 representation of the non-volatile UEFI variable store.
-	UefiData       pulumi.StringPtrInput
-	UsageOperation pulumi.StringPtrInput
-	// Keyword to choose what virtualization mode created instances
-	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-	// changes the set of further arguments that are required, as described below.
-	VirtualizationType pulumi.StringPtrInput
+	SourceInstanceId      pulumi.StringPtrInput
+	SriovNetSupport       pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	TpmSupport            pulumi.StringPtrInput
+	UefiData              pulumi.StringPtrInput
+	UsageOperation        pulumi.StringPtrInput
+	VirtualizationType    pulumi.StringPtrInput
 }
 
 func (AmiFromInstanceState) ElementType() reflect.Type {
@@ -308,56 +162,28 @@ func (AmiFromInstanceState) ElementType() reflect.Type {
 }
 
 type amiFromInstanceArgs struct {
-	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	DeprecationTime *string `pulumi:"deprecationTime"`
-	// Longer, human-readable description for the AMI.
-	Description *string `pulumi:"description"`
-	// Nested block describing an EBS block device that should be
-	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices []AmiFromInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// Nested block describing an ephemeral block device that
-	// should be attached to created instances. The structure of this block is described below.
+	DeprecationTime       *string                               `pulumi:"deprecationTime"`
+	Description           *string                               `pulumi:"description"`
+	EbsBlockDevices       []AmiFromInstanceEbsBlockDevice       `pulumi:"ebsBlockDevices"`
 	EphemeralBlockDevices []AmiFromInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// Region-unique name for the AMI.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Boolean that overrides the behavior of stopping
-	// the instance before snapshotting. This is risky since it may cause a snapshot of an
-	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-	// guarantees that no filesystem writes will be underway at the time of snapshot.
-	SnapshotWithoutReboot *bool `pulumi:"snapshotWithoutReboot"`
-	// ID of the instance to use as the basis of the AMI.
-	SourceInstanceId string `pulumi:"sourceInstanceId"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name                  *string                               `pulumi:"name"`
+	Region                *string                               `pulumi:"region"`
+	SnapshotWithoutReboot *bool                                 `pulumi:"snapshotWithoutReboot"`
+	SourceInstanceId      string                                `pulumi:"sourceInstanceId"`
+	Tags                  map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AmiFromInstance resource.
 type AmiFromInstanceArgs struct {
-	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	DeprecationTime pulumi.StringPtrInput
-	// Longer, human-readable description for the AMI.
-	Description pulumi.StringPtrInput
-	// Nested block describing an EBS block device that should be
-	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices AmiFromInstanceEbsBlockDeviceArrayInput
-	// Nested block describing an ephemeral block device that
-	// should be attached to created instances. The structure of this block is described below.
+	DeprecationTime       pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	EbsBlockDevices       AmiFromInstanceEbsBlockDeviceArrayInput
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayInput
-	// Region-unique name for the AMI.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Boolean that overrides the behavior of stopping
-	// the instance before snapshotting. This is risky since it may cause a snapshot of an
-	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-	// guarantees that no filesystem writes will be underway at the time of snapshot.
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	SnapshotWithoutReboot pulumi.BoolPtrInput
-	// ID of the instance to use as the basis of the AMI.
-	SourceInstanceId pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	SourceInstanceId      pulumi.StringInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (AmiFromInstanceArgs) ElementType() reflect.Type {
@@ -447,44 +273,34 @@ func (o AmiFromInstanceOutput) ToAmiFromInstanceOutputWithContext(ctx context.Co
 	return o
 }
 
-// Machine architecture for created instances. Defaults to `x8664`.
 func (o AmiFromInstanceOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Architecture }).(pulumi.StringOutput)
 }
 
-// ARN of the AMI.
 func (o AmiFromInstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o AmiFromInstanceOutput) BootMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.BootMode }).(pulumi.StringOutput)
 }
 
-// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 func (o AmiFromInstanceOutput) DeprecationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.DeprecationTime }).(pulumi.StringPtrOutput)
 }
 
-// Longer, human-readable description for the AMI.
 func (o AmiFromInstanceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Nested block describing an EBS block device that should be
-// attached to created instances. The structure of this block is described below.
 func (o AmiFromInstanceOutput) EbsBlockDevices() AmiFromInstanceEbsBlockDeviceArrayOutput {
 	return o.ApplyT(func(v *AmiFromInstance) AmiFromInstanceEbsBlockDeviceArrayOutput { return v.EbsBlockDevices }).(AmiFromInstanceEbsBlockDeviceArrayOutput)
 }
 
-// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 func (o AmiFromInstanceOutput) EnaSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolOutput { return v.EnaSupport }).(pulumi.BoolOutput)
 }
 
-// Nested block describing an ephemeral block device that
-// should be attached to created instances. The structure of this block is described below.
 func (o AmiFromInstanceOutput) EphemeralBlockDevices() AmiFromInstanceEphemeralBlockDeviceArrayOutput {
 	return o.ApplyT(func(v *AmiFromInstance) AmiFromInstanceEphemeralBlockDeviceArrayOutput {
 		return v.EphemeralBlockDevices
@@ -495,8 +311,6 @@ func (o AmiFromInstanceOutput) Hypervisor() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Hypervisor }).(pulumi.StringOutput)
 }
 
-// Path to an S3 object containing an image manifest, e.g., created
-// by the `ec2-upload-bundle` command in the EC2 command line tools.
 func (o AmiFromInstanceOutput) ImageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImageLocation }).(pulumi.StringOutput)
 }
@@ -509,18 +323,14 @@ func (o AmiFromInstanceOutput) ImageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImageType }).(pulumi.StringOutput)
 }
 
-// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
 func (o AmiFromInstanceOutput) ImdsSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.ImdsSupport }).(pulumi.StringOutput)
 }
 
-// ID of the kernel image (AKI) that will be used as the paravirtual
-// kernel in created instances.
 func (o AmiFromInstanceOutput) KernelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.KernelId }).(pulumi.StringOutput)
 }
 
-// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
 func (o AmiFromInstanceOutput) LastLaunchedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.LastLaunchedTime }).(pulumi.StringOutput)
 }
@@ -529,7 +339,6 @@ func (o AmiFromInstanceOutput) ManageEbsSnapshots() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolOutput { return v.ManageEbsSnapshots }).(pulumi.BoolOutput)
 }
 
-// Region-unique name for the AMI.
 func (o AmiFromInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -550,18 +359,14 @@ func (o AmiFromInstanceOutput) Public() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolOutput { return v.Public }).(pulumi.BoolOutput)
 }
 
-// ID of an initrd image (ARI) that will be used when booting the
-// created instances.
 func (o AmiFromInstanceOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RamdiskId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AmiFromInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 func (o AmiFromInstanceOutput) RootDeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RootDeviceName }).(pulumi.StringOutput)
 }
@@ -570,26 +375,18 @@ func (o AmiFromInstanceOutput) RootSnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RootSnapshotId }).(pulumi.StringOutput)
 }
 
-// Boolean that overrides the behavior of stopping
-// the instance before snapshotting. This is risky since it may cause a snapshot of an
-// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-// guarantees that no filesystem writes will be underway at the time of snapshot.
 func (o AmiFromInstanceOutput) SnapshotWithoutReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.BoolPtrOutput { return v.SnapshotWithoutReboot }).(pulumi.BoolPtrOutput)
 }
 
-// ID of the instance to use as the basis of the AMI.
 func (o AmiFromInstanceOutput) SourceInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.SourceInstanceId }).(pulumi.StringOutput)
 }
 
-// When set to "simple" (the default), enables enhanced networking
-// for created instances. No other value is supported at this time.
 func (o AmiFromInstanceOutput) SriovNetSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.SriovNetSupport }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AmiFromInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -598,12 +395,10 @@ func (o AmiFromInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o AmiFromInstanceOutput) TpmSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.TpmSupport }).(pulumi.StringOutput)
 }
 
-// Base64 representation of the non-volatile UEFI variable store.
 func (o AmiFromInstanceOutput) UefiData() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.UefiData }).(pulumi.StringOutput)
 }
@@ -612,9 +407,6 @@ func (o AmiFromInstanceOutput) UsageOperation() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.UsageOperation }).(pulumi.StringOutput)
 }
 
-// Keyword to choose what virtualization mode created instances
-// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-// changes the set of further arguments that are required, as described below.
 func (o AmiFromInstanceOutput) VirtualizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.VirtualizationType }).(pulumi.StringOutput)
 }

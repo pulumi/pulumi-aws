@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainVpcOption {
-    /**
-     * @return Availability zones used by the domain.
-     * 
-     */
     private List<String> availabilityZones;
-    /**
-     * @return Security groups used by the domain.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return Subnets used by the domain.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return VPC used by the domain.
-     * 
-     */
     private String vpcId;
 
     private GetDomainVpcOption() {}
-    /**
-     * @return Availability zones used by the domain.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * @return Security groups used by the domain.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return Subnets used by the domain.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return VPC used by the domain.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -14,17 +14,9 @@ public final class GetBillingServiceAccountPlainArgs extends com.pulumi.resource
 
     public static final GetBillingServiceAccountPlainArgs Empty = new GetBillingServiceAccountPlainArgs();
 
-    /**
-     * ID of the AWS billing service account.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the AWS billing service account.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -53,12 +45,6 @@ public final class GetBillingServiceAccountPlainArgs extends com.pulumi.resource
             $ = new GetBillingServiceAccountPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the AWS billing service account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

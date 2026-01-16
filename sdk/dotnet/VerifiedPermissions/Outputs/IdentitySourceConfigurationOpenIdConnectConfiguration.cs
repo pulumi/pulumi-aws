@@ -13,21 +13,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class IdentitySourceConfigurationOpenIdConnectConfiguration
     {
-        /// <summary>
-        /// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
-        /// </summary>
         public readonly string? EntityIdPrefix;
-        /// <summary>
-        /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-        /// </summary>
         public readonly Outputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration? GroupConfiguration;
-        /// <summary>
-        /// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
-        /// </summary>
         public readonly string Issuer;
-        /// <summary>
-        /// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-        /// </summary>
         public readonly Outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection? TokenSelection;
 
         [OutputConstructor]

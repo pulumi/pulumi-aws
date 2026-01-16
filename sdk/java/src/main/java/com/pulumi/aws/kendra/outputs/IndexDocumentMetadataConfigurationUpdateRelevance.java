@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexDocumentMetadataConfigurationUpdateRelevance {
-    /**
-     * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-     * 
-     */
     private @Nullable String duration;
-    /**
-     * @return Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-     * 
-     */
     private @Nullable Boolean freshness;
-    /**
-     * @return The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-     * 
-     */
     private @Nullable Integer importance;
-    /**
-     * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-     * 
-     */
     private @Nullable String rankOrder;
-    /**
-     * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-     * 
-     */
     private @Nullable Map<String,Integer> valuesImportanceMap;
 
     private IndexDocumentMetadataConfigurationUpdateRelevance() {}
-    /**
-     * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-     * 
-     */
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
     }
-    /**
-     * @return Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-     * 
-     */
     public Optional<Boolean> freshness() {
         return Optional.ofNullable(this.freshness);
     }
-    /**
-     * @return The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-     * 
-     */
     public Optional<Integer> importance() {
         return Optional.ofNullable(this.importance);
     }
-    /**
-     * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-     * 
-     */
     public Optional<String> rankOrder() {
         return Optional.ofNullable(this.rankOrder);
     }
-    /**
-     * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-     * 
-     */
     public Map<String,Integer> valuesImportanceMap() {
         return this.valuesImportanceMap == null ? Map.of() : this.valuesImportanceMap;
     }

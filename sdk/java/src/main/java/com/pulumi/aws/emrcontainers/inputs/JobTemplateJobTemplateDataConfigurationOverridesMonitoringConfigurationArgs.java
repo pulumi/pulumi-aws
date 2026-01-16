@@ -17,47 +17,23 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
 
     public static final JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs Empty = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs();
 
-    /**
-     * Monitoring configurations for CloudWatch.
-     * 
-     */
     @Import(name="cloudWatchMonitoringConfiguration")
     private @Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs> cloudWatchMonitoringConfiguration;
 
-    /**
-     * @return Monitoring configurations for CloudWatch.
-     * 
-     */
     public Optional<Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs>> cloudWatchMonitoringConfiguration() {
         return Optional.ofNullable(this.cloudWatchMonitoringConfiguration);
     }
 
-    /**
-     * Monitoring configurations for the persistent application UI.
-     * 
-     */
     @Import(name="persistentAppUi")
     private @Nullable Output<String> persistentAppUi;
 
-    /**
-     * @return Monitoring configurations for the persistent application UI.
-     * 
-     */
     public Optional<Output<String>> persistentAppUi() {
         return Optional.ofNullable(this.persistentAppUi);
     }
 
-    /**
-     * Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     @Import(name="s3MonitoringConfiguration")
     private @Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs> s3MonitoringConfiguration;
 
-    /**
-     * @return Amazon S3 configuration for monitoring log publishing.
-     * 
-     */
     public Optional<Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs>> s3MonitoringConfiguration() {
         return Optional.ofNullable(this.s3MonitoringConfiguration);
     }
@@ -88,65 +64,29 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
             $ = new JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudWatchMonitoringConfiguration Monitoring configurations for CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchMonitoringConfiguration(@Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs> cloudWatchMonitoringConfiguration) {
             $.cloudWatchMonitoringConfiguration = cloudWatchMonitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param cloudWatchMonitoringConfiguration Monitoring configurations for CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudWatchMonitoringConfiguration(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs cloudWatchMonitoringConfiguration) {
             return cloudWatchMonitoringConfiguration(Output.of(cloudWatchMonitoringConfiguration));
         }
 
-        /**
-         * @param persistentAppUi Monitoring configurations for the persistent application UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistentAppUi(@Nullable Output<String> persistentAppUi) {
             $.persistentAppUi = persistentAppUi;
             return this;
         }
 
-        /**
-         * @param persistentAppUi Monitoring configurations for the persistent application UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistentAppUi(String persistentAppUi) {
             return persistentAppUi(Output.of(persistentAppUi));
         }
 
-        /**
-         * @param s3MonitoringConfiguration Amazon S3 configuration for monitoring log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3MonitoringConfiguration(@Nullable Output<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs> s3MonitoringConfiguration) {
             $.s3MonitoringConfiguration = s3MonitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param s3MonitoringConfiguration Amazon S3 configuration for monitoring log publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3MonitoringConfiguration(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs s3MonitoringConfiguration) {
             return s3MonitoringConfiguration(Output.of(s3MonitoringConfiguration));
         }

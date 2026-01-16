@@ -14,17 +14,9 @@ public final class GuardrailCrossRegionConfigArgs extends com.pulumi.resources.R
 
     public static final GuardrailCrossRegionConfigArgs Empty = new GuardrailCrossRegionConfigArgs();
 
-    /**
-     * Guardrail profile ARN.
-     * 
-     */
     @Import(name="guardrailProfileIdentifier", required=true)
     private Output<String> guardrailProfileIdentifier;
 
-    /**
-     * @return Guardrail profile ARN.
-     * 
-     */
     public Output<String> guardrailProfileIdentifier() {
         return this.guardrailProfileIdentifier;
     }
@@ -53,23 +45,11 @@ public final class GuardrailCrossRegionConfigArgs extends com.pulumi.resources.R
             $ = new GuardrailCrossRegionConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param guardrailProfileIdentifier Guardrail profile ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailProfileIdentifier(Output<String> guardrailProfileIdentifier) {
             $.guardrailProfileIdentifier = guardrailProfileIdentifier;
             return this;
         }
 
-        /**
-         * @param guardrailProfileIdentifier Guardrail profile ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailProfileIdentifier(String guardrailProfileIdentifier) {
             return guardrailProfileIdentifier(Output.of(guardrailProfileIdentifier));
         }

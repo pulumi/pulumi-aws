@@ -16,47 +16,23 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
 
     public static final EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs();
 
-    /**
-     * SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
-     * 
-     */
     @Import(name="errorTopic")
     private @Nullable Output<String> errorTopic;
 
-    /**
-     * @return SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
-     * 
-     */
     public Optional<Output<String>> errorTopic() {
         return Optional.ofNullable(this.errorTopic);
     }
 
-    /**
-     * SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
-     * 
-     */
     @Import(name="includeInferenceResponseIns")
     private @Nullable Output<List<String>> includeInferenceResponseIns;
 
-    /**
-     * @return SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
-     * 
-     */
     public Optional<Output<List<String>>> includeInferenceResponseIns() {
         return Optional.ofNullable(this.includeInferenceResponseIns);
     }
 
-    /**
-     * SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
-     * 
-     */
     @Import(name="successTopic")
     private @Nullable Output<String> successTopic;
 
-    /**
-     * @return SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
-     * 
-     */
     public Optional<Output<String>> successTopic() {
         return Optional.ofNullable(this.successTopic);
     }
@@ -87,75 +63,33 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
             $ = new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorTopic SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorTopic(@Nullable Output<String> errorTopic) {
             $.errorTopic = errorTopic;
             return this;
         }
 
-        /**
-         * @param errorTopic SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorTopic(String errorTopic) {
             return errorTopic(Output.of(errorTopic));
         }
 
-        /**
-         * @param includeInferenceResponseIns SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeInferenceResponseIns(@Nullable Output<List<String>> includeInferenceResponseIns) {
             $.includeInferenceResponseIns = includeInferenceResponseIns;
             return this;
         }
 
-        /**
-         * @param includeInferenceResponseIns SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeInferenceResponseIns(List<String> includeInferenceResponseIns) {
             return includeInferenceResponseIns(Output.of(includeInferenceResponseIns));
         }
 
-        /**
-         * @param includeInferenceResponseIns SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeInferenceResponseIns(String... includeInferenceResponseIns) {
             return includeInferenceResponseIns(List.of(includeInferenceResponseIns));
         }
 
-        /**
-         * @param successTopic SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successTopic(@Nullable Output<String> successTopic) {
             $.successTopic = successTopic;
             return this;
         }
 
-        /**
-         * @param successTopic SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successTopic(String successTopic) {
             return successTopic(Output.of(successTopic));
         }

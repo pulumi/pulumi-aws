@@ -15,97 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS RDS (Relational Database) RDS Instance State.
- * 
- * &gt; Destruction of this resource is a no-op and **will not** modify the instance state
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.InstanceDesiredState;
- * import com.pulumi.aws.rds.InstanceDesiredStateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new InstanceDesiredState("test", InstanceDesiredStateArgs.builder()
- *             .identifier(testAwsDbInstance.identifier())
- *             .state("available")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:rds/instanceDesiredState:InstanceDesiredState")
 public class InstanceDesiredState extends com.pulumi.resources.CustomResource {
-    /**
-     * DB Instance Identifier
-     * 
-     */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
-    /**
-     * @return DB Instance Identifier
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return Configured state of the DB Instance. Valid values are `available` and `stopped`.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }

@@ -64,70 +64,7 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
-        :param pulumi.Input[_builtins.bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[_builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-               No longer supported by the AWS API.
-               Always returns `auto`.
-        :param pulumi.Input[_builtins.int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
-        :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-               The version selected runs on all the nodes in the cluster.
-        :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
-               If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
-               Default is `true`.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
-        :param pulumi.Input[_builtins.int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        :param pulumi.Input[_builtins.str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-               The cluster is accessible only via the JDBC and ODBC connection strings.
-               Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is `5439`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
-               Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[_builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        :param pulumi.Input[_builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "node_type", node_type)
@@ -216,9 +153,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Cluster Identifier. Must be a lower case string.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -228,9 +162,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The node type to be provisioned for the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -240,9 +171,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        """
         return pulumi.get(self, "allow_version_upgrade")
 
     @allow_version_upgrade.setter
@@ -252,9 +180,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -265,11 +190,6 @@ class ClusterArgs:
     @pulumi.getter(name="aquaConfigurationStatus")
     @_utilities.deprecated("""aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-        No longer supported by the AWS API.
-        Always returns `auto`.
-        """
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -279,9 +199,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        """
         return pulumi.get(self, "automated_snapshot_retention_period")
 
     @automated_snapshot_retention_period.setter
@@ -291,9 +208,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -303,9 +217,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRelocationEnabled")
     def availability_zone_relocation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        """
         return pulumi.get(self, "availability_zone_relocation_enabled")
 
     @availability_zone_relocation_enabled.setter
@@ -315,9 +226,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the parameter group to be associated with this cluster.
-        """
         return pulumi.get(self, "cluster_parameter_group_name")
 
     @cluster_parameter_group_name.setter
@@ -327,9 +235,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        """
         return pulumi.get(self, "cluster_subnet_group_name")
 
     @cluster_subnet_group_name.setter
@@ -339,9 +244,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster type to use. Either `single-node` or `multi-node`.
-        """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
@@ -351,10 +253,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-        The version selected runs on all the nodes in the cluster.
-        """
         return pulumi.get(self, "cluster_version")
 
     @cluster_version.setter
@@ -364,10 +262,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the first database to be created when the cluster is created.
-        If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -377,9 +271,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
@@ -389,9 +280,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Elastic IP (EIP) address for the cluster.
-        """
         return pulumi.get(self, "elastic_ip")
 
     @elastic_ip.setter
@@ -401,10 +289,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If true , the data in the cluster is encrypted at rest.
-        Default is `true`.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -414,9 +298,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true , enhanced VPC routing is enabled.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -426,9 +307,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
@@ -438,9 +316,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
@@ -450,9 +325,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -462,9 +334,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="maintenanceTrackName")
     def maintenance_track_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        """
         return pulumi.get(self, "maintenance_track_name")
 
     @maintenance_track_name.setter
@@ -474,11 +343,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="manageMasterPassword")
     def manage_master_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        Conflicts with `master_password` and `master_password_wo`.
-        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        """
         return pulumi.get(self, "manage_master_password")
 
     @manage_master_password.setter
@@ -488,9 +352,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @manual_snapshot_retention_period.setter
@@ -500,13 +361,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password_wo`.
-        One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs, and it will be stored in the state file.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -516,9 +370,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterPasswordSecretKmsKeyId")
     def master_password_secret_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the KMS key used to encrypt the cluster admin credentials secret.
-        """
         return pulumi.get(self, "master_password_secret_kms_key_id")
 
     @master_password_secret_kms_key_id.setter
@@ -530,11 +381,6 @@ class ClusterArgs:
     def master_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password`.
-        One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -545,9 +391,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        """
         return pulumi.get(self, "master_password_wo_version")
 
     @master_password_wo_version.setter
@@ -557,9 +400,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username for the master DB user.
-        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -569,9 +409,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if the Redshift cluster is multi-AZ.
-        """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
@@ -581,9 +418,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
@@ -593,9 +427,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
@@ -605,12 +436,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-        The cluster is accessible only via the JDBC and ODBC connection strings.
-        Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        Default port is `5439`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -620,10 +445,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The weekly time range (in UTC) during which automated cluster maintenance can occur.
-        Format: ddd:hh24:mi-ddd:hh24:mi
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -633,9 +454,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the cluster can be accessed from a public network. Default is `false`.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -645,9 +463,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -657,9 +472,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -669,9 +481,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        """
         return pulumi.get(self, "snapshot_arn")
 
     @snapshot_arn.setter
@@ -681,9 +490,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the cluster the source snapshot was created from.
-        """
         return pulumi.get(self, "snapshot_cluster_identifier")
 
     @snapshot_cluster_identifier.setter
@@ -693,9 +499,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -705,12 +508,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -720,9 +517,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -785,79 +579,7 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[_builtins.bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[_builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-               No longer supported by the AWS API.
-               Always returns `auto`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[_builtins.int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
-        :param pulumi.Input[_builtins.str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
-        :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[_builtins.str] cluster_public_key: The public key for the cluster
-        :param pulumi.Input[_builtins.str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
-        :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-               The version selected runs on all the nodes in the cluster.
-        :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
-               If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the cluster
-        :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
-               Default is `true`.
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.str] master_password_secret_arn: ARN of the cluster admin credentials secret
-        :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
-        :param pulumi.Input[_builtins.int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        :param pulumi.Input[_builtins.str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-               The cluster is accessible only via the JDBC and ODBC connection strings.
-               Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is `5439`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
-               Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[_builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        :param pulumi.Input[_builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         if allow_version_upgrade is not None:
             pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -966,9 +688,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        """
         return pulumi.get(self, "allow_version_upgrade")
 
     @allow_version_upgrade.setter
@@ -978,9 +697,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
@@ -991,11 +707,6 @@ class _ClusterState:
     @pulumi.getter(name="aquaConfigurationStatus")
     @_utilities.deprecated("""aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-        No longer supported by the AWS API.
-        Always returns `auto`.
-        """
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -1005,9 +716,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of cluster
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -1017,9 +725,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        """
         return pulumi.get(self, "automated_snapshot_retention_period")
 
     @automated_snapshot_retention_period.setter
@@ -1029,9 +734,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -1041,9 +743,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRelocationEnabled")
     def availability_zone_relocation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        """
         return pulumi.get(self, "availability_zone_relocation_enabled")
 
     @availability_zone_relocation_enabled.setter
@@ -1053,9 +752,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Cluster Identifier. Must be a lower case string.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -1065,9 +761,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterNamespaceArn")
     def cluster_namespace_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The namespace Amazon Resource Name (ARN) of the cluster
-        """
         return pulumi.get(self, "cluster_namespace_arn")
 
     @cluster_namespace_arn.setter
@@ -1077,9 +770,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]]:
-        """
-        The nodes in the cluster. Cluster node blocks are documented below
-        """
         return pulumi.get(self, "cluster_nodes")
 
     @cluster_nodes.setter
@@ -1089,9 +779,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the parameter group to be associated with this cluster.
-        """
         return pulumi.get(self, "cluster_parameter_group_name")
 
     @cluster_parameter_group_name.setter
@@ -1101,9 +788,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterPublicKey")
     def cluster_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The public key for the cluster
-        """
         return pulumi.get(self, "cluster_public_key")
 
     @cluster_public_key.setter
@@ -1113,9 +797,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterRevisionNumber")
     def cluster_revision_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The specific revision number of the database in the cluster
-        """
         return pulumi.get(self, "cluster_revision_number")
 
     @cluster_revision_number.setter
@@ -1125,9 +806,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        """
         return pulumi.get(self, "cluster_subnet_group_name")
 
     @cluster_subnet_group_name.setter
@@ -1137,9 +815,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster type to use. Either `single-node` or `multi-node`.
-        """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
@@ -1149,10 +824,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-        The version selected runs on all the nodes in the cluster.
-        """
         return pulumi.get(self, "cluster_version")
 
     @cluster_version.setter
@@ -1162,10 +833,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the first database to be created when the cluster is created.
-        If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -1175,9 +842,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
@@ -1187,9 +851,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS name of the cluster
-        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -1199,9 +860,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Elastic IP (EIP) address for the cluster.
-        """
         return pulumi.get(self, "elastic_ip")
 
     @elastic_ip.setter
@@ -1211,10 +869,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If true , the data in the cluster is encrypted at rest.
-        Default is `true`.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -1224,9 +878,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -1236,9 +887,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true , enhanced VPC routing is enabled.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -1248,9 +896,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
@@ -1260,9 +905,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
@@ -1272,9 +914,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -1284,9 +923,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="maintenanceTrackName")
     def maintenance_track_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        """
         return pulumi.get(self, "maintenance_track_name")
 
     @maintenance_track_name.setter
@@ -1296,11 +932,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="manageMasterPassword")
     def manage_master_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        Conflicts with `master_password` and `master_password_wo`.
-        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        """
         return pulumi.get(self, "manage_master_password")
 
     @manage_master_password.setter
@@ -1310,9 +941,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @manual_snapshot_retention_period.setter
@@ -1322,13 +950,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password_wo`.
-        One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs, and it will be stored in the state file.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
@@ -1338,9 +959,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterPasswordSecretArn")
     def master_password_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the cluster admin credentials secret
-        """
         return pulumi.get(self, "master_password_secret_arn")
 
     @master_password_secret_arn.setter
@@ -1350,9 +968,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterPasswordSecretKmsKeyId")
     def master_password_secret_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the KMS key used to encrypt the cluster admin credentials secret.
-        """
         return pulumi.get(self, "master_password_secret_kms_key_id")
 
     @master_password_secret_kms_key_id.setter
@@ -1364,11 +979,6 @@ class _ClusterState:
     def master_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password`.
-        One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -1379,9 +989,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        """
         return pulumi.get(self, "master_password_wo_version")
 
     @master_password_wo_version.setter
@@ -1391,9 +998,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Username for the master DB user.
-        """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
@@ -1403,9 +1007,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies if the Redshift cluster is multi-AZ.
-        """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
@@ -1415,9 +1016,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The node type to be provisioned for the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
@@ -1427,9 +1025,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
@@ -1439,9 +1034,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
@@ -1451,12 +1043,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-        The cluster is accessible only via the JDBC and ODBC connection strings.
-        Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        Default port is `5439`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1466,10 +1052,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The weekly time range (in UTC) during which automated cluster maintenance can occur.
-        Format: ddd:hh24:mi-ddd:hh24:mi
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -1479,9 +1061,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If true, the cluster can be accessed from a public network. Default is `false`.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -1491,9 +1070,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1503,9 +1079,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
@@ -1515,9 +1088,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        """
         return pulumi.get(self, "snapshot_arn")
 
     @snapshot_arn.setter
@@ -1527,9 +1097,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the cluster the source snapshot was created from.
-        """
         return pulumi.get(self, "snapshot_cluster_identifier")
 
     @snapshot_cluster_identifier.setter
@@ -1539,9 +1106,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
@@ -1551,12 +1115,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1566,9 +1124,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1578,9 +1133,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -1637,112 +1189,10 @@ class Cluster(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="mydb",
-            master_username="exampleuser",
-            master_password="Mustbe8characters",
-            node_type="dc1.large",
-            cluster_type="single-node")
-        ```
-
-        ### With Managed Credentials
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="mydb",
-            master_username="exampleuser",
-            node_type="dc1.large",
-            cluster_type="single-node",
-            manage_master_password=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[_builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-               No longer supported by the AWS API.
-               Always returns `auto`.
-        :param pulumi.Input[_builtins.int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
-        :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
-        :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-               The version selected runs on all the nodes in the cluster.
-        :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
-               If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
-               Default is `true`.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
-        :param pulumi.Input[_builtins.int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        :param pulumi.Input[_builtins.str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-               The cluster is accessible only via the JDBC and ODBC connection strings.
-               Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is `5439`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
-               Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[_builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        :param pulumi.Input[_builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         ...
     @overload
@@ -1751,46 +1201,7 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="mydb",
-            master_username="exampleuser",
-            master_password="Mustbe8characters",
-            node_type="dc1.large",
-            cluster_type="single-node")
-        ```
-
-        ### With Managed Credentials
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="mydb",
-            master_username="exampleuser",
-            node_type="dc1.large",
-            cluster_type="single-node",
-            manage_master_password=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1979,79 +1390,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[_builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-               No longer supported by the AWS API.
-               Always returns `auto`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[_builtins.int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
-        :param pulumi.Input[_builtins.str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
-        :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[_builtins.str] cluster_public_key: The public key for the cluster
-        :param pulumi.Input[_builtins.str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
-        :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-               The version selected runs on all the nodes in the cluster.
-        :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
-               If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the cluster
-        :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
-               Default is `true`.
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.str] master_password_secret_arn: ARN of the cluster admin credentials secret
-        :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
-        :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
-        :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
-        :param pulumi.Input[_builtins.int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        :param pulumi.Input[_builtins.str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-               The cluster is accessible only via the JDBC and ODBC connection strings.
-               Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is `5439`.
-        :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
-               Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[_builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        :param pulumi.Input[_builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[_builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2112,269 +1451,162 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
-        """
         return pulumi.get(self, "allow_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        """
         return pulumi.get(self, "apply_immediately")
 
     @_builtins.property
     @pulumi.getter(name="aquaConfigurationStatus")
     @_utilities.deprecated("""aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
     def aqua_configuration_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
-        No longer supported by the AWS API.
-        Always returns `auto`.
-        """
         return pulumi.get(self, "aqua_configuration_status")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of cluster
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
-        """
         return pulumi.get(self, "automated_snapshot_retention_period")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
-        """
-        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRelocationEnabled")
     def availability_zone_relocation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
-        """
         return pulumi.get(self, "availability_zone_relocation_enabled")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Cluster Identifier. Must be a lower case string.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="clusterNamespaceArn")
     def cluster_namespace_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The namespace Amazon Resource Name (ARN) of the cluster
-        """
         return pulumi.get(self, "cluster_namespace_arn")
 
     @_builtins.property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterClusterNode']]:
-        """
-        The nodes in the cluster. Cluster node blocks are documented below
-        """
         return pulumi.get(self, "cluster_nodes")
 
     @_builtins.property
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the parameter group to be associated with this cluster.
-        """
         return pulumi.get(self, "cluster_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterPublicKey")
     def cluster_public_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The public key for the cluster
-        """
         return pulumi.get(self, "cluster_public_key")
 
     @_builtins.property
     @pulumi.getter(name="clusterRevisionNumber")
     def cluster_revision_number(self) -> pulumi.Output[_builtins.str]:
-        """
-        The specific revision number of the database in the cluster
-        """
         return pulumi.get(self, "cluster_revision_number")
 
     @_builtins.property
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-        """
         return pulumi.get(self, "cluster_subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The cluster type to use. Either `single-node` or `multi-node`.
-        """
         return pulumi.get(self, "cluster_type")
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The version of the Amazon Redshift engine software that you want to deploy on the cluster.
-        The version selected runs on all the nodes in the cluster.
-        """
         return pulumi.get(self, "cluster_version")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the first database to be created when the cluster is created.
-        If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS name of the cluster
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Elastic IP (EIP) address for the cluster.
-        """
         return pulumi.get(self, "elastic_ip")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        If true , the data in the cluster is encrypted at rest.
-        Default is `true`.
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The connection endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If true , enhanced VPC routing is enabled.
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         return pulumi.get(self, "iam_roles")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceTrackName")
     def maintenance_track_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        """
         return pulumi.get(self, "maintenance_track_name")
 
     @_builtins.property
     @pulumi.getter(name="manageMasterPassword")
     def manage_master_password(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        Conflicts with `master_password` and `master_password_wo`.
-        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        """
         return pulumi.get(self, "manage_master_password")
 
     @_builtins.property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @_builtins.property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password_wo`.
-        One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs, and it will be stored in the state file.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        """
         return pulumi.get(self, "master_password")
 
     @_builtins.property
     @pulumi.getter(name="masterPasswordSecretArn")
     def master_password_secret_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the cluster admin credentials secret
-        """
         return pulumi.get(self, "master_password_secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="masterPasswordSecretKmsKeyId")
     def master_password_secret_kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the KMS key used to encrypt the cluster admin credentials secret.
-        """
         return pulumi.get(self, "master_password_secret_kms_key_id")
 
     @_builtins.property
@@ -2382,154 +1614,91 @@ class Cluster(pulumi.CustomResource):
     def master_password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password`.
-        One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password_wo")
 
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
-        """
         return pulumi.get(self, "master_password_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Username for the master DB user.
-        """
         return pulumi.get(self, "master_username")
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies if the Redshift cluster is multi-AZ.
-        """
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The node type to be provisioned for the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
-        """
         return pulumi.get(self, "number_of_nodes")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        """
         return pulumi.get(self, "owner_account")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
-        The cluster is accessible only via the JDBC and ODBC connection strings.
-        Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        Default port is `5439`.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[_builtins.str]:
-        """
-        The weekly time range (in UTC) during which automated cluster maintenance can occur.
-        Format: ddd:hh24:mi-ddd:hh24:mi
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If true, the cluster can be accessed from a public network. Default is `false`.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
-        """
         return pulumi.get(self, "skip_final_snapshot")
 
     @_builtins.property
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
-        """
         return pulumi.get(self, "snapshot_arn")
 
     @_builtins.property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the cluster the source snapshot was created from.
-        """
         return pulumi.get(self, "snapshot_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
-        """
         return pulumi.get(self, "snapshot_identifier")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 

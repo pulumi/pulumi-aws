@@ -18,32 +18,16 @@ public final class AppImageConfigKernelGatewayImageConfigArgs extends com.pulumi
 
     public static final AppImageConfigKernelGatewayImageConfigArgs Empty = new AppImageConfigKernelGatewayImageConfigArgs();
 
-    /**
-     * The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     @Import(name="fileSystemConfig")
     private @Nullable Output<AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs> fileSystemConfig;
 
-    /**
-     * @return The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs>> fileSystemConfig() {
         return Optional.ofNullable(this.fileSystemConfig);
     }
 
-    /**
-     * The default branch for the Git repository. See Kernel Spec details below.
-     * 
-     */
     @Import(name="kernelSpecs", required=true)
     private Output<List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs>> kernelSpecs;
 
-    /**
-     * @return The default branch for the Git repository. See Kernel Spec details below.
-     * 
-     */
     public Output<List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs>> kernelSpecs() {
         return this.kernelSpecs;
     }
@@ -73,54 +57,24 @@ public final class AppImageConfigKernelGatewayImageConfigArgs extends com.pulumi
             $ = new AppImageConfigKernelGatewayImageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemConfig The URL where the Git repository is located. See File System Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemConfig(@Nullable Output<AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs> fileSystemConfig) {
             $.fileSystemConfig = fileSystemConfig;
             return this;
         }
 
-        /**
-         * @param fileSystemConfig The URL where the Git repository is located. See File System Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemConfig(AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs fileSystemConfig) {
             return fileSystemConfig(Output.of(fileSystemConfig));
         }
 
-        /**
-         * @param kernelSpecs The default branch for the Git repository. See Kernel Spec details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelSpecs(Output<List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs>> kernelSpecs) {
             $.kernelSpecs = kernelSpecs;
             return this;
         }
 
-        /**
-         * @param kernelSpecs The default branch for the Git repository. See Kernel Spec details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelSpecs(List<AppImageConfigKernelGatewayImageConfigKernelSpecArgs> kernelSpecs) {
             return kernelSpecs(Output.of(kernelSpecs));
         }
 
-        /**
-         * @param kernelSpecs The default branch for the Git repository. See Kernel Spec details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs... kernelSpecs) {
             return kernelSpecs(List.of(kernelSpecs));
         }

@@ -19,74 +19,58 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
     public static final WebAclLoggingConfigurationState Empty = new WebAclLoggingConfigurationState();
 
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * AWS Kinesis Firehose Delivery Stream ARNs
      * 
      */
     @Import(name="logDestinationConfigs")
     private @Nullable Output<List<String>> logDestinationConfigs;
 
     /**
-     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * @return AWS Kinesis Firehose Delivery Stream ARNs
      * 
      */
     public Optional<Output<List<String>>> logDestinationConfigs() {
         return Optional.ofNullable(this.logDestinationConfigs);
     }
 
-    /**
-     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     * 
-     */
     @Import(name="loggingFilter")
     private @Nullable Output<WebAclLoggingConfigurationLoggingFilterArgs> loggingFilter;
 
-    /**
-     * @return Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationLoggingFilterArgs>> loggingFilter() {
         return Optional.ofNullable(this.loggingFilter);
     }
 
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * Parts of the request to exclude from logs
      * 
      */
     @Import(name="redactedFields")
     private @Nullable Output<List<WebAclLoggingConfigurationRedactedFieldArgs>> redactedFields;
 
     /**
-     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     * @return Parts of the request to exclude from logs
      * 
      */
     public Optional<Output<List<WebAclLoggingConfigurationRedactedFieldArgs>>> redactedFields() {
         return Optional.ofNullable(this.redactedFields);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * AWS WebACL ARN
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * @return AWS WebACL ARN
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -122,7 +106,7 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+         * @param logDestinationConfigs AWS Kinesis Firehose Delivery Stream ARNs
          * 
          * @return builder
          * 
@@ -133,7 +117,7 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+         * @param logDestinationConfigs AWS Kinesis Firehose Delivery Stream ARNs
          * 
          * @return builder
          * 
@@ -143,7 +127,7 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param logDestinationConfigs Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+         * @param logDestinationConfigs AWS Kinesis Firehose Delivery Stream ARNs
          * 
          * @return builder
          * 
@@ -152,29 +136,17 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
             return logDestinationConfigs(List.of(logDestinationConfigs));
         }
 
-        /**
-         * @param loggingFilter Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingFilter(@Nullable Output<WebAclLoggingConfigurationLoggingFilterArgs> loggingFilter) {
             $.loggingFilter = loggingFilter;
             return this;
         }
 
-        /**
-         * @param loggingFilter Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs loggingFilter) {
             return loggingFilter(Output.of(loggingFilter));
         }
 
         /**
-         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+         * @param redactedFields Parts of the request to exclude from logs
          * 
          * @return builder
          * 
@@ -185,7 +157,7 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+         * @param redactedFields Parts of the request to exclude from logs
          * 
          * @return builder
          * 
@@ -195,7 +167,7 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+         * @param redactedFields Parts of the request to exclude from logs
          * 
          * @return builder
          * 
@@ -204,29 +176,17 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
             return redactedFields(List.of(redactedFields));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+         * @param resourceArn AWS WebACL ARN
          * 
          * @return builder
          * 
@@ -237,7 +197,7 @@ public final class WebAclLoggingConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+         * @param resourceArn AWS WebACL ARN
          * 
          * @return builder
          * 

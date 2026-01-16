@@ -14,32 +14,16 @@ public final class TlsInspectionConfigurationEncryptionConfigurationArgs extends
 
     public static final TlsInspectionConfigurationEncryptionConfigurationArgs Empty = new TlsInspectionConfigurationEncryptionConfigurationArgs();
 
-    /**
-     * ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-     * 
-     */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
-    /**
-     * @return ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
 
-    /**
-     * Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class TlsInspectionConfigurationEncryptionConfigurationArgs extends
             $ = new TlsInspectionConfigurationEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyId ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }
 
-        /**
-         * @param type Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

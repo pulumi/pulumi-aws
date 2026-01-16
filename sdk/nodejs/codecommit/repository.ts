@@ -4,46 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeCommit Repository Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecommit.Repository("test", {
- *     repositoryName: "MyTestRepository",
- *     description: "This is the Sample App Repository",
- * });
- * ```
- *
- * ### AWS KMS Customer Managed Keys (CMK)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testKey = new aws.kms.Key("test", {
- *     description: "test",
- *     deletionWindowInDays: 7,
- * });
- * const test = new aws.codecommit.Repository("test", {
- *     repositoryName: "MyTestRepository",
- *     description: "This is the Sample App Repository",
- *     kmsKeyId: testKey.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CodeCommit repository using repository name. For example:
- *
- * ```sh
- * $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
- * ```
- */
 export class Repository extends pulumi.CustomResource {
     /**
      * Get an existing Repository resource's state with the given name, ID, and optional extra
@@ -72,49 +32,16 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
-    /**
-     * The ARN of the repository
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The URL to use for cloning the repository over HTTPS.
-     */
     declare public /*out*/ readonly cloneUrlHttp: pulumi.Output<string>;
-    /**
-     * The URL to use for cloning the repository over SSH.
-     */
     declare public /*out*/ readonly cloneUrlSsh: pulumi.Output<string>;
-    /**
-     * The default branch of the repository. The branch specified here needs to exist.
-     */
     declare public readonly defaultBranch: pulumi.Output<string | undefined>;
-    /**
-     * The description of the repository. This needs to be less than 1000 characters
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the repository
-     */
     declare public /*out*/ readonly repositoryId: pulumi.Output<string>;
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     */
     declare public readonly repositoryName: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -167,49 +94,16 @@ export class Repository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Repository resources.
  */
 export interface RepositoryState {
-    /**
-     * The ARN of the repository
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The URL to use for cloning the repository over HTTPS.
-     */
     cloneUrlHttp?: pulumi.Input<string>;
-    /**
-     * The URL to use for cloning the repository over SSH.
-     */
     cloneUrlSsh?: pulumi.Input<string>;
-    /**
-     * The default branch of the repository. The branch specified here needs to exist.
-     */
     defaultBranch?: pulumi.Input<string>;
-    /**
-     * The description of the repository. This needs to be less than 1000 characters
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the repository
-     */
     repositoryId?: pulumi.Input<string>;
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     */
     repositoryName?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -217,28 +111,10 @@ export interface RepositoryState {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
-    /**
-     * The default branch of the repository. The branch specified here needs to exist.
-     */
     defaultBranch?: pulumi.Input<string>;
-    /**
-     * The description of the repository. This needs to be less than 1000 characters
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     */
     repositoryName: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -9,37 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Odb
 {
-    /// <summary>
-    /// Resource for managing exadata infrastructure resource in AWS for Oracle Database@AWS.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Exadata Infrastructure using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure")]
     public partial class CloudExadataInfrastructure : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// The number of storage servers requested for the Exadata infrastructure
         /// </summary>
         [Output("activatedStorageCount")]
         public Output<int> ActivatedStorageCount { get; private set; } = null!;
 
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// The number of storage servers requested for the Exadata infrastructure
         /// </summary>
         [Output("additionalStorageCount")]
         public Output<int> AdditionalStorageCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Exadata infrastructure.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -50,7 +34,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
         /// </summary>
         [Output("availableStorageSizeInGbs")]
         public Output<int> AvailableStorageSizeInGbs { get; private set; } = null!;
@@ -62,13 +46,19 @@ namespace Pulumi.Aws.Odb
         public Output<int> ComputeCount { get; private set; } = null!;
 
         /// <summary>
-        /// The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+        /// The OCI model compute model used when you create or clone an
+        ///   instance: ECPU or OCPU. An ECPU is an abstracted measure of
+        ///  compute resources. ECPUs are based on the number of cores
+        ///  elastically allocated from a pool of compute and storage servers.
+        ///   An OCPU is a legacy physical measure of compute resources. OCPUs
+        ///  are based on the physical core of a processor with
+        ///   hyper-threading enabled.
         /// </summary>
         [Output("computeModel")]
         public Output<string> ComputeModel { get; private set; } = null!;
 
         /// <summary>
-        /// The total number of CPU cores that are allocated to the Exadata infrastructure.
+        /// The total number of CPU cores that are allocated to the Exadata infrastructure
         /// </summary>
         [Output("cpuCount")]
         public Output<int> CpuCount { get; private set; } = null!;
@@ -83,7 +73,7 @@ namespace Pulumi.Aws.Odb
         public Output<ImmutableArray<Outputs.CloudExadataInfrastructureCustomerContactsToSendToOci>> CustomerContactsToSendToOcis { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB)
         /// </summary>
         [Output("dataStorageSizeInTbs")]
         public Output<double> DataStorageSizeInTbs { get; private set; } = null!;
@@ -95,13 +85,13 @@ namespace Pulumi.Aws.Odb
         public Output<string?> DatabaseServerType { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
+        /// The size of the Exadata infrastructure's local node storage, in gigabytes (GB)
         /// </summary>
         [Output("dbNodeStorageSizeInGbs")]
         public Output<int> DbNodeStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The software version of the database servers (dom0) in the Exadata infrastructure.
+        /// The software version of the database servers (dom0) in the Exadata infrastructure
         /// </summary>
         [Output("dbServerVersion")]
         public Output<string> DbServerVersion { get; private set; } = null!;
@@ -110,7 +100,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
         /// </summary>
         [Output("lastMaintenanceRunId")]
         public Output<string> LastMaintenanceRunId { get; private set; } = null!;
@@ -122,25 +112,25 @@ namespace Pulumi.Aws.Odb
         public Output<Outputs.CloudExadataInfrastructureMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The total number of CPU cores available on the Exadata infrastructure.
+        /// The total number of CPU cores available on the Exadata infrastructure
         /// </summary>
         [Output("maxCpuCount")]
         public Output<int> MaxCpuCount { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure
         /// </summary>
         [Output("maxDataStorageInTbs")]
         public Output<double> MaxDataStorageInTbs { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure
         /// </summary>
         [Output("maxDbNodeStorageSizeInGbs")]
         public Output<int> MaxDbNodeStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
         /// </summary>
         [Output("maxMemoryInGbs")]
         public Output<int> MaxMemoryInGbs { get; private set; } = null!;
@@ -152,25 +142,25 @@ namespace Pulumi.Aws.Odb
         public Output<int> MemorySizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The monthly software version of the database servers in the Exadata infrastructure.
+        /// The monthly software version of the database servers in the Exadata infrastructure
         /// </summary>
         [Output("monthlyDbServerVersion")]
         public Output<string> MonthlyDbServerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The monthly software version of the storage servers installed on the Exadata infrastructure.
+        /// The monthly software version of the storage servers installed on the Exadata infrastructure
         /// </summary>
         [Output("monthlyStorageServerVersion")]
         public Output<string> MonthlyStorageServerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The OCID of the next maintenance run for the Exadata infrastructure.
+        /// The OCID of the next maintenance run for the Exadata infrastructure
         /// </summary>
         [Output("nextMaintenanceRunId")]
         public Output<string> NextMaintenanceRunId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// The name of the OCI resource anchor for the Exadata infrastructure
         /// </summary>
         [Output("ociResourceAnchorName")]
         public Output<string> OciResourceAnchorName { get; private set; } = null!;
@@ -182,20 +172,17 @@ namespace Pulumi.Aws.Odb
         public Output<string> OciUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The OCID of the Exadata infrastructure.
+        /// The OCID of the Exadata infrastructure
         /// </summary>
         [Output("ocid")]
         public Output<string> Ocid { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+        /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
         /// </summary>
         [Output("percentProgress")]
         public Output<double> PercentProgress { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -203,13 +190,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> Shape { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the Exadata infrastructure.
+        /// The current status of the Exadata infrastructure
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Additional information about the status of the Exadata infrastructure.
+        /// Additional information about the status of the Exadata infrastructure
         /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
@@ -232,9 +219,6 @@ namespace Pulumi.Aws.Odb
         [Output("storageServerVersion")]
         public Output<string> StorageServerVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -331,9 +315,6 @@ namespace Pulumi.Aws.Odb
         [Input("maintenanceWindow")]
         public Input<Inputs.CloudExadataInfrastructureMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -354,10 +335,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -376,20 +353,17 @@ namespace Pulumi.Aws.Odb
     public sealed class CloudExadataInfrastructureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// The number of storage servers requested for the Exadata infrastructure
         /// </summary>
         [Input("activatedStorageCount")]
         public Input<int>? ActivatedStorageCount { get; set; }
 
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// The number of storage servers requested for the Exadata infrastructure
         /// </summary>
         [Input("additionalStorageCount")]
         public Input<int>? AdditionalStorageCount { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Exadata infrastructure.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -400,7 +374,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
         /// </summary>
         [Input("availableStorageSizeInGbs")]
         public Input<int>? AvailableStorageSizeInGbs { get; set; }
@@ -412,13 +386,19 @@ namespace Pulumi.Aws.Odb
         public Input<int>? ComputeCount { get; set; }
 
         /// <summary>
-        /// The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+        /// The OCI model compute model used when you create or clone an
+        ///   instance: ECPU or OCPU. An ECPU is an abstracted measure of
+        ///  compute resources. ECPUs are based on the number of cores
+        ///  elastically allocated from a pool of compute and storage servers.
+        ///   An OCPU is a legacy physical measure of compute resources. OCPUs
+        ///  are based on the physical core of a processor with
+        ///   hyper-threading enabled.
         /// </summary>
         [Input("computeModel")]
         public Input<string>? ComputeModel { get; set; }
 
         /// <summary>
-        /// The total number of CPU cores that are allocated to the Exadata infrastructure.
+        /// The total number of CPU cores that are allocated to the Exadata infrastructure
         /// </summary>
         [Input("cpuCount")]
         public Input<int>? CpuCount { get; set; }
@@ -438,7 +418,7 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB)
         /// </summary>
         [Input("dataStorageSizeInTbs")]
         public Input<double>? DataStorageSizeInTbs { get; set; }
@@ -450,13 +430,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? DatabaseServerType { get; set; }
 
         /// <summary>
-        /// The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
+        /// The size of the Exadata infrastructure's local node storage, in gigabytes (GB)
         /// </summary>
         [Input("dbNodeStorageSizeInGbs")]
         public Input<int>? DbNodeStorageSizeInGbs { get; set; }
 
         /// <summary>
-        /// The software version of the database servers (dom0) in the Exadata infrastructure.
+        /// The software version of the database servers (dom0) in the Exadata infrastructure
         /// </summary>
         [Input("dbServerVersion")]
         public Input<string>? DbServerVersion { get; set; }
@@ -465,7 +445,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
         /// </summary>
         [Input("lastMaintenanceRunId")]
         public Input<string>? LastMaintenanceRunId { get; set; }
@@ -477,25 +457,25 @@ namespace Pulumi.Aws.Odb
         public Input<Inputs.CloudExadataInfrastructureMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The total number of CPU cores available on the Exadata infrastructure.
+        /// The total number of CPU cores available on the Exadata infrastructure
         /// </summary>
         [Input("maxCpuCount")]
         public Input<int>? MaxCpuCount { get; set; }
 
         /// <summary>
-        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure
         /// </summary>
         [Input("maxDataStorageInTbs")]
         public Input<double>? MaxDataStorageInTbs { get; set; }
 
         /// <summary>
-        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure
         /// </summary>
         [Input("maxDbNodeStorageSizeInGbs")]
         public Input<int>? MaxDbNodeStorageSizeInGbs { get; set; }
 
         /// <summary>
-        /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
         /// </summary>
         [Input("maxMemoryInGbs")]
         public Input<int>? MaxMemoryInGbs { get; set; }
@@ -507,25 +487,25 @@ namespace Pulumi.Aws.Odb
         public Input<int>? MemorySizeInGbs { get; set; }
 
         /// <summary>
-        /// The monthly software version of the database servers in the Exadata infrastructure.
+        /// The monthly software version of the database servers in the Exadata infrastructure
         /// </summary>
         [Input("monthlyDbServerVersion")]
         public Input<string>? MonthlyDbServerVersion { get; set; }
 
         /// <summary>
-        /// The monthly software version of the storage servers installed on the Exadata infrastructure.
+        /// The monthly software version of the storage servers installed on the Exadata infrastructure
         /// </summary>
         [Input("monthlyStorageServerVersion")]
         public Input<string>? MonthlyStorageServerVersion { get; set; }
 
         /// <summary>
-        /// The OCID of the next maintenance run for the Exadata infrastructure.
+        /// The OCID of the next maintenance run for the Exadata infrastructure
         /// </summary>
         [Input("nextMaintenanceRunId")]
         public Input<string>? NextMaintenanceRunId { get; set; }
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// The name of the OCI resource anchor for the Exadata infrastructure
         /// </summary>
         [Input("ociResourceAnchorName")]
         public Input<string>? OciResourceAnchorName { get; set; }
@@ -537,20 +517,17 @@ namespace Pulumi.Aws.Odb
         public Input<string>? OciUrl { get; set; }
 
         /// <summary>
-        /// The OCID of the Exadata infrastructure.
+        /// The OCID of the Exadata infrastructure
         /// </summary>
         [Input("ocid")]
         public Input<string>? Ocid { get; set; }
 
         /// <summary>
-        /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+        /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
         /// </summary>
         [Input("percentProgress")]
         public Input<double>? PercentProgress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -558,13 +535,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Shape { get; set; }
 
         /// <summary>
-        /// The current status of the Exadata infrastructure.
+        /// The current status of the Exadata infrastructure
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Additional information about the status of the Exadata infrastructure.
+        /// Additional information about the status of the Exadata infrastructure
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
@@ -589,10 +566,6 @@ namespace Pulumi.Aws.Odb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

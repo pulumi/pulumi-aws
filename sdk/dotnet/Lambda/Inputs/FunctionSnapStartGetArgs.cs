@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lambda.Inputs
 
     public sealed class FunctionSnapStartGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When to apply snap start optimization. Valid value: `PublishedVersions`.
-        /// </summary>
         [Input("applyOn", required: true)]
         public Input<string> ApplyOn { get; set; } = null!;
 
-        /// <summary>
-        /// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-        /// </summary>
         [Input("optimizationStatus")]
         public Input<string>? OptimizationStatus { get; set; }
 

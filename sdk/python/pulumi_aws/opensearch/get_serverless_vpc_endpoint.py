@@ -55,9 +55,6 @@ class GetServerlessVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        The date the endpoint was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -71,9 +68,6 @@ class GetServerlessVpcEndpointResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the endpoint.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -84,17 +78,11 @@ class GetServerlessVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        The IDs of the subnets from which you access OpenSearch Serverless.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
@@ -105,9 +93,6 @@ class GetServerlessVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The ID of the VPC from which you access OpenSearch Serverless.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -131,20 +116,7 @@ def get_serverless_vpc_endpoint(region: Optional[_builtins.str] = None,
                                 vpc_endpoint_id: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessVpcEndpointResult:
     """
-    Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_vpc_endpoint(vpc_endpoint_id="vpce-829a4487959e2a839")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -165,20 +137,7 @@ def get_serverless_vpc_endpoint_output(region: Optional[pulumi.Input[Optional[_b
                                        vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
     """
-    Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_vpc_endpoint(vpc_endpoint_id="vpce-829a4487959e2a839")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

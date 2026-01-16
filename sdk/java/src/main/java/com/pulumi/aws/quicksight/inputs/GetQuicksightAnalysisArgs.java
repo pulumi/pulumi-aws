@@ -17,17 +17,9 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
 
     public static final GetQuicksightAnalysisArgs Empty = new GetQuicksightAnalysisArgs();
 
-    /**
-     * Identifier for the analysis.
-     * 
-     */
     @Import(name="analysisId", required=true)
     private Output<String> analysisId;
 
-    /**
-     * @return Identifier for the analysis.
-     * 
-     */
     public Output<String> analysisId() {
         return this.analysisId;
     }
@@ -39,17 +31,9 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,23 +72,11 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
             $ = new GetQuicksightAnalysisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param analysisId Identifier for the analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisId(Output<String> analysisId) {
             $.analysisId = analysisId;
             return this;
         }
 
-        /**
-         * @param analysisId Identifier for the analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder analysisId(String analysisId) {
             return analysisId(Output.of(analysisId));
         }
@@ -118,23 +90,11 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

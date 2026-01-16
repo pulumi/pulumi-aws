@@ -10,18 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableAttribute {
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     private String name;
     private String type;
 
     private GetTableAttribute() {}
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     public String name() {
         return this.name;
     }

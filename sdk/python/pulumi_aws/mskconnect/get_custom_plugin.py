@@ -55,17 +55,11 @@ class GetCustomPluginResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        the ARN of the custom plugin.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        a summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -79,9 +73,6 @@ class GetCustomPluginResult:
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> _builtins.int:
-        """
-        an ID of the latest successfully created revision of the custom plugin.
-        """
         return pulumi.get(self, "latest_revision")
 
     @_builtins.property
@@ -97,17 +88,11 @@ class GetCustomPluginResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        the state of the custom plugin.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -132,21 +117,7 @@ def get_custom_plugin(name: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomPluginResult:
     """
-    Get information on an Amazon MSK Connect custom plugin.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
-    ```
-
-
-    :param _builtins.str name: Name of the custom plugin.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -169,21 +140,7 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
-    Get information on an Amazon MSK Connect custom plugin.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
-    ```
-
-
-    :param _builtins.str name: Name of the custom plugin.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigCopyValue {
-    /**
-     * @return Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigCopyValueEntry> entries;
 
     private LogTransformerTransformerConfigCopyValue() {}
-    /**
-     * @return Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copyValue` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigCopyValueEntry> entries() {
         return this.entries;
     }

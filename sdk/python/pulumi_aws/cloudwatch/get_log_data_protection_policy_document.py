@@ -72,9 +72,6 @@ class GetLogDataProtectionPolicyDocumentResult:
     @_builtins.property
     @pulumi.getter
     def json(self) -> _builtins.str:
-        """
-        Standard JSON policy document rendered based on the arguments above.
-        """
         return pulumi.get(self, "json")
 
     @_builtins.property
@@ -115,65 +112,7 @@ def get_log_data_protection_policy_document(configuration: Optional[Union['GetLo
                                             version: Optional[_builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogDataProtectionPolicyDocumentResult:
     """
-    Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `cloudwatch.LogDataProtectionPolicy` resource.
-
-    > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
-        statements=[
-            {
-                "sid": "Audit",
-                "data_identifiers": [
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                "operation": {
-                    "audit": {
-                        "findings_destination": {
-                            "cloudwatch_logs": {
-                                "log_group": audit["name"],
-                            },
-                            "firehose": {
-                                "delivery_stream": audit_aws_kinesis_firehose_delivery_stream["name"],
-                            },
-                            "s3": {
-                                "bucket": audit_aws_s3_bucket["bucket"],
-                            },
-                        },
-                    },
-                },
-            },
-            {
-                "sid": "Deidentify",
-                "data_identifiers": [
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                "operation": {
-                    "deidentify": {
-                        "mask_config": {},
-                    },
-                },
-            },
-        ])
-    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
-        log_group_name=example_aws_cloudwatch_log_group["name"],
-        policy_document=example.json)
-    ```
-
-
-    :param _builtins.str name: The name of the data protection policy document.
-    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']] statements: Configures the data protection policy.
-           
-           > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-           
-           The following arguments are optional:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['configuration'] = configuration
@@ -199,65 +138,7 @@ def get_log_data_protection_policy_document_output(configuration: Optional[pulum
                                                    version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogDataProtectionPolicyDocumentResult]:
     """
-    Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `cloudwatch.LogDataProtectionPolicy` resource.
-
-    > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
-        statements=[
-            {
-                "sid": "Audit",
-                "data_identifiers": [
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                "operation": {
-                    "audit": {
-                        "findings_destination": {
-                            "cloudwatch_logs": {
-                                "log_group": audit["name"],
-                            },
-                            "firehose": {
-                                "delivery_stream": audit_aws_kinesis_firehose_delivery_stream["name"],
-                            },
-                            "s3": {
-                                "bucket": audit_aws_s3_bucket["bucket"],
-                            },
-                        },
-                    },
-                },
-            },
-            {
-                "sid": "Deidentify",
-                "data_identifiers": [
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                "operation": {
-                    "deidentify": {
-                        "mask_config": {},
-                    },
-                },
-            },
-        ])
-    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
-        log_group_name=example_aws_cloudwatch_log_group["name"],
-        policy_document=example.json)
-    ```
-
-
-    :param _builtins.str name: The name of the data protection policy document.
-    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']] statements: Configures the data protection policy.
-           
-           > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
-           
-           The following arguments are optional:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['configuration'] = configuration

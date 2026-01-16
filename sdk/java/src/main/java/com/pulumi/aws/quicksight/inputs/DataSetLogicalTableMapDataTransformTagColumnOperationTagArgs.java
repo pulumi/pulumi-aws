@@ -16,32 +16,16 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
 
     public static final DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs Empty = new DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs();
 
-    /**
-     * A description for a column. See column_description.
-     * 
-     */
     @Import(name="columnDescription")
     private @Nullable Output<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs> columnDescription;
 
-    /**
-     * @return A description for a column. See column_description.
-     * 
-     */
     public Optional<Output<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs>> columnDescription() {
         return Optional.ofNullable(this.columnDescription);
     }
 
-    /**
-     * A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-     * 
-     */
     @Import(name="columnGeographicRole")
     private @Nullable Output<String> columnGeographicRole;
 
-    /**
-     * @return A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-     * 
-     */
     public Optional<Output<String>> columnGeographicRole() {
         return Optional.ofNullable(this.columnGeographicRole);
     }
@@ -71,44 +55,20 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
             $ = new DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnDescription A description for a column. See column_description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnDescription(@Nullable Output<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs> columnDescription) {
             $.columnDescription = columnDescription;
             return this;
         }
 
-        /**
-         * @param columnDescription A description for a column. See column_description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnDescription(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs columnDescription) {
             return columnDescription(Output.of(columnDescription));
         }
 
-        /**
-         * @param columnGeographicRole A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnGeographicRole(@Nullable Output<String> columnGeographicRole) {
             $.columnGeographicRole = columnGeographicRole;
             return this;
         }
 
-        /**
-         * @param columnGeographicRole A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnGeographicRole(String columnGeographicRole) {
             return columnGeographicRole(Output.of(columnGeographicRole));
         }

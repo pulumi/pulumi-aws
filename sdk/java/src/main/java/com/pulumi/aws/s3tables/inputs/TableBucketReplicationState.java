@@ -16,62 +16,30 @@ public final class TableBucketReplicationState extends com.pulumi.resources.Reso
 
     public static final TableBucketReplicationState Empty = new TableBucketReplicationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-     * 
-     */
     @Import(name="role")
     private @Nullable Output<String> role;
 
-    /**
-     * @return ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-     * 
-     */
     public Optional<Output<String>> role() {
         return Optional.ofNullable(this.role);
     }
 
-    /**
-     * Replication rules. See Rule below for more details.
-     * 
-     */
     @Import(name="rule")
     private @Nullable Output<TableBucketReplicationRuleArgs> rule;
 
-    /**
-     * @return Replication rules. See Rule below for more details.
-     * 
-     */
     public Optional<Output<TableBucketReplicationRuleArgs>> rule() {
         return Optional.ofNullable(this.rule);
     }
 
-    /**
-     * ARN referencing the Table Bucket that owns this replication configuration.
-     * 
-     */
     @Import(name="tableBucketArn")
     private @Nullable Output<String> tableBucketArn;
 
-    /**
-     * @return ARN referencing the Table Bucket that owns this replication configuration.
-     * 
-     */
     public Optional<Output<String>> tableBucketArn() {
         return Optional.ofNullable(this.tableBucketArn);
     }
@@ -111,86 +79,38 @@ public final class TableBucketReplicationState extends com.pulumi.resources.Reso
             $ = new TableBucketReplicationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param role ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }
 
-        /**
-         * @param rule Replication rules. See Rule below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(@Nullable Output<TableBucketReplicationRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
 
-        /**
-         * @param rule Replication rules. See Rule below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(TableBucketReplicationRuleArgs rule) {
             return rule(Output.of(rule));
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that owns this replication configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(@Nullable Output<String> tableBucketArn) {
             $.tableBucketArn = tableBucketArn;
             return this;
         }
 
-        /**
-         * @param tableBucketArn ARN referencing the Table Bucket that owns this replication configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(String tableBucketArn) {
             return tableBucketArn(Output.of(tableBucketArn));
         }

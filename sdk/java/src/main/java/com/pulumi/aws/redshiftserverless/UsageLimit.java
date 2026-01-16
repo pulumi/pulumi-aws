@@ -15,157 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift Serverless Usage Limit.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshiftserverless.Workgroup;
- * import com.pulumi.aws.redshiftserverless.WorkgroupArgs;
- * import com.pulumi.aws.redshiftserverless.UsageLimit;
- * import com.pulumi.aws.redshiftserverless.UsageLimitArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workgroup("example", WorkgroupArgs.builder()
- *             .namespaceName(exampleAwsRedshiftserverlessNamespace.namespaceName())
- *             .workgroupName("example")
- *             .build());
- * 
- *         var exampleUsageLimit = new UsageLimit("exampleUsageLimit", UsageLimitArgs.builder()
- *             .resourceArn(example.arn())
- *             .usageType("serverless-compute")
- *             .amount(60)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
- * ```
- * 
- */
 @ResourceType(type="aws:redshiftserverless/usageLimit:UsageLimit")
 public class UsageLimit extends com.pulumi.resources.CustomResource {
-    /**
-     * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     * 
-     */
     @Export(name="amount", refs={Integer.class}, tree="[0]")
     private Output<Integer> amount;
 
-    /**
-     * @return The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-     * 
-     */
     public Output<Integer> amount() {
         return this.amount;
     }
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     * 
-     */
     @Export(name="breachAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> breachAction;
 
-    /**
-     * @return The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-     * 
-     */
     public Output<Optional<String>> breachAction() {
         return Codegen.optional(this.breachAction);
     }
-    /**
-     * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     * 
-     */
     @Export(name="period", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> period;
 
-    /**
-     * @return The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-     * 
-     */
     public Output<Optional<String>> period() {
         return Codegen.optional(this.period);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     * 
-     */
     @Export(name="usageType", refs={String.class}, tree="[0]")
     private Output<String> usageType;
 
-    /**
-     * @return The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-     * 
-     */
     public Output<String> usageType() {
         return this.usageType;
     }

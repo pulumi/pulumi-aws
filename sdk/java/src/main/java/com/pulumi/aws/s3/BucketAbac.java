@@ -15,132 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages ABAC (Attribute Based Access Control) for an AWS S3 (Simple Storage) Bucket.
- * See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html) on enabling ABAC for general purpose buckets for additional information.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAbac;
- * import com.pulumi.aws.s3.BucketAbacArgs;
- * import com.pulumi.aws.s3.inputs.BucketAbacAbacStatusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("bucket-name")
- *             .build());
- * 
- *         var exampleBucketAbac = new BucketAbac("exampleBucketAbac", BucketAbacArgs.builder()
- *             .bucket(example.bucket())
- *             .abacStatus(BucketAbacAbacStatusArgs.builder()
- *                 .status("Enabled")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * Using `pulumi import`, import S3 (Simple Storage) Bucket ABAC using the `bucket` or `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- * 
- * If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `bucket`:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name
- * ```
- * If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:s3/bucketAbac:BucketAbac")
 public class BucketAbac extends com.pulumi.resources.CustomResource {
-    /**
-     * ABAC status configuration. See `abacStatus` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="abacStatus", refs={BucketAbacAbacStatus.class}, tree="[0]")
     private Output</* @Nullable */ BucketAbacAbacStatus> abacStatus;
 
-    /**
-     * @return ABAC status configuration. See `abacStatus` Block for details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<BucketAbacAbacStatus>> abacStatus() {
         return Codegen.optional(this.abacStatus);
     }
-    /**
-     * General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return General purpose bucket that you want to create the metadata configuration for.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

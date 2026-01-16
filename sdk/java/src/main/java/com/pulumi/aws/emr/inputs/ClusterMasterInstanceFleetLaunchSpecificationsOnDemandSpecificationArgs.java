@@ -14,17 +14,9 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
 
     public static final ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs Empty = new ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs();
 
-    /**
-     * Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-     * 
-     */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
-    /**
-     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-     * 
-     */
     public Output<String> allocationStrategy() {
         return this.allocationStrategy;
     }
@@ -53,23 +45,11 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
             $ = new ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }

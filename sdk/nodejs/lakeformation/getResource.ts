@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a Lake Formation resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lakeformation.getResource({
- *     arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
- * });
- * ```
- */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getResource:getResource", {
@@ -30,13 +16,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceArgs {
-    /**
-     * ARN of the resource, an S3 path.
-     */
     arn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -45,46 +25,17 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     readonly arn: string;
-    /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
-     */
     readonly hybridAccessEnabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     readonly lastModified: string;
     readonly region: string;
-    /**
-     * Role that the resource was registered with.
-     */
     readonly roleArn: string;
-    /**
-     * Whether the resource is a federated resource.
-     */
     readonly withFederation: boolean;
-    /**
-     * Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-     */
     readonly withPrivilegedAccess: boolean;
 }
-/**
- * Provides details about a Lake Formation resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lakeformation.getResource({
- *     arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
- * });
- * ```
- */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lakeformation/getResource:getResource", {
@@ -97,12 +48,6 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceOutputArgs {
-    /**
-     * ARN of the resource, an S3 path.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

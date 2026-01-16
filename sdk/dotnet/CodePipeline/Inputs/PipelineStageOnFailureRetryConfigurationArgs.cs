@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class PipelineStageOnFailureRetryConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
-        /// </summary>
         [Input("retryMode")]
         public Input<string>? RetryMode { get; set; }
 

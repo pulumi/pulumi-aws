@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig {
-    /**
-     * @return The type of encryption. Valid Values: `KMS`.
-     * 
-     */
     private String encryptionType;
-    /**
-     * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-     * 
-     */
     private String keyId;
 
     private GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig() {}
-    /**
-     * @return The type of encryption. Valid Values: `KMS`.
-     * 
-     */
     public String encryptionType() {
         return this.encryptionType;
     }
-    /**
-     * @return The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }

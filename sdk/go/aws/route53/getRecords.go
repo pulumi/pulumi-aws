@@ -11,80 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the details of resource records in a Route 53 hosted zone.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// Return all records in the zone.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			selected, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//				Name:        pulumi.StringRef("test.com."),
-//				PrivateZone: pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.GetRecords(ctx, &route53.GetRecordsArgs{
-//				ZoneId: selected.ZoneId,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage with filter
-//
-// Return the records that starts with `www`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			selected, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//				Name:        pulumi.StringRef("test.com."),
-//				PrivateZone: pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.GetRecords(ctx, &route53.GetRecordsArgs{
-//				ZoneId:    selected.ZoneId,
-//				NameRegex: pulumi.StringRef("^www"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRecords(ctx *pulumi.Context, args *GetRecordsArgs, opts ...pulumi.InvokeOption) (*GetRecordsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRecordsResult
@@ -97,18 +23,15 @@ func GetRecords(ctx *pulumi.Context, args *GetRecordsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRecords.
 type GetRecordsArgs struct {
-	// Regex string to apply to the resource record names returned by AWS.
 	NameRegex *string `pulumi:"nameRegex"`
-	// The ID of the hosted zone that contains the resource record sets that you want to list.
-	ZoneId string `pulumi:"zoneId"`
+	ZoneId    string  `pulumi:"zoneId"`
 }
 
 // A collection of values returned by getRecords.
 type GetRecordsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
-	NameRegex *string `pulumi:"nameRegex"`
-	// The resource records sets.
+	Id                 string                        `pulumi:"id"`
+	NameRegex          *string                       `pulumi:"nameRegex"`
 	ResourceRecordSets []GetRecordsResourceRecordSet `pulumi:"resourceRecordSets"`
 	ZoneId             string                        `pulumi:"zoneId"`
 }
@@ -124,10 +47,8 @@ func GetRecordsOutput(ctx *pulumi.Context, args GetRecordsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRecords.
 type GetRecordsOutputArgs struct {
-	// Regex string to apply to the resource record names returned by AWS.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// The ID of the hosted zone that contains the resource record sets that you want to list.
-	ZoneId pulumi.StringInput `pulumi:"zoneId"`
+	ZoneId    pulumi.StringInput    `pulumi:"zoneId"`
 }
 
 func (GetRecordsOutputArgs) ElementType() reflect.Type {
@@ -158,7 +79,6 @@ func (o GetRecordsResultOutput) NameRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRecordsResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
 }
 
-// The resource records sets.
 func (o GetRecordsResultOutput) ResourceRecordSets() GetRecordsResourceRecordSetArrayOutput {
 	return o.ApplyT(func(v GetRecordsResult) []GetRecordsResourceRecordSet { return v.ResourceRecordSets }).(GetRecordsResourceRecordSetArrayOutput)
 }

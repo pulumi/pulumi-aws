@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWorkgroupEndpointVpcEndpointNetworkInterface {
-    /**
-     * @return The availability Zone.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return The unique identifier of the network interface.
-     * 
-     */
     private String networkInterfaceId;
-    /**
-     * @return The IPv4 address of the network interface within the subnet.
-     * 
-     */
     private String privateIpAddress;
-    /**
-     * @return The unique identifier of the subnet.
-     * 
-     */
     private String subnetId;
 
     private GetWorkgroupEndpointVpcEndpointNetworkInterface() {}
-    /**
-     * @return The availability Zone.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return The unique identifier of the network interface.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * @return The IPv4 address of the network interface within the subnet.
-     * 
-     */
     public String privateIpAddress() {
         return this.privateIpAddress;
     }
-    /**
-     * @return The unique identifier of the subnet.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

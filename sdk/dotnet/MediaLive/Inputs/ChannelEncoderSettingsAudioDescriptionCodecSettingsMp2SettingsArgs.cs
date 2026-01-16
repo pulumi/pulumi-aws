@@ -18,9 +18,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 
-        /// <summary>
-        /// Sample rate in Hz.
-        /// </summary>
         [Input("sampleRate")]
         public Input<double>? SampleRate { get; set; }
 

@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get a Single Sign-On (SSO) Permission Set.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetPermissionSet, err := ssoadmin.LookupPermissionSet(ctx, &ssoadmin.LookupPermissionSetArgs{
-//				InstanceArn: example.Arns[0],
-//				Name:        pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("arn", exampleGetPermissionSet.Arn)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionSetResult
@@ -56,37 +23,26 @@ func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opt
 
 // A collection of arguments for invoking getPermissionSet.
 type LookupPermissionSetArgs struct {
-	// ARN of the permission set.
-	Arn *string `pulumi:"arn"`
-	// ARN of the SSO Instance associated with the permission set.
-	InstanceArn string `pulumi:"instanceArn"`
-	// Name of the SSO Permission Set.
-	//
-	// > **NOTE:** Either `arn` or `name` must be configured.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Arn         *string           `pulumi:"arn"`
+	InstanceArn string            `pulumi:"instanceArn"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPermissionSet.
 type LookupPermissionSetResult struct {
 	Arn         string `pulumi:"arn"`
 	CreatedDate string `pulumi:"createdDate"`
-	// Description of the Permission Set.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
-	InstanceArn string `pulumi:"instanceArn"`
-	Name        string `pulumi:"name"`
-	Region      string `pulumi:"region"`
-	// Relay state URL used to redirect users within the application during the federation authentication process.
-	RelayState string `pulumi:"relayState"`
-	// Length of time that the application user sessions are valid in the ISO-8601 standard.
-	SessionDuration string `pulumi:"sessionDuration"`
-	// Key-value map of resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Id              string            `pulumi:"id"`
+	InstanceArn     string            `pulumi:"instanceArn"`
+	Name            string            `pulumi:"name"`
+	Region          string            `pulumi:"region"`
+	RelayState      string            `pulumi:"relayState"`
+	SessionDuration string            `pulumi:"sessionDuration"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionSetResultOutput {
@@ -100,18 +56,11 @@ func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutp
 
 // A collection of arguments for invoking getPermissionSet.
 type LookupPermissionSetOutputArgs struct {
-	// ARN of the permission set.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// ARN of the SSO Instance associated with the permission set.
-	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
-	// Name of the SSO Permission Set.
-	//
-	// > **NOTE:** Either `arn` or `name` must be configured.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Arn         pulumi.StringPtrInput `pulumi:"arn"`
+	InstanceArn pulumi.StringInput    `pulumi:"instanceArn"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupPermissionSetOutputArgs) ElementType() reflect.Type {
@@ -141,7 +90,6 @@ func (o LookupPermissionSetResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the Permission Set.
 func (o LookupPermissionSetResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -163,17 +111,14 @@ func (o LookupPermissionSetResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Relay state URL used to redirect users within the application during the federation authentication process.
 func (o LookupPermissionSetResultOutput) RelayState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.RelayState }).(pulumi.StringOutput)
 }
 
-// Length of time that the application user sessions are valid in the ISO-8601 standard.
 func (o LookupPermissionSetResultOutput) SessionDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) string { return v.SessionDuration }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags.
 func (o LookupPermissionSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

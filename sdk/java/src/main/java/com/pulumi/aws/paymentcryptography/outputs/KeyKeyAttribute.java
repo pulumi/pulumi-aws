@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KeyKeyAttribute {
-    /**
-     * @return Key algorithm to be use during creation of an AWS Payment Cryptography key.
-     * 
-     */
     private String keyAlgorithm;
-    /**
-     * @return Type of AWS Payment Cryptography key to create.
-     * 
-     */
     private String keyClass;
-    /**
-     * @return List of cryptographic operations that you can perform using the key.
-     * 
-     */
     private @Nullable List<KeyKeyAttributeKeyModesOfUse> keyModesOfUses;
-    /**
-     * @return Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-     * 
-     */
     private String keyUsage;
 
     private KeyKeyAttribute() {}
-    /**
-     * @return Key algorithm to be use during creation of an AWS Payment Cryptography key.
-     * 
-     */
     public String keyAlgorithm() {
         return this.keyAlgorithm;
     }
-    /**
-     * @return Type of AWS Payment Cryptography key to create.
-     * 
-     */
     public String keyClass() {
         return this.keyClass;
     }
-    /**
-     * @return List of cryptographic operations that you can perform using the key.
-     * 
-     */
     public List<KeyKeyAttributeKeyModesOfUse> keyModesOfUses() {
         return this.keyModesOfUses == null ? List.of() : this.keyModesOfUses;
     }
-    /**
-     * @return Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-     * 
-     */
     public String keyUsage() {
         return this.keyUsage;
     }

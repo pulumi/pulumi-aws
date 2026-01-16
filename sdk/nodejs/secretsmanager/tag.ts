@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.secretsmanager.Secret("test", {name: "example-secret"});
- * const testTag = new aws.secretsmanager.Tag("test", {
- *     secretId: test.id,
- *     key: "ExampleKey",
- *     value: "ExampleValue",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_secretsmanager_tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey
- * ```
- */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class Tag extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tag.__pulumiType;
     }
 
-    /**
-     * Tag name.
-     */
     declare public readonly key: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the AWS Secrets Manager secret to tag.
-     */
     declare public readonly secretId: pulumi.Output<string>;
-    /**
-     * Tag value.
-     */
     declare public readonly value: pulumi.Output<string>;
 
     /**
@@ -114,21 +79,9 @@ export class Tag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tag resources.
  */
 export interface TagState {
-    /**
-     * Tag name.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the AWS Secrets Manager secret to tag.
-     */
     secretId?: pulumi.Input<string>;
-    /**
-     * Tag value.
-     */
     value?: pulumi.Input<string>;
 }
 
@@ -136,20 +89,8 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
-    /**
-     * Tag name.
-     */
     key: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the AWS Secrets Manager secret to tag.
-     */
     secretId: pulumi.Input<string>;
-    /**
-     * Tag value.
-     */
     value: pulumi.Input<string>;
 }

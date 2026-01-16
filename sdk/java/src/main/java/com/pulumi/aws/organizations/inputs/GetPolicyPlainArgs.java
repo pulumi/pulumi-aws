@@ -13,17 +13,9 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPolicyPlainArgs Empty = new GetPolicyPlainArgs();
 
-    /**
-     * The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-     * 
-     */
     @Import(name="policyId", required=true)
     private String policyId;
 
-    /**
-     * @return The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-     * 
-     */
     public String policyId() {
         return this.policyId;
     }
@@ -52,12 +44,6 @@ public final class GetPolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyId The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyId(String policyId) {
             $.policyId = policyId;
             return this;

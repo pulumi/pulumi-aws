@@ -13,43 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigCopyValueEntry {
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     private @Nullable Boolean overwriteIfExists;
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     private String source;
-    /**
-     * @return Specifies the key to move to.
-     * 
-     */
     private String target;
 
     private LogTransformerTransformerConfigCopyValueEntry() {}
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * * `renameTo` - (Required) Specifies the new name of the key.
-     * 
-     */
     public Optional<Boolean> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Specifies the key to move to.
-     * 
-     */
     public String target() {
         return this.target;
     }

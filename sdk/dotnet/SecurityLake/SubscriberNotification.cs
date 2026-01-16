@@ -9,89 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityLake
 {
-    /// <summary>
-    /// Resource for managing an AWS Security Lake Subscriber Notification.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### SQS Notification
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityLake.SubscriberNotification("example", new()
-    ///     {
-    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
-    ///         Configuration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationArgs
-    ///         {
-    ///             SqsNotificationConfiguration = null,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### HTTPS Notification
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityLake.SubscriberNotification("example", new()
-    ///     {
-    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
-    ///         Configuration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationArgs
-    ///         {
-    ///             HttpsNotificationConfiguration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs
-    ///             {
-    ///                 Endpoint = test.ApiEndpoint,
-    ///                 TargetRoleArn = eventBridge.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securitylake/subscriberNotification:SubscriberNotification")]
     public partial class SubscriberNotification : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specify the configuration using which you want to create the subscriber notification..
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.SubscriberNotificationConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-        /// </summary>
         [Output("endpointId")]
         public Output<string> EndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The subscriber endpoint to which exception messages are posted.
-        /// </summary>
         [Output("subscriberEndpoint")]
         public Output<string> SubscriberEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// The subscriber ID for the notification subscription.
-        /// </summary>
         [Output("subscriberId")]
         public Output<string> SubscriberId { get; private set; } = null!;
 
@@ -141,21 +73,12 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class SubscriberNotificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify the configuration using which you want to create the subscriber notification..
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.SubscriberNotificationConfigurationArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The subscriber ID for the notification subscription.
-        /// </summary>
         [Input("subscriberId", required: true)]
         public Input<string> SubscriberId { get; set; } = null!;
 
@@ -167,33 +90,18 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class SubscriberNotificationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify the configuration using which you want to create the subscriber notification..
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.SubscriberNotificationConfigurationGetArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-        /// </summary>
         [Input("endpointId")]
         public Input<string>? EndpointId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The subscriber endpoint to which exception messages are posted.
-        /// </summary>
         [Input("subscriberEndpoint")]
         public Input<string>? SubscriberEndpoint { get; set; }
 
-        /// <summary>
-        /// The subscriber ID for the notification subscription.
-        /// </summary>
         [Input("subscriberId")]
         public Input<string>? SubscriberId { get; set; }
 

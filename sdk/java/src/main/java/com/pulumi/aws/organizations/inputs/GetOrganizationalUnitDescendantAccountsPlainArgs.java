@@ -13,17 +13,9 @@ public final class GetOrganizationalUnitDescendantAccountsPlainArgs extends com.
 
     public static final GetOrganizationalUnitDescendantAccountsPlainArgs Empty = new GetOrganizationalUnitDescendantAccountsPlainArgs();
 
-    /**
-     * The parent ID of the accounts.
-     * 
-     */
     @Import(name="parentId", required=true)
     private String parentId;
 
-    /**
-     * @return The parent ID of the accounts.
-     * 
-     */
     public String parentId() {
         return this.parentId;
     }
@@ -52,12 +44,6 @@ public final class GetOrganizationalUnitDescendantAccountsPlainArgs extends com.
             $ = new GetOrganizationalUnitDescendantAccountsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parentId The parent ID of the accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             $.parentId = parentId;
             return this;

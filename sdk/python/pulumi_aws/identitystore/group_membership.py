@@ -25,10 +25,6 @@ class GroupMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
-        :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
-        :param pulumi.Input[_builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-        :param pulumi.Input[_builtins.str] member_id: The identifier for a user in the Identity Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -39,9 +35,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier for a group in the Identity Store.
-        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -51,9 +44,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identity Store ID associated with the Single Sign-On Instance.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -63,9 +53,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier for a user in the Identity Store.
-        """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
@@ -75,9 +62,6 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,11 +79,6 @@ class _GroupMembershipState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
-        :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
-        :param pulumi.Input[_builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-        :param pulumi.Input[_builtins.str] member_id: The identifier for a user in the Identity Store.
-        :param pulumi.Input[_builtins.str] membership_id: The identifier of the newly created group membership in the Identity Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -115,9 +94,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for a group in the Identity Store.
-        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -127,9 +103,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identity Store ID associated with the Single Sign-On Instance.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -139,9 +112,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="memberId")
     def member_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for a user in the Identity Store.
-        """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
@@ -151,9 +121,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="membershipId")
     def membership_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the newly created group membership in the Identity Store.
-        """
         return pulumi.get(self, "membership_id")
 
     @membership_id.setter
@@ -163,9 +130,6 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -185,47 +149,9 @@ class GroupMembership(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS IdentityStore Group Membership.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_user = aws.identitystore.User("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="John Doe",
-            user_name="john.doe@example.com",
-            name={
-                "family_name": "Doe",
-                "given_name": "John",
-            })
-        example_group = aws.identitystore.Group("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="MyGroup",
-            description="Some group name")
-        example_group_membership = aws.identitystore.GroupMembership("example",
-            identity_store_id=example.identity_store_ids[0],
-            group_id=example_group.group_id,
-            member_id=example_user.user_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
-
-        ```sh
-        $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
-        :param pulumi.Input[_builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-        :param pulumi.Input[_builtins.str] member_id: The identifier for a user in the Identity Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -234,41 +160,7 @@ class GroupMembership(pulumi.CustomResource):
                  args: GroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS IdentityStore Group Membership.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_user = aws.identitystore.User("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="John Doe",
-            user_name="john.doe@example.com",
-            name={
-                "family_name": "Doe",
-                "given_name": "John",
-            })
-        example_group = aws.identitystore.Group("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="MyGroup",
-            description="Some group name")
-        example_group_membership = aws.identitystore.GroupMembership("example",
-            identity_store_id=example.identity_store_ids[0],
-            group_id=example_group.group_id,
-            member_id=example_user.user_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
-
-        ```sh
-        $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,11 +222,6 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
-        :param pulumi.Input[_builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-        :param pulumi.Input[_builtins.str] member_id: The identifier for a user in the Identity Store.
-        :param pulumi.Input[_builtins.str] membership_id: The identifier of the newly created group membership in the Identity Store.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,40 +237,25 @@ class GroupMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for a group in the Identity Store.
-        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identity Store ID associated with the Single Sign-On Instance.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @_builtins.property
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for a user in the Identity Store.
-        """
         return pulumi.get(self, "member_id")
 
     @_builtins.property
     @pulumi.getter(name="membershipId")
     def membership_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the newly created group membership in the Identity Store.
-        """
         return pulumi.get(self, "membership_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

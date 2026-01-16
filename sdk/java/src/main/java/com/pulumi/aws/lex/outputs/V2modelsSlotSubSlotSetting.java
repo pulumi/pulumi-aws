@@ -13,31 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotSubSlotSetting {
-    /**
-     * @return Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return Specifications for the constituent sub slots of a composite slot.
-     * See the `slotSpecification` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecification> slotSpecifications;
 
     private V2modelsSlotSubSlotSetting() {}
-    /**
-     * @return Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return Specifications for the constituent sub slots of a composite slot.
-     * See the `slotSpecification` argument reference below.
-     * 
-     */
     public List<V2modelsSlotSubSlotSettingSlotSpecification> slotSpecifications() {
         return this.slotSpecifications == null ? List.of() : this.slotSpecifications;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
-    /**
-     * @return The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-     * 
-     */
     private @Nullable List<String> clientIds;
-    /**
-     * @return The claim that determines the principal in OIDC identity tokens.
-     * 
-     */
     private @Nullable String principalIdClaim;
 
     private IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly() {}
-    /**
-     * @return The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-     * 
-     */
     public List<String> clientIds() {
         return this.clientIds == null ? List.of() : this.clientIds;
     }
-    /**
-     * @return The claim that determines the principal in OIDC identity tokens.
-     * 
-     */
     public Optional<String> principalIdClaim() {
         return Optional.ofNullable(this.principalIdClaim);
     }

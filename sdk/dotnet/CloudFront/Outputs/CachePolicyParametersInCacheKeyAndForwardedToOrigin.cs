@@ -13,25 +13,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class CachePolicyParametersInCacheKeyAndForwardedToOrigin
     {
-        /// <summary>
-        /// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        /// </summary>
         public readonly Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig CookiesConfig;
-        /// <summary>
-        /// Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
-        /// </summary>
         public readonly bool? EnableAcceptEncodingBrotli;
-        /// <summary>
-        /// Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
-        /// </summary>
         public readonly bool? EnableAcceptEncodingGzip;
-        /// <summary>
-        /// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        /// </summary>
         public readonly Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig HeadersConfig;
-        /// <summary>
-        /// Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
-        /// </summary>
         public readonly Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig QueryStringsConfig;
 
         [OutputConstructor]

@@ -17,171 +17,59 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallResult {
-    /**
-     * @return ARN of the firewall.
-     * 
-     */
     private String arn;
-    /**
-     * @return Indicates whether the firewall is protected against changes to its Availability Zone configuration.
-     * 
-     */
     private Boolean availabilityZoneChangeProtection;
-    /**
-     * @return Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
-     * 
-     */
     private List<GetFirewallAvailabilityZoneMapping> availabilityZoneMappings;
-    /**
-     * @return A flag indicating whether the firewall is protected against deletion.
-     * 
-     */
     private Boolean deleteProtection;
-    /**
-     * @return Description of the firewall.
-     * 
-     */
     private String description;
-    /**
-     * @return Set of types for which to collect analysis metrics.
-     * 
-     */
     private List<String> enabledAnalysisTypes;
-    /**
-     * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
-     * 
-     */
     private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
-    /**
-     * @return ARN of the VPC Firewall policy.
-     * 
-     */
     private String firewallPolicyArn;
-    /**
-     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association.
-     * 
-     */
     private Boolean firewallPolicyChangeProtection;
-    /**
-     * @return Nested list of information about the current status of the firewall.
-     * 
-     */
     private List<GetFirewallFirewallStatus> firewallStatuses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Descriptive name of the firewall.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
-     * 
-     */
     private Boolean subnetChangeProtection;
-    /**
-     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
-     * 
-     */
     private List<GetFirewallSubnetMapping> subnetMappings;
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The unique identifier of the transit gateway associated with this firewall.
-     * 
-     */
     private String transitGatewayId;
-    /**
-     * @return The AWS account ID that owns the transit gateway.
-     * 
-     */
     private String transitGatewayOwnerAccountId;
-    /**
-     * @return String token used when updating a firewall.
-     * 
-     */
     private String updateToken;
-    /**
-     * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-     * 
-     */
     private String vpcId;
 
     private GetFirewallResult() {}
-    /**
-     * @return ARN of the firewall.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Indicates whether the firewall is protected against changes to its Availability Zone configuration.
-     * 
-     */
     public Boolean availabilityZoneChangeProtection() {
         return this.availabilityZoneChangeProtection;
     }
-    /**
-     * @return Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
-     * 
-     */
     public List<GetFirewallAvailabilityZoneMapping> availabilityZoneMappings() {
         return this.availabilityZoneMappings;
     }
-    /**
-     * @return A flag indicating whether the firewall is protected against deletion.
-     * 
-     */
     public Boolean deleteProtection() {
         return this.deleteProtection;
     }
-    /**
-     * @return Description of the firewall.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Set of types for which to collect analysis metrics.
-     * 
-     */
     public List<String> enabledAnalysisTypes() {
         return this.enabledAnalysisTypes;
     }
-    /**
-     * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
-     * 
-     */
     public List<GetFirewallEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
-    /**
-     * @return ARN of the VPC Firewall policy.
-     * 
-     */
     public String firewallPolicyArn() {
         return this.firewallPolicyArn;
     }
-    /**
-     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association.
-     * 
-     */
     public Boolean firewallPolicyChangeProtection() {
         return this.firewallPolicyChangeProtection;
     }
-    /**
-     * @return Nested list of information about the current status of the firewall.
-     * 
-     */
     public List<GetFirewallFirewallStatus> firewallStatuses() {
         return this.firewallStatuses;
     }
@@ -192,62 +80,30 @@ public final class GetFirewallResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Descriptive name of the firewall.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
-     * 
-     */
     public Boolean subnetChangeProtection() {
         return this.subnetChangeProtection;
     }
-    /**
-     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
-     * 
-     */
     public List<GetFirewallSubnetMapping> subnetMappings() {
         return this.subnetMappings;
     }
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The unique identifier of the transit gateway associated with this firewall.
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * @return The AWS account ID that owns the transit gateway.
-     * 
-     */
     public String transitGatewayOwnerAccountId() {
         return this.transitGatewayOwnerAccountId;
     }
-    /**
-     * @return String token used when updating a firewall.
-     * 
-     */
     public String updateToken() {
         return this.updateToken;
     }
-    /**
-     * @return Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

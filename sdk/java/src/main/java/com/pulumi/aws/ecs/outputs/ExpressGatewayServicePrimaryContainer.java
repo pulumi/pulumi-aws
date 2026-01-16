@@ -19,21 +19,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ExpressGatewayServicePrimaryContainer {
     private @Nullable List<ExpressGatewayServicePrimaryContainerAwsLogsConfiguration> awsLogsConfigurations;
-    /**
-     * @return Command to run in the container. Overrides the default command from the Docker image.
-     * 
-     */
     private @Nullable List<String> commands;
-    /**
-     * @return Port on which the container listens for connections.
-     * 
-     */
     private @Nullable Integer containerPort;
     private @Nullable List<ExpressGatewayServicePrimaryContainerEnvironment> environments;
-    /**
-     * @return Docker image to use for the container.
-     * 
-     */
     private String image;
     private @Nullable ExpressGatewayServicePrimaryContainerRepositoryCredentials repositoryCredentials;
     private @Nullable List<ExpressGatewayServicePrimaryContainerSecret> secrets;
@@ -42,27 +30,15 @@ public final class ExpressGatewayServicePrimaryContainer {
     public List<ExpressGatewayServicePrimaryContainerAwsLogsConfiguration> awsLogsConfigurations() {
         return this.awsLogsConfigurations == null ? List.of() : this.awsLogsConfigurations;
     }
-    /**
-     * @return Command to run in the container. Overrides the default command from the Docker image.
-     * 
-     */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
-    /**
-     * @return Port on which the container listens for connections.
-     * 
-     */
     public Optional<Integer> containerPort() {
         return Optional.ofNullable(this.containerPort);
     }
     public List<ExpressGatewayServicePrimaryContainerEnvironment> environments() {
         return this.environments == null ? List.of() : this.environments;
     }
-    /**
-     * @return Docker image to use for the container.
-     * 
-     */
     public String image() {
         return this.image;
     }

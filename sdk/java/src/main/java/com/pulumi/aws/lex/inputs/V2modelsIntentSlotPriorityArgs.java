@@ -15,32 +15,16 @@ public final class V2modelsIntentSlotPriorityArgs extends com.pulumi.resources.R
 
     public static final V2modelsIntentSlotPriorityArgs Empty = new V2modelsIntentSlotPriorityArgs();
 
-    /**
-     * Priority that Amazon Lex should apply to the slot.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return Priority that Amazon Lex should apply to the slot.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * Unique identifier of the slot.
-     * 
-     */
     @Import(name="slotId", required=true)
     private Output<String> slotId;
 
-    /**
-     * @return Unique identifier of the slot.
-     * 
-     */
     public Output<String> slotId() {
         return this.slotId;
     }
@@ -70,44 +54,20 @@ public final class V2modelsIntentSlotPriorityArgs extends com.pulumi.resources.R
             $ = new V2modelsIntentSlotPriorityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param priority Priority that Amazon Lex should apply to the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Priority that Amazon Lex should apply to the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param slotId Unique identifier of the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotId(Output<String> slotId) {
             $.slotId = slotId;
             return this;
         }
 
-        /**
-         * @param slotId Unique identifier of the slot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slotId(String slotId) {
             return slotId(Output.of(slotId));
         }

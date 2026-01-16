@@ -14,17 +14,9 @@ public final class GetNotificationChannelSnArgs extends com.pulumi.resources.Res
 
     public static final GetNotificationChannelSnArgs Empty = new GetNotificationChannelSnArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-     * 
-     */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-     * 
-     */
     public Output<String> topicArn() {
         return this.topicArn;
     }
@@ -53,23 +45,11 @@ public final class GetNotificationChannelSnArgs extends com.pulumi.resources.Res
             $ = new GetNotificationChannelSnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param topicArn Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

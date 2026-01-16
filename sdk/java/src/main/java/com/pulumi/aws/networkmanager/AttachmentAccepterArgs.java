@@ -14,32 +14,16 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
 
     public static final AttachmentAccepterArgs Empty = new AttachmentAccepterArgs();
 
-    /**
-     * ID of the attachment.
-     * 
-     */
     @Import(name="attachmentId", required=true)
     private Output<String> attachmentId;
 
-    /**
-     * @return ID of the attachment.
-     * 
-     */
     public Output<String> attachmentId() {
         return this.attachmentId;
     }
 
-    /**
-     * Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-     * 
-     */
     @Import(name="attachmentType", required=true)
     private Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-     * 
-     */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
@@ -69,44 +53,20 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
             $ = new AttachmentAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attachmentId ID of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentId(Output<String> attachmentId) {
             $.attachmentId = attachmentId;
             return this;
         }
 
-        /**
-         * @param attachmentId ID of the attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentId(String attachmentId) {
             return attachmentId(Output.of(attachmentId));
         }
 
-        /**
-         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(Output<String> attachmentType) {
             $.attachmentType = attachmentType;
             return this;
         }
 
-        /**
-         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(String attachmentType) {
             return attachmentType(Output.of(attachmentType));
         }

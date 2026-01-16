@@ -18,62 +18,30 @@ public final class V2modelsIntentFulfillmentCodeHookArgs extends com.pulumi.reso
 
     public static final V2modelsIntentFulfillmentCodeHookArgs Empty = new V2modelsIntentFulfillmentCodeHookArgs();
 
-    /**
-     * Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
-     * 
-     */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
-    /**
-     * @return Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
-     * 
-     */
     public Optional<Output<Boolean>> active() {
         return Optional.ofNullable(this.active);
     }
 
-    /**
-     * Whether a Lambda function should be invoked to fulfill a specific intent.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether a Lambda function should be invoked to fulfill a specific intent.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
-     * 
-     */
     @Import(name="fulfillmentUpdatesSpecification")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs> fulfillmentUpdatesSpecification;
 
-    /**
-     * @return Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs>> fulfillmentUpdatesSpecification() {
         return Optional.ofNullable(this.fulfillmentUpdatesSpecification);
     }
 
-    /**
-     * Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
-     * 
-     */
     @Import(name="postFulfillmentStatusSpecification")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs> postFulfillmentStatusSpecification;
 
-    /**
-     * @return Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs>> postFulfillmentStatusSpecification() {
         return Optional.ofNullable(this.postFulfillmentStatusSpecification);
     }
@@ -105,86 +73,38 @@ public final class V2modelsIntentFulfillmentCodeHookArgs extends com.pulumi.reso
             $ = new V2modelsIntentFulfillmentCodeHookArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(@Nullable Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param enabled Whether a Lambda function should be invoked to fulfill a specific intent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether a Lambda function should be invoked to fulfill a specific intent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param fulfillmentUpdatesSpecification Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fulfillmentUpdatesSpecification(@Nullable Output<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs> fulfillmentUpdatesSpecification) {
             $.fulfillmentUpdatesSpecification = fulfillmentUpdatesSpecification;
             return this;
         }
 
-        /**
-         * @param fulfillmentUpdatesSpecification Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fulfillmentUpdatesSpecification(V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs fulfillmentUpdatesSpecification) {
             return fulfillmentUpdatesSpecification(Output.of(fulfillmentUpdatesSpecification));
         }
 
-        /**
-         * @param postFulfillmentStatusSpecification Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postFulfillmentStatusSpecification(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs> postFulfillmentStatusSpecification) {
             $.postFulfillmentStatusSpecification = postFulfillmentStatusSpecification;
             return this;
         }
 
-        /**
-         * @param postFulfillmentStatusSpecification Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postFulfillmentStatusSpecification(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs postFulfillmentStatusSpecification) {
             return postFulfillmentStatusSpecification(Output.of(postFulfillmentStatusSpecification));
         }

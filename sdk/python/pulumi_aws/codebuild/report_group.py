@@ -29,12 +29,6 @@ class ReportGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReportGroup resource.
-        :param pulumi.Input['ReportGroupExportConfigArgs'] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        :param pulumi.Input[_builtins.str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-        :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        :param pulumi.Input[_builtins.str] name: The name of a Report Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "export_config", export_config)
         pulumi.set(__self__, "type", type)
@@ -50,9 +44,6 @@ class ReportGroupArgs:
     @_builtins.property
     @pulumi.getter(name="exportConfig")
     def export_config(self) -> pulumi.Input['ReportGroupExportConfigArgs']:
-        """
-        Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        """
         return pulumi.get(self, "export_config")
 
     @export_config.setter
@@ -62,9 +53,6 @@ class ReportGroupArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -74,9 +62,6 @@ class ReportGroupArgs:
     @_builtins.property
     @pulumi.getter(name="deleteReports")
     def delete_reports(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        """
         return pulumi.get(self, "delete_reports")
 
     @delete_reports.setter
@@ -86,9 +71,6 @@ class ReportGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of a Report Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,9 +80,6 @@ class ReportGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,9 +89,6 @@ class ReportGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -134,15 +110,6 @@ class _ReportGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReportGroup resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of Report Group.
-        :param pulumi.Input[_builtins.str] created: The date and time this Report Group was created.
-        :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        :param pulumi.Input['ReportGroupExportConfigArgs'] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        :param pulumi.Input[_builtins.str] name: The name of a Report Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -166,9 +133,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of Report Group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -178,9 +142,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter
     def created(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time this Report Group was created.
-        """
         return pulumi.get(self, "created")
 
     @created.setter
@@ -190,9 +151,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter(name="deleteReports")
     def delete_reports(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        """
         return pulumi.get(self, "delete_reports")
 
     @delete_reports.setter
@@ -202,9 +160,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter(name="exportConfig")
     def export_config(self) -> Optional[pulumi.Input['ReportGroupExportConfigArgs']]:
-        """
-        Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        """
         return pulumi.get(self, "export_config")
 
     @export_config.setter
@@ -214,9 +169,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of a Report Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -226,9 +178,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -238,9 +187,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -250,9 +196,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -262,9 +205,6 @@ class _ReportGroupState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -286,65 +226,9 @@ class ReportGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CodeBuild Report Groups Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
-            }],
-            "actions": ["kms:*"],
-            "resources": ["*"],
-        }])
-        example_key = aws.kms.Key("example",
-            description="my test kms key",
-            deletion_window_in_days=7,
-            policy=example.json)
-        example_bucket = aws.s3.Bucket("example", bucket="my-test")
-        example_report_group = aws.codebuild.ReportGroup("example",
-            name="my test report group",
-            type="TEST",
-            export_config={
-                "type": "S3",
-                "s3_destination": {
-                    "bucket": example_bucket.id,
-                    "encryption_disabled": False,
-                    "encryption_key": example_key.arn,
-                    "packaging": "NONE",
-                    "path": "/some",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
-
-        Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
-
-        % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-
+        Create a ReportGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        :param pulumi.Input[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        :param pulumi.Input[_builtins.str] name: The name of a Report Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         ...
     @overload
@@ -353,57 +237,7 @@ class ReportGroup(pulumi.CustomResource):
                  args: ReportGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeBuild Report Groups Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
-            }],
-            "actions": ["kms:*"],
-            "resources": ["*"],
-        }])
-        example_key = aws.kms.Key("example",
-            description="my test kms key",
-            deletion_window_in_days=7,
-            policy=example.json)
-        example_bucket = aws.s3.Bucket("example", bucket="my-test")
-        example_report_group = aws.codebuild.ReportGroup("example",
-            name="my test report group",
-            type="TEST",
-            export_config={
-                "type": "S3",
-                "s3_destination": {
-                    "bucket": example_bucket.id,
-                    "encryption_disabled": False,
-                    "encryption_key": example_key.arn,
-                    "packaging": "NONE",
-                    "path": "/some",
-                },
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
-
-        Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
-
-        % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-
+        Create a ReportGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReportGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -473,15 +307,6 @@ class ReportGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of Report Group.
-        :param pulumi.Input[_builtins.str] created: The date and time this Report Group was created.
-        :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        :param pulumi.Input[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        :param pulumi.Input[_builtins.str] name: The name of a Report Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -501,72 +326,45 @@ class ReportGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of Report Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time this Report Group was created.
-        """
         return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="deleteReports")
     def delete_reports(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        """
         return pulumi.get(self, "delete_reports")
 
     @_builtins.property
     @pulumi.getter(name="exportConfig")
     def export_config(self) -> pulumi.Output['outputs.ReportGroupExportConfig']:
-        """
-        Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        """
         return pulumi.get(self, "export_config")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of a Report Group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
-        """
         return pulumi.get(self, "type")
 

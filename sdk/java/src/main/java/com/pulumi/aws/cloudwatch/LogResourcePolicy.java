@@ -13,160 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a CloudWatch log resource policy.
- * 
- * ## Example Usage
- * 
- * ### Elasticsearch Log Publishing
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var elasticsearch-log-publishing-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents",
- *                     "logs:PutLogEventsBatch")
- *                 .resources("arn:aws:logs:*")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("es.amazonaws.com")
- *                     .type("Service")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var elasticsearch_log_publishing_policyLogResourcePolicy = new LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(elasticsearch_log_publishing_policy.json())
- *             .policyName("elasticsearch-log-publishing-policy")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Route53 Query Logging
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("route53.amazonaws.com")
- *                     .type("Service")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(route53_query_logging_policy.json())
- *             .policyName("route53-query-logging-policy")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logResourcePolicy:LogResourcePolicy")
 public class LogResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * Name of the resource policy.
-     * 
-     */
     @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
-    /**
-     * @return Name of the resource policy.
-     * 
-     */
     public Output<String> policyName() {
         return this.policyName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

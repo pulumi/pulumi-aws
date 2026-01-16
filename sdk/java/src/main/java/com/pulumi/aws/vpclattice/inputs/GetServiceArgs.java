@@ -16,62 +16,30 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceArgs Empty = new GetServiceArgs();
 
-    /**
-     * Service name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Service name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the service.
-     * 
-     */
     @Import(name="serviceIdentifier")
     private @Nullable Output<String> serviceIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the service.
-     * 
-     */
     public Optional<Output<String>> serviceIdentifier() {
         return Optional.ofNullable(this.serviceIdentifier);
     }
 
-    /**
-     * List of tags associated with the service.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return List of tags associated with the service.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,86 +71,38 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(@Nullable Output<String> serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
 
-        /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(String serviceIdentifier) {
             return serviceIdentifier(Output.of(serviceIdentifier));
         }
 
-        /**
-         * @param tags List of tags associated with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags List of tags associated with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

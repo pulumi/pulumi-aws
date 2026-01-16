@@ -17,96 +17,44 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
 
     public static final AgentAgentKnowledgeBaseAssociationArgs Empty = new AgentAgentKnowledgeBaseAssociationArgs();
 
-    /**
-     * Unique identifier of the agent with which you want to associate the knowledge base.
-     * 
-     */
     @Import(name="agentId", required=true)
     private Output<String> agentId;
 
-    /**
-     * @return Unique identifier of the agent with which you want to associate the knowledge base.
-     * 
-     */
     public Output<String> agentId() {
         return this.agentId;
     }
 
-    /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-     * 
-     */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
-    /**
-     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-     * 
-     */
     public Optional<Output<String>> agentVersion() {
         return Optional.ofNullable(this.agentVersion);
     }
 
-    /**
-     * Description of what the agent should use the knowledge base for.
-     * 
-     */
     @Import(name="description", required=true)
     private Output<String> description;
 
-    /**
-     * @return Description of what the agent should use the knowledge base for.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
 
-    /**
-     * Unique identifier of the knowledge base to associate with the agent.
-     * 
-     */
     @Import(name="knowledgeBaseId", required=true)
     private Output<String> knowledgeBaseId;
 
-    /**
-     * @return Unique identifier of the knowledge base to associate with the agent.
-     * 
-     */
     public Output<String> knowledgeBaseId() {
         return this.knowledgeBaseId;
     }
 
-    /**
-     * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="knowledgeBaseState", required=true)
     private Output<String> knowledgeBaseState;
 
-    /**
-     * @return Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> knowledgeBaseState() {
         return this.knowledgeBaseState;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -148,132 +96,56 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
             $ = new AgentAgentKnowledgeBaseAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentId Unique identifier of the agent with which you want to associate the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(Output<String> agentId) {
             $.agentId = agentId;
             return this;
         }
 
-        /**
-         * @param agentId Unique identifier of the agent with which you want to associate the knowledge base.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(String agentId) {
             return agentId(Output.of(agentId));
         }
 
-        /**
-         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(@Nullable Output<String> agentVersion) {
             $.agentVersion = agentVersion;
             return this;
         }
 
-        /**
-         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersion(String agentVersion) {
             return agentVersion(Output.of(agentVersion));
         }
 
-        /**
-         * @param description Description of what the agent should use the knowledge base for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of what the agent should use the knowledge base for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param knowledgeBaseId Unique identifier of the knowledge base to associate with the agent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseId(Output<String> knowledgeBaseId) {
             $.knowledgeBaseId = knowledgeBaseId;
             return this;
         }
 
-        /**
-         * @param knowledgeBaseId Unique identifier of the knowledge base to associate with the agent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseId(String knowledgeBaseId) {
             return knowledgeBaseId(Output.of(knowledgeBaseId));
         }
 
-        /**
-         * @param knowledgeBaseState Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseState(Output<String> knowledgeBaseState) {
             $.knowledgeBaseState = knowledgeBaseState;
             return this;
         }
 
-        /**
-         * @param knowledgeBaseState Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder knowledgeBaseState(String knowledgeBaseState) {
             return knowledgeBaseState(Output.of(knowledgeBaseState));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

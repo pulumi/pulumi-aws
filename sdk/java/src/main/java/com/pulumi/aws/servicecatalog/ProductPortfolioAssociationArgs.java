@@ -16,81 +16,37 @@ public final class ProductPortfolioAssociationArgs extends com.pulumi.resources.
 
     public static final ProductPortfolioAssociationArgs Empty = new ProductPortfolioAssociationArgs();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Import(name="portfolioId", required=true)
     private Output<String> portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public Output<String> portfolioId() {
         return this.portfolioId;
     }
 
-    /**
-     * Product identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="productId", required=true)
     private Output<String> productId;
 
-    /**
-     * @return Product identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> productId() {
         return this.productId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the source portfolio.
-     * 
-     */
     @Import(name="sourcePortfolioId")
     private @Nullable Output<String> sourcePortfolioId;
 
-    /**
-     * @return Identifier of the source portfolio.
-     * 
-     */
     public Optional<Output<String>> sourcePortfolioId() {
         return Optional.ofNullable(this.sourcePortfolioId);
     }
@@ -123,111 +79,47 @@ public final class ProductPortfolioAssociationArgs extends com.pulumi.resources.
             $ = new ProductPortfolioAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(Output<String> portfolioId) {
             $.portfolioId = portfolioId;
             return this;
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(String portfolioId) {
             return portfolioId(Output.of(portfolioId));
         }
 
-        /**
-         * @param productId Product identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder productId(Output<String> productId) {
             $.productId = productId;
             return this;
         }
 
-        /**
-         * @param productId Product identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder productId(String productId) {
             return productId(Output.of(productId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sourcePortfolioId Identifier of the source portfolio.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePortfolioId(@Nullable Output<String> sourcePortfolioId) {
             $.sourcePortfolioId = sourcePortfolioId;
             return this;
         }
 
-        /**
-         * @param sourcePortfolioId Identifier of the source portfolio.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePortfolioId(String sourcePortfolioId) {
             return sourcePortfolioId(Output.of(sourcePortfolioId));
         }

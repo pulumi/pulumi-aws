@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Availability status. Possibles values: ENABLED, DISABLED.
-        /// </summary>
         [Input("availabilityStatus")]
         public Input<string>? AvailabilityStatus { get; set; }
 

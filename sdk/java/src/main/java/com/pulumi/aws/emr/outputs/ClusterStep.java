@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterStep {
-    /**
-     * @return Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-     * 
-     */
     private String actionOnFailure;
-    /**
-     * @return JAR file used for the step. See below.
-     * 
-     */
     private ClusterStepHadoopJarStep hadoopJarStep;
-    /**
-     * @return Name of the step.
-     * 
-     */
     private String name;
 
     private ClusterStep() {}
-    /**
-     * @return Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-     * 
-     */
     public String actionOnFailure() {
         return this.actionOnFailure;
     }
-    /**
-     * @return JAR file used for the step. See below.
-     * 
-     */
     public ClusterStepHadoopJarStep hadoopJarStep() {
         return this.hadoopJarStep;
     }
-    /**
-     * @return Name of the step.
-     * 
-     */
     public String name() {
         return this.name;
     }

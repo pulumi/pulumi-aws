@@ -13,31 +13,11 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class UserName
     {
-        /// <summary>
-        /// The family name of the user.
-        /// </summary>
         public readonly string FamilyName;
-        /// <summary>
-        /// The name that is typically displayed when the name is shown for display.
-        /// </summary>
         public readonly string? Formatted;
-        /// <summary>
-        /// The given name of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string GivenName;
-        /// <summary>
-        /// The honorific prefix of the user.
-        /// </summary>
         public readonly string? HonorificPrefix;
-        /// <summary>
-        /// The honorific suffix of the user.
-        /// </summary>
         public readonly string? HonorificSuffix;
-        /// <summary>
-        /// The middle name of the user.
-        /// </summary>
         public readonly string? MiddleName;
 
         [OutputConstructor]

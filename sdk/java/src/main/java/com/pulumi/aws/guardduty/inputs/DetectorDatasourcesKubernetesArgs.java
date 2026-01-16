@@ -14,19 +14,9 @@ public final class DetectorDatasourcesKubernetesArgs extends com.pulumi.resource
 
     public static final DetectorDatasourcesKubernetesArgs Empty = new DetectorDatasourcesKubernetesArgs();
 
-    /**
-     * Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
-     * 
-     */
     @Import(name="auditLogs", required=true)
     private Output<DetectorDatasourcesKubernetesAuditLogsArgs> auditLogs;
 
-    /**
-     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
-     * 
-     */
     public Output<DetectorDatasourcesKubernetesAuditLogsArgs> auditLogs() {
         return this.auditLogs;
     }
@@ -55,25 +45,11 @@ public final class DetectorDatasourcesKubernetesArgs extends com.pulumi.resource
             $ = new DetectorDatasourcesKubernetesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param auditLogs Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLogs(Output<DetectorDatasourcesKubernetesAuditLogsArgs> auditLogs) {
             $.auditLogs = auditLogs;
             return this;
         }
 
-        /**
-         * @param auditLogs Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLogs(DetectorDatasourcesKubernetesAuditLogsArgs auditLogs) {
             return auditLogs(Output.of(auditLogs));
         }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HubS3StorageConfig {
-    /**
-     * @return The Amazon S3 bucket prefix for hosting hub content.interface.
-     * 
-     */
     private @Nullable String s3OutputPath;
 
     private HubS3StorageConfig() {}
-    /**
-     * @return The Amazon S3 bucket prefix for hosting hub content.interface.
-     * 
-     */
     public Optional<String> s3OutputPath() {
         return Optional.ofNullable(this.s3OutputPath);
     }

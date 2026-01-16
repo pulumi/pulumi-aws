@@ -7,15 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Import
- *
- * Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
- * ```
- */
 export class RecordsExclusive extends pulumi.CustomResource {
     /**
      * Get an existing RecordsExclusive resource's state with the given name, ID, and optional extra
@@ -44,17 +35,8 @@ export class RecordsExclusive extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecordsExclusive.__pulumiType;
     }
 
-    /**
-     * A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     */
     declare public readonly resourceRecordSets: pulumi.Output<outputs.route53.RecordsExclusiveResourceRecordSet[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.route53.RecordsExclusiveTimeouts | undefined>;
-    /**
-     * ID of the hosted zone containing the resource record sets.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly zoneId: pulumi.Output<string>;
 
     /**
@@ -91,17 +73,8 @@ export class RecordsExclusive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RecordsExclusive resources.
  */
 export interface RecordsExclusiveState {
-    /**
-     * A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     */
     resourceRecordSets?: pulumi.Input<pulumi.Input<inputs.route53.RecordsExclusiveResourceRecordSet>[]>;
     timeouts?: pulumi.Input<inputs.route53.RecordsExclusiveTimeouts>;
-    /**
-     * ID of the hosted zone containing the resource record sets.
-     *
-     * The following arguments are optional:
-     */
     zoneId?: pulumi.Input<string>;
 }
 
@@ -109,16 +82,7 @@ export interface RecordsExclusiveState {
  * The set of arguments for constructing a RecordsExclusive resource.
  */
 export interface RecordsExclusiveArgs {
-    /**
-     * A list of all resource record sets associated with the hosted zone.
-     * See `resourceRecordSet` below.
-     */
     resourceRecordSets?: pulumi.Input<pulumi.Input<inputs.route53.RecordsExclusiveResourceRecordSet>[]>;
     timeouts?: pulumi.Input<inputs.route53.RecordsExclusiveTimeouts>;
-    /**
-     * ID of the hosted zone containing the resource record sets.
-     *
-     * The following arguments are optional:
-     */
     zoneId: pulumi.Input<string>;
 }

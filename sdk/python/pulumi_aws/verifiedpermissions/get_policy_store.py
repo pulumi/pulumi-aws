@@ -59,25 +59,16 @@ class GetPolicyStoreResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the Policy Store.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        The date the Policy Store was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> _builtins.str:
-        """
-        Whether the policy store can be deleted.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
@@ -93,9 +84,6 @@ class GetPolicyStoreResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        The date the Policy Store was last updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
@@ -106,17 +94,11 @@ class GetPolicyStoreResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of key-value pairs associated with the policy store.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Sequence['outputs.GetPolicyStoreValidationSettingResult']:
-        """
-        Validation settings for the policy store.
-        """
         return pulumi.get(self, "validation_settings")
 
 
@@ -141,22 +123,7 @@ def get_policy_store(id: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyStoreResult:
     """
-    Data source for managing an AWS Verified Permissions Policy Store.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.verifiedpermissions.get_policy_store(id="example")
-    ```
-
-
-    :param _builtins.str id: The ID of the Policy Store.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -178,22 +145,7 @@ def get_policy_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
-    Data source for managing an AWS Verified Permissions Policy Store.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.verifiedpermissions.get_policy_store(id="example")
-    ```
-
-
-    :param _builtins.str id: The ID of the Policy Store.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

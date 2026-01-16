@@ -17,77 +17,37 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SmsChannelArgs Empty = new SmsChannelArgs();
 
-    /**
-     * ID of the application.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return ID of the application.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * Whether the channel is enabled or disabled. By default, it is set to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. By default, it is set to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the sender for your messages.
-     * 
-     */
     @Import(name="senderId")
     private @Nullable Output<String> senderId;
 
-    /**
-     * @return Identifier of the sender for your messages.
-     * 
-     */
     public Optional<Output<String>> senderId() {
         return Optional.ofNullable(this.senderId);
     }
 
-    /**
-     * Short Code registered with the phone provider.
-     * 
-     */
     @Import(name="shortCode")
     private @Nullable Output<String> shortCode;
 
-    /**
-     * @return Short Code registered with the phone provider.
-     * 
-     */
     public Optional<Output<String>> shortCode() {
         return Optional.ofNullable(this.shortCode);
     }
@@ -120,107 +80,47 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SmsChannelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ID of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId ID of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param enabled Whether the channel is enabled or disabled. By default, it is set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the channel is enabled or disabled. By default, it is set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param senderId Identifier of the sender for your messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder senderId(@Nullable Output<String> senderId) {
             $.senderId = senderId;
             return this;
         }
 
-        /**
-         * @param senderId Identifier of the sender for your messages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder senderId(String senderId) {
             return senderId(Output.of(senderId));
         }
 
-        /**
-         * @param shortCode Short Code registered with the phone provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shortCode(@Nullable Output<String> shortCode) {
             $.shortCode = shortCode;
             return this;
         }
 
-        /**
-         * @param shortCode Short Code registered with the phone provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shortCode(String shortCode) {
             return shortCode(Output.of(shortCode));
         }

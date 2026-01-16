@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.LoggingOptions("example", {
- *     defaultLogLevel: "WARN",
- *     roleArn: exampleAwsIamRole.arn,
- * });
- * ```
- */
 export class LoggingOptions extends pulumi.CustomResource {
     /**
      * Get an existing LoggingOptions resource's state with the given name, ID, and optional extra
@@ -47,21 +32,9 @@ export class LoggingOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggingOptions.__pulumiType;
     }
 
-    /**
-     * The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-     */
     declare public readonly defaultLogLevel: pulumi.Output<string>;
-    /**
-     * If `true` all logs are disabled. The default is `false`.
-     */
     declare public readonly disableAllLogs: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
 
     /**
@@ -103,21 +76,9 @@ export class LoggingOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoggingOptions resources.
  */
 export interface LoggingOptionsState {
-    /**
-     * The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-     */
     defaultLogLevel?: pulumi.Input<string>;
-    /**
-     * If `true` all logs are disabled. The default is `false`.
-     */
     disableAllLogs?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
-     */
     roleArn?: pulumi.Input<string>;
 }
 
@@ -125,20 +86,8 @@ export interface LoggingOptionsState {
  * The set of arguments for constructing a LoggingOptions resource.
  */
 export interface LoggingOptionsArgs {
-    /**
-     * The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-     */
     defaultLogLevel: pulumi.Input<string>;
-    /**
-     * If `true` all logs are disabled. The default is `false`.
-     */
     disableAllLogs?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
-     */
     roleArn: pulumi.Input<string>;
 }

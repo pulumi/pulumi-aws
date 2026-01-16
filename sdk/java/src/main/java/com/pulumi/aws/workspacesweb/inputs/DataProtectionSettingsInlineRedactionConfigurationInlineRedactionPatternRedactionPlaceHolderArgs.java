@@ -16,32 +16,16 @@ public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedac
 
     public static final DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs Empty = new DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs();
 
-    /**
-     * The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-     * 
-     */
     @Import(name="redactionPlaceHolderText")
     private @Nullable Output<String> redactionPlaceHolderText;
 
-    /**
-     * @return The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-     * 
-     */
     public Optional<Output<String>> redactionPlaceHolderText() {
         return Optional.ofNullable(this.redactionPlaceHolderText);
     }
 
-    /**
-     * The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-     * 
-     */
     @Import(name="redactionPlaceHolderType", required=true)
     private Output<String> redactionPlaceHolderType;
 
-    /**
-     * @return The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-     * 
-     */
     public Output<String> redactionPlaceHolderType() {
         return this.redactionPlaceHolderType;
     }
@@ -71,44 +55,20 @@ public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedac
             $ = new DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param redactionPlaceHolderText The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolderText(@Nullable Output<String> redactionPlaceHolderText) {
             $.redactionPlaceHolderText = redactionPlaceHolderText;
             return this;
         }
 
-        /**
-         * @param redactionPlaceHolderText The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolderText(String redactionPlaceHolderText) {
             return redactionPlaceHolderText(Output.of(redactionPlaceHolderText));
         }
 
-        /**
-         * @param redactionPlaceHolderType The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolderType(Output<String> redactionPlaceHolderType) {
             $.redactionPlaceHolderType = redactionPlaceHolderType;
             return this;
         }
 
-        /**
-         * @param redactionPlaceHolderType The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redactionPlaceHolderType(String redactionPlaceHolderType) {
             return redactionPlaceHolderType(Output.of(redactionPlaceHolderType));
         }

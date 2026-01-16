@@ -18,32 +18,16 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
 
     public static final DataSetRowLevelPermissionTagConfigurationArgs Empty = new DataSetRowLevelPermissionTagConfigurationArgs();
 
-    /**
-     * The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-     * 
-     */
     @Import(name="tagRules", required=true)
     private Output<List<DataSetRowLevelPermissionTagConfigurationTagRuleArgs>> tagRules;
 
-    /**
-     * @return A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-     * 
-     */
     public Output<List<DataSetRowLevelPermissionTagConfigurationTagRuleArgs>> tagRules() {
         return this.tagRules;
     }
@@ -73,54 +57,24 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
             $ = new DataSetRowLevelPermissionTagConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tagRules A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagRules(Output<List<DataSetRowLevelPermissionTagConfigurationTagRuleArgs>> tagRules) {
             $.tagRules = tagRules;
             return this;
         }
 
-        /**
-         * @param tagRules A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagRules(List<DataSetRowLevelPermissionTagConfigurationTagRuleArgs> tagRules) {
             return tagRules(Output.of(tagRules));
         }
 
-        /**
-         * @param tagRules A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagRules(DataSetRowLevelPermissionTagConfigurationTagRuleArgs... tagRules) {
             return tagRules(List.of(tagRules));
         }

@@ -9,90 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Waf
 {
-    /// <summary>
-    /// Provides a WAF Rule Group Resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Waf.Rule("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         MetricName = "example",
-    ///     });
-    /// 
-    ///     var exampleRuleGroup = new Aws.Waf.RuleGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         MetricName = "example",
-    ///         ActivatedRules = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.RuleGroupActivatedRuleArgs
-    ///             {
-    ///                 Action = new Aws.Waf.Inputs.RuleGroupActivatedRuleActionArgs
-    ///                 {
-    ///                     Type = "COUNT",
-    ///                 },
-    ///                 Priority = 50,
-    ///                 RuleId = example.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WAF Rule Group using the id. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:waf/ruleGroup:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of activated rules, see below
-        /// </summary>
         [Output("activatedRules")]
         public Output<ImmutableArray<Outputs.RuleGroupActivatedRule>> ActivatedRules { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the WAF rule group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly name for the metrics from the rule group
-        /// </summary>
         [Output("metricName")]
         public Output<string> MetricName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -144,34 +78,20 @@ namespace Pulumi.Aws.Waf
     {
         [Input("activatedRules")]
         private InputList<Inputs.RuleGroupActivatedRuleArgs>? _activatedRules;
-
-        /// <summary>
-        /// A list of activated rules, see below
-        /// </summary>
         public InputList<Inputs.RuleGroupActivatedRuleArgs> ActivatedRules
         {
             get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRuleArgs>());
             set => _activatedRules = value;
         }
 
-        /// <summary>
-        /// A friendly name for the metrics from the rule group
-        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -188,40 +108,23 @@ namespace Pulumi.Aws.Waf
     {
         [Input("activatedRules")]
         private InputList<Inputs.RuleGroupActivatedRuleGetArgs>? _activatedRules;
-
-        /// <summary>
-        /// A list of activated rules, see below
-        /// </summary>
         public InputList<Inputs.RuleGroupActivatedRuleGetArgs> ActivatedRules
         {
             get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRuleGetArgs>());
             set => _activatedRules = value;
         }
 
-        /// <summary>
-        /// The ARN of the WAF rule group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A friendly name for the metrics from the rule group
-        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
-        /// <summary>
-        /// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -230,10 +133,6 @@ namespace Pulumi.Aws.Waf
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

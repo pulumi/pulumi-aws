@@ -18,32 +18,16 @@ public final class PipelineStageBeforeEntryConditionArgs extends com.pulumi.reso
 
     public static final PipelineStageBeforeEntryConditionArgs Empty = new PipelineStageBeforeEntryConditionArgs();
 
-    /**
-     * The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     @Import(name="result")
     private @Nullable Output<String> result;
 
-    /**
-     * @return The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     public Optional<Output<String>> result() {
         return Optional.ofNullable(this.result);
     }
 
-    /**
-     * The rules that make up the condition. Defined as a `rule` block below.
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<PipelineStageBeforeEntryConditionRuleArgs>> rules;
 
-    /**
-     * @return The rules that make up the condition. Defined as a `rule` block below.
-     * 
-     */
     public Output<List<PipelineStageBeforeEntryConditionRuleArgs>> rules() {
         return this.rules;
     }
@@ -73,54 +57,24 @@ public final class PipelineStageBeforeEntryConditionArgs extends com.pulumi.reso
             $ = new PipelineStageBeforeEntryConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param result The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder result(@Nullable Output<String> result) {
             $.result = result;
             return this;
         }
 
-        /**
-         * @param result The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder result(String result) {
             return result(Output.of(result));
         }
 
-        /**
-         * @param rules The rules that make up the condition. Defined as a `rule` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<PipelineStageBeforeEntryConditionRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules The rules that make up the condition. Defined as a `rule` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<PipelineStageBeforeEntryConditionRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules The rules that make up the condition. Defined as a `rule` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(PipelineStageBeforeEntryConditionRuleArgs... rules) {
             return rules(List.of(rules));
         }

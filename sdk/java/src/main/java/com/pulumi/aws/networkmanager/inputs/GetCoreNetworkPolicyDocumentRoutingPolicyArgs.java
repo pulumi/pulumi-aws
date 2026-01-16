@@ -19,77 +19,37 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyArgs extends com.pul
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicyArgs Empty = new GetCoreNetworkPolicyDocumentRoutingPolicyArgs();
 
-    /**
-     * Description of the routing policy.
-     * 
-     */
     @Import(name="routingPolicyDescription")
     private @Nullable Output<String> routingPolicyDescription;
 
-    /**
-     * @return Description of the routing policy.
-     * 
-     */
     public Optional<Output<String>> routingPolicyDescription() {
         return Optional.ofNullable(this.routingPolicyDescription);
     }
 
-    /**
-     * Direction of the routing policy. Valid values: `inbound`, `outbound`.
-     * 
-     */
     @Import(name="routingPolicyDirection", required=true)
     private Output<String> routingPolicyDirection;
 
-    /**
-     * @return Direction of the routing policy. Valid values: `inbound`, `outbound`.
-     * 
-     */
     public Output<String> routingPolicyDirection() {
         return this.routingPolicyDirection;
     }
 
-    /**
-     * Name of the routing policy. Must be 1-100 alphanumeric characters.
-     * 
-     */
     @Import(name="routingPolicyName", required=true)
     private Output<String> routingPolicyName;
 
-    /**
-     * @return Name of the routing policy. Must be 1-100 alphanumeric characters.
-     * 
-     */
     public Output<String> routingPolicyName() {
         return this.routingPolicyName;
     }
 
-    /**
-     * Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     @Import(name="routingPolicyNumber", required=true)
     private Output<Integer> routingPolicyNumber;
 
-    /**
-     * @return Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     public Output<Integer> routingPolicyNumber() {
         return this.routingPolicyNumber;
     }
 
-    /**
-     * List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-     * 
-     */
     @Import(name="routingPolicyRules", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs>> routingPolicyRules;
 
-    /**
-     * @return List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-     * 
-     */
     public Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs>> routingPolicyRules() {
         return this.routingPolicyRules;
     }
@@ -122,117 +82,51 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyArgs extends com.pul
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param routingPolicyDescription Description of the routing policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyDescription(@Nullable Output<String> routingPolicyDescription) {
             $.routingPolicyDescription = routingPolicyDescription;
             return this;
         }
 
-        /**
-         * @param routingPolicyDescription Description of the routing policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyDescription(String routingPolicyDescription) {
             return routingPolicyDescription(Output.of(routingPolicyDescription));
         }
 
-        /**
-         * @param routingPolicyDirection Direction of the routing policy. Valid values: `inbound`, `outbound`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyDirection(Output<String> routingPolicyDirection) {
             $.routingPolicyDirection = routingPolicyDirection;
             return this;
         }
 
-        /**
-         * @param routingPolicyDirection Direction of the routing policy. Valid values: `inbound`, `outbound`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyDirection(String routingPolicyDirection) {
             return routingPolicyDirection(Output.of(routingPolicyDirection));
         }
 
-        /**
-         * @param routingPolicyName Name of the routing policy. Must be 1-100 alphanumeric characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyName(Output<String> routingPolicyName) {
             $.routingPolicyName = routingPolicyName;
             return this;
         }
 
-        /**
-         * @param routingPolicyName Name of the routing policy. Must be 1-100 alphanumeric characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyName(String routingPolicyName) {
             return routingPolicyName(Output.of(routingPolicyName));
         }
 
-        /**
-         * @param routingPolicyNumber Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyNumber(Output<Integer> routingPolicyNumber) {
             $.routingPolicyNumber = routingPolicyNumber;
             return this;
         }
 
-        /**
-         * @param routingPolicyNumber Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyNumber(Integer routingPolicyNumber) {
             return routingPolicyNumber(Output.of(routingPolicyNumber));
         }
 
-        /**
-         * @param routingPolicyRules List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyRules(Output<List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs>> routingPolicyRules) {
             $.routingPolicyRules = routingPolicyRules;
             return this;
         }
 
-        /**
-         * @param routingPolicyRules List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyRules(List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs> routingPolicyRules) {
             return routingPolicyRules(Output.of(routingPolicyRules));
         }
 
-        /**
-         * @param routingPolicyRules List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyRules(GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs... routingPolicyRules) {
             return routingPolicyRules(List.of(routingPolicyRules));
         }

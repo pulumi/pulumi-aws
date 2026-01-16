@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationAutoStartConfiguration struct {
-	// Enables the application to automatically start on job submission. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -30,7 +29,6 @@ type ApplicationAutoStartConfigurationInput interface {
 }
 
 type ApplicationAutoStartConfigurationArgs struct {
-	// Enables the application to automatically start on job submission. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -111,7 +109,6 @@ func (o ApplicationAutoStartConfigurationOutput) ToApplicationAutoStartConfigura
 	}).(ApplicationAutoStartConfigurationPtrOutput)
 }
 
-// Enables the application to automatically start on job submission. Defaults to `true`.
 func (o ApplicationAutoStartConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStartConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -140,7 +137,6 @@ func (o ApplicationAutoStartConfigurationPtrOutput) Elem() ApplicationAutoStartC
 	}).(ApplicationAutoStartConfigurationOutput)
 }
 
-// Enables the application to automatically start on job submission. Defaults to `true`.
 func (o ApplicationAutoStartConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStartConfiguration) *bool {
 		if v == nil {
@@ -151,10 +147,8 @@ func (o ApplicationAutoStartConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutp
 }
 
 type ApplicationAutoStopConfiguration struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-	IdleTimeoutMinutes *int `pulumi:"idleTimeoutMinutes"`
+	Enabled            *bool `pulumi:"enabled"`
+	IdleTimeoutMinutes *int  `pulumi:"idleTimeoutMinutes"`
 }
 
 // ApplicationAutoStopConfigurationInput is an input type that accepts ApplicationAutoStopConfigurationArgs and ApplicationAutoStopConfigurationOutput values.
@@ -169,10 +163,8 @@ type ApplicationAutoStopConfigurationInput interface {
 }
 
 type ApplicationAutoStopConfigurationArgs struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-	IdleTimeoutMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutMinutes"`
+	Enabled            pulumi.BoolPtrInput `pulumi:"enabled"`
+	IdleTimeoutMinutes pulumi.IntPtrInput  `pulumi:"idleTimeoutMinutes"`
 }
 
 func (ApplicationAutoStopConfigurationArgs) ElementType() reflect.Type {
@@ -252,12 +244,10 @@ func (o ApplicationAutoStopConfigurationOutput) ToApplicationAutoStopConfigurati
 	}).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 func (o ApplicationAutoStopConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStopConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
 func (o ApplicationAutoStopConfigurationOutput) IdleTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStopConfiguration) *int { return v.IdleTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -286,7 +276,6 @@ func (o ApplicationAutoStopConfigurationPtrOutput) Elem() ApplicationAutoStopCon
 	}).(ApplicationAutoStopConfigurationOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 func (o ApplicationAutoStopConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStopConfiguration) *bool {
 		if v == nil {
@@ -296,7 +285,6 @@ func (o ApplicationAutoStopConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
 func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStopConfiguration) *int {
 		if v == nil {
@@ -307,7 +295,6 @@ func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.I
 }
 
 type ApplicationImageConfiguration struct {
-	// The image URI.
 	ImageUri string `pulumi:"imageUri"`
 }
 
@@ -323,7 +310,6 @@ type ApplicationImageConfigurationInput interface {
 }
 
 type ApplicationImageConfigurationArgs struct {
-	// The image URI.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 }
 
@@ -404,7 +390,6 @@ func (o ApplicationImageConfigurationOutput) ToApplicationImageConfigurationPtrO
 	}).(ApplicationImageConfigurationPtrOutput)
 }
 
-// The image URI.
 func (o ApplicationImageConfigurationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationImageConfiguration) string { return v.ImageUri }).(pulumi.StringOutput)
 }
@@ -433,7 +418,6 @@ func (o ApplicationImageConfigurationPtrOutput) Elem() ApplicationImageConfigura
 	}).(ApplicationImageConfigurationOutput)
 }
 
-// The image URI.
 func (o ApplicationImageConfigurationPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationImageConfiguration) *string {
 		if v == nil {
@@ -444,10 +428,8 @@ func (o ApplicationImageConfigurationPtrOutput) ImageUri() pulumi.StringPtrOutpu
 }
 
 type ApplicationInitialCapacity struct {
-	// The initial capacity configuration per worker.
 	InitialCapacityConfig *ApplicationInitialCapacityInitialCapacityConfig `pulumi:"initialCapacityConfig"`
-	// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-	InitialCapacityType string `pulumi:"initialCapacityType"`
+	InitialCapacityType   string                                           `pulumi:"initialCapacityType"`
 }
 
 // ApplicationInitialCapacityInput is an input type that accepts ApplicationInitialCapacityArgs and ApplicationInitialCapacityOutput values.
@@ -462,10 +444,8 @@ type ApplicationInitialCapacityInput interface {
 }
 
 type ApplicationInitialCapacityArgs struct {
-	// The initial capacity configuration per worker.
 	InitialCapacityConfig ApplicationInitialCapacityInitialCapacityConfigPtrInput `pulumi:"initialCapacityConfig"`
-	// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-	InitialCapacityType pulumi.StringInput `pulumi:"initialCapacityType"`
+	InitialCapacityType   pulumi.StringInput                                      `pulumi:"initialCapacityType"`
 }
 
 func (ApplicationInitialCapacityArgs) ElementType() reflect.Type {
@@ -519,14 +499,12 @@ func (o ApplicationInitialCapacityOutput) ToApplicationInitialCapacityOutputWith
 	return o
 }
 
-// The initial capacity configuration per worker.
 func (o ApplicationInitialCapacityOutput) InitialCapacityConfig() ApplicationInitialCapacityInitialCapacityConfigPtrOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacity) *ApplicationInitialCapacityInitialCapacityConfig {
 		return v.InitialCapacityConfig
 	}).(ApplicationInitialCapacityInitialCapacityConfigPtrOutput)
 }
 
-// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
 func (o ApplicationInitialCapacityOutput) InitialCapacityType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacity) string { return v.InitialCapacityType }).(pulumi.StringOutput)
 }
@@ -552,10 +530,8 @@ func (o ApplicationInitialCapacityArrayOutput) Index(i pulumi.IntInput) Applicat
 }
 
 type ApplicationInitialCapacityInitialCapacityConfig struct {
-	// The resource configuration of the initial capacity configuration.
 	WorkerConfiguration *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration `pulumi:"workerConfiguration"`
-	// The number of workers in the initial capacity configuration.
-	WorkerCount int `pulumi:"workerCount"`
+	WorkerCount         int                                                                 `pulumi:"workerCount"`
 }
 
 // ApplicationInitialCapacityInitialCapacityConfigInput is an input type that accepts ApplicationInitialCapacityInitialCapacityConfigArgs and ApplicationInitialCapacityInitialCapacityConfigOutput values.
@@ -570,10 +546,8 @@ type ApplicationInitialCapacityInitialCapacityConfigInput interface {
 }
 
 type ApplicationInitialCapacityInitialCapacityConfigArgs struct {
-	// The resource configuration of the initial capacity configuration.
 	WorkerConfiguration ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrInput `pulumi:"workerConfiguration"`
-	// The number of workers in the initial capacity configuration.
-	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
+	WorkerCount         pulumi.IntInput                                                            `pulumi:"workerCount"`
 }
 
 func (ApplicationInitialCapacityInitialCapacityConfigArgs) ElementType() reflect.Type {
@@ -653,14 +627,12 @@ func (o ApplicationInitialCapacityInitialCapacityConfigOutput) ToApplicationInit
 	}).(ApplicationInitialCapacityInitialCapacityConfigPtrOutput)
 }
 
-// The resource configuration of the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigOutput) WorkerConfiguration() ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfig) *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration {
 		return v.WorkerConfiguration
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput)
 }
 
-// The number of workers in the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfig) int { return v.WorkerCount }).(pulumi.IntOutput)
 }
@@ -689,7 +661,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) Elem() Applica
 	}).(ApplicationInitialCapacityInitialCapacityConfigOutput)
 }
 
-// The resource configuration of the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerConfiguration() ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfig) *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration {
 		if v == nil {
@@ -699,7 +670,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerConfigur
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput)
 }
 
-// The number of workers in the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfig) *int {
 		if v == nil {
@@ -710,12 +680,9 @@ func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerCount() 
 }
 
 type ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration struct {
-	// The CPU requirements for every worker instance of the worker type.
-	Cpu string `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
-	Disk *string `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
-	Memory string `pulumi:"memory"`
+	Cpu    string  `pulumi:"cpu"`
+	Disk   *string `pulumi:"disk"`
+	Memory string  `pulumi:"memory"`
 }
 
 // ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationInput is an input type that accepts ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs and ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput values.
@@ -730,12 +697,9 @@ type ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationInput int
 }
 
 type ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs struct {
-	// The CPU requirements for every worker instance of the worker type.
-	Cpu pulumi.StringInput `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
-	Disk pulumi.StringPtrInput `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
-	Memory pulumi.StringInput `pulumi:"memory"`
+	Cpu    pulumi.StringInput    `pulumi:"cpu"`
+	Disk   pulumi.StringPtrInput `pulumi:"disk"`
+	Memory pulumi.StringInput    `pulumi:"memory"`
 }
 
 func (ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs) ElementType() reflect.Type {
@@ -815,17 +779,14 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) string { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string { return v.Disk }).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -854,7 +815,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string {
 		if v == nil {
@@ -864,7 +824,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string {
 		if v == nil {
@@ -874,7 +833,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string {
 		if v == nil {
@@ -885,10 +843,8 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 }
 
 type ApplicationInteractiveConfiguration struct {
-	// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
 	LivyEndpointEnabled *bool `pulumi:"livyEndpointEnabled"`
-	// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-	StudioEnabled *bool `pulumi:"studioEnabled"`
+	StudioEnabled       *bool `pulumi:"studioEnabled"`
 }
 
 // ApplicationInteractiveConfigurationInput is an input type that accepts ApplicationInteractiveConfigurationArgs and ApplicationInteractiveConfigurationOutput values.
@@ -903,10 +859,8 @@ type ApplicationInteractiveConfigurationInput interface {
 }
 
 type ApplicationInteractiveConfigurationArgs struct {
-	// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
 	LivyEndpointEnabled pulumi.BoolPtrInput `pulumi:"livyEndpointEnabled"`
-	// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-	StudioEnabled pulumi.BoolPtrInput `pulumi:"studioEnabled"`
+	StudioEnabled       pulumi.BoolPtrInput `pulumi:"studioEnabled"`
 }
 
 func (ApplicationInteractiveConfigurationArgs) ElementType() reflect.Type {
@@ -986,12 +940,10 @@ func (o ApplicationInteractiveConfigurationOutput) ToApplicationInteractiveConfi
 	}).(ApplicationInteractiveConfigurationPtrOutput)
 }
 
-// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
 func (o ApplicationInteractiveConfigurationOutput) LivyEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.LivyEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
 func (o ApplicationInteractiveConfigurationOutput) StudioEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInteractiveConfiguration) *bool { return v.StudioEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1020,7 +972,6 @@ func (o ApplicationInteractiveConfigurationPtrOutput) Elem() ApplicationInteract
 	}).(ApplicationInteractiveConfigurationOutput)
 }
 
-// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
 func (o ApplicationInteractiveConfigurationPtrOutput) LivyEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInteractiveConfiguration) *bool {
 		if v == nil {
@@ -1030,7 +981,6 @@ func (o ApplicationInteractiveConfigurationPtrOutput) LivyEndpointEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
 func (o ApplicationInteractiveConfigurationPtrOutput) StudioEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInteractiveConfiguration) *bool {
 		if v == nil {
@@ -1041,12 +991,9 @@ func (o ApplicationInteractiveConfigurationPtrOutput) StudioEnabled() pulumi.Boo
 }
 
 type ApplicationMaximumCapacity struct {
-	// The maximum allowed CPU for an application.
-	Cpu string `pulumi:"cpu"`
-	// The maximum allowed disk for an application.
-	Disk *string `pulumi:"disk"`
-	// The maximum allowed resources for an application.
-	Memory string `pulumi:"memory"`
+	Cpu    string  `pulumi:"cpu"`
+	Disk   *string `pulumi:"disk"`
+	Memory string  `pulumi:"memory"`
 }
 
 // ApplicationMaximumCapacityInput is an input type that accepts ApplicationMaximumCapacityArgs and ApplicationMaximumCapacityOutput values.
@@ -1061,12 +1008,9 @@ type ApplicationMaximumCapacityInput interface {
 }
 
 type ApplicationMaximumCapacityArgs struct {
-	// The maximum allowed CPU for an application.
-	Cpu pulumi.StringInput `pulumi:"cpu"`
-	// The maximum allowed disk for an application.
-	Disk pulumi.StringPtrInput `pulumi:"disk"`
-	// The maximum allowed resources for an application.
-	Memory pulumi.StringInput `pulumi:"memory"`
+	Cpu    pulumi.StringInput    `pulumi:"cpu"`
+	Disk   pulumi.StringPtrInput `pulumi:"disk"`
+	Memory pulumi.StringInput    `pulumi:"memory"`
 }
 
 func (ApplicationMaximumCapacityArgs) ElementType() reflect.Type {
@@ -1146,17 +1090,14 @@ func (o ApplicationMaximumCapacityOutput) ToApplicationMaximumCapacityPtrOutputW
 	}).(ApplicationMaximumCapacityPtrOutput)
 }
 
-// The maximum allowed CPU for an application.
 func (o ApplicationMaximumCapacityOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) string { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// The maximum allowed disk for an application.
 func (o ApplicationMaximumCapacityOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) *string { return v.Disk }).(pulumi.StringPtrOutput)
 }
 
-// The maximum allowed resources for an application.
 func (o ApplicationMaximumCapacityOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -1185,7 +1126,6 @@ func (o ApplicationMaximumCapacityPtrOutput) Elem() ApplicationMaximumCapacityOu
 	}).(ApplicationMaximumCapacityOutput)
 }
 
-// The maximum allowed CPU for an application.
 func (o ApplicationMaximumCapacityPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -1195,7 +1135,6 @@ func (o ApplicationMaximumCapacityPtrOutput) Cpu() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum allowed disk for an application.
 func (o ApplicationMaximumCapacityPtrOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -1205,7 +1144,6 @@ func (o ApplicationMaximumCapacityPtrOutput) Disk() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum allowed resources for an application.
 func (o ApplicationMaximumCapacityPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -1216,14 +1154,10 @@ func (o ApplicationMaximumCapacityPtrOutput) Memory() pulumi.StringPtrOutput {
 }
 
 type ApplicationMonitoringConfiguration struct {
-	// The Amazon CloudWatch configuration for monitoring logs.
-	CloudwatchLoggingConfiguration *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration `pulumi:"cloudwatchLoggingConfiguration"`
-	// The managed log persistence configuration for monitoring logs.
+	CloudwatchLoggingConfiguration            *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration            `pulumi:"cloudwatchLoggingConfiguration"`
 	ManagedPersistenceMonitoringConfiguration *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration `pulumi:"managedPersistenceMonitoringConfiguration"`
-	// The Prometheus configuration for monitoring metrics.
-	PrometheusMonitoringConfiguration *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration `pulumi:"prometheusMonitoringConfiguration"`
-	// The Amazon S3 configuration for monitoring log publishing.
-	S3MonitoringConfiguration *ApplicationMonitoringConfigurationS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
+	PrometheusMonitoringConfiguration         *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration         `pulumi:"prometheusMonitoringConfiguration"`
+	S3MonitoringConfiguration                 *ApplicationMonitoringConfigurationS3MonitoringConfiguration                 `pulumi:"s3MonitoringConfiguration"`
 }
 
 // ApplicationMonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationArgs and ApplicationMonitoringConfigurationOutput values.
@@ -1238,14 +1172,10 @@ type ApplicationMonitoringConfigurationInput interface {
 }
 
 type ApplicationMonitoringConfigurationArgs struct {
-	// The Amazon CloudWatch configuration for monitoring logs.
-	CloudwatchLoggingConfiguration ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput `pulumi:"cloudwatchLoggingConfiguration"`
-	// The managed log persistence configuration for monitoring logs.
+	CloudwatchLoggingConfiguration            ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput            `pulumi:"cloudwatchLoggingConfiguration"`
 	ManagedPersistenceMonitoringConfiguration ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput `pulumi:"managedPersistenceMonitoringConfiguration"`
-	// The Prometheus configuration for monitoring metrics.
-	PrometheusMonitoringConfiguration ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput `pulumi:"prometheusMonitoringConfiguration"`
-	// The Amazon S3 configuration for monitoring log publishing.
-	S3MonitoringConfiguration ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
+	PrometheusMonitoringConfiguration         ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput         `pulumi:"prometheusMonitoringConfiguration"`
+	S3MonitoringConfiguration                 ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput                 `pulumi:"s3MonitoringConfiguration"`
 }
 
 func (ApplicationMonitoringConfigurationArgs) ElementType() reflect.Type {
@@ -1325,28 +1255,24 @@ func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigu
 	}).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
-// The Amazon CloudWatch configuration for monitoring logs.
 func (o ApplicationMonitoringConfigurationOutput) CloudwatchLoggingConfiguration() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
 		return v.CloudwatchLoggingConfiguration
 	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
 }
 
-// The managed log persistence configuration for monitoring logs.
 func (o ApplicationMonitoringConfigurationOutput) ManagedPersistenceMonitoringConfiguration() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
 		return v.ManagedPersistenceMonitoringConfiguration
 	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
 }
 
-// The Prometheus configuration for monitoring metrics.
 func (o ApplicationMonitoringConfigurationOutput) PrometheusMonitoringConfiguration() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
 		return v.PrometheusMonitoringConfiguration
 	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
 }
 
-// The Amazon S3 configuration for monitoring log publishing.
 func (o ApplicationMonitoringConfigurationOutput) S3MonitoringConfiguration() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationS3MonitoringConfiguration {
 		return v.S3MonitoringConfiguration
@@ -1377,7 +1303,6 @@ func (o ApplicationMonitoringConfigurationPtrOutput) Elem() ApplicationMonitorin
 	}).(ApplicationMonitoringConfigurationOutput)
 }
 
-// The Amazon CloudWatch configuration for monitoring logs.
 func (o ApplicationMonitoringConfigurationPtrOutput) CloudwatchLoggingConfiguration() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
 		if v == nil {
@@ -1387,7 +1312,6 @@ func (o ApplicationMonitoringConfigurationPtrOutput) CloudwatchLoggingConfigurat
 	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
 }
 
-// The managed log persistence configuration for monitoring logs.
 func (o ApplicationMonitoringConfigurationPtrOutput) ManagedPersistenceMonitoringConfiguration() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
 		if v == nil {
@@ -1397,7 +1321,6 @@ func (o ApplicationMonitoringConfigurationPtrOutput) ManagedPersistenceMonitorin
 	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
 }
 
-// The Prometheus configuration for monitoring metrics.
 func (o ApplicationMonitoringConfigurationPtrOutput) PrometheusMonitoringConfiguration() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
 		if v == nil {
@@ -1407,7 +1330,6 @@ func (o ApplicationMonitoringConfigurationPtrOutput) PrometheusMonitoringConfigu
 	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
 }
 
-// The Amazon S3 configuration for monitoring log publishing.
 func (o ApplicationMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationS3MonitoringConfiguration {
 		if v == nil {
@@ -1418,16 +1340,11 @@ func (o ApplicationMonitoringConfigurationPtrOutput) S3MonitoringConfiguration()
 }
 
 type ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration struct {
-	// Enables CloudWatch logging.
-	Enabled bool `pulumi:"enabled"`
-	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
-	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-	LogGroupName *string `pulumi:"logGroupName"`
-	// Prefix for the CloudWatch log stream name.
-	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
-	// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
-	LogTypes []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType `pulumi:"logTypes"`
+	Enabled             bool                                                                      `pulumi:"enabled"`
+	EncryptionKeyArn    *string                                                                   `pulumi:"encryptionKeyArn"`
+	LogGroupName        *string                                                                   `pulumi:"logGroupName"`
+	LogStreamNamePrefix *string                                                                   `pulumi:"logStreamNamePrefix"`
+	LogTypes            []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType `pulumi:"logTypes"`
 }
 
 // ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs and ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput values.
@@ -1442,16 +1359,11 @@ type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput inter
 }
 
 type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs struct {
-	// Enables CloudWatch logging.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
-	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
-	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// Prefix for the CloudWatch log stream name.
-	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
-	// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
-	LogTypes ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput `pulumi:"logTypes"`
+	Enabled             pulumi.BoolInput                                                                  `pulumi:"enabled"`
+	EncryptionKeyArn    pulumi.StringPtrInput                                                             `pulumi:"encryptionKeyArn"`
+	LogGroupName        pulumi.StringPtrInput                                                             `pulumi:"logGroupName"`
+	LogStreamNamePrefix pulumi.StringPtrInput                                                             `pulumi:"logStreamNamePrefix"`
+	LogTypes            ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput `pulumi:"logTypes"`
 }
 
 func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -1531,33 +1443,28 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) 
 	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
 }
 
-// Enables CloudWatch logging.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		return v.EncryptionKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix for the CloudWatch log stream name.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		return v.LogStreamNamePrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) LogTypes() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType {
 		return v.LogTypes
@@ -1588,7 +1495,6 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput)
 }
 
-// Enables CloudWatch logging.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *bool {
 		if v == nil {
@@ -1598,7 +1504,6 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		if v == nil {
@@ -1608,7 +1513,6 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		if v == nil {
@@ -1618,7 +1522,6 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix for the CloudWatch log stream name.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		if v == nil {
@@ -1628,7 +1531,6 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) LogTypes() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType {
 		if v == nil {
@@ -1639,9 +1541,7 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 }
 
 type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType struct {
-	// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-	Name string `pulumi:"name"`
-	// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1657,9 +1557,7 @@ type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeInpu
 }
 
 type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs struct {
-	// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1714,12 +1612,10 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeO
 	return o
 }
 
-// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType) []string {
 		return v.Values
@@ -1747,9 +1643,7 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeA
 }
 
 type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration struct {
-	// Enables managed log persistence for monitoring logs.
-	Enabled *bool `pulumi:"enabled"`
-	// The KMS key ARN to encrypt the logs stored in managed persistence.
+	Enabled          *bool   `pulumi:"enabled"`
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 }
 
@@ -1765,9 +1659,7 @@ type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration
 }
 
 type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs struct {
-	// Enables managed log persistence for monitoring logs.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The KMS key ARN to encrypt the logs stored in managed persistence.
+	Enabled          pulumi.BoolPtrInput   `pulumi:"enabled"`
 	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
 }
 
@@ -1848,14 +1740,12 @@ func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurat
 	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
 }
 
-// Enables managed log persistence for monitoring logs.
 func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *bool {
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The KMS key ARN to encrypt the logs stored in managed persistence.
 func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *string {
 		return v.EncryptionKeyArn
@@ -1886,7 +1776,6 @@ func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurat
 	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput)
 }
 
-// Enables managed log persistence for monitoring logs.
 func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *bool {
 		if v == nil {
@@ -1896,7 +1785,6 @@ func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurat
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The KMS key ARN to encrypt the logs stored in managed persistence.
 func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *string {
 		if v == nil {
@@ -1907,7 +1795,6 @@ func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurat
 }
 
 type ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration struct {
-	// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
 	RemoteWriteUrl *string `pulumi:"remoteWriteUrl"`
 }
 
@@ -1923,7 +1810,6 @@ type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationInput in
 }
 
 type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs struct {
-	// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
 	RemoteWriteUrl pulumi.StringPtrInput `pulumi:"remoteWriteUrl"`
 }
 
@@ -2004,7 +1890,6 @@ func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutpu
 	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
 }
 
-// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
 func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) RemoteWriteUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration) *string {
 		return v.RemoteWriteUrl
@@ -2035,7 +1920,6 @@ func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOu
 	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput)
 }
 
-// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
 func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput) RemoteWriteUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration) *string {
 		if v == nil {
@@ -2046,10 +1930,8 @@ func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOu
 }
 
 type ApplicationMonitoringConfigurationS3MonitoringConfiguration struct {
-	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// The Amazon S3 destination URI for log publishing.
-	LogUri *string `pulumi:"logUri"`
+	LogUri           *string `pulumi:"logUri"`
 }
 
 // ApplicationMonitoringConfigurationS3MonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs and ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput values.
@@ -2064,10 +1946,8 @@ type ApplicationMonitoringConfigurationS3MonitoringConfigurationInput interface 
 }
 
 type ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs struct {
-	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
 	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
-	// The Amazon S3 destination URI for log publishing.
-	LogUri pulumi.StringPtrInput `pulumi:"logUri"`
+	LogUri           pulumi.StringPtrInput `pulumi:"logUri"`
 }
 
 func (ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ElementType() reflect.Type {
@@ -2147,12 +2027,10 @@ func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) ToApp
 	}).(ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
 }
 
-// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
 func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 destination URI for log publishing.
 func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) LogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string { return v.LogUri }).(pulumi.StringPtrOutput)
 }
@@ -2181,7 +2059,6 @@ func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) El
 	}).(ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput)
 }
 
-// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
 func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string {
 		if v == nil {
@@ -2191,7 +2068,6 @@ func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) En
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 destination URI for log publishing.
 func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string {
 		if v == nil {
@@ -2202,10 +2078,8 @@ func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) Lo
 }
 
 type ApplicationNetworkConfiguration struct {
-	// The array of security group Ids for customer VPC connectivity.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The array of subnet Ids for customer VPC connectivity.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
 // ApplicationNetworkConfigurationInput is an input type that accepts ApplicationNetworkConfigurationArgs and ApplicationNetworkConfigurationOutput values.
@@ -2220,10 +2094,8 @@ type ApplicationNetworkConfigurationInput interface {
 }
 
 type ApplicationNetworkConfigurationArgs struct {
-	// The array of security group Ids for customer VPC connectivity.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The array of subnet Ids for customer VPC connectivity.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ApplicationNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -2303,12 +2175,10 @@ func (o ApplicationNetworkConfigurationOutput) ToApplicationNetworkConfiguration
 	}).(ApplicationNetworkConfigurationPtrOutput)
 }
 
-// The array of security group Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The array of subnet Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -2337,7 +2207,6 @@ func (o ApplicationNetworkConfigurationPtrOutput) Elem() ApplicationNetworkConfi
 	}).(ApplicationNetworkConfigurationOutput)
 }
 
-// The array of security group Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationNetworkConfiguration) []string {
 		if v == nil {
@@ -2347,7 +2216,6 @@ func (o ApplicationNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The array of subnet Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationNetworkConfiguration) []string {
 		if v == nil {
@@ -2358,10 +2226,8 @@ func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 }
 
 type ApplicationRuntimeConfiguration struct {
-	// The classification within a configuration.
-	Classification string `pulumi:"classification"`
-	// A set of properties specified within a configuration classification.
-	Properties map[string]string `pulumi:"properties"`
+	Classification string            `pulumi:"classification"`
+	Properties     map[string]string `pulumi:"properties"`
 }
 
 // ApplicationRuntimeConfigurationInput is an input type that accepts ApplicationRuntimeConfigurationArgs and ApplicationRuntimeConfigurationOutput values.
@@ -2376,10 +2242,8 @@ type ApplicationRuntimeConfigurationInput interface {
 }
 
 type ApplicationRuntimeConfigurationArgs struct {
-	// The classification within a configuration.
-	Classification pulumi.StringInput `pulumi:"classification"`
-	// A set of properties specified within a configuration classification.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Classification pulumi.StringInput    `pulumi:"classification"`
+	Properties     pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (ApplicationRuntimeConfigurationArgs) ElementType() reflect.Type {
@@ -2433,12 +2297,10 @@ func (o ApplicationRuntimeConfigurationOutput) ToApplicationRuntimeConfiguration
 	return o
 }
 
-// The classification within a configuration.
 func (o ApplicationRuntimeConfigurationOutput) Classification() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationRuntimeConfiguration) string { return v.Classification }).(pulumi.StringOutput)
 }
 
-// A set of properties specified within a configuration classification.
 func (o ApplicationRuntimeConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApplicationRuntimeConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
@@ -2464,9 +2326,7 @@ func (o ApplicationRuntimeConfigurationArrayOutput) Index(i pulumi.IntInput) App
 }
 
 type ApplicationSchedulerConfiguration struct {
-	// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
-	// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+	MaxConcurrentRuns   *int `pulumi:"maxConcurrentRuns"`
 	QueueTimeoutMinutes *int `pulumi:"queueTimeoutMinutes"`
 }
 
@@ -2482,9 +2342,7 @@ type ApplicationSchedulerConfigurationInput interface {
 }
 
 type ApplicationSchedulerConfigurationArgs struct {
-	// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-	MaxConcurrentRuns pulumi.IntPtrInput `pulumi:"maxConcurrentRuns"`
-	// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+	MaxConcurrentRuns   pulumi.IntPtrInput `pulumi:"maxConcurrentRuns"`
 	QueueTimeoutMinutes pulumi.IntPtrInput `pulumi:"queueTimeoutMinutes"`
 }
 
@@ -2565,12 +2423,10 @@ func (o ApplicationSchedulerConfigurationOutput) ToApplicationSchedulerConfigura
 	}).(ApplicationSchedulerConfigurationPtrOutput)
 }
 
-// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
 func (o ApplicationSchedulerConfigurationOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationSchedulerConfiguration) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
-// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
 func (o ApplicationSchedulerConfigurationOutput) QueueTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationSchedulerConfiguration) *int { return v.QueueTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -2599,7 +2455,6 @@ func (o ApplicationSchedulerConfigurationPtrOutput) Elem() ApplicationSchedulerC
 	}).(ApplicationSchedulerConfigurationOutput)
 }
 
-// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
 func (o ApplicationSchedulerConfigurationPtrOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationSchedulerConfiguration) *int {
 		if v == nil {
@@ -2609,7 +2464,6 @@ func (o ApplicationSchedulerConfigurationPtrOutput) MaxConcurrentRuns() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
 func (o ApplicationSchedulerConfigurationPtrOutput) QueueTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationSchedulerConfiguration) *int {
 		if v == nil {

@@ -7,66 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight VPC Connection.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpcConnectionRole = new aws.iam.Role("vpc_connection_role", {
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "sts:AssumeRole",
- *             Principal: {
- *                 Service: "quicksight.amazonaws.com",
- *             },
- *         }],
- *     }),
- *     inlinePolicies: [{
- *         name: "QuickSightVPCConnectionRolePolicy",
- *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Effect: "Allow",
- *                 Action: [
- *                     "ec2:CreateNetworkInterface",
- *                     "ec2:ModifyNetworkInterfaceAttribute",
- *                     "ec2:DeleteNetworkInterface",
- *                     "ec2:DescribeSubnets",
- *                     "ec2:DescribeSecurityGroups",
- *                 ],
- *                 Resource: ["*"],
- *             }],
- *         }),
- *     }],
- * });
- * const example = new aws.quicksight.VpcConnection("example", {
- *     vpcConnectionId: "example-connection-id",
- *     name: "Example Connection",
- *     roleArn: vpcConnectionRole.arn,
- *     securityGroupIds: ["sg-00000000000000000"],
- *     subnetIds: [
- *         "subnet-00000000000000000",
- *         "subnet-00000000000000001",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
- * ```
- */
 export class VpcConnection extends pulumi.CustomResource {
     /**
      * Get an existing VpcConnection resource's state with the given name, ID, and optional extra
@@ -95,53 +35,18 @@ export class VpcConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcConnection.__pulumiType;
     }
 
-    /**
-     * ARN of the VPC connection.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-     */
     declare public /*out*/ readonly availabilityStatus: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     */
     declare public readonly dnsResolvers: pulumi.Output<string[] | undefined>;
-    /**
-     * The display name for the VPC connection.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The IAM role to associate with the VPC connection.
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * A list of security group IDs for the VPC connection.
-     */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
-    /**
-     * A list of subnet IDs for the VPC connection.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.quicksight.VpcConnectionTimeouts | undefined>;
-    /**
-     * The ID of the VPC connection.
-     */
     declare public readonly vpcConnectionId: pulumi.Output<string>;
 
     /**
@@ -207,53 +112,18 @@ export class VpcConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcConnection resources.
  */
 export interface VpcConnectionState {
-    /**
-     * ARN of the VPC connection.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-     */
     availabilityStatus?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     */
     dnsResolvers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The display name for the VPC connection.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The IAM role to associate with the VPC connection.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * A list of security group IDs for the VPC connection.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of subnet IDs for the VPC connection.
-     *
-     * The following arguments are optional:
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts>;
-    /**
-     * The ID of the VPC connection.
-     */
     vpcConnectionId?: pulumi.Input<string>;
 }
 
@@ -262,39 +132,13 @@ export interface VpcConnectionState {
  */
 export interface VpcConnectionArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     */
     dnsResolvers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The display name for the VPC connection.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The IAM role to associate with the VPC connection.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * A list of security group IDs for the VPC connection.
-     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of subnet IDs for the VPC connection.
-     *
-     * The following arguments are optional:
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts>;
-    /**
-     * The ID of the VPC connection.
-     */
     vpcConnectionId: pulumi.Input<string>;
 }

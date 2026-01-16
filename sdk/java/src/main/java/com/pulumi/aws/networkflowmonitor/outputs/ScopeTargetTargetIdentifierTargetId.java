@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScopeTargetTargetIdentifierTargetId {
-    /**
-     * @return AWS account ID.
-     * 
-     */
     private String accountId;
 
     private ScopeTargetTargetIdentifierTargetId() {}
-    /**
-     * @return AWS account ID.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }

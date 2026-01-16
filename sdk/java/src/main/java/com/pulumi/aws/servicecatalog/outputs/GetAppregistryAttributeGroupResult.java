@@ -12,40 +12,20 @@ import java.util.Objects;
 @CustomType
 public final class GetAppregistryAttributeGroupResult {
     private String arn;
-    /**
-     * @return A JSON string of nested key-value pairs that represents the attributes of the group.
-     * 
-     */
     private String attributes;
-    /**
-     * @return Description of the Attribute Group.
-     * 
-     */
     private String description;
     private String id;
     private String name;
     private String region;
-    /**
-     * @return A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetAppregistryAttributeGroupResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return A JSON string of nested key-value pairs that represents the attributes of the group.
-     * 
-     */
     public String attributes() {
         return this.attributes;
     }
-    /**
-     * @return Description of the Attribute Group.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -58,10 +38,6 @@ public final class GetAppregistryAttributeGroupResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -70,25 +70,16 @@ class GetResolverFirewallRuleGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN (Amazon Resource Name) of the rule group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
-        """
-        The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> _builtins.str:
-        """
-        A unique string defined by you to identify the request.
-        """
         return pulumi.get(self, "creator_request_id")
 
     @_builtins.property
@@ -107,25 +98,16 @@ class GetResolverFirewallRuleGroupResult:
     @_builtins.property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> _builtins.str:
-        """
-        The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "modification_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the rule group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -136,33 +118,21 @@ class GetResolverFirewallRuleGroupResult:
     @_builtins.property
     @pulumi.getter(name="ruleCount")
     def rule_count(self) -> _builtins.int:
-        """
-        The number of rules in the rule group.
-        """
         return pulumi.get(self, "rule_count")
 
     @_builtins.property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> _builtins.str:
-        """
-        Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
-        """
         return pulumi.get(self, "share_status")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The status of the rule group.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Additional information about the status of the rule group, if available.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -191,24 +161,7 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[_builtins.
                                      region: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRuleGroupResult:
     """
-    `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group(firewall_rule_group_id="rslvr-frg-example")
-    ```
-
-
-    :param _builtins.str firewall_rule_group_id: The ID of the rule group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
@@ -234,24 +187,7 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
                                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupResult]:
     """
-    `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group(firewall_rule_group_id="rslvr-frg-example")
-    ```
-
-
-    :param _builtins.str firewall_rule_group_id: The ID of the rule group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id

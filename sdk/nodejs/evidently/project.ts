@@ -7,77 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CloudWatch Evidently Project resource.
- *
- * > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Project("example", {
- *     name: "Example",
- *     description: "Example Description",
- *     tags: {
- *         Key1: "example Project",
- *     },
- * });
- * ```
- *
- * ### Store evaluation events in a CloudWatch Log Group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Project("example", {
- *     name: "Example",
- *     description: "Example Description",
- *     dataDelivery: {
- *         cloudwatchLogs: {
- *             logGroup: "example-log-group-name",
- *         },
- *     },
- *     tags: {
- *         Key1: "example Project",
- *     },
- * });
- * ```
- *
- * ### Store evaluation events in an S3 bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Project("example", {
- *     name: "Example",
- *     description: "Example Description",
- *     dataDelivery: {
- *         s3Destination: {
- *             bucket: "example-bucket-name",
- *             prefix: "example",
- *         },
- *     },
- *     tags: {
- *         Key1: "example Project",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
- * ```
- */
 export class Project extends pulumi.CustomResource {
     /**
      * Get an existing Project resource's state with the given name, ID, and optional extra
@@ -106,65 +35,20 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
-    /**
-     * The number of ongoing experiments currently in the project.
-     */
     declare public /*out*/ readonly activeExperimentCount: pulumi.Output<number>;
-    /**
-     * The number of ongoing launches currently in the project.
-     */
     declare public /*out*/ readonly activeLaunchCount: pulumi.Output<number>;
-    /**
-     * The ARN of the project.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The date and time that the project is created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
-     */
     declare public readonly dataDelivery: pulumi.Output<outputs.evidently.ProjectDataDelivery | undefined>;
-    /**
-     * Specifies the description of the project.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
-     */
     declare public /*out*/ readonly experimentCount: pulumi.Output<number>;
-    /**
-     * The number of features currently in the project.
-     */
     declare public /*out*/ readonly featureCount: pulumi.Output<number>;
-    /**
-     * The date and time that the project was most recently updated.
-     */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
-    /**
-     * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
-     */
     declare public /*out*/ readonly launchCount: pulumi.Output<number>;
-    /**
-     * A name for the project.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -222,65 +106,20 @@ export class Project extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Project resources.
  */
 export interface ProjectState {
-    /**
-     * The number of ongoing experiments currently in the project.
-     */
     activeExperimentCount?: pulumi.Input<number>;
-    /**
-     * The number of ongoing launches currently in the project.
-     */
     activeLaunchCount?: pulumi.Input<number>;
-    /**
-     * The ARN of the project.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The date and time that the project is created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
-     */
     dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDelivery>;
-    /**
-     * Specifies the description of the project.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
-     */
     experimentCount?: pulumi.Input<number>;
-    /**
-     * The number of features currently in the project.
-     */
     featureCount?: pulumi.Input<number>;
-    /**
-     * The date and time that the project was most recently updated.
-     */
     lastUpdatedTime?: pulumi.Input<string>;
-    /**
-     * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
-     */
     launchCount?: pulumi.Input<number>;
-    /**
-     * A name for the project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -288,24 +127,9 @@ export interface ProjectState {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
-    /**
-     * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
-     */
     dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDelivery>;
-    /**
-     * Specifies the description of the project.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A name for the project.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

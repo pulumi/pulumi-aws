@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewaySpecListenerTlsValidationTrustSds
     {
-        /// <summary>
-        /// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        /// </summary>
         public readonly string SecretName;
 
         [OutputConstructor]

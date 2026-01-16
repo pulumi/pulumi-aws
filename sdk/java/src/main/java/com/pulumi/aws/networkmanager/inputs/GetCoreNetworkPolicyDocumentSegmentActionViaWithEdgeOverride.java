@@ -15,24 +15,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
 
     public static final GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride Empty = new GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride();
 
-    /**
-     * A list of a list of strings. The list of edges associated with the network function group.
-     * 
-     */
     @Import(name="edgeSets")
     private @Nullable List<List<String>> edgeSets;
 
-    /**
-     * @return A list of a list of strings. The list of edges associated with the network function group.
-     * 
-     */
     public Optional<List<List<String>>> edgeSets() {
         return Optional.ofNullable(this.edgeSets);
     }
 
     /**
-     * The preferred edge to use.
-     * 
      * @deprecated
      * use_edge is deprecated. Use useEdgeLocation instead.
      * 
@@ -42,8 +32,6 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     private @Nullable String useEdge;
 
     /**
-     * @return The preferred edge to use.
-     * 
      * @deprecated
      * use_edge is deprecated. Use useEdgeLocation instead.
      * 
@@ -53,17 +41,9 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
         return Optional.ofNullable(this.useEdge);
     }
 
-    /**
-     * The preferred edge to use.
-     * 
-     */
     @Import(name="useEdgeLocation")
     private @Nullable String useEdgeLocation;
 
-    /**
-     * @return The preferred edge to use.
-     * 
-     */
     public Optional<String> useEdgeLocation() {
         return Optional.ofNullable(this.useEdgeLocation);
     }
@@ -94,30 +74,16 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
             $ = new GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeSets(@Nullable List<List<String>> edgeSets) {
             $.edgeSets = edgeSets;
             return this;
         }
 
-        /**
-         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeSets(List<String>... edgeSets) {
             return edgeSets(List.of(edgeSets));
         }
 
         /**
-         * @param useEdge The preferred edge to use.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -130,12 +96,6 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
             return this;
         }
 
-        /**
-         * @param useEdgeLocation The preferred edge to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useEdgeLocation(@Nullable String useEdgeLocation) {
             $.useEdgeLocation = useEdgeLocation;
             return this;

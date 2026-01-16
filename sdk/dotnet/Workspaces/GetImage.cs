@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Workspaces
 {
     public static class GetImage
     {
-        /// <summary>
-        /// Use this data source to get information about a Workspaces image.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetImage.Invoke(new()
-        ///     {
-        ///         ImageId = "wsi-ten5h0y19",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a Workspaces image.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetImage.Invoke(new()
-        ///     {
-        ///         ImageId = "wsi-ten5h0y19",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a Workspaces image.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetImage.Invoke(new()
-        ///     {
-        ///         ImageId = "wsi-ten5h0y19",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the image.
-        /// </summary>
         [Input("imageId", required: true)]
         public string ImageId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the image.
-        /// </summary>
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,28 +54,16 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetImageResult
     {
-        /// <summary>
-        /// The description of the image.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string ImageId;
-        /// <summary>
-        /// The name of the image.
-        /// </summary>
         public readonly string Name;
         public readonly string OperatingSystemType;
         public readonly string Region;
-        /// <summary>
-        /// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
-        /// </summary>
         public readonly string RequiredTenancy;
-        /// <summary>
-        /// The status of the image.
-        /// </summary>
         public readonly string State;
 
         [OutputConstructor]

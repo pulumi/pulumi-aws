@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AnalysisPermission {
-    /**
-     * @return List of IAM actions to grant or revoke permissions on.
-     * 
-     */
     private List<String> actions;
-    /**
-     * @return ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-     * 
-     */
     private String principal;
 
     private AnalysisPermission() {}
-    /**
-     * @return List of IAM actions to grant or revoke permissions on.
-     * 
-     */
     public List<String> actions() {
         return this.actions;
     }
-    /**
-     * @return ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-     * 
-     */
     public String principal() {
         return this.principal;
     }

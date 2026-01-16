@@ -15,184 +15,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager Connection.
- * 
- * Use this resource to create a connection between two devices in your global network.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.Connection;
- * import com.pulumi.aws.networkmanager.ConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
- *             .deviceId(example1.id())
- *             .connectedDeviceId(example2.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/connection:Connection")
 public class Connection extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the connection.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the connection.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID of the second device in the connection.
-     * 
-     */
     @Export(name="connectedDeviceId", refs={String.class}, tree="[0]")
     private Output<String> connectedDeviceId;
 
-    /**
-     * @return ID of the second device in the connection.
-     * 
-     */
     public Output<String> connectedDeviceId() {
         return this.connectedDeviceId;
     }
-    /**
-     * ID of the link for the second device.
-     * 
-     */
     @Export(name="connectedLinkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectedLinkId;
 
-    /**
-     * @return ID of the link for the second device.
-     * 
-     */
     public Output<Optional<String>> connectedLinkId() {
         return Codegen.optional(this.connectedLinkId);
     }
-    /**
-     * Description of the connection.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the connection.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * ID of the first device in the connection.
-     * 
-     */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
-    /**
-     * @return ID of the first device in the connection.
-     * 
-     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
-    /**
-     * ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
-    /**
-     * ID of the link for the first device.
-     * 
-     */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkId;
 
-    /**
-     * @return ID of the link for the first device.
-     * 
-     */
     public Output<Optional<String>> linkId() {
         return Codegen.optional(this.linkId);
     }
-    /**
-     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

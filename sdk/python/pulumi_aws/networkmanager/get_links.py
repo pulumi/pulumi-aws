@@ -65,9 +65,6 @@ class GetLinksResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        IDs of the links.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -113,26 +110,7 @@ def get_links(global_network_id: Optional[_builtins.str] = None,
               type: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinksResult:
     """
-    Provides details about existing Network Manager links.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_links(global_network_id=global_network_id,
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the Global Network of the links to retrieve.
-    :param _builtins.str provider_name: Link provider to retrieve.
-    :param _builtins.str site_id: ID of the site of the links to retrieve.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the links with these tags.
-    :param _builtins.str type: Link type to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -158,26 +136,7 @@ def get_links_output(global_network_id: Optional[pulumi.Input[_builtins.str]] = 
                      type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinksResult]:
     """
-    Provides details about existing Network Manager links.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_links(global_network_id=global_network_id,
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param _builtins.str global_network_id: ID of the Global Network of the links to retrieve.
-    :param _builtins.str provider_name: Link provider to retrieve.
-    :param _builtins.str site_id: ID of the site of the links to retrieve.
-    :param Mapping[str, _builtins.str] tags: Restricts the list to the links with these tags.
-    :param _builtins.str type: Link type to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id

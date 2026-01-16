@@ -21,47 +21,23 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
 
     public static final CustomActionTypeState Empty = new CustomActionTypeState();
 
-    /**
-     * The action ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The action ARN.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     * 
-     */
     @Import(name="category")
     private @Nullable Output<String> category;
 
-    /**
-     * @return The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     * 
-     */
     public Optional<Output<String>> category() {
         return Optional.ofNullable(this.category);
     }
 
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     * 
-     */
     @Import(name="configurationProperties")
     private @Nullable Output<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties;
 
-    /**
-     * @return The configuration properties for the custom action. Max 10 items.
-     * 
-     */
     public Optional<Output<List<CustomActionTypeConfigurationPropertyArgs>>> configurationProperties() {
         return Optional.ofNullable(this.configurationProperties);
     }
@@ -80,17 +56,9 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.outputArtifactDetails);
     }
 
-    /**
-     * The creator of the action being called.
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return The creator of the action being called.
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
@@ -102,17 +70,9 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.providerName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -131,17 +91,9 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -188,75 +140,33 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
             $ = new CustomActionTypeState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The action ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The action ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param category The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(@Nullable Output<String> category) {
             $.category = category;
             return this;
         }
 
-        /**
-         * @param category The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(String category) {
             return category(Output.of(category));
         }
 
-        /**
-         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProperties(@Nullable Output<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties) {
             $.configurationProperties = configurationProperties;
             return this;
         }
 
-        /**
-         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProperties(List<CustomActionTypeConfigurationPropertyArgs> configurationProperties) {
             return configurationProperties(Output.of(configurationProperties));
         }
 
-        /**
-         * @param configurationProperties The configuration properties for the custom action. Max 10 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProperties(CustomActionTypeConfigurationPropertyArgs... configurationProperties) {
             return configurationProperties(List.of(configurationProperties));
         }
@@ -279,23 +189,11 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
             return outputArtifactDetails(Output.of(outputArtifactDetails));
         }
 
-        /**
-         * @param owner The creator of the action being called.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner The creator of the action being called.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
@@ -309,23 +207,11 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
             return providerName(Output.of(providerName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -348,23 +234,11 @@ public final class CustomActionTypeState extends com.pulumi.resources.ResourceAr
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

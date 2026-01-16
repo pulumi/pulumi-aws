@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterPlacementGroupConfig {
-    /**
-     * @return Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-     * 
-     */
     private String instanceRole;
-    /**
-     * @return EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-     * 
-     */
     private @Nullable String placementStrategy;
 
     private ClusterPlacementGroupConfig() {}
-    /**
-     * @return Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
-     * 
-     */
     public String instanceRole() {
         return this.instanceRole;
     }
-    /**
-     * @return EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
-     * 
-     */
     public Optional<String> placementStrategy() {
         return Optional.ofNullable(this.placementStrategy);
     }

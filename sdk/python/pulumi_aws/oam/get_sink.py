@@ -52,9 +52,6 @@ class GetSinkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the sink.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -68,9 +65,6 @@ class GetSinkResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the sink.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -81,9 +75,6 @@ class GetSinkResult:
     @_builtins.property
     @pulumi.getter(name="sinkId")
     def sink_id(self) -> _builtins.str:
-        """
-        Random ID string that AWS generated as part of the sink ARN.
-        """
         return pulumi.get(self, "sink_id")
 
     @_builtins.property
@@ -94,9 +85,6 @@ class GetSinkResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the sink.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -120,23 +108,7 @@ def get_sink(region: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinkResult:
     """
-    Data source for managing an AWS CloudWatch Observability Access Manager Sink.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_sink(sink_identifier="arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str sink_identifier: ARN of the sink.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the sink.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -158,23 +130,7 @@ def get_sink_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = No
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinkResult]:
     """
-    Data source for managing an AWS CloudWatch Observability Access Manager Sink.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_sink(sink_identifier="arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str sink_identifier: ARN of the sink.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the sink.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

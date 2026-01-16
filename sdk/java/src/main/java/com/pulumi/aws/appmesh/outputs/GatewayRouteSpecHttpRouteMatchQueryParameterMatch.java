@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
-    /**
-     * @return The exact query parameter to match on.
-     * 
-     */
     private @Nullable String exact;
 
     private GatewayRouteSpecHttpRouteMatchQueryParameterMatch() {}
-    /**
-     * @return The exact query parameter to match on.
-     * 
-     */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }

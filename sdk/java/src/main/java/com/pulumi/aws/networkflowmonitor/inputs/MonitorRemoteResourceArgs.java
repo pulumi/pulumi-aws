@@ -14,32 +14,16 @@ public final class MonitorRemoteResourceArgs extends com.pulumi.resources.Resour
 
     public static final MonitorRemoteResourceArgs Empty = new MonitorRemoteResourceArgs();
 
-    /**
-     * The identifier of the resource. For VPC resources, this is the VPC ARN.
-     * 
-     */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
-    /**
-     * @return The identifier of the resource. For VPC resources, this is the VPC ARN.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
 
-    /**
-     * The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class MonitorRemoteResourceArgs extends com.pulumi.resources.Resour
             $ = new MonitorRemoteResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identifier The identifier of the resource. For VPC resources, this is the VPC ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier The identifier of the resource. For VPC resources, this is the VPC ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
-        /**
-         * @param type The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
-    /**
-     * @return The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-     * 
-     */
     private @Nullable Integer cents;
-    /**
-     * @return The whole number of dollars in the amount. Valid value range between `0` and `2`.
-     * 
-     */
     private @Nullable Integer dollars;
-    /**
-     * @return Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-     * 
-     */
     private @Nullable Integer tenthFractionsOfACent;
 
     private FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd() {}
-    /**
-     * @return The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
-     * 
-     */
     public Optional<Integer> cents() {
         return Optional.ofNullable(this.cents);
     }
-    /**
-     * @return The whole number of dollars in the amount. Valid value range between `0` and `2`.
-     * 
-     */
     public Optional<Integer> dollars() {
         return Optional.ofNullable(this.dollars);
     }
-    /**
-     * @return Fractions of a cent, in tenths. Valid value range between `0` and `9`.
-     * 
-     */
     public Optional<Integer> tenthFractionsOfACent() {
         return Optional.ofNullable(this.tenthFractionsOfACent);
     }

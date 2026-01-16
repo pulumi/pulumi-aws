@@ -23,8 +23,6 @@ class DomainIdentityVerificationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainIdentityVerification resource.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
         if region is not None:
@@ -33,9 +31,6 @@ class DomainIdentityVerificationArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        The domain name of the SES domain identity to verify.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -45,9 +40,6 @@ class DomainIdentityVerificationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _DomainIdentityVerificationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainIdentityVerification resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the domain identity.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -77,9 +66,6 @@ class _DomainIdentityVerificationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the domain identity.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -89,9 +75,6 @@ class _DomainIdentityVerificationState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The domain name of the SES domain identity to verify.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -101,9 +84,6 @@ class _DomainIdentityVerificationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,35 +101,9 @@ class DomainIdentityVerification(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Represents a successful verification of an SES domain identity.
-
-        Most commonly, this resource is used together with `route53.Record` and
-        `ses.DomainIdentity` to request an SES domain identity,
-        deploy the required DNS verification records, and wait for verification to complete.
-
-        > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("example_amazonses_verification_record",
-            zone_id=example_aws_route53_zone["zoneId"],
-            name=example.domain.apply(lambda domain: f"_amazonses.{domain}"),
-            type=aws.route53.RecordType.TXT,
-            ttl=600,
-            records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.domain,
-        opts = pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
-        ```
-
+        Create a DomainIdentityVerification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -158,31 +112,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
                  args: DomainIdentityVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a successful verification of an SES domain identity.
-
-        Most commonly, this resource is used together with `route53.Record` and
-        `ses.DomainIdentity` to request an SES domain identity,
-        deploy the required DNS verification records, and wait for verification to complete.
-
-        > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("example_amazonses_verification_record",
-            zone_id=example_aws_route53_zone["zoneId"],
-            name=example.domain.apply(lambda domain: f"_amazonses.{domain}"),
-            type=aws.route53.RecordType.TXT,
-            ttl=600,
-            records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.domain,
-        opts = pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
-        ```
-
+        Create a DomainIdentityVerification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainIdentityVerificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,9 +164,6 @@ class DomainIdentityVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the domain identity.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,24 +177,15 @@ class DomainIdentityVerification(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the domain identity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        The domain name of the SES domain identity to verify.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

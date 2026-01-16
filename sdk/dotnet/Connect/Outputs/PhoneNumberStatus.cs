@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class PhoneNumberStatus
     {
-        /// <summary>
-        /// The status message.
-        /// </summary>
         public readonly string? Message;
-        /// <summary>
-        /// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

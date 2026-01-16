@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class SubscriberSourceAwsLogSourceResource
     {
-        /// <summary>
-        /// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
-        /// </summary>
         public readonly string SourceName;
-        /// <summary>
-        /// The version for a AWS source. This must be a Regionally unique value.
-        /// </summary>
         public readonly string? SourceVersion;
 
         [OutputConstructor]

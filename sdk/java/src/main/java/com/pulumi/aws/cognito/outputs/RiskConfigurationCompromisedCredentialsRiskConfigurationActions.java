@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RiskConfigurationCompromisedCredentialsRiskConfigurationActions {
-    /**
-     * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
-     * 
-     */
     private String eventAction;
 
     private RiskConfigurationCompromisedCredentialsRiskConfigurationActions() {}
-    /**
-     * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
-     * 
-     */
     public String eventAction() {
         return this.eventAction;
     }

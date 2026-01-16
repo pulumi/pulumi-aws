@@ -9,269 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Manages an AWS Network Manager Connect Peer.
-    /// 
-    /// Use this resource to create a Connect peer in AWS Network Manager. Connect peers establish BGP sessions with your on-premises networks through Connect attachments, enabling dynamic routing between your core network and external networks.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         VpcArn = exampleAwsVpc.Arn,
-    ///     });
-    /// 
-    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
-    ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
-    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
-    ///         {
-    ///             Protocol = "GRE",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
-    ///     {
-    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
-    ///         PeerAddress = "127.0.0.1",
-    ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
-    ///         {
-    ///             PeerAsn = "65000",
-    ///         },
-    ///         InsideCidrBlocks = new[]
-    ///         {
-    ///             "172.16.0.0/16",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with attachment accepter
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         VpcArn = exampleAwsVpc.Arn,
-    ///     });
-    /// 
-    ///     var exampleAttachmentAccepter = new Aws.NetworkManager.AttachmentAccepter("example", new()
-    ///     {
-    ///         AttachmentId = example.Id,
-    ///         AttachmentType = example.AttachmentType,
-    ///     });
-    /// 
-    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
-    ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
-    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
-    ///         {
-    ///             Protocol = "GRE",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAttachmentAccepter,
-    ///         },
-    ///     });
-    /// 
-    ///     var example2 = new Aws.NetworkManager.AttachmentAccepter("example2", new()
-    ///     {
-    ///         AttachmentId = exampleConnectAttachment.Id,
-    ///         AttachmentType = exampleConnectAttachment.AttachmentType,
-    ///     });
-    /// 
-    ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
-    ///     {
-    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
-    ///         PeerAddress = "127.0.0.1",
-    ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
-    ///         {
-    ///             PeerAsn = "65500",
-    ///         },
-    ///         InsideCidrBlocks = new[]
-    ///         {
-    ///             "172.16.0.0/16",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example2,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with a Tunnel-less Connect attachment
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         VpcArn = exampleAwsVpc.Arn,
-    ///     });
-    /// 
-    ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
-    ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
-    ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
-    ///         {
-    ///             Protocol = "NO_ENCAP",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleConnectPeer = new Aws.NetworkManager.ConnectPeer("example", new()
-    ///     {
-    ///         ConnectAttachmentId = exampleConnectAttachment.Id,
-    ///         PeerAddress = "127.0.0.1",
-    ///         BgpOptions = new Aws.NetworkManager.Inputs.ConnectPeerBgpOptionsArgs
-    ///         {
-    ///             PeerAsn = "65000",
-    ///         },
-    ///         SubnetArn = example2.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/connectPeer:ConnectPeer")]
     public partial class ConnectPeer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Connect peer.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Connect peer BGP options. See BgpOptions for more information.
-        /// </summary>
         [Output("bgpOptions")]
         public Output<Outputs.ConnectPeerBgpOptions> BgpOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration of the Connect peer.
-        /// </summary>
         [Output("configurations")]
         public Output<ImmutableArray<Outputs.ConnectPeerConfiguration>> Configurations { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the connection attachment.
-        /// </summary>
         [Output("connectAttachmentId")]
         public Output<string> ConnectAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Connect peer.
-        /// </summary>
         [Output("connectPeerId")]
         public Output<string> ConnectPeerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Connect peer core network address.
-        /// </summary>
         [Output("coreNetworkAddress")]
         public Output<string?> CoreNetworkAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of a core network.
-        /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp when the Connect peer was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where the peer is located.
-        /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-        /// </summary>
         [Output("insideCidrBlocks")]
         public Output<ImmutableArray<string>> InsideCidrBlocks { get; private set; } = null!;
 
-        /// <summary>
-        /// Connect peer address.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("peerAddress")]
         public Output<string> PeerAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the Connect peer.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-        /// </summary>
         [Output("subnetArn")]
         public Output<string?> SubnetArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -321,56 +103,31 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class ConnectPeerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Connect peer BGP options. See BgpOptions for more information.
-        /// </summary>
         [Input("bgpOptions")]
         public Input<Inputs.ConnectPeerBgpOptionsArgs>? BgpOptions { get; set; }
 
-        /// <summary>
-        /// ID of the connection attachment.
-        /// </summary>
         [Input("connectAttachmentId", required: true)]
         public Input<string> ConnectAttachmentId { get; set; } = null!;
 
-        /// <summary>
-        /// Connect peer core network address.
-        /// </summary>
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
 
         [Input("insideCidrBlocks")]
         private InputList<string>? _insideCidrBlocks;
-
-        /// <summary>
-        /// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-        /// </summary>
         public InputList<string> InsideCidrBlocks
         {
             get => _insideCidrBlocks ?? (_insideCidrBlocks = new InputList<string>());
             set => _insideCidrBlocks = value;
         }
 
-        /// <summary>
-        /// Connect peer address.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("peerAddress", required: true)]
         public Input<string> PeerAddress { get; set; } = null!;
 
-        /// <summary>
-        /// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-        /// </summary>
         [Input("subnetArn")]
         public Input<string>? SubnetArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -385,104 +142,57 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class ConnectPeerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Connect peer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Connect peer BGP options. See BgpOptions for more information.
-        /// </summary>
         [Input("bgpOptions")]
         public Input<Inputs.ConnectPeerBgpOptionsGetArgs>? BgpOptions { get; set; }
 
         [Input("configurations")]
         private InputList<Inputs.ConnectPeerConfigurationGetArgs>? _configurations;
-
-        /// <summary>
-        /// Configuration of the Connect peer.
-        /// </summary>
         public InputList<Inputs.ConnectPeerConfigurationGetArgs> Configurations
         {
             get => _configurations ?? (_configurations = new InputList<Inputs.ConnectPeerConfigurationGetArgs>());
             set => _configurations = value;
         }
 
-        /// <summary>
-        /// ID of the connection attachment.
-        /// </summary>
         [Input("connectAttachmentId")]
         public Input<string>? ConnectAttachmentId { get; set; }
 
-        /// <summary>
-        /// ID of the Connect peer.
-        /// </summary>
         [Input("connectPeerId")]
         public Input<string>? ConnectPeerId { get; set; }
 
-        /// <summary>
-        /// Connect peer core network address.
-        /// </summary>
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
 
-        /// <summary>
-        /// ID of a core network.
-        /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
-        /// <summary>
-        /// Timestamp when the Connect peer was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Region where the peer is located.
-        /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
 
         [Input("insideCidrBlocks")]
         private InputList<string>? _insideCidrBlocks;
-
-        /// <summary>
-        /// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-        /// </summary>
         public InputList<string> InsideCidrBlocks
         {
             get => _insideCidrBlocks ?? (_insideCidrBlocks = new InputList<string>());
             set => _insideCidrBlocks = value;
         }
 
-        /// <summary>
-        /// Connect peer address.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }
 
-        /// <summary>
-        /// State of the Connect peer.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-        /// </summary>
         [Input("subnetArn")]
         public Input<string>? SubnetArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -491,10 +201,6 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

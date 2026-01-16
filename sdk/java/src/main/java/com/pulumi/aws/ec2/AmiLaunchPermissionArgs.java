@@ -16,92 +16,44 @@ public final class AmiLaunchPermissionArgs extends com.pulumi.resources.Resource
 
     public static final AmiLaunchPermissionArgs Empty = new AmiLaunchPermissionArgs();
 
-    /**
-     * AWS account ID for the launch permission.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return AWS account ID for the launch permission.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
-     * 
-     */
     @Import(name="group")
     private @Nullable Output<String> group;
 
-    /**
-     * @return Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
-     * 
-     */
     public Optional<Output<String>> group() {
         return Optional.ofNullable(this.group);
     }
 
-    /**
-     * ID of the AMI.
-     * 
-     */
     @Import(name="imageId", required=true)
     private Output<String> imageId;
 
-    /**
-     * @return ID of the AMI.
-     * 
-     */
     public Output<String> imageId() {
         return this.imageId;
     }
 
-    /**
-     * ARN of an organization for the launch permission.
-     * 
-     */
     @Import(name="organizationArn")
     private @Nullable Output<String> organizationArn;
 
-    /**
-     * @return ARN of an organization for the launch permission.
-     * 
-     */
     public Optional<Output<String>> organizationArn() {
         return Optional.ofNullable(this.organizationArn);
     }
 
-    /**
-     * ARN of an organizational unit for the launch permission.
-     * 
-     */
     @Import(name="organizationalUnitArn")
     private @Nullable Output<String> organizationalUnitArn;
 
-    /**
-     * @return ARN of an organizational unit for the launch permission.
-     * 
-     */
     public Optional<Output<String>> organizationalUnitArn() {
         return Optional.ofNullable(this.organizationalUnitArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -135,128 +87,56 @@ public final class AmiLaunchPermissionArgs extends com.pulumi.resources.Resource
             $ = new AmiLaunchPermissionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId AWS account ID for the launch permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId AWS account ID for the launch permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param group Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(@Nullable Output<String> group) {
             $.group = group;
             return this;
         }
 
-        /**
-         * @param group Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(String group) {
             return group(Output.of(group));
         }
 
-        /**
-         * @param imageId ID of the AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageId(Output<String> imageId) {
             $.imageId = imageId;
             return this;
         }
 
-        /**
-         * @param imageId ID of the AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageId(String imageId) {
             return imageId(Output.of(imageId));
         }
 
-        /**
-         * @param organizationArn ARN of an organization for the launch permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationArn(@Nullable Output<String> organizationArn) {
             $.organizationArn = organizationArn;
             return this;
         }
 
-        /**
-         * @param organizationArn ARN of an organization for the launch permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationArn(String organizationArn) {
             return organizationArn(Output.of(organizationArn));
         }
 
-        /**
-         * @param organizationalUnitArn ARN of an organizational unit for the launch permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitArn(@Nullable Output<String> organizationalUnitArn) {
             $.organizationalUnitArn = organizationalUnitArn;
             return this;
         }
 
-        /**
-         * @param organizationalUnitArn ARN of an organizational unit for the launch permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitArn(String organizationalUnitArn) {
             return organizationalUnitArn(Output.of(organizationalUnitArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

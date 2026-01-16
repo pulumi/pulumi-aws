@@ -9,77 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    /// <summary>
-    /// Provides a resource to manage AWS ECR Basic Scan Type
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Configuring Basic Scanning
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var basicScanTypeVersion = new Aws.Ecr.AccountSetting("basic_scan_type_version", new()
-    ///     {
-    ///         Name = "BASIC_SCAN_TYPE_VERSION",
-    ///         Value = "AWS_NATIVE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuring Registry Policy Scope
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var registryPolicyScope = new Aws.Ecr.AccountSetting("registry_policy_scope", new()
-    ///     {
-    ///         Name = "REGISTRY_POLICY_SCOPE",
-    ///         Value = "V2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecr/accountSetting:AccountSetting")]
     public partial class AccountSetting : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Setting value that is specified. Valid values are:
-        /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -129,23 +67,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class AccountSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Setting value that is specified. Valid values are:
-        /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -157,23 +84,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class AccountSettingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Setting value that is specified. Valid values are:
-        /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

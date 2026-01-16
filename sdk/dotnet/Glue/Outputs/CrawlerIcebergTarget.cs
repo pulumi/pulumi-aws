@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerIcebergTarget
     {
-        /// <summary>
-        /// The name of the connection to use to connect to the Iceberg target.
-        /// </summary>
         public readonly string? ConnectionName;
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
         public readonly ImmutableArray<string> Exclusions;
-        /// <summary>
-        /// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
-        /// </summary>
         public readonly int MaximumTraversalDepth;
-        /// <summary>
-        /// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
-        /// </summary>
         public readonly ImmutableArray<string> Paths;
 
         [OutputConstructor]

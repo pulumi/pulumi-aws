@@ -15,193 +15,59 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail Load Balancer Certificate.
- * 
- * Use this resource to create and manage SSL/TLS certificates for Lightsail Load Balancers. The certificate must be validated before it can be attached to a load balancer to enable HTTPS traffic.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Lb;
- * import com.pulumi.aws.lightsail.LbArgs;
- * import com.pulumi.aws.lightsail.LbCertificate;
- * import com.pulumi.aws.lightsail.LbCertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Lb("example", LbArgs.builder()
- *             .name("example-load-balancer")
- *             .healthCheckPath("/")
- *             .instancePort(80)
- *             .tags(Map.of("foo", "bar"))
- *             .build());
- * 
- *         var exampleLbCertificate = new LbCertificate("exampleLbCertificate", LbCertificateArgs.builder()
- *             .name("example-load-balancer-certificate")
- *             .lbName(example.id())
- *             .domainName("example.com")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/lbCertificate:LbCertificate")
 public class LbCertificate extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the lightsail certificate.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the lightsail certificate.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Timestamp when the instance was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Timestamp when the instance was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
-     * 
-     */
     @Export(name="domainValidationRecords", refs={List.class,LbCertificateDomainValidationRecord.class}, tree="[0,1]")
     private Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords;
 
-    /**
-     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
-     * 
-     */
     public Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords() {
         return this.domainValidationRecords;
     }
-    /**
-     * Load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
-    /**
-     * @return Load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
-    /**
-     * SSL/TLS certificate name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return SSL/TLS certificate name.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
-    /**
-     * @return Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     public Output<List<String>> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }
-    /**
-     * Support code for the certificate.
-     * 
-     */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
-    /**
-     * @return Support code for the certificate.
-     * 
-     */
     public Output<String> supportCode() {
         return this.supportCode;
     }

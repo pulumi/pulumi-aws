@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetDeviceAwsLocationResult
     {
-        /// <summary>
-        /// ARN of the subnet that the device is located in.
-        /// </summary>
         public readonly string SubnetArn;
-        /// <summary>
-        /// Zone that the device is located in.
-        /// </summary>
         public readonly string Zone;
 
         [OutputConstructor]

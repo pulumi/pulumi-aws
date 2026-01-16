@@ -17,51 +17,23 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
 
     public static final ByteMatchSetState Empty = new ByteMatchSetState();
 
-    /**
-     * Amazon Resource Name (ARN) of the byte match set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the byte match set.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     * 
-     */
     @Import(name="byteMatchTuples")
     private @Nullable Output<List<ByteMatchSetByteMatchTupleArgs>> byteMatchTuples;
 
-    /**
-     * @return Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     * 
-     */
     public Optional<Output<List<ByteMatchSetByteMatchTupleArgs>>> byteMatchTuples() {
         return Optional.ofNullable(this.byteMatchTuples);
     }
 
-    /**
-     * The name or description of the Byte Match Set.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the Byte Match Set.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -92,81 +64,33 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
             $ = new ByteMatchSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the byte match set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the byte match set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param byteMatchTuples Specifies the bytes (typically a string that corresponds
-         * with ASCII characters) that you want to search for in web requests,
-         * the location in requests that you want to search, and other settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchTuples(@Nullable Output<List<ByteMatchSetByteMatchTupleArgs>> byteMatchTuples) {
             $.byteMatchTuples = byteMatchTuples;
             return this;
         }
 
-        /**
-         * @param byteMatchTuples Specifies the bytes (typically a string that corresponds
-         * with ASCII characters) that you want to search for in web requests,
-         * the location in requests that you want to search, and other settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchTuples(List<ByteMatchSetByteMatchTupleArgs> byteMatchTuples) {
             return byteMatchTuples(Output.of(byteMatchTuples));
         }
 
-        /**
-         * @param byteMatchTuples Specifies the bytes (typically a string that corresponds
-         * with ASCII characters) that you want to search for in web requests,
-         * the location in requests that you want to search, and other settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchTuples(ByteMatchSetByteMatchTupleArgs... byteMatchTuples) {
             return byteMatchTuples(List.of(byteMatchTuples));
         }
 
-        /**
-         * @param name The name or description of the Byte Match Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the Byte Match Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

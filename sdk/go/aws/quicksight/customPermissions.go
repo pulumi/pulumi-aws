@@ -12,44 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a QuickSight custom permissions profile.
-//
-// ## Example Usage
-//
-//	resource "quicksight.CustomPermissions" "example" {
-//	  customPermissionsName = "example-permissions"
-//
-//	  capabilities {
-//	    printReports    = "DENY"
-//	    shareDashboards = "DENY"
-//	  }
-//	}
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight custom permissions profile using the AWS account ID and custom permissions profile name separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/customPermissions:CustomPermissions example 123456789012,example-permissions
-// ```
 type CustomPermissions struct {
 	pulumi.CustomResourceState
 
-	// ARN of the custom permissions profile.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities CustomPermissionsCapabilitiesPtrOutput `pulumi:"capabilities"`
-	// Custom permissions profile name.
-	//
-	// The following arguments are optional:
-	CustomPermissionsName pulumi.StringOutput `pulumi:"customPermissionsName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                   pulumi.StringOutput                    `pulumi:"arn"`
+	AwsAccountId          pulumi.StringOutput                    `pulumi:"awsAccountId"`
+	Capabilities          CustomPermissionsCapabilitiesPtrOutput `pulumi:"capabilities"`
+	CustomPermissionsName pulumi.StringOutput                    `pulumi:"customPermissionsName"`
+	Region                pulumi.StringOutput                    `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 }
 
 // NewCustomPermissions registers a new resource with the given unique name, arguments, and options.
@@ -85,39 +57,23 @@ func GetCustomPermissions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomPermissions resources.
 type customPermissionsState struct {
-	// ARN of the custom permissions profile.
-	Arn          *string `pulumi:"arn"`
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
-	// Custom permissions profile name.
-	//
-	// The following arguments are optional:
-	CustomPermissionsName *string `pulumi:"customPermissionsName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string                        `pulumi:"arn"`
+	AwsAccountId          *string                        `pulumi:"awsAccountId"`
+	Capabilities          *CustomPermissionsCapabilities `pulumi:"capabilities"`
+	CustomPermissionsName *string                        `pulumi:"customPermissionsName"`
+	Region                *string                        `pulumi:"region"`
+	Tags                  map[string]string              `pulumi:"tags"`
+	TagsAll               map[string]string              `pulumi:"tagsAll"`
 }
 
 type CustomPermissionsState struct {
-	// ARN of the custom permissions profile.
-	Arn          pulumi.StringPtrInput
-	AwsAccountId pulumi.StringPtrInput
-	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities CustomPermissionsCapabilitiesPtrInput
-	// Custom permissions profile name.
-	//
-	// The following arguments are optional:
+	Arn                   pulumi.StringPtrInput
+	AwsAccountId          pulumi.StringPtrInput
+	Capabilities          CustomPermissionsCapabilitiesPtrInput
 	CustomPermissionsName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (CustomPermissionsState) ElementType() reflect.Type {
@@ -125,32 +81,20 @@ func (CustomPermissionsState) ElementType() reflect.Type {
 }
 
 type customPermissionsArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
-	// Custom permissions profile name.
-	//
-	// The following arguments are optional:
-	CustomPermissionsName string `pulumi:"customPermissionsName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AwsAccountId          *string                        `pulumi:"awsAccountId"`
+	Capabilities          *CustomPermissionsCapabilities `pulumi:"capabilities"`
+	CustomPermissionsName string                         `pulumi:"customPermissionsName"`
+	Region                *string                        `pulumi:"region"`
+	Tags                  map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomPermissions resource.
 type CustomPermissionsArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Actions to include in the custom permissions profile. See capabilities.
-	Capabilities CustomPermissionsCapabilitiesPtrInput
-	// Custom permissions profile name.
-	//
-	// The following arguments are optional:
+	AwsAccountId          pulumi.StringPtrInput
+	Capabilities          CustomPermissionsCapabilitiesPtrInput
 	CustomPermissionsName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (CustomPermissionsArgs) ElementType() reflect.Type {
@@ -240,7 +184,6 @@ func (o CustomPermissionsOutput) ToCustomPermissionsOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the custom permissions profile.
 func (o CustomPermissionsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -249,29 +192,22 @@ func (o CustomPermissionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Actions to include in the custom permissions profile. See capabilities.
 func (o CustomPermissionsOutput) Capabilities() CustomPermissionsCapabilitiesPtrOutput {
 	return o.ApplyT(func(v *CustomPermissions) CustomPermissionsCapabilitiesPtrOutput { return v.Capabilities }).(CustomPermissionsCapabilitiesPtrOutput)
 }
 
-// Custom permissions profile name.
-//
-// The following arguments are optional:
 func (o CustomPermissionsOutput) CustomPermissionsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.CustomPermissionsName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomPermissionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomPermissionsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomPermissionsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

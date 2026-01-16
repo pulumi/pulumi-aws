@@ -75,25 +75,16 @@ class GetAttachmentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associationState")
     def association_state(self) -> _builtins.str:
-        """
-        The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
-        """
         return pulumi.get(self, "association_state")
 
     @_builtins.property
     @pulumi.getter(name="associationTransitGatewayRouteTableId")
     def association_transit_gateway_route_table_id(self) -> _builtins.str:
-        """
-        The ID of the route table for the transit gateway.
-        """
         return pulumi.get(self, "association_transit_gateway_route_table_id")
 
     @_builtins.property
@@ -117,41 +108,26 @@ class GetAttachmentResult:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> _builtins.str:
-        """
-        ID of the resource.
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceOwnerId")
     def resource_owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the resource.
-        """
         return pulumi.get(self, "resource_owner_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> _builtins.str:
-        """
-        Resource type.
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Attachment state.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the attachment.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -162,17 +138,11 @@ class GetAttachmentResult:
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> _builtins.str:
-        """
-        ID of the transit gateway.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayOwnerId")
     def transit_gateway_owner_id(self) -> _builtins.str:
-        """
-        The ID of the AWS account that owns the transit gateway.
-        """
         return pulumi.get(self, "transit_gateway_owner_id")
 
 
@@ -204,31 +174,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
                    transit_gateway_attachment_id: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachmentResult:
     """
-    Get information on an EC2 Transit Gateway's attachment to a resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_attachment(filters=[
-        {
-            "name": "transit-gateway-id",
-            "values": [example_aws_ec2_transit_gateway["id"]],
-        },
-        {
-            "name": "resource-type",
-            "values": ["peering"],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the attachment.
-    :param _builtins.str transit_gateway_attachment_id: ID of the attachment.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -259,31 +205,7 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
                           transit_gateway_attachment_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentResult]:
     """
-    Get information on an EC2 Transit Gateway's attachment to a resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_attachment(filters=[
-        {
-            "name": "transit-gateway-id",
-            "values": [example_aws_ec2_transit_gateway["id"]],
-        },
-        {
-            "name": "resource-type",
-            "values": ["peering"],
-        },
-    ])
-    ```
-
-
-    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the attachment.
-    :param _builtins.str transit_gateway_attachment_id: ID of the attachment.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

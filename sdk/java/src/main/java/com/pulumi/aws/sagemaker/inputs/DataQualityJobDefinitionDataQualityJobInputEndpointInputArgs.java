@@ -16,62 +16,30 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
 
     public static final DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs Empty = new DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs();
 
-    /**
-     * An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
-     * 
-     */
     @Import(name="endpointName", required=true)
     private Output<String> endpointName;
 
-    /**
-     * @return An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
-     * 
-     */
     public Output<String> endpointName() {
         return this.endpointName;
     }
 
-    /**
-     * Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     @Import(name="localPath")
     private @Nullable Output<String> localPath;
 
-    /**
-     * @return Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-     * 
-     */
     public Optional<Output<String>> localPath() {
         return Optional.ofNullable(this.localPath);
     }
 
-    /**
-     * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     @Import(name="s3DataDistributionType")
     private @Nullable Output<String> s3DataDistributionType;
 
-    /**
-     * @return Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-     * 
-     */
     public Optional<Output<String>> s3DataDistributionType() {
         return Optional.ofNullable(this.s3DataDistributionType);
     }
 
-    /**
-     * Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     @Import(name="s3InputMode")
     private @Nullable Output<String> s3InputMode;
 
-    /**
-     * @return Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-     * 
-     */
     public Optional<Output<String>> s3InputMode() {
         return Optional.ofNullable(this.s3InputMode);
     }
@@ -103,86 +71,38 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
             $ = new DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointName An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointName(Output<String> endpointName) {
             $.endpointName = endpointName;
             return this;
         }
 
-        /**
-         * @param endpointName An endpoint in customer&#39;s account which has `dataCaptureConfig` enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointName(String endpointName) {
             return endpointName(Output.of(endpointName));
         }
 
-        /**
-         * @param localPath Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localPath(@Nullable Output<String> localPath) {
             $.localPath = localPath;
             return this;
         }
 
-        /**
-         * @param localPath Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localPath(String localPath) {
             return localPath(Output.of(localPath));
         }
 
-        /**
-         * @param s3DataDistributionType Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataDistributionType(@Nullable Output<String> s3DataDistributionType) {
             $.s3DataDistributionType = s3DataDistributionType;
             return this;
         }
 
-        /**
-         * @param s3DataDistributionType Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataDistributionType(String s3DataDistributionType) {
             return s3DataDistributionType(Output.of(s3DataDistributionType));
         }
 
-        /**
-         * @param s3InputMode Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3InputMode(@Nullable Output<String> s3InputMode) {
             $.s3InputMode = s3InputMode;
             return this;
         }
 
-        /**
-         * @param s3InputMode Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3InputMode(String s3InputMode) {
             return s3InputMode(Output.of(s3InputMode));
         }

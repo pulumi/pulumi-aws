@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipPaymentConfigurationQueryCompute
     {
-        /// <summary>
-        /// Indicates whether the collaboration member has accepted to pay for query compute costs.
-        /// </summary>
         public readonly bool IsResponsible;
 
         [OutputConstructor]

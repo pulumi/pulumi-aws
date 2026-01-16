@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Lists Amazon S3 Express directory buckets.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.GetDirectoryBuckets(ctx, &s3.GetDirectoryBucketsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDirectoryBuckets(ctx *pulumi.Context, args *GetDirectoryBucketsArgs, opts ...pulumi.InvokeOption) (*GetDirectoryBucketsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDirectoryBucketsResult
@@ -48,15 +23,12 @@ func GetDirectoryBuckets(ctx *pulumi.Context, args *GetDirectoryBucketsArgs, opt
 
 // A collection of arguments for invoking getDirectoryBuckets.
 type GetDirectoryBucketsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDirectoryBuckets.
 type GetDirectoryBucketsResult struct {
-	// Bucket ARNs.
-	Arns []string `pulumi:"arns"`
-	// Buckets names.
+	Arns    []string `pulumi:"arns"`
 	Buckets []string `pulumi:"buckets"`
 	Id      string   `pulumi:"id"`
 	Region  string   `pulumi:"region"`
@@ -73,7 +45,6 @@ func GetDirectoryBucketsOutput(ctx *pulumi.Context, args GetDirectoryBucketsOutp
 
 // A collection of arguments for invoking getDirectoryBuckets.
 type GetDirectoryBucketsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -96,12 +67,10 @@ func (o GetDirectoryBucketsResultOutput) ToGetDirectoryBucketsResultOutputWithCo
 	return o
 }
 
-// Bucket ARNs.
 func (o GetDirectoryBucketsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryBucketsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
 
-// Buckets names.
 func (o GetDirectoryBucketsResultOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryBucketsResult) []string { return v.Buckets }).(pulumi.StringArrayOutput)
 }

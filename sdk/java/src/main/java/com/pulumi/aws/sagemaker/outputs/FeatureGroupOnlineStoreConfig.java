@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureGroupOnlineStoreConfig {
-    /**
-     * @return Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-     * 
-     */
     private @Nullable Boolean enableOnlineStore;
-    /**
-     * @return Security config for at-rest encryption of your OnlineStore. See Security Config Below.
-     * 
-     */
     private @Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig;
-    /**
-     * @return Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
-     * 
-     */
     private @Nullable String storageType;
-    /**
-     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
-     * 
-     */
     private @Nullable FeatureGroupOnlineStoreConfigTtlDuration ttlDuration;
 
     private FeatureGroupOnlineStoreConfig() {}
-    /**
-     * @return Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-     * 
-     */
     public Optional<Boolean> enableOnlineStore() {
         return Optional.ofNullable(this.enableOnlineStore);
     }
-    /**
-     * @return Security config for at-rest encryption of your OnlineStore. See Security Config Below.
-     * 
-     */
     public Optional<FeatureGroupOnlineStoreConfigSecurityConfig> securityConfig() {
         return Optional.ofNullable(this.securityConfig);
     }
-    /**
-     * @return Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
-     * 
-     */
     public Optional<String> storageType() {
         return Optional.ofNullable(this.storageType);
     }
-    /**
-     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
-     * 
-     */
     public Optional<FeatureGroupOnlineStoreConfigTtlDuration> ttlDuration() {
         return Optional.ofNullable(this.ttlDuration);
     }

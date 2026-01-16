@@ -17,62 +17,30 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
 
     public static final GetQuerySuggestionsBlockListArgs Empty = new GetQuerySuggestionsBlockListArgs();
 
-    /**
-     * Identifier of the index that contains the block list.
-     * 
-     */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
-    /**
-     * @return Identifier of the index that contains the block list.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
 
-    /**
-     * Identifier of the block list.
-     * 
-     */
     @Import(name="querySuggestionsBlockListId", required=true)
     private Output<String> querySuggestionsBlockListId;
 
-    /**
-     * @return Identifier of the block list.
-     * 
-     */
     public Output<String> querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Metadata that helps organize the block list you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Metadata that helps organize the block list you create.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class GetQuerySuggestionsBlockListArgs extends com.pulumi.resources
             $ = new GetQuerySuggestionsBlockListArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }
 
-        /**
-         * @param querySuggestionsBlockListId Identifier of the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder querySuggestionsBlockListId(Output<String> querySuggestionsBlockListId) {
             $.querySuggestionsBlockListId = querySuggestionsBlockListId;
             return this;
         }
 
-        /**
-         * @param querySuggestionsBlockListId Identifier of the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder querySuggestionsBlockListId(String querySuggestionsBlockListId) {
             return querySuggestionsBlockListId(Output.of(querySuggestionsBlockListId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Metadata that helps organize the block list you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Metadata that helps organize the block list you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

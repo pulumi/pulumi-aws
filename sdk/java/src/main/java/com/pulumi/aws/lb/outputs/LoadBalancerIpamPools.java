@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LoadBalancerIpamPools {
-    /**
-     * @return The ID of the IPv4 IPAM pool.
-     * 
-     */
     private String ipv4IpamPoolId;
 
     private LoadBalancerIpamPools() {}
-    /**
-     * @return The ID of the IPv4 IPAM pool.
-     * 
-     */
     public String ipv4IpamPoolId() {
         return this.ipv4IpamPoolId;
     }

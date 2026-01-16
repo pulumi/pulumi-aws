@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTenantCustomizationsGeoRestriction {
-    /**
-     * @return Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     private @Nullable List<String> locations;
-    /**
-     * @return Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-     * 
-     */
     private @Nullable String restrictionType;
 
     private DistributionTenantCustomizationsGeoRestriction() {}
-    /**
-     * @return Set of ISO 3166-1-alpha-2 country codes for the restriction. Required if `restrictionType` is `whitelist` or `blacklist`.
-     * 
-     */
     public List<String> locations() {
         return this.locations == null ? List.of() : this.locations;
     }
-    /**
-     * @return Method to restrict distribution by country: `none`, `whitelist`, or `blacklist`.
-     * 
-     */
     public Optional<String> restrictionType() {
         return Optional.ofNullable(this.restrictionType);
     }

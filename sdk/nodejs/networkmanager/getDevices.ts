@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about existing Network Manager devices.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getDevices({
- *     globalNetworkId: globalNetworkId,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getDevices:getDevices", {
@@ -34,17 +17,8 @@ export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getDevices.
  */
 export interface GetDevicesArgs {
-    /**
-     * ID of the Global Network of the devices to retrieve.
-     */
     globalNetworkId: string;
-    /**
-     * ID of the site of the devices to retrieve.
-     */
     siteId?: string;
-    /**
-     * Restricts the list to the devices with these tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -57,30 +31,10 @@ export interface GetDevicesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IDs of the devices.
-     */
     readonly ids: string[];
     readonly siteId?: string;
     readonly tags?: {[key: string]: string};
 }
-/**
- * Provides details about existing Network Manager devices.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getDevices({
- *     globalNetworkId: globalNetworkId,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getDevices:getDevices", {
@@ -94,16 +48,7 @@ export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getDevices.
  */
 export interface GetDevicesOutputArgs {
-    /**
-     * ID of the Global Network of the devices to retrieve.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * ID of the site of the devices to retrieve.
-     */
     siteId?: pulumi.Input<string>;
-    /**
-     * Restricts the list to the devices with these tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,77 +16,37 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLinksPlainArgs Empty = new GetLinksPlainArgs();
 
-    /**
-     * ID of the Global Network of the links to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the links to retrieve.
-     * 
-     */
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Link provider to retrieve.
-     * 
-     */
     @Import(name="providerName")
     private @Nullable String providerName;
 
-    /**
-     * @return Link provider to retrieve.
-     * 
-     */
     public Optional<String> providerName() {
         return Optional.ofNullable(this.providerName);
     }
 
-    /**
-     * ID of the site of the links to retrieve.
-     * 
-     */
     @Import(name="siteId")
     private @Nullable String siteId;
 
-    /**
-     * @return ID of the site of the links to retrieve.
-     * 
-     */
     public Optional<String> siteId() {
         return Optional.ofNullable(this.siteId);
     }
 
-    /**
-     * Restricts the list to the links with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Restricts the list to the links with these tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Link type to retrieve.
-     * 
-     */
     @Import(name="type")
     private @Nullable String type;
 
-    /**
-     * @return Link type to retrieve.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
@@ -119,56 +79,26 @@ public final class GetLinksPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLinksPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the links to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param providerName Link provider to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(@Nullable String providerName) {
             $.providerName = providerName;
             return this;
         }
 
-        /**
-         * @param siteId ID of the site of the links to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(@Nullable String siteId) {
             $.siteId = siteId;
             return this;
         }
 
-        /**
-         * @param tags Restricts the list to the links with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param type Link type to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable String type) {
             $.type = type;
             return this;

@@ -14,33 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerDefaultActionForward {
-    /**
-     * @return Configuration block for target group stickiness for the rule. See below.
-     * 
-     */
     private @Nullable ListenerDefaultActionForwardStickiness stickiness;
-    /**
-     * @return Set of 1-5 target group blocks. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private List<ListenerDefaultActionForwardTargetGroup> targetGroups;
 
     private ListenerDefaultActionForward() {}
-    /**
-     * @return Configuration block for target group stickiness for the rule. See below.
-     * 
-     */
     public Optional<ListenerDefaultActionForwardStickiness> stickiness() {
         return Optional.ofNullable(this.stickiness);
     }
-    /**
-     * @return Set of 1-5 target group blocks. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public List<ListenerDefaultActionForwardTargetGroup> targetGroups() {
         return this.targetGroups;
     }

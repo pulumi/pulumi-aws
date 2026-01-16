@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExperienceConfiguration {
-    /**
-     * @return The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
-     * 
-     */
     private List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations;
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
-     * 
-     */
     private List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations;
 
     private GetExperienceConfiguration() {}
-    /**
-     * @return The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
-     * 
-     */
     public List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations() {
         return this.contentSourceConfigurations;
     }
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
-     * 
-     */
     public List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations() {
         return this.userIdentityConfigurations;
     }

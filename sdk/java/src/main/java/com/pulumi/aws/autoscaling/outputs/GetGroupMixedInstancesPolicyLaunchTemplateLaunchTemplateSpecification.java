@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
-    /**
-     * @return ID of the launch template.
-     * 
-     */
     private String launchTemplateId;
-    /**
-     * @return Name of the launch template.
-     * 
-     */
     private String launchTemplateName;
-    /**
-     * @return Template version.
-     * 
-     */
     private String version;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification() {}
-    /**
-     * @return ID of the launch template.
-     * 
-     */
     public String launchTemplateId() {
         return this.launchTemplateId;
     }
-    /**
-     * @return Name of the launch template.
-     * 
-     */
     public String launchTemplateName() {
         return this.launchTemplateName;
     }
-    /**
-     * @return Template version.
-     * 
-     */
     public String version() {
         return this.version;
     }

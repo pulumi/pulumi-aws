@@ -18,17 +18,9 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
-    /**
-     * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     * 
-     */
     @Import(name="accessString")
     private @Nullable String accessString;
 
-    /**
-     * @return String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     * 
-     */
     public Optional<String> accessString() {
         return Optional.ofNullable(this.accessString);
     }
@@ -61,47 +53,23 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.passwords);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier for the user.
-     * 
-     */
     @Import(name="userId", required=true)
     private String userId;
 
-    /**
-     * @return Identifier for the user.
-     * 
-     */
     public String userId() {
         return this.userId;
     }
 
-    /**
-     * User name of the user.
-     * 
-     */
     @Import(name="userName")
     private @Nullable String userName;
 
-    /**
-     * @return User name of the user.
-     * 
-     */
     public Optional<String> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -137,12 +105,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessString String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(@Nullable String accessString) {
             $.accessString = accessString;
             return this;
@@ -176,34 +138,16 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             return passwords(List.of(passwords));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param userId Identifier for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userName User name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable String userName) {
             $.userName = userName;
             return this;

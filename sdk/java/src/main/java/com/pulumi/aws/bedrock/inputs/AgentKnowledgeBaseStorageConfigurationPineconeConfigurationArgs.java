@@ -17,62 +17,30 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
 
     public static final AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs();
 
-    /**
-     * Endpoint URL for your index management page.
-     * 
-     */
     @Import(name="connectionString", required=true)
     private Output<String> connectionString;
 
-    /**
-     * @return Endpoint URL for your index management page.
-     * 
-     */
     public Output<String> connectionString() {
         return this.connectionString;
     }
 
-    /**
-     * ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-     * 
-     */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
-    /**
-     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-     * 
-     */
     public Output<String> credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
 
-    /**
-     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping;
 
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs>> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
 
-    /**
-     * Namespace to be used to write new data to your database.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace to be used to write new data to your database.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
@@ -104,86 +72,38 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
             $ = new AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionString Endpoint URL for your index management page.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionString(Output<String> connectionString) {
             $.connectionString = connectionString;
             return this;
         }
 
-        /**
-         * @param connectionString Endpoint URL for your index management page.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionString(String connectionString) {
             return connectionString(Output.of(connectionString));
         }
 
-        /**
-         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(Output<String> credentialsSecretArn) {
             $.credentialsSecretArn = credentialsSecretArn;
             return this;
         }
 
-        /**
-         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialsSecretArn(String credentialsSecretArn) {
             return credentialsSecretArn(Output.of(credentialsSecretArn));
         }
 
-        /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
 
-        /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs fieldMapping) {
             return fieldMapping(Output.of(fieldMapping));
         }
 
-        /**
-         * @param namespace Namespace to be used to write new data to your database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace to be used to write new data to your database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

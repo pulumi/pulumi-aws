@@ -16,151 +16,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.SmsChannel;
- * import com.pulumi.aws.pinpoint.SmsChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App("app");
- * 
- *         var sms = new SmsChannel("sms", SmsChannelArgs.builder()
- *             .applicationId(app.applicationId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/smsChannel:SmsChannel")
 public class SmsChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the application.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return ID of the application.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * Whether the channel is enabled or disabled. By default, it is set to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. By default, it is set to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Maximum number of promotional messages that can be sent per second.
-     * 
-     */
     @Export(name="promotionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> promotionalMessagesPerSecond;
 
-    /**
-     * @return Maximum number of promotional messages that can be sent per second.
-     * 
-     */
     public Output<Integer> promotionalMessagesPerSecond() {
         return this.promotionalMessagesPerSecond;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Identifier of the sender for your messages.
-     * 
-     */
     @Export(name="senderId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> senderId;
 
-    /**
-     * @return Identifier of the sender for your messages.
-     * 
-     */
     public Output<Optional<String>> senderId() {
         return Codegen.optional(this.senderId);
     }
-    /**
-     * Short Code registered with the phone provider.
-     * 
-     */
     @Export(name="shortCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shortCode;
 
-    /**
-     * @return Short Code registered with the phone provider.
-     * 
-     */
     public Output<Optional<String>> shortCode() {
         return Codegen.optional(this.shortCode);
     }
-    /**
-     * Maximum number of transactional messages per second that can be sent.
-     * 
-     */
     @Export(name="transactionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> transactionalMessagesPerSecond;
 
-    /**
-     * @return Maximum number of transactional messages per second that can be sent.
-     * 
-     */
     public Output<Integer> transactionalMessagesPerSecond() {
         return this.transactionalMessagesPerSecond;
     }

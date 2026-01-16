@@ -14,10 +14,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
     {
         [Input("messageTypes", required: true)]
         private List<string>? _messageTypes;
-
-        /// <summary>
-        /// Events to receive notifications for.
-        /// </summary>
         public List<string> MessageTypes
         {
             get => _messageTypes ?? (_messageTypes = new List<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
 
         [Input("severities", required: true)]
         private List<string>? _severities;
-
-        /// <summary>
-        /// Severity levels to receive notifications for.
-        /// </summary>
         public List<string> Severities
         {
             get => _severities ?? (_severities = new List<string>());

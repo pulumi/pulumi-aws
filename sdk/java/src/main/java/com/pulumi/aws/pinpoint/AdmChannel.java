@@ -16,127 +16,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
- * 
- * &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.AdmChannel;
- * import com.pulumi.aws.pinpoint.AdmChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App("app");
- * 
- *         var channel = new AdmChannel("channel", AdmChannelArgs.builder()
- *             .applicationId(app.applicationId())
- *             .clientId("")
- *             .clientSecret("")
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/admChannel:AdmChannel")
 public class AdmChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
-    /**
-     * @return Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
-    /**
-     * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
-    /**
-     * @return Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

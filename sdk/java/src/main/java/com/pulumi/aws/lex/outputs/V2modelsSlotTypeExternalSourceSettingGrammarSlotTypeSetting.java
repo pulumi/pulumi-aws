@@ -11,19 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
-    /**
-     * @return Source of the grammar used to create the slot type.
-     * See `source` argument reference below.
-     * 
-     */
     private @Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> sources;
 
     private V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting() {}
-    /**
-     * @return Source of the grammar used to create the slot type.
-     * See `source` argument reference below.
-     * 
-     */
     public List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> sources() {
         return this.sources == null ? List.of() : this.sources;
     }

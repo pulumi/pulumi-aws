@@ -16,17 +16,9 @@ public final class ThingGroupPropertiesAttributePayloadArgs extends com.pulumi.r
 
     public static final ThingGroupPropertiesAttributePayloadArgs Empty = new ThingGroupPropertiesAttributePayloadArgs();
 
-    /**
-     * Key-value map.
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<Map<String,String>> attributes;
 
-    /**
-     * @return Key-value map.
-     * 
-     */
     public Optional<Output<Map<String,String>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
@@ -55,23 +47,11 @@ public final class ThingGroupPropertiesAttributePayloadArgs extends com.pulumi.r
             $ = new ThingGroupPropertiesAttributePayloadArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes Key-value map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<Map<String,String>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes Key-value map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(Map<String,String> attributes) {
             return attributes(Output.of(attributes));
         }

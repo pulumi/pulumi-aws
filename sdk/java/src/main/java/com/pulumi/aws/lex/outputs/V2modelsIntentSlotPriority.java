@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentSlotPriority {
-    /**
-     * @return Priority that Amazon Lex should apply to the slot.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return Unique identifier of the slot.
-     * 
-     */
     private String slotId;
 
     private V2modelsIntentSlotPriority() {}
-    /**
-     * @return Priority that Amazon Lex should apply to the slot.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return Unique identifier of the slot.
-     * 
-     */
     public String slotId() {
         return this.slotId;
     }

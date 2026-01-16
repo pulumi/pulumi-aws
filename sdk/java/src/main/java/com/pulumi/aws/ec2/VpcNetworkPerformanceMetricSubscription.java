@@ -14,127 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an Infrastructure Performance subscription.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcNetworkPerformanceMetricSubscription;
- * import com.pulumi.aws.ec2.VpcNetworkPerformanceMetricSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcNetworkPerformanceMetricSubscription("example", VpcNetworkPerformanceMetricSubscriptionArgs.builder()
- *             .source("us-east-1")
- *             .destination("us-west-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")
 public class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-     * 
-     */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
-    /**
-     * @return The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
-    /**
-     * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-     * 
-     */
     @Export(name="metric", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metric;
 
-    /**
-     * @return The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-     * 
-     */
     public Output<Optional<String>> metric() {
         return Codegen.optional(this.metric);
     }
-    /**
-     * The data aggregation time for the subscription.
-     * 
-     */
     @Export(name="period", refs={String.class}, tree="[0]")
     private Output<String> period;
 
-    /**
-     * @return The data aggregation time for the subscription.
-     * 
-     */
     public Output<String> period() {
         return this.period;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-     * 
-     */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
-    /**
-     * @return The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
-    /**
-     * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-     * 
-     */
     @Export(name="statistic", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> statistic;
 
-    /**
-     * @return The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-     * 
-     */
     public Output<Optional<String>> statistic() {
         return Codegen.optional(this.statistic);
     }

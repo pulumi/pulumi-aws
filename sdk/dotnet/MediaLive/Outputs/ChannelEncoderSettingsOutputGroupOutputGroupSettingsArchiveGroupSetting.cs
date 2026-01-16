@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting
     {
-        /// <summary>
-        /// Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings? ArchiveCdnSettings;
-        /// <summary>
-        /// A director and base filename where archive files should be written. See Destination for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination Destination;
-        /// <summary>
-        /// Number of seconds to write to archive file before closing and starting a new one.
-        /// </summary>
         public readonly int? RolloverInterval;
 
         [OutputConstructor]

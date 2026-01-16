@@ -9,113 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Invoicing
 {
-    /// <summary>
-    /// Manages an AWS Invoice Unit for organizational billing.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Invoicing.InvoiceUnit("example", new()
-    ///     {
-    ///         Name = "example-unit",
-    ///         Description = "Example invoice unit",
-    ///         InvoiceReceiver = "123456789012",
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.Invoicing.Inputs.InvoiceUnitRuleArgs
-    ///             {
-    ///                 LinkedAccounts = new[]
-    ///                 {
-    ///                     "098765432109",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Invoice Units using the ARN. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:invoicing/invoiceUnit:InvoiceUnit example arn:aws:invoicing::123456789012:invoice-unit/example-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:invoicing/invoiceUnit:InvoiceUnit")]
     public partial class InvoiceUnit : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the invoice unit.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the invoice unit.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        /// </summary>
         [Output("invoiceReceiver")]
         public Output<string> InvoiceReceiver { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp when the invoice unit was last modified.
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name of the invoice unit. Cannot be changed after creation.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for invoice unit rules. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.InvoiceUnitRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether tax inheritance is disabled for this invoice unit.
-        /// </summary>
         [Output("taxInheritanceDisabled")]
         public Output<bool> TaxInheritanceDisabled { get; private set; } = null!;
 
@@ -168,38 +91,20 @@ namespace Pulumi.Aws.Invoicing
 
     public sealed class InvoiceUnitArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the invoice unit.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        /// </summary>
         [Input("invoiceReceiver", required: true)]
         public Input<string> InvoiceReceiver { get; set; } = null!;
 
-        /// <summary>
-        /// Unique name of the invoice unit. Cannot be changed after creation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.InvoiceUnitRuleArgs>? _rules;
-
-        /// <summary>
-        /// Configuration block for invoice unit rules. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.InvoiceUnitRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.InvoiceUnitRuleArgs>());
@@ -208,19 +113,12 @@ namespace Pulumi.Aws.Invoicing
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Whether tax inheritance is disabled for this invoice unit.
-        /// </summary>
         [Input("taxInheritanceDisabled")]
         public Input<bool>? TaxInheritanceDisabled { get; set; }
 
@@ -235,50 +133,26 @@ namespace Pulumi.Aws.Invoicing
 
     public sealed class InvoiceUnitState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the invoice unit.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the invoice unit.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-        /// </summary>
         [Input("invoiceReceiver")]
         public Input<string>? InvoiceReceiver { get; set; }
 
-        /// <summary>
-        /// Timestamp when the invoice unit was last modified.
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
-        /// <summary>
-        /// Unique name of the invoice unit. Cannot be changed after creation.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.InvoiceUnitRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// Configuration block for invoice unit rules. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.InvoiceUnitRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.InvoiceUnitRuleGetArgs>());
@@ -287,10 +161,6 @@ namespace Pulumi.Aws.Invoicing
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -299,19 +169,12 @@ namespace Pulumi.Aws.Invoicing
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Whether tax inheritance is disabled for this invoice unit.
-        /// </summary>
         [Input("taxInheritanceDisabled")]
         public Input<bool>? TaxInheritanceDisabled { get; set; }
 

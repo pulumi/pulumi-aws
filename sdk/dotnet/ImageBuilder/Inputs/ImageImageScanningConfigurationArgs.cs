@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImageImageScanningConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with ECR configuration. Detailed below.
-        /// </summary>
         [Input("ecrConfiguration")]
         public Input<Inputs.ImageImageScanningConfigurationEcrConfigurationArgs>? EcrConfiguration { get; set; }
 
-        /// <summary>
-        /// Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `False`.
-        /// </summary>
         [Input("imageScanningEnabled")]
         public Input<bool>? ImageScanningEnabled { get; set; }
 

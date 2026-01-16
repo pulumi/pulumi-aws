@@ -25,10 +25,6 @@ class SshKeyArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SshKey resource.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        :param pulumi.Input[_builtins.str] public_key: The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        :param pulumi.Input[_builtins.str] username: The name of the IAM user to associate the SSH public key with.
-        :param pulumi.Input[_builtins.str] status: The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         """
         pulumi.set(__self__, "encoding", encoding)
         pulumi.set(__self__, "public_key", public_key)
@@ -39,9 +35,6 @@ class SshKeyArgs:
     @_builtins.property
     @pulumi.getter
     def encoding(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
@@ -51,9 +44,6 @@ class SshKeyArgs:
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -63,9 +53,6 @@ class SshKeyArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the IAM user to associate the SSH public key with.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -75,9 +62,6 @@ class SshKeyArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -96,12 +80,6 @@ class _SshKeyState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        :param pulumi.Input[_builtins.str] fingerprint: The MD5 message digest of the SSH public key.
-        :param pulumi.Input[_builtins.str] public_key: The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        :param pulumi.Input[_builtins.str] ssh_public_key_id: The unique identifier for the SSH public key.
-        :param pulumi.Input[_builtins.str] status: The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        :param pulumi.Input[_builtins.str] username: The name of the IAM user to associate the SSH public key with.
         """
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
@@ -119,9 +97,6 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter
     def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
@@ -131,9 +106,6 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter
     def fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The MD5 message digest of the SSH public key.
-        """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
@@ -143,9 +115,6 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
@@ -155,9 +124,6 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter(name="sshPublicKeyId")
     def ssh_public_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier for the SSH public key.
-        """
         return pulumi.get(self, "ssh_public_key_id")
 
     @ssh_public_key_id.setter
@@ -167,9 +133,6 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -179,9 +142,6 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the IAM user to associate the SSH public key with.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -201,37 +161,9 @@ class SshKey(pulumi.CustomResource):
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Uploads an SSH public key and associates it with the specified IAM user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user = aws.iam.User("user",
-            name="test-user",
-            path="/")
-        user_ssh_key = aws.iam.SshKey("user",
-            username=user.name,
-            encoding="SSH",
-            public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
-        ```
-
+        Create a SshKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        :param pulumi.Input[_builtins.str] public_key: The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        :param pulumi.Input[_builtins.str] status: The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        :param pulumi.Input[_builtins.str] username: The name of the IAM user to associate the SSH public key with.
         """
         ...
     @overload
@@ -240,31 +172,7 @@ class SshKey(pulumi.CustomResource):
                  args: SshKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uploads an SSH public key and associates it with the specified IAM user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user = aws.iam.User("user",
-            name="test-user",
-            path="/")
-        user_ssh_key = aws.iam.SshKey("user",
-            username=user.name,
-            encoding="SSH",
-            public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For example:
-
-        ```sh
-        $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
-        ```
-
+        Create a SshKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,12 +236,6 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        :param pulumi.Input[_builtins.str] fingerprint: The MD5 message digest of the SSH public key.
-        :param pulumi.Input[_builtins.str] public_key: The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        :param pulumi.Input[_builtins.str] ssh_public_key_id: The unique identifier for the SSH public key.
-        :param pulumi.Input[_builtins.str] status: The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        :param pulumi.Input[_builtins.str] username: The name of the IAM user to associate the SSH public key with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,48 +252,30 @@ class SshKey(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def encoding(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-        """
         return pulumi.get(self, "encoding")
 
     @_builtins.property
     @pulumi.getter
     def fingerprint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The MD5 message digest of the SSH public key.
-        """
         return pulumi.get(self, "fingerprint")
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-        """
         return pulumi.get(self, "public_key")
 
     @_builtins.property
     @pulumi.getter(name="sshPublicKeyId")
     def ssh_public_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier for the SSH public key.
-        """
         return pulumi.get(self, "ssh_public_key_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the IAM user to associate the SSH public key with.
-        """
         return pulumi.get(self, "username")
 

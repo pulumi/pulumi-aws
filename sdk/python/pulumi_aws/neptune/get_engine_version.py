@@ -106,9 +106,6 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="defaultCharacterSet")
     def default_character_set(self) -> _builtins.str:
-        """
-        Default character set for the engine version.
-        """
         return pulumi.get(self, "default_character_set")
 
     @_builtins.property
@@ -124,17 +121,11 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="engineDescription")
     def engine_description(self) -> _builtins.str:
-        """
-        Description of the database engine.
-        """
         return pulumi.get(self, "engine_description")
 
     @_builtins.property
     @pulumi.getter(name="exportableLogTypes")
     def exportable_log_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of log types that the database engine has available for export to CloudWatch Logs.
-        """
         return pulumi.get(self, "exportable_log_types")
 
     @_builtins.property
@@ -188,65 +179,41 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="supportedCharacterSets")
     def supported_character_sets(self) -> Sequence[_builtins.str]:
-        """
-        Set of character sets supported by this engine version.
-        """
         return pulumi.get(self, "supported_character_sets")
 
     @_builtins.property
     @pulumi.getter(name="supportedTimezones")
     def supported_timezones(self) -> Sequence[_builtins.str]:
-        """
-        Set of time zones supported by this engine.
-        """
         return pulumi.get(self, "supported_timezones")
 
     @_builtins.property
     @pulumi.getter(name="supportsGlobalDatabases")
     def supports_global_databases(self) -> _builtins.bool:
-        """
-        Whether the engine version supports global databases.
-        """
         return pulumi.get(self, "supports_global_databases")
 
     @_builtins.property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
     def supports_log_exports_to_cloudwatch(self) -> _builtins.bool:
-        """
-        Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-        """
         return pulumi.get(self, "supports_log_exports_to_cloudwatch")
 
     @_builtins.property
     @pulumi.getter(name="supportsReadReplica")
     def supports_read_replica(self) -> _builtins.bool:
-        """
-        Whether the database engine version supports read replicas.
-        """
         return pulumi.get(self, "supports_read_replica")
 
     @_builtins.property
     @pulumi.getter(name="validMajorTargets")
     def valid_major_targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of valid major engine versions that this version can be upgraded to.
-        """
         return pulumi.get(self, "valid_major_targets")
 
     @_builtins.property
     @pulumi.getter(name="validMinorTargets")
     def valid_minor_targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of valid minor engine versions that this version can be upgraded to.
-        """
         return pulumi.get(self, "valid_minor_targets")
 
     @_builtins.property
     @pulumi.getter(name="validUpgradeTargets")
     def valid_upgrade_targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of engine versions that this database engine version can be upgraded to.
-        """
         return pulumi.get(self, "valid_upgrade_targets")
 
     @_builtins.property
@@ -257,17 +224,11 @@ class GetEngineVersionResult:
     @_builtins.property
     @pulumi.getter(name="versionActual")
     def version_actual(self) -> _builtins.str:
-        """
-        Actual engine version returned by the API.
-        """
         return pulumi.get(self, "version_actual")
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> _builtins.str:
-        """
-        Description of the database engine version.
-        """
         return pulumi.get(self, "version_description")
 
 
@@ -317,35 +278,7 @@ def get_engine_version(default_only: Optional[_builtins.bool] = None,
                        version: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEngineVersionResult:
     """
-    Information about a Neptune engine version.
-
-    > **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_engine_version(preferred_versions=[
-        "1.4.5.0",
-        "1.4.4.0",
-        "1.4.3.0",
-    ])
-    ```
-
-
-    :param _builtins.bool default_only: Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
-    :param _builtins.str engine: DB engine. Must be `neptune`. Default is `neptune`.
-    :param _builtins.bool has_major_target: Whether to filter for engine versions that have a major target.
-    :param _builtins.bool has_minor_target: Whether to filter for engine versions that have a minor target.
-    :param _builtins.bool latest: Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
-    :param _builtins.str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
-    :param Sequence[_builtins.str] preferred_major_targets: Ordered list of preferred major engine versions.
-    :param Sequence[_builtins.str] preferred_upgrade_targets: Ordered list of preferred upgrade engine versions.
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultOnly'] = default_only
@@ -401,35 +334,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[_buil
                               version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
-    Information about a Neptune engine version.
-
-    > **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_engine_version(preferred_versions=[
-        "1.4.5.0",
-        "1.4.4.0",
-        "1.4.3.0",
-    ])
-    ```
-
-
-    :param _builtins.bool default_only: Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
-    :param _builtins.str engine: DB engine. Must be `neptune`. Default is `neptune`.
-    :param _builtins.bool has_major_target: Whether to filter for engine versions that have a major target.
-    :param _builtins.bool has_minor_target: Whether to filter for engine versions that have a minor target.
-    :param _builtins.bool latest: Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
-    :param _builtins.str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
-    :param Sequence[_builtins.str] preferred_major_targets: Ordered list of preferred major engine versions.
-    :param Sequence[_builtins.str] preferred_upgrade_targets: Ordered list of preferred upgrade engine versions.
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['defaultOnly'] = default_only

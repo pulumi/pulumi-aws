@@ -11,61 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Service Network.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewServiceNetwork(ctx, "example", &vpclattice.ServiceNetworkArgs{
-//				Name:     pulumi.String("example"),
-//				AuthType: pulumi.String("AWS_IAM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
-// ```
 type ServiceNetwork struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Service Network.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType pulumi.StringOutput `pulumi:"authType"`
-	// Name of the service network
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn      pulumi.StringOutput    `pulumi:"arn"`
+	AuthType pulumi.StringOutput    `pulumi:"authType"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Region   pulumi.StringOutput    `pulumi:"region"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewServiceNetwork registers a new resource with the given unique name, arguments, and options.
@@ -98,37 +52,21 @@ func GetServiceNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceNetwork resources.
 type serviceNetworkState struct {
-	// ARN of the Service Network.
-	Arn *string `pulumi:"arn"`
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType *string `pulumi:"authType"`
-	// Name of the service network
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn      *string           `pulumi:"arn"`
+	AuthType *string           `pulumi:"authType"`
+	Name     *string           `pulumi:"name"`
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
+	TagsAll  map[string]string `pulumi:"tagsAll"`
 }
 
 type ServiceNetworkState struct {
-	// ARN of the Service Network.
-	Arn pulumi.StringPtrInput
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
+	Arn      pulumi.StringPtrInput
 	AuthType pulumi.StringPtrInput
-	// Name of the service network
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name     pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
 }
 
 func (ServiceNetworkState) ElementType() reflect.Type {
@@ -136,30 +74,18 @@ func (ServiceNetworkState) ElementType() reflect.Type {
 }
 
 type serviceNetworkArgs struct {
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
-	AuthType *string `pulumi:"authType"`
-	// Name of the service network
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AuthType *string           `pulumi:"authType"`
+	Name     *string           `pulumi:"name"`
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceNetwork resource.
 type ServiceNetworkArgs struct {
-	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringPtrInput
-	// Name of the service network
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name     pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
 }
 
 func (ServiceNetworkArgs) ElementType() reflect.Type {
@@ -249,34 +175,26 @@ func (o ServiceNetworkOutput) ToServiceNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN of the Service Network.
 func (o ServiceNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 func (o ServiceNetworkOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Name of the service network
-//
-// The following arguments are optional:
 func (o ServiceNetworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceNetworkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceNetworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceNetworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

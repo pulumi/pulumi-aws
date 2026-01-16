@@ -12,68 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := servicecatalog.NewAppregistryApplication(ctx, "example", &servicecatalog.AppregistryApplicationArgs{
-//				Name: pulumi.String("example-app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"app":   "exampleapp",
-//				"group": "examplegroup",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleAppregistryAttributeGroup, err := servicecatalog.NewAppregistryAttributeGroup(ctx, "example", &servicecatalog.AppregistryAttributeGroupArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example description"),
-//				Attributes:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicecatalog.NewAppregistryAttributeGroupAssociation(ctx, "example", &servicecatalog.AppregistryAttributeGroupAssociationArgs{
-//				ApplicationId:    example.ID(),
-//				AttributeGroupId: exampleAppregistryAttributeGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
-// ```
 type AppregistryAttributeGroupAssociation struct {
 	pulumi.CustomResourceState
 
@@ -81,8 +19,7 @@ type AppregistryAttributeGroupAssociation struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringOutput `pulumi:"attributeGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region           pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAppregistryAttributeGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -125,8 +62,7 @@ type appregistryAttributeGroupAssociationState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId *string `pulumi:"attributeGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region           *string `pulumi:"region"`
 }
 
 type AppregistryAttributeGroupAssociationState struct {
@@ -134,8 +70,7 @@ type AppregistryAttributeGroupAssociationState struct {
 	ApplicationId pulumi.StringPtrInput
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (AppregistryAttributeGroupAssociationState) ElementType() reflect.Type {
@@ -146,9 +81,8 @@ type appregistryAttributeGroupAssociationArgs struct {
 	// ID of the application.
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
-	AttributeGroupId string `pulumi:"attributeGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AttributeGroupId string  `pulumi:"attributeGroupId"`
+	Region           *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AppregistryAttributeGroupAssociation resource.
@@ -157,8 +91,7 @@ type AppregistryAttributeGroupAssociationArgs struct {
 	ApplicationId pulumi.StringInput
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (AppregistryAttributeGroupAssociationArgs) ElementType() reflect.Type {
@@ -258,7 +191,6 @@ func (o AppregistryAttributeGroupAssociationOutput) AttributeGroupId() pulumi.St
 	return o.ApplyT(func(v *AppregistryAttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroupId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppregistryAttributeGroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

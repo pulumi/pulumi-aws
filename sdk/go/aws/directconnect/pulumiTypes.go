@@ -14,17 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetRouterConfigurationRouter struct {
-	// Router platform
-	Platform string `pulumi:"platform"`
-	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-	//
-	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
-	// Router operating system
-	Software string `pulumi:"software"`
-	// Router vendor
-	Vendor string `pulumi:"vendor"`
-	// Router XSLT Template Name
+	Platform                  string `pulumi:"platform"`
+	RouterTypeIdentifier      string `pulumi:"routerTypeIdentifier"`
+	Software                  string `pulumi:"software"`
+	Vendor                    string `pulumi:"vendor"`
 	XsltTemplateName          string `pulumi:"xsltTemplateName"`
 	XsltTemplateNameForMacSec string `pulumi:"xsltTemplateNameForMacSec"`
 }
@@ -41,17 +34,10 @@ type GetRouterConfigurationRouterInput interface {
 }
 
 type GetRouterConfigurationRouterArgs struct {
-	// Router platform
-	Platform pulumi.StringInput `pulumi:"platform"`
-	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-	//
-	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-	RouterTypeIdentifier pulumi.StringInput `pulumi:"routerTypeIdentifier"`
-	// Router operating system
-	Software pulumi.StringInput `pulumi:"software"`
-	// Router vendor
-	Vendor pulumi.StringInput `pulumi:"vendor"`
-	// Router XSLT Template Name
+	Platform                  pulumi.StringInput `pulumi:"platform"`
+	RouterTypeIdentifier      pulumi.StringInput `pulumi:"routerTypeIdentifier"`
+	Software                  pulumi.StringInput `pulumi:"software"`
+	Vendor                    pulumi.StringInput `pulumi:"vendor"`
 	XsltTemplateName          pulumi.StringInput `pulumi:"xsltTemplateName"`
 	XsltTemplateNameForMacSec pulumi.StringInput `pulumi:"xsltTemplateNameForMacSec"`
 }
@@ -107,29 +93,22 @@ func (o GetRouterConfigurationRouterOutput) ToGetRouterConfigurationRouterOutput
 	return o
 }
 
-// Router platform
 func (o GetRouterConfigurationRouterOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Platform }).(pulumi.StringOutput)
 }
 
-// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-//
-// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
 func (o GetRouterConfigurationRouterOutput) RouterTypeIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.RouterTypeIdentifier }).(pulumi.StringOutput)
 }
 
-// Router operating system
 func (o GetRouterConfigurationRouterOutput) Software() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Software }).(pulumi.StringOutput)
 }
 
-// Router vendor
 func (o GetRouterConfigurationRouterOutput) Vendor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.Vendor }).(pulumi.StringOutput)
 }
 
-// Router XSLT Template Name
 func (o GetRouterConfigurationRouterOutput) XsltTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationRouter) string { return v.XsltTemplateName }).(pulumi.StringOutput)
 }

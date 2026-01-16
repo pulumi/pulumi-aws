@@ -27,9 +27,6 @@ class InstanceDesiredStateArgs:
                  timeouts: Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InstanceDesiredState resource.
-        :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
-        :param pulumi.Input[_builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "state", state)
@@ -41,9 +38,6 @@ class InstanceDesiredStateArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        DB Instance Identifier
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -53,9 +47,6 @@ class InstanceDesiredStateArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
-        """
-        Configured state of the DB Instance. Valid values are `available` and `stopped`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -65,9 +56,6 @@ class InstanceDesiredStateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -93,9 +81,6 @@ class _InstanceDesiredStateState:
                  timeouts: Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering InstanceDesiredState resources.
-        :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
@@ -109,9 +94,6 @@ class _InstanceDesiredStateState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DB Instance Identifier
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -121,9 +103,6 @@ class _InstanceDesiredStateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -133,9 +112,6 @@ class _InstanceDesiredStateState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configured state of the DB Instance. Valid values are `available` and `stopped`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -164,36 +140,9 @@ class InstanceDesiredState(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS RDS (Relational Database) RDS Instance State.
-
-        > Destruction of this resource is a no-op and **will not** modify the instance state
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.rds.InstanceDesiredState("test",
-            identifier=test_aws_db_instance["identifier"],
-            state="available")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
-        ```
-
+        Create a InstanceDesiredState resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         """
         ...
     @overload
@@ -202,31 +151,7 @@ class InstanceDesiredState(pulumi.CustomResource):
                  args: InstanceDesiredStateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS RDS (Relational Database) RDS Instance State.
-
-        > Destruction of this resource is a no-op and **will not** modify the instance state
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.rds.InstanceDesiredState("test",
-            identifier=test_aws_db_instance["identifier"],
-            state="available")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
-        ```
-
+        Create a InstanceDesiredState resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InstanceDesiredStateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,9 +209,6 @@ class InstanceDesiredState(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -301,25 +223,16 @@ class InstanceDesiredState(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        DB Instance Identifier
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configured state of the DB Instance. Valid values are `available` and `stopped`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
-    /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-     * 
-     */
     private String type;
 
     private AgentPromptVariantTemplateConfigurationChatSystemCachePoint() {}
-    /**
-     * @return Indicates that the CachePointBlock is of the default type. Valid values: `default`.
-     * 
-     */
     public String type() {
         return this.type;
     }

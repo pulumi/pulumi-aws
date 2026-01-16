@@ -19,89 +19,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestination {
-    /**
-     * @return An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
-     * 
-     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationCloudWatchDestination cloudWatchDestination;
-    /**
-     * @return When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
-     * 
-     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationEventBridgeDestination eventBridgeDestination;
-    /**
-     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
-     * 
-     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination kinesisFirehoseDestination;
-    /**
-     * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-     * 
-     */
     private List<String> matchingEventTypes;
-    /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
-     * 
-     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationPinpointDestination pinpointDestination;
-    /**
-     * @return An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
-     * 
-     */
     private @Nullable ConfigurationSetEventDestinationEventDestinationSnsDestination snsDestination;
 
     private ConfigurationSetEventDestinationEventDestination() {}
-    /**
-     * @return An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
-     * 
-     */
     public Optional<ConfigurationSetEventDestinationEventDestinationCloudWatchDestination> cloudWatchDestination() {
         return Optional.ofNullable(this.cloudWatchDestination);
     }
-    /**
-     * @return When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
-     * 
-     */
     public Optional<ConfigurationSetEventDestinationEventDestinationEventBridgeDestination> eventBridgeDestination() {
         return Optional.ofNullable(this.eventBridgeDestination);
     }
-    /**
-     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
-     * 
-     */
     public Optional<ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination> kinesisFirehoseDestination() {
         return Optional.ofNullable(this.kinesisFirehoseDestination);
     }
-    /**
-     * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-     * 
-     */
     public List<String> matchingEventTypes() {
         return this.matchingEventTypes;
     }
-    /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
-     * 
-     */
     public Optional<ConfigurationSetEventDestinationEventDestinationPinpointDestination> pinpointDestination() {
         return Optional.ofNullable(this.pinpointDestination);
     }
-    /**
-     * @return An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
-     * 
-     */
     public Optional<ConfigurationSetEventDestinationEventDestinationSnsDestination> snsDestination() {
         return Optional.ofNullable(this.snsDestination);
     }

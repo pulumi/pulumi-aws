@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
-    /**
-     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     private @Nullable String metadataField;
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     private @Nullable String textField;
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     private @Nullable String vectorField;
 
     private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping() {}
-    /**
-     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     public Optional<String> metadataField() {
         return Optional.ofNullable(this.metadataField);
     }
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     public Optional<String> textField() {
         return Optional.ofNullable(this.textField);
     }
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     public Optional<String> vectorField() {
         return Optional.ofNullable(this.vectorField);
     }

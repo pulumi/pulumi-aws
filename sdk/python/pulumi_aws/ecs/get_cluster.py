@@ -65,9 +65,6 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the ECS Cluster
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -86,9 +83,6 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="pendingTasksCount")
     def pending_tasks_count(self) -> _builtins.int:
-        """
-        Number of pending tasks for the ECS Cluster
-        """
         return pulumi.get(self, "pending_tasks_count")
 
     @_builtins.property
@@ -99,49 +93,31 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="registeredContainerInstancesCount")
     def registered_container_instances_count(self) -> _builtins.int:
-        """
-        The number of registered container instances for the ECS Cluster
-        """
         return pulumi.get(self, "registered_container_instances_count")
 
     @_builtins.property
     @pulumi.getter(name="runningTasksCount")
     def running_tasks_count(self) -> _builtins.int:
-        """
-        Number of running tasks for the ECS Cluster
-        """
         return pulumi.get(self, "running_tasks_count")
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> Sequence['outputs.GetClusterServiceConnectDefaultResult']:
-        """
-        The default Service Connect namespace
-        """
         return pulumi.get(self, "service_connect_defaults")
 
     @_builtins.property
     @pulumi.getter
     def settings(self) -> Sequence['outputs.GetClusterSettingResult']:
-        """
-        Settings associated with the ECS Cluster
-        """
         return pulumi.get(self, "settings")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the ECS Cluster
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags
-        """
         return pulumi.get(self, "tags")
 
 
@@ -169,22 +145,7 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    The ECS Cluster data source allows access to details of a specific
-    cluster within an AWS ECS service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
-    ```
-
-
-    :param _builtins.str cluster_name: Name of the ECS Cluster
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -210,22 +171,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = Non
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    The ECS Cluster data source allows access to details of a specific
-    cluster within an AWS ECS service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
-    ```
-
-
-    :param _builtins.str cluster_name: Name of the ECS Cluster
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

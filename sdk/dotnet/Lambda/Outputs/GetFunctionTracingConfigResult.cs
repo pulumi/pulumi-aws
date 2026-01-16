@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionTracingConfigResult
     {
-        /// <summary>
-        /// Tracing mode. Valid values: `Active`, `PassThrough`.
-        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

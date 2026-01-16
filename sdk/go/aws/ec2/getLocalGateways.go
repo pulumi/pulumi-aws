@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information for multiple EC2 Local Gateways, such as their identifiers.
-//
-// ## Example Usage
-//
-// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.GetLocalGateways(ctx, &ec2.GetLocalGatewaysArgs{
-//				Tags: map[string]interface{}{
-//					"service": "production",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("foo", foo.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewaysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewaysResult
@@ -55,24 +23,16 @@ func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...p
 
 // A collection of arguments for invoking getLocalGateways.
 type GetLocalGatewaysArgs struct {
-	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired local_gateways.
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string                  `pulumi:"region"`
+	Tags    map[string]string        `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGateways.
 type GetLocalGatewaysResult struct {
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of all the Local Gateway identifiers
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -89,16 +49,9 @@ func GetLocalGatewaysOutput(ctx *pulumi.Context, args GetLocalGatewaysOutputArgs
 
 // A collection of arguments for invoking getLocalGateways.
 type GetLocalGatewaysOutputArgs struct {
-	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetLocalGatewaysFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired local_gateways.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput            `pulumi:"region"`
+	Tags    pulumi.StringMapInput            `pulumi:"tags"`
 }
 
 func (GetLocalGatewaysOutputArgs) ElementType() reflect.Type {
@@ -129,7 +82,6 @@ func (o GetLocalGatewaysResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewaysResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of all the Local Gateway identifiers
 func (o GetLocalGatewaysResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocalGatewaysResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

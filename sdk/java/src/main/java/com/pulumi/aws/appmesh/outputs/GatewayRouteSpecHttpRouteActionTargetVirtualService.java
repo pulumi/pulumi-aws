@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteActionTargetVirtualService {
-    /**
-     * @return Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
-     * 
-     */
     private String virtualServiceName;
 
     private GatewayRouteSpecHttpRouteActionTargetVirtualService() {}
-    /**
-     * @return Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
-     * 
-     */
     public String virtualServiceName() {
         return this.virtualServiceName;
     }

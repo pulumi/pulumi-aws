@@ -26,13 +26,6 @@ class FrameworkShareArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrameworkShare resource.
-        :param pulumi.Input[_builtins.str] destination_account: Amazon Web Services account of the recipient.
-        :param pulumi.Input[_builtins.str] destination_region: Amazon Web Services region of the recipient.
-        :param pulumi.Input[_builtins.str] framework_id: Unique identifier for the shared custom framework.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: Comment from the sender about the share request.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination_account", destination_account)
         pulumi.set(__self__, "destination_region", destination_region)
@@ -45,9 +38,6 @@ class FrameworkShareArgs:
     @_builtins.property
     @pulumi.getter(name="destinationAccount")
     def destination_account(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Web Services account of the recipient.
-        """
         return pulumi.get(self, "destination_account")
 
     @destination_account.setter
@@ -57,9 +47,6 @@ class FrameworkShareArgs:
     @_builtins.property
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Web Services region of the recipient.
-        """
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
@@ -69,11 +56,6 @@ class FrameworkShareArgs:
     @_builtins.property
     @pulumi.getter(name="frameworkId")
     def framework_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier for the shared custom framework.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "framework_id")
 
     @framework_id.setter
@@ -83,9 +65,6 @@ class FrameworkShareArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Comment from the sender about the share request.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -95,9 +74,6 @@ class FrameworkShareArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,14 +92,6 @@ class _FrameworkShareState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FrameworkShare resources.
-        :param pulumi.Input[_builtins.str] comment: Comment from the sender about the share request.
-        :param pulumi.Input[_builtins.str] destination_account: Amazon Web Services account of the recipient.
-        :param pulumi.Input[_builtins.str] destination_region: Amazon Web Services region of the recipient.
-        :param pulumi.Input[_builtins.str] framework_id: Unique identifier for the shared custom framework.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the share request.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -141,9 +109,6 @@ class _FrameworkShareState:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Comment from the sender about the share request.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -153,9 +118,6 @@ class _FrameworkShareState:
     @_builtins.property
     @pulumi.getter(name="destinationAccount")
     def destination_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Web Services account of the recipient.
-        """
         return pulumi.get(self, "destination_account")
 
     @destination_account.setter
@@ -165,9 +127,6 @@ class _FrameworkShareState:
     @_builtins.property
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Web Services region of the recipient.
-        """
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
@@ -177,11 +136,6 @@ class _FrameworkShareState:
     @_builtins.property
     @pulumi.getter(name="frameworkId")
     def framework_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the shared custom framework.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "framework_id")
 
     @framework_id.setter
@@ -191,9 +145,6 @@ class _FrameworkShareState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -203,9 +154,6 @@ class _FrameworkShareState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the share request.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -226,39 +174,9 @@ class FrameworkShare(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Audit Manager Framework Share.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.FrameworkShare("example",
-            destination_account="123456789012",
-            destination_region="us-east-1",
-            framework_id=example_aws_auditmanager_framework["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
-        ```
-
+        Create a FrameworkShare resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Comment from the sender about the share request.
-        :param pulumi.Input[_builtins.str] destination_account: Amazon Web Services account of the recipient.
-        :param pulumi.Input[_builtins.str] destination_region: Amazon Web Services region of the recipient.
-        :param pulumi.Input[_builtins.str] framework_id: Unique identifier for the shared custom framework.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -267,30 +185,7 @@ class FrameworkShare(pulumi.CustomResource):
                  args: FrameworkShareArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Audit Manager Framework Share.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.auditmanager.FrameworkShare("example",
-            destination_account="123456789012",
-            destination_region="us-east-1",
-            framework_id=example_aws_auditmanager_framework["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
-        ```
-
+        Create a FrameworkShare resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FrameworkShareArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,14 +250,6 @@ class FrameworkShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] comment: Comment from the sender about the share request.
-        :param pulumi.Input[_builtins.str] destination_account: Amazon Web Services account of the recipient.
-        :param pulumi.Input[_builtins.str] destination_region: Amazon Web Services region of the recipient.
-        :param pulumi.Input[_builtins.str] framework_id: Unique identifier for the shared custom framework.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: Status of the share request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,50 +266,30 @@ class FrameworkShare(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Comment from the sender about the share request.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="destinationAccount")
     def destination_account(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Web Services account of the recipient.
-        """
         return pulumi.get(self, "destination_account")
 
     @_builtins.property
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Web Services region of the recipient.
-        """
         return pulumi.get(self, "destination_region")
 
     @_builtins.property
     @pulumi.getter(name="frameworkId")
     def framework_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the shared custom framework.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "framework_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the share request.
-        """
         return pulumi.get(self, "status")
 

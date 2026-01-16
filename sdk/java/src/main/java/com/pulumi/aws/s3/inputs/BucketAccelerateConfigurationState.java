@@ -15,62 +15,30 @@ public final class BucketAccelerateConfigurationState extends com.pulumi.resourc
 
     public static final BucketAccelerateConfigurationState Empty = new BucketAccelerateConfigurationState();
 
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -102,86 +70,38 @@ public final class BucketAccelerateConfigurationState extends com.pulumi.resourc
             $ = new BucketAccelerateConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

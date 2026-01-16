@@ -15,47 +15,23 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetInstancePlainArgs Empty = new GetInstancePlainArgs();
 
-    /**
-     * Name of the RDS instance.
-     * 
-     */
     @Import(name="dbInstanceIdentifier")
     private @Nullable String dbInstanceIdentifier;
 
-    /**
-     * @return Name of the RDS instance.
-     * 
-     */
     public Optional<String> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired instance.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired instance.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -86,34 +62,16 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetInstancePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbInstanceIdentifier Name of the RDS instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(@Nullable String dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllow
     {
-        /// <summary>
-        /// Custom handling for allowed requests. See below.
-        /// </summary>
         public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

@@ -16,117 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon Aurora DSQL Cluster Peering.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dsql.Cluster;
- * import com.pulumi.aws.dsql.ClusterArgs;
- * import com.pulumi.aws.dsql.inputs.ClusterMultiRegionPropertiesArgs;
- * import com.pulumi.aws.dsql.ClusterPeering;
- * import com.pulumi.aws.dsql.ClusterPeeringArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example1 = new Cluster("example1", ClusterArgs.builder()
- *             .multiRegionProperties(ClusterMultiRegionPropertiesArgs.builder()
- *                 .witnessRegion("us-west-2")
- *                 .build())
- *             .build());
- * 
- *         var example2 = new Cluster("example2", ClusterArgs.builder()
- *             .multiRegionProperties(ClusterMultiRegionPropertiesArgs.builder()
- *                 .witnessRegion("us-west-2")
- *                 .build())
- *             .build());
- * 
- *         var example1ClusterPeering = new ClusterPeering("example1ClusterPeering", ClusterPeeringArgs.builder()
- *             .identifier(example1.identifier())
- *             .clusters(example2.arn())
- *             .witnessRegion(example1.multiRegionProperties().applyValue(_multiRegionProperties -> _multiRegionProperties.witnessRegion()))
- *             .build());
- * 
- *         var example2ClusterPeering = new ClusterPeering("example2ClusterPeering", ClusterPeeringArgs.builder()
- *             .identifier(example2.identifier())
- *             .clusters(example1.arn())
- *             .witnessRegion(example2.multiRegionProperties().applyValue(_multiRegionProperties -> _multiRegionProperties.witnessRegion()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DSQL Cluster Peering using the `identifier`. For example:
- * 
- * ```sh
- * $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:dsql/clusterPeering:ClusterPeering")
 public class ClusterPeering extends com.pulumi.resources.CustomResource {
-    /**
-     * List of DSQL Cluster ARNs to be peered to this cluster.
-     * 
-     */
     @Export(name="clusters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clusters;
 
-    /**
-     * @return List of DSQL Cluster ARNs to be peered to this cluster.
-     * 
-     */
     public Output<List<String>> clusters() {
         return this.clusters;
     }
-    /**
-     * DSQL Cluster Identifier.
-     * 
-     */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
-    /**
-     * @return DSQL Cluster Identifier.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -136,17 +42,9 @@ public class ClusterPeering extends com.pulumi.resources.CustomResource {
     public Output<Optional<ClusterPeeringTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Witness region for a multi-region cluster.
-     * 
-     */
     @Export(name="witnessRegion", refs={String.class}, tree="[0]")
     private Output<String> witnessRegion;
 
-    /**
-     * @return Witness region for a multi-region cluster.
-     * 
-     */
     public Output<String> witnessRegion() {
         return this.witnessRegion;
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallFirewallStatusTransitGatewayAttachmentSyncState {
-    /**
-     * @return The unique identifier of the transit gateway attachment.
-     * 
-     */
     private @Nullable String attachmentId;
 
     private FirewallFirewallStatusTransitGatewayAttachmentSyncState() {}
-    /**
-     * @return The unique identifier of the transit gateway attachment.
-     * 
-     */
     public Optional<String> attachmentId() {
         return Optional.ofNullable(this.attachmentId);
     }

@@ -12,70 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Chime SDK Voice Profile Domain.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS Key for Voice Profile Domain"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "example", &chime.SdkvoiceVoiceProfileDomainArgs{
-//				Name: pulumi.String("ExampleVoiceProfileDomain"),
-//				ServerSideEncryptionConfiguration: &chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{
-//					KmsKeyArn: example.Arn,
-//				},
-//				Description: pulumi.String("My Voice Profile Domain"),
-//				Tags: pulumi.StringMap{
-//					"key1": pulumi.String("value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-// ```
 type SdkvoiceVoiceProfileDomain struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Voice Profile Domain.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of Voice Profile Domain.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of Voice Profile Domain.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration for server side encryption.
+	Arn                               pulumi.StringOutput                                               `pulumi:"arn"`
+	Description                       pulumi.StringPtrOutput                                            `pulumi:"description"`
+	Name                              pulumi.StringOutput                                               `pulumi:"name"`
+	Region                            pulumi.StringOutput                                               `pulumi:"region"`
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              pulumi.StringMapOutput                                            `pulumi:"tags"`
 	TagsAll                           pulumi.StringMapOutput                                            `pulumi:"tagsAll"`
@@ -114,30 +57,20 @@ func GetSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SdkvoiceVoiceProfileDomain resources.
 type sdkvoiceVoiceProfileDomainState struct {
-	// ARN of the Voice Profile Domain.
-	Arn *string `pulumi:"arn"`
-	// Description of Voice Profile Domain.
-	Description *string `pulumi:"description"`
-	// Name of Voice Profile Domain.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration for server side encryption.
+	Arn                               *string                                                      `pulumi:"arn"`
+	Description                       *string                                                      `pulumi:"description"`
+	Name                              *string                                                      `pulumi:"name"`
+	Region                            *string                                                      `pulumi:"region"`
 	ServerSideEncryptionConfiguration *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                            `pulumi:"tags"`
 	TagsAll                           map[string]string                                            `pulumi:"tagsAll"`
 }
 
 type SdkvoiceVoiceProfileDomainState struct {
-	// ARN of the Voice Profile Domain.
-	Arn pulumi.StringPtrInput
-	// Description of Voice Profile Domain.
-	Description pulumi.StringPtrInput
-	// Name of Voice Profile Domain.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration for server side encryption.
+	Arn                               pulumi.StringPtrInput
+	Description                       pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput
 	Tags                              pulumi.StringMapInput
 	TagsAll                           pulumi.StringMapInput
@@ -148,26 +81,18 @@ func (SdkvoiceVoiceProfileDomainState) ElementType() reflect.Type {
 }
 
 type sdkvoiceVoiceProfileDomainArgs struct {
-	// Description of Voice Profile Domain.
-	Description *string `pulumi:"description"`
-	// Name of Voice Profile Domain.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration for server side encryption.
+	Description                       *string                                                     `pulumi:"description"`
+	Name                              *string                                                     `pulumi:"name"`
+	Region                            *string                                                     `pulumi:"region"`
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SdkvoiceVoiceProfileDomain resource.
 type SdkvoiceVoiceProfileDomainArgs struct {
-	// Description of Voice Profile Domain.
-	Description pulumi.StringPtrInput
-	// Name of Voice Profile Domain.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration for server side encryption.
+	Description                       pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	Region                            pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput
 	Tags                              pulumi.StringMapInput
 }
@@ -259,27 +184,22 @@ func (o SdkvoiceVoiceProfileDomainOutput) ToSdkvoiceVoiceProfileDomainOutputWith
 	return o
 }
 
-// ARN of the Voice Profile Domain.
 func (o SdkvoiceVoiceProfileDomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of Voice Profile Domain.
 func (o SdkvoiceVoiceProfileDomainOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of Voice Profile Domain.
 func (o SdkvoiceVoiceProfileDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SdkvoiceVoiceProfileDomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration for server side encryption.
 func (o SdkvoiceVoiceProfileDomainOutput) ServerSideEncryptionConfiguration() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
 		return v.ServerSideEncryptionConfiguration

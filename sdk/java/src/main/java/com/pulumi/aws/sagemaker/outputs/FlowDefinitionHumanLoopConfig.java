@@ -15,113 +15,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDefinitionHumanLoopConfig {
-    /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface.
-     * 
-     */
     private String humanTaskUiArn;
-    /**
-     * @return Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
-     * 
-     */
     private @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice;
-    /**
-     * @return The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
-     * 
-     */
     private @Nullable Integer taskAvailabilityLifetimeInSeconds;
-    /**
-     * @return The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
-     * 
-     */
     private Integer taskCount;
-    /**
-     * @return A description for the human worker task.
-     * 
-     */
     private String taskDescription;
-    /**
-     * @return An array of keywords used to describe the task so that workers can discover the task.
-     * 
-     */
     private @Nullable List<String> taskKeywords;
-    /**
-     * @return The amount of time that a worker has to complete a task. The default value is `3600` seconds.
-     * 
-     */
     private @Nullable Integer taskTimeLimitInSeconds;
-    /**
-     * @return A title for the human worker task.
-     * 
-     */
     private String taskTitle;
-    /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
-     * 
-     */
     private String workteamArn;
 
     private FlowDefinitionHumanLoopConfig() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface.
-     * 
-     */
     public String humanTaskUiArn() {
         return this.humanTaskUiArn;
     }
-    /**
-     * @return Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
-     * 
-     */
     public Optional<FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice> publicWorkforceTaskPrice() {
         return Optional.ofNullable(this.publicWorkforceTaskPrice);
     }
-    /**
-     * @return The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
-     * 
-     */
     public Optional<Integer> taskAvailabilityLifetimeInSeconds() {
         return Optional.ofNullable(this.taskAvailabilityLifetimeInSeconds);
     }
-    /**
-     * @return The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
-     * 
-     */
     public Integer taskCount() {
         return this.taskCount;
     }
-    /**
-     * @return A description for the human worker task.
-     * 
-     */
     public String taskDescription() {
         return this.taskDescription;
     }
-    /**
-     * @return An array of keywords used to describe the task so that workers can discover the task.
-     * 
-     */
     public List<String> taskKeywords() {
         return this.taskKeywords == null ? List.of() : this.taskKeywords;
     }
-    /**
-     * @return The amount of time that a worker has to complete a task. The default value is `3600` seconds.
-     * 
-     */
     public Optional<Integer> taskTimeLimitInSeconds() {
         return Optional.ofNullable(this.taskTimeLimitInSeconds);
     }
-    /**
-     * @return A title for the human worker task.
-     * 
-     */
     public String taskTitle() {
         return this.taskTitle;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
-     * 
-     */
     public String workteamArn() {
         return this.workteamArn;
     }

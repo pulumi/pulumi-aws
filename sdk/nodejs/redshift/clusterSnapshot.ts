@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a Redshift cluster snapshot
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.ClusterSnapshot("example", {
- *     clusterSnapshotName: "example",
- *     clusterSnapshotContent: JSON.stringify({
- *         AllowDBUserOverride: "1",
- *         Client_ID: "ExampleClientID",
- *         App_ID: "example",
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
- * ```
- */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Get an existing ClusterSnapshot resource's state with the given name, ID, and optional extra
@@ -59,41 +32,14 @@ export class ClusterSnapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSnapshot.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the snapshot.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The cluster identifier for which you want a snapshot.
-     */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
-    /**
-     * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-     */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-     */
     declare public readonly manualSnapshotRetentionPeriod: pulumi.Output<number | undefined>;
-    /**
-     * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-     */
     declare public /*out*/ readonly ownerAccount: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-     */
     declare public readonly snapshotIdentifier: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -145,41 +91,14 @@ export class ClusterSnapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterSnapshot resources.
  */
 export interface ClusterSnapshotState {
-    /**
-     * Amazon Resource Name (ARN) of the snapshot.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The cluster identifier for which you want a snapshot.
-     */
     clusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-     */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
-    /**
-     * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-     */
     ownerAccount?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-     */
     snapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -187,24 +106,9 @@ export interface ClusterSnapshotState {
  * The set of arguments for constructing a ClusterSnapshot resource.
  */
 export interface ClusterSnapshotArgs {
-    /**
-     * The cluster identifier for which you want a snapshot.
-     */
     clusterIdentifier: pulumi.Input<string>;
-    /**
-     * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-     */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-     */
     snapshotIdentifier: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

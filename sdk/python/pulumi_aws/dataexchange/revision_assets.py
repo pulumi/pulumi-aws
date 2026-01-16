@@ -31,13 +31,6 @@ class RevisionAssetsArgs:
                  timeouts: Optional[pulumi.Input['RevisionAssetsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RevisionAssets resource.
-        :param pulumi.Input[_builtins.str] data_set_id: Unique identifier for the data set associated with the revision.
-        :param pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetArgs']]] assets: A block to define the asset associated with the revision. See Asset for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: A comment for the revision. Maximum length is 16,348 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         if assets is not None:
@@ -58,9 +51,6 @@ class RevisionAssetsArgs:
     @_builtins.property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique identifier for the data set associated with the revision.
-        """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
@@ -70,11 +60,6 @@ class RevisionAssetsArgs:
     @_builtins.property
     @pulumi.getter
     def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetArgs']]]]:
-        """
-        A block to define the asset associated with the revision. See Asset for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assets")
 
     @assets.setter
@@ -84,9 +69,6 @@ class RevisionAssetsArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A comment for the revision. Maximum length is 16,348 characters.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -114,9 +96,6 @@ class RevisionAssetsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -126,9 +105,6 @@ class RevisionAssetsArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -162,17 +138,6 @@ class _RevisionAssetsState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RevisionAssets resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Data Exchange Revision Assets.
-        :param pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetArgs']]] assets: A block to define the asset associated with the revision. See Asset for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: A comment for the revision. Maximum length is 16,348 characters.
-        :param pulumi.Input[_builtins.str] created_at: The timestamp when the revision was created, in RFC3339 format.
-        :param pulumi.Input[_builtins.str] data_set_id: Unique identifier for the data set associated with the revision.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The timestamp when the revision was last updated, in RFC3339 format.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -202,9 +167,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Data Exchange Revision Assets.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -214,11 +176,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter
     def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetArgs']]]]:
-        """
-        A block to define the asset associated with the revision. See Asset for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assets")
 
     @assets.setter
@@ -228,9 +185,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A comment for the revision. Maximum length is 16,348 characters.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -240,9 +194,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timestamp when the revision was created, in RFC3339 format.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -252,9 +203,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the data set associated with the revision.
-        """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
@@ -282,9 +230,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,9 +239,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -306,9 +248,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -327,9 +266,6 @@ class _RevisionAssetsState:
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The timestamp when the revision was last updated, in RFC3339 format.
-        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -353,41 +289,9 @@ class RevisionAssets(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['RevisionAssetsTimeoutsArgs', 'RevisionAssetsTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing AWS Data Exchange Revision Assets.
-
-        > Note: This resource creates a new revision and adds associated assets. Destroying this resource will delete the revision and all associated assets.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dataexchange.RevisionAssets("example",
-            data_set_id="example-data-set-id",
-            assets=[{
-                "create_s3_data_access_from_s3_bucket": {
-                    "asset_source": {
-                        "bucket": "example-bucket",
-                    },
-                },
-            }],
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
+        Create a RevisionAssets resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: A comment for the revision. Maximum length is 16,348 characters.
-        :param pulumi.Input[_builtins.str] data_set_id: Unique identifier for the data set associated with the revision.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -396,32 +300,7 @@ class RevisionAssets(pulumi.CustomResource):
                  args: RevisionAssetsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing AWS Data Exchange Revision Assets.
-
-        > Note: This resource creates a new revision and adds associated assets. Destroying this resource will delete the revision and all associated assets.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dataexchange.RevisionAssets("example",
-            data_set_id="example-data-set-id",
-            assets=[{
-                "create_s3_data_access_from_s3_bucket": {
-                    "asset_source": {
-                        "bucket": "example-bucket",
-                    },
-                },
-            }],
-            tags={
-                "Environment": "Production",
-            })
-        ```
-
+        Create a RevisionAssets resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RevisionAssetsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -497,17 +376,6 @@ class RevisionAssets(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Data Exchange Revision Assets.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: A comment for the revision. Maximum length is 16,348 characters.
-        :param pulumi.Input[_builtins.str] created_at: The timestamp when the revision was created, in RFC3339 format.
-        :param pulumi.Input[_builtins.str] data_set_id: Unique identifier for the data set associated with the revision.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The timestamp when the revision was last updated, in RFC3339 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -530,43 +398,26 @@ class RevisionAssets(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Data Exchange Revision Assets.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def assets(self) -> pulumi.Output[Optional[Sequence['outputs.RevisionAssetsAsset']]]:
-        """
-        A block to define the asset associated with the revision. See Asset for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "assets")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A comment for the revision. Maximum length is 16,348 characters.
-        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The timestamp when the revision was created, in RFC3339 format.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the data set associated with the revision.
-        """
         return pulumi.get(self, "data_set_id")
 
     @_builtins.property
@@ -582,25 +433,16 @@ class RevisionAssets(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -611,8 +453,5 @@ class RevisionAssets(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The timestamp when the revision was last updated, in RFC3339 format.
-        """
         return pulumi.get(self, "updated_at")
 

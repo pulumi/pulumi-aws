@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersBatchJobParametersRetryStrategy {
-    /**
-     * @return The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
-     * 
-     */
     private @Nullable Integer attempts;
 
     private PipeTargetParametersBatchJobParametersRetryStrategy() {}
-    /**
-     * @return The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
-     * 
-     */
     public Optional<Integer> attempts() {
         return Optional.ofNullable(this.attempts);
     }

@@ -15,179 +15,59 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.grafana.WorkspaceServiceAccount;
- * import com.pulumi.aws.grafana.WorkspaceServiceAccountArgs;
- * import com.pulumi.aws.grafana.WorkspaceServiceAccountToken;
- * import com.pulumi.aws.grafana.WorkspaceServiceAccountTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new WorkspaceServiceAccount("example", WorkspaceServiceAccountArgs.builder()
- *             .name("example-admin")
- *             .grafanaRole("ADMIN")
- *             .workspaceId(exampleAwsGrafanaWorkspace.id())
- *             .build());
- * 
- *         var exampleWorkspaceServiceAccountToken = new WorkspaceServiceAccountToken("exampleWorkspaceServiceAccountToken", WorkspaceServiceAccountTokenArgs.builder()
- *             .name("example-key")
- *             .serviceAccountId(example.serviceAccountId())
- *             .secondsToLive(3600)
- *             .workspaceId(exampleAwsGrafanaWorkspace.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")
 public class WorkspaceServiceAccountToken extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies when the service account token was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return Specifies when the service account token was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * Specifies when the service account token will expire.
-     * 
-     */
     @Export(name="expiresAt", refs={String.class}, tree="[0]")
     private Output<String> expiresAt;
 
-    /**
-     * @return Specifies when the service account token will expire.
-     * 
-     */
     public Output<String> expiresAt() {
         return this.expiresAt;
     }
-    /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * A name for the token to create. The name must be unique within the workspace.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for the token to create. The name must be unique within the workspace.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     * 
-     */
     @Export(name="secondsToLive", refs={Integer.class}, tree="[0]")
     private Output<Integer> secondsToLive;
 
-    /**
-     * @return Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
-     * 
-     */
     public Output<Integer> secondsToLive() {
         return this.secondsToLive;
     }
-    /**
-     * The ID of the service account for which to create a token.
-     * 
-     */
     @Export(name="serviceAccountId", refs={String.class}, tree="[0]")
     private Output<String> serviceAccountId;
 
-    /**
-     * @return The ID of the service account for which to create a token.
-     * 
-     */
     public Output<String> serviceAccountId() {
         return this.serviceAccountId;
     }
-    /**
-     * Identifier of the service account token in the given Grafana workspace.
-     * 
-     */
     @Export(name="serviceAccountTokenId", refs={String.class}, tree="[0]")
     private Output<String> serviceAccountTokenId;
 
-    /**
-     * @return Identifier of the service account token in the given Grafana workspace.
-     * 
-     */
     public Output<String> serviceAccountTokenId() {
         return this.serviceAccountTokenId;
     }
-    /**
-     * The Grafana workspace with which the service account token is associated.
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The Grafana workspace with which the service account token is associated.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

@@ -16,81 +16,37 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ClusterS3ImportArgs Empty = new ClusterS3ImportArgs();
 
-    /**
-     * Bucket name where your backup is stored
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return Bucket name where your backup is stored
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * Can be blank, but is the path to your backup
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return Can be blank, but is the path to your backup
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * Role applied to load the data.
-     * 
-     */
     @Import(name="ingestionRole", required=true)
     private Output<String> ingestionRole;
 
-    /**
-     * @return Role applied to load the data.
-     * 
-     */
     public Output<String> ingestionRole() {
         return this.ingestionRole;
     }
 
-    /**
-     * Source engine for the backup
-     * 
-     */
     @Import(name="sourceEngine", required=true)
     private Output<String> sourceEngine;
 
-    /**
-     * @return Source engine for the backup
-     * 
-     */
     public Output<String> sourceEngine() {
         return this.sourceEngine;
     }
 
-    /**
-     * Version of the source engine used to make the backup
-     * 
-     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-     * 
-     */
     @Import(name="sourceEngineVersion", required=true)
     private Output<String> sourceEngineVersion;
 
-    /**
-     * @return Version of the source engine used to make the backup
-     * 
-     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-     * 
-     */
     public Output<String> sourceEngineVersion() {
         return this.sourceEngineVersion;
     }
@@ -123,111 +79,47 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
             $ = new ClusterS3ImportArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Bucket name where your backup is stored
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Bucket name where your backup is stored
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix Can be blank, but is the path to your backup
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix Can be blank, but is the path to your backup
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param ingestionRole Role applied to load the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionRole(Output<String> ingestionRole) {
             $.ingestionRole = ingestionRole;
             return this;
         }
 
-        /**
-         * @param ingestionRole Role applied to load the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionRole(String ingestionRole) {
             return ingestionRole(Output.of(ingestionRole));
         }
 
-        /**
-         * @param sourceEngine Source engine for the backup
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEngine(Output<String> sourceEngine) {
             $.sourceEngine = sourceEngine;
             return this;
         }
 
-        /**
-         * @param sourceEngine Source engine for the backup
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEngine(String sourceEngine) {
             return sourceEngine(Output.of(sourceEngine));
         }
 
-        /**
-         * @param sourceEngineVersion Version of the source engine used to make the backup
-         * 
-         * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEngineVersion(Output<String> sourceEngineVersion) {
             $.sourceEngineVersion = sourceEngineVersion;
             return this;
         }
 
-        /**
-         * @param sourceEngineVersion Version of the source engine used to make the backup
-         * 
-         * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceEngineVersion(String sourceEngineVersion) {
             return sourceEngineVersion(Output.of(sourceEngineVersion));
         }

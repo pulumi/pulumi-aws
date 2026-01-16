@@ -16,47 +16,23 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
 
     public static final RegexPatternSetState Empty = new RegexPatternSetState();
 
-    /**
-     * Amazon Resource Name (ARN)
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN)
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The name or description of the Regex Pattern Set.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the Regex Pattern Set.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-     * 
-     */
     @Import(name="regexPatternStrings")
     private @Nullable Output<List<String>> regexPatternStrings;
 
-    /**
-     * @return A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-     * 
-     */
     public Optional<Output<List<String>>> regexPatternStrings() {
         return Optional.ofNullable(this.regexPatternStrings);
     }
@@ -87,75 +63,33 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
             $ = new RegexPatternSetState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN)
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN)
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name The name or description of the Regex Pattern Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the Regex Pattern Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternStrings(@Nullable Output<List<String>> regexPatternStrings) {
             $.regexPatternStrings = regexPatternStrings;
             return this;
         }
 
-        /**
-         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternStrings(List<String> regexPatternStrings) {
             return regexPatternStrings(Output.of(regexPatternStrings));
         }
 
-        /**
-         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexPatternStrings(String... regexPatternStrings) {
             return regexPatternStrings(List.of(regexPatternStrings));
         }

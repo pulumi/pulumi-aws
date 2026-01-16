@@ -13,18 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterLoggingInfoBrokerLogsFirehose {
-    /**
-     * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-     * 
-     */
     private @Nullable String deliveryStream;
     private Boolean enabled;
 
     private ClusterLoggingInfoBrokerLogsFirehose() {}
-    /**
-     * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-     * 
-     */
     public Optional<String> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }

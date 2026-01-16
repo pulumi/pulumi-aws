@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyResourceSelection
     {
-        /// <summary>
-        /// A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LifecyclePolicyResourceSelectionRecipe> Recipes;
-        /// <summary>
-        /// A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? TagMap;
 
         [OutputConstructor]

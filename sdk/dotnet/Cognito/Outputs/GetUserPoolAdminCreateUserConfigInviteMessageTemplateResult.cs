@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult
     {
-        /// <summary>
-        /// - Email message content.
-        /// </summary>
         public readonly string EmailMessage;
-        /// <summary>
-        /// - Email message subject.
-        /// </summary>
         public readonly string EmailSubject;
-        /// <summary>
-        /// - SMS message content.
-        /// </summary>
         public readonly string SmsMessage;
 
         [OutputConstructor]

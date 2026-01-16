@@ -16,47 +16,23 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceAlarmsArgs Empty = new ServiceAlarmsArgs();
 
-    /**
-     * One or more CloudWatch alarm names.
-     * 
-     */
     @Import(name="alarmNames", required=true)
     private Output<List<String>> alarmNames;
 
-    /**
-     * @return One or more CloudWatch alarm names.
-     * 
-     */
     public Output<List<String>> alarmNames() {
         return this.alarmNames;
     }
 
-    /**
-     * Whether to use the CloudWatch alarm option in the service deployment process.
-     * 
-     */
     @Import(name="enable", required=true)
     private Output<Boolean> enable;
 
-    /**
-     * @return Whether to use the CloudWatch alarm option in the service deployment process.
-     * 
-     */
     public Output<Boolean> enable() {
         return this.enable;
     }
 
-    /**
-     * Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     @Import(name="rollback", required=true)
     private Output<Boolean> rollback;
 
-    /**
-     * @return Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     public Output<Boolean> rollback() {
         return this.rollback;
     }
@@ -87,75 +63,33 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceAlarmsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alarmNames One or more CloudWatch alarm names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarmNames(Output<List<String>> alarmNames) {
             $.alarmNames = alarmNames;
             return this;
         }
 
-        /**
-         * @param alarmNames One or more CloudWatch alarm names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarmNames(List<String> alarmNames) {
             return alarmNames(Output.of(alarmNames));
         }
 
-        /**
-         * @param alarmNames One or more CloudWatch alarm names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarmNames(String... alarmNames) {
             return alarmNames(List.of(alarmNames));
         }
 
-        /**
-         * @param enable Whether to use the CloudWatch alarm option in the service deployment process.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable Whether to use the CloudWatch alarm option in the service deployment process.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
-        /**
-         * @param rollback Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollback(Output<Boolean> rollback) {
             $.rollback = rollback;
             return this;
         }
 
-        /**
-         * @param rollback Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollback(Boolean rollback) {
             return rollback(Output.of(rollback));
         }

@@ -69,57 +69,36 @@ class GetKeyResult:
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Date and time when the API Key was created.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
     @pulumi.getter(name="customerId")
     def customer_id(self) -> _builtins.str:
-        """
-        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-        """
         return pulumi.get(self, "customer_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the API Key.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether the API Key is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Set to the ID of the API Key.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Date and time when the API Key was last updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Set to the name of the API Key.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -130,17 +109,11 @@ class GetKeyResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Set to the value of the API Key.
-        """
         return pulumi.get(self, "value")
 
 
@@ -168,22 +141,7 @@ def get_key(id: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    Use this data source to get the name and value of a pre-existing API Key, for
-    example to supply credentials for a dependency microservice.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_key = aws.apigateway.get_key(id="ru3mpjgse6")
-    ```
-
-
-    :param _builtins.str id: ID of the API Key to look up.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -209,22 +167,7 @@ def get_key_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
-    Use this data source to get the name and value of a pre-existing API Key, for
-    example to supply credentials for a dependency microservice.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_key = aws.apigateway.get_key(id="ru3mpjgse6")
-    ```
-
-
-    :param _builtins.str id: ID of the API Key to look up.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -15,62 +15,30 @@ public final class NfsFileShareNfsFileShareDefaultsArgs extends com.pulumi.resou
 
     public static final NfsFileShareNfsFileShareDefaultsArgs Empty = new NfsFileShareNfsFileShareDefaultsArgs();
 
-    /**
-     * The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
-     * 
-     */
     @Import(name="directoryMode")
     private @Nullable Output<String> directoryMode;
 
-    /**
-     * @return The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
-     * 
-     */
     public Optional<Output<String>> directoryMode() {
         return Optional.ofNullable(this.directoryMode);
     }
 
-    /**
-     * The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
-     * 
-     */
     @Import(name="fileMode")
     private @Nullable Output<String> fileMode;
 
-    /**
-     * @return The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
-     * 
-     */
     public Optional<Output<String>> fileMode() {
         return Optional.ofNullable(this.fileMode);
     }
 
-    /**
-     * The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
-    /**
-     * @return The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
-    /**
-     * The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
-    /**
-     * @return The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
@@ -102,86 +70,38 @@ public final class NfsFileShareNfsFileShareDefaultsArgs extends com.pulumi.resou
             $ = new NfsFileShareNfsFileShareDefaultsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directoryMode The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryMode(@Nullable Output<String> directoryMode) {
             $.directoryMode = directoryMode;
             return this;
         }
 
-        /**
-         * @param directoryMode The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryMode(String directoryMode) {
             return directoryMode(Output.of(directoryMode));
         }
 
-        /**
-         * @param fileMode The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileMode(@Nullable Output<String> fileMode) {
             $.fileMode = fileMode;
             return this;
         }
 
-        /**
-         * @param fileMode The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileMode(String fileMode) {
             return fileMode(Output.of(fileMode));
         }
 
-        /**
-         * @param groupId The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(@Nullable Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
-        /**
-         * @param groupId The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
-        /**
-         * @param ownerId The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param ownerId The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }

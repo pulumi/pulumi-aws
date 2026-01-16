@@ -15,62 +15,30 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServicePlainArgs Empty = new GetServicePlainArgs();
 
-    /**
-     * Service name.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Service name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID or Amazon Resource Name (ARN) of the service.
-     * 
-     */
     @Import(name="serviceIdentifier")
     private @Nullable String serviceIdentifier;
 
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the service.
-     * 
-     */
     public Optional<String> serviceIdentifier() {
         return Optional.ofNullable(this.serviceIdentifier);
     }
 
-    /**
-     * List of tags associated with the service.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return List of tags associated with the service.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -102,45 +70,21 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServicePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Service name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(@Nullable String serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
 
-        /**
-         * @param tags List of tags associated with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

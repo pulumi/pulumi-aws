@@ -21,61 +21,39 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing exadata infrastructure resource in AWS for Oracle Database{@literal @}AWS.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Exadata Infrastructure using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
- * ```
- * 
- */
 @ResourceType(type="aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure")
 public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResource {
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * The number of storage servers requested for the Exadata infrastructure
      * 
      */
     @Export(name="activatedStorageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> activatedStorageCount;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return The number of storage servers requested for the Exadata infrastructure
      * 
      */
     public Output<Integer> activatedStorageCount() {
         return this.activatedStorageCount;
     }
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * The number of storage servers requested for the Exadata infrastructure
      * 
      */
     @Export(name="additionalStorageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> additionalStorageCount;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return The number of storage servers requested for the Exadata infrastructure
      * 
      */
     public Output<Integer> additionalStorageCount() {
         return this.additionalStorageCount;
     }
-    /**
-     * Amazon Resource Name (ARN) of the Exadata infrastructure.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Exadata infrastructure.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -92,14 +70,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.availabilityZoneId;
     }
     /**
-     * The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+     * The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
      * 
      */
     @Export(name="availableStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> availableStorageSizeInGbs;
 
     /**
-     * @return The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+     * @return The amount of available storage, in gigabytes (GB), for the Exadata infrastructure
      * 
      */
     public Output<Integer> availableStorageSizeInGbs() {
@@ -120,28 +98,40 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.computeCount;
     }
     /**
-     * The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+     * The OCI model compute model used when you create or clone an
+     *   instance: ECPU or OCPU. An ECPU is an abstracted measure of
+     *  compute resources. ECPUs are based on the number of cores
+     *  elastically allocated from a pool of compute and storage servers.
+     *   An OCPU is a legacy physical measure of compute resources. OCPUs
+     *  are based on the physical core of a processor with
+     *   hyper-threading enabled.
      * 
      */
     @Export(name="computeModel", refs={String.class}, tree="[0]")
     private Output<String> computeModel;
 
     /**
-     * @return The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+     * @return The OCI model compute model used when you create or clone an
+     *   instance: ECPU or OCPU. An ECPU is an abstracted measure of
+     *  compute resources. ECPUs are based on the number of cores
+     *  elastically allocated from a pool of compute and storage servers.
+     *   An OCPU is a legacy physical measure of compute resources. OCPUs
+     *  are based on the physical core of a processor with
+     *   hyper-threading enabled.
      * 
      */
     public Output<String> computeModel() {
         return this.computeModel;
     }
     /**
-     * The total number of CPU cores that are allocated to the Exadata infrastructure.
+     * The total number of CPU cores that are allocated to the Exadata infrastructure
      * 
      */
     @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCount;
 
     /**
-     * @return The total number of CPU cores that are allocated to the Exadata infrastructure.
+     * @return The total number of CPU cores that are allocated to the Exadata infrastructure
      * 
      */
     public Output<Integer> cpuCount() {
@@ -168,14 +158,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.customerContactsToSendToOcis);
     }
     /**
-     * The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
+     * The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB)
      * 
      */
     @Export(name="dataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
+     * @return The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB)
      * 
      */
     public Output<Double> dataStorageSizeInTbs() {
@@ -196,28 +186,28 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.databaseServerType);
     }
     /**
-     * The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB).
+     * The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB)
      * 
      */
     @Export(name="dbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> dbNodeStorageSizeInGbs;
 
     /**
-     * @return The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB).
+     * @return The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB)
      * 
      */
     public Output<Integer> dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * The software version of the database servers (dom0) in the Exadata infrastructure.
+     * The software version of the database servers (dom0) in the Exadata infrastructure
      * 
      */
     @Export(name="dbServerVersion", refs={String.class}, tree="[0]")
     private Output<String> dbServerVersion;
 
     /**
-     * @return The software version of the database servers (dom0) in the Exadata infrastructure.
+     * @return The software version of the database servers (dom0) in the Exadata infrastructure
      * 
      */
     public Output<String> dbServerVersion() {
@@ -230,14 +220,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.displayName;
     }
     /**
-     * The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+     * The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
      * 
      */
     @Export(name="lastMaintenanceRunId", refs={String.class}, tree="[0]")
     private Output<String> lastMaintenanceRunId;
 
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+     * @return The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure
      * 
      */
     public Output<String> lastMaintenanceRunId() {
@@ -258,56 +248,56 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.maintenanceWindow);
     }
     /**
-     * The total number of CPU cores available on the Exadata infrastructure.
+     * The total number of CPU cores available on the Exadata infrastructure
      * 
      */
     @Export(name="maxCpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxCpuCount;
 
     /**
-     * @return The total number of CPU cores available on the Exadata infrastructure.
+     * @return The total number of CPU cores available on the Exadata infrastructure
      * 
      */
     public Output<Integer> maxCpuCount() {
         return this.maxCpuCount;
     }
     /**
-     * The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
+     * The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure
      * 
      */
     @Export(name="maxDataStorageInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> maxDataStorageInTbs;
 
     /**
-     * @return The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
+     * @return The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure
      * 
      */
     public Output<Double> maxDataStorageInTbs() {
         return this.maxDataStorageInTbs;
     }
     /**
-     * The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
+     * The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure
      * 
      */
     @Export(name="maxDbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxDbNodeStorageSizeInGbs;
 
     /**
-     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
+     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure
      * 
      */
     public Output<Integer> maxDbNodeStorageSizeInGbs() {
         return this.maxDbNodeStorageSizeInGbs;
     }
     /**
-     * The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+     * The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
      * 
      */
     @Export(name="maxMemoryInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxMemoryInGbs;
 
     /**
-     * @return The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+     * @return The total amount of memory in gigabytes (GB) available on the Exadata infrastructure
      * 
      */
     public Output<Integer> maxMemoryInGbs() {
@@ -328,56 +318,56 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.memorySizeInGbs;
     }
     /**
-     * The monthly software version of the database servers in the Exadata infrastructure.
+     * The monthly software version of the database servers in the Exadata infrastructure
      * 
      */
     @Export(name="monthlyDbServerVersion", refs={String.class}, tree="[0]")
     private Output<String> monthlyDbServerVersion;
 
     /**
-     * @return The monthly software version of the database servers in the Exadata infrastructure.
+     * @return The monthly software version of the database servers in the Exadata infrastructure
      * 
      */
     public Output<String> monthlyDbServerVersion() {
         return this.monthlyDbServerVersion;
     }
     /**
-     * The monthly software version of the storage servers installed on the Exadata infrastructure.
+     * The monthly software version of the storage servers installed on the Exadata infrastructure
      * 
      */
     @Export(name="monthlyStorageServerVersion", refs={String.class}, tree="[0]")
     private Output<String> monthlyStorageServerVersion;
 
     /**
-     * @return The monthly software version of the storage servers installed on the Exadata infrastructure.
+     * @return The monthly software version of the storage servers installed on the Exadata infrastructure
      * 
      */
     public Output<String> monthlyStorageServerVersion() {
         return this.monthlyStorageServerVersion;
     }
     /**
-     * The OCID of the next maintenance run for the Exadata infrastructure.
+     * The OCID of the next maintenance run for the Exadata infrastructure
      * 
      */
     @Export(name="nextMaintenanceRunId", refs={String.class}, tree="[0]")
     private Output<String> nextMaintenanceRunId;
 
     /**
-     * @return The OCID of the next maintenance run for the Exadata infrastructure.
+     * @return The OCID of the next maintenance run for the Exadata infrastructure
      * 
      */
     public Output<String> nextMaintenanceRunId() {
         return this.nextMaintenanceRunId;
     }
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The name of the OCI resource anchor for the Exadata infrastructure
      * 
      */
     @Export(name="ociResourceAnchorName", refs={String.class}, tree="[0]")
     private Output<String> ociResourceAnchorName;
 
     /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
+     * @return The name of the OCI resource anchor for the Exadata infrastructure
      * 
      */
     public Output<String> ociResourceAnchorName() {
@@ -398,44 +388,36 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.ociUrl;
     }
     /**
-     * The OCID of the Exadata infrastructure.
+     * The OCID of the Exadata infrastructure
      * 
      */
     @Export(name="ocid", refs={String.class}, tree="[0]")
     private Output<String> ocid;
 
     /**
-     * @return The OCID of the Exadata infrastructure.
+     * @return The OCID of the Exadata infrastructure
      * 
      */
     public Output<String> ocid() {
         return this.ocid;
     }
     /**
-     * The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+     * The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
      * 
      */
     @Export(name="percentProgress", refs={Double.class}, tree="[0]")
     private Output<Double> percentProgress;
 
     /**
-     * @return The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+     * @return The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage
      * 
      */
     public Output<Double> percentProgress() {
         return this.percentProgress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -446,28 +428,28 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.shape;
     }
     /**
-     * The current status of the Exadata infrastructure.
+     * The current status of the Exadata infrastructure
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the Exadata infrastructure.
+     * @return The current status of the Exadata infrastructure
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Additional information about the status of the Exadata infrastructure.
+     * Additional information about the status of the Exadata infrastructure
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
     private Output<String> statusReason;
 
     /**
-     * @return Additional information about the status of the Exadata infrastructure.
+     * @return Additional information about the status of the Exadata infrastructure
      * 
      */
     public Output<String> statusReason() {
@@ -515,17 +497,9 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
     public Output<String> storageServerVersion() {
         return this.storageServerVersion;
     }
-    /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

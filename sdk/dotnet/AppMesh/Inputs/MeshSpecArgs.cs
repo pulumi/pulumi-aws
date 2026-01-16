@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class MeshSpecArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Egress filter rules for the service mesh.
-        /// </summary>
         [Input("egressFilter")]
         public Input<Inputs.MeshSpecEgressFilterArgs>? EgressFilter { get; set; }
 
-        /// <summary>
-        /// The service discovery information for the service mesh.
-        /// </summary>
         [Input("serviceDiscovery")]
         public Input<Inputs.MeshSpecServiceDiscoveryArgs>? ServiceDiscovery { get; set; }
 

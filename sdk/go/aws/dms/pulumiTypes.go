@@ -14,16 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EndpointElasticsearchSettings struct {
-	// Endpoint for the OpenSearch cluster.
-	EndpointUri string `pulumi:"endpointUri"`
-	// Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-	ErrorRetryDuration *int `pulumi:"errorRetryDuration"`
-	// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-	FullLoadErrorPercentage *int `pulumi:"fullLoadErrorPercentage"`
-	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
-	ServiceAccessRoleArn string `pulumi:"serviceAccessRoleArn"`
-	// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
-	UseNewMappingType *bool `pulumi:"useNewMappingType"`
+	EndpointUri             string `pulumi:"endpointUri"`
+	ErrorRetryDuration      *int   `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage *int   `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    string `pulumi:"serviceAccessRoleArn"`
+	UseNewMappingType       *bool  `pulumi:"useNewMappingType"`
 }
 
 // EndpointElasticsearchSettingsInput is an input type that accepts EndpointElasticsearchSettingsArgs and EndpointElasticsearchSettingsOutput values.
@@ -38,16 +33,11 @@ type EndpointElasticsearchSettingsInput interface {
 }
 
 type EndpointElasticsearchSettingsArgs struct {
-	// Endpoint for the OpenSearch cluster.
-	EndpointUri pulumi.StringInput `pulumi:"endpointUri"`
-	// Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-	ErrorRetryDuration pulumi.IntPtrInput `pulumi:"errorRetryDuration"`
-	// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-	FullLoadErrorPercentage pulumi.IntPtrInput `pulumi:"fullLoadErrorPercentage"`
-	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
-	ServiceAccessRoleArn pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
-	// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
-	UseNewMappingType pulumi.BoolPtrInput `pulumi:"useNewMappingType"`
+	EndpointUri             pulumi.StringInput  `pulumi:"endpointUri"`
+	ErrorRetryDuration      pulumi.IntPtrInput  `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage pulumi.IntPtrInput  `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    pulumi.StringInput  `pulumi:"serviceAccessRoleArn"`
+	UseNewMappingType       pulumi.BoolPtrInput `pulumi:"useNewMappingType"`
 }
 
 func (EndpointElasticsearchSettingsArgs) ElementType() reflect.Type {
@@ -127,27 +117,22 @@ func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrO
 	}).(EndpointElasticsearchSettingsPtrOutput)
 }
 
-// Endpoint for the OpenSearch cluster.
 func (o EndpointElasticsearchSettingsOutput) EndpointUri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.EndpointUri }).(pulumi.StringOutput)
 }
 
-// Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
 func (o EndpointElasticsearchSettingsOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.ErrorRetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
 func (o EndpointElasticsearchSettingsOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 func (o EndpointElasticsearchSettingsOutput) ServiceAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
 }
 
-// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
 func (o EndpointElasticsearchSettingsOutput) UseNewMappingType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) *bool { return v.UseNewMappingType }).(pulumi.BoolPtrOutput)
 }
@@ -176,7 +161,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSett
 	}).(EndpointElasticsearchSettingsOutput)
 }
 
-// Endpoint for the OpenSearch cluster.
 func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
 		if v == nil {
@@ -186,7 +170,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
 func (o EndpointElasticsearchSettingsPtrOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *int {
 		if v == nil {
@@ -196,7 +179,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) ErrorRetryDuration() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
 func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *int {
 		if v == nil {
@@ -206,7 +188,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
 		if v == nil {
@@ -216,7 +197,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
 func (o EndpointElasticsearchSettingsPtrOutput) UseNewMappingType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *bool {
 		if v == nil {
@@ -227,44 +207,25 @@ func (o EndpointElasticsearchSettingsPtrOutput) UseNewMappingType() pulumi.BoolP
 }
 
 type EndpointKafkaSettings struct {
-	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-	Broker string `pulumi:"broker"`
-	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
-	IncludeControlDetails *bool `pulumi:"includeControlDetails"`
-	// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
-	IncludeNullAndEmpty *bool `pulumi:"includeNullAndEmpty"`
-	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
-	IncludePartitionValue *bool `pulumi:"includePartitionValue"`
-	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
-	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
-	// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
-	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
-	// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
-	MessageFormat *string `pulumi:"messageFormat"`
-	// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
-	MessageMaxBytes *int `pulumi:"messageMaxBytes"`
-	// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-	NoHexPrefix *bool `pulumi:"noHexPrefix"`
-	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
-	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
-	// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
-	SaslMechanism *string `pulumi:"saslMechanism"`
-	// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-	SaslPassword *string `pulumi:"saslPassword"`
-	// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-	SaslUsername *string `pulumi:"saslUsername"`
-	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
-	SecurityProtocol *string `pulumi:"securityProtocol"`
-	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
-	// ARN of the client certificate used to securely connect to a Kafka target endpoint.
-	SslClientCertificateArn *string `pulumi:"sslClientCertificateArn"`
-	// ARN for the client private key used to securely connect to a Kafka target endpoint.
-	SslClientKeyArn *string `pulumi:"sslClientKeyArn"`
-	// Password for the client private key used to securely connect to a Kafka target endpoint.
-	SslClientKeyPassword *string `pulumi:"sslClientKeyPassword"`
-	// Kafka topic for migration. Default is `kafka-default-topic`.
-	Topic *string `pulumi:"topic"`
+	Broker                      string  `pulumi:"broker"`
+	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       *bool   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               *string `pulumi:"messageFormat"`
+	MessageMaxBytes             *int    `pulumi:"messageMaxBytes"`
+	NoHexPrefix                 *bool   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
+	SaslMechanism               *string `pulumi:"saslMechanism"`
+	SaslPassword                *string `pulumi:"saslPassword"`
+	SaslUsername                *string `pulumi:"saslUsername"`
+	SecurityProtocol            *string `pulumi:"securityProtocol"`
+	SslCaCertificateArn         *string `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     *string `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             *string `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        *string `pulumi:"sslClientKeyPassword"`
+	Topic                       *string `pulumi:"topic"`
 }
 
 // EndpointKafkaSettingsInput is an input type that accepts EndpointKafkaSettingsArgs and EndpointKafkaSettingsOutput values.
@@ -279,44 +240,25 @@ type EndpointKafkaSettingsInput interface {
 }
 
 type EndpointKafkaSettingsArgs struct {
-	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-	Broker pulumi.StringInput `pulumi:"broker"`
-	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
-	IncludeControlDetails pulumi.BoolPtrInput `pulumi:"includeControlDetails"`
-	// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
-	IncludeNullAndEmpty pulumi.BoolPtrInput `pulumi:"includeNullAndEmpty"`
-	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
-	IncludePartitionValue pulumi.BoolPtrInput `pulumi:"includePartitionValue"`
-	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
-	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
-	// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
-	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
-	// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
-	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
-	// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
-	MessageMaxBytes pulumi.IntPtrInput `pulumi:"messageMaxBytes"`
-	// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-	NoHexPrefix pulumi.BoolPtrInput `pulumi:"noHexPrefix"`
-	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
-	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
-	// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
-	SaslMechanism pulumi.StringPtrInput `pulumi:"saslMechanism"`
-	// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-	SaslPassword pulumi.StringPtrInput `pulumi:"saslPassword"`
-	// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-	SaslUsername pulumi.StringPtrInput `pulumi:"saslUsername"`
-	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
-	SecurityProtocol pulumi.StringPtrInput `pulumi:"securityProtocol"`
-	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
-	// ARN of the client certificate used to securely connect to a Kafka target endpoint.
-	SslClientCertificateArn pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
-	// ARN for the client private key used to securely connect to a Kafka target endpoint.
-	SslClientKeyArn pulumi.StringPtrInput `pulumi:"sslClientKeyArn"`
-	// Password for the client private key used to securely connect to a Kafka target endpoint.
-	SslClientKeyPassword pulumi.StringPtrInput `pulumi:"sslClientKeyPassword"`
-	// Kafka topic for migration. Default is `kafka-default-topic`.
-	Topic pulumi.StringPtrInput `pulumi:"topic"`
+	Broker                      pulumi.StringInput    `pulumi:"broker"`
+	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolPtrInput   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
+	MessageMaxBytes             pulumi.IntPtrInput    `pulumi:"messageMaxBytes"`
+	NoHexPrefix                 pulumi.BoolPtrInput   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
+	SaslMechanism               pulumi.StringPtrInput `pulumi:"saslMechanism"`
+	SaslPassword                pulumi.StringPtrInput `pulumi:"saslPassword"`
+	SaslUsername                pulumi.StringPtrInput `pulumi:"saslUsername"`
+	SecurityProtocol            pulumi.StringPtrInput `pulumi:"securityProtocol"`
+	SslCaCertificateArn         pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             pulumi.StringPtrInput `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        pulumi.StringPtrInput `pulumi:"sslClientKeyPassword"`
+	Topic                       pulumi.StringPtrInput `pulumi:"topic"`
 }
 
 func (EndpointKafkaSettingsArgs) ElementType() reflect.Type {
@@ -396,97 +338,78 @@ func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutputWithContext
 	}).(EndpointKafkaSettingsPtrOutput)
 }
 
-// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
 func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) string { return v.Broker }).(pulumi.StringOutput)
 }
 
-// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
-// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
 }
 
-// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
 
-// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 func (o EndpointKafkaSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
-// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
 func (o EndpointKafkaSettingsOutput) MessageMaxBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *int { return v.MessageMaxBytes }).(pulumi.IntPtrOutput)
 }
 
-// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
 func (o EndpointKafkaSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.NoHexPrefix }).(pulumi.BoolPtrOutput)
 }
 
-// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 func (o EndpointKafkaSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
-// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
 func (o EndpointKafkaSettingsOutput) SaslMechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslMechanism }).(pulumi.StringPtrOutput)
 }
 
-// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 func (o EndpointKafkaSettingsOutput) SaslPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslPassword }).(pulumi.StringPtrOutput)
 }
 
-// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 func (o EndpointKafkaSettingsOutput) SaslUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslUsername }).(pulumi.StringPtrOutput)
 }
 
-// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 func (o EndpointKafkaSettingsOutput) SecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
 }
 
-// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 func (o EndpointKafkaSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the client certificate used to securely connect to a Kafka target endpoint.
 func (o EndpointKafkaSettingsOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// ARN for the client private key used to securely connect to a Kafka target endpoint.
 func (o EndpointKafkaSettingsOutput) SslClientKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Password for the client private key used to securely connect to a Kafka target endpoint.
 func (o EndpointKafkaSettingsOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientKeyPassword }).(pulumi.StringPtrOutput)
 }
 
-// Kafka topic for migration. Default is `kafka-default-topic`.
 func (o EndpointKafkaSettingsOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
@@ -515,7 +438,6 @@ func (o EndpointKafkaSettingsPtrOutput) Elem() EndpointKafkaSettingsOutput {
 	}).(EndpointKafkaSettingsOutput)
 }
 
-// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
 func (o EndpointKafkaSettingsPtrOutput) Broker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -525,7 +447,6 @@ func (o EndpointKafkaSettingsPtrOutput) Broker() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -535,7 +456,6 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -545,7 +465,6 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -555,7 +474,6 @@ func (o EndpointKafkaSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -565,7 +483,6 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -575,7 +492,6 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 func (o EndpointKafkaSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -585,7 +501,6 @@ func (o EndpointKafkaSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
 func (o EndpointKafkaSettingsPtrOutput) MessageMaxBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *int {
 		if v == nil {
@@ -595,7 +510,6 @@ func (o EndpointKafkaSettingsPtrOutput) MessageMaxBytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
 func (o EndpointKafkaSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -605,7 +519,6 @@ func (o EndpointKafkaSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -615,7 +528,6 @@ func (o EndpointKafkaSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
 func (o EndpointKafkaSettingsPtrOutput) SaslMechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -625,7 +537,6 @@ func (o EndpointKafkaSettingsPtrOutput) SaslMechanism() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 func (o EndpointKafkaSettingsPtrOutput) SaslPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -635,7 +546,6 @@ func (o EndpointKafkaSettingsPtrOutput) SaslPassword() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 func (o EndpointKafkaSettingsPtrOutput) SaslUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -645,7 +555,6 @@ func (o EndpointKafkaSettingsPtrOutput) SaslUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -655,7 +564,6 @@ func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 func (o EndpointKafkaSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -665,7 +573,6 @@ func (o EndpointKafkaSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the client certificate used to securely connect to a Kafka target endpoint.
 func (o EndpointKafkaSettingsPtrOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -675,7 +582,6 @@ func (o EndpointKafkaSettingsPtrOutput) SslClientCertificateArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN for the client private key used to securely connect to a Kafka target endpoint.
 func (o EndpointKafkaSettingsPtrOutput) SslClientKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -685,7 +591,6 @@ func (o EndpointKafkaSettingsPtrOutput) SslClientKeyArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password for the client private key used to securely connect to a Kafka target endpoint.
 func (o EndpointKafkaSettingsPtrOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -695,7 +600,6 @@ func (o EndpointKafkaSettingsPtrOutput) SslClientKeyPassword() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kafka topic for migration. Default is `kafka-default-topic`.
 func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -706,26 +610,16 @@ func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type EndpointKinesisSettings struct {
-	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-	IncludeControlDetails *bool `pulumi:"includeControlDetails"`
-	// Include NULL and empty columns in the target. Default is `false`.
-	IncludeNullAndEmpty *bool `pulumi:"includeNullAndEmpty"`
-	// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-	IncludePartitionValue *bool `pulumi:"includePartitionValue"`
-	// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
-	// Provides detailed transaction information from the source database. Default is `false`.
-	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
-	MessageFormat *string `pulumi:"messageFormat"`
-	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
-	// ARN of the IAM Role with permissions to write to the Kinesis data stream.
-	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
-	// ARN of the Kinesis data stream.
-	StreamArn *string `pulumi:"streamArn"`
-	// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
-	UseLargeIntegerValue *bool `pulumi:"useLargeIntegerValue"`
+	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       *bool   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               *string `pulumi:"messageFormat"`
+	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        *string `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   *string `pulumi:"streamArn"`
+	UseLargeIntegerValue        *bool   `pulumi:"useLargeIntegerValue"`
 }
 
 // EndpointKinesisSettingsInput is an input type that accepts EndpointKinesisSettingsArgs and EndpointKinesisSettingsOutput values.
@@ -740,26 +634,16 @@ type EndpointKinesisSettingsInput interface {
 }
 
 type EndpointKinesisSettingsArgs struct {
-	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-	IncludeControlDetails pulumi.BoolPtrInput `pulumi:"includeControlDetails"`
-	// Include NULL and empty columns in the target. Default is `false`.
-	IncludeNullAndEmpty pulumi.BoolPtrInput `pulumi:"includeNullAndEmpty"`
-	// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-	IncludePartitionValue pulumi.BoolPtrInput `pulumi:"includePartitionValue"`
-	// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
-	// Provides detailed transaction information from the source database. Default is `false`.
-	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
-	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
-	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
-	// ARN of the IAM Role with permissions to write to the Kinesis data stream.
-	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
-	// ARN of the Kinesis data stream.
-	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
-	// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
-	UseLargeIntegerValue pulumi.BoolPtrInput `pulumi:"useLargeIntegerValue"`
+	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolPtrInput   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   pulumi.StringPtrInput `pulumi:"streamArn"`
+	UseLargeIntegerValue        pulumi.BoolPtrInput   `pulumi:"useLargeIntegerValue"`
 }
 
 func (EndpointKinesisSettingsArgs) ElementType() reflect.Type {
@@ -839,52 +723,42 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 	}).(EndpointKinesisSettingsPtrOutput)
 }
 
-// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
 func (o EndpointKinesisSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Include NULL and empty columns in the target. Default is `false`.
 func (o EndpointKinesisSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
-// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
 func (o EndpointKinesisSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
 }
 
-// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
 func (o EndpointKinesisSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
 
-// Provides detailed transaction information from the source database. Default is `false`.
 func (o EndpointKinesisSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
-// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
 func (o EndpointKinesisSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to write to the Kinesis data stream.
 func (o EndpointKinesisSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Kinesis data stream.
 func (o EndpointKinesisSettingsOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
-// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
 func (o EndpointKinesisSettingsOutput) UseLargeIntegerValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.UseLargeIntegerValue }).(pulumi.BoolPtrOutput)
 }
@@ -913,7 +787,6 @@ func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
 	}).(EndpointKinesisSettingsOutput)
 }
 
-// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -923,7 +796,6 @@ func (o EndpointKinesisSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Include NULL and empty columns in the target. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -933,7 +805,6 @@ func (o EndpointKinesisSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -943,7 +814,6 @@ func (o EndpointKinesisSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -953,7 +823,6 @@ func (o EndpointKinesisSettingsPtrOutput) IncludeTableAlterOperations() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Provides detailed transaction information from the source database. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -963,7 +832,6 @@ func (o EndpointKinesisSettingsPtrOutput) IncludeTransactionDetails() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -973,7 +841,6 @@ func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -983,7 +850,6 @@ func (o EndpointKinesisSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to write to the Kinesis data stream.
 func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -993,7 +859,6 @@ func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Kinesis data stream.
 func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -1003,7 +868,6 @@ func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
 func (o EndpointKinesisSettingsPtrOutput) UseLargeIntegerValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
 		if v == nil {
@@ -1014,18 +878,12 @@ func (o EndpointKinesisSettingsPtrOutput) UseLargeIntegerValue() pulumi.BoolPtrO
 }
 
 type EndpointMongodbSettings struct {
-	// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
-	AuthMechanism *string `pulumi:"authMechanism"`
-	// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
-	AuthSource *string `pulumi:"authSource"`
-	// Authentication type to access the MongoDB source endpoint. Default is `password`.
-	AuthType *string `pulumi:"authType"`
-	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
+	AuthMechanism     *string `pulumi:"authMechanism"`
+	AuthSource        *string `pulumi:"authSource"`
+	AuthType          *string `pulumi:"authType"`
 	DocsToInvestigate *string `pulumi:"docsToInvestigate"`
-	// Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
-	ExtractDocId *string `pulumi:"extractDocId"`
-	// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
-	NestingLevel *string `pulumi:"nestingLevel"`
+	ExtractDocId      *string `pulumi:"extractDocId"`
+	NestingLevel      *string `pulumi:"nestingLevel"`
 }
 
 // EndpointMongodbSettingsInput is an input type that accepts EndpointMongodbSettingsArgs and EndpointMongodbSettingsOutput values.
@@ -1040,18 +898,12 @@ type EndpointMongodbSettingsInput interface {
 }
 
 type EndpointMongodbSettingsArgs struct {
-	// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
-	AuthMechanism pulumi.StringPtrInput `pulumi:"authMechanism"`
-	// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
-	AuthSource pulumi.StringPtrInput `pulumi:"authSource"`
-	// Authentication type to access the MongoDB source endpoint. Default is `password`.
-	AuthType pulumi.StringPtrInput `pulumi:"authType"`
-	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
+	AuthMechanism     pulumi.StringPtrInput `pulumi:"authMechanism"`
+	AuthSource        pulumi.StringPtrInput `pulumi:"authSource"`
+	AuthType          pulumi.StringPtrInput `pulumi:"authType"`
 	DocsToInvestigate pulumi.StringPtrInput `pulumi:"docsToInvestigate"`
-	// Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
-	ExtractDocId pulumi.StringPtrInput `pulumi:"extractDocId"`
-	// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
-	NestingLevel pulumi.StringPtrInput `pulumi:"nestingLevel"`
+	ExtractDocId      pulumi.StringPtrInput `pulumi:"extractDocId"`
+	NestingLevel      pulumi.StringPtrInput `pulumi:"nestingLevel"`
 }
 
 func (EndpointMongodbSettingsArgs) ElementType() reflect.Type {
@@ -1131,32 +983,26 @@ func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsPtrOutputWithCon
 	}).(EndpointMongodbSettingsPtrOutput)
 }
 
-// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
 func (o EndpointMongodbSettingsOutput) AuthMechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthMechanism }).(pulumi.StringPtrOutput)
 }
 
-// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
 func (o EndpointMongodbSettingsOutput) AuthSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
 }
 
-// Authentication type to access the MongoDB source endpoint. Default is `password`.
 func (o EndpointMongodbSettingsOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
-// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
 func (o EndpointMongodbSettingsOutput) DocsToInvestigate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.DocsToInvestigate }).(pulumi.StringPtrOutput)
 }
 
-// Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
 func (o EndpointMongodbSettingsOutput) ExtractDocId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.ExtractDocId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
 func (o EndpointMongodbSettingsOutput) NestingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.NestingLevel }).(pulumi.StringPtrOutput)
 }
@@ -1185,7 +1031,6 @@ func (o EndpointMongodbSettingsPtrOutput) Elem() EndpointMongodbSettingsOutput {
 	}).(EndpointMongodbSettingsOutput)
 }
 
-// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
 func (o EndpointMongodbSettingsPtrOutput) AuthMechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1195,7 +1040,6 @@ func (o EndpointMongodbSettingsPtrOutput) AuthMechanism() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
 func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1205,7 +1049,6 @@ func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication type to access the MongoDB source endpoint. Default is `password`.
 func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1215,7 +1058,6 @@ func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
 func (o EndpointMongodbSettingsPtrOutput) DocsToInvestigate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1225,7 +1067,6 @@ func (o EndpointMongodbSettingsPtrOutput) DocsToInvestigate() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
 func (o EndpointMongodbSettingsPtrOutput) ExtractDocId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1235,7 +1076,6 @@ func (o EndpointMongodbSettingsPtrOutput) ExtractDocId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
 func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1246,26 +1086,16 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 }
 
 type EndpointMysqlSettings struct {
-	// Script to run immediately after AWS DMS connects to the endpoint.
-	AfterConnectScript *string `pulumi:"afterConnectScript"`
-	// Authentication method to use. Valid values: `password`, `iam`.
-	AuthenticationMethod *string `pulumi:"authenticationMethod"`
-	// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-	CleanSourceMetadataOnMismatch *bool `pulumi:"cleanSourceMetadataOnMismatch"`
-	// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-	EventsPollInterval *int `pulumi:"eventsPollInterval"`
-	// Client statement timeout (in seconds) for a MySQL source endpoint.
-	ExecuteTimeout *int `pulumi:"executeTimeout"`
-	// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-	MaxFileSize *int `pulumi:"maxFileSize"`
-	// Number of threads to use to load the data into the MySQL-compatible target database.
-	ParallelLoadThreads *int `pulumi:"parallelLoadThreads"`
-	// Time zone for the source MySQL database.
-	ServerTimezone *string `pulumi:"serverTimezone"`
-	// ARN of the IAM role to authenticate when connecting to the endpoint.
-	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
-	// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-	TargetDbType *string `pulumi:"targetDbType"`
+	AfterConnectScript            *string `pulumi:"afterConnectScript"`
+	AuthenticationMethod          *string `pulumi:"authenticationMethod"`
+	CleanSourceMetadataOnMismatch *bool   `pulumi:"cleanSourceMetadataOnMismatch"`
+	EventsPollInterval            *int    `pulumi:"eventsPollInterval"`
+	ExecuteTimeout                *int    `pulumi:"executeTimeout"`
+	MaxFileSize                   *int    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           *int    `pulumi:"parallelLoadThreads"`
+	ServerTimezone                *string `pulumi:"serverTimezone"`
+	ServiceAccessRoleArn          *string `pulumi:"serviceAccessRoleArn"`
+	TargetDbType                  *string `pulumi:"targetDbType"`
 }
 
 // EndpointMysqlSettingsInput is an input type that accepts EndpointMysqlSettingsArgs and EndpointMysqlSettingsOutput values.
@@ -1280,26 +1110,16 @@ type EndpointMysqlSettingsInput interface {
 }
 
 type EndpointMysqlSettingsArgs struct {
-	// Script to run immediately after AWS DMS connects to the endpoint.
-	AfterConnectScript pulumi.StringPtrInput `pulumi:"afterConnectScript"`
-	// Authentication method to use. Valid values: `password`, `iam`.
-	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
-	// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-	CleanSourceMetadataOnMismatch pulumi.BoolPtrInput `pulumi:"cleanSourceMetadataOnMismatch"`
-	// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-	EventsPollInterval pulumi.IntPtrInput `pulumi:"eventsPollInterval"`
-	// Client statement timeout (in seconds) for a MySQL source endpoint.
-	ExecuteTimeout pulumi.IntPtrInput `pulumi:"executeTimeout"`
-	// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
-	// Number of threads to use to load the data into the MySQL-compatible target database.
-	ParallelLoadThreads pulumi.IntPtrInput `pulumi:"parallelLoadThreads"`
-	// Time zone for the source MySQL database.
-	ServerTimezone pulumi.StringPtrInput `pulumi:"serverTimezone"`
-	// ARN of the IAM role to authenticate when connecting to the endpoint.
-	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
-	// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-	TargetDbType pulumi.StringPtrInput `pulumi:"targetDbType"`
+	AfterConnectScript            pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	AuthenticationMethod          pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	CleanSourceMetadataOnMismatch pulumi.BoolPtrInput   `pulumi:"cleanSourceMetadataOnMismatch"`
+	EventsPollInterval            pulumi.IntPtrInput    `pulumi:"eventsPollInterval"`
+	ExecuteTimeout                pulumi.IntPtrInput    `pulumi:"executeTimeout"`
+	MaxFileSize                   pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	ParallelLoadThreads           pulumi.IntPtrInput    `pulumi:"parallelLoadThreads"`
+	ServerTimezone                pulumi.StringPtrInput `pulumi:"serverTimezone"`
+	ServiceAccessRoleArn          pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	TargetDbType                  pulumi.StringPtrInput `pulumi:"targetDbType"`
 }
 
 func (EndpointMysqlSettingsArgs) ElementType() reflect.Type {
@@ -1379,52 +1199,42 @@ func (o EndpointMysqlSettingsOutput) ToEndpointMysqlSettingsPtrOutputWithContext
 	}).(EndpointMysqlSettingsPtrOutput)
 }
 
-// Script to run immediately after AWS DMS connects to the endpoint.
 func (o EndpointMysqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
 }
 
-// Authentication method to use. Valid values: `password`, `iam`.
 func (o EndpointMysqlSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
 func (o EndpointMysqlSettingsOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *bool { return v.CleanSourceMetadataOnMismatch }).(pulumi.BoolPtrOutput)
 }
 
-// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
 func (o EndpointMysqlSettingsOutput) EventsPollInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.EventsPollInterval }).(pulumi.IntPtrOutput)
 }
 
-// Client statement timeout (in seconds) for a MySQL source endpoint.
 func (o EndpointMysqlSettingsOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.ExecuteTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
 func (o EndpointMysqlSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
 
-// Number of threads to use to load the data into the MySQL-compatible target database.
 func (o EndpointMysqlSettingsOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *int { return v.ParallelLoadThreads }).(pulumi.IntPtrOutput)
 }
 
-// Time zone for the source MySQL database.
 func (o EndpointMysqlSettingsOutput) ServerTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.ServerTimezone }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM role to authenticate when connecting to the endpoint.
 func (o EndpointMysqlSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
 func (o EndpointMysqlSettingsOutput) TargetDbType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMysqlSettings) *string { return v.TargetDbType }).(pulumi.StringPtrOutput)
 }
@@ -1453,7 +1263,6 @@ func (o EndpointMysqlSettingsPtrOutput) Elem() EndpointMysqlSettingsOutput {
 	}).(EndpointMysqlSettingsOutput)
 }
 
-// Script to run immediately after AWS DMS connects to the endpoint.
 func (o EndpointMysqlSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
 		if v == nil {
@@ -1463,7 +1272,6 @@ func (o EndpointMysqlSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication method to use. Valid values: `password`, `iam`.
 func (o EndpointMysqlSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
 		if v == nil {
@@ -1473,7 +1281,6 @@ func (o EndpointMysqlSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
 func (o EndpointMysqlSettingsPtrOutput) CleanSourceMetadataOnMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *bool {
 		if v == nil {
@@ -1483,7 +1290,6 @@ func (o EndpointMysqlSettingsPtrOutput) CleanSourceMetadataOnMismatch() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
 func (o EndpointMysqlSettingsPtrOutput) EventsPollInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
 		if v == nil {
@@ -1493,7 +1299,6 @@ func (o EndpointMysqlSettingsPtrOutput) EventsPollInterval() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Client statement timeout (in seconds) for a MySQL source endpoint.
 func (o EndpointMysqlSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
 		if v == nil {
@@ -1503,7 +1308,6 @@ func (o EndpointMysqlSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
 func (o EndpointMysqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
 		if v == nil {
@@ -1513,7 +1317,6 @@ func (o EndpointMysqlSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of threads to use to load the data into the MySQL-compatible target database.
 func (o EndpointMysqlSettingsPtrOutput) ParallelLoadThreads() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *int {
 		if v == nil {
@@ -1523,7 +1326,6 @@ func (o EndpointMysqlSettingsPtrOutput) ParallelLoadThreads() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time zone for the source MySQL database.
 func (o EndpointMysqlSettingsPtrOutput) ServerTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
 		if v == nil {
@@ -1533,7 +1335,6 @@ func (o EndpointMysqlSettingsPtrOutput) ServerTimezone() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM role to authenticate when connecting to the endpoint.
 func (o EndpointMysqlSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
 		if v == nil {
@@ -1543,7 +1344,6 @@ func (o EndpointMysqlSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
 func (o EndpointMysqlSettingsPtrOutput) TargetDbType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMysqlSettings) *string {
 		if v == nil {
@@ -1554,7 +1354,6 @@ func (o EndpointMysqlSettingsPtrOutput) TargetDbType() pulumi.StringPtrOutput {
 }
 
 type EndpointOracleSettings struct {
-	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 }
 
@@ -1570,7 +1369,6 @@ type EndpointOracleSettingsInput interface {
 }
 
 type EndpointOracleSettingsArgs struct {
-	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
 }
 
@@ -1651,7 +1449,6 @@ func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutputWithConte
 	}).(EndpointOracleSettingsPtrOutput)
 }
 
-// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 func (o EndpointOracleSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
 }
@@ -1680,7 +1477,6 @@ func (o EndpointOracleSettingsPtrOutput) Elem() EndpointOracleSettingsOutput {
 	}).(EndpointOracleSettingsOutput)
 }
 
-// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 func (o EndpointOracleSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointOracleSettings) *string {
 		if v == nil {
@@ -1691,42 +1487,24 @@ func (o EndpointOracleSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtr
 }
 
 type EndpointPostgresSettings struct {
-	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
-	AfterConnectScript *string `pulumi:"afterConnectScript"`
-	// Specifies the authentication method. Valid values: `password`, `iam`.
-	AuthenticationMethod *string `pulumi:"authenticationMethod"`
-	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
-	BabelfishDatabaseName *string `pulumi:"babelfishDatabaseName"`
-	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
-	CaptureDdls *bool `pulumi:"captureDdls"`
-	// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
-	DatabaseMode *string `pulumi:"databaseMode"`
-	// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
-	DdlArtifactsSchema *string `pulumi:"ddlArtifactsSchema"`
-	// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
-	ExecuteTimeout *int `pulumi:"executeTimeout"`
-	// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
-	FailTasksOnLobTruncation *bool `pulumi:"failTasksOnLobTruncation"`
-	// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
-	HeartbeatEnable *bool `pulumi:"heartbeatEnable"`
-	// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
-	HeartbeatFrequency *int `pulumi:"heartbeatFrequency"`
-	// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
-	HeartbeatSchema *string `pulumi:"heartbeatSchema"`
-	// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
-	MapBooleanAsBoolean *bool `pulumi:"mapBooleanAsBoolean"`
-	// Optional When true, DMS migrates JSONB values as CLOB.
-	MapJsonbAsClob *bool `pulumi:"mapJsonbAsClob"`
-	// Optional When true, DMS migrates LONG values as VARCHAR.
-	MapLongVarcharAs *string `pulumi:"mapLongVarcharAs"`
-	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-	MaxFileSize *int `pulumi:"maxFileSize"`
-	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
-	PluginName *string `pulumi:"pluginName"`
-	// Specifies the IAM role to use to authenticate the connection.
-	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
-	// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
-	SlotName *string `pulumi:"slotName"`
+	AfterConnectScript       *string `pulumi:"afterConnectScript"`
+	AuthenticationMethod     *string `pulumi:"authenticationMethod"`
+	BabelfishDatabaseName    *string `pulumi:"babelfishDatabaseName"`
+	CaptureDdls              *bool   `pulumi:"captureDdls"`
+	DatabaseMode             *string `pulumi:"databaseMode"`
+	DdlArtifactsSchema       *string `pulumi:"ddlArtifactsSchema"`
+	ExecuteTimeout           *int    `pulumi:"executeTimeout"`
+	FailTasksOnLobTruncation *bool   `pulumi:"failTasksOnLobTruncation"`
+	HeartbeatEnable          *bool   `pulumi:"heartbeatEnable"`
+	HeartbeatFrequency       *int    `pulumi:"heartbeatFrequency"`
+	HeartbeatSchema          *string `pulumi:"heartbeatSchema"`
+	MapBooleanAsBoolean      *bool   `pulumi:"mapBooleanAsBoolean"`
+	MapJsonbAsClob           *bool   `pulumi:"mapJsonbAsClob"`
+	MapLongVarcharAs         *string `pulumi:"mapLongVarcharAs"`
+	MaxFileSize              *int    `pulumi:"maxFileSize"`
+	PluginName               *string `pulumi:"pluginName"`
+	ServiceAccessRoleArn     *string `pulumi:"serviceAccessRoleArn"`
+	SlotName                 *string `pulumi:"slotName"`
 }
 
 // EndpointPostgresSettingsInput is an input type that accepts EndpointPostgresSettingsArgs and EndpointPostgresSettingsOutput values.
@@ -1741,42 +1519,24 @@ type EndpointPostgresSettingsInput interface {
 }
 
 type EndpointPostgresSettingsArgs struct {
-	// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
-	AfterConnectScript pulumi.StringPtrInput `pulumi:"afterConnectScript"`
-	// Specifies the authentication method. Valid values: `password`, `iam`.
-	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
-	// The Babelfish for Aurora PostgreSQL database name for the endpoint.
-	BabelfishDatabaseName pulumi.StringPtrInput `pulumi:"babelfishDatabaseName"`
-	// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
-	CaptureDdls pulumi.BoolPtrInput `pulumi:"captureDdls"`
-	// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
-	DatabaseMode pulumi.StringPtrInput `pulumi:"databaseMode"`
-	// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
-	DdlArtifactsSchema pulumi.StringPtrInput `pulumi:"ddlArtifactsSchema"`
-	// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
-	ExecuteTimeout pulumi.IntPtrInput `pulumi:"executeTimeout"`
-	// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
-	FailTasksOnLobTruncation pulumi.BoolPtrInput `pulumi:"failTasksOnLobTruncation"`
-	// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
-	HeartbeatEnable pulumi.BoolPtrInput `pulumi:"heartbeatEnable"`
-	// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
-	HeartbeatFrequency pulumi.IntPtrInput `pulumi:"heartbeatFrequency"`
-	// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
-	HeartbeatSchema pulumi.StringPtrInput `pulumi:"heartbeatSchema"`
-	// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
-	MapBooleanAsBoolean pulumi.BoolPtrInput `pulumi:"mapBooleanAsBoolean"`
-	// Optional When true, DMS migrates JSONB values as CLOB.
-	MapJsonbAsClob pulumi.BoolPtrInput `pulumi:"mapJsonbAsClob"`
-	// Optional When true, DMS migrates LONG values as VARCHAR.
-	MapLongVarcharAs pulumi.StringPtrInput `pulumi:"mapLongVarcharAs"`
-	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
-	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
-	PluginName pulumi.StringPtrInput `pulumi:"pluginName"`
-	// Specifies the IAM role to use to authenticate the connection.
-	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
-	// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
-	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
+	AfterConnectScript       pulumi.StringPtrInput `pulumi:"afterConnectScript"`
+	AuthenticationMethod     pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	BabelfishDatabaseName    pulumi.StringPtrInput `pulumi:"babelfishDatabaseName"`
+	CaptureDdls              pulumi.BoolPtrInput   `pulumi:"captureDdls"`
+	DatabaseMode             pulumi.StringPtrInput `pulumi:"databaseMode"`
+	DdlArtifactsSchema       pulumi.StringPtrInput `pulumi:"ddlArtifactsSchema"`
+	ExecuteTimeout           pulumi.IntPtrInput    `pulumi:"executeTimeout"`
+	FailTasksOnLobTruncation pulumi.BoolPtrInput   `pulumi:"failTasksOnLobTruncation"`
+	HeartbeatEnable          pulumi.BoolPtrInput   `pulumi:"heartbeatEnable"`
+	HeartbeatFrequency       pulumi.IntPtrInput    `pulumi:"heartbeatFrequency"`
+	HeartbeatSchema          pulumi.StringPtrInput `pulumi:"heartbeatSchema"`
+	MapBooleanAsBoolean      pulumi.BoolPtrInput   `pulumi:"mapBooleanAsBoolean"`
+	MapJsonbAsClob           pulumi.BoolPtrInput   `pulumi:"mapJsonbAsClob"`
+	MapLongVarcharAs         pulumi.StringPtrInput `pulumi:"mapLongVarcharAs"`
+	MaxFileSize              pulumi.IntPtrInput    `pulumi:"maxFileSize"`
+	PluginName               pulumi.StringPtrInput `pulumi:"pluginName"`
+	ServiceAccessRoleArn     pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	SlotName                 pulumi.StringPtrInput `pulumi:"slotName"`
 }
 
 func (EndpointPostgresSettingsArgs) ElementType() reflect.Type {
@@ -1856,92 +1616,74 @@ func (o EndpointPostgresSettingsOutput) ToEndpointPostgresSettingsPtrOutputWithC
 	}).(EndpointPostgresSettingsPtrOutput)
 }
 
-// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
 func (o EndpointPostgresSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.AfterConnectScript }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the authentication method. Valid values: `password`, `iam`.
 func (o EndpointPostgresSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
 }
 
-// The Babelfish for Aurora PostgreSQL database name for the endpoint.
 func (o EndpointPostgresSettingsOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.BabelfishDatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
 func (o EndpointPostgresSettingsOutput) CaptureDdls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.CaptureDdls }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
 func (o EndpointPostgresSettingsOutput) DatabaseMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.DatabaseMode }).(pulumi.StringPtrOutput)
 }
 
-// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
 func (o EndpointPostgresSettingsOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.DdlArtifactsSchema }).(pulumi.StringPtrOutput)
 }
 
-// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
 func (o EndpointPostgresSettingsOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.ExecuteTimeout }).(pulumi.IntPtrOutput)
 }
 
-// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
 func (o EndpointPostgresSettingsOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.FailTasksOnLobTruncation }).(pulumi.BoolPtrOutput)
 }
 
-// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
 func (o EndpointPostgresSettingsOutput) HeartbeatEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.HeartbeatEnable }).(pulumi.BoolPtrOutput)
 }
 
-// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
 func (o EndpointPostgresSettingsOutput) HeartbeatFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.HeartbeatFrequency }).(pulumi.IntPtrOutput)
 }
 
-// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
 func (o EndpointPostgresSettingsOutput) HeartbeatSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.HeartbeatSchema }).(pulumi.StringPtrOutput)
 }
 
-// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
 func (o EndpointPostgresSettingsOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.MapBooleanAsBoolean }).(pulumi.BoolPtrOutput)
 }
 
-// Optional When true, DMS migrates JSONB values as CLOB.
 func (o EndpointPostgresSettingsOutput) MapJsonbAsClob() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.MapJsonbAsClob }).(pulumi.BoolPtrOutput)
 }
 
-// Optional When true, DMS migrates LONG values as VARCHAR.
 func (o EndpointPostgresSettingsOutput) MapLongVarcharAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.MapLongVarcharAs }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 func (o EndpointPostgresSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 func (o EndpointPostgresSettingsOutput) PluginName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.PluginName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the IAM role to use to authenticate the connection.
 func (o EndpointPostgresSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
 func (o EndpointPostgresSettingsOutput) SlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.SlotName }).(pulumi.StringPtrOutput)
 }
@@ -1970,7 +1712,6 @@ func (o EndpointPostgresSettingsPtrOutput) Elem() EndpointPostgresSettingsOutput
 	}).(EndpointPostgresSettingsOutput)
 }
 
-// For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
 func (o EndpointPostgresSettingsPtrOutput) AfterConnectScript() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -1980,7 +1721,6 @@ func (o EndpointPostgresSettingsPtrOutput) AfterConnectScript() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the authentication method. Valid values: `password`, `iam`.
 func (o EndpointPostgresSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -1990,7 +1730,6 @@ func (o EndpointPostgresSettingsPtrOutput) AuthenticationMethod() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Babelfish for Aurora PostgreSQL database name for the endpoint.
 func (o EndpointPostgresSettingsPtrOutput) BabelfishDatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2000,7 +1739,6 @@ func (o EndpointPostgresSettingsPtrOutput) BabelfishDatabaseName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
 func (o EndpointPostgresSettingsPtrOutput) CaptureDdls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
 		if v == nil {
@@ -2010,7 +1748,6 @@ func (o EndpointPostgresSettingsPtrOutput) CaptureDdls() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
 func (o EndpointPostgresSettingsPtrOutput) DatabaseMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2020,7 +1757,6 @@ func (o EndpointPostgresSettingsPtrOutput) DatabaseMode() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
 func (o EndpointPostgresSettingsPtrOutput) DdlArtifactsSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2030,7 +1766,6 @@ func (o EndpointPostgresSettingsPtrOutput) DdlArtifactsSchema() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
 func (o EndpointPostgresSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
 		if v == nil {
@@ -2040,7 +1775,6 @@ func (o EndpointPostgresSettingsPtrOutput) ExecuteTimeout() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
 func (o EndpointPostgresSettingsPtrOutput) FailTasksOnLobTruncation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
 		if v == nil {
@@ -2050,7 +1784,6 @@ func (o EndpointPostgresSettingsPtrOutput) FailTasksOnLobTruncation() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
 func (o EndpointPostgresSettingsPtrOutput) HeartbeatEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
 		if v == nil {
@@ -2060,7 +1793,6 @@ func (o EndpointPostgresSettingsPtrOutput) HeartbeatEnable() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
 func (o EndpointPostgresSettingsPtrOutput) HeartbeatFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
 		if v == nil {
@@ -2070,7 +1802,6 @@ func (o EndpointPostgresSettingsPtrOutput) HeartbeatFrequency() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
 func (o EndpointPostgresSettingsPtrOutput) HeartbeatSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2080,7 +1811,6 @@ func (o EndpointPostgresSettingsPtrOutput) HeartbeatSchema() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
 func (o EndpointPostgresSettingsPtrOutput) MapBooleanAsBoolean() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
 		if v == nil {
@@ -2090,7 +1820,6 @@ func (o EndpointPostgresSettingsPtrOutput) MapBooleanAsBoolean() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Optional When true, DMS migrates JSONB values as CLOB.
 func (o EndpointPostgresSettingsPtrOutput) MapJsonbAsClob() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *bool {
 		if v == nil {
@@ -2100,7 +1829,6 @@ func (o EndpointPostgresSettingsPtrOutput) MapJsonbAsClob() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Optional When true, DMS migrates LONG values as VARCHAR.
 func (o EndpointPostgresSettingsPtrOutput) MapLongVarcharAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2110,7 +1838,6 @@ func (o EndpointPostgresSettingsPtrOutput) MapLongVarcharAs() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 func (o EndpointPostgresSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *int {
 		if v == nil {
@@ -2120,7 +1847,6 @@ func (o EndpointPostgresSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 func (o EndpointPostgresSettingsPtrOutput) PluginName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2130,7 +1856,6 @@ func (o EndpointPostgresSettingsPtrOutput) PluginName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the IAM role to use to authenticate the connection.
 func (o EndpointPostgresSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2140,7 +1865,6 @@ func (o EndpointPostgresSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
 func (o EndpointPostgresSettingsPtrOutput) SlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {
@@ -2151,19 +1875,12 @@ func (o EndpointPostgresSettingsPtrOutput) SlotName() pulumi.StringPtrOutput {
 }
 
 type EndpointRedisSettings struct {
-	// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-	AuthPassword *string `pulumi:"authPassword"`
-	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
-	AuthType string `pulumi:"authType"`
-	// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-	AuthUserName *string `pulumi:"authUserName"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
-	Port int `pulumi:"port"`
-	// Fully qualified domain name of the endpoint.
-	ServerName string `pulumi:"serverName"`
-	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	AuthPassword        *string `pulumi:"authPassword"`
+	AuthType            string  `pulumi:"authType"`
+	AuthUserName        *string `pulumi:"authUserName"`
+	Port                int     `pulumi:"port"`
+	ServerName          string  `pulumi:"serverName"`
 	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
-	// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 	SslSecurityProtocol *string `pulumi:"sslSecurityProtocol"`
 }
 
@@ -2179,19 +1896,12 @@ type EndpointRedisSettingsInput interface {
 }
 
 type EndpointRedisSettingsArgs struct {
-	// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-	AuthPassword pulumi.StringPtrInput `pulumi:"authPassword"`
-	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
-	AuthType pulumi.StringInput `pulumi:"authType"`
-	// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-	AuthUserName pulumi.StringPtrInput `pulumi:"authUserName"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Fully qualified domain name of the endpoint.
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	AuthPassword        pulumi.StringPtrInput `pulumi:"authPassword"`
+	AuthType            pulumi.StringInput    `pulumi:"authType"`
+	AuthUserName        pulumi.StringPtrInput `pulumi:"authUserName"`
+	Port                pulumi.IntInput       `pulumi:"port"`
+	ServerName          pulumi.StringInput    `pulumi:"serverName"`
 	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
-	// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 	SslSecurityProtocol pulumi.StringPtrInput `pulumi:"sslSecurityProtocol"`
 }
 
@@ -2272,37 +1982,30 @@ func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutputWithContext
 	}).(EndpointRedisSettingsPtrOutput)
 }
 
-// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
 func (o EndpointRedisSettingsOutput) AuthPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
 }
 
-// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
 func (o EndpointRedisSettingsOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) string { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
 func (o EndpointRedisSettingsOutput) AuthUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthUserName }).(pulumi.StringPtrOutput)
 }
 
-// Transmission Control Protocol (TCP) port for the endpoint.
 func (o EndpointRedisSettingsOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Fully qualified domain name of the endpoint.
 func (o EndpointRedisSettingsOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 func (o EndpointRedisSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 func (o EndpointRedisSettingsOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslSecurityProtocol }).(pulumi.StringPtrOutput)
 }
@@ -2331,7 +2034,6 @@ func (o EndpointRedisSettingsPtrOutput) Elem() EndpointRedisSettingsOutput {
 	}).(EndpointRedisSettingsOutput)
 }
 
-// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
 func (o EndpointRedisSettingsPtrOutput) AuthPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -2341,7 +2043,6 @@ func (o EndpointRedisSettingsPtrOutput) AuthPassword() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
 func (o EndpointRedisSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -2351,7 +2052,6 @@ func (o EndpointRedisSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
 func (o EndpointRedisSettingsPtrOutput) AuthUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -2361,7 +2061,6 @@ func (o EndpointRedisSettingsPtrOutput) AuthUserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Transmission Control Protocol (TCP) port for the endpoint.
 func (o EndpointRedisSettingsPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *int {
 		if v == nil {
@@ -2371,7 +2070,6 @@ func (o EndpointRedisSettingsPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Fully qualified domain name of the endpoint.
 func (o EndpointRedisSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -2381,7 +2079,6 @@ func (o EndpointRedisSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 func (o EndpointRedisSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -2391,7 +2088,6 @@ func (o EndpointRedisSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -2402,16 +2098,11 @@ func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOu
 }
 
 type EndpointRedshiftSettings struct {
-	// Custom S3 Bucket Object prefix for intermediate storage.
-	BucketFolder *string `pulumi:"bucketFolder"`
-	// Custom S3 Bucket name for intermediate storage.
-	BucketName *string `pulumi:"bucketName"`
-	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-	EncryptionMode *string `pulumi:"encryptionMode"`
-	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+	BucketFolder                 *string `pulumi:"bucketFolder"`
+	BucketName                   *string `pulumi:"bucketName"`
+	EncryptionMode               *string `pulumi:"encryptionMode"`
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
-	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn         *string `pulumi:"serviceAccessRoleArn"`
 }
 
 // EndpointRedshiftSettingsInput is an input type that accepts EndpointRedshiftSettingsArgs and EndpointRedshiftSettingsOutput values.
@@ -2426,16 +2117,11 @@ type EndpointRedshiftSettingsInput interface {
 }
 
 type EndpointRedshiftSettingsArgs struct {
-	// Custom S3 Bucket Object prefix for intermediate storage.
-	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
-	// Custom S3 Bucket name for intermediate storage.
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
-	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
+	BucketFolder                 pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	BucketName                   pulumi.StringPtrInput `pulumi:"bucketName"`
+	EncryptionMode               pulumi.StringPtrInput `pulumi:"encryptionMode"`
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	ServiceAccessRoleArn         pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
 
 func (EndpointRedshiftSettingsArgs) ElementType() reflect.Type {
@@ -2515,27 +2201,22 @@ func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithC
 	}).(EndpointRedshiftSettingsPtrOutput)
 }
 
-// Custom S3 Bucket Object prefix for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
-// Custom S3 Bucket name for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointRedshiftSettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2564,7 +2245,6 @@ func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput
 	}).(EndpointRedshiftSettingsOutput)
 }
 
-// Custom S3 Bucket Object prefix for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -2574,7 +2254,6 @@ func (o EndpointRedshiftSettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom S3 Bucket name for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -2584,7 +2263,6 @@ func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -2594,7 +2272,6 @@ func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -2604,7 +2281,6 @@ func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -2615,29 +2291,15 @@ func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringP
 }
 
 type ReplicationConfigComputeConfig struct {
-	// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-	DnsNameServers *string `pulumi:"dnsNameServers"`
-	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-	MaxCapacityUnits *int `pulumi:"maxCapacityUnits"`
-	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
-	MinCapacityUnits *int `pulumi:"minCapacityUnits"`
-	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
-	MultiAz *bool `pulumi:"multiAz"`
-	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// Specifies a subnet group identifier to associate with the DMS Serverless replication.
-	ReplicationSubnetGroupId string `pulumi:"replicationSubnetGroupId"`
-	// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	AvailabilityZone           *string  `pulumi:"availabilityZone"`
+	DnsNameServers             *string  `pulumi:"dnsNameServers"`
+	KmsKeyId                   *string  `pulumi:"kmsKeyId"`
+	MaxCapacityUnits           *int     `pulumi:"maxCapacityUnits"`
+	MinCapacityUnits           *int     `pulumi:"minCapacityUnits"`
+	MultiAz                    *bool    `pulumi:"multiAz"`
+	PreferredMaintenanceWindow *string  `pulumi:"preferredMaintenanceWindow"`
+	ReplicationSubnetGroupId   string   `pulumi:"replicationSubnetGroupId"`
+	VpcSecurityGroupIds        []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 // ReplicationConfigComputeConfigInput is an input type that accepts ReplicationConfigComputeConfigArgs and ReplicationConfigComputeConfigOutput values.
@@ -2652,29 +2314,15 @@ type ReplicationConfigComputeConfigInput interface {
 }
 
 type ReplicationConfigComputeConfigArgs struct {
-	// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-	DnsNameServers pulumi.StringPtrInput `pulumi:"dnsNameServers"`
-	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-	MaxCapacityUnits pulumi.IntPtrInput `pulumi:"maxCapacityUnits"`
-	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
-	MinCapacityUnits pulumi.IntPtrInput `pulumi:"minCapacityUnits"`
-	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
-	MultiAz pulumi.BoolPtrInput `pulumi:"multiAz"`
-	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow pulumi.StringPtrInput `pulumi:"preferredMaintenanceWindow"`
-	// Specifies a subnet group identifier to associate with the DMS Serverless replication.
-	ReplicationSubnetGroupId pulumi.StringInput `pulumi:"replicationSubnetGroupId"`
-	// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
+	AvailabilityZone           pulumi.StringPtrInput   `pulumi:"availabilityZone"`
+	DnsNameServers             pulumi.StringPtrInput   `pulumi:"dnsNameServers"`
+	KmsKeyId                   pulumi.StringPtrInput   `pulumi:"kmsKeyId"`
+	MaxCapacityUnits           pulumi.IntPtrInput      `pulumi:"maxCapacityUnits"`
+	MinCapacityUnits           pulumi.IntPtrInput      `pulumi:"minCapacityUnits"`
+	MultiAz                    pulumi.BoolPtrInput     `pulumi:"multiAz"`
+	PreferredMaintenanceWindow pulumi.StringPtrInput   `pulumi:"preferredMaintenanceWindow"`
+	ReplicationSubnetGroupId   pulumi.StringInput      `pulumi:"replicationSubnetGroupId"`
+	VpcSecurityGroupIds        pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }
 
 func (ReplicationConfigComputeConfigArgs) ElementType() reflect.Type {
@@ -2754,52 +2402,38 @@ func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPt
 	}).(ReplicationConfigComputeConfigPtrOutput)
 }
 
-// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
 func (o ReplicationConfigComputeConfigOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
 func (o ReplicationConfigComputeConfigOutput) DnsNameServers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.DnsNameServers }).(pulumi.StringPtrOutput)
 }
 
-// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 func (o ReplicationConfigComputeConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 func (o ReplicationConfigComputeConfigOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MaxCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
 func (o ReplicationConfigComputeConfigOutput) MinCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MinCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 func (o ReplicationConfigComputeConfigOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
-// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-//
-// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-// - Constraints: Minimum 30-minute window.
 func (o ReplicationConfigComputeConfigOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a subnet group identifier to associate with the DMS Serverless replication.
 func (o ReplicationConfigComputeConfigOutput) ReplicationSubnetGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) string { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
 }
 
-// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 func (o ReplicationConfigComputeConfigOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -2828,7 +2462,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) Elem() ReplicationConfigCompute
 	}).(ReplicationConfigComputeConfigOutput)
 }
 
-// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
 func (o ReplicationConfigComputeConfigPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -2838,7 +2471,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) AvailabilityZone() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
 func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -2848,7 +2480,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -2858,7 +2489,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
 		if v == nil {
@@ -2868,7 +2498,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
 func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
 		if v == nil {
@@ -2878,7 +2507,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *bool {
 		if v == nil {
@@ -2888,12 +2516,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-//
-// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-// - Constraints: Minimum 30-minute window.
 func (o ReplicationConfigComputeConfigPtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -2903,7 +2525,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) PreferredMaintenanceWindow() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a subnet group identifier to associate with the DMS Serverless replication.
 func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -2913,7 +2534,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) []string {
 		if v == nil {
@@ -2924,12 +2544,9 @@ func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.St
 }
 
 type ReplicationInstanceKerberosAuthenticationSettings struct {
-	// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
 	KeyCacheSecretIamArn string `pulumi:"keyCacheSecretIamArn"`
-	// Secret ID that stores the key cache file required for Kerberos authentication.
-	KeyCacheSecretId string `pulumi:"keyCacheSecretId"`
-	// Contents of krb5 configuration file required for Kerberos authentication.
-	Krb5FileContents string `pulumi:"krb5FileContents"`
+	KeyCacheSecretId     string `pulumi:"keyCacheSecretId"`
+	Krb5FileContents     string `pulumi:"krb5FileContents"`
 }
 
 // ReplicationInstanceKerberosAuthenticationSettingsInput is an input type that accepts ReplicationInstanceKerberosAuthenticationSettingsArgs and ReplicationInstanceKerberosAuthenticationSettingsOutput values.
@@ -2944,12 +2561,9 @@ type ReplicationInstanceKerberosAuthenticationSettingsInput interface {
 }
 
 type ReplicationInstanceKerberosAuthenticationSettingsArgs struct {
-	// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
 	KeyCacheSecretIamArn pulumi.StringInput `pulumi:"keyCacheSecretIamArn"`
-	// Secret ID that stores the key cache file required for Kerberos authentication.
-	KeyCacheSecretId pulumi.StringInput `pulumi:"keyCacheSecretId"`
-	// Contents of krb5 configuration file required for Kerberos authentication.
-	Krb5FileContents pulumi.StringInput `pulumi:"krb5FileContents"`
+	KeyCacheSecretId     pulumi.StringInput `pulumi:"keyCacheSecretId"`
+	Krb5FileContents     pulumi.StringInput `pulumi:"krb5FileContents"`
 }
 
 func (ReplicationInstanceKerberosAuthenticationSettingsArgs) ElementType() reflect.Type {
@@ -3029,17 +2643,14 @@ func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) ToReplicationIn
 	}).(ReplicationInstanceKerberosAuthenticationSettingsPtrOutput)
 }
 
-// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
 func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) KeyCacheSecretIamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationInstanceKerberosAuthenticationSettings) string { return v.KeyCacheSecretIamArn }).(pulumi.StringOutput)
 }
 
-// Secret ID that stores the key cache file required for Kerberos authentication.
 func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) KeyCacheSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationInstanceKerberosAuthenticationSettings) string { return v.KeyCacheSecretId }).(pulumi.StringOutput)
 }
 
-// Contents of krb5 configuration file required for Kerberos authentication.
 func (o ReplicationInstanceKerberosAuthenticationSettingsOutput) Krb5FileContents() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationInstanceKerberosAuthenticationSettings) string { return v.Krb5FileContents }).(pulumi.StringOutput)
 }
@@ -3068,7 +2679,6 @@ func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) Elem() Repli
 	}).(ReplicationInstanceKerberosAuthenticationSettingsOutput)
 }
 
-// ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
 func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) KeyCacheSecretIamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) *string {
 		if v == nil {
@@ -3078,7 +2688,6 @@ func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) KeyCacheSecr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secret ID that stores the key cache file required for Kerberos authentication.
 func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) KeyCacheSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) *string {
 		if v == nil {
@@ -3088,7 +2697,6 @@ func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) KeyCacheSecr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contents of krb5 configuration file required for Kerberos authentication.
 func (o ReplicationInstanceKerberosAuthenticationSettingsPtrOutput) Krb5FileContents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationInstanceKerberosAuthenticationSettings) *string {
 		if v == nil {

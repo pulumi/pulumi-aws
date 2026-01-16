@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolAccountRecoverySettingRecoveryMechanismResult
     {
-        /// <summary>
-        /// - Name of the attribute.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// - Priority of this mechanism in the recovery process (lower numbers are higher priority).
-        /// </summary>
         public readonly int Priority;
 
         [OutputConstructor]

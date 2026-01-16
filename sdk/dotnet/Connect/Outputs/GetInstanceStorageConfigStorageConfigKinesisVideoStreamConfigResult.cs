@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult
     {
-        /// <summary>
-        /// The encryption configuration. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult> EncryptionConfigs;
-        /// <summary>
-        /// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `Prefix`.
-        /// </summary>
         public readonly string Prefix;
-        /// <summary>
-        /// The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
-        /// </summary>
         public readonly int RetentionPeriodHours;
 
         [OutputConstructor]

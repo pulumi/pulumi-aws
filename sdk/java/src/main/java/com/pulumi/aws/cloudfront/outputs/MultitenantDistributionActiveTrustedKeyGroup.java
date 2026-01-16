@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionActiveTrustedKeyGroup {
-    /**
-     * @return Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return List of key groups. See Key Group Items below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionActiveTrustedKeyGroupItem> items;
 
     private MultitenantDistributionActiveTrustedKeyGroup() {}
-    /**
-     * @return Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return List of key groups. See Key Group Items below.
-     * 
-     */
     public List<MultitenantDistributionActiveTrustedKeyGroupItem> items() {
         return this.items == null ? List.of() : this.items;
     }

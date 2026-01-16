@@ -13,84 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.macie2.Account;
- * import com.pulumi.aws.macie2.OrganizationAdminAccount;
- * import com.pulumi.aws.macie2.OrganizationAdminAccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()
- *             .adminAccountId("ID OF THE ADMIN ACCOUNT")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
- * ```
- * 
- */
 @ResourceType(type="aws:macie2/organizationAdminAccount:OrganizationAdminAccount")
 public class OrganizationAdminAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     * 
-     */
     @Export(name="adminAccountId", refs={String.class}, tree="[0]")
     private Output<String> adminAccountId;
 
-    /**
-     * @return The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     * 
-     */
     public Output<String> adminAccountId() {
         return this.adminAccountId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

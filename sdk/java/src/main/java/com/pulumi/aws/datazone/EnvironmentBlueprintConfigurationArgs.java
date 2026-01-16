@@ -18,111 +18,51 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
 
     public static final EnvironmentBlueprintConfigurationArgs Empty = new EnvironmentBlueprintConfigurationArgs();
 
-    /**
-     * ID of the Domain.
-     * 
-     */
     @Import(name="domainId", required=true)
     private Output<String> domainId;
 
-    /**
-     * @return ID of the Domain.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
 
-    /**
-     * Regions in which the blueprint is enabled
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="enabledRegions", required=true)
     private Output<List<String>> enabledRegions;
 
-    /**
-     * @return Regions in which the blueprint is enabled
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<List<String>> enabledRegions() {
         return this.enabledRegions;
     }
 
-    /**
-     * ID of the Environment Blueprint
-     * 
-     */
     @Import(name="environmentBlueprintId", required=true)
     private Output<String> environmentBlueprintId;
 
-    /**
-     * @return ID of the Environment Blueprint
-     * 
-     */
     public Output<String> environmentBlueprintId() {
         return this.environmentBlueprintId;
     }
 
-    /**
-     * ARN of the manage access role with which this blueprint is created.
-     * 
-     */
     @Import(name="manageAccessRoleArn")
     private @Nullable Output<String> manageAccessRoleArn;
 
-    /**
-     * @return ARN of the manage access role with which this blueprint is created.
-     * 
-     */
     public Optional<Output<String>> manageAccessRoleArn() {
         return Optional.ofNullable(this.manageAccessRoleArn);
     }
 
-    /**
-     * ARN of the provisioning role with which this blueprint is created.
-     * 
-     */
     @Import(name="provisioningRoleArn")
     private @Nullable Output<String> provisioningRoleArn;
 
-    /**
-     * @return ARN of the provisioning role with which this blueprint is created.
-     * 
-     */
     public Optional<Output<String>> provisioningRoleArn() {
         return Optional.ofNullable(this.provisioningRoleArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Parameters for each region in which the blueprint is enabled
-     * 
-     */
     @Import(name="regionalParameters")
     private @Nullable Output<Map<String,Map<String,String>>> regionalParameters;
 
-    /**
-     * @return Parameters for each region in which the blueprint is enabled
-     * 
-     */
     public Optional<Output<Map<String,Map<String,String>>>> regionalParameters() {
         return Optional.ofNullable(this.regionalParameters);
     }
@@ -157,165 +97,69 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
             $ = new EnvironmentBlueprintConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainId ID of the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(Output<String> domainId) {
             $.domainId = domainId;
             return this;
         }
 
-        /**
-         * @param domainId ID of the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
         }
 
-        /**
-         * @param enabledRegions Regions in which the blueprint is enabled
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledRegions(Output<List<String>> enabledRegions) {
             $.enabledRegions = enabledRegions;
             return this;
         }
 
-        /**
-         * @param enabledRegions Regions in which the blueprint is enabled
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledRegions(List<String> enabledRegions) {
             return enabledRegions(Output.of(enabledRegions));
         }
 
-        /**
-         * @param enabledRegions Regions in which the blueprint is enabled
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabledRegions(String... enabledRegions) {
             return enabledRegions(List.of(enabledRegions));
         }
 
-        /**
-         * @param environmentBlueprintId ID of the Environment Blueprint
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentBlueprintId(Output<String> environmentBlueprintId) {
             $.environmentBlueprintId = environmentBlueprintId;
             return this;
         }
 
-        /**
-         * @param environmentBlueprintId ID of the Environment Blueprint
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentBlueprintId(String environmentBlueprintId) {
             return environmentBlueprintId(Output.of(environmentBlueprintId));
         }
 
-        /**
-         * @param manageAccessRoleArn ARN of the manage access role with which this blueprint is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manageAccessRoleArn(@Nullable Output<String> manageAccessRoleArn) {
             $.manageAccessRoleArn = manageAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param manageAccessRoleArn ARN of the manage access role with which this blueprint is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder manageAccessRoleArn(String manageAccessRoleArn) {
             return manageAccessRoleArn(Output.of(manageAccessRoleArn));
         }
 
-        /**
-         * @param provisioningRoleArn ARN of the provisioning role with which this blueprint is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisioningRoleArn(@Nullable Output<String> provisioningRoleArn) {
             $.provisioningRoleArn = provisioningRoleArn;
             return this;
         }
 
-        /**
-         * @param provisioningRoleArn ARN of the provisioning role with which this blueprint is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisioningRoleArn(String provisioningRoleArn) {
             return provisioningRoleArn(Output.of(provisioningRoleArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param regionalParameters Parameters for each region in which the blueprint is enabled
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionalParameters(@Nullable Output<Map<String,Map<String,String>>> regionalParameters) {
             $.regionalParameters = regionalParameters;
             return this;
         }
 
-        /**
-         * @param regionalParameters Parameters for each region in which the blueprint is enabled
-         * 
-         * @return builder
-         * 
-         */
         public Builder regionalParameters(Map<String,Map<String,String>> regionalParameters) {
             return regionalParameters(Output.of(regionalParameters));
         }

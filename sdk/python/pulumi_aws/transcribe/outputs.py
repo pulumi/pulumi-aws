@@ -45,13 +45,6 @@ class LanguageModelInputDataConfig(dict):
                  data_access_role_arn: _builtins.str,
                  s3_uri: _builtins.str,
                  tuning_data_s3_uri: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str data_access_role_arn: IAM role with access to S3 bucket.
-        :param _builtins.str s3_uri: S3 URI where training data is located.
-        :param _builtins.str tuning_data_s3_uri: S3 URI where tuning data is located.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "s3_uri", s3_uri)
         if tuning_data_s3_uri is not None:
@@ -60,27 +53,16 @@ class LanguageModelInputDataConfig(dict):
     @_builtins.property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> _builtins.str:
-        """
-        IAM role with access to S3 bucket.
-        """
         return pulumi.get(self, "data_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> _builtins.str:
-        """
-        S3 URI where training data is located.
-        """
         return pulumi.get(self, "s3_uri")
 
     @_builtins.property
     @pulumi.getter(name="tuningDataS3Uri")
     def tuning_data_s3_uri(self) -> Optional[_builtins.str]:
-        """
-        S3 URI where tuning data is located.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "tuning_data_s3_uri")
 
 

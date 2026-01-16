@@ -13,72 +13,28 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCertificateResult {
-    /**
-     * @return ARN of the certificate.
-     * 
-     */
     private String arn;
-    /**
-     * @return Type of certificate. For example, `CA`.
-     * 
-     */
     private String certificateType;
-    /**
-     * @return Boolean whether there is an override for the default certificate identifier.
-     * 
-     */
     private Boolean customerOverride;
-    /**
-     * @return If there is an override for the default certificate identifier, when the override expires.
-     * 
-     */
     private String customerOverrideValidTill;
     private @Nullable Boolean defaultForNewLaunches;
     private String id;
     private @Nullable Boolean latestValidTill;
     private String region;
-    /**
-     * @return Thumbprint of the certificate.
-     * 
-     */
     private String thumbprint;
-    /**
-     * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
-     * 
-     */
     private String validFrom;
-    /**
-     * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
-     * 
-     */
     private String validTill;
 
     private GetCertificateResult() {}
-    /**
-     * @return ARN of the certificate.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Type of certificate. For example, `CA`.
-     * 
-     */
     public String certificateType() {
         return this.certificateType;
     }
-    /**
-     * @return Boolean whether there is an override for the default certificate identifier.
-     * 
-     */
     public Boolean customerOverride() {
         return this.customerOverride;
     }
-    /**
-     * @return If there is an override for the default certificate identifier, when the override expires.
-     * 
-     */
     public String customerOverrideValidTill() {
         return this.customerOverrideValidTill;
     }
@@ -94,24 +50,12 @@ public final class GetCertificateResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Thumbprint of the certificate.
-     * 
-     */
     public String thumbprint() {
         return this.thumbprint;
     }
-    /**
-     * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
-     * 
-     */
     public String validFrom() {
         return this.validFrom;
     }
-    /**
-     * @return [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
-     * 
-     */
     public String validTill() {
         return this.validTill;
     }

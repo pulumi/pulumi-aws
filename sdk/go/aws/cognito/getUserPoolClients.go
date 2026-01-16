@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.GetUserPoolClients(ctx, &cognito.GetUserPoolClientsArgs{
-//				UserPoolId: mainAwsCognitoUserPool.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolClientsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolClientsResult
@@ -50,17 +23,13 @@ func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts 
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Cognito user pool ID.
-	UserPoolId string `pulumi:"userPoolId"`
+	Region     *string `pulumi:"region"`
+	UserPoolId string  `pulumi:"userPoolId"`
 }
 
 // A collection of values returned by getUserPoolClients.
 type GetUserPoolClientsResult struct {
-	// List of Cognito user pool client IDs.
-	ClientIds []string `pulumi:"clientIds"`
-	// List of Cognito user pool client names.
+	ClientIds   []string `pulumi:"clientIds"`
 	ClientNames []string `pulumi:"clientNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
@@ -79,10 +48,8 @@ func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutput
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Cognito user pool ID.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	UserPoolId pulumi.StringInput    `pulumi:"userPoolId"`
 }
 
 func (GetUserPoolClientsOutputArgs) ElementType() reflect.Type {
@@ -104,12 +71,10 @@ func (o GetUserPoolClientsResultOutput) ToGetUserPoolClientsResultOutputWithCont
 	return o
 }
 
-// List of Cognito user pool client IDs.
 func (o GetUserPoolClientsResultOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
 
-// List of Cognito user pool client names.
 func (o GetUserPoolClientsResultOutput) ClientNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) []string { return v.ClientNames }).(pulumi.StringArrayOutput)
 }

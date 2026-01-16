@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorSettingsFaceSearch {
     /**
-     * @return ID of a collection that contains faces that you want to search for.
+     * @return The ID of a collection that contains faces that you want to search for.
      * 
      */
     private String collectionId;
@@ -26,7 +26,7 @@ public final class StreamProcessorSettingsFaceSearch {
 
     private StreamProcessorSettingsFaceSearch() {}
     /**
-     * @return ID of a collection that contains faces that you want to search for.
+     * @return The ID of a collection that contains faces that you want to search for.
      * 
      */
     public String collectionId() {

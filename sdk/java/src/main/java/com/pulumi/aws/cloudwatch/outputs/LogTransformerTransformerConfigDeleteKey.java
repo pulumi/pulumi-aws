@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigDeleteKey {
-    /**
-     * @return Specifies the keys to be deleted.
-     * 
-     */
     private List<String> withKeys;
 
     private LogTransformerTransformerConfigDeleteKey() {}
-    /**
-     * @return Specifies the keys to be deleted.
-     * 
-     */
     public List<String> withKeys() {
         return this.withKeys;
     }

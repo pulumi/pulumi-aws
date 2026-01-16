@@ -18,62 +18,30 @@ public final class VoiceConnectorOriginationState extends com.pulumi.resources.R
 
     public static final VoiceConnectorOriginationState Empty = new VoiceConnectorOriginationState();
 
-    /**
-     * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-     * 
-     */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
-    /**
-     * @return When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-     * 
-     */
     public Optional<Output<Boolean>> disabled() {
         return Optional.ofNullable(this.disabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-     * 
-     */
     @Import(name="routes")
     private @Nullable Output<List<VoiceConnectorOriginationRouteArgs>> routes;
 
-    /**
-     * @return Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-     * 
-     */
     public Optional<Output<List<VoiceConnectorOriginationRouteArgs>>> routes() {
         return Optional.ofNullable(this.routes);
     }
 
-    /**
-     * The Amazon Chime Voice Connector ID.
-     * 
-     */
     @Import(name="voiceConnectorId")
     private @Nullable Output<String> voiceConnectorId;
 
-    /**
-     * @return The Amazon Chime Voice Connector ID.
-     * 
-     */
     public Optional<Output<String>> voiceConnectorId() {
         return Optional.ofNullable(this.voiceConnectorId);
     }
@@ -105,96 +73,42 @@ public final class VoiceConnectorOriginationState extends com.pulumi.resources.R
             $ = new VoiceConnectorOriginationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param disabled When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabled(@Nullable Output<Boolean> disabled) {
             $.disabled = disabled;
             return this;
         }
 
-        /**
-         * @param disabled When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disabled(Boolean disabled) {
             return disabled(Output.of(disabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routes Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routes(@Nullable Output<List<VoiceConnectorOriginationRouteArgs>> routes) {
             $.routes = routes;
             return this;
         }
 
-        /**
-         * @param routes Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routes(List<VoiceConnectorOriginationRouteArgs> routes) {
             return routes(Output.of(routes));
         }
 
-        /**
-         * @param routes Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routes(VoiceConnectorOriginationRouteArgs... routes) {
             return routes(List.of(routes));
         }
 
-        /**
-         * @param voiceConnectorId The Amazon Chime Voice Connector ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceConnectorId(@Nullable Output<String> voiceConnectorId) {
             $.voiceConnectorId = voiceConnectorId;
             return this;
         }
 
-        /**
-         * @param voiceConnectorId The Amazon Chime Voice Connector ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceConnectorId(String voiceConnectorId) {
             return voiceConnectorId(Output.of(voiceConnectorId));
         }

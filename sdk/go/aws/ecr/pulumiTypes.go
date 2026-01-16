@@ -591,10 +591,8 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 }
 
 type RegistryScanningConfigurationRule struct {
-	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
 	RepositoryFilters []RegistryScanningConfigurationRuleRepositoryFilter `pulumi:"repositoryFilters"`
-	// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-	ScanFrequency string `pulumi:"scanFrequency"`
+	ScanFrequency     string                                              `pulumi:"scanFrequency"`
 }
 
 // RegistryScanningConfigurationRuleInput is an input type that accepts RegistryScanningConfigurationRuleArgs and RegistryScanningConfigurationRuleOutput values.
@@ -609,10 +607,8 @@ type RegistryScanningConfigurationRuleInput interface {
 }
 
 type RegistryScanningConfigurationRuleArgs struct {
-	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
 	RepositoryFilters RegistryScanningConfigurationRuleRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
-	// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-	ScanFrequency pulumi.StringInput `pulumi:"scanFrequency"`
+	ScanFrequency     pulumi.StringInput                                          `pulumi:"scanFrequency"`
 }
 
 func (RegistryScanningConfigurationRuleArgs) ElementType() reflect.Type {
@@ -666,14 +662,12 @@ func (o RegistryScanningConfigurationRuleOutput) ToRegistryScanningConfiguration
 	return o
 }
 
-// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
 func (o RegistryScanningConfigurationRuleOutput) RepositoryFilters() RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationRule) []RegistryScanningConfigurationRuleRepositoryFilter {
 		return v.RepositoryFilters
 	}).(RegistryScanningConfigurationRuleRepositoryFilterArrayOutput)
 }
 
-// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
 func (o RegistryScanningConfigurationRuleOutput) ScanFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryScanningConfigurationRule) string { return v.ScanFrequency }).(pulumi.StringOutput)
 }
@@ -799,7 +793,6 @@ func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) Index(i pu
 }
 
 type ReplicationConfigurationReplicationConfiguration struct {
-	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 	Rules []ReplicationConfigurationReplicationConfigurationRule `pulumi:"rules"`
 }
 
@@ -815,7 +808,6 @@ type ReplicationConfigurationReplicationConfigurationInput interface {
 }
 
 type ReplicationConfigurationReplicationConfigurationArgs struct {
-	// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 	Rules ReplicationConfigurationReplicationConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -896,7 +888,6 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
-// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
 		return v.Rules
@@ -927,7 +918,6 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() Replic
 	}).(ReplicationConfigurationReplicationConfigurationOutput)
 }
 
-// The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
 		if v == nil {
@@ -938,9 +928,7 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() Repli
 }
 
 type ReplicationConfigurationReplicationConfigurationRule struct {
-	// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-	Destinations []ReplicationConfigurationReplicationConfigurationRuleDestination `pulumi:"destinations"`
-	// filters for a replication rule. See Repository Filter.
+	Destinations      []ReplicationConfigurationReplicationConfigurationRuleDestination      `pulumi:"destinations"`
 	RepositoryFilters []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter `pulumi:"repositoryFilters"`
 }
 
@@ -956,9 +944,7 @@ type ReplicationConfigurationReplicationConfigurationRuleInput interface {
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleArgs struct {
-	// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-	Destinations ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput `pulumi:"destinations"`
-	// filters for a replication rule. See Repository Filter.
+	Destinations      ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput      `pulumi:"destinations"`
 	RepositoryFilters ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
 }
 
@@ -1013,14 +999,12 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicatio
 	return o
 }
 
-// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) Destinations() ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleDestination {
 		return v.Destinations
 	}).(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput)
 }
 
-// filters for a replication rule. See Repository Filter.
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) RepositoryFilters() ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) []ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter {
 		return v.RepositoryFilters
@@ -1048,9 +1032,7 @@ func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) Index(i
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleDestination struct {
-	// A Region to replicate to.
-	Region string `pulumi:"region"`
-	// The account ID of the destination registry to replicate to.
+	Region     string `pulumi:"region"`
 	RegistryId string `pulumi:"registryId"`
 }
 
@@ -1066,9 +1048,7 @@ type ReplicationConfigurationReplicationConfigurationRuleDestinationInput interf
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleDestinationArgs struct {
-	// A Region to replicate to.
-	Region pulumi.StringInput `pulumi:"region"`
-	// The account ID of the destination registry to replicate to.
+	Region     pulumi.StringInput `pulumi:"region"`
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -1123,12 +1103,10 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) T
 	return o
 }
 
-// A Region to replicate to.
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleDestination) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The account ID of the destination registry to replicate to.
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleDestination) string { return v.RegistryId }).(pulumi.StringOutput)
 }
@@ -1154,9 +1132,7 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutp
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter struct {
-	// The repository filter details.
-	Filter string `pulumi:"filter"`
-	// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+	Filter     string `pulumi:"filter"`
 	FilterType string `pulumi:"filterType"`
 }
 
@@ -1172,9 +1148,7 @@ type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput i
 }
 
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs struct {
-	// The repository filter details.
-	Filter pulumi.StringInput `pulumi:"filter"`
-	// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
+	Filter     pulumi.StringInput `pulumi:"filter"`
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 }
 
@@ -1229,12 +1203,10 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutp
 	return o
 }
 
-// The repository filter details.
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
-// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter) string {
 		return v.FilterType
@@ -1262,10 +1234,8 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 }
 
 type RepositoryCreationTemplateEncryptionConfiguration struct {
-	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-	KmsKey *string `pulumi:"kmsKey"`
+	KmsKey         *string `pulumi:"kmsKey"`
 }
 
 // RepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArgs and RepositoryCreationTemplateEncryptionConfigurationOutput values.
@@ -1280,10 +1250,8 @@ type RepositoryCreationTemplateEncryptionConfigurationInput interface {
 }
 
 type RepositoryCreationTemplateEncryptionConfigurationArgs struct {
-	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	KmsKey         pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (RepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -1337,12 +1305,10 @@ func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCre
 	return o
 }
 
-// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 func (o RepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
 func (o RepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -1368,9 +1334,7 @@ func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) Index(i pu
 }
 
 type RepositoryCreationTemplateImageTagMutabilityExclusionFilter struct {
-	// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-	Filter string `pulumi:"filter"`
-	// The type of filter to use. Must be `WILDCARD`.
+	Filter     string `pulumi:"filter"`
 	FilterType string `pulumi:"filterType"`
 }
 
@@ -1386,9 +1350,7 @@ type RepositoryCreationTemplateImageTagMutabilityExclusionFilterInput interface 
 }
 
 type RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs struct {
-	// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-	Filter pulumi.StringInput `pulumi:"filter"`
-	// The type of filter to use. Must be `WILDCARD`.
+	Filter     pulumi.StringInput `pulumi:"filter"`
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 }
 
@@ -1443,12 +1405,10 @@ func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) ToRep
 	return o
 }
 
-// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
 func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateImageTagMutabilityExclusionFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
-// The type of filter to use. Must be `WILDCARD`.
 func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateImageTagMutabilityExclusionFilter) string { return v.FilterType }).(pulumi.StringOutput)
 }
@@ -1474,10 +1434,8 @@ func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput) 
 }
 
 type RepositoryEncryptionConfiguration struct {
-	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-	KmsKey *string `pulumi:"kmsKey"`
+	KmsKey         *string `pulumi:"kmsKey"`
 }
 
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
@@ -1492,10 +1450,8 @@ type RepositoryEncryptionConfigurationInput interface {
 }
 
 type RepositoryEncryptionConfigurationArgs struct {
-	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	KmsKey         pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (RepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -1549,12 +1505,10 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	return o
 }
 
-// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 func (o RepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
 func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -1580,7 +1534,6 @@ func (o RepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RepositoryImageScanningConfiguration struct {
-	// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 	ScanOnPush bool `pulumi:"scanOnPush"`
 }
 
@@ -1596,7 +1549,6 @@ type RepositoryImageScanningConfigurationInput interface {
 }
 
 type RepositoryImageScanningConfigurationArgs struct {
-	// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
 }
 
@@ -1677,7 +1629,6 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
 	return o.ApplyT(func(v RepositoryImageScanningConfiguration) bool { return v.ScanOnPush }).(pulumi.BoolOutput)
 }
@@ -1706,7 +1657,6 @@ func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageSca
 	}).(RepositoryImageScanningConfigurationOutput)
 }
 
-// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) *bool {
 		if v == nil {
@@ -1717,9 +1667,7 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 }
 
 type RepositoryImageTagMutabilityExclusionFilter struct {
-	// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-	Filter string `pulumi:"filter"`
-	// The type of filter to use. Must be `WILDCARD`.
+	Filter     string `pulumi:"filter"`
 	FilterType string `pulumi:"filterType"`
 }
 
@@ -1735,9 +1683,7 @@ type RepositoryImageTagMutabilityExclusionFilterInput interface {
 }
 
 type RepositoryImageTagMutabilityExclusionFilterArgs struct {
-	// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-	Filter pulumi.StringInput `pulumi:"filter"`
-	// The type of filter to use. Must be `WILDCARD`.
+	Filter     pulumi.StringInput `pulumi:"filter"`
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 }
 
@@ -1792,12 +1738,10 @@ func (o RepositoryImageTagMutabilityExclusionFilterOutput) ToRepositoryImageTagM
 	return o
 }
 
-// The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
 func (o RepositoryImageTagMutabilityExclusionFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryImageTagMutabilityExclusionFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
-// The type of filter to use. Must be `WILDCARD`.
 func (o RepositoryImageTagMutabilityExclusionFilterOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryImageTagMutabilityExclusionFilter) string { return v.FilterType }).(pulumi.StringOutput)
 }
@@ -1823,10 +1767,8 @@ func (o RepositoryImageTagMutabilityExclusionFilterArrayOutput) Index(i pulumi.I
 }
 
 type GetImagesImageId struct {
-	// The sha256 digest of the image manifest.
 	ImageDigest string `pulumi:"imageDigest"`
-	// The tag associated with the image.
-	ImageTag string `pulumi:"imageTag"`
+	ImageTag    string `pulumi:"imageTag"`
 }
 
 // GetImagesImageIdInput is an input type that accepts GetImagesImageIdArgs and GetImagesImageIdOutput values.
@@ -1841,10 +1783,8 @@ type GetImagesImageIdInput interface {
 }
 
 type GetImagesImageIdArgs struct {
-	// The sha256 digest of the image manifest.
 	ImageDigest pulumi.StringInput `pulumi:"imageDigest"`
-	// The tag associated with the image.
-	ImageTag pulumi.StringInput `pulumi:"imageTag"`
+	ImageTag    pulumi.StringInput `pulumi:"imageTag"`
 }
 
 func (GetImagesImageIdArgs) ElementType() reflect.Type {
@@ -1898,12 +1838,10 @@ func (o GetImagesImageIdOutput) ToGetImagesImageIdOutputWithContext(ctx context.
 	return o
 }
 
-// The sha256 digest of the image manifest.
 func (o GetImagesImageIdOutput) ImageDigest() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImageId) string { return v.ImageDigest }).(pulumi.StringOutput)
 }
 
-// The tag associated with the image.
 func (o GetImagesImageIdOutput) ImageTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImageId) string { return v.ImageTag }).(pulumi.StringOutput)
 }
@@ -1929,14 +1867,10 @@ func (o GetImagesImageIdArrayOutput) Index(i pulumi.IntInput) GetImagesImageIdOu
 }
 
 type GetLifecyclePolicyDocumentRule struct {
-	// Specifies the action to take.
-	Action *GetLifecyclePolicyDocumentRuleAction `pulumi:"action"`
-	// Describes the purpose of a rule within a lifecycle policy.
-	Description *string `pulumi:"description"`
-	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-	Priority int `pulumi:"priority"`
-	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
-	Selection *GetLifecyclePolicyDocumentRuleSelection `pulumi:"selection"`
+	Action      *GetLifecyclePolicyDocumentRuleAction    `pulumi:"action"`
+	Description *string                                  `pulumi:"description"`
+	Priority    int                                      `pulumi:"priority"`
+	Selection   *GetLifecyclePolicyDocumentRuleSelection `pulumi:"selection"`
 }
 
 // GetLifecyclePolicyDocumentRuleInput is an input type that accepts GetLifecyclePolicyDocumentRuleArgs and GetLifecyclePolicyDocumentRuleOutput values.
@@ -1951,14 +1885,10 @@ type GetLifecyclePolicyDocumentRuleInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleArgs struct {
-	// Specifies the action to take.
-	Action GetLifecyclePolicyDocumentRuleActionPtrInput `pulumi:"action"`
-	// Describes the purpose of a rule within a lifecycle policy.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
-	Selection GetLifecyclePolicyDocumentRuleSelectionPtrInput `pulumi:"selection"`
+	Action      GetLifecyclePolicyDocumentRuleActionPtrInput    `pulumi:"action"`
+	Description pulumi.StringPtrInput                           `pulumi:"description"`
+	Priority    pulumi.IntInput                                 `pulumi:"priority"`
+	Selection   GetLifecyclePolicyDocumentRuleSelectionPtrInput `pulumi:"selection"`
 }
 
 func (GetLifecyclePolicyDocumentRuleArgs) ElementType() reflect.Type {
@@ -2012,22 +1942,18 @@ func (o GetLifecyclePolicyDocumentRuleOutput) ToGetLifecyclePolicyDocumentRuleOu
 	return o
 }
 
-// Specifies the action to take.
 func (o GetLifecyclePolicyDocumentRuleOutput) Action() GetLifecyclePolicyDocumentRuleActionPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *GetLifecyclePolicyDocumentRuleAction { return v.Action }).(GetLifecyclePolicyDocumentRuleActionPtrOutput)
 }
 
-// Describes the purpose of a rule within a lifecycle policy.
 func (o GetLifecyclePolicyDocumentRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
 func (o GetLifecyclePolicyDocumentRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Collects parameters describing the selection criteria for the ECR lifecycle policy:
 func (o GetLifecyclePolicyDocumentRuleOutput) Selection() GetLifecyclePolicyDocumentRuleSelectionPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *GetLifecyclePolicyDocumentRuleSelection { return v.Selection }).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
 }
@@ -2054,9 +1980,7 @@ func (o GetLifecyclePolicyDocumentRuleArrayOutput) Index(i pulumi.IntInput) GetL
 
 type GetLifecyclePolicyDocumentRuleAction struct {
 	TargetStorageClass *string `pulumi:"targetStorageClass"`
-	// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-	// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-	Type string `pulumi:"type"`
+	Type               string  `pulumi:"type"`
 }
 
 // GetLifecyclePolicyDocumentRuleActionInput is an input type that accepts GetLifecyclePolicyDocumentRuleActionArgs and GetLifecyclePolicyDocumentRuleActionOutput values.
@@ -2072,9 +1996,7 @@ type GetLifecyclePolicyDocumentRuleActionInput interface {
 
 type GetLifecyclePolicyDocumentRuleActionArgs struct {
 	TargetStorageClass pulumi.StringPtrInput `pulumi:"targetStorageClass"`
-	// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-	// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type               pulumi.StringInput    `pulumi:"type"`
 }
 
 func (GetLifecyclePolicyDocumentRuleActionArgs) ElementType() reflect.Type {
@@ -2158,8 +2080,6 @@ func (o GetLifecyclePolicyDocumentRuleActionOutput) TargetStorageClass() pulumi.
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleAction) *string { return v.TargetStorageClass }).(pulumi.StringPtrOutput)
 }
 
-// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2197,8 +2117,6 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) TargetStorageClass() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleAction) *string {
 		if v == nil {
@@ -2209,20 +2127,13 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Type() pulumi.StringPtrOu
 }
 
 type GetLifecyclePolicyDocumentRuleSelection struct {
-	// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-	CountNumber int `pulumi:"countNumber"`
-	// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-	CountType string `pulumi:"countType"`
-	// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-	CountUnit *string `pulumi:"countUnit"`
-	// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-	StorageClass *string `pulumi:"storageClass"`
-	// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
+	CountNumber     int      `pulumi:"countNumber"`
+	CountType       string   `pulumi:"countType"`
+	CountUnit       *string  `pulumi:"countUnit"`
+	StorageClass    *string  `pulumi:"storageClass"`
 	TagPatternLists []string `pulumi:"tagPatternLists"`
-	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-	TagPrefixLists []string `pulumi:"tagPrefixLists"`
-	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
-	TagStatus string `pulumi:"tagStatus"`
+	TagPrefixLists  []string `pulumi:"tagPrefixLists"`
+	TagStatus       string   `pulumi:"tagStatus"`
 }
 
 // GetLifecyclePolicyDocumentRuleSelectionInput is an input type that accepts GetLifecyclePolicyDocumentRuleSelectionArgs and GetLifecyclePolicyDocumentRuleSelectionOutput values.
@@ -2237,20 +2148,13 @@ type GetLifecyclePolicyDocumentRuleSelectionInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleSelectionArgs struct {
-	// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-	CountNumber pulumi.IntInput `pulumi:"countNumber"`
-	// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-	CountType pulumi.StringInput `pulumi:"countType"`
-	// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
-	// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
-	// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
+	CountNumber     pulumi.IntInput         `pulumi:"countNumber"`
+	CountType       pulumi.StringInput      `pulumi:"countType"`
+	CountUnit       pulumi.StringPtrInput   `pulumi:"countUnit"`
+	StorageClass    pulumi.StringPtrInput   `pulumi:"storageClass"`
 	TagPatternLists pulumi.StringArrayInput `pulumi:"tagPatternLists"`
-	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-	TagPrefixLists pulumi.StringArrayInput `pulumi:"tagPrefixLists"`
-	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
-	TagStatus pulumi.StringInput `pulumi:"tagStatus"`
+	TagPrefixLists  pulumi.StringArrayInput `pulumi:"tagPrefixLists"`
+	TagStatus       pulumi.StringInput      `pulumi:"tagStatus"`
 }
 
 func (GetLifecyclePolicyDocumentRuleSelectionArgs) ElementType() reflect.Type {
@@ -2330,37 +2234,30 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocum
 	}).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
 }
 
-// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) int { return v.CountNumber }).(pulumi.IntOutput)
 }
 
-// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.CountType }).(pulumi.StringOutput)
 }
 
-// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
 }
 
-// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
-// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPatternLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) []string { return v.TagPatternLists }).(pulumi.StringArrayOutput)
 }
 
-// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) []string { return v.TagPrefixLists }).(pulumi.StringArrayOutput)
 }
 
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.TagStatus }).(pulumi.StringOutput)
 }
@@ -2389,7 +2286,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) Elem() GetLifecyclePol
 	}).(GetLifecyclePolicyDocumentRuleSelectionOutput)
 }
 
-// Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *int {
 		if v == nil {
@@ -2399,7 +2295,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -2409,7 +2304,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -2419,7 +2313,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountUnit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -2429,7 +2322,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) StorageClass() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPatternLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
 		if v == nil {
@@ -2439,7 +2331,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPatternLists() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
 		if v == nil {
@@ -2449,7 +2340,6 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPrefixLists() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -2460,10 +2350,8 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.Str
 }
 
 type GetRepositoryCreationTemplateEncryptionConfiguration struct {
-	// Encryption type to use for any created repositories, either `AES256` or `KMS`.
 	EncryptionType string `pulumi:"encryptionType"`
-	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey string `pulumi:"kmsKey"`
+	KmsKey         string `pulumi:"kmsKey"`
 }
 
 // GetRepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts GetRepositoryCreationTemplateEncryptionConfigurationArgs and GetRepositoryCreationTemplateEncryptionConfigurationOutput values.
@@ -2478,10 +2366,8 @@ type GetRepositoryCreationTemplateEncryptionConfigurationInput interface {
 }
 
 type GetRepositoryCreationTemplateEncryptionConfigurationArgs struct {
-	// Encryption type to use for any created repositories, either `AES256` or `KMS`.
 	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
-	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+	KmsKey         pulumi.StringInput `pulumi:"kmsKey"`
 }
 
 func (GetRepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -2535,12 +2421,10 @@ func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) ToGetReposit
 	return o
 }
 
-// Encryption type to use for any created repositories, either `AES256` or `KMS`.
 func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryCreationTemplateEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
 
-// If `encryptionType` is `KMS`, the ARN of the KMS key used.
 func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryCreationTemplateEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -2566,9 +2450,7 @@ func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) Index(i
 }
 
 type GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter struct {
-	// The filter pattern to use for excluding image tags from the mutability setting.
-	Filter string `pulumi:"filter"`
-	// The type of filter to use.
+	Filter     string `pulumi:"filter"`
 	FilterType string `pulumi:"filterType"`
 }
 
@@ -2584,9 +2466,7 @@ type GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterInput interfa
 }
 
 type GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs struct {
-	// The filter pattern to use for excluding image tags from the mutability setting.
-	Filter pulumi.StringInput `pulumi:"filter"`
-	// The type of filter to use.
+	Filter     pulumi.StringInput `pulumi:"filter"`
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 }
 
@@ -2641,12 +2521,10 @@ func (o GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) To
 	return o
 }
 
-// The filter pattern to use for excluding image tags from the mutability setting.
 func (o GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
-// The type of filter to use.
 func (o GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter) string { return v.FilterType }).(pulumi.StringOutput)
 }
@@ -2672,10 +2550,8 @@ func (o GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutpu
 }
 
 type GetRepositoryEncryptionConfiguration struct {
-	// Encryption type to use for the repository, either `AES256` or `KMS`.
 	EncryptionType string `pulumi:"encryptionType"`
-	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey string `pulumi:"kmsKey"`
+	KmsKey         string `pulumi:"kmsKey"`
 }
 
 // GetRepositoryEncryptionConfigurationInput is an input type that accepts GetRepositoryEncryptionConfigurationArgs and GetRepositoryEncryptionConfigurationOutput values.
@@ -2690,10 +2566,8 @@ type GetRepositoryEncryptionConfigurationInput interface {
 }
 
 type GetRepositoryEncryptionConfigurationArgs struct {
-	// Encryption type to use for the repository, either `AES256` or `KMS`.
 	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
-	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+	KmsKey         pulumi.StringInput `pulumi:"kmsKey"`
 }
 
 func (GetRepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -2747,12 +2621,10 @@ func (o GetRepositoryEncryptionConfigurationOutput) ToGetRepositoryEncryptionCon
 	return o
 }
 
-// Encryption type to use for the repository, either `AES256` or `KMS`.
 func (o GetRepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
 
-// If `encryptionType` is `KMS`, the ARN of the KMS key used.
 func (o GetRepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -2778,7 +2650,6 @@ func (o GetRepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetRepositoryImageScanningConfiguration struct {
-	// Whether images are scanned after being pushed to the repository.
 	ScanOnPush bool `pulumi:"scanOnPush"`
 }
 
@@ -2794,7 +2665,6 @@ type GetRepositoryImageScanningConfigurationInput interface {
 }
 
 type GetRepositoryImageScanningConfigurationArgs struct {
-	// Whether images are scanned after being pushed to the repository.
 	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
 }
 
@@ -2849,7 +2719,6 @@ func (o GetRepositoryImageScanningConfigurationOutput) ToGetRepositoryImageScann
 	return o
 }
 
-// Whether images are scanned after being pushed to the repository.
 func (o GetRepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetRepositoryImageScanningConfiguration) bool { return v.ScanOnPush }).(pulumi.BoolOutput)
 }
@@ -2875,9 +2744,7 @@ func (o GetRepositoryImageScanningConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetRepositoryImageTagMutabilityExclusionFilter struct {
-	// The filter pattern to use for excluding image tags from the mutability setting.
-	Filter string `pulumi:"filter"`
-	// The type of filter to use.
+	Filter     string `pulumi:"filter"`
 	FilterType string `pulumi:"filterType"`
 }
 
@@ -2893,9 +2760,7 @@ type GetRepositoryImageTagMutabilityExclusionFilterInput interface {
 }
 
 type GetRepositoryImageTagMutabilityExclusionFilterArgs struct {
-	// The filter pattern to use for excluding image tags from the mutability setting.
-	Filter pulumi.StringInput `pulumi:"filter"`
-	// The type of filter to use.
+	Filter     pulumi.StringInput `pulumi:"filter"`
 	FilterType pulumi.StringInput `pulumi:"filterType"`
 }
 
@@ -2950,12 +2815,10 @@ func (o GetRepositoryImageTagMutabilityExclusionFilterOutput) ToGetRepositoryIma
 	return o
 }
 
-// The filter pattern to use for excluding image tags from the mutability setting.
 func (o GetRepositoryImageTagMutabilityExclusionFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryImageTagMutabilityExclusionFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
-// The type of filter to use.
 func (o GetRepositoryImageTagMutabilityExclusionFilterOutput) FilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryImageTagMutabilityExclusionFilter) string { return v.FilterType }).(pulumi.StringOutput)
 }

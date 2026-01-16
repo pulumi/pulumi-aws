@@ -12,10 +12,6 @@ namespace Pulumi.Aws.S3Tables.Inputs
 
     public sealed class TableMaintenanceConfigurationIcebergCompactionSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Data objects smaller than this size may be combined with others to improve query performance.
-        /// Must be between `64` and `512`.
-        /// </summary>
         [Input("targetFileSizeMb", required: true)]
         public Input<int> TargetFileSizeMb { get; set; } = null!;
 

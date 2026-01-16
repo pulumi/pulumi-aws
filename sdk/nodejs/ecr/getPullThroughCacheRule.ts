@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecrPublic = aws.ecr.getPullThroughCacheRule({
- *     ecrRepositoryPrefix: "ecr-public",
- * });
- * ```
- */
 export function getPullThroughCacheRule(args: GetPullThroughCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPullThroughCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", {
@@ -30,13 +16,7 @@ export function getPullThroughCacheRule(args: GetPullThroughCacheRuleArgs, opts?
  * A collection of arguments for invoking getPullThroughCacheRule.
  */
 export interface GetPullThroughCacheRuleArgs {
-    /**
-     * The repository name prefix to use when caching images from the source registry.
-     */
     ecrRepositoryPrefix: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -44,13 +24,7 @@ export interface GetPullThroughCacheRuleArgs {
  * A collection of values returned by getPullThroughCacheRule.
  */
 export interface GetPullThroughCacheRuleResult {
-    /**
-     * ARN of the Secret which will be used to authenticate against the registry.
-     */
     readonly credentialArn: string;
-    /**
-     * The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
-     */
     readonly customRoleArn: string;
     readonly ecrRepositoryPrefix: string;
     /**
@@ -58,33 +32,10 @@ export interface GetPullThroughCacheRuleResult {
      */
     readonly id: string;
     readonly region: string;
-    /**
-     * The registry ID where the repository was created.
-     */
     readonly registryId: string;
-    /**
-     * The registry URL of the upstream registry to use as the source.
-     */
     readonly upstreamRegistryUrl: string;
-    /**
-     * The upstream repository prefix associated with the pull through cache rule.
-     */
     readonly upstreamRepositoryPrefix: string;
 }
-/**
- * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecrPublic = aws.ecr.getPullThroughCacheRule({
- *     ecrRepositoryPrefix: "ecr-public",
- * });
- * ```
- */
 export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPullThroughCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", {
@@ -97,12 +48,6 @@ export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutpu
  * A collection of arguments for invoking getPullThroughCacheRule.
  */
 export interface GetPullThroughCacheRuleOutputArgs {
-    /**
-     * The repository name prefix to use when caching images from the source registry.
-     */
     ecrRepositoryPrefix: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

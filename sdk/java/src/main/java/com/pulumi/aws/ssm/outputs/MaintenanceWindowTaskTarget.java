@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class MaintenanceWindowTaskTarget {
     private String key;
-    /**
-     * @return The array of strings.
-     * 
-     */
     private List<String> values;
 
     private MaintenanceWindowTaskTarget() {}
     public String key() {
         return this.key;
     }
-    /**
-     * @return The array of strings.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConfigurationDataCaptureConfig {
-    /**
-     * @return Content type headers to capture. See `captureContentTypeHeader` below.
-     * 
-     */
     private @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader;
-    /**
-     * @return What data to capture. Fields are documented below.
-     * 
-     */
     private List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions;
-    /**
-     * @return URL for S3 location where the captured data is stored.
-     * 
-     */
     private String destinationS3Uri;
-    /**
-     * @return Flag to enable data capture. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enableCapture;
-    /**
-     * @return Portion of data to capture. Should be between 0 and 100.
-     * 
-     */
     private Integer initialSamplingPercentage;
-    /**
-     * @return ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
-     * 
-     */
     private @Nullable String kmsKeyId;
 
     private EndpointConfigurationDataCaptureConfig() {}
-    /**
-     * @return Content type headers to capture. See `captureContentTypeHeader` below.
-     * 
-     */
     public Optional<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader> captureContentTypeHeader() {
         return Optional.ofNullable(this.captureContentTypeHeader);
     }
-    /**
-     * @return What data to capture. Fields are documented below.
-     * 
-     */
     public List<EndpointConfigurationDataCaptureConfigCaptureOption> captureOptions() {
         return this.captureOptions;
     }
-    /**
-     * @return URL for S3 location where the captured data is stored.
-     * 
-     */
     public String destinationS3Uri() {
         return this.destinationS3Uri;
     }
-    /**
-     * @return Flag to enable data capture. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enableCapture() {
         return Optional.ofNullable(this.enableCapture);
     }
-    /**
-     * @return Portion of data to capture. Should be between 0 and 100.
-     * 
-     */
     public Integer initialSamplingPercentage() {
         return this.initialSamplingPercentage;
     }
-    /**
-     * @return ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }

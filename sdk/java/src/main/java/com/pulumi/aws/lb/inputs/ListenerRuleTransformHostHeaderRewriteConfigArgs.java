@@ -15,17 +15,9 @@ public final class ListenerRuleTransformHostHeaderRewriteConfigArgs extends com.
 
     public static final ListenerRuleTransformHostHeaderRewriteConfigArgs Empty = new ListenerRuleTransformHostHeaderRewriteConfigArgs();
 
-    /**
-     * Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-     * 
-     */
     @Import(name="rewrite")
     private @Nullable Output<ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs> rewrite;
 
-    /**
-     * @return Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-     * 
-     */
     public Optional<Output<ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs>> rewrite() {
         return Optional.ofNullable(this.rewrite);
     }
@@ -54,23 +46,11 @@ public final class ListenerRuleTransformHostHeaderRewriteConfigArgs extends com.
             $ = new ListenerRuleTransformHostHeaderRewriteConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rewrite Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrite(@Nullable Output<ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs> rewrite) {
             $.rewrite = rewrite;
             return this;
         }
 
-        /**
-         * @param rewrite Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrite(ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs rewrite) {
             return rewrite(Output.of(rewrite));
         }

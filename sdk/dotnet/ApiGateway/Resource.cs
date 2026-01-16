@@ -9,73 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Provides an API Gateway Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
-    ///     {
-    ///         Name = "MyDemoAPI",
-    ///         Description = "This is my API for demonstration purposes",
-    ///     });
-    /// 
-    ///     var myDemoResource = new Aws.ApiGateway.Resource("MyDemoResource", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ParentId = myDemoAPI.RootResourceId,
-    ///         PathPart = "mydemoresource",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the parent API resource
-        /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Complete path for this API resource, including all parent paths.
-        /// </summary>
         [Output("path")]
         public Output<string> Path { get; private set; } = null!;
 
-        /// <summary>
-        /// Last path segment of this API resource.
-        /// </summary>
         [Output("pathPart")]
         public Output<string> PathPart { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the associated REST API
-        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
@@ -125,27 +73,15 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the parent API resource
-        /// </summary>
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;
 
-        /// <summary>
-        /// Last path segment of this API resource.
-        /// </summary>
         [Input("pathPart", required: true)]
         public Input<string> PathPart { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API
-        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
@@ -157,33 +93,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the parent API resource
-        /// </summary>
         [Input("parentId")]
         public Input<string>? ParentId { get; set; }
 
-        /// <summary>
-        /// Complete path for this API resource, including all parent paths.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// Last path segment of this API resource.
-        /// </summary>
         [Input("pathPart")]
         public Input<string>? PathPart { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API
-        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
     {
         [Input("columnNames")]
         private InputList<string>? _columnNames;
-
-        /// <summary>
-        /// An array of column names.
-        /// </summary>
         public InputList<string> ColumnNames
         {
             get => _columnNames ?? (_columnNames = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
         [Input("principals")]
         private InputList<string>? _principals;
-
-        /// <summary>
-        /// An array of ARNs for Amazon QuickSight users or groups.
-        /// </summary>
         public InputList<string> Principals
         {
             get => _principals ?? (_principals = new InputList<string>());

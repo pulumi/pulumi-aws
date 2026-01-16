@@ -18,77 +18,37 @@ public final class GetVoicesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVoicesArgs Empty = new GetVoicesArgs();
 
-    /**
-     * Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-     * 
-     */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
-    /**
-     * @return Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-     * 
-     */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
-    /**
-     * Whether to return any bilingual voices that use the specified language as an additional language.
-     * 
-     */
     @Import(name="includeAdditionalLanguageCodes")
     private @Nullable Output<Boolean> includeAdditionalLanguageCodes;
 
-    /**
-     * @return Whether to return any bilingual voices that use the specified language as an additional language.
-     * 
-     */
     public Optional<Output<Boolean>> includeAdditionalLanguageCodes() {
         return Optional.ofNullable(this.includeAdditionalLanguageCodes);
     }
 
-    /**
-     * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-     * 
-     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
-    /**
-     * @return Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-     * 
-     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of voices with their properties. See `voices` Attribute Reference below.
-     * 
-     */
     @Import(name="voices")
     private @Nullable Output<List<GetVoicesVoiceArgs>> voices;
 
-    /**
-     * @return List of voices with their properties. See `voices` Attribute Reference below.
-     * 
-     */
     public Optional<Output<List<GetVoicesVoiceArgs>>> voices() {
         return Optional.ofNullable(this.voices);
     }
@@ -121,117 +81,51 @@ public final class GetVoicesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVoicesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engine Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
-        /**
-         * @param engine Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
-        /**
-         * @param includeAdditionalLanguageCodes Whether to return any bilingual voices that use the specified language as an additional language.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeAdditionalLanguageCodes(@Nullable Output<Boolean> includeAdditionalLanguageCodes) {
             $.includeAdditionalLanguageCodes = includeAdditionalLanguageCodes;
             return this;
         }
 
-        /**
-         * @param includeAdditionalLanguageCodes Whether to return any bilingual voices that use the specified language as an additional language.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeAdditionalLanguageCodes(Boolean includeAdditionalLanguageCodes) {
             return includeAdditionalLanguageCodes(Output.of(includeAdditionalLanguageCodes));
         }
 
-        /**
-         * @param languageCode Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
-        /**
-         * @param languageCode Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param voices List of voices with their properties. See `voices` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voices(@Nullable Output<List<GetVoicesVoiceArgs>> voices) {
             $.voices = voices;
             return this;
         }
 
-        /**
-         * @param voices List of voices with their properties. See `voices` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voices(List<GetVoicesVoiceArgs> voices) {
             return voices(Output.of(voices));
         }
 
-        /**
-         * @param voices List of voices with their properties. See `voices` Attribute Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voices(GetVoicesVoiceArgs... voices) {
             return voices(List.of(voices));
         }

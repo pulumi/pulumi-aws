@@ -335,41 +335,14 @@ class CloudExadataInfrastructureCustomerContactsToSendToOciArgs:
 if not MYPY:
     class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
         custom_action_timeout_in_mins: pulumi.Input[_builtins.int]
-        """
-        The custom action timeout in minutes for the maintenance window.
-        """
         is_custom_action_timeout_enabled: pulumi.Input[_builtins.bool]
-        """
-        ndicates whether custom action timeout is enabled for the maintenance window.
-        """
         patching_mode: pulumi.Input[_builtins.str]
-        """
-        The patching mode for the maintenance window.
-        """
         preference: pulumi.Input[_builtins.str]
-        """
-        The preference for the maintenance window scheduling.
-        """
         days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgsDict']]]]
-        """
-        The days of the week when maintenance can be performed.
-        """
         hours_of_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The hours of the day when maintenance can be performed.
-        """
         lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The lead time in weeks before the maintenance window.
-        """
         months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgsDict']]]]
-        """
-        The months when maintenance can be performed.
-        """
         weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The weeks of the month when maintenance can be performed.
-        """
 elif False:
     CloudExadataInfrastructureMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -385,17 +358,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
                  lead_time_in_weeks: Optional[pulumi.Input[_builtins.int]] = None,
                  months: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]] = None,
                  weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
-        """
-        :param pulumi.Input[_builtins.int] custom_action_timeout_in_mins: The custom action timeout in minutes for the maintenance window.
-        :param pulumi.Input[_builtins.bool] is_custom_action_timeout_enabled: ndicates whether custom action timeout is enabled for the maintenance window.
-        :param pulumi.Input[_builtins.str] patching_mode: The patching mode for the maintenance window.
-        :param pulumi.Input[_builtins.str] preference: The preference for the maintenance window scheduling.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]] days_of_weeks: The days of the week when maintenance can be performed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_days: The hours of the day when maintenance can be performed.
-        :param pulumi.Input[_builtins.int] lead_time_in_weeks: The lead time in weeks before the maintenance window.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]] months: The months when maintenance can be performed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] weeks_of_months: The weeks of the month when maintenance can be performed.
-        """
         pulumi.set(__self__, "custom_action_timeout_in_mins", custom_action_timeout_in_mins)
         pulumi.set(__self__, "is_custom_action_timeout_enabled", is_custom_action_timeout_enabled)
         pulumi.set(__self__, "patching_mode", patching_mode)
@@ -414,9 +376,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="customActionTimeoutInMins")
     def custom_action_timeout_in_mins(self) -> pulumi.Input[_builtins.int]:
-        """
-        The custom action timeout in minutes for the maintenance window.
-        """
         return pulumi.get(self, "custom_action_timeout_in_mins")
 
     @custom_action_timeout_in_mins.setter
@@ -426,9 +385,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="isCustomActionTimeoutEnabled")
     def is_custom_action_timeout_enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        ndicates whether custom action timeout is enabled for the maintenance window.
-        """
         return pulumi.get(self, "is_custom_action_timeout_enabled")
 
     @is_custom_action_timeout_enabled.setter
@@ -438,9 +394,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="patchingMode")
     def patching_mode(self) -> pulumi.Input[_builtins.str]:
-        """
-        The patching mode for the maintenance window.
-        """
         return pulumi.get(self, "patching_mode")
 
     @patching_mode.setter
@@ -450,9 +403,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter
     def preference(self) -> pulumi.Input[_builtins.str]:
-        """
-        The preference for the maintenance window scheduling.
-        """
         return pulumi.get(self, "preference")
 
     @preference.setter
@@ -462,9 +412,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]:
-        """
-        The days of the week when maintenance can be performed.
-        """
         return pulumi.get(self, "days_of_weeks")
 
     @days_of_weeks.setter
@@ -474,9 +421,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="hoursOfDays")
     def hours_of_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
-        """
-        The hours of the day when maintenance can be performed.
-        """
         return pulumi.get(self, "hours_of_days")
 
     @hours_of_days.setter
@@ -486,9 +430,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="leadTimeInWeeks")
     def lead_time_in_weeks(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The lead time in weeks before the maintenance window.
-        """
         return pulumi.get(self, "lead_time_in_weeks")
 
     @lead_time_in_weeks.setter
@@ -498,9 +439,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter
     def months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]:
-        """
-        The months when maintenance can be performed.
-        """
         return pulumi.get(self, "months")
 
     @months.setter
@@ -510,9 +448,6 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @_builtins.property
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
-        """
-        The weeks of the month when maintenance can be performed.
-        """
         return pulumi.get(self, "weeks_of_months")
 
     @weeks_of_months.setter
@@ -864,17 +799,9 @@ if not MYPY:
         managed_service_ipv4_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         resource_gateway_arn: pulumi.Input[_builtins.str]
         s3_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgsDict']]]
-        """
-        Specifies the configuration for Amazon S3 access from the ODB network.
-        """
         service_network_arn: pulumi.Input[_builtins.str]
         service_network_endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceServiceNetworkEndpointArgsDict']]]
         zero_etl_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgsDict']]]
-        """
-        Specifies the configuration for Zero-ETL access from the ODB network.
-
-        The following arguments are optional:
-        """
 elif False:
     NetworkManagedServiceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -888,12 +815,6 @@ class NetworkManagedServiceArgs:
                  service_network_arn: pulumi.Input[_builtins.str],
                  service_network_endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceServiceNetworkEndpointArgs']]],
                  zero_etl_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]] s3_accesses: Specifies the configuration for Amazon S3 access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]] zero_etl_accesses: Specifies the configuration for Zero-ETL access from the ODB network.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "managed_s3_backup_accesses", managed_s3_backup_accesses)
         pulumi.set(__self__, "managed_service_ipv4_cidrs", managed_service_ipv4_cidrs)
         pulumi.set(__self__, "resource_gateway_arn", resource_gateway_arn)
@@ -932,9 +853,6 @@ class NetworkManagedServiceArgs:
     @_builtins.property
     @pulumi.getter(name="s3Accesses")
     def s3_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]]:
-        """
-        Specifies the configuration for Amazon S3 access from the ODB network.
-        """
         return pulumi.get(self, "s3_accesses")
 
     @s3_accesses.setter
@@ -962,11 +880,6 @@ class NetworkManagedServiceArgs:
     @_builtins.property
     @pulumi.getter(name="zeroEtlAccesses")
     def zero_etl_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]:
-        """
-        Specifies the configuration for Zero-ETL access from the ODB network.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "zero_etl_accesses")
 
     @zero_etl_accesses.setter
@@ -978,9 +891,6 @@ if not MYPY:
     class NetworkManagedServiceManagedS3BackupAccessArgsDict(TypedDict):
         ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         status: pulumi.Input[_builtins.str]
-        """
-        The status of the network resource.
-        """
 elif False:
     NetworkManagedServiceManagedS3BackupAccessArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -989,9 +899,6 @@ class NetworkManagedServiceManagedS3BackupAccessArgs:
     def __init__(__self__, *,
                  ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  status: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
-        """
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "status", status)
 
@@ -1007,9 +914,6 @@ class NetworkManagedServiceManagedS3BackupAccessArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        The status of the network resource.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1022,13 +926,7 @@ if not MYPY:
         domain_name: pulumi.Input[_builtins.str]
         ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         s3_policy_document: pulumi.Input[_builtins.str]
-        """
-        Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        """
         status: pulumi.Input[_builtins.str]
-        """
-        The status of the network resource.
-        """
 elif False:
     NetworkManagedServiceS3AccessArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1039,10 +937,6 @@ class NetworkManagedServiceS3AccessArgs:
                  ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  s3_policy_document: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
-        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "s3_policy_document", s3_policy_document)
@@ -1069,9 +963,6 @@ class NetworkManagedServiceS3AccessArgs:
     @_builtins.property
     @pulumi.getter(name="s3PolicyDocument")
     def s3_policy_document(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        """
         return pulumi.get(self, "s3_policy_document")
 
     @s3_policy_document.setter
@@ -1081,9 +972,6 @@ class NetworkManagedServiceS3AccessArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        The status of the network resource.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1129,9 +1017,6 @@ if not MYPY:
     class NetworkManagedServiceZeroEtlAccessArgsDict(TypedDict):
         cidr: pulumi.Input[_builtins.str]
         status: pulumi.Input[_builtins.str]
-        """
-        The status of the network resource.
-        """
 elif False:
     NetworkManagedServiceZeroEtlAccessArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1140,9 +1025,6 @@ class NetworkManagedServiceZeroEtlAccessArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
-        """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "status", status)
 
@@ -1158,9 +1040,6 @@ class NetworkManagedServiceZeroEtlAccessArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        The status of the network resource.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -1349,25 +1228,10 @@ class NetworkTimeoutsArgs:
 if not MYPY:
     class GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict(TypedDict):
         arn: _builtins.str
-        """
-        The Amazon Resource Name (ARN) for the  ODB network peering connection.
-        """
         display_name: _builtins.str
-        """
-        Display name of the ODB network peering connection.
-        """
         id: _builtins.str
-        """
-        The unique identifier of the  ODB network peering connection.
-        """
         odb_network_arn: _builtins.str
-        """
-        ARN of the ODB network peering connection.
-        """
         peer_network_arn: _builtins.str
-        """
-        ARN of the peer network peering connection.
-        """
 elif False:
     GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1379,13 +1243,6 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
                  id: _builtins.str,
                  odb_network_arn: _builtins.str,
                  peer_network_arn: _builtins.str):
-        """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) for the  ODB network peering connection.
-        :param _builtins.str display_name: Display name of the ODB network peering connection.
-        :param _builtins.str id: The unique identifier of the  ODB network peering connection.
-        :param _builtins.str odb_network_arn: ARN of the ODB network peering connection.
-        :param _builtins.str peer_network_arn: ARN of the peer network peering connection.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "id", id)
@@ -1395,9 +1252,6 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the  ODB network peering connection.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -1407,9 +1261,6 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Display name of the ODB network peering connection.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -1419,9 +1270,6 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The unique identifier of the  ODB network peering connection.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1431,9 +1279,6 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> _builtins.str:
-        """
-        ARN of the ODB network peering connection.
-        """
         return pulumi.get(self, "odb_network_arn")
 
     @odb_network_arn.setter
@@ -1443,9 +1288,6 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="peerNetworkArn")
     def peer_network_arn(self) -> _builtins.str:
-        """
-        ARN of the peer network peering connection.
-        """
         return pulumi.get(self, "peer_network_arn")
 
     @peer_network_arn.setter

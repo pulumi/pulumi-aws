@@ -16,77 +16,37 @@ public final class SessionLoggerLogConfigurationS3Args extends com.pulumi.resour
 
     public static final SessionLoggerLogConfigurationS3Args Empty = new SessionLoggerLogConfigurationS3Args();
 
-    /**
-     * S3 bucket name where logs are delivered.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return S3 bucket name where logs are delivered.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Expected bucket owner of the target S3 bucket.
-     * 
-     */
     @Import(name="bucketOwner")
     private @Nullable Output<String> bucketOwner;
 
-    /**
-     * @return Expected bucket owner of the target S3 bucket.
-     * 
-     */
     public Optional<Output<String>> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
 
-    /**
-     * Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-     * 
-     */
     @Import(name="folderStructure", required=true)
     private Output<String> folderStructure;
 
-    /**
-     * @return Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-     * 
-     */
     public Output<String> folderStructure() {
         return this.folderStructure;
     }
 
-    /**
-     * S3 path prefix that determines where log files are stored.
-     * 
-     */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
-    /**
-     * @return S3 path prefix that determines where log files are stored.
-     * 
-     */
     public Optional<Output<String>> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
 
-    /**
-     * Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-     * 
-     */
     @Import(name="logFileFormat", required=true)
     private Output<String> logFileFormat;
 
-    /**
-     * @return Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-     * 
-     */
     public Output<String> logFileFormat() {
         return this.logFileFormat;
     }
@@ -119,107 +79,47 @@ public final class SessionLoggerLogConfigurationS3Args extends com.pulumi.resour
             $ = new SessionLoggerLogConfigurationS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket S3 bucket name where logs are delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket S3 bucket name where logs are delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param bucketOwner Expected bucket owner of the target S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwner(@Nullable Output<String> bucketOwner) {
             $.bucketOwner = bucketOwner;
             return this;
         }
 
-        /**
-         * @param bucketOwner Expected bucket owner of the target S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwner(String bucketOwner) {
             return bucketOwner(Output.of(bucketOwner));
         }
 
-        /**
-         * @param folderStructure Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderStructure(Output<String> folderStructure) {
             $.folderStructure = folderStructure;
             return this;
         }
 
-        /**
-         * @param folderStructure Folder structure that defines the organizational structure for log files in S3. Valid values: `FlatStructure`, `DateBasedStructure`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder folderStructure(String folderStructure) {
             return folderStructure(Output.of(folderStructure));
         }
 
-        /**
-         * @param keyPrefix S3 path prefix that determines where log files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(@Nullable Output<String> keyPrefix) {
             $.keyPrefix = keyPrefix;
             return this;
         }
 
-        /**
-         * @param keyPrefix S3 path prefix that determines where log files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(String keyPrefix) {
             return keyPrefix(Output.of(keyPrefix));
         }
 
-        /**
-         * @param logFileFormat Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logFileFormat(Output<String> logFileFormat) {
             $.logFileFormat = logFileFormat;
             return this;
         }
 
-        /**
-         * @param logFileFormat Format of the log file written to S3. Valid values: `Json`, `Parquet`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logFileFormat(String logFileFormat) {
             return logFileFormat(Output.of(logFileFormat));
         }

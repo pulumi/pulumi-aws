@@ -11,21 +11,12 @@ namespace Pulumi.Aws.WafV2
 {
     public static class GetWebAcl
     {
-        /// <summary>
-        /// Retrieves the summary of a WAFv2 Web ACL.
-        /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves the summary of a WAFv2 Web ACL.
-        /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves the summary of a WAFv2 Web ACL.
-        /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
     }
@@ -33,27 +24,15 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class GetWebAclArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the WAFv2 Web ACL. Exactly one of `Name` or `ResourceArn` must be specified.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `Name` or `ResourceArn` must be specified.
-        /// </summary>
         [Input("resourceArn")]
         public string? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
 
@@ -65,27 +44,15 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class GetWebAclInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the WAFv2 Web ACL. Exactly one of `Name` or `ResourceArn` must be specified.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `Name` or `ResourceArn` must be specified.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -99,13 +66,7 @@ namespace Pulumi.Aws.WafV2
     [OutputType]
     public sealed class GetWebAclResult
     {
-        /// <summary>
-        /// ARN of the entity.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the WebACL that helps with identification.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

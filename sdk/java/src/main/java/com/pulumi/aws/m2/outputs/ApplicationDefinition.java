@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationDefinition {
-    /**
-     * @return JSON application definition. Either this or `s3Location` must be specified.
-     * 
-     */
     private @Nullable String content;
-    /**
-     * @return Location of the application definition in S3. Either this or `content` must be specified.
-     * 
-     */
     private @Nullable String s3Location;
 
     private ApplicationDefinition() {}
-    /**
-     * @return JSON application definition. Either this or `s3Location` must be specified.
-     * 
-     */
     public Optional<String> content() {
         return Optional.ofNullable(this.content);
     }
-    /**
-     * @return Location of the application definition in S3. Either this or `content` must be specified.
-     * 
-     */
     public Optional<String> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }

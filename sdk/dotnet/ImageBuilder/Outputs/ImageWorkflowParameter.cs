@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ImageWorkflowParameter
     {
-        /// <summary>
-        /// The name of the Workflow parameter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the Workflow parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

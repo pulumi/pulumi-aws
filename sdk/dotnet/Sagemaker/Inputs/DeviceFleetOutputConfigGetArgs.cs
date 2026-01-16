@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DeviceFleetOutputConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// The Amazon Simple Storage (S3) bucker URI.
-        /// </summary>
         [Input("s3OutputLocation", required: true)]
         public Input<string> S3OutputLocation { get; set; } = null!;
 

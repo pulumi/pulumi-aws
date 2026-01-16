@@ -17,36 +17,16 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
 
     public static final IamPolicyAssignmentArgs Empty = new IamPolicyAssignmentArgs();
 
-    /**
-     * Name of the assignment.
-     * 
-     */
     @Import(name="assignmentName", required=true)
     private Output<String> assignmentName;
 
-    /**
-     * @return Name of the assignment.
-     * 
-     */
     public Output<String> assignmentName() {
         return this.assignmentName;
     }
 
-    /**
-     * Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="assignmentStatus", required=true)
     private Output<String> assignmentStatus;
 
-    /**
-     * @return Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> assignmentStatus() {
         return this.assignmentStatus;
     }
@@ -58,62 +38,30 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-     * 
-     */
     @Import(name="identities")
     private @Nullable Output<IamPolicyAssignmentIdentitiesArgs> identities;
 
-    /**
-     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-     * 
-     */
     public Optional<Output<IamPolicyAssignmentIdentitiesArgs>> identities() {
         return Optional.ofNullable(this.identities);
     }
 
-    /**
-     * Namespace that contains the assignment. Defaults to `default`.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace that contains the assignment. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-     * 
-     */
     @Import(name="policyArn")
     private @Nullable Output<String> policyArn;
 
-    /**
-     * @return ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-     * 
-     */
     public Optional<Output<String>> policyArn() {
         return Optional.ofNullable(this.policyArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -148,48 +96,20 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
             $ = new IamPolicyAssignmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param assignmentName Name of the assignment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignmentName(Output<String> assignmentName) {
             $.assignmentName = assignmentName;
             return this;
         }
 
-        /**
-         * @param assignmentName Name of the assignment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignmentName(String assignmentName) {
             return assignmentName(Output.of(assignmentName));
         }
 
-        /**
-         * @param assignmentStatus Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignmentStatus(Output<String> assignmentStatus) {
             $.assignmentStatus = assignmentStatus;
             return this;
         }
 
-        /**
-         * @param assignmentStatus Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignmentStatus(String assignmentStatus) {
             return assignmentStatus(Output.of(assignmentStatus));
         }
@@ -203,86 +123,38 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param identities Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identities(@Nullable Output<IamPolicyAssignmentIdentitiesArgs> identities) {
             $.identities = identities;
             return this;
         }
 
-        /**
-         * @param identities Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identities(IamPolicyAssignmentIdentitiesArgs identities) {
             return identities(Output.of(identities));
         }
 
-        /**
-         * @param namespace Namespace that contains the assignment. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace that contains the assignment. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param policyArn ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(@Nullable Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
-        /**
-         * @param policyArn ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

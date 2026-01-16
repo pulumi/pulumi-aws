@@ -16,21 +16,9 @@ import javax.annotation.Nullable;
 public final class GetLocalGatewayResult {
     private @Nullable List<GetLocalGatewayFilter> filters;
     private String id;
-    /**
-     * @return ARN of Outpost
-     * 
-     */
     private String outpostArn;
-    /**
-     * @return AWS account identifier that owns the Local Gateway.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return State of the local gateway.
-     * 
-     */
     private String state;
     private Map<String,String> tags;
 
@@ -41,27 +29,15 @@ public final class GetLocalGatewayResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of Outpost
-     * 
-     */
     public String outpostArn() {
         return this.outpostArn;
     }
-    /**
-     * @return AWS account identifier that owns the Local Gateway.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return State of the local gateway.
-     * 
-     */
     public String state() {
         return this.state;
     }

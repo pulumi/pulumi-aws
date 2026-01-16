@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the custom data idenfitier
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Regular expression to match sensitive data
-        /// </summary>
         [Input("regex", required: true)]
         public Input<string> Regex { get; set; } = null!;
 

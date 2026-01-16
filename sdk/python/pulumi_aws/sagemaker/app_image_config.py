@@ -29,14 +29,6 @@ class AppImageConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
-        :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         if code_editor_app_image_config is not None:
@@ -53,9 +45,6 @@ class AppImageConfigArgs:
     @_builtins.property
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the App Image Config.
-        """
         return pulumi.get(self, "app_image_config_name")
 
     @app_image_config_name.setter
@@ -65,9 +54,6 @@ class AppImageConfigArgs:
     @_builtins.property
     @pulumi.getter(name="codeEditorAppImageConfig")
     def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
-        """
-        The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        """
         return pulumi.get(self, "code_editor_app_image_config")
 
     @code_editor_app_image_config.setter
@@ -77,9 +63,6 @@ class AppImageConfigArgs:
     @_builtins.property
     @pulumi.getter(name="jupyterLabImageConfig")
     def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
-        """
-        The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        """
         return pulumi.get(self, "jupyter_lab_image_config")
 
     @jupyter_lab_image_config.setter
@@ -89,9 +72,6 @@ class AppImageConfigArgs:
     @_builtins.property
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
-        """
-        The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @kernel_gateway_image_config.setter
@@ -101,9 +81,6 @@ class AppImageConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,11 +90,6 @@ class AppImageConfigArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -138,16 +110,6 @@ class _AppImageConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppImageConfig resources.
-        :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if app_image_config_name is not None:
             pulumi.set(__self__, "app_image_config_name", app_image_config_name)
@@ -169,9 +131,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the App Image Config.
-        """
         return pulumi.get(self, "app_image_config_name")
 
     @app_image_config_name.setter
@@ -181,9 +140,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -193,9 +149,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter(name="codeEditorAppImageConfig")
     def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
-        """
-        The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        """
         return pulumi.get(self, "code_editor_app_image_config")
 
     @code_editor_app_image_config.setter
@@ -205,9 +158,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter(name="jupyterLabImageConfig")
     def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
-        """
-        The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        """
         return pulumi.get(self, "jupyter_lab_image_config")
 
     @jupyter_lab_image_config.setter
@@ -217,9 +167,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
-        """
-        The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @kernel_gateway_image_config.setter
@@ -229,9 +176,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -241,11 +185,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -255,9 +194,6 @@ class _AppImageConfigState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -279,70 +215,9 @@ class AppImageConfig(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI App Image Config resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config={
-                "kernel_specs": [{
-                    "name": "example",
-                }],
-            })
-        ```
-
-        ### Using Code Editor with empty configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            code_editor_app_image_config={})
-        ```
-
-        ### Default File System Config
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config={
-                "kernel_specs": [{
-                    "name": "example",
-                }],
-                "file_system_config": {},
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
-        ```
-
+        Create a AppImageConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         ...
     @overload
@@ -351,60 +226,7 @@ class AppImageConfig(pulumi.CustomResource):
                  args: AppImageConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI App Image Config resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config={
-                "kernel_specs": [{
-                    "name": "example",
-                }],
-            })
-        ```
-
-        ### Using Code Editor with empty configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            code_editor_app_image_config={})
-        ```
-
-        ### Default File System Config
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config={
-                "kernel_specs": [{
-                    "name": "example",
-                }],
-                "file_system_config": {},
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
-        ```
-
+        Create a AppImageConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppImageConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -470,16 +292,6 @@ class AppImageConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -498,66 +310,40 @@ class AppImageConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the App Image Config.
-        """
         return pulumi.get(self, "app_image_config_name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="codeEditorAppImageConfig")
     def code_editor_app_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigCodeEditorAppImageConfig']]:
-        """
-        The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
-        """
         return pulumi.get(self, "code_editor_app_image_config")
 
     @_builtins.property
     @pulumi.getter(name="jupyterLabImageConfig")
     def jupyter_lab_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigJupyterLabImageConfig']]:
-        """
-        The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
-        """
         return pulumi.get(self, "jupyter_lab_image_config")
 
     @_builtins.property
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigKernelGatewayImageConfig']]:
-        """
-        The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

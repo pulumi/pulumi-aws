@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CloudWatch Logs destination policy resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testDestination = new aws.cloudwatch.LogDestination("test_destination", {
- *     name: "test_destination",
- *     roleArn: iamForCloudwatch.arn,
- *     targetArn: kinesisForCloudwatch.arn,
- * });
- * const testDestinationPolicy = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *         actions: ["logs:PutSubscriptionFilter"],
- *         resources: [testDestination.arn],
- *     }],
- * });
- * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("test_destination_policy", {
- *     destinationName: testDestination.name,
- *     accessPolicy: testDestinationPolicy.apply(testDestinationPolicy => testDestinationPolicy.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
- * ```
- */
 export class LogDestinationPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LogDestinationPolicy resource's state with the given name, ID, and optional extra
@@ -71,21 +32,9 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDestinationPolicy.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     declare public readonly accessPolicy: pulumi.Output<string>;
-    /**
-     * A name for the subscription filter
-     */
     declare public readonly destinationName: pulumi.Output<string>;
-    /**
-     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-     */
     declare public readonly forceUpdate: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -127,21 +76,9 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogDestinationPolicy resources.
  */
 export interface LogDestinationPolicyState {
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     accessPolicy?: pulumi.Input<string>;
-    /**
-     * A name for the subscription filter
-     */
     destinationName?: pulumi.Input<string>;
-    /**
-     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-     */
     forceUpdate?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -149,20 +86,8 @@ export interface LogDestinationPolicyState {
  * The set of arguments for constructing a LogDestinationPolicy resource.
  */
 export interface LogDestinationPolicyArgs {
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     accessPolicy: pulumi.Input<string>;
-    /**
-     * A name for the subscription filter
-     */
     destinationName: pulumi.Input<string>;
-    /**
-     * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-     */
     forceUpdate?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -120,9 +120,6 @@ class GetBucketObjectResult:
     @_builtins.property
     @pulumi.getter
     def body(self) -> _builtins.str:
-        """
-        Object data (see **limitations above** to understand cases in which this field is actually available)
-        """
         return pulumi.get(self, "body")
 
     @_builtins.property
@@ -134,81 +131,51 @@ class GetBucketObjectResult:
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> _builtins.bool:
-        """
-        (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-        """
         return pulumi.get(self, "bucket_key_enabled")
 
     @_builtins.property
     @pulumi.getter(name="cacheControl")
     def cache_control(self) -> _builtins.str:
-        """
-        Caching behavior along the request/reply chain.
-        """
         return pulumi.get(self, "cache_control")
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> _builtins.str:
-        """
-        Presentational information for the object.
-        """
         return pulumi.get(self, "content_disposition")
 
     @_builtins.property
     @pulumi.getter(name="contentEncoding")
     def content_encoding(self) -> _builtins.str:
-        """
-        What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
-        """
         return pulumi.get(self, "content_encoding")
 
     @_builtins.property
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> _builtins.str:
-        """
-        Language the content is in.
-        """
         return pulumi.get(self, "content_language")
 
     @_builtins.property
     @pulumi.getter(name="contentLength")
     def content_length(self) -> _builtins.int:
-        """
-        Size of the body in bytes.
-        """
         return pulumi.get(self, "content_length")
 
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> _builtins.str:
-        """
-        Standard MIME type describing the format of the object data.
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> _builtins.str:
-        """
-        If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
-        """
         return pulumi.get(self, "expiration")
 
     @_builtins.property
     @pulumi.getter
     def expires(self) -> _builtins.str:
-        """
-        Date and time at which the object is no longer cacheable.
-        """
         return pulumi.get(self, "expires")
 
     @_builtins.property
@@ -227,41 +194,26 @@ class GetBucketObjectResult:
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> _builtins.str:
-        """
-        Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
     @pulumi.getter
     def metadata(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of metadata stored with the object in S3. Keys are always returned in lowercase.
-        """
         return pulumi.get(self, "metadata")
 
     @_builtins.property
     @pulumi.getter(name="objectLockLegalHoldStatus")
     def object_lock_legal_hold_status(self) -> _builtins.str:
-        """
-        Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
-        """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
     @_builtins.property
     @pulumi.getter(name="objectLockMode")
     def object_lock_mode(self) -> _builtins.str:
-        """
-        Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
-        """
         return pulumi.get(self, "object_lock_mode")
 
     @_builtins.property
     @pulumi.getter(name="objectLockRetainUntilDate")
     def object_lock_retain_until_date(self) -> _builtins.str:
-        """
-        The date and time when this object's object lock will expire.
-        """
         return pulumi.get(self, "object_lock_retain_until_date")
 
     @_builtins.property
@@ -277,49 +229,31 @@ class GetBucketObjectResult:
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> _builtins.str:
-        """
-        If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
-        """
         return pulumi.get(self, "server_side_encryption")
 
     @_builtins.property
     @pulumi.getter(name="sseKmsKeyId")
     def sse_kms_key_id(self) -> _builtins.str:
-        """
-        If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
-        """
         return pulumi.get(self, "sse_kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> _builtins.str:
-        """
-        [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
-        """
         return pulumi.get(self, "storage_class")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the object.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> _builtins.str:
-        """
-        Latest version ID of the object returned.
-        """
         return pulumi.get(self, "version_id")
 
     @_builtins.property
     @pulumi.getter(name="websiteRedirectLocation")
     def website_redirect_location(self) -> _builtins.str:
-        """
-        If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
-        """
         return pulumi.get(self, "website_redirect_location")
 
 
@@ -367,70 +301,7 @@ def get_bucket_object(bucket: Optional[_builtins.str] = None,
                       version_id: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketObjectResult:
     """
-    > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
-
-    The S3 object data source allows access to the metadata and
-    _optionally_ (see below) content of an object stored inside S3 bucket.
-
-    > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type`:
-
-    * `text/*`
-    * `application/json`
-    * `application/ld+json`
-    * `application/x-httpd-php`
-    * `application/xhtml+xml`
-    * `application/x-csh`
-    * `application/x-sh`
-    * `application/xml`
-    * `application/atom+xml`
-    * `application/x-sql`
-
-    This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
-
-    ## Example Usage
-
-    The following example retrieves a text object (which must have a `Content-Type`
-    value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
-        key="ec2-bootstrap-script.sh")
-    example = aws.ec2.Instance("example",
-        instance_type=aws.ec2.InstanceType.T2_MICRO,
-        ami="ami-2757f631",
-        user_data=bootstrap_script.body)
-    ```
-
-    The following, more-complex example retrieves only the metadata for a zip
-    file stored in S3, which is then used to pass the most recent `version_id`
-    to AWS Lambda for use as a function implementation. More information about
-    Lambda functions is available in the documentation for
-    `lambda.Function`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
-        key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("test_lambda",
-        s3_bucket=lambda_.id,
-        s3_key=lambda_.key,
-        s3_object_version=lambda_.version_id,
-        name="lambda_function_name",
-        role=iam_for_lambda["arn"],
-        handler="exports.test")
-    ```
-
-
-    :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param _builtins.str key: Full path to the object inside the bucket
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
-    :param _builtins.str version_id: Specific version ID of the object returned (defaults to latest version)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -479,70 +350,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = Non
                              version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketObjectResult]:
     """
-    > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
-
-    The S3 object data source allows access to the metadata and
-    _optionally_ (see below) content of an object stored inside S3 bucket.
-
-    > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type`:
-
-    * `text/*`
-    * `application/json`
-    * `application/ld+json`
-    * `application/x-httpd-php`
-    * `application/xhtml+xml`
-    * `application/x-csh`
-    * `application/x-sh`
-    * `application/xml`
-    * `application/atom+xml`
-    * `application/x-sql`
-
-    This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
-
-    ## Example Usage
-
-    The following example retrieves a text object (which must have a `Content-Type`
-    value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
-        key="ec2-bootstrap-script.sh")
-    example = aws.ec2.Instance("example",
-        instance_type=aws.ec2.InstanceType.T2_MICRO,
-        ami="ami-2757f631",
-        user_data=bootstrap_script.body)
-    ```
-
-    The following, more-complex example retrieves only the metadata for a zip
-    file stored in S3, which is then used to pass the most recent `version_id`
-    to AWS Lambda for use as a function implementation. More information about
-    Lambda functions is available in the documentation for
-    `lambda.Function`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
-        key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("test_lambda",
-        s3_bucket=lambda_.id,
-        s3_key=lambda_.key,
-        s3_object_version=lambda_.version_id,
-        name="lambda_function_name",
-        role=iam_for_lambda["arn"],
-        handler="exports.test")
-    ```
-
-
-    :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param _builtins.str key: Full path to the object inside the bucket
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
-    :param _builtins.str version_id: Specific version ID of the object returned (defaults to latest version)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bucket'] = bucket

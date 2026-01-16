@@ -15,32 +15,16 @@ public final class ImagePipelineLoggingConfigurationArgs extends com.pulumi.reso
 
     public static final ImagePipelineLoggingConfigurationArgs Empty = new ImagePipelineLoggingConfigurationArgs();
 
-    /**
-     * Name of the CloudWatch Log Group to send image logs to.
-     * 
-     */
     @Import(name="imageLogGroupName")
     private @Nullable Output<String> imageLogGroupName;
 
-    /**
-     * @return Name of the CloudWatch Log Group to send image logs to.
-     * 
-     */
     public Optional<Output<String>> imageLogGroupName() {
         return Optional.ofNullable(this.imageLogGroupName);
     }
 
-    /**
-     * Name of the CloudWatch Log Group to send pipeline logs to.
-     * 
-     */
     @Import(name="pipelineLogGroupName")
     private @Nullable Output<String> pipelineLogGroupName;
 
-    /**
-     * @return Name of the CloudWatch Log Group to send pipeline logs to.
-     * 
-     */
     public Optional<Output<String>> pipelineLogGroupName() {
         return Optional.ofNullable(this.pipelineLogGroupName);
     }
@@ -70,44 +54,20 @@ public final class ImagePipelineLoggingConfigurationArgs extends com.pulumi.reso
             $ = new ImagePipelineLoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageLogGroupName Name of the CloudWatch Log Group to send image logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageLogGroupName(@Nullable Output<String> imageLogGroupName) {
             $.imageLogGroupName = imageLogGroupName;
             return this;
         }
 
-        /**
-         * @param imageLogGroupName Name of the CloudWatch Log Group to send image logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageLogGroupName(String imageLogGroupName) {
             return imageLogGroupName(Output.of(imageLogGroupName));
         }
 
-        /**
-         * @param pipelineLogGroupName Name of the CloudWatch Log Group to send pipeline logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineLogGroupName(@Nullable Output<String> pipelineLogGroupName) {
             $.pipelineLogGroupName = pipelineLogGroupName;
             return this;
         }
 
-        /**
-         * @param pipelineLogGroupName Name of the CloudWatch Log Group to send pipeline logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineLogGroupName(String pipelineLogGroupName) {
             return pipelineLogGroupName(Output.of(pipelineLogGroupName));
         }

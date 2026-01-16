@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointConfigurationDataCaptureConfigCaptureOption
     {
-        /// <summary>
-        /// Data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
-        /// </summary>
         public readonly string CaptureMode;
 
         [OutputConstructor]

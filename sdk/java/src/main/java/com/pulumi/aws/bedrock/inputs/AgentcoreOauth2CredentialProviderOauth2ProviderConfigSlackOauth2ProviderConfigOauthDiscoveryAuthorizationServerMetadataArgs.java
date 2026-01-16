@@ -15,62 +15,30 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs();
 
-    /**
-     * OAuth2 authorization endpoint URL.
-     * 
-     */
     @Import(name="authorizationEndpoint", required=true)
     private Output<String> authorizationEndpoint;
 
-    /**
-     * @return OAuth2 authorization endpoint URL.
-     * 
-     */
     public Output<String> authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
 
-    /**
-     * OAuth2 authorization server issuer identifier.
-     * 
-     */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
-    /**
-     * @return OAuth2 authorization server issuer identifier.
-     * 
-     */
     public Output<String> issuer() {
         return this.issuer;
     }
 
-    /**
-     * Set of OAuth2 response types supported by the authorization server.
-     * 
-     */
     @Import(name="responseTypes", required=true)
     private Output<List<String>> responseTypes;
 
-    /**
-     * @return Set of OAuth2 response types supported by the authorization server.
-     * 
-     */
     public Output<List<String>> responseTypes() {
         return this.responseTypes;
     }
 
-    /**
-     * OAuth2 token endpoint URL.
-     * 
-     */
     @Import(name="tokenEndpoint", required=true)
     private Output<String> tokenEndpoint;
 
-    /**
-     * @return OAuth2 token endpoint URL.
-     * 
-     */
     public Output<String> tokenEndpoint() {
         return this.tokenEndpoint;
     }
@@ -102,96 +70,42 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationEndpoint OAuth2 authorization endpoint URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(Output<String> authorizationEndpoint) {
             $.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
 
-        /**
-         * @param authorizationEndpoint OAuth2 authorization endpoint URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             return authorizationEndpoint(Output.of(authorizationEndpoint));
         }
 
-        /**
-         * @param issuer OAuth2 authorization server issuer identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer OAuth2 authorization server issuer identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }
 
-        /**
-         * @param responseTypes Set of OAuth2 response types supported by the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseTypes(Output<List<String>> responseTypes) {
             $.responseTypes = responseTypes;
             return this;
         }
 
-        /**
-         * @param responseTypes Set of OAuth2 response types supported by the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseTypes(List<String> responseTypes) {
             return responseTypes(Output.of(responseTypes));
         }
 
-        /**
-         * @param responseTypes Set of OAuth2 response types supported by the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseTypes(String... responseTypes) {
             return responseTypes(List.of(responseTypes));
         }
 
-        /**
-         * @param tokenEndpoint OAuth2 token endpoint URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenEndpoint(Output<String> tokenEndpoint) {
             $.tokenEndpoint = tokenEndpoint;
             return this;
         }
 
-        /**
-         * @param tokenEndpoint OAuth2 token endpoint URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenEndpoint(String tokenEndpoint) {
             return tokenEndpoint(Output.of(tokenEndpoint));
         }

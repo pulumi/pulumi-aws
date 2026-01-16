@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketVersioningVersioningConfiguration {
-    /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     private @Nullable String mfaDelete;
-    /**
-     * @return Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-     * 
-     */
     private String status;
 
     private BucketVersioningVersioningConfiguration() {}
-    /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     public Optional<String> mfaDelete() {
         return Optional.ofNullable(this.mfaDelete);
     }
-    /**
-     * @return Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
-     * 
-     */
     public String status() {
         return this.status;
     }

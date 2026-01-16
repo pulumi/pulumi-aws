@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration
     {
-        /// <summary>
-        /// Enable speaker search.
-        /// </summary>
         public readonly string SpeakerSearchStatus;
-        /// <summary>
-        /// Enable voice tone analysis.
-        /// </summary>
         public readonly string VoiceToneAnalysisStatus;
 
         [OutputConstructor]

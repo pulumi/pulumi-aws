@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS SSO Identity Store Groups.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetGroups = example.then(example => aws.identitystore.getGroups({
- *     identityStoreId: example.identityStoreIds?.[0],
- * }));
- * ```
- */
 export function getGroups(args: GetGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getGroups:getGroups", {
@@ -36,13 +19,7 @@ export function getGroups(args: GetGroupsArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getGroups.
  */
 export interface GetGroupsArgs {
-    /**
-     * Identity Store ID associated with the Single Sign-On (SSO) Instance.
-     */
     identityStoreId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -50,9 +27,6 @@ export interface GetGroupsArgs {
  * A collection of values returned by getGroups.
  */
 export interface GetGroupsResult {
-    /**
-     * List of Identity Store Groups
-     */
     readonly groups: outputs.identitystore.GetGroupsGroup[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -61,23 +35,6 @@ export interface GetGroupsResult {
     readonly identityStoreId: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS SSO Identity Store Groups.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetGroups = example.then(example => aws.identitystore.getGroups({
- *     identityStoreId: example.identityStoreIds?.[0],
- * }));
- * ```
- */
 export function getGroupsOutput(args: GetGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroups:getGroups", {
@@ -90,12 +47,6 @@ export function getGroupsOutput(args: GetGroupsOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getGroups.
  */
 export interface GetGroupsOutputArgs {
-    /**
-     * Identity Store ID associated with the Single Sign-On (SSO) Instance.
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

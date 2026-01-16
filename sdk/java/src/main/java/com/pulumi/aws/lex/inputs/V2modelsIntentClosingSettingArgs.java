@@ -18,62 +18,30 @@ public final class V2modelsIntentClosingSettingArgs extends com.pulumi.resources
 
     public static final V2modelsIntentClosingSettingArgs Empty = new V2modelsIntentClosingSettingArgs();
 
-    /**
-     * Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
-     * 
-     */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
-    /**
-     * @return Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
-     * 
-     */
     public Optional<Output<Boolean>> active() {
         return Optional.ofNullable(this.active);
     }
 
-    /**
-     * Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
-     * 
-     */
     @Import(name="closingResponse")
     private @Nullable Output<V2modelsIntentClosingSettingClosingResponseArgs> closingResponse;
 
-    /**
-     * @return Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
-     * 
-     */
     public Optional<Output<V2modelsIntentClosingSettingClosingResponseArgs>> closingResponse() {
         return Optional.ofNullable(this.closingResponse);
     }
 
-    /**
-     * Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
-     * 
-     */
     @Import(name="conditional")
     private @Nullable Output<V2modelsIntentClosingSettingConditionalArgs> conditional;
 
-    /**
-     * @return Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
-     * 
-     */
     public Optional<Output<V2modelsIntentClosingSettingConditionalArgs>> conditional() {
         return Optional.ofNullable(this.conditional);
     }
 
-    /**
-     * Next step that the bot executes after playing the intent&#39;s closing response. See `nextStep`.
-     * 
-     */
     @Import(name="nextStep")
     private @Nullable Output<V2modelsIntentClosingSettingNextStepArgs> nextStep;
 
-    /**
-     * @return Next step that the bot executes after playing the intent&#39;s closing response. See `nextStep`.
-     * 
-     */
     public Optional<Output<V2modelsIntentClosingSettingNextStepArgs>> nextStep() {
         return Optional.ofNullable(this.nextStep);
     }
@@ -105,86 +73,38 @@ public final class V2modelsIntentClosingSettingArgs extends com.pulumi.resources
             $ = new V2modelsIntentClosingSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(@Nullable Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param closingResponse Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder closingResponse(@Nullable Output<V2modelsIntentClosingSettingClosingResponseArgs> closingResponse) {
             $.closingResponse = closingResponse;
             return this;
         }
 
-        /**
-         * @param closingResponse Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder closingResponse(V2modelsIntentClosingSettingClosingResponseArgs closingResponse) {
             return closingResponse(Output.of(closingResponse));
         }
 
-        /**
-         * @param conditional Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditional(@Nullable Output<V2modelsIntentClosingSettingConditionalArgs> conditional) {
             $.conditional = conditional;
             return this;
         }
 
-        /**
-         * @param conditional Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditional(V2modelsIntentClosingSettingConditionalArgs conditional) {
             return conditional(Output.of(conditional));
         }
 
-        /**
-         * @param nextStep Next step that the bot executes after playing the intent&#39;s closing response. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(@Nullable Output<V2modelsIntentClosingSettingNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
 
-        /**
-         * @param nextStep Next step that the bot executes after playing the intent&#39;s closing response. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(V2modelsIntentClosingSettingNextStepArgs nextStep) {
             return nextStep(Output.of(nextStep));
         }

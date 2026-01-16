@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53Domains.Outputs
     [OutputType]
     public sealed class DomainAdminContactExtraParam
     {
-        /// <summary>
-        /// The name of an additional parameter that is required by a top-level domain.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value that corresponds with the name of an extra parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

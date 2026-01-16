@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppStream user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appstream.User("example", {
- *     authenticationType: "USERPOOL",
- *     userName: "EMAIL",
- *     firstName: "FIRST NAME",
- *     lastName: "LAST NAME",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
- *
- * ```sh
- * $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
- * ```
- */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -57,43 +32,14 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    /**
-     * ARN of the appstream user.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     */
     declare public readonly authenticationType: pulumi.Output<string>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the user was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * Whether the user in the user pool is enabled.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * First name, or given name, of the user.
-     */
     declare public readonly firstName: pulumi.Output<string | undefined>;
-    /**
-     * Last name, or surname, of the user.
-     */
     declare public readonly lastName: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Send an email notification.
-     */
     declare public readonly sendEmailNotification: pulumi.Output<boolean | undefined>;
-    /**
-     * Email address of the user.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly userName: pulumi.Output<string>;
 
     /**
@@ -145,43 +91,14 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * ARN of the appstream user.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     */
     authenticationType?: pulumi.Input<string>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the user was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Whether the user in the user pool is enabled.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * First name, or given name, of the user.
-     */
     firstName?: pulumi.Input<string>;
-    /**
-     * Last name, or surname, of the user.
-     */
     lastName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Send an email notification.
-     */
     sendEmailNotification?: pulumi.Input<boolean>;
-    /**
-     * Email address of the user.
-     *
-     * The following arguments are optional:
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -189,34 +106,11 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-     */
     authenticationType: pulumi.Input<string>;
-    /**
-     * Whether the user in the user pool is enabled.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * First name, or given name, of the user.
-     */
     firstName?: pulumi.Input<string>;
-    /**
-     * Last name, or surname, of the user.
-     */
     lastName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Send an email notification.
-     */
     sendEmailNotification?: pulumi.Input<boolean>;
-    /**
-     * Email address of the user.
-     *
-     * The following arguments are optional:
-     */
     userName: pulumi.Input<string>;
 }

@@ -14,32 +14,16 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
 
     public static final GetBotAssociationLexBotArgs Empty = new GetBotAssociationLexBotArgs();
 
-    /**
-     * Region that the Amazon Lex (V1) bot was created in.
-     * 
-     */
     @Import(name="lexRegion", required=true)
     private Output<String> lexRegion;
 
-    /**
-     * @return Region that the Amazon Lex (V1) bot was created in.
-     * 
-     */
     public Output<String> lexRegion() {
         return this.lexRegion;
     }
 
-    /**
-     * Name of the Amazon Lex (V1) bot.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the Amazon Lex (V1) bot.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class GetBotAssociationLexBotArgs extends com.pulumi.resources.Reso
             $ = new GetBotAssociationLexBotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lexRegion Region that the Amazon Lex (V1) bot was created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lexRegion(Output<String> lexRegion) {
             $.lexRegion = lexRegion;
             return this;
         }
 
-        /**
-         * @param lexRegion Region that the Amazon Lex (V1) bot was created in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lexRegion(String lexRegion) {
             return lexRegion(Output.of(lexRegion));
         }
 
-        /**
-         * @param name Name of the Amazon Lex (V1) bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Amazon Lex (V1) bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

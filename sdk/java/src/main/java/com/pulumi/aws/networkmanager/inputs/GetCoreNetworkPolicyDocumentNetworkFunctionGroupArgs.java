@@ -17,47 +17,23 @@ public final class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs extends 
 
     public static final GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs Empty = new GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs();
 
-    /**
-     * Optional description of the network function group.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Optional description of the network function group.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * This identifies the network function group container.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return This identifies the network function group container.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-     * 
-     */
     @Import(name="requireAttachmentAcceptance", required=true)
     private Output<Boolean> requireAttachmentAcceptance;
 
-    /**
-     * @return This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-     * 
-     */
     public Output<Boolean> requireAttachmentAcceptance() {
         return this.requireAttachmentAcceptance;
     }
@@ -88,65 +64,29 @@ public final class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs extends 
             $ = new GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Optional description of the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Optional description of the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name This identifies the network function group container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name This identifies the network function group container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param requireAttachmentAcceptance This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireAttachmentAcceptance(Output<Boolean> requireAttachmentAcceptance) {
             $.requireAttachmentAcceptance = requireAttachmentAcceptance;
             return this;
         }
 
-        /**
-         * @param requireAttachmentAcceptance This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireAttachmentAcceptance(Boolean requireAttachmentAcceptance) {
             return requireAttachmentAcceptance(Output.of(requireAttachmentAcceptance));
         }

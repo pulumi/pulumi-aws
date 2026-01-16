@@ -9,78 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Trust Store Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleTrustStore = new Aws.WorkSpacesWeb.TrustStore("example", new()
-    ///     {
-    ///         CertificateList = new[]
-    ///         {
-    ///             Std.File.Invoke(new()
-    ///             {
-    ///                 Input = "certificate.pem",
-    ///             }).Apply(invoke =&gt; Std.Base64encode.Invoke(new()
-    ///             {
-    ///                 Input = invoke.Result,
-    ///             })).Apply(invoke =&gt; invoke.Result),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleTrustStoreAssociation = new Aws.WorkSpacesWeb.TrustStoreAssociation("example", new()
-    ///     {
-    ///         TrustStoreArn = exampleTrustStore.TrustStoreArn,
-    ///         PortalArn = example.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation")]
     public partial class TrustStoreAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the portal to associate with the trust store. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the trust store to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("trustStoreArn")]
         public Output<string> TrustStoreArn { get; private set; } = null!;
 
@@ -130,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class TrustStoreAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the portal to associate with the trust store. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the trust store to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("trustStoreArn", required: true)]
         public Input<string> TrustStoreArn { get; set; } = null!;
 
@@ -158,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class TrustStoreAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the portal to associate with the trust store. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the trust store to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("trustStoreArn")]
         public Input<string>? TrustStoreArn { get; set; }
 

@@ -9,54 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route 53 Resolver query logging configuration association resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.ResolverQueryLogConfigAssociation("example", new()
-    ///     {
-    ///         ResolverQueryLogConfigId = exampleAwsRoute53ResolverQueryLogConfig.Id,
-    ///         ResourceId = exampleAwsVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import  Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]
     public partial class ResolverQueryLogConfigAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        /// </summary>
         [Output("resolverQueryLogConfigId")]
         public Output<string> ResolverQueryLogConfigId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of a VPC that you want this query logging configuration to log queries for.
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -106,21 +67,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverQueryLogConfigAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        /// </summary>
         [Input("resolverQueryLogConfigId", required: true)]
         public Input<string> ResolverQueryLogConfigId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of a VPC that you want this query logging configuration to log queries for.
-        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
@@ -132,21 +84,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverQueryLogConfigAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        /// </summary>
         [Input("resolverQueryLogConfigId")]
         public Input<string>? ResolverQueryLogConfigId { get; set; }
 
-        /// <summary>
-        /// The ID of a VPC that you want this query logging configuration to log queries for.
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 

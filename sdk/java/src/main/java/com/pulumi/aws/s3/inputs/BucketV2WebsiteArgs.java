@@ -15,64 +15,30 @@ public final class BucketV2WebsiteArgs extends com.pulumi.resources.ResourceArgs
 
     public static final BucketV2WebsiteArgs Empty = new BucketV2WebsiteArgs();
 
-    /**
-     * Absolute path to the document to return in case of a 4XX error.
-     * 
-     */
     @Import(name="errorDocument")
     private @Nullable Output<String> errorDocument;
 
-    /**
-     * @return Absolute path to the document to return in case of a 4XX error.
-     * 
-     */
     public Optional<Output<String>> errorDocument() {
         return Optional.ofNullable(this.errorDocument);
     }
 
-    /**
-     * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-     * 
-     */
     @Import(name="indexDocument")
     private @Nullable Output<String> indexDocument;
 
-    /**
-     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-     * 
-     */
     public Optional<Output<String>> indexDocument() {
         return Optional.ofNullable(this.indexDocument);
     }
 
-    /**
-     * Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-     * 
-     */
     @Import(name="redirectAllRequestsTo")
     private @Nullable Output<String> redirectAllRequestsTo;
 
-    /**
-     * @return Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-     * 
-     */
     public Optional<Output<String>> redirectAllRequestsTo() {
         return Optional.ofNullable(this.redirectAllRequestsTo);
     }
 
-    /**
-     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
-     * 
-     */
     @Import(name="routingRules")
     private @Nullable Output<String> routingRules;
 
-    /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
-     * 
-     */
     public Optional<Output<String>> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }
@@ -104,88 +70,38 @@ public final class BucketV2WebsiteArgs extends com.pulumi.resources.ResourceArgs
             $ = new BucketV2WebsiteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorDocument Absolute path to the document to return in case of a 4XX error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorDocument(@Nullable Output<String> errorDocument) {
             $.errorDocument = errorDocument;
             return this;
         }
 
-        /**
-         * @param errorDocument Absolute path to the document to return in case of a 4XX error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorDocument(String errorDocument) {
             return errorDocument(Output.of(errorDocument));
         }
 
-        /**
-         * @param indexDocument Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexDocument(@Nullable Output<String> indexDocument) {
             $.indexDocument = indexDocument;
             return this;
         }
 
-        /**
-         * @param indexDocument Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexDocument(String indexDocument) {
             return indexDocument(Output.of(indexDocument));
         }
 
-        /**
-         * @param redirectAllRequestsTo Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirectAllRequestsTo(@Nullable Output<String> redirectAllRequestsTo) {
             $.redirectAllRequestsTo = redirectAllRequestsTo;
             return this;
         }
 
-        /**
-         * @param redirectAllRequestsTo Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirectAllRequestsTo(String redirectAllRequestsTo) {
             return redirectAllRequestsTo(Output.of(redirectAllRequestsTo));
         }
 
-        /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRules(@Nullable Output<String> routingRules) {
             $.routingRules = routingRules;
             return this;
         }
 
-        /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRules(String routingRules) {
             return routingRules(Output.of(routingRules));
         }

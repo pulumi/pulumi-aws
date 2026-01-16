@@ -13,19 +13,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class GetPermissionsLfTagPolicyResult
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string CatalogId;
-        /// <summary>
-        /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `Expression` below.
-        /// 
-        /// The following argument is optional:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPermissionsLfTagPolicyExpressionResult> Expressions;
-        /// <summary>
-        /// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        /// </summary>
         public readonly string ResourceType;
 
         [OutputConstructor]

@@ -16,47 +16,23 @@ public final class GetRepositoryCreationTemplatePlainArgs extends com.pulumi.res
 
     public static final GetRepositoryCreationTemplatePlainArgs Empty = new GetRepositoryCreationTemplatePlainArgs();
 
-    /**
-     * The repository name prefix that the template matches against.
-     * 
-     */
     @Import(name="prefix", required=true)
     private String prefix;
 
-    /**
-     * @return The repository name prefix that the template matches against.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to any created repositories.
-     * 
-     */
     @Import(name="resourceTags")
     private @Nullable Map<String,String> resourceTags;
 
-    /**
-     * @return A map of tags to assign to any created repositories.
-     * 
-     */
     public Optional<Map<String,String>> resourceTags() {
         return Optional.ofNullable(this.resourceTags);
     }
@@ -87,34 +63,16 @@ public final class GetRepositoryCreationTemplatePlainArgs extends com.pulumi.res
             $ = new GetRepositoryCreationTemplatePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefix The repository name prefix that the template matches against.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceTags A map of tags to assign to any created repositories.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(@Nullable Map<String,String> resourceTags) {
             $.resourceTags = resourceTags;
             return this;

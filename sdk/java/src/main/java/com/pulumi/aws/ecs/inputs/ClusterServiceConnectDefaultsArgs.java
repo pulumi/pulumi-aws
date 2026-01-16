@@ -14,17 +14,9 @@ public final class ClusterServiceConnectDefaultsArgs extends com.pulumi.resource
 
     public static final ClusterServiceConnectDefaultsArgs Empty = new ClusterServiceConnectDefaultsArgs();
 
-    /**
-     * ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -53,23 +45,11 @@ public final class ClusterServiceConnectDefaultsArgs extends com.pulumi.resource
             $ = new ClusterServiceConnectDefaultsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namespace ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

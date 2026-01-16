@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class LogTransformerTransformerConfigParseJsonArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
-        /// <summary>
-        /// Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 

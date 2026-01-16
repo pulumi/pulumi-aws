@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPublicIpv4PoolPoolAddressRange {
-    /**
-     * @return Number of addresses in the range.
-     * 
-     */
     private Integer addressCount;
-    /**
-     * @return Number of available addresses in the range.
-     * 
-     */
     private Integer availableAddressCount;
-    /**
-     * @return First address in the range.
-     * 
-     */
     private String firstAddress;
-    /**
-     * @return Last address in the range.
-     * 
-     */
     private String lastAddress;
 
     private GetPublicIpv4PoolPoolAddressRange() {}
-    /**
-     * @return Number of addresses in the range.
-     * 
-     */
     public Integer addressCount() {
         return this.addressCount;
     }
-    /**
-     * @return Number of available addresses in the range.
-     * 
-     */
     public Integer availableAddressCount() {
         return this.availableAddressCount;
     }
-    /**
-     * @return First address in the range.
-     * 
-     */
     public String firstAddress() {
         return this.firstAddress;
     }
-    /**
-     * @return Last address in the range.
-     * 
-     */
     public String lastAddress() {
         return this.lastAddress;
     }

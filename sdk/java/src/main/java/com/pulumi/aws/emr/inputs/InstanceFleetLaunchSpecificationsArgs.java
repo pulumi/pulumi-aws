@@ -17,32 +17,16 @@ public final class InstanceFleetLaunchSpecificationsArgs extends com.pulumi.reso
 
     public static final InstanceFleetLaunchSpecificationsArgs Empty = new InstanceFleetLaunchSpecificationsArgs();
 
-    /**
-     * Configuration block for on demand instances launch specifications
-     * 
-     */
     @Import(name="onDemandSpecifications")
     private @Nullable Output<List<InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>> onDemandSpecifications;
 
-    /**
-     * @return Configuration block for on demand instances launch specifications
-     * 
-     */
     public Optional<Output<List<InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>>> onDemandSpecifications() {
         return Optional.ofNullable(this.onDemandSpecifications);
     }
 
-    /**
-     * Configuration block for spot instances launch specifications
-     * 
-     */
     @Import(name="spotSpecifications")
     private @Nullable Output<List<InstanceFleetLaunchSpecificationsSpotSpecificationArgs>> spotSpecifications;
 
-    /**
-     * @return Configuration block for spot instances launch specifications
-     * 
-     */
     public Optional<Output<List<InstanceFleetLaunchSpecificationsSpotSpecificationArgs>>> spotSpecifications() {
         return Optional.ofNullable(this.spotSpecifications);
     }
@@ -72,64 +56,28 @@ public final class InstanceFleetLaunchSpecificationsArgs extends com.pulumi.reso
             $ = new InstanceFleetLaunchSpecificationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onDemandSpecifications Configuration block for on demand instances launch specifications
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandSpecifications(@Nullable Output<List<InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>> onDemandSpecifications) {
             $.onDemandSpecifications = onDemandSpecifications;
             return this;
         }
 
-        /**
-         * @param onDemandSpecifications Configuration block for on demand instances launch specifications
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandSpecifications(List<InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs> onDemandSpecifications) {
             return onDemandSpecifications(Output.of(onDemandSpecifications));
         }
 
-        /**
-         * @param onDemandSpecifications Configuration block for on demand instances launch specifications
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandSpecifications(InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs... onDemandSpecifications) {
             return onDemandSpecifications(List.of(onDemandSpecifications));
         }
 
-        /**
-         * @param spotSpecifications Configuration block for spot instances launch specifications
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotSpecifications(@Nullable Output<List<InstanceFleetLaunchSpecificationsSpotSpecificationArgs>> spotSpecifications) {
             $.spotSpecifications = spotSpecifications;
             return this;
         }
 
-        /**
-         * @param spotSpecifications Configuration block for spot instances launch specifications
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotSpecifications(List<InstanceFleetLaunchSpecificationsSpotSpecificationArgs> spotSpecifications) {
             return spotSpecifications(Output.of(spotSpecifications));
         }
 
-        /**
-         * @param spotSpecifications Configuration block for spot instances launch specifications
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs... spotSpecifications) {
             return spotSpecifications(List.of(spotSpecifications));
         }

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Elb.Inputs
 
     public sealed class LoadBalancerAccessLogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// Boolean to enable / disable `AccessLogs`. Default is `True`
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 

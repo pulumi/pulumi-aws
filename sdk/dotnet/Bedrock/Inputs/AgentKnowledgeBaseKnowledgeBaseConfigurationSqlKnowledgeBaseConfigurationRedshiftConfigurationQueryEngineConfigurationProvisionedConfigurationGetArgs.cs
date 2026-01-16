@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configurations for authentication to Amazon Redshift. See `AuthConfiguration` block for details.
-        /// </summary>
         [Input("authConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationGetArgs>? AuthConfiguration { get; set; }
 
-        /// <summary>
-        /// ID of the Amazon Redshift cluster.
-        /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 

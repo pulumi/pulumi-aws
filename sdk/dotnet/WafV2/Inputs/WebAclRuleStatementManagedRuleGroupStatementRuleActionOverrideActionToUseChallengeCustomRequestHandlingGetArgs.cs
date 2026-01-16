@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("insertHeaders", required: true)]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderGetArgs>? _insertHeaders;
-
-        /// <summary>
-        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See `InsertHeader` below for details.
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderGetArgs> InsertHeaders
         {
             get => _insertHeaders ?? (_insertHeaders = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderGetArgs>());

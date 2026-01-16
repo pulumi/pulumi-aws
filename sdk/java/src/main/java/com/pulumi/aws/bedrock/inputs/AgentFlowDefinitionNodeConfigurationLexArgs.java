@@ -14,32 +14,16 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
 
     public static final AgentFlowDefinitionNodeConfigurationLexArgs Empty = new AgentFlowDefinitionNodeConfigurationLexArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-     * 
-     */
     @Import(name="botAliasArn", required=true)
     private Output<String> botAliasArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-     * 
-     */
     public Output<String> botAliasArn() {
         return this.botAliasArn;
     }
 
-    /**
-     * The Region to invoke the Amazon Lex bot in
-     * 
-     */
     @Import(name="localeId", required=true)
     private Output<String> localeId;
 
-    /**
-     * @return The Region to invoke the Amazon Lex bot in
-     * 
-     */
     public Output<String> localeId() {
         return this.localeId;
     }
@@ -69,44 +53,20 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
             $ = new AgentFlowDefinitionNodeConfigurationLexArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botAliasArn The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botAliasArn(Output<String> botAliasArn) {
             $.botAliasArn = botAliasArn;
             return this;
         }
 
-        /**
-         * @param botAliasArn The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botAliasArn(String botAliasArn) {
             return botAliasArn(Output.of(botAliasArn));
         }
 
-        /**
-         * @param localeId The Region to invoke the Amazon Lex bot in
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(Output<String> localeId) {
             $.localeId = localeId;
             return this;
         }
 
-        /**
-         * @param localeId The Region to invoke the Amazon Lex bot in
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeId(String localeId) {
             return localeId(Output.of(localeId));
         }

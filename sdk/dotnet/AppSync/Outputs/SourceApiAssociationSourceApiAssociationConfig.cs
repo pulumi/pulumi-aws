@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class SourceApiAssociationSourceApiAssociationConfig
     {
-        /// <summary>
-        /// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-        /// </summary>
         public readonly string MergeType;
 
         [OutputConstructor]

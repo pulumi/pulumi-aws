@@ -17,32 +17,16 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
 
     public static final InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs Empty = new InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs();
 
-    /**
-     * The name of the delivery stream.
-     * 
-     */
     @Import(name="deliveryStream")
     private @Nullable Output<String> deliveryStream;
 
-    /**
-     * @return The name of the delivery stream.
-     * 
-     */
     public Optional<Output<String>> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
 
-    /**
-     * Indicates whether logging is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether logging is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -72,44 +56,20 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
             $ = new InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deliveryStream The name of the delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStream(@Nullable Output<String> deliveryStream) {
             $.deliveryStream = deliveryStream;
             return this;
         }
 
-        /**
-         * @param deliveryStream The name of the delivery stream.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryStream(String deliveryStream) {
             return deliveryStream(Output.of(deliveryStream));
         }
 
-        /**
-         * @param enabled Indicates whether logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether logging is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

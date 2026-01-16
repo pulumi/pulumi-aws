@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
-    /**
-     * @return Unique provider name.
-     * 
-     */
     private String providerName;
-    /**
-     * @return Unique service name.
-     * 
-     */
     private String serviceName;
 
     private MultiplexProgramMultiplexProgramSettingsServiceDescriptor() {}
-    /**
-     * @return Unique provider name.
-     * 
-     */
     public String providerName() {
         return this.providerName;
     }
-    /**
-     * @return Unique service name.
-     * 
-     */
     public String serviceName() {
         return this.serviceName;
     }

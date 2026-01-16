@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion
     {
-        /// <summary>
-        /// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        /// </summary>
         public readonly string? Comparator;
-        /// <summary>
-        /// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        /// </summary>
         public readonly ImmutableArray<Outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue> TagValues;
 
         [OutputConstructor]

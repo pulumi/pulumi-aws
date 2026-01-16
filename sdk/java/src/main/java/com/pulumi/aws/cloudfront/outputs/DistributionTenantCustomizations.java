@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTenantCustomizations {
-    /**
-     * @return Certificate configuration for the tenant (maximum one).
-     * 
-     */
     private @Nullable DistributionTenantCustomizationsCertificate certificate;
-    /**
-     * @return Geographic restrictions configuration for the tenant (maximum one).
-     * 
-     */
     private @Nullable DistributionTenantCustomizationsGeoRestriction geoRestriction;
-    /**
-     * @return Web ACL configuration for the tenant (maximum one).
-     * 
-     */
     private @Nullable DistributionTenantCustomizationsWebAcl webAcl;
 
     private DistributionTenantCustomizations() {}
-    /**
-     * @return Certificate configuration for the tenant (maximum one).
-     * 
-     */
     public Optional<DistributionTenantCustomizationsCertificate> certificate() {
         return Optional.ofNullable(this.certificate);
     }
-    /**
-     * @return Geographic restrictions configuration for the tenant (maximum one).
-     * 
-     */
     public Optional<DistributionTenantCustomizationsGeoRestriction> geoRestriction() {
         return Optional.ofNullable(this.geoRestriction);
     }
-    /**
-     * @return Web ACL configuration for the tenant (maximum one).
-     * 
-     */
     public Optional<DistributionTenantCustomizationsWebAcl> webAcl() {
         return Optional.ofNullable(this.webAcl);
     }

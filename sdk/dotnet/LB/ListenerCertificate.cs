@@ -9,64 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LB
 {
-    /// <summary>
-    /// Provides a Load Balancer Listener Certificate resource.
-    /// 
-    /// This resource is for additional certificates and does not replace the default certificate on the listener.
-    /// 
-    /// &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Acm.Certificate("example");
-    /// 
-    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
-    /// 
-    ///     var frontEndListener = new Aws.LB.Listener("front_end");
-    /// 
-    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("example", new()
-    ///     {
-    ///         ListenerArn = frontEndListener.Arn,
-    ///         CertificateArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lb/listenerCertificate:ListenerCertificate")]
     public partial class ListenerCertificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the certificate to attach to the listener.
-        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the certificate.
-        /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -120,21 +71,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class ListenerCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the certificate to attach to the listener.
-        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the certificate.
-        /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -146,21 +88,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class ListenerCertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the certificate to attach to the listener.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the certificate.
-        /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

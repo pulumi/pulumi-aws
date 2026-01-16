@@ -12,165 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudFront Continuous Deployment Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			staging, err := cloudfront.NewDistribution(ctx, "staging", &cloudfront.DistributionArgs{
-//				Enabled: pulumi.Bool(true),
-//				Staging: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
-//				Enabled: pulumi.Bool(true),
-//				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
-//					Items: pulumi.StringArray{
-//						staging.DomainName,
-//					},
-//					Quantity: pulumi.Int(1),
-//				},
-//				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
-//					Type: pulumi.String("SingleWeight"),
-//					SingleWeightConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{
-//						Weight: pulumi.Float64(0.01),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewDistribution(ctx, "production", &cloudfront.DistributionArgs{
-//				Enabled:                      pulumi.Bool(true),
-//				ContinuousDeploymentPolicyId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Single Weight Config with Session Stickiness
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
-//				Enabled: pulumi.Bool(true),
-//				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
-//					Items: pulumi.StringArray{
-//						staging.DomainName,
-//					},
-//					Quantity: pulumi.Int(1),
-//				},
-//				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
-//					Type: pulumi.String("SingleWeight"),
-//					SingleWeightConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{
-//						Weight: pulumi.Float64(0.01),
-//						SessionStickinessConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{
-//							IdleTtl:    pulumi.Int(300),
-//							MaximumTtl: pulumi.Int(600),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Single Header Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
-//				Enabled: pulumi.Bool(true),
-//				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
-//					Items: pulumi.StringArray{
-//						staging.DomainName,
-//					},
-//					Quantity: pulumi.Int(1),
-//				},
-//				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
-//					Type: pulumi.String("SingleHeader"),
-//					SingleHeaderConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{
-//						Header: pulumi.String("aws-cf-cd-example"),
-//						Value:  pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
-// ```
 type ContinuousDeploymentPolicy struct {
 	pulumi.CustomResourceState
 
-	// The continuous deployment policy ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether this continuous deployment policy is enabled.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Current version of the continuous distribution policy.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Date and time the continuous deployment policy was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
+	Arn                         pulumi.StringOutput                                            `pulumi:"arn"`
+	Enabled                     pulumi.BoolOutput                                              `pulumi:"enabled"`
+	Etag                        pulumi.StringOutput                                            `pulumi:"etag"`
+	LastModifiedTime            pulumi.StringOutput                                            `pulumi:"lastModifiedTime"`
 	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput `pulumi:"stagingDistributionDnsNames"`
-	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-	TrafficConfig ContinuousDeploymentPolicyTrafficConfigPtrOutput `pulumi:"trafficConfig"`
+	TrafficConfig               ContinuousDeploymentPolicyTrafficConfigPtrOutput               `pulumi:"trafficConfig"`
 }
 
 // NewContinuousDeploymentPolicy registers a new resource with the given unique name, arguments, and options.
@@ -206,33 +56,21 @@ func GetContinuousDeploymentPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
 type continuousDeploymentPolicyState struct {
-	// The continuous deployment policy ARN.
-	Arn *string `pulumi:"arn"`
-	// Whether this continuous deployment policy is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Current version of the continuous distribution policy.
-	Etag *string `pulumi:"etag"`
-	// Date and time the continuous deployment policy was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
+	Arn                         *string                                                `pulumi:"arn"`
+	Enabled                     *bool                                                  `pulumi:"enabled"`
+	Etag                        *string                                                `pulumi:"etag"`
+	LastModifiedTime            *string                                                `pulumi:"lastModifiedTime"`
 	StagingDistributionDnsNames *ContinuousDeploymentPolicyStagingDistributionDnsNames `pulumi:"stagingDistributionDnsNames"`
-	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-	TrafficConfig *ContinuousDeploymentPolicyTrafficConfig `pulumi:"trafficConfig"`
+	TrafficConfig               *ContinuousDeploymentPolicyTrafficConfig               `pulumi:"trafficConfig"`
 }
 
 type ContinuousDeploymentPolicyState struct {
-	// The continuous deployment policy ARN.
-	Arn pulumi.StringPtrInput
-	// Whether this continuous deployment policy is enabled.
-	Enabled pulumi.BoolPtrInput
-	// Current version of the continuous distribution policy.
-	Etag pulumi.StringPtrInput
-	// Date and time the continuous deployment policy was last modified.
-	LastModifiedTime pulumi.StringPtrInput
-	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
+	Arn                         pulumi.StringPtrInput
+	Enabled                     pulumi.BoolPtrInput
+	Etag                        pulumi.StringPtrInput
+	LastModifiedTime            pulumi.StringPtrInput
 	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput
-	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-	TrafficConfig ContinuousDeploymentPolicyTrafficConfigPtrInput
+	TrafficConfig               ContinuousDeploymentPolicyTrafficConfigPtrInput
 }
 
 func (ContinuousDeploymentPolicyState) ElementType() reflect.Type {
@@ -240,22 +78,16 @@ func (ContinuousDeploymentPolicyState) ElementType() reflect.Type {
 }
 
 type continuousDeploymentPolicyArgs struct {
-	// Whether this continuous deployment policy is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
+	Enabled                     bool                                                   `pulumi:"enabled"`
 	StagingDistributionDnsNames *ContinuousDeploymentPolicyStagingDistributionDnsNames `pulumi:"stagingDistributionDnsNames"`
-	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-	TrafficConfig *ContinuousDeploymentPolicyTrafficConfig `pulumi:"trafficConfig"`
+	TrafficConfig               *ContinuousDeploymentPolicyTrafficConfig               `pulumi:"trafficConfig"`
 }
 
 // The set of arguments for constructing a ContinuousDeploymentPolicy resource.
 type ContinuousDeploymentPolicyArgs struct {
-	// Whether this continuous deployment policy is enabled.
-	Enabled pulumi.BoolInput
-	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
+	Enabled                     pulumi.BoolInput
 	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput
-	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
-	TrafficConfig ContinuousDeploymentPolicyTrafficConfigPtrInput
+	TrafficConfig               ContinuousDeploymentPolicyTrafficConfigPtrInput
 }
 
 func (ContinuousDeploymentPolicyArgs) ElementType() reflect.Type {
@@ -345,34 +177,28 @@ func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutputWith
 	return o
 }
 
-// The continuous deployment policy ARN.
 func (o ContinuousDeploymentPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether this continuous deployment policy is enabled.
 func (o ContinuousDeploymentPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Current version of the continuous distribution policy.
 func (o ContinuousDeploymentPolicyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Date and time the continuous deployment policy was last modified.
 func (o ContinuousDeploymentPolicyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
 func (o ContinuousDeploymentPolicyOutput) StagingDistributionDnsNames() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
 		return v.StagingDistributionDnsNames
 	}).(ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput)
 }
 
-// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
 func (o ContinuousDeploymentPolicyOutput) TrafficConfig() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
 		return v.TrafficConfig

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether audio input is allowed.
-        /// </summary>
         [Input("allowAudioInput", required: true)]
         public Input<bool> AllowAudioInput { get; set; } = null!;
 
-        /// <summary>
-        /// Whether DTMF input is allowed.
-        /// </summary>
         [Input("allowDtmfInput", required: true)]
         public Input<bool> AllowDtmfInput { get; set; } = null!;
 

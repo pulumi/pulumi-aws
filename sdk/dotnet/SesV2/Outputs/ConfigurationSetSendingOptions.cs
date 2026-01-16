@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class ConfigurationSetSendingOptions
     {
-        /// <summary>
-        /// If `True`, email sending is enabled for the configuration set. If `False`, email sending is disabled for the configuration set.
-        /// </summary>
         public readonly bool? SendingEnabled;
 
         [OutputConstructor]

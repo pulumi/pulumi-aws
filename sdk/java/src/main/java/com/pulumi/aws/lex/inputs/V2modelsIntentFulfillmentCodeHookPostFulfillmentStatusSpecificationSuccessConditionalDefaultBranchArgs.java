@@ -16,32 +16,16 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
 
     public static final V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgs Empty = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgs();
 
-    /**
-     * Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     @Import(name="nextStep")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgs> nextStep;
 
-    /**
-     * @return Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgs>> nextStep() {
         return Optional.ofNullable(this.nextStep);
     }
 
-    /**
-     * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     @Import(name="response")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseArgs> response;
 
-    /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseArgs>> response() {
         return Optional.ofNullable(this.response);
     }
@@ -71,44 +55,20 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
             $ = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgs nextStep) {
             return nextStep(Output.of(nextStep));
         }
 
-        /**
-         * @param response Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder response(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseArgs> response) {
             $.response = response;
             return this;
         }
 
-        /**
-         * @param response Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder response(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseArgs response) {
             return response(Output.of(response));
         }

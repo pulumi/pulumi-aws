@@ -13,47 +13,23 @@ public final class GetListenerRuleActionFixedResponse extends com.pulumi.resourc
 
     public static final GetListenerRuleActionFixedResponse Empty = new GetListenerRuleActionFixedResponse();
 
-    /**
-     * Content type of the response.
-     * 
-     */
     @Import(name="contentType", required=true)
     private String contentType;
 
-    /**
-     * @return Content type of the response.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
 
-    /**
-     * Message body of the response.
-     * 
-     */
     @Import(name="messageBody", required=true)
     private String messageBody;
 
-    /**
-     * @return Message body of the response.
-     * 
-     */
     public String messageBody() {
         return this.messageBody;
     }
 
-    /**
-     * The HTTP redirect code.
-     * 
-     */
     @Import(name="statusCode", required=true)
     private String statusCode;
 
-    /**
-     * @return The HTTP redirect code.
-     * 
-     */
     public String statusCode() {
         return this.statusCode;
     }
@@ -84,34 +60,16 @@ public final class GetListenerRuleActionFixedResponse extends com.pulumi.resourc
             $ = new GetListenerRuleActionFixedResponse(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentType Content type of the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param messageBody Message body of the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageBody(String messageBody) {
             $.messageBody = messageBody;
             return this;
         }
 
-        /**
-         * @param statusCode The HTTP redirect code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             $.statusCode = statusCode;
             return this;

@@ -7,41 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing Security Group VPC Associations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpc.SecurityGroupVpcAssociation("example", {
- *     securityGroupId: "sg-05f1f54ab49bb39a3",
- *     vpcId: "vpc-01df9d105095412ba",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `vpc_id` (String) VPC ID.
- *
- * * `security_group_id` (String) Security Group ID.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
- *
- * % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
- */
 export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroupVpcAssociation resource's state with the given name, ID, and optional extra
@@ -70,22 +35,10 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupVpcAssociation.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the security group.
-     */
     declare public readonly securityGroupId: pulumi.Output<string>;
-    /**
-     * State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.SecurityGroupVpcAssociationTimeouts | undefined>;
-    /**
-     * The ID of the VPC to make the association with.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -129,22 +82,10 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroupVpcAssociation resources.
  */
 export interface SecurityGroupVpcAssociationState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the security group.
-     */
     securityGroupId?: pulumi.Input<string>;
-    /**
-     * State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-     */
     state?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts>;
-    /**
-     * The ID of the VPC to make the association with.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -152,17 +93,8 @@ export interface SecurityGroupVpcAssociationState {
  * The set of arguments for constructing a SecurityGroupVpcAssociation resource.
  */
 export interface SecurityGroupVpcAssociationArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the security group.
-     */
     securityGroupId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts>;
-    /**
-     * The ID of the VPC to make the association with.
-     */
     vpcId: pulumi.Input<string>;
 }

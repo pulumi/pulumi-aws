@@ -9,104 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElastiCache
 {
-    /// <summary>
-    /// Provides an ElastiCache Subnet Group resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ec2.Vpc("foo", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
-    ///     {
-    ///         VpcId = foo.Id,
-    ///         CidrBlock = "10.0.0.0/24",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var bar = new Aws.ElastiCache.SubnetGroup("bar", new()
-    ///     {
-    ///         Name = "tf-test-cache-subnet",
-    ///         SubnetIds = new[]
-    ///         {
-    ///             fooSubnet.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:elasticache/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// List of VPC Subnet IDs for the cache subnet group
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -156,30 +82,17 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of VPC Subnet IDs for the cache subnet group
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -188,10 +101,6 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -210,30 +119,17 @@ namespace Pulumi.Aws.ElastiCache
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of VPC Subnet IDs for the cache subnet group
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -242,10 +138,6 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -254,19 +146,12 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -24,17 +24,8 @@ MYPY = False
 if not MYPY:
     class QueueReservationPlanSettingsArgsDict(TypedDict):
         commitment: pulumi.Input[_builtins.str]
-        """
-        The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-        """
         renewal_type: pulumi.Input[_builtins.str]
-        """
-        Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-        """
         reserved_slots: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of reserved transcode slots (RTS) for queue.
-        """
 elif False:
     QueueReservationPlanSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -44,11 +35,6 @@ class QueueReservationPlanSettingsArgs:
                  commitment: pulumi.Input[_builtins.str],
                  renewal_type: pulumi.Input[_builtins.str],
                  reserved_slots: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.str] commitment: The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-        :param pulumi.Input[_builtins.str] renewal_type: Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-        :param pulumi.Input[_builtins.int] reserved_slots: Specifies the number of reserved transcode slots (RTS) for queue.
-        """
         pulumi.set(__self__, "commitment", commitment)
         pulumi.set(__self__, "renewal_type", renewal_type)
         pulumi.set(__self__, "reserved_slots", reserved_slots)
@@ -56,9 +42,6 @@ class QueueReservationPlanSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def commitment(self) -> pulumi.Input[_builtins.str]:
-        """
-        The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-        """
         return pulumi.get(self, "commitment")
 
     @commitment.setter
@@ -68,9 +51,6 @@ class QueueReservationPlanSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="renewalType")
     def renewal_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-        """
         return pulumi.get(self, "renewal_type")
 
     @renewal_type.setter
@@ -80,9 +60,6 @@ class QueueReservationPlanSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="reservedSlots")
     def reserved_slots(self) -> pulumi.Input[_builtins.int]:
-        """
-        Specifies the number of reserved transcode slots (RTS) for queue.
-        """
         return pulumi.get(self, "reserved_slots")
 
     @reserved_slots.setter

@@ -9,108 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    ///     var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cis_aws_foundations_benchmark", new()
-    ///     {
-    ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var cisAwsFoundationsBenchmarkDisableIam1 = new Aws.SecurityHub.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1", new()
-    ///     {
-    ///         StandardsArn = cisAwsFoundationsBenchmark.StandardsArn,
-    ///         SecurityControlId = "IAM.1",
-    ///         AssociationStatus = "DISABLED",
-    ///         UpdatedReason = "Not needed",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Disabling security control in all standards
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Threading.Tasks;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(async() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    ///     var iam1 = await Aws.SecurityHub.GetStandardsControlAssociations.InvokeAsync(new()
-    ///     {
-    ///         SecurityControlId = "IAM.1",
-    ///     });
-    /// 
-    ///     var iam1StandardsControlAssociation = new List&lt;Aws.SecurityHub.StandardsControlAssociation&gt;();
-    ///     foreach (var range in )
-    ///     {
-    ///         iam1StandardsControlAssociation.Add(new Aws.SecurityHub.StandardsControlAssociation($"iam_1-{range.Key}", new()
-    ///         {
-    ///             StandardsArn = range.Key,
-    ///             SecurityControlId = iam1.SecurityControlId,
-    ///             AssociationStatus = "DISABLED",
-    ///             UpdatedReason = "Not needed",
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/standardsControlAssociation:StandardsControlAssociation")]
     public partial class StandardsControlAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Output("associationStatus")]
         public Output<string> AssociationStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the security control whose enablement status you want to update.
-        /// </summary>
         [Output("securityControlId")]
         public Output<string> SecurityControlId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("standardsArn")]
         public Output<string> StandardsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The reason for updating the control's enablement status in the standard. Required when `AssociationStatus` is `DISABLED`.
-        /// </summary>
         [Output("updatedReason")]
         public Output<string?> UpdatedReason { get; private set; } = null!;
 
@@ -160,35 +73,18 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsControlAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("associationStatus", required: true)]
         public Input<string> AssociationStatus { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the security control whose enablement status you want to update.
-        /// </summary>
         [Input("securityControlId", required: true)]
         public Input<string> SecurityControlId { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("standardsArn", required: true)]
         public Input<string> StandardsArn { get; set; } = null!;
 
-        /// <summary>
-        /// The reason for updating the control's enablement status in the standard. Required when `AssociationStatus` is `DISABLED`.
-        /// </summary>
         [Input("updatedReason")]
         public Input<string>? UpdatedReason { get; set; }
 
@@ -200,35 +96,18 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsControlAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("associationStatus")]
         public Input<string>? AssociationStatus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the security control whose enablement status you want to update.
-        /// </summary>
         [Input("securityControlId")]
         public Input<string>? SecurityControlId { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("standardsArn")]
         public Input<string>? StandardsArn { get; set; }
 
-        /// <summary>
-        /// The reason for updating the control's enablement status in the standard. Required when `AssociationStatus` is `DISABLED`.
-        /// </summary>
         [Input("updatedReason")]
         public Input<string>? UpdatedReason { get; set; }
 

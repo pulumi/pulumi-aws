@@ -9,46 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
-    /// 
-    /// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
-    /// 
-    /// The `aws.ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
-    /// If no default subnet exists, this provider creates a new default subnet.
-    /// By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
-    /// Set the `ForceDestroy` argument to `True` to delete the default subnet.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultAz1 = new Aws.Ec2.DefaultSubnet("default_az1", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Default subnet for us-west-2a" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
     public partial class DefaultSubnet : global::Pulumi.CustomResource
     {
@@ -58,25 +18,12 @@ namespace Pulumi.Aws.Ec2
         [Output("assignIpv6AddressOnCreation")]
         public Output<bool?> AssignIpv6AddressOnCreation { get; private set; } = null!;
 
-        /// <summary>
-        /// is required
-        /// * The `AvailabilityZoneId`, `CidrBlock` and `VpcId` arguments become computed attributes
-        /// * The default value for `MapPublicIpOnLaunch` is `True`
-        /// 
-        /// This resource supports the following additional arguments:
-        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
-        /// <summary>
-        /// The AZ ID of the subnet
-        /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv4 CIDR block assigned to the subnet
-        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
@@ -98,9 +45,6 @@ namespace Pulumi.Aws.Ec2
         [Output("existingDefaultSubnet")]
         public Output<bool> ExistingDefaultSubnet { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether destroying the resource deletes the default subnet. Default: `False`
-        /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
@@ -137,9 +81,6 @@ namespace Pulumi.Aws.Ec2
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC the subnet is in
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -192,13 +133,6 @@ namespace Pulumi.Aws.Ec2
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
-        /// <summary>
-        /// is required
-        /// * The `AvailabilityZoneId`, `CidrBlock` and `VpcId` arguments become computed attributes
-        /// * The default value for `MapPublicIpOnLaunch` is `True`
-        /// 
-        /// This resource supports the following additional arguments:
-        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
@@ -214,9 +148,6 @@ namespace Pulumi.Aws.Ec2
         [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
         public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
 
-        /// <summary>
-        /// Whether destroying the resource deletes the default subnet. Default: `False`
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
@@ -260,25 +191,12 @@ namespace Pulumi.Aws.Ec2
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
-        /// <summary>
-        /// is required
-        /// * The `AvailabilityZoneId`, `CidrBlock` and `VpcId` arguments become computed attributes
-        /// * The default value for `MapPublicIpOnLaunch` is `True`
-        /// 
-        /// This resource supports the following additional arguments:
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// The AZ ID of the subnet
-        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
-        /// <summary>
-        /// The IPv4 CIDR block assigned to the subnet
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
@@ -300,9 +218,6 @@ namespace Pulumi.Aws.Ec2
         [Input("existingDefaultSubnet")]
         public Input<bool>? ExistingDefaultSubnet { get; set; }
 
-        /// <summary>
-        /// Whether destroying the resource deletes the default subnet. Default: `False`
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
@@ -349,9 +264,6 @@ namespace Pulumi.Aws.Ec2
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The ID of the VPC the subnet is in
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

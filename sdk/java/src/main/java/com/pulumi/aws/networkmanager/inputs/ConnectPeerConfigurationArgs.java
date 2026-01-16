@@ -24,51 +24,23 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.bgpConfigurations);
     }
 
-    /**
-     * Connect peer core network address.
-     * 
-     */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     public Optional<Output<String>> coreNetworkAddress() {
         return Optional.ofNullable(this.coreNetworkAddress);
     }
 
-    /**
-     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
-    /**
-     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     public Optional<Output<List<String>>> insideCidrBlocks() {
         return Optional.ofNullable(this.insideCidrBlocks);
     }
 
-    /**
-     * Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }
@@ -121,79 +93,33 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
             return bgpConfigurations(List.of(bgpConfigurations));
         }
 
-        /**
-         * @param coreNetworkAddress Connect peer core network address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkAddress(@Nullable Output<String> coreNetworkAddress) {
             $.coreNetworkAddress = coreNetworkAddress;
             return this;
         }
 
-        /**
-         * @param coreNetworkAddress Connect peer core network address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkAddress(String coreNetworkAddress) {
             return coreNetworkAddress(Output.of(coreNetworkAddress));
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(@Nullable Output<List<String>> insideCidrBlocks) {
             $.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(List<String> insideCidrBlocks) {
             return insideCidrBlocks(Output.of(insideCidrBlocks));
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
 
-        /**
-         * @param peerAddress Connect peer address.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(@Nullable Output<String> peerAddress) {
             $.peerAddress = peerAddress;
             return this;
         }
 
-        /**
-         * @param peerAddress Connect peer address.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(String peerAddress) {
             return peerAddress(Output.of(peerAddress));
         }

@@ -16,62 +16,30 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
 
     public static final ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs();
 
-    /**
-     * The bitrate is specified in bits per second, as in an HLS manifest.
-     * 
-     */
     @Import(name="bandwidth")
     private @Nullable Output<Integer> bandwidth;
 
-    /**
-     * @return The bitrate is specified in bits per second, as in an HLS manifest.
-     * 
-     */
     public Optional<Output<Integer>> bandwidth() {
         return Optional.ofNullable(this.bandwidth);
     }
 
-    /**
-     * Buffer segments.
-     * 
-     */
     @Import(name="bufferSegments")
     private @Nullable Output<Integer> bufferSegments;
 
-    /**
-     * @return Buffer segments.
-     * 
-     */
     public Optional<Output<Integer>> bufferSegments() {
         return Optional.ofNullable(this.bufferSegments);
     }
 
-    /**
-     * The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-     * 
-     */
     @Import(name="retries")
     private @Nullable Output<Integer> retries;
 
-    /**
-     * @return The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-     * 
-     */
     public Optional<Output<Integer>> retries() {
         return Optional.ofNullable(this.retries);
     }
 
-    /**
-     * The number of seconds between retries when an attempt to read a manifest or segment fails.
-     * 
-     */
     @Import(name="retryInterval")
     private @Nullable Output<Integer> retryInterval;
 
-    /**
-     * @return The number of seconds between retries when an attempt to read a manifest or segment fails.
-     * 
-     */
     public Optional<Output<Integer>> retryInterval() {
         return Optional.ofNullable(this.retryInterval);
     }
@@ -111,86 +79,38 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
             $ = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bandwidth The bitrate is specified in bits per second, as in an HLS manifest.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bandwidth(@Nullable Output<Integer> bandwidth) {
             $.bandwidth = bandwidth;
             return this;
         }
 
-        /**
-         * @param bandwidth The bitrate is specified in bits per second, as in an HLS manifest.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bandwidth(Integer bandwidth) {
             return bandwidth(Output.of(bandwidth));
         }
 
-        /**
-         * @param bufferSegments Buffer segments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferSegments(@Nullable Output<Integer> bufferSegments) {
             $.bufferSegments = bufferSegments;
             return this;
         }
 
-        /**
-         * @param bufferSegments Buffer segments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferSegments(Integer bufferSegments) {
             return bufferSegments(Output.of(bufferSegments));
         }
 
-        /**
-         * @param retries The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retries(@Nullable Output<Integer> retries) {
             $.retries = retries;
             return this;
         }
 
-        /**
-         * @param retries The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retries(Integer retries) {
             return retries(Output.of(retries));
         }
 
-        /**
-         * @param retryInterval The number of seconds between retries when an attempt to read a manifest or segment fails.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryInterval(@Nullable Output<Integer> retryInterval) {
             $.retryInterval = retryInterval;
             return this;
         }
 
-        /**
-         * @param retryInterval The number of seconds between retries when an attempt to read a manifest or segment fails.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryInterval(Integer retryInterval) {
             return retryInterval(Output.of(retryInterval));
         }

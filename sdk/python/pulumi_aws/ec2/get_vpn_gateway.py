@@ -130,35 +130,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
                     tags: Optional[Mapping[str, _builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
-    The VPN Gateway data source provides details about
-    a specific VPN gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_vpn_gateway(filters=[{
-        "name": "tag:Name",
-        "values": ["vpn-gw"],
-    }])
-    pulumi.export("vpnGatewayId", selected.id)
-    ```
-
-
-    :param _builtins.str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-           
-           The arguments of this data source act as filters for querying the available VPN gateways.
-           The given filters must match exactly one VPN gateway whose data will be exported as attributes.
-    :param _builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
-    :param _builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPN Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State of the specific VPN Gateway to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPN Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['amazonSideAsn'] = amazon_side_asn
@@ -192,35 +164,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[_buil
                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
-    The VPN Gateway data source provides details about
-    a specific VPN gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_vpn_gateway(filters=[{
-        "name": "tag:Name",
-        "values": ["vpn-gw"],
-    }])
-    pulumi.export("vpnGatewayId", selected.id)
-    ```
-
-
-    :param _builtins.str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-           
-           The arguments of this data source act as filters for querying the available VPN gateways.
-           The given filters must match exactly one VPN gateway whose data will be exported as attributes.
-    :param _builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
-    :param _builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPN Gateway to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: State of the specific VPN Gateway to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPN Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['amazonSideAsn'] = amazon_side_asn

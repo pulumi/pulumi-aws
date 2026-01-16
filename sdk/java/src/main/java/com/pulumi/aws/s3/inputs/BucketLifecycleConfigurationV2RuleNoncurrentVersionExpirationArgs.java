@@ -16,32 +16,16 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
 
     public static final BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs Empty = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs();
 
-    /**
-     * Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-     * 
-     */
     @Import(name="newerNoncurrentVersions")
     private @Nullable Output<Integer> newerNoncurrentVersions;
 
-    /**
-     * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-     * 
-     */
     public Optional<Output<Integer>> newerNoncurrentVersions() {
         return Optional.ofNullable(this.newerNoncurrentVersions);
     }
 
-    /**
-     * Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-     * 
-     */
     @Import(name="noncurrentDays", required=true)
     private Output<Integer> noncurrentDays;
 
-    /**
-     * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-     * 
-     */
     public Output<Integer> noncurrentDays() {
         return this.noncurrentDays;
     }
@@ -71,44 +55,20 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
             $ = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param newerNoncurrentVersions Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder newerNoncurrentVersions(@Nullable Output<Integer> newerNoncurrentVersions) {
             $.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
 
-        /**
-         * @param newerNoncurrentVersions Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder newerNoncurrentVersions(Integer newerNoncurrentVersions) {
             return newerNoncurrentVersions(Output.of(newerNoncurrentVersions));
         }
 
-        /**
-         * @param noncurrentDays Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentDays(Output<Integer> noncurrentDays) {
             $.noncurrentDays = noncurrentDays;
             return this;
         }
 
-        /**
-         * @param noncurrentDays Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentDays(Integer noncurrentDays) {
             return noncurrentDays(Output.of(noncurrentDays));
         }

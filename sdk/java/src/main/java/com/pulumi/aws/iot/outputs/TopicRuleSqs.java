@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleSqs {
-    /**
-     * @return The URL of the Amazon SQS queue.
-     * 
-     */
     private String queueUrl;
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Specifies whether to use Base64 encoding.
-     * 
-     */
     private Boolean useBase64;
 
     private TopicRuleSqs() {}
-    /**
-     * @return The URL of the Amazon SQS queue.
-     * 
-     */
     public String queueUrl() {
         return this.queueUrl;
     }
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Specifies whether to use Base64 encoding.
-     * 
-     */
     public Boolean useBase64() {
         return this.useBase64;
     }

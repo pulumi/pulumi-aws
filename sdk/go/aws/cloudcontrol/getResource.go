@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudcontrol"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudcontrol.LookupResource(ctx, &cloudcontrol.LookupResourceArgs{
-//				Identifier: "example",
-//				TypeName:   "AWS::ECS::Cluster",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceResult
@@ -51,26 +23,18 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
-	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-	Identifier string `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM Role to assume for operations.
-	RoleArn *string `pulumi:"roleArn"`
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName string `pulumi:"typeName"`
-	// Identifier of the CloudFormation resource type version.
+	Identifier    string  `pulumi:"identifier"`
+	Region        *string `pulumi:"region"`
+	RoleArn       *string `pulumi:"roleArn"`
+	TypeName      string  `pulumi:"typeName"`
 	TypeVersionId *string `pulumi:"typeVersionId"`
 }
 
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Identifier string `pulumi:"identifier"`
-	// JSON string matching the CloudFormation resource type schema with current configuration.
+	Id            string  `pulumi:"id"`
+	Identifier    string  `pulumi:"identifier"`
 	Properties    string  `pulumi:"properties"`
 	Region        string  `pulumi:"region"`
 	RoleArn       *string `pulumi:"roleArn"`
@@ -89,17 +53,10 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
-	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ARN of the IAM Role to assume for operations.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-	//
-	// The following arguments are optional:
-	TypeName pulumi.StringInput `pulumi:"typeName"`
-	// Identifier of the CloudFormation resource type version.
+	Identifier    pulumi.StringInput    `pulumi:"identifier"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
+	RoleArn       pulumi.StringPtrInput `pulumi:"roleArn"`
+	TypeName      pulumi.StringInput    `pulumi:"typeName"`
 	TypeVersionId pulumi.StringPtrInput `pulumi:"typeVersionId"`
 }
 
@@ -131,7 +88,6 @@ func (o LookupResourceResultOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// JSON string matching the CloudFormation resource type schema with current configuration.
 func (o LookupResourceResultOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Properties }).(pulumi.StringOutput)
 }

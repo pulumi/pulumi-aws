@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDomainSettings
     {
-        /// <summary>
-        /// A collection of settings that configure the domain’s Docker interaction. see `DockerSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDomainSettingsDockerSettings? DockerSettings;
-        /// <summary>
-        /// The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-        /// </summary>
         public readonly string? ExecutionRoleIdentityConfig;
-        /// <summary>
-        /// A collection of settings that configure the RStudioServerPro Domain-level app. see `RStudioServerProDomainSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDomainSettingsRStudioServerProDomainSettings? RStudioServerProDomainSettings;
-        /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
 
         [OutputConstructor]

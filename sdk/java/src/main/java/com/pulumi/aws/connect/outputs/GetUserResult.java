@@ -14,79 +14,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
-    /**
-     * @return The Amazon Resource Name (ARN) of the User.
-     * 
-     */
     private String arn;
-    /**
-     * @return The identifier of the user account in the directory used for identity management.
-     * 
-     */
     private String directoryUserId;
-    /**
-     * @return The identifier of the hierarchy group for the user.
-     * 
-     */
     private String hierarchyGroupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return A block that contains information about the identity of the user. Documented below.
-     * 
-     */
     private List<GetUserIdentityInfo> identityInfos;
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     private String instanceId;
     private String name;
-    /**
-     * @return A block that contains information about the phone settings for the user. Documented below.
-     * 
-     */
     private List<GetUserPhoneConfig> phoneConfigs;
     private String region;
-    /**
-     * @return The identifier of the routing profile for the user.
-     * 
-     */
     private String routingProfileId;
-    /**
-     * @return A list of identifiers for the security profiles for the user.
-     * 
-     */
     private List<String> securityProfileIds;
-    /**
-     * @return A map of tags to assign to the User.
-     * 
-     */
     private Map<String,String> tags;
     private String userId;
 
     private GetUserResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the User.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The identifier of the user account in the directory used for identity management.
-     * 
-     */
     public String directoryUserId() {
         return this.directoryUserId;
     }
-    /**
-     * @return The identifier of the hierarchy group for the user.
-     * 
-     */
     public String hierarchyGroupId() {
         return this.hierarchyGroupId;
     }
@@ -97,51 +49,27 @@ public final class GetUserResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return A block that contains information about the identity of the user. Documented below.
-     * 
-     */
     public List<GetUserIdentityInfo> identityInfos() {
         return this.identityInfos;
     }
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return A block that contains information about the phone settings for the user. Documented below.
-     * 
-     */
     public List<GetUserPhoneConfig> phoneConfigs() {
         return this.phoneConfigs;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The identifier of the routing profile for the user.
-     * 
-     */
     public String routingProfileId() {
         return this.routingProfileId;
     }
-    /**
-     * @return A list of identifiers for the security profiles for the user.
-     * 
-     */
     public List<String> securityProfileIds() {
         return this.securityProfileIds;
     }
-    /**
-     * @return A map of tags to assign to the User.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -34,16 +34,6 @@ class DistributionTenantArgs:
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DistributionTenant resource.
-        :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
-        :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]] domains: Set of domains associated with the distribution tenant.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        :param pulumi.Input['DistributionTenantManagedCertificateRequestArgs'] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        :param pulumi.Input[_builtins.str] name: Name of the distribution tenant.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]] parameters: Set of parameter values for the distribution tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "distribution_id", distribution_id)
         if connection_group_id is not None:
@@ -70,9 +60,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the multi-tenant distribution.
-        """
         return pulumi.get(self, "distribution_id")
 
     @distribution_id.setter
@@ -82,9 +69,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        """
         return pulumi.get(self, "connection_group_id")
 
     @connection_group_id.setter
@@ -94,9 +78,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter
     def customizations(self) -> Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]:
-        """
-        Customizations for the distribution tenant (maximum one).
-        """
         return pulumi.get(self, "customizations")
 
     @customizations.setter
@@ -106,9 +87,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]:
-        """
-        Set of domains associated with the distribution tenant.
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -118,9 +96,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -130,9 +105,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter(name="managedCertificateRequest")
     def managed_certificate_request(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]:
-        """
-        Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        """
         return pulumi.get(self, "managed_certificate_request")
 
     @managed_certificate_request.setter
@@ -142,9 +114,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the distribution tenant.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -154,9 +123,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
-        """
-        Set of parameter values for the distribution tenant.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -166,9 +132,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,9 +150,6 @@ class DistributionTenantArgs:
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-        """
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
@@ -217,20 +177,6 @@ class _DistributionTenantState:
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DistributionTenant resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the distribution tenant.
-        :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant (maximum one).
-        :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]] domains: Set of domains associated with the distribution tenant.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] etag: Current version of the distribution tenant.
-        :param pulumi.Input['DistributionTenantManagedCertificateRequestArgs'] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        :param pulumi.Input[_builtins.str] name: Name of the distribution tenant.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]] parameters: Set of parameter values for the distribution tenant.
-        :param pulumi.Input[_builtins.str] status: Current status of the distribution tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -266,9 +212,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -278,9 +221,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        """
         return pulumi.get(self, "connection_group_id")
 
     @connection_group_id.setter
@@ -290,9 +230,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def customizations(self) -> Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]:
-        """
-        Customizations for the distribution tenant (maximum one).
-        """
         return pulumi.get(self, "customizations")
 
     @customizations.setter
@@ -302,9 +239,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the multi-tenant distribution.
-        """
         return pulumi.get(self, "distribution_id")
 
     @distribution_id.setter
@@ -314,9 +248,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]:
-        """
-        Set of domains associated with the distribution tenant.
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -326,9 +257,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -338,9 +266,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current version of the distribution tenant.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -350,9 +275,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter(name="managedCertificateRequest")
     def managed_certificate_request(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]:
-        """
-        Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        """
         return pulumi.get(self, "managed_certificate_request")
 
     @managed_certificate_request.setter
@@ -362,9 +284,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the distribution tenant.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -374,9 +293,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
-        """
-        Set of parameter values for the distribution tenant.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -386,9 +302,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Current status of the distribution tenant.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -398,9 +311,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -410,9 +320,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -431,9 +338,6 @@ class _DistributionTenantState:
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-        """
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
@@ -460,87 +364,9 @@ class DistributionTenant(pulumi.CustomResource):
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Creates an Amazon CloudFront distribution tenant.
-
-        Distribution tenants allow you to create isolated configurations within a multi-tenant CloudFront distribution. Each tenant can have its own domains, customizations, and parameters while sharing the underlying distribution infrastructure.
-
-        For information about CloudFront distribution tenants, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-tenants.html).
-
-        ## Example Usage
-
-        ### Basic Distribution Tenant
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=True,
-            domains=[{
-                "domain": "tenant.example.com",
-            }],
-            tags={
-                "Environment": "production",
-            })
-        ```
-
-        ### Distribution Tenant with Customizations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=False,
-            domains=[{
-                "domain": "tenant.example.com",
-            }],
-            customizations={
-                "geo_restriction": {
-                    "restriction_type": "whitelist",
-                    "locations": [
-                        "US",
-                        "CA",
-                    ],
-                },
-                "certificate": {
-                    "arn": tenant_cert["arn"],
-                },
-                "web_acl": {
-                    "action": "override",
-                    "arn": tenant_waf["arn"],
-                },
-            },
-            tags={
-                "Environment": "production",
-                "Tenant": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Distribution Tenants using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
-        ```
-
+        Create a DistributionTenant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant (maximum one).
-        :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]] domains: Set of domains associated with the distribution tenant.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        :param pulumi.Input[_builtins.str] name: Name of the distribution tenant.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]] parameters: Set of parameter values for the distribution tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
         ...
     @overload
@@ -549,75 +375,7 @@ class DistributionTenant(pulumi.CustomResource):
                  args: DistributionTenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Amazon CloudFront distribution tenant.
-
-        Distribution tenants allow you to create isolated configurations within a multi-tenant CloudFront distribution. Each tenant can have its own domains, customizations, and parameters while sharing the underlying distribution infrastructure.
-
-        For information about CloudFront distribution tenants, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-tenants.html).
-
-        ## Example Usage
-
-        ### Basic Distribution Tenant
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=True,
-            domains=[{
-                "domain": "tenant.example.com",
-            }],
-            tags={
-                "Environment": "production",
-            })
-        ```
-
-        ### Distribution Tenant with Customizations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=False,
-            domains=[{
-                "domain": "tenant.example.com",
-            }],
-            customizations={
-                "geo_restriction": {
-                    "restriction_type": "whitelist",
-                    "locations": [
-                        "US",
-                        "CA",
-                    ],
-                },
-                "certificate": {
-                    "arn": tenant_cert["arn"],
-                },
-                "web_acl": {
-                    "action": "override",
-                    "arn": tenant_waf["arn"],
-                },
-            },
-            tags={
-                "Environment": "production",
-                "Tenant": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudFront Distribution Tenants using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
-        ```
-
+        Create a DistributionTenant resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DistributionTenantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -702,20 +460,6 @@ class DistributionTenant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the distribution tenant.
-        :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        :param pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']] customizations: Customizations for the distribution tenant (maximum one).
-        :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]] domains: Set of domains associated with the distribution tenant.
-        :param pulumi.Input[_builtins.bool] enabled: Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] etag: Current version of the distribution tenant.
-        :param pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']] managed_certificate_request: Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        :param pulumi.Input[_builtins.str] name: Name of the distribution tenant.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]] parameters: Set of parameter values for the distribution tenant.
-        :param pulumi.Input[_builtins.str] status: Current status of the distribution tenant.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] wait_for_deployment: If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -741,105 +485,66 @@ class DistributionTenant(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the distribution tenant.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="connectionGroupId")
     def connection_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
-        """
         return pulumi.get(self, "connection_group_id")
 
     @_builtins.property
     @pulumi.getter
     def customizations(self) -> pulumi.Output[Optional['outputs.DistributionTenantCustomizations']]:
-        """
-        Customizations for the distribution tenant (maximum one).
-        """
         return pulumi.get(self, "customizations")
 
     @_builtins.property
     @pulumi.getter(name="distributionId")
     def distribution_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the multi-tenant distribution.
-        """
         return pulumi.get(self, "distribution_id")
 
     @_builtins.property
     @pulumi.getter
     def domains(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTenantDomain']]]:
-        """
-        Set of domains associated with the distribution tenant.
-        """
         return pulumi.get(self, "domains")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current version of the distribution tenant.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
     @pulumi.getter(name="managedCertificateRequest")
     def managed_certificate_request(self) -> pulumi.Output[Optional['outputs.DistributionTenantManagedCertificateRequest']]:
-        """
-        Managed certificate request for CloudFront managed ACM certificate (maximum one).
-        """
         return pulumi.get(self, "managed_certificate_request")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the distribution tenant.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTenantParameter']]]:
-        """
-        Set of parameter values for the distribution tenant.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current status of the distribution tenant.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -850,8 +555,5 @@ class DistributionTenant(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> pulumi.Output[_builtins.bool]:
-        """
-        If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
-        """
         return pulumi.get(self, "wait_for_deployment")
 

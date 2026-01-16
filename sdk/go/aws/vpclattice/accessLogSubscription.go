@@ -12,60 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewAccessLogSubscription(ctx, "example", &vpclattice.AccessLogSubscriptionArgs{
-//				ResourceIdentifier: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Id),
-//				DestinationArn:     pulumi.Any(bucket.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-// ```
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the access log subscription.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the log destination.
-	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the service network or service.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-	//
-	// The following arguments are optional:
-	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
-	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	DestinationArn        pulumi.StringOutput    `pulumi:"destinationArn"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	ResourceArn           pulumi.StringOutput    `pulumi:"resourceArn"`
+	ResourceIdentifier    pulumi.StringOutput    `pulumi:"resourceIdentifier"`
 	ServiceNetworkLogType pulumi.StringOutput    `pulumi:"serviceNetworkLogType"`
 	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -107,38 +61,22 @@ func GetAccessLogSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessLogSubscription resources.
 type accessLogSubscriptionState struct {
-	// Amazon Resource Name (ARN) of the access log subscription.
-	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the log destination.
-	DestinationArn *string `pulumi:"destinationArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the service network or service.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-	//
-	// The following arguments are optional:
-	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
-	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+	Arn                   *string           `pulumi:"arn"`
+	DestinationArn        *string           `pulumi:"destinationArn"`
+	Region                *string           `pulumi:"region"`
+	ResourceArn           *string           `pulumi:"resourceArn"`
+	ResourceIdentifier    *string           `pulumi:"resourceIdentifier"`
 	ServiceNetworkLogType *string           `pulumi:"serviceNetworkLogType"`
 	Tags                  map[string]string `pulumi:"tags"`
 	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type AccessLogSubscriptionState struct {
-	// Amazon Resource Name (ARN) of the access log subscription.
-	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the log destination.
-	DestinationArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the service network or service.
-	ResourceArn pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-	//
-	// The following arguments are optional:
-	ResourceIdentifier pulumi.StringPtrInput
-	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+	Arn                   pulumi.StringPtrInput
+	DestinationArn        pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	ResourceArn           pulumi.StringPtrInput
+	ResourceIdentifier    pulumi.StringPtrInput
 	ServiceNetworkLogType pulumi.StringPtrInput
 	Tags                  pulumi.StringMapInput
 	TagsAll               pulumi.StringMapInput
@@ -149,30 +87,18 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 }
 
 type accessLogSubscriptionArgs struct {
-	// Amazon Resource Name (ARN) of the log destination.
-	DestinationArn string `pulumi:"destinationArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-	//
-	// The following arguments are optional:
-	ResourceIdentifier string `pulumi:"resourceIdentifier"`
-	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+	DestinationArn        string            `pulumi:"destinationArn"`
+	Region                *string           `pulumi:"region"`
+	ResourceIdentifier    string            `pulumi:"resourceIdentifier"`
 	ServiceNetworkLogType *string           `pulumi:"serviceNetworkLogType"`
 	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessLogSubscription resource.
 type AccessLogSubscriptionArgs struct {
-	// Amazon Resource Name (ARN) of the log destination.
-	DestinationArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-	//
-	// The following arguments are optional:
-	ResourceIdentifier pulumi.StringInput
-	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+	DestinationArn        pulumi.StringInput
+	Region                pulumi.StringPtrInput
+	ResourceIdentifier    pulumi.StringInput
 	ServiceNetworkLogType pulumi.StringPtrInput
 	Tags                  pulumi.StringMapInput
 }
@@ -264,34 +190,26 @@ func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutputWithContext(ct
 	return o
 }
 
-// Amazon Resource Name (ARN) of the access log subscription.
 func (o AccessLogSubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the log destination.
 func (o AccessLogSubscriptionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessLogSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the service network or service.
 func (o AccessLogSubscriptionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
-//
-// The following arguments are optional:
 func (o AccessLogSubscriptionOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }
 
-// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 func (o AccessLogSubscriptionOutput) ServiceNetworkLogType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ServiceNetworkLogType }).(pulumi.StringOutput)
 }

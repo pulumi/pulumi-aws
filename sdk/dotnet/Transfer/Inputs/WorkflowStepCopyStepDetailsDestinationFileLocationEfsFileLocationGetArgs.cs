@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the file system, assigned by Amazon EFS.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
-        /// <summary>
-        /// The pathname for the folder being used by a workflow.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

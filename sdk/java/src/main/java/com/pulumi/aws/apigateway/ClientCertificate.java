@@ -15,162 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway Client Certificate.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.ClientCertificate;
- * import com.pulumi.aws.apigateway.ClientCertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var demo = new ClientCertificate("demo", ClientCertificateArgs.builder()
- *             .description("My client certificate")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/clientCertificate:ClientCertificate")
 public class ClientCertificate extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Date when the client certificate was created.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return Date when the client certificate was created.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * Description of the client certificate.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the client certificate.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Date when the client certificate will expire.
-     * 
-     */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
-    /**
-     * @return Date when the client certificate will expire.
-     * 
-     */
     public Output<String> expirationDate() {
         return this.expirationDate;
     }
-    /**
-     * The PEM-encoded public key of the client certificate.
-     * 
-     */
     @Export(name="pemEncodedCertificate", refs={String.class}, tree="[0]")
     private Output<String> pemEncodedCertificate;
 
-    /**
-     * @return The PEM-encoded public key of the client certificate.
-     * 
-     */
     public Output<String> pemEncodedCertificate() {
         return this.pemEncodedCertificate;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

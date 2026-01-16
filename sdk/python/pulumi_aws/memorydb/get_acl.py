@@ -52,9 +52,6 @@ class GetAclResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the ACL.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -68,9 +65,6 @@ class GetAclResult:
     @_builtins.property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> _builtins.str:
-        """
-        The minimum engine version supported by the ACL.
-        """
         return pulumi.get(self, "minimum_engine_version")
 
     @_builtins.property
@@ -86,17 +80,11 @@ class GetAclResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags assigned to the ACL.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="userNames")
     def user_names(self) -> Sequence[_builtins.str]:
-        """
-        Set of MemoryDB user names included in this ACL.
-        """
         return pulumi.get(self, "user_names")
 
 
@@ -120,21 +108,7 @@ def get_acl(name: Optional[_builtins.str] = None,
             tags: Optional[Mapping[str, _builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAclResult:
     """
-    Provides information about a MemoryDB ACL.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_acl(name="my-acl")
-    ```
-
-
-    :param _builtins.str name: Name of the ACL.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the ACL.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -156,21 +130,7 @@ def get_acl_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAclResult]:
     """
-    Provides information about a MemoryDB ACL.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_acl(name="my-acl")
-    ```
-
-
-    :param _builtins.str name: Name of the ACL.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the ACL.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

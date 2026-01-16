@@ -15,19 +15,9 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
 
     public static final RouteSpecGrpcRouteActionArgs Empty = new RouteSpecGrpcRouteActionArgs();
 
-    /**
-     * Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
-     * 
-     */
     @Import(name="weightedTargets", required=true)
     private Output<List<RouteSpecGrpcRouteActionWeightedTargetArgs>> weightedTargets;
 
-    /**
-     * @return Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
-     * 
-     */
     public Output<List<RouteSpecGrpcRouteActionWeightedTargetArgs>> weightedTargets() {
         return this.weightedTargets;
     }
@@ -56,36 +46,15 @@ public final class RouteSpecGrpcRouteActionArgs extends com.pulumi.resources.Res
             $ = new RouteSpecGrpcRouteActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
-         * You can specify one or more targets and their relative weights with which to distribute traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedTargets(Output<List<RouteSpecGrpcRouteActionWeightedTargetArgs>> weightedTargets) {
             $.weightedTargets = weightedTargets;
             return this;
         }
 
-        /**
-         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
-         * You can specify one or more targets and their relative weights with which to distribute traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedTargets(List<RouteSpecGrpcRouteActionWeightedTargetArgs> weightedTargets) {
             return weightedTargets(Output.of(weightedTargets));
         }
 
-        /**
-         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
-         * You can specify one or more targets and their relative weights with which to distribute traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedTargets(RouteSpecGrpcRouteActionWeightedTargetArgs... weightedTargets) {
             return weightedTargets(List.of(weightedTargets));
         }

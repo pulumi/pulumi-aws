@@ -17,17 +17,9 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
 
     public static final EnvironmentLastUpdatedArgs Empty = new EnvironmentLastUpdatedArgs();
 
-    /**
-     * The Created At date of the MWAA Environment
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return The Created At date of the MWAA Environment
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
@@ -39,17 +31,9 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.errors);
     }
 
-    /**
-     * The status of the Amazon MWAA Environment
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the Amazon MWAA Environment
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -80,23 +64,11 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
             $ = new EnvironmentLastUpdatedArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdAt The Created At date of the MWAA Environment
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt The Created At date of the MWAA Environment
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
@@ -114,23 +86,11 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
             return errors(List.of(errors));
         }
 
-        /**
-         * @param status The status of the Amazon MWAA Environment
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the Amazon MWAA Environment
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

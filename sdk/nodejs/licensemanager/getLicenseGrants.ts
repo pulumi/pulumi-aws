@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be used to get a set of license grant ARNs matching a filter.
- *
- * ## Example Usage
- *
- * The following shows getting all license grant ARNs granted to your account.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const test = current.then(current => aws.licensemanager.getLicenseGrants({
- *     filters: [{
- *         name: "GranteePrincipalARN",
- *         values: [`arn:aws:iam::${current.accountId}:root`],
- *     }],
- * }));
- * ```
- */
 export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseGrantsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,13 +20,7 @@ export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getLicenseGrants.
  */
 export interface GetLicenseGrantsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.licensemanager.GetLicenseGrantsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -54,9 +28,6 @@ export interface GetLicenseGrantsArgs {
  * A collection of values returned by getLicenseGrants.
  */
 export interface GetLicenseGrantsResult {
-    /**
-     * List of all the license grant ARNs found.
-     */
     readonly arns: string[];
     readonly filters?: outputs.licensemanager.GetLicenseGrantsFilter[];
     /**
@@ -65,26 +36,6 @@ export interface GetLicenseGrantsResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * This resource can be used to get a set of license grant ARNs matching a filter.
- *
- * ## Example Usage
- *
- * The following shows getting all license grant ARNs granted to your account.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const test = current.then(current => aws.licensemanager.getLicenseGrants({
- *     filters: [{
- *         name: "GranteePrincipalARN",
- *         values: [`arn:aws:iam::${current.accountId}:root`],
- *     }],
- * }));
- * ```
- */
 export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseGrantsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,12 +49,6 @@ export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?:
  * A collection of arguments for invoking getLicenseGrants.
  */
 export interface GetLicenseGrantsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetLicenseGrantsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

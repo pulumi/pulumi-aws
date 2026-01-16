@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSetLogicalTableMapSourceJoinInstruction {
-    /**
-     * @return Join key properties of the left operand. See left_join_key_properties.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties leftJoinKeyProperties;
-    /**
-     * @return Operand on the left side of a join.
-     * 
-     */
     private String leftOperand;
-    /**
-     * @return Join instructions provided in the ON clause of a join.
-     * 
-     */
     private String onClause;
-    /**
-     * @return Join key properties of the right operand. See right_join_key_properties.
-     * 
-     */
     private @Nullable DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties rightJoinKeyProperties;
-    /**
-     * @return Operand on the right side of a join.
-     * 
-     */
     private String rightOperand;
-    /**
-     * @return Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
-     * 
-     */
     private String type;
 
     private DataSetLogicalTableMapSourceJoinInstruction() {}
-    /**
-     * @return Join key properties of the left operand. See left_join_key_properties.
-     * 
-     */
     public Optional<DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties> leftJoinKeyProperties() {
         return Optional.ofNullable(this.leftJoinKeyProperties);
     }
-    /**
-     * @return Operand on the left side of a join.
-     * 
-     */
     public String leftOperand() {
         return this.leftOperand;
     }
-    /**
-     * @return Join instructions provided in the ON clause of a join.
-     * 
-     */
     public String onClause() {
         return this.onClause;
     }
-    /**
-     * @return Join key properties of the right operand. See right_join_key_properties.
-     * 
-     */
     public Optional<DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties> rightJoinKeyProperties() {
         return Optional.ofNullable(this.rightJoinKeyProperties);
     }
-    /**
-     * @return Operand on the right side of a join.
-     * 
-     */
     public String rightOperand() {
         return this.rightOperand;
     }
-    /**
-     * @return Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -9,143 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Provides an HTTP Method Integration Response for an API Gateway Resource.
-    /// 
-    /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
-    /// you might need to add an explicit `DependsOn` for clean runs.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
-    ///     {
-    ///         Name = "MyDemoAPI",
-    ///         Description = "This is my API for demonstration purposes",
-    ///     });
-    /// 
-    ///     var myDemoResource = new Aws.ApiGateway.Resource("MyDemoResource", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ParentId = myDemoAPI.RootResourceId,
-    ///         PathPart = "mydemoresource",
-    ///     });
-    /// 
-    ///     var myDemoMethod = new Aws.ApiGateway.Method("MyDemoMethod", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = "GET",
-    ///         Authorization = "NONE",
-    ///     });
-    /// 
-    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("MyDemoIntegration", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = myDemoMethod.HttpMethod,
-    ///         Type = "MOCK",
-    ///     });
-    /// 
-    ///     var response200 = new Aws.ApiGateway.MethodResponse("response_200", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = myDemoMethod.HttpMethod,
-    ///         StatusCode = "200",
-    ///     });
-    /// 
-    ///     var myDemoIntegrationResponse = new Aws.ApiGateway.IntegrationResponse("MyDemoIntegrationResponse", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = myDemoMethod.HttpMethod,
-    ///         StatusCode = response200.StatusCode,
-    ///         ResponseTemplates = 
-    ///         {
-    ///             { "application/xml", @"#set($inputRoot = $input.path('$'))
-    /// &lt;?xml version=\""1.0\"" encoding=\""UTF-8\""?&gt;
-    /// &lt;message&gt;
-    ///     $inputRoot.body
-    /// &lt;/message&gt;
-    /// " },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]
     public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-        /// </summary>
         [Output("contentHandling")]
         public Output<string?> ContentHandling { get; private set; } = null!;
 
-        /// <summary>
-        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-        /// </summary>
         [Output("httpMethod")]
         public Output<string> HttpMethod { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// API resource ID.
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of response parameters that can be read from the backend response. For example: `ResponseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
-        /// </summary>
         [Output("responseParameters")]
         public Output<ImmutableDictionary<string, string>?> ResponseParameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of templates used to transform the integration response body.
-        /// </summary>
         [Output("responseTemplates")]
         public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
-        /// <summary>
-        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-        /// </summary>
         [Output("selectionPattern")]
         public Output<string?> SelectionPattern { get; private set; } = null!;
 
-        /// <summary>
-        /// HTTP status code.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("statusCode")]
         public Output<string> StatusCode { get; private set; } = null!;
 
@@ -195,36 +85,20 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-        /// </summary>
         [Input("contentHandling")]
         public Input<string>? ContentHandling { get; set; }
 
-        /// <summary>
-        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-        /// </summary>
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// API resource ID.
-        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         [Input("responseParameters")]
         private InputMap<string>? _responseParameters;
-
-        /// <summary>
-        /// Map of response parameters that can be read from the backend response. For example: `ResponseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
-        /// </summary>
         public InputMap<string> ResponseParameters
         {
             get => _responseParameters ?? (_responseParameters = new InputMap<string>());
@@ -233,33 +107,18 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("responseTemplates")]
         private InputMap<string>? _responseTemplates;
-
-        /// <summary>
-        /// Map of templates used to transform the integration response body.
-        /// </summary>
         public InputMap<string> ResponseTemplates
         {
             get => _responseTemplates ?? (_responseTemplates = new InputMap<string>());
             set => _responseTemplates = value;
         }
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
-        /// <summary>
-        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-        /// </summary>
         [Input("selectionPattern")]
         public Input<string>? SelectionPattern { get; set; }
 
-        /// <summary>
-        /// HTTP status code.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
@@ -271,36 +130,20 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class IntegrationResponseState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-        /// </summary>
         [Input("contentHandling")]
         public Input<string>? ContentHandling { get; set; }
 
-        /// <summary>
-        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-        /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// API resource ID.
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         [Input("responseParameters")]
         private InputMap<string>? _responseParameters;
-
-        /// <summary>
-        /// Map of response parameters that can be read from the backend response. For example: `ResponseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
-        /// </summary>
         public InputMap<string> ResponseParameters
         {
             get => _responseParameters ?? (_responseParameters = new InputMap<string>());
@@ -309,33 +152,18 @@ namespace Pulumi.Aws.ApiGateway
 
         [Input("responseTemplates")]
         private InputMap<string>? _responseTemplates;
-
-        /// <summary>
-        /// Map of templates used to transform the integration response body.
-        /// </summary>
         public InputMap<string> ResponseTemplates
         {
             get => _responseTemplates ?? (_responseTemplates = new InputMap<string>());
             set => _responseTemplates = value;
         }
 
-        /// <summary>
-        /// ID of the associated REST API.
-        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
-        /// <summary>
-        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-        /// </summary>
         [Input("selectionPattern")]
         public Input<string>? SelectionPattern { get; set; }
 
-        /// <summary>
-        /// HTTP status code.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 

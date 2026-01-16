@@ -14,17 +14,9 @@ public final class PipelineBufferOptionsArgs extends com.pulumi.resources.Resour
 
     public static final PipelineBufferOptionsArgs Empty = new PipelineBufferOptionsArgs();
 
-    /**
-     * Whether persistent buffering should be enabled.
-     * 
-     */
     @Import(name="persistentBufferEnabled", required=true)
     private Output<Boolean> persistentBufferEnabled;
 
-    /**
-     * @return Whether persistent buffering should be enabled.
-     * 
-     */
     public Output<Boolean> persistentBufferEnabled() {
         return this.persistentBufferEnabled;
     }
@@ -53,23 +45,11 @@ public final class PipelineBufferOptionsArgs extends com.pulumi.resources.Resour
             $ = new PipelineBufferOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param persistentBufferEnabled Whether persistent buffering should be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistentBufferEnabled(Output<Boolean> persistentBufferEnabled) {
             $.persistentBufferEnabled = persistentBufferEnabled;
             return this;
         }
 
-        /**
-         * @param persistentBufferEnabled Whether persistent buffering should be enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder persistentBufferEnabled(Boolean persistentBufferEnabled) {
             return persistentBufferEnabled(Output.of(persistentBufferEnabled));
         }

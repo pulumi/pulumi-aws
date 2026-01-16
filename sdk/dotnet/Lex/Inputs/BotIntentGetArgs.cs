@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class BotIntentGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the intent. Must be less than or equal to 100 characters in length.
-        /// </summary>
         [Input("intentName", required: true)]
         public Input<string> IntentName { get; set; } = null!;
 
-        /// <summary>
-        /// The version of the intent. Must be less than or equal to 64 characters in length.
-        /// </summary>
         [Input("intentVersion", required: true)]
         public Input<string> IntentVersion { get; set; } = null!;
 

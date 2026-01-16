@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic File System (EFS) Backup Policy resource.
- * Backup policies turn automatic backups on or off for an existing file system.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fs = new aws.efs.FileSystem("fs", {creationToken: "my-product"});
- * const policy = new aws.efs.BackupPolicy("policy", {
- *     fileSystemId: fs.id,
- *     backupPolicy: {
- *         status: "ENABLED",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import the EFS backup policies using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
- * ```
- */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
      * Get an existing BackupPolicy resource's state with the given name, ID, and optional extra
@@ -62,17 +35,8 @@ export class BackupPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupPolicy.__pulumiType;
     }
 
-    /**
-     * A backupPolicy object (documented below).
-     */
     declare public readonly backupPolicy: pulumi.Output<outputs.efs.BackupPolicyBackupPolicy>;
-    /**
-     * The ID of the EFS file system.
-     */
     declare public readonly fileSystemId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -112,17 +76,8 @@ export class BackupPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BackupPolicy resources.
  */
 export interface BackupPolicyState {
-    /**
-     * A backupPolicy object (documented below).
-     */
     backupPolicy?: pulumi.Input<inputs.efs.BackupPolicyBackupPolicy>;
-    /**
-     * The ID of the EFS file system.
-     */
     fileSystemId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -130,16 +85,7 @@ export interface BackupPolicyState {
  * The set of arguments for constructing a BackupPolicy resource.
  */
 export interface BackupPolicyArgs {
-    /**
-     * A backupPolicy object (documented below).
-     */
     backupPolicy: pulumi.Input<inputs.efs.BackupPolicyBackupPolicy>;
-    /**
-     * The ID of the EFS file system.
-     */
     fileSystemId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

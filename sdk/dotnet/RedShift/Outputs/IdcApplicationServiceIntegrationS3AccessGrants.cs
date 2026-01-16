@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegrationS3AccessGrants
     {
-        /// <summary>
-        /// S3 Access grants integration scope.
-        /// </summary>
         public readonly Outputs.IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccess? ReadWriteAccess;
 
         [OutputConstructor]

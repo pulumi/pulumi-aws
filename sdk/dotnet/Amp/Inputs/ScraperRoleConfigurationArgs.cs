@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Amp.Inputs
 
     public sealed class ScraperRoleConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        /// </summary>
         [Input("sourceRoleArn")]
         public Input<string>? SourceRoleArn { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        /// </summary>
         [Input("targetRoleArn")]
         public Input<string>? TargetRoleArn { get; set; }
 

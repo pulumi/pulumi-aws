@@ -13,13 +13,7 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class InstanceLoggingConfigurationAccessLogsCloudwatchLogs
     {
-        /// <summary>
-        /// Indicates whether logging is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The name of the CloudWatch Logs Log Group.
-        /// </summary>
         public readonly string? LogGroup;
 
         [OutputConstructor]

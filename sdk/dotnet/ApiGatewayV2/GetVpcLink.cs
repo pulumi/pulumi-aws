@@ -11,81 +11,12 @@ namespace Pulumi.Aws.ApiGatewayV2
 {
     public static class GetVpcLink
     {
-        /// <summary>
-        /// Data source for managing an AWS API Gateway V2 VPC Link.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGatewayV2.GetVpcLink.Invoke(new()
-        ///     {
-        ///         VpcLinkId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigatewayv2/getVpcLink:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS API Gateway V2 VPC Link.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGatewayV2.GetVpcLink.Invoke(new()
-        ///     {
-        ///         VpcLinkId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigatewayv2/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS API Gateway V2 VPC Link.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGatewayV2.GetVpcLink.Invoke(new()
-        ///     {
-        ///         VpcLinkId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigatewayv2/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
     }
@@ -93,27 +24,17 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// VPC Link Tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC Link ID
-        /// </summary>
         [Input("vpcLinkId", required: true)]
         public string VpcLinkId { get; set; } = null!;
 
@@ -125,27 +46,17 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// VPC Link Tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC Link ID
-        /// </summary>
         [Input("vpcLinkId", required: true)]
         public Input<string> VpcLinkId { get; set; } = null!;
 
@@ -159,30 +70,15 @@ namespace Pulumi.Aws.ApiGatewayV2
     [OutputType]
     public sealed class GetVpcLinkResult
     {
-        /// <summary>
-        /// ARN of the VPC Link.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// VPC Link Name.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// List of security groups associated with the VPC Link.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnets attached to the VPC Link.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// VPC Link Tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcLinkId;
 

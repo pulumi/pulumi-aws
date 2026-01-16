@@ -18,92 +18,44 @@ public final class TapePoolArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TapePoolArgs Empty = new TapePoolArgs();
 
-    /**
-     * The name of the new custom tape pool.
-     * 
-     */
     @Import(name="poolName", required=true)
     private Output<String> poolName;
 
-    /**
-     * @return The name of the new custom tape pool.
-     * 
-     */
     public Output<String> poolName() {
         return this.poolName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-     * 
-     */
     @Import(name="retentionLockTimeInDays")
     private @Nullable Output<Integer> retentionLockTimeInDays;
 
-    /**
-     * @return Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-     * 
-     */
     public Optional<Output<Integer>> retentionLockTimeInDays() {
         return Optional.ofNullable(this.retentionLockTimeInDays);
     }
 
-    /**
-     * Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-     * 
-     */
     @Import(name="retentionLockType")
     private @Nullable Output<String> retentionLockType;
 
-    /**
-     * @return Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-     * 
-     */
     public Optional<Output<String>> retentionLockType() {
         return Optional.ofNullable(this.retentionLockType);
     }
 
-    /**
-     * The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-     * 
-     */
     @Import(name="storageClass", required=true)
     private Output<String> storageClass;
 
-    /**
-     * @return The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-     * 
-     */
     public Output<String> storageClass() {
         return this.storageClass;
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -137,128 +89,56 @@ public final class TapePoolArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TapePoolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param poolName The name of the new custom tape pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolName(Output<String> poolName) {
             $.poolName = poolName;
             return this;
         }
 
-        /**
-         * @param poolName The name of the new custom tape pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolName(String poolName) {
             return poolName(Output.of(poolName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param retentionLockTimeInDays Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionLockTimeInDays(@Nullable Output<Integer> retentionLockTimeInDays) {
             $.retentionLockTimeInDays = retentionLockTimeInDays;
             return this;
         }
 
-        /**
-         * @param retentionLockTimeInDays Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionLockTimeInDays(Integer retentionLockTimeInDays) {
             return retentionLockTimeInDays(Output.of(retentionLockTimeInDays));
         }
 
-        /**
-         * @param retentionLockType Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionLockType(@Nullable Output<String> retentionLockType) {
             $.retentionLockType = retentionLockType;
             return this;
         }
 
-        /**
-         * @param retentionLockType Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionLockType(String retentionLockType) {
             return retentionLockType(Output.of(retentionLockType));
         }
 
-        /**
-         * @param storageClass The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(Output<String> storageClass) {
             $.storageClass = storageClass;
             return this;
         }
 
-        /**
-         * @param storageClass The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

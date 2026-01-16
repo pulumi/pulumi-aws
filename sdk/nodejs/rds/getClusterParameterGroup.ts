@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about an RDS cluster parameter group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getClusterParameterGroup({
- *     name: "default.postgres15",
- * });
- * ```
- */
 export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
@@ -30,13 +16,7 @@ export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opt
  * A collection of arguments for invoking getClusterParameterGroup.
  */
 export interface GetClusterParameterGroupArgs {
-    /**
-     * DB cluster parameter group name.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -44,17 +24,8 @@ export interface GetClusterParameterGroupArgs {
  * A collection of values returned by getClusterParameterGroup.
  */
 export interface GetClusterParameterGroupResult {
-    /**
-     * ARN of the cluster parameter group.
-     */
     readonly arn: string;
-    /**
-     * Description of the cluster parameter group.
-     */
     readonly description: string;
-    /**
-     * Family of the cluster parameter group.
-     */
     readonly family: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -63,20 +34,6 @@ export interface GetClusterParameterGroupResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * Information about an RDS cluster parameter group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getClusterParameterGroup({
- *     name: "default.postgres15",
- * });
- * ```
- */
 export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
@@ -89,12 +46,6 @@ export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOut
  * A collection of arguments for invoking getClusterParameterGroup.
  */
 export interface GetClusterParameterGroupOutputArgs {
-    /**
-     * DB cluster parameter group name.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -14,19 +14,15 @@ namespace Pulumi.Aws.Iam.Outputs
     public sealed class GetPrincipalPolicySimulationContextResult
     {
         /// <summary>
-        /// The context _condition key_ to set.
-        /// 
-        /// If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+        /// The key name of the context entry, such as "aws:CurrentTime".
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// An IAM value type that determines how the policy simulator will interpret the strings given in `Values`.
-        /// 
-        /// For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+        /// The type that the simulator should use to interpret the strings given in argument "values".
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A set of one or more values for this context entry.
+        /// One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

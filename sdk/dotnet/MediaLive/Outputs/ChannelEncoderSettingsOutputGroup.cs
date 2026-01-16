@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroup
     {
-        /// <summary>
-        /// Custom output group name defined by the user.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Settings associated with the output group. See Output Group Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings OutputGroupSettings;
-        /// <summary>
-        /// List of outputs. See Outputs for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutput> Outputs;
 
         [OutputConstructor]

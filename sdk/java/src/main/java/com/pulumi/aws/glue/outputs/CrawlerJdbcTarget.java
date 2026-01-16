@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerJdbcTarget {
-    /**
-     * @return The name of the connection to use to connect to the JDBC target.
-     * 
-     */
     private String connectionName;
-    /**
-     * @return Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-     * 
-     */
     private @Nullable List<String> enableAdditionalMetadatas;
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     private @Nullable List<String> exclusions;
-    /**
-     * @return The path of the JDBC target.
-     * 
-     */
     private String path;
 
     private CrawlerJdbcTarget() {}
-    /**
-     * @return The name of the connection to use to connect to the JDBC target.
-     * 
-     */
     public String connectionName() {
         return this.connectionName;
     }
-    /**
-     * @return Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
-     * 
-     */
     public List<String> enableAdditionalMetadatas() {
         return this.enableAdditionalMetadatas == null ? List.of() : this.enableAdditionalMetadatas;
     }
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     public List<String> exclusions() {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
-    /**
-     * @return The path of the JDBC target.
-     * 
-     */
     public String path() {
         return this.path;
     }

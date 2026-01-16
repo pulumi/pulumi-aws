@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleKafka {
-    /**
-     * @return Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-     * 
-     */
     private Map<String,String> clientProperties;
-    /**
-     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
-     * 
-     */
     private String destinationArn;
-    /**
-     * @return The list of Kafka headers that you specify. Nested arguments below.
-     * 
-     */
     private @Nullable List<TopicRuleKafkaHeader> headers;
-    /**
-     * @return The Kafka message key.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return The Kafka message partition.
-     * 
-     */
     private @Nullable String partition;
-    /**
-     * @return The Kafka topic for messages to be sent to the Kafka broker.
-     * 
-     */
     private String topic;
 
     private TopicRuleKafka() {}
-    /**
-     * @return Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-     * 
-     */
     public Map<String,String> clientProperties() {
         return this.clientProperties;
     }
-    /**
-     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
-     * 
-     */
     public String destinationArn() {
         return this.destinationArn;
     }
-    /**
-     * @return The list of Kafka headers that you specify. Nested arguments below.
-     * 
-     */
     public List<TopicRuleKafkaHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return The Kafka message key.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return The Kafka message partition.
-     * 
-     */
     public Optional<String> partition() {
         return Optional.ofNullable(this.partition);
     }
-    /**
-     * @return The Kafka topic for messages to be sent to the Kafka broker.
-     * 
-     */
     public String topic() {
         return this.topic;
     }

@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsApplicationReferenceDataSources {
-    /**
-     * @return The ARN of the Kinesis Analytics Application.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
-     * 
-     */
     private AnalyticsApplicationReferenceDataSourcesS3 s3;
-    /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
-     * 
-     */
     private AnalyticsApplicationReferenceDataSourcesSchema schema;
-    /**
-     * @return The in-application Table Name.
-     * 
-     */
     private String tableName;
 
     private AnalyticsApplicationReferenceDataSources() {}
-    /**
-     * @return The ARN of the Kinesis Analytics Application.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
-     * 
-     */
     public AnalyticsApplicationReferenceDataSourcesS3 s3() {
         return this.s3;
     }
-    /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
-     * 
-     */
     public AnalyticsApplicationReferenceDataSourcesSchema schema() {
         return this.schema;
     }
-    /**
-     * @return The in-application Table Name.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }

@@ -52,9 +52,6 @@ class GetContactResult:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> _builtins.str:
-        """
-        A unique and identifiable alias of the contact or escalation plan.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
@@ -65,9 +62,6 @@ class GetContactResult:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        Full friendly name of the contact or escalation plan.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
@@ -86,17 +80,11 @@ class GetContactResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags to assign to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -120,23 +108,7 @@ def get_contact(arn: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
-    Data source for managing an AWS SSM Contact.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
-    ```
-
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -158,23 +130,7 @@ def get_contact_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
-    Data source for managing an AWS SSM Contact.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
-    ```
-
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags to assign to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

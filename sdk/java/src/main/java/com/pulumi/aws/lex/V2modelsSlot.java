@@ -20,189 +20,77 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
- * ```
- * 
- */
 @ResourceType(type="aws:lex/v2modelsSlot:V2modelsSlot")
 public class V2modelsSlot extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the bot associated with the slot.
-     * 
-     */
     @Export(name="botId", refs={String.class}, tree="[0]")
     private Output<String> botId;
 
-    /**
-     * @return Identifier of the bot associated with the slot.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
-    /**
-     * Version of the bot associated with the slot.
-     * 
-     */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
-    /**
-     * @return Version of the bot associated with the slot.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
-    /**
-     * Description of the slot.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the slot.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Identifier of the intent that contains the slot.
-     * 
-     */
     @Export(name="intentId", refs={String.class}, tree="[0]")
     private Output<String> intentId;
 
-    /**
-     * @return Identifier of the intent that contains the slot.
-     * 
-     */
     public Output<String> intentId() {
         return this.intentId;
     }
-    /**
-     * Identifier of the language and locale that the slot will be used in.
-     * 
-     */
     @Export(name="localeId", refs={String.class}, tree="[0]")
     private Output<String> localeId;
 
-    /**
-     * @return Identifier of the language and locale that the slot will be used in.
-     * 
-     */
     public Output<String> localeId() {
         return this.localeId;
     }
-    /**
-     * Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     * 
-     */
     @Export(name="multipleValuesSettings", refs={List.class,V2modelsSlotMultipleValuesSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotMultipleValuesSetting>> multipleValuesSettings;
 
-    /**
-     * @return Whether the slot returns multiple values in one response.
-     * See the `multipleValuesSetting` argument reference below.
-     * 
-     */
     public Output<Optional<List<V2modelsSlotMultipleValuesSetting>>> multipleValuesSettings() {
         return Codegen.optional(this.multipleValuesSettings);
     }
-    /**
-     * Name of the slot.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the slot.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     * 
-     */
     @Export(name="obfuscationSettings", refs={List.class,V2modelsSlotObfuscationSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotObfuscationSetting>> obfuscationSettings;
 
-    /**
-     * @return Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscationSetting` argument reference below.
-     * 
-     */
     public Output<Optional<List<V2modelsSlotObfuscationSetting>>> obfuscationSettings() {
         return Codegen.optional(this.obfuscationSettings);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Unique identifier associated with the slot.
-     * 
-     */
     @Export(name="slotId", refs={String.class}, tree="[0]")
     private Output<String> slotId;
 
-    /**
-     * @return Unique identifier associated with the slot.
-     * 
-     */
     public Output<String> slotId() {
         return this.slotId;
     }
-    /**
-     * Unique identifier for the slot type associated with this slot.
-     * 
-     */
     @Export(name="slotTypeId", refs={String.class}, tree="[0]")
     private Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier for the slot type associated with this slot.
-     * 
-     */
     public Output<String> slotTypeId() {
         return this.slotTypeId;
     }
-    /**
-     * Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     * 
-     */
     @Export(name="subSlotSettings", refs={List.class,V2modelsSlotSubSlotSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotSubSlotSetting>> subSlotSettings;
 
-    /**
-     * @return Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `subSlotSetting` argument reference below.
-     * 
-     */
     public Output<Optional<List<V2modelsSlotSubSlotSetting>>> subSlotSettings() {
         return Codegen.optional(this.subSlotSettings);
     }

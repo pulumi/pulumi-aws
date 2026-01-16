@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement
     {
-        /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See `FieldToMatch` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch? FieldToMatch;
-        /// <summary>
-        /// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        /// </summary>
         public readonly string RegexString;
-        /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `TextTransformation` below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation> TextTransformations;
 
         [OutputConstructor]

@@ -17,36 +17,16 @@ public final class GetVpcIpamPoolsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcIpamPoolsArgs Empty = new GetVpcIpamPoolsArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcIpamPoolsFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-     * 
-     */
     public Optional<Output<List<GetVpcIpamPoolsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -76,60 +56,24 @@ public final class GetVpcIpamPoolsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcIpamPoolsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVpcIpamPoolsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVpcIpamPoolsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcIpamPoolsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

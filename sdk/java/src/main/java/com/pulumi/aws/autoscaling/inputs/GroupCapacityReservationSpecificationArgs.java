@@ -16,32 +16,16 @@ public final class GroupCapacityReservationSpecificationArgs extends com.pulumi.
 
     public static final GroupCapacityReservationSpecificationArgs Empty = new GroupCapacityReservationSpecificationArgs();
 
-    /**
-     * Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-     * 
-     */
     @Import(name="capacityReservationPreference")
     private @Nullable Output<String> capacityReservationPreference;
 
-    /**
-     * @return Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-     * 
-     */
     public Optional<Output<String>> capacityReservationPreference() {
         return Optional.ofNullable(this.capacityReservationPreference);
     }
 
-    /**
-     * Describes a target Capacity Reservation or Capacity Reservation resource group.
-     * 
-     */
     @Import(name="capacityReservationTarget")
     private @Nullable Output<GroupCapacityReservationSpecificationCapacityReservationTargetArgs> capacityReservationTarget;
 
-    /**
-     * @return Describes a target Capacity Reservation or Capacity Reservation resource group.
-     * 
-     */
     public Optional<Output<GroupCapacityReservationSpecificationCapacityReservationTargetArgs>> capacityReservationTarget() {
         return Optional.ofNullable(this.capacityReservationTarget);
     }
@@ -71,44 +55,20 @@ public final class GroupCapacityReservationSpecificationArgs extends com.pulumi.
             $ = new GroupCapacityReservationSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityReservationPreference Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationPreference(@Nullable Output<String> capacityReservationPreference) {
             $.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
 
-        /**
-         * @param capacityReservationPreference Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationPreference(String capacityReservationPreference) {
             return capacityReservationPreference(Output.of(capacityReservationPreference));
         }
 
-        /**
-         * @param capacityReservationTarget Describes a target Capacity Reservation or Capacity Reservation resource group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationTarget(@Nullable Output<GroupCapacityReservationSpecificationCapacityReservationTargetArgs> capacityReservationTarget) {
             $.capacityReservationTarget = capacityReservationTarget;
             return this;
         }
 
-        /**
-         * @param capacityReservationTarget Describes a target Capacity Reservation or Capacity Reservation resource group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityReservationTarget(GroupCapacityReservationSpecificationCapacityReservationTargetArgs capacityReservationTarget) {
             return capacityReservationTarget(Output.of(capacityReservationTarget));
         }

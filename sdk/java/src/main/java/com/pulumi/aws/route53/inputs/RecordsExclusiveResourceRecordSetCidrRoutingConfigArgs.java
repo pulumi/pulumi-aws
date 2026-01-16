@@ -14,40 +14,16 @@ public final class RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs extend
 
     public static final RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs Empty = new RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs();
 
-    /**
-     * CIDR collection ID.
-     * See the `aws.route53.CidrCollection` resource for more details.
-     * 
-     */
     @Import(name="collectionId", required=true)
     private Output<String> collectionId;
 
-    /**
-     * @return CIDR collection ID.
-     * See the `aws.route53.CidrCollection` resource for more details.
-     * 
-     */
     public Output<String> collectionId() {
         return this.collectionId;
     }
 
-    /**
-     * CIDR collection location name.
-     * See the `aws.route53.CidrLocation` resource for more details.
-     * A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record.
-     * `collectionId` is still required for a default record.
-     * 
-     */
     @Import(name="locationName", required=true)
     private Output<String> locationName;
 
-    /**
-     * @return CIDR collection location name.
-     * See the `aws.route53.CidrLocation` resource for more details.
-     * A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record.
-     * `collectionId` is still required for a default record.
-     * 
-     */
     public Output<String> locationName() {
         return this.locationName;
     }
@@ -77,52 +53,20 @@ public final class RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs extend
             $ = new RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param collectionId CIDR collection ID.
-         * See the `aws.route53.CidrCollection` resource for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collectionId(Output<String> collectionId) {
             $.collectionId = collectionId;
             return this;
         }
 
-        /**
-         * @param collectionId CIDR collection ID.
-         * See the `aws.route53.CidrCollection` resource for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collectionId(String collectionId) {
             return collectionId(Output.of(collectionId));
         }
 
-        /**
-         * @param locationName CIDR collection location name.
-         * See the `aws.route53.CidrLocation` resource for more details.
-         * A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record.
-         * `collectionId` is still required for a default record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationName(Output<String> locationName) {
             $.locationName = locationName;
             return this;
         }
 
-        /**
-         * @param locationName CIDR collection location name.
-         * See the `aws.route53.CidrLocation` resource for more details.
-         * A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record.
-         * `collectionId` is still required for a default record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder locationName(String locationName) {
             return locationName(Output.of(locationName));
         }

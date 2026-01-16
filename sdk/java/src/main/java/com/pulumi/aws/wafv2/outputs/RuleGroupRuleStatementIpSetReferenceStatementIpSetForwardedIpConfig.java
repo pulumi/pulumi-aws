@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
-    /**
-     * @return The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     private String fallbackBehavior;
-    /**
-     * @return The name of the HTTP header to use for the IP address.
-     * 
-     */
     private String headerName;
-    /**
-     * @return The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
-     * 
-     */
     private String position;
 
     private RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig() {}
-    /**
-     * @return The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     public String fallbackBehavior() {
         return this.fallbackBehavior;
     }
-    /**
-     * @return The name of the HTTP header to use for the IP address.
-     * 
-     */
     public String headerName() {
         return this.headerName;
     }
-    /**
-     * @return The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
-     * 
-     */
     public String position() {
         return this.position;
     }

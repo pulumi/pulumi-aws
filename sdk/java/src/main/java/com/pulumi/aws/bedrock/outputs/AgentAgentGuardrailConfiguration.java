@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentGuardrailConfiguration {
-    /**
-     * @return Unique identifier of the guardrail.
-     * 
-     */
     private String guardrailIdentifier;
-    /**
-     * @return Version of the guardrail.
-     * 
-     */
     private String guardrailVersion;
 
     private AgentAgentGuardrailConfiguration() {}
-    /**
-     * @return Unique identifier of the guardrail.
-     * 
-     */
     public String guardrailIdentifier() {
         return this.guardrailIdentifier;
     }
-    /**
-     * @return Version of the guardrail.
-     * 
-     */
     public String guardrailVersion() {
         return this.guardrailVersion;
     }

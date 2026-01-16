@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceDeploymentConfigurationCanaryConfiguration
     {
-        /// <summary>
-        /// Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-        /// </summary>
         public readonly string? CanaryBakeTimeInMinutes;
-        /// <summary>
-        /// Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-        /// </summary>
         public readonly double? CanaryPercent;
 
         [OutputConstructor]

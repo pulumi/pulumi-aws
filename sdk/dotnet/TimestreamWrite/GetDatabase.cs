@@ -11,81 +11,12 @@ namespace Pulumi.Aws.TimestreamWrite
 {
     public static class GetDatabase
     {
-        /// <summary>
-        /// Data source for managing an AWS Timestream Write Database.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.TimestreamWrite.GetDatabase.Invoke(new()
-        ///     {
-        ///         Name = "database-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("aws:timestreamwrite/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Timestream Write Database.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.TimestreamWrite.GetDatabase.Invoke(new()
-        ///     {
-        ///         Name = "database-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("aws:timestreamwrite/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Timestream Write Database.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.TimestreamWrite.GetDatabase.Invoke(new()
-        ///     {
-        ///         Name = "database-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("aws:timestreamwrite/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
@@ -96,9 +27,6 @@ namespace Pulumi.Aws.TimestreamWrite
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,9 +41,6 @@ namespace Pulumi.Aws.TimestreamWrite
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,31 +54,16 @@ namespace Pulumi.Aws.TimestreamWrite
     [OutputType]
     public sealed class GetDatabaseResult
     {
-        /// <summary>
-        /// The ARN that uniquely identifies this database.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Creation time of database.
-        /// </summary>
         public readonly string CreatedTime;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The ARN of the KMS key used to encrypt the data stored in the database.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// Last time database was updated.
-        /// </summary>
         public readonly string LastUpdatedTime;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Total number of tables in the Timestream database.
-        /// </summary>
         public readonly int TableCount;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kms.Outputs
     [OutputType]
     public sealed class CustomKeyStoreXksProxyAuthenticationCredential
     {
-        /// <summary>
-        /// A unique identifier for the raw secret access key.
-        /// </summary>
         public readonly string AccessKeyId;
-        /// <summary>
-        /// A secret string of 43-64 characters.
-        /// </summary>
         public readonly string RawSecretAccessKey;
 
         [OutputConstructor]

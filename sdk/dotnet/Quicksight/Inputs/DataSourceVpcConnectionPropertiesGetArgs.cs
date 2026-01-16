@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceVpcConnectionPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the VPC connection.
-        /// </summary>
         [Input("vpcConnectionArn", required: true)]
         public Input<string> VpcConnectionArn { get; set; } = null!;
 

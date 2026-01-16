@@ -14,32 +14,16 @@ public final class AgentcoreMemoryStrategyConfigurationConsolidationArgs extends
 
     public static final AgentcoreMemoryStrategyConfigurationConsolidationArgs Empty = new AgentcoreMemoryStrategyConfigurationConsolidationArgs();
 
-    /**
-     * Additional text to append to the model prompt for consolidation processing.
-     * 
-     */
     @Import(name="appendToPrompt", required=true)
     private Output<String> appendToPrompt;
 
-    /**
-     * @return Additional text to append to the model prompt for consolidation processing.
-     * 
-     */
     public Output<String> appendToPrompt() {
         return this.appendToPrompt;
     }
 
-    /**
-     * ID of the foundation model to use for consolidation processing.
-     * 
-     */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
-    /**
-     * @return ID of the foundation model to use for consolidation processing.
-     * 
-     */
     public Output<String> modelId() {
         return this.modelId;
     }
@@ -69,44 +53,20 @@ public final class AgentcoreMemoryStrategyConfigurationConsolidationArgs extends
             $ = new AgentcoreMemoryStrategyConfigurationConsolidationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appendToPrompt Additional text to append to the model prompt for consolidation processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appendToPrompt(Output<String> appendToPrompt) {
             $.appendToPrompt = appendToPrompt;
             return this;
         }
 
-        /**
-         * @param appendToPrompt Additional text to append to the model prompt for consolidation processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appendToPrompt(String appendToPrompt) {
             return appendToPrompt(Output.of(appendToPrompt));
         }
 
-        /**
-         * @param modelId ID of the foundation model to use for consolidation processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(Output<String> modelId) {
             $.modelId = modelId;
             return this;
         }
 
-        /**
-         * @param modelId ID of the foundation model to use for consolidation processing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(String modelId) {
             return modelId(Output.of(modelId));
         }

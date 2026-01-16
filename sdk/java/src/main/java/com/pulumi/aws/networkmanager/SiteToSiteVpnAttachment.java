@@ -16,368 +16,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager site-to-site VPN attachment.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.SiteToSiteVpnAttachment;
- * import com.pulumi.aws.networkmanager.SiteToSiteVpnAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SiteToSiteVpnAttachment("example", SiteToSiteVpnAttachmentArgs.builder()
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpnConnectionArn(exampleAwsVpnConnection.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Full Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.CustomerGateway;
- * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import com.pulumi.aws.ec2.VpnConnection;
- * import com.pulumi.aws.ec2.VpnConnectionArgs;
- * import com.pulumi.aws.networkmanager.GlobalNetwork;
- * import com.pulumi.aws.networkmanager.GlobalNetworkArgs;
- * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
- * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
- * import com.pulumi.awscc.NetworkmanagerCoreNetwork;
- * import com.pulumi.awscc.NetworkmanagerCoreNetworkArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JsondecodeArgs;
- * import com.pulumi.aws.networkmanager.SiteToSiteVpnAttachment;
- * import com.pulumi.aws.networkmanager.SiteToSiteVpnAttachmentArgs;
- * import com.pulumi.aws.networkmanager.AttachmentAccepter;
- * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testCustomerGateway = new CustomerGateway("testCustomerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn("65000")
- *             .ipAddress("172.0.0.1")
- *             .type("ipsec.1")
- *             .build());
- * 
- *         var testVpnConnection = new VpnConnection("testVpnConnection", VpnConnectionArgs.builder()
- *             .customerGatewayId(testCustomerGateway.id())
- *             .type("ipsec.1")
- *             .tags(Map.of("Name", "test"))
- *             .build());
- * 
- *         var testGlobalNetwork = new GlobalNetwork("testGlobalNetwork", GlobalNetworkArgs.builder()
- *             .tags(Map.of("Name", "test"))
- *             .build());
- * 
- *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
- *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .vpnEcmpSupport(false)
- *                 .asnRanges("64512-64555")
- *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                     .location(current.region())
- *                     .asn("64512")
- *                     .build())
- *                 .build())
- *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name("shared")
- *                 .description("SegmentForSharedServices")
- *                 .requireAttachmentAcceptance(true)
- *                 .build())
- *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                 .action("share")
- *                 .mode("attachment-route")
- *                 .segment("shared")
- *                 .shareWiths("*")
- *                 .build())
- *             .attachmentPolicies(GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
- *                 .ruleNumber(1)
- *                 .conditionLogic("or")
- *                 .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
- *                     .type("tag-value")
- *                     .operator("equals")
- *                     .key("segment")
- *                     .value("shared")
- *                     .build())
- *                 .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
- *                     .associationMethod("constant")
- *                     .segment("shared")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testNetworkmanagerCoreNetwork = new NetworkmanagerCoreNetwork("testNetworkmanagerCoreNetwork", NetworkmanagerCoreNetworkArgs.builder()
- *             .globalNetworkId(testGlobalNetwork.id())
- *             .policyDocument(serializeJson(
- *                 StdFunctions.jsondecode(JsondecodeArgs.builder()
- *                     .input(test.json())
- *                     .build()).result()))
- *             .build());
- * 
- *         var testSiteToSiteVpnAttachment = new SiteToSiteVpnAttachment("testSiteToSiteVpnAttachment", SiteToSiteVpnAttachmentArgs.builder()
- *             .coreNetworkId(testNetworkmanagerCoreNetwork.id())
- *             .vpnConnectionArn(testVpnConnection.arn())
- *             .tags(Map.of("segment", "shared"))
- *             .build());
- * 
- *         var testAttachmentAccepter = new AttachmentAccepter("testAttachmentAccepter", AttachmentAccepterArgs.builder()
- *             .attachmentId(testSiteToSiteVpnAttachment.id())
- *             .attachmentType(testSiteToSiteVpnAttachment.attachmentType())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")
 public class SiteToSiteVpnAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the attachment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Policy rule number associated with the attachment.
-     * 
-     */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
-    /**
-     * @return Policy rule number associated with the attachment.
-     * 
-     */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
-    /**
-     * Type of attachment.
-     * 
-     */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment.
-     * 
-     */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
-    /**
-     * ARN of a core network.
-     * 
-     */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of a core network.
-     * 
-     */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * ID of a core network for the VPN attachment.
-     * 
-     */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network for the VPN attachment.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
-    /**
-     * Region where the edge is located.
-     * 
-     */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
-    /**
-     * @return Region where the edge is located.
-     * 
-     */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
-    /**
-     * ID of the attachment account owner.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the attachment account owner.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * Attachment resource ARN.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Attachment resource ARN.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Export(name="routingPolicyLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Output<Optional<String>> routingPolicyLabel() {
         return Codegen.optional(this.routingPolicyLabel);
     }
-    /**
-     * Name of the segment attachment.
-     * 
-     */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
-    /**
-     * @return Name of the segment attachment.
-     * 
-     */
     public Output<String> segmentName() {
         return this.segmentName;
     }
-    /**
-     * State of the attachment.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the attachment.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the site-to-site VPN connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vpnConnectionArn", refs={String.class}, tree="[0]")
     private Output<String> vpnConnectionArn;
 
-    /**
-     * @return ARN of the site-to-site VPN connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpnConnectionArn() {
         return this.vpnConnectionArn;
     }

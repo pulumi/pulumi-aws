@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS SSO Admin Application Providers.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetApplicationProviders(ctx, &ssoadmin.GetApplicationProvidersArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetApplicationProviders(ctx *pulumi.Context, args *GetApplicationProvidersArgs, opts ...pulumi.InvokeOption) (*GetApplicationProvidersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationProvidersResult
@@ -50,17 +23,14 @@ func GetApplicationProviders(ctx *pulumi.Context, args *GetApplicationProvidersA
 
 // A collection of arguments for invoking getApplicationProviders.
 type GetApplicationProvidersArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplicationProviders.
 type GetApplicationProvidersResult struct {
-	// A list of application providers available in the current region. See `applicationProviders` below.
 	ApplicationProviders []GetApplicationProvidersApplicationProvider `pulumi:"applicationProviders"`
-	// AWS region.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Id                   string                                       `pulumi:"id"`
+	Region               string                                       `pulumi:"region"`
 }
 
 func GetApplicationProvidersOutput(ctx *pulumi.Context, args GetApplicationProvidersOutputArgs, opts ...pulumi.InvokeOption) GetApplicationProvidersResultOutput {
@@ -74,7 +44,6 @@ func GetApplicationProvidersOutput(ctx *pulumi.Context, args GetApplicationProvi
 
 // A collection of arguments for invoking getApplicationProviders.
 type GetApplicationProvidersOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -97,14 +66,12 @@ func (o GetApplicationProvidersResultOutput) ToGetApplicationProvidersResultOutp
 	return o
 }
 
-// A list of application providers available in the current region. See `applicationProviders` below.
 func (o GetApplicationProvidersResultOutput) ApplicationProviders() GetApplicationProvidersApplicationProviderArrayOutput {
 	return o.ApplyT(func(v GetApplicationProvidersResult) []GetApplicationProvidersApplicationProvider {
 		return v.ApplicationProviders
 	}).(GetApplicationProvidersApplicationProviderArrayOutput)
 }
 
-// AWS region.
 func (o GetApplicationProvidersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationProvidersResult) string { return v.Id }).(pulumi.StringOutput)
 }

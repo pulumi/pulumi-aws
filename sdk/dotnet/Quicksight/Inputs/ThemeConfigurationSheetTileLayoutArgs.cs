@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationSheetTileLayoutArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The gutter settings that apply between tiles. See gutter.
-        /// </summary>
         [Input("gutter")]
         public Input<Inputs.ThemeConfigurationSheetTileLayoutGutterArgs>? Gutter { get; set; }
 
-        /// <summary>
-        /// The margin settings that apply around the outside edge of sheets. See margin.
-        /// </summary>
         [Input("margin")]
         public Input<Inputs.ThemeConfigurationSheetTileLayoutMarginArgs>? Margin { get; set; }
 

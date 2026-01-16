@@ -18,111 +18,51 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LinkArgs Empty = new LinkArgs();
 
-    /**
-     * Upload speed and download speed in Mbps. See below.
-     * 
-     */
     @Import(name="bandwidth", required=true)
     private Output<LinkBandwidthArgs> bandwidth;
 
-    /**
-     * @return Upload speed and download speed in Mbps. See below.
-     * 
-     */
     public Output<LinkBandwidthArgs> bandwidth() {
         return this.bandwidth;
     }
 
-    /**
-     * Description of the link.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the link.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ID of the global network.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Provider of the link.
-     * 
-     */
     @Import(name="providerName")
     private @Nullable Output<String> providerName;
 
-    /**
-     * @return Provider of the link.
-     * 
-     */
     public Optional<Output<String>> providerName() {
         return Optional.ofNullable(this.providerName);
     }
 
-    /**
-     * ID of the site.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="siteId", required=true)
     private Output<String> siteId;
 
-    /**
-     * @return ID of the site.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> siteId() {
         return this.siteId;
     }
 
-    /**
-     * Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Type of the link.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of the link.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -157,153 +97,65 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LinkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bandwidth Upload speed and download speed in Mbps. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bandwidth(Output<LinkBandwidthArgs> bandwidth) {
             $.bandwidth = bandwidth;
             return this;
         }
 
-        /**
-         * @param bandwidth Upload speed and download speed in Mbps. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bandwidth(LinkBandwidthArgs bandwidth) {
             return bandwidth(Output.of(bandwidth));
         }
 
-        /**
-         * @param description Description of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param providerName Provider of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(@Nullable Output<String> providerName) {
             $.providerName = providerName;
             return this;
         }
 
-        /**
-         * @param providerName Provider of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
         }
 
-        /**
-         * @param siteId ID of the site.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(Output<String> siteId) {
             $.siteId = siteId;
             return this;
         }
 
-        /**
-         * @param siteId ID of the site.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder siteId(String siteId) {
             return siteId(Output.of(siteId));
         }
 
-        /**
-         * @param tags Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param type Type of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

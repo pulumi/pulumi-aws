@@ -41,18 +41,12 @@ class ChannelHlsIngest(dict):
 
     def __init__(__self__, *,
                  ingest_endpoints: Optional[Sequence['outputs.ChannelHlsIngestIngestEndpoint']] = None):
-        """
-        :param Sequence['ChannelHlsIngestIngestEndpointArgs'] ingest_endpoints: A list of the ingest endpoints
-        """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @_builtins.property
     @pulumi.getter(name="ingestEndpoints")
     def ingest_endpoints(self) -> Optional[Sequence['outputs.ChannelHlsIngestIngestEndpoint']]:
-        """
-        A list of the ingest endpoints
-        """
         return pulumi.get(self, "ingest_endpoints")
 
 
@@ -62,11 +56,6 @@ class ChannelHlsIngestIngestEndpoint(dict):
                  password: Optional[_builtins.str] = None,
                  url: Optional[_builtins.str] = None,
                  username: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str password: The password
-        :param _builtins.str url: The URL
-        :param _builtins.str username: The username
-        """
         if password is not None:
             pulumi.set(__self__, "password", password)
         if url is not None:
@@ -77,25 +66,16 @@ class ChannelHlsIngestIngestEndpoint(dict):
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[_builtins.str]:
-        """
-        The password
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
-        """
-        The URL
-        """
         return pulumi.get(self, "url")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> Optional[_builtins.str]:
-        """
-        The username
-        """
         return pulumi.get(self, "username")
 
 

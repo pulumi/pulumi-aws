@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Defines the capacity size, either as a number of instances or a capacity percentage.
-        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

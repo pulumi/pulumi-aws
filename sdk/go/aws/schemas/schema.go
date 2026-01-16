@@ -12,106 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge Schema resource.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/schemas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
-//				Name: pulumi.String("my_own_registry"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"openapi": "3.0.0",
-//				"info": map[string]interface{}{
-//					"version": "1.0.0",
-//					"title":   "Event",
-//				},
-//				"paths": map[string]interface{}{},
-//				"components": map[string]interface{}{
-//					"schemas": map[string]interface{}{
-//						"Event": map[string]interface{}{
-//							"type": "object",
-//							"properties": map[string]interface{}{
-//								"name": map[string]interface{}{
-//									"type": "string",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = schemas.NewSchema(ctx, "test", &schemas.SchemaArgs{
-//				Name:         pulumi.String("my_schema"),
-//				RegistryName: test.Name,
-//				Type:         pulumi.String("OpenApi3"),
-//				Description:  pulumi.String("The schema definition for my event"),
-//				Content:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:schemas/schema:Schema test name/registry
-// ```
 type Schema struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The schema specification. Must be a valid Open API 3.0 spec.
-	Content pulumi.StringOutput `pulumi:"content"`
-	// The description of the schema. Maximum of 256 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The last modified date of the schema.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the registry in which this schema belongs.
-	RegistryName pulumi.StringOutput `pulumi:"registryName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The version of the schema.
-	Version pulumi.StringOutput `pulumi:"version"`
-	// The created date of the version of the schema.
-	VersionCreatedDate pulumi.StringOutput `pulumi:"versionCreatedDate"`
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	Content            pulumi.StringOutput    `pulumi:"content"`
+	Description        pulumi.StringPtrOutput `pulumi:"description"`
+	LastModified       pulumi.StringOutput    `pulumi:"lastModified"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	Region             pulumi.StringOutput    `pulumi:"region"`
+	RegistryName       pulumi.StringOutput    `pulumi:"registryName"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type               pulumi.StringOutput    `pulumi:"type"`
+	Version            pulumi.StringOutput    `pulumi:"version"`
+	VersionCreatedDate pulumi.StringOutput    `pulumi:"versionCreatedDate"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -153,56 +68,32 @@ func GetSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schema resources.
 type schemaState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn *string `pulumi:"arn"`
-	// The schema specification. Must be a valid Open API 3.0 spec.
-	Content *string `pulumi:"content"`
-	// The description of the schema. Maximum of 256 characters.
-	Description *string `pulumi:"description"`
-	// The last modified date of the schema.
-	LastModified *string `pulumi:"lastModified"`
-	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the registry in which this schema belongs.
-	RegistryName *string `pulumi:"registryName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-	Type *string `pulumi:"type"`
-	// The version of the schema.
-	Version *string `pulumi:"version"`
-	// The created date of the version of the schema.
-	VersionCreatedDate *string `pulumi:"versionCreatedDate"`
+	Arn                *string           `pulumi:"arn"`
+	Content            *string           `pulumi:"content"`
+	Description        *string           `pulumi:"description"`
+	LastModified       *string           `pulumi:"lastModified"`
+	Name               *string           `pulumi:"name"`
+	Region             *string           `pulumi:"region"`
+	RegistryName       *string           `pulumi:"registryName"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
+	Type               *string           `pulumi:"type"`
+	Version            *string           `pulumi:"version"`
+	VersionCreatedDate *string           `pulumi:"versionCreatedDate"`
 }
 
 type SchemaState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringPtrInput
-	// The schema specification. Must be a valid Open API 3.0 spec.
-	Content pulumi.StringPtrInput
-	// The description of the schema. Maximum of 256 characters.
-	Description pulumi.StringPtrInput
-	// The last modified date of the schema.
-	LastModified pulumi.StringPtrInput
-	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the registry in which this schema belongs.
-	RegistryName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-	Type pulumi.StringPtrInput
-	// The version of the schema.
-	Version pulumi.StringPtrInput
-	// The created date of the version of the schema.
+	Arn                pulumi.StringPtrInput
+	Content            pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	LastModified       pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Region             pulumi.StringPtrInput
+	RegistryName       pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	Type               pulumi.StringPtrInput
+	Version            pulumi.StringPtrInput
 	VersionCreatedDate pulumi.StringPtrInput
 }
 
@@ -211,38 +102,24 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
-	// The schema specification. Must be a valid Open API 3.0 spec.
-	Content string `pulumi:"content"`
-	// The description of the schema. Maximum of 256 characters.
-	Description *string `pulumi:"description"`
-	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the registry in which this schema belongs.
-	RegistryName string `pulumi:"registryName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-	Type string `pulumi:"type"`
+	Content      string            `pulumi:"content"`
+	Description  *string           `pulumi:"description"`
+	Name         *string           `pulumi:"name"`
+	Region       *string           `pulumi:"region"`
+	RegistryName string            `pulumi:"registryName"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         string            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
-	// The schema specification. Must be a valid Open API 3.0 spec.
-	Content pulumi.StringInput
-	// The description of the schema. Maximum of 256 characters.
-	Description pulumi.StringPtrInput
-	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the registry in which this schema belongs.
+	Content      pulumi.StringInput
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 	RegistryName pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-	Type pulumi.StringInput
+	Tags         pulumi.StringMapInput
+	Type         pulumi.StringInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -332,62 +209,50 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the discoverer.
 func (o SchemaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The schema specification. Must be a valid Open API 3.0 spec.
 func (o SchemaOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// The description of the schema. Maximum of 256 characters.
 func (o SchemaOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The last modified date of the schema.
 func (o SchemaOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SchemaOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the registry in which this schema belongs.
 func (o SchemaOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SchemaOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SchemaOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 func (o SchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The version of the schema.
 func (o SchemaOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// The created date of the version of the schema.
 func (o SchemaOutput) VersionCreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.VersionCreatedDate }).(pulumi.StringOutput)
 }

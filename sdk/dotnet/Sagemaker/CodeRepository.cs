@@ -9,122 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI Code Repository resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
-    ///     {
-    ///         CodeRepositoryName = "example",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Example with Secret
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecretsManager.Secret("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
-    ///     {
-    ///         SecretId = example.Id,
-    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["username"] = "example",
-    ///             ["password"] = "example",
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("example", new()
-    ///     {
-    ///         CodeRepositoryName = "example",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///             SecretArn = example.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleSecretVersion,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SageMaker AI Code Repositories using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/codeRepository:CodeRepository")]
     public partial class CodeRepository : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Code Repository (must be unique).
-        /// </summary>
         [Output("codeRepositoryName")]
         public Output<string> CodeRepositoryName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies details about the repository. see Git Config details below.
-        /// </summary>
         [Output("gitConfig")]
         public Output<Outputs.CodeRepositoryGitConfig> GitConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -174,30 +76,17 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class CodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Code Repository (must be unique).
-        /// </summary>
         [Input("codeRepositoryName", required: true)]
         public Input<string> CodeRepositoryName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies details about the repository. see Git Config details below.
-        /// </summary>
         [Input("gitConfig", required: true)]
         public Input<Inputs.CodeRepositoryGitConfigArgs> GitConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -212,36 +101,20 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class CodeRepositoryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the Code Repository (must be unique).
-        /// </summary>
         [Input("codeRepositoryName")]
         public Input<string>? CodeRepositoryName { get; set; }
 
-        /// <summary>
-        /// Specifies details about the repository. see Git Config details below.
-        /// </summary>
         [Input("gitConfig")]
         public Input<Inputs.CodeRepositoryGitConfigGetArgs>? GitConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -250,10 +123,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

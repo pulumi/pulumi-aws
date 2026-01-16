@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolSchemaNumberAttributeConstraints
     {
-        /// <summary>
-        /// Maximum value of an attribute that is of the number data type.
-        /// </summary>
         public readonly string? MaxValue;
-        /// <summary>
-        /// Minimum value of an attribute that is of the number data type.
-        /// </summary>
         public readonly string? MinValue;
 
         [OutputConstructor]

@@ -16,194 +16,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcBlockPublicAccessExclusion;
- * import com.pulumi.aws.ec2.VpcBlockPublicAccessExclusionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Vpc("test", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .build());
- * 
- *         var testVpcBlockPublicAccessExclusion = new VpcBlockPublicAccessExclusion("testVpcBlockPublicAccessExclusion", VpcBlockPublicAccessExclusionArgs.builder()
- *             .vpcId(test.id())
- *             .internetGatewayExclusionMode("allow-bidirectional")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with subnet id
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.ec2.VpcBlockPublicAccessExclusion;
- * import com.pulumi.aws.ec2.VpcBlockPublicAccessExclusionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Vpc("test", VpcArgs.builder()
- *             .cidrBlock("10.1.0.0/16")
- *             .build());
- * 
- *         var testSubnet = new Subnet("testSubnet", SubnetArgs.builder()
- *             .cidrBlock("10.1.1.0/24")
- *             .vpcId(test.id())
- *             .build());
- * 
- *         var testVpcBlockPublicAccessExclusion = new VpcBlockPublicAccessExclusion("testVpcBlockPublicAccessExclusion", VpcBlockPublicAccessExclusionArgs.builder()
- *             .subnetId(testSubnet.id())
- *             .internetGatewayExclusionMode("allow-egress")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion")
 public class VpcBlockPublicAccessExclusion extends com.pulumi.resources.CustomResource {
-    /**
-     * Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="internetGatewayExclusionMode", refs={String.class}, tree="[0]")
     private Output<String> internetGatewayExclusionMode;
 
-    /**
-     * @return Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> internetGatewayExclusionMode() {
         return this.internetGatewayExclusionMode;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) the excluded resource.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) the excluded resource.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
-    /**
-     * @return Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     * 
-     */
     public Output<Optional<String>> subnetId() {
         return Codegen.optional(this.subnetId);
     }
-    /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -213,17 +60,9 @@ public class VpcBlockPublicAccessExclusion extends com.pulumi.resources.CustomRe
     public Output<Optional<VpcBlockPublicAccessExclusionTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
-    /**
-     * @return Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     * 
-     */
     public Output<Optional<String>> vpcId() {
         return Codegen.optional(this.vpcId);
     }

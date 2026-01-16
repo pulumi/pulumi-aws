@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS OpenSearch Serverless Collection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessCollection(ctx, &opensearch.LookupServerlessCollectionArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessCollection(ctx *pulumi.Context, args *LookupServerlessCollectionArgs, opts ...pulumi.InvokeOption) (*LookupServerlessCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessCollectionResult
@@ -52,44 +23,28 @@ func LookupServerlessCollection(ctx *pulumi.Context, args *LookupServerlessColle
 
 // A collection of arguments for invoking getServerlessCollection.
 type LookupServerlessCollectionArgs struct {
-	// ID of the collection.
-	Id *string `pulumi:"id"`
-	// Name of the collection.
-	//
-	// > Exactly one of `id` or `name` is required.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     *string `pulumi:"id"`
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServerlessCollection.
 type LookupServerlessCollectionResult struct {
-	// Amazon Resource Name (ARN) of the collection.
-	Arn string `pulumi:"arn"`
-	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
-	CollectionEndpoint string `pulumi:"collectionEndpoint"`
-	// Date the Collection was created.
-	CreatedDate string `pulumi:"createdDate"`
-	// Collection-specific endpoint used to access OpenSearch Dashboards.
-	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
-	// Description of the collection.
-	Description string `pulumi:"description"`
-	// A failure code associated with the collection.
-	FailureCode    string `pulumi:"failureCode"`
-	FailureMessage string `pulumi:"failureMessage"`
-	Id             string `pulumi:"id"`
-	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// Date the Collection was last modified.
-	LastModifiedDate string `pulumi:"lastModifiedDate"`
-	Name             string `pulumi:"name"`
-	Region           string `pulumi:"region"`
-	// Indicates whether standby replicas should be used for a collection.
-	StandbyReplicas string `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of collection.
-	Type string `pulumi:"type"`
+	Arn                string            `pulumi:"arn"`
+	CollectionEndpoint string            `pulumi:"collectionEndpoint"`
+	CreatedDate        string            `pulumi:"createdDate"`
+	DashboardEndpoint  string            `pulumi:"dashboardEndpoint"`
+	Description        string            `pulumi:"description"`
+	FailureCode        string            `pulumi:"failureCode"`
+	FailureMessage     string            `pulumi:"failureMessage"`
+	Id                 string            `pulumi:"id"`
+	KmsKeyArn          string            `pulumi:"kmsKeyArn"`
+	LastModifiedDate   string            `pulumi:"lastModifiedDate"`
+	Name               string            `pulumi:"name"`
+	Region             string            `pulumi:"region"`
+	StandbyReplicas    string            `pulumi:"standbyReplicas"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               string            `pulumi:"type"`
 }
 
 func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerlessCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCollectionResultOutput {
@@ -103,13 +58,8 @@ func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerless
 
 // A collection of arguments for invoking getServerlessCollection.
 type LookupServerlessCollectionOutputArgs struct {
-	// ID of the collection.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the collection.
-	//
-	// > Exactly one of `id` or `name` is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -132,32 +82,26 @@ func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection.
 func (o LookupServerlessCollectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 func (o LookupServerlessCollectionResultOutput) CollectionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.CollectionEndpoint }).(pulumi.StringOutput)
 }
 
-// Date the Collection was created.
 func (o LookupServerlessCollectionResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Collection-specific endpoint used to access OpenSearch Dashboards.
 func (o LookupServerlessCollectionResultOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
-// Description of the collection.
 func (o LookupServerlessCollectionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// A failure code associated with the collection.
 func (o LookupServerlessCollectionResultOutput) FailureCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.FailureCode }).(pulumi.StringOutput)
 }
@@ -170,12 +114,10 @@ func (o LookupServerlessCollectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 func (o LookupServerlessCollectionResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Date the Collection was last modified.
 func (o LookupServerlessCollectionResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
@@ -188,17 +130,14 @@ func (o LookupServerlessCollectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether standby replicas should be used for a collection.
 func (o LookupServerlessCollectionResultOutput) StandbyReplicas() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.StandbyReplicas }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the collection.
 func (o LookupServerlessCollectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of collection.
 func (o LookupServerlessCollectionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Type }).(pulumi.StringOutput)
 }

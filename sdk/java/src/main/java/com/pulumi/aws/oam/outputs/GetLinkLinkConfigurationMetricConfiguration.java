@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinkLinkConfigurationMetricConfiguration {
-    /**
-     * @return Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-     * 
-     */
     private String filter;
 
     private GetLinkLinkConfigurationMetricConfiguration() {}
-    /**
-     * @return Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
-     * 
-     */
     public String filter() {
         return this.filter;
     }

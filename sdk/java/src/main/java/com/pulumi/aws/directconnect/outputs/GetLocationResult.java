@@ -11,20 +11,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLocationResult {
-    /**
-     * @return The available MAC Security (MACsec) port speeds for the location.
-     * 
-     */
     private List<String> availableMacsecPortSpeeds;
-    /**
-     * @return The available port speeds for the location.
-     * 
-     */
     private List<String> availablePortSpeeds;
-    /**
-     * @return Names of the service providers for the location.
-     * 
-     */
     private List<String> availableProviders;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -32,32 +20,16 @@ public final class GetLocationResult {
      */
     private String id;
     private String locationCode;
-    /**
-     * @return Name of the location. This includes the name of the colocation partner and the physical site of the building.
-     * 
-     */
     private String locationName;
     private String region;
 
     private GetLocationResult() {}
-    /**
-     * @return The available MAC Security (MACsec) port speeds for the location.
-     * 
-     */
     public List<String> availableMacsecPortSpeeds() {
         return this.availableMacsecPortSpeeds;
     }
-    /**
-     * @return The available port speeds for the location.
-     * 
-     */
     public List<String> availablePortSpeeds() {
         return this.availablePortSpeeds;
     }
-    /**
-     * @return Names of the service providers for the location.
-     * 
-     */
     public List<String> availableProviders() {
         return this.availableProviders;
     }
@@ -71,10 +43,6 @@ public final class GetLocationResult {
     public String locationCode() {
         return this.locationCode;
     }
-    /**
-     * @return Name of the location. This includes the name of the colocation partner and the physical site of the building.
-     * 
-     */
     public String locationName() {
         return this.locationName;
     }

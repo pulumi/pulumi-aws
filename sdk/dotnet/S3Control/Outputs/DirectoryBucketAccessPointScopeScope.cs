@@ -13,15 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class DirectoryBucketAccessPointScopeScope
     {
-        /// <summary>
-        /// You can specify a list of API operations as permissions for the access point.
-        /// </summary>
         public readonly ImmutableArray<string> Permissions;
-        /// <summary>
-        /// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-        /// 
-        /// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-        /// </summary>
         public readonly ImmutableArray<string> Prefixes;
 
         [OutputConstructor]

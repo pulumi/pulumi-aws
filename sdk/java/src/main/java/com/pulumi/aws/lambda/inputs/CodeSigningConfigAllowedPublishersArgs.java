@@ -15,17 +15,9 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
 
     public static final CodeSigningConfigAllowedPublishersArgs Empty = new CodeSigningConfigAllowedPublishersArgs();
 
-    /**
-     * Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-     * 
-     */
     @Import(name="signingProfileVersionArns", required=true)
     private Output<List<String>> signingProfileVersionArns;
 
-    /**
-     * @return Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-     * 
-     */
     public Output<List<String>> signingProfileVersionArns() {
         return this.signingProfileVersionArns;
     }
@@ -54,33 +46,15 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
             $ = new CodeSigningConfigAllowedPublishersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param signingProfileVersionArns Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingProfileVersionArns(Output<List<String>> signingProfileVersionArns) {
             $.signingProfileVersionArns = signingProfileVersionArns;
             return this;
         }
 
-        /**
-         * @param signingProfileVersionArns Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingProfileVersionArns(List<String> signingProfileVersionArns) {
             return signingProfileVersionArns(Output.of(signingProfileVersionArns));
         }
 
-        /**
-         * @param signingProfileVersionArns Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingProfileVersionArns(String... signingProfileVersionArns) {
             return signingProfileVersionArns(List.of(signingProfileVersionArns));
         }

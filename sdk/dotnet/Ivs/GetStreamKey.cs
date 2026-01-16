@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Ivs
 {
     public static class GetStreamKey
     {
-        /// <summary>
-        /// Data source for managing an AWS IVS (Interactive Video) Stream Key.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ivs.GetStreamKey.Invoke(new()
-        ///     {
-        ///         ChannelArn = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetStreamKeyResult> InvokeAsync(GetStreamKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS IVS (Interactive Video) Stream Key.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ivs.GetStreamKey.Invoke(new()
-        ///     {
-        ///         ChannelArn = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS IVS (Interactive Video) Stream Key.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ivs.GetStreamKey.Invoke(new()
-        ///     {
-        ///         ChannelArn = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.Ivs
 
     public sealed class GetStreamKeyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the Channel.
-        /// </summary>
         [Input("channelArn", required: true)]
         public string ChannelArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.Ivs
 
     public sealed class GetStreamKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the Channel.
-        /// </summary>
         [Input("channelArn", required: true)]
         public Input<string> ChannelArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,9 +70,6 @@ namespace Pulumi.Aws.Ivs
     [OutputType]
     public sealed class GetStreamKeyResult
     {
-        /// <summary>
-        /// ARN of the Stream Key.
-        /// </summary>
         public readonly string Arn;
         public readonly string ChannelArn;
         /// <summary>
@@ -169,13 +77,7 @@ namespace Pulumi.Aws.Ivs
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Stream Key value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

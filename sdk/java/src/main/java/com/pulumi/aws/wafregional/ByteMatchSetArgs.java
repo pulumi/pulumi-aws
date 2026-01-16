@@ -17,47 +17,23 @@ public final class ByteMatchSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ByteMatchSetArgs Empty = new ByteMatchSetArgs();
 
-    /**
-     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-     * 
-     */
     @Import(name="byteMatchTuples")
     private @Nullable Output<List<ByteMatchSetByteMatchTupleArgs>> byteMatchTuples;
 
-    /**
-     * @return Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-     * 
-     */
     public Optional<Output<List<ByteMatchSetByteMatchTupleArgs>>> byteMatchTuples() {
         return Optional.ofNullable(this.byteMatchTuples);
     }
 
-    /**
-     * The name or description of the ByteMatchSet.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name or description of the ByteMatchSet.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,75 +64,33 @@ public final class ByteMatchSetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ByteMatchSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param byteMatchTuples Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchTuples(@Nullable Output<List<ByteMatchSetByteMatchTupleArgs>> byteMatchTuples) {
             $.byteMatchTuples = byteMatchTuples;
             return this;
         }
 
-        /**
-         * @param byteMatchTuples Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchTuples(List<ByteMatchSetByteMatchTupleArgs> byteMatchTuples) {
             return byteMatchTuples(Output.of(byteMatchTuples));
         }
 
-        /**
-         * @param byteMatchTuples Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder byteMatchTuples(ByteMatchSetByteMatchTupleArgs... byteMatchTuples) {
             return byteMatchTuples(List.of(byteMatchTuples));
         }
 
-        /**
-         * @param name The name or description of the ByteMatchSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name or description of the ByteMatchSet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

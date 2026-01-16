@@ -12,16 +12,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuicksightGroupResult {
-    /**
-     * @return The Amazon Resource Name (ARN) for the group.
-     * 
-     */
     private String arn;
     private String awsAccountId;
-    /**
-     * @return The group description.
-     * 
-     */
     private String description;
     private String groupName;
     /**
@@ -30,28 +22,16 @@ public final class GetQuicksightGroupResult {
      */
     private String id;
     private @Nullable String namespace;
-    /**
-     * @return The principal ID of the group.
-     * 
-     */
     private String principalId;
     private String region;
 
     private GetQuicksightGroupResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) for the group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * @return The group description.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -68,10 +48,6 @@ public final class GetQuicksightGroupResult {
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
-    /**
-     * @return The principal ID of the group.
-     * 
-     */
     public String principalId() {
         return this.principalId;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fms.Inputs
 
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An integer value containing ICMP code.
-        /// </summary>
         [Input("code")]
         public Input<int>? Code { get; set; }
 
-        /// <summary>
-        /// An integer value containing ICMP type.
-        /// </summary>
         [Input("type")]
         public Input<int>? Type { get; set; }
 

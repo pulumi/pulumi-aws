@@ -15,32 +15,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserAuthenticationMode {
     private @Nullable Integer passwordCount;
-    /**
-     * @return Specifies the passwords to use for authentication if `type` is set to `password`.
-     * 
-     */
     private @Nullable List<String> passwords;
-    /**
-     * @return Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-     * 
-     */
     private String type;
 
     private UserAuthenticationMode() {}
     public Optional<Integer> passwordCount() {
         return Optional.ofNullable(this.passwordCount);
     }
-    /**
-     * @return Specifies the passwords to use for authentication if `type` is set to `password`.
-     * 
-     */
     public List<String> passwords() {
         return this.passwords == null ? List.of() : this.passwords;
     }
-    /**
-     * @return Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-     * 
-     */
     public String type() {
         return this.type;
     }

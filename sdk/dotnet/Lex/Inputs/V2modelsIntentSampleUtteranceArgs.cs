@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentSampleUtteranceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-        /// </summary>
         [Input("utterance", required: true)]
         public Input<string> Utterance { get; set; } = null!;
 

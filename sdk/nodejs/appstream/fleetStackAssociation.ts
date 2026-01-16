@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AppStream Fleet Stack association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appstream.Fleet("example", {
- *     name: "NAME",
- *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
- *     instanceType: "stream.standard.small",
- *     computeCapacity: {
- *         desiredInstances: 1,
- *     },
- * });
- * const exampleStack = new aws.appstream.Stack("example", {name: "STACK NAME"});
- * const exampleFleetStackAssociation = new aws.appstream.FleetStackAssociation("example", {
- *     fleetName: example.name,
- *     stackName: exampleStack.name,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
- *
- * ```sh
- * $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
- * ```
- */
 export class FleetStackAssociation extends pulumi.CustomResource {
     /**
      * Get an existing FleetStackAssociation resource's state with the given name, ID, and optional extra
@@ -64,17 +32,8 @@ export class FleetStackAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === FleetStackAssociation.__pulumiType;
     }
 
-    /**
-     * Name of the fleet.
-     */
     declare public readonly fleetName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Name of the stack.
-     */
     declare public readonly stackName: pulumi.Output<string>;
 
     /**
@@ -114,17 +73,8 @@ export class FleetStackAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FleetStackAssociation resources.
  */
 export interface FleetStackAssociationState {
-    /**
-     * Name of the fleet.
-     */
     fleetName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the stack.
-     */
     stackName?: pulumi.Input<string>;
 }
 
@@ -132,16 +82,7 @@ export interface FleetStackAssociationState {
  * The set of arguments for constructing a FleetStackAssociation resource.
  */
 export interface FleetStackAssociationArgs {
-    /**
-     * Name of the fleet.
-     */
     fleetName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the stack.
-     */
     stackName: pulumi.Input<string>;
 }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class SpotInstanceRequestMaintenanceOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-        /// </summary>
         [Input("autoRecovery")]
         public Input<string>? AutoRecovery { get; set; }
 

@@ -11,19 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionAction {
-    /**
-     * @return Configuration for an Export Revision to S3 action.
-     * Described in `exportRevisionToS3` Configuration Block
-     * 
-     */
     private @Nullable EventActionActionExportRevisionToS3 exportRevisionToS3;
 
     private EventActionAction() {}
-    /**
-     * @return Configuration for an Export Revision to S3 action.
-     * Described in `exportRevisionToS3` Configuration Block
-     * 
-     */
     public Optional<EventActionActionExportRevisionToS3> exportRevisionToS3() {
         return Optional.ofNullable(this.exportRevisionToS3);
     }

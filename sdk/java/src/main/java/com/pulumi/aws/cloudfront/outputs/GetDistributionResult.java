@@ -14,159 +14,57 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionResult {
-    /**
-     * @return List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
-     * 
-     */
     private List<String> aliases;
-    /**
-     * @return ID of the Anycast static IP list that is associated with the distribution, if any.
-     * 
-     */
     private String anycastIpListId;
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-     * 
-     */
     private String arn;
-    /**
-     * @return Domain name corresponding to the distribution. For
-     * example: `d604721fxaaqy9.cloudfront.net`.
-     * 
-     */
     private String domainName;
     private Boolean enabled;
-    /**
-     * @return Current version of the distribution&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
-     * 
-     */
     private String etag;
-    /**
-     * @return CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
-     * alias for the zone ID `Z2FDTNDATAQYW2`.
-     * 
-     */
     private String hostedZoneId;
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     private String id;
-    /**
-     * @return The number of invalidation batches
-     * currently in progress.
-     * 
-     */
     private Integer inProgressValidationBatches;
-    /**
-     * @return Date and time the distribution was last modified.
-     * 
-     */
     private String lastModifiedTime;
-    /**
-     * @return Current status of the distribution. `Deployed` if the
-     * distribution&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     private String status;
     private Map<String,String> tags;
-    /**
-     * @return AWS WAF web ACL associated with this distribution.
-     * 
-     */
     private String webAclId;
 
     private GetDistributionResult() {}
-    /**
-     * @return List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
-     * 
-     */
     public List<String> aliases() {
         return this.aliases;
     }
-    /**
-     * @return ID of the Anycast static IP list that is associated with the distribution, if any.
-     * 
-     */
     public String anycastIpListId() {
         return this.anycastIpListId;
     }
-    /**
-     * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Domain name corresponding to the distribution. For
-     * example: `d604721fxaaqy9.cloudfront.net`.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Current version of the distribution&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
-     * 
-     */
     public String etag() {
         return this.etag;
     }
-    /**
-     * @return CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
-     * alias for the zone ID `Z2FDTNDATAQYW2`.
-     * 
-     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The number of invalidation batches
-     * currently in progress.
-     * 
-     */
     public Integer inProgressValidationBatches() {
         return this.inProgressValidationBatches;
     }
-    /**
-     * @return Date and time the distribution was last modified.
-     * 
-     */
     public String lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * @return Current status of the distribution. `Deployed` if the
-     * distribution&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
-     * 
-     */
     public String status() {
         return this.status;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return AWS WAF web ACL associated with this distribution.
-     * 
-     */
     public String webAclId() {
         return this.webAclId;
     }

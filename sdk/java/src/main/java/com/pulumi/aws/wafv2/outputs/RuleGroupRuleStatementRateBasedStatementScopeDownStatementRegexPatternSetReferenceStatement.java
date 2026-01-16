@@ -15,45 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
-    /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-     * 
-     */
     private String arn;
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

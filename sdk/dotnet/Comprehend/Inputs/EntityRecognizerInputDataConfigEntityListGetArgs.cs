@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
     public sealed class EntityRecognizerInputDataConfigEntityListGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Location of entity list.
-        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 

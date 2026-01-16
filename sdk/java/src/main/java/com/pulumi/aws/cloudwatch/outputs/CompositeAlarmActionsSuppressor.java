@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CompositeAlarmActionsSuppressor {
-    /**
-     * @return Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-     * 
-     */
     private String alarm;
-    /**
-     * @return The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     private Integer extensionPeriod;
-    /**
-     * @return The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     private Integer waitPeriod;
 
     private CompositeAlarmActionsSuppressor() {}
-    /**
-     * @return Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-     * 
-     */
     public String alarm() {
         return this.alarm;
     }
-    /**
-     * @return The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     public Integer extensionPeriod() {
         return this.extensionPeriod;
     }
-    /**
-     * @return The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-     * 
-     */
     public Integer waitPeriod() {
         return this.waitPeriod;
     }

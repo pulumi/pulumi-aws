@@ -14,36 +14,16 @@ public final class GetProtectionPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetProtectionPlainArgs Empty = new GetProtectionPlainArgs();
 
-    /**
-     * Unique identifier for the protection.
-     * 
-     */
     @Import(name="protectionId")
     private @Nullable String protectionId;
 
-    /**
-     * @return Unique identifier for the protection.
-     * 
-     */
     public Optional<String> protectionId() {
         return Optional.ofNullable(this.protectionId);
     }
 
-    /**
-     * ARN (Amazon Resource Name) of the resource being protected.
-     * 
-     * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable String resourceArn;
 
-    /**
-     * @return ARN (Amazon Resource Name) of the resource being protected.
-     * 
-     * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-     * 
-     */
     public Optional<String> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -73,25 +53,11 @@ public final class GetProtectionPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetProtectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param protectionId Unique identifier for the protection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protectionId(@Nullable String protectionId) {
             $.protectionId = protectionId;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN (Amazon Resource Name) of the resource being protected.
-         * 
-         * &gt; Exactly one of `protectionId` or `resourceArn` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable String resourceArn) {
             $.resourceArn = resourceArn;
             return this;

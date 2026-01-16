@@ -16,51 +16,23 @@ public final class DocumentClassifierOutputDataConfigArgs extends com.pulumi.res
 
     public static final DocumentClassifierOutputDataConfigArgs Empty = new DocumentClassifierOutputDataConfigArgs();
 
-    /**
-     * KMS Key used to encrypt the output documents.
-     * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return KMS Key used to encrypt the output documents.
-     * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Full path for the output documents.
-     * 
-     */
     @Import(name="outputS3Uri")
     private @Nullable Output<String> outputS3Uri;
 
-    /**
-     * @return Full path for the output documents.
-     * 
-     */
     public Optional<Output<String>> outputS3Uri() {
         return Optional.ofNullable(this.outputS3Uri);
     }
 
-    /**
-     * Destination path for the output documents.
-     * The full path to the output file will be returned in `outputS3Uri`.
-     * 
-     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
-    /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `outputS3Uri`.
-     * 
-     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
@@ -91,69 +63,29 @@ public final class DocumentClassifierOutputDataConfigArgs extends com.pulumi.res
             $ = new DocumentClassifierOutputDataConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId KMS Key used to encrypt the output documents.
-         * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId KMS Key used to encrypt the output documents.
-         * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param outputS3Uri Full path for the output documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputS3Uri(@Nullable Output<String> outputS3Uri) {
             $.outputS3Uri = outputS3Uri;
             return this;
         }
 
-        /**
-         * @param outputS3Uri Full path for the output documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputS3Uri(String outputS3Uri) {
             return outputS3Uri(Output.of(outputS3Uri));
         }
 
-        /**
-         * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `outputS3Uri`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `outputS3Uri`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

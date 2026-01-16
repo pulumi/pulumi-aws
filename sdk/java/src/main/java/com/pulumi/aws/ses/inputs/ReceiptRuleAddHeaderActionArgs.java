@@ -15,47 +15,23 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
 
     public static final ReceiptRuleAddHeaderActionArgs Empty = new ReceiptRuleAddHeaderActionArgs();
 
-    /**
-     * The name of the header to add
-     * 
-     */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
-    /**
-     * @return The name of the header to add
-     * 
-     */
     public Output<String> headerName() {
         return this.headerName;
     }
 
-    /**
-     * The value of the header to add
-     * 
-     */
     @Import(name="headerValue", required=true)
     private Output<String> headerValue;
 
-    /**
-     * @return The value of the header to add
-     * 
-     */
     public Output<String> headerValue() {
         return this.headerValue;
     }
 
-    /**
-     * The position of the action in the receipt rule
-     * 
-     */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Output<Integer> position() {
         return this.position;
     }
@@ -86,65 +62,29 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
             $ = new ReceiptRuleAddHeaderActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param headerName The name of the header to add
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(Output<String> headerName) {
             $.headerName = headerName;
             return this;
         }
 
-        /**
-         * @param headerName The name of the header to add
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(String headerName) {
             return headerName(Output.of(headerName));
         }
 
-        /**
-         * @param headerValue The value of the header to add
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerValue(Output<String> headerValue) {
             $.headerValue = headerValue;
             return this;
         }
 
-        /**
-         * @param headerValue The value of the header to add
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerValue(String headerValue) {
             return headerValue(Output.of(headerValue));
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Output<Integer> position) {
             $.position = position;
             return this;
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Integer position) {
             return position(Output.of(position));
         }

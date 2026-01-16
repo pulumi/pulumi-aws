@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class WorkgroupConfigurationMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-        /// </summary>
         [Input("cloudWatchLoggingConfiguration")]
         public Input<Inputs.WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs>? CloudWatchLoggingConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block for managed log persistence. See Managed Logging Configuration below.
-        /// </summary>
         [Input("managedLoggingConfiguration")]
         public Input<Inputs.WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs>? ManagedLoggingConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-        /// </summary>
         [Input("s3LoggingConfiguration")]
         public Input<Inputs.WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs>? S3LoggingConfiguration { get; set; }
 

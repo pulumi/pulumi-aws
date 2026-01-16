@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetImageImageScanningConfigurationEcrConfigurationResult
     {
-        /// <summary>
-        /// Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-        /// </summary>
         public readonly ImmutableArray<string> ContainerTags;
-        /// <summary>
-        /// The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-        /// </summary>
         public readonly string RepositoryName;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange
     {
-        /// <summary>
-        /// The final port in the range of TCP ports.
-        /// </summary>
         public readonly int MaxRange;
-        /// <summary>
-        /// The first port in the range of TCP ports.
-        /// </summary>
         public readonly int MinRange;
 
         [OutputConstructor]

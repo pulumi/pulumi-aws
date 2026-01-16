@@ -16,87 +16,37 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
 
     public static final SourceCredentialArgs Empty = new SourceCredentialArgs();
 
-    /**
-     * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-     * repository. Valid values are `BASIC_AUTH`,
-     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-     * 
-     */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
-    /**
-     * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-     * repository. Valid values are `BASIC_AUTH`,
-     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The source provider used for this project.
-     * 
-     */
     @Import(name="serverType", required=true)
     private Output<String> serverType;
 
-    /**
-     * @return The source provider used for this project.
-     * 
-     */
     public Output<String> serverType() {
         return this.serverType;
     }
 
-    /**
-     * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-     * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
-     * Connection ARN.
-     * 
-     */
     @Import(name="token", required=true)
     private Output<String> token;
 
-    /**
-     * @return For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-     * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
-     * Connection ARN.
-     * 
-     */
     public Output<String> token() {
         return this.token;
     }
 
-    /**
-     * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-     * other types of source providers or connections.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-     * other types of source providers or connections.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -129,117 +79,47 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
             $ = new SourceCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-         * repository. Valid values are `BASIC_AUTH`,
-         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(Output<String> authType) {
             $.authType = authType;
             return this;
         }
 
-        /**
-         * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-         * repository. Valid values are `BASIC_AUTH`,
-         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverType The source provider used for this project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverType(Output<String> serverType) {
             $.serverType = serverType;
             return this;
         }
 
-        /**
-         * @param serverType The source provider used for this project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverType(String serverType) {
             return serverType(Output.of(serverType));
         }
 
-        /**
-         * @param token For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-         * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
-         * Connection ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder token(Output<String> token) {
             $.token = token;
             return this;
         }
 
-        /**
-         * @param token For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-         * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
-         * Connection ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder token(String token) {
             return token(Output.of(token));
         }
 
-        /**
-         * @param userName The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-         * other types of source providers or connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
-         * other types of source providers or connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

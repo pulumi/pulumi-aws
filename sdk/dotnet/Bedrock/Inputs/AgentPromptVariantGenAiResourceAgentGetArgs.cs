@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentPromptVariantGenAiResourceAgentGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the agent with which to use the prompt.
-        /// </summary>
         [Input("agentIdentifier", required: true)]
         public Input<string> AgentIdentifier { get; set; } = null!;
 

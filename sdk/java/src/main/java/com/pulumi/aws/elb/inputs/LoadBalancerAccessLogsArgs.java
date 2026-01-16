@@ -18,62 +18,30 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
 
     public static final LoadBalancerAccessLogsArgs Empty = new LoadBalancerAccessLogsArgs();
 
-    /**
-     * The S3 bucket name to store the logs in.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The S3 bucket name to store the logs in.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * Boolean to enable / disable `accessLogs`. Default is `true`
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Boolean to enable / disable `accessLogs`. Default is `true`
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-     * 
-     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
-    /**
-     * @return The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-     * 
-     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
@@ -105,86 +73,38 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
             $ = new LoadBalancerAccessLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The S3 bucket name to store the logs in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The S3 bucket name to store the logs in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param bucketPrefix The S3 bucket prefix. Logs are stored in the root if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix The S3 bucket prefix. Logs are stored in the root if not configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param enabled Boolean to enable / disable `accessLogs`. Default is `true`
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean to enable / disable `accessLogs`. Default is `true`
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param interval The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }

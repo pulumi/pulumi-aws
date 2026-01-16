@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PipeTargetParametersLambdaFunctionParameters {
-    /**
-     * @return Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
-     * 
-     */
     private String invocationType;
 
     private PipeTargetParametersLambdaFunctionParameters() {}
-    /**
-     * @return Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
-     * 
-     */
     public String invocationType() {
         return this.invocationType;
     }

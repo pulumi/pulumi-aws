@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AppAuthorizationConnectionAuthRequest {
-    /**
-     * @return The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-     * 
-     */
     private String code;
-    /**
-     * @return The redirect URL that is specified in the AuthURL and the application client.
-     * 
-     */
     private String redirectUri;
 
     private AppAuthorizationConnectionAuthRequest() {}
-    /**
-     * @return The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-     * 
-     */
     public String code() {
         return this.code;
     }
-    /**
-     * @return The redirect URL that is specified in the AuthURL and the application client.
-     * 
-     */
     public String redirectUri() {
         return this.redirectUri;
     }

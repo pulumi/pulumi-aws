@@ -11,63 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AppFabric AppBundle.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appfabric.NewAppBundle(ctx, "example", &appfabric.AppBundleArgs{
-//				CustomerManagedKeyArn: pulumi.Any(exampleAwmsKmsKey.Arn),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the AppFabric app bundle.
-//
-// Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
-//
-// % pulumi import aws_appfabric_app_bundle.example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
 type AppBundle struct {
 	pulumi.CustomResourceState
 
-	// ARN of the AppBundle.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
 	CustomerManagedKeyArn pulumi.StringPtrOutput `pulumi:"customerManagedKeyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAppBundle registers a new resource with the given unique name, arguments, and options.
@@ -100,29 +51,19 @@ func GetAppBundle(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppBundle resources.
 type appBundleState struct {
-	// ARN of the AppBundle.
-	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
-	CustomerManagedKeyArn *string `pulumi:"customerManagedKeyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string           `pulumi:"arn"`
+	CustomerManagedKeyArn *string           `pulumi:"customerManagedKeyArn"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type AppBundleState struct {
-	// ARN of the AppBundle.
-	Arn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	Arn                   pulumi.StringPtrInput
 	CustomerManagedKeyArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (AppBundleState) ElementType() reflect.Type {
@@ -130,22 +71,16 @@ func (AppBundleState) ElementType() reflect.Type {
 }
 
 type appBundleArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
-	CustomerManagedKeyArn *string `pulumi:"customerManagedKeyArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CustomerManagedKeyArn *string           `pulumi:"customerManagedKeyArn"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppBundle resource.
 type AppBundleArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (AppBundleArgs) ElementType() reflect.Type {
@@ -235,27 +170,22 @@ func (o AppBundleOutput) ToAppBundleOutputWithContext(ctx context.Context) AppBu
 	return o
 }
 
-// ARN of the AppBundle.
 func (o AppBundleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 func (o AppBundleOutput) CustomerManagedKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringPtrOutput { return v.CustomerManagedKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppBundleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AppBundleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AppBundleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

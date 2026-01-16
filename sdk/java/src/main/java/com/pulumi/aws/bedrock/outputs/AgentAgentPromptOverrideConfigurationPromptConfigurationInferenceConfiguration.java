@@ -13,65 +13,25 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
-    /**
-     * @return Maximum number of tokens to allow in the generated response.
-     * 
-     */
     private Integer maxLength;
-    /**
-     * @return List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-     * 
-     */
     private List<String> stopSequences;
-    /**
-     * @return Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-     * 
-     */
     private Double temperature;
-    /**
-     * @return Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-     * 
-     */
     private Integer topK;
-    /**
-     * @return Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-     * 
-     */
     private Double topP;
 
     private AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration() {}
-    /**
-     * @return Maximum number of tokens to allow in the generated response.
-     * 
-     */
     public Integer maxLength() {
         return this.maxLength;
     }
-    /**
-     * @return List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
-     * 
-     */
     public List<String> stopSequences() {
         return this.stopSequences;
     }
-    /**
-     * @return Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
-     * 
-     */
     public Double temperature() {
         return this.temperature;
     }
-    /**
-     * @return Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
-     * 
-     */
     public Integer topK() {
         return this.topK;
     }
-    /**
-     * @return Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
-     * 
-     */
     public Double topP() {
         return this.topP;
     }

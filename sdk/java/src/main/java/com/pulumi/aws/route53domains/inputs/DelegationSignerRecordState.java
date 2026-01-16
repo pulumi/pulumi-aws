@@ -17,47 +17,23 @@ public final class DelegationSignerRecordState extends com.pulumi.resources.Reso
 
     public static final DelegationSignerRecordState Empty = new DelegationSignerRecordState();
 
-    /**
-     * An ID assigned to the created DS record.
-     * 
-     */
     @Import(name="dnssecKeyId")
     private @Nullable Output<String> dnssecKeyId;
 
-    /**
-     * @return An ID assigned to the created DS record.
-     * 
-     */
     public Optional<Output<String>> dnssecKeyId() {
         return Optional.ofNullable(this.dnssecKeyId);
     }
 
-    /**
-     * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * The information about a key, including the algorithm, public key-value, and flags.
-     * 
-     */
     @Import(name="signingAttributes")
     private @Nullable Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes;
 
-    /**
-     * @return The information about a key, including the algorithm, public key-value, and flags.
-     * 
-     */
     public Optional<Output<DelegationSignerRecordSigningAttributesArgs>> signingAttributes() {
         return Optional.ofNullable(this.signingAttributes);
     }
@@ -96,65 +72,29 @@ public final class DelegationSignerRecordState extends com.pulumi.resources.Reso
             $ = new DelegationSignerRecordState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnssecKeyId An ID assigned to the created DS record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnssecKeyId(@Nullable Output<String> dnssecKeyId) {
             $.dnssecKeyId = dnssecKeyId;
             return this;
         }
 
-        /**
-         * @param dnssecKeyId An ID assigned to the created DS record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnssecKeyId(String dnssecKeyId) {
             return dnssecKeyId(Output.of(dnssecKeyId));
         }
 
-        /**
-         * @param domainName The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param signingAttributes The information about a key, including the algorithm, public key-value, and flags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingAttributes(@Nullable Output<DelegationSignerRecordSigningAttributesArgs> signingAttributes) {
             $.signingAttributes = signingAttributes;
             return this;
         }
 
-        /**
-         * @param signingAttributes The information about a key, including the algorithm, public key-value, and flags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingAttributes(DelegationSignerRecordSigningAttributesArgs signingAttributes) {
             return signingAttributes(Output.of(signingAttributes));
         }

@@ -15,32 +15,16 @@ public final class GetApplicationAssignmentsPlainArgs extends com.pulumi.resourc
 
     public static final GetApplicationAssignmentsPlainArgs Empty = new GetApplicationAssignmentsPlainArgs();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationArn", required=true)
     private String applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String applicationArn() {
         return this.applicationArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetApplicationAssignmentsPlainArgs extends com.pulumi.resourc
             $ = new GetApplicationAssignmentsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsNielsenConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enter the Distributor ID assigned to your organization by Nielsen.
-        /// </summary>
         [Input("distributorId")]
         public Input<string>? DistributorId { get; set; }
 
-        /// <summary>
-        /// Enables Nielsen PCM to ID3 tagging.
-        /// </summary>
         [Input("nielsenPcmToId3Tagging")]
         public Input<string>? NielsenPcmToId3Tagging { get; set; }
 

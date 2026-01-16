@@ -11,81 +11,12 @@ namespace Pulumi.Aws.RedShift
 {
     public static class GetProducerDataShares
     {
-        /// <summary>
-        /// Data source for managing AWS Redshift Producer Data Shares.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetProducerDataShares.Invoke(new()
-        ///     {
-        ///         ProducerArn = "",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetProducerDataSharesResult> InvokeAsync(GetProducerDataSharesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Redshift Producer Data Shares.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetProducerDataShares.Invoke(new()
-        ///     {
-        ///         ProducerArn = "",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProducerDataSharesResult> Invoke(GetProducerDataSharesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS Redshift Producer Data Shares.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetProducerDataShares.Invoke(new()
-        ///     {
-        ///         ProducerArn = "",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetProducerDataSharesResult> Invoke(GetProducerDataSharesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesInvokeArgs(), options.WithDefaults());
     }
@@ -93,23 +24,12 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetProducerDataSharesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("producerArn", required: true)]
         public string ProducerArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-        /// </summary>
         [Input("status")]
         public string? Status { get; set; }
 
@@ -121,23 +41,12 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetProducerDataSharesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("producerArn", required: true)]
         public Input<string> ProducerArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -151,17 +60,8 @@ namespace Pulumi.Aws.RedShift
     [OutputType]
     public sealed class GetProducerDataSharesResult
     {
-        /// <summary>
-        /// An array of all data shares in the producer. See `DataShares` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetProducerDataSharesDataShareResult> DataShares;
-        /// <summary>
-        /// Producer ARN.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN (Amazon Resource Name) of the producer.
-        /// </summary>
         public readonly string ProducerArn;
         public readonly string Region;
         public readonly string? Status;

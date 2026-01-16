@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Time for which a bot waits before re-prompting a customer for text input.
-        /// </summary>
         [Input("startTimeoutMs", required: true)]
         public Input<int> StartTimeoutMs { get; set; } = null!;
 

@@ -17,122 +17,58 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketState Empty = new BucketState();
 
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Import(name="creationDate")
     private @Nullable Output<String> creationDate;
 
-    /**
-     * @return UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Optional<Output<String>> creationDate() {
         return Optional.ofNullable(this.creationDate);
     }
 
-    /**
-     * Identifier of the Outpost to contain this bucket.
-     * 
-     */
     @Import(name="outpostId")
     private @Nullable Output<String> outpostId;
 
-    /**
-     * @return Identifier of the Outpost to contain this bucket.
-     * 
-     */
     public Optional<Output<String>> outpostId() {
         return Optional.ofNullable(this.outpostId);
     }
 
-    /**
-     * Boolean whether Public Access Block is enabled.
-     * 
-     */
     @Import(name="publicAccessBlockEnabled")
     private @Nullable Output<Boolean> publicAccessBlockEnabled;
 
-    /**
-     * @return Boolean whether Public Access Block is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> publicAccessBlockEnabled() {
         return Optional.ofNullable(this.publicAccessBlockEnabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -168,170 +104,74 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
             $ = new BucketState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param creationDate UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationDate(@Nullable Output<String> creationDate) {
             $.creationDate = creationDate;
             return this;
         }
 
-        /**
-         * @param creationDate UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationDate(String creationDate) {
             return creationDate(Output.of(creationDate));
         }
 
-        /**
-         * @param outpostId Identifier of the Outpost to contain this bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostId(@Nullable Output<String> outpostId) {
             $.outpostId = outpostId;
             return this;
         }
 
-        /**
-         * @param outpostId Identifier of the Outpost to contain this bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostId(String outpostId) {
             return outpostId(Output.of(outpostId));
         }
 
-        /**
-         * @param publicAccessBlockEnabled Boolean whether Public Access Block is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccessBlockEnabled(@Nullable Output<Boolean> publicAccessBlockEnabled) {
             $.publicAccessBlockEnabled = publicAccessBlockEnabled;
             return this;
         }
 
-        /**
-         * @param publicAccessBlockEnabled Boolean whether Public Access Block is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccessBlockEnabled(Boolean publicAccessBlockEnabled) {
             return publicAccessBlockEnabled(Output.of(publicAccessBlockEnabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

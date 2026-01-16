@@ -15,24 +15,14 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
 
-        /// <summary>
-        /// Maximum number of instances in the ﬂeet when auto-scaling.
-        /// </summary>
         [Input("maxCapacity")]
         public Input<int>? MaxCapacity { get; set; }
 
-        /// <summary>
-        /// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
-        /// </summary>
         [Input("scalingType")]
         public Input<string>? ScalingType { get; set; }
 
         [Input("targetTrackingScalingConfigs")]
         private InputList<Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs>? _targetTrackingScalingConfigs;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs> TargetTrackingScalingConfigs
         {
             get => _targetTrackingScalingConfigs ?? (_targetTrackingScalingConfigs = new InputList<Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs>());

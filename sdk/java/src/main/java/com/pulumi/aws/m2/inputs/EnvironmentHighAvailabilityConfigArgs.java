@@ -14,17 +14,9 @@ public final class EnvironmentHighAvailabilityConfigArgs extends com.pulumi.reso
 
     public static final EnvironmentHighAvailabilityConfigArgs Empty = new EnvironmentHighAvailabilityConfigArgs();
 
-    /**
-     * Desired number of instances for the Environment.
-     * 
-     */
     @Import(name="desiredCapacity", required=true)
     private Output<Integer> desiredCapacity;
 
-    /**
-     * @return Desired number of instances for the Environment.
-     * 
-     */
     public Output<Integer> desiredCapacity() {
         return this.desiredCapacity;
     }
@@ -53,23 +45,11 @@ public final class EnvironmentHighAvailabilityConfigArgs extends com.pulumi.reso
             $ = new EnvironmentHighAvailabilityConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param desiredCapacity Desired number of instances for the Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredCapacity(Output<Integer> desiredCapacity) {
             $.desiredCapacity = desiredCapacity;
             return this;
         }
 
-        /**
-         * @param desiredCapacity Desired number of instances for the Environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredCapacity(Integer desiredCapacity) {
             return desiredCapacity(Output.of(desiredCapacity));
         }

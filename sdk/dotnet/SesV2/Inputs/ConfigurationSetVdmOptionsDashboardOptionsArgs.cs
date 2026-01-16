@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SesV2.Inputs
 
     public sealed class ConfigurationSetVdmOptionsDashboardOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("engagementMetrics")]
         public Input<string>? EngagementMetrics { get; set; }
 

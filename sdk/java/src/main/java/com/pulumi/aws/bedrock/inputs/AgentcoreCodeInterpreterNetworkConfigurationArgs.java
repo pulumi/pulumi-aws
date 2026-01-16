@@ -17,32 +17,16 @@ public final class AgentcoreCodeInterpreterNetworkConfigurationArgs extends com.
 
     public static final AgentcoreCodeInterpreterNetworkConfigurationArgs Empty = new AgentcoreCodeInterpreterNetworkConfigurationArgs();
 
-    /**
-     * Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-     * 
-     */
     @Import(name="networkMode", required=true)
     private Output<String> networkMode;
 
-    /**
-     * @return Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-     * 
-     */
     public Output<String> networkMode() {
         return this.networkMode;
     }
 
-    /**
-     * VPC configuration. See `vpcConfig` below.
-     * 
-     */
     @Import(name="vpcConfig")
     private @Nullable Output<AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs> vpcConfig;
 
-    /**
-     * @return VPC configuration. See `vpcConfig` below.
-     * 
-     */
     public Optional<Output<AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -72,44 +56,20 @@ public final class AgentcoreCodeInterpreterNetworkConfigurationArgs extends com.
             $ = new AgentcoreCodeInterpreterNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkMode Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkMode(Output<String> networkMode) {
             $.networkMode = networkMode;
             return this;
         }
 
-        /**
-         * @param networkMode Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkMode(String networkMode) {
             return networkMode(Output.of(networkMode));
         }
 
-        /**
-         * @param vpcConfig VPC configuration. See `vpcConfig` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(@Nullable Output<AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
-        /**
-         * @param vpcConfig VPC configuration. See `vpcConfig` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

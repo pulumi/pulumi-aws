@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
     [OutputType]
     public sealed class SearchResourcePropertyResult
     {
-        /// <summary>
-        /// Details about this property. The content of this field is a JSON object that varies based on the resource type.
-        /// </summary>
         public readonly string Data;
-        /// <summary>
-        /// The date and time that the information about this resource property was last updated.
-        /// </summary>
         public readonly string LastReportedAt;
-        /// <summary>
-        /// Name of this property of the resource.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -9,92 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Resource for managing an AWS Route 53 Profile.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Empty Profile
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.ProfilesProfile("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "dev" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/profilesProfile:ProfilesProfile")]
     public partial class ProfilesProfile : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Profile.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Profile.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Share status of the Profile.
-        /// </summary>
         [Output("shareStatus")]
         public Output<string> ShareStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the Profile.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Status message of the Profile.
-        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -147,24 +88,14 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ProfilesProfileArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Profile.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -182,51 +113,29 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ProfilesProfileState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Profile.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the Profile.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Share status of the Profile.
-        /// </summary>
         [Input("shareStatus")]
         public Input<string>? ShareStatus { get; set; }
 
-        /// <summary>
-        /// Status of the Profile.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// Status message of the Profile.
-        /// </summary>
         [Input("statusMessage")]
         public Input<string>? StatusMessage { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -235,10 +144,6 @@ namespace Pulumi.Aws.Route53
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

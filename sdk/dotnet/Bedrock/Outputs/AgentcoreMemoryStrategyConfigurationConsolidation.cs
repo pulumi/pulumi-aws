@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreMemoryStrategyConfigurationConsolidation
     {
-        /// <summary>
-        /// Additional text to append to the model prompt for consolidation processing.
-        /// </summary>
         public readonly string AppendToPrompt;
-        /// <summary>
-        /// ID of the foundation model to use for consolidation processing.
-        /// </summary>
         public readonly string ModelId;
 
         [OutputConstructor]

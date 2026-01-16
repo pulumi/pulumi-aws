@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration
     {
-        /// <summary>
-        /// The URL configuration of your web data source. See `UrlConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration? UrlConfiguration;
 
         [OutputConstructor]

@@ -15,47 +15,23 @@ public final class FleetVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final FleetVpcConfigArgs Empty = new FleetVpcConfigArgs();
 
-    /**
-     * A list of one or more security groups IDs in your Amazon VPC.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return A list of one or more security groups IDs in your Amazon VPC.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * A list of one or more subnet IDs in your Amazon VPC.
-     * 
-     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
-    /**
-     * @return A list of one or more subnet IDs in your Amazon VPC.
-     * 
-     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
 
-    /**
-     * The ID of the Amazon VPC.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the Amazon VPC.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -86,85 +62,37 @@ public final class FleetVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
             $ = new FleetVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds A list of one or more security groups IDs in your Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds A list of one or more security groups IDs in your Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds A list of one or more security groups IDs in your Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnets A list of one or more subnet IDs in your Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets A list of one or more subnet IDs in your Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets A list of one or more subnet IDs in your Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
 
-        /**
-         * @param vpcId The ID of the Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the Amazon VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

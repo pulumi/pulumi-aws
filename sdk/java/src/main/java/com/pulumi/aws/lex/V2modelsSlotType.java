@@ -20,304 +20,71 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Lex V2 Models Slot Type.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBot;
- * import com.pulumi.aws.lex.V2modelsBotArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsBotDataPrivacyArgs;
- * import com.pulumi.aws.lex.V2modelsBotLocale;
- * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
- * import com.pulumi.aws.lex.V2modelsBotVersion;
- * import com.pulumi.aws.lex.V2modelsBotVersionArgs;
- * import com.pulumi.aws.lex.V2modelsSlotType;
- * import com.pulumi.aws.lex.V2modelsSlotTypeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()
- *             .name("example")
- *             .idleSessionTtlInSeconds(60)
- *             .roleArn(exampleAwsIamRole.arn())
- *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
- *                 .childDirected(true)
- *                 .build())
- *             .build());
- * 
- *         var exampleV2modelsBotLocale = new V2modelsBotLocale("exampleV2modelsBotLocale", V2modelsBotLocaleArgs.builder()
- *             .localeId("en_US")
- *             .botId(example.id())
- *             .botVersion("DRAFT")
- *             .nLuIntentConfidenceThreshold(0.7)
- *             .build());
- * 
- *         var exampleV2modelsBotVersion = new V2modelsBotVersion("exampleV2modelsBotVersion", V2modelsBotVersionArgs.builder()
- *             .botId(example.id())
- *             .localeSpecification(exampleV2modelsBotLocale.localeId().applyValue(_localeId -> Map.of(_localeId, Map.of("sourceBotVersion", "DRAFT"))))
- *             .build());
- * 
- *         var exampleV2modelsSlotType = new V2modelsSlotType("exampleV2modelsSlotType", V2modelsSlotTypeArgs.builder()
- *             .botId(example.id())
- *             .botVersion(exampleV2modelsBotLocale.botVersion())
- *             .name("example")
- *             .localeId(exampleV2modelsBotLocale.localeId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### valueSelectionSetting Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsSlotType;
- * import com.pulumi.aws.lex.V2modelsSlotTypeArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsSlotTypeValueSelectionSettingArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValueArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new V2modelsSlotType("example", V2modelsSlotTypeArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(exampleAwsLexv2modelsBotLocale.botVersion())
- *             .name("example")
- *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
- *             .valueSelectionSetting(V2modelsSlotTypeValueSelectionSettingArgs.builder()
- *                 .resolutionStrategy("OriginalValue")
- *                 .advancedRecognitionSettings(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs.builder()
- *                     .audioRecognitionStrategy("UseSlotValuesAsCustomVocabulary")
- *                     .build())
- *                 .build())
- *             .slotTypeValues(V2modelsSlotTypeSlotTypeValueArgs.builder()
- *                 .sampleValues(V2modelsSlotTypeSlotTypeValueSampleValueArgs.builder()
- *                     .value("exampleValue")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `bot_id`, `bot_version`, `locale_id`, and `slot_type_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:lex/v2modelsSlotType:V2modelsSlotType")
 public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the bot associated with this slot type.
-     * 
-     */
     @Export(name="botId", refs={String.class}, tree="[0]")
     private Output<String> botId;
 
-    /**
-     * @return Identifier of the bot associated with this slot type.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
-    /**
-     * Version of the bot associated with this slot type.
-     * 
-     */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
-    /**
-     * @return Version of the bot associated with this slot type.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
-    /**
-     * Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     * 
-     */
     @Export(name="compositeSlotTypeSettings", refs={List.class,V2modelsSlotTypeCompositeSlotTypeSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotTypeCompositeSlotTypeSetting>> compositeSlotTypeSettings;
 
-    /**
-     * @return Specifications for a composite slot type.
-     * See `compositeSlotTypeSetting` argument reference below.
-     * 
-     */
     public Output<Optional<List<V2modelsSlotTypeCompositeSlotTypeSetting>>> compositeSlotTypeSettings() {
         return Codegen.optional(this.compositeSlotTypeSettings);
     }
-    /**
-     * Description of the slot type.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the slot type.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     * 
-     */
     @Export(name="externalSourceSettings", refs={List.class,V2modelsSlotTypeExternalSourceSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotTypeExternalSourceSetting>> externalSourceSettings;
 
-    /**
-     * @return Type of external information used to create the slot type.
-     * See `externalSourceSetting` argument reference below.
-     * 
-     */
     public Output<Optional<List<V2modelsSlotTypeExternalSourceSetting>>> externalSourceSettings() {
         return Codegen.optional(this.externalSourceSettings);
     }
-    /**
-     * Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     * 
-     */
     @Export(name="localeId", refs={String.class}, tree="[0]")
     private Output<String> localeId;
 
-    /**
-     * @return Identifier of the language and locale where this slot type is used.
-     * All of the bots, slot types, and slots used by the intent must have the same locale.
-     * 
-     */
     public Output<String> localeId() {
         return this.localeId;
     }
-    /**
-     * Name of the slot type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the slot type.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     * 
-     */
     @Export(name="parentSlotTypeSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentSlotTypeSignature;
 
-    /**
-     * @return Built-in slot type used as a parent of this slot type.
-     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
-     * Only `AMAZON.AlphaNumeric` is supported.
-     * 
-     */
     public Output<Optional<String>> parentSlotTypeSignature() {
         return Codegen.optional(this.parentSlotTypeSignature);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Unique identifier for the slot type.
-     * 
-     */
     @Export(name="slotTypeId", refs={String.class}, tree="[0]")
     private Output<String> slotTypeId;
 
-    /**
-     * @return Unique identifier for the slot type.
-     * 
-     */
     public Output<String> slotTypeId() {
         return this.slotTypeId;
     }
-    /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     * 
-     */
     @Export(name="slotTypeValues", refs={List.class,V2modelsSlotTypeSlotTypeValue.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotTypeSlotTypeValue>> slotTypeValues;
 
-    /**
-     * @return List of SlotTypeValue objects that defines the values that the slot type can take.
-     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
-     * See `slotTypeValues` argument reference below.
-     * 
-     */
     public Output<Optional<List<V2modelsSlotTypeSlotTypeValue>>> slotTypeValues() {
         return Codegen.optional(this.slotTypeValues);
     }
@@ -327,19 +94,9 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
     public Output<Optional<V2modelsSlotTypeTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     * 
-     */
     @Export(name="valueSelectionSetting", refs={V2modelsSlotTypeValueSelectionSetting.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsSlotTypeValueSelectionSetting> valueSelectionSetting;
 
-    /**
-     * @return Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
-     * See `valueSelectionSetting` argument reference below.
-     * 
-     */
     public Output<Optional<V2modelsSlotTypeValueSelectionSetting>> valueSelectionSetting() {
         return Codegen.optional(this.valueSelectionSetting);
     }

@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing Amazon Chime SDK Voice Global Settings.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.chime.SdkvoiceGlobalSettings("example", {voiceConnector: {
- *     cdrBucket: "example-bucket-name",
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
- *
- * ```sh
- * $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
- * ```
- */
 export class SdkvoiceGlobalSettings extends pulumi.CustomResource {
     /**
      * Get an existing SdkvoiceGlobalSettings resource's state with the given name, ID, and optional extra
@@ -59,9 +35,6 @@ export class SdkvoiceGlobalSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === SdkvoiceGlobalSettings.__pulumiType;
     }
 
-    /**
-     * The Voice Connector settings. See voice_connector.
-     */
     declare public readonly voiceConnector: pulumi.Output<outputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
 
     /**
@@ -94,9 +67,6 @@ export class SdkvoiceGlobalSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SdkvoiceGlobalSettings resources.
  */
 export interface SdkvoiceGlobalSettingsState {
-    /**
-     * The Voice Connector settings. See voice_connector.
-     */
     voiceConnector?: pulumi.Input<inputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
 }
 
@@ -104,8 +74,5 @@ export interface SdkvoiceGlobalSettingsState {
  * The set of arguments for constructing a SdkvoiceGlobalSettings resource.
  */
 export interface SdkvoiceGlobalSettingsArgs {
-    /**
-     * The Voice Connector settings. See voice_connector.
-     */
     voiceConnector: pulumi.Input<inputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
 }

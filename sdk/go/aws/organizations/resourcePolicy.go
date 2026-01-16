@@ -12,83 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewResourcePolicy(ctx, "example", &organizations.ResourcePolicyArgs{
-//				Content: pulumi.String(`{
-//	  \"Version\": \"2012-10-17\",
-//	  \"Statement\": [
-//	    {
-//	      \"Sid\": \"DelegatingNecessaryDescribeListActions\",
-//	      \"Effect\": \"Allow\",
-//	      \"Principal\": {
-//	        \"AWS\": \"arn:aws:iam::123456789012:root\"
-//	      },
-//	      \"Action\": [
-//	        \"organizations:DescribeOrganization\",
-//	        \"organizations:DescribeOrganizationalUnit\",
-//	        \"organizations:DescribeAccount\",
-//	        \"organizations:DescribePolicy\",
-//	        \"organizations:DescribeEffectivePolicy\",
-//	        \"organizations:ListRoots\",
-//	        \"organizations:ListOrganizationalUnitsForParent\",
-//	        \"organizations:ListParents\",
-//	        \"organizations:ListChildren\",
-//	        \"organizations:ListAccounts\",
-//	        \"organizations:ListAccountsForParent\",
-//	        \"organizations:ListPolicies\",
-//	        \"organizations:ListPoliciesForTarget\",
-//	        \"organizations:ListTargetsForPolicy\",
-//	        \"organizations:ListTagsForResource\"
-//	      ],
-//	      \"Resource\": \"*\"
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
-//
-// ```sh
-// $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
-// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the resource policy.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-	Content pulumi.StringOutput `pulumi:"content"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     pulumi.StringOutput    `pulumi:"arn"`
+	Content pulumi.StringOutput    `pulumi:"content"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -125,24 +54,16 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// Amazon Resource Name (ARN) of the resource policy.
-	Arn *string `pulumi:"arn"`
-	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-	Content *string `pulumi:"content"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Arn     *string           `pulumi:"arn"`
+	Content *string           `pulumi:"content"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ResourcePolicyState struct {
-	// Amazon Resource Name (ARN) of the resource policy.
-	Arn pulumi.StringPtrInput
-	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
+	Arn     pulumi.StringPtrInput
 	Content pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -151,18 +72,14 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-	Content string `pulumi:"content"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Content string            `pulumi:"content"`
+	Tags    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 	Content pulumi.StringInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -252,22 +169,18 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the resource policy.
 func (o ResourcePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 func (o ResourcePolicyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResourcePolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResourcePolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -16,47 +16,23 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKafkaVersionArgs Empty = new GetKafkaVersionArgs();
 
-    /**
-     * Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
-    /**
-     * @return Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     public Optional<Output<List<String>>> preferredVersions() {
         return Optional.ofNullable(this.preferredVersions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -87,75 +63,33 @@ public final class GetKafkaVersionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetKafkaVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(@Nullable Output<List<String>> preferredVersions) {
             $.preferredVersions = preferredVersions;
             return this;
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(List<String> preferredVersions) {
             return preferredVersions(Output.of(preferredVersions));
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param version Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of MSK Kafka. For example 2.4.1.1 or &#34;2.2.1&#34; etc. Either `preferredVersions` or `version` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

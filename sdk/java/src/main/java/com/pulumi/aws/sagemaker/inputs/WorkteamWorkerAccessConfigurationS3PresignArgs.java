@@ -15,17 +15,9 @@ public final class WorkteamWorkerAccessConfigurationS3PresignArgs extends com.pu
 
     public static final WorkteamWorkerAccessConfigurationS3PresignArgs Empty = new WorkteamWorkerAccessConfigurationS3PresignArgs();
 
-    /**
-     * Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-     * 
-     */
     @Import(name="iamPolicyConstraints")
     private @Nullable Output<WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs> iamPolicyConstraints;
 
-    /**
-     * @return Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-     * 
-     */
     public Optional<Output<WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs>> iamPolicyConstraints() {
         return Optional.ofNullable(this.iamPolicyConstraints);
     }
@@ -54,23 +46,11 @@ public final class WorkteamWorkerAccessConfigurationS3PresignArgs extends com.pu
             $ = new WorkteamWorkerAccessConfigurationS3PresignArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param iamPolicyConstraints Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamPolicyConstraints(@Nullable Output<WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs> iamPolicyConstraints) {
             $.iamPolicyConstraints = iamPolicyConstraints;
             return this;
         }
 
-        /**
-         * @param iamPolicyConstraints Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iamPolicyConstraints(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs iamPolicyConstraints) {
             return iamPolicyConstraints(Output.of(iamPolicyConstraints));
         }

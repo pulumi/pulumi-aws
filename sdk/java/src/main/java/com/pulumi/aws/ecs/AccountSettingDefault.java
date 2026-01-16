@@ -13,105 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
- * 
- * &gt; **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
- * 
- * &gt; **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, &#34;destroying&#34; this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
- * 
- * ## Example Usage
- * 
- * ### Enable the long task ARN format
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.AccountSettingDefault;
- * import com.pulumi.aws.ecs.AccountSettingDefaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new AccountSettingDefault("test", AccountSettingDefaultArgs.builder()
- *             .name("taskLongArnFormat")
- *             .value("enabled")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Set the default log driver mode to non-blocking
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.AccountSettingDefault;
- * import com.pulumi.aws.ecs.AccountSettingDefaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new AccountSettingDefault("test", AccountSettingDefaultArgs.builder()
- *             .name("defaultLogDriverMode")
- *             .value("non-blocking")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
- * ```
- * 
- */
 @ResourceType(type="aws:ecs/accountSettingDefault:AccountSettingDefault")
 public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the account setting to set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the account setting to set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -121,31 +27,15 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
     public Output<String> principalArn() {
         return this.principalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the setting.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return State of the setting.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

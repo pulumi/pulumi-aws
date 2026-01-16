@@ -12,73 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("Example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
-//					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//					Key:    pulumi.String("example/suggestions.txt"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Index"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
-//
-// ```sh
-// $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
-// ```
 type QuerySuggestionsBlockList struct {
 	pulumi.CustomResourceState
 
-	// ARN of the block list.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Identifier of the index for a block list.
-	IndexId pulumi.StringOutput `pulumi:"indexId"`
-	// Name for the block list.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Unique identifier of the block list.
-	QuerySuggestionsBlockListId pulumi.StringOutput `pulumi:"querySuggestionsBlockListId"`
-	Region                      pulumi.StringOutput `pulumi:"region"`
-	// IAM (Identity and Access Management) role used to access the block list text file in S3.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// S3 path where your block list text file is located. See details below.
-	SourceS3Path QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
-	Status       pulumi.StringOutput                         `pulumi:"status"`
-	Tags         pulumi.StringMapOutput                      `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                         pulumi.StringOutput                         `pulumi:"arn"`
+	Description                 pulumi.StringPtrOutput                      `pulumi:"description"`
+	IndexId                     pulumi.StringOutput                         `pulumi:"indexId"`
+	Name                        pulumi.StringOutput                         `pulumi:"name"`
+	QuerySuggestionsBlockListId pulumi.StringOutput                         `pulumi:"querySuggestionsBlockListId"`
+	Region                      pulumi.StringOutput                         `pulumi:"region"`
+	RoleArn                     pulumi.StringOutput                         `pulumi:"roleArn"`
+	SourceS3Path                QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
+	Status                      pulumi.StringOutput                         `pulumi:"status"`
+	Tags                        pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput                      `pulumi:"tagsAll"`
 }
 
 // NewQuerySuggestionsBlockList registers a new resource with the given unique name, arguments, and options.
@@ -120,45 +67,31 @@ func GetQuerySuggestionsBlockList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
 type querySuggestionsBlockListState struct {
-	// ARN of the block list.
-	Arn         *string `pulumi:"arn"`
-	Description *string `pulumi:"description"`
-	// Identifier of the index for a block list.
-	IndexId *string `pulumi:"indexId"`
-	// Name for the block list.
-	Name *string `pulumi:"name"`
-	// Unique identifier of the block list.
-	QuerySuggestionsBlockListId *string `pulumi:"querySuggestionsBlockListId"`
-	Region                      *string `pulumi:"region"`
-	// IAM (Identity and Access Management) role used to access the block list text file in S3.
-	RoleArn *string `pulumi:"roleArn"`
-	// S3 path where your block list text file is located. See details below.
-	SourceS3Path *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
-	Status       *string                                `pulumi:"status"`
-	Tags         map[string]string                      `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                         *string                                `pulumi:"arn"`
+	Description                 *string                                `pulumi:"description"`
+	IndexId                     *string                                `pulumi:"indexId"`
+	Name                        *string                                `pulumi:"name"`
+	QuerySuggestionsBlockListId *string                                `pulumi:"querySuggestionsBlockListId"`
+	Region                      *string                                `pulumi:"region"`
+	RoleArn                     *string                                `pulumi:"roleArn"`
+	SourceS3Path                *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
+	Status                      *string                                `pulumi:"status"`
+	Tags                        map[string]string                      `pulumi:"tags"`
+	TagsAll                     map[string]string                      `pulumi:"tagsAll"`
 }
 
 type QuerySuggestionsBlockListState struct {
-	// ARN of the block list.
-	Arn         pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
-	// Identifier of the index for a block list.
-	IndexId pulumi.StringPtrInput
-	// Name for the block list.
-	Name pulumi.StringPtrInput
-	// Unique identifier of the block list.
+	Arn                         pulumi.StringPtrInput
+	Description                 pulumi.StringPtrInput
+	IndexId                     pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
 	QuerySuggestionsBlockListId pulumi.StringPtrInput
 	Region                      pulumi.StringPtrInput
-	// IAM (Identity and Access Management) role used to access the block list text file in S3.
-	RoleArn pulumi.StringPtrInput
-	// S3 path where your block list text file is located. See details below.
-	SourceS3Path QuerySuggestionsBlockListSourceS3PathPtrInput
-	Status       pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-	TagsAll pulumi.StringMapInput
+	RoleArn                     pulumi.StringPtrInput
+	SourceS3Path                QuerySuggestionsBlockListSourceS3PathPtrInput
+	Status                      pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListState) ElementType() reflect.Type {
@@ -166,30 +99,22 @@ func (QuerySuggestionsBlockListState) ElementType() reflect.Type {
 }
 
 type querySuggestionsBlockListArgs struct {
-	Description *string `pulumi:"description"`
-	// Identifier of the index for a block list.
-	IndexId string `pulumi:"indexId"`
-	// Name for the block list.
-	Name   *string `pulumi:"name"`
-	Region *string `pulumi:"region"`
-	// IAM (Identity and Access Management) role used to access the block list text file in S3.
-	RoleArn string `pulumi:"roleArn"`
-	// S3 path where your block list text file is located. See details below.
+	Description  *string                               `pulumi:"description"`
+	IndexId      string                                `pulumi:"indexId"`
+	Name         *string                               `pulumi:"name"`
+	Region       *string                               `pulumi:"region"`
+	RoleArn      string                                `pulumi:"roleArn"`
 	SourceS3Path QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuerySuggestionsBlockList resource.
 type QuerySuggestionsBlockListArgs struct {
-	Description pulumi.StringPtrInput
-	// Identifier of the index for a block list.
-	IndexId pulumi.StringInput
-	// Name for the block list.
-	Name   pulumi.StringPtrInput
-	Region pulumi.StringPtrInput
-	// IAM (Identity and Access Management) role used to access the block list text file in S3.
-	RoleArn pulumi.StringInput
-	// S3 path where your block list text file is located. See details below.
+	Description  pulumi.StringPtrInput
+	IndexId      pulumi.StringInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	RoleArn      pulumi.StringInput
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathInput
 	Tags         pulumi.StringMapInput
 }
@@ -281,7 +206,6 @@ func (o QuerySuggestionsBlockListOutput) ToQuerySuggestionsBlockListOutputWithCo
 	return o
 }
 
-// ARN of the block list.
 func (o QuerySuggestionsBlockListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -290,17 +214,14 @@ func (o QuerySuggestionsBlockListOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the index for a block list.
 func (o QuerySuggestionsBlockListOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// Name for the block list.
 func (o QuerySuggestionsBlockListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the block list.
 func (o QuerySuggestionsBlockListOutput) QuerySuggestionsBlockListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.QuerySuggestionsBlockListId }).(pulumi.StringOutput)
 }
@@ -309,12 +230,10 @@ func (o QuerySuggestionsBlockListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// IAM (Identity and Access Management) role used to access the block list text file in S3.
 func (o QuerySuggestionsBlockListOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// S3 path where your block list text file is located. See details below.
 func (o QuerySuggestionsBlockListOutput) SourceS3Path() QuerySuggestionsBlockListSourceS3PathOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) QuerySuggestionsBlockListSourceS3PathOutput { return v.SourceS3Path }).(QuerySuggestionsBlockListSourceS3PathOutput)
 }
@@ -327,7 +246,6 @@ func (o QuerySuggestionsBlockListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
 func (o QuerySuggestionsBlockListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

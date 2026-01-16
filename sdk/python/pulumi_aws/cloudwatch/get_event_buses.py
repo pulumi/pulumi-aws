@@ -44,9 +44,6 @@ class GetEventBusesResult:
     @_builtins.property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> Sequence['outputs.GetEventBusesEventBusResult']:
-        """
-        This list of event buses.
-        """
         return pulumi.get(self, "event_buses")
 
     @_builtins.property
@@ -84,22 +81,7 @@ def get_event_buses(name_prefix: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventBusesResult:
     """
-    Data source for managing an AWS EventBridge Event Buses.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_event_buses(name_prefix="test")
-    ```
-
-
-    :param _builtins.str name_prefix: Specifying this limits the results to only those event buses with names that start with the specified prefix.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
@@ -116,22 +98,7 @@ def get_event_buses_output(name_prefix: Optional[pulumi.Input[Optional[_builtins
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusesResult]:
     """
-    Data source for managing an AWS EventBridge Event Buses.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_event_buses(name_prefix="test")
-    ```
-
-
-    :param _builtins.str name_prefix: Specifying this limits the results to only those event buses with names that start with the specified prefix.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix

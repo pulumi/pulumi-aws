@@ -18,111 +18,51 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterState Empty = new ClusterState();
 
-    /**
-     * ARN of the cluster
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the cluster
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     @Import(name="clusterEndpoints")
     private @Nullable Output<List<ClusterClusterEndpointArgs>> clusterEndpoints;
 
-    /**
-     * @return List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     public Optional<Output<List<ClusterClusterEndpointArgs>>> clusterEndpoints() {
         return Optional.ofNullable(this.clusterEndpoints);
     }
 
-    /**
-     * Unique name describing the cluster.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name describing the cluster.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
-    /**
-     * @return Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> networkType() {
         return Optional.ofNullable(this.networkType);
     }
 
-    /**
-     * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -157,163 +97,69 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             $ = new ClusterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param clusterEndpoints List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoints(@Nullable Output<List<ClusterClusterEndpointArgs>> clusterEndpoints) {
             $.clusterEndpoints = clusterEndpoints;
             return this;
         }
 
-        /**
-         * @param clusterEndpoints List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoints(List<ClusterClusterEndpointArgs> clusterEndpoints) {
             return clusterEndpoints(Output.of(clusterEndpoints));
         }
 
-        /**
-         * @param clusterEndpoints List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoints(ClusterClusterEndpointArgs... clusterEndpoints) {
             return clusterEndpoints(List.of(clusterEndpoints));
         }
 
-        /**
-         * @param name Unique name describing the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name describing the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param networkType Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkType(@Nullable Output<String> networkType) {
             $.networkType = networkType;
             return this;
         }
 
-        /**
-         * @param networkType Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkType(String networkType) {
             return networkType(Output.of(networkType));
         }
 
-        /**
-         * @param status Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

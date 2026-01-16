@@ -12,11 +12,6 @@ namespace Pulumi.Aws.DataZone.Inputs
 
     public sealed class FormTypeModelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("smithy", required: true)]
         public Input<string> Smithy { get; set; } = null!;
 

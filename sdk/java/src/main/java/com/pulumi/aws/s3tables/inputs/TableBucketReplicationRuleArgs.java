@@ -16,17 +16,9 @@ public final class TableBucketReplicationRuleArgs extends com.pulumi.resources.R
 
     public static final TableBucketReplicationRuleArgs Empty = new TableBucketReplicationRuleArgs();
 
-    /**
-     * Replication destination. See Destination below for more details.
-     * 
-     */
     @Import(name="destinations")
     private @Nullable Output<List<TableBucketReplicationRuleDestinationArgs>> destinations;
 
-    /**
-     * @return Replication destination. See Destination below for more details.
-     * 
-     */
     public Optional<Output<List<TableBucketReplicationRuleDestinationArgs>>> destinations() {
         return Optional.ofNullable(this.destinations);
     }
@@ -55,33 +47,15 @@ public final class TableBucketReplicationRuleArgs extends com.pulumi.resources.R
             $ = new TableBucketReplicationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinations Replication destination. See Destination below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(@Nullable Output<List<TableBucketReplicationRuleDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
 
-        /**
-         * @param destinations Replication destination. See Destination below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(List<TableBucketReplicationRuleDestinationArgs> destinations) {
             return destinations(Output.of(destinations));
         }
 
-        /**
-         * @param destinations Replication destination. See Destination below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinations(TableBucketReplicationRuleDestinationArgs... destinations) {
             return destinations(List.of(destinations));
         }

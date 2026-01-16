@@ -15,32 +15,16 @@ public final class AppQuietTimeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppQuietTimeArgs Empty = new AppQuietTimeArgs();
 
-    /**
-     * The default end time for quiet time in ISO 8601 format. Required if `start` is set
-     * 
-     */
     @Import(name="end")
     private @Nullable Output<String> end;
 
-    /**
-     * @return The default end time for quiet time in ISO 8601 format. Required if `start` is set
-     * 
-     */
     public Optional<Output<String>> end() {
         return Optional.ofNullable(this.end);
     }
 
-    /**
-     * The default start time for quiet time in ISO 8601 format. Required if `end` is set
-     * 
-     */
     @Import(name="start")
     private @Nullable Output<String> start;
 
-    /**
-     * @return The default start time for quiet time in ISO 8601 format. Required if `end` is set
-     * 
-     */
     public Optional<Output<String>> start() {
         return Optional.ofNullable(this.start);
     }
@@ -70,44 +54,20 @@ public final class AppQuietTimeArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppQuietTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param end The default end time for quiet time in ISO 8601 format. Required if `start` is set
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(@Nullable Output<String> end) {
             $.end = end;
             return this;
         }
 
-        /**
-         * @param end The default end time for quiet time in ISO 8601 format. Required if `start` is set
-         * 
-         * @return builder
-         * 
-         */
         public Builder end(String end) {
             return end(Output.of(end));
         }
 
-        /**
-         * @param start The default start time for quiet time in ISO 8601 format. Required if `end` is set
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(@Nullable Output<String> start) {
             $.start = start;
             return this;
         }
 
-        /**
-         * @param start The default start time for quiet time in ISO 8601 format. Required if `end` is set
-         * 
-         * @return builder
-         * 
-         */
         public Builder start(String start) {
             return start(Output.of(start));
         }

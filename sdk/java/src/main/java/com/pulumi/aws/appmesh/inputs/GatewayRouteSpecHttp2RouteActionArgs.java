@@ -17,32 +17,16 @@ public final class GatewayRouteSpecHttp2RouteActionArgs extends com.pulumi.resou
 
     public static final GatewayRouteSpecHttp2RouteActionArgs Empty = new GatewayRouteSpecHttp2RouteActionArgs();
 
-    /**
-     * Gateway route action to rewrite.
-     * 
-     */
     @Import(name="rewrite")
     private @Nullable Output<GatewayRouteSpecHttp2RouteActionRewriteArgs> rewrite;
 
-    /**
-     * @return Gateway route action to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttp2RouteActionRewriteArgs>> rewrite() {
         return Optional.ofNullable(this.rewrite);
     }
 
-    /**
-     * Target that traffic is routed to when a request matches the gateway route.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<GatewayRouteSpecHttp2RouteActionTargetArgs> target;
 
-    /**
-     * @return Target that traffic is routed to when a request matches the gateway route.
-     * 
-     */
     public Output<GatewayRouteSpecHttp2RouteActionTargetArgs> target() {
         return this.target;
     }
@@ -72,44 +56,20 @@ public final class GatewayRouteSpecHttp2RouteActionArgs extends com.pulumi.resou
             $ = new GatewayRouteSpecHttp2RouteActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rewrite Gateway route action to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrite(@Nullable Output<GatewayRouteSpecHttp2RouteActionRewriteArgs> rewrite) {
             $.rewrite = rewrite;
             return this;
         }
 
-        /**
-         * @param rewrite Gateway route action to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rewrite(GatewayRouteSpecHttp2RouteActionRewriteArgs rewrite) {
             return rewrite(Output.of(rewrite));
         }
 
-        /**
-         * @param target Target that traffic is routed to when a request matches the gateway route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<GatewayRouteSpecHttp2RouteActionTargetArgs> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Target that traffic is routed to when a request matches the gateway route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(GatewayRouteSpecHttp2RouteActionTargetArgs target) {
             return target(Output.of(target));
         }

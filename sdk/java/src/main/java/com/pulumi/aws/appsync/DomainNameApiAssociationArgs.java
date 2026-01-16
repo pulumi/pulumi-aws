@@ -16,47 +16,23 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
 
     public static final DomainNameApiAssociationArgs Empty = new DomainNameApiAssociationArgs();
 
-    /**
-     * API ID.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return API ID.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * Appsync domain name.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Appsync domain name.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Res
             $ = new DomainNameApiAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId API ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param domainName Appsync domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Appsync domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

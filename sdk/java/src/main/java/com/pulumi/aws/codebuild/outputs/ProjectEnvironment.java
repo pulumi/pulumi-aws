@@ -18,151 +18,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectEnvironment {
-    /**
-     * @return ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-     * 
-     */
     private @Nullable String certificate;
-    /**
-     * @return Information about the compute resources the build project will use. Valid values:
-     * `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-     * `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
-     * the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-     * 
-     */
     private String computeType;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable ProjectEnvironmentDockerServer dockerServer;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable ProjectEnvironmentFleet fleet;
-    /**
-     * @return Docker image to use for this build project. Valid values
-     * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
-     * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
-     * `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
-     * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-     * 
-     */
     private String image;
-    /**
-     * @return Type of credentials AWS CodeBuild uses to pull images in your build. Valid
-     * values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
-     * credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-     * 
-     */
     private @Nullable String imagePullCredentialsType;
-    /**
-     * @return Whether to enable running the Docker daemon inside a Docker container. Defaults to
-     * `false`.
-     * 
-     */
     private @Nullable Boolean privilegedMode;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable ProjectEnvironmentRegistryCredential registryCredential;
-    /**
-     * @return Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
-     * `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
-     * `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
-     * the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-     * 
-     */
     private String type;
 
     private ProjectEnvironment() {}
-    /**
-     * @return ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-     * 
-     */
     public Optional<String> certificate() {
         return Optional.ofNullable(this.certificate);
     }
-    /**
-     * @return Information about the compute resources the build project will use. Valid values:
-     * `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-     * `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
-     * the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-     * 
-     */
     public String computeType() {
         return this.computeType;
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<ProjectEnvironmentDockerServer> dockerServer() {
         return Optional.ofNullable(this.dockerServer);
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public List<ProjectEnvironmentEnvironmentVariable> environmentVariables() {
         return this.environmentVariables == null ? List.of() : this.environmentVariables;
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<ProjectEnvironmentFleet> fleet() {
         return Optional.ofNullable(this.fleet);
     }
-    /**
-     * @return Docker image to use for this build project. Valid values
-     * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
-     * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
-     * `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
-     * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-     * 
-     */
     public String image() {
         return this.image;
     }
-    /**
-     * @return Type of credentials AWS CodeBuild uses to pull images in your build. Valid
-     * values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
-     * credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-     * 
-     */
     public Optional<String> imagePullCredentialsType() {
         return Optional.ofNullable(this.imagePullCredentialsType);
     }
-    /**
-     * @return Whether to enable running the Docker daemon inside a Docker container. Defaults to
-     * `false`.
-     * 
-     */
     public Optional<Boolean> privilegedMode() {
         return Optional.ofNullable(this.privilegedMode);
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<ProjectEnvironmentRegistryCredential> registryCredential() {
         return Optional.ofNullable(this.registryCredential);
     }
-    /**
-     * @return Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
-     * `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
-     * `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
-     * the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
-     * 
-     */
     public String type() {
         return this.type;
     }

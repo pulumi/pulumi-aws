@@ -9,63 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Registers customer managed keys in a Amazon QuickSight account.
-    /// 
-    /// &gt; Deletion of this resource clears all CMK registrations from a QuickSight account. QuickSight then uses AWS owned keys to encrypt your resources.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.KeyRegistration("example", new()
-    ///     {
-    ///         KeyRegistrations = new[]
-    ///         {
-    ///             new Aws.Quicksight.Inputs.KeyRegistrationKeyRegistrationArgs
-    ///             {
-    ///                 KeyArn = example1.Arn,
-    ///             },
-    ///             new Aws.Quicksight.Inputs.KeyRegistrationKeyRegistrationArgs
-    ///             {
-    ///                 KeyArn = example2.Arn,
-    ///                 DefaultKey = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight key registration using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/keyRegistration:KeyRegistration example "012345678901"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/keyRegistration:KeyRegistration")]
     public partial class KeyRegistration : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Registered keys. See key_registration.
-        /// </summary>
         [Output("keyRegistrations")]
         public Output<ImmutableArray<Outputs.KeyRegistrationKeyRegistration>> KeyRegistrations { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -120,19 +72,12 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("keyRegistrations")]
         private InputList<Inputs.KeyRegistrationKeyRegistrationArgs>? _keyRegistrations;
-
-        /// <summary>
-        /// Registered keys. See key_registration.
-        /// </summary>
         public InputList<Inputs.KeyRegistrationKeyRegistrationArgs> KeyRegistrations
         {
             get => _keyRegistrations ?? (_keyRegistrations = new InputList<Inputs.KeyRegistrationKeyRegistrationArgs>());
             set => _keyRegistrations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -149,19 +94,12 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("keyRegistrations")]
         private InputList<Inputs.KeyRegistrationKeyRegistrationGetArgs>? _keyRegistrations;
-
-        /// <summary>
-        /// Registered keys. See key_registration.
-        /// </summary>
         public InputList<Inputs.KeyRegistrationKeyRegistrationGetArgs> KeyRegistrations
         {
             get => _keyRegistrations ?? (_keyRegistrations = new InputList<Inputs.KeyRegistrationKeyRegistrationGetArgs>());
             set => _keyRegistrations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

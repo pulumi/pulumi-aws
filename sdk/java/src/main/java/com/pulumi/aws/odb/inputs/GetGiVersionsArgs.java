@@ -15,32 +15,16 @@ public final class GetGiVersionsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGiVersionsArgs Empty = new GetGiVersionsArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The system shape.
-     * 
-     */
     @Import(name="shape")
     private @Nullable Output<String> shape;
 
-    /**
-     * @return The system shape.
-     * 
-     */
     public Optional<Output<String>> shape() {
         return Optional.ofNullable(this.shape);
     }
@@ -70,44 +54,20 @@ public final class GetGiVersionsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGiVersionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param shape The system shape.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shape(@Nullable Output<String> shape) {
             $.shape = shape;
             return this;
         }
 
-        /**
-         * @param shape The system shape.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shape(String shape) {
             return shape(Output.of(shape));
         }

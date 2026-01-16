@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the launch template. Conflicts with `LaunchTemplateName`.
-        /// </summary>
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
-        /// <summary>
-        /// Name of the launch template. Conflicts with `LaunchTemplateId`.
-        /// </summary>
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 

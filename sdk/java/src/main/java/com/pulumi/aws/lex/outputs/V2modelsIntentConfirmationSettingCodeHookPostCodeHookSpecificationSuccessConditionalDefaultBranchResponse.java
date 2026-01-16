@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponse {
-    /**
-     * @return Whether the user can interrupt a speech response from Amazon Lex.
-     * 
-     */
     private @Nullable Boolean allowInterrupt;
-    /**
-     * @return Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
-     * 
-     */
     private @Nullable List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup> messageGroups;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponse() {}
-    /**
-     * @return Whether the user can interrupt a speech response from Amazon Lex.
-     * 
-     */
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
-    /**
-     * @return Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
-     * 
-     */
     public List<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup> messageGroups() {
         return this.messageGroups == null ? List.of() : this.messageGroups;
     }

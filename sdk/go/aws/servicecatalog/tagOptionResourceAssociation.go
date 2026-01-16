@@ -12,63 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Tag Option Resource Association.
-//
-// > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewTagOptionResourceAssociation(ctx, "example", &servicecatalog.TagOptionResourceAssociationArgs{
-//				ResourceId:  pulumi.String("prod-dnigbtea24ste"),
-//				TagOptionId: pulumi.String("tag-pjtvyakdlyo3m"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
-// ```
 type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the resource.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Creation time of the resource.
+	Region              pulumi.StringOutput `pulumi:"region"`
+	ResourceArn         pulumi.StringOutput `pulumi:"resourceArn"`
 	ResourceCreatedTime pulumi.StringOutput `pulumi:"resourceCreatedTime"`
-	// Description of the resource.
 	ResourceDescription pulumi.StringOutput `pulumi:"resourceDescription"`
-	// Resource identifier.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Description of the resource.
-	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
-	// Tag Option identifier.
-	TagOptionId pulumi.StringOutput `pulumi:"tagOptionId"`
+	ResourceId          pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceName        pulumi.StringOutput `pulumi:"resourceName"`
+	TagOptionId         pulumi.StringOutput `pulumi:"tagOptionId"`
 }
 
 // NewTagOptionResourceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -107,37 +60,23 @@ func GetTagOptionResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagOptionResourceAssociation resources.
 type tagOptionResourceAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the resource.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// Creation time of the resource.
+	Region              *string `pulumi:"region"`
+	ResourceArn         *string `pulumi:"resourceArn"`
 	ResourceCreatedTime *string `pulumi:"resourceCreatedTime"`
-	// Description of the resource.
 	ResourceDescription *string `pulumi:"resourceDescription"`
-	// Resource identifier.
-	ResourceId *string `pulumi:"resourceId"`
-	// Description of the resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Tag Option identifier.
-	TagOptionId *string `pulumi:"tagOptionId"`
+	ResourceId          *string `pulumi:"resourceId"`
+	ResourceName        *string `pulumi:"resourceName"`
+	TagOptionId         *string `pulumi:"tagOptionId"`
 }
 
 type TagOptionResourceAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the resource.
-	ResourceArn pulumi.StringPtrInput
-	// Creation time of the resource.
+	Region              pulumi.StringPtrInput
+	ResourceArn         pulumi.StringPtrInput
 	ResourceCreatedTime pulumi.StringPtrInput
-	// Description of the resource.
 	ResourceDescription pulumi.StringPtrInput
-	// Resource identifier.
-	ResourceId pulumi.StringPtrInput
-	// Description of the resource.
-	ResourceName pulumi.StringPtrInput
-	// Tag Option identifier.
-	TagOptionId pulumi.StringPtrInput
+	ResourceId          pulumi.StringPtrInput
+	ResourceName        pulumi.StringPtrInput
+	TagOptionId         pulumi.StringPtrInput
 }
 
 func (TagOptionResourceAssociationState) ElementType() reflect.Type {
@@ -145,21 +84,15 @@ func (TagOptionResourceAssociationState) ElementType() reflect.Type {
 }
 
 type tagOptionResourceAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Resource identifier.
-	ResourceId string `pulumi:"resourceId"`
-	// Tag Option identifier.
-	TagOptionId string `pulumi:"tagOptionId"`
+	Region      *string `pulumi:"region"`
+	ResourceId  string  `pulumi:"resourceId"`
+	TagOptionId string  `pulumi:"tagOptionId"`
 }
 
 // The set of arguments for constructing a TagOptionResourceAssociation resource.
 type TagOptionResourceAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Resource identifier.
-	ResourceId pulumi.StringInput
-	// Tag Option identifier.
+	Region      pulumi.StringPtrInput
+	ResourceId  pulumi.StringInput
 	TagOptionId pulumi.StringInput
 }
 
@@ -250,37 +183,30 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOptionResourceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Creation time of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceCreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceCreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceDescription }).(pulumi.StringOutput)
 }
 
-// Resource identifier.
 func (o TagOptionResourceAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Description of the resource.
 func (o TagOptionResourceAssociationOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
 }
 
-// Tag Option identifier.
 func (o TagOptionResourceAssociationOutput) TagOptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.TagOptionId }).(pulumi.StringOutput)
 }

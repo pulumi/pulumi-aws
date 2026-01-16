@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class DataLakeConfigurationLifecycleConfigurationExpiration
     {
-        /// <summary>
-        /// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-        /// </summary>
         public readonly int? Days;
 
         [OutputConstructor]

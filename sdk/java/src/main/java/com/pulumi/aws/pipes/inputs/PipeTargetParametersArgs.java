@@ -26,182 +26,86 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
 
     public static final PipeTargetParametersArgs Empty = new PipeTargetParametersArgs();
 
-    /**
-     * The parameters for using an AWS Batch job as a target. Detailed below.
-     * 
-     */
     @Import(name="batchJobParameters")
     private @Nullable Output<PipeTargetParametersBatchJobParametersArgs> batchJobParameters;
 
-    /**
-     * @return The parameters for using an AWS Batch job as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersBatchJobParametersArgs>> batchJobParameters() {
         return Optional.ofNullable(this.batchJobParameters);
     }
 
-    /**
-     * The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
-     * 
-     */
     @Import(name="cloudwatchLogsParameters")
     private @Nullable Output<PipeTargetParametersCloudwatchLogsParametersArgs> cloudwatchLogsParameters;
 
-    /**
-     * @return The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersCloudwatchLogsParametersArgs>> cloudwatchLogsParameters() {
         return Optional.ofNullable(this.cloudwatchLogsParameters);
     }
 
-    /**
-     * The parameters for using an Amazon ECS task as a target. Detailed below.
-     * 
-     */
     @Import(name="ecsTaskParameters")
     private @Nullable Output<PipeTargetParametersEcsTaskParametersArgs> ecsTaskParameters;
 
-    /**
-     * @return The parameters for using an Amazon ECS task as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersEcsTaskParametersArgs>> ecsTaskParameters() {
         return Optional.ofNullable(this.ecsTaskParameters);
     }
 
-    /**
-     * The parameters for using an EventBridge event bus as a target. Detailed below.
-     * 
-     */
     @Import(name="eventbridgeEventBusParameters")
     private @Nullable Output<PipeTargetParametersEventbridgeEventBusParametersArgs> eventbridgeEventBusParameters;
 
-    /**
-     * @return The parameters for using an EventBridge event bus as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersEventbridgeEventBusParametersArgs>> eventbridgeEventBusParameters() {
         return Optional.ofNullable(this.eventbridgeEventBusParameters);
     }
 
-    /**
-     * These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
-     * 
-     */
     @Import(name="httpParameters")
     private @Nullable Output<PipeTargetParametersHttpParametersArgs> httpParameters;
 
-    /**
-     * @return These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersHttpParametersArgs>> httpParameters() {
         return Optional.ofNullable(this.httpParameters);
     }
 
-    /**
-     * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-     * 
-     */
     @Import(name="inputTemplate")
     private @Nullable Output<String> inputTemplate;
 
-    /**
-     * @return Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-     * 
-     */
     public Optional<Output<String>> inputTemplate() {
         return Optional.ofNullable(this.inputTemplate);
     }
 
-    /**
-     * The parameters for using a Kinesis stream as a source. Detailed below.
-     * 
-     */
     @Import(name="kinesisStreamParameters")
     private @Nullable Output<PipeTargetParametersKinesisStreamParametersArgs> kinesisStreamParameters;
 
-    /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersKinesisStreamParametersArgs>> kinesisStreamParameters() {
         return Optional.ofNullable(this.kinesisStreamParameters);
     }
 
-    /**
-     * The parameters for using a Lambda function as a target. Detailed below.
-     * 
-     */
     @Import(name="lambdaFunctionParameters")
     private @Nullable Output<PipeTargetParametersLambdaFunctionParametersArgs> lambdaFunctionParameters;
 
-    /**
-     * @return The parameters for using a Lambda function as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersLambdaFunctionParametersArgs>> lambdaFunctionParameters() {
         return Optional.ofNullable(this.lambdaFunctionParameters);
     }
 
-    /**
-     * These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-     * 
-     */
     @Import(name="redshiftDataParameters")
     private @Nullable Output<PipeTargetParametersRedshiftDataParametersArgs> redshiftDataParameters;
 
-    /**
-     * @return These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersRedshiftDataParametersArgs>> redshiftDataParameters() {
         return Optional.ofNullable(this.redshiftDataParameters);
     }
 
-    /**
-     * The parameters for using a SageMaker AI pipeline as a target. Detailed below.
-     * 
-     */
     @Import(name="sagemakerPipelineParameters")
     private @Nullable Output<PipeTargetParametersSagemakerPipelineParametersArgs> sagemakerPipelineParameters;
 
-    /**
-     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersSagemakerPipelineParametersArgs>> sagemakerPipelineParameters() {
         return Optional.ofNullable(this.sagemakerPipelineParameters);
     }
 
-    /**
-     * The parameters for using a Amazon SQS stream as a target. Detailed below.
-     * 
-     */
     @Import(name="sqsQueueParameters")
     private @Nullable Output<PipeTargetParametersSqsQueueParametersArgs> sqsQueueParameters;
 
-    /**
-     * @return The parameters for using a Amazon SQS stream as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersSqsQueueParametersArgs>> sqsQueueParameters() {
         return Optional.ofNullable(this.sqsQueueParameters);
     }
 
-    /**
-     * The parameters for using a Step Functions state machine as a target. Detailed below.
-     * 
-     */
     @Import(name="stepFunctionStateMachineParameters")
     private @Nullable Output<PipeTargetParametersStepFunctionStateMachineParametersArgs> stepFunctionStateMachineParameters;
 
-    /**
-     * @return The parameters for using a Step Functions state machine as a target. Detailed below.
-     * 
-     */
     public Optional<Output<PipeTargetParametersStepFunctionStateMachineParametersArgs>> stepFunctionStateMachineParameters() {
         return Optional.ofNullable(this.stepFunctionStateMachineParameters);
     }
@@ -241,254 +145,110 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
             $ = new PipeTargetParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param batchJobParameters The parameters for using an AWS Batch job as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchJobParameters(@Nullable Output<PipeTargetParametersBatchJobParametersArgs> batchJobParameters) {
             $.batchJobParameters = batchJobParameters;
             return this;
         }
 
-        /**
-         * @param batchJobParameters The parameters for using an AWS Batch job as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchJobParameters(PipeTargetParametersBatchJobParametersArgs batchJobParameters) {
             return batchJobParameters(Output.of(batchJobParameters));
         }
 
-        /**
-         * @param cloudwatchLogsParameters The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsParameters(@Nullable Output<PipeTargetParametersCloudwatchLogsParametersArgs> cloudwatchLogsParameters) {
             $.cloudwatchLogsParameters = cloudwatchLogsParameters;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogsParameters The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogsParameters(PipeTargetParametersCloudwatchLogsParametersArgs cloudwatchLogsParameters) {
             return cloudwatchLogsParameters(Output.of(cloudwatchLogsParameters));
         }
 
-        /**
-         * @param ecsTaskParameters The parameters for using an Amazon ECS task as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecsTaskParameters(@Nullable Output<PipeTargetParametersEcsTaskParametersArgs> ecsTaskParameters) {
             $.ecsTaskParameters = ecsTaskParameters;
             return this;
         }
 
-        /**
-         * @param ecsTaskParameters The parameters for using an Amazon ECS task as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecsTaskParameters(PipeTargetParametersEcsTaskParametersArgs ecsTaskParameters) {
             return ecsTaskParameters(Output.of(ecsTaskParameters));
         }
 
-        /**
-         * @param eventbridgeEventBusParameters The parameters for using an EventBridge event bus as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventbridgeEventBusParameters(@Nullable Output<PipeTargetParametersEventbridgeEventBusParametersArgs> eventbridgeEventBusParameters) {
             $.eventbridgeEventBusParameters = eventbridgeEventBusParameters;
             return this;
         }
 
-        /**
-         * @param eventbridgeEventBusParameters The parameters for using an EventBridge event bus as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventbridgeEventBusParameters(PipeTargetParametersEventbridgeEventBusParametersArgs eventbridgeEventBusParameters) {
             return eventbridgeEventBusParameters(Output.of(eventbridgeEventBusParameters));
         }
 
-        /**
-         * @param httpParameters These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpParameters(@Nullable Output<PipeTargetParametersHttpParametersArgs> httpParameters) {
             $.httpParameters = httpParameters;
             return this;
         }
 
-        /**
-         * @param httpParameters These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpParameters(PipeTargetParametersHttpParametersArgs httpParameters) {
             return httpParameters(Output.of(httpParameters));
         }
 
-        /**
-         * @param inputTemplate Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputTemplate(@Nullable Output<String> inputTemplate) {
             $.inputTemplate = inputTemplate;
             return this;
         }
 
-        /**
-         * @param inputTemplate Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputTemplate(String inputTemplate) {
             return inputTemplate(Output.of(inputTemplate));
         }
 
-        /**
-         * @param kinesisStreamParameters The parameters for using a Kinesis stream as a source. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisStreamParameters(@Nullable Output<PipeTargetParametersKinesisStreamParametersArgs> kinesisStreamParameters) {
             $.kinesisStreamParameters = kinesisStreamParameters;
             return this;
         }
 
-        /**
-         * @param kinesisStreamParameters The parameters for using a Kinesis stream as a source. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kinesisStreamParameters(PipeTargetParametersKinesisStreamParametersArgs kinesisStreamParameters) {
             return kinesisStreamParameters(Output.of(kinesisStreamParameters));
         }
 
-        /**
-         * @param lambdaFunctionParameters The parameters for using a Lambda function as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionParameters(@Nullable Output<PipeTargetParametersLambdaFunctionParametersArgs> lambdaFunctionParameters) {
             $.lambdaFunctionParameters = lambdaFunctionParameters;
             return this;
         }
 
-        /**
-         * @param lambdaFunctionParameters The parameters for using a Lambda function as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionParameters(PipeTargetParametersLambdaFunctionParametersArgs lambdaFunctionParameters) {
             return lambdaFunctionParameters(Output.of(lambdaFunctionParameters));
         }
 
-        /**
-         * @param redshiftDataParameters These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftDataParameters(@Nullable Output<PipeTargetParametersRedshiftDataParametersArgs> redshiftDataParameters) {
             $.redshiftDataParameters = redshiftDataParameters;
             return this;
         }
 
-        /**
-         * @param redshiftDataParameters These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshiftDataParameters(PipeTargetParametersRedshiftDataParametersArgs redshiftDataParameters) {
             return redshiftDataParameters(Output.of(redshiftDataParameters));
         }
 
-        /**
-         * @param sagemakerPipelineParameters The parameters for using a SageMaker AI pipeline as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerPipelineParameters(@Nullable Output<PipeTargetParametersSagemakerPipelineParametersArgs> sagemakerPipelineParameters) {
             $.sagemakerPipelineParameters = sagemakerPipelineParameters;
             return this;
         }
 
-        /**
-         * @param sagemakerPipelineParameters The parameters for using a SageMaker AI pipeline as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerPipelineParameters(PipeTargetParametersSagemakerPipelineParametersArgs sagemakerPipelineParameters) {
             return sagemakerPipelineParameters(Output.of(sagemakerPipelineParameters));
         }
 
-        /**
-         * @param sqsQueueParameters The parameters for using a Amazon SQS stream as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqsQueueParameters(@Nullable Output<PipeTargetParametersSqsQueueParametersArgs> sqsQueueParameters) {
             $.sqsQueueParameters = sqsQueueParameters;
             return this;
         }
 
-        /**
-         * @param sqsQueueParameters The parameters for using a Amazon SQS stream as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqsQueueParameters(PipeTargetParametersSqsQueueParametersArgs sqsQueueParameters) {
             return sqsQueueParameters(Output.of(sqsQueueParameters));
         }
 
-        /**
-         * @param stepFunctionStateMachineParameters The parameters for using a Step Functions state machine as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepFunctionStateMachineParameters(@Nullable Output<PipeTargetParametersStepFunctionStateMachineParametersArgs> stepFunctionStateMachineParameters) {
             $.stepFunctionStateMachineParameters = stepFunctionStateMachineParameters;
             return this;
         }
 
-        /**
-         * @param stepFunctionStateMachineParameters The parameters for using a Step Functions state machine as a target. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stepFunctionStateMachineParameters(PipeTargetParametersStepFunctionStateMachineParametersArgs stepFunctionStateMachineParameters) {
             return stepFunctionStateMachineParameters(Output.of(stepFunctionStateMachineParameters));
         }

@@ -9,64 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecretsManager
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.SecretsManager.Secret("test", new()
-    ///     {
-    ///         Name = "example-secret",
-    ///     });
-    /// 
-    ///     var testTag = new Aws.SecretsManager.Tag("test", new()
-    ///     {
-    ///         SecretId = test.Id,
-    ///         Key = "ExampleKey",
-    ///         Value = "ExampleValue",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_secretsmanager_tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:secretsmanager/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the AWS Secrets Manager secret to tag.
-        /// </summary>
         [Output("secretId")]
         public Output<string> SecretId { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -116,27 +70,15 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the AWS Secrets Manager secret to tag.
-        /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -148,27 +90,15 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the AWS Secrets Manager secret to tag.
-        /// </summary>
         [Input("secretId")]
         public Input<string>? SecretId { get; set; }
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -14,20 +14,12 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     {
         [Input("mappings", required: true)]
         private InputMap<string>? _mappings;
-
-        /// <summary>
-        /// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
-        /// </summary>
         public InputMap<string> Mappings
         {
             get => _mappings ?? (_mappings = new InputMap<string>());
             set => _mappings = value;
         }
 
-        /// <summary>
-        /// HTTP status code in the range 200-599.
-        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 

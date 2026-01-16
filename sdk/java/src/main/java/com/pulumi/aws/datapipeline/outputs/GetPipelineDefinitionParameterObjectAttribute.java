@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPipelineDefinitionParameterObjectAttribute {
-    /**
-     * @return Field identifier.
-     * 
-     */
     private String key;
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     private String stringValue;
 
     private GetPipelineDefinitionParameterObjectAttribute() {}
-    /**
-     * @return Field identifier.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     public String stringValue() {
         return this.stringValue;
     }

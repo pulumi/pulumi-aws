@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation
     {
-        /// <summary>
-        /// Contains information about the Amazon S3 location for the extracted images.  See `S3Location` block for details.
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location? S3Location;
-        /// <summary>
-        /// Storage service used for this location. `S3` is the only valid value.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

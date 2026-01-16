@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- *     name: "example",
- * });
- * const exampleType = new aws.appsync.Type("example", {
- *     apiId: example.id,
- *     format: "SDL",
- *     definition: `type Mutation
- *
- * {
- * putPost(id: ID!,title: String! ): Post
- *
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Appsync Types using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:appsync/type:Type example api-id:format:name
- * ```
- */
 export class Type extends pulumi.CustomResource {
     /**
      * Get an existing Type resource's state with the given name, ID, and optional extra
@@ -66,33 +32,12 @@ export class Type extends pulumi.CustomResource {
         return obj['__pulumiType'] === Type.__pulumiType;
     }
 
-    /**
-     * GraphQL API ID.
-     */
     declare public readonly apiId: pulumi.Output<string>;
-    /**
-     * The ARN of the type.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The type definition.
-     */
     declare public readonly definition: pulumi.Output<string>;
-    /**
-     * The type description.
-     */
     declare public /*out*/ readonly description: pulumi.Output<string>;
-    /**
-     * The type format: `SDL` or `JSON`.
-     */
     declare public readonly format: pulumi.Output<string>;
-    /**
-     * The type name.
-     */
     declare public /*out*/ readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -143,33 +88,12 @@ export class Type extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Type resources.
  */
 export interface TypeState {
-    /**
-     * GraphQL API ID.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * The ARN of the type.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The type definition.
-     */
     definition?: pulumi.Input<string>;
-    /**
-     * The type description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The type format: `SDL` or `JSON`.
-     */
     format?: pulumi.Input<string>;
-    /**
-     * The type name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -177,20 +101,8 @@ export interface TypeState {
  * The set of arguments for constructing a Type resource.
  */
 export interface TypeArgs {
-    /**
-     * GraphQL API ID.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * The type definition.
-     */
     definition: pulumi.Input<string>;
-    /**
-     * The type format: `SDL` or `JSON`.
-     */
     format: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

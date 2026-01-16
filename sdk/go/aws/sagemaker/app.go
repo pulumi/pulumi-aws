@@ -12,68 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker AI App resource.
-//
-// ## Example Usage
-//
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewApp(ctx, "example", &sagemaker.AppArgs{
-//				DomainId:        pulumi.Any(exampleAwsSagemakerDomain.Id),
-//				UserProfileName: pulumi.Any(exampleAwsSagemakerUserProfile.UserProfileName),
-//				AppName:         pulumi.String("example"),
-//				AppType:         pulumi.String("JupyterServer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker AI Apps using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
-// ```
 type App struct {
 	pulumi.CustomResourceState
 
-	// The name of the app.
-	AppName pulumi.StringOutput `pulumi:"appName"`
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-	AppType pulumi.StringOutput `pulumi:"appType"`
-	// The Amazon Resource Name (ARN) of the app.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The domain ID.
-	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
-	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
-	// The name of the space. At least one of `userProfileName` or `spaceName` required.
-	SpaceName pulumi.StringPtrOutput `pulumi:"spaceName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The user profile name. At least one of `userProfileName` or `spaceName` required.
+	AppName         pulumi.StringOutput    `pulumi:"appName"`
+	AppType         pulumi.StringOutput    `pulumi:"appType"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	DomainId        pulumi.StringOutput    `pulumi:"domainId"`
+	Region          pulumi.StringOutput    `pulumi:"region"`
+	ResourceSpec    AppResourceSpecOutput  `pulumi:"resourceSpec"`
+	SpaceName       pulumi.StringPtrOutput `pulumi:"spaceName"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 	UserProfileName pulumi.StringPtrOutput `pulumi:"userProfileName"`
 }
 
@@ -116,48 +66,28 @@ func GetApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering App resources.
 type appState struct {
-	// The name of the app.
-	AppName *string `pulumi:"appName"`
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-	AppType *string `pulumi:"appType"`
-	// The Amazon Resource Name (ARN) of the app.
-	Arn *string `pulumi:"arn"`
-	// The domain ID.
-	DomainId *string `pulumi:"domainId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
-	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// The name of the space. At least one of `userProfileName` or `spaceName` required.
-	SpaceName *string `pulumi:"spaceName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The user profile name. At least one of `userProfileName` or `spaceName` required.
-	UserProfileName *string `pulumi:"userProfileName"`
+	AppName         *string           `pulumi:"appName"`
+	AppType         *string           `pulumi:"appType"`
+	Arn             *string           `pulumi:"arn"`
+	DomainId        *string           `pulumi:"domainId"`
+	Region          *string           `pulumi:"region"`
+	ResourceSpec    *AppResourceSpec  `pulumi:"resourceSpec"`
+	SpaceName       *string           `pulumi:"spaceName"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
+	UserProfileName *string           `pulumi:"userProfileName"`
 }
 
 type AppState struct {
-	// The name of the app.
-	AppName pulumi.StringPtrInput
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-	AppType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the app.
-	Arn pulumi.StringPtrInput
-	// The domain ID.
-	DomainId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
-	ResourceSpec AppResourceSpecPtrInput
-	// The name of the space. At least one of `userProfileName` or `spaceName` required.
-	SpaceName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The user profile name. At least one of `userProfileName` or `spaceName` required.
+	AppName         pulumi.StringPtrInput
+	AppType         pulumi.StringPtrInput
+	Arn             pulumi.StringPtrInput
+	DomainId        pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	ResourceSpec    AppResourceSpecPtrInput
+	SpaceName       pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 	UserProfileName pulumi.StringPtrInput
 }
 
@@ -166,41 +96,25 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// The name of the app.
-	AppName string `pulumi:"appName"`
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-	AppType string `pulumi:"appType"`
-	// The domain ID.
-	DomainId string `pulumi:"domainId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
-	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// The name of the space. At least one of `userProfileName` or `spaceName` required.
-	SpaceName *string `pulumi:"spaceName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The user profile name. At least one of `userProfileName` or `spaceName` required.
-	UserProfileName *string `pulumi:"userProfileName"`
+	AppName         string            `pulumi:"appName"`
+	AppType         string            `pulumi:"appType"`
+	DomainId        string            `pulumi:"domainId"`
+	Region          *string           `pulumi:"region"`
+	ResourceSpec    *AppResourceSpec  `pulumi:"resourceSpec"`
+	SpaceName       *string           `pulumi:"spaceName"`
+	Tags            map[string]string `pulumi:"tags"`
+	UserProfileName *string           `pulumi:"userProfileName"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// The name of the app.
-	AppName pulumi.StringInput
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-	AppType pulumi.StringInput
-	// The domain ID.
-	DomainId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
-	ResourceSpec AppResourceSpecPtrInput
-	// The name of the space. At least one of `userProfileName` or `spaceName` required.
-	SpaceName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The user profile name. At least one of `userProfileName` or `spaceName` required.
+	AppName         pulumi.StringInput
+	AppType         pulumi.StringInput
+	DomainId        pulumi.StringInput
+	Region          pulumi.StringPtrInput
+	ResourceSpec    AppResourceSpecPtrInput
+	SpaceName       pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 	UserProfileName pulumi.StringPtrInput
 }
 
@@ -291,52 +205,42 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
-// The name of the app.
 func (o AppOutput) AppName() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppName }).(pulumi.StringOutput)
 }
 
-// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 func (o AppOutput) AppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the app.
 func (o AppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The domain ID.
 func (o AppOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 func (o AppOutput) ResourceSpec() AppResourceSpecOutput {
 	return o.ApplyT(func(v *App) AppResourceSpecOutput { return v.ResourceSpec }).(AppResourceSpecOutput)
 }
 
-// The name of the space. At least one of `userProfileName` or `spaceName` required.
 func (o AppOutput) SpaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.SpaceName }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AppOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The user profile name. At least one of `userProfileName` or `spaceName` required.
 func (o AppOutput) UserProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.UserProfileName }).(pulumi.StringPtrOutput)
 }

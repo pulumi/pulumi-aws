@@ -12,106 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Cognito Resource Server.
-//
-// ## Example Usage
-//
-// ### Create a basic resource server
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pool, err := cognito.NewUserPool(ctx, "pool", &cognito.UserPoolArgs{
-//				Name: pulumi.String("pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-//				Identifier: pulumi.String("https://example.com"),
-//				Name:       pulumi.String("example"),
-//				UserPoolId: pool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create a resource server with sample-scope
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pool, err := cognito.NewUserPool(ctx, "pool", &cognito.UserPoolArgs{
-//				Name: pulumi.String("pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-//				Identifier: pulumi.String("https://example.com"),
-//				Name:       pulumi.String("example"),
-//				Scopes: cognito.ResourceServerScopeArray{
-//					&cognito.ResourceServerScopeArgs{
-//						ScopeName:        pulumi.String("sample-scope"),
-//						ScopeDescription: pulumi.String("a Sample Scope Description"),
-//					},
-//				},
-//				UserPoolId: pool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-// ```
 type ResourceServer struct {
 	pulumi.CustomResourceState
 
-	// An identifier for the resource server.
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// A name for the resource server.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of all scopes configured for this resource server in the format identifier/scope_name.
-	ScopeIdentifiers pulumi.StringArrayOutput `pulumi:"scopeIdentifiers"`
-	// A list of Authorization Scope.
-	Scopes ResourceServerScopeArrayOutput `pulumi:"scopes"`
-	// User pool the client belongs to.
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	Identifier       pulumi.StringOutput            `pulumi:"identifier"`
+	Name             pulumi.StringOutput            `pulumi:"name"`
+	Region           pulumi.StringOutput            `pulumi:"region"`
+	ScopeIdentifiers pulumi.StringArrayOutput       `pulumi:"scopeIdentifiers"`
+	Scopes           ResourceServerScopeArrayOutput `pulumi:"scopes"`
+	UserPoolId       pulumi.StringOutput            `pulumi:"userPoolId"`
 }
 
 // NewResourceServer registers a new resource with the given unique name, arguments, and options.
@@ -150,33 +59,21 @@ func GetResourceServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceServer resources.
 type resourceServerState struct {
-	// An identifier for the resource server.
-	Identifier *string `pulumi:"identifier"`
-	// A name for the resource server.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of all scopes configured for this resource server in the format identifier/scope_name.
-	ScopeIdentifiers []string `pulumi:"scopeIdentifiers"`
-	// A list of Authorization Scope.
-	Scopes []ResourceServerScope `pulumi:"scopes"`
-	// User pool the client belongs to.
-	UserPoolId *string `pulumi:"userPoolId"`
+	Identifier       *string               `pulumi:"identifier"`
+	Name             *string               `pulumi:"name"`
+	Region           *string               `pulumi:"region"`
+	ScopeIdentifiers []string              `pulumi:"scopeIdentifiers"`
+	Scopes           []ResourceServerScope `pulumi:"scopes"`
+	UserPoolId       *string               `pulumi:"userPoolId"`
 }
 
 type ResourceServerState struct {
-	// An identifier for the resource server.
-	Identifier pulumi.StringPtrInput
-	// A name for the resource server.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of all scopes configured for this resource server in the format identifier/scope_name.
+	Identifier       pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 	ScopeIdentifiers pulumi.StringArrayInput
-	// A list of Authorization Scope.
-	Scopes ResourceServerScopeArrayInput
-	// User pool the client belongs to.
-	UserPoolId pulumi.StringPtrInput
+	Scopes           ResourceServerScopeArrayInput
+	UserPoolId       pulumi.StringPtrInput
 }
 
 func (ResourceServerState) ElementType() reflect.Type {
@@ -184,29 +81,19 @@ func (ResourceServerState) ElementType() reflect.Type {
 }
 
 type resourceServerArgs struct {
-	// An identifier for the resource server.
-	Identifier string `pulumi:"identifier"`
-	// A name for the resource server.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of Authorization Scope.
-	Scopes []ResourceServerScope `pulumi:"scopes"`
-	// User pool the client belongs to.
-	UserPoolId string `pulumi:"userPoolId"`
+	Identifier string                `pulumi:"identifier"`
+	Name       *string               `pulumi:"name"`
+	Region     *string               `pulumi:"region"`
+	Scopes     []ResourceServerScope `pulumi:"scopes"`
+	UserPoolId string                `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a ResourceServer resource.
 type ResourceServerArgs struct {
-	// An identifier for the resource server.
 	Identifier pulumi.StringInput
-	// A name for the resource server.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of Authorization Scope.
-	Scopes ResourceServerScopeArrayInput
-	// User pool the client belongs to.
+	Name       pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
+	Scopes     ResourceServerScopeArrayInput
 	UserPoolId pulumi.StringInput
 }
 
@@ -297,32 +184,26 @@ func (o ResourceServerOutput) ToResourceServerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// An identifier for the resource server.
 func (o ResourceServerOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// A name for the resource server.
 func (o ResourceServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceServerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of all scopes configured for this resource server in the format identifier/scope_name.
 func (o ResourceServerOutput) ScopeIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringArrayOutput { return v.ScopeIdentifiers }).(pulumi.StringArrayOutput)
 }
 
-// A list of Authorization Scope.
 func (o ResourceServerOutput) Scopes() ResourceServerScopeArrayOutput {
 	return o.ApplyT(func(v *ResourceServer) ResourceServerScopeArrayOutput { return v.Scopes }).(ResourceServerScopeArrayOutput)
 }
 
-// User pool the client belongs to.
 func (o ResourceServerOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

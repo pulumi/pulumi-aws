@@ -113,41 +113,26 @@ class GetWindowsFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
     def active_directory_id(self) -> _builtins.str:
-        """
-        The ID for Microsoft Active Directory instance that the file system is join to.
-        """
         return pulumi.get(self, "active_directory_id")
 
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> Sequence[_builtins.str]:
-        """
-        An array DNS alias names associated with the Amazon FSx file system.
-        """
         return pulumi.get(self, "aliases")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name of the file system.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="auditLogConfigurations")
     def audit_log_configurations(self) -> Sequence['outputs.GetWindowsFileSystemAuditLogConfigurationResult']:
-        """
-        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
-        """
         return pulumi.get(self, "audit_log_configurations")
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> _builtins.int:
-        """
-        The number of days to retain automatic backups.
-        """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @_builtins.property
@@ -158,57 +143,36 @@ class GetWindowsFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> _builtins.bool:
-        """
-        A boolean flag indicating whether tags on the file system should be copied to backups.
-        """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> _builtins.str:
-        """
-        The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-        """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> _builtins.str:
-        """
-        The file system deployment type.
-        """
         return pulumi.get(self, "deployment_type")
 
     @_builtins.property
     @pulumi.getter(name="diskIopsConfigurations")
     def disk_iops_configurations(self) -> Sequence['outputs.GetWindowsFileSystemDiskIopsConfigurationResult']:
-        """
-        The SSD IOPS configuration for the file system.
-        """
         return pulumi.get(self, "disk_iops_configurations")
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
-        """
-        DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
-        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier of the file system (e.g. `fs-12345678`).
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        ARN for the KMS Key to encrypt the file system at rest.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
@@ -219,25 +183,16 @@ class GetWindowsFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        AWS account identifier that created the file system.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter(name="preferredFileServerIp")
     def preferred_file_server_ip(self) -> _builtins.str:
-        """
-        The IP address of the primary, or preferred, file server.
-        """
         return pulumi.get(self, "preferred_file_server_ip")
 
     @_builtins.property
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> _builtins.str:
-        """
-        Specifies the subnet in which you want the preferred file server to be located.
-        """
         return pulumi.get(self, "preferred_subnet_id")
 
     @_builtins.property
@@ -258,57 +213,36 @@ class GetWindowsFileSystemResult:
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> _builtins.int:
-        """
-        The storage capacity of the file system in gibibytes (GiB).
-        """
         return pulumi.get(self, "storage_capacity")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> _builtins.str:
-        """
-        The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        Specifies the IDs of the subnets that the file system is accessible from.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        The tags to associate with the file system.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> _builtins.int:
-        """
-        Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
-        """
         return pulumi.get(self, "throughput_capacity")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The ID of the primary virtual private cloud (VPC) for the file system.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> _builtins.str:
-        """
-        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-        """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
 
@@ -352,23 +286,7 @@ def get_windows_file_system(id: Optional[_builtins.str] = None,
                             tags: Optional[Mapping[str, _builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWindowsFileSystemResult:
     """
-    Retrieve information on FSx Windows File System.
-
-    ## Example Usage
-
-    ### Root volume Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_windows_file_system(id="fs-12345678")
-    ```
-
-
-    :param _builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: The tags to associate with the file system.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -410,23 +328,7 @@ def get_windows_file_system_output(id: Optional[pulumi.Input[_builtins.str]] = N
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWindowsFileSystemResult]:
     """
-    Retrieve information on FSx Windows File System.
-
-    ## Example Usage
-
-    ### Root volume Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_windows_file_system(id="fs-12345678")
-    ```
-
-
-    :param _builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: The tags to associate with the file system.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -15,36 +15,16 @@ public final class GetVpcDhcpOptionsFilterArgs extends com.pulumi.resources.Reso
 
     public static final GetVpcDhcpOptionsFilterArgs Empty = new GetVpcDhcpOptionsFilterArgs();
 
-    /**
-     * Name of the field to filter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the field to filter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Set of values for filtering.
-     * 
-     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Set of values for filtering.
-     * 
-     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -74,60 +54,24 @@ public final class GetVpcDhcpOptionsFilterArgs extends com.pulumi.resources.Reso
             $ = new GetVpcDhcpOptionsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the field to filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the field to filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values Set of values for filtering.
-         * 
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values for filtering.
-         * 
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Set of values for filtering.
-         * 
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

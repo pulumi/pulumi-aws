@@ -16,32 +16,16 @@ public final class ImageImageScanningConfigurationEcrConfigurationArgs extends c
 
     public static final ImageImageScanningConfigurationEcrConfigurationArgs Empty = new ImageImageScanningConfigurationEcrConfigurationArgs();
 
-    /**
-     * Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-     * 
-     */
     @Import(name="containerTags")
     private @Nullable Output<List<String>> containerTags;
 
-    /**
-     * @return Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-     * 
-     */
     public Optional<Output<List<String>>> containerTags() {
         return Optional.ofNullable(this.containerTags);
     }
 
-    /**
-     * The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-     * 
-     */
     @Import(name="repositoryName")
     private @Nullable Output<String> repositoryName;
 
-    /**
-     * @return The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-     * 
-     */
     public Optional<Output<String>> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
     }
@@ -71,54 +55,24 @@ public final class ImageImageScanningConfigurationEcrConfigurationArgs extends c
             $ = new ImageImageScanningConfigurationEcrConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerTags Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerTags(@Nullable Output<List<String>> containerTags) {
             $.containerTags = containerTags;
             return this;
         }
 
-        /**
-         * @param containerTags Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerTags(List<String> containerTags) {
             return containerTags(Output.of(containerTags));
         }
 
-        /**
-         * @param containerTags Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerTags(String... containerTags) {
             return containerTags(List.of(containerTags));
         }
 
-        /**
-         * @param repositoryName The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(@Nullable Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

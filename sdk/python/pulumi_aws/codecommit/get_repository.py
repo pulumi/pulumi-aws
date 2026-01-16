@@ -55,25 +55,16 @@ class GetRepositoryResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cloneUrlHttp")
     def clone_url_http(self) -> _builtins.str:
-        """
-        URL to use for cloning the repository over HTTPS.
-        """
         return pulumi.get(self, "clone_url_http")
 
     @_builtins.property
     @pulumi.getter(name="cloneUrlSsh")
     def clone_url_ssh(self) -> _builtins.str:
-        """
-        URL to use for cloning the repository over SSH.
-        """
         return pulumi.get(self, "clone_url_ssh")
 
     @_builtins.property
@@ -87,9 +78,6 @@ class GetRepositoryResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        The ID of the encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
@@ -100,9 +88,6 @@ class GetRepositoryResult:
     @_builtins.property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> _builtins.str:
-        """
-        ID of the repository.
-        """
         return pulumi.get(self, "repository_id")
 
     @_builtins.property
@@ -131,20 +116,7 @@ def get_repository(region: Optional[_builtins.str] = None,
                    repository_name: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
     """
-    The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.codecommit.get_repository(repository_name="MyTestRepository")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str repository_name: Name for the repository. This needs to be less than 100 characters.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -165,20 +137,7 @@ def get_repository_output(region: Optional[pulumi.Input[Optional[_builtins.str]]
                           repository_name: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
-    The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.codecommit.get_repository(repository_name="MyTestRepository")
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str repository_name: Name for the repository. This needs to be less than 100 characters.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

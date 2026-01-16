@@ -16,36 +16,16 @@ public final class GetUserAlternateIdentifierArgs extends com.pulumi.resources.R
 
     public static final GetUserAlternateIdentifierArgs Empty = new GetUserAlternateIdentifierArgs();
 
-    /**
-     * Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-     * 
-     */
     @Import(name="externalId")
     private @Nullable Output<GetUserAlternateIdentifierExternalIdArgs> externalId;
 
-    /**
-     * @return Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-     * 
-     */
     public Optional<Output<GetUserAlternateIdentifierExternalIdArgs>> externalId() {
         return Optional.ofNullable(this.externalId);
     }
 
-    /**
-     * An entity attribute that&#39;s unique to a specific entity. Detailed below.
-     * 
-     * &gt; Exactly one of the above arguments must be provided.
-     * 
-     */
     @Import(name="uniqueAttribute")
     private @Nullable Output<GetUserAlternateIdentifierUniqueAttributeArgs> uniqueAttribute;
 
-    /**
-     * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
-     * 
-     * &gt; Exactly one of the above arguments must be provided.
-     * 
-     */
     public Optional<Output<GetUserAlternateIdentifierUniqueAttributeArgs>> uniqueAttribute() {
         return Optional.ofNullable(this.uniqueAttribute);
     }
@@ -75,48 +55,20 @@ public final class GetUserAlternateIdentifierArgs extends com.pulumi.resources.R
             $ = new GetUserAlternateIdentifierArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param externalId Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalId(@Nullable Output<GetUserAlternateIdentifierExternalIdArgs> externalId) {
             $.externalId = externalId;
             return this;
         }
 
-        /**
-         * @param externalId Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalId(GetUserAlternateIdentifierExternalIdArgs externalId) {
             return externalId(Output.of(externalId));
         }
 
-        /**
-         * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
-         * 
-         * &gt; Exactly one of the above arguments must be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueAttribute(@Nullable Output<GetUserAlternateIdentifierUniqueAttributeArgs> uniqueAttribute) {
             $.uniqueAttribute = uniqueAttribute;
             return this;
         }
 
-        /**
-         * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
-         * 
-         * &gt; Exactly one of the above arguments must be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs uniqueAttribute) {
             return uniqueAttribute(Output.of(uniqueAttribute));
         }

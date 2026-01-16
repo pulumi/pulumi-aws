@@ -12,60 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an AWS CloudTrail Delegated Administrator.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			delegated, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewOrganizationDelegatedAdminAccount(ctx, "example", &cloudtrail.OrganizationDelegatedAdminAccountArgs{
-//				AccountId: pulumi.String(delegated.AccountId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
-// ```
 type OrganizationDelegatedAdminAccount struct {
 	pulumi.CustomResourceState
 
-	// An organization member account ID that you want to designate as a delegated administrator.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The email address that is associated with the delegated administrator's AWS account.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// The friendly name of the delegated administrator's account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS CloudTrail service principal name.
+	AccountId        pulumi.StringOutput `pulumi:"accountId"`
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	Email            pulumi.StringOutput `pulumi:"email"`
+	Name             pulumi.StringOutput `pulumi:"name"`
 	ServicePrincipal pulumi.StringOutput `pulumi:"servicePrincipal"`
 }
 
@@ -102,28 +55,18 @@ func GetOrganizationDelegatedAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationDelegatedAdminAccount resources.
 type organizationDelegatedAdminAccountState struct {
-	// An organization member account ID that you want to designate as a delegated administrator.
-	AccountId *string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
-	Arn *string `pulumi:"arn"`
-	// The email address that is associated with the delegated administrator's AWS account.
-	Email *string `pulumi:"email"`
-	// The friendly name of the delegated administrator's account.
-	Name *string `pulumi:"name"`
-	// The AWS CloudTrail service principal name.
+	AccountId        *string `pulumi:"accountId"`
+	Arn              *string `pulumi:"arn"`
+	Email            *string `pulumi:"email"`
+	Name             *string `pulumi:"name"`
 	ServicePrincipal *string `pulumi:"servicePrincipal"`
 }
 
 type OrganizationDelegatedAdminAccountState struct {
-	// An organization member account ID that you want to designate as a delegated administrator.
-	AccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
-	Arn pulumi.StringPtrInput
-	// The email address that is associated with the delegated administrator's AWS account.
-	Email pulumi.StringPtrInput
-	// The friendly name of the delegated administrator's account.
-	Name pulumi.StringPtrInput
-	// The AWS CloudTrail service principal name.
+	AccountId        pulumi.StringPtrInput
+	Arn              pulumi.StringPtrInput
+	Email            pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 	ServicePrincipal pulumi.StringPtrInput
 }
 
@@ -132,13 +75,11 @@ func (OrganizationDelegatedAdminAccountState) ElementType() reflect.Type {
 }
 
 type organizationDelegatedAdminAccountArgs struct {
-	// An organization member account ID that you want to designate as a delegated administrator.
 	AccountId string `pulumi:"accountId"`
 }
 
 // The set of arguments for constructing a OrganizationDelegatedAdminAccount resource.
 type OrganizationDelegatedAdminAccountArgs struct {
-	// An organization member account ID that you want to designate as a delegated administrator.
 	AccountId pulumi.StringInput
 }
 
@@ -229,27 +170,22 @@ func (o OrganizationDelegatedAdminAccountOutput) ToOrganizationDelegatedAdminAcc
 	return o
 }
 
-// An organization member account ID that you want to designate as a delegated administrator.
 func (o OrganizationDelegatedAdminAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the delegated administrator's account.
 func (o OrganizationDelegatedAdminAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The email address that is associated with the delegated administrator's AWS account.
 func (o OrganizationDelegatedAdminAccountOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// The friendly name of the delegated administrator's account.
 func (o OrganizationDelegatedAdminAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS CloudTrail service principal name.
 func (o OrganizationDelegatedAdminAccountOutput) ServicePrincipal() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.ServicePrincipal }).(pulumi.StringOutput)
 }

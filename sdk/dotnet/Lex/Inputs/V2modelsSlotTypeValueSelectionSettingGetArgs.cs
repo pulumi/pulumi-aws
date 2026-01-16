@@ -14,12 +14,6 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("advancedRecognitionSettings")]
         private InputList<Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingGetArgs>? _advancedRecognitionSettings;
-
-        /// <summary>
-        /// Provides settings that enable advanced recognition settings for slot values.
-        /// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-        /// See `AdvancedRecognitionSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingGetArgs> AdvancedRecognitionSettings
         {
             get => _advancedRecognitionSettings ?? (_advancedRecognitionSettings = new InputList<Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingGetArgs>());
@@ -28,21 +22,12 @@ namespace Pulumi.Aws.Lex.Inputs
 
         [Input("regexFilters")]
         private InputList<Inputs.V2modelsSlotTypeValueSelectionSettingRegexFilterGetArgs>? _regexFilters;
-
-        /// <summary>
-        /// Used to validate the value of the slot.
-        /// See `RegexFilter` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotTypeValueSelectionSettingRegexFilterGetArgs> RegexFilters
         {
             get => _regexFilters ?? (_regexFilters = new InputList<Inputs.V2modelsSlotTypeValueSelectionSettingRegexFilterGetArgs>());
             set => _regexFilters = value;
         }
 
-        /// <summary>
-        /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
-        /// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-        /// </summary>
         [Input("resolutionStrategy", required: true)]
         public Input<string> ResolutionStrategy { get; set; } = null!;
 

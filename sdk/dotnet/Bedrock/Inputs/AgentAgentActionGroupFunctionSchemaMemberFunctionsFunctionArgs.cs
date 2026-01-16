@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the function and its purpose.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name for the function.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("parameters")]
         private InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>? _parameters;
-
-        /// <summary>
-        /// Parameters that the agent elicits from the user to fulfill the function. See `Parameters` Block for details.
-        /// </summary>
         public InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>());

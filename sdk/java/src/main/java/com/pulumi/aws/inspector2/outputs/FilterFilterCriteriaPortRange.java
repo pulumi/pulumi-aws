@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FilterFilterCriteriaPortRange {
-    /**
-     * @return (Required) The beginning of the port range, inclusive.
-     * 
-     */
     private Integer beginInclusive;
-    /**
-     * @return (Required) The end of the port range, inclusive.
-     * 
-     */
     private Integer endInclusive;
 
     private FilterFilterCriteriaPortRange() {}
-    /**
-     * @return (Required) The beginning of the port range, inclusive.
-     * 
-     */
     public Integer beginInclusive() {
         return this.beginInclusive;
     }
-    /**
-     * @return (Required) The end of the port range, inclusive.
-     * 
-     */
     public Integer endInclusive() {
         return this.endInclusive;
     }

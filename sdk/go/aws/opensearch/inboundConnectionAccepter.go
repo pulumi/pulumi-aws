@@ -12,77 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
-//				ConnectionAlias: pulumi.String("outbound_connection"),
-//				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Region),
-//					DomainName: pulumi.Any(localDomain.DomainName),
-//				},
-//				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Region),
-//					DomainName: pulumi.Any(remoteDomain.DomainName),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewInboundConnectionAccepter(ctx, "foo", &opensearch.InboundConnectionAccepterArgs{
-//				ConnectionId: foo.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
-// ```
 type InboundConnectionAccepter struct {
 	pulumi.CustomResourceState
 
-	// Specifies the ID of the connection to accept.
-	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	// Status of the connection request.
+	ConnectionId     pulumi.StringOutput `pulumi:"connectionId"`
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region           pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInboundConnectionAccepter registers a new resource with the given unique name, arguments, and options.
@@ -118,21 +53,15 @@ func GetInboundConnectionAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InboundConnectionAccepter resources.
 type inboundConnectionAccepterState struct {
-	// Specifies the ID of the connection to accept.
-	ConnectionId *string `pulumi:"connectionId"`
-	// Status of the connection request.
+	ConnectionId     *string `pulumi:"connectionId"`
 	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region           *string `pulumi:"region"`
 }
 
 type InboundConnectionAccepterState struct {
-	// Specifies the ID of the connection to accept.
-	ConnectionId pulumi.StringPtrInput
-	// Status of the connection request.
+	ConnectionId     pulumi.StringPtrInput
 	ConnectionStatus pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (InboundConnectionAccepterState) ElementType() reflect.Type {
@@ -140,18 +69,14 @@ func (InboundConnectionAccepterState) ElementType() reflect.Type {
 }
 
 type inboundConnectionAccepterArgs struct {
-	// Specifies the ID of the connection to accept.
-	ConnectionId string `pulumi:"connectionId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ConnectionId string  `pulumi:"connectionId"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InboundConnectionAccepter resource.
 type InboundConnectionAccepterArgs struct {
-	// Specifies the ID of the connection to accept.
 	ConnectionId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (InboundConnectionAccepterArgs) ElementType() reflect.Type {
@@ -241,17 +166,14 @@ func (o InboundConnectionAccepterOutput) ToInboundConnectionAccepterOutputWithCo
 	return o
 }
 
-// Specifies the ID of the connection to accept.
 func (o InboundConnectionAccepterOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// Status of the connection request.
 func (o InboundConnectionAccepterOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InboundConnectionAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

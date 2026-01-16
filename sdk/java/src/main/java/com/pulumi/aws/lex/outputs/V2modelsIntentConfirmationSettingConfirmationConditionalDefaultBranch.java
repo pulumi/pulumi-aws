@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch {
-    /**
-     * @return Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStep nextStep;
-    /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponse response;
 
     private V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch() {}
-    /**
-     * @return Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStep> nextStep() {
         return Optional.ofNullable(this.nextStep);
     }
-    /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponse> response() {
         return Optional.ofNullable(this.response);
     }

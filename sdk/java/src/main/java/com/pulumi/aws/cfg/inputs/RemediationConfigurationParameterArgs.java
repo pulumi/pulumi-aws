@@ -17,62 +17,30 @@ public final class RemediationConfigurationParameterArgs extends com.pulumi.reso
 
     public static final RemediationConfigurationParameterArgs Empty = new RemediationConfigurationParameterArgs();
 
-    /**
-     * Name of the attribute.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the attribute.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Value is dynamic and changes at run-time.
-     * 
-     */
     @Import(name="resourceValue")
     private @Nullable Output<String> resourceValue;
 
-    /**
-     * @return Value is dynamic and changes at run-time.
-     * 
-     */
     public Optional<Output<String>> resourceValue() {
         return Optional.ofNullable(this.resourceValue);
     }
 
-    /**
-     * Value is static and does not change at run-time.
-     * 
-     */
     @Import(name="staticValue")
     private @Nullable Output<String> staticValue;
 
-    /**
-     * @return Value is static and does not change at run-time.
-     * 
-     */
     public Optional<Output<String>> staticValue() {
         return Optional.ofNullable(this.staticValue);
     }
 
-    /**
-     * List of static values.
-     * 
-     */
     @Import(name="staticValues")
     private @Nullable Output<List<String>> staticValues;
 
-    /**
-     * @return List of static values.
-     * 
-     */
     public Optional<Output<List<String>>> staticValues() {
         return Optional.ofNullable(this.staticValues);
     }
@@ -104,96 +72,42 @@ public final class RemediationConfigurationParameterArgs extends com.pulumi.reso
             $ = new RemediationConfigurationParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param resourceValue Value is dynamic and changes at run-time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceValue(@Nullable Output<String> resourceValue) {
             $.resourceValue = resourceValue;
             return this;
         }
 
-        /**
-         * @param resourceValue Value is dynamic and changes at run-time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceValue(String resourceValue) {
             return resourceValue(Output.of(resourceValue));
         }
 
-        /**
-         * @param staticValue Value is static and does not change at run-time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticValue(@Nullable Output<String> staticValue) {
             $.staticValue = staticValue;
             return this;
         }
 
-        /**
-         * @param staticValue Value is static and does not change at run-time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticValue(String staticValue) {
             return staticValue(Output.of(staticValue));
         }
 
-        /**
-         * @param staticValues List of static values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticValues(@Nullable Output<List<String>> staticValues) {
             $.staticValues = staticValues;
             return this;
         }
 
-        /**
-         * @param staticValues List of static values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticValues(List<String> staticValues) {
             return staticValues(Output.of(staticValues));
         }
 
-        /**
-         * @param staticValues List of static values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticValues(String... staticValues) {
             return staticValues(List.of(staticValues));
         }

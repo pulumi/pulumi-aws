@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionVpcConfig {
-    /**
-     * @return Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-     * 
-     */
     private @Nullable Boolean ipv6AllowedForDualStack;
-    /**
-     * @return List of security group IDs associated with the Lambda function.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return List of subnet IDs associated with the Lambda function.
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return ID of the VPC.
-     * 
-     */
     private @Nullable String vpcId;
 
     private FunctionVpcConfig() {}
-    /**
-     * @return Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
-     * 
-     */
     public Optional<Boolean> ipv6AllowedForDualStack() {
         return Optional.ofNullable(this.ipv6AllowedForDualStack);
     }
-    /**
-     * @return List of security group IDs associated with the Lambda function.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return List of subnet IDs associated with the Lambda function.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return ID of the VPC.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

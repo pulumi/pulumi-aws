@@ -14,128 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an API Gateway Documentation Version.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.DocumentationPart;
- * import com.pulumi.aws.apigateway.DocumentationPartArgs;
- * import com.pulumi.aws.apigateway.inputs.DocumentationPartLocationArgs;
- * import com.pulumi.aws.apigateway.DocumentationVersion;
- * import com.pulumi.aws.apigateway.DocumentationVersionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()
- *             .name("example_api")
- *             .build());
- * 
- *         var exampleDocumentationPart = new DocumentationPart("exampleDocumentationPart", DocumentationPartArgs.builder()
- *             .location(DocumentationPartLocationArgs.builder()
- *                 .type("API")
- *                 .build())
- *             .properties("{\"description\":\"Example\"}")
- *             .restApiId(exampleRestApi.id())
- *             .build());
- * 
- *         var example = new DocumentationVersion("example", DocumentationVersionArgs.builder()
- *             .version("example_version")
- *             .restApiId(exampleRestApi.id())
- *             .description("Example description")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleDocumentationPart)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/documentationVersion:DocumentationVersion")
 public class DocumentationVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * Description of the API documentation version.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the API documentation version.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the associated Rest API
-     * 
-     */
     @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
-    /**
-     * @return ID of the associated Rest API
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
-    /**
-     * Version identifier of the API documentation snapshot.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return Version identifier of the API documentation snapshot.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

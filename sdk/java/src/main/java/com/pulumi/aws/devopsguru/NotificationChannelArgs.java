@@ -17,51 +17,23 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
 
     public static final NotificationChannelArgs Empty = new NotificationChannelArgs();
 
-    /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<NotificationChannelFiltersArgs> filters;
 
-    /**
-     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-     * 
-     */
     public Optional<Output<NotificationChannelFiltersArgs>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * SNS noficiation channel configurations. See the `sns` argument reference below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sns")
     private @Nullable Output<NotificationChannelSnsArgs> sns;
 
-    /**
-     * @return SNS noficiation channel configurations. See the `sns` argument reference below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<NotificationChannelSnsArgs>> sns() {
         return Optional.ofNullable(this.sns);
     }
@@ -92,69 +64,29 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
             $ = new NotificationChannelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<NotificationChannelFiltersArgs> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(NotificationChannelFiltersArgs filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sns SNS noficiation channel configurations. See the `sns` argument reference below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sns(@Nullable Output<NotificationChannelSnsArgs> sns) {
             $.sns = sns;
             return this;
         }
 
-        /**
-         * @param sns SNS noficiation channel configurations. See the `sns` argument reference below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sns(NotificationChannelSnsArgs sns) {
             return sns(Output.of(sns));
         }

@@ -19,192 +19,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS CodeGuru Reviewer Repository Association.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.codecommit.Repository;
- * import com.pulumi.aws.codecommit.RepositoryArgs;
- * import com.pulumi.aws.codegurureviewer.RepositoryAssociation;
- * import com.pulumi.aws.codegurureviewer.RepositoryAssociationArgs;
- * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryArgs;
- * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryCodecommitArgs;
- * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationKmsKeyDetailsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example");
- * 
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
- *             .repositoryName("example-repo")
- *             .build());
- * 
- *         var exampleRepositoryAssociation = new RepositoryAssociation("exampleRepositoryAssociation", RepositoryAssociationArgs.builder()
- *             .repository(RepositoryAssociationRepositoryArgs.builder()
- *                 .codecommit(RepositoryAssociationRepositoryCodecommitArgs.builder()
- *                     .name(exampleRepository.repositoryName())
- *                     .build())
- *                 .build())
- *             .kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs.builder()
- *                 .encryptionOption("CUSTOMER_MANAGED_CMK")
- *                 .kmsKeyId(example.keyId())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")
 public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) identifying the repository association.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ID of the repository association.
-     * 
-     */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
-    /**
-     * @return The ID of the repository association.
-     * 
-     */
     public Output<String> associationId() {
         return this.associationId;
     }
-    /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     @Export(name="connectionArn", refs={String.class}, tree="[0]")
     private Output<String> connectionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-     * 
-     */
     public Output<String> connectionArn() {
         return this.connectionArn;
     }
-    /**
-     * An object describing the KMS key to asssociate. Block is documented below.
-     * 
-     */
     @Export(name="kmsKeyDetails", refs={RepositoryAssociationKmsKeyDetails.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryAssociationKmsKeyDetails> kmsKeyDetails;
 
-    /**
-     * @return An object describing the KMS key to asssociate. Block is documented below.
-     * 
-     */
     public Output<Optional<RepositoryAssociationKmsKeyDetails>> kmsKeyDetails() {
         return Codegen.optional(this.kmsKeyDetails);
     }
-    /**
-     * The name of the repository.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the repository.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The owner of the repository.
-     * 
-     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
-    /**
-     * @return The owner of the repository.
-     * 
-     */
     public Output<String> owner() {
         return this.owner;
     }
-    /**
-     * The provider type of the repository association.
-     * 
-     */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
-    /**
-     * @return The provider type of the repository association.
-     * 
-     */
     public Output<String> providerType() {
         return this.providerType;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="repository", refs={RepositoryAssociationRepository.class}, tree="[0]")
     private Output<RepositoryAssociationRepository> repository;
 
-    /**
-     * @return An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<RepositoryAssociationRepository> repository() {
         return this.repository;
     }
@@ -214,31 +81,15 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
     public Output<List<RepositoryAssociationS3RepositoryDetail>> s3RepositoryDetails() {
         return this.s3RepositoryDetails;
     }
-    /**
-     * The state of the repository association.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return The state of the repository association.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * A description of why the repository association is in the current state.
-     * 
-     */
     @Export(name="stateReason", refs={String.class}, tree="[0]")
     private Output<String> stateReason;
 
-    /**
-     * @return A description of why the repository association is in the current state.
-     * 
-     */
     public Output<String> stateReason() {
         return this.stateReason;
     }

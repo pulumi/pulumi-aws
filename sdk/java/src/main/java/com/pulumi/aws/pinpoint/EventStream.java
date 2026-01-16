@@ -13,155 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint Event Stream resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.pinpoint.EventStream;
- * import com.pulumi.aws.pinpoint.EventStreamArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var app = new App("app");
- * 
- *         var testStream = new Stream("testStream", StreamArgs.builder()
- *             .name("pinpoint-kinesis-test")
- *             .shardCount(1)
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("pinpoint.us-east-1.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var testRole = new Role("testRole", RoleArgs.builder()
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var stream = new EventStream("stream", EventStreamArgs.builder()
- *             .applicationId(app.applicationId())
- *             .destinationStreamArn(testStream.arn())
- *             .roleArn(testRole.arn())
- *             .build());
- * 
- *         final var testRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions(                
- *                     "kinesis:PutRecords",
- *                     "kinesis:DescribeStream")
- *                 .resources("arn:aws:kinesis:us-east-1:*:*}&#47;{@code *")
- *                 .build())
- *             .build());
- * 
- *         var testRolePolicyRolePolicy = new RolePolicy("testRolePolicyRolePolicy", RolePolicyArgs.builder()
- *             .name("test_policy")
- *             .role(testRole.id())
- *             .policy(testRolePolicy.json())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/eventStream:EventStream")
 public class EventStream extends com.pulumi.resources.CustomResource {
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-     * 
-     */
     @Export(name="destinationStreamArn", refs={String.class}, tree="[0]")
     private Output<String> destinationStreamArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-     * 
-     */
     public Output<String> destinationStreamArn() {
         return this.destinationStreamArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

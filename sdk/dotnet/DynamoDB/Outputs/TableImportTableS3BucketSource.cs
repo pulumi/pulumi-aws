@@ -13,17 +13,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableImportTableS3BucketSource
     {
-        /// <summary>
-        /// The S3 bucket that is being imported from.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// The account number of the S3 bucket that is being imported from.
-        /// </summary>
         public readonly string? BucketOwner;
-        /// <summary>
-        /// The key prefix shared by all S3 Objects that are being imported.
-        /// </summary>
         public readonly string? KeyPrefix;
 
         [OutputConstructor]

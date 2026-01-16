@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Ecr
 {
     public static class GetPullThroughCacheRule
     {
-        /// <summary>
-        /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecrPublic = Aws.Ecr.GetPullThroughCacheRule.Invoke(new()
-        ///     {
-        ///         EcrRepositoryPrefix = "ecr-public",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPullThroughCacheRuleResult> InvokeAsync(GetPullThroughCacheRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecrPublic = Aws.Ecr.GetPullThroughCacheRule.Invoke(new()
-        ///     {
-        ///         EcrRepositoryPrefix = "ecr-public",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPullThroughCacheRuleResult> Invoke(GetPullThroughCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecrPublic = Aws.Ecr.GetPullThroughCacheRule.Invoke(new()
-        ///     {
-        ///         EcrRepositoryPrefix = "ecr-public",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPullThroughCacheRuleResult> Invoke(GetPullThroughCacheRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetPullThroughCacheRuleArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository name prefix to use when caching images from the source registry.
-        /// </summary>
         [Input("ecrRepositoryPrefix", required: true)]
         public string EcrRepositoryPrefix { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetPullThroughCacheRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The repository name prefix to use when caching images from the source registry.
-        /// </summary>
         [Input("ecrRepositoryPrefix", required: true)]
         public Input<string> EcrRepositoryPrefix { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,13 +54,7 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetPullThroughCacheRuleResult
     {
-        /// <summary>
-        /// ARN of the Secret which will be used to authenticate against the registry.
-        /// </summary>
         public readonly string CredentialArn;
-        /// <summary>
-        /// The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
-        /// </summary>
         public readonly string CustomRoleArn;
         public readonly string EcrRepositoryPrefix;
         /// <summary>
@@ -143,17 +62,8 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// The registry ID where the repository was created.
-        /// </summary>
         public readonly string RegistryId;
-        /// <summary>
-        /// The registry URL of the upstream registry to use as the source.
-        /// </summary>
         public readonly string UpstreamRegistryUrl;
-        /// <summary>
-        /// The upstream repository prefix associated with the pull through cache rule.
-        /// </summary>
         public readonly string UpstreamRepositoryPrefix;
 
         [OutputConstructor]

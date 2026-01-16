@@ -9,104 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Object Lambda Access Point.
-    /// An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
-    ///         {
-    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
-    ///             TransformationConfigurations = new[]
-    ///             {
-    ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
-    ///                 {
-    ///                     Actions = new[]
-    ///                     {
-    ///                         "GetObject",
-    ///                     },
-    ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
-    ///                     {
-    ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
-    ///                         {
-    ///                             FunctionArn = exampleAwsLambdaFunction.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")]
     public partial class ObjectLambdaAccessPoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Alias for the S3 Object Lambda Access Point.
-        /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.ObjectLambdaAccessPointConfiguration> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for this Object Lambda Access Point.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -156,27 +76,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationArgs> Configuration { get; set; } = null!;
 
-        /// <summary>
-        /// The name for this Object Lambda Access Point.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -188,39 +96,21 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Alias for the S3 Object Lambda Access Point.
-        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationGetArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// The name for this Object Lambda Access Point.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

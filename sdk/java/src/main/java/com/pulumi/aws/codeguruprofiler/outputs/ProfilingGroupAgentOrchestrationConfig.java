@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ProfilingGroupAgentOrchestrationConfig {
-    /**
-     * @return (Required) Boolean that specifies whether the profiling agent collects profiling data or
-     * 
-     */
     private Boolean profilingEnabled;
 
     private ProfilingGroupAgentOrchestrationConfig() {}
-    /**
-     * @return (Required) Boolean that specifies whether the profiling agent collects profiling data or
-     * 
-     */
     public Boolean profilingEnabled() {
         return this.profilingEnabled;
     }

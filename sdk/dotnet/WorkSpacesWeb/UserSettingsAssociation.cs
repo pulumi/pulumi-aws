@@ -9,64 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web User Settings Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example",
-    ///     });
-    /// 
-    ///     var exampleUserSettings = new Aws.WorkSpacesWeb.UserSettings("example", new()
-    ///     {
-    ///         CopyAllowed = "Enabled",
-    ///         DownloadAllowed = "Enabled",
-    ///         PasteAllowed = "Enabled",
-    ///         PrintAllowed = "Enabled",
-    ///         UploadAllowed = "Enabled",
-    ///     });
-    /// 
-    ///     var exampleUserSettingsAssociation = new Aws.WorkSpacesWeb.UserSettingsAssociation("example", new()
-    ///     {
-    ///         UserSettingsArn = exampleUserSettings.UserSettingsArn,
-    ///         PortalArn = example.PortalArn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/userSettingsAssociation:UserSettingsAssociation")]
     public partial class UserSettingsAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the portal to associate with the user settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the user settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Output("userSettingsArn")]
         public Output<string> UserSettingsArn { get; private set; } = null!;
 
@@ -116,23 +67,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class UserSettingsAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the portal to associate with the user settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the user settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("userSettingsArn", required: true)]
         public Input<string> UserSettingsArn { get; set; } = null!;
 
@@ -144,23 +84,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class UserSettingsAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the portal to associate with the user settings. Forces replacement if changed.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the user settings to associate with the portal. Forces replacement if changed.
-        /// </summary>
         [Input("userSettingsArn")]
         public Input<string>? UserSettingsArn { get; set; }
 

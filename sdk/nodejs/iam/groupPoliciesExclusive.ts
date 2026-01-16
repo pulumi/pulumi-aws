@@ -4,15 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Import
- *
- * Using `pulumi import`, import exclusive management of inline policy assignments using the `group_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup
- * ```
- */
 export class GroupPoliciesExclusive extends pulumi.CustomResource {
     /**
      * Get an existing GroupPoliciesExclusive resource's state with the given name, ID, and optional extra
@@ -41,13 +32,7 @@ export class GroupPoliciesExclusive extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupPoliciesExclusive.__pulumiType;
     }
 
-    /**
-     * IAM group name.
-     */
     declare public readonly groupName: pulumi.Output<string>;
-    /**
-     * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     */
     declare public readonly policyNames: pulumi.Output<string[]>;
 
     /**
@@ -85,13 +70,7 @@ export class GroupPoliciesExclusive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupPoliciesExclusive resources.
  */
 export interface GroupPoliciesExclusiveState {
-    /**
-     * IAM group name.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -99,12 +78,6 @@ export interface GroupPoliciesExclusiveState {
  * The set of arguments for constructing a GroupPoliciesExclusive resource.
  */
 export interface GroupPoliciesExclusiveArgs {
-    /**
-     * IAM group name.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     */
     policyNames: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestPrimaryNetworkInterface {
-    /**
-     * @return Whether the network interface will be deleted when the instance terminates.
-     * 
-     */
     private @Nullable Boolean deleteOnTermination;
-    /**
-     * @return ID of the network interface to attach.
-     * 
-     */
     private @Nullable String networkInterfaceId;
 
     private SpotInstanceRequestPrimaryNetworkInterface() {}
-    /**
-     * @return Whether the network interface will be deleted when the instance terminates.
-     * 
-     */
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    /**
-     * @return ID of the network interface to attach.
-     * 
-     */
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }

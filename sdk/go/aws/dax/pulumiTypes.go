@@ -17,8 +17,7 @@ type ClusterNode struct {
 	Address          *string `pulumi:"address"`
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	Id               *string `pulumi:"id"`
-	// The port used by the configuration endpoint
-	Port *int `pulumi:"port"`
+	Port             *int    `pulumi:"port"`
 }
 
 // ClusterNodeInput is an input type that accepts ClusterNodeArgs and ClusterNodeOutput values.
@@ -36,8 +35,7 @@ type ClusterNodeArgs struct {
 	Address          pulumi.StringPtrInput `pulumi:"address"`
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringPtrInput `pulumi:"id"`
-	// The port used by the configuration endpoint
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port             pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (ClusterNodeArgs) ElementType() reflect.Type {
@@ -103,7 +101,6 @@ func (o ClusterNodeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The port used by the configuration endpoint
 func (o ClusterNodeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -129,7 +126,6 @@ func (o ClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterNodeOutput {
 }
 
 type ClusterServerSideEncryption struct {
-	// Whether to enable encryption at rest. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -145,7 +141,6 @@ type ClusterServerSideEncryptionInput interface {
 }
 
 type ClusterServerSideEncryptionArgs struct {
-	// Whether to enable encryption at rest. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -226,7 +221,6 @@ func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionPtrOutpu
 	}).(ClusterServerSideEncryptionPtrOutput)
 }
 
-// Whether to enable encryption at rest. Defaults to `false`.
 func (o ClusterServerSideEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -255,7 +249,6 @@ func (o ClusterServerSideEncryptionPtrOutput) Elem() ClusterServerSideEncryption
 	}).(ClusterServerSideEncryptionOutput)
 }
 
-// Whether to enable encryption at rest. Defaults to `false`.
 func (o ClusterServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterServerSideEncryption) *bool {
 		if v == nil {
@@ -266,9 +259,7 @@ func (o ClusterServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ParameterGroupParameter struct {
-	// The name of the parameter.
-	Name string `pulumi:"name"`
-	// The value for the parameter.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -284,9 +275,7 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// The name of the parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value for the parameter.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -341,12 +330,10 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// The name of the parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value for the parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }

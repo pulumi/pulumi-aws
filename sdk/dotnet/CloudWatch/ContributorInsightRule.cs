@@ -9,71 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Contributor Insight Rule.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.ContributorInsightRule("test", new()
-    ///     {
-    ///         RuleName = "testing",
-    ///         RuleState = "ENABLED",
-    ///         RuleDefinition = "{\"Schema\":{\"Name\":\"CloudWatchLogRule\",\"Version\":1},\"AggregateOn\":\"Count\",\"Contribution\":{\"Filters\":[{\"In\":[\"some-keyword\"],\"Match\":\"$.message\"}],\"Keys\":[\"$.country\"]},\"LogFormat\":\"JSON\",\"LogGroupNames\":[\"/aws/lambda/api-prod\"]}",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/contributorInsightRule:ContributorInsightRule")]
     public partial class ContributorInsightRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Contributor Insight Rule.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        /// </summary>
         [Output("ruleDefinition")]
         public Output<string> RuleDefinition { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name of the rule.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Output("ruleState")]
         public Output<string?> RuleState { get; private set; } = null!;
 
@@ -129,29 +79,15 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class ContributorInsightRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        /// </summary>
         [Input("ruleDefinition", required: true)]
         public Input<string> RuleDefinition { get; set; } = null!;
 
-        /// <summary>
-        /// Unique name of the rule.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
-        /// <summary>
-        /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("ruleState")]
         public Input<string>? RuleState { get; set; }
 
@@ -171,35 +107,18 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class ContributorInsightRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the Contributor Insight Rule.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-        /// </summary>
         [Input("ruleDefinition")]
         public Input<string>? RuleDefinition { get; set; }
 
-        /// <summary>
-        /// Unique name of the rule.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
-        /// <summary>
-        /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("ruleState")]
         public Input<string>? RuleState { get; set; }
 

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Cognito.Inputs
     {
         [Input("attributesRequireVerificationBeforeUpdates", required: true)]
         private InputList<string>? _attributesRequireVerificationBeforeUpdates;
-
-        /// <summary>
-        /// A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `AutoVerifiedAttributes`. Valid values: `Email`, `PhoneNumber`.
-        /// </summary>
         public InputList<string> AttributesRequireVerificationBeforeUpdates
         {
             get => _attributesRequireVerificationBeforeUpdates ?? (_attributesRequireVerificationBeforeUpdates = new InputList<string>());

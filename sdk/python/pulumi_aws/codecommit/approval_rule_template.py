@@ -25,10 +25,6 @@ class ApprovalRuleTemplateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApprovalRuleTemplate resource.
-        :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
-        :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
-        :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "content", content)
         if description is not None:
@@ -41,9 +37,6 @@ class ApprovalRuleTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Input[_builtins.str]:
-        """
-        The content of the approval rule template. Maximum of 3000 characters.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -53,9 +46,6 @@ class ApprovalRuleTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the approval rule template. Maximum of 1000 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -65,9 +55,6 @@ class ApprovalRuleTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the approval rule template. Maximum of 100 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -77,9 +64,6 @@ class ApprovalRuleTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,15 +85,6 @@ class _ApprovalRuleTemplateState:
                  rule_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApprovalRuleTemplate resources.
-        :param pulumi.Input[_builtins.str] approval_rule_template_id: The ID of the approval rule template
-        :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
-        :param pulumi.Input[_builtins.str] creation_date: The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
-        :param pulumi.Input[_builtins.str] last_modified_date: The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] last_modified_user: The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
         """
         if approval_rule_template_id is not None:
             pulumi.set(__self__, "approval_rule_template_id", approval_rule_template_id)
@@ -133,9 +108,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter(name="approvalRuleTemplateId")
     def approval_rule_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the approval rule template
-        """
         return pulumi.get(self, "approval_rule_template_id")
 
     @approval_rule_template_id.setter
@@ -145,9 +117,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The content of the approval rule template. Maximum of 3000 characters.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -157,9 +126,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
@@ -169,9 +135,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the approval rule template. Maximum of 1000 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -181,9 +144,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified_date")
 
     @last_modified_date.setter
@@ -193,9 +153,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        """
         return pulumi.get(self, "last_modified_user")
 
     @last_modified_user.setter
@@ -205,9 +162,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the approval rule template. Maximum of 100 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -217,9 +171,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -229,9 +180,6 @@ class _ApprovalRuleTemplateState:
     @_builtins.property
     @pulumi.getter(name="ruleContentSha256")
     def rule_content_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SHA-256 hash signature for the content of the approval rule template.
-        """
         return pulumi.get(self, "rule_content_sha256")
 
     @rule_content_sha256.setter
@@ -251,43 +199,9 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CodeCommit Approval Rule Template Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.codecommit.ApprovalRuleTemplate("example",
-            name="MyExampleApprovalRuleTemplate",
-            description="This is an example approval rule template",
-            content=json.dumps({
-                "Version": "2018-11-08",
-                "DestinationReferences": ["refs/heads/master"],
-                "Statements": [{
-                    "Type": "Approvers",
-                    "NumberOfApprovalsNeeded": 2,
-                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
-        ```
-
+        Create a ApprovalRuleTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
-        :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
-        :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -296,37 +210,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
                  args: ApprovalRuleTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeCommit Approval Rule Template Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.codecommit.ApprovalRuleTemplate("example",
-            name="MyExampleApprovalRuleTemplate",
-            description="This is an example approval rule template",
-            content=json.dumps({
-                "Version": "2018-11-08",
-                "DestinationReferences": ["refs/heads/master"],
-                "Statements": [{
-                    "Type": "Approvers",
-                    "NumberOfApprovalsNeeded": 2,
-                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
-        ```
-
+        Create a ApprovalRuleTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApprovalRuleTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,15 +276,6 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] approval_rule_template_id: The ID of the approval rule template
-        :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
-        :param pulumi.Input[_builtins.str] creation_date: The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
-        :param pulumi.Input[_builtins.str] last_modified_date: The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] last_modified_user: The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,72 +295,45 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="approvalRuleTemplateId")
     def approval_rule_template_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the approval rule template
-        """
         return pulumi.get(self, "approval_rule_template_id")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:
-        """
-        The content of the approval rule template. Maximum of 3000 characters.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the approval rule template. Maximum of 1000 characters.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        """
         return pulumi.get(self, "last_modified_user")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name for the approval rule template. Maximum of 100 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="ruleContentSha256")
     def rule_content_sha256(self) -> pulumi.Output[_builtins.str]:
-        """
-        The SHA-256 hash signature for the content of the approval rule template.
-        """
         return pulumi.get(self, "rule_content_sha256")
 

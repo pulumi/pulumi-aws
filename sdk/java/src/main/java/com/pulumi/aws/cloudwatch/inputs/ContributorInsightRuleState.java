@@ -16,81 +16,37 @@ public final class ContributorInsightRuleState extends com.pulumi.resources.Reso
 
     public static final ContributorInsightRuleState Empty = new ContributorInsightRuleState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the Contributor Insight Rule.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN of the Contributor Insight Rule.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     * 
-     */
     @Import(name="ruleDefinition")
     private @Nullable Output<String> ruleDefinition;
 
-    /**
-     * @return Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-     * 
-     */
     public Optional<Output<String>> ruleDefinition() {
         return Optional.ofNullable(this.ruleDefinition);
     }
 
-    /**
-     * Unique name of the rule.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="ruleName")
     private @Nullable Output<String> ruleName;
 
-    /**
-     * @return Unique name of the rule.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> ruleName() {
         return Optional.ofNullable(this.ruleName);
     }
 
-    /**
-     * State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="ruleState")
     private @Nullable Output<String> ruleState;
 
-    /**
-     * @return State of the rule. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> ruleState() {
         return Optional.ofNullable(this.ruleState);
     }
@@ -139,111 +95,47 @@ public final class ContributorInsightRuleState extends com.pulumi.resources.Reso
             $ = new ContributorInsightRuleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn ARN of the Contributor Insight Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the Contributor Insight Rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param ruleDefinition Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleDefinition(@Nullable Output<String> ruleDefinition) {
             $.ruleDefinition = ruleDefinition;
             return this;
         }
 
-        /**
-         * @param ruleDefinition Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleDefinition(String ruleDefinition) {
             return ruleDefinition(Output.of(ruleDefinition));
         }
 
-        /**
-         * @param ruleName Unique name of the rule.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(@Nullable Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
-        /**
-         * @param ruleName Unique name of the rule.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }
 
-        /**
-         * @param ruleState State of the rule. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleState(@Nullable Output<String> ruleState) {
             $.ruleState = ruleState;
             return this;
         }
 
-        /**
-         * @param ruleState State of the rule. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleState(String ruleState) {
             return ruleState(Output.of(ruleState));
         }

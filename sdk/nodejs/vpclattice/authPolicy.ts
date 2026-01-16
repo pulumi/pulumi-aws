@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS VPC Lattice Auth Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.Service("example", {
- *     name: "example-vpclattice-service",
- *     authType: "AWS_IAM",
- *     customDomainName: "example.com",
- * });
- * const exampleAuthPolicy = new aws.vpclattice.AuthPolicy("example", {
- *     resourceIdentifier: example.arn,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "*",
- *             Effect: "Allow",
- *             Principal: "*",
- *             Resource: "*",
- *             Condition: {
- *                 StringNotEqualsIgnoreCase: {
- *                     "aws:PrincipalType": "anonymous",
- *                 },
- *             },
- *         }],
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
- * ```
- */
 export class AuthPolicy extends pulumi.CustomResource {
     /**
      * Get an existing AuthPolicy resource's state with the given name, ID, and optional extra
@@ -75,21 +32,9 @@ export class AuthPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthPolicy.__pulumiType;
     }
 
-    /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     */
     declare public readonly resourceIdentifier: pulumi.Output<string>;
-    /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
-     */
     declare public readonly state: pulumi.Output<string | undefined>;
 
     /**
@@ -131,21 +76,9 @@ export class AuthPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AuthPolicy resources.
  */
 export interface AuthPolicyState {
-    /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     */
     resourceIdentifier?: pulumi.Input<string>;
-    /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
-     */
     state?: pulumi.Input<string>;
 }
 
@@ -153,20 +86,8 @@ export interface AuthPolicyState {
  * The set of arguments for constructing a AuthPolicy resource.
  */
 export interface AuthPolicyArgs {
-    /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-     */
     resourceIdentifier: pulumi.Input<string>;
-    /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
-     */
     state?: pulumi.Input<string>;
 }

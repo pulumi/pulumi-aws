@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
     {
-        /// <summary>
-        /// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        /// </summary>
         public readonly string? Comparator;
-        /// <summary>
-        /// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

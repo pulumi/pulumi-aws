@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Batch
 {
     public static class GetComputeEnvironment
     {
-        /// <summary>
-        /// The Batch Compute Environment data source allows access to details of a specific
-        /// compute environment within AWS Batch.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
-        ///     {
-        ///         Name = "batch-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Batch Compute Environment data source allows access to details of a specific
-        /// compute environment within AWS Batch.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
-        ///     {
-        ///         Name = "batch-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetComputeEnvironmentResult> Invoke(GetComputeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Batch Compute Environment data source allows access to details of a specific
-        /// compute environment within AWS Batch.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
-        ///     {
-        ///         Name = "batch-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetComputeEnvironmentResult> Invoke(GetComputeEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentInvokeArgs(), options.WithDefaults());
     }
@@ -90,24 +24,14 @@ namespace Pulumi.Aws.Batch
 
     public sealed class GetComputeEnvironmentArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the Batch Compute Environment
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -122,24 +46,14 @@ namespace Pulumi.Aws.Batch
 
     public sealed class GetComputeEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the Batch Compute Environment
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -156,13 +70,7 @@ namespace Pulumi.Aws.Batch
     [OutputType]
     public sealed class GetComputeEnvironmentResult
     {
-        /// <summary>
-        /// ARN of the compute environment.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// ARN of the underlying Amazon ECS cluster used by the compute environment.
-        /// </summary>
         public readonly string EcsClusterArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -170,33 +78,12 @@ namespace Pulumi.Aws.Batch
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        /// </summary>
         public readonly string ServiceRole;
-        /// <summary>
-        /// State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Current status of the compute environment (for example, `CREATING` or `VALID`).
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Short, human-readable string to provide additional details about the current status of the compute environment.
-        /// </summary>
         public readonly string StatusReason;
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies the infrastructure update policy for the compute environment.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> UpdatePolicies;
 
         [OutputConstructor]

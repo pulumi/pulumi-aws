@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class RevisionAssetsAssetImportAssetsFromS3AssetSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the S3 bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The key of the object in the S3 bucket.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

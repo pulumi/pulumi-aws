@@ -9,141 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Manages a Lambda function URL. Creates a dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests.
-    /// 
-    /// &gt; **NOTE:** When [`AuthorizationType` is `"NONE"`](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-auth-none) the `lambda:InvokeFunctionUrl` permission allowing a public endpoint and `lambda:InvokeFunction` permission with the `InvokedViaFunctionUrl` flag set to `True` are automatically added to the Lambda function on creation. These policies are NOT removed from AWS when the resource is destroyed.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Function URL with No Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionUrl("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         AuthorizationType = "NONE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Function URL with IAM Authentication and CORS Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionUrl("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = "my_alias",
-    ///         AuthorizationType = "AWS_IAM",
-    ///         InvokeMode = "RESPONSE_STREAM",
-    ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
-    ///         {
-    ///             AllowCredentials = true,
-    ///             AllowOrigins = new[]
-    ///             {
-    ///                 "https://example.com",
-    ///             },
-    ///             AllowMethods = new[]
-    ///             {
-    ///                 "GET",
-    ///                 "POST",
-    ///             },
-    ///             AllowHeaders = new[]
-    ///             {
-    ///                 "date",
-    ///                 "keep-alive",
-    ///             },
-    ///             ExposeHeaders = new[]
-    ///             {
-    ///                 "keep-alive",
-    ///                 "date",
-    ///             },
-    ///             MaxAge = 86400,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/functionUrl:FunctionUrl")]
     public partial class FunctionUrl : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-        /// </summary>
         [Output("authorizationType")]
         public Output<string> AuthorizationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Cross-origin resource sharing (CORS) settings for the function URL. See below.
-        /// </summary>
         [Output("cors")]
         public Output<Outputs.FunctionUrlCors?> Cors { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Lambda function.
-        /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name or ARN of the Lambda function.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
-        /// <summary>
-        /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
-        /// </summary>
         [Output("functionUrl")]
         public Output<string> FunctionUrlResult { get; private set; } = null!;
 
-        /// <summary>
-        /// How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-        /// </summary>
         [Output("invokeMode")]
         public Output<string?> InvokeMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Alias name or `$LATEST`.
-        /// </summary>
         [Output("qualifier")]
         public Output<string?> Qualifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Generated ID for the endpoint.
-        /// </summary>
         [Output("urlId")]
         public Output<string> UrlId { get; private set; } = null!;
 
@@ -193,41 +85,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionUrlArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-        /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;
 
-        /// <summary>
-        /// Cross-origin resource sharing (CORS) settings for the function URL. See below.
-        /// </summary>
         [Input("cors")]
         public Input<Inputs.FunctionUrlCorsArgs>? Cors { get; set; }
 
-        /// <summary>
-        /// Name or ARN of the Lambda function.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-        /// </summary>
         [Input("invokeMode")]
         public Input<string>? InvokeMode { get; set; }
 
-        /// <summary>
-        /// Alias name or `$LATEST`.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -239,59 +111,30 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionUrlState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
-        /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
 
-        /// <summary>
-        /// Cross-origin resource sharing (CORS) settings for the function URL. See below.
-        /// </summary>
         [Input("cors")]
         public Input<Inputs.FunctionUrlCorsGetArgs>? Cors { get; set; }
 
-        /// <summary>
-        /// ARN of the Lambda function.
-        /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 
-        /// <summary>
-        /// Name or ARN of the Lambda function.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
-        /// <summary>
-        /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
-        /// </summary>
         [Input("functionUrl")]
         public Input<string>? FunctionUrlResult { get; set; }
 
-        /// <summary>
-        /// How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
-        /// </summary>
         [Input("invokeMode")]
         public Input<string>? InvokeMode { get; set; }
 
-        /// <summary>
-        /// Alias name or `$LATEST`.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Generated ID for the endpoint.
-        /// </summary>
         [Input("urlId")]
         public Input<string>? UrlId { get; set; }
 

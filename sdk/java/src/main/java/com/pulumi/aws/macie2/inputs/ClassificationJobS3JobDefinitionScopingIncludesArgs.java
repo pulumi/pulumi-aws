@@ -16,17 +16,9 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesArgs extends c
 
     public static final ClassificationJobS3JobDefinitionScopingIncludesArgs Empty = new ClassificationJobS3JobDefinitionScopingIncludesArgs();
 
-    /**
-     * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-     * 
-     */
     @Import(name="ands")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionScopingIncludesAndArgs>> ands;
 
-    /**
-     * @return An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-     * 
-     */
     public Optional<Output<List<ClassificationJobS3JobDefinitionScopingIncludesAndArgs>>> ands() {
         return Optional.ofNullable(this.ands);
     }
@@ -55,33 +47,15 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesArgs extends c
             $ = new ClassificationJobS3JobDefinitionScopingIncludesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ands An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ands(@Nullable Output<List<ClassificationJobS3JobDefinitionScopingIncludesAndArgs>> ands) {
             $.ands = ands;
             return this;
         }
 
-        /**
-         * @param ands An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ands(List<ClassificationJobS3JobDefinitionScopingIncludesAndArgs> ands) {
             return ands(Output.of(ands));
         }
 
-        /**
-         * @param ands An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder ands(ClassificationJobS3JobDefinitionScopingIncludesAndArgs... ands) {
             return ands(List.of(ands));
         }

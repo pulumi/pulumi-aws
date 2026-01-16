@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Efs.Inputs
 
     public sealed class AccessPointRootDirectoryCreationInfoArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// POSIX group ID to apply to the `RootDirectory`.
-        /// </summary>
         [Input("ownerGid", required: true)]
         public Input<int> OwnerGid { get; set; } = null!;
 
-        /// <summary>
-        /// POSIX user ID to apply to the `RootDirectory`.
-        /// </summary>
         [Input("ownerUid", required: true)]
         public Input<int> OwnerUid { get; set; } = null!;
 
-        /// <summary>
-        /// POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-        /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 

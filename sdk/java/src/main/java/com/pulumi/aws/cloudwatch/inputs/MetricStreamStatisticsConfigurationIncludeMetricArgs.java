@@ -14,17 +14,9 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
 
     public static final MetricStreamStatisticsConfigurationIncludeMetricArgs Empty = new MetricStreamStatisticsConfigurationIncludeMetricArgs();
 
-    /**
-     * The name of the metric.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return The name of the metric.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
@@ -61,23 +53,11 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
             $ = new MetricStreamStatisticsConfigurationIncludeMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricName The name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName The name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }

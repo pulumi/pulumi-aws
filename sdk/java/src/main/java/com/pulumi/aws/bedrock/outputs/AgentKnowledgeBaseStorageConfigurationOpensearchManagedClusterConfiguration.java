@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration {
-    /**
-     * @return ARN of the OpenSearch domain.
-     * 
-     */
     private String domainArn;
-    /**
-     * @return Endpoint URL of the OpenSearch domain.
-     * 
-     */
     private String domainEndpoint;
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping fieldMapping;
-    /**
-     * @return Name of the vector store.
-     * 
-     */
     private String vectorIndexName;
 
     private AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration() {}
-    /**
-     * @return ARN of the OpenSearch domain.
-     * 
-     */
     public String domainArn() {
         return this.domainArn;
     }
-    /**
-     * @return Endpoint URL of the OpenSearch domain.
-     * 
-     */
     public String domainEndpoint() {
         return this.domainEndpoint;
     }
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return Name of the vector store.
-     * 
-     */
     public String vectorIndexName() {
         return this.vectorIndexName;
     }

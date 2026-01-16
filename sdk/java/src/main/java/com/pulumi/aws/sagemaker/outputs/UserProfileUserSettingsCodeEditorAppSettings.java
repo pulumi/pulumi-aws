@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsCodeEditorAppSettings {
-    /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
-    /**
-     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-     * 
-     */
     private @Nullable String builtInLifecycleConfigArn;
-    /**
-     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-     * 
-     */
     private @Nullable List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage> customImages;
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     private @Nullable List<String> lifecycleConfigArns;
 
     private UserProfileUserSettingsCodeEditorAppSettings() {}
-    /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement> appLifecycleManagement() {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
-    /**
-     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-     * 
-     */
     public Optional<String> builtInLifecycleConfigArn() {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
-    /**
-     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
-     * 
-     */
     public List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public List<String> lifecycleConfigArns() {
         return this.lifecycleConfigArns == null ? List.of() : this.lifecycleConfigArns;
     }

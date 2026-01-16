@@ -19,149 +19,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanRule {
-    /**
-     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-     * 
-     */
     private @Nullable Integer completionWindow;
-    /**
-     * @return Configuration block(s) with copy operation settings. Detailed below.
-     * 
-     */
     private @Nullable List<PlanRuleCopyAction> copyActions;
-    /**
-     * @return Enable continuous backups for supported resources.
-     * 
-     */
     private @Nullable Boolean enableContinuousBackup;
-    /**
-     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-     * 
-     */
     private @Nullable PlanRuleLifecycle lifecycle;
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     private @Nullable Map<String,String> recoveryPointTags;
-    /**
-     * @return An display name for a backup rule.
-     * 
-     */
     private String ruleName;
-    /**
-     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
-     * 
-     */
     private @Nullable List<PlanRuleScanAction> scanActions;
-    /**
-     * @return A CRON expression specifying when AWS Backup initiates a backup job.
-     * 
-     */
     private @Nullable String schedule;
-    /**
-     * @return The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
-     * 
-     */
     private @Nullable String scheduleExpressionTimezone;
-    /**
-     * @return The amount of time in minutes before beginning a backup.
-     * 
-     */
     private @Nullable Integer startWindow;
-    /**
-     * @return The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
-     * 
-     */
     private @Nullable String targetLogicallyAirGappedBackupVaultArn;
-    /**
-     * @return The name of a logical container where backups are stored.
-     * 
-     */
     private String targetVaultName;
 
     private PlanRule() {}
-    /**
-     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-     * 
-     */
     public Optional<Integer> completionWindow() {
         return Optional.ofNullable(this.completionWindow);
     }
-    /**
-     * @return Configuration block(s) with copy operation settings. Detailed below.
-     * 
-     */
     public List<PlanRuleCopyAction> copyActions() {
         return this.copyActions == null ? List.of() : this.copyActions;
     }
-    /**
-     * @return Enable continuous backups for supported resources.
-     * 
-     */
     public Optional<Boolean> enableContinuousBackup() {
         return Optional.ofNullable(this.enableContinuousBackup);
     }
-    /**
-     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
-     * 
-     */
     public Optional<PlanRuleLifecycle> lifecycle() {
         return Optional.ofNullable(this.lifecycle);
     }
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     public Map<String,String> recoveryPointTags() {
         return this.recoveryPointTags == null ? Map.of() : this.recoveryPointTags;
     }
-    /**
-     * @return An display name for a backup rule.
-     * 
-     */
     public String ruleName() {
         return this.ruleName;
     }
-    /**
-     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
-     * 
-     */
     public List<PlanRuleScanAction> scanActions() {
         return this.scanActions == null ? List.of() : this.scanActions;
     }
-    /**
-     * @return A CRON expression specifying when AWS Backup initiates a backup job.
-     * 
-     */
     public Optional<String> schedule() {
         return Optional.ofNullable(this.schedule);
     }
-    /**
-     * @return The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
-     * 
-     */
     public Optional<String> scheduleExpressionTimezone() {
         return Optional.ofNullable(this.scheduleExpressionTimezone);
     }
-    /**
-     * @return The amount of time in minutes before beginning a backup.
-     * 
-     */
     public Optional<Integer> startWindow() {
         return Optional.ofNullable(this.startWindow);
     }
-    /**
-     * @return The ARN of a logically air-gapped vault. ARN must be in the same account and region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
-     * 
-     */
     public Optional<String> targetLogicallyAirGappedBackupVaultArn() {
         return Optional.ofNullable(this.targetLogicallyAirGappedBackupVaultArn);
     }
-    /**
-     * @return The name of a logical container where backups are stored.
-     * 
-     */
     public String targetVaultName() {
         return this.targetVaultName;
     }

@@ -9,87 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM policy attached to a group.
-    /// 
-    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `Policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDevelopers = new Aws.Iam.Group("my_developers", new()
-    ///     {
-    ///         Name = "developers",
-    ///         Path = "/users/",
-    ///     });
-    /// 
-    ///     var myDeveloperPolicy = new Aws.Iam.GroupPolicy("my_developer_policy", new()
-    ///     {
-    ///         Name = "my_developer_policy",
-    ///         Group = myDevelopers.Name,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "ec2:Describe*",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/groupPolicy:GroupPolicy")]
     public partial class GroupPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The IAM group to attach to the policy.
-        /// </summary>
         [Output("group")]
         public Output<string> Group { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the policy. If omitted, the provider will
-        /// assign a random, unique name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -139,29 +70,15 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IAM group to attach to the policy.
-        /// </summary>
         [Input("group", required: true)]
         public Input<string> Group { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the policy. If omitted, the provider will
-        /// assign a random, unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("policy", required: true)]
         public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
@@ -173,29 +90,15 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IAM group to attach to the policy.
-        /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
-        /// <summary>
-        /// The name of the policy. If omitted, the provider will
-        /// assign a random, unique name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 

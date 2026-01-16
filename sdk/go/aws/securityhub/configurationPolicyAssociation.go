@@ -12,102 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Security Hub configuration policy associations.
-//
-// > **NOTE:** This resource requires `securityhub.OrganizationConfiguration` to be configured with type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrganizationConfiguration, err := securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable:          pulumi.Bool(false),
-//				AutoEnableStandards: pulumi.String("NONE"),
-//				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
-//					ConfigurationType: pulumi.String("CENTRAL"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			exampleConfigurationPolicy, err := securityhub.NewConfigurationPolicy(ctx, "example", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("This is an example configuration policy"),
-//				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
-//					ServiceEnabled: pulumi.Bool(true),
-//					EnabledStandardArns: pulumi.StringArray{
-//						pulumi.String("arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0"),
-//						pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-//					},
-//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
-//						DisabledControlIdentifiers: pulumi.StringArray{},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganizationConfiguration,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "account_example", &securityhub.ConfigurationPolicyAssociationArgs{
-//				TargetId: pulumi.String("123456789012"),
-//				PolicyId: exampleConfigurationPolicy.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "root_example", &securityhub.ConfigurationPolicyAssociationArgs{
-//				TargetId: pulumi.String("r-abcd"),
-//				PolicyId: exampleConfigurationPolicy.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "ou_example", &securityhub.ConfigurationPolicyAssociationArgs{
-//				TargetId: pulumi.String("ou-abcd-12345678"),
-//				PolicyId: exampleConfigurationPolicy.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
-//
-// ```sh
-// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
-// ```
 type ConfigurationPolicyAssociation struct {
 	pulumi.CustomResourceState
 
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region   pulumi.StringOutput `pulumi:"region"`
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
@@ -150,8 +60,7 @@ func GetConfigurationPolicyAssociation(ctx *pulumi.Context,
 type configurationPolicyAssociationState struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId *string `pulumi:"policyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region   *string `pulumi:"region"`
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId *string `pulumi:"targetId"`
 }
@@ -159,8 +68,7 @@ type configurationPolicyAssociationState struct {
 type ConfigurationPolicyAssociationState struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId pulumi.StringPtrInput
 }
@@ -171,9 +79,8 @@ func (ConfigurationPolicyAssociationState) ElementType() reflect.Type {
 
 type configurationPolicyAssociationArgs struct {
 	// The universally unique identifier (UUID) of the configuration policy.
-	PolicyId string `pulumi:"policyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PolicyId string  `pulumi:"policyId"`
+	Region   *string `pulumi:"region"`
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId string `pulumi:"targetId"`
 }
@@ -182,8 +89,7 @@ type configurationPolicyAssociationArgs struct {
 type ConfigurationPolicyAssociationArgs struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId pulumi.StringInput
 }
@@ -280,7 +186,6 @@ func (o ConfigurationPolicyAssociationOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyAssociation) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationPolicyAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

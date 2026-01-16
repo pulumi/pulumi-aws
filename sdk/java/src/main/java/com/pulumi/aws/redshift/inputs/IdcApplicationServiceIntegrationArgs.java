@@ -17,47 +17,23 @@ public final class IdcApplicationServiceIntegrationArgs extends com.pulumi.resou
 
     public static final IdcApplicationServiceIntegrationArgs Empty = new IdcApplicationServiceIntegrationArgs();
 
-    /**
-     * List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-     * 
-     */
     @Import(name="lakeFormation")
     private @Nullable Output<IdcApplicationServiceIntegrationLakeFormationArgs> lakeFormation;
 
-    /**
-     * @return List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationLakeFormationArgs>> lakeFormation() {
         return Optional.ofNullable(this.lakeFormation);
     }
 
-    /**
-     * List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-     * 
-     */
     @Import(name="redshift")
     private @Nullable Output<IdcApplicationServiceIntegrationRedshiftArgs> redshift;
 
-    /**
-     * @return List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationRedshiftArgs>> redshift() {
         return Optional.ofNullable(this.redshift);
     }
 
-    /**
-     * List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
-     * 
-     */
     @Import(name="s3AccessGrants")
     private @Nullable Output<IdcApplicationServiceIntegrationS3AccessGrantsArgs> s3AccessGrants;
 
-    /**
-     * @return List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
-     * 
-     */
     public Optional<Output<IdcApplicationServiceIntegrationS3AccessGrantsArgs>> s3AccessGrants() {
         return Optional.ofNullable(this.s3AccessGrants);
     }
@@ -88,65 +64,29 @@ public final class IdcApplicationServiceIntegrationArgs extends com.pulumi.resou
             $ = new IdcApplicationServiceIntegrationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lakeFormation List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lakeFormation(@Nullable Output<IdcApplicationServiceIntegrationLakeFormationArgs> lakeFormation) {
             $.lakeFormation = lakeFormation;
             return this;
         }
 
-        /**
-         * @param lakeFormation List of scopes set up for Lake Formation integration. Refer to the lakeFormation documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lakeFormation(IdcApplicationServiceIntegrationLakeFormationArgs lakeFormation) {
             return lakeFormation(Output.of(lakeFormation));
         }
 
-        /**
-         * @param redshift List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshift(@Nullable Output<IdcApplicationServiceIntegrationRedshiftArgs> redshift) {
             $.redshift = redshift;
             return this;
         }
 
-        /**
-         * @param redshift List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redshift(IdcApplicationServiceIntegrationRedshiftArgs redshift) {
             return redshift(Output.of(redshift));
         }
 
-        /**
-         * @param s3AccessGrants List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessGrants(@Nullable Output<IdcApplicationServiceIntegrationS3AccessGrantsArgs> s3AccessGrants) {
             $.s3AccessGrants = s3AccessGrants;
             return this;
         }
 
-        /**
-         * @param s3AccessGrants List of scopes set up for S3 Access Grants integration. Refer to the s3AccessGrants documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AccessGrants(IdcApplicationServiceIntegrationS3AccessGrantsArgs s3AccessGrants) {
             return s3AccessGrants(Output.of(s3AccessGrants));
         }

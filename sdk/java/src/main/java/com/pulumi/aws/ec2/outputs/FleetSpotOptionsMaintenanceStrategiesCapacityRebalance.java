@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
-    /**
-     * @return The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
-     * 
-     */
     private @Nullable String replacementStrategy;
     private @Nullable Integer terminationDelay;
 
     private FleetSpotOptionsMaintenanceStrategiesCapacityRebalance() {}
-    /**
-     * @return The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
-     * 
-     */
     public Optional<String> replacementStrategy() {
         return Optional.ofNullable(this.replacementStrategy);
     }

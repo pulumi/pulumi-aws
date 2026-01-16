@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouterConfigurationResult {
-    /**
-     * @return Instructions for configuring your router
-     * 
-     */
     private String customerRouterConfig;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,24 +19,12 @@ public final class GetRouterConfigurationResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Router type identifier
-     * 
-     */
     private String routerTypeIdentifier;
-    /**
-     * @return Block of the router type details
-     * 
-     */
     private List<GetRouterConfigurationRouter> routers;
     private String virtualInterfaceId;
     private String virtualInterfaceName;
 
     private GetRouterConfigurationResult() {}
-    /**
-     * @return Instructions for configuring your router
-     * 
-     */
     public String customerRouterConfig() {
         return this.customerRouterConfig;
     }
@@ -54,17 +38,9 @@ public final class GetRouterConfigurationResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Router type identifier
-     * 
-     */
     public String routerTypeIdentifier() {
         return this.routerTypeIdentifier;
     }
-    /**
-     * @return Block of the router type details
-     * 
-     */
     public List<GetRouterConfigurationRouter> routers() {
         return this.routers;
     }

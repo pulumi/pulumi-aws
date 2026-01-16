@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayMaintenanceStartTime {
-    /**
-     * @return The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-     * 
-     */
     private @Nullable String dayOfMonth;
-    /**
-     * @return The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-     * 
-     */
     private @Nullable String dayOfWeek;
-    /**
-     * @return The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-     * 
-     */
     private Integer hourOfDay;
-    /**
-     * @return The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-     * 
-     */
     private @Nullable Integer minuteOfHour;
 
     private GatewayMaintenanceStartTime() {}
-    /**
-     * @return The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-     * 
-     */
     public Optional<String> dayOfMonth() {
         return Optional.ofNullable(this.dayOfMonth);
     }
-    /**
-     * @return The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-     * 
-     */
     public Optional<String> dayOfWeek() {
         return Optional.ofNullable(this.dayOfWeek);
     }
-    /**
-     * @return The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-     * 
-     */
     public Integer hourOfDay() {
         return this.hourOfDay;
     }
-    /**
-     * @return The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-     * 
-     */
     public Optional<Integer> minuteOfHour() {
         return Optional.ofNullable(this.minuteOfHour);
     }

@@ -14,32 +14,16 @@ public final class AutomationRuleActionFindingFieldsUpdateNoteArgs extends com.p
 
     public static final AutomationRuleActionFindingFieldsUpdateNoteArgs Empty = new AutomationRuleActionFindingFieldsUpdateNoteArgs();
 
-    /**
-     * The updated note text.
-     * 
-     */
     @Import(name="text", required=true)
     private Output<String> text;
 
-    /**
-     * @return The updated note text.
-     * 
-     */
     public Output<String> text() {
         return this.text;
     }
 
-    /**
-     * The principal that updated the note.
-     * 
-     */
     @Import(name="updatedBy", required=true)
     private Output<String> updatedBy;
 
-    /**
-     * @return The principal that updated the note.
-     * 
-     */
     public Output<String> updatedBy() {
         return this.updatedBy;
     }
@@ -69,44 +53,20 @@ public final class AutomationRuleActionFindingFieldsUpdateNoteArgs extends com.p
             $ = new AutomationRuleActionFindingFieldsUpdateNoteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param text The updated note text.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(Output<String> text) {
             $.text = text;
             return this;
         }
 
-        /**
-         * @param text The updated note text.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(String text) {
             return text(Output.of(text));
         }
 
-        /**
-         * @param updatedBy The principal that updated the note.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedBy(Output<String> updatedBy) {
             $.updatedBy = updatedBy;
             return this;
         }
 
-        /**
-         * @param updatedBy The principal that updated the note.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedBy(String updatedBy) {
             return updatedBy(Output.of(updatedBy));
         }

@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRegexMatchStatement {
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRegexMatchStatementFieldToMatch fieldToMatch;
-    /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-     * 
-     */
     private String regexString;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     private List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRegexMatchStatement() {}
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRegexMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-     * 
-     */
     public String regexString() {
         return this.regexString;
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     public List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

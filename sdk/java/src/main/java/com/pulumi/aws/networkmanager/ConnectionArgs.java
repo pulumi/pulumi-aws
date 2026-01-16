@@ -17,111 +17,51 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConnectionArgs Empty = new ConnectionArgs();
 
-    /**
-     * ID of the second device in the connection.
-     * 
-     */
     @Import(name="connectedDeviceId", required=true)
     private Output<String> connectedDeviceId;
 
-    /**
-     * @return ID of the second device in the connection.
-     * 
-     */
     public Output<String> connectedDeviceId() {
         return this.connectedDeviceId;
     }
 
-    /**
-     * ID of the link for the second device.
-     * 
-     */
     @Import(name="connectedLinkId")
     private @Nullable Output<String> connectedLinkId;
 
-    /**
-     * @return ID of the link for the second device.
-     * 
-     */
     public Optional<Output<String>> connectedLinkId() {
         return Optional.ofNullable(this.connectedLinkId);
     }
 
-    /**
-     * Description of the connection.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the connection.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ID of the first device in the connection.
-     * 
-     */
     @Import(name="deviceId", required=true)
     private Output<String> deviceId;
 
-    /**
-     * @return ID of the first device in the connection.
-     * 
-     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
 
-    /**
-     * ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the global network.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ID of the link for the first device.
-     * 
-     */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
-    /**
-     * @return ID of the link for the first device.
-     * 
-     */
     public Optional<Output<String>> linkId() {
         return Optional.ofNullable(this.linkId);
     }
 
-    /**
-     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -156,153 +96,65 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectedDeviceId ID of the second device in the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectedDeviceId(Output<String> connectedDeviceId) {
             $.connectedDeviceId = connectedDeviceId;
             return this;
         }
 
-        /**
-         * @param connectedDeviceId ID of the second device in the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectedDeviceId(String connectedDeviceId) {
             return connectedDeviceId(Output.of(connectedDeviceId));
         }
 
-        /**
-         * @param connectedLinkId ID of the link for the second device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectedLinkId(@Nullable Output<String> connectedLinkId) {
             $.connectedLinkId = connectedLinkId;
             return this;
         }
 
-        /**
-         * @param connectedLinkId ID of the link for the second device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectedLinkId(String connectedLinkId) {
             return connectedLinkId(Output.of(connectedLinkId));
         }
 
-        /**
-         * @param description Description of the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param deviceId ID of the first device in the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(Output<String> deviceId) {
             $.deviceId = deviceId;
             return this;
         }
 
-        /**
-         * @param deviceId ID of the first device in the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(String deviceId) {
             return deviceId(Output.of(deviceId));
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the global network.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param linkId ID of the link for the first device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(@Nullable Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId ID of the link for the first device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }
 
-        /**
-         * @param tags Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

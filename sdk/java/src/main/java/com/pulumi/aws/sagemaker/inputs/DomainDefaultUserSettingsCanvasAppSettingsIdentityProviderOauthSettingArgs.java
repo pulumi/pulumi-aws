@@ -16,47 +16,23 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOau
 
     public static final DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs();
 
-    /**
-     * The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
-     * 
-     */
     @Import(name="dataSourceName")
     private @Nullable Output<String> dataSourceName;
 
-    /**
-     * @return The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
-     * 
-     */
     public Optional<Output<String>> dataSourceName() {
         return Optional.ofNullable(this.dataSourceName);
     }
 
-    /**
-     * The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
-     * 
-     */
     @Import(name="secretArn", required=true)
     private Output<String> secretArn;
 
-    /**
-     * @return The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
-     * 
-     */
     public Output<String> secretArn() {
         return this.secretArn;
     }
 
-    /**
-     * Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -87,65 +63,29 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOau
             $ = new DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSourceName The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceName(@Nullable Output<String> dataSourceName) {
             $.dataSourceName = dataSourceName;
             return this;
         }
 
-        /**
-         * @param dataSourceName The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSourceName(String dataSourceName) {
             return dataSourceName(Output.of(dataSourceName));
         }
 
-        /**
-         * @param secretArn The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(Output<String> secretArn) {
             $.secretArn = secretArn;
             return this;
         }
 
-        /**
-         * @param secretArn The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretArn(String secretArn) {
             return secretArn(Output.of(secretArn));
         }
 
-        /**
-         * @param status Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Outputs
     [OutputType]
     public sealed class ScalingPlanApplicationSource
     {
-        /// <summary>
-        /// ARN of a AWS CloudFormation stack.
-        /// </summary>
         public readonly string? CloudformationStackArn;
-        /// <summary>
-        /// Set of tags.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPlanApplicationSourceTagFilter> TagFilters;
 
         [OutputConstructor]

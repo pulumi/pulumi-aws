@@ -14,10 +14,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     {
         [Input("awsAccountIds")]
         private InputList<Inputs.AutomationRuleCriteriaAwsAccountIdGetArgs>? _awsAccountIds;
-
-        /// <summary>
-        /// The AWS account ID in which a finding was generated. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaAwsAccountIdGetArgs> AwsAccountIds
         {
             get => _awsAccountIds ?? (_awsAccountIds = new InputList<Inputs.AutomationRuleCriteriaAwsAccountIdGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("awsAccountNames")]
         private InputList<Inputs.AutomationRuleCriteriaAwsAccountNameGetArgs>? _awsAccountNames;
-
-        /// <summary>
-        /// The name of the AWS account in which a finding was generated. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaAwsAccountNameGetArgs> AwsAccountNames
         {
             get => _awsAccountNames ?? (_awsAccountNames = new InputList<Inputs.AutomationRuleCriteriaAwsAccountNameGetArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("companyNames")]
         private InputList<Inputs.AutomationRuleCriteriaCompanyNameGetArgs>? _companyNames;
-
-        /// <summary>
-        /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaCompanyNameGetArgs> CompanyNames
         {
             get => _companyNames ?? (_companyNames = new InputList<Inputs.AutomationRuleCriteriaCompanyNameGetArgs>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("complianceAssociatedStandardsIds")]
         private InputList<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdGetArgs>? _complianceAssociatedStandardsIds;
-
-        /// <summary>
-        /// The unique identifier of a standard in which a control is enabled. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdGetArgs> ComplianceAssociatedStandardsIds
         {
             get => _complianceAssociatedStandardsIds ?? (_complianceAssociatedStandardsIds = new InputList<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdGetArgs>());
@@ -62,10 +46,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("complianceSecurityControlIds")]
         private InputList<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdGetArgs>? _complianceSecurityControlIds;
-
-        /// <summary>
-        /// The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdGetArgs> ComplianceSecurityControlIds
         {
             get => _complianceSecurityControlIds ?? (_complianceSecurityControlIds = new InputList<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdGetArgs>());
@@ -74,10 +54,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("complianceStatuses")]
         private InputList<Inputs.AutomationRuleCriteriaComplianceStatusGetArgs>? _complianceStatuses;
-
-        /// <summary>
-        /// The result of a security check. This field is only used for findings generated from controls. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaComplianceStatusGetArgs> ComplianceStatuses
         {
             get => _complianceStatuses ?? (_complianceStatuses = new InputList<Inputs.AutomationRuleCriteriaComplianceStatusGetArgs>());
@@ -86,10 +62,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("confidences")]
         private InputList<Inputs.AutomationRuleCriteriaConfidenceGetArgs>? _confidences;
-
-        /// <summary>
-        /// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaConfidenceGetArgs> Confidences
         {
             get => _confidences ?? (_confidences = new InputList<Inputs.AutomationRuleCriteriaConfidenceGetArgs>());
@@ -98,10 +70,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("createdAts")]
         private InputList<Inputs.AutomationRuleCriteriaCreatedAtGetArgs>? _createdAts;
-
-        /// <summary>
-        /// A timestamp that indicates when this finding record was created. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaCreatedAtGetArgs> CreatedAts
         {
             get => _createdAts ?? (_createdAts = new InputList<Inputs.AutomationRuleCriteriaCreatedAtGetArgs>());
@@ -110,10 +78,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("criticalities")]
         private InputList<Inputs.AutomationRuleCriteriaCriticalityGetArgs>? _criticalities;
-
-        /// <summary>
-        /// The level of importance that is assigned to the resources that are associated with a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaCriticalityGetArgs> Criticalities
         {
             get => _criticalities ?? (_criticalities = new InputList<Inputs.AutomationRuleCriteriaCriticalityGetArgs>());
@@ -122,10 +86,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("descriptions")]
         private InputList<Inputs.AutomationRuleCriteriaDescriptionGetArgs>? _descriptions;
-
-        /// <summary>
-        /// A finding's description. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaDescriptionGetArgs> Descriptions
         {
             get => _descriptions ?? (_descriptions = new InputList<Inputs.AutomationRuleCriteriaDescriptionGetArgs>());
@@ -134,10 +94,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("firstObservedAts")]
         private InputList<Inputs.AutomationRuleCriteriaFirstObservedAtGetArgs>? _firstObservedAts;
-
-        /// <summary>
-        /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaFirstObservedAtGetArgs> FirstObservedAts
         {
             get => _firstObservedAts ?? (_firstObservedAts = new InputList<Inputs.AutomationRuleCriteriaFirstObservedAtGetArgs>());
@@ -146,10 +102,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("generatorIds")]
         private InputList<Inputs.AutomationRuleCriteriaGeneratorIdGetArgs>? _generatorIds;
-
-        /// <summary>
-        /// The identifier for the solution-specific component that generated a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaGeneratorIdGetArgs> GeneratorIds
         {
             get => _generatorIds ?? (_generatorIds = new InputList<Inputs.AutomationRuleCriteriaGeneratorIdGetArgs>());
@@ -158,10 +110,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("ids")]
         private InputList<Inputs.AutomationRuleCriteriaIdGetArgs>? _ids;
-
-        /// <summary>
-        /// The product-specific identifier for a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaIdGetArgs> Ids
         {
             get => _ids ?? (_ids = new InputList<Inputs.AutomationRuleCriteriaIdGetArgs>());
@@ -170,10 +118,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("lastObservedAts")]
         private InputList<Inputs.AutomationRuleCriteriaLastObservedAtGetArgs>? _lastObservedAts;
-
-        /// <summary>
-        /// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaLastObservedAtGetArgs> LastObservedAts
         {
             get => _lastObservedAts ?? (_lastObservedAts = new InputList<Inputs.AutomationRuleCriteriaLastObservedAtGetArgs>());
@@ -182,10 +126,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("noteTexts")]
         private InputList<Inputs.AutomationRuleCriteriaNoteTextGetArgs>? _noteTexts;
-
-        /// <summary>
-        /// The text of a user-defined note that's added to a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaNoteTextGetArgs> NoteTexts
         {
             get => _noteTexts ?? (_noteTexts = new InputList<Inputs.AutomationRuleCriteriaNoteTextGetArgs>());
@@ -194,10 +134,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("noteUpdatedAts")]
         private InputList<Inputs.AutomationRuleCriteriaNoteUpdatedAtGetArgs>? _noteUpdatedAts;
-
-        /// <summary>
-        /// The timestamp of when the note was updated. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaNoteUpdatedAtGetArgs> NoteUpdatedAts
         {
             get => _noteUpdatedAts ?? (_noteUpdatedAts = new InputList<Inputs.AutomationRuleCriteriaNoteUpdatedAtGetArgs>());
@@ -206,10 +142,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("noteUpdatedBies")]
         private InputList<Inputs.AutomationRuleCriteriaNoteUpdatedByGetArgs>? _noteUpdatedBies;
-
-        /// <summary>
-        /// The principal that created a note. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaNoteUpdatedByGetArgs> NoteUpdatedBies
         {
             get => _noteUpdatedBies ?? (_noteUpdatedBies = new InputList<Inputs.AutomationRuleCriteriaNoteUpdatedByGetArgs>());
@@ -218,10 +150,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("productArns")]
         private InputList<Inputs.AutomationRuleCriteriaProductArnGetArgs>? _productArns;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaProductArnGetArgs> ProductArns
         {
             get => _productArns ?? (_productArns = new InputList<Inputs.AutomationRuleCriteriaProductArnGetArgs>());
@@ -230,10 +158,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("productNames")]
         private InputList<Inputs.AutomationRuleCriteriaProductNameGetArgs>? _productNames;
-
-        /// <summary>
-        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaProductNameGetArgs> ProductNames
         {
             get => _productNames ?? (_productNames = new InputList<Inputs.AutomationRuleCriteriaProductNameGetArgs>());
@@ -242,10 +166,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("recordStates")]
         private InputList<Inputs.AutomationRuleCriteriaRecordStateGetArgs>? _recordStates;
-
-        /// <summary>
-        /// Provides the current state of a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaRecordStateGetArgs> RecordStates
         {
             get => _recordStates ?? (_recordStates = new InputList<Inputs.AutomationRuleCriteriaRecordStateGetArgs>());
@@ -254,10 +174,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("relatedFindingsIds")]
         private InputList<Inputs.AutomationRuleCriteriaRelatedFindingsIdGetArgs>? _relatedFindingsIds;
-
-        /// <summary>
-        /// The product-generated identifier for a related finding.  Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaRelatedFindingsIdGetArgs> RelatedFindingsIds
         {
             get => _relatedFindingsIds ?? (_relatedFindingsIds = new InputList<Inputs.AutomationRuleCriteriaRelatedFindingsIdGetArgs>());
@@ -266,10 +182,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("relatedFindingsProductArns")]
         private InputList<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnGetArgs>? _relatedFindingsProductArns;
-
-        /// <summary>
-        /// The ARN for the product that generated a related finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnGetArgs> RelatedFindingsProductArns
         {
             get => _relatedFindingsProductArns ?? (_relatedFindingsProductArns = new InputList<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnGetArgs>());
@@ -278,10 +190,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceApplicationArns")]
         private InputList<Inputs.AutomationRuleCriteriaResourceApplicationArnGetArgs>? _resourceApplicationArns;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceApplicationArnGetArgs> ResourceApplicationArns
         {
             get => _resourceApplicationArns ?? (_resourceApplicationArns = new InputList<Inputs.AutomationRuleCriteriaResourceApplicationArnGetArgs>());
@@ -290,10 +198,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceApplicationNames")]
         private InputList<Inputs.AutomationRuleCriteriaResourceApplicationNameGetArgs>? _resourceApplicationNames;
-
-        /// <summary>
-        /// The name of the application that is related to a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceApplicationNameGetArgs> ResourceApplicationNames
         {
             get => _resourceApplicationNames ?? (_resourceApplicationNames = new InputList<Inputs.AutomationRuleCriteriaResourceApplicationNameGetArgs>());
@@ -302,10 +206,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceDetailsOthers")]
         private InputList<Inputs.AutomationRuleCriteriaResourceDetailsOtherGetArgs>? _resourceDetailsOthers;
-
-        /// <summary>
-        /// Custom fields and values about the resource that a finding pertains to. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceDetailsOtherGetArgs> ResourceDetailsOthers
         {
             get => _resourceDetailsOthers ?? (_resourceDetailsOthers = new InputList<Inputs.AutomationRuleCriteriaResourceDetailsOtherGetArgs>());
@@ -314,10 +214,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceIds")]
         private InputList<Inputs.AutomationRuleCriteriaResourceIdGetArgs>? _resourceIds;
-
-        /// <summary>
-        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceIdGetArgs> ResourceIds
         {
             get => _resourceIds ?? (_resourceIds = new InputList<Inputs.AutomationRuleCriteriaResourceIdGetArgs>());
@@ -326,10 +222,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourcePartitions")]
         private InputList<Inputs.AutomationRuleCriteriaResourcePartitionGetArgs>? _resourcePartitions;
-
-        /// <summary>
-        /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourcePartitionGetArgs> ResourcePartitions
         {
             get => _resourcePartitions ?? (_resourcePartitions = new InputList<Inputs.AutomationRuleCriteriaResourcePartitionGetArgs>());
@@ -338,10 +230,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceRegions")]
         private InputList<Inputs.AutomationRuleCriteriaResourceRegionGetArgs>? _resourceRegions;
-
-        /// <summary>
-        /// The AWS Region where the resource that a finding pertains to is located. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceRegionGetArgs> ResourceRegions
         {
             get => _resourceRegions ?? (_resourceRegions = new InputList<Inputs.AutomationRuleCriteriaResourceRegionGetArgs>());
@@ -350,10 +238,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceTags")]
         private InputList<Inputs.AutomationRuleCriteriaResourceTagGetArgs>? _resourceTags;
-
-        /// <summary>
-        /// A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceTagGetArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.AutomationRuleCriteriaResourceTagGetArgs>());
@@ -362,10 +246,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("resourceTypes")]
         private InputList<Inputs.AutomationRuleCriteriaResourceTypeGetArgs>? _resourceTypes;
-
-        /// <summary>
-        /// The type of resource that the finding pertains to. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceTypeGetArgs> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.AutomationRuleCriteriaResourceTypeGetArgs>());
@@ -374,10 +254,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("severityLabels")]
         private InputList<Inputs.AutomationRuleCriteriaSeverityLabelGetArgs>? _severityLabels;
-
-        /// <summary>
-        /// The severity value of the finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaSeverityLabelGetArgs> SeverityLabels
         {
             get => _severityLabels ?? (_severityLabels = new InputList<Inputs.AutomationRuleCriteriaSeverityLabelGetArgs>());
@@ -386,10 +262,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("sourceUrls")]
         private InputList<Inputs.AutomationRuleCriteriaSourceUrlGetArgs>? _sourceUrls;
-
-        /// <summary>
-        /// Provides a URL that links to a page about the current finding in the finding product. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaSourceUrlGetArgs> SourceUrls
         {
             get => _sourceUrls ?? (_sourceUrls = new InputList<Inputs.AutomationRuleCriteriaSourceUrlGetArgs>());
@@ -398,10 +270,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("titles")]
         private InputList<Inputs.AutomationRuleCriteriaTitleGetArgs>? _titles;
-
-        /// <summary>
-        /// A finding's title. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaTitleGetArgs> Titles
         {
             get => _titles ?? (_titles = new InputList<Inputs.AutomationRuleCriteriaTitleGetArgs>());
@@ -410,10 +278,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("types")]
         private InputList<Inputs.AutomationRuleCriteriaTypeGetArgs>? _types;
-
-        /// <summary>
-        /// One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaTypeGetArgs> Types
         {
             get => _types ?? (_types = new InputList<Inputs.AutomationRuleCriteriaTypeGetArgs>());
@@ -422,10 +286,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("updatedAts")]
         private InputList<Inputs.AutomationRuleCriteriaUpdatedAtGetArgs>? _updatedAts;
-
-        /// <summary>
-        /// A timestamp that indicates when the finding record was most recently updated. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaUpdatedAtGetArgs> UpdatedAts
         {
             get => _updatedAts ?? (_updatedAts = new InputList<Inputs.AutomationRuleCriteriaUpdatedAtGetArgs>());
@@ -434,10 +294,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("userDefinedFields")]
         private InputList<Inputs.AutomationRuleCriteriaUserDefinedFieldGetArgs>? _userDefinedFields;
-
-        /// <summary>
-        /// A list of user-defined name and value string pairs added to a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaUserDefinedFieldGetArgs> UserDefinedFields
         {
             get => _userDefinedFields ?? (_userDefinedFields = new InputList<Inputs.AutomationRuleCriteriaUserDefinedFieldGetArgs>());
@@ -446,10 +302,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("verificationStates")]
         private InputList<Inputs.AutomationRuleCriteriaVerificationStateGetArgs>? _verificationStates;
-
-        /// <summary>
-        /// Provides the veracity of a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaVerificationStateGetArgs> VerificationStates
         {
             get => _verificationStates ?? (_verificationStates = new InputList<Inputs.AutomationRuleCriteriaVerificationStateGetArgs>());
@@ -458,10 +310,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
         [Input("workflowStatuses")]
         private InputList<Inputs.AutomationRuleCriteriaWorkflowStatusGetArgs>? _workflowStatuses;
-
-        /// <summary>
-        /// Provides information about the status of the investigation into a finding. Documented below.
-        /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaWorkflowStatusGetArgs> WorkflowStatuses
         {
             get => _workflowStatuses ?? (_workflowStatuses = new InputList<Inputs.AutomationRuleCriteriaWorkflowStatusGetArgs>());

@@ -14,141 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Verified Permissions Policy Template.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.verifiedpermissions.PolicyTemplate;
- * import com.pulumi.aws.verifiedpermissions.PolicyTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PolicyTemplate("example", PolicyTemplateArgs.builder()
- *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.id())
- *             .statement("permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
- * ```
- * 
- */
 @ResourceType(type="aws:verifiedpermissions/policyTemplate:PolicyTemplate")
 public class PolicyTemplate extends com.pulumi.resources.CustomResource {
-    /**
-     * The date the Policy Store was created.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return The date the Policy Store was created.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * Provides a description for the policy template.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Provides a description for the policy template.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
     @Export(name="policyTemplateId", refs={String.class}, tree="[0]")
     private Output<String> policyTemplateId;
 
-    /**
-     * @return The ID of the Policy Store.
-     * 
-     */
     public Output<String> policyTemplateId() {
         return this.policyTemplateId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Defines the content of the statement, written in Cedar policy language.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
-    /**
-     * @return Defines the content of the statement, written in Cedar policy language.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> statement() {
         return this.statement;
     }

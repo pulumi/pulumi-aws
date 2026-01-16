@@ -17,32 +17,16 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
 
     public static final RestoreTestingSelectionProtectedResourceConditionsArgs Empty = new RestoreTestingSelectionProtectedResourceConditionsArgs();
 
-    /**
-     * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
-     * 
-     */
     @Import(name="stringEquals")
     private @Nullable Output<List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>> stringEquals;
 
-    /**
-     * @return The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
-     * 
-     */
     public Optional<Output<List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>>> stringEquals() {
         return Optional.ofNullable(this.stringEquals);
     }
 
-    /**
-     * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
-     * 
-     */
     @Import(name="stringNotEquals")
     private @Nullable Output<List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>> stringNotEquals;
 
-    /**
-     * @return The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
-     * 
-     */
     public Optional<Output<List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>>> stringNotEquals() {
         return Optional.ofNullable(this.stringNotEquals);
     }
@@ -72,64 +56,28 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs extend
             $ = new RestoreTestingSelectionProtectedResourceConditionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param stringEquals The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringEquals(@Nullable Output<List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>> stringEquals) {
             $.stringEquals = stringEquals;
             return this;
         }
 
-        /**
-         * @param stringEquals The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringEquals(List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs> stringEquals) {
             return stringEquals(Output.of(stringEquals));
         }
 
-        /**
-         * @param stringEquals The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringEquals(RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs... stringEquals) {
             return stringEquals(List.of(stringEquals));
         }
 
-        /**
-         * @param stringNotEquals The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringNotEquals(@Nullable Output<List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>> stringNotEquals) {
             $.stringNotEquals = stringNotEquals;
             return this;
         }
 
-        /**
-         * @param stringNotEquals The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringNotEquals(List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs> stringNotEquals) {
             return stringNotEquals(Output.of(stringNotEquals));
         }
 
-        /**
-         * @param stringNotEquals The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringNotEquals(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs... stringNotEquals) {
             return stringNotEquals(List.of(stringNotEquals));
         }

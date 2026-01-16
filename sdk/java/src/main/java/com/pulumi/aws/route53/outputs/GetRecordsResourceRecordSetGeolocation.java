@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRecordsResourceRecordSetGeolocation {
-    /**
-     * @return The two-letter code for the continent.
-     * 
-     */
     private String continentCode;
-    /**
-     * @return The two-letter code for a country.
-     * 
-     */
     private String countryCode;
-    /**
-     * @return The two-letter code for a state of the United States.
-     * 
-     */
     private String subdivisionCode;
 
     private GetRecordsResourceRecordSetGeolocation() {}
-    /**
-     * @return The two-letter code for the continent.
-     * 
-     */
     public String continentCode() {
         return this.continentCode;
     }
-    /**
-     * @return The two-letter code for a country.
-     * 
-     */
     public String countryCode() {
         return this.countryCode;
     }
-    /**
-     * @return The two-letter code for a state of the United States.
-     * 
-     */
     public String subdivisionCode() {
         return this.subdivisionCode;
     }

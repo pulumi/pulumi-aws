@@ -25,12 +25,6 @@ class ApplicationAccessScopeArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAccessScope resource.
-        :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
-        :param pulumi.Input[_builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "scope", scope)
@@ -42,9 +36,6 @@ class ApplicationAccessScopeArgs:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the ARN of the application with the access scope with the targets to add or update.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -54,11 +45,6 @@ class ApplicationAccessScopeArgs:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the name of the access scope to be associated with the specified targets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -68,9 +54,6 @@ class ApplicationAccessScopeArgs:
     @_builtins.property
     @pulumi.getter(name="authorizedTargets")
     def authorized_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        """
         return pulumi.get(self, "authorized_targets")
 
     @authorized_targets.setter
@@ -80,9 +63,6 @@ class ApplicationAccessScopeArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,12 +79,6 @@ class _ApplicationAccessScopeState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAccessScope resources.
-        :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
-               
-               The following arguments are optional:
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -118,9 +92,6 @@ class _ApplicationAccessScopeState:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the ARN of the application with the access scope with the targets to add or update.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -130,9 +101,6 @@ class _ApplicationAccessScopeState:
     @_builtins.property
     @pulumi.getter(name="authorizedTargets")
     def authorized_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        """
         return pulumi.get(self, "authorized_targets")
 
     @authorized_targets.setter
@@ -142,9 +110,6 @@ class _ApplicationAccessScopeState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -154,11 +119,6 @@ class _ApplicationAccessScopeState:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the access scope to be associated with the specified targets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -178,43 +138,9 @@ class ApplicationAccessScope(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SSO Admin Application Access Scope.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0])
-        example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
-            application_arn=example_application.arn,
-            authorized_targets=["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
-            scope="sso:account:access")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
-        ```
-
+        Create a ApplicationAccessScope resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -223,35 +149,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
                  args: ApplicationAccessScopeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SSO Admin Application Access Scope.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0])
-        example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
-            application_arn=example_application.arn,
-            authorized_targets=["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
-            scope="sso:account:access")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
-        ```
-
+        Create a ApplicationAccessScope resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationAccessScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,12 +207,6 @@ class ApplicationAccessScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -329,34 +221,20 @@ class ApplicationAccessScope(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the ARN of the application with the access scope with the targets to add or update.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="authorizedTargets")
     def authorized_targets(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        """
         return pulumi.get(self, "authorized_targets")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the name of the access scope to be associated with the specified targets.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scope")
 

@@ -12,274 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Cognito IDP (Identity Provider) Log Delivery Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage with CloudWatch Logs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID(),
-//				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
-//					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userNotification"),
-//						LogLevel:    pulumi.String("ERROR"),
-//						CloudWatchLogsConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{
-//							LogGroupArn: exampleLogGroup.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Multiple Log Configurations with Different Destinations
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example-bucket"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "firehose.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			firehose, err := iam.NewRole(ctx, "firehose", &iam.RoleArgs{
-//				Name:             pulumi.String("firehose-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "firehose", &iam.RolePolicyArgs{
-//				Name: pulumi.String("firehose-policy"),
-//				Role: firehose.ID(),
-//				Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketArn := _args[0].(string)
-//					exampleBucketArn1 := _args[1].(string)
-//					var _zero string
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"s3:AbortMultipartUpload",
-//									"s3:GetBucketLocation",
-//									"s3:GetObject",
-//									"s3:ListBucket",
-//									"s3:ListBucketMultipartUploads",
-//									"s3:PutObject",
-//								},
-//								"Resource": []string{
-//									exampleBucketArn,
-//									fmt.Sprintf("%v/*", exampleBucketArn1),
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return json1, nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("example-stream"),
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   firehose.Arn,
-//					BucketArn: exampleBucket.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID(),
-//				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
-//					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userNotification"),
-//						LogLevel:    pulumi.String("INFO"),
-//						CloudWatchLogsConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{
-//							LogGroupArn: exampleLogGroup.Arn,
-//						},
-//					},
-//					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userAuthEvents"),
-//						LogLevel:    pulumi.String("ERROR"),
-//						FirehoseConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{
-//							StreamArn: exampleFirehoseDeliveryStream.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### S3 Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example-bucket"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID(),
-//				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
-//					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userNotification"),
-//						LogLevel:    pulumi.String("ERROR"),
-//						S3Configuration: &cognito.LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{
-//							BucketArn: exampleBucket.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `user_pool_id` (String) ID of the Cognito User Pool.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
-//
-// % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
 type LogDeliveryConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayOutput `pulumi:"logConfigurations"`
-	// The AWS region.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the user pool for which to configure log delivery.
-	//
-	// The following arguments are optional:
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	Region            pulumi.StringOutput                                 `pulumi:"region"`
+	UserPoolId        pulumi.StringOutput                                 `pulumi:"userPoolId"`
 }
 
 // NewLogDeliveryConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -315,25 +53,15 @@ func GetLogDeliveryConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDeliveryConfiguration resources.
 type logDeliveryConfigurationState struct {
-	// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`
-	// The AWS region.
-	Region *string `pulumi:"region"`
-	// The ID of the user pool for which to configure log delivery.
-	//
-	// The following arguments are optional:
-	UserPoolId *string `pulumi:"userPoolId"`
+	Region            *string                                    `pulumi:"region"`
+	UserPoolId        *string                                    `pulumi:"userPoolId"`
 }
 
 type LogDeliveryConfigurationState struct {
-	// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayInput
-	// The AWS region.
-	Region pulumi.StringPtrInput
-	// The ID of the user pool for which to configure log delivery.
-	//
-	// The following arguments are optional:
-	UserPoolId pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	UserPoolId        pulumi.StringPtrInput
 }
 
 func (LogDeliveryConfigurationState) ElementType() reflect.Type {
@@ -341,26 +69,16 @@ func (LogDeliveryConfigurationState) ElementType() reflect.Type {
 }
 
 type logDeliveryConfigurationArgs struct {
-	// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`
-	// The AWS region.
-	Region *string `pulumi:"region"`
-	// The ID of the user pool for which to configure log delivery.
-	//
-	// The following arguments are optional:
-	UserPoolId string `pulumi:"userPoolId"`
+	Region            *string                                    `pulumi:"region"`
+	UserPoolId        string                                     `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a LogDeliveryConfiguration resource.
 type LogDeliveryConfigurationArgs struct {
-	// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayInput
-	// The AWS region.
-	Region pulumi.StringPtrInput
-	// The ID of the user pool for which to configure log delivery.
-	//
-	// The following arguments are optional:
-	UserPoolId pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	UserPoolId        pulumi.StringInput
 }
 
 func (LogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -450,21 +168,16 @@ func (o LogDeliveryConfigurationOutput) ToLogDeliveryConfigurationOutputWithCont
 	return o
 }
 
-// Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
 func (o LogDeliveryConfigurationOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) LogDeliveryConfigurationLogConfigurationArrayOutput {
 		return v.LogConfigurations
 	}).(LogDeliveryConfigurationLogConfigurationArrayOutput)
 }
 
-// The AWS region.
 func (o LogDeliveryConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the user pool for which to configure log delivery.
-//
-// The following arguments are optional:
 func (o LogDeliveryConfigurationOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

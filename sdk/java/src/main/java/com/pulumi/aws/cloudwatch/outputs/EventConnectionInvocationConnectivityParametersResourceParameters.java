@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventConnectionInvocationConnectivityParametersResourceParameters {
     private @Nullable String resourceAssociationArn;
-    /**
-     * @return ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-     * 
-     */
     private String resourceConfigurationArn;
 
     private EventConnectionInvocationConnectivityParametersResourceParameters() {}
     public Optional<String> resourceAssociationArn() {
         return Optional.ofNullable(this.resourceAssociationArn);
     }
-    /**
-     * @return ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-     * 
-     */
     public String resourceConfigurationArn() {
         return this.resourceConfigurationArn;
     }

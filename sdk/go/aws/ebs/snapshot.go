@@ -12,89 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Snapshot of an EBS Volume.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(40),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
-//				VolumeId: example.ID(),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld_snap"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EBS Snapshot using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
-// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
-	// A description of what the snapshot is.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether the snapshot is encrypted.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// The ARN for the KMS encryption key.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
-	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
-	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
-	// The AWS account ID of the EBS snapshot owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Indicates whether to permanently restore an archived snapshot.
-	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
-	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
-	// The Volume ID of which to make a snapshot.
-	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
-	// The size of the drive in GiBs.
-	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	DataEncryptionKeyId  pulumi.StringOutput    `pulumi:"dataEncryptionKeyId"`
+	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	Encrypted            pulumi.BoolOutput      `pulumi:"encrypted"`
+	KmsKeyId             pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	OutpostArn           pulumi.StringPtrOutput `pulumi:"outpostArn"`
+	OwnerAlias           pulumi.StringOutput    `pulumi:"ownerAlias"`
+	OwnerId              pulumi.StringOutput    `pulumi:"ownerId"`
+	PermanentRestore     pulumi.BoolPtrOutput   `pulumi:"permanentRestore"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	StorageTier          pulumi.StringOutput    `pulumi:"storageTier"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TemporaryRestoreDays pulumi.IntPtrOutput    `pulumi:"temporaryRestoreDays"`
+	VolumeId             pulumi.StringOutput    `pulumi:"volumeId"`
+	VolumeSize           pulumi.IntOutput       `pulumi:"volumeSize"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -130,73 +66,41 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
-	Arn *string `pulumi:"arn"`
-	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId *string `pulumi:"dataEncryptionKeyId"`
-	// A description of what the snapshot is.
-	Description *string `pulumi:"description"`
-	// Whether the snapshot is encrypted.
-	Encrypted *bool `pulumi:"encrypted"`
-	// The ARN for the KMS encryption key.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias *string `pulumi:"ownerAlias"`
-	// The AWS account ID of the EBS snapshot owner.
-	OwnerId *string `pulumi:"ownerId"`
-	// Indicates whether to permanently restore an archived snapshot.
-	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier *string `pulumi:"storageTier"`
-	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
-	// The Volume ID of which to make a snapshot.
-	VolumeId *string `pulumi:"volumeId"`
-	// The size of the drive in GiBs.
-	VolumeSize *int `pulumi:"volumeSize"`
+	Arn                  *string           `pulumi:"arn"`
+	DataEncryptionKeyId  *string           `pulumi:"dataEncryptionKeyId"`
+	Description          *string           `pulumi:"description"`
+	Encrypted            *bool             `pulumi:"encrypted"`
+	KmsKeyId             *string           `pulumi:"kmsKeyId"`
+	OutpostArn           *string           `pulumi:"outpostArn"`
+	OwnerAlias           *string           `pulumi:"ownerAlias"`
+	OwnerId              *string           `pulumi:"ownerId"`
+	PermanentRestore     *bool             `pulumi:"permanentRestore"`
+	Region               *string           `pulumi:"region"`
+	StorageTier          *string           `pulumi:"storageTier"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
+	TemporaryRestoreDays *int              `pulumi:"temporaryRestoreDays"`
+	VolumeId             *string           `pulumi:"volumeId"`
+	VolumeSize           *int              `pulumi:"volumeSize"`
 }
 
 type SnapshotState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
-	Arn pulumi.StringPtrInput
-	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId pulumi.StringPtrInput
-	// A description of what the snapshot is.
-	Description pulumi.StringPtrInput
-	// Whether the snapshot is encrypted.
-	Encrypted pulumi.BoolPtrInput
-	// The ARN for the KMS encryption key.
-	KmsKeyId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
-	OutpostArn pulumi.StringPtrInput
-	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias pulumi.StringPtrInput
-	// The AWS account ID of the EBS snapshot owner.
-	OwnerId pulumi.StringPtrInput
-	// Indicates whether to permanently restore an archived snapshot.
-	PermanentRestore pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringPtrInput
-	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	Arn                  pulumi.StringPtrInput
+	DataEncryptionKeyId  pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	Encrypted            pulumi.BoolPtrInput
+	KmsKeyId             pulumi.StringPtrInput
+	OutpostArn           pulumi.StringPtrInput
+	OwnerAlias           pulumi.StringPtrInput
+	OwnerId              pulumi.StringPtrInput
+	PermanentRestore     pulumi.BoolPtrInput
+	Region               pulumi.StringPtrInput
+	StorageTier          pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 	TemporaryRestoreDays pulumi.IntPtrInput
-	// The Volume ID of which to make a snapshot.
-	VolumeId pulumi.StringPtrInput
-	// The size of the drive in GiBs.
-	VolumeSize pulumi.IntPtrInput
+	VolumeId             pulumi.StringPtrInput
+	VolumeSize           pulumi.IntPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -204,42 +108,26 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// A description of what the snapshot is.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// Indicates whether to permanently restore an archived snapshot.
-	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier *string `pulumi:"storageTier"`
-	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-	TemporaryRestoreDays *int `pulumi:"temporaryRestoreDays"`
-	// The Volume ID of which to make a snapshot.
-	VolumeId string `pulumi:"volumeId"`
+	Description          *string           `pulumi:"description"`
+	OutpostArn           *string           `pulumi:"outpostArn"`
+	PermanentRestore     *bool             `pulumi:"permanentRestore"`
+	Region               *string           `pulumi:"region"`
+	StorageTier          *string           `pulumi:"storageTier"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TemporaryRestoreDays *int              `pulumi:"temporaryRestoreDays"`
+	VolumeId             string            `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// A description of what the snapshot is.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
-	OutpostArn pulumi.StringPtrInput
-	// Indicates whether to permanently restore an archived snapshot.
-	PermanentRestore pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-	StorageTier pulumi.StringPtrInput
-	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+	Description          pulumi.StringPtrInput
+	OutpostArn           pulumi.StringPtrInput
+	PermanentRestore     pulumi.BoolPtrInput
+	Region               pulumi.StringPtrInput
+	StorageTier          pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
 	TemporaryRestoreDays pulumi.IntPtrInput
-	// The Volume ID of which to make a snapshot.
-	VolumeId pulumi.StringInput
+	VolumeId             pulumi.StringInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -329,82 +217,66 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EBS Snapshot.
 func (o SnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The data encryption key identifier for the snapshot.
 func (o SnapshotOutput) DataEncryptionKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
 }
 
-// A description of what the snapshot is.
 func (o SnapshotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether the snapshot is encrypted.
 func (o SnapshotOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// The ARN for the KMS encryption key.
 func (o SnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
 func (o SnapshotOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 func (o SnapshotOutput) OwnerAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerAlias }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the EBS snapshot owner.
 func (o SnapshotOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Indicates whether to permanently restore an archived snapshot.
 func (o SnapshotOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 func (o SnapshotOutput) StorageTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 func (o SnapshotOutput) TemporaryRestoreDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.IntPtrOutput { return v.TemporaryRestoreDays }).(pulumi.IntPtrOutput)
 }
 
-// The Volume ID of which to make a snapshot.
 func (o SnapshotOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }
 
-// The size of the drive in GiBs.
 func (o SnapshotOutput) VolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.IntOutput { return v.VolumeSize }).(pulumi.IntOutput)
 }

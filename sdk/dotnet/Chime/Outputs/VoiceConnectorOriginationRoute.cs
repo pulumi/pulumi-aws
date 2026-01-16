@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Chime.Outputs
     [OutputType]
     public sealed class VoiceConnectorOriginationRoute
     {
-        /// <summary>
-        /// The FQDN or IP address to contact for origination traffic.
-        /// </summary>
         public readonly string Host;
-        /// <summary>
-        /// The designated origination route port. Defaults to `5060`.
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-        /// </summary>
         public readonly string Protocol;
-        /// <summary>
-        /// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

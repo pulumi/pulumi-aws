@@ -17,62 +17,30 @@ public final class GetLocalGatewayVirtualInterfacePlainArgs extends com.pulumi.r
 
     public static final GetLocalGatewayVirtualInterfacePlainArgs Empty = new GetLocalGatewayVirtualInterfacePlainArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetLocalGatewayVirtualInterfaceFilter> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
-     * 
-     */
     public Optional<List<GetLocalGatewayVirtualInterfaceFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Identifier of EC2 Local Gateway Virtual Interface.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier of EC2 Local Gateway Virtual Interface.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,55 +72,25 @@ public final class GetLocalGatewayVirtualInterfacePlainArgs extends com.pulumi.r
             $ = new GetLocalGatewayVirtualInterfacePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetLocalGatewayVirtualInterfaceFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetLocalGatewayVirtualInterfaceFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Identifier of EC2 Local Gateway Virtual Interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

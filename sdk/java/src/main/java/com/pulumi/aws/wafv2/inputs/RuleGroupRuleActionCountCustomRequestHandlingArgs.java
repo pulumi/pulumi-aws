@@ -15,17 +15,9 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingArgs extends com
 
     public static final RuleGroupRuleActionCountCustomRequestHandlingArgs Empty = new RuleGroupRuleActionCountCustomRequestHandlingArgs();
 
-    /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     @Import(name="insertHeaders", required=true)
     private Output<List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     public Output<List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
         return this.insertHeaders;
     }
@@ -54,33 +46,15 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingArgs extends com
             $ = new RuleGroupRuleActionCountCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(Output<List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

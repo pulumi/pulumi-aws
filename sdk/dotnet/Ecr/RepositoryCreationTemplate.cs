@@ -9,181 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    /// <summary>
-    /// Provides an Elastic Container Registry Repository Creation Template.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "new policy",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ecr:GetDownloadUrlForLayer",
-    ///                     "ecr:BatchGetImage",
-    ///                     "ecr:BatchCheckLayerAvailability",
-    ///                     "ecr:PutImage",
-    ///                     "ecr:InitiateLayerUpload",
-    ///                     "ecr:UploadLayerPart",
-    ///                     "ecr:CompleteLayerUpload",
-    ///                     "ecr:DescribeRepositories",
-    ///                     "ecr:GetRepositoryPolicy",
-    ///                     "ecr:ListImages",
-    ///                     "ecr:DeleteRepository",
-    ///                     "ecr:BatchDeleteImage",
-    ///                     "ecr:SetRepositoryPolicy",
-    ///                     "ecr:DeleteRepositoryPolicy",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRepositoryCreationTemplate = new Aws.Ecr.RepositoryCreationTemplate("example", new()
-    ///     {
-    ///         Prefix = "example",
-    ///         Description = "An example template",
-    ///         ImageTagMutability = "IMMUTABLE",
-    ///         CustomRoleArn = "arn:aws:iam::123456789012:role/example",
-    ///         AppliedFors = new[]
-    ///         {
-    ///             "PULL_THROUGH_CACHE",
-    ///         },
-    ///         EncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.Ecr.Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs
-    ///             {
-    ///                 EncryptionType = "AES256",
-    ///             },
-    ///         },
-    ///         RepositoryPolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         LifecyclePolicy = @"{
-    ///   \""rules\"": [
-    ///     {
-    ///       \""rulePriority\"": 1,
-    ///       \""description\"": \""Expire images older than 14 days\"",
-    ///       \""selection\"": {
-    ///         \""tagStatus\"": \""untagged\"",
-    ///         \""countType\"": \""sinceImagePushed\"",
-    ///         \""countUnit\"": \""days\"",
-    ///         \""countNumber\"": 14
-    ///       },
-    ///       \""action\"": {
-    ///         \""type\"": \""expire\""
-    ///       }
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///         ResourceTags = 
-    ///         {
-    ///             { "Foo", "Bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")]
     public partial class RepositoryCreationTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        /// </summary>
         [Output("appliedFors")]
         public Output<ImmutableArray<string>> AppliedFors { get; private set; } = null!;
 
-        /// <summary>
-        /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        /// </summary>
         [Output("customRoleArn")]
         public Output<string?> CustomRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for this template.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Encryption configuration for any created repositories. See below for schema.
-        /// </summary>
         [Output("encryptionConfigurations")]
         public Output<ImmutableArray<Outputs.RepositoryCreationTemplateEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        /// </summary>
         [Output("imageTagMutability")]
         public Output<string?> ImageTagMutability { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `ImageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        /// </summary>
         [Output("imageTagMutabilityExclusionFilters")]
         public Output<ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
 
-        /// <summary>
-        /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` DataSource to generate/manage the JSON document used for the `LifecyclePolicy` argument.
-        /// </summary>
         [Output("lifecyclePolicy")]
         public Output<string?> LifecyclePolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        /// </summary>
         [Output("prefix")]
         public Output<string> Prefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry ID the repository creation template applies to.
-        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
         [Output("repositoryPolicy")]
         public Output<string?> RepositoryPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to any created repositories.
-        /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
 
@@ -235,73 +96,43 @@ namespace Pulumi.Aws.Ecr
     {
         [Input("appliedFors", required: true)]
         private InputList<string>? _appliedFors;
-
-        /// <summary>
-        /// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        /// </summary>
         public InputList<string> AppliedFors
         {
             get => _appliedFors ?? (_appliedFors = new InputList<string>());
             set => _appliedFors = value;
         }
 
-        /// <summary>
-        /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        /// </summary>
         [Input("customRoleArn")]
         public Input<string>? CustomRoleArn { get; set; }
 
-        /// <summary>
-        /// The description for this template.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("encryptionConfigurations")]
         private InputList<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>? _encryptionConfigurations;
-
-        /// <summary>
-        /// Encryption configuration for any created repositories. See below for schema.
-        /// </summary>
         public InputList<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs> EncryptionConfigurations
         {
             get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>());
             set => _encryptionConfigurations = value;
         }
 
-        /// <summary>
-        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
 
         [Input("imageTagMutabilityExclusionFilters")]
         private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
-
-        /// <summary>
-        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `ImageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        /// </summary>
         public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
         {
             get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>());
             set => _imageTagMutabilityExclusionFilters = value;
         }
 
-        /// <summary>
-        /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` DataSource to generate/manage the JSON document used for the `LifecyclePolicy` argument.
-        /// </summary>
         [Input("lifecyclePolicy")]
         public Input<string>? LifecyclePolicy { get; set; }
 
-        /// <summary>
-        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -310,10 +141,6 @@ namespace Pulumi.Aws.Ecr
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
-
-        /// <summary>
-        /// A map of tags to assign to any created repositories.
-        /// </summary>
         public InputMap<string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputMap<string>());
@@ -330,79 +157,46 @@ namespace Pulumi.Aws.Ecr
     {
         [Input("appliedFors")]
         private InputList<string>? _appliedFors;
-
-        /// <summary>
-        /// Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        /// </summary>
         public InputList<string> AppliedFors
         {
             get => _appliedFors ?? (_appliedFors = new InputList<string>());
             set => _appliedFors = value;
         }
 
-        /// <summary>
-        /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
-        /// </summary>
         [Input("customRoleArn")]
         public Input<string>? CustomRoleArn { get; set; }
 
-        /// <summary>
-        /// The description for this template.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("encryptionConfigurations")]
         private InputList<Inputs.RepositoryCreationTemplateEncryptionConfigurationGetArgs>? _encryptionConfigurations;
-
-        /// <summary>
-        /// Encryption configuration for any created repositories. See below for schema.
-        /// </summary>
         public InputList<Inputs.RepositoryCreationTemplateEncryptionConfigurationGetArgs> EncryptionConfigurations
         {
             get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.RepositoryCreationTemplateEncryptionConfigurationGetArgs>());
             set => _encryptionConfigurations = value;
         }
 
-        /// <summary>
-        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-        /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
 
         [Input("imageTagMutabilityExclusionFilters")]
         private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs>? _imageTagMutabilityExclusionFilters;
-
-        /// <summary>
-        /// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `ImageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
-        /// </summary>
         public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs> ImageTagMutabilityExclusionFilters
         {
             get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterGetArgs>());
             set => _imageTagMutabilityExclusionFilters = value;
         }
 
-        /// <summary>
-        /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` DataSource to generate/manage the JSON document used for the `LifecyclePolicy` argument.
-        /// </summary>
         [Input("lifecyclePolicy")]
         public Input<string>? LifecyclePolicy { get; set; }
 
-        /// <summary>
-        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The registry ID the repository creation template applies to.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
@@ -411,10 +205,6 @@ namespace Pulumi.Aws.Ecr
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
-
-        /// <summary>
-        /// A map of tags to assign to any created repositories.
-        /// </summary>
         public InputMap<string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputMap<string>());

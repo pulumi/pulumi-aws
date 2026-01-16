@@ -31,17 +31,9 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         return Optional.ofNullable(this.inclusionFilters);
     }
 
-    /**
-     * The supported object type or content type of the data source.
-     * 
-     */
     @Import(name="objectType", required=true)
     private Output<String> objectType;
 
-    /**
-     * @return The supported object type or content type of the data source.
-     * 
-     */
     public Output<String> objectType() {
         return this.objectType;
     }
@@ -98,23 +90,11 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
             return inclusionFilters(List.of(inclusionFilters));
         }
 
-        /**
-         * @param objectType The supported object type or content type of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectType(Output<String> objectType) {
             $.objectType = objectType;
             return this;
         }
 
-        /**
-         * @param objectType The supported object type or content type of the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectType(String objectType) {
             return objectType(Output.of(objectType));
         }

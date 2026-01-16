@@ -11,31 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleMatchHttpMatchPathMatchMatch {
-    /**
-     * @return Specifies an exact type match.
-     * 
-     */
     private @Nullable String exact;
-    /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
-     * 
-     */
     private @Nullable String prefix;
 
     private ListenerRuleMatchHttpMatchPathMatchMatch() {}
-    /**
-     * @return Specifies an exact type match.
-     * 
-     */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
-    /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

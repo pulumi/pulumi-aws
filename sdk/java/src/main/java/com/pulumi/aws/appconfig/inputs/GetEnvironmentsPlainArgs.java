@@ -15,32 +15,16 @@ public final class GetEnvironmentsPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetEnvironmentsPlainArgs Empty = new GetEnvironmentsPlainArgs();
 
-    /**
-     * ID of the AppConfig Application.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private String applicationId;
 
-    /**
-     * @return ID of the AppConfig Application.
-     * 
-     */
     public String applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetEnvironmentsPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetEnvironmentsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ID of the AppConfig Application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

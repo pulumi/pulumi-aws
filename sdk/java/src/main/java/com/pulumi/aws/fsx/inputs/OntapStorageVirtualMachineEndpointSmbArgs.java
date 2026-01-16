@@ -16,32 +16,16 @@ public final class OntapStorageVirtualMachineEndpointSmbArgs extends com.pulumi.
 
     public static final OntapStorageVirtualMachineEndpointSmbArgs Empty = new OntapStorageVirtualMachineEndpointSmbArgs();
 
-    /**
-     * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
-     * 
-     */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
-    /**
-     * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
-     * 
-     */
     public Optional<Output<String>> dnsName() {
         return Optional.ofNullable(this.dnsName);
     }
 
-    /**
-     * IP addresses of the storage virtual machine endpoint.
-     * 
-     */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
-    /**
-     * @return IP addresses of the storage virtual machine endpoint.
-     * 
-     */
     public Optional<Output<List<String>>> ipAddresses() {
         return Optional.ofNullable(this.ipAddresses);
     }
@@ -71,54 +55,24 @@ public final class OntapStorageVirtualMachineEndpointSmbArgs extends com.pulumi.
             $ = new OntapStorageVirtualMachineEndpointSmbArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsName The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsName(@Nullable Output<String> dnsName) {
             $.dnsName = dnsName;
             return this;
         }
 
-        /**
-         * @param dnsName The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsName(String dnsName) {
             return dnsName(Output.of(dnsName));
         }
 
-        /**
-         * @param ipAddresses IP addresses of the storage virtual machine endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddresses(@Nullable Output<List<String>> ipAddresses) {
             $.ipAddresses = ipAddresses;
             return this;
         }
 
-        /**
-         * @param ipAddresses IP addresses of the storage virtual machine endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddresses(List<String> ipAddresses) {
             return ipAddresses(Output.of(ipAddresses));
         }
 
-        /**
-         * @param ipAddresses IP addresses of the storage virtual machine endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }

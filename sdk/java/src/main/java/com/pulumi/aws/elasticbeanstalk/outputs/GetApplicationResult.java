@@ -12,15 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationResult {
     private GetApplicationAppversionLifecycle appversionLifecycle;
-    /**
-     * @return ARN of the application.
-     * 
-     */
     private String arn;
-    /**
-     * @return Short description of the application
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -34,17 +26,9 @@ public final class GetApplicationResult {
     public GetApplicationAppversionLifecycle appversionLifecycle() {
         return this.appversionLifecycle;
     }
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Short description of the application
-     * 
-     */
     public String description() {
         return this.description;
     }

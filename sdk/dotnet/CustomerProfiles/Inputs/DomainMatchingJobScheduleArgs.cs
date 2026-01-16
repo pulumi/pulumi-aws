@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CustomerProfiles.Inputs
 
     public sealed class DomainMatchingJobScheduleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The day when the Identity Resolution Job should run every week.
-        /// </summary>
         [Input("dayOfTheWeek", required: true)]
         public Input<string> DayOfTheWeek { get; set; } = null!;
 
-        /// <summary>
-        /// The time when the Identity Resolution Job should run every week.
-        /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
 

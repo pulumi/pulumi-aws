@@ -62,9 +62,6 @@ class GetPlanResult:
     @_builtins.property
     @pulumi.getter
     def stages(self) -> Sequence['outputs.GetPlanStageResult']:
-        """
-        List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-        """
         return pulumi.get(self, "stages")
 
 
@@ -84,22 +81,7 @@ def get_plan(contact_id: Optional[_builtins.str] = None,
              region: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlanResult:
     """
-    Data source for managing a Plan of an AWS SSM Contact.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ssmcontacts.get_plan(contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
-    ```
-
-
-    :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['contactId'] = contact_id
@@ -116,22 +98,7 @@ def get_plan_output(contact_id: Optional[pulumi.Input[_builtins.str]] = None,
                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
-    Data source for managing a Plan of an AWS SSM Contact.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ssmcontacts.get_plan(contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
-    ```
-
-
-    :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['contactId'] = contact_id

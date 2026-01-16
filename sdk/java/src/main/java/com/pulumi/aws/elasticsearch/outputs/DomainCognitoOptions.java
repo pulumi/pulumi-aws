@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainCognitoOptions {
-    /**
-     * @return Whether Amazon Cognito authentication with Kibana is enabled or not.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return ID of the Cognito Identity Pool to use.
-     * 
-     */
     private String identityPoolId;
-    /**
-     * @return ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return ID of the Cognito User Pool to use.
-     * 
-     */
     private String userPoolId;
 
     private DomainCognitoOptions() {}
-    /**
-     * @return Whether Amazon Cognito authentication with Kibana is enabled or not.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return ID of the Cognito Identity Pool to use.
-     * 
-     */
     public String identityPoolId() {
         return this.identityPoolId;
     }
-    /**
-     * @return ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return ID of the Cognito User Pool to use.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }

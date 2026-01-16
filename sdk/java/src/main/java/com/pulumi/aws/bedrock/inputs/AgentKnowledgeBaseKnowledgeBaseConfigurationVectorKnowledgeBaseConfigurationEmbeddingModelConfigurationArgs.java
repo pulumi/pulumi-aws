@@ -15,17 +15,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs();
 
-    /**
-     * The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
-     * 
-     */
     @Import(name="bedrockEmbeddingModelConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs> bedrockEmbeddingModelConfiguration;
 
-    /**
-     * @return The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs>> bedrockEmbeddingModelConfiguration() {
         return Optional.ofNullable(this.bedrockEmbeddingModelConfiguration);
     }
@@ -54,23 +46,11 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bedrockEmbeddingModelConfiguration The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bedrockEmbeddingModelConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs> bedrockEmbeddingModelConfiguration) {
             $.bedrockEmbeddingModelConfiguration = bedrockEmbeddingModelConfiguration;
             return this;
         }
 
-        /**
-         * @param bedrockEmbeddingModelConfiguration The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bedrockEmbeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs bedrockEmbeddingModelConfiguration) {
             return bedrockEmbeddingModelConfiguration(Output.of(bedrockEmbeddingModelConfiguration));
         }

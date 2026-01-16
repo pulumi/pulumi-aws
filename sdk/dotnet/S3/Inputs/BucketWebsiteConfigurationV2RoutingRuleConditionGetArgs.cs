@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketWebsiteConfigurationV2RoutingRuleConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// HTTP error code when the redirect is applied. If specified with `KeyPrefixEquals`, then both must be true for the redirect to be applied.
-        /// </summary>
         [Input("httpErrorCodeReturnedEquals")]
         public Input<string>? HttpErrorCodeReturnedEquals { get; set; }
 
-        /// <summary>
-        /// Object key name prefix when the redirect is applied. If specified with `HttpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
-        /// </summary>
         [Input("keyPrefixEquals")]
         public Input<string>? KeyPrefixEquals { get; set; }
 

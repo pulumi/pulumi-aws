@@ -28,10 +28,6 @@ class ClusterPeeringArgs:
                  timeouts: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ClusterPeering resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
-        :param pulumi.Input[_builtins.str] identifier: DSQL Cluster Identifier.
-        :param pulumi.Input[_builtins.str] witness_region: Witness region for a multi-region cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "clusters", clusters)
         pulumi.set(__self__, "identifier", identifier)
@@ -44,9 +40,6 @@ class ClusterPeeringArgs:
     @_builtins.property
     @pulumi.getter
     def clusters(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of DSQL Cluster ARNs to be peered to this cluster.
-        """
         return pulumi.get(self, "clusters")
 
     @clusters.setter
@@ -56,9 +49,6 @@ class ClusterPeeringArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        DSQL Cluster Identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -68,9 +58,6 @@ class ClusterPeeringArgs:
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
     def witness_region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Witness region for a multi-region cluster.
-        """
         return pulumi.get(self, "witness_region")
 
     @witness_region.setter
@@ -80,9 +67,6 @@ class ClusterPeeringArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -109,10 +93,6 @@ class _ClusterPeeringState:
                  witness_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterPeering resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
-        :param pulumi.Input[_builtins.str] identifier: DSQL Cluster Identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] witness_region: Witness region for a multi-region cluster.
         """
         if clusters is not None:
             pulumi.set(__self__, "clusters", clusters)
@@ -128,9 +108,6 @@ class _ClusterPeeringState:
     @_builtins.property
     @pulumi.getter
     def clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of DSQL Cluster ARNs to be peered to this cluster.
-        """
         return pulumi.get(self, "clusters")
 
     @clusters.setter
@@ -140,9 +117,6 @@ class _ClusterPeeringState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DSQL Cluster Identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -152,9 +126,6 @@ class _ClusterPeeringState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,9 +144,6 @@ class _ClusterPeeringState:
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
     def witness_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Witness region for a multi-region cluster.
-        """
         return pulumi.get(self, "witness_region")
 
     @witness_region.setter
@@ -196,46 +164,9 @@ class ClusterPeering(pulumi.CustomResource):
                  witness_region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Aurora DSQL Cluster Peering.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example1 = aws.dsql.Cluster("example_1", multi_region_properties={
-            "witness_region": "us-west-2",
-        })
-        example2 = aws.dsql.Cluster("example_2", multi_region_properties={
-            "witness_region": "us-west-2",
-        })
-        example1_cluster_peering = aws.dsql.ClusterPeering("example_1",
-            identifier=example1.identifier,
-            clusters=[example2.arn],
-            witness_region=example1.multi_region_properties.witness_region)
-        example2_cluster_peering = aws.dsql.ClusterPeering("example_2",
-            identifier=example2.identifier,
-            clusters=[example1.arn],
-            witness_region=example2.multi_region_properties.witness_region)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DSQL Cluster Peering using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
-        ```
-
+        Create a ClusterPeering resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
-        :param pulumi.Input[_builtins.str] identifier: DSQL Cluster Identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] witness_region: Witness region for a multi-region cluster.
         """
         ...
     @overload
@@ -244,40 +175,7 @@ class ClusterPeering(pulumi.CustomResource):
                  args: ClusterPeeringArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Aurora DSQL Cluster Peering.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example1 = aws.dsql.Cluster("example_1", multi_region_properties={
-            "witness_region": "us-west-2",
-        })
-        example2 = aws.dsql.Cluster("example_2", multi_region_properties={
-            "witness_region": "us-west-2",
-        })
-        example1_cluster_peering = aws.dsql.ClusterPeering("example_1",
-            identifier=example1.identifier,
-            clusters=[example2.arn],
-            witness_region=example1.multi_region_properties.witness_region)
-        example2_cluster_peering = aws.dsql.ClusterPeering("example_2",
-            identifier=example2.identifier,
-            clusters=[example1.arn],
-            witness_region=example2.multi_region_properties.witness_region)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DSQL Cluster Peering using the `identifier`. For example:
-
-        ```sh
-        $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
-        ```
-
+        Create a ClusterPeering resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterPeeringArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,10 +238,6 @@ class ClusterPeering(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
-        :param pulumi.Input[_builtins.str] identifier: DSQL Cluster Identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] witness_region: Witness region for a multi-region cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,25 +253,16 @@ class ClusterPeering(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def clusters(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of DSQL Cluster ARNs to be peered to this cluster.
-        """
         return pulumi.get(self, "clusters")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        DSQL Cluster Identifier.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -388,8 +273,5 @@ class ClusterPeering(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
     def witness_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Witness region for a multi-region cluster.
-        """
         return pulumi.get(self, "witness_region")
 

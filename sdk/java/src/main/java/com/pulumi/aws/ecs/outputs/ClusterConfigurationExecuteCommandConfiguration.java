@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterConfigurationExecuteCommandConfiguration {
-    /**
-     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
-     * 
-     */
     private @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration;
-    /**
-     * @return Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-     * 
-     */
     private @Nullable String logging;
 
     private ClusterConfigurationExecuteCommandConfiguration() {}
-    /**
-     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
-     * 
-     */
     public Optional<ClusterConfigurationExecuteCommandConfigurationLogConfiguration> logConfiguration() {
         return Optional.ofNullable(this.logConfiguration);
     }
-    /**
-     * @return Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
-     * 
-     */
     public Optional<String> logging() {
         return Optional.ofNullable(this.logging);
     }

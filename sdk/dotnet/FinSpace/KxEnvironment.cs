@@ -9,238 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.FinSpace
 {
-    /// <summary>
-    /// Resource for managing an AWS FinSpace Kx Environment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "Sample KMS Key",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("example", new()
-    ///     {
-    ///         Name = "my-tf-kx-environment",
-    ///         KmsKeyId = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Transit Gateway Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "Sample KMS Key",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
-    ///     {
-    ///         Name = "my-tf-kx-environment",
-    ///         Description = "Environment description",
-    ///         KmsKeyId = example.Arn,
-    ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
-    ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             RoutableCidrSpace = "100.64.0.0/26",
-    ///         },
-    ///         CustomDnsConfigurations = new[]
-    ///         {
-    ///             new Aws.FinSpace.Inputs.KxEnvironmentCustomDnsConfigurationArgs
-    ///             {
-    ///                 CustomDnsServerName = "example.finspace.amazonaws.com",
-    ///                 CustomDnsServerIp = "10.0.0.76",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Transit Gateway Attachment Network ACL Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "Sample KMS Key",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("example_env", new()
-    ///     {
-    ///         Name = "my-tf-kx-environment",
-    ///         Description = "Environment description",
-    ///         KmsKeyId = example.Arn,
-    ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
-    ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             RoutableCidrSpace = "100.64.0.0/26",
-    ///             AttachmentNetworkAclConfigurations = new[]
-    ///             {
-    ///                 new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs
-    ///                 {
-    ///                     RuleNumber = 1,
-    ///                     Protocol = "6",
-    ///                     RuleAction = "allow",
-    ///                     CidrBlock = "0.0.0.0/0",
-    ///                     PortRange = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs
-    ///                     {
-    ///                         From = 53,
-    ///                         To = 53,
-    ///                     },
-    ///                     IcmpTypeCode = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs
-    ///                     {
-    ///                         Type = -1,
-    ///                         Code = -1,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         CustomDnsConfigurations = new[]
-    ///         {
-    ///             new Aws.FinSpace.Inputs.KxEnvironmentCustomDnsConfigurationArgs
-    ///             {
-    ///                 CustomDnsServerName = "example.finspace.amazonaws.com",
-    ///                 CustomDnsServerIp = "10.0.0.76",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:finspace/kxEnvironment:KxEnvironment")]
     public partial class KxEnvironment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX environment.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
-        /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        /// </summary>
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
-        /// <summary>
-        /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
-        /// </summary>
         [Output("customDnsConfigurations")]
         public Output<ImmutableArray<Outputs.KxEnvironmentCustomDnsConfiguration>> CustomDnsConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// Description for the KX environment.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the AWS environment infrastructure account.
-        /// </summary>
         [Output("infrastructureAccountId")]
         public Output<string> InfrastructureAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// KMS key ID to encrypt your data in the FinSpace environment.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        /// </summary>
         [Output("lastModifiedTimestamp")]
         public Output<string> LastModifiedTimestamp { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the KX environment that you want to create.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of environment creation
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
-        /// </summary>
         [Output("transitGatewayConfiguration")]
         public Output<Outputs.KxEnvironmentTransitGatewayConfiguration?> TransitGatewayConfiguration { get; private set; } = null!;
 
@@ -292,57 +102,32 @@ namespace Pulumi.Aws.FinSpace
     {
         [Input("customDnsConfigurations")]
         private InputList<Inputs.KxEnvironmentCustomDnsConfigurationArgs>? _customDnsConfigurations;
-
-        /// <summary>
-        /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
-        /// </summary>
         public InputList<Inputs.KxEnvironmentCustomDnsConfigurationArgs> CustomDnsConfigurations
         {
             get => _customDnsConfigurations ?? (_customDnsConfigurations = new InputList<Inputs.KxEnvironmentCustomDnsConfigurationArgs>());
             set => _customDnsConfigurations = value;
         }
 
-        /// <summary>
-        /// Description for the KX environment.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// KMS key ID to encrypt your data in the FinSpace environment.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("kmsKeyId", required: true)]
         public Input<string> KmsKeyId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the KX environment that you want to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
-        /// </summary>
         [Input("transitGatewayConfiguration")]
         public Input<Inputs.KxEnvironmentTransitGatewayConfigurationArgs>? TransitGatewayConfiguration { get; set; }
 
@@ -354,92 +139,51 @@ namespace Pulumi.Aws.FinSpace
 
     public sealed class KxEnvironmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX environment.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
-        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
-        /// <summary>
-        /// Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        /// </summary>
         [Input("createdTimestamp")]
         public Input<string>? CreatedTimestamp { get; set; }
 
         [Input("customDnsConfigurations")]
         private InputList<Inputs.KxEnvironmentCustomDnsConfigurationGetArgs>? _customDnsConfigurations;
-
-        /// <summary>
-        /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
-        /// </summary>
         public InputList<Inputs.KxEnvironmentCustomDnsConfigurationGetArgs> CustomDnsConfigurations
         {
             get => _customDnsConfigurations ?? (_customDnsConfigurations = new InputList<Inputs.KxEnvironmentCustomDnsConfigurationGetArgs>());
             set => _customDnsConfigurations = value;
         }
 
-        /// <summary>
-        /// Description for the KX environment.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the AWS environment infrastructure account.
-        /// </summary>
         [Input("infrastructureAccountId")]
         public Input<string>? InfrastructureAccountId { get; set; }
 
-        /// <summary>
-        /// KMS key ID to encrypt your data in the FinSpace environment.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        /// </summary>
         [Input("lastModifiedTimestamp")]
         public Input<string>? LastModifiedTimestamp { get; set; }
 
-        /// <summary>
-        /// Name of the KX environment that you want to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Status of environment creation
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -448,19 +192,12 @@ namespace Pulumi.Aws.FinSpace
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
-        /// </summary>
         [Input("transitGatewayConfiguration")]
         public Input<Inputs.KxEnvironmentTransitGatewayConfigurationGetArgs>? TransitGatewayConfiguration { get; set; }
 

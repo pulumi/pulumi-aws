@@ -88,33 +88,21 @@ class GetReplicationInstanceResult:
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> _builtins.int:
-        """
-        The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-        """
         return pulumi.get(self, "allocated_storage")
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> _builtins.bool:
-        """
-        Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The EC2 Availability Zone that the replication instance will be created in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
-        """
-        The engine version number of the replication instance.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
@@ -128,41 +116,26 @@ class GetReplicationInstanceResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> _builtins.bool:
-        """
-        Specifies if the replication instance is a multi-az deployment.
-        """
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> _builtins.str:
-        """
-        The type of IP address protocol used by the replication instance.
-        """
         return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> _builtins.str:
-        """
-        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> _builtins.bool:
-        """
-        Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
@@ -173,17 +146,11 @@ class GetReplicationInstanceResult:
     @_builtins.property
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the replication instance.
-        """
         return pulumi.get(self, "replication_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="replicationInstanceClass")
     def replication_instance_class(self) -> _builtins.str:
-        """
-        The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
-        """
         return pulumi.get(self, "replication_instance_class")
 
     @_builtins.property
@@ -194,25 +161,16 @@ class GetReplicationInstanceResult:
     @_builtins.property
     @pulumi.getter(name="replicationInstancePrivateIps")
     def replication_instance_private_ips(self) -> Sequence[_builtins.str]:
-        """
-        A list of the private IP addresses of the replication instance.
-        """
         return pulumi.get(self, "replication_instance_private_ips")
 
     @_builtins.property
     @pulumi.getter(name="replicationInstancePublicIps")
     def replication_instance_public_ips(self) -> Sequence[_builtins.str]:
-        """
-        A list of the public IP addresses of the replication instance.
-        """
         return pulumi.get(self, "replication_instance_public_ips")
 
     @_builtins.property
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> _builtins.str:
-        """
-        A subnet group to associate with the replication instance.
-        """
         return pulumi.get(self, "replication_subnet_group_id")
 
     @_builtins.property
@@ -223,9 +181,6 @@ class GetReplicationInstanceResult:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        A set of VPC security group IDs that are used with the replication instance.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -261,20 +216,7 @@ def get_replication_instance(region: Optional[_builtins.str] = None,
                              tags: Optional[Mapping[str, _builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationInstanceResult:
     """
-    Data source for managing an AWS DMS (Database Migration) Replication Instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_instance(replication_instance_id=test_aws_dms_replication_instance["replicationInstanceId"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str replication_instance_id: The replication instance identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -308,20 +250,7 @@ def get_replication_instance_output(region: Optional[pulumi.Input[Optional[_buil
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationInstanceResult]:
     """
-    Data source for managing an AWS DMS (Database Migration) Replication Instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_instance(replication_instance_id=test_aws_dms_replication_instance["replicationInstanceId"])
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str replication_instance_id: The replication instance identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

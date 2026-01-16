@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Glue Registry.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.glue.getRegistry({
- *     name: "example",
- * });
- * ```
- */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getRegistry:getRegistry", {
@@ -32,13 +16,7 @@ export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getRegistry.
  */
 export interface GetRegistryArgs {
-    /**
-     * Name of the Glue Registry.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -46,13 +24,7 @@ export interface GetRegistryArgs {
  * A collection of values returned by getRegistry.
  */
 export interface GetRegistryResult {
-    /**
-     * Amazon Resource Name (ARN) of Glue Registry.
-     */
     readonly arn: string;
-    /**
-     * A description of the registry.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -61,22 +33,6 @@ export interface GetRegistryResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS Glue Registry.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.glue.getRegistry({
- *     name: "example",
- * });
- * ```
- */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getRegistry:getRegistry", {
@@ -89,12 +45,6 @@ export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getRegistry.
  */
 export interface GetRegistryOutputArgs {
-    /**
-     * Name of the Glue Registry.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

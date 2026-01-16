@@ -16,92 +16,28 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInputResult {
-    /**
-     * @return ARN of the Input.
-     * 
-     */
     private String arn;
-    /**
-     * @return Channels attached to Input.
-     * 
-     */
     private List<String> attachedChannels;
     private List<GetInputDestination> destinations;
     private String id;
-    /**
-     * @return The input class.
-     * 
-     */
     private String inputClass;
-    /**
-     * @return Settings for the devices.
-     * 
-     */
     private List<GetInputInputDevice> inputDevices;
-    /**
-     * @return A list of IDs for all Inputs which are partners of this one.
-     * 
-     */
     private List<String> inputPartnerIds;
-    /**
-     * @return Source type of the input.
-     * 
-     */
     private String inputSourceType;
-    /**
-     * @return A list of the MediaConnect Flows.
-     * 
-     */
     private List<GetInputMediaConnectFlow> mediaConnectFlows;
-    /**
-     * @return Name of the input.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return The ARN of the role this input assumes during and after creation.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return List of input security groups.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return The source URLs for a PULL-type input.
-     * 
-     */
     private List<GetInputSource> sources;
-    /**
-     * @return The state of the input.
-     * 
-     */
     private String state;
-    /**
-     * @return A map of tags assigned to the Input.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The type of the input.
-     * 
-     */
     private String type;
 
     private GetInputResult() {}
-    /**
-     * @return ARN of the Input.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Channels attached to Input.
-     * 
-     */
     public List<String> attachedChannels() {
         return this.attachedChannels;
     }
@@ -111,90 +47,42 @@ public final class GetInputResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The input class.
-     * 
-     */
     public String inputClass() {
         return this.inputClass;
     }
-    /**
-     * @return Settings for the devices.
-     * 
-     */
     public List<GetInputInputDevice> inputDevices() {
         return this.inputDevices;
     }
-    /**
-     * @return A list of IDs for all Inputs which are partners of this one.
-     * 
-     */
     public List<String> inputPartnerIds() {
         return this.inputPartnerIds;
     }
-    /**
-     * @return Source type of the input.
-     * 
-     */
     public String inputSourceType() {
         return this.inputSourceType;
     }
-    /**
-     * @return A list of the MediaConnect Flows.
-     * 
-     */
     public List<GetInputMediaConnectFlow> mediaConnectFlows() {
         return this.mediaConnectFlows;
     }
-    /**
-     * @return Name of the input.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The ARN of the role this input assumes during and after creation.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return List of input security groups.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return The source URLs for a PULL-type input.
-     * 
-     */
     public List<GetInputSource> sources() {
         return this.sources;
     }
-    /**
-     * @return The state of the input.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return A map of tags assigned to the Input.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The type of the input.
-     * 
-     */
     public String type() {
         return this.type;
     }

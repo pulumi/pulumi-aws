@@ -13,9 +13,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism
     {
-        /// <summary>
-        /// The number of in-application streams to create.
-        /// </summary>
         public readonly int? Count;
 
         [OutputConstructor]

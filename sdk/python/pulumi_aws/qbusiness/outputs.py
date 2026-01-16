@@ -42,7 +42,7 @@ class ApplicationAttachmentsConfiguration(dict):
     def __init__(__self__, *,
                  attachments_control_mode: _builtins.str):
         """
-        :param _builtins.str attachments_control_mode: Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        :param _builtins.str attachments_control_mode: Status information about whether file upload functionality is activated or deactivated for your end user.
         """
         pulumi.set(__self__, "attachments_control_mode", attachments_control_mode)
 
@@ -50,7 +50,7 @@ class ApplicationAttachmentsConfiguration(dict):
     @pulumi.getter(name="attachmentsControlMode")
     def attachments_control_mode(self) -> _builtins.str:
         """
-        Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        Status information about whether file upload functionality is activated or deactivated for your end user.
         """
         return pulumi.get(self, "attachments_control_mode")
 
@@ -77,7 +77,7 @@ class ApplicationEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  kms_key_id: _builtins.str):
         """
-        :param _builtins.str kms_key_id: Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+        :param _builtins.str kms_key_id: The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
 
@@ -85,7 +85,7 @@ class ApplicationEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+        The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
 

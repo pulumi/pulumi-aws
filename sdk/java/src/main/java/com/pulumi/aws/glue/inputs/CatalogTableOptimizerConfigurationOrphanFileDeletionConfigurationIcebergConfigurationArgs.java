@@ -16,47 +16,23 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
 
     public static final CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs Empty = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs();
 
-    /**
-     * Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
-    /**
-     * @return Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
-     * 
-     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-     * 
-     */
     @Import(name="orphanFileRetentionPeriodInDays")
     private @Nullable Output<Integer> orphanFileRetentionPeriodInDays;
 
-    /**
-     * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-     * 
-     */
     public Optional<Output<Integer>> orphanFileRetentionPeriodInDays() {
         return Optional.ofNullable(this.orphanFileRetentionPeriodInDays);
     }
 
-    /**
-     * interval in hours between orphan file deletion job runs. Defaults to `24`.
-     * 
-     */
     @Import(name="runRateInHours")
     private @Nullable Output<Integer> runRateInHours;
 
-    /**
-     * @return interval in hours between orphan file deletion job runs. Defaults to `24`.
-     * 
-     */
     public Optional<Output<Integer>> runRateInHours() {
         return Optional.ofNullable(this.runRateInHours);
     }
@@ -87,65 +63,29 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
             $ = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param location Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param orphanFileRetentionPeriodInDays The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orphanFileRetentionPeriodInDays(@Nullable Output<Integer> orphanFileRetentionPeriodInDays) {
             $.orphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;
             return this;
         }
 
-        /**
-         * @param orphanFileRetentionPeriodInDays The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder orphanFileRetentionPeriodInDays(Integer orphanFileRetentionPeriodInDays) {
             return orphanFileRetentionPeriodInDays(Output.of(orphanFileRetentionPeriodInDays));
         }
 
-        /**
-         * @param runRateInHours interval in hours between orphan file deletion job runs. Defaults to `24`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runRateInHours(@Nullable Output<Integer> runRateInHours) {
             $.runRateInHours = runRateInHours;
             return this;
         }
 
-        /**
-         * @param runRateInHours interval in hours between orphan file deletion job runs. Defaults to `24`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runRateInHours(Integer runRateInHours) {
             return runRateInHours(Output.of(runRateInHours));
         }

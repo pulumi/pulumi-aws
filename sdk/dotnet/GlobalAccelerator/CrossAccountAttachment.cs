@@ -9,121 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GlobalAccelerator
 {
-    /// <summary>
-    /// Resource for managing an AWS Global Accelerator Cross Account Attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.CrossAccountAttachment("example", new()
-    ///     {
-    ///         Name = "example-cross-account-attachment",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Usage with Optional Arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.CrossAccountAttachment("example", new()
-    ///     {
-    ///         Name = "example-cross-account-attachment",
-    ///         Principals = new[]
-    ///         {
-    ///             "123456789012",
-    ///         },
-    ///         Resources = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CrossAccountAttachmentResourceArgs
-    ///             {
-    ///                 EndpointId = "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-    ///                 Region = "us-west-2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
-    /// 
-    /// Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
-    /// </summary>
     [AwsResourceType("aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment")]
     public partial class CrossAccountAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Cross Account Attachment.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation Time when the Cross Account Attachment.
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Last modified time of the Cross Account Attachment.
-        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Cross Account Attachment.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// List of AWS account IDs that are allowed to associate resources with the accelerator.
-        /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
 
-        /// <summary>
-        /// List of resources to be associated with the accelerator.
-        /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.CrossAccountAttachmentResource>> Resources { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -173,20 +82,11 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class CrossAccountAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Cross Account Attachment.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("principals")]
         private InputList<string>? _principals;
-
-        /// <summary>
-        /// List of AWS account IDs that are allowed to associate resources with the accelerator.
-        /// </summary>
         public InputList<string> Principals
         {
             get => _principals ?? (_principals = new InputList<string>());
@@ -195,10 +95,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("resources")]
         private InputList<Inputs.CrossAccountAttachmentResourceArgs>? _resources;
-
-        /// <summary>
-        /// List of resources to be associated with the accelerator.
-        /// </summary>
         public InputList<Inputs.CrossAccountAttachmentResourceArgs> Resources
         {
             get => _resources ?? (_resources = new InputList<Inputs.CrossAccountAttachmentResourceArgs>());
@@ -207,10 +103,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -225,38 +117,20 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class CrossAccountAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Cross Account Attachment.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Creation Time when the Cross Account Attachment.
-        /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
-        /// <summary>
-        /// Last modified time of the Cross Account Attachment.
-        /// </summary>
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
 
-        /// <summary>
-        /// Name of the Cross Account Attachment.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("principals")]
         private InputList<string>? _principals;
-
-        /// <summary>
-        /// List of AWS account IDs that are allowed to associate resources with the accelerator.
-        /// </summary>
         public InputList<string> Principals
         {
             get => _principals ?? (_principals = new InputList<string>());
@@ -265,10 +139,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("resources")]
         private InputList<Inputs.CrossAccountAttachmentResourceGetArgs>? _resources;
-
-        /// <summary>
-        /// List of resources to be associated with the accelerator.
-        /// </summary>
         public InputList<Inputs.CrossAccountAttachmentResourceGetArgs> Resources
         {
             get => _resources ?? (_resources = new InputList<Inputs.CrossAccountAttachmentResourceGetArgs>());
@@ -277,10 +147,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -289,10 +155,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

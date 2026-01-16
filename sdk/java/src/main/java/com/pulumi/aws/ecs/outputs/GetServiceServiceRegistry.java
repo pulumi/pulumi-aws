@@ -11,53 +11,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceServiceRegistry {
-    /**
-     * @return Name of the container to associate with the load balancer.
-     * 
-     */
     private String containerName;
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     private Integer containerPort;
-    /**
-     * @return Port value for service discovery
-     * 
-     */
     private Integer port;
-    /**
-     * @return ARN of the service registry
-     * 
-     */
     private String registryArn;
 
     private GetServiceServiceRegistry() {}
-    /**
-     * @return Name of the container to associate with the load balancer.
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     public Integer containerPort() {
         return this.containerPort;
     }
-    /**
-     * @return Port value for service discovery
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return ARN of the service registry
-     * 
-     */
     public String registryArn() {
         return this.registryArn;
     }

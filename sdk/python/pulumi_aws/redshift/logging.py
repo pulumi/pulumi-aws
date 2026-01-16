@@ -27,14 +27,6 @@ class LoggingArgs:
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Logging resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] bucket_name: Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        :param pulumi.Input[_builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if bucket_name is not None:
@@ -51,11 +43,6 @@ class LoggingArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the source cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -65,9 +52,6 @@ class LoggingArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -77,9 +61,6 @@ class LoggingArgs:
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Log destination type. Valid values are `s3` and `cloudwatch`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
@@ -89,9 +70,6 @@ class LoggingArgs:
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
@@ -101,9 +79,6 @@ class LoggingArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,9 +88,6 @@ class LoggingArgs:
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Prefix applied to the log file names.
-        """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
@@ -134,14 +106,6 @@ class _LoggingState:
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Logging resources.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -159,9 +123,6 @@ class _LoggingState:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -171,11 +132,6 @@ class _LoggingState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the source cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -185,9 +141,6 @@ class _LoggingState:
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Log destination type. Valid values are `s3` and `cloudwatch`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
@@ -197,9 +150,6 @@ class _LoggingState:
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
@@ -209,9 +159,6 @@ class _LoggingState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -221,9 +168,6 @@ class _LoggingState:
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Prefix applied to the log file names.
-        """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
@@ -245,56 +189,9 @@ class Logging(pulumi.CustomResource):
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Redshift Logging configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Logging("example",
-            cluster_identifier=example_aws_redshift_cluster["id"],
-            log_destination_type="cloudwatch",
-            log_exports=[
-                "connectionlog",
-                "userlog",
-            ])
-        ```
-
-        ### S3 Destination Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Logging("example",
-            cluster_identifier=example_aws_redshift_cluster["id"],
-            log_destination_type="s3",
-            bucket_name=example_aws_s3_bucket["id"],
-            s3_key_prefix="example-prefix/")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Logging using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
-        ```
-
+        Create a Logging resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         ...
     @overload
@@ -303,46 +200,7 @@ class Logging(pulumi.CustomResource):
                  args: LoggingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Redshift Logging configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Logging("example",
-            cluster_identifier=example_aws_redshift_cluster["id"],
-            log_destination_type="cloudwatch",
-            log_exports=[
-                "connectionlog",
-                "userlog",
-            ])
-        ```
-
-        ### S3 Destination Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.Logging("example",
-            cluster_identifier=example_aws_redshift_cluster["id"],
-            log_destination_type="s3",
-            bucket_name=example_aws_s3_bucket["id"],
-            s3_key_prefix="example-prefix/")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift Logging using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
-        ```
-
+        Create a Logging resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LoggingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -404,14 +262,6 @@ class Logging(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket_name: Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -428,50 +278,30 @@ class Logging(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the source cluster.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Log destination type. Valid values are `s3` and `cloudwatch`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-        """
         return pulumi.get(self, "log_exports")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Prefix applied to the log file names.
-        """
         return pulumi.get(self, "s3_key_prefix")
 

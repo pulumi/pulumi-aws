@@ -14,32 +14,16 @@ public final class ProtectionHealthCheckAssociationArgs extends com.pulumi.resou
 
     public static final ProtectionHealthCheckAssociationArgs Empty = new ProtectionHealthCheckAssociationArgs();
 
-    /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-     * 
-     */
     @Import(name="healthCheckArn", required=true)
     private Output<String> healthCheckArn;
 
-    /**
-     * @return The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-     * 
-     */
     public Output<String> healthCheckArn() {
         return this.healthCheckArn;
     }
 
-    /**
-     * The ID of the protected resource.
-     * 
-     */
     @Import(name="shieldProtectionId", required=true)
     private Output<String> shieldProtectionId;
 
-    /**
-     * @return The ID of the protected resource.
-     * 
-     */
     public Output<String> shieldProtectionId() {
         return this.shieldProtectionId;
     }
@@ -69,44 +53,20 @@ public final class ProtectionHealthCheckAssociationArgs extends com.pulumi.resou
             $ = new ProtectionHealthCheckAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthCheckArn The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckArn(Output<String> healthCheckArn) {
             $.healthCheckArn = healthCheckArn;
             return this;
         }
 
-        /**
-         * @param healthCheckArn The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckArn(String healthCheckArn) {
             return healthCheckArn(Output.of(healthCheckArn));
         }
 
-        /**
-         * @param shieldProtectionId The ID of the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shieldProtectionId(Output<String> shieldProtectionId) {
             $.shieldProtectionId = shieldProtectionId;
             return this;
         }
 
-        /**
-         * @param shieldProtectionId The ID of the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shieldProtectionId(String shieldProtectionId) {
             return shieldProtectionId(Output.of(shieldProtectionId));
         }

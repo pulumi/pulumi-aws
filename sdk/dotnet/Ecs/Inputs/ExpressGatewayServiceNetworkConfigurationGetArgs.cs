@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// Security groups associated with the task. If not specified, the default security group for the VPC is used.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

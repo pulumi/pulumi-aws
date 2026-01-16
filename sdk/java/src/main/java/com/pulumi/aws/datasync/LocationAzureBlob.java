@@ -17,216 +17,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
- * 
- * &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datasync.LocationAzureBlob;
- * import com.pulumi.aws.datasync.LocationAzureBlobArgs;
- * import com.pulumi.aws.datasync.inputs.LocationAzureBlobSasConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LocationAzureBlob("example", LocationAzureBlobArgs.builder()
- *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType("SAS")
- *             .containerUrl("https://myaccount.blob.core.windows.net/mycontainer")
- *             .sasConfiguration(LocationAzureBlobSasConfigurationArgs.builder()
- *                 .token("sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
- * 
- * Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
- * 
- * % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- * 
- */
 @ResourceType(type="aws:datasync/locationAzureBlob:LocationAzureBlob")
 public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
-    /**
-     * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-     * 
-     */
     @Export(name="accessTier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessTier;
 
-    /**
-     * @return The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-     * 
-     */
     public Output<Optional<String>> accessTier() {
         return Codegen.optional(this.accessTier);
     }
-    /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
-     * 
-     */
     @Export(name="agentArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> agentArns;
 
-    /**
-     * @return A list of DataSync Agent ARNs with which this location will be associated.
-     * 
-     */
     public Output<List<String>> agentArns() {
         return this.agentArns;
     }
-    /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-     * 
-     */
     @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
-    /**
-     * @return The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-     * 
-     */
     public Output<String> authenticationType() {
         return this.authenticationType;
     }
-    /**
-     * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-     * 
-     */
     @Export(name="blobType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blobType;
 
-    /**
-     * @return The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-     * 
-     */
     public Output<Optional<String>> blobType() {
         return Codegen.optional(this.blobType);
     }
-    /**
-     * The URL of the Azure Blob Storage container involved in your transfer.
-     * 
-     */
     @Export(name="containerUrl", refs={String.class}, tree="[0]")
     private Output<String> containerUrl;
 
-    /**
-     * @return The URL of the Azure Blob Storage container involved in your transfer.
-     * 
-     */
     public Output<String> containerUrl() {
         return this.containerUrl;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-     * 
-     */
     @Export(name="sasConfiguration", refs={LocationAzureBlobSasConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LocationAzureBlobSasConfiguration> sasConfiguration;
 
-    /**
-     * @return The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-     * 
-     */
     public Output<Optional<LocationAzureBlobSasConfiguration>> sasConfiguration() {
         return Codegen.optional(this.sasConfiguration);
     }
-    /**
-     * Path segments if you want to limit your transfer to a virtual directory in the container.
-     * 
-     */
     @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
-    /**
-     * @return Path segments if you want to limit your transfer to a virtual directory in the container.
-     * 
-     */
     public Output<String> subdirectory() {
         return this.subdirectory;
     }
-    /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration {
-    /**
-     * @return ARN of the KMS key to use for backup encryption.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return AWS region for backup storage.
-     * 
-     */
     private @Nullable String region;
 
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration() {}
-    /**
-     * @return ARN of the KMS key to use for backup encryption.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return AWS region for backup storage.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the next step in the conversation. See `NextStep`.
-        /// </summary>
         [Input("nextStep")]
         public Input<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepArgs>? NextStep { get; set; }
 
-        /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
-        /// </summary>
         [Input("response")]
         public Input<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseArgs>? Response { get; set; }
 

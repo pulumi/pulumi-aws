@@ -35,20 +35,6 @@ class NetworkProfileArgs:
                  uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
-        :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the network profile.
-        :param pulumi.Input[_builtins.str] description: The description of the network profile.
-        :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
-        :param pulumi.Input[_builtins.str] name: The name for the network profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        :param pulumi.Input[_builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         pulumi.set(__self__, "project_arn", project_arn)
         if description is not None:
@@ -81,9 +67,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the project for the network profile.
-        """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
@@ -93,9 +76,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the network profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -105,9 +85,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="downlinkBandwidthBits")
     def downlink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @downlink_bandwidth_bits.setter
@@ -117,9 +94,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="downlinkDelayMs")
     def downlink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "downlink_delay_ms")
 
     @downlink_delay_ms.setter
@@ -129,9 +103,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="downlinkJitterMs")
     def downlink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @downlink_jitter_ms.setter
@@ -141,9 +112,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="downlinkLossPercent")
     def downlink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Proportion of received packets that fail to arrive from `0` to `100` percent.
-        """
         return pulumi.get(self, "downlink_loss_percent")
 
     @downlink_loss_percent.setter
@@ -153,9 +121,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the network profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -165,9 +130,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -177,9 +139,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -189,9 +148,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -201,9 +157,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="uplinkBandwidthBits")
     def uplink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @uplink_bandwidth_bits.setter
@@ -213,9 +166,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="uplinkDelayMs")
     def uplink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "uplink_delay_ms")
 
     @uplink_delay_ms.setter
@@ -225,9 +175,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="uplinkJitterMs")
     def uplink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @uplink_jitter_ms.setter
@@ -237,9 +184,6 @@ class NetworkProfileArgs:
     @_builtins.property
     @pulumi.getter(name="uplinkLossPercent")
     def uplink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Proportion of received packets that fail to arrive from `0` to `100` percent.
-        """
         return pulumi.get(self, "uplink_loss_percent")
 
     @uplink_loss_percent.setter
@@ -268,22 +212,6 @@ class _NetworkProfileState:
                  uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkProfile resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this network profile.
-        :param pulumi.Input[_builtins.str] description: The description of the network profile.
-        :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
-        :param pulumi.Input[_builtins.str] name: The name for the network profile.
-        :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the network profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        :param pulumi.Input[_builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -321,9 +249,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name of this network profile.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -333,9 +258,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the network profile.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -345,9 +267,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="downlinkBandwidthBits")
     def downlink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @downlink_bandwidth_bits.setter
@@ -357,9 +276,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="downlinkDelayMs")
     def downlink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "downlink_delay_ms")
 
     @downlink_delay_ms.setter
@@ -369,9 +285,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="downlinkJitterMs")
     def downlink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @downlink_jitter_ms.setter
@@ -381,9 +294,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="downlinkLossPercent")
     def downlink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Proportion of received packets that fail to arrive from `0` to `100` percent.
-        """
         return pulumi.get(self, "downlink_loss_percent")
 
     @downlink_loss_percent.setter
@@ -393,9 +303,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the network profile.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -405,9 +312,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the project for the network profile.
-        """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
@@ -417,9 +321,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -429,9 +330,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -441,9 +339,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -453,9 +348,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -465,9 +357,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="uplinkBandwidthBits")
     def uplink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @uplink_bandwidth_bits.setter
@@ -477,9 +366,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="uplinkDelayMs")
     def uplink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "uplink_delay_ms")
 
     @uplink_delay_ms.setter
@@ -489,9 +375,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="uplinkJitterMs")
     def uplink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @uplink_jitter_ms.setter
@@ -501,9 +384,6 @@ class _NetworkProfileState:
     @_builtins.property
     @pulumi.getter(name="uplinkLossPercent")
     def uplink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Proportion of received packets that fail to arrive from `0` to `100` percent.
-        """
         return pulumi.get(self, "uplink_loss_percent")
 
     @uplink_loss_percent.setter
@@ -533,50 +413,9 @@ class NetworkProfile(pulumi.CustomResource):
                  uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides a resource to manage AWS Device Farm Network Profiles.
-        ∂
-        > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.devicefarm.Project("example", name="example")
-        example_network_profile = aws.devicefarm.NetworkProfile("example",
-            name="example",
-            project_arn=example.arn)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
-
-        Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
-
-        % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-
+        Create a NetworkProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the network profile.
-        :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
-        :param pulumi.Input[_builtins.str] name: The name for the network profile.
-        :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the network profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        :param pulumi.Input[_builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         ...
     @overload
@@ -585,34 +424,7 @@ class NetworkProfile(pulumi.CustomResource):
                  args: NetworkProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage AWS Device Farm Network Profiles.
-        ∂
-        > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.devicefarm.Project("example", name="example")
-        example_network_profile = aws.devicefarm.NetworkProfile("example",
-            name="example",
-            project_arn=example.arn)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
-
-        Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
-
-        % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-
+        Create a NetworkProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -702,22 +514,6 @@ class NetworkProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this network profile.
-        :param pulumi.Input[_builtins.str] description: The description of the network profile.
-        :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
-        :param pulumi.Input[_builtins.str] name: The name for the network profile.
-        :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the network profile.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        :param pulumi.Input[_builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        :param pulumi.Input[_builtins.int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        :param pulumi.Input[_builtins.int] uplink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -744,128 +540,80 @@ class NetworkProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name of this network profile.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the network profile.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="downlinkBandwidthBits")
     def downlink_bandwidth_bits(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @_builtins.property
     @pulumi.getter(name="downlinkDelayMs")
     def downlink_delay_ms(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "downlink_delay_ms")
 
     @_builtins.property
     @pulumi.getter(name="downlinkJitterMs")
     def downlink_jitter_ms(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @_builtins.property
     @pulumi.getter(name="downlinkLossPercent")
     def downlink_loss_percent(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Proportion of received packets that fail to arrive from `0` to `100` percent.
-        """
         return pulumi.get(self, "downlink_loss_percent")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name for the network profile.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the project for the network profile.
-        """
         return pulumi.get(self, "project_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="uplinkBandwidthBits")
     def uplink_bandwidth_bits(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-        """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @_builtins.property
     @pulumi.getter(name="uplinkDelayMs")
     def uplink_delay_ms(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "uplink_delay_ms")
 
     @_builtins.property
     @pulumi.getter(name="uplinkJitterMs")
     def uplink_jitter_ms(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-        """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @_builtins.property
     @pulumi.getter(name="uplinkLossPercent")
     def uplink_loss_percent(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Proportion of received packets that fail to arrive from `0` to `100` percent.
-        """
         return pulumi.get(self, "uplink_loss_percent")
 

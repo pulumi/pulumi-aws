@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const currentGetRegion = aws.getRegion({});
- * const foo = new aws.opensearch.OutboundConnection("foo", {
- *     connectionAlias: "outbound_connection",
- *     localDomainInfo: {
- *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
- *         domainName: localDomain.domainName,
- *     },
- *     remoteDomainInfo: {
- *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
- *         domainName: remoteDomain.domainName,
- *     },
- * });
- * const fooInboundConnectionAccepter = new aws.opensearch.InboundConnectionAccepter("foo", {connectionId: foo.id});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
- * ```
- */
 export class InboundConnectionAccepter extends pulumi.CustomResource {
     /**
      * Get an existing InboundConnectionAccepter resource's state with the given name, ID, and optional extra
@@ -69,17 +32,8 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === InboundConnectionAccepter.__pulumiType;
     }
 
-    /**
-     * Specifies the ID of the connection to accept.
-     */
     declare public readonly connectionId: pulumi.Output<string>;
-    /**
-     * Status of the connection request.
-     */
     declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -116,17 +70,8 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InboundConnectionAccepter resources.
  */
 export interface InboundConnectionAccepterState {
-    /**
-     * Specifies the ID of the connection to accept.
-     */
     connectionId?: pulumi.Input<string>;
-    /**
-     * Status of the connection request.
-     */
     connectionStatus?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -134,12 +79,6 @@ export interface InboundConnectionAccepterState {
  * The set of arguments for constructing a InboundConnectionAccepter resource.
  */
 export interface InboundConnectionAccepterArgs {
-    /**
-     * Specifies the ID of the connection to accept.
-     */
     connectionId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

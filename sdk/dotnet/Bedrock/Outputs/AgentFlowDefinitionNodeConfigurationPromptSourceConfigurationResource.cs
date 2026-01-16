@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the prompt from Prompt management.
-        /// </summary>
         public readonly string PromptArn;
 
         [OutputConstructor]

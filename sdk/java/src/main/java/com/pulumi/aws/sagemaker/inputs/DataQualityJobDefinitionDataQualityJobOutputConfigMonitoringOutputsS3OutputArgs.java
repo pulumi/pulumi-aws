@@ -16,47 +16,23 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
 
     public static final DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs Empty = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs();
 
-    /**
-     * The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-     * 
-     */
     @Import(name="localPath")
     private @Nullable Output<String> localPath;
 
-    /**
-     * @return The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-     * 
-     */
     public Optional<Output<String>> localPath() {
         return Optional.ofNullable(this.localPath);
     }
 
-    /**
-     * Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-     * 
-     */
     @Import(name="s3UploadMode")
     private @Nullable Output<String> s3UploadMode;
 
-    /**
-     * @return Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-     * 
-     */
     public Optional<Output<String>> s3UploadMode() {
         return Optional.ofNullable(this.s3UploadMode);
     }
 
-    /**
-     * A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-     * 
-     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
-    /**
-     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-     * 
-     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
@@ -87,65 +63,29 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
             $ = new DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param localPath The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localPath(@Nullable Output<String> localPath) {
             $.localPath = localPath;
             return this;
         }
 
-        /**
-         * @param localPath The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localPath(String localPath) {
             return localPath(Output.of(localPath));
         }
 
-        /**
-         * @param s3UploadMode Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3UploadMode(@Nullable Output<String> s3UploadMode) {
             $.s3UploadMode = s3UploadMode;
             return this;
         }
 
-        /**
-         * @param s3UploadMode Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3UploadMode(String s3UploadMode) {
             return s3UploadMode(Output.of(s3UploadMode));
         }
 
-        /**
-         * @param s3Uri A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

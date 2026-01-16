@@ -9,62 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM group.
-    /// 
-    /// &gt; **NOTE on user management:** Using `aws.iam.GroupMembership` or `aws.iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var developers = new Aws.Iam.Group("developers", new()
-    ///     {
-    ///         Name = "developers",
-    ///         Path = "/users/",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM Groups using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/group:Group developers developers
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN assigned by AWS for this group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Path in which to create the group.
-        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
-        /// <summary>
-        /// The [unique ID][1] assigned by AWS.
-        /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
 
@@ -114,15 +70,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Path in which to create the group.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
@@ -134,27 +84,15 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN assigned by AWS for this group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Path in which to create the group.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// The [unique ID][1] assigned by AWS.
-        /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
 

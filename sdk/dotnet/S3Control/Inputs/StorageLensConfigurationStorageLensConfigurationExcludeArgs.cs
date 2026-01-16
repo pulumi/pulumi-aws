@@ -14,10 +14,6 @@ namespace Pulumi.Aws.S3Control.Inputs
     {
         [Input("buckets")]
         private InputList<string>? _buckets;
-
-        /// <summary>
-        /// List of S3 bucket ARNs.
-        /// </summary>
         public InputList<string> Buckets
         {
             get => _buckets ?? (_buckets = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
         [Input("regions")]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// List of AWS Regions.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());

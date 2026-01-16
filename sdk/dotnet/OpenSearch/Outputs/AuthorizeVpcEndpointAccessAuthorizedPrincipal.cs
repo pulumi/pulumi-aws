@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class AuthorizeVpcEndpointAccessAuthorizedPrincipal
     {
-        /// <summary>
-        /// IAM principal that is allowed to access to the domain.
-        /// </summary>
         public readonly string Principal;
-        /// <summary>
-        /// Type of principal.
-        /// </summary>
         public readonly string PrincipalType;
 
         [OutputConstructor]

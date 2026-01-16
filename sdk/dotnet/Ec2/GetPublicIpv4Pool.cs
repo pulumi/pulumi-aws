@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetPublicIpv4Pool
     {
-        /// <summary>
-        /// Provides details about a specific AWS EC2 Public IPv4 Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetPublicIpv4Pool.Invoke(new()
-        ///     {
-        ///         PoolId = "ipv4pool-ec2-000df99cff0c1ec10",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPublicIpv4PoolResult> InvokeAsync(GetPublicIpv4PoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific AWS EC2 Public IPv4 Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetPublicIpv4Pool.Invoke(new()
-        ///     {
-        ///         PoolId = "ipv4pool-ec2-000df99cff0c1ec10",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPublicIpv4PoolResult> Invoke(GetPublicIpv4PoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific AWS EC2 Public IPv4 Pool.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetPublicIpv4Pool.Invoke(new()
-        ///     {
-        ///         PoolId = "ipv4pool-ec2-000df99cff0c1ec10",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPublicIpv4PoolResult> Invoke(GetPublicIpv4PoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetPublicIpv4PoolArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-        /// </summary>
         [Input("poolId", required: true)]
         public string PoolId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Any tags for the address pool.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetPublicIpv4PoolInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-        /// </summary>
         [Input("poolId", required: true)]
         public Input<string> PoolId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Any tags for the address pool.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,33 +70,17 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetPublicIpv4PoolResult
     {
-        /// <summary>
-        /// Description of the pool, if any.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the location from which the address pool is advertised.
-        /// * PoolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
-        /// </summary>
         public readonly string NetworkBorderGroup;
         public readonly ImmutableArray<Outputs.GetPublicIpv4PoolPoolAddressRangeResult> PoolAddressRanges;
         public readonly string PoolId;
         public readonly string Region;
-        /// <summary>
-        /// Any tags for the address pool.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Total number of addresses in the pool.
-        /// </summary>
         public readonly int TotalAddressCount;
-        /// <summary>
-        /// Total number of available addresses in the pool.
-        /// </summary>
         public readonly int TotalAvailableAddressCount;
 
         [OutputConstructor]

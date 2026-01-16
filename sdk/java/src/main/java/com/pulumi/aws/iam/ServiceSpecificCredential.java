@@ -16,254 +16,71 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM Service Specific Credential.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.ServiceSpecificCredential;
- * import com.pulumi.aws.iam.ServiceSpecificCredentialArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleServiceSpecificCredential = new ServiceSpecificCredential("exampleServiceSpecificCredential", ServiceSpecificCredentialArgs.builder()
- *             .serviceName("codecommit.amazonaws.com")
- *             .userName(example.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Bedrock API Key with Expiration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.ServiceSpecificCredential;
- * import com.pulumi.aws.iam.ServiceSpecificCredentialArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var bedrock = new ServiceSpecificCredential("bedrock", ServiceSpecificCredentialArgs.builder()
- *             .serviceName("bedrock.amazonaws.com")
- *             .userName(example.name())
- *             .credentialAgeDays(30)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
- * ```
- * 
- */
 @ResourceType(type="aws:iam/serviceSpecificCredential:ServiceSpecificCredential")
 public class ServiceSpecificCredential extends com.pulumi.resources.CustomResource {
-    /**
-     * The date and time, in RFC3339 format, when the service-specific credential was created.
-     * 
-     */
     @Export(name="createDate", refs={String.class}, tree="[0]")
     private Output<String> createDate;
 
-    /**
-     * @return The date and time, in RFC3339 format, when the service-specific credential was created.
-     * 
-     */
     public Output<String> createDate() {
         return this.createDate;
     }
-    /**
-     * The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
-     * 
-     */
     @Export(name="credentialAgeDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> credentialAgeDays;
 
-    /**
-     * @return The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
-     * 
-     */
     public Output<Optional<Integer>> credentialAgeDays() {
         return Codegen.optional(this.credentialAgeDays);
     }
-    /**
-     * The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
-     * 
-     */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
-    /**
-     * @return The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
-     * 
-     */
     public Output<String> expirationDate() {
         return this.expirationDate;
     }
-    /**
-     * For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
-     * 
-     */
     @Export(name="serviceCredentialAlias", refs={String.class}, tree="[0]")
     private Output<String> serviceCredentialAlias;
 
-    /**
-     * @return For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
-     * 
-     */
     public Output<String> serviceCredentialAlias() {
         return this.serviceCredentialAlias;
     }
-    /**
-     * For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
-     * 
-     */
     @Export(name="serviceCredentialSecret", refs={String.class}, tree="[0]")
     private Output<String> serviceCredentialSecret;
 
-    /**
-     * @return For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
-     * 
-     */
     public Output<String> serviceCredentialSecret() {
         return this.serviceCredentialSecret;
     }
-    /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
-     * 
-     */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
-    /**
-     * @return The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
-    /**
-     * The generated password for the service-specific credential. This value is only available when the credential is created.
-     * 
-     */
     @Export(name="servicePassword", refs={String.class}, tree="[0]")
     private Output<String> servicePassword;
 
-    /**
-     * @return The generated password for the service-specific credential. This value is only available when the credential is created.
-     * 
-     */
     public Output<String> servicePassword() {
         return this.servicePassword;
     }
-    /**
-     * The unique identifier for the service-specific credential.
-     * 
-     */
     @Export(name="serviceSpecificCredentialId", refs={String.class}, tree="[0]")
     private Output<String> serviceSpecificCredentialId;
 
-    /**
-     * @return The unique identifier for the service-specific credential.
-     * 
-     */
     public Output<String> serviceSpecificCredentialId() {
         return this.serviceSpecificCredentialId;
     }
-    /**
-     * The generated user name for the service-specific credential. This value is generated by combining the IAM user&#39;s name combined with the ID number of the AWS account, as in `jane-at-123456789012`, for example.
-     * 
-     */
     @Export(name="serviceUserName", refs={String.class}, tree="[0]")
     private Output<String> serviceUserName;
 
-    /**
-     * @return The generated user name for the service-specific credential. This value is generated by combining the IAM user&#39;s name combined with the ID number of the AWS account, as in `jane-at-123456789012`, for example.
-     * 
-     */
     public Output<String> serviceUserName() {
         return this.serviceUserName;
     }
-    /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

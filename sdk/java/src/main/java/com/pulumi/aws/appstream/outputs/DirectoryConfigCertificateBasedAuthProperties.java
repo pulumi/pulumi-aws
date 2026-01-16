@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryConfigCertificateBasedAuthProperties {
-    /**
-     * @return The ARN of the AWS Certificate Manager Private CA resource.
-     * 
-     */
     private @Nullable String certificateAuthorityArn;
-    /**
-     * @return The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
-     * 
-     */
     private @Nullable String status;
 
     private DirectoryConfigCertificateBasedAuthProperties() {}
-    /**
-     * @return The ARN of the AWS Certificate Manager Private CA resource.
-     * 
-     */
     public Optional<String> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
-    /**
-     * @return The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

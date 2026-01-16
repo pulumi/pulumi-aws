@@ -14,8 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EventActionAction struct {
-	// Configuration for an Export Revision to S3 action.
-	// Described in `exportRevisionToS3` Configuration Block
 	ExportRevisionToS3 *EventActionActionExportRevisionToS3 `pulumi:"exportRevisionToS3"`
 }
 
@@ -31,8 +29,6 @@ type EventActionActionInput interface {
 }
 
 type EventActionActionArgs struct {
-	// Configuration for an Export Revision to S3 action.
-	// Described in `exportRevisionToS3` Configuration Block
 	ExportRevisionToS3 EventActionActionExportRevisionToS3PtrInput `pulumi:"exportRevisionToS3"`
 }
 
@@ -113,8 +109,6 @@ func (o EventActionActionOutput) ToEventActionActionPtrOutputWithContext(ctx con
 	}).(EventActionActionPtrOutput)
 }
 
-// Configuration for an Export Revision to S3 action.
-// Described in `exportRevisionToS3` Configuration Block
 func (o EventActionActionOutput) ExportRevisionToS3() EventActionActionExportRevisionToS3PtrOutput {
 	return o.ApplyT(func(v EventActionAction) *EventActionActionExportRevisionToS3 { return v.ExportRevisionToS3 }).(EventActionActionExportRevisionToS3PtrOutput)
 }
@@ -143,8 +137,6 @@ func (o EventActionActionPtrOutput) Elem() EventActionActionOutput {
 	}).(EventActionActionOutput)
 }
 
-// Configuration for an Export Revision to S3 action.
-// Described in `exportRevisionToS3` Configuration Block
 func (o EventActionActionPtrOutput) ExportRevisionToS3() EventActionActionExportRevisionToS3PtrOutput {
 	return o.ApplyT(func(v *EventActionAction) *EventActionActionExportRevisionToS3 {
 		if v == nil {
@@ -155,11 +147,7 @@ func (o EventActionActionPtrOutput) ExportRevisionToS3() EventActionActionExport
 }
 
 type EventActionActionExportRevisionToS3 struct {
-	// Configures server-side encryption of the exported revision.
-	// Described in `encryption` Configuration Block below.
-	Encryption *EventActionActionExportRevisionToS3Encryption `pulumi:"encryption"`
-	// Configures the S3 destination of the exported revision.
-	// Described in `revisionDestination` Configuration Block below.
+	Encryption          *EventActionActionExportRevisionToS3Encryption          `pulumi:"encryption"`
 	RevisionDestination *EventActionActionExportRevisionToS3RevisionDestination `pulumi:"revisionDestination"`
 }
 
@@ -175,11 +163,7 @@ type EventActionActionExportRevisionToS3Input interface {
 }
 
 type EventActionActionExportRevisionToS3Args struct {
-	// Configures server-side encryption of the exported revision.
-	// Described in `encryption` Configuration Block below.
-	Encryption EventActionActionExportRevisionToS3EncryptionPtrInput `pulumi:"encryption"`
-	// Configures the S3 destination of the exported revision.
-	// Described in `revisionDestination` Configuration Block below.
+	Encryption          EventActionActionExportRevisionToS3EncryptionPtrInput          `pulumi:"encryption"`
 	RevisionDestination EventActionActionExportRevisionToS3RevisionDestinationPtrInput `pulumi:"revisionDestination"`
 }
 
@@ -260,16 +244,12 @@ func (o EventActionActionExportRevisionToS3Output) ToEventActionActionExportRevi
 	}).(EventActionActionExportRevisionToS3PtrOutput)
 }
 
-// Configures server-side encryption of the exported revision.
-// Described in `encryption` Configuration Block below.
 func (o EventActionActionExportRevisionToS3Output) Encryption() EventActionActionExportRevisionToS3EncryptionPtrOutput {
 	return o.ApplyT(func(v EventActionActionExportRevisionToS3) *EventActionActionExportRevisionToS3Encryption {
 		return v.Encryption
 	}).(EventActionActionExportRevisionToS3EncryptionPtrOutput)
 }
 
-// Configures the S3 destination of the exported revision.
-// Described in `revisionDestination` Configuration Block below.
 func (o EventActionActionExportRevisionToS3Output) RevisionDestination() EventActionActionExportRevisionToS3RevisionDestinationPtrOutput {
 	return o.ApplyT(func(v EventActionActionExportRevisionToS3) *EventActionActionExportRevisionToS3RevisionDestination {
 		return v.RevisionDestination
@@ -300,8 +280,6 @@ func (o EventActionActionExportRevisionToS3PtrOutput) Elem() EventActionActionEx
 	}).(EventActionActionExportRevisionToS3Output)
 }
 
-// Configures server-side encryption of the exported revision.
-// Described in `encryption` Configuration Block below.
 func (o EventActionActionExportRevisionToS3PtrOutput) Encryption() EventActionActionExportRevisionToS3EncryptionPtrOutput {
 	return o.ApplyT(func(v *EventActionActionExportRevisionToS3) *EventActionActionExportRevisionToS3Encryption {
 		if v == nil {
@@ -311,8 +289,6 @@ func (o EventActionActionExportRevisionToS3PtrOutput) Encryption() EventActionAc
 	}).(EventActionActionExportRevisionToS3EncryptionPtrOutput)
 }
 
-// Configures the S3 destination of the exported revision.
-// Described in `revisionDestination` Configuration Block below.
 func (o EventActionActionExportRevisionToS3PtrOutput) RevisionDestination() EventActionActionExportRevisionToS3RevisionDestinationPtrOutput {
 	return o.ApplyT(func(v *EventActionActionExportRevisionToS3) *EventActionActionExportRevisionToS3RevisionDestination {
 		if v == nil {
@@ -323,11 +299,8 @@ func (o EventActionActionExportRevisionToS3PtrOutput) RevisionDestination() Even
 }
 
 type EventActionActionExportRevisionToS3Encryption struct {
-	// ARN of the KMS key used for encryption.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Type of server-side encryption.
-	// Valid values are `aws:kms` or `aws:s3`.
-	Type *string `pulumi:"type"`
+	Type      *string `pulumi:"type"`
 }
 
 // EventActionActionExportRevisionToS3EncryptionInput is an input type that accepts EventActionActionExportRevisionToS3EncryptionArgs and EventActionActionExportRevisionToS3EncryptionOutput values.
@@ -342,11 +315,8 @@ type EventActionActionExportRevisionToS3EncryptionInput interface {
 }
 
 type EventActionActionExportRevisionToS3EncryptionArgs struct {
-	// ARN of the KMS key used for encryption.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// Type of server-side encryption.
-	// Valid values are `aws:kms` or `aws:s3`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (EventActionActionExportRevisionToS3EncryptionArgs) ElementType() reflect.Type {
@@ -426,13 +396,10 @@ func (o EventActionActionExportRevisionToS3EncryptionOutput) ToEventActionAction
 	}).(EventActionActionExportRevisionToS3EncryptionPtrOutput)
 }
 
-// ARN of the KMS key used for encryption.
 func (o EventActionActionExportRevisionToS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventActionActionExportRevisionToS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Type of server-side encryption.
-// Valid values are `aws:kms` or `aws:s3`.
 func (o EventActionActionExportRevisionToS3EncryptionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventActionActionExportRevisionToS3Encryption) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -461,7 +428,6 @@ func (o EventActionActionExportRevisionToS3EncryptionPtrOutput) Elem() EventActi
 	}).(EventActionActionExportRevisionToS3EncryptionOutput)
 }
 
-// ARN of the KMS key used for encryption.
 func (o EventActionActionExportRevisionToS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventActionActionExportRevisionToS3Encryption) *string {
 		if v == nil {
@@ -471,8 +437,6 @@ func (o EventActionActionExportRevisionToS3EncryptionPtrOutput) KmsKeyArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of server-side encryption.
-// Valid values are `aws:kms` or `aws:s3`.
 func (o EventActionActionExportRevisionToS3EncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventActionActionExportRevisionToS3Encryption) *string {
 		if v == nil {
@@ -483,10 +447,7 @@ func (o EventActionActionExportRevisionToS3EncryptionPtrOutput) Type() pulumi.St
 }
 
 type EventActionActionExportRevisionToS3RevisionDestination struct {
-	// The S3 bucket where the revision will be exported.
-	Bucket string `pulumi:"bucket"`
-	// Pattern for naming revisions in the S3 bucket.
-	// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
+	Bucket     string  `pulumi:"bucket"`
 	KeyPattern *string `pulumi:"keyPattern"`
 }
 
@@ -502,10 +463,7 @@ type EventActionActionExportRevisionToS3RevisionDestinationInput interface {
 }
 
 type EventActionActionExportRevisionToS3RevisionDestinationArgs struct {
-	// The S3 bucket where the revision will be exported.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Pattern for naming revisions in the S3 bucket.
-	// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
+	Bucket     pulumi.StringInput    `pulumi:"bucket"`
 	KeyPattern pulumi.StringPtrInput `pulumi:"keyPattern"`
 }
 
@@ -586,13 +544,10 @@ func (o EventActionActionExportRevisionToS3RevisionDestinationOutput) ToEventAct
 	}).(EventActionActionExportRevisionToS3RevisionDestinationPtrOutput)
 }
 
-// The S3 bucket where the revision will be exported.
 func (o EventActionActionExportRevisionToS3RevisionDestinationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v EventActionActionExportRevisionToS3RevisionDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Pattern for naming revisions in the S3 bucket.
-// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
 func (o EventActionActionExportRevisionToS3RevisionDestinationOutput) KeyPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventActionActionExportRevisionToS3RevisionDestination) *string { return v.KeyPattern }).(pulumi.StringPtrOutput)
 }
@@ -621,7 +576,6 @@ func (o EventActionActionExportRevisionToS3RevisionDestinationPtrOutput) Elem() 
 	}).(EventActionActionExportRevisionToS3RevisionDestinationOutput)
 }
 
-// The S3 bucket where the revision will be exported.
 func (o EventActionActionExportRevisionToS3RevisionDestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventActionActionExportRevisionToS3RevisionDestination) *string {
 		if v == nil {
@@ -631,8 +585,6 @@ func (o EventActionActionExportRevisionToS3RevisionDestinationPtrOutput) Bucket(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pattern for naming revisions in the S3 bucket.
-// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
 func (o EventActionActionExportRevisionToS3RevisionDestinationPtrOutput) KeyPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventActionActionExportRevisionToS3RevisionDestination) *string {
 		if v == nil {
@@ -643,8 +595,6 @@ func (o EventActionActionExportRevisionToS3RevisionDestinationPtrOutput) KeyPatt
 }
 
 type EventActionEvent struct {
-	// Configuration for a Revision Published event.
-	// Described in `revisionPublished` Configuration Block below.
 	RevisionPublished *EventActionEventRevisionPublished `pulumi:"revisionPublished"`
 }
 
@@ -660,8 +610,6 @@ type EventActionEventInput interface {
 }
 
 type EventActionEventArgs struct {
-	// Configuration for a Revision Published event.
-	// Described in `revisionPublished` Configuration Block below.
 	RevisionPublished EventActionEventRevisionPublishedPtrInput `pulumi:"revisionPublished"`
 }
 
@@ -742,8 +690,6 @@ func (o EventActionEventOutput) ToEventActionEventPtrOutputWithContext(ctx conte
 	}).(EventActionEventPtrOutput)
 }
 
-// Configuration for a Revision Published event.
-// Described in `revisionPublished` Configuration Block below.
 func (o EventActionEventOutput) RevisionPublished() EventActionEventRevisionPublishedPtrOutput {
 	return o.ApplyT(func(v EventActionEvent) *EventActionEventRevisionPublished { return v.RevisionPublished }).(EventActionEventRevisionPublishedPtrOutput)
 }
@@ -772,8 +718,6 @@ func (o EventActionEventPtrOutput) Elem() EventActionEventOutput {
 	}).(EventActionEventOutput)
 }
 
-// Configuration for a Revision Published event.
-// Described in `revisionPublished` Configuration Block below.
 func (o EventActionEventPtrOutput) RevisionPublished() EventActionEventRevisionPublishedPtrOutput {
 	return o.ApplyT(func(v *EventActionEvent) *EventActionEventRevisionPublished {
 		if v == nil {
@@ -784,8 +728,6 @@ func (o EventActionEventPtrOutput) RevisionPublished() EventActionEventRevisionP
 }
 
 type EventActionEventRevisionPublished struct {
-	// The ID of the data set to monitor for revision publications.
-	// Changing this value will recreate the resource.
 	DataSetId string `pulumi:"dataSetId"`
 }
 
@@ -801,8 +743,6 @@ type EventActionEventRevisionPublishedInput interface {
 }
 
 type EventActionEventRevisionPublishedArgs struct {
-	// The ID of the data set to monitor for revision publications.
-	// Changing this value will recreate the resource.
 	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
 }
 
@@ -883,8 +823,6 @@ func (o EventActionEventRevisionPublishedOutput) ToEventActionEventRevisionPubli
 	}).(EventActionEventRevisionPublishedPtrOutput)
 }
 
-// The ID of the data set to monitor for revision publications.
-// Changing this value will recreate the resource.
 func (o EventActionEventRevisionPublishedOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventActionEventRevisionPublished) string { return v.DataSetId }).(pulumi.StringOutput)
 }
@@ -913,8 +851,6 @@ func (o EventActionEventRevisionPublishedPtrOutput) Elem() EventActionEventRevis
 	}).(EventActionEventRevisionPublishedOutput)
 }
 
-// The ID of the data set to monitor for revision publications.
-// Changing this value will recreate the resource.
 func (o EventActionEventRevisionPublishedPtrOutput) DataSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventActionEventRevisionPublished) *string {
 		if v == nil {
@@ -925,21 +861,14 @@ func (o EventActionEventRevisionPublishedPtrOutput) DataSetId() pulumi.StringPtr
 }
 
 type RevisionAssetsAsset struct {
-	// The ARN of the Data Exchange Revision Assets.
-	Arn *string `pulumi:"arn"`
-	// A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
+	Arn                            *string                                            `pulumi:"arn"`
 	CreateS3DataAccessFromS3Bucket *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket `pulumi:"createS3DataAccessFromS3Bucket"`
-	// The timestamp when the revision was created, in RFC3339 format.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The unique identifier for the revision.
-	Id *string `pulumi:"id"`
-	// A block to import assets from S3. See Import Assets from S3 for more details.
-	ImportAssetsFromS3 *RevisionAssetsAssetImportAssetsFromS3 `pulumi:"importAssetsFromS3"`
-	// A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-	ImportAssetsFromSignedUrl *RevisionAssetsAssetImportAssetsFromSignedUrl `pulumi:"importAssetsFromSignedUrl"`
-	Name                      *string                                       `pulumi:"name"`
-	// The timestamp when the revision was last updated, in RFC3339 format.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	CreatedAt                      *string                                            `pulumi:"createdAt"`
+	Id                             *string                                            `pulumi:"id"`
+	ImportAssetsFromS3             *RevisionAssetsAssetImportAssetsFromS3             `pulumi:"importAssetsFromS3"`
+	ImportAssetsFromSignedUrl      *RevisionAssetsAssetImportAssetsFromSignedUrl      `pulumi:"importAssetsFromSignedUrl"`
+	Name                           *string                                            `pulumi:"name"`
+	UpdatedAt                      *string                                            `pulumi:"updatedAt"`
 }
 
 // RevisionAssetsAssetInput is an input type that accepts RevisionAssetsAssetArgs and RevisionAssetsAssetOutput values.
@@ -954,21 +883,14 @@ type RevisionAssetsAssetInput interface {
 }
 
 type RevisionAssetsAssetArgs struct {
-	// The ARN of the Data Exchange Revision Assets.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
+	Arn                            pulumi.StringPtrInput                                     `pulumi:"arn"`
 	CreateS3DataAccessFromS3Bucket RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput `pulumi:"createS3DataAccessFromS3Bucket"`
-	// The timestamp when the revision was created, in RFC3339 format.
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The unique identifier for the revision.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A block to import assets from S3. See Import Assets from S3 for more details.
-	ImportAssetsFromS3 RevisionAssetsAssetImportAssetsFromS3PtrInput `pulumi:"importAssetsFromS3"`
-	// A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-	ImportAssetsFromSignedUrl RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput `pulumi:"importAssetsFromSignedUrl"`
-	Name                      pulumi.StringPtrInput                                `pulumi:"name"`
-	// The timestamp when the revision was last updated, in RFC3339 format.
-	UpdatedAt pulumi.StringPtrInput `pulumi:"updatedAt"`
+	CreatedAt                      pulumi.StringPtrInput                                     `pulumi:"createdAt"`
+	Id                             pulumi.StringPtrInput                                     `pulumi:"id"`
+	ImportAssetsFromS3             RevisionAssetsAssetImportAssetsFromS3PtrInput             `pulumi:"importAssetsFromS3"`
+	ImportAssetsFromSignedUrl      RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput      `pulumi:"importAssetsFromSignedUrl"`
+	Name                           pulumi.StringPtrInput                                     `pulumi:"name"`
+	UpdatedAt                      pulumi.StringPtrInput                                     `pulumi:"updatedAt"`
 }
 
 func (RevisionAssetsAssetArgs) ElementType() reflect.Type {
@@ -1022,34 +944,28 @@ func (o RevisionAssetsAssetOutput) ToRevisionAssetsAssetOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the Data Exchange Revision Assets.
 func (o RevisionAssetsAssetOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
 func (o RevisionAssetsAssetOutput) CreateS3DataAccessFromS3Bucket() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket {
 		return v.CreateS3DataAccessFromS3Bucket
 	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput)
 }
 
-// The timestamp when the revision was created, in RFC3339 format.
 func (o RevisionAssetsAssetOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the revision.
 func (o RevisionAssetsAssetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A block to import assets from S3. See Import Assets from S3 for more details.
 func (o RevisionAssetsAssetOutput) ImportAssetsFromS3() RevisionAssetsAssetImportAssetsFromS3PtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *RevisionAssetsAssetImportAssetsFromS3 { return v.ImportAssetsFromS3 }).(RevisionAssetsAssetImportAssetsFromS3PtrOutput)
 }
 
-// A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
 func (o RevisionAssetsAssetOutput) ImportAssetsFromSignedUrl() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *RevisionAssetsAssetImportAssetsFromSignedUrl {
 		return v.ImportAssetsFromSignedUrl
@@ -1060,7 +976,6 @@ func (o RevisionAssetsAssetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp when the revision was last updated, in RFC3339 format.
 func (o RevisionAssetsAssetOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
@@ -1086,10 +1001,9 @@ func (o RevisionAssetsAssetArrayOutput) Index(i pulumi.IntInput) RevisionAssetsA
 }
 
 type RevisionAssetsAssetCreateS3DataAccessFromS3Bucket struct {
-	AccessPointAlias *string `pulumi:"accessPointAlias"`
-	AccessPointArn   *string `pulumi:"accessPointArn"`
-	// A block specifying the source bucket for the asset. This block supports the following:
-	AssetSource *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource `pulumi:"assetSource"`
+	AccessPointAlias *string                                                       `pulumi:"accessPointAlias"`
+	AccessPointArn   *string                                                       `pulumi:"accessPointArn"`
+	AssetSource      *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource `pulumi:"assetSource"`
 }
 
 // RevisionAssetsAssetCreateS3DataAccessFromS3BucketInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs and RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput values.
@@ -1104,10 +1018,9 @@ type RevisionAssetsAssetCreateS3DataAccessFromS3BucketInput interface {
 }
 
 type RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs struct {
-	AccessPointAlias pulumi.StringPtrInput `pulumi:"accessPointAlias"`
-	AccessPointArn   pulumi.StringPtrInput `pulumi:"accessPointArn"`
-	// A block specifying the source bucket for the asset. This block supports the following:
-	AssetSource RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput `pulumi:"assetSource"`
+	AccessPointAlias pulumi.StringPtrInput                                                `pulumi:"accessPointAlias"`
+	AccessPointArn   pulumi.StringPtrInput                                                `pulumi:"accessPointArn"`
+	AssetSource      RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput `pulumi:"assetSource"`
 }
 
 func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) ElementType() reflect.Type {
@@ -1195,7 +1108,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) AccessPointArn(
 	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
 }
 
-// A block specifying the source bucket for the asset. This block supports the following:
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) AssetSource() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
 		return v.AssetSource
@@ -1244,7 +1156,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) AccessPointA
 	}).(pulumi.StringPtrOutput)
 }
 
-// A block specifying the source bucket for the asset. This block supports the following:
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) AssetSource() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
 		if v == nil {
@@ -1255,11 +1166,8 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) AssetSource(
 }
 
 type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource struct {
-	// The name of the S3 bucket.
-	Bucket string `pulumi:"bucket"`
-	// List of key prefixes in the S3 bucket.
-	KeyPrefixes []string `pulumi:"keyPrefixes"`
-	// List of object keys in the S3 bucket.
+	Bucket          string                                                                       `pulumi:"bucket"`
+	KeyPrefixes     []string                                                                     `pulumi:"keyPrefixes"`
 	Keys            []string                                                                     `pulumi:"keys"`
 	KmsKeysToGrants []RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant `pulumi:"kmsKeysToGrants"`
 }
@@ -1276,11 +1184,8 @@ type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceInput interface
 }
 
 type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs struct {
-	// The name of the S3 bucket.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// List of key prefixes in the S3 bucket.
-	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
-	// List of object keys in the S3 bucket.
+	Bucket          pulumi.StringInput                                                                   `pulumi:"bucket"`
+	KeyPrefixes     pulumi.StringArrayInput                                                              `pulumi:"keyPrefixes"`
 	Keys            pulumi.StringArrayInput                                                              `pulumi:"keys"`
 	KmsKeysToGrants RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayInput `pulumi:"kmsKeysToGrants"`
 }
@@ -1362,17 +1267,14 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) ToRe
 	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput)
 }
 
-// The name of the S3 bucket.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// List of key prefixes in the S3 bucket.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// List of object keys in the S3 bucket.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }
@@ -1407,7 +1309,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) E
 	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput)
 }
 
-// The name of the S3 bucket.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) *string {
 		if v == nil {
@@ -1417,7 +1318,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) B
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of key prefixes in the S3 bucket.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string {
 		if v == nil {
@@ -1427,7 +1327,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) K
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of object keys in the S3 bucket.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string {
 		if v == nil {
@@ -1447,7 +1346,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) K
 }
 
 type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant struct {
-	// The ARN of the KMS key.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -1463,7 +1361,6 @@ type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantI
 }
 
 type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs struct {
-	// The ARN of the KMS key.
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -1518,7 +1415,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGra
 	return o
 }
 
-// The ARN of the KMS key.
 func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant) string {
 		return v.KmsKeyArn
@@ -1546,7 +1442,6 @@ func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGra
 }
 
 type RevisionAssetsAssetImportAssetsFromS3 struct {
-	// A block specifying the source bucket and key for the asset. This block supports the following:
 	AssetSource *RevisionAssetsAssetImportAssetsFromS3AssetSource `pulumi:"assetSource"`
 }
 
@@ -1562,7 +1457,6 @@ type RevisionAssetsAssetImportAssetsFromS3Input interface {
 }
 
 type RevisionAssetsAssetImportAssetsFromS3Args struct {
-	// A block specifying the source bucket and key for the asset. This block supports the following:
 	AssetSource RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput `pulumi:"assetSource"`
 }
 
@@ -1643,7 +1537,6 @@ func (o RevisionAssetsAssetImportAssetsFromS3Output) ToRevisionAssetsAssetImport
 	}).(RevisionAssetsAssetImportAssetsFromS3PtrOutput)
 }
 
-// A block specifying the source bucket and key for the asset. This block supports the following:
 func (o RevisionAssetsAssetImportAssetsFromS3Output) AssetSource() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromS3) *RevisionAssetsAssetImportAssetsFromS3AssetSource {
 		return v.AssetSource
@@ -1674,7 +1567,6 @@ func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) Elem() RevisionAssetsAss
 	}).(RevisionAssetsAssetImportAssetsFromS3Output)
 }
 
-// A block specifying the source bucket and key for the asset. This block supports the following:
 func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) AssetSource() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3) *RevisionAssetsAssetImportAssetsFromS3AssetSource {
 		if v == nil {
@@ -1685,10 +1577,8 @@ func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) AssetSource() RevisionAs
 }
 
 type RevisionAssetsAssetImportAssetsFromS3AssetSource struct {
-	// The name of the S3 bucket.
 	Bucket string `pulumi:"bucket"`
-	// The key of the object in the S3 bucket.
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // RevisionAssetsAssetImportAssetsFromS3AssetSourceInput is an input type that accepts RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs and RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput values.
@@ -1703,10 +1593,8 @@ type RevisionAssetsAssetImportAssetsFromS3AssetSourceInput interface {
 }
 
 type RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs struct {
-	// The name of the S3 bucket.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The key of the object in the S3 bucket.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) ElementType() reflect.Type {
@@ -1786,12 +1674,10 @@ func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) ToRevisionAssets
 	}).(RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput)
 }
 
-// The name of the S3 bucket.
 func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromS3AssetSource) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The key of the object in the S3 bucket.
 func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromS3AssetSource) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -1820,7 +1706,6 @@ func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Elem() Revisi
 	}).(RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput)
 }
 
-// The name of the S3 bucket.
 func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3AssetSource) *string {
 		if v == nil {
@@ -1830,7 +1715,6 @@ func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Bucket() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key of the object in the S3 bucket.
 func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3AssetSource) *string {
 		if v == nil {
@@ -1841,7 +1725,6 @@ func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Key() pulumi.
 }
 
 type RevisionAssetsAssetImportAssetsFromSignedUrl struct {
-	// The name of the file to import.
 	Filename string `pulumi:"filename"`
 }
 
@@ -1857,7 +1740,6 @@ type RevisionAssetsAssetImportAssetsFromSignedUrlInput interface {
 }
 
 type RevisionAssetsAssetImportAssetsFromSignedUrlArgs struct {
-	// The name of the file to import.
 	Filename pulumi.StringInput `pulumi:"filename"`
 }
 
@@ -1938,7 +1820,6 @@ func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) ToRevisionAssetsAsse
 	}).(RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput)
 }
 
-// The name of the file to import.
 func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromSignedUrl) string { return v.Filename }).(pulumi.StringOutput)
 }
@@ -1967,7 +1848,6 @@ func (o RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) Elem() RevisionAs
 	}).(RevisionAssetsAssetImportAssetsFromSignedUrlOutput)
 }
 
-// The name of the file to import.
 func (o RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromSignedUrl) *string {
 		if v == nil {

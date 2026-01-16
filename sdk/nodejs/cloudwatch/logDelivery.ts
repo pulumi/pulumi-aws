@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudWatch Logs Delivery. A delivery is a connection between an `aws.cloudwatch.LogDeliverySource` and an `aws.cloudwatch.LogDeliveryDestination`.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.LogDelivery("example", {
- *     deliverySourceName: exampleAwsCloudwatchLogDeliverySource.name,
- *     deliveryDestinationArn: exampleAwsCloudwatchLogDeliveryDestination.arn,
- *     fieldDelimiter: ",",
- *     recordFields: [
- *         "event_timestamp",
- *         "event",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Logs Delivery using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n
- * ```
- */
 export class LogDelivery extends pulumi.CustomResource {
     /**
      * Get an existing LogDelivery resource's state with the given name, ID, and optional extra
@@ -65,41 +35,14 @@ export class LogDelivery extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDelivery.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the delivery.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ARN of the delivery destination to use for this delivery.
-     */
     declare public readonly deliveryDestinationArn: pulumi.Output<string>;
-    /**
-     * The name of the delivery source to use for this delivery.
-     */
     declare public readonly deliverySourceName: pulumi.Output<string>;
-    /**
-     * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     */
     declare public readonly fieldDelimiter: pulumi.Output<string>;
-    /**
-     * The list of record fields to be delivered to the destination, in order.
-     */
     declare public readonly recordFields: pulumi.Output<string[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
-     */
     declare public readonly s3DeliveryConfigurations: pulumi.Output<outputs.cloudwatch.LogDeliveryS3DeliveryConfiguration[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -151,41 +94,14 @@ export class LogDelivery extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogDelivery resources.
  */
 export interface LogDeliveryState {
-    /**
-     * The Amazon Resource Name (ARN) of the delivery.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN of the delivery destination to use for this delivery.
-     */
     deliveryDestinationArn?: pulumi.Input<string>;
-    /**
-     * The name of the delivery source to use for this delivery.
-     */
     deliverySourceName?: pulumi.Input<string>;
-    /**
-     * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     */
     fieldDelimiter?: pulumi.Input<string>;
-    /**
-     * The list of record fields to be delivered to the destination, in order.
-     */
     recordFields?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
-     */
     s3DeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogDeliveryS3DeliveryConfiguration>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -193,32 +109,11 @@ export interface LogDeliveryState {
  * The set of arguments for constructing a LogDelivery resource.
  */
 export interface LogDeliveryArgs {
-    /**
-     * The ARN of the delivery destination to use for this delivery.
-     */
     deliveryDestinationArn: pulumi.Input<string>;
-    /**
-     * The name of the delivery source to use for this delivery.
-     */
     deliverySourceName: pulumi.Input<string>;
-    /**
-     * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-     */
     fieldDelimiter?: pulumi.Input<string>;
-    /**
-     * The list of record fields to be delivered to the destination, in order.
-     */
     recordFields?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
-     */
     s3DeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogDeliveryS3DeliveryConfiguration>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

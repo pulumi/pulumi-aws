@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectionPhysicalConnectionRequirements {
-    /**
-     * @return The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return The security group ID list used by the connection.
-     * 
-     */
     private @Nullable List<String> securityGroupIdLists;
-    /**
-     * @return The subnet ID used by the connection.
-     * 
-     */
     private @Nullable String subnetId;
 
     private ConnectionPhysicalConnectionRequirements() {}
-    /**
-     * @return The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return The security group ID list used by the connection.
-     * 
-     */
     public List<String> securityGroupIdLists() {
         return this.securityGroupIdLists == null ? List.of() : this.securityGroupIdLists;
     }
-    /**
-     * @return The subnet ID used by the connection.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }

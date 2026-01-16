@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS CloudWatch Observability Access Manager Links.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.oam.getLinks({});
- * ```
- */
 export function getLinks(args?: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,9 +16,6 @@ export function getLinks(args?: GetLinksArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getLinks.
  */
 export interface GetLinksArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -40,9 +23,6 @@ export interface GetLinksArgs {
  * A collection of values returned by getLinks.
  */
 export interface GetLinksResult {
-    /**
-     * Set of ARN of the Links.
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -50,20 +30,6 @@ export interface GetLinksResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS CloudWatch Observability Access Manager Links.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.oam.getLinks({});
- * ```
- */
 export function getLinksOutput(args?: GetLinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinksResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,8 +42,5 @@ export function getLinksOutput(args?: GetLinksOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getLinks.
  */
 export interface GetLinksOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

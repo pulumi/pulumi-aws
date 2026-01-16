@@ -17,47 +17,23 @@ public final class BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs exten
 
     public static final BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs Empty = new BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs();
 
-    /**
-     * Number of days that you want to specify for the default retention period.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return Number of days that you want to specify for the default retention period.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
 
-    /**
-     * Number of years that you want to specify for the default retention period.
-     * 
-     */
     @Import(name="years")
     private @Nullable Output<Integer> years;
 
-    /**
-     * @return Number of years that you want to specify for the default retention period.
-     * 
-     */
     public Optional<Output<Integer>> years() {
         return Optional.ofNullable(this.years);
     }
@@ -88,65 +64,29 @@ public final class BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs exten
             $ = new BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param days Number of days that you want to specify for the default retention period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days Number of days that you want to specify for the default retention period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
-        /**
-         * @param mode Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param years Number of years that you want to specify for the default retention period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder years(@Nullable Output<Integer> years) {
             $.years = years;
             return this;
         }
 
-        /**
-         * @param years Number of years that you want to specify for the default retention period.
-         * 
-         * @return builder
-         * 
-         */
         public Builder years(Integer years) {
             return years(Output.of(years));
         }

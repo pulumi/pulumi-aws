@@ -15,17 +15,9 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfi
 
     public static final ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs Empty = new ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs();
 
-    /**
-     * Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-     * 
-     */
     @Import(name="invokeType")
     private @Nullable Output<String> invokeType;
 
-    /**
-     * @return Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-     * 
-     */
     public Optional<Output<String>> invokeType() {
         return Optional.ofNullable(this.invokeType);
     }
@@ -54,23 +46,11 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfi
             $ = new ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invokeType Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invokeType(@Nullable Output<String> invokeType) {
             $.invokeType = invokeType;
             return this;
         }
 
-        /**
-         * @param invokeType Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invokeType(String invokeType) {
             return invokeType(Output.of(invokeType));
         }

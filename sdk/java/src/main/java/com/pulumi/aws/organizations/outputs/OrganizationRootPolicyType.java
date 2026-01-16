@@ -11,18 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationRootPolicyType {
-    /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
-     */
     private @Nullable String status;
     private @Nullable String type;
 
     private OrganizationRootPolicyType() {}
-    /**
-     * @return Status of the policy type as it relates to the associated root.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

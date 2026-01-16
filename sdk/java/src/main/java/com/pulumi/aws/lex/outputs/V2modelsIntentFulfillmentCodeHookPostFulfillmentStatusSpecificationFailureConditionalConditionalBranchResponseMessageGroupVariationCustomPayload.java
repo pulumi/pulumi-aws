@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
-    /**
-     * @return String that is sent to your application.
-     * 
-     */
     private String value;
 
     private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload() {}
-    /**
-     * @return String that is sent to your application.
-     * 
-     */
     public String value() {
         return this.value;
     }

@@ -9,105 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Creates a new Amazon Redshift IDC application.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.IdcApplication("example", new()
-    ///     {
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         IdcDisplayName = "example",
-    ///         IdcInstanceArn = exampleAwsSsoadminInstances.Arns[0],
-    ///         IdentityNamespace = "example",
-    ///         RedshiftIdcApplicationName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift endpoint access using the `redshift_idc_application_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/idcApplication:IdcApplication example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/idcApplication:IdcApplication")]
     public partial class IdcApplication : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Type of application being created. Valid values are `None` or `Lakehouse`.
-        /// </summary>
         [Output("applicationType")]
         public Output<string> ApplicationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the AuthorizedTokenIssuer documentation for more details.
-        /// </summary>
         [Output("authorizedTokenIssuer")]
         public Output<Outputs.IdcApplicationAuthorizedTokenIssuer?> AuthorizedTokenIssuer { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Display name for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Output("idcDisplayName")]
         public Output<string> IdcDisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        /// </summary>
         [Output("idcInstanceArn")]
         public Output<string> IdcInstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN for the Amazon Redshift IAM Identity Center application.
-        /// </summary>
         [Output("idcManagedApplicationArn")]
         public Output<string> IdcManagedApplicationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Namespace for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Output("identityNamespace")]
         public Output<string> IdentityNamespace { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Redshift application in IAM Identity Center.
-        /// </summary>
         [Output("redshiftIdcApplicationArn")]
         public Output<string> RedshiftIdcApplicationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Redshift application in IAM Identity Center.
-        /// </summary>
         [Output("redshiftIdcApplicationName")]
         public Output<string> RedshiftIdcApplicationName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Collection of service integrations for the Redshift IAM Identity Center application. Refer to the ServiceIntegration documentation for more details.
-        /// </summary>
         [Output("serviceIntegration")]
         public Output<Outputs.IdcApplicationServiceIntegration?> ServiceIntegration { get; private set; } = null!;
 
@@ -163,57 +97,30 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class IdcApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of application being created. Valid values are `None` or `Lakehouse`.
-        /// </summary>
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }
 
-        /// <summary>
-        /// Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the AuthorizedTokenIssuer documentation for more details.
-        /// </summary>
         [Input("authorizedTokenIssuer")]
         public Input<Inputs.IdcApplicationAuthorizedTokenIssuerArgs>? AuthorizedTokenIssuer { get; set; }
 
-        /// <summary>
-        /// IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Display name for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Input("idcDisplayName", required: true)]
         public Input<string> IdcDisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        /// </summary>
         [Input("idcInstanceArn", required: true)]
         public Input<string> IdcInstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Namespace for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Input("identityNamespace")]
         public Input<string>? IdentityNamespace { get; set; }
 
-        /// <summary>
-        /// Name of the Redshift application in IAM Identity Center.
-        /// </summary>
         [Input("redshiftIdcApplicationName", required: true)]
         public Input<string> RedshiftIdcApplicationName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Collection of service integrations for the Redshift IAM Identity Center application. Refer to the ServiceIntegration documentation for more details.
-        /// </summary>
         [Input("serviceIntegration")]
         public Input<Inputs.IdcApplicationServiceIntegrationArgs>? ServiceIntegration { get; set; }
 
@@ -233,69 +140,36 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class IdcApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of application being created. Valid values are `None` or `Lakehouse`.
-        /// </summary>
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }
 
-        /// <summary>
-        /// Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the AuthorizedTokenIssuer documentation for more details.
-        /// </summary>
         [Input("authorizedTokenIssuer")]
         public Input<Inputs.IdcApplicationAuthorizedTokenIssuerGetArgs>? AuthorizedTokenIssuer { get; set; }
 
-        /// <summary>
-        /// IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
-        /// <summary>
-        /// Display name for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Input("idcDisplayName")]
         public Input<string>? IdcDisplayName { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
-        /// </summary>
         [Input("idcInstanceArn")]
         public Input<string>? IdcInstanceArn { get; set; }
 
-        /// <summary>
-        /// ARN for the Amazon Redshift IAM Identity Center application.
-        /// </summary>
         [Input("idcManagedApplicationArn")]
         public Input<string>? IdcManagedApplicationArn { get; set; }
 
-        /// <summary>
-        /// Namespace for the Amazon Redshift IAM Identity Center application instance.
-        /// </summary>
         [Input("identityNamespace")]
         public Input<string>? IdentityNamespace { get; set; }
 
-        /// <summary>
-        /// ARN of the Redshift application in IAM Identity Center.
-        /// </summary>
         [Input("redshiftIdcApplicationArn")]
         public Input<string>? RedshiftIdcApplicationArn { get; set; }
 
-        /// <summary>
-        /// Name of the Redshift application in IAM Identity Center.
-        /// </summary>
         [Input("redshiftIdcApplicationName")]
         public Input<string>? RedshiftIdcApplicationName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Collection of service integrations for the Redshift IAM Identity Center application. Refer to the ServiceIntegration documentation for more details.
-        /// </summary>
         [Input("serviceIntegration")]
         public Input<Inputs.IdcApplicationServiceIntegrationGetArgs>? ServiceIntegration { get; set; }
 

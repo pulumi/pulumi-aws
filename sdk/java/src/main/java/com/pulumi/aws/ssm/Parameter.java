@@ -18,338 +18,100 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SSM Parameter resource.
- * 
- * &gt; **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
- * 
- * ## Example Usage
- * 
- * ### Basic example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.Parameter;
- * import com.pulumi.aws.ssm.ParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Parameter("foo", ParameterArgs.builder()
- *             .name("foo")
- *             .type("String")
- *             .value("bar")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Encrypted string using default SSM KMS key
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Instance;
- * import com.pulumi.aws.rds.InstanceArgs;
- * import com.pulumi.aws.ssm.Parameter;
- * import com.pulumi.aws.ssm.ParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new Instance("default", InstanceArgs.builder()
- *             .allocatedStorage(10)
- *             .storageType("gp2")
- *             .engine("mysql")
- *             .engineVersion("5.7.16")
- *             .instanceClass("db.t2.micro")
- *             .dbName("mydb")
- *             .username("foo")
- *             .password(databaseMasterPassword)
- *             .dbSubnetGroupName("my_database_subnet_group")
- *             .parameterGroupName("default.mysql5.7")
- *             .build());
- * 
- *         var secret = new Parameter("secret", ParameterArgs.builder()
- *             .name("/production/database/password/master")
- *             .description("The parameter description")
- *             .type("SecureString")
- *             .value(databaseMasterPassword)
- *             .tags(Map.of("environment", "production"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `name` - (String) Name of the parameter.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
- * 
- * % pulumi import aws_ssm_parameter.example /my_path/my_paramname
- * 
- */
 @ResourceType(type="aws:ssm/parameter:Parameter")
 public class Parameter extends com.pulumi.resources.CustomResource {
-    /**
-     * Regular expression used to validate the parameter value.
-     * 
-     */
     @Export(name="allowedPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedPattern;
 
-    /**
-     * @return Regular expression used to validate the parameter value.
-     * 
-     */
     public Output<Optional<String>> allowedPattern() {
         return Codegen.optional(this.allowedPattern);
     }
-    /**
-     * ARN of the parameter.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the parameter.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-     * 
-     */
     @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
-    /**
-     * @return Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-     * 
-     */
     public Output<String> dataType() {
         return this.dataType;
     }
-    /**
-     * Description of the parameter.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the parameter.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Indicates whether the resource has a `valueWo` set.
-     * 
-     */
     @Export(name="hasValueWo", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasValueWo;
 
-    /**
-     * @return Indicates whether the resource has a `valueWo` set.
-     * 
-     */
     public Output<Boolean> hasValueWo() {
         return this.hasValueWo;
     }
-    /**
-     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-     * 
-     */
     @Export(name="insecureValue", refs={String.class}, tree="[0]")
     private Output<String> insecureValue;
 
-    /**
-     * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-     * 
-     */
     public Output<String> insecureValue() {
         return this.insecureValue;
     }
-    /**
-     * KMS key ID or ARN for encrypting a SecureString.
-     * 
-     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
-    /**
-     * @return KMS key ID or ARN for encrypting a SecureString.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
-    /**
-     * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-     * 
-     */
     @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
-    /**
-     * @return Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-     * 
-     */
     public Output<Optional<Boolean>> overwrite() {
         return Codegen.optional(this.overwrite);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-     * 
-     */
     @Export(name="tier", refs={String.class}, tree="[0]")
     private Output<String> tier;
 
-    /**
-     * @return Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-     * 
-     */
     public Output<String> tier() {
         return this.tier;
     }
-    /**
-     * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
      * 
      */
     @Export(name="valueWo", refs={String.class}, tree="[0]")
@@ -357,41 +119,20 @@ public class Parameter extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
      * 
      */
     public Output<Optional<String>> valueWo() {
         return Codegen.optional(this.valueWo);
     }
-    /**
-     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-     * 
-     * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     * 
-     */
     @Export(name="valueWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> valueWoVersion;
 
-    /**
-     * @return Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
-     * 
-     * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     * 
-     */
     public Output<Optional<Integer>> valueWoVersion() {
         return Codegen.optional(this.valueWoVersion);
     }
-    /**
-     * Version of the parameter.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return Version of the parameter.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

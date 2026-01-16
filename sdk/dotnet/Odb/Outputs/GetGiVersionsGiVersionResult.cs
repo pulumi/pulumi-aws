@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetGiVersionsGiVersionResult
     {
-        /// <summary>
-        /// The GI software version.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

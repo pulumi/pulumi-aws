@@ -26,12 +26,6 @@ class TemplateAliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TemplateAlias resource.
-        :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
-        :param pulumi.Input[_builtins.str] template_id: ID of the template.
-        :param pulumi.Input[_builtins.int] template_version_number: Version number of the template.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "alias_name", alias_name)
         pulumi.set(__self__, "template_id", template_id)
@@ -44,9 +38,6 @@ class TemplateAliasArgs:
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Display name of the template alias.
-        """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
@@ -56,9 +47,6 @@ class TemplateAliasArgs:
     @_builtins.property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the template.
-        """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
@@ -68,11 +56,6 @@ class TemplateAliasArgs:
     @_builtins.property
     @pulumi.getter(name="templateVersionNumber")
     def template_version_number(self) -> pulumi.Input[_builtins.int]:
-        """
-        Version number of the template.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "template_version_number")
 
     @template_version_number.setter
@@ -91,9 +74,6 @@ class TemplateAliasArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,13 +92,6 @@ class _TemplateAliasState:
                  template_version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TemplateAlias resources.
-        :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_id: ID of the template.
-        :param pulumi.Input[_builtins.int] template_version_number: Version number of the template.
-               
-               The following arguments are optional:
         """
         if alias_name is not None:
             pulumi.set(__self__, "alias_name", alias_name)
@@ -136,9 +109,6 @@ class _TemplateAliasState:
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display name of the template alias.
-        """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
@@ -148,9 +118,6 @@ class _TemplateAliasState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the template alias.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -169,9 +136,6 @@ class _TemplateAliasState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -181,9 +145,6 @@ class _TemplateAliasState:
     @_builtins.property
     @pulumi.getter(name="templateId")
     def template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the template.
-        """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
@@ -193,11 +154,6 @@ class _TemplateAliasState:
     @_builtins.property
     @pulumi.getter(name="templateVersionNumber")
     def template_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version number of the template.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "template_version_number")
 
     @template_version_number.setter
@@ -218,38 +174,9 @@ class TemplateAlias(pulumi.CustomResource):
                  template_version_number: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS QuickSight Template Alias.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.TemplateAlias("example",
-            alias_name="example-alias",
-            template_id=test["templateId"],
-            template_version_number=test["versionNumber"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
-        ```
-
+        Create a TemplateAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_id: ID of the template.
-        :param pulumi.Input[_builtins.int] template_version_number: Version number of the template.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -258,30 +185,7 @@ class TemplateAlias(pulumi.CustomResource):
                  args: TemplateAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS QuickSight Template Alias.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.TemplateAlias("example",
-            alias_name="example-alias",
-            template_id=test["templateId"],
-            template_version_number=test["versionNumber"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
-        ```
-
+        Create a TemplateAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TemplateAliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,13 +250,6 @@ class TemplateAlias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] template_id: ID of the template.
-        :param pulumi.Input[_builtins.int] template_version_number: Version number of the template.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -369,17 +266,11 @@ class TemplateAlias(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display name of the template alias.
-        """
         return pulumi.get(self, "alias_name")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the template alias.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -390,26 +281,15 @@ class TemplateAlias(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the template.
-        """
         return pulumi.get(self, "template_id")
 
     @_builtins.property
     @pulumi.getter(name="templateVersionNumber")
     def template_version_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version number of the template.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "template_version_number")
 

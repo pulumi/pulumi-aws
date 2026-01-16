@@ -6,38 +6,6 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
-/**
- * Provides a Model for a REST API Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     name: "MyDemoAPI",
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoModel = new aws.apigateway.Model("MyDemoModel", {
- *     restApi: myDemoAPI.id,
- *     name: "user",
- *     description: "a JSON schema",
- *     contentType: "application/json",
- *     schema: JSON.stringify({
- *         type: "object",
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/model:Model example 12345abcde/example
- * ```
- */
 export class Model extends pulumi.CustomResource {
     /**
      * Get an existing Model resource's state with the given name, ID, and optional extra
@@ -66,29 +34,11 @@ export class Model extends pulumi.CustomResource {
         return obj['__pulumiType'] === Model.__pulumiType;
     }
 
-    /**
-     * Content type of the model
-     */
     declare public readonly contentType: pulumi.Output<string>;
-    /**
-     * Description of the model
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the model
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the associated REST API
-     */
     declare public readonly restApi: pulumi.Output<string>;
-    /**
-     * Schema of the model in a JSON form
-     */
     declare public readonly schema: pulumi.Output<string | undefined>;
 
     /**
@@ -134,29 +84,11 @@ export class Model extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Model resources.
  */
 export interface ModelState {
-    /**
-     * Content type of the model
-     */
     contentType?: pulumi.Input<string>;
-    /**
-     * Description of the model
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the model
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the associated REST API
-     */
     restApi?: pulumi.Input<string | RestApi>;
-    /**
-     * Schema of the model in a JSON form
-     */
     schema?: pulumi.Input<string>;
 }
 
@@ -164,28 +96,10 @@ export interface ModelState {
  * The set of arguments for constructing a Model resource.
  */
 export interface ModelArgs {
-    /**
-     * Content type of the model
-     */
     contentType: pulumi.Input<string>;
-    /**
-     * Description of the model
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the model
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the associated REST API
-     */
     restApi: pulumi.Input<string | RestApi>;
-    /**
-     * Schema of the model in a JSON form
-     */
     schema?: pulumi.Input<string>;
 }

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS SSO Admin Application.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.LookupApplication(ctx, &ssoadmin.LookupApplicationArgs{
-//				ApplicationArn: "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationResult
@@ -52,32 +23,22 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 
 // A collection of arguments for invoking getApplication.
 type LookupApplicationArgs struct {
-	// ARN of the application.
-	ApplicationArn string `pulumi:"applicationArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ApplicationArn string  `pulumi:"applicationArn"`
+	Region         *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
-	// AWS account ID.
-	ApplicationAccount string `pulumi:"applicationAccount"`
-	ApplicationArn     string `pulumi:"applicationArn"`
-	// ARN of the application provider.
-	ApplicationProviderArn string `pulumi:"applicationProviderArn"`
-	// Description of the application.
-	Description string `pulumi:"description"`
-	// ARN of the application.
-	Id string `pulumi:"id"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn string `pulumi:"instanceArn"`
-	// Name of the application.
-	Name string `pulumi:"name"`
-	// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
-	PortalOptions []GetApplicationPortalOption `pulumi:"portalOptions"`
-	Region        string                       `pulumi:"region"`
-	// Status of the application.
-	Status string `pulumi:"status"`
+	ApplicationAccount     string                       `pulumi:"applicationAccount"`
+	ApplicationArn         string                       `pulumi:"applicationArn"`
+	ApplicationProviderArn string                       `pulumi:"applicationProviderArn"`
+	Description            string                       `pulumi:"description"`
+	Id                     string                       `pulumi:"id"`
+	InstanceArn            string                       `pulumi:"instanceArn"`
+	Name                   string                       `pulumi:"name"`
+	PortalOptions          []GetApplicationPortalOption `pulumi:"portalOptions"`
+	Region                 string                       `pulumi:"region"`
+	Status                 string                       `pulumi:"status"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -91,10 +52,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 
 // A collection of arguments for invoking getApplication.
 type LookupApplicationOutputArgs struct {
-	// ARN of the application.
-	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ApplicationArn pulumi.StringInput    `pulumi:"applicationArn"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -116,7 +75,6 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-// AWS account ID.
 func (o LookupApplicationResultOutput) ApplicationAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.ApplicationAccount }).(pulumi.StringOutput)
 }
@@ -125,32 +83,26 @@ func (o LookupApplicationResultOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// ARN of the application provider.
 func (o LookupApplicationResultOutput) ApplicationProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.ApplicationProviderArn }).(pulumi.StringOutput)
 }
 
-// Description of the application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// ARN of the application.
 func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the instance of IAM Identity Center.
 func (o LookupApplicationResultOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// Name of the application.
 func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
 func (o LookupApplicationResultOutput) PortalOptions() GetApplicationPortalOptionArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []GetApplicationPortalOption { return v.PortalOptions }).(GetApplicationPortalOptionArrayOutput)
 }
@@ -159,7 +111,6 @@ func (o LookupApplicationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the application.
 func (o LookupApplicationResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Status }).(pulumi.StringOutput)
 }

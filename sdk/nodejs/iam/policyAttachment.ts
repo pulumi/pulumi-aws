@@ -6,60 +6,6 @@ import * as utilities from "../utilities";
 
 import {Group, Role, User} from "./index";
 
-/**
- * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- *
- * !> **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- *
- * > **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
- *
- * > **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
- *
- * > **NOTE:** To ensure Pulumi correctly manages dependencies during updates, use a reference to the IAM resource when defining the `policyArn` for `aws.iam.PolicyAttachment`, rather than constructing the ARN directly. For example, use `policyArn = aws_iam_policy.example.arn` instead of `policyArn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/Example"`. Failing to do so may lead to errors like `DeleteConflict: Cannot delete a policy attached to entities` or `NoSuchEntity`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const user = new aws.iam.User("user", {name: "test-user"});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ec2.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {
- *     name: "test-role",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const group = new aws.iam.Group("group", {name: "test-group"});
- * const policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["ec2:Describe*"],
- *         resources: ["*"],
- *     }],
- * });
- * const policyPolicy = new aws.iam.Policy("policy", {
- *     name: "test-policy",
- *     description: "A test policy",
- *     policy: policy.then(policy => policy.json),
- * });
- * const test_attach = new aws.iam.PolicyAttachment("test-attach", {
- *     name: "test-attachment",
- *     users: [user.name],
- *     roles: [role.name],
- *     groups: [group.name],
- *     policyArn: policyPolicy.arn,
- * });
- * ```
- */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyAttachment resource's state with the given name, ID, and optional extra
@@ -88,25 +34,10 @@ export class PolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyAttachment.__pulumiType;
     }
 
-    /**
-     * Group(s) the policy should be applied to.
-     */
     declare public readonly groups: pulumi.Output<string[] | undefined>;
-    /**
-     * Name of the attachment. This cannot be an empty string.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-     */
     declare public readonly policyArn: pulumi.Output<string>;
-    /**
-     * Role(s) the policy should be applied to.
-     */
     declare public readonly roles: pulumi.Output<string[] | undefined>;
-    /**
-     * User(s) the policy should be applied to.
-     */
     declare public readonly users: pulumi.Output<string[] | undefined>;
 
     /**
@@ -147,25 +78,10 @@ export class PolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyAttachment resources.
  */
 export interface PolicyAttachmentState {
-    /**
-     * Group(s) the policy should be applied to.
-     */
     groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
-    /**
-     * Name of the attachment. This cannot be an empty string.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-     */
     policyArn?: pulumi.Input<string>;
-    /**
-     * Role(s) the policy should be applied to.
-     */
     roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
-    /**
-     * User(s) the policy should be applied to.
-     */
     users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }
 
@@ -173,24 +89,9 @@ export interface PolicyAttachmentState {
  * The set of arguments for constructing a PolicyAttachment resource.
  */
 export interface PolicyAttachmentArgs {
-    /**
-     * Group(s) the policy should be applied to.
-     */
     groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
-    /**
-     * Name of the attachment. This cannot be an empty string.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-     */
     policyArn: pulumi.Input<string>;
-    /**
-     * Role(s) the policy should be applied to.
-     */
     roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
-    /**
-     * User(s) the policy should be applied to.
-     */
     users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LightSail.Inputs
 
     public sealed class ContainerServicePrivateRegistryAccessEcrImagePullerRoleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to activate the role. Defaults to `False`.
-        /// </summary>
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
 
-        /// <summary>
-        /// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 

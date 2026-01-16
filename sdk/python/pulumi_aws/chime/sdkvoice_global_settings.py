@@ -24,16 +24,12 @@ class SdkvoiceGlobalSettingsArgs:
                  voice_connector: pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']):
         """
         The set of arguments for constructing a SdkvoiceGlobalSettings resource.
-        :param pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'] voice_connector: The Voice Connector settings. See voice_connector.
         """
         pulumi.set(__self__, "voice_connector", voice_connector)
 
     @_builtins.property
     @pulumi.getter(name="voiceConnector")
     def voice_connector(self) -> pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']:
-        """
-        The Voice Connector settings. See voice_connector.
-        """
         return pulumi.get(self, "voice_connector")
 
     @voice_connector.setter
@@ -47,7 +43,6 @@ class _SdkvoiceGlobalSettingsState:
                  voice_connector: Optional[pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']] = None):
         """
         Input properties used for looking up and filtering SdkvoiceGlobalSettings resources.
-        :param pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'] voice_connector: The Voice Connector settings. See voice_connector.
         """
         if voice_connector is not None:
             pulumi.set(__self__, "voice_connector", voice_connector)
@@ -55,9 +50,6 @@ class _SdkvoiceGlobalSettingsState:
     @_builtins.property
     @pulumi.getter(name="voiceConnector")
     def voice_connector(self) -> Optional[pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']]:
-        """
-        The Voice Connector settings. See voice_connector.
-        """
         return pulumi.get(self, "voice_connector")
 
     @voice_connector.setter
@@ -74,32 +66,9 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
                  voice_connector: Optional[pulumi.Input[Union['SdkvoiceGlobalSettingsVoiceConnectorArgs', 'SdkvoiceGlobalSettingsVoiceConnectorArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing Amazon Chime SDK Voice Global Settings.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.chime.SdkvoiceGlobalSettings("example", voice_connector={
-            "cdr_bucket": "example-bucket-name",
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
-
-        ```sh
-        $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
-        ```
-
+        Create a SdkvoiceGlobalSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SdkvoiceGlobalSettingsVoiceConnectorArgs', 'SdkvoiceGlobalSettingsVoiceConnectorArgsDict']] voice_connector: The Voice Connector settings. See voice_connector.
         """
         ...
     @overload
@@ -108,29 +77,7 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
                  args: SdkvoiceGlobalSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing Amazon Chime SDK Voice Global Settings.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.chime.SdkvoiceGlobalSettings("example", voice_connector={
-            "cdr_bucket": "example-bucket-name",
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
-
-        ```sh
-        $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
-        ```
-
+        Create a SdkvoiceGlobalSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SdkvoiceGlobalSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +124,6 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SdkvoiceGlobalSettingsVoiceConnectorArgs', 'SdkvoiceGlobalSettingsVoiceConnectorArgsDict']] voice_connector: The Voice Connector settings. See voice_connector.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -189,8 +135,5 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="voiceConnector")
     def voice_connector(self) -> pulumi.Output['outputs.SdkvoiceGlobalSettingsVoiceConnector']:
-        """
-        The Voice Connector settings. See voice_connector.
-        """
         return pulumi.get(self, "voice_connector")
 

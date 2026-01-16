@@ -17,63 +17,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
- * in the current AWS Region.
- * 
- * If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
- * 
- * **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
- * 
- * The `aws.ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead &#34;adopts&#34; it into management.
- * If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
- * By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
- * Set the `forceDestroy` argument to `true` to delete the default VPC.
- * 
- * ## Example Usage
- * 
- * Basic usage with tags:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.DefaultVpc;
- * import com.pulumi.aws.ec2.DefaultVpcArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new DefaultVpc("default", DefaultVpcArgs.builder()
- *             .tags(Map.of("Name", "Default VPC"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/defaultVpc:DefaultVpc")
 public class DefaultVpc extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -88,17 +31,9 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> assignGeneratedIpv6CidrBlock() {
         return Codegen.optional(this.assignGeneratedIpv6CidrBlock);
     }
-    /**
-     * The primary IPv4 CIDR block for the VPC
-     * 
-     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
-    /**
-     * @return The primary IPv4 CIDR block for the VPC
-     * 
-     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
@@ -150,31 +85,15 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
     public Output<Boolean> existingDefaultVpc() {
         return this.existingDefaultVpc;
     }
-    /**
-     * Whether destroying the resource deletes the default VPC. Default: `false`
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return Whether destroying the resource deletes the default VPC. Default: `false`
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * The allowed tenancy of instances launched into the VPC
-     * 
-     */
     @Export(name="instanceTenancy", refs={String.class}, tree="[0]")
     private Output<String> instanceTenancy;
 
-    /**
-     * @return The allowed tenancy of instances launched into the VPC
-     * 
-     */
     public Output<String> instanceTenancy() {
         return this.instanceTenancy;
     }

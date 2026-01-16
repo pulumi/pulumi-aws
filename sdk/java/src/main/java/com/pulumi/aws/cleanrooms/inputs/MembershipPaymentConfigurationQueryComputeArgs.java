@@ -14,17 +14,9 @@ public final class MembershipPaymentConfigurationQueryComputeArgs extends com.pu
 
     public static final MembershipPaymentConfigurationQueryComputeArgs Empty = new MembershipPaymentConfigurationQueryComputeArgs();
 
-    /**
-     * Indicates whether the collaboration member has accepted to pay for query compute costs.
-     * 
-     */
     @Import(name="isResponsible", required=true)
     private Output<Boolean> isResponsible;
 
-    /**
-     * @return Indicates whether the collaboration member has accepted to pay for query compute costs.
-     * 
-     */
     public Output<Boolean> isResponsible() {
         return this.isResponsible;
     }
@@ -53,23 +45,11 @@ public final class MembershipPaymentConfigurationQueryComputeArgs extends com.pu
             $ = new MembershipPaymentConfigurationQueryComputeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param isResponsible Indicates whether the collaboration member has accepted to pay for query compute costs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isResponsible(Output<Boolean> isResponsible) {
             $.isResponsible = isResponsible;
             return this;
         }
 
-        /**
-         * @param isResponsible Indicates whether the collaboration member has accepted to pay for query compute costs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isResponsible(Boolean isResponsible) {
             return isResponsible(Output.of(isResponsible));
         }

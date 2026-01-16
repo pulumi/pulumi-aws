@@ -19,92 +19,44 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
 
     public static final RestoreTestingPlanArgs Empty = new RestoreTestingPlanArgs();
 
-    /**
-     * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     * 
-     */
     @Import(name="recoveryPointSelection")
     private @Nullable Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection;
 
-    /**
-     * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-     * 
-     */
     public Optional<Output<RestoreTestingPlanRecoveryPointSelectionArgs>> recoveryPointSelection() {
         return Optional.ofNullable(this.recoveryPointSelection);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The schedule expression for the restore testing plan.
-     * 
-     */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
-    /**
-     * @return The schedule expression for the restore testing plan.
-     * 
-     */
     public Output<String> scheduleExpression() {
         return this.scheduleExpression;
     }
 
-    /**
-     * The timezone for the schedule expression. If not provided, the state value will be used.
-     * 
-     */
     @Import(name="scheduleExpressionTimezone")
     private @Nullable Output<String> scheduleExpressionTimezone;
 
-    /**
-     * @return The timezone for the schedule expression. If not provided, the state value will be used.
-     * 
-     */
     public Optional<Output<String>> scheduleExpressionTimezone() {
         return Optional.ofNullable(this.scheduleExpressionTimezone);
     }
 
-    /**
-     * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     * 
-     */
     @Import(name="startWindowHours")
     private @Nullable Output<Integer> startWindowHours;
 
-    /**
-     * @return The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-     * 
-     */
     public Optional<Output<Integer>> startWindowHours() {
         return Optional.ofNullable(this.startWindowHours);
     }
@@ -146,128 +98,56 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.ResourceA
             $ = new RestoreTestingPlanArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param recoveryPointSelection Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointSelection(@Nullable Output<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection) {
             $.recoveryPointSelection = recoveryPointSelection;
             return this;
         }
 
-        /**
-         * @param recoveryPointSelection Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryPointSelection(RestoreTestingPlanRecoveryPointSelectionArgs recoveryPointSelection) {
             return recoveryPointSelection(Output.of(recoveryPointSelection));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param scheduleExpression The schedule expression for the restore testing plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(Output<String> scheduleExpression) {
             $.scheduleExpression = scheduleExpression;
             return this;
         }
 
-        /**
-         * @param scheduleExpression The schedule expression for the restore testing plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
         }
 
-        /**
-         * @param scheduleExpressionTimezone The timezone for the schedule expression. If not provided, the state value will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpressionTimezone(@Nullable Output<String> scheduleExpressionTimezone) {
             $.scheduleExpressionTimezone = scheduleExpressionTimezone;
             return this;
         }
 
-        /**
-         * @param scheduleExpressionTimezone The timezone for the schedule expression. If not provided, the state value will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpressionTimezone(String scheduleExpressionTimezone) {
             return scheduleExpressionTimezone(Output.of(scheduleExpressionTimezone));
         }
 
-        /**
-         * @param startWindowHours The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startWindowHours(@Nullable Output<Integer> startWindowHours) {
             $.startWindowHours = startWindowHours;
             return this;
         }
 
-        /**
-         * @param startWindowHours The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startWindowHours(Integer startWindowHours) {
             return startWindowHours(Output.of(startWindowHours));
         }

@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about Location Service Tracker Associations.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.GetTrackerAssociations(ctx, &location.GetTrackerAssociationsArgs{
-//				TrackerName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArgs, opts ...pulumi.InvokeOption) (*GetTrackerAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrackerAssociationsResult
@@ -52,15 +23,12 @@ func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArg
 
 // A collection of arguments for invoking getTrackerAssociations.
 type GetTrackerAssociationsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the tracker resource associated with a geofence collection.
-	TrackerName string `pulumi:"trackerName"`
+	Region      *string `pulumi:"region"`
+	TrackerName string  `pulumi:"trackerName"`
 }
 
 // A collection of values returned by getTrackerAssociations.
 type GetTrackerAssociationsResult struct {
-	// List of geofence collection ARNs associated to the tracker resource.
 	ConsumerArns []string `pulumi:"consumerArns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
@@ -79,10 +47,8 @@ func GetTrackerAssociationsOutput(ctx *pulumi.Context, args GetTrackerAssociatio
 
 // A collection of arguments for invoking getTrackerAssociations.
 type GetTrackerAssociationsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Name of the tracker resource associated with a geofence collection.
-	TrackerName pulumi.StringInput `pulumi:"trackerName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	TrackerName pulumi.StringInput    `pulumi:"trackerName"`
 }
 
 func (GetTrackerAssociationsOutputArgs) ElementType() reflect.Type {
@@ -104,7 +70,6 @@ func (o GetTrackerAssociationsResultOutput) ToGetTrackerAssociationsResultOutput
 	return o
 }
 
-// List of geofence collection ARNs associated to the tracker resource.
 func (o GetTrackerAssociationsResultOutput) ConsumerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTrackerAssociationsResult) []string { return v.ConsumerArns }).(pulumi.StringArrayOutput)
 }

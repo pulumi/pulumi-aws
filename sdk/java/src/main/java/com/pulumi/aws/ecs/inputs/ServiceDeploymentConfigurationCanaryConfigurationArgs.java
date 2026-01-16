@@ -16,32 +16,16 @@ public final class ServiceDeploymentConfigurationCanaryConfigurationArgs extends
 
     public static final ServiceDeploymentConfigurationCanaryConfigurationArgs Empty = new ServiceDeploymentConfigurationCanaryConfigurationArgs();
 
-    /**
-     * Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-     * 
-     */
     @Import(name="canaryBakeTimeInMinutes")
     private @Nullable Output<String> canaryBakeTimeInMinutes;
 
-    /**
-     * @return Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-     * 
-     */
     public Optional<Output<String>> canaryBakeTimeInMinutes() {
         return Optional.ofNullable(this.canaryBakeTimeInMinutes);
     }
 
-    /**
-     * Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-     * 
-     */
     @Import(name="canaryPercent")
     private @Nullable Output<Double> canaryPercent;
 
-    /**
-     * @return Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-     * 
-     */
     public Optional<Output<Double>> canaryPercent() {
         return Optional.ofNullable(this.canaryPercent);
     }
@@ -71,44 +55,20 @@ public final class ServiceDeploymentConfigurationCanaryConfigurationArgs extends
             $ = new ServiceDeploymentConfigurationCanaryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param canaryBakeTimeInMinutes Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryBakeTimeInMinutes(@Nullable Output<String> canaryBakeTimeInMinutes) {
             $.canaryBakeTimeInMinutes = canaryBakeTimeInMinutes;
             return this;
         }
 
-        /**
-         * @param canaryBakeTimeInMinutes Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryBakeTimeInMinutes(String canaryBakeTimeInMinutes) {
             return canaryBakeTimeInMinutes(Output.of(canaryBakeTimeInMinutes));
         }
 
-        /**
-         * @param canaryPercent Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryPercent(@Nullable Output<Double> canaryPercent) {
             $.canaryPercent = canaryPercent;
             return this;
         }
 
-        /**
-         * @param canaryPercent Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canaryPercent(Double canaryPercent) {
             return canaryPercent(Output.of(canaryPercent));
         }

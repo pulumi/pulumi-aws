@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RepositoryAssociationRepositoryS3Bucket {
-    /**
-     * @return The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The name of the repository in the S3 bucket.
-     * 
-     */
     private String name;
 
     private RepositoryAssociationRepositoryS3Bucket() {}
-    /**
-     * @return The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The name of the repository in the S3 bucket.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.SsmContacts
 {
     public static class GetContact
     {
-        /// <summary>
-        /// Data source for managing an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsmContacts.GetContact.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("aws:ssmcontacts/getContact:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsmContacts.GetContact.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("aws:ssmcontacts/getContact:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsmContacts.GetContact.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("aws:ssmcontacts/getContact:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.SsmContacts
 
     public sealed class GetContactArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.SsmContacts
 
     public sealed class GetContactInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,27 +70,15 @@ namespace Pulumi.Aws.SsmContacts
     [OutputType]
     public sealed class GetContactResult
     {
-        /// <summary>
-        /// A unique and identifiable alias of the contact or escalation plan.
-        /// </summary>
         public readonly string Alias;
         public readonly string Arn;
-        /// <summary>
-        /// Full friendly name of the contact or escalation plan.
-        /// </summary>
         public readonly string DisplayName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// Map of tags to assign to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

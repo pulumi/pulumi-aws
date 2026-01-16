@@ -24,9 +24,6 @@ class EmailIdentityFeedbackAttributesArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if email_forwarding_enabled is not None:
@@ -37,9 +34,6 @@ class EmailIdentityFeedbackAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[_builtins.str]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -49,9 +43,6 @@ class EmailIdentityFeedbackAttributesArgs:
     @_builtins.property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Sets the feedback forwarding configuration for the identity.
-        """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @email_forwarding_enabled.setter
@@ -61,9 +52,6 @@ class EmailIdentityFeedbackAttributesArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +67,6 @@ class _EmailIdentityFeedbackAttributesState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
-        :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if email_forwarding_enabled is not None:
             pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
@@ -93,9 +78,6 @@ class _EmailIdentityFeedbackAttributesState:
     @_builtins.property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Sets the feedback forwarding configuration for the identity.
-        """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @email_forwarding_enabled.setter
@@ -105,9 +87,6 @@ class _EmailIdentityFeedbackAttributesState:
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -117,9 +96,6 @@ class _EmailIdentityFeedbackAttributesState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -138,35 +114,9 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("example",
-            email_identity=example.email_identity,
-            email_forwarding_enabled=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
-
-        ```sh
-        $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
-        ```
-
+        Create a EmailIdentityFeedbackAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -175,30 +125,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
                  args: EmailIdentityFeedbackAttributesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("example",
-            email_identity=example.email_identity,
-            email_forwarding_enabled=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
-
-        ```sh
-        $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
-        ```
-
+        Create a EmailIdentityFeedbackAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailIdentityFeedbackAttributesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,9 +178,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -267,24 +191,15 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Sets the feedback forwarding configuration for the identity.
-        """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[_builtins.str]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationMonitoringConfiguration {
-    /**
-     * @return Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration cloudWatchLoggingConfiguration;
-    /**
-     * @return Configuration block for managed log persistence. See Managed Logging Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration managedLoggingConfiguration;
-    /**
-     * @return Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration s3LoggingConfiguration;
 
     private WorkgroupConfigurationMonitoringConfiguration() {}
-    /**
-     * @return Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguration> cloudWatchLoggingConfiguration() {
         return Optional.ofNullable(this.cloudWatchLoggingConfiguration);
     }
-    /**
-     * @return Configuration block for managed log persistence. See Managed Logging Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration> managedLoggingConfiguration() {
         return Optional.ofNullable(this.managedLoggingConfiguration);
     }
-    /**
-     * @return Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration> s3LoggingConfiguration() {
         return Optional.ofNullable(this.s3LoggingConfiguration);
     }

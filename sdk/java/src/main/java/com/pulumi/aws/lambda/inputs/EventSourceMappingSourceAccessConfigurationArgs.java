@@ -14,32 +14,16 @@ public final class EventSourceMappingSourceAccessConfigurationArgs extends com.p
 
     public static final EventSourceMappingSourceAccessConfigurationArgs Empty = new EventSourceMappingSourceAccessConfigurationArgs();
 
-    /**
-     * Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
-     * 
-     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
-    /**
-     * @return URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
-     * 
-     */
     public Output<String> uri() {
         return this.uri;
     }
@@ -69,44 +53,20 @@ public final class EventSourceMappingSourceAccessConfigurationArgs extends com.p
             $ = new EventSourceMappingSourceAccessConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param uri URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

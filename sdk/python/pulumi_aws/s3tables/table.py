@@ -32,26 +32,6 @@ class TableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Table resource.
-        :param pulumi.Input[_builtins.str] format: Format of the table.
-               Must be `ICEBERG`.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
-               
-               The following arguments are optional:
-        :param pulumi.Input['TableEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
-        :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input['TableMetadataArgs'] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-               See `metadata` below.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "namespace", namespace)
@@ -72,10 +52,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
-        """
-        Format of the table.
-        Must be `ICEBERG`.
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -85,11 +61,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the namespace for this table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -99,11 +70,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -113,10 +79,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['TableEncryptionConfigurationArgs']]:
-        """
-        A single table bucket encryption configuration object.
-        See `encryption_configuration` below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -126,10 +88,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]:
-        """
-        A single table bucket maintenance configuration object.
-        See `maintenance_configuration` below.
-        """
         return pulumi.get(self, "maintenance_configuration")
 
     @maintenance_configuration.setter
@@ -139,10 +97,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input['TableMetadataArgs']]:
-        """
-        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-        See `metadata` below.
-        """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
@@ -152,12 +106,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -167,9 +115,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -179,9 +124,6 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -214,38 +156,6 @@ class _TableState:
                  warehouse_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the table.
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
-        :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
-        :param pulumi.Input['TableEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] format: Format of the table.
-               Must be `ICEBERG`.
-        :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input['TableMetadataArgs'] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-               See `metadata` below.
-        :param pulumi.Input[_builtins.str] metadata_location: Location of table metadata.
-        :param pulumi.Input[_builtins.str] modified_at: Date and time when the namespace was last modified.
-        :param pulumi.Input[_builtins.str] modified_by: Account ID of the account that last modified the namespace.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] owner_account_id: Account ID of the account that owns the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of the table.
-               One of `customer` or `aws`.
-        :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of table data.
-        :param pulumi.Input[_builtins.str] warehouse_location: S3 URI pointing to the S3 Bucket that contains the table data.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -291,9 +201,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the table.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -303,9 +210,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the namespace was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -315,9 +219,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the account that created the namespace.
-        """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
@@ -327,10 +228,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['TableEncryptionConfigurationArgs']]:
-        """
-        A single table bucket encryption configuration object.
-        See `encryption_configuration` below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -340,10 +237,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Format of the table.
-        Must be `ICEBERG`.
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -353,10 +246,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]:
-        """
-        A single table bucket maintenance configuration object.
-        See `maintenance_configuration` below.
-        """
         return pulumi.get(self, "maintenance_configuration")
 
     @maintenance_configuration.setter
@@ -366,10 +255,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input['TableMetadataArgs']]:
-        """
-        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-        See `metadata` below.
-        """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
@@ -379,9 +264,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="metadataLocation")
     def metadata_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Location of table metadata.
-        """
         return pulumi.get(self, "metadata_location")
 
     @metadata_location.setter
@@ -391,9 +273,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date and time when the namespace was last modified.
-        """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
@@ -403,9 +282,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="modifiedBy")
     def modified_by(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the account that last modified the namespace.
-        """
         return pulumi.get(self, "modified_by")
 
     @modified_by.setter
@@ -415,12 +291,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -430,11 +300,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the namespace for this table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -444,9 +309,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account ID of the account that owns the namespace.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -456,9 +318,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -468,11 +327,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -482,9 +336,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -494,9 +345,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -506,10 +354,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the table.
-        One of `customer` or `aws`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -519,9 +363,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the current version of table data.
-        """
         return pulumi.get(self, "version_token")
 
     @version_token.setter
@@ -531,9 +372,6 @@ class _TableState:
     @_builtins.property
     @pulumi.getter(name="warehouseLocation")
     def warehouse_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        S3 URI pointing to the S3 Bucket that contains the table data.
-        """
         return pulumi.get(self, "warehouse_location")
 
     @warehouse_location.setter
@@ -558,102 +396,9 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon S3 Tables Table.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example_namespace = aws.s3tables.Namespace("example",
-            namespace="example_namespace",
-            table_bucket_arn=example_table_bucket.arn)
-        example = aws.s3tables.Table("example",
-            name="example_table",
-            namespace=example_namespace.namespace,
-            table_bucket_arn=example_namespace.table_bucket_arn,
-            format="ICEBERG")
-        ```
-
-        ### With Metadata Schema
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example_namespace = aws.s3tables.Namespace("example",
-            namespace="example_namespace",
-            table_bucket_arn=example_table_bucket.arn)
-        example = aws.s3tables.Table("example",
-            name="example_table",
-            namespace=example_namespace.namespace,
-            table_bucket_arn=example_namespace.table_bucket_arn,
-            format="ICEBERG",
-            metadata={
-                "iceberg": {
-                    "schema": {
-                        "fields": [
-                            {
-                                "name": "id",
-                                "type": "long",
-                                "required": True,
-                            },
-                            {
-                                "name": "name",
-                                "type": "string",
-                                "required": True,
-                            },
-                            {
-                                "name": "created_at",
-                                "type": "timestamp",
-                                "required": False,
-                            },
-                            {
-                                "name": "price",
-                                "type": "decimal(10,2)",
-                                "required": False,
-                            },
-                        ],
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-        ```
-
+        Create a Table resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] format: Format of the table.
-               Must be `ICEBERG`.
-        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-               See `metadata` below.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -662,80 +407,7 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon S3 Tables Table.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example_namespace = aws.s3tables.Namespace("example",
-            namespace="example_namespace",
-            table_bucket_arn=example_table_bucket.arn)
-        example = aws.s3tables.Table("example",
-            name="example_table",
-            namespace=example_namespace.namespace,
-            table_bucket_arn=example_namespace.table_bucket_arn,
-            format="ICEBERG")
-        ```
-
-        ### With Metadata Schema
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
-        example_namespace = aws.s3tables.Namespace("example",
-            namespace="example_namespace",
-            table_bucket_arn=example_table_bucket.arn)
-        example = aws.s3tables.Table("example",
-            name="example_table",
-            namespace=example_namespace.namespace,
-            table_bucket_arn=example_namespace.table_bucket_arn,
-            format="ICEBERG",
-            metadata={
-                "iceberg": {
-                    "schema": {
-                        "fields": [
-                            {
-                                "name": "id",
-                                "type": "long",
-                                "required": True,
-                            },
-                            {
-                                "name": "name",
-                                "type": "string",
-                                "required": True,
-                            },
-                            {
-                                "name": "created_at",
-                                "type": "timestamp",
-                                "required": False,
-                            },
-                            {
-                                "name": "price",
-                                "type": "decimal(10,2)",
-                                "required": False,
-                            },
-                        ],
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-        ```
-
+        Create a Table resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -832,38 +504,6 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the table.
-        :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
-        :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
-        :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
-        :param pulumi.Input[_builtins.str] format: Format of the table.
-               Must be `ICEBERG`.
-        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-               See `metadata` below.
-        :param pulumi.Input[_builtins.str] metadata_location: Location of table metadata.
-        :param pulumi.Input[_builtins.str] modified_at: Date and time when the namespace was last modified.
-        :param pulumi.Input[_builtins.str] modified_by: Account ID of the account that last modified the namespace.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] owner_account_id: Account ID of the account that owns the namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: Type of the table.
-               One of `customer` or `aws`.
-        :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of table data.
-        :param pulumi.Input[_builtins.str] warehouse_location: S3 URI pointing to the S3 Bucket that contains the table data.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -894,172 +534,100 @@ class Table(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the table.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the namespace was created.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the account that created the namespace.
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.TableEncryptionConfiguration']:
-        """
-        A single table bucket encryption configuration object.
-        See `encryption_configuration` below.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter
     def format(self) -> pulumi.Output[_builtins.str]:
-        """
-        Format of the table.
-        Must be `ICEBERG`.
-        """
         return pulumi.get(self, "format")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableMaintenanceConfiguration']:
-        """
-        A single table bucket maintenance configuration object.
-        See `maintenance_configuration` below.
-        """
         return pulumi.get(self, "maintenance_configuration")
 
     @_builtins.property
     @pulumi.getter
     def metadata(self) -> pulumi.Output[Optional['outputs.TableMetadata']]:
-        """
-        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-        See `metadata` below.
-        """
         return pulumi.get(self, "metadata")
 
     @_builtins.property
     @pulumi.getter(name="metadataLocation")
     def metadata_location(self) -> pulumi.Output[_builtins.str]:
-        """
-        Location of table metadata.
-        """
         return pulumi.get(self, "metadata_location")
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        Date and time when the namespace was last modified.
-        """
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
     @pulumi.getter(name="modifiedBy")
     def modified_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the account that last modified the namespace.
-        """
         return pulumi.get(self, "modified_by")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the namespace for this table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account ID of the account that owns the namespace.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the table.
-        One of `customer` or `aws`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the current version of table data.
-        """
         return pulumi.get(self, "version_token")
 
     @_builtins.property
     @pulumi.getter(name="warehouseLocation")
     def warehouse_location(self) -> pulumi.Output[_builtins.str]:
-        """
-        S3 URI pointing to the S3 Bucket that contains the table data.
-        """
         return pulumi.get(self, "warehouse_location")
 

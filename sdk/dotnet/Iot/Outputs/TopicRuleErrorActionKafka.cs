@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionKafka
     {
-        /// <summary>
-        /// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        /// </summary>
         public readonly ImmutableDictionary<string, string> ClientProperties;
-        /// <summary>
-        /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination`.
-        /// </summary>
         public readonly string DestinationArn;
-        /// <summary>
-        /// The list of Kafka headers that you specify. Nested arguments below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleErrorActionKafkaHeader> Headers;
-        /// <summary>
-        /// The Kafka message key.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// The Kafka message partition.
-        /// </summary>
         public readonly string? Partition;
-        /// <summary>
-        /// The Kafka topic for messages to be sent to the Kafka broker.
-        /// </summary>
         public readonly string Topic;
 
         [OutputConstructor]

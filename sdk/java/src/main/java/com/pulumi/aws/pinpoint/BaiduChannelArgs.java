@@ -17,77 +17,37 @@ public final class BaiduChannelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BaiduChannelArgs Empty = new BaiduChannelArgs();
 
-    /**
-     * Platform credential API key from Baidu.
-     * 
-     */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
-    /**
-     * @return Platform credential API key from Baidu.
-     * 
-     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
 
-    /**
-     * The application ID.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Platform credential Secret key from Baidu.
-     * 
-     */
     @Import(name="secretKey", required=true)
     private Output<String> secretKey;
 
-    /**
-     * @return Platform credential Secret key from Baidu.
-     * 
-     */
     public Output<String> secretKey() {
         return this.secretKey;
     }
@@ -120,107 +80,47 @@ public final class BaiduChannelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BaiduChannelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey Platform credential API key from Baidu.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey Platform credential API key from Baidu.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param enabled Specifies whether to enable the channel. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Specifies whether to enable the channel. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretKey Platform credential Secret key from Baidu.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretKey(Output<String> secretKey) {
             $.secretKey = secretKey;
             return this;
         }
 
-        /**
-         * @param secretKey Platform credential Secret key from Baidu.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretKey(String secretKey) {
             return secretKey(Output.of(secretKey));
         }

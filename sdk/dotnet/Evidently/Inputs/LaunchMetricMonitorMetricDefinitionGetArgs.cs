@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class LaunchMetricMonitorMetricDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-        /// </summary>
         [Input("entityIdKey", required: true)]
         public Input<string> EntityIdKey { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies The EventBridge event pattern that defines how the metric is recorded.
-        /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
-        /// <summary>
-        /// Specifies the name for the metric.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies a label for the units that the metric is measuring.
-        /// </summary>
         [Input("unitLabel")]
         public Input<string>? UnitLabel { get; set; }
 
-        /// <summary>
-        /// Specifies the value that is tracked to produce the metric.
-        /// </summary>
         [Input("valueKey", required: true)]
         public Input<string> ValueKey { get; set; } = null!;
 

@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SSM Patch Group resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const production = new aws.ssm.PatchBaseline("production", {
- *     name: "patch-baseline",
- *     approvedPatches: ["KB123456"],
- * });
- * const patchgroup = new aws.ssm.PatchGroup("patchgroup", {
- *     baselineId: production.id,
- *     patchGroup: "patch-group-name",
- * });
- * ```
- */
 export class PatchGroup extends pulumi.CustomResource {
     /**
      * Get an existing PatchGroup resource's state with the given name, ID, and optional extra
@@ -51,17 +32,8 @@ export class PatchGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PatchGroup.__pulumiType;
     }
 
-    /**
-     * The ID of the patch baseline to register the patch group with.
-     */
     declare public readonly baselineId: pulumi.Output<string>;
-    /**
-     * The name of the patch group that should be registered with the patch baseline.
-     */
     declare public readonly patchGroup: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -101,17 +73,8 @@ export class PatchGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PatchGroup resources.
  */
 export interface PatchGroupState {
-    /**
-     * The ID of the patch baseline to register the patch group with.
-     */
     baselineId?: pulumi.Input<string>;
-    /**
-     * The name of the patch group that should be registered with the patch baseline.
-     */
     patchGroup?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -119,16 +82,7 @@ export interface PatchGroupState {
  * The set of arguments for constructing a PatchGroup resource.
  */
 export interface PatchGroupArgs {
-    /**
-     * The ID of the patch baseline to register the patch group with.
-     */
     baselineId: pulumi.Input<string>;
-    /**
-     * The name of the patch group that should be registered with the patch baseline.
-     */
     patchGroup: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

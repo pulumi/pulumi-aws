@@ -17,49 +17,23 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
 
     public static final ServiceSourceConfigurationImageRepositoryArgs Empty = new ServiceSourceConfigurationImageRepositoryArgs();
 
-    /**
-     * Configuration for running the identified image. See Image Configuration below for more details.
-     * 
-     */
     @Import(name="imageConfiguration")
     private @Nullable Output<ServiceSourceConfigurationImageRepositoryImageConfigurationArgs> imageConfiguration;
 
-    /**
-     * @return Configuration for running the identified image. See Image Configuration below for more details.
-     * 
-     */
     public Optional<Output<ServiceSourceConfigurationImageRepositoryImageConfigurationArgs>> imageConfiguration() {
         return Optional.ofNullable(this.imageConfiguration);
     }
 
-    /**
-     * Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-     * image name format, see Pulling an image in the Amazon ECR User Guide.
-     * 
-     */
     @Import(name="imageIdentifier", required=true)
     private Output<String> imageIdentifier;
 
-    /**
-     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-     * image name format, see Pulling an image in the Amazon ECR User Guide.
-     * 
-     */
     public Output<String> imageIdentifier() {
         return this.imageIdentifier;
     }
 
-    /**
-     * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-     * 
-     */
     @Import(name="imageRepositoryType", required=true)
     private Output<String> imageRepositoryType;
 
-    /**
-     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-     * 
-     */
     public Output<String> imageRepositoryType() {
         return this.imageRepositoryType;
     }
@@ -90,67 +64,29 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
             $ = new ServiceSourceConfigurationImageRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageConfiguration Configuration for running the identified image. See Image Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageConfiguration(@Nullable Output<ServiceSourceConfigurationImageRepositoryImageConfigurationArgs> imageConfiguration) {
             $.imageConfiguration = imageConfiguration;
             return this;
         }
 
-        /**
-         * @param imageConfiguration Configuration for running the identified image. See Image Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs imageConfiguration) {
             return imageConfiguration(Output.of(imageConfiguration));
         }
 
-        /**
-         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-         * image name format, see Pulling an image in the Amazon ECR User Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIdentifier(Output<String> imageIdentifier) {
             $.imageIdentifier = imageIdentifier;
             return this;
         }
 
-        /**
-         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-         * image name format, see Pulling an image in the Amazon ECR User Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIdentifier(String imageIdentifier) {
             return imageIdentifier(Output.of(imageIdentifier));
         }
 
-        /**
-         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageRepositoryType(Output<String> imageRepositoryType) {
             $.imageRepositoryType = imageRepositoryType;
             return this;
         }
 
-        /**
-         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageRepositoryType(String imageRepositoryType) {
             return imageRepositoryType(Output.of(imageRepositoryType));
         }

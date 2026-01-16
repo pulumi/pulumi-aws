@@ -28,9 +28,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _inclusionFilters = value;
         }
 
-        /// <summary>
-        /// The supported object type or content type of the data source.
-        /// </summary>
         [Input("objectType", required: true)]
         public Input<string> ObjectType { get; set; } = null!;
 

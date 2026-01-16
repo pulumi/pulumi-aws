@@ -35,32 +35,16 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.overrideJson);
     }
 
-    /**
-     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
-     * 
-     */
     @Import(name="overridePolicyDocuments")
     private @Nullable List<String> overridePolicyDocuments;
 
-    /**
-     * @return List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
-     * 
-     */
     public Optional<List<String>> overridePolicyDocuments() {
         return Optional.ofNullable(this.overridePolicyDocuments);
     }
 
-    /**
-     * ID for the policy document.
-     * 
-     */
     @Import(name="policyId")
     private @Nullable String policyId;
 
-    /**
-     * @return ID for the policy document.
-     * 
-     */
     public Optional<String> policyId() {
         return Optional.ofNullable(this.policyId);
     }
@@ -84,47 +68,23 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.sourceJson);
     }
 
-    /**
-     * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
-     * 
-     */
     @Import(name="sourcePolicyDocuments")
     private @Nullable List<String> sourcePolicyDocuments;
 
-    /**
-     * @return List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
-     * 
-     */
     public Optional<List<String>> sourcePolicyDocuments() {
         return Optional.ofNullable(this.sourcePolicyDocuments);
     }
 
-    /**
-     * Configuration block for a policy statement. Detailed below.
-     * 
-     */
     @Import(name="statements")
     private @Nullable List<GetPolicyDocumentStatement> statements;
 
-    /**
-     * @return Configuration block for a policy statement. Detailed below.
-     * 
-     */
     public Optional<List<GetPolicyDocumentStatement>> statements() {
         return Optional.ofNullable(this.statements);
     }
 
-    /**
-     * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
-     * 
-     */
     @Import(name="version")
     private @Nullable String version;
 
-    /**
-     * @return IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
@@ -172,33 +132,15 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
             return this;
         }
 
-        /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overridePolicyDocuments(@Nullable List<String> overridePolicyDocuments) {
             $.overridePolicyDocuments = overridePolicyDocuments;
             return this;
         }
 
-        /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overridePolicyDocuments(String... overridePolicyDocuments) {
             return overridePolicyDocuments(List.of(overridePolicyDocuments));
         }
 
-        /**
-         * @param policyId ID for the policy document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyId(@Nullable String policyId) {
             $.policyId = policyId;
             return this;
@@ -217,54 +159,24 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
             return this;
         }
 
-        /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePolicyDocuments(@Nullable List<String> sourcePolicyDocuments) {
             $.sourcePolicyDocuments = sourcePolicyDocuments;
             return this;
         }
 
-        /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePolicyDocuments(String... sourcePolicyDocuments) {
             return sourcePolicyDocuments(List.of(sourcePolicyDocuments));
         }
 
-        /**
-         * @param statements Configuration block for a policy statement. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(@Nullable List<GetPolicyDocumentStatement> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements Configuration block for a policy statement. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(GetPolicyDocumentStatement... statements) {
             return statements(List.of(statements));
         }
 
-        /**
-         * @param version IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable String version) {
             $.version = version;
             return this;

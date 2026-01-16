@@ -12,107 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Backup Restore Testing Selection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewRestoreTestingSelection(ctx, "example", &backup.RestoreTestingSelectionArgs{
-//				Name:                   pulumi.String("ec2_selection"),
-//				RestoreTestingPlanName: pulumi.Any(exampleAwsBackupRestoreTestingPlan.Name),
-//				ProtectedResourceType:  pulumi.String("EC2"),
-//				IamRoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
-//				ProtectedResourceArns: pulumi.StringArray{
-//					pulumi.String("*"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Advanced Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewRestoreTestingSelection(ctx, "example", &backup.RestoreTestingSelectionArgs{
-//				Name:                   pulumi.String("ec2_selection"),
-//				RestoreTestingPlanName: pulumi.Any(exampleAwsBackupRestoreTestingPlan.Name),
-//				ProtectedResourceType:  pulumi.String("EC2"),
-//				IamRoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
-//				ProtectedResourceConditions: &backup.RestoreTestingSelectionProtectedResourceConditionsArgs{
-//					StringEquals: backup.RestoreTestingSelectionProtectedResourceConditionsStringEqualArray{
-//						&backup.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs{
-//							Key:   pulumi.String("aws:ResourceTag/backup"),
-//							Value: pulumi.String("true"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup Restore Testing Selection using `name:restore_testing_plan_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/restoreTestingSelection:RestoreTestingSelection example restore_testing_selection_12345678:restore_testing_plan_12345678
-// ```
 type RestoreTestingSelection struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the IAM role.
-	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// The name of the backup restore testing selection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ARNs for the protected resources.
-	ProtectedResourceArns pulumi.StringArrayOutput `pulumi:"protectedResourceArns"`
-	// The conditions for the protected resource.
+	IamRoleArn                  pulumi.StringOutput                                         `pulumi:"iamRoleArn"`
+	Name                        pulumi.StringOutput                                         `pulumi:"name"`
+	ProtectedResourceArns       pulumi.StringArrayOutput                                    `pulumi:"protectedResourceArns"`
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrOutput `pulumi:"protectedResourceConditions"`
-	// The type of the protected resource.
-	ProtectedResourceType pulumi.StringOutput `pulumi:"protectedResourceType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-	RestoreMetadataOverrides pulumi.StringMapOutput `pulumi:"restoreMetadataOverrides"`
-	// The name of the restore testing plan.
-	RestoreTestingPlanName pulumi.StringOutput `pulumi:"restoreTestingPlanName"`
-	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-	ValidationWindowHours pulumi.IntOutput `pulumi:"validationWindowHours"`
+	ProtectedResourceType       pulumi.StringOutput                                         `pulumi:"protectedResourceType"`
+	Region                      pulumi.StringOutput                                         `pulumi:"region"`
+	RestoreMetadataOverrides    pulumi.StringMapOutput                                      `pulumi:"restoreMetadataOverrides"`
+	RestoreTestingPlanName      pulumi.StringOutput                                         `pulumi:"restoreTestingPlanName"`
+	ValidationWindowHours       pulumi.IntOutput                                            `pulumi:"validationWindowHours"`
 }
 
 // NewRestoreTestingSelection registers a new resource with the given unique name, arguments, and options.
@@ -154,45 +65,27 @@ func GetRestoreTestingSelection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestoreTestingSelection resources.
 type restoreTestingSelectionState struct {
-	// The ARN of the IAM role.
-	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The name of the backup restore testing selection.
-	Name *string `pulumi:"name"`
-	// The ARNs for the protected resources.
-	ProtectedResourceArns []string `pulumi:"protectedResourceArns"`
-	// The conditions for the protected resource.
+	IamRoleArn                  *string                                             `pulumi:"iamRoleArn"`
+	Name                        *string                                             `pulumi:"name"`
+	ProtectedResourceArns       []string                                            `pulumi:"protectedResourceArns"`
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
-	// The type of the protected resource.
-	ProtectedResourceType *string `pulumi:"protectedResourceType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
-	// The name of the restore testing plan.
-	RestoreTestingPlanName *string `pulumi:"restoreTestingPlanName"`
-	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-	ValidationWindowHours *int `pulumi:"validationWindowHours"`
+	ProtectedResourceType       *string                                             `pulumi:"protectedResourceType"`
+	Region                      *string                                             `pulumi:"region"`
+	RestoreMetadataOverrides    map[string]string                                   `pulumi:"restoreMetadataOverrides"`
+	RestoreTestingPlanName      *string                                             `pulumi:"restoreTestingPlanName"`
+	ValidationWindowHours       *int                                                `pulumi:"validationWindowHours"`
 }
 
 type RestoreTestingSelectionState struct {
-	// The ARN of the IAM role.
-	IamRoleArn pulumi.StringPtrInput
-	// The name of the backup restore testing selection.
-	Name pulumi.StringPtrInput
-	// The ARNs for the protected resources.
-	ProtectedResourceArns pulumi.StringArrayInput
-	// The conditions for the protected resource.
+	IamRoleArn                  pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	ProtectedResourceArns       pulumi.StringArrayInput
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
-	// The type of the protected resource.
-	ProtectedResourceType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-	RestoreMetadataOverrides pulumi.StringMapInput
-	// The name of the restore testing plan.
-	RestoreTestingPlanName pulumi.StringPtrInput
-	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-	ValidationWindowHours pulumi.IntPtrInput
+	ProtectedResourceType       pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
+	RestoreMetadataOverrides    pulumi.StringMapInput
+	RestoreTestingPlanName      pulumi.StringPtrInput
+	ValidationWindowHours       pulumi.IntPtrInput
 }
 
 func (RestoreTestingSelectionState) ElementType() reflect.Type {
@@ -200,46 +93,28 @@ func (RestoreTestingSelectionState) ElementType() reflect.Type {
 }
 
 type restoreTestingSelectionArgs struct {
-	// The ARN of the IAM role.
-	IamRoleArn string `pulumi:"iamRoleArn"`
-	// The name of the backup restore testing selection.
-	Name *string `pulumi:"name"`
-	// The ARNs for the protected resources.
-	ProtectedResourceArns []string `pulumi:"protectedResourceArns"`
-	// The conditions for the protected resource.
+	IamRoleArn                  string                                              `pulumi:"iamRoleArn"`
+	Name                        *string                                             `pulumi:"name"`
+	ProtectedResourceArns       []string                                            `pulumi:"protectedResourceArns"`
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
-	// The type of the protected resource.
-	ProtectedResourceType string `pulumi:"protectedResourceType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
-	// The name of the restore testing plan.
-	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
-	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-	ValidationWindowHours *int `pulumi:"validationWindowHours"`
+	ProtectedResourceType       string                                              `pulumi:"protectedResourceType"`
+	Region                      *string                                             `pulumi:"region"`
+	RestoreMetadataOverrides    map[string]string                                   `pulumi:"restoreMetadataOverrides"`
+	RestoreTestingPlanName      string                                              `pulumi:"restoreTestingPlanName"`
+	ValidationWindowHours       *int                                                `pulumi:"validationWindowHours"`
 }
 
 // The set of arguments for constructing a RestoreTestingSelection resource.
 type RestoreTestingSelectionArgs struct {
-	// The ARN of the IAM role.
-	IamRoleArn pulumi.StringInput
-	// The name of the backup restore testing selection.
-	Name pulumi.StringPtrInput
-	// The ARNs for the protected resources.
-	ProtectedResourceArns pulumi.StringArrayInput
-	// The conditions for the protected resource.
+	IamRoleArn                  pulumi.StringInput
+	Name                        pulumi.StringPtrInput
+	ProtectedResourceArns       pulumi.StringArrayInput
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
-	// The type of the protected resource.
-	ProtectedResourceType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
-	RestoreMetadataOverrides pulumi.StringMapInput
-	// The name of the restore testing plan.
-	RestoreTestingPlanName pulumi.StringInput
-	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
-	ValidationWindowHours pulumi.IntPtrInput
+	ProtectedResourceType       pulumi.StringInput
+	Region                      pulumi.StringPtrInput
+	RestoreMetadataOverrides    pulumi.StringMapInput
+	RestoreTestingPlanName      pulumi.StringInput
+	ValidationWindowHours       pulumi.IntPtrInput
 }
 
 func (RestoreTestingSelectionArgs) ElementType() reflect.Type {
@@ -329,49 +204,40 @@ func (o RestoreTestingSelectionOutput) ToRestoreTestingSelectionOutputWithContex
 	return o
 }
 
-// The ARN of the IAM role.
 func (o RestoreTestingSelectionOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// The name of the backup restore testing selection.
 func (o RestoreTestingSelectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ARNs for the protected resources.
 func (o RestoreTestingSelectionOutput) ProtectedResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringArrayOutput { return v.ProtectedResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// The conditions for the protected resource.
 func (o RestoreTestingSelectionOutput) ProtectedResourceConditions() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 		return v.ProtectedResourceConditions
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
-// The type of the protected resource.
 func (o RestoreTestingSelectionOutput) ProtectedResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.ProtectedResourceType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RestoreTestingSelectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 func (o RestoreTestingSelectionOutput) RestoreMetadataOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringMapOutput { return v.RestoreMetadataOverrides }).(pulumi.StringMapOutput)
 }
 
-// The name of the restore testing plan.
 func (o RestoreTestingSelectionOutput) RestoreTestingPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.RestoreTestingPlanName }).(pulumi.StringOutput)
 }
 
-// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
 func (o RestoreTestingSelectionOutput) ValidationWindowHours() pulumi.IntOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.IntOutput { return v.ValidationWindowHours }).(pulumi.IntOutput)
 }

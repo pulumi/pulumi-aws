@@ -11,21 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentAgentActionGroupFunctionSchema {
-    /**
-     * @return Contains a list of functions.
-     * Each function describes and action in the action group.
-     * See `memberFunctions` Block for details.
-     * 
-     */
     private @Nullable AgentAgentActionGroupFunctionSchemaMemberFunctions memberFunctions;
 
     private AgentAgentActionGroupFunctionSchema() {}
-    /**
-     * @return Contains a list of functions.
-     * Each function describes and action in the action group.
-     * See `memberFunctions` Block for details.
-     * 
-     */
     public Optional<AgentAgentActionGroupFunctionSchemaMemberFunctions> memberFunctions() {
         return Optional.ofNullable(this.memberFunctions);
     }

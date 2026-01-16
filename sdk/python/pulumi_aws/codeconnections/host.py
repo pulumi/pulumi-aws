@@ -30,11 +30,6 @@ class HostArgs:
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Host resource.
-        :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
-        :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         pulumi.set(__self__, "provider_endpoint", provider_endpoint)
         pulumi.set(__self__, "provider_type", provider_type)
@@ -52,9 +47,6 @@ class HostArgs:
     @_builtins.property
     @pulumi.getter(name="providerEndpoint")
     def provider_endpoint(self) -> pulumi.Input[_builtins.str]:
-        """
-        The endpoint of the infrastructure to be represented by the host after it is created.
-        """
         return pulumi.get(self, "provider_endpoint")
 
     @provider_endpoint.setter
@@ -64,9 +56,6 @@ class HostArgs:
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the external provider where your third-party code repository is configured.
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -76,9 +65,6 @@ class HostArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the host to be created. The name must be unique in the calling AWS account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,9 +74,6 @@ class HostArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,9 +101,6 @@ class HostArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['HostVpcConfigurationArgs']]:
-        """
-        The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -142,12 +122,6 @@ class _HostState:
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Host resources.
-        :param pulumi.Input[_builtins.str] arn: The CodeConnections Host ARN.
-        :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
-        :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
-        :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -171,9 +145,6 @@ class _HostState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The CodeConnections Host ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -183,9 +154,6 @@ class _HostState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the host to be created. The name must be unique in the calling AWS account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -195,9 +163,6 @@ class _HostState:
     @_builtins.property
     @pulumi.getter(name="providerEndpoint")
     def provider_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The endpoint of the infrastructure to be represented by the host after it is created.
-        """
         return pulumi.get(self, "provider_endpoint")
 
     @provider_endpoint.setter
@@ -207,9 +172,6 @@ class _HostState:
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the external provider where your third-party code repository is configured.
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -219,9 +181,6 @@ class _HostState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -258,9 +217,6 @@ class _HostState:
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['HostVpcConfigurationArgs']]:
-        """
-        The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -283,43 +239,9 @@ class Host(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CodeConnections Host.
-
-        > **NOTE:** The `codeconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codeconnections.Host("example",
-            name="example-host",
-            provider_endpoint="https://example.com",
-            provider_type="GitHubEnterpriseServer")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections host.
-
-        Using `pulumi import`, import CodeConnections Host using the ARN. For example:
-
-        % pulumi import aws_codeconnections_host.example-host arn:aws:codeconnections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
-
+        Create a Host resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
-        :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
-        :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         ...
     @overload
@@ -328,36 +250,7 @@ class Host(pulumi.CustomResource):
                  args: HostArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CodeConnections Host.
-
-        > **NOTE:** The `codeconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codeconnections.Host("example",
-            name="example-host",
-            provider_endpoint="https://example.com",
-            provider_type="GitHubEnterpriseServer")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections host.
-
-        Using `pulumi import`, import CodeConnections Host using the ARN. For example:
-
-        % pulumi import aws_codeconnections_host.example-host arn:aws:codeconnections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
-
+        Create a Host resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,12 +321,6 @@ class Host(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The CodeConnections Host ARN.
-        :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
-        :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
-        :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -453,41 +340,26 @@ class Host(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The CodeConnections Host ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the host to be created. The name must be unique in the calling AWS account.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="providerEndpoint")
     def provider_endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The endpoint of the infrastructure to be represented by the host after it is created.
-        """
         return pulumi.get(self, "provider_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the external provider where your third-party code repository is configured.
-        """
         return pulumi.get(self, "provider_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -508,8 +380,5 @@ class Host(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output[Optional['outputs.HostVpcConfiguration']]:
-        """
-        The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
-        """
         return pulumi.get(self, "vpc_configuration")
 

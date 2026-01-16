@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterKubernetesNetworkConfigElasticLoadBalancing
     {
-        /// <summary>
-        /// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        /// </summary>
         [Input("daysAfterInitiation")]
         public Input<int>? DaysAfterInitiation { get; set; }
 

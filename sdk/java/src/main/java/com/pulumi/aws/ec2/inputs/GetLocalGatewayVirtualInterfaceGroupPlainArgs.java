@@ -17,77 +17,37 @@ public final class GetLocalGatewayVirtualInterfaceGroupPlainArgs extends com.pul
 
     public static final GetLocalGatewayVirtualInterfaceGroupPlainArgs Empty = new GetLocalGatewayVirtualInterfaceGroupPlainArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetLocalGatewayVirtualInterfaceGroupFilter> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-     * 
-     */
     public Optional<List<GetLocalGatewayVirtualInterfaceGroupFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Identifier of EC2 Local Gateway Virtual Interface Group.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier of EC2 Local Gateway Virtual Interface Group.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Identifier of EC2 Local Gateway.
-     * 
-     */
     @Import(name="localGatewayId")
     private @Nullable String localGatewayId;
 
-    /**
-     * @return Identifier of EC2 Local Gateway.
-     * 
-     */
     public Optional<String> localGatewayId() {
         return Optional.ofNullable(this.localGatewayId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,66 +80,30 @@ public final class GetLocalGatewayVirtualInterfaceGroupPlainArgs extends com.pul
             $ = new GetLocalGatewayVirtualInterfaceGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetLocalGatewayVirtualInterfaceGroupFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetLocalGatewayVirtualInterfaceGroupFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Identifier of EC2 Local Gateway Virtual Interface Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param localGatewayId Identifier of EC2 Local Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayId(@Nullable String localGatewayId) {
             $.localGatewayId = localGatewayId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

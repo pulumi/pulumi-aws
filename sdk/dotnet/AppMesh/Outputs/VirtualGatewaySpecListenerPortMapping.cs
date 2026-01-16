@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewaySpecListenerPortMapping
     {
-        /// <summary>
-        /// Port used for the port mapping.
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// Protocol used for the port mapping. Valid values are `Http`, `Http2`, `Tcp` and `Grpc`.
-        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

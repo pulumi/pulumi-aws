@@ -19,51 +19,23 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Resour
 
     public static final RepositoryAssociationArgs Empty = new RepositoryAssociationArgs();
 
-    /**
-     * An object describing the KMS key to asssociate. Block is documented below.
-     * 
-     */
     @Import(name="kmsKeyDetails")
     private @Nullable Output<RepositoryAssociationKmsKeyDetailsArgs> kmsKeyDetails;
 
-    /**
-     * @return An object describing the KMS key to asssociate. Block is documented below.
-     * 
-     */
     public Optional<Output<RepositoryAssociationKmsKeyDetailsArgs>> kmsKeyDetails() {
         return Optional.ofNullable(this.kmsKeyDetails);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<RepositoryAssociationRepositoryArgs> repository;
 
-    /**
-     * @return An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<RepositoryAssociationRepositoryArgs> repository() {
         return this.repository;
     }
@@ -102,69 +74,29 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Resour
             $ = new RepositoryAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyDetails An object describing the KMS key to asssociate. Block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyDetails(@Nullable Output<RepositoryAssociationKmsKeyDetailsArgs> kmsKeyDetails) {
             $.kmsKeyDetails = kmsKeyDetails;
             return this;
         }
 
-        /**
-         * @param kmsKeyDetails An object describing the KMS key to asssociate. Block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs kmsKeyDetails) {
             return kmsKeyDetails(Output.of(kmsKeyDetails));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repository An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<RepositoryAssociationRepositoryArgs> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(RepositoryAssociationRepositoryArgs repository) {
             return repository(Output.of(repository));
         }

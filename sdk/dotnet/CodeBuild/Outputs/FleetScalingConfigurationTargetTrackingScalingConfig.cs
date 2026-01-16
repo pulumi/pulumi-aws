@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class FleetScalingConfigurationTargetTrackingScalingConfig
     {
-        /// <summary>
-        /// Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
-        /// </summary>
         public readonly string? MetricType;
-        /// <summary>
-        /// Value of metricType when to start scaling.
-        /// </summary>
         public readonly double? TargetValue;
 
         [OutputConstructor]

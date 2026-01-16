@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS QuickSight Analysis.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getQuicksightAnalysis({
- *     analysisId: "example-id",
- * });
- * ```
- */
 export function getQuicksightAnalysis(args: GetQuicksightAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightAnalysisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
@@ -37,14 +21,8 @@ export function getQuicksightAnalysis(args: GetQuicksightAnalysisArgs, opts?: pu
  * A collection of arguments for invoking getQuicksightAnalysis.
  */
 export interface GetQuicksightAnalysisArgs {
-    /**
-     * Identifier for the analysis.
-     */
     analysisId: string;
     awsAccountId?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
     tags?: {[key: string]: string};
 }
@@ -70,22 +48,6 @@ export interface GetQuicksightAnalysisResult {
     readonly tags: {[key: string]: string};
     readonly themeArn: string;
 }
-/**
- * Data source for managing an AWS QuickSight Analysis.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getQuicksightAnalysis({
- *     analysisId: "example-id",
- * });
- * ```
- */
 export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuicksightAnalysisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
@@ -100,14 +62,8 @@ export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArg
  * A collection of arguments for invoking getQuicksightAnalysis.
  */
 export interface GetQuicksightAnalysisOutputArgs {
-    /**
-     * Identifier for the analysis.
-     */
     analysisId: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

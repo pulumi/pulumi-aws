@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSourcesConfigEventSourceAmazonCodeGuruProfiler {
-    /**
-     * @return Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private String status;
 
     private EventSourcesConfigEventSourceAmazonCodeGuruProfiler() {}
-    /**
-     * @return Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

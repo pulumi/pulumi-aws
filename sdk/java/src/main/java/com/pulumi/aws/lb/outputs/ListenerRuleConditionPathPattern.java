@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleConditionPathPattern {
-    /**
-     * @return List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-     * 
-     */
     private @Nullable List<String> regexValues;
-    /**
-     * @return List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-     * 
-     */
     private @Nullable List<String> values;
 
     private ListenerRuleConditionPathPattern() {}
-    /**
-     * @return List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
-     * 
-     */
     public List<String> regexValues() {
         return this.regexValues == null ? List.of() : this.regexValues;
     }
-    /**
-     * @return List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceHealthCheckConfig {
-    /**
-     * @return The number of consecutive health checks. Maximum value of 10.
-     * 
-     */
     private @Nullable Integer failureThreshold;
-    /**
-     * @return The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don&#39;t specify a value, the default value is /.
-     * 
-     */
     private @Nullable String resourcePath;
-    /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-     * 
-     */
     private @Nullable String type;
 
     private ServiceHealthCheckConfig() {}
-    /**
-     * @return The number of consecutive health checks. Maximum value of 10.
-     * 
-     */
     public Optional<Integer> failureThreshold() {
         return Optional.ofNullable(this.failureThreshold);
     }
-    /**
-     * @return The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don&#39;t specify a value, the default value is /.
-     * 
-     */
     public Optional<String> resourcePath() {
         return Optional.ofNullable(this.resourcePath);
     }
-    /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

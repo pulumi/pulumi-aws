@@ -12,57 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LoadBalancerSubnetMapping {
-    /**
-     * @return Allocation ID of the Elastic IP address for an internet-facing load balancer.
-     * 
-     */
     private @Nullable String allocationId;
-    /**
-     * @return IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-     * 
-     */
     private @Nullable String ipv6Address;
     private @Nullable String outpostId;
-    /**
-     * @return Private IPv4 address for an internal load balancer.
-     * 
-     */
     private @Nullable String privateIpv4Address;
-    /**
-     * @return ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-     * 
-     */
     private String subnetId;
 
     private LoadBalancerSubnetMapping() {}
-    /**
-     * @return Allocation ID of the Elastic IP address for an internet-facing load balancer.
-     * 
-     */
     public Optional<String> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
-    /**
-     * @return IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-     * 
-     */
     public Optional<String> ipv6Address() {
         return Optional.ofNullable(this.ipv6Address);
     }
     public Optional<String> outpostId() {
         return Optional.ofNullable(this.outpostId);
     }
-    /**
-     * @return Private IPv4 address for an internal load balancer.
-     * 
-     */
     public Optional<String> privateIpv4Address() {
         return Optional.ofNullable(this.privateIpv4Address);
     }
-    /**
-     * @return ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

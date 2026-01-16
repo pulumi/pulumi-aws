@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionRetryStrategyEvaluateOnExit {
-    /**
-     * @return Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-     * 
-     */
     private String action;
-    /**
-     * @return Glob pattern to match against the decimal representation of the exit code returned for a job.
-     * 
-     */
     private @Nullable String onExitCode;
-    /**
-     * @return Glob pattern to match against the reason returned for a job.
-     * 
-     */
     private @Nullable String onReason;
-    /**
-     * @return Glob pattern to match against the status reason returned for a job.
-     * 
-     */
     private @Nullable String onStatusReason;
 
     private JobDefinitionRetryStrategyEvaluateOnExit() {}
-    /**
-     * @return Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return Glob pattern to match against the decimal representation of the exit code returned for a job.
-     * 
-     */
     public Optional<String> onExitCode() {
         return Optional.ofNullable(this.onExitCode);
     }
-    /**
-     * @return Glob pattern to match against the reason returned for a job.
-     * 
-     */
     public Optional<String> onReason() {
         return Optional.ofNullable(this.onReason);
     }
-    /**
-     * @return Glob pattern to match against the status reason returned for a job.
-     * 
-     */
     public Optional<String> onStatusReason() {
         return Optional.ofNullable(this.onStatusReason);
     }

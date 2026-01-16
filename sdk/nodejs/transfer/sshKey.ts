@@ -4,79 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a AWS Transfer User SSH Key resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- * import * as tls from "@pulumi/tls";
- *
- * const examplePrivateKey = new tls.PrivateKey("example", {
- *     algorithm: "RSA",
- *     rsaBits: 4096,
- * });
- * const exampleServer = new aws.transfer.Server("example", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "tf-test-transfer-user-iam-role",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const exampleUser = new aws.transfer.User("example", {
- *     serverId: exampleServer.id,
- *     userName: "tftestuser",
- *     role: exampleRole.arn,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- * });
- * const exampleSshKey = new aws.transfer.SshKey("example", {
- *     serverId: exampleServer.id,
- *     userName: exampleUser.userName,
- *     body: std.trimspaceOutput({
- *         input: examplePrivateKey.publicKeyOpenssh,
- *     }).apply(invoke => invoke.result),
- * });
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "AllowFullAccesstoS3",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     name: "tf-test-transfer-user-iam-policy",
- *     role: exampleRole.id,
- *     policy: example.then(example => example.json),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
- *
- * ```sh
- * $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
- * ```
- */
 export class SshKey extends pulumi.CustomResource {
     /**
      * Get an existing SshKey resource's state with the given name, ID, and optional extra
@@ -105,22 +32,10 @@ export class SshKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === SshKey.__pulumiType;
     }
 
-    /**
-     * The public key portion of an SSH key pair.
-     */
     declare public readonly body: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     declare public readonly serverId: pulumi.Output<string>;
     declare public /*out*/ readonly sshKeyId: pulumi.Output<string>;
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     */
     declare public readonly userName: pulumi.Output<string>;
 
     /**
@@ -167,22 +82,10 @@ export class SshKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SshKey resources.
  */
 export interface SshKeyState {
-    /**
-     * The public key portion of an SSH key pair.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     serverId?: pulumi.Input<string>;
     sshKeyId?: pulumi.Input<string>;
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -190,20 +93,8 @@ export interface SshKeyState {
  * The set of arguments for constructing a SshKey resource.
  */
 export interface SshKeyArgs {
-    /**
-     * The public key portion of an SSH key pair.
-     */
     body: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     serverId: pulumi.Input<string>;
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     */
     userName: pulumi.Input<string>;
 }

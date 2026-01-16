@@ -17,148 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates and manages an AWS IoT Thing Type.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.ThingType;
- * import com.pulumi.aws.iot.ThingTypeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new ThingType("foo", ThingTypeArgs.builder()
- *             .name("my_iot_thing")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IOT Thing Types using the name. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/thingType:ThingType example example
- * ```
- * 
- */
 @ResourceType(type="aws:iot/thingType:ThingType")
 public class ThingType extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the created AWS IoT Thing Type.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the created AWS IoT Thing Type.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     * 
-     */
     @Export(name="deprecated", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deprecated;
 
-    /**
-     * @return Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     * 
-     */
     public Output<Optional<Boolean>> deprecated() {
         return Codegen.optional(this.deprecated);
     }
-    /**
-     * The name of the thing type.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the thing type.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     * 
-     */
     @Export(name="properties", refs={ThingTypeProperties.class}, tree="[0]")
     private Output</* @Nullable */ ThingTypeProperties> properties;
 
-    /**
-     * @return , Configuration block that can contain the following properties of the thing type:
-     * 
-     */
     public Output<Optional<ThingTypeProperties>> properties() {
         return Codegen.optional(this.properties);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

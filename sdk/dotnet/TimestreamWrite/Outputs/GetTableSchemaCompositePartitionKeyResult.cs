@@ -14,13 +14,7 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     public sealed class GetTableSchemaCompositePartitionKeyResult
     {
         public readonly string EnforcementInRecord;
-        /// <summary>
-        /// Name of the Timestream table.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Type of partition key.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

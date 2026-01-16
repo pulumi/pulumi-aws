@@ -15,46 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Propagation.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.DefaultRouteTablePropagation;
- * import com.pulumi.aws.ec2transitgateway.DefaultRouteTablePropagationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTablePropagation("example", DefaultRouteTablePropagationArgs.builder()
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
- *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/defaultRouteTablePropagation:DefaultRouteTablePropagation")
 public class DefaultRouteTablePropagation extends com.pulumi.resources.CustomResource {
     @Export(name="originalDefaultRouteTableId", refs={String.class}, tree="[0]")
@@ -63,17 +23,9 @@ public class DefaultRouteTablePropagation extends com.pulumi.resources.CustomRes
     public Output<String> originalDefaultRouteTableId() {
         return this.originalDefaultRouteTableId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -83,31 +35,15 @@ public class DefaultRouteTablePropagation extends com.pulumi.resources.CustomRes
     public Output<Optional<DefaultRouteTablePropagationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * ID of the Transit Gateway to change the default association route table on.
-     * 
-     */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
-    /**
-     * @return ID of the Transit Gateway to change the default association route table on.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * ID of the Transit Gateway Route Table to be made the default association route table.
-     * 
-     */
     @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
-    /**
-     * @return ID of the Transit Gateway Route Table to be made the default association route table.
-     * 
-     */
     public Output<String> transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }

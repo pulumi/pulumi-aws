@@ -16,17 +16,9 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
 
     public static final PartitionStorageDescriptorColumnArgs Empty = new PartitionStorageDescriptorColumnArgs();
 
-    /**
-     * Free-form text comment.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Free-form text comment.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
@@ -38,17 +30,9 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
         return this.name;
     }
 
-    /**
-     * The datatype of data in the Column.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The datatype of data in the Column.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -79,23 +63,11 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
             $ = new PartitionStorageDescriptorColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment Free-form text comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Free-form text comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
@@ -109,23 +81,11 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
             return name(Output.of(name));
         }
 
-        /**
-         * @param type The datatype of data in the Column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The datatype of data in the Column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

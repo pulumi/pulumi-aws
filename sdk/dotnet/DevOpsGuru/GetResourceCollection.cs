@@ -11,81 +11,12 @@ namespace Pulumi.Aws.DevOpsGuru
 {
     public static class GetResourceCollection
     {
-        /// <summary>
-        /// Data source for managing an AWS DevOps Guru Resource Collection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DevOpsGuru.GetResourceCollection.Invoke(new()
-        ///     {
-        ///         Type = "AWS_SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResourceCollectionResult> InvokeAsync(GetResourceCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceCollectionResult>("aws:devopsguru/getResourceCollection:getResourceCollection", args ?? new GetResourceCollectionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DevOps Guru Resource Collection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DevOpsGuru.GetResourceCollection.Invoke(new()
-        ///     {
-        ///         Type = "AWS_SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws:devopsguru/getResourceCollection:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DevOps Guru Resource Collection.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DevOpsGuru.GetResourceCollection.Invoke(new()
-        ///     {
-        ///         Type = "AWS_SERVICE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws:devopsguru/getResourceCollection:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.DevOpsGuru
 
     public sealed class GetResourceCollectionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.DevOpsGuru
 
     public sealed class GetResourceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -135,18 +54,9 @@ namespace Pulumi.Aws.DevOpsGuru
     [OutputType]
     public sealed class GetResourceCollectionResult
     {
-        /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `Cloudformation` below for additional details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResourceCollectionCloudformationResult> Cloudformations;
-        /// <summary>
-        /// Type of AWS resource collection to create (same value as `Type`).
-        /// </summary>
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `Tags` below for additional details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResourceCollectionTagResult> Tags;
         public readonly string Type;
 

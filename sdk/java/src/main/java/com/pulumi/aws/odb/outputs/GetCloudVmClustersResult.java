@@ -12,10 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudVmClustersResult {
-    /**
-     * @return List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
-     * 
-     */
     private List<GetCloudVmClustersCloudVmCluster> cloudVmClusters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,10 +21,6 @@ public final class GetCloudVmClustersResult {
     private String region;
 
     private GetCloudVmClustersResult() {}
-    /**
-     * @return List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
-     * 
-     */
     public List<GetCloudVmClustersCloudVmCluster> cloudVmClusters() {
         return this.cloudVmClusters;
     }

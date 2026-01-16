@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a static route between a VPN connection and a customer gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
- * const vpnGateway = new aws.ec2.VpnGateway("vpn_gateway", {vpcId: vpc.id});
- * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
- *     bgpAsn: "65000",
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
- * });
- * const main = new aws.ec2.VpnConnection("main", {
- *     vpnGatewayId: vpnGateway.id,
- *     customerGatewayId: customerGateway.id,
- *     type: "ipsec.1",
- *     staticRoutesOnly: true,
- * });
- * const office = new aws.ec2.VpnConnectionRoute("office", {
- *     destinationCidrBlock: "192.168.10.0/24",
- *     vpnConnectionId: main.id,
- * });
- * ```
- */
 export class VpnConnectionRoute extends pulumi.CustomResource {
     /**
      * Get an existing VpnConnectionRoute resource's state with the given name, ID, and optional extra
@@ -60,17 +32,8 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnConnectionRoute.__pulumiType;
     }
 
-    /**
-     * The CIDR block associated with the local subnet of the customer network.
-     */
     declare public readonly destinationCidrBlock: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The ID of the VPN connection.
-     */
     declare public readonly vpnConnectionId: pulumi.Output<string>;
 
     /**
@@ -110,17 +73,8 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnConnectionRoute resources.
  */
 export interface VpnConnectionRouteState {
-    /**
-     * The CIDR block associated with the local subnet of the customer network.
-     */
     destinationCidrBlock?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPN connection.
-     */
     vpnConnectionId?: pulumi.Input<string>;
 }
 
@@ -128,16 +82,7 @@ export interface VpnConnectionRouteState {
  * The set of arguments for constructing a VpnConnectionRoute resource.
  */
 export interface VpnConnectionRouteArgs {
-    /**
-     * The CIDR block associated with the local subnet of the customer network.
-     */
     destinationCidrBlock: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The ID of the VPN connection.
-     */
     vpnConnectionId: pulumi.Input<string>;
 }

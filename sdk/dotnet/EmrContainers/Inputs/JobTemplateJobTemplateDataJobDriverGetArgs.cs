@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class JobTemplateJobTemplateDataJobDriverGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The job driver for job type.
-        /// </summary>
         [Input("sparkSqlJobDriver")]
         public Input<Inputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverGetArgs>? SparkSqlJobDriver { get; set; }
 
-        /// <summary>
-        /// The job driver parameters specified for spark submit.
-        /// </summary>
         [Input("sparkSubmitJobDriver")]
         public Input<Inputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverGetArgs>? SparkSubmitJobDriver { get; set; }
 

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetRecordsResourceRecordSetGeoproximityLocationResult
     {
-        /// <summary>
-        /// The AWS Region the resource you are directing DNS traffic to, is in.
-        /// </summary>
         public readonly string AwsRegion;
-        /// <summary>
-        /// The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-        /// </summary>
         public readonly int Bias;
-        /// <summary>
-        /// Contains the longitude and latitude for a geographic region.
-        /// </summary>
         public readonly Outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult Coordinates;
-        /// <summary>
-        /// An AWS Local Zone Group.
-        /// </summary>
         public readonly string LocalZoneGroup;
 
         [OutputConstructor]

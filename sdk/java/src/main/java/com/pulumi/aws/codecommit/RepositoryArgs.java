@@ -17,92 +17,44 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryArgs Empty = new RepositoryArgs();
 
-    /**
-     * The default branch of the repository. The branch specified here needs to exist.
-     * 
-     */
     @Import(name="defaultBranch")
     private @Nullable Output<String> defaultBranch;
 
-    /**
-     * @return The default branch of the repository. The branch specified here needs to exist.
-     * 
-     */
     public Optional<Output<String>> defaultBranch() {
         return Optional.ofNullable(this.defaultBranch);
     }
 
-    /**
-     * The description of the repository. This needs to be less than 1000 characters
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the repository. This needs to be less than 1000 characters
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -136,128 +88,56 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultBranch The default branch of the repository. The branch specified here needs to exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBranch(@Nullable Output<String> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
         }
 
-        /**
-         * @param defaultBranch The default branch of the repository. The branch specified here needs to exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultBranch(String defaultBranch) {
             return defaultBranch(Output.of(defaultBranch));
         }
 
-        /**
-         * @param description The description of the repository. This needs to be less than 1000 characters
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the repository. This needs to be less than 1000 characters
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

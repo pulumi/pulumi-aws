@@ -17,47 +17,23 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
 
     public static final OrganizationConfigurationDatasourcesArgs Empty = new OrganizationConfigurationDatasourcesArgs();
 
-    /**
-     * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-     * 
-     */
     @Import(name="kubernetes")
     private @Nullable Output<OrganizationConfigurationDatasourcesKubernetesArgs> kubernetes;
 
-    /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-     * 
-     */
     public Optional<Output<OrganizationConfigurationDatasourcesKubernetesArgs>> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
     }
 
-    /**
-     * Enable Malware Protection automatically for new member accounts.
-     * 
-     */
     @Import(name="malwareProtection")
     private @Nullable Output<OrganizationConfigurationDatasourcesMalwareProtectionArgs> malwareProtection;
 
-    /**
-     * @return Enable Malware Protection automatically for new member accounts.
-     * 
-     */
     public Optional<Output<OrganizationConfigurationDatasourcesMalwareProtectionArgs>> malwareProtection() {
         return Optional.ofNullable(this.malwareProtection);
     }
 
-    /**
-     * Enable S3 Protection automatically for new member accounts.
-     * 
-     */
     @Import(name="s3Logs")
     private @Nullable Output<OrganizationConfigurationDatasourcesS3LogsArgs> s3Logs;
 
-    /**
-     * @return Enable S3 Protection automatically for new member accounts.
-     * 
-     */
     public Optional<Output<OrganizationConfigurationDatasourcesS3LogsArgs>> s3Logs() {
         return Optional.ofNullable(this.s3Logs);
     }
@@ -88,65 +64,29 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
             $ = new OrganizationConfigurationDatasourcesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kubernetes Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetes(@Nullable Output<OrganizationConfigurationDatasourcesKubernetesArgs> kubernetes) {
             $.kubernetes = kubernetes;
             return this;
         }
 
-        /**
-         * @param kubernetes Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs kubernetes) {
             return kubernetes(Output.of(kubernetes));
         }
 
-        /**
-         * @param malwareProtection Enable Malware Protection automatically for new member accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareProtection(@Nullable Output<OrganizationConfigurationDatasourcesMalwareProtectionArgs> malwareProtection) {
             $.malwareProtection = malwareProtection;
             return this;
         }
 
-        /**
-         * @param malwareProtection Enable Malware Protection automatically for new member accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareProtection(OrganizationConfigurationDatasourcesMalwareProtectionArgs malwareProtection) {
             return malwareProtection(Output.of(malwareProtection));
         }
 
-        /**
-         * @param s3Logs Enable S3 Protection automatically for new member accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Logs(@Nullable Output<OrganizationConfigurationDatasourcesS3LogsArgs> s3Logs) {
             $.s3Logs = s3Logs;
             return this;
         }
 
-        /**
-         * @param s3Logs Enable S3 Protection automatically for new member accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs s3Logs) {
             return s3Logs(Output.of(s3Logs));
         }

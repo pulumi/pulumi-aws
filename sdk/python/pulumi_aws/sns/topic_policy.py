@@ -27,9 +27,6 @@ class TopicPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TopicPolicy resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "policy", policy)
@@ -39,9 +36,6 @@ class TopicPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -51,9 +45,6 @@ class TopicPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        The fully-formed AWS policy as JSON.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -63,9 +54,6 @@ class TopicPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,10 +70,6 @@ class _TopicPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TopicPolicy resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[_builtins.str] owner: The AWS Account ID of the SNS topic owner
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -99,9 +83,6 @@ class _TopicPolicyState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -111,9 +92,6 @@ class _TopicPolicyState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Account ID of the SNS topic owner
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -123,9 +101,6 @@ class _TopicPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        The fully-formed AWS policy as JSON.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -135,9 +110,6 @@ class _TopicPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -156,65 +128,9 @@ class TopicPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an SNS topic policy resource
-
-        > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[{
-                "actions": [
-                    "SNS:Subscribe",
-                    "SNS:SetTopicAttributes",
-                    "SNS:RemovePermission",
-                    "SNS:Receive",
-                    "SNS:Publish",
-                    "SNS:ListSubscriptionsByTopic",
-                    "SNS:GetTopicAttributes",
-                    "SNS:DeleteTopic",
-                    "SNS:AddPermission",
-                ],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "AWS:SourceOwner",
-                    "values": [account_id],
-                }],
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "resources": [arn],
-                "sid": "__default_statement_ID",
-            }]))
-        default = aws.sns.TopicPolicy("default",
-            arn=test.arn,
-            policy=sns_topic_policy.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-
-        Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
-
-        % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
-
+        Create a TopicPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -223,60 +139,7 @@ class TopicPolicy(pulumi.CustomResource):
                  args: TopicPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SNS topic policy resource
-
-        > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[{
-                "actions": [
-                    "SNS:Subscribe",
-                    "SNS:SetTopicAttributes",
-                    "SNS:RemovePermission",
-                    "SNS:Receive",
-                    "SNS:Publish",
-                    "SNS:ListSubscriptionsByTopic",
-                    "SNS:GetTopicAttributes",
-                    "SNS:DeleteTopic",
-                    "SNS:AddPermission",
-                ],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "AWS:SourceOwner",
-                    "values": [account_id],
-                }],
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "resources": [arn],
-                "sid": "__default_statement_ID",
-            }]))
-        default = aws.sns.TopicPolicy("default",
-            arn=test.arn,
-            policy=sns_topic_policy.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
-
-        Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
-
-        % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
-
+        Create a TopicPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TopicPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,10 +196,6 @@ class TopicPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
-        :param pulumi.Input[_builtins.str] owner: The AWS Account ID of the SNS topic owner
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,32 +210,20 @@ class TopicPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS Account ID of the SNS topic owner
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The fully-formed AWS policy as JSON.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

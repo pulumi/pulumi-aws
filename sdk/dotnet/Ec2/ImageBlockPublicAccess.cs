@@ -9,47 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a regional public access block for AMIs. This prevents AMIs from being made publicly accessible.
-    /// If you already have public AMIs, they will remain publicly available.
-    /// 
-    /// &gt; **NOTE:** Deleting this resource does not change the block public access value, the resource in simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
-    ///     var test = new Aws.Ec2.ImageBlockPublicAccess("test", new()
-    ///     {
-    ///         State = "block-new-sharing",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import this resource.
-    /// </summary>
     [AwsResourceType("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")]
     public partial class ImageBlockPublicAccess : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -99,15 +64,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ImageBlockPublicAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
-        /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
@@ -119,15 +78,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ImageBlockPublicAccessState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

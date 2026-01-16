@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class IndexingConfigurationThingIndexingConfigurationFilter
     {
-        /// <summary>
-        /// List of shadow names that you select to index.
-        /// </summary>
         public readonly ImmutableArray<string> NamedShadowNames;
 
         [OutputConstructor]

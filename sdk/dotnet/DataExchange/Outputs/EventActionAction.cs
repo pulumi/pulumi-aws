@@ -13,10 +13,6 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class EventActionAction
     {
-        /// <summary>
-        /// Configuration for an Export Revision to S3 action.
-        /// Described in `ExportRevisionToS3` Configuration Block
-        /// </summary>
         public readonly Outputs.EventActionActionExportRevisionToS3? ExportRevisionToS3;
 
         [OutputConstructor]

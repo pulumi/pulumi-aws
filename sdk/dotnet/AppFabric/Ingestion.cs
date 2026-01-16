@@ -9,93 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppFabric
 {
-    /// <summary>
-    /// Resource for managing an AWS AppFabric Ingestion.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppFabric.Ingestion("example", new()
-    ///     {
-    ///         App = "OKTA",
-    ///         AppBundleArn = exampleAwsAppfabricAppBundle.Arn,
-    ///         TenantId = "example.okta.com",
-    ///         IngestionType = "auditLog",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AppFabric Ingestion using the `app_bundle_identifier` and `arn` separated by `,`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appfabric/ingestion:Ingestion example arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx,arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx/ingestion/32251416-710b-4425-96ca-xxxxxxxxxx
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appfabric/ingestion:Ingestion")]
     public partial class Ingestion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the application.
-        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-        /// </summary>
         [Output("app")]
         public Output<string> App { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Ingestion.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Ingestion type. Valid values are `auditLog`.
-        /// </summary>
         [Output("ingestionType")]
         public Output<string> IngestionType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the application tenant.
-        /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
 
@@ -145,46 +82,26 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class IngestionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the application.
-        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-        /// </summary>
         [Input("app", required: true)]
         public Input<string> App { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Ingestion type. Valid values are `auditLog`.
-        /// </summary>
         [Input("ingestionType", required: true)]
         public Input<string> IngestionType { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the application tenant.
-        /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
 
@@ -196,43 +113,23 @@ namespace Pulumi.Aws.AppFabric
 
     public sealed class IngestionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the application.
-        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-        /// </summary>
         [Input("app")]
         public Input<string>? App { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
-        /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
 
-        /// <summary>
-        /// ARN of the Ingestion.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Ingestion type. Valid values are `auditLog`.
-        /// </summary>
         [Input("ingestionType")]
         public Input<string>? IngestionType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -241,19 +138,12 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ID of the application tenant.
-        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

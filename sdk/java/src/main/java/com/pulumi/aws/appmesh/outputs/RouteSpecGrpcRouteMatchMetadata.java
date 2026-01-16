@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecGrpcRouteMatchMetadata {
-    /**
-     * @return If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
-     * 
-     */
     private @Nullable Boolean invert;
-    /**
-     * @return Data to match from the request.
-     * 
-     */
     private @Nullable RouteSpecGrpcRouteMatchMetadataMatch match;
-    /**
-     * @return Name of the route. Must be between 1 and 50 characters in length.
-     * 
-     */
     private String name;
 
     private RouteSpecGrpcRouteMatchMetadata() {}
-    /**
-     * @return If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
-     * 
-     */
     public Optional<Boolean> invert() {
         return Optional.ofNullable(this.invert);
     }
-    /**
-     * @return Data to match from the request.
-     * 
-     */
     public Optional<RouteSpecGrpcRouteMatchMetadataMatch> match() {
         return Optional.ofNullable(this.match);
     }
-    /**
-     * @return Name of the route. Must be between 1 and 50 characters in length.
-     * 
-     */
     public String name() {
         return this.name;
     }

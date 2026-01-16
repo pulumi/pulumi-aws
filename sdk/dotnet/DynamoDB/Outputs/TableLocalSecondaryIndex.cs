@@ -13,21 +13,9 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableLocalSecondaryIndex
     {
-        /// <summary>
-        /// Name of the index
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-        /// </summary>
         public readonly ImmutableArray<string> NonKeyAttributes;
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index HashKey and SortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `NonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
-        /// </summary>
         public readonly string ProjectionType;
-        /// <summary>
-        /// Name of the range key.
-        /// </summary>
         public readonly string RangeKey;
 
         [OutputConstructor]

@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessLifecyclePolicy("example", {
- *     name: "example",
- *     type: "retention",
- *     policy: JSON.stringify({
- *         Rules: [
- *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/autoparts-inventory/*"],
- *                 MinIndexRetention: "81d",
- *             },
- *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/sales/orders*"],
- *                 NoMinIndexRetention: true,
- *             },
- *         ],
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
- *
- * ```sh
- * $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
- * ```
- */
 export class ServerlessLifecyclePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ServerlessLifecyclePolicy resource's state with the given name, ID, and optional extra
@@ -87,14 +48,9 @@ export class ServerlessLifecyclePolicy extends pulumi.CustomResource {
      * Version of the policy.
      */
     declare public /*out*/ readonly policyVersion: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * Type of lifecycle policy. Must be `retention`.
-     *
-     * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -157,14 +113,9 @@ export interface ServerlessLifecyclePolicyState {
      * Version of the policy.
      */
     policyVersion?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Type of lifecycle policy. Must be `retention`.
-     *
-     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -185,14 +136,9 @@ export interface ServerlessLifecyclePolicyArgs {
      * JSON policy document to use as the content for the new policy.
      */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * Type of lifecycle policy. Must be `retention`.
-     *
-     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

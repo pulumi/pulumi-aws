@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class WebhookAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A valid CIDR block for `IP` filtering. Required for `IP`.
-        /// </summary>
         [Input("allowedIpRange")]
         public Input<string>? AllowedIpRange { get; set; }
 
         [Input("secretToken")]
         private Input<string>? _secretToken;
-
-        /// <summary>
-        /// The shared secret for the GitHub repository webhook. Set this as `Secret` in your `GithubRepositoryWebhook`'s `Configuration` block. Required for `GITHUB_HMAC`.
-        /// </summary>
         public Input<string>? SecretToken
         {
             get => _secretToken;

@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleErrorActionHttp {
-    /**
-     * @return The HTTPS URL used to verify ownership of `url`.
-     * 
-     */
     private @Nullable String confirmationUrl;
-    /**
-     * @return Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-     * 
-     */
     private @Nullable List<TopicRuleErrorActionHttpHttpHeader> httpHeaders;
-    /**
-     * @return The HTTPS URL.
-     * 
-     */
     private String url;
 
     private TopicRuleErrorActionHttp() {}
-    /**
-     * @return The HTTPS URL used to verify ownership of `url`.
-     * 
-     */
     public Optional<String> confirmationUrl() {
         return Optional.ofNullable(this.confirmationUrl);
     }
-    /**
-     * @return Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-     * 
-     */
     public List<TopicRuleErrorActionHttpHttpHeader> httpHeaders() {
         return this.httpHeaders == null ? List.of() : this.httpHeaders;
     }
-    /**
-     * @return The HTTPS URL.
-     * 
-     */
     public String url() {
         return this.url;
     }

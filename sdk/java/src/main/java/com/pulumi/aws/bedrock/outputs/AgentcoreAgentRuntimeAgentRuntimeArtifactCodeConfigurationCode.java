@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode {
-    /**
-     * @return Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-     * 
-     */
     private @Nullable AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3 s3;
 
     private AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCode() {}
-    /**
-     * @return Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
-     * 
-     */
     public Optional<AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3> s3() {
         return Optional.ofNullable(this.s3);
     }

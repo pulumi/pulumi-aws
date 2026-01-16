@@ -17,32 +17,16 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationArgs extends com.pul
 
     public static final AgentcoreAgentRuntimeNetworkConfigurationArgs Empty = new AgentcoreAgentRuntimeNetworkConfigurationArgs();
 
-    /**
-     * Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     @Import(name="networkMode", required=true)
     private Output<String> networkMode;
 
-    /**
-     * @return Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     public Output<String> networkMode() {
         return this.networkMode;
     }
 
-    /**
-     * Network mode configuration. See `networkModeConfig` below.
-     * 
-     */
     @Import(name="networkModeConfig")
     private @Nullable Output<AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs> networkModeConfig;
 
-    /**
-     * @return Network mode configuration. See `networkModeConfig` below.
-     * 
-     */
     public Optional<Output<AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs>> networkModeConfig() {
         return Optional.ofNullable(this.networkModeConfig);
     }
@@ -72,44 +56,20 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationArgs extends com.pul
             $ = new AgentcoreAgentRuntimeNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkMode Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkMode(Output<String> networkMode) {
             $.networkMode = networkMode;
             return this;
         }
 
-        /**
-         * @param networkMode Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkMode(String networkMode) {
             return networkMode(Output.of(networkMode));
         }
 
-        /**
-         * @param networkModeConfig Network mode configuration. See `networkModeConfig` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkModeConfig(@Nullable Output<AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs> networkModeConfig) {
             $.networkModeConfig = networkModeConfig;
             return this;
         }
 
-        /**
-         * @param networkModeConfig Network mode configuration. See `networkModeConfig` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkModeConfig(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs networkModeConfig) {
             return networkModeConfig(Output.of(networkModeConfig));
         }

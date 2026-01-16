@@ -15,109 +15,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDedicatedHostResult {
-    /**
-     * @return ARN of the Dedicated Host.
-     * 
-     */
     private String arn;
-    /**
-     * @return The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
-     * 
-     */
     private String assetId;
-    /**
-     * @return Whether auto-placement is on or off.
-     * 
-     */
     private String autoPlacement;
-    /**
-     * @return Availability Zone of the Dedicated Host.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Number of cores on the Dedicated Host.
-     * 
-     */
     private Integer cores;
     private @Nullable List<GetDedicatedHostFilter> filters;
     private String hostId;
-    /**
-     * @return Whether host recovery is enabled or disabled for the Dedicated Host.
-     * 
-     */
     private String hostRecovery;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
-     * 
-     */
     private String instanceFamily;
-    /**
-     * @return Instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return ARN of the AWS Outpost on which the Dedicated Host is allocated.
-     * 
-     */
     private String outpostArn;
-    /**
-     * @return ID of the AWS account that owns the Dedicated Host.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return Number of sockets on the Dedicated Host.
-     * 
-     */
     private Integer sockets;
     private Map<String,String> tags;
-    /**
-     * @return Total number of vCPUs on the Dedicated Host.
-     * 
-     */
     private Integer totalVcpus;
 
     private GetDedicatedHostResult() {}
-    /**
-     * @return ARN of the Dedicated Host.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
-     * 
-     */
     public String assetId() {
         return this.assetId;
     }
-    /**
-     * @return Whether auto-placement is on or off.
-     * 
-     */
     public String autoPlacement() {
         return this.autoPlacement;
     }
-    /**
-     * @return Availability Zone of the Dedicated Host.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Number of cores on the Dedicated Host.
-     * 
-     */
     public Integer cores() {
         return this.cores;
     }
@@ -127,10 +59,6 @@ public final class GetDedicatedHostResult {
     public String hostId() {
         return this.hostId;
     }
-    /**
-     * @return Whether host recovery is enabled or disabled for the Dedicated Host.
-     * 
-     */
     public String hostRecovery() {
         return this.hostRecovery;
     }
@@ -141,51 +69,27 @@ public final class GetDedicatedHostResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Instance family supported by the Dedicated Host. For example, &#34;m5&#34;.
-     * 
-     */
     public String instanceFamily() {
         return this.instanceFamily;
     }
-    /**
-     * @return Instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return ARN of the AWS Outpost on which the Dedicated Host is allocated.
-     * 
-     */
     public String outpostArn() {
         return this.outpostArn;
     }
-    /**
-     * @return ID of the AWS account that owns the Dedicated Host.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Number of sockets on the Dedicated Host.
-     * 
-     */
     public Integer sockets() {
         return this.sockets;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Total number of vCPUs on the Dedicated Host.
-     * 
-     */
     public Integer totalVcpus() {
         return this.totalVcpus;
     }

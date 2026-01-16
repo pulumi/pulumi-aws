@@ -17,150 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the `aws.ram.PrincipalAssociation` resource. To associate resources with the share, see the `aws.ram.ResourceAssociation` resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ram.ResourceShare;
- * import com.pulumi.aws.ram.ResourceShareArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceShare("example", ResourceShareArgs.builder()
- *             .name("example")
- *             .allowExternalPrincipals(true)
- *             .tags(Map.of("Environment", "Production"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
- * 
- * ```sh
- * $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
- * ```
- * 
- */
 @ResourceType(type="aws:ram/resourceShare:ResourceShare")
 public class ResourceShare extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicates whether principals outside your organization can be associated with a resource share.
-     * 
-     */
     @Export(name="allowExternalPrincipals", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowExternalPrincipals;
 
-    /**
-     * @return Indicates whether principals outside your organization can be associated with a resource share.
-     * 
-     */
     public Output<Optional<Boolean>> allowExternalPrincipals() {
         return Codegen.optional(this.allowExternalPrincipals);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the resource share.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the resource share.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the resource share.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-     * 
-     */
     @Export(name="permissionArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissionArns;
 
-    /**
-     * @return Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-     * 
-     */
     public Output<List<String>> permissionArns() {
         return this.permissionArns;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

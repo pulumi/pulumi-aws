@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Iam.Inputs
 
     public sealed class GetPolicyDocumentStatementConditionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-        /// </summary>
         [Input("test", required: true)]
         public string Test { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());
             set => _values = value;
         }
 
-        /// <summary>
-        /// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-        /// </summary>
         [Input("variable", required: true)]
         public string Variable { get; set; } = null!;
 

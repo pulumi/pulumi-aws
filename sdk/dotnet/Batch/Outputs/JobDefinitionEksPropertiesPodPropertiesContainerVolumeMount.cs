@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount
     {
         public readonly string MountPath;
-        /// <summary>
-        /// Name of the job definition.
-        /// </summary>
         public readonly string Name;
         public readonly bool? ReadOnly;
 

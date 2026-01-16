@@ -61,9 +61,6 @@ class GetReservedInstanceOfferingResult:
     @_builtins.property
     @pulumi.getter(name="currencyCode")
     def currency_code(self) -> _builtins.str:
-        """
-        Currency code for the reserved DB instance.
-        """
         return pulumi.get(self, "currency_code")
 
     @_builtins.property
@@ -79,9 +76,6 @@ class GetReservedInstanceOfferingResult:
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
     def fixed_price(self) -> _builtins.float:
-        """
-        Fixed price charged for this reserved DB instance.
-        """
         return pulumi.get(self, "fixed_price")
 
     @_builtins.property
@@ -100,9 +94,6 @@ class GetReservedInstanceOfferingResult:
     @_builtins.property
     @pulumi.getter(name="offeringId")
     def offering_id(self) -> _builtins.str:
-        """
-        Unique identifier for the reservation.
-        """
         return pulumi.get(self, "offering_id")
 
     @_builtins.property
@@ -147,28 +138,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[_builtins.str] = 
                                    region: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReservedInstanceOfferingResult:
     """
-    Information about a single RDS Reserved Instance Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-        duration=31536000,
-        multi_az=False,
-        offering_type="All Upfront",
-        product_description="mysql")
-    ```
-
-
-    :param _builtins.str db_instance_class: DB instance class for the reserved DB instance.
-    :param _builtins.int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
-    :param _builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
-    :param _builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
-    :param _builtins.str product_description: Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dbInstanceClass'] = db_instance_class
@@ -199,28 +169,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedInstanceOfferingResult]:
     """
-    Information about a single RDS Reserved Instance Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-        duration=31536000,
-        multi_az=False,
-        offering_type="All Upfront",
-        product_description="mysql")
-    ```
-
-
-    :param _builtins.str db_instance_class: DB instance class for the reserved DB instance.
-    :param _builtins.int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
-    :param _builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
-    :param _builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
-    :param _builtins.str product_description: Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dbInstanceClass'] = db_instance_class

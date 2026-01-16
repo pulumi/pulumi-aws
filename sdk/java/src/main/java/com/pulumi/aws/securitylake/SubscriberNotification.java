@@ -15,111 +15,15 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Security Lake Subscriber Notification.
- * 
- * ## Example Usage
- * 
- * ### SQS Notification
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.SubscriberNotification;
- * import com.pulumi.aws.securitylake.SubscriberNotificationArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberNotificationConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
- *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
- *             .configuration(SubscriberNotificationConfigurationArgs.builder()
- *                 .sqsNotificationConfiguration(SubscriberNotificationConfigurationSqsNotificationConfigurationArgs.builder()
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### HTTPS Notification
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.SubscriberNotification;
- * import com.pulumi.aws.securitylake.SubscriberNotificationArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberNotificationConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
- *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
- *             .configuration(SubscriberNotificationConfigurationArgs.builder()
- *                 .httpsNotificationConfiguration(SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.builder()
- *                     .endpoint(test.apiEndpoint())
- *                     .targetRoleArn(eventBridge.arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:securitylake/subscriberNotification:SubscriberNotification")
 public class SubscriberNotification extends com.pulumi.resources.CustomResource {
-    /**
-     * Specify the configuration using which you want to create the subscriber notification..
-     * 
-     */
     @Export(name="configuration", refs={SubscriberNotificationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ SubscriberNotificationConfiguration> configuration;
 
-    /**
-     * @return Specify the configuration using which you want to create the subscriber notification..
-     * 
-     */
     public Output<Optional<SubscriberNotificationConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
     /**
-     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-     * 
      * @deprecated
      * Use subscriberEndpoint instead
      * 
@@ -128,52 +32,24 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
     @Export(name="endpointId", refs={String.class}, tree="[0]")
     private Output<String> endpointId;
 
-    /**
-     * @return (**Deprecated**) The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     public Output<String> endpointId() {
         return this.endpointId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     @Export(name="subscriberEndpoint", refs={String.class}, tree="[0]")
     private Output<String> subscriberEndpoint;
 
-    /**
-     * @return The subscriber endpoint to which exception messages are posted.
-     * 
-     */
     public Output<String> subscriberEndpoint() {
         return this.subscriberEndpoint;
     }
-    /**
-     * The subscriber ID for the notification subscription.
-     * 
-     */
     @Export(name="subscriberId", refs={String.class}, tree="[0]")
     private Output<String> subscriberId;
 
-    /**
-     * @return The subscriber ID for the notification subscription.
-     * 
-     */
     public Output<String> subscriberId() {
         return this.subscriberId;
     }

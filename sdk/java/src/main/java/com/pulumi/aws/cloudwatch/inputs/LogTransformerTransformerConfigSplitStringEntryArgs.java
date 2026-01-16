@@ -14,32 +14,16 @@ public final class LogTransformerTransformerConfigSplitStringEntryArgs extends c
 
     public static final LogTransformerTransformerConfigSplitStringEntryArgs Empty = new LogTransformerTransformerConfigSplitStringEntryArgs();
 
-    /**
-     * Specifies the separator characters to split the string entry on.
-     * 
-     */
     @Import(name="delimiter", required=true)
     private Output<String> delimiter;
 
-    /**
-     * @return Specifies the separator characters to split the string entry on.
-     * 
-     */
     public Output<String> delimiter() {
         return this.delimiter;
     }
 
-    /**
-     * Specifies the key to modify.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Specifies the key to modify.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
@@ -69,44 +53,20 @@ public final class LogTransformerTransformerConfigSplitStringEntryArgs extends c
             $ = new LogTransformerTransformerConfigSplitStringEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param delimiter Specifies the separator characters to split the string entry on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(Output<String> delimiter) {
             $.delimiter = delimiter;
             return this;
         }
 
-        /**
-         * @param delimiter Specifies the separator characters to split the string entry on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(String delimiter) {
             return delimiter(Output.of(delimiter));
         }
 
-        /**
-         * @param source Specifies the key to modify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the key to modify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

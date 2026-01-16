@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Dimension details for the vector configuration used on the Bedrock embeddings model.
-        /// </summary>
         [Input("dimensions")]
         public Input<int>? Dimensions { get; set; }
 
-        /// <summary>
-        /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
-        /// </summary>
         [Input("embeddingDataType")]
         public Input<string>? EmbeddingDataType { get; set; }
 

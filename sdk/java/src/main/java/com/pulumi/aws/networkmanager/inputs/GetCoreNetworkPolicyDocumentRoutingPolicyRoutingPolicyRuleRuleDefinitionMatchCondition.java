@@ -13,32 +13,16 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRul
 
     public static final GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition Empty = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition();
 
-    /**
-     * Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-     * 
-     */
     public String type() {
         return this.type;
     }
 
-    /**
-     * Value to match against, depending on the condition type.
-     * 
-     */
     @Import(name="value", required=true)
     private String value;
 
-    /**
-     * @return Value to match against, depending on the condition type.
-     * 
-     */
     public String value() {
         return this.value;
     }
@@ -68,23 +52,11 @@ public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRul
             $ = new GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param value Value to match against, depending on the condition type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             $.value = value;
             return this;

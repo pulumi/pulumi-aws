@@ -15,17 +15,9 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRegionArgs Empty = new GetRegionArgs();
 
-    /**
-     * EC2 endpoint of the region to select.
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
-    /**
-     * @return EC2 endpoint of the region to select.
-     * 
-     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
@@ -38,8 +30,6 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Full name of the region to select. Use `region` instead.
-     * 
      * @deprecated
      * name is deprecated. Use region instead.
      * 
@@ -49,8 +39,6 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return Full name of the region to select. Use `region` instead.
-     * 
      * @deprecated
      * name is deprecated. Use region instead.
      * 
@@ -60,17 +48,9 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -102,23 +82,11 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRegionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint EC2 endpoint of the region to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint EC2 endpoint of the region to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
@@ -133,8 +101,6 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Full name of the region to select. Use `region` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -148,8 +114,6 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Full name of the region to select. Use `region` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -161,23 +125,11 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

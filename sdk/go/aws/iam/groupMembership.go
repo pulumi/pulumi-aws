@@ -12,71 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **WARNING:** Multiple iam.GroupMembership resources with the same group name will produce inconsistent behavior!
-//
-// Provides a top level resource to manage IAM Group membership for IAM Users. For
-// more information on managing IAM Groups or IAM Users, see IAM Groups or
-// IAM Users
-//
-// > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
-// `iam.UserGroupMembership` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", &iam.GroupArgs{
-//				Name: pulumi.String("test-group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			userOne, err := iam.NewUser(ctx, "user_one", &iam.UserArgs{
-//				Name: pulumi.String("test-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			userTwo, err := iam.NewUser(ctx, "user_two", &iam.UserArgs{
-//				Name: pulumi.String("test-user-two"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
-//				Name: pulumi.String("tf-testing-group-membership"),
-//				Users: pulumi.StringArray{
-//					userOne.Name,
-//					userTwo.Name,
-//				},
-//				Group: group.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
-	// The IAM Group name to attach the list of `users` to
-	Group pulumi.StringOutput `pulumi:"group"`
-	// The name to identify the Group Membership
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of IAM User names to associate with the Group
+	Group pulumi.StringOutput      `pulumi:"group"`
+	Name  pulumi.StringOutput      `pulumi:"name"`
 	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
@@ -116,20 +56,14 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
-	// The IAM Group name to attach the list of `users` to
-	Group *string `pulumi:"group"`
-	// The name to identify the Group Membership
-	Name *string `pulumi:"name"`
-	// A list of IAM User names to associate with the Group
+	Group *string  `pulumi:"group"`
+	Name  *string  `pulumi:"name"`
 	Users []string `pulumi:"users"`
 }
 
 type GroupMembershipState struct {
-	// The IAM Group name to attach the list of `users` to
 	Group pulumi.StringPtrInput
-	// The name to identify the Group Membership
-	Name pulumi.StringPtrInput
-	// A list of IAM User names to associate with the Group
+	Name  pulumi.StringPtrInput
 	Users pulumi.StringArrayInput
 }
 
@@ -138,21 +72,15 @@ func (GroupMembershipState) ElementType() reflect.Type {
 }
 
 type groupMembershipArgs struct {
-	// The IAM Group name to attach the list of `users` to
-	Group string `pulumi:"group"`
-	// The name to identify the Group Membership
-	Name *string `pulumi:"name"`
-	// A list of IAM User names to associate with the Group
+	Group string   `pulumi:"group"`
+	Name  *string  `pulumi:"name"`
 	Users []string `pulumi:"users"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
-	// The IAM Group name to attach the list of `users` to
 	Group pulumi.StringInput
-	// The name to identify the Group Membership
-	Name pulumi.StringPtrInput
-	// A list of IAM User names to associate with the Group
+	Name  pulumi.StringPtrInput
 	Users pulumi.StringArrayInput
 }
 
@@ -243,17 +171,14 @@ func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Co
 	return o
 }
 
-// The IAM Group name to attach the list of `users` to
 func (o GroupMembershipOutput) Group() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Group }).(pulumi.StringOutput)
 }
 
-// The name to identify the Group Membership
 func (o GroupMembershipOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of IAM User names to associate with the Group
 func (o GroupMembershipOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }

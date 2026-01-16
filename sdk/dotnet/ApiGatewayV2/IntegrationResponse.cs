@@ -9,82 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
-    /// <summary>
-    /// Manages an Amazon API Gateway Version 2 integration response.
-    /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.IntegrationResponse("example", new()
-    ///     {
-    ///         ApiId = exampleAwsApigatewayv2Api.Id,
-    ///         IntegrationId = exampleAwsApigatewayv2Integration.Id,
-    ///         IntegrationResponseKey = "/200/",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
     public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        /// </summary>
         [Output("contentHandlingStrategy")]
         public Output<string?> ContentHandlingStrategy { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the `aws.apigatewayv2.Integration`.
-        /// </summary>
         [Output("integrationId")]
         public Output<string> IntegrationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Integration response key.
-        /// </summary>
         [Output("integrationResponseKey")]
         public Output<string> IntegrationResponseKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        /// </summary>
         [Output("responseTemplates")]
         public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
 
-        /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-        /// </summary>
         [Output("templateSelectionExpression")]
         public Output<string?> TemplateSelectionExpression { get; private set; } = null!;
 
@@ -134,51 +79,29 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        /// </summary>
         [Input("contentHandlingStrategy")]
         public Input<string>? ContentHandlingStrategy { get; set; }
 
-        /// <summary>
-        /// Identifier of the `aws.apigatewayv2.Integration`.
-        /// </summary>
         [Input("integrationId", required: true)]
         public Input<string> IntegrationId { get; set; } = null!;
 
-        /// <summary>
-        /// Integration response key.
-        /// </summary>
         [Input("integrationResponseKey", required: true)]
         public Input<string> IntegrationResponseKey { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("responseTemplates")]
         private InputMap<string>? _responseTemplates;
-
-        /// <summary>
-        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        /// </summary>
         public InputMap<string> ResponseTemplates
         {
             get => _responseTemplates ?? (_responseTemplates = new InputMap<string>());
             set => _responseTemplates = value;
         }
 
-        /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-        /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
@@ -190,51 +113,29 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class IntegrationResponseState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        /// </summary>
         [Input("contentHandlingStrategy")]
         public Input<string>? ContentHandlingStrategy { get; set; }
 
-        /// <summary>
-        /// Identifier of the `aws.apigatewayv2.Integration`.
-        /// </summary>
         [Input("integrationId")]
         public Input<string>? IntegrationId { get; set; }
 
-        /// <summary>
-        /// Integration response key.
-        /// </summary>
         [Input("integrationResponseKey")]
         public Input<string>? IntegrationResponseKey { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("responseTemplates")]
         private InputMap<string>? _responseTemplates;
-
-        /// <summary>
-        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        /// </summary>
         public InputMap<string> ResponseTemplates
         {
             get => _responseTemplates ?? (_responseTemplates = new InputMap<string>());
             set => _responseTemplates = value;
         }
 
-        /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-        /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 

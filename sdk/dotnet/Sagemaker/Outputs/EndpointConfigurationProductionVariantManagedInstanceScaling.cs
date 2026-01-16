@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointConfigurationProductionVariantManagedInstanceScaling
     {
-        /// <summary>
-        /// Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
-        /// </summary>
         public readonly int? MaxInstanceCount;
-        /// <summary>
-        /// Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
-        /// </summary>
         public readonly int? MinInstanceCount;
-        /// <summary>
-        /// Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

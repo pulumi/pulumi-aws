@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ComputeEnvironmentUpdatePolicy {
-    /**
-     * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-     * 
-     */
     private @Nullable Integer jobExecutionTimeoutMinutes;
-    /**
-     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-     * 
-     */
     private @Nullable Boolean terminateJobsOnUpdate;
 
     private ComputeEnvironmentUpdatePolicy() {}
-    /**
-     * @return Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
-     * 
-     */
     public Optional<Integer> jobExecutionTimeoutMinutes() {
         return Optional.ofNullable(this.jobExecutionTimeoutMinutes);
     }
-    /**
-     * @return Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated.
-     * 
-     */
     public Optional<Boolean> terminateJobsOnUpdate() {
         return Optional.ofNullable(this.terminateJobsOnUpdate);
     }

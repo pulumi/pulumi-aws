@@ -11,31 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleActionForwardTargetGroup {
-    /**
-     * @return ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     private String arn;
-    /**
-     * @return Weight of the target group.
-     * 
-     */
     private Integer weight;
 
     private GetListenerRuleActionForwardTargetGroup() {}
-    /**
-     * @return ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Weight of the target group.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

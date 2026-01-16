@@ -26,9 +26,6 @@ class BotAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BotAssociation resource.
-        :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input['BotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "lex_bot", lex_bot)
@@ -38,9 +35,6 @@ class BotAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -50,9 +44,6 @@ class BotAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="lexBot")
     def lex_bot(self) -> pulumi.Input['BotAssociationLexBotArgs']:
-        """
-        Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        """
         return pulumi.get(self, "lex_bot")
 
     @lex_bot.setter
@@ -62,9 +53,6 @@ class BotAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +68,6 @@ class _BotAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BotAssociation resources.
-        :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input['BotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
@@ -94,9 +79,6 @@ class _BotAssociationState:
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -106,9 +88,6 @@ class _BotAssociationState:
     @_builtins.property
     @pulumi.getter(name="lexBot")
     def lex_bot(self) -> Optional[pulumi.Input['BotAssociationLexBotArgs']]:
-        """
-        Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        """
         return pulumi.get(self, "lex_bot")
 
     @lex_bot.setter
@@ -118,9 +97,6 @@ class _BotAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -139,83 +115,9 @@ class BotAssociation(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Add an Amazon Lex bot](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-lex.html).
-
-        > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.BotAssociation("example",
-            instance_id=example_aws_connect_instance["id"],
-            lex_bot={
-                "lex_region": "us-west-2",
-                "name": "Test",
-            })
-        ```
-
-        ### Including a sample Lex bot
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.lex.Intent("example",
-            create_version=True,
-            name="connect_lex_intent",
-            fulfillment_activity={
-                "type": "ReturnIntent",
-            },
-            sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("example",
-            abort_statement={
-                "messages": [{
-                    "content": "Sorry, I am not able to assist at this time.",
-                    "content_type": "PlainText",
-                }],
-            },
-            clarification_prompt={
-                "max_attempts": 2,
-                "messages": [{
-                    "content": "I didn't understand you, what would you like to do?",
-                    "content_type": "PlainText",
-                }],
-            },
-            intents=[{
-                "intent_name": example.name,
-                "intent_version": "1",
-            }],
-            child_directed=False,
-            name="connect_lex_bot",
-            process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("example",
-            instance_id=example_aws_connect_instance["id"],
-            lex_bot={
-                "lex_region": current.region,
-                "name": example_bot.name,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
-        ```
-
+        Create a BotAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -224,78 +126,7 @@ class BotAssociation(pulumi.CustomResource):
                  args: BotAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Add an Amazon Lex bot](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-lex.html).
-
-        > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.BotAssociation("example",
-            instance_id=example_aws_connect_instance["id"],
-            lex_bot={
-                "lex_region": "us-west-2",
-                "name": "Test",
-            })
-        ```
-
-        ### Including a sample Lex bot
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.lex.Intent("example",
-            create_version=True,
-            name="connect_lex_intent",
-            fulfillment_activity={
-                "type": "ReturnIntent",
-            },
-            sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("example",
-            abort_statement={
-                "messages": [{
-                    "content": "Sorry, I am not able to assist at this time.",
-                    "content_type": "PlainText",
-                }],
-            },
-            clarification_prompt={
-                "max_attempts": 2,
-                "messages": [{
-                    "content": "I didn't understand you, what would you like to do?",
-                    "content_type": "PlainText",
-                }],
-            },
-            intents=[{
-                "intent_name": example.name,
-                "intent_version": "1",
-            }],
-            child_directed=False,
-            name="connect_lex_bot",
-            process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("example",
-            instance_id=example_aws_connect_instance["id"],
-            lex_bot={
-                "lex_region": current.region,
-                "name": example_bot.name,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
-        ```
-
+        Create a BotAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BotAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -350,9 +181,6 @@ class BotAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input[Union['BotAssociationLexBotArgs', 'BotAssociationLexBotArgsDict']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -366,24 +194,15 @@ class BotAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="lexBot")
     def lex_bot(self) -> pulumi.Output['outputs.BotAssociationLexBot']:
-        """
-        Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        """
         return pulumi.get(self, "lex_bot")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

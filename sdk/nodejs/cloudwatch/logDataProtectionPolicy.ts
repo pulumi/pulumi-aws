@@ -4,60 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CloudWatch Log Data Protection Policy resource.
- *
- * Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
- * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
- *     logGroupName: example.name,
- *     policyDocument: pulumi.jsonStringify({
- *         Name: "Example",
- *         Version: "2021-06-01",
- *         Statement: [
- *             {
- *                 Sid: "Audit",
- *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 Operation: {
- *                     Audit: {
- *                         FindingsDestination: {
- *                             S3: {
- *                                 Bucket: exampleBucket.bucket,
- *                             },
- *                         },
- *                     },
- *                 },
- *             },
- *             {
- *                 Sid: "Redact",
- *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 Operation: {
- *                     Deidentify: {
- *                         MaskConfig: {},
- *                     },
- *                 },
- *             },
- *         ],
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import this resource using the `log_group_name`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
- * ```
- */
 export class LogDataProtectionPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LogDataProtectionPolicy resource's state with the given name, ID, and optional extra
@@ -86,17 +32,8 @@ export class LogDataProtectionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDataProtectionPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the log group under which the log stream is to be created.
-     */
     declare public readonly logGroupName: pulumi.Output<string>;
-    /**
-     * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     */
     declare public readonly policyDocument: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -136,17 +73,8 @@ export class LogDataProtectionPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogDataProtectionPolicy resources.
  */
 export interface LogDataProtectionPolicyState {
-    /**
-     * The name of the log group under which the log stream is to be created.
-     */
     logGroupName?: pulumi.Input<string>;
-    /**
-     * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     */
     policyDocument?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -154,16 +82,7 @@ export interface LogDataProtectionPolicyState {
  * The set of arguments for constructing a LogDataProtectionPolicy resource.
  */
 export interface LogDataProtectionPolicyArgs {
-    /**
-     * The name of the log group under which the log stream is to be created.
-     */
     logGroupName: pulumi.Input<string>;
-    /**
-     * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     */
     policyDocument: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

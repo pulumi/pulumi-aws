@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a DynamoDB table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tableName = aws.dynamodb.getTable({
- *     name: "tableName",
- * });
- * ```
- */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
@@ -35,13 +21,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getTable.
  */
 export interface GetTableArgs {
-    /**
-     * Name of the DynamoDB table.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
     serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
     tags?: {[key: string]: string};
@@ -80,20 +60,6 @@ export interface GetTableResult {
     readonly warmThroughputs: outputs.dynamodb.GetTableWarmThroughput[];
     readonly writeCapacity: number;
 }
-/**
- * Provides information about a DynamoDB table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tableName = aws.dynamodb.getTable({
- *     name: "tableName",
- * });
- * ```
- */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dynamodb/getTable:getTable", {
@@ -108,13 +74,7 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getTable.
  */
 export interface GetTableOutputArgs {
-    /**
-     * Name of the DynamoDB table.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.GetTableServerSideEncryptionArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

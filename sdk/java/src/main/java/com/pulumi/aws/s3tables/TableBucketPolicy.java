@@ -13,108 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an Amazon S3 Tables Table Bucket Policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3tables.TableBucket;
- * import com.pulumi.aws.s3tables.TableBucketArgs;
- * import com.pulumi.aws.s3tables.TableBucketPolicy;
- * import com.pulumi.aws.s3tables.TableBucketPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .build())
- *             .build());
- * 
- *         var exampleTableBucket = new TableBucket("exampleTableBucket", TableBucketArgs.builder()
- *             .name("example-bucket")
- *             .build());
- * 
- *         var exampleTableBucketPolicy = new TableBucketPolicy("exampleTableBucketPolicy", TableBucketPolicyArgs.builder()
- *             .resourcePolicy(example.json())
- *             .tableBucketArn(exampleTableBucket.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3tables/tableBucketPolicy:TableBucketPolicy example &#39;arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace&#39;
- * ```
- * 
- */
 @ResourceType(type="aws:s3tables/tableBucketPolicy:TableBucketPolicy")
 public class TableBucketPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     * 
-     */
     @Export(name="resourcePolicy", refs={String.class}, tree="[0]")
     private Output<String> resourcePolicy;
 
-    /**
-     * @return Amazon Web Services resource-based policy document in JSON format.
-     * 
-     */
     public Output<String> resourcePolicy() {
         return this.resourcePolicy;
     }
-    /**
-     * ARN referencing the Table Bucket that owns this policy.
-     * 
-     */
     @Export(name="tableBucketArn", refs={String.class}, tree="[0]")
     private Output<String> tableBucketArn;
 
-    /**
-     * @return ARN referencing the Table Bucket that owns this policy.
-     * 
-     */
     public Output<String> tableBucketArn() {
         return this.tableBucketArn;
     }

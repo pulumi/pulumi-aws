@@ -17,47 +17,23 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
 
     public static final AgentDataSourceVectorIngestionConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationArgs();
 
-    /**
-     * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
-     * 
-     */
     @Import(name="chunkingConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs> chunkingConfiguration;
 
-    /**
-     * @return Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs>> chunkingConfiguration() {
         return Optional.ofNullable(this.chunkingConfiguration);
     }
 
-    /**
-     * Configuration for custom transformation of data source documents.
-     * 
-     */
     @Import(name="customTransformationConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs> customTransformationConfiguration;
 
-    /**
-     * @return Configuration for custom transformation of data source documents.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs>> customTransformationConfiguration() {
         return Optional.ofNullable(this.customTransformationConfiguration);
     }
 
-    /**
-     * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
-     * 
-     */
     @Import(name="parsingConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs> parsingConfiguration;
 
-    /**
-     * @return Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs>> parsingConfiguration() {
         return Optional.ofNullable(this.parsingConfiguration);
     }
@@ -88,65 +64,29 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
             $ = new AgentDataSourceVectorIngestionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param chunkingConfiguration Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chunkingConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs> chunkingConfiguration) {
             $.chunkingConfiguration = chunkingConfiguration;
             return this;
         }
 
-        /**
-         * @param chunkingConfiguration Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs chunkingConfiguration) {
             return chunkingConfiguration(Output.of(chunkingConfiguration));
         }
 
-        /**
-         * @param customTransformationConfiguration Configuration for custom transformation of data source documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customTransformationConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs> customTransformationConfiguration) {
             $.customTransformationConfiguration = customTransformationConfiguration;
             return this;
         }
 
-        /**
-         * @param customTransformationConfiguration Configuration for custom transformation of data source documents.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customTransformationConfiguration(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs customTransformationConfiguration) {
             return customTransformationConfiguration(Output.of(customTransformationConfiguration));
         }
 
-        /**
-         * @param parsingConfiguration Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs> parsingConfiguration) {
             $.parsingConfiguration = parsingConfiguration;
             return this;
         }
 
-        /**
-         * @param parsingConfiguration Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs parsingConfiguration) {
             return parsingConfiguration(Output.of(parsingConfiguration));
         }

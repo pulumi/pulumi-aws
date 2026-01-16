@@ -22,182 +22,86 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
     public static final EndpointState Empty = new EndpointState();
 
-    /**
-     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-     * 
-     */
     @Import(name="applicationDomain")
     private @Nullable Output<String> applicationDomain;
 
-    /**
-     * @return The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-     * 
-     */
     public Optional<Output<String>> applicationDomain() {
         return Optional.ofNullable(this.applicationDomain);
     }
 
-    /**
-     * The type of attachment. Currently, only `vpc` is supported.
-     * 
-     */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
-    /**
-     * @return The type of attachment. Currently, only `vpc` is supported.
-     * 
-     */
     public Optional<Output<String>> attachmentType() {
         return Optional.ofNullable(this.attachmentType);
     }
 
-    /**
-     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-     * 
-     */
     @Import(name="cidrOptions")
     private @Nullable Output<EndpointCidrOptionsArgs> cidrOptions;
 
-    /**
-     * @return The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-     * 
-     */
     public Optional<Output<EndpointCidrOptionsArgs>> cidrOptions() {
         return Optional.ofNullable(this.cidrOptions);
     }
 
-    /**
-     * A description for the Verified Access endpoint.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the Verified Access endpoint.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Returned if endpoint has a device trust provider attached.
-     * 
-     */
     @Import(name="deviceValidationDomain")
     private @Nullable Output<String> deviceValidationDomain;
 
-    /**
-     * @return Returned if endpoint has a device trust provider attached.
-     * 
-     */
     public Optional<Output<String>> deviceValidationDomain() {
         return Optional.ofNullable(this.deviceValidationDomain);
     }
 
-    /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-     * 
-     */
     @Import(name="domainCertificateArn")
     private @Nullable Output<String> domainCertificateArn;
 
-    /**
-     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-     * 
-     */
     public Optional<Output<String>> domainCertificateArn() {
         return Optional.ofNullable(this.domainCertificateArn);
     }
 
-    /**
-     * A DNS name that is generated for the endpoint.
-     * 
-     */
     @Import(name="endpointDomain")
     private @Nullable Output<String> endpointDomain;
 
-    /**
-     * @return A DNS name that is generated for the endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointDomain() {
         return Optional.ofNullable(this.endpointDomain);
     }
 
-    /**
-     * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-     * 
-     */
     @Import(name="endpointDomainPrefix")
     private @Nullable Output<String> endpointDomainPrefix;
 
-    /**
-     * @return A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointDomainPrefix() {
         return Optional.ofNullable(this.endpointDomainPrefix);
     }
 
-    /**
-     * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-     * 
-     */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
-    /**
-     * @return The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-     * 
-     */
     public Optional<Output<String>> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
 
-    /**
-     * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-     * 
-     */
     @Import(name="loadBalancerOptions")
     private @Nullable Output<EndpointLoadBalancerOptionsArgs> loadBalancerOptions;
 
-    /**
-     * @return The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-     * 
-     */
     public Optional<Output<EndpointLoadBalancerOptionsArgs>> loadBalancerOptions() {
         return Optional.ofNullable(this.loadBalancerOptions);
     }
 
-    /**
-     * The network interface details. This parameter is required if the endpoint type is `network-interface`.
-     * 
-     */
     @Import(name="networkInterfaceOptions")
     private @Nullable Output<EndpointNetworkInterfaceOptionsArgs> networkInterfaceOptions;
 
-    /**
-     * @return The network interface details. This parameter is required if the endpoint type is `network-interface`.
-     * 
-     */
     public Optional<Output<EndpointNetworkInterfaceOptionsArgs>> networkInterfaceOptions() {
         return Optional.ofNullable(this.networkInterfaceOptions);
     }
 
-    /**
-     * The policy document that is associated with this resource.
-     * 
-     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
-    /**
-     * @return The policy document that is associated with this resource.
-     * 
-     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
@@ -209,62 +113,30 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.rdsOptions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * List of the the security groups IDs to associate with the Verified Access endpoint.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of the the security groups IDs to associate with the Verified Access endpoint.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * The options in use for server side encryption.
-     * 
-     */
     @Import(name="sseSpecification")
     private @Nullable Output<EndpointSseSpecificationArgs> sseSpecification;
 
-    /**
-     * @return The options in use for server side encryption.
-     * 
-     */
     public Optional<Output<EndpointSseSpecificationArgs>> sseSpecification() {
         return Optional.ofNullable(this.sseSpecification);
     }
 
-    /**
-     * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -276,21 +148,9 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The ID of the Verified Access group to associate the endpoint with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="verifiedAccessGroupId")
     private @Nullable Output<String> verifiedAccessGroupId;
 
-    /**
-     * @return The ID of the Verified Access group to associate the endpoint with.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> verifiedAccessGroupId() {
         return Optional.ofNullable(this.verifiedAccessGroupId);
     }
@@ -345,254 +205,110 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             $ = new EndpointState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationDomain The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationDomain(@Nullable Output<String> applicationDomain) {
             $.applicationDomain = applicationDomain;
             return this;
         }
 
-        /**
-         * @param applicationDomain The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationDomain(String applicationDomain) {
             return applicationDomain(Output.of(applicationDomain));
         }
 
-        /**
-         * @param attachmentType The type of attachment. Currently, only `vpc` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(@Nullable Output<String> attachmentType) {
             $.attachmentType = attachmentType;
             return this;
         }
 
-        /**
-         * @param attachmentType The type of attachment. Currently, only `vpc` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachmentType(String attachmentType) {
             return attachmentType(Output.of(attachmentType));
         }
 
-        /**
-         * @param cidrOptions The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrOptions(@Nullable Output<EndpointCidrOptionsArgs> cidrOptions) {
             $.cidrOptions = cidrOptions;
             return this;
         }
 
-        /**
-         * @param cidrOptions The CIDR block details. This parameter is required if the endpoint type is `cidr`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrOptions(EndpointCidrOptionsArgs cidrOptions) {
             return cidrOptions(Output.of(cidrOptions));
         }
 
-        /**
-         * @param description A description for the Verified Access endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the Verified Access endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param deviceValidationDomain Returned if endpoint has a device trust provider attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceValidationDomain(@Nullable Output<String> deviceValidationDomain) {
             $.deviceValidationDomain = deviceValidationDomain;
             return this;
         }
 
-        /**
-         * @param deviceValidationDomain Returned if endpoint has a device trust provider attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceValidationDomain(String deviceValidationDomain) {
             return deviceValidationDomain(Output.of(deviceValidationDomain));
         }
 
-        /**
-         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainCertificateArn(@Nullable Output<String> domainCertificateArn) {
             $.domainCertificateArn = domainCertificateArn;
             return this;
         }
 
-        /**
-         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainCertificateArn(String domainCertificateArn) {
             return domainCertificateArn(Output.of(domainCertificateArn));
         }
 
-        /**
-         * @param endpointDomain A DNS name that is generated for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointDomain(@Nullable Output<String> endpointDomain) {
             $.endpointDomain = endpointDomain;
             return this;
         }
 
-        /**
-         * @param endpointDomain A DNS name that is generated for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointDomain(String endpointDomain) {
             return endpointDomain(Output.of(endpointDomain));
         }
 
-        /**
-         * @param endpointDomainPrefix A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointDomainPrefix(@Nullable Output<String> endpointDomainPrefix) {
             $.endpointDomainPrefix = endpointDomainPrefix;
             return this;
         }
 
-        /**
-         * @param endpointDomainPrefix A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointDomainPrefix(String endpointDomainPrefix) {
             return endpointDomainPrefix(Output.of(endpointDomainPrefix));
         }
 
-        /**
-         * @param endpointType The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(@Nullable Output<String> endpointType) {
             $.endpointType = endpointType;
             return this;
         }
 
-        /**
-         * @param endpointType The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(String endpointType) {
             return endpointType(Output.of(endpointType));
         }
 
-        /**
-         * @param loadBalancerOptions The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerOptions(@Nullable Output<EndpointLoadBalancerOptionsArgs> loadBalancerOptions) {
             $.loadBalancerOptions = loadBalancerOptions;
             return this;
         }
 
-        /**
-         * @param loadBalancerOptions The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerOptions(EndpointLoadBalancerOptionsArgs loadBalancerOptions) {
             return loadBalancerOptions(Output.of(loadBalancerOptions));
         }
 
-        /**
-         * @param networkInterfaceOptions The network interface details. This parameter is required if the endpoint type is `network-interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceOptions(@Nullable Output<EndpointNetworkInterfaceOptionsArgs> networkInterfaceOptions) {
             $.networkInterfaceOptions = networkInterfaceOptions;
             return this;
         }
 
-        /**
-         * @param networkInterfaceOptions The network interface details. This parameter is required if the endpoint type is `network-interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs networkInterfaceOptions) {
             return networkInterfaceOptions(Output.of(networkInterfaceOptions));
         }
 
-        /**
-         * @param policyDocument The policy document that is associated with this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
-        /**
-         * @param policyDocument The policy document that is associated with this resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }
@@ -606,96 +322,42 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             return rdsOptions(Output.of(rdsOptions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param sseSpecification The options in use for server side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseSpecification(@Nullable Output<EndpointSseSpecificationArgs> sseSpecification) {
             $.sseSpecification = sseSpecification;
             return this;
         }
 
-        /**
-         * @param sseSpecification The options in use for server side encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseSpecification(EndpointSseSpecificationArgs sseSpecification) {
             return sseSpecification(Output.of(sseSpecification));
         }
 
-        /**
-         * @param tags Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -709,27 +371,11 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param verifiedAccessGroupId The ID of the Verified Access group to associate the endpoint with.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAccessGroupId(@Nullable Output<String> verifiedAccessGroupId) {
             $.verifiedAccessGroupId = verifiedAccessGroupId;
             return this;
         }
 
-        /**
-         * @param verifiedAccessGroupId The ID of the Verified Access group to associate the endpoint with.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedAccessGroupId(String verifiedAccessGroupId) {
             return verifiedAccessGroupId(Output.of(verifiedAccessGroupId));
         }

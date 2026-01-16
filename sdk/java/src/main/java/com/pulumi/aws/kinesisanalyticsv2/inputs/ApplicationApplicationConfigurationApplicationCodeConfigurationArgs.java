@@ -17,32 +17,16 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
 
     public static final ApplicationApplicationConfigurationApplicationCodeConfigurationArgs Empty = new ApplicationApplicationConfigurationApplicationCodeConfigurationArgs();
 
-    /**
-     * The location and type of the application code.
-     * 
-     */
     @Import(name="codeContent")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs> codeContent;
 
-    /**
-     * @return The location and type of the application code.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs>> codeContent() {
         return Optional.ofNullable(this.codeContent);
     }
 
-    /**
-     * Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-     * 
-     */
     @Import(name="codeContentType", required=true)
     private Output<String> codeContentType;
 
-    /**
-     * @return Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-     * 
-     */
     public Output<String> codeContentType() {
         return this.codeContentType;
     }
@@ -72,44 +56,20 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
             $ = new ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param codeContent The location and type of the application code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeContent(@Nullable Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs> codeContent) {
             $.codeContent = codeContent;
             return this;
         }
 
-        /**
-         * @param codeContent The location and type of the application code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeContent(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs codeContent) {
             return codeContent(Output.of(codeContent));
         }
 
-        /**
-         * @param codeContentType Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeContentType(Output<String> codeContentType) {
             $.codeContentType = codeContentType;
             return this;
         }
 
-        /**
-         * @param codeContentType Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeContentType(String codeContentType) {
             return codeContentType(Output.of(codeContentType));
         }

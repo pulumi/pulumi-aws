@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreBrowserNetworkConfiguration {
-    /**
-     * @return Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     private String networkMode;
-    /**
-     * @return VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
-     * 
-     */
     private @Nullable AgentcoreBrowserNetworkConfigurationVpcConfig vpcConfig;
 
     private AgentcoreBrowserNetworkConfiguration() {}
-    /**
-     * @return Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     public String networkMode() {
         return this.networkMode;
     }
-    /**
-     * @return VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
-     * 
-     */
     public Optional<AgentcoreBrowserNetworkConfigurationVpcConfig> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }

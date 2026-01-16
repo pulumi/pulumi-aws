@@ -13,42 +13,15 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class GetApiKeysItemResult
     {
-        /// <summary>
-        /// Date and time when the API Key was created.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-        /// </summary>
         public readonly string CustomerId;
-        /// <summary>
-        /// Description of the API Key.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Whether the API Key is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// ID of the API Key.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Date and time when the API Key was last updated.
-        /// </summary>
         public readonly string LastUpdatedDate;
-        /// <summary>
-        /// Name of the API Key.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> StageKeys;
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Value of the API Key.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

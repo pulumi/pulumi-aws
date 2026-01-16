@@ -17,137 +17,65 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
 
     public static final LogSubscriptionFilterState Empty = new LogSubscriptionFilterState();
 
-    /**
-     * Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-     * 
-     */
     @Import(name="applyOnTransformedLogs")
     private @Nullable Output<Boolean> applyOnTransformedLogs;
 
-    /**
-     * @return Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-     * 
-     */
     public Optional<Output<Boolean>> applyOnTransformedLogs() {
         return Optional.ofNullable(this.applyOnTransformedLogs);
     }
 
-    /**
-     * ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-     * 
-     */
     @Import(name="destinationArn")
     private @Nullable Output<String> destinationArn;
 
-    /**
-     * @return ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-     * 
-     */
     public Optional<Output<String>> destinationArn() {
         return Optional.ofNullable(this.destinationArn);
     }
 
-    /**
-     * Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
-     * 
-     */
     @Import(name="distribution")
     private @Nullable Output<String> distribution;
 
-    /**
-     * @return Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
-     * 
-     */
     public Optional<Output<String>> distribution() {
         return Optional.ofNullable(this.distribution);
     }
 
-    /**
-     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
-     * 
-     */
     @Import(name="emitSystemFields")
     private @Nullable Output<List<String>> emitSystemFields;
 
-    /**
-     * @return List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
-     * 
-     */
     public Optional<Output<List<String>>> emitSystemFields() {
         return Optional.ofNullable(this.emitSystemFields);
     }
 
-    /**
-     * Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-     * 
-     */
     @Import(name="filterPattern")
     private @Nullable Output<String> filterPattern;
 
-    /**
-     * @return Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-     * 
-     */
     public Optional<Output<String>> filterPattern() {
         return Optional.ofNullable(this.filterPattern);
     }
 
-    /**
-     * Name of the log group to associate the subscription filter with.
-     * 
-     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
-    /**
-     * @return Name of the log group to associate the subscription filter with.
-     * 
-     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
 
-    /**
-     * Name for the subscription filter.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name for the subscription filter.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don&#39;t need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don&#39;t need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -184,201 +112,87 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
             $ = new LogSubscriptionFilterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applyOnTransformedLogs Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyOnTransformedLogs(@Nullable Output<Boolean> applyOnTransformedLogs) {
             $.applyOnTransformedLogs = applyOnTransformedLogs;
             return this;
         }
 
-        /**
-         * @param applyOnTransformedLogs Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applyOnTransformedLogs(Boolean applyOnTransformedLogs) {
             return applyOnTransformedLogs(Output.of(applyOnTransformedLogs));
         }
 
-        /**
-         * @param destinationArn ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(@Nullable Output<String> destinationArn) {
             $.destinationArn = destinationArn;
             return this;
         }
 
-        /**
-         * @param destinationArn ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
         }
 
-        /**
-         * @param distribution Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distribution(@Nullable Output<String> distribution) {
             $.distribution = distribution;
             return this;
         }
 
-        /**
-         * @param distribution Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distribution(String distribution) {
             return distribution(Output.of(distribution));
         }
 
-        /**
-         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emitSystemFields(@Nullable Output<List<String>> emitSystemFields) {
             $.emitSystemFields = emitSystemFields;
             return this;
         }
 
-        /**
-         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emitSystemFields(List<String> emitSystemFields) {
             return emitSystemFields(Output.of(emitSystemFields));
         }
 
-        /**
-         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emitSystemFields(String... emitSystemFields) {
             return emitSystemFields(List.of(emitSystemFields));
         }
 
-        /**
-         * @param filterPattern Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPattern(@Nullable Output<String> filterPattern) {
             $.filterPattern = filterPattern;
             return this;
         }
 
-        /**
-         * @param filterPattern Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterPattern(String filterPattern) {
             return filterPattern(Output.of(filterPattern));
         }
 
-        /**
-         * @param logGroup Name of the log group to associate the subscription filter with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
-        /**
-         * @param logGroup Name of the log group to associate the subscription filter with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }
 
-        /**
-         * @param name Name for the subscription filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name for the subscription filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don&#39;t need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don&#39;t need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

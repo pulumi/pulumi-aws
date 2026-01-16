@@ -27,11 +27,6 @@ class RouteServerVpcAssociationArgs:
                  timeouts: Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerVpcAssociation resource.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the route server.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "route_server_id", route_server_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -43,9 +38,6 @@ class RouteServerVpcAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier for the route server to be associated.
-        """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
@@ -55,11 +47,6 @@ class RouteServerVpcAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the VPC to associate with the route server.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -69,9 +56,6 @@ class RouteServerVpcAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,11 +81,6 @@ class _RouteServerVpcAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteServerVpcAssociation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the route server.
-               
-               The following arguments are optional:
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -115,9 +94,6 @@ class _RouteServerVpcAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,9 +103,6 @@ class _RouteServerVpcAssociationState:
     @_builtins.property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier for the route server to be associated.
-        """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
@@ -148,11 +121,6 @@ class _RouteServerVpcAssociationState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the VPC to associate with the route server.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -172,36 +140,9 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpc.RouteServerVpcAssociation("example",
-            route_server_id=example_aws_vpc_route_server["routeServerId"],
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
-
-        ```sh
-        $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
-        ```
-
+        Create a RouteServerVpcAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the route server.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -210,29 +151,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
                  args: RouteServerVpcAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpc.RouteServerVpcAssociation("example",
-            route_server_id=example_aws_vpc_route_server["routeServerId"],
-            vpc_id=example_aws_vpc["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
-
-        ```sh
-        $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
-        ```
-
+        Create a RouteServerVpcAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteServerVpcAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,11 +209,6 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the route server.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,17 +223,11 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier for the route server to be associated.
-        """
         return pulumi.get(self, "route_server_id")
 
     @_builtins.property
@@ -330,10 +238,5 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the VPC to associate with the route server.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 

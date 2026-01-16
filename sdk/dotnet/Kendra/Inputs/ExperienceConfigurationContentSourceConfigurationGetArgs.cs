@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Kendra.Inputs
     {
         [Input("dataSourceIds")]
         private InputList<string>? _dataSourceIds;
-
-        /// <summary>
-        /// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-        /// </summary>
         public InputList<string> DataSourceIds
         {
             get => _dataSourceIds ?? (_dataSourceIds = new InputList<string>());
             set => _dataSourceIds = value;
         }
 
-        /// <summary>
-        /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `False`.
-        /// </summary>
         [Input("directPutContent")]
         public Input<bool>? DirectPutContent { get; set; }
 
         [Input("faqIds")]
         private InputList<string>? _faqIds;
-
-        /// <summary>
-        /// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
-        /// </summary>
         public InputList<string> FaqIds
         {
             get => _faqIds ?? (_faqIds = new InputList<string>());

@@ -13,45 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
-    /**
-     * @return Description of the prompt.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema inputSchema;
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String name;
 
     private AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec() {}
-    /**
-     * @return Description of the prompt.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
-     * 
-     */
     public Optional<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema> inputSchema() {
         return Optional.ofNullable(this.inputSchema);
     }
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String name() {
         return this.name;
     }

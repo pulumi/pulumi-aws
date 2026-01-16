@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation {
-    /**
-     * @return ARN of the key value store.
-     * 
-     */
     private String keyValueStoreArn;
 
     private ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociation() {}
-    /**
-     * @return ARN of the key value store.
-     * 
-     */
     public String keyValueStoreArn() {
         return this.keyValueStoreArn;
     }

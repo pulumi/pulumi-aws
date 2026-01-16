@@ -13,26 +13,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GetGroupMixedInstancesPolicyInstancesDistributionResult
     {
-        /// <summary>
-        /// Strategy used when launching on-demand instances.
-        /// </summary>
         public readonly string OnDemandAllocationStrategy;
-        /// <summary>
-        /// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances.
-        /// </summary>
         public readonly int OnDemandBaseCapacity;
         public readonly int OnDemandPercentageAboveBaseCapacity;
-        /// <summary>
-        /// Strategy used when launching Spot instances.
-        /// </summary>
         public readonly string SpotAllocationStrategy;
-        /// <summary>
-        /// Number of Spot pools per availability zone to allocate capacity.
-        /// </summary>
         public readonly int SpotInstancePools;
-        /// <summary>
-        /// Maximum price per unit hour that the user is willing to pay for the Spot instances.
-        /// </summary>
         public readonly string SpotMaxPrice;
 
         [OutputConstructor]

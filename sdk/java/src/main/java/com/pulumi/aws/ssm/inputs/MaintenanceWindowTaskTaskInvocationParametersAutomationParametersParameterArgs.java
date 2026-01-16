@@ -15,32 +15,16 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
 
     public static final MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs Empty = new MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs();
 
-    /**
-     * The parameter name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The parameter name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The array of strings.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return The array of strings.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
             $ = new MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values The array of strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values The array of strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values The array of strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -12,74 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkInsightsPath(ctx, "test", &ec2.NetworkInsightsPathArgs{
-//				Source:      pulumi.Any(source.Id),
-//				Destination: pulumi.Any(destination.Id),
-//				Protocol:    pulumi.String("tcp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Insights Paths using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
-// ```
 type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Network Insights Path.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-	Destination pulumi.StringPtrOutput `pulumi:"destination"`
-	// ARN of the destination.
-	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
-	// IP address of the destination resource.
-	DestinationIp pulumi.StringPtrOutput `pulumi:"destinationIp"`
-	// Destination port to analyze access to.
+	Arn                 pulumi.StringOutput                          `pulumi:"arn"`
+	Destination         pulumi.StringPtrOutput                       `pulumi:"destination"`
+	DestinationArn      pulumi.StringOutput                          `pulumi:"destinationArn"`
+	DestinationIp       pulumi.StringPtrOutput                       `pulumi:"destinationIp"`
 	DestinationPort     pulumi.IntPtrOutput                          `pulumi:"destinationPort"`
 	FilterAtDestination NetworkInsightsPathFilterAtDestinationOutput `pulumi:"filterAtDestination"`
 	FilterAtSource      NetworkInsightsPathFilterAtSourceOutput      `pulumi:"filterAtSource"`
-	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
-	//
-	// The following arguments are optional:
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Source pulumi.StringOutput `pulumi:"source"`
-	// ARN of the source.
-	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
-	// IP address of the source resource.
-	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Protocol            pulumi.StringOutput                          `pulumi:"protocol"`
+	Region              pulumi.StringOutput                          `pulumi:"region"`
+	Source              pulumi.StringOutput                          `pulumi:"source"`
+	SourceArn           pulumi.StringOutput                          `pulumi:"sourceArn"`
+	SourceIp            pulumi.StringPtrOutput                       `pulumi:"sourceIp"`
+	Tags                pulumi.StringMapOutput                       `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                       `pulumi:"tagsAll"`
 }
 
 // NewNetworkInsightsPath registers a new resource with the given unique name, arguments, and options.
@@ -118,65 +67,37 @@ func GetNetworkInsightsPath(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInsightsPath resources.
 type networkInsightsPathState struct {
-	// ARN of the Network Insights Path.
-	Arn *string `pulumi:"arn"`
-	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-	Destination *string `pulumi:"destination"`
-	// ARN of the destination.
-	DestinationArn *string `pulumi:"destinationArn"`
-	// IP address of the destination resource.
-	DestinationIp *string `pulumi:"destinationIp"`
-	// Destination port to analyze access to.
+	Arn                 *string                                 `pulumi:"arn"`
+	Destination         *string                                 `pulumi:"destination"`
+	DestinationArn      *string                                 `pulumi:"destinationArn"`
+	DestinationIp       *string                                 `pulumi:"destinationIp"`
 	DestinationPort     *int                                    `pulumi:"destinationPort"`
 	FilterAtDestination *NetworkInsightsPathFilterAtDestination `pulumi:"filterAtDestination"`
 	FilterAtSource      *NetworkInsightsPathFilterAtSource      `pulumi:"filterAtSource"`
-	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
-	//
-	// The following arguments are optional:
-	Protocol *string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Source *string `pulumi:"source"`
-	// ARN of the source.
-	SourceArn *string `pulumi:"sourceArn"`
-	// IP address of the source resource.
-	SourceIp *string `pulumi:"sourceIp"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Protocol            *string                                 `pulumi:"protocol"`
+	Region              *string                                 `pulumi:"region"`
+	Source              *string                                 `pulumi:"source"`
+	SourceArn           *string                                 `pulumi:"sourceArn"`
+	SourceIp            *string                                 `pulumi:"sourceIp"`
+	Tags                map[string]string                       `pulumi:"tags"`
+	TagsAll             map[string]string                       `pulumi:"tagsAll"`
 }
 
 type NetworkInsightsPathState struct {
-	// ARN of the Network Insights Path.
-	Arn pulumi.StringPtrInput
-	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-	Destination pulumi.StringPtrInput
-	// ARN of the destination.
-	DestinationArn pulumi.StringPtrInput
-	// IP address of the destination resource.
-	DestinationIp pulumi.StringPtrInput
-	// Destination port to analyze access to.
+	Arn                 pulumi.StringPtrInput
+	Destination         pulumi.StringPtrInput
+	DestinationArn      pulumi.StringPtrInput
+	DestinationIp       pulumi.StringPtrInput
 	DestinationPort     pulumi.IntPtrInput
 	FilterAtDestination NetworkInsightsPathFilterAtDestinationPtrInput
 	FilterAtSource      NetworkInsightsPathFilterAtSourcePtrInput
-	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
-	//
-	// The following arguments are optional:
-	Protocol pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Source pulumi.StringPtrInput
-	// ARN of the source.
-	SourceArn pulumi.StringPtrInput
-	// IP address of the source resource.
-	SourceIp pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Protocol            pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
+	Source              pulumi.StringPtrInput
+	SourceArn           pulumi.StringPtrInput
+	SourceIp            pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (NetworkInsightsPathState) ElementType() reflect.Type {
@@ -184,50 +105,30 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-	Destination *string `pulumi:"destination"`
-	// IP address of the destination resource.
-	DestinationIp *string `pulumi:"destinationIp"`
-	// Destination port to analyze access to.
+	Destination         *string                                 `pulumi:"destination"`
+	DestinationIp       *string                                 `pulumi:"destinationIp"`
 	DestinationPort     *int                                    `pulumi:"destinationPort"`
 	FilterAtDestination *NetworkInsightsPathFilterAtDestination `pulumi:"filterAtDestination"`
 	FilterAtSource      *NetworkInsightsPathFilterAtSource      `pulumi:"filterAtSource"`
-	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
-	//
-	// The following arguments are optional:
-	Protocol string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Source string `pulumi:"source"`
-	// IP address of the source resource.
-	SourceIp *string `pulumi:"sourceIp"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Protocol            string                                  `pulumi:"protocol"`
+	Region              *string                                 `pulumi:"region"`
+	Source              string                                  `pulumi:"source"`
+	SourceIp            *string                                 `pulumi:"sourceIp"`
+	Tags                map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
-	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
-	Destination pulumi.StringPtrInput
-	// IP address of the destination resource.
-	DestinationIp pulumi.StringPtrInput
-	// Destination port to analyze access to.
+	Destination         pulumi.StringPtrInput
+	DestinationIp       pulumi.StringPtrInput
 	DestinationPort     pulumi.IntPtrInput
 	FilterAtDestination NetworkInsightsPathFilterAtDestinationPtrInput
 	FilterAtSource      NetworkInsightsPathFilterAtSourcePtrInput
-	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
-	//
-	// The following arguments are optional:
-	Protocol pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Source pulumi.StringInput
-	// IP address of the source resource.
-	SourceIp pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Protocol            pulumi.StringInput
+	Region              pulumi.StringPtrInput
+	Source              pulumi.StringInput
+	SourceIp            pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (NetworkInsightsPathArgs) ElementType() reflect.Type {
@@ -317,27 +218,22 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the Network Insights Path.
 func (o NetworkInsightsPathOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
 func (o NetworkInsightsPathOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the destination.
 func (o NetworkInsightsPathOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// IP address of the destination resource.
 func (o NetworkInsightsPathOutput) DestinationIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.DestinationIp }).(pulumi.StringPtrOutput)
 }
 
-// Destination port to analyze access to.
 func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
@@ -352,39 +248,30 @@ func (o NetworkInsightsPathOutput) FilterAtSource() NetworkInsightsPathFilterAtS
 	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathFilterAtSourceOutput { return v.FilterAtSource }).(NetworkInsightsPathFilterAtSourceOutput)
 }
 
-// Protocol to use for analysis. Valid options are `tcp` or `udp`.
-//
-// The following arguments are optional:
 func (o NetworkInsightsPathOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInsightsPathOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 func (o NetworkInsightsPathOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// ARN of the source.
 func (o NetworkInsightsPathOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
 
-// IP address of the source resource.
 func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkInsightsPathOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkInsightsPathOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

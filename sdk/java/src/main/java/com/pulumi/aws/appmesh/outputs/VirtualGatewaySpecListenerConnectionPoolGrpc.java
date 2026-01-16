@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualGatewaySpecListenerConnectionPoolGrpc {
-    /**
-     * @return Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     private Integer maxRequests;
 
     private VirtualGatewaySpecListenerConnectionPoolGrpc() {}
-    /**
-     * @return Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     public Integer maxRequests() {
         return this.maxRequests;
     }

@@ -16,32 +16,16 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaArgs extend
 
     public static final BucketReplicationConfigRuleSourceSelectionCriteriaArgs Empty = new BucketReplicationConfigRuleSourceSelectionCriteriaArgs();
 
-    /**
-     * Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-     * 
-     */
     @Import(name="replicaModifications")
     private @Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs> replicaModifications;
 
-    /**
-     * @return Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-     * 
-     */
     public Optional<Output<BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs>> replicaModifications() {
         return Optional.ofNullable(this.replicaModifications);
     }
 
-    /**
-     * Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
-     * 
-     */
     @Import(name="sseKmsEncryptedObjects")
     private @Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs> sseKmsEncryptedObjects;
 
-    /**
-     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
-     * 
-     */
     public Optional<Output<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs>> sseKmsEncryptedObjects() {
         return Optional.ofNullable(this.sseKmsEncryptedObjects);
     }
@@ -71,44 +55,20 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaArgs extend
             $ = new BucketReplicationConfigRuleSourceSelectionCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param replicaModifications Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicaModifications(@Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs> replicaModifications) {
             $.replicaModifications = replicaModifications;
             return this;
         }
 
-        /**
-         * @param replicaModifications Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicaModifications(BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs replicaModifications) {
             return replicaModifications(Output.of(replicaModifications));
         }
 
-        /**
-         * @param sseKmsEncryptedObjects Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseKmsEncryptedObjects(@Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs> sseKmsEncryptedObjects) {
             $.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
         }
 
-        /**
-         * @param sseKmsEncryptedObjects Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseKmsEncryptedObjects(BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs sseKmsEncryptedObjects) {
             return sseKmsEncryptedObjects(Output.of(sseKmsEncryptedObjects));
         }

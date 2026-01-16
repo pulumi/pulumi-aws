@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText
     {
-        /// <summary>
-        /// Maximum number of tokens to return in the response.
-        /// </summary>
         public readonly int? MaxTokens;
-        /// <summary>
-        /// List of strings that define sequences after which the model will stop generating.
-        /// </summary>
         public readonly ImmutableArray<string> StopSequences;
-        /// <summary>
-        /// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-        /// </summary>
         public readonly double? Temperature;
-        /// <summary>
-        /// Percentage of most-likely candidates that the model considers for the next token.
-        /// </summary>
         public readonly double? TopP;
 
         [OutputConstructor]

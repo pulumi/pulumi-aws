@@ -16,32 +16,16 @@ public final class ModelPrimaryContainerAdditionalModelDataSourceArgs extends co
 
     public static final ModelPrimaryContainerAdditionalModelDataSourceArgs Empty = new ModelPrimaryContainerAdditionalModelDataSourceArgs();
 
-    /**
-     * Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-     * 
-     */
     @Import(name="channelName", required=true)
     private Output<String> channelName;
 
-    /**
-     * @return Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-     * 
-     */
     public Output<String> channelName() {
         return this.channelName;
     }
 
-    /**
-     * S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     @Import(name="s3DataSources", required=true)
     private Output<List<ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs>> s3DataSources;
 
-    /**
-     * @return S3 location of model data to deploy. See S3 Data Source.
-     * 
-     */
     public Output<List<ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs>> s3DataSources() {
         return this.s3DataSources;
     }
@@ -71,54 +55,24 @@ public final class ModelPrimaryContainerAdditionalModelDataSourceArgs extends co
             $ = new ModelPrimaryContainerAdditionalModelDataSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param channelName Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channelName(Output<String> channelName) {
             $.channelName = channelName;
             return this;
         }
 
-        /**
-         * @param channelName Custom name for the additional model data source object. It will be stored in `/opt/ml/additional-model-data-sources/&lt;channel_name&gt;/`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder channelName(String channelName) {
             return channelName(Output.of(channelName));
         }
 
-        /**
-         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataSources(Output<List<ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs>> s3DataSources) {
             $.s3DataSources = s3DataSources;
             return this;
         }
 
-        /**
-         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataSources(List<ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs> s3DataSources) {
             return s3DataSources(Output.of(s3DataSources));
         }
 
-        /**
-         * @param s3DataSources S3 location of model data to deploy. See S3 Data Source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3DataSources(ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgs... s3DataSources) {
             return s3DataSources(List.of(s3DataSources));
         }

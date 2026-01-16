@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class HumanTaskUIUiTemplate
     {
-        /// <summary>
-        /// The content of the Liquid template for the worker user interface.
-        /// </summary>
         public readonly string? Content;
-        /// <summary>
-        /// The SHA-256 digest of the contents of the template.
-        /// </summary>
         public readonly string? ContentSha256;
-        /// <summary>
-        /// The URL for the user interface template.
-        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

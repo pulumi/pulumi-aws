@@ -18,10 +18,6 @@ public final class GetStateMachineVersionsResult {
     private String id;
     private String region;
     private String statemachineArn;
-    /**
-     * @return ARN List identifying the statemachine versions.
-     * 
-     */
     private List<String> statemachineVersions;
 
     private GetStateMachineVersionsResult() {}
@@ -38,10 +34,6 @@ public final class GetStateMachineVersionsResult {
     public String statemachineArn() {
         return this.statemachineArn;
     }
-    /**
-     * @return ARN List identifying the statemachine versions.
-     * 
-     */
     public List<String> statemachineVersions() {
         return this.statemachineVersions;
     }

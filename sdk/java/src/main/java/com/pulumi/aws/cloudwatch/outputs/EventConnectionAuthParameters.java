@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventConnectionAuthParameters {
-    /**
-     * @return Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-     * 
-     */
     private @Nullable EventConnectionAuthParametersApiKey apiKey;
-    /**
-     * @return Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
-     * 
-     */
     private @Nullable EventConnectionAuthParametersBasic basic;
-    /**
-     * @return Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     private @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters;
-    /**
-     * @return Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
-     * 
-     */
     private @Nullable EventConnectionAuthParametersOauth oauth;
 
     private EventConnectionAuthParameters() {}
-    /**
-     * @return Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-     * 
-     */
     public Optional<EventConnectionAuthParametersApiKey> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
-    /**
-     * @return Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
-     * 
-     */
     public Optional<EventConnectionAuthParametersBasic> basic() {
         return Optional.ofNullable(this.basic);
     }
-    /**
-     * @return Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     public Optional<EventConnectionAuthParametersInvocationHttpParameters> invocationHttpParameters() {
         return Optional.ofNullable(this.invocationHttpParameters);
     }
-    /**
-     * @return Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
-     * 
-     */
     public Optional<EventConnectionAuthParametersOauth> oauth() {
         return Optional.ofNullable(this.oauth);
     }

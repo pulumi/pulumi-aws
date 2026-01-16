@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification {
-    /**
-     * @return Time for which a bot waits before re-prompting a customer for text input.
-     * 
-     */
     private Integer startTimeoutMs;
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification() {}
-    /**
-     * @return Time for which a bot waits before re-prompting a customer for text input.
-     * 
-     */
     public Integer startTimeoutMs() {
         return this.startTimeoutMs;
     }

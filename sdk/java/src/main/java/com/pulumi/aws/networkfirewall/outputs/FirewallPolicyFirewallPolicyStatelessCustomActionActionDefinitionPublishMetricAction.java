@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
-    /**
-     * @return Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-     * 
-     */
     private List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions;
 
     private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction() {}
-    /**
-     * @return Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-     * 
-     */
     public List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> dimensions() {
         return this.dimensions;
     }

@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Network Flow Monitor Scope.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.networkflowmonitor.Scope("example", {
- *     targets: [{
- *         region: "us-east-1",
- *         targetIdentifier: {
- *             targetType: "ACCOUNT",
- *             targetId: {
- *                 accountId: current.then(current => current.accountId),
- *             },
- *         },
- *     }],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Network Flow Monitor Scope using the scope ID. For example:
- *
- * ```sh
- * $ pulumi import aws:networkflowmonitor/scope:Scope example example-scope-id
- * ```
- */
 export class Scope extends pulumi.CustomResource {
     /**
      * Get an existing Scope resource's state with the given name, ID, and optional extra
@@ -71,31 +35,11 @@ export class Scope extends pulumi.CustomResource {
         return obj['__pulumiType'] === Scope.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the scope.
-     */
     declare public /*out*/ readonly scopeArn: pulumi.Output<string>;
-    /**
-     * The identifier for the scope that includes the resources you want to get data results for.
-     */
     declare public /*out*/ readonly scopeId: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targets: pulumi.Output<outputs.networkflowmonitor.ScopeTarget[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.networkflowmonitor.ScopeTimeouts | undefined>;
 
@@ -138,31 +82,11 @@ export class Scope extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Scope resources.
  */
 export interface ScopeState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the scope.
-     */
     scopeArn?: pulumi.Input<string>;
-    /**
-     * The identifier for the scope that includes the resources you want to get data results for.
-     */
     scopeId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     *
-     * The following arguments are optional:
-     */
     targets?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.ScopeTarget>[]>;
     timeouts?: pulumi.Input<inputs.networkflowmonitor.ScopeTimeouts>;
 }
@@ -171,19 +95,8 @@ export interface ScopeState {
  * The set of arguments for constructing a Scope resource.
  */
 export interface ScopeArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     *
-     * The following arguments are optional:
-     */
     targets?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.ScopeTarget>[]>;
     timeouts?: pulumi.Input<inputs.networkflowmonitor.ScopeTimeouts>;
 }

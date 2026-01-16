@@ -12,24 +12,14 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Part of a web request that you want AWS WAF to inspect. See `FieldToMatch` below for details.
-        /// </summary>
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs>? FieldToMatch { get; set; }
 
-        /// <summary>
-        /// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
-        /// </summary>
         [Input("sensitivityLevel")]
         public Input<string>? SensitivityLevel { get; set; }
 
         [Input("textTransformations", required: true)]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs>? _textTransformations;
-
-        /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `TextTransformation` below for details.
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs> TextTransformations
         {
             get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs>());

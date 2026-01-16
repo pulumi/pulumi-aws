@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UsagePlanQuotaSettings {
-    /**
-     * @return Maximum number of requests that can be made in a given time period.
-     * 
-     */
     private Integer limit;
-    /**
-     * @return Number of requests subtracted from the given limit in the initial time period.
-     * 
-     */
     private @Nullable Integer offset;
-    /**
-     * @return Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
-     * 
-     */
     private String period;
 
     private UsagePlanQuotaSettings() {}
-    /**
-     * @return Maximum number of requests that can be made in a given time period.
-     * 
-     */
     public Integer limit() {
         return this.limit;
     }
-    /**
-     * @return Number of requests subtracted from the given limit in the initial time period.
-     * 
-     */
     public Optional<Integer> offset() {
         return Optional.ofNullable(this.offset);
     }
-    /**
-     * @return Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
-     * 
-     */
     public String period() {
         return this.period;
     }

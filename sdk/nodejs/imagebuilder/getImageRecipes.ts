@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImageRecipes({
- *     owner: "Self",
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- * });
- * ```
- */
 export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,17 +21,8 @@ export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getImageRecipes.
  */
 export interface GetImageRecipesArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.imagebuilder.GetImageRecipesFilter[];
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     */
     owner?: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -57,40 +30,16 @@ export interface GetImageRecipesArgs {
  * A collection of values returned by getImageRecipes.
  */
 export interface GetImageRecipesResult {
-    /**
-     * Set of ARNs of the matched Image Builder Image Recipes.
-     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetImageRecipesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of names of the matched Image Builder Image Recipes.
-     */
     readonly names: string[];
     readonly owner?: string;
     readonly region: string;
 }
-/**
- * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImageRecipes({
- *     owner: "Self",
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- * });
- * ```
- */
 export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageRecipesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,16 +54,7 @@ export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: p
  * A collection of arguments for invoking getImageRecipes.
  */
 export interface GetImageRecipesOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImageRecipesFilterArgs>[]>;
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

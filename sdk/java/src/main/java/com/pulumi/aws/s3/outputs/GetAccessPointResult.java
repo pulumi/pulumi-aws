@@ -15,40 +15,12 @@ import java.util.Objects;
 @CustomType
 public final class GetAccessPointResult {
     private String accountId;
-    /**
-     * @return Access point alias.
-     * 
-     */
     private String alias;
-    /**
-     * @return Access point ARN.
-     * 
-     */
     private String arn;
-    /**
-     * @return Name of the bucket associated with the access point.
-     * 
-     */
     private String bucket;
-    /**
-     * @return AWS account ID associated with the S3 bucket associated with the access point.
-     * 
-     */
     private String bucketAccountId;
-    /**
-     * @return Unique identifier for the data source of the access point.
-     * 
-     */
     private String dataSourceId;
-    /**
-     * @return Type of the data source that the access point is attached to.
-     * 
-     */
     private String dataSourceType;
-    /**
-     * @return VPC endpoint for the access point.
-     * 
-     */
     private Map<String,String> endpoints;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -56,78 +28,34 @@ public final class GetAccessPointResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Indicates whether the access point allows access from the public Internet.
-     * 
-     */
     private String networkOrigin;
-    /**
-     * @return `PublicAccessBlock` configuration for the access point.
-     * 
-     */
     private List<GetAccessPointPublicAccessBlockConfiguration> publicAccessBlockConfigurations;
     private String region;
-    /**
-     * @return Tags assigned to the access point.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return VPC configuration for the access point.
-     * 
-     */
     private List<GetAccessPointVpcConfiguration> vpcConfigurations;
 
     private GetAccessPointResult() {}
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return Access point alias.
-     * 
-     */
     public String alias() {
         return this.alias;
     }
-    /**
-     * @return Access point ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Name of the bucket associated with the access point.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return AWS account ID associated with the S3 bucket associated with the access point.
-     * 
-     */
     public String bucketAccountId() {
         return this.bucketAccountId;
     }
-    /**
-     * @return Unique identifier for the data source of the access point.
-     * 
-     */
     public String dataSourceId() {
         return this.dataSourceId;
     }
-    /**
-     * @return Type of the data source that the access point is attached to.
-     * 
-     */
     public String dataSourceType() {
         return this.dataSourceType;
     }
-    /**
-     * @return VPC endpoint for the access point.
-     * 
-     */
     public Map<String,String> endpoints() {
         return this.endpoints;
     }
@@ -141,34 +69,18 @@ public final class GetAccessPointResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Indicates whether the access point allows access from the public Internet.
-     * 
-     */
     public String networkOrigin() {
         return this.networkOrigin;
     }
-    /**
-     * @return `PublicAccessBlock` configuration for the access point.
-     * 
-     */
     public List<GetAccessPointPublicAccessBlockConfiguration> publicAccessBlockConfigurations() {
         return this.publicAccessBlockConfigurations;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Tags assigned to the access point.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return VPC configuration for the access point.
-     * 
-     */
     public List<GetAccessPointVpcConfiguration> vpcConfigurations() {
         return this.vpcConfigurations;
     }

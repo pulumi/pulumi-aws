@@ -19,78 +19,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.signer.SigningProfile;
- * import com.pulumi.aws.signer.SigningProfileArgs;
- * import com.pulumi.aws.signer.inputs.SigningProfileSignatureValidityPeriodArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()
- *             .platformId("AWSLambda-SHA384-ECDSA")
- *             .build());
- * 
- *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()
- *             .platformId("AWSLambda-SHA384-ECDSA")
- *             .namePrefix("prod_sp_")
- *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
- *                 .value(5)
- *                 .type("YEARS")
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("tag1", "value1"),
- *                 Map.entry("tag2", "value2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Signer signing profiles using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
- * ```
- * 
- */
 @ResourceType(type="aws:signer/signingProfile:SigningProfile")
 public class SigningProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) for the signing profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the signing profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -106,171 +39,75 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * A human-readable name for the signing platform associated with the signing profile.
-     * 
-     */
     @Export(name="platformDisplayName", refs={String.class}, tree="[0]")
     private Output<String> platformDisplayName;
 
-    /**
-     * @return A human-readable name for the signing platform associated with the signing profile.
-     * 
-     */
     public Output<String> platformDisplayName() {
         return this.platformDisplayName;
     }
-    /**
-     * The ID of the platform that is used by the target signing profile.
-     * 
-     */
     @Export(name="platformId", refs={String.class}, tree="[0]")
     private Output<String> platformId;
 
-    /**
-     * @return The ID of the platform that is used by the target signing profile.
-     * 
-     */
     public Output<String> platformId() {
         return this.platformId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Revocation information for a signing profile. See `revocationRecord` Block below for details.
-     * 
-     */
     @Export(name="revocationRecords", refs={List.class,SigningProfileRevocationRecord.class}, tree="[0,1]")
     private Output<List<SigningProfileRevocationRecord>> revocationRecords;
 
-    /**
-     * @return Revocation information for a signing profile. See `revocationRecord` Block below for details.
-     * 
-     */
     public Output<List<SigningProfileRevocationRecord>> revocationRecords() {
         return this.revocationRecords;
     }
-    /**
-     * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     * 
-     */
     @Export(name="signatureValidityPeriod", refs={SigningProfileSignatureValidityPeriod.class}, tree="[0]")
     private Output<SigningProfileSignatureValidityPeriod> signatureValidityPeriod;
 
-    /**
-     * @return The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
-     * 
-     */
     public Output<SigningProfileSignatureValidityPeriod> signatureValidityPeriod() {
         return this.signatureValidityPeriod;
     }
-    /**
-     * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     * 
-     */
     @Export(name="signingMaterial", refs={SigningProfileSigningMaterial.class}, tree="[0]")
     private Output<SigningProfileSigningMaterial> signingMaterial;
 
-    /**
-     * @return The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
-     * 
-     */
     public Output<SigningProfileSigningMaterial> signingMaterial() {
         return this.signingMaterial;
     }
-    /**
-     * Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     * 
-     */
     @Export(name="signingParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> signingParameters;
 
-    /**
-     * @return Map of key-value pairs for signing. These can include any information that you want to use during signing.
-     * 
-     */
     public Output<Optional<Map<String,String>>> signingParameters() {
         return Codegen.optional(this.signingParameters);
     }
-    /**
-     * The status of the target signing profile.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the target signing profile.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The current version of the signing profile.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The current version of the signing profile.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
-    /**
-     * The signing profile ARN, including the profile version.
-     * 
-     */
     @Export(name="versionArn", refs={String.class}, tree="[0]")
     private Output<String> versionArn;
 
-    /**
-     * @return The signing profile ARN, including the profile version.
-     * 
-     */
     public Output<String> versionArn() {
         return this.versionArn;
     }

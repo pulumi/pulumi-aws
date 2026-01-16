@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceVolumeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
-        /// </summary>
         [Input("managedEbsVolume", required: true)]
         public Input<Inputs.ServiceVolumeConfigurationManagedEbsVolumeGetArgs> ManagedEbsVolume { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the volume.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

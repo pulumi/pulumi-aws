@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping
     {
-        /// <summary>
-        /// Name for the universal metadata field where Amazon Bedrock will store any custom metadata from your data source.
-        /// </summary>
         public readonly string? CustomMetadataField;
-        /// <summary>
-        /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
-        /// </summary>
         public readonly string MetadataField;
-        /// <summary>
-        /// Name of the field in which Amazon Bedrock stores the ID for each entry.
-        /// </summary>
         public readonly string PrimaryKeyField;
-        /// <summary>
-        /// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-        /// </summary>
         public readonly string TextField;
-        /// <summary>
-        /// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-        /// </summary>
         public readonly string VectorField;
 
         [OutputConstructor]

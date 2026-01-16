@@ -7,76 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Verified Permissions Identity Source.
- *
- * ## Example Usage
- *
- * ### Cognito User Pool Configuration Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedpermissions.PolicyStore("example", {validationSettings: {
- *     mode: "STRICT",
- * }});
- * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
- *     name: "example",
- *     userPoolId: exampleUserPool.id,
- *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
- * });
- * const exampleIdentitySource = new aws.verifiedpermissions.IdentitySource("example", {
- *     policyStoreId: example.id,
- *     configuration: {
- *         cognitoUserPoolConfiguration: {
- *             userPoolArn: exampleUserPool.arn,
- *             clientIds: [exampleUserPoolClient.id],
- *         },
- *     },
- * });
- * ```
- *
- * ### OpenID Connect Configuration Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedpermissions.PolicyStore("example", {validationSettings: {
- *     mode: "STRICT",
- * }});
- * const exampleIdentitySource = new aws.verifiedpermissions.IdentitySource("example", {
- *     policyStoreId: example.id,
- *     configuration: {
- *         openIdConnectConfiguration: {
- *             issuer: "https://auth.example.com",
- *             tokenSelection: {
- *                 accessTokenOnly: {
- *                     audiences: ["https://myapp.example.com"],
- *                     principalIdClaim: "sub",
- *                 },
- *             },
- *             entityIdPrefix: "MyOIDCProvider",
- *             groupConfiguration: {
- *                 groupClaim: "groups",
- *                 groupEntityType: "MyCorp::UserGroup",
- *             },
- *         },
- *     },
- *     principalEntityType: "MyCorp::User",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Verified Permissions Identity Source using the `policy_store_id:identity_source_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:verifiedpermissions/identitySource:IdentitySource example policy-store-id-12345678:identity-source-id-12345678
- * ```
- */
 export class IdentitySource extends pulumi.CustomResource {
     /**
      * Get an existing IdentitySource resource's state with the given name, ID, and optional extra
@@ -105,21 +35,9 @@ export class IdentitySource extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentitySource.__pulumiType;
     }
 
-    /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     */
     declare public readonly configuration: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration | undefined>;
-    /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
-     */
     declare public readonly policyStoreId: pulumi.Output<string>;
-    /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     */
     declare public readonly principalEntityType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -158,21 +76,9 @@ export class IdentitySource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentitySource resources.
  */
 export interface IdentitySourceState {
-    /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     */
     configuration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration>;
-    /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
-     */
     policyStoreId?: pulumi.Input<string>;
-    /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     */
     principalEntityType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -180,20 +86,8 @@ export interface IdentitySourceState {
  * The set of arguments for constructing a IdentitySource resource.
  */
 export interface IdentitySourceArgs {
-    /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     */
     configuration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration>;
-    /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
-     */
     policyStoreId: pulumi.Input<string>;
-    /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     */
     principalEntityType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

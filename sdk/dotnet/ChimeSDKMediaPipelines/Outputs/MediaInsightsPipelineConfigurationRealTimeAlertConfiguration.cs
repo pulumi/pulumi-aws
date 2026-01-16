@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration
     {
-        /// <summary>
-        /// Disables real time alert rules.
-        /// </summary>
         public readonly bool? Disabled;
-        /// <summary>
-        /// Collection of real time alert rules
-        /// </summary>
         public readonly ImmutableArray<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule> Rules;
 
         [OutputConstructor]

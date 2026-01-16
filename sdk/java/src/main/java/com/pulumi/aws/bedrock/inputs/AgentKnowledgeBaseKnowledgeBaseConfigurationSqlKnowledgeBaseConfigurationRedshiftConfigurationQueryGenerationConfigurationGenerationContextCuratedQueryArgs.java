@@ -14,32 +14,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs();
 
-    /**
-     * Example natural language query.
-     * 
-     */
     @Import(name="naturalLanguage", required=true)
     private Output<String> naturalLanguage;
 
-    /**
-     * @return Example natural language query.
-     * 
-     */
     public Output<String> naturalLanguage() {
         return this.naturalLanguage;
     }
 
-    /**
-     * SQL equivalent of `naturalLanguage`.
-     * 
-     */
     @Import(name="sql", required=true)
     private Output<String> sql;
 
-    /**
-     * @return SQL equivalent of `naturalLanguage`.
-     * 
-     */
     public Output<String> sql() {
         return this.sql;
     }
@@ -69,44 +53,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param naturalLanguage Example natural language query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder naturalLanguage(Output<String> naturalLanguage) {
             $.naturalLanguage = naturalLanguage;
             return this;
         }
 
-        /**
-         * @param naturalLanguage Example natural language query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder naturalLanguage(String naturalLanguage) {
             return naturalLanguage(Output.of(naturalLanguage));
         }
 
-        /**
-         * @param sql SQL equivalent of `naturalLanguage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(Output<String> sql) {
             $.sql = sql;
             return this;
         }
 
-        /**
-         * @param sql SQL equivalent of `naturalLanguage`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(String sql) {
             return sql(Output.of(sql));
         }

@@ -15,62 +15,30 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
 
     public static final V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs Empty = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs();
 
-    /**
-     * DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-     * 
-     */
     @Import(name="deletionCharacter", required=true)
     private Output<String> deletionCharacter;
 
-    /**
-     * @return DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-     * 
-     */
     public Output<String> deletionCharacter() {
         return this.deletionCharacter;
     }
 
-    /**
-     * DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-     * 
-     */
     @Import(name="endCharacter", required=true)
     private Output<String> endCharacter;
 
-    /**
-     * @return DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-     * 
-     */
     public Output<String> endCharacter() {
         return this.endCharacter;
     }
 
-    /**
-     * How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-     * 
-     */
     @Import(name="endTimeoutMs", required=true)
     private Output<Integer> endTimeoutMs;
 
-    /**
-     * @return How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-     * 
-     */
     public Output<Integer> endTimeoutMs() {
         return this.endTimeoutMs;
     }
 
-    /**
-     * Maximum number of DTMF digits allowed in an utterance.
-     * 
-     */
     @Import(name="maxLength", required=true)
     private Output<Integer> maxLength;
 
-    /**
-     * @return Maximum number of DTMF digits allowed in an utterance.
-     * 
-     */
     public Output<Integer> maxLength() {
         return this.maxLength;
     }
@@ -102,86 +70,38 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
             $ = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deletionCharacter DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletionCharacter(Output<String> deletionCharacter) {
             $.deletionCharacter = deletionCharacter;
             return this;
         }
 
-        /**
-         * @param deletionCharacter DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletionCharacter(String deletionCharacter) {
             return deletionCharacter(Output.of(deletionCharacter));
         }
 
-        /**
-         * @param endCharacter DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endCharacter(Output<String> endCharacter) {
             $.endCharacter = endCharacter;
             return this;
         }
 
-        /**
-         * @param endCharacter DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endCharacter(String endCharacter) {
             return endCharacter(Output.of(endCharacter));
         }
 
-        /**
-         * @param endTimeoutMs How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTimeoutMs(Output<Integer> endTimeoutMs) {
             $.endTimeoutMs = endTimeoutMs;
             return this;
         }
 
-        /**
-         * @param endTimeoutMs How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTimeoutMs(Integer endTimeoutMs) {
             return endTimeoutMs(Output.of(endTimeoutMs));
         }
 
-        /**
-         * @param maxLength Maximum number of DTMF digits allowed in an utterance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLength(Output<Integer> maxLength) {
             $.maxLength = maxLength;
             return this;
         }
 
-        /**
-         * @param maxLength Maximum number of DTMF digits allowed in an utterance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLength(Integer maxLength) {
             return maxLength(Output.of(maxLength));
         }

@@ -16,32 +16,16 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs();
 
-    /**
-     * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-     * 
-     */
     @Import(name="authorizationServerMetadatas", required=true)
     private Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadatas;
 
-    /**
-     * @return Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-     * 
-     */
     public Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadatas() {
         return this.authorizationServerMetadatas;
     }
 
-    /**
-     * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-     * 
-     */
     @Import(name="discoveryUrl", required=true)
     private Output<String> discoveryUrl;
 
-    /**
-     * @return OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-     * 
-     */
     public Output<String> discoveryUrl() {
         return this.discoveryUrl;
     }
@@ -71,54 +55,24 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationServerMetadatas Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationServerMetadatas(Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs>> authorizationServerMetadatas) {
             $.authorizationServerMetadatas = authorizationServerMetadatas;
             return this;
         }
 
-        /**
-         * @param authorizationServerMetadatas Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationServerMetadatas(List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs> authorizationServerMetadatas) {
             return authorizationServerMetadatas(Output.of(authorizationServerMetadatas));
         }
 
-        /**
-         * @param authorizationServerMetadatas Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationServerMetadatas(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs... authorizationServerMetadatas) {
             return authorizationServerMetadatas(List.of(authorizationServerMetadatas));
         }
 
-        /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryUrl(Output<String> discoveryUrl) {
             $.discoveryUrl = discoveryUrl;
             return this;
         }
 
-        /**
-         * @param discoveryUrl OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryUrl(String discoveryUrl) {
             return discoveryUrl(Output.of(discoveryUrl));
         }

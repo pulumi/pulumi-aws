@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about multiple Outposts.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetOutposts(ctx, &outposts.GetOutpostsArgs{
-//				SiteId: pulumi.StringRef(id),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOutposts(ctx *pulumi.Context, args *GetOutpostsArgs, opts ...pulumi.InvokeOption) (*GetOutpostsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostsResult
@@ -50,27 +23,20 @@ func GetOutposts(ctx *pulumi.Context, args *GetOutpostsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getOutposts.
 type GetOutpostsArgs struct {
-	// Availability Zone name.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Availability Zone identifier.
+	AvailabilityZone   *string `pulumi:"availabilityZone"`
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// AWS Account identifier of the Outpost owner.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Site identifier.
-	SiteId *string `pulumi:"siteId"`
+	OwnerId            *string `pulumi:"ownerId"`
+	Region             *string `pulumi:"region"`
+	SiteId             *string `pulumi:"siteId"`
 }
 
 // A collection of values returned by getOutposts.
 type GetOutpostsResult struct {
-	// Set of Amazon Resource Names (ARNs).
 	Arns               []string `pulumi:"arns"`
 	AvailabilityZone   string   `pulumi:"availabilityZone"`
 	AvailabilityZoneId string   `pulumi:"availabilityZoneId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of identifiers.
+	Id      string   `pulumi:"id"`
 	Ids     []string `pulumi:"ids"`
 	OwnerId string   `pulumi:"ownerId"`
 	Region  string   `pulumi:"region"`
@@ -88,16 +54,11 @@ func GetOutpostsOutput(ctx *pulumi.Context, args GetOutpostsOutputArgs, opts ...
 
 // A collection of arguments for invoking getOutposts.
 type GetOutpostsOutputArgs struct {
-	// Availability Zone name.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// Availability Zone identifier.
+	AvailabilityZone   pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
-	// AWS Account identifier of the Outpost owner.
-	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Site identifier.
-	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
+	OwnerId            pulumi.StringPtrInput `pulumi:"ownerId"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
+	SiteId             pulumi.StringPtrInput `pulumi:"siteId"`
 }
 
 func (GetOutpostsOutputArgs) ElementType() reflect.Type {
@@ -119,7 +80,6 @@ func (o GetOutpostsResultOutput) ToGetOutpostsResultOutputWithContext(ctx contex
 	return o
 }
 
-// Set of Amazon Resource Names (ARNs).
 func (o GetOutpostsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -137,7 +97,6 @@ func (o GetOutpostsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of identifiers.
 func (o GetOutpostsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

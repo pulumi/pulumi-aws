@@ -20,96 +20,44 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAppState Empty = new WebAppState();
 
-    /**
-     * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     * 
-     */
     @Import(name="accessEndpoint")
     private @Nullable Output<String> accessEndpoint;
 
-    /**
-     * @return URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-     * 
-     */
     public Optional<Output<String>> accessEndpoint() {
         return Optional.ofNullable(this.accessEndpoint);
     }
 
-    /**
-     * ARN of the Web App.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Web App.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     * 
-     */
     @Import(name="endpointDetails")
     private @Nullable Output<WebAppEndpointDetailsArgs> endpointDetails;
 
-    /**
-     * @return Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-     * 
-     */
     public Optional<Output<WebAppEndpointDetailsArgs>> endpointDetails() {
         return Optional.ofNullable(this.endpointDetails);
     }
 
-    /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="identityProviderDetails")
     private @Nullable Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails;
 
-    /**
-     * @return Block for details of the identity provider to use with the web app. See Identity provider details below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<WebAppIdentityProviderDetailsArgs>> identityProviderDetails() {
         return Optional.ofNullable(this.identityProviderDetails);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value pairs that can be used to group and search for web apps.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value pairs that can be used to group and search for web apps.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,49 +69,23 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     * 
-     */
     @Import(name="webAppEndpointPolicy")
     private @Nullable Output<String> webAppEndpointPolicy;
 
-    /**
-     * @return Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-     * 
-     */
     public Optional<Output<String>> webAppEndpointPolicy() {
         return Optional.ofNullable(this.webAppEndpointPolicy);
     }
 
-    /**
-     * ID of the Wep App resource.
-     * 
-     */
     @Import(name="webAppId")
     private @Nullable Output<String> webAppId;
 
-    /**
-     * @return ID of the Wep App resource.
-     * 
-     */
     public Optional<Output<String>> webAppId() {
         return Optional.ofNullable(this.webAppId);
     }
 
-    /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     * 
-     */
     @Import(name="webAppUnits")
     private @Nullable Output<List<WebAppWebAppUnitArgs>> webAppUnits;
 
-    /**
-     * @return Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
-     * 
-     */
     public Optional<Output<List<WebAppWebAppUnitArgs>>> webAppUnits() {
         return Optional.ofNullable(this.webAppUnits);
     }
@@ -201,132 +123,56 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
             $ = new WebAppState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessEndpoint URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessEndpoint(@Nullable Output<String> accessEndpoint) {
             $.accessEndpoint = accessEndpoint;
             return this;
         }
 
-        /**
-         * @param accessEndpoint URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessEndpoint(String accessEndpoint) {
             return accessEndpoint(Output.of(accessEndpoint));
         }
 
-        /**
-         * @param arn ARN of the Web App.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Web App.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointDetails(@Nullable Output<WebAppEndpointDetailsArgs> endpointDetails) {
             $.endpointDetails = endpointDetails;
             return this;
         }
 
-        /**
-         * @param endpointDetails Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointDetails(WebAppEndpointDetailsArgs endpointDetails) {
             return endpointDetails(Output.of(endpointDetails));
         }
 
-        /**
-         * @param identityProviderDetails Block for details of the identity provider to use with the web app. See Identity provider details below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderDetails(@Nullable Output<WebAppIdentityProviderDetailsArgs> identityProviderDetails) {
             $.identityProviderDetails = identityProviderDetails;
             return this;
         }
 
-        /**
-         * @param identityProviderDetails Block for details of the identity provider to use with the web app. See Identity provider details below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderDetails(WebAppIdentityProviderDetailsArgs identityProviderDetails) {
             return identityProviderDetails(Output.of(identityProviderDetails));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value pairs that can be used to group and search for web apps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value pairs that can be used to group and search for web apps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -340,78 +186,33 @@ public final class WebAppState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param webAppEndpointPolicy Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppEndpointPolicy(@Nullable Output<String> webAppEndpointPolicy) {
             $.webAppEndpointPolicy = webAppEndpointPolicy;
             return this;
         }
 
-        /**
-         * @param webAppEndpointPolicy Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppEndpointPolicy(String webAppEndpointPolicy) {
             return webAppEndpointPolicy(Output.of(webAppEndpointPolicy));
         }
 
-        /**
-         * @param webAppId ID of the Wep App resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppId(@Nullable Output<String> webAppId) {
             $.webAppId = webAppId;
             return this;
         }
 
-        /**
-         * @param webAppId ID of the Wep App resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppId(String webAppId) {
             return webAppId(Output.of(webAppId));
         }
 
-        /**
-         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app.
-         * * provisioned - (Optional) Number of units of concurrent connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppUnits(@Nullable Output<List<WebAppWebAppUnitArgs>> webAppUnits) {
             $.webAppUnits = webAppUnits;
             return this;
         }
 
-        /**
-         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app.
-         * * provisioned - (Optional) Number of units of concurrent connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppUnits(List<WebAppWebAppUnitArgs> webAppUnits) {
             return webAppUnits(Output.of(webAppUnits));
         }
 
-        /**
-         * @param webAppUnits Block for number of concurrent connections or the user sessions on the web app.
-         * * provisioned - (Optional) Number of units of concurrent connections.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webAppUnits(WebAppWebAppUnitArgs... webAppUnits) {
             return webAppUnits(List.of(webAppUnits));
         }

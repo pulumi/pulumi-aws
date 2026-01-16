@@ -14,32 +14,16 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationDimen
 
     public static final ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs Empty = new ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs();
 
-    /**
-     * Type for the dimension. Valid value: `VARCHAR`.
-     * 
-     */
     @Import(name="dimensionValueType", required=true)
     private Output<String> dimensionValueType;
 
-    /**
-     * @return Type for the dimension. Valid value: `VARCHAR`.
-     * 
-     */
     public Output<String> dimensionValueType() {
         return this.dimensionValueType;
     }
 
-    /**
-     * Column name from query result.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Column name from query result.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationDimen
             $ = new ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensionValueType Type for the dimension. Valid value: `VARCHAR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionValueType(Output<String> dimensionValueType) {
             $.dimensionValueType = dimensionValueType;
             return this;
         }
 
-        /**
-         * @param dimensionValueType Type for the dimension. Valid value: `VARCHAR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensionValueType(String dimensionValueType) {
             return dimensionValueType(Output.of(dimensionValueType));
         }
 
-        /**
-         * @param name Column name from query result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Column name from query result.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

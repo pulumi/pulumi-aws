@@ -12,69 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
-//
-// Note that the grant must exist in the destination region, and not in the region of the cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := redshift.NewSnapshotCopyGrant(ctx, "test", &redshift.SnapshotCopyGrantArgs{
-//				SnapshotCopyGrantName: pulumi.String("my-grant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewCluster(ctx, "test", &redshift.ClusterArgs{
-//				SnapshotCopy: []map[string]interface{}{
-//					map[string]interface{}{
-//						"destinationRegion": "us-east-2",
-//						"grantName":         test.SnapshotCopyGrantName,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
-// ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of snapshot copy grant
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A friendly name for identifying the grant.
-	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	KmsKeyId              pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	SnapshotCopyGrantName pulumi.StringOutput    `pulumi:"snapshotCopyGrantName"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSnapshotCopyGrant registers a new resource with the given unique name, arguments, and options.
@@ -110,33 +56,21 @@ func GetSnapshotCopyGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCopyGrant resources.
 type snapshotCopyGrantState struct {
-	// Amazon Resource Name (ARN) of snapshot copy grant
-	Arn *string `pulumi:"arn"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A friendly name for identifying the grant.
-	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string           `pulumi:"arn"`
+	KmsKeyId              *string           `pulumi:"kmsKeyId"`
+	Region                *string           `pulumi:"region"`
+	SnapshotCopyGrantName *string           `pulumi:"snapshotCopyGrantName"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type SnapshotCopyGrantState struct {
-	// Amazon Resource Name (ARN) of snapshot copy grant
-	Arn pulumi.StringPtrInput
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A friendly name for identifying the grant.
+	Arn                   pulumi.StringPtrInput
+	KmsKeyId              pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	SnapshotCopyGrantName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (SnapshotCopyGrantState) ElementType() reflect.Type {
@@ -144,26 +78,18 @@ func (SnapshotCopyGrantState) ElementType() reflect.Type {
 }
 
 type snapshotCopyGrantArgs struct {
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A friendly name for identifying the grant.
-	SnapshotCopyGrantName string `pulumi:"snapshotCopyGrantName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	KmsKeyId              *string           `pulumi:"kmsKeyId"`
+	Region                *string           `pulumi:"region"`
+	SnapshotCopyGrantName string            `pulumi:"snapshotCopyGrantName"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopyGrant resource.
 type SnapshotCopyGrantArgs struct {
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A friendly name for identifying the grant.
+	KmsKeyId              pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	SnapshotCopyGrantName pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (SnapshotCopyGrantArgs) ElementType() reflect.Type {
@@ -253,32 +179,26 @@ func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of snapshot copy grant
 func (o SnapshotCopyGrantOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 func (o SnapshotCopyGrantOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotCopyGrantOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A friendly name for identifying the grant.
 func (o SnapshotCopyGrantOutput) SnapshotCopyGrantName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringOutput { return v.SnapshotCopyGrantName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SnapshotCopyGrantOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotCopyGrantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopyGrant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -29,16 +29,6 @@ class LocationFsxOntapFileSystemArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationFsxOntapFileSystem resource.
-        :param pulumi.Input['LocationFsxOntapFileSystemProtocolArgs'] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-               * Network File System (NFS): TCP ports 111, 635, and 2049
-               * Server Message Block (SMB): TCP port 445
-        :param pulumi.Input[_builtins.str] storage_virtual_machine_arn: The ARN of the SVM in your file system where you want to copy data to of from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subdirectory: Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "security_group_arns", security_group_arns)
@@ -53,9 +43,6 @@ class LocationFsxOntapFileSystemArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolArgs']:
-        """
-        The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -65,11 +52,6 @@ class LocationFsxOntapFileSystemArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-        * Network File System (NFS): TCP ports 111, 635, and 2049
-        * Server Message Block (SMB): TCP port 445
-        """
         return pulumi.get(self, "security_group_arns")
 
     @security_group_arns.setter
@@ -79,11 +61,6 @@ class LocationFsxOntapFileSystemArgs:
     @_builtins.property
     @pulumi.getter(name="storageVirtualMachineArn")
     def storage_virtual_machine_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the SVM in your file system where you want to copy data to of from.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "storage_virtual_machine_arn")
 
     @storage_virtual_machine_arn.setter
@@ -93,9 +70,6 @@ class LocationFsxOntapFileSystemArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,9 +79,6 @@ class LocationFsxOntapFileSystemArgs:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -117,9 +88,6 @@ class LocationFsxOntapFileSystemArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -143,19 +111,6 @@ class _LocationFsxOntapFileSystemState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationFsxOntapFileSystem resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location for the FSx Ontap File System.
-        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN of the FSx Ontap File System.
-        :param pulumi.Input['LocationFsxOntapFileSystemProtocolArgs'] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-               * Network File System (NFS): TCP ports 111, 635, and 2049
-               * Server Message Block (SMB): TCP port 445
-        :param pulumi.Input[_builtins.str] storage_virtual_machine_arn: The ARN of the SVM in your file system where you want to copy data to of from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] subdirectory: Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] uri: URI of the FSx ONTAP file system location
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -183,9 +138,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the DataSync Location for the FSx Ontap File System.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -204,9 +156,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the FSx Ontap File System.
-        """
         return pulumi.get(self, "fsx_filesystem_arn")
 
     @fsx_filesystem_arn.setter
@@ -216,9 +165,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolArgs']]:
-        """
-        The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -228,9 +174,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -240,11 +183,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-        * Network File System (NFS): TCP ports 111, 635, and 2049
-        * Server Message Block (SMB): TCP port 445
-        """
         return pulumi.get(self, "security_group_arns")
 
     @security_group_arns.setter
@@ -254,11 +192,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter(name="storageVirtualMachineArn")
     def storage_virtual_machine_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the SVM in your file system where you want to copy data to of from.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "storage_virtual_machine_arn")
 
     @storage_virtual_machine_arn.setter
@@ -268,9 +201,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
@@ -280,9 +210,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -301,9 +228,6 @@ class _LocationFsxOntapFileSystemState:
     @_builtins.property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        URI of the FSx ONTAP file system location
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -325,49 +249,9 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DataSync Location FSx Ontap File System.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datasync.LocationFsxOntapFileSystem("test",
-            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
-            security_group_arns=[test_aws_security_group["arn"]],
-            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"],
-            protocol={
-                "nfs": {
-                    "mount_options": {
-                        "version": "NFS3",
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
-
-        ```sh
-        $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
-        ```
-
+        Create a LocationFsxOntapFileSystem resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-               * Network File System (NFS): TCP ports 111, 635, and 2049
-               * Server Message Block (SMB): TCP port 445
-        :param pulumi.Input[_builtins.str] storage_virtual_machine_arn: The ARN of the SVM in your file system where you want to copy data to of from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] subdirectory: Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -376,37 +260,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
                  args: LocationFsxOntapFileSystemArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DataSync Location FSx Ontap File System.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.datasync.LocationFsxOntapFileSystem("test",
-            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
-            security_group_arns=[test_aws_security_group["arn"]],
-            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"],
-            protocol={
-                "nfs": {
-                    "mount_options": {
-                        "version": "NFS3",
-                    },
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
-
-        ```sh
-        $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
-        ```
-
+        Create a LocationFsxOntapFileSystem resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocationFsxOntapFileSystemArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,19 +336,6 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location for the FSx Ontap File System.
-        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN of the FSx Ontap File System.
-        :param pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-               * Network File System (NFS): TCP ports 111, 635, and 2049
-               * Server Message Block (SMB): TCP port 445
-        :param pulumi.Input[_builtins.str] storage_virtual_machine_arn: The ARN of the SVM in your file system where you want to copy data to of from.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] subdirectory: Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] uri: URI of the FSx ONTAP file system location
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -516,9 +357,6 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the DataSync Location for the FSx Ontap File System.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -529,61 +367,36 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the FSx Ontap File System.
-        """
         return pulumi.get(self, "fsx_filesystem_arn")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> pulumi.Output['outputs.LocationFsxOntapFileSystemProtocol']:
-        """
-        The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
-        * Network File System (NFS): TCP ports 111, 635, and 2049
-        * Server Message Block (SMB): TCP port 445
-        """
         return pulumi.get(self, "security_group_arns")
 
     @_builtins.property
     @pulumi.getter(name="storageVirtualMachineArn")
     def storage_virtual_machine_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the SVM in your file system where you want to copy data to of from.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "storage_virtual_machine_arn")
 
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[_builtins.str]:
-        """
-        Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        """
         return pulumi.get(self, "subdirectory")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -594,8 +407,5 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Output[_builtins.str]:
-        """
-        URI of the FSx ONTAP file system location
-        """
         return pulumi.get(self, "uri")
 

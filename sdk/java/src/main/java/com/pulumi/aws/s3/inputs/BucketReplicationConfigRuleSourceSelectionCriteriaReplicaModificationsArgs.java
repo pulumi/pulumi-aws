@@ -14,17 +14,9 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModi
 
     public static final BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs Empty = new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs();
 
-    /**
-     * Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
@@ -53,23 +45,11 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModi
             $ = new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Whether the existing objects should be replicated. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

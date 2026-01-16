@@ -12,71 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver DNS Firewall rule group association resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := route53.NewResolverFirewallRuleGroup(ctx, "example", &route53.ResolverFirewallRuleGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverFirewallRuleGroupAssociation(ctx, "example", &route53.ResolverFirewallRuleGroupAssociationArgs{
-//				Name:                pulumi.String("example"),
-//				FirewallRuleGroupId: example.ID(),
-//				Priority:            pulumi.Int(100),
-//				VpcId:               pulumi.Any(exampleAwsVpc.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-// ```
 type ResolverFirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the firewall rule group association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The unique identifier of the firewall rule group.
-	FirewallRuleGroupId pulumi.StringOutput `pulumi:"firewallRuleGroupId"`
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-	MutationProtection pulumi.StringOutput `pulumi:"mutationProtection"`
-	// A name that lets you identify the rule group association, to manage and use it.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The unique identifier of the VPC that you want to associate with the rule group.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn                 pulumi.StringOutput    `pulumi:"arn"`
+	FirewallRuleGroupId pulumi.StringOutput    `pulumi:"firewallRuleGroupId"`
+	MutationProtection  pulumi.StringOutput    `pulumi:"mutationProtection"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Priority            pulumi.IntOutput       `pulumi:"priority"`
+	Region              pulumi.StringOutput    `pulumi:"region"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VpcId               pulumi.StringOutput    `pulumi:"vpcId"`
 }
 
 // NewResolverFirewallRuleGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -118,45 +65,27 @@ func GetResolverFirewallRuleGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallRuleGroupAssociation resources.
 type resolverFirewallRuleGroupAssociationState struct {
-	// The ARN (Amazon Resource Name) of the firewall rule group association.
-	Arn *string `pulumi:"arn"`
-	// The unique identifier of the firewall rule group.
-	FirewallRuleGroupId *string `pulumi:"firewallRuleGroupId"`
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-	MutationProtection *string `pulumi:"mutationProtection"`
-	// A name that lets you identify the rule group association, to manage and use it.
-	Name *string `pulumi:"name"`
-	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The unique identifier of the VPC that you want to associate with the rule group.
-	VpcId *string `pulumi:"vpcId"`
+	Arn                 *string           `pulumi:"arn"`
+	FirewallRuleGroupId *string           `pulumi:"firewallRuleGroupId"`
+	MutationProtection  *string           `pulumi:"mutationProtection"`
+	Name                *string           `pulumi:"name"`
+	Priority            *int              `pulumi:"priority"`
+	Region              *string           `pulumi:"region"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
+	VpcId               *string           `pulumi:"vpcId"`
 }
 
 type ResolverFirewallRuleGroupAssociationState struct {
-	// The ARN (Amazon Resource Name) of the firewall rule group association.
-	Arn pulumi.StringPtrInput
-	// The unique identifier of the firewall rule group.
+	Arn                 pulumi.StringPtrInput
 	FirewallRuleGroupId pulumi.StringPtrInput
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-	MutationProtection pulumi.StringPtrInput
-	// A name that lets you identify the rule group association, to manage and use it.
-	Name pulumi.StringPtrInput
-	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-	Priority pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The unique identifier of the VPC that you want to associate with the rule group.
-	VpcId pulumi.StringPtrInput
+	MutationProtection  pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Priority            pulumi.IntPtrInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	VpcId               pulumi.StringPtrInput
 }
 
 func (ResolverFirewallRuleGroupAssociationState) ElementType() reflect.Type {
@@ -164,38 +93,24 @@ func (ResolverFirewallRuleGroupAssociationState) ElementType() reflect.Type {
 }
 
 type resolverFirewallRuleGroupAssociationArgs struct {
-	// The unique identifier of the firewall rule group.
-	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-	MutationProtection *string `pulumi:"mutationProtection"`
-	// A name that lets you identify the rule group association, to manage and use it.
-	Name *string `pulumi:"name"`
-	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-	Priority int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique identifier of the VPC that you want to associate with the rule group.
-	VpcId string `pulumi:"vpcId"`
+	FirewallRuleGroupId string            `pulumi:"firewallRuleGroupId"`
+	MutationProtection  *string           `pulumi:"mutationProtection"`
+	Name                *string           `pulumi:"name"`
+	Priority            int               `pulumi:"priority"`
+	Region              *string           `pulumi:"region"`
+	Tags                map[string]string `pulumi:"tags"`
+	VpcId               string            `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ResolverFirewallRuleGroupAssociation resource.
 type ResolverFirewallRuleGroupAssociationArgs struct {
-	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId pulumi.StringInput
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-	MutationProtection pulumi.StringPtrInput
-	// A name that lets you identify the rule group association, to manage and use it.
-	Name pulumi.StringPtrInput
-	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-	Priority pulumi.IntInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The unique identifier of the VPC that you want to associate with the rule group.
-	VpcId pulumi.StringInput
+	MutationProtection  pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Priority            pulumi.IntInput
+	Region              pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	VpcId               pulumi.StringInput
 }
 
 func (ResolverFirewallRuleGroupAssociationArgs) ElementType() reflect.Type {
@@ -285,47 +200,38 @@ func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupA
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the firewall rule group association.
 func (o ResolverFirewallRuleGroupAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the firewall rule group.
 func (o ResolverFirewallRuleGroupAssociationOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
 }
 
-// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
 func (o ResolverFirewallRuleGroupAssociationOutput) MutationProtection() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.MutationProtection }).(pulumi.StringOutput)
 }
 
-// A name that lets you identify the rule group association, to manage and use it.
 func (o ResolverFirewallRuleGroupAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 func (o ResolverFirewallRuleGroupAssociationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverFirewallRuleGroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallRuleGroupAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverFirewallRuleGroupAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The unique identifier of the VPC that you want to associate with the rule group.
 func (o ResolverFirewallRuleGroupAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

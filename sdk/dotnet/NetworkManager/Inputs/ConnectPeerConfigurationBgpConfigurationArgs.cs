@@ -12,26 +12,15 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class ConnectPeerConfigurationBgpConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Connect peer core network address.
-        /// </summary>
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
 
         [Input("coreNetworkAsn")]
         public Input<int>? CoreNetworkAsn { get; set; }
 
-        /// <summary>
-        /// Connect peer address.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }
 
-        /// <summary>
-        /// Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-        /// </summary>
         [Input("peerAsn")]
         public Input<string>? PeerAsn { get; set; }
 

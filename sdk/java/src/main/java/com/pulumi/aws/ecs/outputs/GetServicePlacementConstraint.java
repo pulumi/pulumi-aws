@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServicePlacementConstraint {
-    /**
-     * @return Cluster query language expression
-     * 
-     */
     private String expression;
-    /**
-     * @return Constraint type
-     * 
-     */
     private String type;
 
     private GetServicePlacementConstraint() {}
-    /**
-     * @return Cluster query language expression
-     * 
-     */
     public String expression() {
         return this.expression;
     }
-    /**
-     * @return Constraint type
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VoiceConnectorStreamingMediaInsightsConfiguration {
-    /**
-     * @return The media insights configuration that will be invoked by the Voice Connector.
-     * 
-     */
     private @Nullable String configurationArn;
-    /**
-     * @return When `true`, the media insights configuration is not enabled. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean disabled;
 
     private VoiceConnectorStreamingMediaInsightsConfiguration() {}
-    /**
-     * @return The media insights configuration that will be invoked by the Voice Connector.
-     * 
-     */
     public Optional<String> configurationArn() {
         return Optional.ofNullable(this.configurationArn);
     }
-    /**
-     * @return When `true`, the media insights configuration is not enabled. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> disabled() {
         return Optional.ofNullable(this.disabled);
     }

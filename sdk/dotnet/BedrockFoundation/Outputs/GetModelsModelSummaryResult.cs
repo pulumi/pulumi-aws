@@ -13,41 +13,14 @@ namespace Pulumi.Aws.BedrockFoundation.Outputs
     [OutputType]
     public sealed class GetModelsModelSummaryResult
     {
-        /// <summary>
-        /// Customizations that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> CustomizationsSupporteds;
-        /// <summary>
-        /// Inference types that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> InferenceTypesSupporteds;
-        /// <summary>
-        /// Input modalities that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> InputModalities;
-        /// <summary>
-        /// Model ARN.
-        /// </summary>
         public readonly string ModelArn;
-        /// <summary>
-        /// Model identifier.
-        /// </summary>
         public readonly string ModelId;
-        /// <summary>
-        /// Model name.
-        /// </summary>
         public readonly string ModelName;
-        /// <summary>
-        /// Output modalities that the model supports.
-        /// </summary>
         public readonly ImmutableArray<string> OutputModalities;
-        /// <summary>
-        /// Model provider name.
-        /// </summary>
         public readonly string ProviderName;
-        /// <summary>
-        /// Indicates whether the model supports streaming.
-        /// </summary>
         public readonly bool ResponseStreamingSupported;
 
         [OutputConstructor]

@@ -90,41 +90,26 @@ class GetVpnConnectionResult:
     @_builtins.property
     @pulumi.getter
     def category(self) -> _builtins.str:
-        """
-        Category of the VPN connection. A value of VPN indicates an AWS VPN connection. A value of VPN-Classic indicates an AWS Classic VPN connection.
-        """
         return pulumi.get(self, "category")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> _builtins.str:
-        """
-        ARN of the core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkAttachmentArn")
     def core_network_attachment_arn(self) -> _builtins.str:
-        """
-        ARN of the core network attachment.
-        """
         return pulumi.get(self, "core_network_attachment_arn")
 
     @_builtins.property
     @pulumi.getter(name="customerGatewayConfiguration")
     def customer_gateway_configuration(self) -> _builtins.str:
-        """
-        Configuration information for the VPN connection's customer gateway (in the native XML format).
-        """
         return pulumi.get(self, "customer_gateway_configuration")
 
     @_builtins.property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> _builtins.str:
-        """
-        ID of the customer gateway at your end of the VPN connection.
-        """
         return pulumi.get(self, "customer_gateway_id")
 
     @_builtins.property
@@ -135,9 +120,6 @@ class GetVpnConnectionResult:
     @_builtins.property
     @pulumi.getter(name="gatewayAssociationState")
     def gateway_association_state(self) -> _builtins.str:
-        """
-        Current state of the gateway association.
-        """
         return pulumi.get(self, "gateway_association_state")
 
     @_builtins.property
@@ -151,9 +133,6 @@ class GetVpnConnectionResult:
     @_builtins.property
     @pulumi.getter(name="preSharedKeyArn")
     def pre_shared_key_arn(self) -> _builtins.str:
-        """
-        (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
-        """
         return pulumi.get(self, "pre_shared_key_arn")
 
     @_builtins.property
@@ -164,57 +143,36 @@ class GetVpnConnectionResult:
     @_builtins.property
     @pulumi.getter
     def routes(self) -> Sequence['outputs.GetVpnConnectionRouteResult']:
-        """
-        List of static routes associated with the VPN connection.
-        """
         return pulumi.get(self, "routes")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Current state of the VPN connection.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags associated to the VPN Connection.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> _builtins.str:
-        """
-        ID of a transit gateway associated with the VPN connection.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of VPN connection. Currently the only supported type is ipsec.1.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vgwTelemetries")
     def vgw_telemetries(self) -> Sequence['outputs.GetVpnConnectionVgwTelemetryResult']:
-        """
-        List of objects containing information about the VPN tunnel.
-        """
         return pulumi.get(self, "vgw_telemetries")
 
     @_builtins.property
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> _builtins.str:
-        """
-        ID of a VPN concentrator associated with the VPN connection.
-        """
         return pulumi.get(self, "vpn_concentrator_id")
 
     @_builtins.property
@@ -225,9 +183,6 @@ class GetVpnConnectionResult:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> _builtins.str:
-        """
-        ID of a virtual private gateway associated with the VPN connection.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
 
@@ -263,37 +218,7 @@ def get_vpn_connection(filters: Optional[Sequence[Union['GetVpnConnectionFilterA
                        vpn_connection_id: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
-    Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpn_connection(filters=[{
-        "name": "customer-gateway-id",
-        "values": ["cgw-1234567890"],
-    }])
-    pulumi.export("vpnConnectionId", example.vpn_connection_id)
-    ```
-
-    ### Find by VPN Connection ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpn_connection(vpn_connection_id="vpn-abcd1234567890")
-    pulumi.export("gatewayAssociationState", example.gateway_association_state)
-    ```
-
-
-    :param Sequence[Union['GetVpnConnectionFilterArgs', 'GetVpnConnectionFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -327,37 +252,7 @@ def get_vpn_connection_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               vpn_connection_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
-    Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpn_connection(filters=[{
-        "name": "customer-gateway-id",
-        "values": ["cgw-1234567890"],
-    }])
-    pulumi.export("vpnConnectionId", example.vpn_connection_id)
-    ```
-
-    ### Find by VPN Connection ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpn_connection(vpn_connection_id="vpn-abcd1234567890")
-    pulumi.export("gatewayAssociationState", example.gateway_association_state)
-    ```
-
-
-    :param Sequence[Union['GetVpnConnectionFilterArgs', 'GetVpnConnectionFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

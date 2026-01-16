@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleConditionHostHeader {
-    /**
-     * @return Set of regular expressions to compare against the request URL.
-     * 
-     */
     private List<String> regexValues;
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     private List<String> values;
 
     private GetListenerRuleConditionHostHeader() {}
-    /**
-     * @return Set of regular expressions to compare against the request URL.
-     * 
-     */
     public List<String> regexValues() {
         return this.regexValues;
     }
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

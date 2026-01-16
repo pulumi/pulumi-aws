@@ -23,17 +23,9 @@ public final class AgentFlowDefinitionNodeConfigurationConditionConditionArgs ex
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * A name for the flow.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -72,23 +64,11 @@ public final class AgentFlowDefinitionNodeConfigurationConditionConditionArgs ex
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

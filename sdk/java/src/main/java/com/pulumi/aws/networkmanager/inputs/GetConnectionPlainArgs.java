@@ -16,47 +16,23 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
-    /**
-     * ID of the specific connection to retrieve.
-     * 
-     */
     @Import(name="connectionId", required=true)
     private String connectionId;
 
-    /**
-     * @return ID of the specific connection to retrieve.
-     * 
-     */
     public String connectionId() {
         return this.connectionId;
     }
 
-    /**
-     * ID of the Global Network of the connection to retrieve.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private String globalNetworkId;
 
-    /**
-     * @return ID of the Global Network of the connection to retrieve.
-     * 
-     */
     public String globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * Key-value tags for the connection.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value tags for the connection.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetConnectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionId ID of the specific connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(String connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network of the connection to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

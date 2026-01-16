@@ -9,66 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Enables the IPAM Service and promotes a delegated administrator.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var delegated = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.Ec2.VpcIpamOrganizationAdminAccount("example", new()
-    ///     {
-    ///         DelegatedAdminAccountId = delegated.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")]
     public partial class VpcIpamOrganizationAdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Organizations ARN for the delegate account.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("delegatedAdminAccountId")]
         public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Organizations email for the delegate account.
-        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// The Organizations name for the delegate account.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS service principal.
-        /// </summary>
         [Output("servicePrincipal")]
         public Output<string> ServicePrincipal { get; private set; } = null!;
 
@@ -129,30 +84,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamOrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Organizations ARN for the delegate account.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("delegatedAdminAccountId")]
         public Input<string>? DelegatedAdminAccountId { get; set; }
 
-        /// <summary>
-        /// The Organizations email for the delegate account.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// The Organizations name for the delegate account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The AWS service principal.
-        /// </summary>
         [Input("servicePrincipal")]
         public Input<string>? ServicePrincipal { get; set; }
 

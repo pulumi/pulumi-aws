@@ -12,54 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates a flow with a phone number claimed to an Amazon Connect instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumberContactFlowAssociation(ctx, "example", &connect.PhoneNumberContactFlowAssociationArgs{
-//				PhoneNumberId: pulumi.Any(exampleAwsConnectPhoneNumber.Id),
-//				InstanceId:    pulumi.Any(exampleAwsConnectInstance.Id),
-//				ContactFlowId: pulumi.Any(exampleAwsConnectContactFlow.ContactFlowId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
-// ```
 type PhoneNumberContactFlowAssociation struct {
 	pulumi.CustomResourceState
 
-	// Contact flow ID.
 	ContactFlowId pulumi.StringOutput `pulumi:"contactFlowId"`
-	// Amazon Connect instance ID.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Phone number ID.
+	InstanceId    pulumi.StringOutput `pulumi:"instanceId"`
 	PhoneNumberId pulumi.StringOutput `pulumi:"phoneNumberId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPhoneNumberContactFlowAssociation registers a new resource with the given unique name, arguments, and options.
@@ -101,25 +60,17 @@ func GetPhoneNumberContactFlowAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PhoneNumberContactFlowAssociation resources.
 type phoneNumberContactFlowAssociationState struct {
-	// Contact flow ID.
 	ContactFlowId *string `pulumi:"contactFlowId"`
-	// Amazon Connect instance ID.
-	InstanceId *string `pulumi:"instanceId"`
-	// Phone number ID.
+	InstanceId    *string `pulumi:"instanceId"`
 	PhoneNumberId *string `pulumi:"phoneNumberId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region        *string `pulumi:"region"`
 }
 
 type PhoneNumberContactFlowAssociationState struct {
-	// Contact flow ID.
 	ContactFlowId pulumi.StringPtrInput
-	// Amazon Connect instance ID.
-	InstanceId pulumi.StringPtrInput
-	// Phone number ID.
+	InstanceId    pulumi.StringPtrInput
 	PhoneNumberId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (PhoneNumberContactFlowAssociationState) ElementType() reflect.Type {
@@ -127,26 +78,18 @@ func (PhoneNumberContactFlowAssociationState) ElementType() reflect.Type {
 }
 
 type phoneNumberContactFlowAssociationArgs struct {
-	// Contact flow ID.
-	ContactFlowId string `pulumi:"contactFlowId"`
-	// Amazon Connect instance ID.
-	InstanceId string `pulumi:"instanceId"`
-	// Phone number ID.
-	PhoneNumberId string `pulumi:"phoneNumberId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	ContactFlowId string  `pulumi:"contactFlowId"`
+	InstanceId    string  `pulumi:"instanceId"`
+	PhoneNumberId string  `pulumi:"phoneNumberId"`
+	Region        *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PhoneNumberContactFlowAssociation resource.
 type PhoneNumberContactFlowAssociationArgs struct {
-	// Contact flow ID.
 	ContactFlowId pulumi.StringInput
-	// Amazon Connect instance ID.
-	InstanceId pulumi.StringInput
-	// Phone number ID.
+	InstanceId    pulumi.StringInput
 	PhoneNumberId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (PhoneNumberContactFlowAssociationArgs) ElementType() reflect.Type {
@@ -236,22 +179,18 @@ func (o PhoneNumberContactFlowAssociationOutput) ToPhoneNumberContactFlowAssocia
 	return o
 }
 
-// Contact flow ID.
 func (o PhoneNumberContactFlowAssociationOutput) ContactFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumberContactFlowAssociation) pulumi.StringOutput { return v.ContactFlowId }).(pulumi.StringOutput)
 }
 
-// Amazon Connect instance ID.
 func (o PhoneNumberContactFlowAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumberContactFlowAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Phone number ID.
 func (o PhoneNumberContactFlowAssociationOutput) PhoneNumberId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumberContactFlowAssociation) pulumi.StringOutput { return v.PhoneNumberId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PhoneNumberContactFlowAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumberContactFlowAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

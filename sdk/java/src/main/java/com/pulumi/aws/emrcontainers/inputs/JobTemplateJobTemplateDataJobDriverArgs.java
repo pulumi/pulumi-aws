@@ -16,32 +16,16 @@ public final class JobTemplateJobTemplateDataJobDriverArgs extends com.pulumi.re
 
     public static final JobTemplateJobTemplateDataJobDriverArgs Empty = new JobTemplateJobTemplateDataJobDriverArgs();
 
-    /**
-     * The job driver for job type.
-     * 
-     */
     @Import(name="sparkSqlJobDriver")
     private @Nullable Output<JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs> sparkSqlJobDriver;
 
-    /**
-     * @return The job driver for job type.
-     * 
-     */
     public Optional<Output<JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs>> sparkSqlJobDriver() {
         return Optional.ofNullable(this.sparkSqlJobDriver);
     }
 
-    /**
-     * The job driver parameters specified for spark submit.
-     * 
-     */
     @Import(name="sparkSubmitJobDriver")
     private @Nullable Output<JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs> sparkSubmitJobDriver;
 
-    /**
-     * @return The job driver parameters specified for spark submit.
-     * 
-     */
     public Optional<Output<JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs>> sparkSubmitJobDriver() {
         return Optional.ofNullable(this.sparkSubmitJobDriver);
     }
@@ -71,44 +55,20 @@ public final class JobTemplateJobTemplateDataJobDriverArgs extends com.pulumi.re
             $ = new JobTemplateJobTemplateDataJobDriverArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sparkSqlJobDriver The job driver for job type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSqlJobDriver(@Nullable Output<JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs> sparkSqlJobDriver) {
             $.sparkSqlJobDriver = sparkSqlJobDriver;
             return this;
         }
 
-        /**
-         * @param sparkSqlJobDriver The job driver for job type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSqlJobDriver(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs sparkSqlJobDriver) {
             return sparkSqlJobDriver(Output.of(sparkSqlJobDriver));
         }
 
-        /**
-         * @param sparkSubmitJobDriver The job driver parameters specified for spark submit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSubmitJobDriver(@Nullable Output<JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs> sparkSubmitJobDriver) {
             $.sparkSubmitJobDriver = sparkSubmitJobDriver;
             return this;
         }
 
-        /**
-         * @param sparkSubmitJobDriver The job driver parameters specified for spark submit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSubmitJobDriver(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs sparkSubmitJobDriver) {
             return sparkSubmitJobDriver(Output.of(sparkSubmitJobDriver));
         }

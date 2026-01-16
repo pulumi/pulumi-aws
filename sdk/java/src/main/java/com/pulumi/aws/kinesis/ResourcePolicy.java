@@ -13,117 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an Amazon Kinesis Streams resource policy.
- * Use a resource policy to manage cross-account access to your data streams or consumers.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.ResourcePolicy;
- * import com.pulumi.aws.kinesis.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
- *             .resourceArn(exampleAwsKinesisStream.arn())
- *             .policy("""
- * {
- *   \"Version\": \"2012-10-17\",
- *   \"Id\": \"writePolicy\",
- *   \"Statement\": [{
- *     \"Sid\": \"writestatement\",
- *     \"Effect\": \"Allow\",
- *     \"Principal\": {
- *       \"AWS\": \"123456789456\"
- *     },
- *     \"Action\": [
- *       \"kinesis:DescribeStreamSummary\",
- *       \"kinesis:ListShards\",
- *       \"kinesis:PutRecord\",
- *       \"kinesis:PutRecords\"
- *     ],
- *     \"Resource\": \"%s\"
- *   }]
- * }
- * ", exampleAwsKinesisStream.arn()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
- * 
- * Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
- * 
- * % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
- * 
- */
 @ResourceType(type="aws:kinesis/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The policy document.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the data stream or consumer.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

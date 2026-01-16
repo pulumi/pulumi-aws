@@ -49,9 +49,6 @@ class GetPromptResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Prompt.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -75,9 +72,6 @@ class GetPromptResult:
     @_builtins.property
     @pulumi.getter(name="promptId")
     def prompt_id(self) -> _builtins.str:
-        """
-        Identifier for the prompt.
-        """
         return pulumi.get(self, "prompt_id")
 
     @_builtins.property
@@ -105,24 +99,7 @@ def get_prompt(instance_id: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPromptResult:
     """
-    Provides details about a specific Amazon Connect Prompt.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Beep.wav")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Prompt by name
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -143,24 +120,7 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptResult]:
     """
-    Provides details about a specific Amazon Connect Prompt.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Beep.wav")
-    ```
-
-
-    :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
-    :param _builtins.str name: Returns information on a specific Prompt by name
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

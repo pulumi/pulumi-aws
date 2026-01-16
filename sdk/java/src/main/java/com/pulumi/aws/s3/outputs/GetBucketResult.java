@@ -10,31 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketResult {
-    /**
-     * @return ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-     * 
-     */
     private String arn;
     private String bucket;
-    /**
-     * @return Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-     * 
-     */
     private String bucketDomainName;
-    /**
-     * @return AWS region this bucket resides in.
-     * 
-     */
     private String bucketRegion;
-    /**
-     * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-     * 
-     */
     private String bucketRegionalDomainName;
-    /**
-     * @return The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
-     * 
-     */
     private String hostedZoneId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -42,53 +22,25 @@ public final class GetBucketResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-     * 
-     */
     private String websiteDomain;
-    /**
-     * @return Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-     * 
-     */
     private String websiteEndpoint;
 
     private GetBucketResult() {}
-    /**
-     * @return ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-     * 
-     */
     public String bucketDomainName() {
         return this.bucketDomainName;
     }
-    /**
-     * @return AWS region this bucket resides in.
-     * 
-     */
     public String bucketRegion() {
         return this.bucketRegion;
     }
-    /**
-     * @return The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
-     * 
-     */
     public String bucketRegionalDomainName() {
         return this.bucketRegionalDomainName;
     }
-    /**
-     * @return The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
-     * 
-     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }
@@ -102,17 +54,9 @@ public final class GetBucketResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-     * 
-     */
     public String websiteDomain() {
         return this.websiteDomain;
     }
-    /**
-     * @return Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-     * 
-     */
     public String websiteEndpoint() {
         return this.websiteEndpoint;
     }

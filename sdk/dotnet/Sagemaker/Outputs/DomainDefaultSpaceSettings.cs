@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettings
     {
-        /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `CustomFileSystemConfig` Block below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultSpaceSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
-        /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See `CustomPosixUserConfig` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsCustomPosixUserConfig? CustomPosixUserConfig;
-        /// <summary>
-        /// The execution role for the space.
-        /// </summary>
         public readonly string ExecutionRole;
-        /// <summary>
-        /// The settings for the JupyterLab application. See `JupyterLabAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterLabAppSettings? JupyterLabAppSettings;
-        /// <summary>
-        /// The Jupyter server's app settings. See `JupyterServerAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings? JupyterServerAppSettings;
-        /// <summary>
-        /// The kernel gateway app settings. See `KernelGatewayAppSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
-        /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// The storage settings for a private space. See `SpaceStorageSettings` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsSpaceStorageSettings? SpaceStorageSettings;
 
         [OutputConstructor]

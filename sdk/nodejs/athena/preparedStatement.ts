@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Athena Prepared Statement.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.s3.Bucket("test", {
- *     bucket: "tf-test",
- *     forceDestroy: true,
- * });
- * const testWorkgroup = new aws.athena.Workgroup("test", {name: "tf-test"});
- * const testDatabase = new aws.athena.Database("test", {
- *     name: "example",
- *     bucket: test.bucket,
- * });
- * const testPreparedStatement = new aws.athena.PreparedStatement("test", {
- *     name: "tf_test",
- *     queryStatement: pulumi.interpolate`SELECT * FROM ${testDatabase.name} WHERE x = ?`,
- *     workgroup: testWorkgroup.name,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
- *
- * ```sh
- * $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
- * ```
- */
 export class PreparedStatement extends pulumi.CustomResource {
     /**
      * Get an existing PreparedStatement resource's state with the given name, ID, and optional extra
@@ -65,25 +32,10 @@ export class PreparedStatement extends pulumi.CustomResource {
         return obj['__pulumiType'] === PreparedStatement.__pulumiType;
     }
 
-    /**
-     * Brief explanation of prepared statement. Maximum length of 1024.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The name of the prepared statement. Maximum length of 256.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The query string for the prepared statement.
-     */
     declare public readonly queryStatement: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the workgroup to which the prepared statement belongs.
-     */
     declare public readonly workgroup: pulumi.Output<string>;
 
     /**
@@ -127,25 +79,10 @@ export class PreparedStatement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PreparedStatement resources.
  */
 export interface PreparedStatementState {
-    /**
-     * Brief explanation of prepared statement. Maximum length of 1024.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the prepared statement. Maximum length of 256.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The query string for the prepared statement.
-     */
     queryStatement?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the workgroup to which the prepared statement belongs.
-     */
     workgroup?: pulumi.Input<string>;
 }
 
@@ -153,24 +90,9 @@ export interface PreparedStatementState {
  * The set of arguments for constructing a PreparedStatement resource.
  */
 export interface PreparedStatementArgs {
-    /**
-     * Brief explanation of prepared statement. Maximum length of 1024.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the prepared statement. Maximum length of 256.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The query string for the prepared statement.
-     */
     queryStatement: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the workgroup to which the prepared statement belongs.
-     */
     workgroup: pulumi.Input<string>;
 }

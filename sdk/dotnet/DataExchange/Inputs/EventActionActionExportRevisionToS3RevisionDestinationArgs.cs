@@ -12,16 +12,9 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class EventActionActionExportRevisionToS3RevisionDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The S3 bucket where the revision will be exported.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Pattern for naming revisions in the S3 bucket.
-        /// Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-        /// </summary>
         [Input("keyPattern")]
         public Input<string>? KeyPattern { get; set; }
 

@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type PipelineBufferOptions struct {
-	// Whether persistent buffering should be enabled.
 	PersistentBufferEnabled bool `pulumi:"persistentBufferEnabled"`
 }
 
@@ -30,7 +29,6 @@ type PipelineBufferOptionsInput interface {
 }
 
 type PipelineBufferOptionsArgs struct {
-	// Whether persistent buffering should be enabled.
 	PersistentBufferEnabled pulumi.BoolInput `pulumi:"persistentBufferEnabled"`
 }
 
@@ -111,7 +109,6 @@ func (o PipelineBufferOptionsOutput) ToPipelineBufferOptionsPtrOutputWithContext
 	}).(PipelineBufferOptionsPtrOutput)
 }
 
-// Whether persistent buffering should be enabled.
 func (o PipelineBufferOptionsOutput) PersistentBufferEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v PipelineBufferOptions) bool { return v.PersistentBufferEnabled }).(pulumi.BoolOutput)
 }
@@ -140,7 +137,6 @@ func (o PipelineBufferOptionsPtrOutput) Elem() PipelineBufferOptionsOutput {
 	}).(PipelineBufferOptionsOutput)
 }
 
-// Whether persistent buffering should be enabled.
 func (o PipelineBufferOptionsPtrOutput) PersistentBufferEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipelineBufferOptions) *bool {
 		if v == nil {
@@ -151,7 +147,6 @@ func (o PipelineBufferOptionsPtrOutput) PersistentBufferEnabled() pulumi.BoolPtr
 }
 
 type PipelineEncryptionAtRestOptions struct {
-	// The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -167,7 +162,6 @@ type PipelineEncryptionAtRestOptionsInput interface {
 }
 
 type PipelineEncryptionAtRestOptionsArgs struct {
-	// The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -248,7 +242,6 @@ func (o PipelineEncryptionAtRestOptionsOutput) ToPipelineEncryptionAtRestOptions
 	}).(PipelineEncryptionAtRestOptionsPtrOutput)
 }
 
-// The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
 func (o PipelineEncryptionAtRestOptionsOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineEncryptionAtRestOptions) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -277,7 +270,6 @@ func (o PipelineEncryptionAtRestOptionsPtrOutput) Elem() PipelineEncryptionAtRes
 	}).(PipelineEncryptionAtRestOptionsOutput)
 }
 
-// The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
 func (o PipelineEncryptionAtRestOptionsPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineEncryptionAtRestOptions) *string {
 		if v == nil {
@@ -288,10 +280,8 @@ func (o PipelineEncryptionAtRestOptionsPtrOutput) KmsKeyArn() pulumi.StringPtrOu
 }
 
 type PipelineLogPublishingOptions struct {
-	// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
 	CloudwatchLogDestination *PipelineLogPublishingOptionsCloudwatchLogDestination `pulumi:"cloudwatchLogDestination"`
-	// Whether logs should be published.
-	IsLoggingEnabled *bool `pulumi:"isLoggingEnabled"`
+	IsLoggingEnabled         *bool                                                 `pulumi:"isLoggingEnabled"`
 }
 
 // PipelineLogPublishingOptionsInput is an input type that accepts PipelineLogPublishingOptionsArgs and PipelineLogPublishingOptionsOutput values.
@@ -306,10 +296,8 @@ type PipelineLogPublishingOptionsInput interface {
 }
 
 type PipelineLogPublishingOptionsArgs struct {
-	// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
 	CloudwatchLogDestination PipelineLogPublishingOptionsCloudwatchLogDestinationPtrInput `pulumi:"cloudwatchLogDestination"`
-	// Whether logs should be published.
-	IsLoggingEnabled pulumi.BoolPtrInput `pulumi:"isLoggingEnabled"`
+	IsLoggingEnabled         pulumi.BoolPtrInput                                          `pulumi:"isLoggingEnabled"`
 }
 
 func (PipelineLogPublishingOptionsArgs) ElementType() reflect.Type {
@@ -389,14 +377,12 @@ func (o PipelineLogPublishingOptionsOutput) ToPipelineLogPublishingOptionsPtrOut
 	}).(PipelineLogPublishingOptionsPtrOutput)
 }
 
-// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
 func (o PipelineLogPublishingOptionsOutput) CloudwatchLogDestination() PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput {
 	return o.ApplyT(func(v PipelineLogPublishingOptions) *PipelineLogPublishingOptionsCloudwatchLogDestination {
 		return v.CloudwatchLogDestination
 	}).(PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput)
 }
 
-// Whether logs should be published.
 func (o PipelineLogPublishingOptionsOutput) IsLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PipelineLogPublishingOptions) *bool { return v.IsLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -425,7 +411,6 @@ func (o PipelineLogPublishingOptionsPtrOutput) Elem() PipelineLogPublishingOptio
 	}).(PipelineLogPublishingOptionsOutput)
 }
 
-// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
 func (o PipelineLogPublishingOptionsPtrOutput) CloudwatchLogDestination() PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput {
 	return o.ApplyT(func(v *PipelineLogPublishingOptions) *PipelineLogPublishingOptionsCloudwatchLogDestination {
 		if v == nil {
@@ -435,7 +420,6 @@ func (o PipelineLogPublishingOptionsPtrOutput) CloudwatchLogDestination() Pipeli
 	}).(PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput)
 }
 
-// Whether logs should be published.
 func (o PipelineLogPublishingOptionsPtrOutput) IsLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipelineLogPublishingOptions) *bool {
 		if v == nil {
@@ -446,7 +430,6 @@ func (o PipelineLogPublishingOptionsPtrOutput) IsLoggingEnabled() pulumi.BoolPtr
 }
 
 type PipelineLogPublishingOptionsCloudwatchLogDestination struct {
-	// The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
 	LogGroup string `pulumi:"logGroup"`
 }
 
@@ -462,7 +445,6 @@ type PipelineLogPublishingOptionsCloudwatchLogDestinationInput interface {
 }
 
 type PipelineLogPublishingOptionsCloudwatchLogDestinationArgs struct {
-	// The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
 	LogGroup pulumi.StringInput `pulumi:"logGroup"`
 }
 
@@ -543,7 +525,6 @@ func (o PipelineLogPublishingOptionsCloudwatchLogDestinationOutput) ToPipelineLo
 	}).(PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput)
 }
 
-// The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
 func (o PipelineLogPublishingOptionsCloudwatchLogDestinationOutput) LogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineLogPublishingOptionsCloudwatchLogDestination) string { return v.LogGroup }).(pulumi.StringOutput)
 }
@@ -572,7 +553,6 @@ func (o PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput) Elem() Pi
 	}).(PipelineLogPublishingOptionsCloudwatchLogDestinationOutput)
 }
 
-// The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
 func (o PipelineLogPublishingOptionsCloudwatchLogDestinationPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineLogPublishingOptionsCloudwatchLogDestination) *string {
 		if v == nil {
@@ -758,12 +738,9 @@ func (o PipelineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type PipelineVpcOptions struct {
-	// A list of security groups associated with the VPC endpoint.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs associated with the VPC endpoint.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-	VpcEndpointManagement *string `pulumi:"vpcEndpointManagement"`
+	SecurityGroupIds      []string `pulumi:"securityGroupIds"`
+	SubnetIds             []string `pulumi:"subnetIds"`
+	VpcEndpointManagement *string  `pulumi:"vpcEndpointManagement"`
 }
 
 // PipelineVpcOptionsInput is an input type that accepts PipelineVpcOptionsArgs and PipelineVpcOptionsOutput values.
@@ -778,12 +755,9 @@ type PipelineVpcOptionsInput interface {
 }
 
 type PipelineVpcOptionsArgs struct {
-	// A list of security groups associated with the VPC endpoint.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs associated with the VPC endpoint.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-	VpcEndpointManagement pulumi.StringPtrInput `pulumi:"vpcEndpointManagement"`
+	SecurityGroupIds      pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds             pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcEndpointManagement pulumi.StringPtrInput   `pulumi:"vpcEndpointManagement"`
 }
 
 func (PipelineVpcOptionsArgs) ElementType() reflect.Type {
@@ -863,17 +837,14 @@ func (o PipelineVpcOptionsOutput) ToPipelineVpcOptionsPtrOutputWithContext(ctx c
 	}).(PipelineVpcOptionsPtrOutput)
 }
 
-// A list of security groups associated with the VPC endpoint.
 func (o PipelineVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs associated with the VPC endpoint.
 func (o PipelineVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
 func (o PipelineVpcOptionsOutput) VpcEndpointManagement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) *string { return v.VpcEndpointManagement }).(pulumi.StringPtrOutput)
 }
@@ -902,7 +873,6 @@ func (o PipelineVpcOptionsPtrOutput) Elem() PipelineVpcOptionsOutput {
 	}).(PipelineVpcOptionsOutput)
 }
 
-// A list of security groups associated with the VPC endpoint.
 func (o PipelineVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineVpcOptions) []string {
 		if v == nil {
@@ -912,7 +882,6 @@ func (o PipelineVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs associated with the VPC endpoint.
 func (o PipelineVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipelineVpcOptions) []string {
 		if v == nil {
@@ -922,7 +891,6 @@ func (o PipelineVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
 func (o PipelineVpcOptionsPtrOutput) VpcEndpointManagement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineVpcOptions) *string {
 		if v == nil {

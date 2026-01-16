@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class IdcApplicationServiceIntegrationRedshiftConnect {
-    /**
-     * @return Determines whether the connect integration is enabled or disabled.
-     * 
-     */
     private String authorization;
 
     private IdcApplicationServiceIntegrationRedshiftConnect() {}
-    /**
-     * @return Determines whether the connect integration is enabled or disabled.
-     * 
-     */
     public String authorization() {
         return this.authorization;
     }

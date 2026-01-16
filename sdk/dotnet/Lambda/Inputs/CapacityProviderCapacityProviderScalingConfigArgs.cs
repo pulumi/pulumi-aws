@@ -15,18 +15,11 @@ namespace Pulumi.Aws.Lambda.Inputs
         [Input("maxVcpuCount", required: true)]
         public Input<int> MaxVcpuCount { get; set; } = null!;
 
-        /// <summary>
-        /// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        /// </summary>
         [Input("scalingMode", required: true)]
         public Input<string> ScalingMode { get; set; } = null!;
 
         [Input("scalingPolicies", required: true)]
         private InputList<Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>? _scalingPolicies;
-
-        /// <summary>
-        /// List of scaling policies. See Scaling Policies below.
-        /// </summary>
         public InputList<Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs> ScalingPolicies
         {
             get => _scalingPolicies ?? (_scalingPolicies = new InputList<Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>());

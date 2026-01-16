@@ -64,9 +64,6 @@ class GetKafkaVersionResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -93,26 +90,7 @@ def get_kafka_version(preferred_versions: Optional[Sequence[_builtins.str]] = No
                       version: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaVersionResult:
     """
-    Get information on a Amazon MSK Kafka Version
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    preferred = aws.msk.get_kafka_version(preferred_versions=[
-        "2.4.1.1",
-        "2.4.1",
-        "2.2.1",
-    ])
-    example = aws.msk.get_kafka_version(version="2.8.0")
-    ```
-
-
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['preferredVersions'] = preferred_versions
@@ -132,26 +110,7 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
                              version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaVersionResult]:
     """
-    Get information on a Amazon MSK Kafka Version
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    preferred = aws.msk.get_kafka_version(preferred_versions=[
-        "2.4.1.1",
-        "2.4.1",
-        "2.2.1",
-    ])
-    example = aws.msk.get_kafka_version(version="2.8.0")
-    ```
-
-
-    :param Sequence[_builtins.str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['preferredVersions'] = preferred_versions

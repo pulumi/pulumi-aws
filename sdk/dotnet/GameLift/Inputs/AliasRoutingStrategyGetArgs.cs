@@ -12,21 +12,12 @@ namespace Pulumi.Aws.GameLift.Inputs
 
     public sealed class AliasRoutingStrategyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the GameLift Fleet to point the alias to.
-        /// </summary>
         [Input("fleetId")]
         public Input<string>? FleetId { get; set; }
 
-        /// <summary>
-        /// Message text to be used with the `TERMINAL` routing strategy.
-        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

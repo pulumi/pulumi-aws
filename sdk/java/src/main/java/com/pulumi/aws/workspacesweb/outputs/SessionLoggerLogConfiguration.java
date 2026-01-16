@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SessionLoggerLogConfiguration {
-    /**
-     * @return Configuration block for S3 log delivery. See S3 Configuration below.
-     * 
-     */
     private @Nullable SessionLoggerLogConfigurationS3 s3;
 
     private SessionLoggerLogConfiguration() {}
-    /**
-     * @return Configuration block for S3 log delivery. See S3 Configuration below.
-     * 
-     */
     public Optional<SessionLoggerLogConfigurationS3> s3() {
         return Optional.ofNullable(this.s3);
     }

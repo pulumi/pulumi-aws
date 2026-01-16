@@ -16,51 +16,23 @@ public final class RouteServerPropagationState extends com.pulumi.resources.Reso
 
     public static final RouteServerPropagationState Empty = new RouteServerPropagationState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifier for the route server to be associated.
-     * 
-     */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
-    /**
-     * @return The unique identifier for the route server to be associated.
-     * 
-     */
     public Optional<Output<String>> routeServerId() {
         return Optional.ofNullable(this.routeServerId);
     }
 
-    /**
-     * The ID of the route table to which route server will propagate routes.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
-    /**
-     * @return The ID of the route table to which route server will propagate routes.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> routeTableId() {
         return Optional.ofNullable(this.routeTableId);
     }
@@ -99,69 +71,29 @@ public final class RouteServerPropagationState extends com.pulumi.resources.Reso
             $ = new RouteServerPropagationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeServerId The unique identifier for the route server to be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(@Nullable Output<String> routeServerId) {
             $.routeServerId = routeServerId;
             return this;
         }
 
-        /**
-         * @param routeServerId The unique identifier for the route server to be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeServerId(String routeServerId) {
             return routeServerId(Output.of(routeServerId));
         }
 
-        /**
-         * @param routeTableId The ID of the route table to which route server will propagate routes.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(@Nullable Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
-        /**
-         * @param routeTableId The ID of the route table to which route server will propagate routes.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }

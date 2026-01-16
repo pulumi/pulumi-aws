@@ -15,32 +15,16 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
 
     public static final ClassificationJobS3JobDefinitionBucketDefinitionArgs Empty = new ClassificationJobS3JobDefinitionBucketDefinitionArgs();
 
-    /**
-     * The unique identifier for the AWS account that owns the buckets.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return The unique identifier for the AWS account that owns the buckets.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
-    /**
-     * An array that lists the names of the buckets.
-     * 
-     */
     @Import(name="buckets", required=true)
     private Output<List<String>> buckets;
 
-    /**
-     * @return An array that lists the names of the buckets.
-     * 
-     */
     public Output<List<String>> buckets() {
         return this.buckets;
     }
@@ -70,54 +54,24 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
             $ = new ClassificationJobS3JobDefinitionBucketDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The unique identifier for the AWS account that owns the buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The unique identifier for the AWS account that owns the buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param buckets An array that lists the names of the buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buckets(Output<List<String>> buckets) {
             $.buckets = buckets;
             return this;
         }
 
-        /**
-         * @param buckets An array that lists the names of the buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buckets(List<String> buckets) {
             return buckets(Output.of(buckets));
         }
 
-        /**
-         * @param buckets An array that lists the names of the buckets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buckets(String... buckets) {
             return buckets(List.of(buckets));
         }

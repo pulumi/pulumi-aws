@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexDocumentMetadataConfigurationUpdateSearch {
-    /**
-     * @return Determines whether the field is returned in the query response. The default is `true`.
-     * 
-     */
     private @Nullable Boolean displayable;
-    /**
-     * @return Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
-     * 
-     */
     private @Nullable Boolean facetable;
-    /**
-     * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
-     * 
-     */
     private @Nullable Boolean searchable;
-    /**
-     * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
-     * 
-     */
     private @Nullable Boolean sortable;
 
     private IndexDocumentMetadataConfigurationUpdateSearch() {}
-    /**
-     * @return Determines whether the field is returned in the query response. The default is `true`.
-     * 
-     */
     public Optional<Boolean> displayable() {
         return Optional.ofNullable(this.displayable);
     }
-    /**
-     * @return Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
-     * 
-     */
     public Optional<Boolean> facetable() {
         return Optional.ofNullable(this.facetable);
     }
-    /**
-     * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
-     * 
-     */
     public Optional<Boolean> searchable() {
         return Optional.ofNullable(this.searchable);
     }
-    /**
-     * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
-     * 
-     */
     public Optional<Boolean> sortable() {
         return Optional.ofNullable(this.sortable);
     }

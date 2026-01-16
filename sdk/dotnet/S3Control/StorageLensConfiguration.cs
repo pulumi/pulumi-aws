@@ -9,130 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Storage Lens configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.S3Control.StorageLensConfiguration("example", new()
-    ///     {
-    ///         ConfigId = "example-1",
-    ///         StorageLensConfigurationDetail = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationArgs
-    ///         {
-    ///             Enabled = true,
-    ///             AccountLevel = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs
-    ///             {
-    ///                 ActivityMetrics = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                 },
-    ///                 BucketLevel = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs
-    ///                 {
-    ///                     ActivityMetrics = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs
-    ///                     {
-    ///                         Enabled = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             DataExport = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportArgs
-    ///             {
-    ///                 CloudWatchMetrics = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                 },
-    ///                 S3BucketDestination = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs
-    ///                 {
-    ///                     AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                     Arn = target.Arn,
-    ///                     Format = "CSV",
-    ///                     OutputSchemaVersion = "V_1",
-    ///                     Encryption = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs
-    ///                     {
-    ///                         SseS3s = new[]
-    ///                         {
-    ///                             null,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Exclude = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationExcludeArgs
-    ///             {
-    ///                 Buckets = new[]
-    ///                 {
-    ///                     b1.Arn,
-    ///                     b2.Arn,
-    ///                 },
-    ///                 Regions = new[]
-    ///                 {
-    ///                     "us-east-2",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/storageLensConfiguration:StorageLensConfiguration")]
     public partial class StorageLensConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the S3 Storage Lens configuration.
-        /// </summary>
         [Output("configId")]
         public Output<string> ConfigId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-        /// </summary>
         [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensConfigurationStorageLensConfiguration> StorageLensConfigurationDetail { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -182,36 +79,20 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class StorageLensConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The ID of the S3 Storage Lens configuration.
-        /// </summary>
         [Input("configId", required: true)]
         public Input<string> ConfigId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-        /// </summary>
         [Input("storageLensConfiguration", required: true)]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationArgs> StorageLensConfigurationDetail { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -226,42 +107,23 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class StorageLensConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the S3 Storage Lens configuration.
-        /// </summary>
         [Input("configId")]
         public Input<string>? ConfigId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-        /// </summary>
         [Input("storageLensConfiguration")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationGetArgs>? StorageLensConfigurationDetail { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -270,10 +132,6 @@ namespace Pulumi.Aws.S3Control
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

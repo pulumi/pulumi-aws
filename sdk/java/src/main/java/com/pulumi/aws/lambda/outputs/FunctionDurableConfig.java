@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionDurableConfig {
-    /**
-     * @return Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-     * 
-     */
     private Integer executionTimeout;
-    /**
-     * @return Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
-     * 
-     */
     private @Nullable Integer retentionPeriod;
 
     private FunctionDurableConfig() {}
-    /**
-     * @return Maximum execution time in seconds for the durable function. Valid value between 1 and 31622400 (366 days).
-     * 
-     */
     public Integer executionTimeout() {
         return this.executionTimeout;
     }
-    /**
-     * @return Number of days to retain the function&#39;s execution state. Valid value between 1 and 90. If not specified, the function&#39;s execution state is not retained. Defaults to 14.
-     * 
-     */
     public Optional<Integer> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }

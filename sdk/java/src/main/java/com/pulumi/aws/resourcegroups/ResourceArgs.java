@@ -16,47 +16,23 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceArgs Empty = new ResourceArgs();
 
-    /**
-     * Name or ARN of the resource group to add resources to.
-     * 
-     */
     @Import(name="groupArn", required=true)
     private Output<String> groupArn;
 
-    /**
-     * @return Name or ARN of the resource group to add resources to.
-     * 
-     */
     public Output<String> groupArn() {
         return this.groupArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the resource to be added to the group.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource to be added to the group.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -87,65 +63,29 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupArn Name or ARN of the resource group to add resources to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupArn(Output<String> groupArn) {
             $.groupArn = groupArn;
             return this;
         }
 
-        /**
-         * @param groupArn Name or ARN of the resource group to add resources to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupArn(String groupArn) {
             return groupArn(Output.of(groupArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn ARN of the resource to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the resource to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

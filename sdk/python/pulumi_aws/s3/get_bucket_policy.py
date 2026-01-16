@@ -56,9 +56,6 @@ class GetBucketPolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        IAM bucket policy.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -83,23 +80,7 @@ def get_bucket_policy(bucket: Optional[_builtins.str] = None,
                       region: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketPolicyResult:
     """
-    The bucket policy data source returns IAM policy of an S3 bucket.
-
-    ## Example Usage
-
-    The following example retrieves IAM policy of a specified S3 bucket.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_bucket_policy(bucket="example-bucket-name")
-    pulumi.export("foo", example.policy)
-    ```
-
-
-    :param _builtins.str bucket: Bucket name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -116,23 +97,7 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[_builtins.str]] = Non
                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
-    The bucket policy data source returns IAM policy of an S3 bucket.
-
-    ## Example Usage
-
-    The following example retrieves IAM policy of a specified S3 bucket.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_bucket_policy(bucket="example-bucket-name")
-    pulumi.export("foo", example.policy)
-    ```
-
-
-    :param _builtins.str bucket: Bucket name.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bucket'] = bucket

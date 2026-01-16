@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationReplicationConfigurationRule
     {
-        /// <summary>
-        /// the details of a replication destination. A maximum of 25 are allowed per `Rule`. See Destination.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationConfigurationRuleDestination> Destinations;
-        /// <summary>
-        /// filters for a replication rule. See Repository Filter.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter> RepositoryFilters;
 
         [OutputConstructor]

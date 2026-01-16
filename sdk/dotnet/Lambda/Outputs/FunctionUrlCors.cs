@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionUrlCors
     {
-        /// <summary>
-        /// Whether to allow cookies or other credentials in requests to the function URL.
-        /// </summary>
         public readonly bool? AllowCredentials;
-        /// <summary>
-        /// HTTP headers that origins can include in requests to the function URL.
-        /// </summary>
         public readonly ImmutableArray<string> AllowHeaders;
-        /// <summary>
-        /// HTTP methods that are allowed when calling the function URL.
-        /// </summary>
         public readonly ImmutableArray<string> AllowMethods;
-        /// <summary>
-        /// Origins that can access the function URL.
-        /// </summary>
         public readonly ImmutableArray<string> AllowOrigins;
-        /// <summary>
-        /// HTTP headers in your function response that you want to expose to origins that call the function URL.
-        /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
-        /// <summary>
-        /// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
-        /// </summary>
         public readonly int? MaxAge;
 
         [OutputConstructor]

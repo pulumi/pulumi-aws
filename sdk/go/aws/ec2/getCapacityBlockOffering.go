@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about a single EC2 Capacity Block Offering.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetCapacityBlockOffering(ctx, &ec2.GetCapacityBlockOfferingArgs{
-//				CapacityDurationHours: 24,
-//				EndDateRange:          pulumi.StringRef("2024-05-30T15:04:05Z"),
-//				InstanceCount:         1,
-//				InstanceType:          "p4d.24xlarge",
-//				StartDateRange:        pulumi.StringRef("2024-04-28T15:04:05Z"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCapacityBlockOffering(ctx *pulumi.Context, args *GetCapacityBlockOfferingArgs, opts ...pulumi.InvokeOption) (*GetCapacityBlockOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCapacityBlockOfferingResult
@@ -54,40 +23,29 @@ func GetCapacityBlockOffering(ctx *pulumi.Context, args *GetCapacityBlockOfferin
 
 // A collection of arguments for invoking getCapacityBlockOffering.
 type GetCapacityBlockOfferingArgs struct {
-	// The amount of time of the Capacity Block reservation in hours.
-	CapacityDurationHours int `pulumi:"capacityDurationHours"`
-	// The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	EndDateRange *string `pulumi:"endDateRange"`
-	// The number of instances for which to reserve capacity.
-	InstanceCount int `pulumi:"instanceCount"`
-	// The instance type for which to reserve capacity.
-	InstanceType string `pulumi:"instanceType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	StartDateRange *string `pulumi:"startDateRange"`
+	CapacityDurationHours int     `pulumi:"capacityDurationHours"`
+	EndDateRange          *string `pulumi:"endDateRange"`
+	InstanceCount         int     `pulumi:"instanceCount"`
+	InstanceType          string  `pulumi:"instanceType"`
+	Region                *string `pulumi:"region"`
+	StartDateRange        *string `pulumi:"startDateRange"`
 }
 
 // A collection of values returned by getCapacityBlockOffering.
 type GetCapacityBlockOfferingResult struct {
-	// The Availability Zone in which to create the Capacity Reservation.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The Capacity Block Reservation ID.
+	AvailabilityZone        string `pulumi:"availabilityZone"`
 	CapacityBlockOfferingId string `pulumi:"capacityBlockOfferingId"`
 	CapacityDurationHours   int    `pulumi:"capacityDurationHours"`
-	// The currency of the payment for the Capacity Block.
-	CurrencyCode string `pulumi:"currencyCode"`
-	EndDateRange string `pulumi:"endDateRange"`
+	CurrencyCode            string `pulumi:"currencyCode"`
+	EndDateRange            string `pulumi:"endDateRange"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	InstanceCount  int    `pulumi:"instanceCount"`
 	InstanceType   string `pulumi:"instanceType"`
 	Region         string `pulumi:"region"`
 	StartDateRange string `pulumi:"startDateRange"`
-	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-	Tenancy string `pulumi:"tenancy"`
-	// The total price to be paid up front.
-	UpfrontFee string `pulumi:"upfrontFee"`
+	Tenancy        string `pulumi:"tenancy"`
+	UpfrontFee     string `pulumi:"upfrontFee"`
 }
 
 func GetCapacityBlockOfferingOutput(ctx *pulumi.Context, args GetCapacityBlockOfferingOutputArgs, opts ...pulumi.InvokeOption) GetCapacityBlockOfferingResultOutput {
@@ -101,18 +59,12 @@ func GetCapacityBlockOfferingOutput(ctx *pulumi.Context, args GetCapacityBlockOf
 
 // A collection of arguments for invoking getCapacityBlockOffering.
 type GetCapacityBlockOfferingOutputArgs struct {
-	// The amount of time of the Capacity Block reservation in hours.
-	CapacityDurationHours pulumi.IntInput `pulumi:"capacityDurationHours"`
-	// The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	EndDateRange pulumi.StringPtrInput `pulumi:"endDateRange"`
-	// The number of instances for which to reserve capacity.
-	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// The instance type for which to reserve capacity.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-	StartDateRange pulumi.StringPtrInput `pulumi:"startDateRange"`
+	CapacityDurationHours pulumi.IntInput       `pulumi:"capacityDurationHours"`
+	EndDateRange          pulumi.StringPtrInput `pulumi:"endDateRange"`
+	InstanceCount         pulumi.IntInput       `pulumi:"instanceCount"`
+	InstanceType          pulumi.StringInput    `pulumi:"instanceType"`
+	Region                pulumi.StringPtrInput `pulumi:"region"`
+	StartDateRange        pulumi.StringPtrInput `pulumi:"startDateRange"`
 }
 
 func (GetCapacityBlockOfferingOutputArgs) ElementType() reflect.Type {
@@ -134,12 +86,10 @@ func (o GetCapacityBlockOfferingResultOutput) ToGetCapacityBlockOfferingResultOu
 	return o
 }
 
-// The Availability Zone in which to create the Capacity Reservation.
 func (o GetCapacityBlockOfferingResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The Capacity Block Reservation ID.
 func (o GetCapacityBlockOfferingResultOutput) CapacityBlockOfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.CapacityBlockOfferingId }).(pulumi.StringOutput)
 }
@@ -148,7 +98,6 @@ func (o GetCapacityBlockOfferingResultOutput) CapacityDurationHours() pulumi.Int
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) int { return v.CapacityDurationHours }).(pulumi.IntOutput)
 }
 
-// The currency of the payment for the Capacity Block.
 func (o GetCapacityBlockOfferingResultOutput) CurrencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.CurrencyCode }).(pulumi.StringOutput)
 }
@@ -178,12 +127,10 @@ func (o GetCapacityBlockOfferingResultOutput) StartDateRange() pulumi.StringOutp
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.StartDateRange }).(pulumi.StringOutput)
 }
 
-// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 func (o GetCapacityBlockOfferingResultOutput) Tenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.Tenancy }).(pulumi.StringOutput)
 }
 
-// The total price to be paid up front.
 func (o GetCapacityBlockOfferingResultOutput) UpfrontFee() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.UpfrontFee }).(pulumi.StringOutput)
 }

@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific redshift cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := redshift.LookupCluster(ctx, &redshift.LookupClusterArgs{
-//				ClusterIdentifier: "example-cluster",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "example_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-example-stream"),
-//				Destination: pulumi.String("redshift"),
-//				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-//					RoleArn:          pulumi.Any(firehoseRole.Arn),
-//					ClusterJdbcurl:   pulumi.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName),
-//					Username:         pulumi.String("exampleuser"),
-//					Password:         pulumi.String("Exampl3Pass"),
-//					DataTableName:    pulumi.String("example-table"),
-//					CopyOptions:      pulumi.String("delimiter '|'"),
-//					DataTableColumns: pulumi.String("example-col"),
-//					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
-//						RoleArn:           pulumi.Any(firehoseRole.Arn),
-//						BucketArn:         pulumi.Any(bucket.Arn),
-//						BufferSize:        10,
-//						BufferInterval:    400,
-//						CompressionFormat: pulumi.String("GZIP"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult
@@ -76,98 +23,56 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// Cluster identifier
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags associated to the cluster
-	Tags map[string]string `pulumi:"tags"`
+	ClusterIdentifier string            `pulumi:"clusterIdentifier"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	// Whether major version upgrades can be applied during maintenance period
-	AllowVersionUpgrade bool `pulumi:"allowVersionUpgrade"`
-	// The value represents how the cluster is configured to use AQUA.
-	AquaConfigurationStatus string `pulumi:"aquaConfigurationStatus"`
-	// ARN of cluster.
-	Arn string `pulumi:"arn"`
-	// The backup retention period
-	AutomatedSnapshotRetentionPeriod int `pulumi:"automatedSnapshotRetentionPeriod"`
-	// Availability zone of the cluster
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// Indicates whether the cluster is able to be relocated to another availability zone.
-	AvailabilityZoneRelocationEnabled bool `pulumi:"availabilityZoneRelocationEnabled"`
-	// Name of the S3 bucket where the log files are to be stored
-	BucketName string `pulumi:"bucketName"`
-	// Cluster identifier
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The namespace Amazon Resource Name (ARN) of the cluster
-	ClusterNamespaceArn string `pulumi:"clusterNamespaceArn"`
-	// Nodes in the cluster. Cluster node blocks are documented below
-	ClusterNodes []GetClusterClusterNode `pulumi:"clusterNodes"`
-	// The name of the parameter group to be associated with this cluster
-	ClusterParameterGroupName string `pulumi:"clusterParameterGroupName"`
-	// Public key for the cluster
-	ClusterPublicKey string `pulumi:"clusterPublicKey"`
-	// The cluster revision number
-	ClusterRevisionNumber string `pulumi:"clusterRevisionNumber"`
-	// The name of a cluster subnet group to be associated with this cluster
-	ClusterSubnetGroupName string `pulumi:"clusterSubnetGroupName"`
-	// Cluster type
-	ClusterType    string `pulumi:"clusterType"`
-	ClusterVersion string `pulumi:"clusterVersion"`
-	// Name of the default database in the cluster
-	DatabaseName string `pulumi:"databaseName"`
-	// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
-	DefaultIamRoleArn string `pulumi:"defaultIamRoleArn"`
-	// Elastic IP of the cluster
-	ElasticIp string `pulumi:"elasticIp"`
-	// Whether cluster logging is enabled
-	EnableLogging bool `pulumi:"enableLogging"`
-	// Whether the cluster data is encrypted
-	Encrypted bool `pulumi:"encrypted"`
-	// Cluster endpoint
-	Endpoint string `pulumi:"endpoint"`
-	// Whether enhanced VPC routing is enabled
-	EnhancedVpcRouting bool `pulumi:"enhancedVpcRouting"`
-	// IAM roles associated to the cluster
-	IamRoles []string `pulumi:"iamRoles"`
+	AllowVersionUpgrade               bool                    `pulumi:"allowVersionUpgrade"`
+	AquaConfigurationStatus           string                  `pulumi:"aquaConfigurationStatus"`
+	Arn                               string                  `pulumi:"arn"`
+	AutomatedSnapshotRetentionPeriod  int                     `pulumi:"automatedSnapshotRetentionPeriod"`
+	AvailabilityZone                  string                  `pulumi:"availabilityZone"`
+	AvailabilityZoneRelocationEnabled bool                    `pulumi:"availabilityZoneRelocationEnabled"`
+	BucketName                        string                  `pulumi:"bucketName"`
+	ClusterIdentifier                 string                  `pulumi:"clusterIdentifier"`
+	ClusterNamespaceArn               string                  `pulumi:"clusterNamespaceArn"`
+	ClusterNodes                      []GetClusterClusterNode `pulumi:"clusterNodes"`
+	ClusterParameterGroupName         string                  `pulumi:"clusterParameterGroupName"`
+	ClusterPublicKey                  string                  `pulumi:"clusterPublicKey"`
+	ClusterRevisionNumber             string                  `pulumi:"clusterRevisionNumber"`
+	ClusterSubnetGroupName            string                  `pulumi:"clusterSubnetGroupName"`
+	ClusterType                       string                  `pulumi:"clusterType"`
+	ClusterVersion                    string                  `pulumi:"clusterVersion"`
+	DatabaseName                      string                  `pulumi:"databaseName"`
+	DefaultIamRoleArn                 string                  `pulumi:"defaultIamRoleArn"`
+	ElasticIp                         string                  `pulumi:"elasticIp"`
+	EnableLogging                     bool                    `pulumi:"enableLogging"`
+	Encrypted                         bool                    `pulumi:"encrypted"`
+	Endpoint                          string                  `pulumi:"endpoint"`
+	EnhancedVpcRouting                bool                    `pulumi:"enhancedVpcRouting"`
+	IamRoles                          []string                `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// KMS encryption key associated to the cluster
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The log destination type.
-	LogDestinationType string `pulumi:"logDestinationType"`
-	// Collection of exported log types. Log types include the connection log, user log and user activity log.
-	LogExports []string `pulumi:"logExports"`
-	// The name of the maintenance track for the restored cluster.
-	MaintenanceTrackName string `pulumi:"maintenanceTrackName"`
-	// (Optional)  The default number of days to retain a manual snapshot.
-	ManualSnapshotRetentionPeriod int `pulumi:"manualSnapshotRetentionPeriod"`
-	// Username for the master DB user
-	MasterUsername string `pulumi:"masterUsername"`
-	// If the cluster is a Multi-AZ deployment
-	MultiAz bool `pulumi:"multiAz"`
-	// Cluster node type
-	NodeType string `pulumi:"nodeType"`
-	// Number of nodes in the cluster
-	NumberOfNodes int `pulumi:"numberOfNodes"`
-	// Port the cluster responds on
-	Port int `pulumi:"port"`
-	// The maintenance window
-	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
-	// Whether the cluster is publicly accessible
-	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
-	Region             string `pulumi:"region"`
-	// Folder inside the S3 bucket where the log files are stored
-	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
-	// Tags associated to the cluster
-	Tags map[string]string `pulumi:"tags"`
-	// VPC Id associated with the cluster
-	VpcId string `pulumi:"vpcId"`
-	// The VPC security group Ids associated with the cluster
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	Id                            string            `pulumi:"id"`
+	KmsKeyId                      string            `pulumi:"kmsKeyId"`
+	LogDestinationType            string            `pulumi:"logDestinationType"`
+	LogExports                    []string          `pulumi:"logExports"`
+	MaintenanceTrackName          string            `pulumi:"maintenanceTrackName"`
+	ManualSnapshotRetentionPeriod int               `pulumi:"manualSnapshotRetentionPeriod"`
+	MasterUsername                string            `pulumi:"masterUsername"`
+	MultiAz                       bool              `pulumi:"multiAz"`
+	NodeType                      string            `pulumi:"nodeType"`
+	NumberOfNodes                 int               `pulumi:"numberOfNodes"`
+	Port                          int               `pulumi:"port"`
+	PreferredMaintenanceWindow    string            `pulumi:"preferredMaintenanceWindow"`
+	PubliclyAccessible            bool              `pulumi:"publiclyAccessible"`
+	Region                        string            `pulumi:"region"`
+	S3KeyPrefix                   string            `pulumi:"s3KeyPrefix"`
+	Tags                          map[string]string `pulumi:"tags"`
+	VpcId                         string            `pulumi:"vpcId"`
+	VpcSecurityGroupIds           []string          `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -181,12 +86,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// Cluster identifier
-	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tags associated to the cluster
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {
@@ -208,77 +110,62 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
-// Whether major version upgrades can be applied during maintenance period
 func (o LookupClusterResultOutput) AllowVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.AllowVersionUpgrade }).(pulumi.BoolOutput)
 }
 
-// The value represents how the cluster is configured to use AQUA.
 func (o LookupClusterResultOutput) AquaConfigurationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
 }
 
-// ARN of cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The backup retention period
 func (o LookupClusterResultOutput) AutomatedSnapshotRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.AutomatedSnapshotRetentionPeriod }).(pulumi.IntOutput)
 }
 
-// Availability zone of the cluster
 func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Indicates whether the cluster is able to be relocated to another availability zone.
 func (o LookupClusterResultOutput) AvailabilityZoneRelocationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.AvailabilityZoneRelocationEnabled }).(pulumi.BoolOutput)
 }
 
-// Name of the S3 bucket where the log files are to be stored
 func (o LookupClusterResultOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Cluster identifier
 func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The namespace Amazon Resource Name (ARN) of the cluster
 func (o LookupClusterResultOutput) ClusterNamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
 }
 
-// Nodes in the cluster. Cluster node blocks are documented below
 func (o LookupClusterResultOutput) ClusterNodes() GetClusterClusterNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterNode { return v.ClusterNodes }).(GetClusterClusterNodeArrayOutput)
 }
 
-// The name of the parameter group to be associated with this cluster
 func (o LookupClusterResultOutput) ClusterParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterParameterGroupName }).(pulumi.StringOutput)
 }
 
-// Public key for the cluster
 func (o LookupClusterResultOutput) ClusterPublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterPublicKey }).(pulumi.StringOutput)
 }
 
-// The cluster revision number
 func (o LookupClusterResultOutput) ClusterRevisionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterRevisionNumber }).(pulumi.StringOutput)
 }
 
-// The name of a cluster subnet group to be associated with this cluster
 func (o LookupClusterResultOutput) ClusterSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterSubnetGroupName }).(pulumi.StringOutput)
 }
 
-// Cluster type
 func (o LookupClusterResultOutput) ClusterType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterType }).(pulumi.StringOutput)
 }
@@ -287,42 +174,34 @@ func (o LookupClusterResultOutput) ClusterVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterVersion }).(pulumi.StringOutput)
 }
 
-// Name of the default database in the cluster
 func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
 func (o LookupClusterResultOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
 
-// Elastic IP of the cluster
 func (o LookupClusterResultOutput) ElasticIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ElasticIp }).(pulumi.StringOutput)
 }
 
-// Whether cluster logging is enabled
 func (o LookupClusterResultOutput) EnableLogging() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.EnableLogging }).(pulumi.BoolOutput)
 }
 
-// Whether the cluster data is encrypted
 func (o LookupClusterResultOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// Cluster endpoint
 func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Whether enhanced VPC routing is enabled
 func (o LookupClusterResultOutput) EnhancedVpcRouting() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.EnhancedVpcRouting }).(pulumi.BoolOutput)
 }
 
-// IAM roles associated to the cluster
 func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
@@ -332,62 +211,50 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// KMS encryption key associated to the cluster
 func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The log destination type.
 func (o LookupClusterResultOutput) LogDestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.LogDestinationType }).(pulumi.StringOutput)
 }
 
-// Collection of exported log types. Log types include the connection log, user log and user activity log.
 func (o LookupClusterResultOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.LogExports }).(pulumi.StringArrayOutput)
 }
 
-// The name of the maintenance track for the restored cluster.
 func (o LookupClusterResultOutput) MaintenanceTrackName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceTrackName }).(pulumi.StringOutput)
 }
 
-// (Optional)  The default number of days to retain a manual snapshot.
 func (o LookupClusterResultOutput) ManualSnapshotRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntOutput)
 }
 
-// Username for the master DB user
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
-// If the cluster is a Multi-AZ deployment
 func (o LookupClusterResultOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
-// Cluster node type
 func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// Number of nodes in the cluster
 func (o LookupClusterResultOutput) NumberOfNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumberOfNodes }).(pulumi.IntOutput)
 }
 
-// Port the cluster responds on
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The maintenance window
 func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// Whether the cluster is publicly accessible
 func (o LookupClusterResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -396,22 +263,18 @@ func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Folder inside the S3 bucket where the log files are stored
 func (o LookupClusterResultOutput) S3KeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.S3KeyPrefix }).(pulumi.StringOutput)
 }
 
-// Tags associated to the cluster
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// VPC Id associated with the cluster
 func (o LookupClusterResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The VPC security group Ids associated with the cluster
 func (o LookupClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

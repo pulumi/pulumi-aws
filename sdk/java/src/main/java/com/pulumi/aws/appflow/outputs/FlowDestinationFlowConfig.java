@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfig {
-    /**
-     * @return API version that the destination connector uses.
-     * 
-     */
     private @Nullable String apiVersion;
-    /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-     * 
-     */
     private @Nullable String connectorProfileName;
-    /**
-     * @return Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-     * 
-     */
     private String connectorType;
-    /**
-     * @return This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
-     * 
-     */
     private FlowDestinationFlowConfigDestinationConnectorProperties destinationConnectorProperties;
 
     private FlowDestinationFlowConfig() {}
-    /**
-     * @return API version that the destination connector uses.
-     * 
-     */
     public Optional<String> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
     }
-    /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-     * 
-     */
     public Optional<String> connectorProfileName() {
         return Optional.ofNullable(this.connectorProfileName);
     }
-    /**
-     * @return Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-     * 
-     */
     public String connectorType() {
         return this.connectorType;
     }
-    /**
-     * @return This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
-     * 
-     */
     public FlowDestinationFlowConfigDestinationConnectorProperties destinationConnectorProperties() {
         return this.destinationConnectorProperties;
     }

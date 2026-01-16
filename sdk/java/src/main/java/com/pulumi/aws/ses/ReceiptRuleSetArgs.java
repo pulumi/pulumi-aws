@@ -16,32 +16,16 @@ public final class ReceiptRuleSetArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ReceiptRuleSetArgs Empty = new ReceiptRuleSetArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the rule set.
-     * 
-     */
     @Import(name="ruleSetName", required=true)
     private Output<String> ruleSetName;
 
-    /**
-     * @return Name of the rule set.
-     * 
-     */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }
@@ -71,44 +55,20 @@ public final class ReceiptRuleSetArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ReceiptRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param ruleSetName Name of the rule set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleSetName(Output<String> ruleSetName) {
             $.ruleSetName = ruleSetName;
             return this;
         }
 
-        /**
-         * @param ruleSetName Name of the rule set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleSetName(String ruleSetName) {
             return ruleSetName(Output.of(ruleSetName));
         }

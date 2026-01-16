@@ -13,9 +13,6 @@ namespace Pulumi.Aws.OpenSearchIngest.Outputs
     [OutputType]
     public sealed class PipelineBufferOptions
     {
-        /// <summary>
-        /// Whether persistent buffering should be enabled.
-        /// </summary>
         public readonly bool PersistentBufferEnabled;
 
         [OutputConstructor]

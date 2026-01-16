@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExtensionParameter {
-    /**
-     * @return Information about the parameter.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The parameter name.
-     * 
-     */
     private String name;
-    /**
-     * @return Determines if a parameter value must be specified in the extension association.
-     * 
-     */
     private @Nullable Boolean required;
 
     private ExtensionParameter() {}
-    /**
-     * @return Information about the parameter.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The parameter name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Determines if a parameter value must be specified in the extension association.
-     * 
-     */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }

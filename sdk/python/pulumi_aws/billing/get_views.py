@@ -46,9 +46,6 @@ class GetViewsResult:
     @_builtins.property
     @pulumi.getter(name="billingViews")
     def billing_views(self) -> Sequence['outputs.GetViewsBillingViewResult']:
-        """
-        List of billing view objects with the following attributes:
-        """
         return pulumi.get(self, "billing_views")
 
     @_builtins.property
@@ -74,31 +71,7 @@ class AwaitableGetViewsResult(GetViewsResult):
 def get_views(billing_view_types: Optional[Sequence[_builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewsResult:
     """
-    Provides details about an AWS Billing Views.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.billing.get_views(billing_view_types=["PRIMARY"])
-    pulumi.export("primaryViewArnByTypes", example.billing_views[0].arn)
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.billing.get_views()
-    pulumi.export("viewArns", [view.arn for view in example.billing_views])
-    pulumi.export("primaryViewArnByName", [view.arn for view in example.billing_views if view.name == "Primary View"][0])
-    ```
-
-
-    :param Sequence[_builtins.str] billing_view_types: List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['billingViewTypes'] = billing_view_types
@@ -112,31 +85,7 @@ def get_views(billing_view_types: Optional[Sequence[_builtins.str]] = None,
 def get_views_output(billing_view_types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
     """
-    Provides details about an AWS Billing Views.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.billing.get_views(billing_view_types=["PRIMARY"])
-    pulumi.export("primaryViewArnByTypes", example.billing_views[0].arn)
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.billing.get_views()
-    pulumi.export("viewArns", [view.arn for view in example.billing_views])
-    pulumi.export("primaryViewArnByName", [view.arn for view in example.billing_views if view.name == "Primary View"][0])
-    ```
-
-
-    :param Sequence[_builtins.str] billing_view_types: List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['billingViewTypes'] = billing_view_types

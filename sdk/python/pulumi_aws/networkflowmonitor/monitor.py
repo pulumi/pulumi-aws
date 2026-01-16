@@ -30,14 +30,6 @@ class MonitorArgs:
                  timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "scope_arn", scope_arn)
@@ -55,9 +47,6 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter(name="monitorName")
     def monitor_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the monitor. Cannot be changed after creation.
-        """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
@@ -67,11 +56,6 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter(name="scopeArn")
     def scope_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scope_arn")
 
     @scope_arn.setter
@@ -81,9 +65,6 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter(name="localResources")
     def local_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]:
-        """
-        The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        """
         return pulumi.get(self, "local_resources")
 
     @local_resources.setter
@@ -93,9 +74,6 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -105,9 +83,6 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter(name="remoteResources")
     def remote_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]:
-        """
-        The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        """
         return pulumi.get(self, "remote_resources")
 
     @remote_resources.setter
@@ -117,9 +92,6 @@ class MonitorArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,16 +122,6 @@ class _MonitorState:
                  timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        :param pulumi.Input[_builtins.str] monitor_arn: The Amazon Resource Name (ARN) of the monitor.
-        :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if local_resources is not None:
             pulumi.set(__self__, "local_resources", local_resources)
@@ -183,9 +145,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="localResources")
     def local_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]:
-        """
-        The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        """
         return pulumi.get(self, "local_resources")
 
     @local_resources.setter
@@ -195,9 +154,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="monitorArn")
     def monitor_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the monitor.
-        """
         return pulumi.get(self, "monitor_arn")
 
     @monitor_arn.setter
@@ -207,9 +163,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="monitorName")
     def monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the monitor. Cannot be changed after creation.
-        """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
@@ -219,9 +172,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -231,9 +181,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="remoteResources")
     def remote_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]:
-        """
-        The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        """
         return pulumi.get(self, "remote_resources")
 
     @remote_resources.setter
@@ -243,11 +190,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="scopeArn")
     def scope_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scope_arn")
 
     @scope_arn.setter
@@ -257,9 +199,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -269,9 +208,6 @@ class _MonitorState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -303,55 +239,9 @@ class Monitor(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages a Network Flow Monitor Monitor.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "example",
-            })
-        example_monitor = aws.networkflowmonitor.Monitor("example",
-            monitor_name="example-monitor",
-            scope_arn=example_aws_networkflowmonitor_scope["scopeArn"],
-            local_resources=[{
-                "type": "AWS::EC2::VPC",
-                "identifier": example.arn,
-            }],
-            remote_resources=[{
-                "type": "AWS::EC2::VPC",
-                "identifier": example.arn,
-            }],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Flow Monitor Monitor using the monitor name. For example:
-
-        ```sh
-        $ pulumi import aws:networkflowmonitor/monitor:Monitor example example-monitor
-        ```
-
+        Create a Monitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -360,45 +250,7 @@ class Monitor(pulumi.CustomResource):
                  args: MonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Flow Monitor Monitor.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "example",
-            })
-        example_monitor = aws.networkflowmonitor.Monitor("example",
-            monitor_name="example-monitor",
-            scope_arn=example_aws_networkflowmonitor_scope["scopeArn"],
-            local_resources=[{
-                "type": "AWS::EC2::VPC",
-                "identifier": example.arn,
-            }],
-            remote_resources=[{
-                "type": "AWS::EC2::VPC",
-                "identifier": example.arn,
-            }],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Network Flow Monitor Monitor using the monitor name. For example:
-
-        ```sh
-        $ pulumi import aws:networkflowmonitor/monitor:Monitor example example-monitor
-        ```
-
+        Create a Monitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -469,16 +321,6 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        :param pulumi.Input[_builtins.str] monitor_arn: The Amazon Resource Name (ARN) of the monitor.
-        :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]] remote_resources: The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -498,67 +340,41 @@ class Monitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="localResources")
     def local_resources(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorLocalResource']]]:
-        """
-        The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
-        """
         return pulumi.get(self, "local_resources")
 
     @_builtins.property
     @pulumi.getter(name="monitorArn")
     def monitor_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the monitor.
-        """
         return pulumi.get(self, "monitor_arn")
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
     def monitor_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the monitor. Cannot be changed after creation.
-        """
         return pulumi.get(self, "monitor_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="remoteResources")
     def remote_resources(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorRemoteResource']]]:
-        """
-        The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
-        """
         return pulumi.get(self, "remote_resources")
 
     @_builtins.property
     @pulumi.getter(name="scopeArn")
     def scope_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "scope_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

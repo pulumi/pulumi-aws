@@ -61,9 +61,6 @@ class GetClusterAuthResult:
     @_builtins.property
     @pulumi.getter
     def token(self) -> _builtins.str:
-        """
-        Token to use to authenticate with the cluster.
-        """
         return pulumi.get(self, "token")
 
 
@@ -83,26 +80,7 @@ def get_cluster_auth(name: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterAuthResult:
     """
-    Get an authentication token to communicate with an EKS cluster.
-
-    Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
-    [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
-    This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
-    server configured.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster(name="example")
-    example_get_cluster_auth = aws.eks.get_cluster_auth(name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the cluster
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -119,26 +97,7 @@ def get_cluster_auth_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterAuthResult]:
     """
-    Get an authentication token to communicate with an EKS cluster.
-
-    Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
-    [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
-    This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
-    server configured.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster(name="example")
-    example_get_cluster_auth = aws.eks.get_cluster_auth(name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the cluster
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

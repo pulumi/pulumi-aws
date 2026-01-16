@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerWorkflowDetails {
-    /**
-     * @return A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
-     * 
-     */
     private @Nullable ServerWorkflowDetailsOnPartialUpload onPartialUpload;
-    /**
-     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
-     * 
-     */
     private @Nullable ServerWorkflowDetailsOnUpload onUpload;
 
     private ServerWorkflowDetails() {}
-    /**
-     * @return A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
-     * 
-     */
     public Optional<ServerWorkflowDetailsOnPartialUpload> onPartialUpload() {
         return Optional.ofNullable(this.onPartialUpload);
     }
-    /**
-     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
-     * 
-     */
     public Optional<ServerWorkflowDetailsOnUpload> onUpload() {
         return Optional.ofNullable(this.onUpload);
     }

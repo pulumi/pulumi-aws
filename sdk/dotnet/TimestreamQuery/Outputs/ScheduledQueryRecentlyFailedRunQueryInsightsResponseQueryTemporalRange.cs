@@ -13,9 +13,6 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange
     {
-        /// <summary>
-        /// Insights into the most sub-optimal performing table on the temporal axis:
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis> Maxes;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DataQualityJobDefinitionStoppingConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum runtime allowed in seconds.
-        /// </summary>
         [Input("maxRuntimeInSeconds")]
         public Input<int>? MaxRuntimeInSeconds { get; set; }
 

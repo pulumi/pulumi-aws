@@ -86,25 +86,10 @@ MYPY = False
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationArgsDict(TypedDict):
         metric_specifications: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgsDict']]]
-        """
-        Metrics and target utilization to use for predictive scaling. See supported fields below.
-        """
         max_capacity_breach_behavior: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
-        """
         max_capacity_buffer: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
-        """
         mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
-        """
         scheduling_buffer_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time, in seconds, that the start time can be advanced.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -116,13 +101,6 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
                  max_capacity_buffer: Optional[pulumi.Input[_builtins.int]] = None,
                  mode: Optional[pulumi.Input[_builtins.str]] = None,
                  scheduling_buffer_time: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs']]] metric_specifications: Metrics and target utilization to use for predictive scaling. See supported fields below.
-        :param pulumi.Input[_builtins.str] max_capacity_breach_behavior: The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
-        :param pulumi.Input[_builtins.int] max_capacity_buffer: Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
-        :param pulumi.Input[_builtins.str] mode: Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
-        :param pulumi.Input[_builtins.int] scheduling_buffer_time: Amount of time, in seconds, that the start time can be advanced.
-        """
         pulumi.set(__self__, "metric_specifications", metric_specifications)
         if max_capacity_breach_behavior is not None:
             pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
@@ -136,9 +114,6 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="metricSpecifications")
     def metric_specifications(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs']]]:
-        """
-        Metrics and target utilization to use for predictive scaling. See supported fields below.
-        """
         return pulumi.get(self, "metric_specifications")
 
     @metric_specifications.setter
@@ -148,9 +123,6 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacityBreachBehavior")
     def max_capacity_breach_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
-        """
         return pulumi.get(self, "max_capacity_breach_behavior")
 
     @max_capacity_breach_behavior.setter
@@ -160,9 +132,6 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacityBuffer")
     def max_capacity_buffer(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. Required if the `max_capacity_breach_behavior` argument is set to `IncreaseMaxCapacity`, and cannot be used otherwise.
-        """
         return pulumi.get(self, "max_capacity_buffer")
 
     @max_capacity_buffer.setter
@@ -172,9 +141,6 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Predictive scaling mode. Valid values are `ForecastOnly` and `ForecastAndScale`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -184,9 +150,6 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="schedulingBufferTime")
     def scheduling_buffer_time(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time, in seconds, that the start time can be advanced.
-        """
         return pulumi.get(self, "scheduling_buffer_time")
 
     @scheduling_buffer_time.setter
@@ -197,33 +160,12 @@ class PolicyPredictiveScalingPolicyConfigurationArgs:
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgsDict(TypedDict):
         target_value: pulumi.Input[_builtins.str]
-        """
-        Target utilization.
-        """
         customized_capacity_metric_specification: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgsDict']]
-        """
-        Customized capacity metric specification. See supported fields below.
-        """
         customized_load_metric_specification: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgsDict']]
-        """
-        Customized load metric specification. See supported fields below.
-        """
         customized_scaling_metric_specification: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgsDict']]
-        """
-        Customized scaling metric specification. See supported fields below.
-        """
         predefined_load_metric_specification: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgsDict']]
-        """
-        Predefined load metric specification. See supported fields below.
-        """
         predefined_metric_pair_specification: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgsDict']]
-        """
-        Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
-        """
         predefined_scaling_metric_specification: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgsDict']]
-        """
-        Predefined scaling metric specification. See supported fields below.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -237,15 +179,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
                  predefined_load_metric_specification: Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']] = None,
                  predefined_metric_pair_specification: Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']] = None,
                  predefined_scaling_metric_specification: Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] target_value: Target utilization.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs'] customized_capacity_metric_specification: Customized capacity metric specification. See supported fields below.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs'] customized_load_metric_specification: Customized load metric specification. See supported fields below.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs'] customized_scaling_metric_specification: Customized scaling metric specification. See supported fields below.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs'] predefined_load_metric_specification: Predefined load metric specification. See supported fields below.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs'] predefined_metric_pair_specification: Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs'] predefined_scaling_metric_specification: Predefined scaling metric specification. See supported fields below.
-        """
         pulumi.set(__self__, "target_value", target_value)
         if customized_capacity_metric_specification is not None:
             pulumi.set(__self__, "customized_capacity_metric_specification", customized_capacity_metric_specification)
@@ -263,9 +196,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Target utilization.
-        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -275,9 +205,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="customizedCapacityMetricSpecification")
     def customized_capacity_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs']]:
-        """
-        Customized capacity metric specification. See supported fields below.
-        """
         return pulumi.get(self, "customized_capacity_metric_specification")
 
     @customized_capacity_metric_specification.setter
@@ -287,9 +214,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="customizedLoadMetricSpecification")
     def customized_load_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs']]:
-        """
-        Customized load metric specification. See supported fields below.
-        """
         return pulumi.get(self, "customized_load_metric_specification")
 
     @customized_load_metric_specification.setter
@@ -299,9 +223,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="customizedScalingMetricSpecification")
     def customized_scaling_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs']]:
-        """
-        Customized scaling metric specification. See supported fields below.
-        """
         return pulumi.get(self, "customized_scaling_metric_specification")
 
     @customized_scaling_metric_specification.setter
@@ -311,9 +232,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="predefinedLoadMetricSpecification")
     def predefined_load_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']]:
-        """
-        Predefined load metric specification. See supported fields below.
-        """
         return pulumi.get(self, "predefined_load_metric_specification")
 
     @predefined_load_metric_specification.setter
@@ -323,9 +241,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="predefinedMetricPairSpecification")
     def predefined_metric_pair_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']]:
-        """
-        Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
-        """
         return pulumi.get(self, "predefined_metric_pair_specification")
 
     @predefined_metric_pair_specification.setter
@@ -335,9 +250,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="predefinedScalingMetricSpecification")
     def predefined_scaling_metric_specification(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']]:
-        """
-        Predefined scaling metric specification. See supported fields below.
-        """
         return pulumi.get(self, "predefined_scaling_metric_specification")
 
     @predefined_scaling_metric_specification.setter
@@ -348,9 +260,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs:
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgsDict(TypedDict):
         metric_data_queries: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgsDict']]]
-        """
-        One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -358,17 +267,11 @@ elif False:
 class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs']]] metric_data_queries: One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
     @_builtins.property
     @pulumi.getter(name="metricDataQueries")
     def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs']]]:
-        """
-        One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
         return pulumi.get(self, "metric_data_queries")
 
     @metric_data_queries.setter
@@ -379,25 +282,10 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgsDict(TypedDict):
         id: pulumi.Input[_builtins.str]
-        """
-        Short name that identifies the object's results in the response.
-        """
         expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Math expression to perform on the returned data, if this object is performing a math expression.
-        """
         label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Human-readable label for this metric or expression.
-        """
         metric_stat: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgsDict']]
-        """
-        Information about the metric data to return. See supported fields below.
-        """
         return_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to return the timestamps and raw data values of this metric.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -409,13 +297,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_stat: Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs']] = None,
                  return_data: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: Short name that identifies the object's results in the response.
-        :param pulumi.Input[_builtins.str] expression: Math expression to perform on the returned data, if this object is performing a math expression.
-        :param pulumi.Input[_builtins.str] label: Human-readable label for this metric or expression.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs'] metric_stat: Information about the metric data to return. See supported fields below.
-        :param pulumi.Input[_builtins.bool] return_data: Whether to return the timestamps and raw data values of this metric.
-        """
         pulumi.set(__self__, "id", id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -429,9 +310,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Short name that identifies the object's results in the response.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -441,9 +319,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Math expression to perform on the returned data, if this object is performing a math expression.
-        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -453,9 +328,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable label for this metric or expression.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -465,9 +337,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs']]:
-        """
-        Information about the metric data to return. See supported fields below.
-        """
         return pulumi.get(self, "metric_stat")
 
     @metric_stat.setter
@@ -477,9 +346,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to return the timestamps and raw data values of this metric.
-        """
         return pulumi.get(self, "return_data")
 
     @return_data.setter
@@ -490,17 +356,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgsDict(TypedDict):
         metric: pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgsDict']
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         stat: pulumi.Input[_builtins.str]
-        """
-        Statistic of the metrics to return.
-        """
         unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the metrics to return.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -510,11 +367,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
                  metric: pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs'],
                  stat: pulumi.Input[_builtins.str],
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs'] metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        :param pulumi.Input[_builtins.str] stat: Statistic of the metrics to return.
-        :param pulumi.Input[_builtins.str] unit: Unit of the metrics to return.
-        """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
         if unit is not None:
@@ -523,9 +375,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def metric(self) -> pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs']:
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -535,9 +384,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def stat(self) -> pulumi.Input[_builtins.str]:
-        """
-        Statistic of the metrics to return.
-        """
         return pulumi.get(self, "stat")
 
     @stat.setter
@@ -547,9 +393,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unit of the metrics to return.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -560,17 +403,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgsDict(TypedDict):
         dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]
-        """
-        Dimensions of the metric. See supported fields below.
-        """
         metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the metric.
-        """
         namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace of the metric.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -580,11 +414,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]] = None,
                  metric_name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]] dimensions: Dimensions of the metric. See supported fields below.
-        :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
-        :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_name is not None:
@@ -595,9 +424,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]:
-        """
-        Dimensions of the metric. See supported fields below.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -607,9 +433,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -619,9 +442,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -632,13 +452,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Value of the dimension.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -647,19 +461,12 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the dimension.
-        :param pulumi.Input[_builtins.str] value: Value of the dimension.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dimension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -669,9 +476,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of the dimension.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -682,9 +486,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgsDict(TypedDict):
         metric_data_queries: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgsDict']]]
-        """
-        One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -692,17 +493,11 @@ elif False:
 class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs']]] metric_data_queries: One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
     @_builtins.property
     @pulumi.getter(name="metricDataQueries")
     def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs']]]:
-        """
-        One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
         return pulumi.get(self, "metric_data_queries")
 
     @metric_data_queries.setter
@@ -713,25 +508,10 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgsDict(TypedDict):
         id: pulumi.Input[_builtins.str]
-        """
-        Short name that identifies the object's results in the response.
-        """
         expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Math expression to perform on the returned data, if this object is performing a math expression.
-        """
         label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Human-readable label for this metric or expression.
-        """
         metric_stat: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgsDict']]
-        """
-        Information about the metric data to return. See supported fields below.
-        """
         return_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to return the timestamps and raw data values of this metric.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -743,13 +523,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_stat: Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs']] = None,
                  return_data: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: Short name that identifies the object's results in the response.
-        :param pulumi.Input[_builtins.str] expression: Math expression to perform on the returned data, if this object is performing a math expression.
-        :param pulumi.Input[_builtins.str] label: Human-readable label for this metric or expression.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs'] metric_stat: Information about the metric data to return. See supported fields below.
-        :param pulumi.Input[_builtins.bool] return_data: Whether to return the timestamps and raw data values of this metric.
-        """
         pulumi.set(__self__, "id", id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -763,9 +536,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Short name that identifies the object's results in the response.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -775,9 +545,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Math expression to perform on the returned data, if this object is performing a math expression.
-        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -787,9 +554,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable label for this metric or expression.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -799,9 +563,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs']]:
-        """
-        Information about the metric data to return. See supported fields below.
-        """
         return pulumi.get(self, "metric_stat")
 
     @metric_stat.setter
@@ -811,9 +572,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to return the timestamps and raw data values of this metric.
-        """
         return pulumi.get(self, "return_data")
 
     @return_data.setter
@@ -824,17 +582,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgsDict(TypedDict):
         metric: pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgsDict']
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         stat: pulumi.Input[_builtins.str]
-        """
-        Statistic of the metrics to return.
-        """
         unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the metrics to return.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -844,11 +593,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
                  metric: pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs'],
                  stat: pulumi.Input[_builtins.str],
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs'] metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        :param pulumi.Input[_builtins.str] stat: Statistic of the metrics to return.
-        :param pulumi.Input[_builtins.str] unit: Unit of the metrics to return.
-        """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
         if unit is not None:
@@ -857,9 +601,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def metric(self) -> pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs']:
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -869,9 +610,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def stat(self) -> pulumi.Input[_builtins.str]:
-        """
-        Statistic of the metrics to return.
-        """
         return pulumi.get(self, "stat")
 
     @stat.setter
@@ -881,9 +619,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unit of the metrics to return.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -894,17 +629,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgsDict(TypedDict):
         dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]
-        """
-        Dimensions of the metric. See supported fields below.
-        """
         metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the metric.
-        """
         namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace of the metric.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -914,11 +640,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]] = None,
                  metric_name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]] dimensions: Dimensions of the metric. See supported fields below.
-        :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
-        :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_name is not None:
@@ -929,9 +650,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]:
-        """
-        Dimensions of the metric. See supported fields below.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -941,9 +659,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -953,9 +668,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -966,13 +678,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Value of the dimension.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -981,19 +687,12 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the dimension.
-        :param pulumi.Input[_builtins.str] value: Value of the dimension.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dimension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1003,9 +702,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of the dimension.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1016,9 +712,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgsDict(TypedDict):
         metric_data_queries: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgsDict']]]
-        """
-        One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1026,17 +719,11 @@ elif False:
 class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs']]] metric_data_queries: One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
     @_builtins.property
     @pulumi.getter(name="metricDataQueries")
     def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs']]]:
-        """
-        One or more metric data queries to provide data points for a metric specification. See supported fields below.
-        """
         return pulumi.get(self, "metric_data_queries")
 
     @metric_data_queries.setter
@@ -1047,25 +734,10 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgsDict(TypedDict):
         id: pulumi.Input[_builtins.str]
-        """
-        Short name that identifies the object's results in the response.
-        """
         expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Math expression to perform on the returned data, if this object is performing a math expression.
-        """
         label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Human-readable label for this metric or expression.
-        """
         metric_stat: NotRequired[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgsDict']]
-        """
-        Information about the metric data to return. See supported fields below.
-        """
         return_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to return the timestamps and raw data values of this metric.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1077,13 +749,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_stat: Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs']] = None,
                  return_data: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: Short name that identifies the object's results in the response.
-        :param pulumi.Input[_builtins.str] expression: Math expression to perform on the returned data, if this object is performing a math expression.
-        :param pulumi.Input[_builtins.str] label: Human-readable label for this metric or expression.
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs'] metric_stat: Information about the metric data to return. See supported fields below.
-        :param pulumi.Input[_builtins.bool] return_data: Whether to return the timestamps and raw data values of this metric.
-        """
         pulumi.set(__self__, "id", id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -1097,9 +762,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Short name that identifies the object's results in the response.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1109,9 +771,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Math expression to perform on the returned data, if this object is performing a math expression.
-        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -1121,9 +780,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable label for this metric or expression.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -1133,9 +789,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs']]:
-        """
-        Information about the metric data to return. See supported fields below.
-        """
         return pulumi.get(self, "metric_stat")
 
     @metric_stat.setter
@@ -1145,9 +798,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to return the timestamps and raw data values of this metric.
-        """
         return pulumi.get(self, "return_data")
 
     @return_data.setter
@@ -1158,17 +808,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgsDict(TypedDict):
         metric: pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgsDict']
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         stat: pulumi.Input[_builtins.str]
-        """
-        Statistic of the metrics to return.
-        """
         unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the metrics to return.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1178,11 +819,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
                  metric: pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs'],
                  stat: pulumi.Input[_builtins.str],
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs'] metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        :param pulumi.Input[_builtins.str] stat: Statistic of the metrics to return.
-        :param pulumi.Input[_builtins.str] unit: Unit of the metrics to return.
-        """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
         if unit is not None:
@@ -1191,9 +827,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def metric(self) -> pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs']:
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -1203,9 +836,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def stat(self) -> pulumi.Input[_builtins.str]:
-        """
-        Statistic of the metrics to return.
-        """
         return pulumi.get(self, "stat")
 
     @stat.setter
@@ -1215,9 +845,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unit of the metrics to return.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -1228,17 +855,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgsDict(TypedDict):
         dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]
-        """
-        Dimensions of the metric. See supported fields below.
-        """
         metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the metric.
-        """
         namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace of the metric.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1248,11 +866,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]] = None,
                  metric_name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]] dimensions: Dimensions of the metric. See supported fields below.
-        :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
-        :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_name is not None:
@@ -1263,9 +876,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]:
-        """
-        Dimensions of the metric. See supported fields below.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -1275,9 +885,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -1287,9 +894,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1300,13 +904,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Value of the dimension.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1315,19 +913,12 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the dimension.
-        :param pulumi.Input[_builtins.str] value: Value of the dimension.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dimension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1337,9 +928,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of the dimension.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1350,13 +938,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[_builtins.str]
-        """
-        Metric type.
-        """
         resource_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label that uniquely identifies a target group.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1365,10 +947,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[_builtins.str],
                  resource_label: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] predefined_metric_type: Metric type.
-        :param pulumi.Input[_builtins.str] resource_label: Label that uniquely identifies a target group.
-        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -1376,9 +954,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Metric type.
-        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1388,9 +963,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
     @_builtins.property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Label that uniquely identifies a target group.
-        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
@@ -1401,13 +973,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[_builtins.str]
-        """
-        Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-        """
         resource_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label that uniquely identifies a specific target group from which to determine the total and average request count.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1416,10 +982,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[_builtins.str],
                  resource_label: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] predefined_metric_type: Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-        :param pulumi.Input[_builtins.str] resource_label: Label that uniquely identifies a specific target group from which to determine the total and average request count.
-        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -1427,9 +989,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1439,9 +998,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
     @_builtins.property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Label that uniquely identifies a specific target group from which to determine the total and average request count.
-        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
@@ -1452,13 +1008,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
 if not MYPY:
     class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[_builtins.str]
-        """
-        Metric type.
-        """
         resource_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label that uniquely identifies a specific target group from which to determine the average request count.
-        """
 elif False:
     PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1467,10 +1017,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[_builtins.str],
                  resource_label: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] predefined_metric_type: Metric type.
-        :param pulumi.Input[_builtins.str] resource_label: Label that uniquely identifies a specific target group from which to determine the average request count.
-        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -1478,9 +1024,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Metric type.
-        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1490,9 +1033,6 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
     @_builtins.property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Label that uniquely identifies a specific target group from which to determine the average request count.
-        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
@@ -1503,45 +1043,10 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
 if not MYPY:
     class PolicyStepScalingPolicyConfigurationArgsDict(TypedDict):
         adjustment_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        """
         cooldown: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        """
         metric_aggregation_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        """
         min_adjustment_magnitude: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
-        """
         step_adjustments: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict']]]]
-        """
-        Set of adjustments that manage scaling. These have the following structure:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-            "step_adjustments": [
-                {
-                    "metric_interval_lower_bound": "1",
-                    "metric_interval_upper_bound": "2",
-                    "scaling_adjustment": -1,
-                },
-                {
-                    "metric_interval_lower_bound": "2",
-                    "metric_interval_upper_bound": "3",
-                    "scaling_adjustment": 1,
-                },
-            ],
-        })
-        ```
-        """
 elif False:
     PolicyStepScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1553,33 +1058,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
                  metric_aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
                  min_adjustment_magnitude: Optional[pulumi.Input[_builtins.int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        :param pulumi.Input[_builtins.int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        :param pulumi.Input[_builtins.str] metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        :param pulumi.Input[_builtins.int] min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-                   "step_adjustments": [
-                       {
-                           "metric_interval_lower_bound": "1",
-                           "metric_interval_upper_bound": "2",
-                           "scaling_adjustment": -1,
-                       },
-                       {
-                           "metric_interval_lower_bound": "2",
-                           "metric_interval_upper_bound": "3",
-                           "scaling_adjustment": 1,
-                       },
-                   ],
-               })
-               ```
-        """
         if adjustment_type is not None:
             pulumi.set(__self__, "adjustment_type", adjustment_type)
         if cooldown is not None:
@@ -1594,9 +1072,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="adjustmentType")
     def adjustment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-        """
         return pulumi.get(self, "adjustment_type")
 
     @adjustment_type.setter
@@ -1606,9 +1081,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        """
         return pulumi.get(self, "cooldown")
 
     @cooldown.setter
@@ -1618,9 +1090,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="metricAggregationType")
     def metric_aggregation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        """
         return pulumi.get(self, "metric_aggregation_type")
 
     @metric_aggregation_type.setter
@@ -1630,9 +1099,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="minAdjustmentMagnitude")
     def min_adjustment_magnitude(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
-        """
         return pulumi.get(self, "min_adjustment_magnitude")
 
     @min_adjustment_magnitude.setter
@@ -1642,29 +1108,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="stepAdjustments")
     def step_adjustments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]]]:
-        """
-        Set of adjustments that manage scaling. These have the following structure:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
-            "step_adjustments": [
-                {
-                    "metric_interval_lower_bound": "1",
-                    "metric_interval_upper_bound": "2",
-                    "scaling_adjustment": -1,
-                },
-                {
-                    "metric_interval_lower_bound": "2",
-                    "metric_interval_upper_bound": "3",
-                    "scaling_adjustment": 1,
-                },
-            ],
-        })
-        ```
-        """
         return pulumi.get(self, "step_adjustments")
 
     @step_adjustments.setter
@@ -1675,17 +1118,8 @@ class PolicyStepScalingPolicyConfigurationArgs:
 if not MYPY:
     class PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict(TypedDict):
         scaling_adjustment: pulumi.Input[_builtins.int]
-        """
-        Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-        """
         metric_interval_lower_bound: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-        """
         metric_interval_upper_bound: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
-        """
 elif False:
     PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1695,11 +1129,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
                  scaling_adjustment: pulumi.Input[_builtins.int],
                  metric_interval_lower_bound: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_interval_upper_bound: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.int] scaling_adjustment: Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-        :param pulumi.Input[_builtins.str] metric_interval_lower_bound: Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-        :param pulumi.Input[_builtins.str] metric_interval_upper_bound: Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
-        """
         pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
             pulumi.set(__self__, "metric_interval_lower_bound", metric_interval_lower_bound)
@@ -1709,9 +1138,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     @_builtins.property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
-        """
         return pulumi.get(self, "scaling_adjustment")
 
     @scaling_adjustment.setter
@@ -1721,9 +1147,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     @_builtins.property
     @pulumi.getter(name="metricIntervalLowerBound")
     def metric_interval_lower_bound(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
-        """
         return pulumi.get(self, "metric_interval_lower_bound")
 
     @metric_interval_lower_bound.setter
@@ -1733,9 +1156,6 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     @_builtins.property
     @pulumi.getter(name="metricIntervalUpperBound")
     def metric_interval_upper_bound(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
-        """
         return pulumi.get(self, "metric_interval_upper_bound")
 
     @metric_interval_upper_bound.setter
@@ -1746,29 +1166,11 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
         target_value: pulumi.Input[_builtins.float]
-        """
-        Target value for the metric.
-        """
         customized_metric_specification: NotRequired[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict']]
-        """
-        Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-        """
         disable_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-        """
         predefined_metric_specification: NotRequired[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict']]
-        """
-        Predefined metric. See supported fields below.
-        """
         scale_in_cooldown: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-        """
         scale_out_cooldown: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1781,14 +1183,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
                  predefined_metric_specification: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs']] = None,
                  scale_in_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
                  scale_out_cooldown: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.float] target_value: Target value for the metric.
-        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs'] customized_metric_specification: Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-        :param pulumi.Input[_builtins.bool] disable_scale_in: Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs'] predefined_metric_specification: Predefined metric. See supported fields below.
-        :param pulumi.Input[_builtins.int] scale_in_cooldown: Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-        :param pulumi.Input[_builtins.int] scale_out_cooldown: Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
-        """
         pulumi.set(__self__, "target_value", target_value)
         if customized_metric_specification is not None:
             pulumi.set(__self__, "customized_metric_specification", customized_metric_specification)
@@ -1804,9 +1198,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[_builtins.float]:
-        """
-        Target value for the metric.
-        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -1816,9 +1207,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="customizedMetricSpecification")
     def customized_metric_specification(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs']]:
-        """
-        Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-        """
         return pulumi.get(self, "customized_metric_specification")
 
     @customized_metric_specification.setter
@@ -1828,9 +1216,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="disableScaleIn")
     def disable_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-        """
         return pulumi.get(self, "disable_scale_in")
 
     @disable_scale_in.setter
@@ -1840,9 +1225,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="predefinedMetricSpecification")
     def predefined_metric_specification(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs']]:
-        """
-        Predefined metric. See supported fields below.
-        """
         return pulumi.get(self, "predefined_metric_specification")
 
     @predefined_metric_specification.setter
@@ -1852,9 +1234,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="scaleInCooldown")
     def scale_in_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-        """
         return pulumi.get(self, "scale_in_cooldown")
 
     @scale_in_cooldown.setter
@@ -1864,9 +1243,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="scaleOutCooldown")
     def scale_out_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
-        """
         return pulumi.get(self, "scale_out_cooldown")
 
     @scale_out_cooldown.setter
@@ -1877,29 +1253,11 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict(TypedDict):
         dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict']]]]
-        """
-        Dimensions of the metric.
-        """
         metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the metric.
-        """
         metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict']]]]
-        """
-        Metrics to include, as a metric data query.
-        """
         namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace of the metric.
-        """
         statistic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        """
         unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the metrics to return.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1912,14 +1270,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]] dimensions: Dimensions of the metric.
-        :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs']]] metrics: Metrics to include, as a metric data query.
-        :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
-        :param pulumi.Input[_builtins.str] statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        :param pulumi.Input[_builtins.str] unit: Unit of the metrics to return.
-        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_name is not None:
@@ -1936,9 +1286,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]]]:
-        """
-        Dimensions of the metric.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -1948,9 +1295,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -1960,9 +1304,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs']]]]:
-        """
-        Metrics to include, as a metric data query.
-        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -1972,9 +1313,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1984,9 +1322,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
@@ -1996,9 +1331,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unit of the metrics to return.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -2009,13 +1341,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Value of the dimension.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2024,19 +1350,12 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the dimension.
-        :param pulumi.Input[_builtins.str] value: Value of the dimension.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dimension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2046,9 +1365,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of the dimension.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2059,25 +1375,10 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict(TypedDict):
         id: pulumi.Input[_builtins.str]
-        """
-        Short name for the metric used in target tracking scaling policy.
-        """
         expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
-        """
         label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Human-readable label for this metric or expression.
-        """
         metric_stat: NotRequired[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict']]
-        """
-        Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
-        """
         return_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2089,13 +1390,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  metric_stat: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs']] = None,
                  return_data: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: Short name for the metric used in target tracking scaling policy.
-        :param pulumi.Input[_builtins.str] expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
-        :param pulumi.Input[_builtins.str] label: Human-readable label for this metric or expression.
-        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs'] metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
-        :param pulumi.Input[_builtins.bool] return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-        """
         pulumi.set(__self__, "id", id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -2109,9 +1403,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Short name for the metric used in target tracking scaling policy.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2121,9 +1412,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
-        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -2133,9 +1421,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable label for this metric or expression.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -2145,9 +1430,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs']]:
-        """
-        Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
-        """
         return pulumi.get(self, "metric_stat")
 
     @metric_stat.setter
@@ -2157,9 +1439,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-        """
         return pulumi.get(self, "return_data")
 
     @return_data.setter
@@ -2170,17 +1449,8 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict(TypedDict):
         metric: pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict']
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         stat: pulumi.Input[_builtins.str]
-        """
-        Statistic of the metrics to return.
-        """
         unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unit of the metrics to return.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2190,11 +1460,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  metric: pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs'],
                  stat: pulumi.Input[_builtins.str],
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs'] metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        :param pulumi.Input[_builtins.str] stat: Statistic of the metrics to return.
-        :param pulumi.Input[_builtins.str] unit: Unit of the metrics to return.
-        """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
         if unit is not None:
@@ -2203,9 +1468,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def metric(self) -> pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs']:
-        """
-        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -2215,9 +1477,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def stat(self) -> pulumi.Input[_builtins.str]:
-        """
-        Statistic of the metrics to return.
-        """
         return pulumi.get(self, "stat")
 
     @stat.setter
@@ -2227,9 +1486,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unit of the metrics to return.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -2240,17 +1496,8 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict(TypedDict):
         metric_name: pulumi.Input[_builtins.str]
-        """
-        Name of the metric.
-        """
         namespace: pulumi.Input[_builtins.str]
-        """
-        Namespace of the metric.
-        """
         dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict']]]]
-        """
-        Dimensions of the metric.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2260,11 +1507,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  metric_name: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
-        :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]] dimensions: Dimensions of the metric.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
         if dimensions is not None:
@@ -2273,9 +1515,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -2285,9 +1524,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[_builtins.str]:
-        """
-        Namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -2297,9 +1533,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]]]:
-        """
-        Dimensions of the metric.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -2310,13 +1543,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the dimension.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        Value of the dimension.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2325,19 +1552,12 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the dimension.
-        :param pulumi.Input[_builtins.str] value: Value of the dimension.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dimension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2347,9 +1567,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of the dimension.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2360,13 +1577,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 if not MYPY:
     class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[_builtins.str]
-        """
-        Metric type.
-        """
         resource_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
-        """
 elif False:
     PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2375,10 +1586,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[_builtins.str],
                  resource_label: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] predefined_metric_type: Metric type.
-        :param pulumi.Input[_builtins.str] resource_label: Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
-        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -2386,9 +1593,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Metric type.
-        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -2398,9 +1602,6 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     @_builtins.property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
-        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
@@ -2411,13 +1612,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
 if not MYPY:
     class ScheduledActionScalableTargetActionArgsDict(TypedDict):
         max_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
-        """
         min_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
-        """
 elif False:
     ScheduledActionScalableTargetActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2426,10 +1621,6 @@ class ScheduledActionScalableTargetActionArgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  min_capacity: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] max_capacity: Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
-        :param pulumi.Input[_builtins.int] min_capacity: Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
-        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
@@ -2438,9 +1629,6 @@ class ScheduledActionScalableTargetActionArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -2450,9 +1638,6 @@ class ScheduledActionScalableTargetActionArgs:
     @_builtins.property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
-        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -2463,17 +1648,8 @@ class ScheduledActionScalableTargetActionArgs:
 if not MYPY:
     class TargetSuspendedStateArgsDict(TypedDict):
         dynamic_scaling_in_suspended: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-        """
         dynamic_scaling_out_suspended: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-        """
         scheduled_scaling_suspended: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether scheduled scaling is suspended. Default is `false`.
-        """
 elif False:
     TargetSuspendedStateArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2483,11 +1659,6 @@ class TargetSuspendedStateArgs:
                  dynamic_scaling_in_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
                  dynamic_scaling_out_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
                  scheduled_scaling_suspended: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] dynamic_scaling_in_suspended: Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-        :param pulumi.Input[_builtins.bool] dynamic_scaling_out_suspended: Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-        :param pulumi.Input[_builtins.bool] scheduled_scaling_suspended: Whether scheduled scaling is suspended. Default is `false`.
-        """
         if dynamic_scaling_in_suspended is not None:
             pulumi.set(__self__, "dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
         if dynamic_scaling_out_suspended is not None:
@@ -2498,9 +1669,6 @@ class TargetSuspendedStateArgs:
     @_builtins.property
     @pulumi.getter(name="dynamicScalingInSuspended")
     def dynamic_scaling_in_suspended(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-        """
         return pulumi.get(self, "dynamic_scaling_in_suspended")
 
     @dynamic_scaling_in_suspended.setter
@@ -2510,9 +1678,6 @@ class TargetSuspendedStateArgs:
     @_builtins.property
     @pulumi.getter(name="dynamicScalingOutSuspended")
     def dynamic_scaling_out_suspended(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
-        """
         return pulumi.get(self, "dynamic_scaling_out_suspended")
 
     @dynamic_scaling_out_suspended.setter
@@ -2522,9 +1687,6 @@ class TargetSuspendedStateArgs:
     @_builtins.property
     @pulumi.getter(name="scheduledScalingSuspended")
     def scheduled_scaling_suspended(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether scheduled scaling is suspended. Default is `false`.
-        """
         return pulumi.get(self, "scheduled_scaling_suspended")
 
     @scheduled_scaling_suspended.setter

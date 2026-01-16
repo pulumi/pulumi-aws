@@ -12,86 +12,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a single EBS volume.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(40),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EBS Volumes using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-// ```
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Availability zone where the EBS volume will exist.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Timestamp when volume creation was initiated.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// If true, the disk will be encrypted.
-	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-	FinalSnapshot pulumi.BoolPtrOutput `pulumi:"finalSnapshot"`
-	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops pulumi.IntOutput `pulumi:"iops"`
-	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
-	// Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Size of the drive in GiBs.
-	Size pulumi.IntOutput `pulumi:"size"`
-	// A snapshot to base the EBS volume off of.
-	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
-	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-	Type pulumi.StringOutput `pulumi:"type"`
-	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
-	//
-	// > **NOTE:** At least one of `size` or `snapshotId` is required.
-	//
-	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	VolumeInitializationRate pulumi.IntPtrOutput `pulumi:"volumeInitializationRate"`
+	Arn                      pulumi.StringOutput    `pulumi:"arn"`
+	AvailabilityZone         pulumi.StringOutput    `pulumi:"availabilityZone"`
+	CreateTime               pulumi.StringOutput    `pulumi:"createTime"`
+	Encrypted                pulumi.BoolOutput      `pulumi:"encrypted"`
+	FinalSnapshot            pulumi.BoolPtrOutput   `pulumi:"finalSnapshot"`
+	Iops                     pulumi.IntOutput       `pulumi:"iops"`
+	KmsKeyId                 pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	MultiAttachEnabled       pulumi.BoolPtrOutput   `pulumi:"multiAttachEnabled"`
+	OutpostArn               pulumi.StringPtrOutput `pulumi:"outpostArn"`
+	Region                   pulumi.StringOutput    `pulumi:"region"`
+	Size                     pulumi.IntOutput       `pulumi:"size"`
+	SnapshotId               pulumi.StringOutput    `pulumi:"snapshotId"`
+	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Throughput               pulumi.IntOutput       `pulumi:"throughput"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
+	VolumeInitializationRate pulumi.IntPtrOutput    `pulumi:"volumeInitializationRate"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -127,84 +67,42 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-	Arn *string `pulumi:"arn"`
-	// Availability zone where the EBS volume will exist.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Timestamp when volume creation was initiated.
-	CreateTime *string `pulumi:"createTime"`
-	// If true, the disk will be encrypted.
-	Encrypted *bool `pulumi:"encrypted"`
-	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-	FinalSnapshot *bool `pulumi:"finalSnapshot"`
-	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops *int `pulumi:"iops"`
-	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
-	// Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Size of the drive in GiBs.
-	Size *int `pulumi:"size"`
-	// A snapshot to base the EBS volume off of.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-	Throughput *int `pulumi:"throughput"`
-	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-	Type *string `pulumi:"type"`
-	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
-	//
-	// > **NOTE:** At least one of `size` or `snapshotId` is required.
-	//
-	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
+	Arn                      *string           `pulumi:"arn"`
+	AvailabilityZone         *string           `pulumi:"availabilityZone"`
+	CreateTime               *string           `pulumi:"createTime"`
+	Encrypted                *bool             `pulumi:"encrypted"`
+	FinalSnapshot            *bool             `pulumi:"finalSnapshot"`
+	Iops                     *int              `pulumi:"iops"`
+	KmsKeyId                 *string           `pulumi:"kmsKeyId"`
+	MultiAttachEnabled       *bool             `pulumi:"multiAttachEnabled"`
+	OutpostArn               *string           `pulumi:"outpostArn"`
+	Region                   *string           `pulumi:"region"`
+	Size                     *int              `pulumi:"size"`
+	SnapshotId               *string           `pulumi:"snapshotId"`
+	Tags                     map[string]string `pulumi:"tags"`
+	TagsAll                  map[string]string `pulumi:"tagsAll"`
+	Throughput               *int              `pulumi:"throughput"`
+	Type                     *string           `pulumi:"type"`
+	VolumeInitializationRate *int              `pulumi:"volumeInitializationRate"`
 }
 
 type VolumeState struct {
-	// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-	Arn pulumi.StringPtrInput
-	// Availability zone where the EBS volume will exist.
-	AvailabilityZone pulumi.StringPtrInput
-	// Timestamp when volume creation was initiated.
-	CreateTime pulumi.StringPtrInput
-	// If true, the disk will be encrypted.
-	Encrypted pulumi.BoolPtrInput
-	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-	FinalSnapshot pulumi.BoolPtrInput
-	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops pulumi.IntPtrInput
-	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-	KmsKeyId pulumi.StringPtrInput
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-	MultiAttachEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Size of the drive in GiBs.
-	Size pulumi.IntPtrInput
-	// A snapshot to base the EBS volume off of.
-	SnapshotId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-	Throughput pulumi.IntPtrInput
-	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-	Type pulumi.StringPtrInput
-	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
-	//
-	// > **NOTE:** At least one of `size` or `snapshotId` is required.
-	//
-	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+	Arn                      pulumi.StringPtrInput
+	AvailabilityZone         pulumi.StringPtrInput
+	CreateTime               pulumi.StringPtrInput
+	Encrypted                pulumi.BoolPtrInput
+	FinalSnapshot            pulumi.BoolPtrInput
+	Iops                     pulumi.IntPtrInput
+	KmsKeyId                 pulumi.StringPtrInput
+	MultiAttachEnabled       pulumi.BoolPtrInput
+	OutpostArn               pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Size                     pulumi.IntPtrInput
+	SnapshotId               pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	Throughput               pulumi.IntPtrInput
+	Type                     pulumi.StringPtrInput
 	VolumeInitializationRate pulumi.IntPtrInput
 }
 
@@ -213,73 +111,37 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	// Availability zone where the EBS volume will exist.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// If true, the disk will be encrypted.
-	Encrypted *bool `pulumi:"encrypted"`
-	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-	FinalSnapshot *bool `pulumi:"finalSnapshot"`
-	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops *int `pulumi:"iops"`
-	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
-	// Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn *string `pulumi:"outpostArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Size of the drive in GiBs.
-	Size *int `pulumi:"size"`
-	// A snapshot to base the EBS volume off of.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-	Throughput *int `pulumi:"throughput"`
-	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-	Type *string `pulumi:"type"`
-	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
-	//
-	// > **NOTE:** At least one of `size` or `snapshotId` is required.
-	//
-	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
+	AvailabilityZone         string            `pulumi:"availabilityZone"`
+	Encrypted                *bool             `pulumi:"encrypted"`
+	FinalSnapshot            *bool             `pulumi:"finalSnapshot"`
+	Iops                     *int              `pulumi:"iops"`
+	KmsKeyId                 *string           `pulumi:"kmsKeyId"`
+	MultiAttachEnabled       *bool             `pulumi:"multiAttachEnabled"`
+	OutpostArn               *string           `pulumi:"outpostArn"`
+	Region                   *string           `pulumi:"region"`
+	Size                     *int              `pulumi:"size"`
+	SnapshotId               *string           `pulumi:"snapshotId"`
+	Tags                     map[string]string `pulumi:"tags"`
+	Throughput               *int              `pulumi:"throughput"`
+	Type                     *string           `pulumi:"type"`
+	VolumeInitializationRate *int              `pulumi:"volumeInitializationRate"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
-	// Availability zone where the EBS volume will exist.
-	AvailabilityZone pulumi.StringInput
-	// If true, the disk will be encrypted.
-	Encrypted pulumi.BoolPtrInput
-	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-	FinalSnapshot pulumi.BoolPtrInput
-	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops pulumi.IntPtrInput
-	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-	KmsKeyId pulumi.StringPtrInput
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-	MultiAttachEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Size of the drive in GiBs.
-	Size pulumi.IntPtrInput
-	// A snapshot to base the EBS volume off of.
-	SnapshotId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-	Throughput pulumi.IntPtrInput
-	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-	Type pulumi.StringPtrInput
-	// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
-	//
-	// > **NOTE:** At least one of `size` or `snapshotId` is required.
-	//
-	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+	AvailabilityZone         pulumi.StringInput
+	Encrypted                pulumi.BoolPtrInput
+	FinalSnapshot            pulumi.BoolPtrInput
+	Iops                     pulumi.IntPtrInput
+	KmsKeyId                 pulumi.StringPtrInput
+	MultiAttachEnabled       pulumi.BoolPtrInput
+	OutpostArn               pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Size                     pulumi.IntPtrInput
+	SnapshotId               pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	Throughput               pulumi.IntPtrInput
+	Type                     pulumi.StringPtrInput
 	VolumeInitializationRate pulumi.IntPtrInput
 }
 
@@ -370,91 +232,70 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
-// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 func (o VolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Availability zone where the EBS volume will exist.
 func (o VolumeOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Timestamp when volume creation was initiated.
 func (o VolumeOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// If true, the disk will be encrypted.
 func (o VolumeOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
 func (o VolumeOutput) FinalSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.FinalSnapshot }).(pulumi.BoolPtrOutput)
 }
 
-// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 func (o VolumeOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
 }
 
-// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 func (o VolumeOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 func (o VolumeOutput) MultiAttachEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.MultiAttachEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Outpost.
 func (o VolumeOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Size of the drive in GiBs.
 func (o VolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.Size }).(pulumi.IntOutput)
 }
 
-// A snapshot to base the EBS volume off of.
 func (o VolumeOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 func (o VolumeOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }
 
-// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 func (o VolumeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// EBS provisioned rate for volume initialization, in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This argument can only be set if `snapshotId` is specified.
-//
-// > **NOTE:** At least one of `size` or `snapshotId` is required.
-//
-// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 func (o VolumeOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
 }

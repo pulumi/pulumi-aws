@@ -13,113 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FilterFindingCriteriaCriterion {
-    /**
-     * @return List of string values to be evaluated.
-     * 
-     */
     private @Nullable List<String> equals;
-    /**
-     * @return The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
-     * 
-     */
     private String field;
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private @Nullable String greaterThan;
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private @Nullable String greaterThanOrEqual;
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private @Nullable String lessThan;
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private @Nullable String lessThanOrEqual;
-    /**
-     * @return List of string values to be evaluated as matching conditions.
-     * 
-     */
     private @Nullable List<String> matches;
-    /**
-     * @return List of string values to be evaluated.
-     * 
-     */
     private @Nullable List<String> notEquals;
-    /**
-     * @return List of string values to be evaluated as non-matching conditions.
-     * 
-     */
     private @Nullable List<String> notMatches;
 
     private FilterFindingCriteriaCriterion() {}
-    /**
-     * @return List of string values to be evaluated.
-     * 
-     */
     public List<String> equals_() {
         return this.equals == null ? List.of() : this.equals;
     }
-    /**
-     * @return The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
-     * 
-     */
     public String field() {
         return this.field;
     }
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Optional<String> greaterThan() {
         return Optional.ofNullable(this.greaterThan);
     }
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Optional<String> greaterThanOrEqual() {
         return Optional.ofNullable(this.greaterThanOrEqual);
     }
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Optional<String> lessThan() {
         return Optional.ofNullable(this.lessThan);
     }
-    /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Optional<String> lessThanOrEqual() {
         return Optional.ofNullable(this.lessThanOrEqual);
     }
-    /**
-     * @return List of string values to be evaluated as matching conditions.
-     * 
-     */
     public List<String> matches() {
         return this.matches == null ? List.of() : this.matches;
     }
-    /**
-     * @return List of string values to be evaluated.
-     * 
-     */
     public List<String> notEquals() {
         return this.notEquals == null ? List.of() : this.notEquals;
     }
-    /**
-     * @return List of string values to be evaluated as non-matching conditions.
-     * 
-     */
     public List<String> notMatches() {
         return this.notMatches == null ? List.of() : this.notMatches;
     }

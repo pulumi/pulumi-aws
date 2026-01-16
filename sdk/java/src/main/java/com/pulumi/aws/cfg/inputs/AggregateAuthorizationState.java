@@ -16,54 +16,28 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
 
     public static final AggregateAuthorizationState Empty = new AggregateAuthorizationState();
 
-    /**
-     * Account ID.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return Account ID.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The ARN of the authorization
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the authorization
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The region authorized to collect aggregated data.
-     * 
-     */
     @Import(name="authorizedAwsRegion")
     private @Nullable Output<String> authorizedAwsRegion;
 
-    /**
-     * @return The region authorized to collect aggregated data.
-     * 
-     */
     public Optional<Output<String>> authorizedAwsRegion() {
         return Optional.ofNullable(this.authorizedAwsRegion);
     }
 
     /**
-     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use authorizedAwsRegion instead.
      * 
@@ -73,8 +47,6 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
     private @Nullable Output<String> region;
 
     /**
-     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use authorizedAwsRegion instead.
      * 
@@ -84,32 +56,16 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -143,72 +99,34 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
             $ = new AggregateAuthorizationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param arn The ARN of the authorization
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the authorization
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param authorizedAwsRegion The region authorized to collect aggregated data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedAwsRegion(@Nullable Output<String> authorizedAwsRegion) {
             $.authorizedAwsRegion = authorizedAwsRegion;
             return this;
         }
 
-        /**
-         * @param authorizedAwsRegion The region authorized to collect aggregated data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedAwsRegion(String authorizedAwsRegion) {
             return authorizedAwsRegion(Output.of(authorizedAwsRegion));
         }
 
         /**
-         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -222,8 +140,6 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -235,44 +151,20 @@ public final class AggregateAuthorizationState extends com.pulumi.resources.Reso
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

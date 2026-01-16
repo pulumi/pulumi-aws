@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration {
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     private String classification;
-    /**
-     * @return A list of additional configurations to apply within a configuration object.
-     * 
-     */
     private @Nullable List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration> configurations;
-    /**
-     * @return A set of properties specified within a configuration classification.
-     * 
-     */
     private @Nullable Map<String,String> properties;
 
     private JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration() {}
-    /**
-     * @return The classification within a configuration.
-     * 
-     */
     public String classification() {
         return this.classification;
     }
-    /**
-     * @return A list of additional configurations to apply within a configuration object.
-     * 
-     */
     public List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration> configurations() {
         return this.configurations == null ? List.of() : this.configurations;
     }
-    /**
-     * @return A set of properties specified within a configuration classification.
-     * 
-     */
     public Map<String,String> properties() {
         return this.properties == null ? Map.of() : this.properties;
     }

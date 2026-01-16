@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Alb.Outputs
     [OutputType]
     public sealed class ListenerRuleTransformUrlRewriteConfigRewrite
     {
-        /// <summary>
-        /// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
-        /// </summary>
         public readonly string Regex;
-        /// <summary>
-        /// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
-        /// </summary>
         public readonly string Replace;
 
         [OutputConstructor]

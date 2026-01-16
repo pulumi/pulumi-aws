@@ -16,47 +16,23 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
 
     public static final TableCapacitySpecificationArgs Empty = new TableCapacitySpecificationArgs();
 
-    /**
-     * The throughput capacity specified for read operations defined in read capacity units (RCUs).
-     * 
-     */
     @Import(name="readCapacityUnits")
     private @Nullable Output<Integer> readCapacityUnits;
 
-    /**
-     * @return The throughput capacity specified for read operations defined in read capacity units (RCUs).
-     * 
-     */
     public Optional<Output<Integer>> readCapacityUnits() {
         return Optional.ofNullable(this.readCapacityUnits);
     }
 
-    /**
-     * The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-     * 
-     */
     @Import(name="throughputMode")
     private @Nullable Output<String> throughputMode;
 
-    /**
-     * @return The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-     * 
-     */
     public Optional<Output<String>> throughputMode() {
         return Optional.ofNullable(this.throughputMode);
     }
 
-    /**
-     * The throughput capacity specified for write operations defined in write capacity units (WCUs).
-     * 
-     */
     @Import(name="writeCapacityUnits")
     private @Nullable Output<Integer> writeCapacityUnits;
 
-    /**
-     * @return The throughput capacity specified for write operations defined in write capacity units (WCUs).
-     * 
-     */
     public Optional<Output<Integer>> writeCapacityUnits() {
         return Optional.ofNullable(this.writeCapacityUnits);
     }
@@ -87,65 +63,29 @@ public final class TableCapacitySpecificationArgs extends com.pulumi.resources.R
             $ = new TableCapacitySpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param readCapacityUnits The throughput capacity specified for read operations defined in read capacity units (RCUs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder readCapacityUnits(@Nullable Output<Integer> readCapacityUnits) {
             $.readCapacityUnits = readCapacityUnits;
             return this;
         }
 
-        /**
-         * @param readCapacityUnits The throughput capacity specified for read operations defined in read capacity units (RCUs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder readCapacityUnits(Integer readCapacityUnits) {
             return readCapacityUnits(Output.of(readCapacityUnits));
         }
 
-        /**
-         * @param throughputMode The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughputMode(@Nullable Output<String> throughputMode) {
             $.throughputMode = throughputMode;
             return this;
         }
 
-        /**
-         * @param throughputMode The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughputMode(String throughputMode) {
             return throughputMode(Output.of(throughputMode));
         }
 
-        /**
-         * @param writeCapacityUnits The throughput capacity specified for write operations defined in write capacity units (WCUs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeCapacityUnits(@Nullable Output<Integer> writeCapacityUnits) {
             $.writeCapacityUnits = writeCapacityUnits;
             return this;
         }
 
-        /**
-         * @param writeCapacityUnits The throughput capacity specified for write operations defined in write capacity units (WCUs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeCapacityUnits(Integer writeCapacityUnits) {
             return writeCapacityUnits(Output.of(writeCapacityUnits));
         }

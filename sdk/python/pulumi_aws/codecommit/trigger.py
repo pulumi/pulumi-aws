@@ -26,9 +26,6 @@ class TriggerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
-        :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]] triggers: The name of the trigger.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "triggers", triggers)
@@ -38,9 +35,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -50,9 +44,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -62,9 +53,6 @@ class TriggerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,10 +69,6 @@ class _TriggerState:
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None):
         """
         Input properties used for looking up and filtering Trigger resources.
-        :param pulumi.Input[_builtins.str] configuration_id: System-generated unique identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]] triggers: The name of the trigger.
         """
         if configuration_id is not None:
             pulumi.set(__self__, "configuration_id", configuration_id)
@@ -98,9 +82,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter(name="configurationId")
     def configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        System-generated unique identifier.
-        """
         return pulumi.get(self, "configuration_id")
 
     @configuration_id.setter
@@ -110,9 +91,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -122,9 +100,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -134,9 +109,6 @@ class _TriggerState:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -155,29 +127,9 @@ class Trigger(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a CodeCommit Trigger Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecommit.Repository("test", repository_name="test")
-        test_trigger = aws.codecommit.Trigger("test",
-            repository_name=test.repository_name,
-            triggers=[{
-                "name": "all",
-                "events": ["all"],
-                "destination_arn": test_aws_sns_topic["arn"],
-            }])
-        ```
-
+        Create a Trigger resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]] triggers: The name of the trigger.
         """
         ...
     @overload
@@ -186,24 +138,7 @@ class Trigger(pulumi.CustomResource):
                  args: TriggerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeCommit Trigger Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecommit.Repository("test", repository_name="test")
-        test_trigger = aws.codecommit.Trigger("test",
-            repository_name=test.repository_name,
-            triggers=[{
-                "name": "all",
-                "events": ["all"],
-                "destination_arn": test_aws_sns_topic["arn"],
-            }])
-        ```
-
+        Create a Trigger resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,10 +195,6 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] configuration_id: System-generated unique identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]] triggers: The name of the trigger.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,32 +209,20 @@ class Trigger(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="configurationId")
     def configuration_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        System-generated unique identifier.
-        """
         return pulumi.get(self, "configuration_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         return pulumi.get(self, "repository_name")
 
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Sequence['outputs.TriggerTrigger']]:
-        """
-        The name of the trigger.
-        """
         return pulumi.get(self, "triggers")
 

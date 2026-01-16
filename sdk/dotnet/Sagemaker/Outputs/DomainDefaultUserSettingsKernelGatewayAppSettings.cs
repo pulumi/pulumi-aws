@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultUserSettingsKernelGatewayAppSettings
     {
-        /// <summary>
-        /// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `CustomImage` Block below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage> CustomImages;
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block below.
-        /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec? DefaultResourceSpec;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-        /// </summary>
         public readonly ImmutableArray<string> LifecycleConfigArns;
 
         [OutputConstructor]

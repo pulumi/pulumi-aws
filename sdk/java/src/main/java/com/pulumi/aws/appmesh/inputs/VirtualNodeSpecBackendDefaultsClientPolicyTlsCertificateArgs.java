@@ -16,32 +16,16 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs 
 
     public static final VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs();
 
-    /**
-     * Local file certificate.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file;
 
-    /**
-     * @return Local file certificate.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
 
-    /**
-     * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     @Import(name="sds")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs> sds;
 
-    /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs>> sds() {
         return Optional.ofNullable(this.sds);
     }
@@ -71,44 +55,20 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs 
             $ = new VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param file Local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file Local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs file) {
             return file(Output.of(file));
         }
 
-        /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sds(@Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs> sds) {
             $.sds = sds;
             return this;
         }
 
-        /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sds(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs sds) {
             return sds(Output.of(sds));
         }

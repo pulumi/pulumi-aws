@@ -14,17 +14,9 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportClo
 
     public static final StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs();
 
-    /**
-     * Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -53,23 +45,11 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportClo
             $ = new StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

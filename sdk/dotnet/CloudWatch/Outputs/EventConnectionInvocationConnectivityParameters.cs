@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventConnectionInvocationConnectivityParameters
     {
-        /// <summary>
-        /// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-        /// </summary>
         public readonly Outputs.EventConnectionInvocationConnectivityParametersResourceParameters ResourceParameters;
 
         [OutputConstructor]

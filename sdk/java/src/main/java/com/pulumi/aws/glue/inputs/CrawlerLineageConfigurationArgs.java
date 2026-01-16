@@ -15,17 +15,9 @@ public final class CrawlerLineageConfigurationArgs extends com.pulumi.resources.
 
     public static final CrawlerLineageConfigurationArgs Empty = new CrawlerLineageConfigurationArgs();
 
-    /**
-     * Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
-     * 
-     */
     @Import(name="crawlerLineageSettings")
     private @Nullable Output<String> crawlerLineageSettings;
 
-    /**
-     * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
-     * 
-     */
     public Optional<Output<String>> crawlerLineageSettings() {
         return Optional.ofNullable(this.crawlerLineageSettings);
     }
@@ -54,23 +46,11 @@ public final class CrawlerLineageConfigurationArgs extends com.pulumi.resources.
             $ = new CrawlerLineageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param crawlerLineageSettings Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerLineageSettings(@Nullable Output<String> crawlerLineageSettings) {
             $.crawlerLineageSettings = crawlerLineageSettings;
             return this;
         }
 
-        /**
-         * @param crawlerLineageSettings Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crawlerLineageSettings(String crawlerLineageSettings) {
             return crawlerLineageSettings(Output.of(crawlerLineageSettings));
         }

@@ -78,9 +78,6 @@ class GetObjectsResult:
     @_builtins.property
     @pulumi.getter(name="commonPrefixes")
     def common_prefixes(self) -> Sequence[_builtins.str]:
-        """
-        List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
-        """
         return pulumi.get(self, "common_prefixes")
 
     @_builtins.property
@@ -109,9 +106,6 @@ class GetObjectsResult:
     @_builtins.property
     @pulumi.getter
     def keys(self) -> Sequence[_builtins.str]:
-        """
-        List of strings representing object keys
-        """
         return pulumi.get(self, "keys")
 
     @_builtins.property
@@ -122,9 +116,6 @@ class GetObjectsResult:
     @_builtins.property
     @pulumi.getter
     def owners(self) -> Sequence[_builtins.str]:
-        """
-        List of strings representing object owner IDs (see `fetch_owner` above)
-        """
         return pulumi.get(self, "owners")
 
     @_builtins.property
@@ -140,9 +131,6 @@ class GetObjectsResult:
     @_builtins.property
     @pulumi.getter(name="requestCharged")
     def request_charged(self) -> _builtins.str:
-        """
-        If present, indicates that the requester was successfully charged for the request.
-        """
         return pulumi.get(self, "request_charged")
 
     @_builtins.property
@@ -189,20 +177,7 @@ def get_objects(bucket: Optional[_builtins.str] = None,
                 start_after: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectsResult:
     """
-    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
-
-    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
-
-
-    :param _builtins.str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param _builtins.str delimiter: Character used to group keys (Default: none)
-    :param _builtins.str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
-    :param _builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
-    :param _builtins.int max_keys: Maximum object keys to return (Default: 1000)
-    :param _builtins.str prefix: Limits results to object keys with this prefix (Default: none)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
-    :param _builtins.str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
@@ -243,20 +218,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
                        start_after: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectsResult]:
     """
-    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
-
-    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
-
-
-    :param _builtins.str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-    :param _builtins.str delimiter: Character used to group keys (Default: none)
-    :param _builtins.str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
-    :param _builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
-    :param _builtins.int max_keys: Maximum object keys to return (Default: 1000)
-    :param _builtins.str prefix: Limits results to object keys with this prefix (Default: none)
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
-    :param _builtins.str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['bucket'] = bucket

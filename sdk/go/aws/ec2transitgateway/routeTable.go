@@ -12,58 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Route Table.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-//				TransitGatewayId: pulumi.Any(exampleAwsEc2TransitGateway.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
-// ```
 type RouteTable struct {
 	pulumi.CustomResourceState
 
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
-	DefaultAssociationRouteTable pulumi.BoolOutput `pulumi:"defaultAssociationRouteTable"`
-	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-	DefaultPropagationRouteTable pulumi.BoolOutput `pulumi:"defaultPropagationRouteTable"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	Arn                          pulumi.StringOutput    `pulumi:"arn"`
+	DefaultAssociationRouteTable pulumi.BoolOutput      `pulumi:"defaultAssociationRouteTable"`
+	DefaultPropagationRouteTable pulumi.BoolOutput      `pulumi:"defaultPropagationRouteTable"`
+	Region                       pulumi.StringOutput    `pulumi:"region"`
+	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TransitGatewayId             pulumi.StringOutput    `pulumi:"transitGatewayId"`
 }
 
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -99,37 +57,23 @@ func GetRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTable resources.
 type routeTableState struct {
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-	Arn *string `pulumi:"arn"`
-	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
-	DefaultAssociationRouteTable *bool `pulumi:"defaultAssociationRouteTable"`
-	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-	DefaultPropagationRouteTable *bool `pulumi:"defaultPropagationRouteTable"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	Arn                          *string           `pulumi:"arn"`
+	DefaultAssociationRouteTable *bool             `pulumi:"defaultAssociationRouteTable"`
+	DefaultPropagationRouteTable *bool             `pulumi:"defaultPropagationRouteTable"`
+	Region                       *string           `pulumi:"region"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TagsAll                      map[string]string `pulumi:"tagsAll"`
+	TransitGatewayId             *string           `pulumi:"transitGatewayId"`
 }
 
 type RouteTableState struct {
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-	Arn pulumi.StringPtrInput
-	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
+	Arn                          pulumi.StringPtrInput
 	DefaultAssociationRouteTable pulumi.BoolPtrInput
-	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	TransitGatewayId             pulumi.StringPtrInput
 }
 
 func (RouteTableState) ElementType() reflect.Type {
@@ -137,21 +81,15 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	TransitGatewayId string            `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Identifier of EC2 Transit Gateway.
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
 	TransitGatewayId pulumi.StringInput
 }
 
@@ -242,37 +180,30 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
-// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
 func (o RouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Boolean whether this is the default association route table for the EC2 Transit Gateway.
 func (o RouteTableOutput) DefaultAssociationRouteTable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.DefaultAssociationRouteTable }).(pulumi.BoolOutput)
 }
 
-// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 func (o RouteTableOutput) DefaultPropagationRouteTable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.DefaultPropagationRouteTable }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteTableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Identifier of EC2 Transit Gateway.
 func (o RouteTableOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

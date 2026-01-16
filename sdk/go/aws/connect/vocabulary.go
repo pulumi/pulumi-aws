@@ -12,76 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Vocabulary resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
-//				InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:         pulumi.String("example"),
-//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	"),
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("Value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-// ```
 type Vocabulary struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the vocabulary.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
-	Content pulumi.StringOutput `pulumi:"content"`
-	// The reason why the custom vocabulary was not created.
-	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// The timestamp when the custom vocabulary was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Tags to apply to the vocabulary. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The identifier of the custom vocabulary.
-	VocabularyId pulumi.StringOutput `pulumi:"vocabularyId"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	Content          pulumi.StringOutput    `pulumi:"content"`
+	FailureReason    pulumi.StringOutput    `pulumi:"failureReason"`
+	InstanceId       pulumi.StringOutput    `pulumi:"instanceId"`
+	LanguageCode     pulumi.StringOutput    `pulumi:"languageCode"`
+	LastModifiedTime pulumi.StringOutput    `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Region           pulumi.StringOutput    `pulumi:"region"`
+	State            pulumi.StringOutput    `pulumi:"state"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VocabularyId     pulumi.StringOutput    `pulumi:"vocabularyId"`
 }
 
 // NewVocabulary registers a new resource with the given unique name, arguments, and options.
@@ -123,59 +68,33 @@ func GetVocabulary(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vocabulary resources.
 type vocabularyState struct {
-	// The Amazon Resource Name (ARN) of the vocabulary.
-	Arn *string `pulumi:"arn"`
-	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
-	Content *string `pulumi:"content"`
-	// The reason why the custom vocabulary was not created.
-	FailureReason *string `pulumi:"failureReason"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-	LanguageCode *string `pulumi:"languageCode"`
-	// The timestamp when the custom vocabulary was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State *string `pulumi:"state"`
-	// Tags to apply to the vocabulary. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The identifier of the custom vocabulary.
-	VocabularyId *string `pulumi:"vocabularyId"`
+	Arn              *string           `pulumi:"arn"`
+	Content          *string           `pulumi:"content"`
+	FailureReason    *string           `pulumi:"failureReason"`
+	InstanceId       *string           `pulumi:"instanceId"`
+	LanguageCode     *string           `pulumi:"languageCode"`
+	LastModifiedTime *string           `pulumi:"lastModifiedTime"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	State            *string           `pulumi:"state"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
+	VocabularyId     *string           `pulumi:"vocabularyId"`
 }
 
 type VocabularyState struct {
-	// The Amazon Resource Name (ARN) of the vocabulary.
-	Arn pulumi.StringPtrInput
-	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
-	Content pulumi.StringPtrInput
-	// The reason why the custom vocabulary was not created.
-	FailureReason pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-	LanguageCode pulumi.StringPtrInput
-	// The timestamp when the custom vocabulary was last modified.
+	Arn              pulumi.StringPtrInput
+	Content          pulumi.StringPtrInput
+	FailureReason    pulumi.StringPtrInput
+	InstanceId       pulumi.StringPtrInput
+	LanguageCode     pulumi.StringPtrInput
 	LastModifiedTime pulumi.StringPtrInput
-	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State pulumi.StringPtrInput
-	// Tags to apply to the vocabulary. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The identifier of the custom vocabulary.
-	VocabularyId pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	State            pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	VocabularyId     pulumi.StringPtrInput
 }
 
 func (VocabularyState) ElementType() reflect.Type {
@@ -183,36 +102,22 @@ func (VocabularyState) ElementType() reflect.Type {
 }
 
 type vocabularyArgs struct {
-	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
-	Content string `pulumi:"content"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
-	LanguageCode string `pulumi:"languageCode"`
-	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the vocabulary. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Content      string            `pulumi:"content"`
+	InstanceId   string            `pulumi:"instanceId"`
+	LanguageCode string            `pulumi:"languageCode"`
+	Name         *string           `pulumi:"name"`
+	Region       *string           `pulumi:"region"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vocabulary resource.
 type VocabularyArgs struct {
-	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
-	Content pulumi.StringInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
+	Content      pulumi.StringInput
+	InstanceId   pulumi.StringInput
 	LanguageCode pulumi.StringInput
-	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the vocabulary. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (VocabularyArgs) ElementType() reflect.Type {
@@ -302,63 +207,50 @@ func (o VocabularyOutput) ToVocabularyOutputWithContext(ctx context.Context) Voc
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the vocabulary.
 func (o VocabularyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
 func (o VocabularyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// The reason why the custom vocabulary was not created.
 func (o VocabularyOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o VocabularyOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
 func (o VocabularyOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// The timestamp when the custom vocabulary was last modified.
 func (o VocabularyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// A unique name of the custom vocabulary. Must not be more than 140 characters.
 func (o VocabularyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VocabularyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 func (o VocabularyOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the vocabulary. If configured with a provider
-// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VocabularyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The identifier of the custom vocabulary.
 func (o VocabularyOutput) VocabularyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.VocabularyId }).(pulumi.StringOutput)
 }

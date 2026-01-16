@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataLfTagPolicy {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-     * 
-     */
     private @Nullable String expressionName;
-    /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     private @Nullable List<String> expressions;
-    /**
-     * @return Resource type for which the LF-tag policy applies.
-     * 
-     */
     private String resourceType;
 
     private OptInResourceDataLfTagPolicy() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-     * 
-     */
     public Optional<String> expressionName() {
         return Optional.ofNullable(this.expressionName);
     }
-    /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     public List<String> expressions() {
         return this.expressions == null ? List.of() : this.expressions;
     }
-    /**
-     * @return Resource type for which the LF-tag policy applies.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }

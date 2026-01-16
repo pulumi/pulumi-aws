@@ -15,20 +15,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
-    /**
-     * @return Description of the gateway target.
-     * 
-     */
     private @Nullable String description;
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems items;
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty> properties;
     private String type;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema() {}
-    /**
-     * @return Description of the gateway target.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }

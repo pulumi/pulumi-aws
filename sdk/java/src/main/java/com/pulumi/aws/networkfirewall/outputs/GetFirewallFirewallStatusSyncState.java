@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatusSyncState {
-    /**
-     * @return Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-     * 
-     */
     private List<GetFirewallFirewallStatusSyncStateAttachment> attachments;
-    /**
-     * @return The Availability Zone where the subnet is configured.
-     * 
-     */
     private String availabilityZone;
 
     private GetFirewallFirewallStatusSyncState() {}
-    /**
-     * @return Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
-     * 
-     */
     public List<GetFirewallFirewallStatusSyncStateAttachment> attachments() {
         return this.attachments;
     }
-    /**
-     * @return The Availability Zone where the subnet is configured.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }

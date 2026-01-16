@@ -9,295 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
-    /// 
-    /// More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Complete Error Handling and Destinations
-    /// 
-    /// &gt; **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // SQS queue for failed invocations
-    ///     var dlq = new Aws.Sqs.Queue("dlq", new()
-    ///     {
-    ///         Name = "lambda-dlq",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Purpose", "lambda-error-handling" },
-    ///         },
-    ///     });
-    /// 
-    ///     // SNS topic for successful invocations
-    ///     var success = new Aws.Sns.Topic("success", new()
-    ///     {
-    ///         Name = "lambda-success-notifications",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Purpose", "lambda-success-notifications" },
-    ///         },
-    ///     });
-    /// 
-    ///     // Complete event invoke configuration
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         MaximumEventAgeInSeconds = 300,
-    ///         MaximumRetryAttempts = 1,
-    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
-    ///         {
-    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
-    ///             {
-    ///                 Destination = dlq.Arn,
-    ///             },
-    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
-    ///             {
-    ///                 Destination = success.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Error Handling Only
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         MaximumEventAgeInSeconds = 60,
-    ///         MaximumRetryAttempts = 0,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuration for Lambda Alias
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Alias("example", new()
-    ///     {
-    ///         Name = "production",
-    ///         Description = "Production alias",
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         FunctionVersion = exampleAwsLambdaFunction.Version,
-    ///     });
-    /// 
-    ///     var exampleFunctionEventInvokeConfig = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = example.Name,
-    ///         MaximumEventAgeInSeconds = 1800,
-    ///         MaximumRetryAttempts = 2,
-    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
-    ///         {
-    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
-    ///             {
-    ///                 Destination = productionDlq.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuration for Published Version
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = exampleAwsLambdaFunction.Version,
-    ///         MaximumEventAgeInSeconds = 21600,
-    ///         MaximumRetryAttempts = 2,
-    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
-    ///         {
-    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
-    ///             {
-    ///                 Destination = versionDlq.Arn,
-    ///             },
-    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
-    ///             {
-    ///                 Destination = versionSuccess.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuration for Latest Version
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = "$LATEST",
-    ///         MaximumEventAgeInSeconds = 120,
-    ///         MaximumRetryAttempts = 0,
-    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
-    ///         {
-    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
-    ///             {
-    ///                 Destination = devDlq.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Multiple Destination Types
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // S3 bucket for archiving successful events
-    ///     var lambdaSuccessArchive = new Aws.S3.Bucket("lambda_success_archive", new()
-    ///     {
-    ///         BucketName = $"lambda-success-archive-{bucketSuffix.Hex}",
-    ///     });
-    /// 
-    ///     // EventBridge custom bus for failed events
-    ///     var lambdaFailures = new Aws.CloudWatch.EventBus("lambda_failures", new()
-    ///     {
-    ///         Name = "lambda-failure-events",
-    ///     });
-    /// 
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
-    ///         {
-    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
-    ///             {
-    ///                 Destination = lambdaFailures.Arn,
-    ///             },
-    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
-    ///             {
-    ///                 Destination = lambdaSuccessArchive.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ARN with qualifier:
-    /// 
-    /// Name without qualifier (all versions and aliases):
-    /// 
-    /// Name with qualifier:
-    /// 
-    /// For backwards compatibility, the following legacy `pulumi import` commands are also supported:
-    /// 
-    /// Using ARN without qualifier:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
-    /// ```
-    /// Using ARN with qualifier:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
-    /// ```
-    /// Name without qualifier (all versions and aliases):
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
-    /// ```
-    /// Name with qualifier:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")]
     public partial class FunctionEventInvokeConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block with destination configuration. See below.
-        /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.FunctionEventInvokeConfigDestinationConfig?> DestinationConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-        /// </summary>
         [Output("maximumEventAgeInSeconds")]
         public Output<int?> MaximumEventAgeInSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-        /// </summary>
         [Output("maximumRetryAttempts")]
         public Output<int?> MaximumRetryAttempts { get; private set; } = null!;
 
-        /// <summary>
-        /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        /// </summary>
         [Output("qualifier")]
         public Output<string?> Qualifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -347,41 +76,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionEventInvokeConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with destination configuration. See below.
-        /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.FunctionEventInvokeConfigDestinationConfigArgs>? DestinationConfig { get; set; }
 
-        /// <summary>
-        /// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-        /// </summary>
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
 
-        /// <summary>
-        /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 
-        /// <summary>
-        /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -393,41 +102,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionEventInvokeConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with destination configuration. See below.
-        /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.FunctionEventInvokeConfigDestinationConfigGetArgs>? DestinationConfig { get; set; }
 
-        /// <summary>
-        /// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
-        /// <summary>
-        /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-        /// </summary>
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
 
-        /// <summary>
-        /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 
-        /// <summary>
-        /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

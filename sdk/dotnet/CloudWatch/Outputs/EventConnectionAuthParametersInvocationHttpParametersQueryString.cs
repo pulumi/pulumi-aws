@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventConnectionAuthParametersInvocationHttpParametersQueryString
     {
-        /// <summary>
-        /// Specified whether the value is secret.
-        /// </summary>
         public readonly bool? IsValueSecret;
-        /// <summary>
-        /// The key for the parameter.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

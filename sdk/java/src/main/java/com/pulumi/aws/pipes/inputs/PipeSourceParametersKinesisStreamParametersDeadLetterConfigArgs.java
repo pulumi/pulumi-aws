@@ -15,17 +15,9 @@ public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfigAr
 
     public static final PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs Empty = new PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs();
 
-    /**
-     * ARN of this pipe.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of this pipe.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -54,23 +46,11 @@ public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfigAr
             $ = new PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of this pipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of this pipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

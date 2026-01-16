@@ -15,47 +15,23 @@ public final class FleetStatusArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FleetStatusArgs Empty = new FleetStatusArgs();
 
-    /**
-     * Additional information about a compute fleet.
-     * 
-     */
     @Import(name="context")
     private @Nullable Output<String> context;
 
-    /**
-     * @return Additional information about a compute fleet.
-     * 
-     */
     public Optional<Output<String>> context() {
         return Optional.ofNullable(this.context);
     }
 
-    /**
-     * Message associated with the status of a compute fleet.
-     * 
-     */
     @Import(name="message")
     private @Nullable Output<String> message;
 
-    /**
-     * @return Message associated with the status of a compute fleet.
-     * 
-     */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
     }
 
-    /**
-     * Status code of the compute fleet.
-     * 
-     */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
-    /**
-     * @return Status code of the compute fleet.
-     * 
-     */
     public Optional<Output<String>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
@@ -86,65 +62,29 @@ public final class FleetStatusArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FleetStatusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param context Additional information about a compute fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(@Nullable Output<String> context) {
             $.context = context;
             return this;
         }
 
-        /**
-         * @param context Additional information about a compute fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder context(String context) {
             return context(Output.of(context));
         }
 
-        /**
-         * @param message Message associated with the status of a compute fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(@Nullable Output<String> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message Message associated with the status of a compute fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(String message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param statusCode Status code of the compute fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(@Nullable Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode Status code of the compute fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }

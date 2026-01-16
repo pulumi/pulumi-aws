@@ -12,79 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Step Function State Machine Alias.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewAlias(ctx, "sfn_alias", &sfn.AliasArgs{
-//				Name: pulumi.String("my_sfn_alias"),
-//				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.Any(sfnTest.StateMachineVersionArn),
-//						Weight:                 pulumi.Int(100),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sfn.NewAlias(ctx, "my_sfn_alias", &sfn.AliasArgs{
-//				Name: pulumi.String("my_sfn_alias"),
-//				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:3"),
-//						Weight:                 pulumi.Int(50),
-//					},
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:2"),
-//						Weight:                 pulumi.Int(50),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
-// ```
 type Alias struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) identifying your state machine alias.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date the state machine alias was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Description of the alias.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name for the alias you are creating.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The StateMachine alias' route configuration settings. Fields documented below
+	Arn                   pulumi.StringOutput                  `pulumi:"arn"`
+	CreationDate          pulumi.StringOutput                  `pulumi:"creationDate"`
+	Description           pulumi.StringPtrOutput               `pulumi:"description"`
+	Name                  pulumi.StringOutput                  `pulumi:"name"`
+	Region                pulumi.StringOutput                  `pulumi:"region"`
 	RoutingConfigurations AliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
 }
 
@@ -121,32 +56,20 @@ func GetAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Alias resources.
 type aliasState struct {
-	// The Amazon Resource Name (ARN) identifying your state machine alias.
-	Arn *string `pulumi:"arn"`
-	// The date the state machine alias was created.
-	CreationDate *string `pulumi:"creationDate"`
-	// Description of the alias.
-	Description *string `pulumi:"description"`
-	// Name for the alias you are creating.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The StateMachine alias' route configuration settings. Fields documented below
+	Arn                   *string                     `pulumi:"arn"`
+	CreationDate          *string                     `pulumi:"creationDate"`
+	Description           *string                     `pulumi:"description"`
+	Name                  *string                     `pulumi:"name"`
+	Region                *string                     `pulumi:"region"`
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
 
 type AliasState struct {
-	// The Amazon Resource Name (ARN) identifying your state machine alias.
-	Arn pulumi.StringPtrInput
-	// The date the state machine alias was created.
-	CreationDate pulumi.StringPtrInput
-	// Description of the alias.
-	Description pulumi.StringPtrInput
-	// Name for the alias you are creating.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The StateMachine alias' route configuration settings. Fields documented below
+	Arn                   pulumi.StringPtrInput
+	CreationDate          pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }
 
@@ -155,25 +78,17 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	// Description of the alias.
-	Description *string `pulumi:"description"`
-	// Name for the alias you are creating.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The StateMachine alias' route configuration settings. Fields documented below
+	Description           *string                     `pulumi:"description"`
+	Name                  *string                     `pulumi:"name"`
+	Region                *string                     `pulumi:"region"`
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	// Description of the alias.
-	Description pulumi.StringPtrInput
-	// Name for the alias you are creating.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The StateMachine alias' route configuration settings. Fields documented below
+	Description           pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }
 
@@ -264,32 +179,26 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) identifying your state machine alias.
 func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date the state machine alias was created.
 func (o AliasOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// Description of the alias.
 func (o AliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name for the alias you are creating.
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The StateMachine alias' route configuration settings. Fields documented below
 func (o AliasOutput) RoutingConfigurations() AliasRoutingConfigurationArrayOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigurationArrayOutput { return v.RoutingConfigurations }).(AliasRoutingConfigurationArrayOutput)
 }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallFirewallStatus {
-    /**
-     * @return Set of subnets configured for use by the firewall.
-     * 
-     */
     private @Nullable List<FirewallFirewallStatusSyncState> syncStates;
-    /**
-     * @return Set of transit gateway configured for use by the firewall.
-     * 
-     */
     private @Nullable List<FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates;
 
     private FirewallFirewallStatus() {}
-    /**
-     * @return Set of subnets configured for use by the firewall.
-     * 
-     */
     public List<FirewallFirewallStatusSyncState> syncStates() {
         return this.syncStates == null ? List.of() : this.syncStates;
     }
-    /**
-     * @return Set of transit gateway configured for use by the firewall.
-     * 
-     */
     public List<FirewallFirewallStatusTransitGatewayAttachmentSyncState> transitGatewayAttachmentSyncStates() {
         return this.transitGatewayAttachmentSyncStates == null ? List.of() : this.transitGatewayAttachmentSyncStates;
     }

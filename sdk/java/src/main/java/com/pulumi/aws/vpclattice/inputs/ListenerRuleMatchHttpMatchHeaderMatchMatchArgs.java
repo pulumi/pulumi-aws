@@ -15,49 +15,23 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
 
     public static final ListenerRuleMatchHttpMatchHeaderMatchMatchArgs Empty = new ListenerRuleMatchHttpMatchHeaderMatchMatchArgs();
 
-    /**
-     * Specifies a contains type match.
-     * 
-     */
     @Import(name="contains")
     private @Nullable Output<String> contains;
 
-    /**
-     * @return Specifies a contains type match.
-     * 
-     */
     public Optional<Output<String>> contains() {
         return Optional.ofNullable(this.contains);
     }
 
-    /**
-     * Specifies an exact type match.
-     * 
-     */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
-    /**
-     * @return Specifies an exact type match.
-     * 
-     */
     public Optional<Output<String>> exact() {
         return Optional.ofNullable(this.exact);
     }
 
-    /**
-     * Specifies a prefix type match.
-     * Matches the value with the prefix.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -88,67 +62,29 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
             $ = new ListenerRuleMatchHttpMatchHeaderMatchMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contains Specifies a contains type match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contains(@Nullable Output<String> contains) {
             $.contains = contains;
             return this;
         }
 
-        /**
-         * @param contains Specifies a contains type match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contains(String contains) {
             return contains(Output.of(contains));
         }
 
-        /**
-         * @param exact Specifies an exact type match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(@Nullable Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact Specifies an exact type match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }
 
-        /**
-         * @param prefix Specifies a prefix type match.
-         * Matches the value with the prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Specifies a prefix type match.
-         * Matches the value with the prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

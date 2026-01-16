@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentActionGroupFunctionSchemaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains a list of functions.
-        /// Each function describes and action in the action group.
-        /// See `MemberFunctions` Block for details.
-        /// </summary>
         [Input("memberFunctions")]
         public Input<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs>? MemberFunctions { get; set; }
 

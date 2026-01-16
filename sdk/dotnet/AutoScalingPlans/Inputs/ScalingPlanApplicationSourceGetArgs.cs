@@ -12,18 +12,11 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
 
     public sealed class ScalingPlanApplicationSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of a AWS CloudFormation stack.
-        /// </summary>
         [Input("cloudformationStackArn")]
         public Input<string>? CloudformationStackArn { get; set; }
 
         [Input("tagFilters")]
         private InputList<Inputs.ScalingPlanApplicationSourceTagFilterGetArgs>? _tagFilters;
-
-        /// <summary>
-        /// Set of tags.
-        /// </summary>
         public InputList<Inputs.ScalingPlanApplicationSourceTagFilterGetArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<Inputs.ScalingPlanApplicationSourceTagFilterGetArgs>());

@@ -17,62 +17,30 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetListenerArgs Empty = new GetListenerArgs();
 
-    /**
-     * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ARN of the load balancer. Required if `arn` is not set.
-     * 
-     */
     @Import(name="loadBalancerArn")
     private @Nullable Output<String> loadBalancerArn;
 
-    /**
-     * @return ARN of the load balancer. Required if `arn` is not set.
-     * 
-     */
     public Optional<Output<String>> loadBalancerArn() {
         return Optional.ofNullable(this.loadBalancerArn);
     }
 
-    /**
-     * Port of the listener. Required if `arn` is not set.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return Port of the listener. Required if `arn` is not set.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -112,86 +80,38 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetListenerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param loadBalancerArn ARN of the load balancer. Required if `arn` is not set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerArn(@Nullable Output<String> loadBalancerArn) {
             $.loadBalancerArn = loadBalancerArn;
             return this;
         }
 
-        /**
-         * @param loadBalancerArn ARN of the load balancer. Required if `arn` is not set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerArn(String loadBalancerArn) {
             return loadBalancerArn(Output.of(loadBalancerArn));
         }
 
-        /**
-         * @param port Port of the listener. Required if `arn` is not set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port Port of the listener. Required if `arn` is not set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

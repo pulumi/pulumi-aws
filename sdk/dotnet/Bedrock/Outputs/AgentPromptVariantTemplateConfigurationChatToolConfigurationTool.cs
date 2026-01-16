@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool
     {
-        /// <summary>
-        /// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint? CachePoint;
-        /// <summary>
-        /// The specification for the tool. See Tool Specification for more information.
-        /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec? ToolSpec;
 
         [OutputConstructor]

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetCertificateConfiguration {
-    /**
-     * @return Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
-     * 
-     */
     private @Nullable String certificateType;
 
     private FleetCertificateConfiguration() {}
-    /**
-     * @return Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
-     * 
-     */
     public Optional<String> certificateType() {
         return Optional.ofNullable(this.certificateType);
     }

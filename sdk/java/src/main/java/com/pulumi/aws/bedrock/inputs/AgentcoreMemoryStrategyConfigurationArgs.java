@@ -18,47 +18,23 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
 
     public static final AgentcoreMemoryStrategyConfigurationArgs Empty = new AgentcoreMemoryStrategyConfigurationArgs();
 
-    /**
-     * Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     @Import(name="consolidation")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs> consolidation;
 
-    /**
-     * @return Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs>> consolidation() {
         return Optional.ofNullable(this.consolidation);
     }
 
-    /**
-     * Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     @Import(name="extraction")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationExtractionArgs> extraction;
 
-    /**
-     * @return Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-     * 
-     */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationExtractionArgs>> extraction() {
         return Optional.ofNullable(this.extraction);
     }
 
-    /**
-     * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -89,65 +65,29 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
             $ = new AgentcoreMemoryStrategyConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consolidation Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consolidation(@Nullable Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs> consolidation) {
             $.consolidation = consolidation;
             return this;
         }
 
-        /**
-         * @param consolidation Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs consolidation) {
             return consolidation(Output.of(consolidation));
         }
 
-        /**
-         * @param extraction Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extraction(@Nullable Output<AgentcoreMemoryStrategyConfigurationExtractionArgs> extraction) {
             $.extraction = extraction;
             return this;
         }
 
-        /**
-         * @param extraction Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extraction(AgentcoreMemoryStrategyConfigurationExtractionArgs extraction) {
             return extraction(Output.of(extraction));
         }
 
-        /**
-         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

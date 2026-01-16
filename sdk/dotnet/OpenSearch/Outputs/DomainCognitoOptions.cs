@@ -13,21 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainCognitoOptions
     {
-        /// <summary>
-        /// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `False`.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// ID of the Cognito Identity Pool to use.
-        /// </summary>
         public readonly string IdentityPoolId;
-        /// <summary>
-        /// ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// ID of the Cognito User Pool to use.
-        /// </summary>
         public readonly string UserPoolId;
 
         [OutputConstructor]

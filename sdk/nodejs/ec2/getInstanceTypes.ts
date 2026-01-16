@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Information about EC2 Instance Types.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getInstanceTypes({
- *     filters: [
- *         {
- *             name: "auto-recovery-supported",
- *             values: ["true"],
- *         },
- *         {
- *             name: "network-info.encryption-in-transit-supported",
- *             values: ["true"],
- *         },
- *         {
- *             name: "instance-storage-supported",
- *             values: ["true"],
- *         },
- *         {
- *             name: "instance-type",
- *             values: [
- *                 "g5.2xlarge",
- *                 "g5.4xlarge",
- *             ],
- *         },
- *     ],
- * });
- * ```
- */
 export function getInstanceTypes(args?: GetInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,13 +20,7 @@ export function getInstanceTypes(args?: GetInstanceTypesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getInstanceTypes.
  */
 export interface GetInstanceTypesArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-     */
     filters?: inputs.ec2.GetInstanceTypesFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -73,46 +33,9 @@ export interface GetInstanceTypesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of EC2 Instance Types.
-     */
     readonly instanceTypes: string[];
     readonly region: string;
 }
-/**
- * Information about EC2 Instance Types.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getInstanceTypes({
- *     filters: [
- *         {
- *             name: "auto-recovery-supported",
- *             values: ["true"],
- *         },
- *         {
- *             name: "network-info.encryption-in-transit-supported",
- *             values: ["true"],
- *         },
- *         {
- *             name: "instance-storage-supported",
- *             values: ["true"],
- *         },
- *         {
- *             name: "instance-type",
- *             values: [
- *                 "g5.2xlarge",
- *                 "g5.4xlarge",
- *             ],
- *         },
- *     ],
- * });
- * ```
- */
 export function getInstanceTypesOutput(args?: GetInstanceTypesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceTypesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -126,12 +49,6 @@ export function getInstanceTypesOutput(args?: GetInstanceTypesOutputArgs, opts?:
  * A collection of arguments for invoking getInstanceTypes.
  */
 export interface GetInstanceTypesOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypesFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

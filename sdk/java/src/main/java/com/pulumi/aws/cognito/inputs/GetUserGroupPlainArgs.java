@@ -15,47 +15,23 @@ public final class GetUserGroupPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetUserGroupPlainArgs Empty = new GetUserGroupPlainArgs();
 
-    /**
-     * Name of the user group.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the user group.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * User pool the client belongs to.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private String userPoolId;
 
-    /**
-     * @return User pool the client belongs to.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }
@@ -86,34 +62,16 @@ public final class GetUserGroupPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetUserGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param userPoolId User pool the client belongs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             $.userPoolId = userPoolId;
             return this;

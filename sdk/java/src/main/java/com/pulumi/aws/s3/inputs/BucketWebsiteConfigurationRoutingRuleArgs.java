@@ -17,32 +17,16 @@ public final class BucketWebsiteConfigurationRoutingRuleArgs extends com.pulumi.
 
     public static final BucketWebsiteConfigurationRoutingRuleArgs Empty = new BucketWebsiteConfigurationRoutingRuleArgs();
 
-    /**
-     * Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-     * 
-     */
     @Import(name="condition")
     private @Nullable Output<BucketWebsiteConfigurationRoutingRuleConditionArgs> condition;
 
-    /**
-     * @return Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-     * 
-     */
     public Optional<Output<BucketWebsiteConfigurationRoutingRuleConditionArgs>> condition() {
         return Optional.ofNullable(this.condition);
     }
 
-    /**
-     * Configuration block for redirect information. See below.
-     * 
-     */
     @Import(name="redirect", required=true)
     private Output<BucketWebsiteConfigurationRoutingRuleRedirectArgs> redirect;
 
-    /**
-     * @return Configuration block for redirect information. See below.
-     * 
-     */
     public Output<BucketWebsiteConfigurationRoutingRuleRedirectArgs> redirect() {
         return this.redirect;
     }
@@ -72,44 +56,20 @@ public final class BucketWebsiteConfigurationRoutingRuleArgs extends com.pulumi.
             $ = new BucketWebsiteConfigurationRoutingRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(@Nullable Output<BucketWebsiteConfigurationRoutingRuleConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(BucketWebsiteConfigurationRoutingRuleConditionArgs condition) {
             return condition(Output.of(condition));
         }
 
-        /**
-         * @param redirect Configuration block for redirect information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirect(Output<BucketWebsiteConfigurationRoutingRuleRedirectArgs> redirect) {
             $.redirect = redirect;
             return this;
         }
 
-        /**
-         * @param redirect Configuration block for redirect information. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirect(BucketWebsiteConfigurationRoutingRuleRedirectArgs redirect) {
             return redirect(Output.of(redirect));
         }

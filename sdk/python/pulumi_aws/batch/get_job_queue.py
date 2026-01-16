@@ -68,20 +68,11 @@ class GetJobQueueResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the job queue.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="computeEnvironmentOrders")
     def compute_environment_orders(self) -> Sequence['outputs.GetJobQueueComputeEnvironmentOrderResult']:
-        """
-        The compute environments that are attached to the job queue and the order in
-        which job placement is preferred. Compute environments are selected for job placement in ascending order.
-        * `compute_environment_order.#.order` - The order of the compute environment.
-        * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
-        """
         return pulumi.get(self, "compute_environment_orders")
 
     @_builtins.property
@@ -95,13 +86,6 @@ class GetJobQueueResult:
     @_builtins.property
     @pulumi.getter(name="jobStateTimeLimitActions")
     def job_state_time_limit_actions(self) -> Sequence['outputs.GetJobQueueJobStateTimeLimitActionResult']:
-        """
-        Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-        * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-        * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-        * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
-        """
         return pulumi.get(self, "job_state_time_limit_actions")
 
     @_builtins.property
@@ -112,10 +96,6 @@ class GetJobQueueResult:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        Priority of the job queue. Job queues with a higher priority are evaluated first when
-        associated with the same compute environment.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
@@ -126,42 +106,26 @@ class GetJobQueueResult:
     @_builtins.property
     @pulumi.getter(name="schedulingPolicyArn")
     def scheduling_policy_arn(self) -> _builtins.str:
-        """
-        The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
-        """
         return pulumi.get(self, "scheduling_policy_arn")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
-        """
-        Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the job queue (for example, `CREATING` or `VALID`).
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> _builtins.str:
-        """
-        Short, human-readable string to provide additional details about the current status
-        of the job queue.
-        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags
-        """
         return pulumi.get(self, "tags")
 
 
@@ -190,22 +154,7 @@ def get_job_queue(name: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobQueueResult:
     """
-    The Batch Job Queue data source allows access to details of a specific
-    job queue within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_queue = aws.batch.get_job_queue(name="tf-test-batch-job-queue")
-    ```
-
-
-    :param _builtins.str name: Name of the job queue.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -232,22 +181,7 @@ def get_job_queue_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobQueueResult]:
     """
-    The Batch Job Queue data source allows access to details of a specific
-    job queue within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_queue = aws.batch.get_job_queue(name="tf-test-batch-job-queue")
-    ```
-
-
-    :param _builtins.str name: Name of the job queue.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

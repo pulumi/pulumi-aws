@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotTypeSlotTypeValueSynonym {
-    /**
-     * @return Value that can be used for a slot type.
-     * 
-     */
     private String value;
 
     private V2modelsSlotTypeSlotTypeValueSynonym() {}
-    /**
-     * @return Value that can be used for a slot type.
-     * 
-     */
     public String value() {
         return this.value;
     }

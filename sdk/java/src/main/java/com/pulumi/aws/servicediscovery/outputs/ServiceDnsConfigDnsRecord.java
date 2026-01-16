@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceDnsConfigDnsRecord {
-    /**
-     * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-     * 
-     */
     private Integer ttl;
-    /**
-     * @return The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
-     * 
-     */
     private String type;
 
     private ServiceDnsConfigDnsRecord() {}
-    /**
-     * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-     * 
-     */
     public Integer ttl() {
         return this.ttl;
     }
-    /**
-     * @return The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -11,38 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
-// resources.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.GetLbs(ctx, &lb.GetLbsArgs{
-//				Tags: map[string]interface{}{
-//					"elbv2.k8s.aws/cluster": "my-cluster",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) (*GetLbsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLbsResult
@@ -55,16 +23,12 @@ func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getLbs.
 type GetLbsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired Load Balancers.
-	Tags map[string]string `pulumi:"tags"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLbs.
 type GetLbsResult struct {
-	// Set of Load Balancer ARNs.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string            `pulumi:"id"`
@@ -83,11 +47,8 @@ func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getLbs.
 type GetLbsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired Load Balancers.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetLbsOutputArgs) ElementType() reflect.Type {
@@ -109,7 +70,6 @@ func (o GetLbsResultOutput) ToGetLbsResultOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Set of Load Balancer ARNs.
 func (o GetLbsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLbsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

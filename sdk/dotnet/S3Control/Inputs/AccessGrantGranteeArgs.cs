@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class AccessGrantGranteeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Grantee identifier.
-        /// </summary>
         [Input("granteeIdentifier", required: true)]
         public Input<string> GranteeIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-        /// </summary>
         [Input("granteeType", required: true)]
         public Input<string> GranteeType { get; set; } = null!;
 

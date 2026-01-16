@@ -11,111 +11,12 @@ namespace Pulumi.Aws.Fsx
 {
     public static class GetOntapStorageVirtualMachines
     {
-        /// <summary>
-        /// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachines.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachinesFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOntapStorageVirtualMachinesResult> InvokeAsync(GetOntapStorageVirtualMachinesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachines.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachinesFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOntapStorageVirtualMachinesResult> Invoke(GetOntapStorageVirtualMachinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachines.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachinesFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOntapStorageVirtualMachinesResult> Invoke(GetOntapStorageVirtualMachinesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesInvokeArgs(), options.WithDefaults());
     }
@@ -125,19 +26,12 @@ namespace Pulumi.Aws.Fsx
     {
         [Input("filters")]
         private List<Inputs.GetOntapStorageVirtualMachinesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public List<Inputs.GetOntapStorageVirtualMachinesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetOntapStorageVirtualMachinesFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -151,19 +45,12 @@ namespace Pulumi.Aws.Fsx
     {
         [Input("filters")]
         private InputList<Inputs.GetOntapStorageVirtualMachinesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetOntapStorageVirtualMachinesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetOntapStorageVirtualMachinesFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -182,9 +69,6 @@ namespace Pulumi.Aws.Fsx
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of all SVM IDs found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
 

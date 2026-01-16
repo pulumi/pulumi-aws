@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Resource for managing an AWS Redshift Data Share Authorization.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.DataShareAuthorization("example", new()
-    ///     {
-    ///         ConsumerIdentifier = "123456789012",
-    ///         DataShareArn = "arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/dataShareAuthorization:DataShareAuthorization")]
     public partial class DataShareAuthorization : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to allow write operations for a datashare.
-        /// </summary>
         [Output("allowWrites")]
         public Output<bool?> AllowWrites { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        /// </summary>
         [Output("consumerIdentifier")]
         public Output<string> ConsumerIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("dataShareArn")]
         public Output<string> DataShareArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of a datashare to show its managing entity.
-        /// </summary>
         [Output("managedBy")]
         public Output<string> ManagedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the producer.
-        /// </summary>
         [Output("producerArn")]
         public Output<string> ProducerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,29 +76,15 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class DataShareAuthorizationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow write operations for a datashare.
-        /// </summary>
         [Input("allowWrites")]
         public Input<bool>? AllowWrites { get; set; }
 
-        /// <summary>
-        /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        /// </summary>
         [Input("consumerIdentifier", required: true)]
         public Input<string> ConsumerIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("dataShareArn", required: true)]
         public Input<string> DataShareArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,41 +96,21 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class DataShareAuthorizationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to allow write operations for a datashare.
-        /// </summary>
         [Input("allowWrites")]
         public Input<bool>? AllowWrites { get; set; }
 
-        /// <summary>
-        /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
-        /// </summary>
         [Input("consumerIdentifier")]
         public Input<string>? ConsumerIdentifier { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("dataShareArn")]
         public Input<string>? DataShareArn { get; set; }
 
-        /// <summary>
-        /// Identifier of a datashare to show its managing entity.
-        /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the producer.
-        /// </summary>
         [Input("producerArn")]
         public Input<string>? ProducerArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

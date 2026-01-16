@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("insertHeaders")]
         private InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderGetArgs>? _insertHeaders;
-
-        /// <summary>
-        /// Headers to insert into the request. See below.
-        /// </summary>
         public InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderGetArgs> InsertHeaders
         {
             get => _insertHeaders ?? (_insertHeaders = new InputList<Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderGetArgs>());

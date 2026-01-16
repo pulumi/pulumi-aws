@@ -18,185 +18,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRecordsResourceRecordSet {
-    /**
-     * @return Information about the AWS resource traffic is routed to.
-     * 
-     */
     private GetRecordsResourceRecordSetAliasTarget aliasTarget;
-    /**
-     * @return Information about the CIDR location traffic is routed to.
-     * 
-     */
     private GetRecordsResourceRecordSetCidrRoutingConfig cidrRoutingConfig;
-    /**
-     * @return `PRIMARY` or `SECONDARY`.
-     * 
-     */
     private String failover;
-    /**
-     * @return Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-     * 
-     */
     private GetRecordsResourceRecordSetGeolocation geolocation;
-    /**
-     * @return Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-     * 
-     */
     private GetRecordsResourceRecordSetGeoproximityLocation geoproximityLocation;
-    /**
-     * @return ID of any applicable health check.
-     * 
-     */
     private String healthCheckId;
-    /**
-     * @return Traffic is routed approximately randomly to multiple resources.
-     * 
-     */
     private Boolean multiValueAnswer;
-    /**
-     * @return The name of the record.
-     * 
-     */
     private String name;
-    /**
-     * @return The Amazon EC2 Region of the resource that this resource record set refers to.
-     * 
-     */
     private String region;
-    /**
-     * @return The resource records.
-     * 
-     */
     private List<GetRecordsResourceRecordSetResourceRecord> resourceRecords;
-    /**
-     * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * 
-     */
     private String setIdentifier;
-    /**
-     * @return The ID of any traffic policy instance that Route 53 created this resource record set for.
-     * 
-     */
     private String trafficPolicyInstanceId;
-    /**
-     * @return The resource record cache time to live (TTL), in seconds.
-     * 
-     */
     private Integer ttl;
-    /**
-     * @return The DNS record type.
-     * 
-     */
     private String type;
-    /**
-     * @return Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-     * 
-     */
     private Integer weight;
 
     private GetRecordsResourceRecordSet() {}
-    /**
-     * @return Information about the AWS resource traffic is routed to.
-     * 
-     */
     public GetRecordsResourceRecordSetAliasTarget aliasTarget() {
         return this.aliasTarget;
     }
-    /**
-     * @return Information about the CIDR location traffic is routed to.
-     * 
-     */
     public GetRecordsResourceRecordSetCidrRoutingConfig cidrRoutingConfig() {
         return this.cidrRoutingConfig;
     }
-    /**
-     * @return `PRIMARY` or `SECONDARY`.
-     * 
-     */
     public String failover() {
         return this.failover;
     }
-    /**
-     * @return Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-     * 
-     */
     public GetRecordsResourceRecordSetGeolocation geolocation() {
         return this.geolocation;
     }
-    /**
-     * @return Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-     * 
-     */
     public GetRecordsResourceRecordSetGeoproximityLocation geoproximityLocation() {
         return this.geoproximityLocation;
     }
-    /**
-     * @return ID of any applicable health check.
-     * 
-     */
     public String healthCheckId() {
         return this.healthCheckId;
     }
-    /**
-     * @return Traffic is routed approximately randomly to multiple resources.
-     * 
-     */
     public Boolean multiValueAnswer() {
         return this.multiValueAnswer;
     }
-    /**
-     * @return The name of the record.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The Amazon EC2 Region of the resource that this resource record set refers to.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return The resource records.
-     * 
-     */
     public List<GetRecordsResourceRecordSetResourceRecord> resourceRecords() {
         return this.resourceRecords;
     }
-    /**
-     * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * 
-     */
     public String setIdentifier() {
         return this.setIdentifier;
     }
-    /**
-     * @return The ID of any traffic policy instance that Route 53 created this resource record set for.
-     * 
-     */
     public String trafficPolicyInstanceId() {
         return this.trafficPolicyInstanceId;
     }
-    /**
-     * @return The resource record cache time to live (TTL), in seconds.
-     * 
-     */
     public Integer ttl() {
         return this.ttl;
     }
-    /**
-     * @return The DNS record type.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

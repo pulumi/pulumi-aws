@@ -12,111 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features) for a member account.
-//
-// > **NOTE:** Deleting this resource does not disable the detector feature in the member account, the resource in simply removed from state instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewMemberDetectorFeature(ctx, "runtime_monitoring", &guardduty.MemberDetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				AccountId:  pulumi.String("123456789012"),
-//				Name:       pulumi.String("S3_DATA_EVENTS"),
-//				Status:     pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Extended Threat Detection for EKS
-//
-// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "eks_protection", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				AccountId:  "123456789012",
-//				Name:       pulumi.String("EKS_AUDIT_LOGS"),
-//				Status:     pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "eks_runtime_monitoring", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				AccountId:  "123456789012",
-//				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
-//				Status:     pulumi.String("ENABLED"),
-//				AdditionalConfigurations: guardduty.DetectorFeatureAdditionalConfigurationArray{
-//					&guardduty.DetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type MemberDetectorFeature struct {
 	pulumi.CustomResourceState
 
-	// Member account ID to be updated.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Additional feature configuration block. See below.
+	AccountId                pulumi.StringOutput                                     `pulumi:"accountId"`
 	AdditionalConfigurations MemberDetectorFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
-	// Amazon GuardDuty detector ID.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	DetectorId               pulumi.StringOutput                                     `pulumi:"detectorId"`
+	Name                     pulumi.StringOutput                                     `pulumi:"name"`
+	Region                   pulumi.StringOutput                                     `pulumi:"region"`
+	Status                   pulumi.StringOutput                                     `pulumi:"status"`
 }
 
 // NewMemberDetectorFeature registers a new resource with the given unique name, arguments, and options.
@@ -158,33 +62,21 @@ func GetMemberDetectorFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MemberDetectorFeature resources.
 type memberDetectorFeatureState struct {
-	// Member account ID to be updated.
-	AccountId *string `pulumi:"accountId"`
-	// Additional feature configuration block. See below.
+	AccountId                *string                                        `pulumi:"accountId"`
 	AdditionalConfigurations []MemberDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
-	// Amazon GuardDuty detector ID.
-	DetectorId *string `pulumi:"detectorId"`
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status *string `pulumi:"status"`
+	DetectorId               *string                                        `pulumi:"detectorId"`
+	Name                     *string                                        `pulumi:"name"`
+	Region                   *string                                        `pulumi:"region"`
+	Status                   *string                                        `pulumi:"status"`
 }
 
 type MemberDetectorFeatureState struct {
-	// Member account ID to be updated.
-	AccountId pulumi.StringPtrInput
-	// Additional feature configuration block. See below.
+	AccountId                pulumi.StringPtrInput
 	AdditionalConfigurations MemberDetectorFeatureAdditionalConfigurationArrayInput
-	// Amazon GuardDuty detector ID.
-	DetectorId pulumi.StringPtrInput
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status pulumi.StringPtrInput
+	DetectorId               pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Status                   pulumi.StringPtrInput
 }
 
 func (MemberDetectorFeatureState) ElementType() reflect.Type {
@@ -192,34 +84,22 @@ func (MemberDetectorFeatureState) ElementType() reflect.Type {
 }
 
 type memberDetectorFeatureArgs struct {
-	// Member account ID to be updated.
-	AccountId string `pulumi:"accountId"`
-	// Additional feature configuration block. See below.
+	AccountId                string                                         `pulumi:"accountId"`
 	AdditionalConfigurations []MemberDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
-	// Amazon GuardDuty detector ID.
-	DetectorId string `pulumi:"detectorId"`
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status string `pulumi:"status"`
+	DetectorId               string                                         `pulumi:"detectorId"`
+	Name                     *string                                        `pulumi:"name"`
+	Region                   *string                                        `pulumi:"region"`
+	Status                   string                                         `pulumi:"status"`
 }
 
 // The set of arguments for constructing a MemberDetectorFeature resource.
 type MemberDetectorFeatureArgs struct {
-	// Member account ID to be updated.
-	AccountId pulumi.StringInput
-	// Additional feature configuration block. See below.
+	AccountId                pulumi.StringInput
 	AdditionalConfigurations MemberDetectorFeatureAdditionalConfigurationArrayInput
-	// Amazon GuardDuty detector ID.
-	DetectorId pulumi.StringInput
-	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-	Status pulumi.StringInput
+	DetectorId               pulumi.StringInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Status                   pulumi.StringInput
 }
 
 func (MemberDetectorFeatureArgs) ElementType() reflect.Type {
@@ -309,34 +189,28 @@ func (o MemberDetectorFeatureOutput) ToMemberDetectorFeatureOutputWithContext(ct
 	return o
 }
 
-// Member account ID to be updated.
 func (o MemberDetectorFeatureOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Additional feature configuration block. See below.
 func (o MemberDetectorFeatureOutput) AdditionalConfigurations() MemberDetectorFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) MemberDetectorFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations
 	}).(MemberDetectorFeatureAdditionalConfigurationArrayOutput)
 }
 
-// Amazon GuardDuty detector ID.
 func (o MemberDetectorFeatureOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 func (o MemberDetectorFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MemberDetectorFeatureOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 func (o MemberDetectorFeatureOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

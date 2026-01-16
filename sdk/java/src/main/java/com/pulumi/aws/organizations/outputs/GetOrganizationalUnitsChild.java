@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOrganizationalUnitsChild {
-    /**
-     * @return ARN of the organizational unit
-     * 
-     */
     private String arn;
-    /**
-     * @return Parent identifier of the organizational units.
-     * 
-     */
     private String id;
-    /**
-     * @return Name of the organizational unit
-     * 
-     */
     private String name;
 
     private GetOrganizationalUnitsChild() {}
-    /**
-     * @return ARN of the organizational unit
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Parent identifier of the organizational units.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the organizational unit
-     * 
-     */
     public String name() {
         return this.name;
     }

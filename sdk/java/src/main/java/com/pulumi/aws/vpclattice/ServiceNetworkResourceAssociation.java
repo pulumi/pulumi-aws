@@ -19,170 +19,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS VPC Lattice Service Network Resource Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpclattice.ServiceNetworkResourceAssociation;
- * import com.pulumi.aws.vpclattice.ServiceNetworkResourceAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServiceNetworkResourceAssociation("example", ServiceNetworkResourceAssociationArgs.builder()
- *             .resourceConfigurationIdentifier(exampleAwsVpclatticeResourceConfiguration.id())
- *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
- *             .tags(Map.of("Name", "Example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
- * ```
- * 
- */
 @ResourceType(type="aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")
 public class ServiceNetworkResourceAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Service Network Resource Association.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Service Network Resource Association.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * DNS entry of the association in the service network.
-     * 
-     */
     @Export(name="dnsEntries", refs={List.class,ServiceNetworkResourceAssociationDnsEntry.class}, tree="[0,1]")
     private Output<List<ServiceNetworkResourceAssociationDnsEntry>> dnsEntries;
 
-    /**
-     * @return DNS entry of the association in the service network.
-     * 
-     */
     public Output<List<ServiceNetworkResourceAssociationDnsEntry>> dnsEntries() {
         return this.dnsEntries;
     }
-    /**
-     * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     * 
-     */
     @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateDnsEnabled;
 
-    /**
-     * @return Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
-     * 
-     */
     public Output<Boolean> privateDnsEnabled() {
         return this.privateDnsEnabled;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Identifier of Resource Configuration to associate to the Service Network.
-     * 
-     */
     @Export(name="resourceConfigurationIdentifier", refs={String.class}, tree="[0]")
     private Output<String> resourceConfigurationIdentifier;
 
-    /**
-     * @return Identifier of Resource Configuration to associate to the Service Network.
-     * 
-     */
     public Output<String> resourceConfigurationIdentifier() {
         return this.resourceConfigurationIdentifier;
     }
-    /**
-     * Identifier of the Service Network to associate the Resource to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="serviceNetworkIdentifier", refs={String.class}, tree="[0]")
     private Output<String> serviceNetworkIdentifier;
 
-    /**
-     * @return Identifier of the Service Network to associate the Resource to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

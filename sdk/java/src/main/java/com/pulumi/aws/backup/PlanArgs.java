@@ -21,92 +21,44 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PlanArgs Empty = new PlanArgs();
 
-    /**
-     * An object that specifies backup options for each resource type.
-     * 
-     */
     @Import(name="advancedBackupSettings")
     private @Nullable Output<List<PlanAdvancedBackupSettingArgs>> advancedBackupSettings;
 
-    /**
-     * @return An object that specifies backup options for each resource type.
-     * 
-     */
     public Optional<Output<List<PlanAdvancedBackupSettingArgs>>> advancedBackupSettings() {
         return Optional.ofNullable(this.advancedBackupSettings);
     }
 
-    /**
-     * The display name of a backup plan.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The display name of a backup plan.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<PlanRuleArgs>> rules;
 
-    /**
-     * @return A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     * 
-     */
     public Output<List<PlanRuleArgs>> rules() {
         return this.rules;
     }
 
-    /**
-     * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     * 
-     */
     @Import(name="scanSettings")
     private @Nullable Output<List<PlanScanSettingArgs>> scanSettings;
 
-    /**
-     * @return Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-     * 
-     */
     public Optional<Output<List<PlanScanSettingArgs>>> scanSettings() {
         return Optional.ofNullable(this.scanSettings);
     }
 
-    /**
-     * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -140,158 +92,68 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PlanArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param advancedBackupSettings An object that specifies backup options for each resource type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedBackupSettings(@Nullable Output<List<PlanAdvancedBackupSettingArgs>> advancedBackupSettings) {
             $.advancedBackupSettings = advancedBackupSettings;
             return this;
         }
 
-        /**
-         * @param advancedBackupSettings An object that specifies backup options for each resource type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedBackupSettings(List<PlanAdvancedBackupSettingArgs> advancedBackupSettings) {
             return advancedBackupSettings(Output.of(advancedBackupSettings));
         }
 
-        /**
-         * @param advancedBackupSettings An object that specifies backup options for each resource type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder advancedBackupSettings(PlanAdvancedBackupSettingArgs... advancedBackupSettings) {
             return advancedBackupSettings(List.of(advancedBackupSettings));
         }
 
-        /**
-         * @param name The display name of a backup plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The display name of a backup plan.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rules A rule object that specifies a scheduled task that is used to back up a selection of resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<PlanRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules A rule object that specifies a scheduled task that is used to back up a selection of resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<PlanRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules A rule object that specifies a scheduled task that is used to back up a selection of resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(PlanRuleArgs... rules) {
             return rules(List.of(rules));
         }
 
-        /**
-         * @param scanSettings Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanSettings(@Nullable Output<List<PlanScanSettingArgs>> scanSettings) {
             $.scanSettings = scanSettings;
             return this;
         }
 
-        /**
-         * @param scanSettings Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanSettings(List<PlanScanSettingArgs> scanSettings) {
             return scanSettings(Output.of(scanSettings));
         }
 
-        /**
-         * @param scanSettings Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanSettings(PlanScanSettingArgs... scanSettings) {
             return scanSettings(List.of(scanSettings));
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -17,49 +17,23 @@ public final class IntentConclusionStatementMessageArgs extends com.pulumi.resou
 
     public static final IntentConclusionStatementMessageArgs Empty = new IntentConclusionStatementMessageArgs();
 
-    /**
-     * The text of the message. Must be less than or equal to 1000 characters in length.
-     * 
-     */
     @Import(name="content", required=true)
     private Output<String> content;
 
-    /**
-     * @return The text of the message. Must be less than or equal to 1000 characters in length.
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
 
-    /**
-     * The content type of the message string.
-     * 
-     */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
-    /**
-     * @return The content type of the message string.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
 
-    /**
-     * Identifies the message group that the message belongs to. When a group
-     * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
-     * 
-     */
     @Import(name="groupNumber")
     private @Nullable Output<Integer> groupNumber;
 
-    /**
-     * @return Identifies the message group that the message belongs to. When a group
-     * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
-     * 
-     */
     public Optional<Output<Integer>> groupNumber() {
         return Optional.ofNullable(this.groupNumber);
     }
@@ -90,67 +64,29 @@ public final class IntentConclusionStatementMessageArgs extends com.pulumi.resou
             $ = new IntentConclusionStatementMessageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param content The text of the message. Must be less than or equal to 1000 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(Output<String> content) {
             $.content = content;
             return this;
         }
 
-        /**
-         * @param content The text of the message. Must be less than or equal to 1000 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(String content) {
             return content(Output.of(content));
         }
 
-        /**
-         * @param contentType The content type of the message string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param contentType The content type of the message string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
-        /**
-         * @param groupNumber Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNumber(@Nullable Output<Integer> groupNumber) {
             $.groupNumber = groupNumber;
             return this;
         }
 
-        /**
-         * @param groupNumber Identifies the message group that the message belongs to. When a group
-         * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNumber(Integer groupNumber) {
             return groupNumber(Output.of(groupNumber));
         }

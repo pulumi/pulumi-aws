@@ -14,19 +14,9 @@ public final class EventActionEventRevisionPublishedArgs extends com.pulumi.reso
 
     public static final EventActionEventRevisionPublishedArgs Empty = new EventActionEventRevisionPublishedArgs();
 
-    /**
-     * The ID of the data set to monitor for revision publications.
-     * Changing this value will recreate the resource.
-     * 
-     */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
-    /**
-     * @return The ID of the data set to monitor for revision publications.
-     * Changing this value will recreate the resource.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
@@ -55,25 +45,11 @@ public final class EventActionEventRevisionPublishedArgs extends com.pulumi.reso
             $ = new EventActionEventRevisionPublishedArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataSetId The ID of the data set to monitor for revision publications.
-         * Changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId The ID of the data set to monitor for revision publications.
-         * Changing this value will recreate the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }

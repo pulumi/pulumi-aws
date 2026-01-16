@@ -12,66 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing Security Group VPC Associations.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewSecurityGroupVpcAssociation(ctx, "example", &vpc.SecurityGroupVpcAssociationArgs{
-//				SecurityGroupId: pulumi.String("sg-05f1f54ab49bb39a3"),
-//				VpcId:           pulumi.String("vpc-01df9d105095412ba"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `vpc_id` (String) VPC ID.
-//
-// * `security_group_id` (String) Security Group ID.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
-//
-// % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
 type SecurityGroupVpcAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the security group.
-	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-	State    pulumi.StringOutput                          `pulumi:"state"`
-	Timeouts SecurityGroupVpcAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the VPC to make the association with.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Region          pulumi.StringOutput                          `pulumi:"region"`
+	SecurityGroupId pulumi.StringOutput                          `pulumi:"securityGroupId"`
+	State           pulumi.StringOutput                          `pulumi:"state"`
+	Timeouts        SecurityGroupVpcAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	VpcId           pulumi.StringOutput                          `pulumi:"vpcId"`
 }
 
 // NewSecurityGroupVpcAssociation registers a new resource with the given unique name, arguments, and options.
@@ -110,27 +58,19 @@ func GetSecurityGroupVpcAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroupVpcAssociation resources.
 type securityGroupVpcAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the security group.
-	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-	State    *string                              `pulumi:"state"`
-	Timeouts *SecurityGroupVpcAssociationTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC to make the association with.
-	VpcId *string `pulumi:"vpcId"`
+	Region          *string                              `pulumi:"region"`
+	SecurityGroupId *string                              `pulumi:"securityGroupId"`
+	State           *string                              `pulumi:"state"`
+	Timeouts        *SecurityGroupVpcAssociationTimeouts `pulumi:"timeouts"`
+	VpcId           *string                              `pulumi:"vpcId"`
 }
 
 type SecurityGroupVpcAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the security group.
+	Region          pulumi.StringPtrInput
 	SecurityGroupId pulumi.StringPtrInput
-	// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-	State    pulumi.StringPtrInput
-	Timeouts SecurityGroupVpcAssociationTimeoutsPtrInput
-	// The ID of the VPC to make the association with.
-	VpcId pulumi.StringPtrInput
+	State           pulumi.StringPtrInput
+	Timeouts        SecurityGroupVpcAssociationTimeoutsPtrInput
+	VpcId           pulumi.StringPtrInput
 }
 
 func (SecurityGroupVpcAssociationState) ElementType() reflect.Type {
@@ -138,24 +78,18 @@ func (SecurityGroupVpcAssociationState) ElementType() reflect.Type {
 }
 
 type securityGroupVpcAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the security group.
+	Region          *string                              `pulumi:"region"`
 	SecurityGroupId string                               `pulumi:"securityGroupId"`
 	Timeouts        *SecurityGroupVpcAssociationTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC to make the association with.
-	VpcId string `pulumi:"vpcId"`
+	VpcId           string                               `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a SecurityGroupVpcAssociation resource.
 type SecurityGroupVpcAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the security group.
+	Region          pulumi.StringPtrInput
 	SecurityGroupId pulumi.StringInput
 	Timeouts        SecurityGroupVpcAssociationTimeoutsPtrInput
-	// The ID of the VPC to make the association with.
-	VpcId pulumi.StringInput
+	VpcId           pulumi.StringInput
 }
 
 func (SecurityGroupVpcAssociationArgs) ElementType() reflect.Type {
@@ -245,17 +179,14 @@ func (o SecurityGroupVpcAssociationOutput) ToSecurityGroupVpcAssociationOutputWi
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecurityGroupVpcAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupVpcAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the security group.
 func (o SecurityGroupVpcAssociationOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupVpcAssociation) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
-// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
 func (o SecurityGroupVpcAssociationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupVpcAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
@@ -264,7 +195,6 @@ func (o SecurityGroupVpcAssociationOutput) Timeouts() SecurityGroupVpcAssociatio
 	return o.ApplyT(func(v *SecurityGroupVpcAssociation) SecurityGroupVpcAssociationTimeoutsPtrOutput { return v.Timeouts }).(SecurityGroupVpcAssociationTimeoutsPtrOutput)
 }
 
-// The ID of the VPC to make the association with.
 func (o SecurityGroupVpcAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupVpcAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

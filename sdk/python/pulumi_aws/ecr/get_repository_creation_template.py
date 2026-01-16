@@ -71,33 +71,21 @@ class GetRepositoryCreationTemplateResult:
     @_builtins.property
     @pulumi.getter(name="appliedFors")
     def applied_fors(self) -> Sequence[_builtins.str]:
-        """
-        Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-        """
         return pulumi.get(self, "applied_fors")
 
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
     def custom_role_arn(self) -> _builtins.str:
-        """
-        The ARN of the custom role used for repository creation.
-        """
         return pulumi.get(self, "custom_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description for this template.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Sequence['outputs.GetRepositoryCreationTemplateEncryptionConfigurationResult']:
-        """
-        Encryption configuration for any created repositories. See Encryption Configuration below.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @_builtins.property
@@ -111,25 +99,16 @@ class GetRepositoryCreationTemplateResult:
     @_builtins.property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> _builtins.str:
-        """
-        The tag mutability setting for any created repositories.
-        """
         return pulumi.get(self, "image_tag_mutability")
 
     @_builtins.property
     @pulumi.getter(name="imageTagMutabilityExclusionFilters")
     def image_tag_mutability_exclusion_filters(self) -> Sequence['outputs.GetRepositoryCreationTemplateImageTagMutabilityExclusionFilterResult']:
-        """
-        Block that defines filters to specify which image tags can override the default tag mutability setting.
-        """
         return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> _builtins.str:
-        """
-        The lifecycle policy document to apply to any created repositories.
-        """
         return pulumi.get(self, "lifecycle_policy")
 
     @_builtins.property
@@ -145,25 +124,16 @@ class GetRepositoryCreationTemplateResult:
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> _builtins.str:
-        """
-        The registry ID the repository creation template applies to.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> _builtins.str:
-        """
-        The registry policy document to apply to any created repositories.
-        """
         return pulumi.get(self, "repository_policy")
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags to assign to any created repositories.
-        """
         return pulumi.get(self, "resource_tags")
 
 
@@ -193,21 +163,7 @@ def get_repository_creation_template(prefix: Optional[_builtins.str] = None,
                                      resource_tags: Optional[Mapping[str, _builtins.str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryCreationTemplateResult:
     """
-    The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecr.get_repository_creation_template(prefix="example")
-    ```
-
-
-    :param _builtins.str prefix: The repository name prefix that the template matches against.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] resource_tags: A map of tags to assign to any created repositories.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['prefix'] = prefix
@@ -235,21 +191,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[_built
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
-    The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecr.get_repository_creation_template(prefix="example")
-    ```
-
-
-    :param _builtins.str prefix: The repository name prefix that the template matches against.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] resource_tags: A map of tags to assign to any created repositories.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['prefix'] = prefix

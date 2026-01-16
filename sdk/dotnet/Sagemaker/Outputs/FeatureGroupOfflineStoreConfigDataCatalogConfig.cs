@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FeatureGroupOfflineStoreConfigDataCatalogConfig
     {
-        /// <summary>
-        /// The name of the Glue table catalog.
-        /// </summary>
         public readonly string? Catalog;
-        /// <summary>
-        /// The name of the Glue table database.
-        /// </summary>
         public readonly string? Database;
-        /// <summary>
-        /// The name of the Glue table.
-        /// </summary>
         public readonly string? TableName;
 
         [OutputConstructor]

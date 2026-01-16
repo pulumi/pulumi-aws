@@ -14,32 +14,16 @@ public final class GetListenerRuleActionForwardStickiness extends com.pulumi.res
 
     public static final GetListenerRuleActionForwardStickiness Empty = new GetListenerRuleActionForwardStickiness();
 
-    /**
-     * The time period, in seconds, during which requests from a client should be routed to the same target group.
-     * 
-     */
     @Import(name="duration", required=true)
     private Integer duration;
 
-    /**
-     * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
-     * 
-     */
     public Integer duration() {
         return this.duration;
     }
 
-    /**
-     * Indicates whether target group stickiness is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Boolean enabled;
 
-    /**
-     * @return Indicates whether target group stickiness is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
@@ -69,23 +53,11 @@ public final class GetListenerRuleActionForwardStickiness extends com.pulumi.res
             $ = new GetListenerRuleActionForwardStickiness(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param duration The time period, in seconds, during which requests from a client should be routed to the same target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Integer duration) {
             $.duration = duration;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether target group stickiness is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             $.enabled = enabled;
             return this;

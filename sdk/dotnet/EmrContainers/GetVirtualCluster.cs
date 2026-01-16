@@ -11,90 +11,12 @@ namespace Pulumi.Aws.EmrContainers
 {
     public static class GetVirtualCluster
     {
-        /// <summary>
-        /// Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
-        ///     {
-        ///         VirtualClusterId = "example id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
-        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
-        ///     {
-        ///         VirtualClusterId = "example id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
-        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
-        ///     {
-        ///         VirtualClusterId = "example id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
-        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
     }
@@ -102,27 +24,17 @@ namespace Pulumi.Aws.EmrContainers
 
     public sealed class GetVirtualClusterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the cluster.
-        /// </summary>
         [Input("virtualClusterId", required: true)]
         public string VirtualClusterId { get; set; } = null!;
 
@@ -134,27 +46,17 @@ namespace Pulumi.Aws.EmrContainers
 
     public sealed class GetVirtualClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ID of the cluster.
-        /// </summary>
         [Input("virtualClusterId", required: true)]
         public Input<string> VirtualClusterId { get; set; } = null!;
 
@@ -168,34 +70,16 @@ namespace Pulumi.Aws.EmrContainers
     [OutputType]
     public sealed class GetVirtualClusterResult
     {
-        /// <summary>
-        /// ARN of the cluster.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualClusterContainerProviderResult> ContainerProviders;
-        /// <summary>
-        /// Unix epoch time stamp in seconds for when the cluster was created.
-        /// </summary>
         public readonly string CreatedAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the cluster.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Key-value mapping of resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VirtualClusterId;
 

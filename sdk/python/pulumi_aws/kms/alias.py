@@ -25,11 +25,6 @@ class AliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alias resource.
-        :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target_key_id", target_key_id)
         if name is not None:
@@ -42,9 +37,6 @@ class AliasArgs:
     @_builtins.property
     @pulumi.getter(name="targetKeyId")
     def target_key_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        """
         return pulumi.get(self, "target_key_id")
 
     @target_key_id.setter
@@ -54,9 +46,6 @@ class AliasArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -66,10 +55,6 @@ class AliasArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -79,9 +64,6 @@ class AliasArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,13 +82,6 @@ class _AliasState:
                  target_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Alias resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key alias.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
-        :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -124,9 +99,6 @@ class _AliasState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the key alias.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,9 +108,6 @@ class _AliasState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -148,10 +117,6 @@ class _AliasState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -161,9 +126,6 @@ class _AliasState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -173,9 +135,6 @@ class _AliasState:
     @_builtins.property
     @pulumi.getter(name="targetKeyArn")
     def target_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the target key identifier.
-        """
         return pulumi.get(self, "target_key_arn")
 
     @target_key_arn.setter
@@ -185,9 +144,6 @@ class _AliasState:
     @_builtins.property
     @pulumi.getter(name="targetKeyId")
     def target_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        """
         return pulumi.get(self, "target_key_id")
 
     @target_key_id.setter
@@ -207,47 +163,9 @@ class Alias(pulumi.CustomResource):
                  target_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
-        but API (hence this provider too) allows you to create as many aliases as
-        the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        a = aws.kms.Key("a")
-        a_alias = aws.kms.Alias("a",
-            name="alias/my-key-alias",
-            target_key_id=a.key_id)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` - (String) Name of the KMS key alias.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import KMS aliases using the `name`. For example:
-
-        % pulumi import aws_kms_alias.a alias/my-key-alias
-
+        Create a Alias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
         ...
     @overload
@@ -256,40 +174,7 @@ class Alias(pulumi.CustomResource):
                  args: AliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
-        but API (hence this provider too) allows you to create as many aliases as
-        the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        a = aws.kms.Key("a")
-        a_alias = aws.kms.Alias("a",
-            name="alias/my-key-alias",
-            target_key_id=a.key_id)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` - (String) Name of the KMS key alias.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import KMS aliases using the `name`. For example:
-
-        % pulumi import aws_kms_alias.a alias/my-key-alias
-
+        Create a Alias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -349,13 +234,6 @@ class Alias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key alias.
-        :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
-               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
-        :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -372,49 +250,30 @@ class Alias(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the key alias.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creates an unique alias beginning with the specified prefix.
-        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="targetKeyArn")
     def target_key_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the target key identifier.
-        """
         return pulumi.get(self, "target_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetKeyId")
     def target_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier for the key for which the alias is for, can be either an ARN or key_id.
-        """
         return pulumi.get(self, "target_key_id")
 

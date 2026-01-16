@@ -11,75 +11,12 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetComponent
     {
-        /// <summary>
-        /// Provides details about an Image Builder Component.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetComponent.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image Builder Component.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetComponent.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image Builder Component.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetComponent.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetComponentArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the component.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the component.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the component.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the component.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,62 +71,23 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetComponentResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// Change description of the component.
-        /// </summary>
         public readonly string ChangeDescription;
-        /// <summary>
-        /// Data of the component.
-        /// </summary>
         public readonly string Data;
-        /// <summary>
-        /// Date the component was created.
-        /// </summary>
         public readonly string DateCreated;
-        /// <summary>
-        /// Description of the component.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Encryption status of the component.
-        /// </summary>
         public readonly bool Encrypted;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN of the Key Management Service (KMS) Key used to encrypt the component.
-        /// </summary>
         public readonly string KmsKeyId;
-        /// <summary>
-        /// Name of the component.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Owner of the component.
-        /// </summary>
         public readonly string Owner;
-        /// <summary>
-        /// Platform of the component.
-        /// </summary>
         public readonly string Platform;
         public readonly string Region;
-        /// <summary>
-        /// Operating Systems (OSes) supported by the component.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedOsVersions;
-        /// <summary>
-        /// Key-value map of resource tags for the component.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Type of the component.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Version of the component.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

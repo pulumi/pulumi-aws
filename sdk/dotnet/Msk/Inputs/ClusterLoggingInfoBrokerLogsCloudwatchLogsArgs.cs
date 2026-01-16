@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Cloudwatch Log Group to deliver logs to.
-        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 

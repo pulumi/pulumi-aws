@@ -19,298 +19,59 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudFront response headers policy resource.
- * A response headers policy contains information about a set of HTTP response headers and their values.
- * After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution.
- * When it’s attached to a cache behavior, CloudFront adds the headers in the policy to every response that it sends for requests that match the cache behavior.
- * 
- * ## Example Usage
- * 
- * The example below creates a CloudFront response headers policy.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
- * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
- *             .name("example-policy")
- *             .comment("test comment")
- *             .corsConfig(ResponseHeadersPolicyCorsConfigArgs.builder()
- *                 .accessControlAllowCredentials(true)
- *                 .accessControlAllowHeaders(ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs.builder()
- *                     .items("test")
- *                     .build())
- *                 .accessControlAllowMethods(ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs.builder()
- *                     .items("GET")
- *                     .build())
- *                 .accessControlAllowOrigins(ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs.builder()
- *                     .items("test.example.comtest")
- *                     .build())
- *                 .originOverride(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * The example below creates a CloudFront response headers policy with a custom headers config.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
- * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
- *             .name("example-headers-policy")
- *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
- *                 .items(                
- *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                         .header("X-Permitted-Cross-Domain-Policies")
- *                         .override(true)
- *                         .value("none")
- *                         .build(),
- *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                         .header("X-Test")
- *                         .override(true)
- *                         .value("none")
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
- * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
- *             .name("example-headers-policy")
- *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
- *                 .items(ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                     .header("X-Permitted-Cross-Domain-Policies")
- *                     .override(true)
- *                     .value("none")
- *                     .build())
- *                 .build())
- *             .removeHeadersConfig(ResponseHeadersPolicyRemoveHeadersConfigArgs.builder()
- *                 .items(ResponseHeadersPolicyRemoveHeadersConfigItemArgs.builder()
- *                     .header("Set-Cookie")
- *                     .build())
- *                 .build())
- *             .serverTimingHeadersConfig(ResponseHeadersPolicyServerTimingHeadersConfigArgs.builder()
- *                 .enabled(true)
- *                 .samplingRate(50.0)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")
 public class ResponseHeadersPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The response headers policy ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The response headers policy ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-     * 
-     */
     @Export(name="corsConfig", refs={ResponseHeadersPolicyCorsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResponseHeadersPolicyCorsConfig> corsConfig;
 
-    /**
-     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-     * 
-     */
     public Output<Optional<ResponseHeadersPolicyCorsConfig>> corsConfig() {
         return Codegen.optional(this.corsConfig);
     }
-    /**
-     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-     * 
-     */
     @Export(name="customHeadersConfig", refs={ResponseHeadersPolicyCustomHeadersConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResponseHeadersPolicyCustomHeadersConfig> customHeadersConfig;
 
-    /**
-     * @return Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-     * 
-     */
     public Output<Optional<ResponseHeadersPolicyCustomHeadersConfig>> customHeadersConfig() {
         return Codegen.optional(this.customHeadersConfig);
     }
-    /**
-     * The current version of the response headers policy.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return The current version of the response headers policy.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * A unique name to identify the response headers policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A unique name to identify the response headers policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-     * 
-     */
     @Export(name="removeHeadersConfig", refs={ResponseHeadersPolicyRemoveHeadersConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfig;
 
-    /**
-     * @return A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-     * 
-     */
     public Output<Optional<ResponseHeadersPolicyRemoveHeadersConfig>> removeHeadersConfig() {
         return Codegen.optional(this.removeHeadersConfig);
     }
-    /**
-     * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-     * 
-     */
     @Export(name="securityHeadersConfig", refs={ResponseHeadersPolicySecurityHeadersConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfig;
 
-    /**
-     * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-     * 
-     */
     public Output<Optional<ResponseHeadersPolicySecurityHeadersConfig>> securityHeadersConfig() {
         return Codegen.optional(this.securityHeadersConfig);
     }
-    /**
-     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
-     * 
-     */
     @Export(name="serverTimingHeadersConfig", refs={ResponseHeadersPolicyServerTimingHeadersConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfig;
 
-    /**
-     * @return A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
-     * 
-     */
     public Output<Optional<ResponseHeadersPolicyServerTimingHeadersConfig>> serverTimingHeadersConfig() {
         return Codegen.optional(this.serverTimingHeadersConfig);
     }

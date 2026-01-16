@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionViaResult
     {
-        /// <summary>
-        /// A list of strings. The network function group to use for the service insertion action.
-        /// </summary>
         public readonly ImmutableArray<string> NetworkFunctionGroups;
-        /// <summary>
-        /// Any edge overrides and the preferred edge to use.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult> WithEdgeOverrides;
 
         [OutputConstructor]

@@ -11,64 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS IoT Billing Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewBillingGroup(ctx, "example", &iot.BillingGroupArgs{
-//				Name: pulumi.String("example"),
-//				Properties: &iot.BillingGroupPropertiesArgs{
-//					Description: pulumi.String("This is my billing group"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"terraform": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IoT Billing Groups using the name. For example:
-//
-// ```sh
-// $ pulumi import aws:iot/billingGroup:BillingGroup example example
-// ```
 type BillingGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Billing Group.
-	Arn       pulumi.StringOutput             `pulumi:"arn"`
-	Metadatas BillingGroupMetadataArrayOutput `pulumi:"metadatas"`
-	// The name of the Billing Group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Billing Group properties. Defined below.
+	Arn        pulumi.StringOutput             `pulumi:"arn"`
+	Metadatas  BillingGroupMetadataArrayOutput `pulumi:"metadatas"`
+	Name       pulumi.StringOutput             `pulumi:"name"`
 	Properties BillingGroupPropertiesPtrOutput `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The current version of the Billing Group record in the registry.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Region     pulumi.StringOutput             `pulumi:"region"`
+	Tags       pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput          `pulumi:"tagsAll"`
+	Version    pulumi.IntOutput                `pulumi:"version"`
 }
 
 // NewBillingGroup registers a new resource with the given unique name, arguments, and options.
@@ -101,37 +54,25 @@ func GetBillingGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BillingGroup resources.
 type billingGroupState struct {
-	// The ARN of the Billing Group.
-	Arn       *string                `pulumi:"arn"`
-	Metadatas []BillingGroupMetadata `pulumi:"metadatas"`
-	// The name of the Billing Group.
-	Name *string `pulumi:"name"`
-	// The Billing Group properties. Defined below.
+	Arn        *string                 `pulumi:"arn"`
+	Metadatas  []BillingGroupMetadata  `pulumi:"metadatas"`
+	Name       *string                 `pulumi:"name"`
 	Properties *BillingGroupProperties `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The current version of the Billing Group record in the registry.
-	Version *int `pulumi:"version"`
+	Region     *string                 `pulumi:"region"`
+	Tags       map[string]string       `pulumi:"tags"`
+	TagsAll    map[string]string       `pulumi:"tagsAll"`
+	Version    *int                    `pulumi:"version"`
 }
 
 type BillingGroupState struct {
-	// The ARN of the Billing Group.
-	Arn       pulumi.StringPtrInput
-	Metadatas BillingGroupMetadataArrayInput
-	// The name of the Billing Group.
-	Name pulumi.StringPtrInput
-	// The Billing Group properties. Defined below.
+	Arn        pulumi.StringPtrInput
+	Metadatas  BillingGroupMetadataArrayInput
+	Name       pulumi.StringPtrInput
 	Properties BillingGroupPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The current version of the Billing Group record in the registry.
-	Version pulumi.IntPtrInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
+	Version    pulumi.IntPtrInput
 }
 
 func (BillingGroupState) ElementType() reflect.Type {
@@ -139,26 +80,18 @@ func (BillingGroupState) ElementType() reflect.Type {
 }
 
 type billingGroupArgs struct {
-	// The name of the Billing Group.
-	Name *string `pulumi:"name"`
-	// The Billing Group properties. Defined below.
+	Name       *string                 `pulumi:"name"`
 	Properties *BillingGroupProperties `pulumi:"properties"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Region     *string                 `pulumi:"region"`
+	Tags       map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BillingGroup resource.
 type BillingGroupArgs struct {
-	// The name of the Billing Group.
-	Name pulumi.StringPtrInput
-	// The Billing Group properties. Defined below.
+	Name       pulumi.StringPtrInput
 	Properties BillingGroupPropertiesPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
+	Region     pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (BillingGroupArgs) ElementType() reflect.Type {
@@ -248,7 +181,6 @@ func (o BillingGroupOutput) ToBillingGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN of the Billing Group.
 func (o BillingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -257,22 +189,18 @@ func (o BillingGroupOutput) Metadatas() BillingGroupMetadataArrayOutput {
 	return o.ApplyT(func(v *BillingGroup) BillingGroupMetadataArrayOutput { return v.Metadatas }).(BillingGroupMetadataArrayOutput)
 }
 
-// The name of the Billing Group.
 func (o BillingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Billing Group properties. Defined below.
 func (o BillingGroupOutput) Properties() BillingGroupPropertiesPtrOutput {
 	return o.ApplyT(func(v *BillingGroup) BillingGroupPropertiesPtrOutput { return v.Properties }).(BillingGroupPropertiesPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BillingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags
 func (o BillingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -281,7 +209,6 @@ func (o BillingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The current version of the Billing Group record in the registry.
 func (o BillingGroupOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

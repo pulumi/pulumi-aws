@@ -17,47 +17,23 @@ public final class MultitenantDistributionTenantConfigParameterDefinitionDefinit
 
     public static final MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs Empty = new MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs();
 
-    /**
-     * Comment describing the parameter.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment describing the parameter.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Default value for the parameter.
-     * 
-     */
     @Import(name="defaultValue")
     private @Nullable Output<String> defaultValue;
 
-    /**
-     * @return Default value for the parameter.
-     * 
-     */
     public Optional<Output<String>> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
 
-    /**
-     * Whether the parameter is required.
-     * 
-     */
     @Import(name="required", required=true)
     private Output<Boolean> required;
 
-    /**
-     * @return Whether the parameter is required.
-     * 
-     */
     public Output<Boolean> required() {
         return this.required;
     }
@@ -88,65 +64,29 @@ public final class MultitenantDistributionTenantConfigParameterDefinitionDefinit
             $ = new MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment Comment describing the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment describing the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param defaultValue Default value for the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(@Nullable Output<String> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
-        /**
-         * @param defaultValue Default value for the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
-        /**
-         * @param required Whether the parameter is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(Output<Boolean> required) {
             $.required = required;
             return this;
         }
 
-        /**
-         * @param required Whether the parameter is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder required(Boolean required) {
             return required(Output.of(required));
         }

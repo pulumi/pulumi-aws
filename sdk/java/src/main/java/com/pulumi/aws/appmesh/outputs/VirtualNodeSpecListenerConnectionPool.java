@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecListenerConnectionPool {
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerConnectionPoolGrpc grpc;
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp2> http2s;
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp> https;
-    /**
-     * @return Connection pool information for TCP listeners.
-     * 
-     */
     private @Nullable List<VirtualNodeSpecListenerConnectionPoolTcp> tcps;
 
     private VirtualNodeSpecListenerConnectionPool() {}
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerConnectionPoolGrpc> grpc() {
         return Optional.ofNullable(this.grpc);
     }
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     public List<VirtualNodeSpecListenerConnectionPoolHttp2> http2s() {
         return this.http2s == null ? List.of() : this.http2s;
     }
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     public List<VirtualNodeSpecListenerConnectionPoolHttp> https() {
         return this.https == null ? List.of() : this.https;
     }
-    /**
-     * @return Connection pool information for TCP listeners.
-     * 
-     */
     public List<VirtualNodeSpecListenerConnectionPoolTcp> tcps() {
         return this.tcps == null ? List.of() : this.tcps;
     }

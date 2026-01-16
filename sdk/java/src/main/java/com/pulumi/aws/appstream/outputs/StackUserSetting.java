@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class StackUserSetting {
-    /**
-     * @return Action that is enabled or disabled.
-     * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-     * 
-     */
     private String action;
-    /**
-     * @return Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     private String permission;
 
     private StackUserSetting() {}
-    /**
-     * @return Action that is enabled or disabled.
-     * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public String permission() {
         return this.permission;
     }

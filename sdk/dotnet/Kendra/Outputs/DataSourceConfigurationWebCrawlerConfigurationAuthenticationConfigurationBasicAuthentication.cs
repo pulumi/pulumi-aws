@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication
     {
-        /// <summary>
-        /// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
-        /// </summary>
         public readonly string Credentials;
-        /// <summary>
-        /// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
-        /// </summary>
         public readonly string Host;
-        /// <summary>
-        /// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
-        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]

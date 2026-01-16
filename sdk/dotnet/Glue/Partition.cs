@@ -9,94 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    /// <summary>
-    /// Provides a Glue Partition Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.Partition("example", new()
-    ///     {
-    ///         DatabaseName = "some-database",
-    ///         TableName = "some-table",
-    ///         PartitionValues = new[]
-    ///         {
-    ///             "some-value",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:glue/partition:Partition")]
     public partial class Partition : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
-        /// <summary>
-        /// The time at which the partition was created.
-        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
-        /// <summary>
-        /// The last time at which the partition was accessed.
-        /// </summary>
         [Output("lastAccessedTime")]
         public Output<string> LastAccessedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The last time at which column statistics were computed for this partition.
-        /// </summary>
         [Output("lastAnalyzedTime")]
         public Output<string> LastAnalyzedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Properties associated with this table, as a list of key-value pairs.
-        /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// The values that define the partition.
-        /// </summary>
         [Output("partitionValues")]
         public Output<ImmutableArray<string>> PartitionValues { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        /// </summary>
         [Output("storageDescriptor")]
         public Output<Outputs.PartitionStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
 
@@ -149,24 +88,14 @@ namespace Pulumi.Aws.Glue
 
     public sealed class PartitionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Properties associated with this table, as a list of key-value pairs.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
@@ -175,25 +104,15 @@ namespace Pulumi.Aws.Glue
 
         [Input("partitionValues", required: true)]
         private InputList<string>? _partitionValues;
-
-        /// <summary>
-        /// The values that define the partition.
-        /// </summary>
         public InputList<string> PartitionValues
         {
             get => _partitionValues ?? (_partitionValues = new InputList<string>());
             set => _partitionValues = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.PartitionStorageDescriptorArgs>? StorageDescriptor { get; set; }
 
@@ -208,42 +127,23 @@ namespace Pulumi.Aws.Glue
 
     public sealed class PartitionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// The time at which the partition was created.
-        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// The last time at which the partition was accessed.
-        /// </summary>
         [Input("lastAccessedTime")]
         public Input<string>? LastAccessedTime { get; set; }
 
-        /// <summary>
-        /// The last time at which column statistics were computed for this partition.
-        /// </summary>
         [Input("lastAnalyzedTime")]
         public Input<string>? LastAnalyzedTime { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Properties associated with this table, as a list of key-value pairs.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
@@ -252,25 +152,15 @@ namespace Pulumi.Aws.Glue
 
         [Input("partitionValues")]
         private InputList<string>? _partitionValues;
-
-        /// <summary>
-        /// The values that define the partition.
-        /// </summary>
         public InputList<string> PartitionValues
         {
             get => _partitionValues ?? (_partitionValues = new InputList<string>());
             set => _partitionValues = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-        /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.PartitionStorageDescriptorGetArgs>? StorageDescriptor { get; set; }
 

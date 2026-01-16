@@ -13,13 +13,7 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose
     {
-        /// <summary>
-        /// The name of the delivery stream.
-        /// </summary>
         public readonly string? DeliveryStream;
-        /// <summary>
-        /// Indicates whether logging is enabled.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

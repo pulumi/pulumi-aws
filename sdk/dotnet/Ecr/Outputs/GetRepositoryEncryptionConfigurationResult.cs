@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class GetRepositoryEncryptionConfigurationResult
     {
-        /// <summary>
-        /// Encryption type to use for the repository, either `AES256` or `KMS`.
-        /// </summary>
         public readonly string EncryptionType;
-        /// <summary>
-        /// If `EncryptionType` is `KMS`, the ARN of the KMS key used.
-        /// </summary>
         public readonly string KmsKey;
 
         [OutputConstructor]

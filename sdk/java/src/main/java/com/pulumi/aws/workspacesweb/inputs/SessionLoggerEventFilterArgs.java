@@ -17,32 +17,16 @@ public final class SessionLoggerEventFilterArgs extends com.pulumi.resources.Res
 
     public static final SessionLoggerEventFilterArgs Empty = new SessionLoggerEventFilterArgs();
 
-    /**
-     * Block that specifies to monitor all events. Set to `{}` to monitor all events.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<SessionLoggerEventFilterAllArgs> all;
 
-    /**
-     * @return Block that specifies to monitor all events. Set to `{}` to monitor all events.
-     * 
-     */
     public Optional<Output<SessionLoggerEventFilterAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
-    /**
-     * List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-     * 
-     */
     @Import(name="includes")
     private @Nullable Output<List<String>> includes;
 
-    /**
-     * @return List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-     * 
-     */
     public Optional<Output<List<String>>> includes() {
         return Optional.ofNullable(this.includes);
     }
@@ -72,54 +56,24 @@ public final class SessionLoggerEventFilterArgs extends com.pulumi.resources.Res
             $ = new SessionLoggerEventFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all Block that specifies to monitor all events. Set to `{}` to monitor all events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<SessionLoggerEventFilterAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all Block that specifies to monitor all events. Set to `{}` to monitor all events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(SessionLoggerEventFilterAllArgs all) {
             return all(Output.of(all));
         }
 
-        /**
-         * @param includes List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(@Nullable Output<List<String>> includes) {
             $.includes = includes;
             return this;
         }
 
-        /**
-         * @param includes List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(List<String> includes) {
             return includes(Output.of(includes));
         }
 
-        /**
-         * @param includes List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(String... includes) {
             return includes(List.of(includes));
         }

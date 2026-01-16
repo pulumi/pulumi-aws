@@ -19,92 +19,44 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceQuotaState Empty = new ServiceQuotaState();
 
-    /**
-     * Whether the service quota can be increased.
-     * 
-     */
     @Import(name="adjustable")
     private @Nullable Output<Boolean> adjustable;
 
-    /**
-     * @return Whether the service quota can be increased.
-     * 
-     */
     public Optional<Output<Boolean>> adjustable() {
         return Optional.ofNullable(this.adjustable);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the service quota.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the service quota.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Default value of the service quota.
-     * 
-     */
     @Import(name="defaultValue")
     private @Nullable Output<Double> defaultValue;
 
-    /**
-     * @return Default value of the service quota.
-     * 
-     */
     public Optional<Output<Double>> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
 
-    /**
-     * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-     * 
-     */
     @Import(name="quotaCode")
     private @Nullable Output<String> quotaCode;
 
-    /**
-     * @return Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-     * 
-     */
     public Optional<Output<String>> quotaCode() {
         return Optional.ofNullable(this.quotaCode);
     }
 
-    /**
-     * Name of the quota.
-     * 
-     */
     @Import(name="quotaName")
     private @Nullable Output<String> quotaName;
 
-    /**
-     * @return Name of the quota.
-     * 
-     */
     public Optional<Output<String>> quotaName() {
         return Optional.ofNullable(this.quotaName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -123,62 +75,30 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.requestStatus);
     }
 
-    /**
-     * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     * 
-     */
     @Import(name="serviceCode")
     private @Nullable Output<String> serviceCode;
 
-    /**
-     * @return Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     * 
-     */
     public Optional<Output<String>> serviceCode() {
         return Optional.ofNullable(this.serviceCode);
     }
 
-    /**
-     * Name of the service.
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
-    /**
-     * @return Name of the service.
-     * 
-     */
     public Optional<Output<String>> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
-    /**
-     * Information about the measurement.
-     * 
-     */
     @Import(name="usageMetrics")
     private @Nullable Output<List<ServiceQuotaUsageMetricArgs>> usageMetrics;
 
-    /**
-     * @return Information about the measurement.
-     * 
-     */
     public Optional<Output<List<ServiceQuotaUsageMetricArgs>>> usageMetrics() {
         return Optional.ofNullable(this.usageMetrics);
     }
 
-    /**
-     * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Double> value;
 
-    /**
-     * @return Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-     * 
-     */
     public Optional<Output<Double>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -218,128 +138,56 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceQuotaState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adjustable Whether the service quota can be increased.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adjustable(@Nullable Output<Boolean> adjustable) {
             $.adjustable = adjustable;
             return this;
         }
 
-        /**
-         * @param adjustable Whether the service quota can be increased.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adjustable(Boolean adjustable) {
             return adjustable(Output.of(adjustable));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the service quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the service quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param defaultValue Default value of the service quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(@Nullable Output<Double> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
-        /**
-         * @param defaultValue Default value of the service quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(Double defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
-        /**
-         * @param quotaCode Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(@Nullable Output<String> quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
 
-        /**
-         * @param quotaCode Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(String quotaCode) {
             return quotaCode(Output.of(quotaCode));
         }
 
-        /**
-         * @param quotaName Name of the quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaName(@Nullable Output<String> quotaName) {
             $.quotaName = quotaName;
             return this;
         }
 
-        /**
-         * @param quotaName Name of the quota.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaName(String quotaName) {
             return quotaName(Output.of(quotaName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -362,96 +210,42 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
             return requestStatus(Output.of(requestStatus));
         }
 
-        /**
-         * @param serviceCode Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(@Nullable Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
 
-        /**
-         * @param serviceCode Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(String serviceCode) {
             return serviceCode(Output.of(serviceCode));
         }
 
-        /**
-         * @param serviceName Name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
-        /**
-         * @param usageMetrics Information about the measurement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageMetrics(@Nullable Output<List<ServiceQuotaUsageMetricArgs>> usageMetrics) {
             $.usageMetrics = usageMetrics;
             return this;
         }
 
-        /**
-         * @param usageMetrics Information about the measurement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageMetrics(List<ServiceQuotaUsageMetricArgs> usageMetrics) {
             return usageMetrics(Output.of(usageMetrics));
         }
 
-        /**
-         * @param usageMetrics Information about the measurement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageMetrics(ServiceQuotaUsageMetricArgs... usageMetrics) {
             return usageMetrics(List.of(usageMetrics));
         }
 
-        /**
-         * @param value Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

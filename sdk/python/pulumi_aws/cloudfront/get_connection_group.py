@@ -67,34 +67,21 @@ class GetConnectionGroupResult:
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
     def anycast_ip_list_id(self) -> _builtins.str:
-        """
-        ID of the anycast IP list associated with this connection group, if any.
-        """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN (Amazon Resource Name) for the connection group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether the connection group is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def etag(self) -> _builtins.str:
-        """
-        Current version of the connection group's information. For example:
-        `E2QWRUHAPOMQZL`.
-        """
         return pulumi.get(self, "etag")
 
     @_builtins.property
@@ -110,25 +97,16 @@ class GetConnectionGroupResult:
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> _builtins.bool:
-        """
-        Whether the connection group is the default connection group for the distribution tenants.
-        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> _builtins.str:
-        """
-        Date and time the connection group was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        name of the connection group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -139,11 +117,6 @@ class GetConnectionGroupResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the connection group. `Deployed` if the
-        connection group's information is fully propagated throughout the Amazon
-        CloudFront system.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -176,20 +149,7 @@ def get_connection_group(id: Optional[_builtins.str] = None,
                          routing_endpoint: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGroupResult:
     """
-    Use this data source to retrieve information about a CloudFront connection group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudfront.get_connection_group(id="EDFDVBD632BHDS5")
-    ```
-
-
-    :param _builtins.str id: Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routing_endpoint` must be specified.
-    :param _builtins.str routing_endpoint: Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routing_endpoint` must be specified.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -214,20 +174,7 @@ def get_connection_group_output(id: Optional[pulumi.Input[Optional[_builtins.str
                                 routing_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGroupResult]:
     """
-    Use this data source to retrieve information about a CloudFront connection group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.cloudfront.get_connection_group(id="EDFDVBD632BHDS5")
-    ```
-
-
-    :param _builtins.str id: Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routing_endpoint` must be specified.
-    :param _builtins.str routing_endpoint: Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routing_endpoint` must be specified.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

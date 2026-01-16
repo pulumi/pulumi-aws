@@ -15,65 +15,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyGroupHierarchyPath {
-    /**
-     * @return Details of level five. See below.
-     * 
-     */
     private List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives;
-    /**
-     * @return Details of level four. See below.
-     * 
-     */
     private List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours;
-    /**
-     * @return Details of level one. See below.
-     * 
-     */
     private List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes;
-    /**
-     * @return Details of level three. See below.
-     * 
-     */
     private List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees;
-    /**
-     * @return Details of level two. See below.
-     * 
-     */
     private List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos;
 
     private GetUserHierarchyGroupHierarchyPath() {}
-    /**
-     * @return Details of level five. See below.
-     * 
-     */
     public List<GetUserHierarchyGroupHierarchyPathLevelFife> levelFives() {
         return this.levelFives;
     }
-    /**
-     * @return Details of level four. See below.
-     * 
-     */
     public List<GetUserHierarchyGroupHierarchyPathLevelFour> levelFours() {
         return this.levelFours;
     }
-    /**
-     * @return Details of level one. See below.
-     * 
-     */
     public List<GetUserHierarchyGroupHierarchyPathLevelOne> levelOnes() {
         return this.levelOnes;
     }
-    /**
-     * @return Details of level three. See below.
-     * 
-     */
     public List<GetUserHierarchyGroupHierarchyPathLevelThree> levelThrees() {
         return this.levelThrees;
     }
-    /**
-     * @return Details of level two. See below.
-     * 
-     */
     public List<GetUserHierarchyGroupHierarchyPathLevelTwo> levelTwos() {
         return this.levelTwos;
     }

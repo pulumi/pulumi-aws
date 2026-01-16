@@ -13,33 +13,11 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleConditionResult
     {
-        /// <summary>
-        /// Host header patterns to match.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHostHeaderResult> HostHeaders;
-        /// <summary>
-        /// HTTP header and values to match.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpHeaderResult> HttpHeaders;
-        /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of HTTP request methods.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpRequestMethodResult> HttpRequestMethods;
-        /// <summary>
-        /// Path patterns to compare against the request URL.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionPathPatternResult> PathPatterns;
-        /// <summary>
-        /// Query string parameters to match.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionQueryStringResult> QueryStrings;
-        /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of source IPs in CIDR notation.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionSourceIpResult> SourceIps;
 
         [OutputConstructor]

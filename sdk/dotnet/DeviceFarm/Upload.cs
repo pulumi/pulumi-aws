@@ -9,102 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DeviceFarm
 {
-    /// <summary>
-    /// Provides a resource to manage AWS Device Farm Uploads.
-    /// 
-    /// &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DeviceFarm.Project("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleUpload = new Aws.DeviceFarm.Upload("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ProjectArn = example.Arn,
-    ///         Type = "APPIUM_JAVA_TESTNG_TEST_SPEC",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
-    /// 
-    /// Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
-    /// 
-    /// % pulumi import aws_devicefarm_upload.example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-    /// </summary>
     [AwsResourceType("aws:devicefarm/upload:Upload")]
     public partial class Upload : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name of this upload.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The upload's category.
-        /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
 
-        /// <summary>
-        /// The upload's content type (for example, application/octet-stream).
-        /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
-        /// <summary>
-        /// The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-        /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
 
-        /// <summary>
-        /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the project for the upload.
-        /// </summary>
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// The presigned Amazon S3 URL that was used to store a file using a PUT request.
-        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -154,33 +85,18 @@ namespace Pulumi.Aws.DeviceFarm
 
     public sealed class UploadArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The upload's content type (for example, application/octet-stream).
-        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
-        /// <summary>
-        /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ARN of the project for the upload.
-        /// </summary>
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -192,57 +108,30 @@ namespace Pulumi.Aws.DeviceFarm
 
     public sealed class UploadState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name of this upload.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The upload's category.
-        /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
 
-        /// <summary>
-        /// The upload's content type (for example, application/octet-stream).
-        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
-        /// <summary>
-        /// The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
-        /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
 
-        /// <summary>
-        /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ARN of the project for the upload.
-        /// </summary>
         [Input("projectArn")]
         public Input<string>? ProjectArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The presigned Amazon S3 URL that was used to store a file using a PUT request.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

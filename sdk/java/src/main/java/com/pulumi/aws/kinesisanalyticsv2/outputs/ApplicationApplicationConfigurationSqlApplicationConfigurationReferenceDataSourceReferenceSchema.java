@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
-    /**
-     * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-     * 
-     */
     private List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns;
-    /**
-     * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-     * 
-     */
     private @Nullable String recordEncoding;
-    /**
-     * @return Specifies the format of the records on the streaming source.
-     * 
-     */
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema() {}
-    /**
-     * @return Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-     * 
-     */
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns() {
         return this.recordColumns;
     }
-    /**
-     * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-     * 
-     */
     public Optional<String> recordEncoding() {
         return Optional.ofNullable(this.recordEncoding);
     }
-    /**
-     * @return Specifies the format of the records on the streaming source.
-     * 
-     */
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat() {
         return this.recordFormat;
     }

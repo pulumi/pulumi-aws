@@ -18,47 +18,23 @@ public final class AllowedImagesSettingsArgs extends com.pulumi.resources.Resour
 
     public static final AllowedImagesSettingsArgs Empty = new AllowedImagesSettingsArgs();
 
-    /**
-     * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     * 
-     */
     @Import(name="imageCriterions")
     private @Nullable Output<List<AllowedImagesSettingsImageCriterionArgs>> imageCriterions;
 
-    /**
-     * @return List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     * 
-     */
     public Optional<Output<List<AllowedImagesSettingsImageCriterionArgs>>> imageCriterions() {
         return Optional.ofNullable(this.imageCriterions);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     * 
-     */
     @Import(name="state", required=true)
     private Output<String> state;
 
-    /**
-     * @return State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
@@ -89,75 +65,33 @@ public final class AllowedImagesSettingsArgs extends com.pulumi.resources.Resour
             $ = new AllowedImagesSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageCriterions List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageCriterions(@Nullable Output<List<AllowedImagesSettingsImageCriterionArgs>> imageCriterions) {
             $.imageCriterions = imageCriterions;
             return this;
         }
 
-        /**
-         * @param imageCriterions List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageCriterions(List<AllowedImagesSettingsImageCriterionArgs> imageCriterions) {
             return imageCriterions(Output.of(imageCriterions));
         }
 
-        /**
-         * @param imageCriterions List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageCriterions(AllowedImagesSettingsImageCriterionArgs... imageCriterions) {
             return imageCriterions(List.of(imageCriterions));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

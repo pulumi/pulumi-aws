@@ -16,32 +16,16 @@ public final class AnalysisSourceEntitySourceTemplateArgs extends com.pulumi.res
 
     public static final AnalysisSourceEntitySourceTemplateArgs Empty = new AnalysisSourceEntitySourceTemplateArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * List of dataset references. See data_set_references.
-     * 
-     */
     @Import(name="dataSetReferences", required=true)
     private Output<List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences;
 
-    /**
-     * @return List of dataset references. See data_set_references.
-     * 
-     */
     public Output<List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences() {
         return this.dataSetReferences;
     }
@@ -71,54 +55,24 @@ public final class AnalysisSourceEntitySourceTemplateArgs extends com.pulumi.res
             $ = new AnalysisSourceEntitySourceTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param dataSetReferences List of dataset references. See data_set_references.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetReferences(Output<List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences) {
             $.dataSetReferences = dataSetReferences;
             return this;
         }
 
-        /**
-         * @param dataSetReferences List of dataset references. See data_set_references.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetReferences(List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs> dataSetReferences) {
             return dataSetReferences(Output.of(dataSetReferences));
         }
 
-        /**
-         * @param dataSetReferences List of dataset references. See data_set_references.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetReferences(AnalysisSourceEntitySourceTemplateDataSetReferenceArgs... dataSetReferences) {
             return dataSetReferences(List.of(dataSetReferences));
         }

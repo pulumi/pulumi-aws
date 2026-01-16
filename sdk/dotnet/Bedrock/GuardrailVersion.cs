@@ -9,74 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Resource for managing an AWS Bedrock Guardrail Version.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.GuardrailVersion("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         GuardrailArn = test.GuardrailArn,
-    ///         SkipDestroy = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/guardrailVersion:GuardrailVersion")]
     public partial class GuardrailVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Description of the Guardrail version.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Guardrail ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("guardrailArn")]
         public Output<string> GuardrailArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
-        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.GuardrailVersionTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Guardrail version.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -126,29 +76,15 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GuardrailVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the Guardrail version.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Guardrail ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("guardrailArn", required: true)]
         public Input<string> GuardrailArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -163,38 +99,21 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class GuardrailVersionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the Guardrail version.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Guardrail ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("guardrailArn")]
         public Input<string>? GuardrailArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.GuardrailVersionTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Guardrail version.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SES domain identity resource
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * ```
- *
- * ### With Route53 Record
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
- *     zoneId: "ABCDEFGHIJ123",
- *     name: "_amazonses.example.com",
- *     type: aws.route53.RecordType.TXT,
- *     ttl: 600,
- *     records: [example.verificationToken],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SES domain identities using the domain name. For example:
- *
- * ```sh
- * $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
- * ```
- */
 export class DomainIdentity extends pulumi.CustomResource {
     /**
      * Get an existing DomainIdentity resource's state with the given name, ID, and optional extra
@@ -70,21 +32,9 @@ export class DomainIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainIdentity.__pulumiType;
     }
 
-    /**
-     * The ARN of the domain identity.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The domain name to assign to SES
-     */
     declare public readonly domain: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-     */
     declare public /*out*/ readonly verificationToken: pulumi.Output<string>;
 
     /**
@@ -123,21 +73,9 @@ export class DomainIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainIdentity resources.
  */
 export interface DomainIdentityState {
-    /**
-     * The ARN of the domain identity.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The domain name to assign to SES
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-     */
     verificationToken?: pulumi.Input<string>;
 }
 
@@ -145,12 +83,6 @@ export interface DomainIdentityState {
  * The set of arguments for constructing a DomainIdentity resource.
  */
 export interface DomainIdentityArgs {
-    /**
-     * The domain name to assign to SES
-     */
     domain: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

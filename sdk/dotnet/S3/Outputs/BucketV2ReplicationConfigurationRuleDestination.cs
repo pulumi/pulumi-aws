@@ -13,34 +13,12 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketV2ReplicationConfigurationRuleDestination
     {
-        /// <summary>
-        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `AccountId` owner override configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> AccessControlTranslations;
-        /// <summary>
-        /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `AccessControlTranslation` override configuration.
-        /// </summary>
         public readonly string? AccountId;
-        /// <summary>
-        /// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Enables replication metrics (required for S3 RTC) (documented below).
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationMetric> Metrics;
-        /// <summary>
-        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-        /// `SseKmsEncryptedObjects` source selection criteria.
-        /// </summary>
         public readonly string? ReplicaKmsKeyId;
-        /// <summary>
-        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTime> ReplicationTimes;
-        /// <summary>
-        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
-        /// </summary>
         public readonly string? StorageClass;
 
         [OutputConstructor]

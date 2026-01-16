@@ -17,96 +17,44 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LoggingArgs Empty = new LoggingArgs();
 
-    /**
-     * Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * Identifier of the source cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return Identifier of the source cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * Log destination type. Valid values are `s3` and `cloudwatch`.
-     * 
-     */
     @Import(name="logDestinationType")
     private @Nullable Output<String> logDestinationType;
 
-    /**
-     * @return Log destination type. Valid values are `s3` and `cloudwatch`.
-     * 
-     */
     public Optional<Output<String>> logDestinationType() {
         return Optional.ofNullable(this.logDestinationType);
     }
 
-    /**
-     * Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-     * 
-     */
     @Import(name="logExports")
     private @Nullable Output<List<String>> logExports;
 
-    /**
-     * @return Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-     * 
-     */
     public Optional<Output<List<String>>> logExports() {
         return Optional.ofNullable(this.logExports);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Prefix applied to the log file names.
-     * 
-     */
     @Import(name="s3KeyPrefix")
     private @Nullable Output<String> s3KeyPrefix;
 
-    /**
-     * @return Prefix applied to the log file names.
-     * 
-     */
     public Optional<Output<String>> s3KeyPrefix() {
         return Optional.ofNullable(this.s3KeyPrefix);
     }
@@ -140,142 +88,60 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LoggingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param clusterIdentifier Identifier of the source cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier Identifier of the source cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param logDestinationType Log destination type. Valid values are `s3` and `cloudwatch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDestinationType(@Nullable Output<String> logDestinationType) {
             $.logDestinationType = logDestinationType;
             return this;
         }
 
-        /**
-         * @param logDestinationType Log destination type. Valid values are `s3` and `cloudwatch`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logDestinationType(String logDestinationType) {
             return logDestinationType(Output.of(logDestinationType));
         }
 
-        /**
-         * @param logExports Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logExports(@Nullable Output<List<String>> logExports) {
             $.logExports = logExports;
             return this;
         }
 
-        /**
-         * @param logExports Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logExports(List<String> logExports) {
             return logExports(Output.of(logExports));
         }
 
-        /**
-         * @param logExports Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logExports(String... logExports) {
             return logExports(List.of(logExports));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param s3KeyPrefix Prefix applied to the log file names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KeyPrefix(@Nullable Output<String> s3KeyPrefix) {
             $.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
 
-        /**
-         * @param s3KeyPrefix Prefix applied to the log file names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             return s3KeyPrefix(Output.of(s3KeyPrefix));
         }

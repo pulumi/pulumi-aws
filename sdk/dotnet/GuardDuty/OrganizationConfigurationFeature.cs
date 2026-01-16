@@ -9,74 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
-    /// 
-    /// &gt; **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource is simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.OrganizationConfigurationFeature("eks_runtime_monitoring", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         Name = "EKS_RUNTIME_MONITORING",
-    ///         AutoEnable = "ALL",
-    ///         AdditionalConfigurations = new[]
-    ///         {
-    ///             new Aws.GuardDuty.Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 AutoEnable = "NEW",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")]
     public partial class OrganizationConfigurationFeature : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-        /// </summary>
         [Output("additionalConfigurations")]
         public Output<ImmutableArray<Outputs.OrganizationConfigurationFeatureAdditionalConfiguration>> AdditionalConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        /// </summary>
         [Output("autoEnable")]
         public Output<string> AutoEnable { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the detector that configures the delegated administrator.
-        /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -128,37 +75,21 @@ namespace Pulumi.Aws.GuardDuty
     {
         [Input("additionalConfigurations")]
         private InputList<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs>? _additionalConfigurations;
-
-        /// <summary>
-        /// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-        /// </summary>
         public InputList<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs> AdditionalConfigurations
         {
             get => _additionalConfigurations ?? (_additionalConfigurations = new InputList<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs>());
             set => _additionalConfigurations = value;
         }
 
-        /// <summary>
-        /// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        /// </summary>
         [Input("autoEnable", required: true)]
         public Input<string> AutoEnable { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the detector that configures the delegated administrator.
-        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -172,37 +103,21 @@ namespace Pulumi.Aws.GuardDuty
     {
         [Input("additionalConfigurations")]
         private InputList<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationGetArgs>? _additionalConfigurations;
-
-        /// <summary>
-        /// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
-        /// </summary>
         public InputList<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationGetArgs> AdditionalConfigurations
         {
             get => _additionalConfigurations ?? (_additionalConfigurations = new InputList<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationGetArgs>());
             set => _additionalConfigurations = value;
         }
 
-        /// <summary>
-        /// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        /// </summary>
         [Input("autoEnable")]
         public Input<string>? AutoEnable { get; set; }
 
-        /// <summary>
-        /// The ID of the detector that configures the delegated administrator.
-        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
-        /// <summary>
-        /// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Batch
 {
     public static class GetJobQueue
     {
-        /// <summary>
-        /// The Batch Job Queue data source allows access to details of a specific
-        /// job queue within AWS Batch.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
-        ///     {
-        ///         Name = "tf-test-batch-job-queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetJobQueueResult> InvokeAsync(GetJobQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Batch Job Queue data source allows access to details of a specific
-        /// job queue within AWS Batch.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
-        ///     {
-        ///         Name = "tf-test-batch-job-queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Batch Job Queue data source allows access to details of a specific
-        /// job queue within AWS Batch.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
-        ///     {
-        ///         Name = "tf-test-batch-job-queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());
     }
@@ -90,24 +24,14 @@ namespace Pulumi.Aws.Batch
 
     public sealed class GetJobQueueArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the job queue.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -122,24 +46,14 @@ namespace Pulumi.Aws.Batch
 
     public sealed class GetJobQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the job queue.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -156,56 +70,20 @@ namespace Pulumi.Aws.Batch
     [OutputType]
     public sealed class GetJobQueueResult
     {
-        /// <summary>
-        /// ARN of the job queue.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The compute environments that are attached to the job queue and the order in
-        /// which job placement is preferred. Compute environments are selected for job placement in ascending order.
-        /// * `compute_environment_order.#.order` - The order of the compute environment.
-        /// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrderResult> ComputeEnvironmentOrders;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
-        /// * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
-        /// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
-        /// * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
-        /// * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobQueueJobStateTimeLimitActionResult> JobStateTimeLimitActions;
         public readonly string Name;
-        /// <summary>
-        /// Priority of the job queue. Job queues with a higher priority are evaluated first when
-        /// associated with the same compute environment.
-        /// </summary>
         public readonly int Priority;
         public readonly string Region;
-        /// <summary>
-        /// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
-        /// </summary>
         public readonly string SchedulingPolicyArn;
-        /// <summary>
-        /// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Current status of the job queue (for example, `CREATING` or `VALID`).
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Short, human-readable string to provide additional details about the current status
-        /// of the job queue.
-        /// </summary>
         public readonly string StatusReason;
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

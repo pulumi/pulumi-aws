@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorRegionsOfInterest
     {
         /// <summary>
-        /// Box representing a region of interest on screen. Only 1 per region is allowed. See `BoundingBox`.
+        /// The box representing a region of interest on screen.
         /// </summary>
         public readonly Outputs.StreamProcessorRegionsOfInterestBoundingBox BoundingBox;
         /// <summary>
-        /// Shape made up of up to 10 Point objects to define a region of interest. See `Polygon`.
+        /// Specifies a shape made of 3 to 10 Point objects that define a region of interest.
         /// </summary>
         public readonly ImmutableArray<Outputs.StreamProcessorRegionsOfInterestPolygon> Polygons;
 

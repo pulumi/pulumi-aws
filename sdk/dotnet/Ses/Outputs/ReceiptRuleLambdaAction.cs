@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ses.Outputs
     [OutputType]
     public sealed class ReceiptRuleLambdaAction
     {
-        /// <summary>
-        /// The ARN of the Lambda function to invoke
-        /// </summary>
         public readonly string FunctionArn;
-        /// <summary>
-        /// `Event` or `RequestResponse`
-        /// </summary>
         public readonly string? InvocationType;
-        /// <summary>
-        /// The position of the action in the receipt rule
-        /// </summary>
         public readonly int Position;
-        /// <summary>
-        /// The ARN of an SNS topic to notify
-        /// </summary>
         public readonly string? TopicArn;
 
         [OutputConstructor]

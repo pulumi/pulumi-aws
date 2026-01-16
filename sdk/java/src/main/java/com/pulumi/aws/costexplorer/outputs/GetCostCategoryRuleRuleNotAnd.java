@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleRuleNotAnd {
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleNotAndCostCategory> costCategories;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleNotAndDimension> dimensions;
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleNotAndTag> tags;
 
     private GetCostCategoryRuleRuleNotAnd() {}
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleNotAndCostCategory> costCategories() {
         return this.costCategories;
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleNotAndDimension> dimensions() {
         return this.dimensions;
     }
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleNotAndTag> tags() {
         return this.tags;
     }

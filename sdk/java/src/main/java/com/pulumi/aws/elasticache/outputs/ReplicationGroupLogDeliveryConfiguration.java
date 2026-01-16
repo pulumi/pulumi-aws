@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class ReplicationGroupLogDeliveryConfiguration {
-    /**
-     * @return Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-     * 
-     */
     private String destination;
-    /**
-     * @return For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-     * 
-     */
     private String destinationType;
-    /**
-     * @return Valid values are `json` or `text`
-     * 
-     */
     private String logFormat;
-    /**
-     * @return Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-     * 
-     */
     private String logType;
 
     private ReplicationGroupLogDeliveryConfiguration() {}
-    /**
-     * @return Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-     * 
-     */
     public String destination() {
         return this.destination;
     }
-    /**
-     * @return For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-     * 
-     */
     public String destinationType() {
         return this.destinationType;
     }
-    /**
-     * @return Valid values are `json` or `text`
-     * 
-     */
     public String logFormat() {
         return this.logFormat;
     }
-    /**
-     * @return Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-     * 
-     */
     public String logType() {
         return this.logType;
     }

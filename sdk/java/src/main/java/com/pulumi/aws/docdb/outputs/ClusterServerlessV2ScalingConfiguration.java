@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterServerlessV2ScalingConfiguration {
-    /**
-     * @return Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-     * 
-     */
     private Double maxCapacity;
-    /**
-     * @return Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-     * 
-     */
     private Double minCapacity;
 
     private ClusterServerlessV2ScalingConfiguration() {}
-    /**
-     * @return Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-     * 
-     */
     public Double maxCapacity() {
         return this.maxCapacity;
     }
-    /**
-     * @return Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-     * 
-     */
     public Double minCapacity() {
         return this.minCapacity;
     }

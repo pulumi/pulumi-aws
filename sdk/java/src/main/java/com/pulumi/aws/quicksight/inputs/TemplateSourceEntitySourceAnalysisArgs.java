@@ -16,32 +16,16 @@ public final class TemplateSourceEntitySourceAnalysisArgs extends com.pulumi.res
 
     public static final TemplateSourceEntitySourceAnalysisArgs Empty = new TemplateSourceEntitySourceAnalysisArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * A list of dataset references used as placeholders in the template. See data_set_references.
-     * 
-     */
     @Import(name="dataSetReferences", required=true)
     private Output<List<TemplateSourceEntitySourceAnalysisDataSetReferenceArgs>> dataSetReferences;
 
-    /**
-     * @return A list of dataset references used as placeholders in the template. See data_set_references.
-     * 
-     */
     public Output<List<TemplateSourceEntitySourceAnalysisDataSetReferenceArgs>> dataSetReferences() {
         return this.dataSetReferences;
     }
@@ -71,54 +55,24 @@ public final class TemplateSourceEntitySourceAnalysisArgs extends com.pulumi.res
             $ = new TemplateSourceEntitySourceAnalysisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param dataSetReferences A list of dataset references used as placeholders in the template. See data_set_references.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetReferences(Output<List<TemplateSourceEntitySourceAnalysisDataSetReferenceArgs>> dataSetReferences) {
             $.dataSetReferences = dataSetReferences;
             return this;
         }
 
-        /**
-         * @param dataSetReferences A list of dataset references used as placeholders in the template. See data_set_references.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetReferences(List<TemplateSourceEntitySourceAnalysisDataSetReferenceArgs> dataSetReferences) {
             return dataSetReferences(Output.of(dataSetReferences));
         }
 
-        /**
-         * @param dataSetReferences A list of dataset references used as placeholders in the template. See data_set_references.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetReferences(TemplateSourceEntitySourceAnalysisDataSetReferenceArgs... dataSetReferences) {
             return dataSetReferences(List.of(dataSetReferences));
         }

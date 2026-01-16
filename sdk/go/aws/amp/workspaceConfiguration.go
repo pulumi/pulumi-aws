@@ -12,122 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Managed Service for Prometheus Workspace Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amp.NewWorkspace(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId:           example.ID(),
-//				RetentionPeriodInDays: pulumi.Int(60),
-//				LimitsPerLabelSets: amp.WorkspaceConfigurationLimitsPerLabelSetArray{
-//					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
-//						LabelSet: pulumi.StringMap{
-//							"env": pulumi.String("dev"),
-//						},
-//						Limits: &amp.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{
-//							MaxSeries: pulumi.Int(100000),
-//						},
-//					},
-//					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
-//						LabelSet: pulumi.StringMap{
-//							"env": pulumi.String("prod"),
-//						},
-//						Limits: &amp.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{
-//							MaxSeries: pulumi.Int(400000),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Setting up default bucket
-//
-// The default bucket limit is the maximum number of active time series that can be
-// ingested in the workspace, counting only time series that don’t match a defined
-// label set.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amp.NewWorkspace(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId: example.ID(),
-//				LimitsPerLabelSets: amp.WorkspaceConfigurationLimitsPerLabelSetArray{
-//					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
-//						LabelSet: pulumi.StringMap{},
-//						Limits: &amp.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{
-//							MaxSeries: pulumi.Int(50000),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspace_id`. For example
-//
-// ```sh
-// $ pulumi import aws:amp/workspaceConfiguration:WorkspaceConfiguration example ws-12345678-abcd-1234-abcd-123456789012
-// ```
 type WorkspaceConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayOutput `pulumi:"limitsPerLabelSets"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Number of days to retain metric data in the workspace.
-	RetentionPeriodInDays pulumi.IntOutput                        `pulumi:"retentionPeriodInDays"`
-	Timeouts              WorkspaceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// ID of the workspace to configure.
-	//
-	// The following arguments are optional:
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	LimitsPerLabelSets    WorkspaceConfigurationLimitsPerLabelSetArrayOutput `pulumi:"limitsPerLabelSets"`
+	Region                pulumi.StringOutput                                `pulumi:"region"`
+	RetentionPeriodInDays pulumi.IntOutput                                   `pulumi:"retentionPeriodInDays"`
+	Timeouts              WorkspaceConfigurationTimeoutsPtrOutput            `pulumi:"timeouts"`
+	WorkspaceId           pulumi.StringOutput                                `pulumi:"workspaceId"`
 }
 
 // NewWorkspaceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -163,31 +55,19 @@ func GetWorkspaceConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceConfiguration resources.
 type workspaceConfigurationState struct {
-	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Number of days to retain metric data in the workspace.
-	RetentionPeriodInDays *int                            `pulumi:"retentionPeriodInDays"`
-	Timeouts              *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
-	// ID of the workspace to configure.
-	//
-	// The following arguments are optional:
-	WorkspaceId *string `pulumi:"workspaceId"`
+	LimitsPerLabelSets    []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	Region                *string                                   `pulumi:"region"`
+	RetentionPeriodInDays *int                                      `pulumi:"retentionPeriodInDays"`
+	Timeouts              *WorkspaceConfigurationTimeouts           `pulumi:"timeouts"`
+	WorkspaceId           *string                                   `pulumi:"workspaceId"`
 }
 
 type WorkspaceConfigurationState struct {
-	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Number of days to retain metric data in the workspace.
+	LimitsPerLabelSets    WorkspaceConfigurationLimitsPerLabelSetArrayInput
+	Region                pulumi.StringPtrInput
 	RetentionPeriodInDays pulumi.IntPtrInput
 	Timeouts              WorkspaceConfigurationTimeoutsPtrInput
-	// ID of the workspace to configure.
-	//
-	// The following arguments are optional:
-	WorkspaceId pulumi.StringPtrInput
+	WorkspaceId           pulumi.StringPtrInput
 }
 
 func (WorkspaceConfigurationState) ElementType() reflect.Type {
@@ -195,32 +75,20 @@ func (WorkspaceConfigurationState) ElementType() reflect.Type {
 }
 
 type workspaceConfigurationArgs struct {
-	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Number of days to retain metric data in the workspace.
-	RetentionPeriodInDays *int                            `pulumi:"retentionPeriodInDays"`
-	Timeouts              *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
-	// ID of the workspace to configure.
-	//
-	// The following arguments are optional:
-	WorkspaceId string `pulumi:"workspaceId"`
+	LimitsPerLabelSets    []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	Region                *string                                   `pulumi:"region"`
+	RetentionPeriodInDays *int                                      `pulumi:"retentionPeriodInDays"`
+	Timeouts              *WorkspaceConfigurationTimeouts           `pulumi:"timeouts"`
+	WorkspaceId           string                                    `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceConfiguration resource.
 type WorkspaceConfigurationArgs struct {
-	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
-	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Number of days to retain metric data in the workspace.
+	LimitsPerLabelSets    WorkspaceConfigurationLimitsPerLabelSetArrayInput
+	Region                pulumi.StringPtrInput
 	RetentionPeriodInDays pulumi.IntPtrInput
 	Timeouts              WorkspaceConfigurationTimeoutsPtrInput
-	// ID of the workspace to configure.
-	//
-	// The following arguments are optional:
-	WorkspaceId pulumi.StringInput
+	WorkspaceId           pulumi.StringInput
 }
 
 func (WorkspaceConfigurationArgs) ElementType() reflect.Type {
@@ -310,19 +178,16 @@ func (o WorkspaceConfigurationOutput) ToWorkspaceConfigurationOutputWithContext(
 	return o
 }
 
-// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 func (o WorkspaceConfigurationOutput) LimitsPerLabelSets() WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
 		return v.LimitsPerLabelSets
 	}).(WorkspaceConfigurationLimitsPerLabelSetArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Number of days to retain metric data in the workspace.
 func (o WorkspaceConfigurationOutput) RetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.IntOutput { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
 }
@@ -331,9 +196,6 @@ func (o WorkspaceConfigurationOutput) Timeouts() WorkspaceConfigurationTimeoutsP
 	return o.ApplyT(func(v *WorkspaceConfiguration) WorkspaceConfigurationTimeoutsPtrOutput { return v.Timeouts }).(WorkspaceConfigurationTimeoutsPtrOutput)
 }
 
-// ID of the workspace to configure.
-//
-// The following arguments are optional:
 func (o WorkspaceConfigurationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

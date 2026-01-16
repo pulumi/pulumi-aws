@@ -23,122 +23,58 @@ public final class FilterFilterCriteriaVulnerablePackageArgs extends com.pulumi.
 
     public static final FilterFilterCriteriaVulnerablePackageArgs Empty = new FilterFilterCriteriaVulnerablePackageArgs();
 
-    /**
-     * (Optional) The architecture of the package. Documented below.
-     * 
-     */
     @Import(name="architecture")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageArchitectureArgs> architecture;
 
-    /**
-     * @return (Optional) The architecture of the package. Documented below.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageArchitectureArgs>> architecture() {
         return Optional.ofNullable(this.architecture);
     }
 
-    /**
-     * (Optional) The epoch of the package. Documented below.
-     * 
-     */
     @Import(name="epoches")
     private @Nullable Output<List<FilterFilterCriteriaVulnerablePackageEpochArgs>> epoches;
 
-    /**
-     * @return (Optional) The epoch of the package. Documented below.
-     * 
-     */
     public Optional<Output<List<FilterFilterCriteriaVulnerablePackageEpochArgs>>> epoches() {
         return Optional.ofNullable(this.epoches);
     }
 
-    /**
-     * (Optional) The name of the package. Documented below.
-     * 
-     */
     @Import(name="filePath")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageFilePathArgs> filePath;
 
-    /**
-     * @return (Optional) The name of the package. Documented below.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageFilePathArgs>> filePath() {
         return Optional.ofNullable(this.filePath);
     }
 
-    /**
-     * Name of the filter.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageNameArgs> name;
 
-    /**
-     * @return Name of the filter.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageNameArgs>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * (Optional) The release of the package. Documented below.
-     * 
-     */
     @Import(name="release")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageReleaseArgs> release;
 
-    /**
-     * @return (Optional) The release of the package. Documented below.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageReleaseArgs>> release() {
         return Optional.ofNullable(this.release);
     }
 
-    /**
-     * (Optional) The ARN of the package&#39;s source lambda layer. Documented below.
-     * 
-     */
     @Import(name="sourceLambdaLayerArn")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs> sourceLambdaLayerArn;
 
-    /**
-     * @return (Optional) The ARN of the package&#39;s source lambda layer. Documented below.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs>> sourceLambdaLayerArn() {
         return Optional.ofNullable(this.sourceLambdaLayerArn);
     }
 
-    /**
-     * (Optional) The source layer hash of the package. Documented below.
-     * 
-     */
     @Import(name="sourceLayerHash")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs> sourceLayerHash;
 
-    /**
-     * @return (Optional) The source layer hash of the package. Documented below.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs>> sourceLayerHash() {
         return Optional.ofNullable(this.sourceLayerHash);
     }
 
-    /**
-     * (Optional) The version of the package. Documented below.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<FilterFilterCriteriaVulnerablePackageVersionArgs> version;
 
-    /**
-     * @return (Optional) The version of the package. Documented below.
-     * 
-     */
     public Optional<Output<FilterFilterCriteriaVulnerablePackageVersionArgs>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -174,180 +110,78 @@ public final class FilterFilterCriteriaVulnerablePackageArgs extends com.pulumi.
             $ = new FilterFilterCriteriaVulnerablePackageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param architecture (Optional) The architecture of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder architecture(@Nullable Output<FilterFilterCriteriaVulnerablePackageArchitectureArgs> architecture) {
             $.architecture = architecture;
             return this;
         }
 
-        /**
-         * @param architecture (Optional) The architecture of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder architecture(FilterFilterCriteriaVulnerablePackageArchitectureArgs architecture) {
             return architecture(Output.of(architecture));
         }
 
-        /**
-         * @param epoches (Optional) The epoch of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder epoches(@Nullable Output<List<FilterFilterCriteriaVulnerablePackageEpochArgs>> epoches) {
             $.epoches = epoches;
             return this;
         }
 
-        /**
-         * @param epoches (Optional) The epoch of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder epoches(List<FilterFilterCriteriaVulnerablePackageEpochArgs> epoches) {
             return epoches(Output.of(epoches));
         }
 
-        /**
-         * @param epoches (Optional) The epoch of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder epoches(FilterFilterCriteriaVulnerablePackageEpochArgs... epoches) {
             return epoches(List.of(epoches));
         }
 
-        /**
-         * @param filePath (Optional) The name of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filePath(@Nullable Output<FilterFilterCriteriaVulnerablePackageFilePathArgs> filePath) {
             $.filePath = filePath;
             return this;
         }
 
-        /**
-         * @param filePath (Optional) The name of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filePath(FilterFilterCriteriaVulnerablePackageFilePathArgs filePath) {
             return filePath(Output.of(filePath));
         }
 
-        /**
-         * @param name Name of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<FilterFilterCriteriaVulnerablePackageNameArgs> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(FilterFilterCriteriaVulnerablePackageNameArgs name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param release (Optional) The release of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder release(@Nullable Output<FilterFilterCriteriaVulnerablePackageReleaseArgs> release) {
             $.release = release;
             return this;
         }
 
-        /**
-         * @param release (Optional) The release of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder release(FilterFilterCriteriaVulnerablePackageReleaseArgs release) {
             return release(Output.of(release));
         }
 
-        /**
-         * @param sourceLambdaLayerArn (Optional) The ARN of the package&#39;s source lambda layer. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceLambdaLayerArn(@Nullable Output<FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs> sourceLambdaLayerArn) {
             $.sourceLambdaLayerArn = sourceLambdaLayerArn;
             return this;
         }
 
-        /**
-         * @param sourceLambdaLayerArn (Optional) The ARN of the package&#39;s source lambda layer. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceLambdaLayerArn(FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs sourceLambdaLayerArn) {
             return sourceLambdaLayerArn(Output.of(sourceLambdaLayerArn));
         }
 
-        /**
-         * @param sourceLayerHash (Optional) The source layer hash of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceLayerHash(@Nullable Output<FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs> sourceLayerHash) {
             $.sourceLayerHash = sourceLayerHash;
             return this;
         }
 
-        /**
-         * @param sourceLayerHash (Optional) The source layer hash of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceLayerHash(FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs sourceLayerHash) {
             return sourceLayerHash(Output.of(sourceLayerHash));
         }
 
-        /**
-         * @param version (Optional) The version of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<FilterFilterCriteriaVulnerablePackageVersionArgs> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version (Optional) The version of the package. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(FilterFilterCriteriaVulnerablePackageVersionArgs version) {
             return version(Output.of(version));
         }

@@ -14,17 +14,9 @@ public final class WorkgroupConfigurationResultConfigurationAclConfigurationArgs
 
     public static final WorkgroupConfigurationResultConfigurationAclConfigurationArgs Empty = new WorkgroupConfigurationResultConfigurationAclConfigurationArgs();
 
-    /**
-     * Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-     * 
-     */
     @Import(name="s3AclOption", required=true)
     private Output<String> s3AclOption;
 
-    /**
-     * @return Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-     * 
-     */
     public Output<String> s3AclOption() {
         return this.s3AclOption;
     }
@@ -53,23 +45,11 @@ public final class WorkgroupConfigurationResultConfigurationAclConfigurationArgs
             $ = new WorkgroupConfigurationResultConfigurationAclConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3AclOption Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AclOption(Output<String> s3AclOption) {
             $.s3AclOption = s3AclOption;
             return this;
         }
 
-        /**
-         * @param s3AclOption Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3AclOption(String s3AclOption) {
             return s3AclOption(Output.of(s3AclOption));
         }

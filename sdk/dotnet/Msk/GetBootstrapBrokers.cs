@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Msk
 {
     public static class GetBootstrapBrokers
     {
-        /// <summary>
-        /// Get a list of brokers that a client application can use to bootstrap.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetBootstrapBrokers.Invoke(new()
-        ///     {
-        ///         ClusterArn = exampleAwsMskCluster.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetBootstrapBrokersResult> InvokeAsync(GetBootstrapBrokersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get a list of brokers that a client application can use to bootstrap.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetBootstrapBrokers.Invoke(new()
-        ///     {
-        ///         ClusterArn = exampleAwsMskCluster.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetBootstrapBrokersResult> Invoke(GetBootstrapBrokersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get a list of brokers that a client application can use to bootstrap.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetBootstrapBrokers.Invoke(new()
-        ///     {
-        ///         ClusterArn = exampleAwsMskCluster.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetBootstrapBrokersResult> Invoke(GetBootstrapBrokersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Msk
 
     public sealed class GetBootstrapBrokersArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the cluster the nodes belong to.
-        /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Msk
 
     public sealed class GetBootstrapBrokersInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the cluster the nodes belong to.
-        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,45 +54,15 @@ namespace Pulumi.Aws.Msk
     [OutputType]
     public sealed class GetBootstrapBrokersResult
     {
-        /// <summary>
-        /// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
-        /// </summary>
         public readonly string BootstrapBrokers;
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs.
-        /// </summary>
         public readonly string BootstrapBrokersPublicSaslIam;
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-        /// </summary>
         public readonly string BootstrapBrokersPublicSaslScram;
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and TLS port pairs.
-        /// </summary>
         public readonly string BootstrapBrokersPublicTls;
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs.
-        /// </summary>
         public readonly string BootstrapBrokersSaslIam;
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
-        /// </summary>
         public readonly string BootstrapBrokersSaslScram;
-        /// <summary>
-        /// One or more DNS names (or IP addresses) and TLS port pairs.
-        /// </summary>
         public readonly string BootstrapBrokersTls;
-        /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
-        /// </summary>
         public readonly string BootstrapBrokersVpcConnectivitySaslIam;
-        /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
-        /// </summary>
         public readonly string BootstrapBrokersVpcConnectivitySaslScram;
-        /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
-        /// </summary>
         public readonly string BootstrapBrokersVpcConnectivityTls;
         public readonly string ClusterArn;
         /// <summary>

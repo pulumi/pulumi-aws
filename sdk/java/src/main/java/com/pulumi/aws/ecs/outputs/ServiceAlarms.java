@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceAlarms {
-    /**
-     * @return One or more CloudWatch alarm names.
-     * 
-     */
     private List<String> alarmNames;
-    /**
-     * @return Whether to use the CloudWatch alarm option in the service deployment process.
-     * 
-     */
     private Boolean enable;
-    /**
-     * @return Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     private Boolean rollback;
 
     private ServiceAlarms() {}
-    /**
-     * @return One or more CloudWatch alarm names.
-     * 
-     */
     public List<String> alarmNames() {
         return this.alarmNames;
     }
-    /**
-     * @return Whether to use the CloudWatch alarm option in the service deployment process.
-     * 
-     */
     public Boolean enable() {
         return this.enable;
     }
-    /**
-     * @return Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     public Boolean rollback() {
         return this.rollback;
     }

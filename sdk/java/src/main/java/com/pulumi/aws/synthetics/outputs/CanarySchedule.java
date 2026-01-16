@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CanarySchedule {
-    /**
-     * @return Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
-     * 
-     */
     private @Nullable Integer durationInSeconds;
-    /**
-     * @return Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
-     * 
-     */
     private String expression;
-    /**
-     * @return Configuration block for canary retries. Detailed below.
-     * 
-     */
     private @Nullable CanaryScheduleRetryConfig retryConfig;
 
     private CanarySchedule() {}
-    /**
-     * @return Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
-     * 
-     */
     public Optional<Integer> durationInSeconds() {
         return Optional.ofNullable(this.durationInSeconds);
     }
-    /**
-     * @return Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
-     * 
-     */
     public String expression() {
         return this.expression;
     }
-    /**
-     * @return Configuration block for canary retries. Detailed below.
-     * 
-     */
     public Optional<CanaryScheduleRetryConfig> retryConfig() {
         return Optional.ofNullable(this.retryConfig);
     }

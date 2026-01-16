@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an EC2 placement group. Read more about placement groups
- * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const web = new aws.ec2.PlacementGroup("web", {
- *     name: "hunky-dory-pg",
- *     strategy: aws.ec2.PlacementStrategy.Cluster,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import placement groups using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
- * ```
- */
 export class PlacementGroup extends pulumi.CustomResource {
     /**
      * Get an existing PlacementGroup resource's state with the given name, ID, and optional extra
@@ -59,44 +35,14 @@ export class PlacementGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlacementGroup.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the placement group.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the placement group.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
-     */
     declare public readonly partitionCount: pulumi.Output<number>;
-    /**
-     * The ID of the placement group.
-     */
     declare public /*out*/ readonly placementGroupId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
-     */
     declare public readonly spreadLevel: pulumi.Output<string>;
-    /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
-     */
     declare public readonly strategy: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -145,44 +91,14 @@ export class PlacementGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PlacementGroup resources.
  */
 export interface PlacementGroupState {
-    /**
-     * Amazon Resource Name (ARN) of the placement group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the placement group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
-     */
     partitionCount?: pulumi.Input<number>;
-    /**
-     * The ID of the placement group.
-     */
     placementGroupId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
-     */
     spreadLevel?: pulumi.Input<string>;
-    /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
-     */
     strategy?: pulumi.Input<string | enums.ec2.PlacementStrategy>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -190,31 +106,10 @@ export interface PlacementGroupState {
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
-    /**
-     * The name of the placement group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
-     */
     partitionCount?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
-     */
     spreadLevel?: pulumi.Input<string>;
-    /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
-     */
     strategy: pulumi.Input<string | enums.ec2.PlacementStrategy>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

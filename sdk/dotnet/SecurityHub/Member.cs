@@ -9,81 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Provides a Security Hub member resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    ///     var exampleMember = new Aws.SecurityHub.Member("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         Email = "example@example.com",
-    ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Security Hub members using their account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securityhub/member:Member example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/member:Member")]
     public partial class Member : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the member AWS account.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The email of the member AWS account.
-        /// </summary>
         [Output("email")]
         public Output<string?> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `False`.
-        /// </summary>
         [Output("invite")]
         public Output<bool?> Invite { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the master Security Hub AWS account.
-        /// </summary>
         [Output("masterId")]
         public Output<string> MasterId { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the member account relationship.
-        /// </summary>
         [Output("memberStatus")]
         public Output<string> MemberStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -133,27 +76,15 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the member AWS account.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The email of the member AWS account.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `False`.
-        /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -165,39 +96,21 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class MemberState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the member AWS account.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The email of the member AWS account.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `False`.
-        /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
 
-        /// <summary>
-        /// The ID of the master Security Hub AWS account.
-        /// </summary>
         [Input("masterId")]
         public Input<string>? MasterId { get; set; }
 
-        /// <summary>
-        /// The status of the member account relationship.
-        /// </summary>
         [Input("memberStatus")]
         public Input<string>? MemberStatus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

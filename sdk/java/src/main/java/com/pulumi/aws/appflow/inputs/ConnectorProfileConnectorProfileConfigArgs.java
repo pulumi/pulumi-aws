@@ -15,32 +15,16 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
 
     public static final ConnectorProfileConnectorProfileConfigArgs Empty = new ConnectorProfileConnectorProfileConfigArgs();
 
-    /**
-     * The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-     * 
-     */
     @Import(name="connectorProfileCredentials", required=true)
     private Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs> connectorProfileCredentials;
 
-    /**
-     * @return The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-     * 
-     */
     public Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs> connectorProfileCredentials() {
         return this.connectorProfileCredentials;
     }
 
-    /**
-     * The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-     * 
-     */
     @Import(name="connectorProfileProperties", required=true)
     private Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs> connectorProfileProperties;
 
-    /**
-     * @return The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-     * 
-     */
     public Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs> connectorProfileProperties() {
         return this.connectorProfileProperties;
     }
@@ -70,44 +54,20 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
             $ = new ConnectorProfileConnectorProfileConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectorProfileCredentials The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorProfileCredentials(Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs> connectorProfileCredentials) {
             $.connectorProfileCredentials = connectorProfileCredentials;
             return this;
         }
 
-        /**
-         * @param connectorProfileCredentials The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorProfileCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs connectorProfileCredentials) {
             return connectorProfileCredentials(Output.of(connectorProfileCredentials));
         }
 
-        /**
-         * @param connectorProfileProperties The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorProfileProperties(Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs> connectorProfileProperties) {
             $.connectorProfileProperties = connectorProfileProperties;
             return this;
         }
 
-        /**
-         * @param connectorProfileProperties The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectorProfileProperties(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs connectorProfileProperties) {
             return connectorProfileProperties(Output.of(connectorProfileProperties));
         }

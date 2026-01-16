@@ -17,30 +17,22 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
 
     public static final DrtAccessLogBucketAssociationArgs Empty = new DrtAccessLogBucketAssociationArgs();
 
-    /**
-     * The Amazon S3 bucket that contains the logs that you want to share.
-     * 
-     */
     @Import(name="logBucket", required=true)
     private Output<String> logBucket;
 
-    /**
-     * @return The Amazon S3 bucket that contains the logs that you want to share.
-     * 
-     */
     public Output<String> logBucket() {
         return this.logBucket;
     }
 
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * Unused
      * 
      */
     @Import(name="roleArnAssociationId", required=true)
     private Output<String> roleArnAssociationId;
 
     /**
-     * @return The ID of the Role Arn association used for allowing Shield DRT Access.
+     * @return Unused
      * 
      */
     public Output<String> roleArnAssociationId() {
@@ -80,29 +72,17 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
             $ = new DrtAccessLogBucketAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logBucket The Amazon S3 bucket that contains the logs that you want to share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logBucket(Output<String> logBucket) {
             $.logBucket = logBucket;
             return this;
         }
 
-        /**
-         * @param logBucket The Amazon S3 bucket that contains the logs that you want to share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logBucket(String logBucket) {
             return logBucket(Output.of(logBucket));
         }
 
         /**
-         * @param roleArnAssociationId The ID of the Role Arn association used for allowing Shield DRT Access.
+         * @param roleArnAssociationId Unused
          * 
          * @return builder
          * 
@@ -113,7 +93,7 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param roleArnAssociationId The ID of the Role Arn association used for allowing Shield DRT Access.
+         * @param roleArnAssociationId Unused
          * 
          * @return builder
          * 

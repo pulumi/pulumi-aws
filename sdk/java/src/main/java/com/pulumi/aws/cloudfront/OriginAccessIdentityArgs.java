@@ -15,17 +15,9 @@ public final class OriginAccessIdentityArgs extends com.pulumi.resources.Resourc
 
     public static final OriginAccessIdentityArgs Empty = new OriginAccessIdentityArgs();
 
-    /**
-     * An optional comment for the origin access identity.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return An optional comment for the origin access identity.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
@@ -54,23 +46,11 @@ public final class OriginAccessIdentityArgs extends com.pulumi.resources.Resourc
             $ = new OriginAccessIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment An optional comment for the origin access identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment An optional comment for the origin access identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }

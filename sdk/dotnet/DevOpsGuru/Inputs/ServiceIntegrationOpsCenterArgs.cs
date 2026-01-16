@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DevOpsGuru.Inputs
 
     public sealed class ServiceIntegrationOpsCenterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         [Input("optInStatus")]
         public Input<string>? OptInStatus { get; set; }
 

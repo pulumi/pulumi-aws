@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
-    /**
-     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
-     * 
-     */
     private @Nullable String logGroup;
 
     private ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs() {}
-    /**
-     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
-     * 
-     */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }

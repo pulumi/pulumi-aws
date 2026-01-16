@@ -15,32 +15,16 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs
 
     public static final LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs Empty = new LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs();
 
-    /**
-     * Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
-    /**
-     * @return Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
 
-    /**
-     * The integer number of units for the time period. For example 6 (months).
-     * 
-     */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
-    /**
-     * @return The integer number of units for the time period. For example 6 (months).
-     * 
-     */
     public Output<Integer> value() {
         return this.value;
     }
@@ -70,44 +54,20 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs
             $ = new LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param unit Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value The integer number of units for the time period. For example 6 (months).
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The integer number of units for the time period. For example 6 (months).
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

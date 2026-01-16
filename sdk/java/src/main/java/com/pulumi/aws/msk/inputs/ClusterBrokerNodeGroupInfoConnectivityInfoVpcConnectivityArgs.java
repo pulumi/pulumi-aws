@@ -15,17 +15,9 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs();
 
-    /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
-     * 
-     */
     @Import(name="clientAuthentication")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs> clientAuthentication;
 
-    /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs>> clientAuthentication() {
         return Optional.ofNullable(this.clientAuthentication);
     }
@@ -54,23 +46,11 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAuthentication(@Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs> clientAuthentication) {
             $.clientAuthentication = clientAuthentication;
             return this;
         }
 
-        /**
-         * @param clientAuthentication Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAuthentication(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs clientAuthentication) {
             return clientAuthentication(Output.of(clientAuthentication));
         }

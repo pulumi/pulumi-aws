@@ -12,15 +12,9 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class InsightFiltersProcessTerminatedAtDateRangeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A date range unit for the date filter. Valid values: `DAYS`.
-        /// </summary>
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 
-        /// <summary>
-        /// A date range value for the date filter, provided as an Integer.
-        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

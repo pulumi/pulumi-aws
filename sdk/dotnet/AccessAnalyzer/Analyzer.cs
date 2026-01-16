@@ -9,250 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AccessAnalyzer
 {
-    /// <summary>
-    /// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Account Analyzer
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Organization Analyzer
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.Organization("example", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "access-analyzer.amazonaws.com",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("example", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Organization Unused Access Analyzer With Analysis Rule
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION_UNUSED_ACCESS",
-    ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
-    ///         {
-    ///             UnusedAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessArgs
-    ///             {
-    ///                 UnusedAccessAge = 180,
-    ///                 AnalysisRule = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs
-    ///                 {
-    ///                     Exclusions = new[]
-    ///                     {
-    ///                         new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs
-    ///                         {
-    ///                             AccountIds = new[]
-    ///                             {
-    ///                                 "123456789012",
-    ///                                 "234567890123",
-    ///                             },
-    ///                         },
-    ///                         new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs
-    ///                         {
-    ///                             ResourceTags = new[]
-    ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "key1", "value1" },
-    ///                                 },
-    ///                                 
-    ///                                 {
-    ///                                     { "key2", "value2" },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Account Internal Access Analyzer by Resource Types
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.AccessAnalyzer.Analyzer("test", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION_INTERNAL_ACCESS",
-    ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
-    ///         {
-    ///             InternalAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessArgs
-    ///             {
-    ///                 AnalysisRule = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessAnalysisRuleArgs
-    ///                 {
-    ///                     Inclusions = new[]
-    ///                     {
-    ///                         new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs
-    ///                         {
-    ///                             ResourceTypes = new[]
-    ///                             {
-    ///                                 "AWS::S3::Bucket",
-    ///                                 "AWS::RDS::DBSnapshot",
-    ///                                 "AWS::DynamoDB::Table",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Organization Internal Access Analyzer by Account ID and Resource ARN
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.AccessAnalyzer.Analyzer("test", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION_INTERNAL_ACCESS",
-    ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
-    ///         {
-    ///             InternalAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessArgs
-    ///             {
-    ///                 AnalysisRule = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessAnalysisRuleArgs
-    ///                 {
-    ///                     Inclusions = new[]
-    ///                     {
-    ///                         new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs
-    ///                         {
-    ///                             AccountIds = new[]
-    ///                             {
-    ///                                 "123456789012",
-    ///                             },
-    ///                             ResourceArns = new[]
-    ///                             {
-    ///                                 "arn:aws:s3:::my-example-bucket",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:accessanalyzer/analyzer:Analyzer")]
     public partial class Analyzer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the Analyzer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("analyzerName")]
         public Output<string> AnalyzerName { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Analyzer.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A block that specifies the configuration of the analyzer. See `Configuration` Block for details.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.AnalyzerConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -302,41 +79,23 @@ namespace Pulumi.Aws.AccessAnalyzer
 
     public sealed class AnalyzerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Analyzer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("analyzerName", required: true)]
         public Input<string> AnalyzerName { get; set; } = null!;
 
-        /// <summary>
-        /// A block that specifies the configuration of the analyzer. See `Configuration` Block for details.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.AnalyzerConfigurationArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -348,38 +107,20 @@ namespace Pulumi.Aws.AccessAnalyzer
 
     public sealed class AnalyzerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Analyzer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("analyzerName")]
         public Input<string>? AnalyzerName { get; set; }
 
-        /// <summary>
-        /// ARN of the Analyzer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A block that specifies the configuration of the analyzer. See `Configuration` Block for details.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.AnalyzerConfigurationGetArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -388,19 +129,12 @@ namespace Pulumi.Aws.AccessAnalyzer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

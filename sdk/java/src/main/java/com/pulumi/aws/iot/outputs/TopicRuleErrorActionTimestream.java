@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleErrorActionTimestream {
-    /**
-     * @return The name of an Amazon Timestream database.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-     * 
-     */
     private List<TopicRuleErrorActionTimestreamDimension> dimensions;
-    /**
-     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The name of the database table into which to write the measure records.
-     * 
-     */
     private String tableName;
-    /**
-     * @return Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
-     * 
-     */
     private @Nullable TopicRuleErrorActionTimestreamTimestamp timestamp;
 
     private TopicRuleErrorActionTimestream() {}
-    /**
-     * @return The name of an Amazon Timestream database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-     * 
-     */
     public List<TopicRuleErrorActionTimestreamDimension> dimensions() {
         return this.dimensions;
     }
-    /**
-     * @return The ARN of the role that grants permission to write to the Amazon Timestream database table.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The name of the database table into which to write the measure records.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }
-    /**
-     * @return Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
-     * 
-     */
     public Optional<TopicRuleErrorActionTimestreamTimestamp> timestamp() {
         return Optional.ofNullable(this.timestamp);
     }

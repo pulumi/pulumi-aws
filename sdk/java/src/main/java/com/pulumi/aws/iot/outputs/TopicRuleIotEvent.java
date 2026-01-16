@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleIotEvent {
-    /**
-     * @return The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-     * 
-     */
     private @Nullable Boolean batchMode;
-    /**
-     * @return The name of the AWS IoT Events input.
-     * 
-     */
     private String inputName;
-    /**
-     * @return Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-     * 
-     */
     private @Nullable String messageId;
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleIotEvent() {}
-    /**
-     * @return The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-     * 
-     */
     public Optional<Boolean> batchMode() {
         return Optional.ofNullable(this.batchMode);
     }
-    /**
-     * @return The name of the AWS IoT Events input.
-     * 
-     */
     public String inputName() {
         return this.inputName;
     }
-    /**
-     * @return Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-     * 
-     */
     public Optional<String> messageId() {
         return Optional.ofNullable(this.messageId);
     }
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

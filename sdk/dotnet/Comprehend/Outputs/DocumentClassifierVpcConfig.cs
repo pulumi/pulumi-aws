@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class DocumentClassifierVpcConfig
     {
-        /// <summary>
-        /// List of security group IDs.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of VPC subnets.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

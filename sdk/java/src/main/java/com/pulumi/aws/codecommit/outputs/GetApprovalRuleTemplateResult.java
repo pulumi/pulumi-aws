@@ -10,75 +10,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApprovalRuleTemplateResult {
-    /**
-     * @return The ID of the approval rule template.
-     * 
-     */
     private String approvalRuleTemplateId;
-    /**
-     * @return Content of the approval rule template.
-     * 
-     */
     private String content;
-    /**
-     * @return Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private String creationDate;
-    /**
-     * @return Description of the approval rule template.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     private String lastModifiedDate;
-    /**
-     * @return ARN of the user who made the most recent changes to the approval rule template.
-     * 
-     */
     private String lastModifiedUser;
     private String name;
     private String region;
-    /**
-     * @return SHA-256 hash signature for the content of the approval rule template.
-     * 
-     */
     private String ruleContentSha256;
 
     private GetApprovalRuleTemplateResult() {}
-    /**
-     * @return The ID of the approval rule template.
-     * 
-     */
     public String approvalRuleTemplateId() {
         return this.approvalRuleTemplateId;
     }
-    /**
-     * @return Content of the approval rule template.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public String creationDate() {
         return this.creationDate;
     }
-    /**
-     * @return Description of the approval rule template.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -89,17 +45,9 @@ public final class GetApprovalRuleTemplateResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
-    /**
-     * @return ARN of the user who made the most recent changes to the approval rule template.
-     * 
-     */
     public String lastModifiedUser() {
         return this.lastModifiedUser;
     }
@@ -109,10 +57,6 @@ public final class GetApprovalRuleTemplateResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return SHA-256 hash signature for the content of the approval rule template.
-     * 
-     */
     public String ruleContentSha256() {
         return this.ruleContentSha256;
     }

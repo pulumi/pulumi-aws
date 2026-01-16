@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigParseWafArgs extends com.pulum
 
     public static final LogTransformerTransformerConfigParseWafArgs Empty = new LogTransformerTransformerConfigParseWafArgs();
 
-    /**
-     * Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -54,23 +46,11 @@ public final class LogTransformerTransformerConfigParseWafArgs extends com.pulum
             $ = new LogTransformerTransformerConfigParseWafArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param source Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FileCacheLustreConfigurationMetadataConfiguration {
-    /**
-     * @return The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-     * 
-     */
     private Integer storageCapacity;
 
     private FileCacheLustreConfigurationMetadataConfiguration() {}
-    /**
-     * @return The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-     * 
-     */
     public Integer storageCapacity() {
         return this.storageCapacity;
     }

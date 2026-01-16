@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DashboardDashboardPublishOptionsSheetControlsOption
     {
-        /// <summary>
-        /// Visibility state. Possibles values: EXPANDED, COLLAPSED.
-        /// </summary>
         public readonly string? VisibilityState;
 
         [OutputConstructor]

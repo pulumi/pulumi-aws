@@ -17,47 +17,23 @@ public final class GetPlanArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPlanArgs Empty = new GetPlanArgs();
 
-    /**
-     * Backup plan ID.
-     * 
-     */
     @Import(name="planId", required=true)
     private Output<String> planId;
 
-    /**
-     * @return Backup plan ID.
-     * 
-     */
     public Output<String> planId() {
         return this.planId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Metadata that you can assign to help organize the plans you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the plans you create.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetPlanArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPlanArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param planId Backup plan ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder planId(Output<String> planId) {
             $.planId = planId;
             return this;
         }
 
-        /**
-         * @param planId Backup plan ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder planId(String planId) {
             return planId(Output.of(planId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the plans you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the plans you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

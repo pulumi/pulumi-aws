@@ -19,62 +19,30 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
 
     public static final ClusterMasterInstanceFleetArgs Empty = new ClusterMasterInstanceFleetArgs();
 
-    /**
-     * ID of the cluster.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return ID of the cluster.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Configuration block for instance fleet.
-     * 
-     */
     @Import(name="instanceTypeConfigs")
     private @Nullable Output<List<ClusterMasterInstanceFleetInstanceTypeConfigArgs>> instanceTypeConfigs;
 
-    /**
-     * @return Configuration block for instance fleet.
-     * 
-     */
     public Optional<Output<List<ClusterMasterInstanceFleetInstanceTypeConfigArgs>>> instanceTypeConfigs() {
         return Optional.ofNullable(this.instanceTypeConfigs);
     }
 
-    /**
-     * Configuration block for launch specification.
-     * 
-     */
     @Import(name="launchSpecifications")
     private @Nullable Output<ClusterMasterInstanceFleetLaunchSpecificationsArgs> launchSpecifications;
 
-    /**
-     * @return Configuration block for launch specification.
-     * 
-     */
     public Optional<Output<ClusterMasterInstanceFleetLaunchSpecificationsArgs>> launchSpecifications() {
         return Optional.ofNullable(this.launchSpecifications);
     }
 
-    /**
-     * Friendly name given to the instance fleet.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Friendly name given to the instance fleet.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -93,32 +61,16 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.provisionedSpotCapacity);
     }
 
-    /**
-     * Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     @Import(name="targetOnDemandCapacity")
     private @Nullable Output<Integer> targetOnDemandCapacity;
 
-    /**
-     * @return Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-     * 
-     */
     public Optional<Output<Integer>> targetOnDemandCapacity() {
         return Optional.ofNullable(this.targetOnDemandCapacity);
     }
 
-    /**
-     * Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     @Import(name="targetSpotCapacity")
     private @Nullable Output<Integer> targetSpotCapacity;
 
-    /**
-     * @return Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-     * 
-     */
     public Optional<Output<Integer>> targetSpotCapacity() {
         return Optional.ofNullable(this.targetSpotCapacity);
     }
@@ -154,96 +106,42 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
             $ = new ClusterMasterInstanceFleetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param instanceTypeConfigs Configuration block for instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTypeConfigs(@Nullable Output<List<ClusterMasterInstanceFleetInstanceTypeConfigArgs>> instanceTypeConfigs) {
             $.instanceTypeConfigs = instanceTypeConfigs;
             return this;
         }
 
-        /**
-         * @param instanceTypeConfigs Configuration block for instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTypeConfigs(List<ClusterMasterInstanceFleetInstanceTypeConfigArgs> instanceTypeConfigs) {
             return instanceTypeConfigs(Output.of(instanceTypeConfigs));
         }
 
-        /**
-         * @param instanceTypeConfigs Configuration block for instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTypeConfigs(ClusterMasterInstanceFleetInstanceTypeConfigArgs... instanceTypeConfigs) {
             return instanceTypeConfigs(List.of(instanceTypeConfigs));
         }
 
-        /**
-         * @param launchSpecifications Configuration block for launch specification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchSpecifications(@Nullable Output<ClusterMasterInstanceFleetLaunchSpecificationsArgs> launchSpecifications) {
             $.launchSpecifications = launchSpecifications;
             return this;
         }
 
-        /**
-         * @param launchSpecifications Configuration block for launch specification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchSpecifications(ClusterMasterInstanceFleetLaunchSpecificationsArgs launchSpecifications) {
             return launchSpecifications(Output.of(launchSpecifications));
         }
 
-        /**
-         * @param name Friendly name given to the instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly name given to the instance fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -266,44 +164,20 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
             return provisionedSpotCapacity(Output.of(provisionedSpotCapacity));
         }
 
-        /**
-         * @param targetOnDemandCapacity Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetOnDemandCapacity(@Nullable Output<Integer> targetOnDemandCapacity) {
             $.targetOnDemandCapacity = targetOnDemandCapacity;
             return this;
         }
 
-        /**
-         * @param targetOnDemandCapacity Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetOnDemandCapacity(Integer targetOnDemandCapacity) {
             return targetOnDemandCapacity(Output.of(targetOnDemandCapacity));
         }
 
-        /**
-         * @param targetSpotCapacity Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetSpotCapacity(@Nullable Output<Integer> targetSpotCapacity) {
             $.targetSpotCapacity = targetSpotCapacity;
             return this;
         }
 
-        /**
-         * @param targetSpotCapacity Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetSpotCapacity(Integer targetSpotCapacity) {
             return targetSpotCapacity(Output.of(targetSpotCapacity));
         }

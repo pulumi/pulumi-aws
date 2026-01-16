@@ -14,32 +14,16 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs exte
 
     public static final CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs Empty = new CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs();
 
-    /**
-     * Identity ID.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Identity ID.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs exte
             $ = new CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identity ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identity ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param type Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

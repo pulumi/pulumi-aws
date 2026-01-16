@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationSetSendingOption {
-    /**
-     * @return Specifies whether email sending is enabled.
-     * 
-     */
     private Boolean sendingEnabled;
 
     private GetConfigurationSetSendingOption() {}
-    /**
-     * @return Specifies whether email sending is enabled.
-     * 
-     */
     public Boolean sendingEnabled() {
         return this.sendingEnabled;
     }

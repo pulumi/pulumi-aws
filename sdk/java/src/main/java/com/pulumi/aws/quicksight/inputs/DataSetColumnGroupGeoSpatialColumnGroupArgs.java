@@ -15,47 +15,23 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs extends com.pulum
 
     public static final DataSetColumnGroupGeoSpatialColumnGroupArgs Empty = new DataSetColumnGroupGeoSpatialColumnGroupArgs();
 
-    /**
-     * Columns in this hierarchy.
-     * 
-     */
     @Import(name="columns", required=true)
     private Output<List<String>> columns;
 
-    /**
-     * @return Columns in this hierarchy.
-     * 
-     */
     public Output<List<String>> columns() {
         return this.columns;
     }
 
-    /**
-     * Country code. Valid values are `US`.
-     * 
-     */
     @Import(name="countryCode", required=true)
     private Output<String> countryCode;
 
-    /**
-     * @return Country code. Valid values are `US`.
-     * 
-     */
     public Output<String> countryCode() {
         return this.countryCode;
     }
 
-    /**
-     * A display name for the hierarchy.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A display name for the hierarchy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -86,75 +62,33 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs extends com.pulum
             $ = new DataSetColumnGroupGeoSpatialColumnGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columns Columns in this hierarchy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(Output<List<String>> columns) {
             $.columns = columns;
             return this;
         }
 
-        /**
-         * @param columns Columns in this hierarchy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(List<String> columns) {
             return columns(Output.of(columns));
         }
 
-        /**
-         * @param columns Columns in this hierarchy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(String... columns) {
             return columns(List.of(columns));
         }
 
-        /**
-         * @param countryCode Country code. Valid values are `US`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countryCode(Output<String> countryCode) {
             $.countryCode = countryCode;
             return this;
         }
 
-        /**
-         * @param countryCode Country code. Valid values are `US`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countryCode(String countryCode) {
             return countryCode(Output.of(countryCode));
         }
 
-        /**
-         * @param name A display name for the hierarchy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A display name for the hierarchy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

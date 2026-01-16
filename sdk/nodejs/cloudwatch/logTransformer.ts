@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CloudWatch Logs Transformer.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
- * const example = new aws.cloudwatch.LogTransformer("example", {
- *     transformerConfigs: [{
- *         parseJsons: [{}],
- *     }],
- *     logGroupArn: exampleLogGroup.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import CloudWatch Logs Transformer using the `log_group_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudwatch/logTransformer:LogTransformer example arn:aws:logs:us-west-2:123456789012:log-group:example
- * ```
- */
 export class LogTransformer extends pulumi.CustomResource {
     /**
      * Get an existing LogTransformer resource's state with the given name, ID, and optional extra
@@ -63,17 +35,8 @@ export class LogTransformer extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogTransformer.__pulumiType;
     }
 
-    /**
-     * Log group ARN to set the transformer for.
-     */
     declare public readonly logGroupArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-     */
     declare public readonly transformerConfigs: pulumi.Output<outputs.cloudwatch.LogTransformerTransformerConfig[]>;
 
     /**
@@ -113,17 +76,8 @@ export class LogTransformer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogTransformer resources.
  */
 export interface LogTransformerState {
-    /**
-     * Log group ARN to set the transformer for.
-     */
     logGroupArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-     */
     transformerConfigs?: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogTransformerTransformerConfig>[]>;
 }
 
@@ -131,16 +85,7 @@ export interface LogTransformerState {
  * The set of arguments for constructing a LogTransformer resource.
  */
 export interface LogTransformerArgs {
-    /**
-     * Log group ARN to set the transformer for.
-     */
     logGroupArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
-     */
     transformerConfigs: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogTransformerTransformerConfig>[]>;
 }

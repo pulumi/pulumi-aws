@@ -9,58 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector2
 {
-    /// <summary>
-    /// Resource for managing an Amazon Inspector Organization Configuration.
-    /// 
-    /// &gt; **NOTE:** In order for this resource to work, the account you use must be an Inspector Delegated Admin Account.
-    /// 
-    /// &gt; **NOTE:** When this resource is deleted, EC2, ECR, Lambda, and Lambda code scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = new Aws.Inspector2.Inputs.OrganizationConfigurationAutoEnableArgs
-    ///         {
-    ///             Ec2 = true,
-    ///             Ecr = false,
-    ///             CodeRepository = false,
-    ///             Lambda = true,
-    ///             LambdaCode = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block for auto enabling. See below.
-        /// </summary>
         [Output("autoEnable")]
         public Output<Outputs.OrganizationConfigurationAutoEnable> AutoEnable { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether your configuration reached the max account limit.
-        /// </summary>
         [Output("maxAccountLimitReached")]
         public Output<bool> MaxAccountLimitReached { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -110,15 +67,9 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for auto enabling. See below.
-        /// </summary>
         [Input("autoEnable", required: true)]
         public Input<Inputs.OrganizationConfigurationAutoEnableArgs> AutoEnable { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -130,21 +81,12 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for auto enabling. See below.
-        /// </summary>
         [Input("autoEnable")]
         public Input<Inputs.OrganizationConfigurationAutoEnableGetArgs>? AutoEnable { get; set; }
 
-        /// <summary>
-        /// Whether your configuration reached the max account limit.
-        /// </summary>
         [Input("maxAccountLimitReached")]
         public Input<bool>? MaxAccountLimitReached { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

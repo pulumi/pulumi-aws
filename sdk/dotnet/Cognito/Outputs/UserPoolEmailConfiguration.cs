@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolEmailConfiguration
     {
-        /// <summary>
-        /// Email configuration set name from SES.
-        /// </summary>
         public readonly string? ConfigurationSet;
-        /// <summary>
-        /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `FromEmailAddress` is set.
-        /// </summary>
         public readonly string? EmailSendingAccount;
-        /// <summary>
-        /// Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\"John Smith Ph.D.\" &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
-        /// </summary>
         public readonly string? FromEmailAddress;
-        /// <summary>
-        /// REPLY-TO email address.
-        /// </summary>
         public readonly string? ReplyToEmailAddress;
-        /// <summary>
-        /// ARN of the SES verified email identity to use. Required if `EmailSendingAccount` is set to `DEVELOPER`.
-        /// </summary>
         public readonly string? SourceArn;
 
         [OutputConstructor]

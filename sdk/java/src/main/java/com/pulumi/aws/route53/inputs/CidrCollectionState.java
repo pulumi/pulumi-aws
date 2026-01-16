@@ -16,47 +16,23 @@ public final class CidrCollectionState extends com.pulumi.resources.ResourceArgs
 
     public static final CidrCollectionState Empty = new CidrCollectionState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the CIDR collection.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the CIDR collection.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name for the CIDR collection.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name for the CIDR collection.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The lastest version of the CIDR collection.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
-    /**
-     * @return The lastest version of the CIDR collection.
-     * 
-     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -87,65 +63,29 @@ public final class CidrCollectionState extends com.pulumi.resources.ResourceArgs
             $ = new CidrCollectionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name Unique name for the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name for the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param version The lastest version of the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The lastest version of the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

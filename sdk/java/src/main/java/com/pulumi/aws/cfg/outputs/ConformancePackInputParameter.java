@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConformancePackInputParameter {
-    /**
-     * @return The input key.
-     * 
-     */
     private String parameterName;
-    /**
-     * @return The input value.
-     * 
-     */
     private String parameterValue;
 
     private ConformancePackInputParameter() {}
-    /**
-     * @return The input key.
-     * 
-     */
     public String parameterName() {
         return this.parameterName;
     }
-    /**
-     * @return The input value.
-     * 
-     */
     public String parameterValue() {
         return this.parameterValue;
     }

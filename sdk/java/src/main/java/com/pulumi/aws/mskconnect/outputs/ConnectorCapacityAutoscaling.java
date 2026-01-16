@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorCapacityAutoscaling {
-    /**
-     * @return The maximum number of workers allocated to the connector.
-     * 
-     */
     private Integer maxWorkerCount;
-    /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     private @Nullable Integer mcuCount;
-    /**
-     * @return The minimum number of workers allocated to the connector.
-     * 
-     */
     private Integer minWorkerCount;
-    /**
-     * @return The scale-in policy for the connector. See `scaleInPolicy` Block for details.
-     * 
-     */
     private @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy;
-    /**
-     * @return The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
-     * 
-     */
     private @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy;
 
     private ConnectorCapacityAutoscaling() {}
-    /**
-     * @return The maximum number of workers allocated to the connector.
-     * 
-     */
     public Integer maxWorkerCount() {
         return this.maxWorkerCount;
     }
-    /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-     * 
-     */
     public Optional<Integer> mcuCount() {
         return Optional.ofNullable(this.mcuCount);
     }
-    /**
-     * @return The minimum number of workers allocated to the connector.
-     * 
-     */
     public Integer minWorkerCount() {
         return this.minWorkerCount;
     }
-    /**
-     * @return The scale-in policy for the connector. See `scaleInPolicy` Block for details.
-     * 
-     */
     public Optional<ConnectorCapacityAutoscalingScaleInPolicy> scaleInPolicy() {
         return Optional.ofNullable(this.scaleInPolicy);
     }
-    /**
-     * @return The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
-     * 
-     */
     public Optional<ConnectorCapacityAutoscalingScaleOutPolicy> scaleOutPolicy() {
         return Optional.ofNullable(this.scaleOutPolicy);
     }

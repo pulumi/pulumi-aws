@@ -12,9 +12,6 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class IdcApplicationServiceIntegrationS3AccessGrantsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 Access grants integration scope.
-        /// </summary>
         [Input("readWriteAccess")]
         public Input<Inputs.IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessGetArgs>? ReadWriteAccess { get; set; }
 

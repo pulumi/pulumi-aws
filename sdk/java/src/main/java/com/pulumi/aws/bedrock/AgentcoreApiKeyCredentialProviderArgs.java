@@ -16,28 +16,15 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
     public static final AgentcoreApiKeyCredentialProviderArgs Empty = new AgentcoreApiKeyCredentialProviderArgs();
 
-    /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
-     * 
-     */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
-    /**
-     * @return API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-     * 
-     * **Write-Only API Key (choose one approach):**
-     * 
-     */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      * 
      */
     @Import(name="apiKeyWo")
@@ -45,62 +32,29 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      * 
      */
     public Optional<Output<String>> apiKeyWo() {
         return Optional.ofNullable(this.apiKeyWo);
     }
 
-    /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     * 
-     */
     @Import(name="apiKeyWoVersion")
     private @Nullable Output<Integer> apiKeyWoVersion;
 
-    /**
-     * @return Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-     * 
-     */
     public Optional<Output<Integer>> apiKeyWoVersion() {
         return Optional.ofNullable(this.apiKeyWoVersion);
     }
 
-    /**
-     * Name of the API Key credential provider. Forces replacement when changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the API Key credential provider. Forces replacement when changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     * **Standard API Key (choose one approach):**
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     * **Standard API Key (choose one approach):**
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -133,34 +87,17 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
             $ = new AgentcoreApiKeyCredentialProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-         * 
-         * **Write-Only API Key (choose one approach):**
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
-         * 
-         * **Write-Only API Key (choose one approach):**
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
         /**
          * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
          * 
          * @return builder
          * 
@@ -172,7 +109,6 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
         /**
          * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
          * 
          * @return builder
          * 
@@ -181,73 +117,29 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
             return apiKeyWo(Output.of(apiKeyWo));
         }
 
-        /**
-         * @param apiKeyWoVersion Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyWoVersion(@Nullable Output<Integer> apiKeyWoVersion) {
             $.apiKeyWoVersion = apiKeyWoVersion;
             return this;
         }
 
-        /**
-         * @param apiKeyWoVersion Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyWoVersion(Integer apiKeyWoVersion) {
             return apiKeyWoVersion(Output.of(apiKeyWoVersion));
         }
 
-        /**
-         * @param name Name of the API Key credential provider. Forces replacement when changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the API Key credential provider. Forces replacement when changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * **Standard API Key (choose one approach):**
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * **Standard API Key (choose one approach):**
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

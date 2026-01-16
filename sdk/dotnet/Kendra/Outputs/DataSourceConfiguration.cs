@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfiguration
     {
-        /// <summary>
-        /// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-        /// </summary>
         public readonly Outputs.DataSourceConfigurationS3Configuration? S3Configuration;
-        /// <summary>
-        /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-        /// </summary>
         public readonly Outputs.DataSourceConfigurationTemplateConfiguration? TemplateConfiguration;
-        /// <summary>
-        /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-        /// </summary>
         public readonly Outputs.DataSourceConfigurationWebCrawlerConfiguration? WebCrawlerConfiguration;
 
         [OutputConstructor]

@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceQuotaUsageMetric {
-    /**
-     * @return The metric dimensions.
-     * 
-     */
     private List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions;
-    /**
-     * @return The name of the metric.
-     * 
-     */
     private String metricName;
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     private String metricNamespace;
-    /**
-     * @return The metric statistic that AWS recommend you use when determining quota usage.
-     * 
-     */
     private String metricStatisticRecommendation;
 
     private GetServiceQuotaUsageMetric() {}
-    /**
-     * @return The metric dimensions.
-     * 
-     */
     public List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions() {
         return this.metricDimensions;
     }
-    /**
-     * @return The name of the metric.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     public String metricNamespace() {
         return this.metricNamespace;
     }
-    /**
-     * @return The metric statistic that AWS recommend you use when determining quota usage.
-     * 
-     */
     public String metricStatisticRecommendation() {
         return this.metricStatisticRecommendation;
     }

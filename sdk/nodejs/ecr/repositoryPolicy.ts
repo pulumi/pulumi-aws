@@ -7,68 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic Container Registry Repository Policy.
- *
- * Note that currently only one policy may be applied to a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRepository = new aws.ecr.Repository("example", {name: "example-repo"});
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "new policy",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *         actions: [
- *             "ecr:GetDownloadUrlForLayer",
- *             "ecr:BatchGetImage",
- *             "ecr:BatchCheckLayerAvailability",
- *             "ecr:PutImage",
- *             "ecr:InitiateLayerUpload",
- *             "ecr:UploadLayerPart",
- *             "ecr:CompleteLayerUpload",
- *             "ecr:DescribeRepositories",
- *             "ecr:GetRepositoryPolicy",
- *             "ecr:ListImages",
- *             "ecr:DeleteRepository",
- *             "ecr:BatchDeleteImage",
- *             "ecr:SetRepositoryPolicy",
- *             "ecr:DeleteRepositoryPolicy",
- *         ],
- *     }],
- * });
- * const exampleRepositoryPolicy = new aws.ecr.RepositoryPolicy("example", {
- *     repository: exampleRepository.name,
- *     policy: example.then(example => example.json),
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `repository` - (String) Name of the ECR repository.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
- *
- * % pulumi import aws_ecr_repository_policy.example example
- */
 export class RepositoryPolicy extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryPolicy resource's state with the given name, ID, and optional extra
@@ -97,21 +35,9 @@ export class RepositoryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryPolicy.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The registry ID where the repository was created.
-     */
     declare public /*out*/ readonly registryId: pulumi.Output<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     declare public readonly repository: pulumi.Output<string>;
 
     /**
@@ -153,21 +79,9 @@ export class RepositoryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPolicy resources.
  */
 export interface RepositoryPolicyState {
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     policy?: pulumi.Input<string | inputs.ecr.PolicyDocument>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The registry ID where the repository was created.
-     */
     registryId?: pulumi.Input<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     repository?: pulumi.Input<string>;
 }
 
@@ -175,16 +89,7 @@ export interface RepositoryPolicyState {
  * The set of arguments for constructing a RepositoryPolicy resource.
  */
 export interface RepositoryPolicyArgs {
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     policy: pulumi.Input<string | inputs.ecr.PolicyDocument>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     repository: pulumi.Input<string>;
 }

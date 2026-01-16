@@ -16,17 +16,9 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTempora
 
     public static final ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs Empty = new ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs();
 
-    /**
-     * Insights into the most sub-optimal performing table on the temporal axis:
-     * 
-     */
     @Import(name="maxes")
     private @Nullable Output<List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>> maxes;
 
-    /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
-     * 
-     */
     public Optional<Output<List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>>> maxes() {
         return Optional.ofNullable(this.maxes);
     }
@@ -55,33 +47,15 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTempora
             $ = new ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxes(@Nullable Output<List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs>> maxes) {
             $.maxes = maxes;
             return this;
         }
 
-        /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxes(List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs> maxes) {
             return maxes(Output.of(maxes));
         }
 
-        /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxes(ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs... maxes) {
             return maxes(List.of(maxes));
         }

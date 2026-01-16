@@ -16,47 +16,23 @@ public final class ManagedLoginBrandingAssetArgs extends com.pulumi.resources.Re
 
     public static final ManagedLoginBrandingAssetArgs Empty = new ManagedLoginBrandingAssetArgs();
 
-    /**
-     * Image file, in Base64-encoded binary.
-     * 
-     */
     @Import(name="bytes")
     private @Nullable Output<String> bytes;
 
-    /**
-     * @return Image file, in Base64-encoded binary.
-     * 
-     */
     public Optional<Output<String>> bytes() {
         return Optional.ofNullable(this.bytes);
     }
 
-    /**
-     * Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-     * 
-     */
     @Import(name="category", required=true)
     private Output<String> category;
 
-    /**
-     * @return Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-     * 
-     */
     public Output<String> category() {
         return this.category;
     }
 
-    /**
-     * Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-     * 
-     */
     @Import(name="colorMode", required=true)
     private Output<String> colorMode;
 
-    /**
-     * @return Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-     * 
-     */
     public Output<String> colorMode() {
         return this.colorMode;
     }
@@ -68,17 +44,9 @@ public final class ManagedLoginBrandingAssetArgs extends com.pulumi.resources.Re
         return this.extension;
     }
 
-    /**
-     * Asset ID.
-     * 
-     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
-    /**
-     * @return Asset ID.
-     * 
-     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
@@ -111,65 +79,29 @@ public final class ManagedLoginBrandingAssetArgs extends com.pulumi.resources.Re
             $ = new ManagedLoginBrandingAssetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bytes Image file, in Base64-encoded binary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bytes(@Nullable Output<String> bytes) {
             $.bytes = bytes;
             return this;
         }
 
-        /**
-         * @param bytes Image file, in Base64-encoded binary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bytes(String bytes) {
             return bytes(Output.of(bytes));
         }
 
-        /**
-         * @param category Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(Output<String> category) {
             $.category = category;
             return this;
         }
 
-        /**
-         * @param category Category that the image corresponds to. See [AWS documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssetType.html#CognitoUserPools-Type-AssetType-Category) for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder category(String category) {
             return category(Output.of(category));
         }
 
-        /**
-         * @param colorMode Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder colorMode(Output<String> colorMode) {
             $.colorMode = colorMode;
             return this;
         }
 
-        /**
-         * @param colorMode Display-mode target of the asset. Valid values: `LIGHT`, `DARK`, `DYNAMIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder colorMode(String colorMode) {
             return colorMode(Output.of(colorMode));
         }
@@ -183,23 +115,11 @@ public final class ManagedLoginBrandingAssetArgs extends com.pulumi.resources.Re
             return extension(Output.of(extension));
         }
 
-        /**
-         * @param resourceId Asset ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId Asset ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

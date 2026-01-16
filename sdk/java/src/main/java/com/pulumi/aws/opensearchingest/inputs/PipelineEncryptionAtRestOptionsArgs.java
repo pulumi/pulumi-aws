@@ -14,17 +14,9 @@ public final class PipelineEncryptionAtRestOptionsArgs extends com.pulumi.resour
 
     public static final PipelineEncryptionAtRestOptionsArgs Empty = new PipelineEncryptionAtRestOptionsArgs();
 
-    /**
-     * The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
@@ -53,23 +45,11 @@ public final class PipelineEncryptionAtRestOptionsArgs extends com.pulumi.resour
             $ = new PipelineEncryptionAtRestOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

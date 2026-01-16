@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

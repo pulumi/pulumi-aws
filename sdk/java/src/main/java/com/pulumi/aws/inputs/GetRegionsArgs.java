@@ -18,47 +18,23 @@ public final class GetRegionsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRegionsArgs Empty = new GetRegionsArgs();
 
-    /**
-     * If true the source will query all regions regardless of availability.
-     * 
-     */
     @Import(name="allRegions")
     private @Nullable Output<Boolean> allRegions;
 
-    /**
-     * @return If true the source will query all regions regardless of availability.
-     * 
-     */
     public Optional<Output<Boolean>> allRegions() {
         return Optional.ofNullable(this.allRegions);
     }
 
-    /**
-     * Configuration block(s) to use as filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetRegionsFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) to use as filters. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetRegionsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -89,75 +65,33 @@ public final class GetRegionsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRegionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allRegions If true the source will query all regions regardless of availability.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRegions(@Nullable Output<Boolean> allRegions) {
             $.allRegions = allRegions;
             return this;
         }
 
-        /**
-         * @param allRegions If true the source will query all regions regardless of availability.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRegions(Boolean allRegions) {
             return allRegions(Output.of(allRegions));
         }
 
-        /**
-         * @param filters Configuration block(s) to use as filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetRegionsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) to use as filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetRegionsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) to use as filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetRegionsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

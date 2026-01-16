@@ -17,32 +17,16 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
 
     public static final ScalingPlanApplicationSourceTagFilterArgs Empty = new ScalingPlanApplicationSourceTagFilterArgs();
 
-    /**
-     * Tag key.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Tag key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Tag values.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
-    /**
-     * @return Tag values.
-     * 
-     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -72,54 +56,24 @@ public final class ScalingPlanApplicationSourceTagFilterArgs extends com.pulumi.
             $ = new ScalingPlanApplicationSourceTagFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Tag key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Tag key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values Tag values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Tag values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Tag values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

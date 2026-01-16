@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CaCertificateValidity {
-    /**
-     * @return The certificate is not valid after this date.
-     * 
-     */
     private @Nullable String notAfter;
-    /**
-     * @return The certificate is not valid before this date.
-     * 
-     */
     private @Nullable String notBefore;
 
     private CaCertificateValidity() {}
-    /**
-     * @return The certificate is not valid after this date.
-     * 
-     */
     public Optional<String> notAfter() {
         return Optional.ofNullable(this.notAfter);
     }
-    /**
-     * @return The certificate is not valid before this date.
-     * 
-     */
     public Optional<String> notBefore() {
         return Optional.ofNullable(this.notBefore);
     }

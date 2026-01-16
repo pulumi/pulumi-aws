@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigResult
     {
-        /// <summary>
-        /// ARN of the Capacity Provider.
-        /// </summary>
         public readonly string CapacityProviderArn;
-        /// <summary>
-        /// Memory GiB per vCPU for the execution environment.
-        /// </summary>
         public readonly double ExecutionEnvironmentMemoryGibPerVcpu;
-        /// <summary>
-        /// Maximum concurrency per execution environment.
-        /// </summary>
         public readonly int PerExecutionEnvironmentMaxConcurrency;
 
         [OutputConstructor]

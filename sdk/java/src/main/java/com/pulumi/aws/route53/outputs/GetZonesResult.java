@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetZonesResult {
     private String id;
-    /**
-     * @return A list of all the Route53 Hosted Zone IDs found.
-     * 
-     */
     private List<String> ids;
 
     private GetZonesResult() {}
     public String id() {
         return this.id;
     }
-    /**
-     * @return A list of all the Route53 Hosted Zone IDs found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

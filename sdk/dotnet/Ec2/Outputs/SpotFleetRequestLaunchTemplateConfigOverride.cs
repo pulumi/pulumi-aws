@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetRequestLaunchTemplateConfigOverride
     {
-        /// <summary>
-        /// The availability zone in which to place the request.
-        /// </summary>
         public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The instance requirements. See below.
-        /// </summary>
         public readonly Outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements? InstanceRequirements;
-        /// <summary>
-        /// The type of instance to request.
-        /// </summary>
         public readonly string? InstanceType;
-        /// <summary>
-        /// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
-        /// </summary>
         public readonly double? Priority;
-        /// <summary>
-        /// The maximum spot bid for this override request.
-        /// </summary>
         public readonly string? SpotPrice;
-        /// <summary>
-        /// The subnet in which to launch the requested instance.
-        /// </summary>
         public readonly string? SubnetId;
-        /// <summary>
-        /// The capacity added to the fleet by a fulfilled request.
-        /// </summary>
         public readonly double? WeightedCapacity;
 
         [OutputConstructor]

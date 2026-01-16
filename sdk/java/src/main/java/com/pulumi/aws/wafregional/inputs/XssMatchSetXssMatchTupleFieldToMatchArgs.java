@@ -16,32 +16,16 @@ public final class XssMatchSetXssMatchTupleFieldToMatchArgs extends com.pulumi.r
 
     public static final XssMatchSetXssMatchTupleFieldToMatchArgs Empty = new XssMatchSetXssMatchTupleFieldToMatchArgs();
 
-    /**
-     * When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-     * 
-     */
     @Import(name="data")
     private @Nullable Output<String> data;
 
-    /**
-     * @return When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-     * 
-     */
     public Optional<Output<String>> data() {
         return Optional.ofNullable(this.data);
     }
 
-    /**
-     * The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -71,44 +55,20 @@ public final class XssMatchSetXssMatchTupleFieldToMatchArgs extends com.pulumi.r
             $ = new XssMatchSetXssMatchTupleFieldToMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param data When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(@Nullable Output<String> data) {
             $.data = data;
             return this;
         }
 
-        /**
-         * @param data When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(String data) {
             return data(Output.of(data));
         }
 
-        /**
-         * @param type The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

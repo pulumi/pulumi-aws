@@ -104,81 +104,51 @@ class GetKeyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The key ARN of a primary or replica key of a multi-Region key.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> _builtins.str:
-        """
-        The twelve-digit account ID of the AWS account that owns the key
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> _builtins.str:
-        """
-        The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
-        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
-        """
-        The date and time when the key was created
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter(name="customKeyStoreId")
     def custom_key_store_id(self) -> _builtins.str:
-        """
-        A unique identifier for the custom key store that contains the KMS key.
-        """
         return pulumi.get(self, "custom_key_store_id")
 
     @_builtins.property
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> _builtins.str:
-        """
-        See `key_spec`.
-        """
         return pulumi.get(self, "customer_master_key_spec")
 
     @_builtins.property
     @pulumi.getter(name="deletionDate")
     def deletion_date(self) -> _builtins.str:
-        """
-        The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
-        """
         return pulumi.get(self, "deletion_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the key.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="expirationModel")
     def expiration_model(self) -> _builtins.str:
-        """
-        Specifies whether the Key's key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
-        """
         return pulumi.get(self, "expiration_model")
 
     @_builtins.property
@@ -202,89 +172,56 @@ class GetKeyResult:
     @_builtins.property
     @pulumi.getter(name="keyManager")
     def key_manager(self) -> _builtins.str:
-        """
-        The key's manager
-        """
         return pulumi.get(self, "key_manager")
 
     @_builtins.property
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> _builtins.str:
-        """
-        Describes the type of key material in the KMS key.
-        """
         return pulumi.get(self, "key_spec")
 
     @_builtins.property
     @pulumi.getter(name="keyState")
     def key_state(self) -> _builtins.str:
-        """
-        The state of the key
-        """
         return pulumi.get(self, "key_state")
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> _builtins.str:
-        """
-        Specifies the intended use of the key
-        """
         return pulumi.get(self, "key_usage")
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> _builtins.bool:
-        """
-        Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
-        """
         return pulumi.get(self, "multi_region")
 
     @_builtins.property
     @pulumi.getter(name="multiRegionConfigurations")
     def multi_region_configurations(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationResult']:
-        """
-        Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
-        """
         return pulumi.get(self, "multi_region_configurations")
 
     @_builtins.property
     @pulumi.getter
     def origin(self) -> _builtins.str:
-        """
-        When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
-        """
         return pulumi.get(self, "origin")
 
     @_builtins.property
     @pulumi.getter(name="pendingDeletionWindowInDays")
     def pending_deletion_window_in_days(self) -> _builtins.int:
-        """
-        The waiting period before the primary key in a multi-Region key is deleted.
-        """
         return pulumi.get(self, "pending_deletion_window_in_days")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        The AWS Region of a primary or replica key in a multi-Region key.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="validTo")
     def valid_to(self) -> _builtins.str:
-        """
-        The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
-        """
         return pulumi.get(self, "valid_to")
 
     @_builtins.property
     @pulumi.getter(name="xksKeyConfigurations")
     def xks_key_configurations(self) -> Sequence['outputs.GetKeyXksKeyConfigurationResult']:
-        """
-        Information about the external key that is associated with a KMS key in an external key store.
-        """
         return pulumi.get(self, "xks_key_configurations")
 
 
@@ -325,31 +262,7 @@ def get_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
             region: Optional[_builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    Use this data source to get detailed information about
-    the specified KMS Key with flexible key id input.
-    This can be useful to reference key alias
-    without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_alias = aws.kms.get_key(key_id="alias/my-key")
-    by_id = aws.kms.get_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
-    by_alias_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
-    by_key_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-    ```
-
-
-    :param Sequence[_builtins.str] grant_tokens: List of grant tokens
-    :param _builtins.str key_id: Key identifier which can be one of the following format:
-           * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Alias name. E.g.: `alias/my-key`
-           * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
@@ -388,31 +301,7 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[_builti
                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
-    Use this data source to get detailed information about
-    the specified KMS Key with flexible key id input.
-    This can be useful to reference key alias
-    without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_alias = aws.kms.get_key(key_id="alias/my-key")
-    by_id = aws.kms.get_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
-    by_alias_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
-    by_key_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-    ```
-
-
-    :param Sequence[_builtins.str] grant_tokens: List of grant tokens
-    :param _builtins.str key_id: Key identifier which can be one of the following format:
-           * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Alias name. E.g.: `alias/my-key`
-           * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DelegationSignerRecordSigningAttributes {
-    /**
-     * @return Algorithm which was used to generate the digest from the public key.
-     * 
-     */
     private Integer algorithm;
-    /**
-     * @return Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-     * 
-     */
     private Integer flags;
-    /**
-     * @return The base64-encoded public key part of the key pair that is passed to the registry.
-     * 
-     */
     private String publicKey;
 
     private DelegationSignerRecordSigningAttributes() {}
-    /**
-     * @return Algorithm which was used to generate the digest from the public key.
-     * 
-     */
     public Integer algorithm() {
         return this.algorithm;
     }
-    /**
-     * @return Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-     * 
-     */
     public Integer flags() {
         return this.flags;
     }
-    /**
-     * @return The base64-encoded public key part of the key pair that is passed to the registry.
-     * 
-     */
     public String publicKey() {
         return this.publicKey;
     }

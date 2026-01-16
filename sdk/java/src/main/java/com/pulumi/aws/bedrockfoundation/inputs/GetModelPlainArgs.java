@@ -15,32 +15,16 @@ public final class GetModelPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetModelPlainArgs Empty = new GetModelPlainArgs();
 
-    /**
-     * Model identifier.
-     * 
-     */
     @Import(name="modelId", required=true)
     private String modelId;
 
-    /**
-     * @return Model identifier.
-     * 
-     */
     public String modelId() {
         return this.modelId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetModelPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetModelPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param modelId Model identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelId(String modelId) {
             $.modelId = modelId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

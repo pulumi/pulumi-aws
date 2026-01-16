@@ -21,235 +21,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon SageMaker AI Model.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.sagemaker.SagemakerFunctions;
- * import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImageArgs;
- * import com.pulumi.aws.sagemaker.Model;
- * import com.pulumi.aws.sagemaker.ModelArgs;
- * import com.pulumi.aws.sagemaker.inputs.ModelPrimaryContainerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("sagemaker.amazonaws.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
- *             .repositoryName("kmeans")
- *             .build());
- * 
- *         var example = new Model("example", ModelArgs.builder()
- *             .name("my-model")
- *             .executionRoleArn(exampleRole.arn())
- *             .primaryContainer(ModelPrimaryContainerArgs.builder()
- *                 .image(test.registryPath())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import models using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sagemaker/model:Model example model-foo
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     * 
-     */
     @Export(name="containers", refs={List.class,ModelContainer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ModelContainer>> containers;
 
-    /**
-     * @return Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     * 
-     */
     public Output<Optional<List<ModelContainer>>> containers() {
         return Codegen.optional(this.containers);
     }
-    /**
-     * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     * 
-     */
     @Export(name="enableNetworkIsolation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableNetworkIsolation;
 
-    /**
-     * @return Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     * 
-     */
     public Output<Optional<Boolean>> enableNetworkIsolation() {
         return Codegen.optional(this.enableNetworkIsolation);
     }
-    /**
-     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-     * 
-     */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
-    /**
-     * @return A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-     * 
-     */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
-    /**
-     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-     * 
-     */
     @Export(name="inferenceExecutionConfig", refs={ModelInferenceExecutionConfig.class}, tree="[0]")
     private Output<ModelInferenceExecutionConfig> inferenceExecutionConfig;
 
-    /**
-     * @return Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
-     * 
-     */
     public Output<ModelInferenceExecutionConfig> inferenceExecutionConfig() {
         return this.inferenceExecutionConfig;
     }
-    /**
-     * Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     * 
-     */
     @Export(name="primaryContainer", refs={ModelPrimaryContainer.class}, tree="[0]")
     private Output</* @Nullable */ ModelPrimaryContainer> primaryContainer;
 
-    /**
-     * @return Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     * 
-     */
     public Output<Optional<ModelPrimaryContainer>> primaryContainer() {
         return Codegen.optional(this.primaryContainer);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
-     * 
-     */
     @Export(name="vpcConfig", refs={ModelVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ ModelVpcConfig> vpcConfig;
 
-    /**
-     * @return Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
-     * 
-     */
     public Output<Optional<ModelVpcConfig>> vpcConfig() {
         return Codegen.optional(this.vpcConfig);
     }

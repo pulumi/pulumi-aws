@@ -12,21 +12,12 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class UserPhoneNumbersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When `True`, this is the primary phone number associated with the user.
-        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
-        /// <summary>
-        /// The type of phone number.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The user's phone number.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

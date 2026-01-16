@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CodeConnections Connection.
- *
- * > **NOTE:** The `aws.codeconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codeconnections.Connection("example", {
- *     name: "example-connection",
- *     providerType: "Bitbucket",
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
- *
- * Using `pulumi import`, import CodeConnections connection using the ARN. For example:
- *
- * % pulumi import aws_codeconnections_connection.test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
- */
 export class Connection extends pulumi.CustomResource {
     /**
      * Get an existing Connection resource's state with the given name, ID, and optional extra
@@ -66,38 +35,14 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
-    /**
-     * The codeconnections connection ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     */
     declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     */
     declare public readonly hostArn: pulumi.Output<string | undefined>;
-    /**
-     * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
-    /**
-     * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     */
     declare public readonly providerType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.codeconnections.ConnectionTimeouts | undefined>;
 
@@ -146,38 +91,14 @@ export class Connection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Connection resources.
  */
 export interface ConnectionState {
-    /**
-     * The codeconnections connection ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-     */
     connectionStatus?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     */
     hostArn?: pulumi.Input<string>;
-    /**
-     * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     */
     name?: pulumi.Input<string>;
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     */
     providerType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.codeconnections.ConnectionTimeouts>;
 }
@@ -186,25 +107,10 @@ export interface ConnectionState {
  * The set of arguments for constructing a Connection resource.
  */
 export interface ConnectionArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
-     */
     hostArn?: pulumi.Input<string>;
-    /**
-     * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
-     */
     providerType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.codeconnections.ConnectionTimeouts>;
 }

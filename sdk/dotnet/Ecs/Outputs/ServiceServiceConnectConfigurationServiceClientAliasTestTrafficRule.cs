@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRule
     {
-        /// <summary>
-        /// Configuration block for header-based routing rules. See below.
-        /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeader? Header;
 
         [OutputConstructor]

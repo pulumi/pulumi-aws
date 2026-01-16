@@ -12,73 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Instance Connect Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewInstanceConnectEndpoint(ctx, "example", &ec2transitgateway.InstanceConnectEndpointArgs{
-//				SubnetId: pulumi.Any(exampleAwsSubnet.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
-// ```
 type InstanceConnectEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Availability Zone of the EC2 Instance Connect Endpoint.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The DNS name of the EC2 Instance Connect Endpoint.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
-	FipsDnsName pulumi.StringOutput `pulumi:"fipsDnsName"`
-	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
-	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
-	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
-	PreserveClientIp pulumi.BoolOutput `pulumi:"preserveClientIp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                   `pulumi:"tagsAll"`
-	Timeouts InstanceConnectEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn                 pulumi.StringOutput                      `pulumi:"arn"`
+	AvailabilityZone    pulumi.StringOutput                      `pulumi:"availabilityZone"`
+	DnsName             pulumi.StringOutput                      `pulumi:"dnsName"`
+	FipsDnsName         pulumi.StringOutput                      `pulumi:"fipsDnsName"`
+	IpAddressType       pulumi.StringOutput                      `pulumi:"ipAddressType"`
+	NetworkInterfaceIds pulumi.StringArrayOutput                 `pulumi:"networkInterfaceIds"`
+	OwnerId             pulumi.StringOutput                      `pulumi:"ownerId"`
+	PreserveClientIp    pulumi.BoolOutput                        `pulumi:"preserveClientIp"`
+	Region              pulumi.StringOutput                      `pulumi:"region"`
+	SecurityGroupIds    pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
+	SubnetId            pulumi.StringOutput                      `pulumi:"subnetId"`
+	Tags                pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	Timeouts            InstanceConnectEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
+	VpcId               pulumi.StringOutput                      `pulumi:"vpcId"`
 }
 
 // NewInstanceConnectEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -114,67 +65,39 @@ func GetInstanceConnectEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceConnectEndpoint resources.
 type instanceConnectEndpointState struct {
-	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-	Arn *string `pulumi:"arn"`
-	// The Availability Zone of the EC2 Instance Connect Endpoint.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The DNS name of the EC2 Instance Connect Endpoint.
-	DnsName *string `pulumi:"dnsName"`
-	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
-	FipsDnsName *string `pulumi:"fipsDnsName"`
-	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
-	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-	OwnerId *string `pulumi:"ownerId"`
-	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
-	PreserveClientIp *bool `pulumi:"preserveClientIp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-	SubnetId *string `pulumi:"subnetId"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string                `pulumi:"tagsAll"`
-	Timeouts *InstanceConnectEndpointTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-	VpcId *string `pulumi:"vpcId"`
+	Arn                 *string                          `pulumi:"arn"`
+	AvailabilityZone    *string                          `pulumi:"availabilityZone"`
+	DnsName             *string                          `pulumi:"dnsName"`
+	FipsDnsName         *string                          `pulumi:"fipsDnsName"`
+	IpAddressType       *string                          `pulumi:"ipAddressType"`
+	NetworkInterfaceIds []string                         `pulumi:"networkInterfaceIds"`
+	OwnerId             *string                          `pulumi:"ownerId"`
+	PreserveClientIp    *bool                            `pulumi:"preserveClientIp"`
+	Region              *string                          `pulumi:"region"`
+	SecurityGroupIds    []string                         `pulumi:"securityGroupIds"`
+	SubnetId            *string                          `pulumi:"subnetId"`
+	Tags                map[string]string                `pulumi:"tags"`
+	TagsAll             map[string]string                `pulumi:"tagsAll"`
+	Timeouts            *InstanceConnectEndpointTimeouts `pulumi:"timeouts"`
+	VpcId               *string                          `pulumi:"vpcId"`
 }
 
 type InstanceConnectEndpointState struct {
-	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
-	Arn pulumi.StringPtrInput
-	// The Availability Zone of the EC2 Instance Connect Endpoint.
-	AvailabilityZone pulumi.StringPtrInput
-	// The DNS name of the EC2 Instance Connect Endpoint.
-	DnsName pulumi.StringPtrInput
-	// The DNS name of the EC2 Instance Connect FIPS Endpoint.
-	FipsDnsName pulumi.StringPtrInput
-	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-	IpAddressType pulumi.StringPtrInput
-	// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
+	Arn                 pulumi.StringPtrInput
+	AvailabilityZone    pulumi.StringPtrInput
+	DnsName             pulumi.StringPtrInput
+	FipsDnsName         pulumi.StringPtrInput
+	IpAddressType       pulumi.StringPtrInput
 	NetworkInterfaceIds pulumi.StringArrayInput
-	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
-	OwnerId pulumi.StringPtrInput
-	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
-	PreserveClientIp pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-	SecurityGroupIds pulumi.StringArrayInput
-	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-	SubnetId pulumi.StringPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts InstanceConnectEndpointTimeoutsPtrInput
-	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
-	VpcId pulumi.StringPtrInput
+	OwnerId             pulumi.StringPtrInput
+	PreserveClientIp    pulumi.BoolPtrInput
+	Region              pulumi.StringPtrInput
+	SecurityGroupIds    pulumi.StringArrayInput
+	SubnetId            pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	Timeouts            InstanceConnectEndpointTimeoutsPtrInput
+	VpcId               pulumi.StringPtrInput
 }
 
 func (InstanceConnectEndpointState) ElementType() reflect.Type {
@@ -182,36 +105,24 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 }
 
 type instanceConnectEndpointArgs struct {
-	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
-	PreserveClientIp *bool `pulumi:"preserveClientIp"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-	SubnetId string `pulumi:"subnetId"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string                `pulumi:"tags"`
-	Timeouts *InstanceConnectEndpointTimeouts `pulumi:"timeouts"`
+	IpAddressType    *string                          `pulumi:"ipAddressType"`
+	PreserveClientIp *bool                            `pulumi:"preserveClientIp"`
+	Region           *string                          `pulumi:"region"`
+	SecurityGroupIds []string                         `pulumi:"securityGroupIds"`
+	SubnetId         string                           `pulumi:"subnetId"`
+	Tags             map[string]string                `pulumi:"tags"`
+	Timeouts         *InstanceConnectEndpointTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a InstanceConnectEndpoint resource.
 type InstanceConnectEndpointArgs struct {
-	// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
-	IpAddressType pulumi.StringPtrInput
-	// Indicates whether your client's IP address is preserved as the source. Default: `true`.
+	IpAddressType    pulumi.StringPtrInput
 	PreserveClientIp pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
+	Region           pulumi.StringPtrInput
 	SecurityGroupIds pulumi.StringArrayInput
-	// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
-	SubnetId pulumi.StringInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts InstanceConnectEndpointTimeoutsPtrInput
+	SubnetId         pulumi.StringInput
+	Tags             pulumi.StringMapInput
+	Timeouts         InstanceConnectEndpointTimeoutsPtrInput
 }
 
 func (InstanceConnectEndpointArgs) ElementType() reflect.Type {
@@ -301,67 +212,54 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Availability Zone of the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The DNS name of the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// The DNS name of the EC2 Instance Connect FIPS Endpoint.
 func (o InstanceConnectEndpointOutput) FipsDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.FipsDnsName }).(pulumi.StringOutput)
 }
 
-// IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
 func (o InstanceConnectEndpointOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
-// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Indicates whether your client's IP address is preserved as the source. Default: `true`.
 func (o InstanceConnectEndpointOutput) PreserveClientIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.BoolOutput { return v.PreserveClientIp }).(pulumi.BoolOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceConnectEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
 func (o InstanceConnectEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceConnectEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InstanceConnectEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -370,7 +268,6 @@ func (o InstanceConnectEndpointOutput) Timeouts() InstanceConnectEndpointTimeout
 	return o.ApplyT(func(v *InstanceConnectEndpoint) InstanceConnectEndpointTimeoutsPtrOutput { return v.Timeouts }).(InstanceConnectEndpointTimeoutsPtrOutput)
 }
 
-// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
 func (o InstanceConnectEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

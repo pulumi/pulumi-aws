@@ -53,20 +53,12 @@ class EventActionAction(dict):
 
     def __init__(__self__, *,
                  export_revision_to_s3: Optional['outputs.EventActionActionExportRevisionToS3'] = None):
-        """
-        :param 'EventActionActionExportRevisionToS3Args' export_revision_to_s3: Configuration for an Export Revision to S3 action.
-               Described in `export_revision_to_s3` Configuration Block
-        """
         if export_revision_to_s3 is not None:
             pulumi.set(__self__, "export_revision_to_s3", export_revision_to_s3)
 
     @_builtins.property
     @pulumi.getter(name="exportRevisionToS3")
     def export_revision_to_s3(self) -> Optional['outputs.EventActionActionExportRevisionToS3']:
-        """
-        Configuration for an Export Revision to S3 action.
-        Described in `export_revision_to_s3` Configuration Block
-        """
         return pulumi.get(self, "export_revision_to_s3")
 
 
@@ -92,12 +84,6 @@ class EventActionActionExportRevisionToS3(dict):
     def __init__(__self__, *,
                  encryption: Optional['outputs.EventActionActionExportRevisionToS3Encryption'] = None,
                  revision_destination: Optional['outputs.EventActionActionExportRevisionToS3RevisionDestination'] = None):
-        """
-        :param 'EventActionActionExportRevisionToS3EncryptionArgs' encryption: Configures server-side encryption of the exported revision.
-               Described in `encryption` Configuration Block below.
-        :param 'EventActionActionExportRevisionToS3RevisionDestinationArgs' revision_destination: Configures the S3 destination of the exported revision.
-               Described in `revision_destination` Configuration Block below.
-        """
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if revision_destination is not None:
@@ -106,19 +92,11 @@ class EventActionActionExportRevisionToS3(dict):
     @_builtins.property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.EventActionActionExportRevisionToS3Encryption']:
-        """
-        Configures server-side encryption of the exported revision.
-        Described in `encryption` Configuration Block below.
-        """
         return pulumi.get(self, "encryption")
 
     @_builtins.property
     @pulumi.getter(name="revisionDestination")
     def revision_destination(self) -> Optional['outputs.EventActionActionExportRevisionToS3RevisionDestination']:
-        """
-        Configures the S3 destination of the exported revision.
-        Described in `revision_destination` Configuration Block below.
-        """
         return pulumi.get(self, "revision_destination")
 
 
@@ -144,11 +122,6 @@ class EventActionActionExportRevisionToS3Encryption(dict):
     def __init__(__self__, *,
                  kms_key_arn: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str kms_key_arn: ARN of the KMS key used for encryption.
-        :param _builtins.str type: Type of server-side encryption.
-               Valid values are `aws:kms` or `aws:s3`.
-        """
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if type is not None:
@@ -157,18 +130,11 @@ class EventActionActionExportRevisionToS3Encryption(dict):
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the KMS key used for encryption.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of server-side encryption.
-        Valid values are `aws:kms` or `aws:s3`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -194,11 +160,6 @@ class EventActionActionExportRevisionToS3RevisionDestination(dict):
     def __init__(__self__, *,
                  bucket: _builtins.str,
                  key_pattern: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket: The S3 bucket where the revision will be exported.
-        :param _builtins.str key_pattern: Pattern for naming revisions in the S3 bucket.
-               Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-        """
         pulumi.set(__self__, "bucket", bucket)
         if key_pattern is not None:
             pulumi.set(__self__, "key_pattern", key_pattern)
@@ -206,18 +167,11 @@ class EventActionActionExportRevisionToS3RevisionDestination(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        The S3 bucket where the revision will be exported.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="keyPattern")
     def key_pattern(self) -> Optional[_builtins.str]:
-        """
-        Pattern for naming revisions in the S3 bucket.
-        Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-        """
         return pulumi.get(self, "key_pattern")
 
 
@@ -242,20 +196,12 @@ class EventActionEvent(dict):
 
     def __init__(__self__, *,
                  revision_published: Optional['outputs.EventActionEventRevisionPublished'] = None):
-        """
-        :param 'EventActionEventRevisionPublishedArgs' revision_published: Configuration for a Revision Published event.
-               Described in `revision_published` Configuration Block below.
-        """
         if revision_published is not None:
             pulumi.set(__self__, "revision_published", revision_published)
 
     @_builtins.property
     @pulumi.getter(name="revisionPublished")
     def revision_published(self) -> Optional['outputs.EventActionEventRevisionPublished']:
-        """
-        Configuration for a Revision Published event.
-        Described in `revision_published` Configuration Block below.
-        """
         return pulumi.get(self, "revision_published")
 
 
@@ -280,19 +226,11 @@ class EventActionEventRevisionPublished(dict):
 
     def __init__(__self__, *,
                  data_set_id: _builtins.str):
-        """
-        :param _builtins.str data_set_id: The ID of the data set to monitor for revision publications.
-               Changing this value will recreate the resource.
-        """
         pulumi.set(__self__, "data_set_id", data_set_id)
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> _builtins.str:
-        """
-        The ID of the data set to monitor for revision publications.
-        Changing this value will recreate the resource.
-        """
         return pulumi.get(self, "data_set_id")
 
 
@@ -332,15 +270,6 @@ class RevisionAssetsAsset(dict):
                  import_assets_from_signed_url: Optional['outputs.RevisionAssetsAssetImportAssetsFromSignedUrl'] = None,
                  name: Optional[_builtins.str] = None,
                  updated_at: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str arn: The ARN of the Data Exchange Revision Assets.
-        :param 'RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs' create_s3_data_access_from_s3_bucket: A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
-        :param _builtins.str created_at: The timestamp when the revision was created, in RFC3339 format.
-        :param _builtins.str id: The unique identifier for the revision.
-        :param 'RevisionAssetsAssetImportAssetsFromS3Args' import_assets_from_s3: A block to import assets from S3. See Import Assets from S3 for more details.
-        :param 'RevisionAssetsAssetImportAssetsFromSignedUrlArgs' import_assets_from_signed_url: A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-        :param _builtins.str updated_at: The timestamp when the revision was last updated, in RFC3339 format.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if create_s3_data_access_from_s3_bucket is not None:
@@ -361,49 +290,31 @@ class RevisionAssetsAsset(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the Data Exchange Revision Assets.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createS3DataAccessFromS3Bucket")
     def create_s3_data_access_from_s3_bucket(self) -> Optional['outputs.RevisionAssetsAssetCreateS3DataAccessFromS3Bucket']:
-        """
-        A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
-        """
         return pulumi.get(self, "create_s3_data_access_from_s3_bucket")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp when the revision was created, in RFC3339 format.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier for the revision.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="importAssetsFromS3")
     def import_assets_from_s3(self) -> Optional['outputs.RevisionAssetsAssetImportAssetsFromS3']:
-        """
-        A block to import assets from S3. See Import Assets from S3 for more details.
-        """
         return pulumi.get(self, "import_assets_from_s3")
 
     @_builtins.property
     @pulumi.getter(name="importAssetsFromSignedUrl")
     def import_assets_from_signed_url(self) -> Optional['outputs.RevisionAssetsAssetImportAssetsFromSignedUrl']:
-        """
-        A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-        """
         return pulumi.get(self, "import_assets_from_signed_url")
 
     @_builtins.property
@@ -414,9 +325,6 @@ class RevisionAssetsAsset(dict):
     @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[_builtins.str]:
-        """
-        The timestamp when the revision was last updated, in RFC3339 format.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -447,9 +355,6 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3Bucket(dict):
                  access_point_alias: Optional[_builtins.str] = None,
                  access_point_arn: Optional[_builtins.str] = None,
                  asset_source: Optional['outputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource'] = None):
-        """
-        :param 'RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs' asset_source: A block specifying the source bucket for the asset. This block supports the following:
-        """
         if access_point_alias is not None:
             pulumi.set(__self__, "access_point_alias", access_point_alias)
         if access_point_arn is not None:
@@ -470,9 +375,6 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3Bucket(dict):
     @_builtins.property
     @pulumi.getter(name="assetSource")
     def asset_source(self) -> Optional['outputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource']:
-        """
-        A block specifying the source bucket for the asset. This block supports the following:
-        """
         return pulumi.get(self, "asset_source")
 
 
@@ -502,11 +404,6 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource(dict):
                  key_prefixes: Optional[Sequence[_builtins.str]] = None,
                  keys: Optional[Sequence[_builtins.str]] = None,
                  kms_keys_to_grants: Optional[Sequence['outputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant']] = None):
-        """
-        :param _builtins.str bucket: The name of the S3 bucket.
-        :param Sequence[_builtins.str] key_prefixes: List of key prefixes in the S3 bucket.
-        :param Sequence[_builtins.str] keys: List of object keys in the S3 bucket.
-        """
         pulumi.set(__self__, "bucket", bucket)
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
@@ -518,25 +415,16 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource(dict):
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        The name of the S3 bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter(name="keyPrefixes")
     def key_prefixes(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of key prefixes in the S3 bucket.
-        """
         return pulumi.get(self, "key_prefixes")
 
     @_builtins.property
     @pulumi.getter
     def keys(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of object keys in the S3 bucket.
-        """
         return pulumi.get(self, "keys")
 
     @_builtins.property
@@ -566,17 +454,11 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant
 
     def __init__(__self__, *,
                  kms_key_arn: _builtins.str):
-        """
-        :param _builtins.str kms_key_arn: The ARN of the KMS key.
-        """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
-        """
-        The ARN of the KMS key.
-        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -601,18 +483,12 @@ class RevisionAssetsAssetImportAssetsFromS3(dict):
 
     def __init__(__self__, *,
                  asset_source: Optional['outputs.RevisionAssetsAssetImportAssetsFromS3AssetSource'] = None):
-        """
-        :param 'RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs' asset_source: A block specifying the source bucket and key for the asset. This block supports the following:
-        """
         if asset_source is not None:
             pulumi.set(__self__, "asset_source", asset_source)
 
     @_builtins.property
     @pulumi.getter(name="assetSource")
     def asset_source(self) -> Optional['outputs.RevisionAssetsAssetImportAssetsFromS3AssetSource']:
-        """
-        A block specifying the source bucket and key for the asset. This block supports the following:
-        """
         return pulumi.get(self, "asset_source")
 
 
@@ -621,27 +497,17 @@ class RevisionAssetsAssetImportAssetsFromS3AssetSource(dict):
     def __init__(__self__, *,
                  bucket: _builtins.str,
                  key: _builtins.str):
-        """
-        :param _builtins.str bucket: The name of the S3 bucket.
-        :param _builtins.str key: The key of the object in the S3 bucket.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
 
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> _builtins.str:
-        """
-        The name of the S3 bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        The key of the object in the S3 bucket.
-        """
         return pulumi.get(self, "key")
 
 
@@ -649,17 +515,11 @@ class RevisionAssetsAssetImportAssetsFromS3AssetSource(dict):
 class RevisionAssetsAssetImportAssetsFromSignedUrl(dict):
     def __init__(__self__, *,
                  filename: _builtins.str):
-        """
-        :param _builtins.str filename: The name of the file to import.
-        """
         pulumi.set(__self__, "filename", filename)
 
     @_builtins.property
     @pulumi.getter
     def filename(self) -> _builtins.str:
-        """
-        The name of the file to import.
-        """
         return pulumi.get(self, "filename")
 
 

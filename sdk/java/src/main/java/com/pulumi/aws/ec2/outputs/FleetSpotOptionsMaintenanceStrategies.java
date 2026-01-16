@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetSpotOptionsMaintenanceStrategies {
-    /**
-     * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
-     * 
-     */
     private @Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance;
 
     private FleetSpotOptionsMaintenanceStrategies() {}
-    /**
-     * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
-     * 
-     */
     public Optional<FleetSpotOptionsMaintenanceStrategiesCapacityRebalance> capacityRebalance() {
         return Optional.ofNullable(this.capacityRebalance);
     }

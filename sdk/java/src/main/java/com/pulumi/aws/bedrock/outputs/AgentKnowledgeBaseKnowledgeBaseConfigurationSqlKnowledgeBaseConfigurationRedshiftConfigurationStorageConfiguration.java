@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
-    /**
-     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration awsDataCatalogConfiguration;
-    /**
-     * @return Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration redshiftConfiguration;
-    /**
-     * @return Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-     * 
-     */
     private String type;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration() {}
-    /**
-     * @return Configurations for storage in AWS Glue Data Catalog. See `awsDataCatalogConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration> awsDataCatalogConfiguration() {
         return Optional.ofNullable(this.awsDataCatalogConfiguration);
     }
-    /**
-     * @return Configurations for storage in Amazon Redshift. See `redshiftConfiguration` block for details.
-     * 
-     */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfiguration> redshiftConfiguration() {
         return Optional.ofNullable(this.redshiftConfiguration);
     }
-    /**
-     * @return Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
-     * 
-     */
     public String type() {
         return this.type;
     }

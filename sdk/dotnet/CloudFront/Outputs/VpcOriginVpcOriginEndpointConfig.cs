@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class VpcOriginVpcOriginEndpointConfig
     {
-        /// <summary>
-        /// The VPC origin ARN.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The HTTP port for the CloudFront VPC origin endpoint configuration.
-        /// </summary>
         public readonly int HttpPort;
-        /// <summary>
-        /// The HTTPS port for the CloudFront VPC origin endpoint configuration.
-        /// </summary>
         public readonly int HttpsPort;
-        /// <summary>
-        /// The name of the CloudFront VPC origin endpoint configuration.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
-        /// </summary>
         public readonly string OriginProtocolPolicy;
-        /// <summary>
-        /// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-        /// </summary>
         public readonly Outputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocols? OriginSslProtocols;
 
         [OutputConstructor]

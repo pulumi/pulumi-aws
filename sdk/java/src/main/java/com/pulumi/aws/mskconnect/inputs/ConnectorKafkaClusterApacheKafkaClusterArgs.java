@@ -15,32 +15,16 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
 
     public static final ConnectorKafkaClusterApacheKafkaClusterArgs Empty = new ConnectorKafkaClusterApacheKafkaClusterArgs();
 
-    /**
-     * The bootstrap servers of the cluster.
-     * 
-     */
     @Import(name="bootstrapServers", required=true)
     private Output<String> bootstrapServers;
 
-    /**
-     * @return The bootstrap servers of the cluster.
-     * 
-     */
     public Output<String> bootstrapServers() {
         return this.bootstrapServers;
     }
 
-    /**
-     * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-     * 
-     */
     @Import(name="vpc", required=true)
     private Output<ConnectorKafkaClusterApacheKafkaClusterVpcArgs> vpc;
 
-    /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-     * 
-     */
     public Output<ConnectorKafkaClusterApacheKafkaClusterVpcArgs> vpc() {
         return this.vpc;
     }
@@ -70,44 +54,20 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
             $ = new ConnectorKafkaClusterApacheKafkaClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bootstrapServers The bootstrap servers of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bootstrapServers(Output<String> bootstrapServers) {
             $.bootstrapServers = bootstrapServers;
             return this;
         }
 
-        /**
-         * @param bootstrapServers The bootstrap servers of the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bootstrapServers(String bootstrapServers) {
             return bootstrapServers(Output.of(bootstrapServers));
         }
 
-        /**
-         * @param vpc Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpc(Output<ConnectorKafkaClusterApacheKafkaClusterVpcArgs> vpc) {
             $.vpc = vpc;
             return this;
         }
 
-        /**
-         * @param vpc Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs vpc) {
             return vpc(Output.of(vpc));
         }

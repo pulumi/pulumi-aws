@@ -7,76 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppStream stack.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appstream.Stack("example", {
- *     name: "stack name",
- *     description: "stack description",
- *     displayName: "stack display name",
- *     feedbackUrl: "http://your-domain/feedback",
- *     redirectUrl: "http://your-domain/redirect",
- *     storageConnectors: [{
- *         connectorType: "HOMEFOLDERS",
- *     }],
- *     userSettings: [
- *         {
- *             action: "AUTO_TIME_ZONE_REDIRECTION",
- *             permission: "DISABLED",
- *         },
- *         {
- *             action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "DOMAIN_PASSWORD_SIGNIN",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "DOMAIN_SMART_CARD_SIGNIN",
- *             permission: "DISABLED",
- *         },
- *         {
- *             action: "FILE_DOWNLOAD",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "FILE_UPLOAD",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "PRINTING_TO_LOCAL_DEVICE",
- *             permission: "ENABLED",
- *         },
- *     ],
- *     applicationSettings: {
- *         enabled: true,
- *         settingsGroup: "SettingsGroup",
- *     },
- *     tags: {
- *         TagName: "TagValue",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:appstream/stack:Stack example stackID
- * ```
- */
 export class Stack extends pulumi.CustomResource {
     /**
      * Get an existing Stack resource's state with the given name, ID, and optional extra
@@ -105,73 +35,21 @@ export class Stack extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stack.__pulumiType;
     }
 
-    /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
-     */
     declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
-    /**
-     * Settings for application settings persistence.
-     * See `applicationSettings` below.
-     */
     declare public readonly applicationSettings: pulumi.Output<outputs.appstream.StackApplicationSettings>;
-    /**
-     * ARN of the appstream stack.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * Description for the AppStream stack.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Stack name to display.
-     */
     declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
-     * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-     */
     declare public readonly embedHostDomains: pulumi.Output<string[]>;
-    /**
-     * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
-     */
     declare public readonly feedbackUrl: pulumi.Output<string>;
-    /**
-     * Unique name for the AppStream stack.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * URL that users are redirected to after their streaming session ends.
-     */
     declare public readonly redirectUrl: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
-     */
     declare public readonly storageConnectors: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
-    /**
-     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
-     */
     declare public readonly streamingExperienceSettings: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
-     */
     declare public readonly userSettings: pulumi.Output<outputs.appstream.StackUserSetting[]>;
 
     /**
@@ -231,73 +109,21 @@ export class Stack extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Stack resources.
  */
 export interface StackState {
-    /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
-     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
-    /**
-     * Settings for application settings persistence.
-     * See `applicationSettings` below.
-     */
     applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings>;
-    /**
-     * ARN of the appstream stack.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Description for the AppStream stack.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Stack name to display.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-     */
     embedHostDomains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
-     */
     feedbackUrl?: pulumi.Input<string>;
-    /**
-     * Unique name for the AppStream stack.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * URL that users are redirected to after their streaming session ends.
-     */
     redirectUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
-     */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
-    /**
-     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
-     */
     streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettings>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
-     */
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
 }
 
@@ -305,63 +131,17 @@ export interface StackState {
  * The set of arguments for constructing a Stack resource.
  */
 export interface StackArgs {
-    /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
-     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
-    /**
-     * Settings for application settings persistence.
-     * See `applicationSettings` below.
-     */
     applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings>;
-    /**
-     * Description for the AppStream stack.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Stack name to display.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-     */
     embedHostDomains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
-     */
     feedbackUrl?: pulumi.Input<string>;
-    /**
-     * Unique name for the AppStream stack.
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * URL that users are redirected to after their streaming session ends.
-     */
     redirectUrl?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
-     */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
-    /**
-     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
-     */
     streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettings>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
-     */
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
 }

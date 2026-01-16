@@ -15,32 +15,16 @@ public final class UserPoolWebAuthnConfigurationArgs extends com.pulumi.resource
 
     public static final UserPoolWebAuthnConfigurationArgs Empty = new UserPoolWebAuthnConfigurationArgs();
 
-    /**
-     * The authentication domain that passkeys providers use as a relying party.
-     * 
-     */
     @Import(name="relyingPartyId")
     private @Nullable Output<String> relyingPartyId;
 
-    /**
-     * @return The authentication domain that passkeys providers use as a relying party.
-     * 
-     */
     public Optional<Output<String>> relyingPartyId() {
         return Optional.ofNullable(this.relyingPartyId);
     }
 
-    /**
-     * If your user pool should require a passkey. Must be one of `required` or `preferred`.
-     * 
-     */
     @Import(name="userVerification")
     private @Nullable Output<String> userVerification;
 
-    /**
-     * @return If your user pool should require a passkey. Must be one of `required` or `preferred`.
-     * 
-     */
     public Optional<Output<String>> userVerification() {
         return Optional.ofNullable(this.userVerification);
     }
@@ -70,44 +54,20 @@ public final class UserPoolWebAuthnConfigurationArgs extends com.pulumi.resource
             $ = new UserPoolWebAuthnConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param relyingPartyId The authentication domain that passkeys providers use as a relying party.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relyingPartyId(@Nullable Output<String> relyingPartyId) {
             $.relyingPartyId = relyingPartyId;
             return this;
         }
 
-        /**
-         * @param relyingPartyId The authentication domain that passkeys providers use as a relying party.
-         * 
-         * @return builder
-         * 
-         */
         public Builder relyingPartyId(String relyingPartyId) {
             return relyingPartyId(Output.of(relyingPartyId));
         }
 
-        /**
-         * @param userVerification If your user pool should require a passkey. Must be one of `required` or `preferred`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userVerification(@Nullable Output<String> userVerification) {
             $.userVerification = userVerification;
             return this;
         }
 
-        /**
-         * @param userVerification If your user pool should require a passkey. Must be one of `required` or `preferred`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userVerification(String userVerification) {
             return userVerification(Output.of(userVerification));
         }

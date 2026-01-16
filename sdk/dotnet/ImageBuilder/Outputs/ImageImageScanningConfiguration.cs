@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ImageImageScanningConfiguration
     {
-        /// <summary>
-        /// Configuration block with ECR configuration. Detailed below.
-        /// </summary>
         public readonly Outputs.ImageImageScanningConfigurationEcrConfiguration? EcrConfiguration;
-        /// <summary>
-        /// Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `False`.
-        /// </summary>
         public readonly bool? ImageScanningEnabled;
 
         [OutputConstructor]

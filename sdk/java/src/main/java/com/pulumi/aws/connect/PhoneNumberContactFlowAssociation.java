@@ -13,108 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associates a flow with a phone number claimed to an Amazon Connect instance.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.PhoneNumberContactFlowAssociation;
- * import com.pulumi.aws.connect.PhoneNumberContactFlowAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PhoneNumberContactFlowAssociation("example", PhoneNumberContactFlowAssociationArgs.builder()
- *             .phoneNumberId(exampleAwsConnectPhoneNumber.id())
- *             .instanceId(exampleAwsConnectInstance.id())
- *             .contactFlowId(exampleAwsConnectContactFlow.contactFlowId())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
- * ```
- * 
- */
 @ResourceType(type="aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation")
 public class PhoneNumberContactFlowAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Contact flow ID.
-     * 
-     */
     @Export(name="contactFlowId", refs={String.class}, tree="[0]")
     private Output<String> contactFlowId;
 
-    /**
-     * @return Contact flow ID.
-     * 
-     */
     public Output<String> contactFlowId() {
         return this.contactFlowId;
     }
-    /**
-     * Amazon Connect instance ID.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return Amazon Connect instance ID.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * Phone number ID.
-     * 
-     */
     @Export(name="phoneNumberId", refs={String.class}, tree="[0]")
     private Output<String> phoneNumberId;
 
-    /**
-     * @return Phone number ID.
-     * 
-     */
     public Output<String> phoneNumberId() {
         return this.phoneNumberId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

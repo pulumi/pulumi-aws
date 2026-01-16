@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventEndpointRoutingConfigFailoverConfigPrimary {
-    /**
-     * @return The ARN of the health check used by the endpoint to determine whether failover is triggered.
-     * 
-     */
     private @Nullable String healthCheck;
 
     private EventEndpointRoutingConfigFailoverConfigPrimary() {}
-    /**
-     * @return The ARN of the health check used by the endpoint to determine whether failover is triggered.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }

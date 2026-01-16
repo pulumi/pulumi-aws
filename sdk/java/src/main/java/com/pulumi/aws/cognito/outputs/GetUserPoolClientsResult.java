@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolClientsResult {
-    /**
-     * @return List of Cognito user pool client IDs.
-     * 
-     */
     private List<String> clientIds;
-    /**
-     * @return List of Cognito user pool client names.
-     * 
-     */
     private List<String> clientNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,17 +22,9 @@ public final class GetUserPoolClientsResult {
     private String userPoolId;
 
     private GetUserPoolClientsResult() {}
-    /**
-     * @return List of Cognito user pool client IDs.
-     * 
-     */
     public List<String> clientIds() {
         return this.clientIds;
     }
-    /**
-     * @return List of Cognito user pool client names.
-     * 
-     */
     public List<String> clientNames() {
         return this.clientNames;
     }

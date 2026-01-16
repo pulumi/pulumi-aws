@@ -15,32 +15,16 @@ public final class GetBootstrapBrokersPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetBootstrapBrokersPlainArgs Empty = new GetBootstrapBrokersPlainArgs();
 
-    /**
-     * ARN of the cluster the nodes belong to.
-     * 
-     */
     @Import(name="clusterArn", required=true)
     private String clusterArn;
 
-    /**
-     * @return ARN of the cluster the nodes belong to.
-     * 
-     */
     public String clusterArn() {
         return this.clusterArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,23 +54,11 @@ public final class GetBootstrapBrokersPlainArgs extends com.pulumi.resources.Inv
             $ = new GetBootstrapBrokersPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn ARN of the cluster the nodes belong to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

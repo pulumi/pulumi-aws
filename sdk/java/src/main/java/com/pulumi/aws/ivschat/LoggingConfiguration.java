@@ -16,294 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage - Logging to CloudWatch
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.ivschat.LoggingConfiguration;
- * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example");
- * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .cloudwatchLogs(LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs.builder()
- *                     .logGroupName(example.name())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAcl;
- * import com.pulumi.aws.s3.BucketAclArgs;
- * import com.pulumi.aws.ivschat.LoggingConfiguration;
- * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
- *             .bucketPrefix("tf-ivschat-logging-bucket")
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("firehose.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("firehose_example_role")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var example = new FirehoseDeliveryStream("example", FirehoseDeliveryStreamArgs.builder()
- *             .name("pulumi-kinesis-firehose-extended-s3-example-stream")
- *             .destination("extended_s3")
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(exampleRole.arn())
- *                 .bucketArn(exampleBucket.arn())
- *                 .build())
- *             .tags(Map.of("LogDeliveryEnabled", "true"))
- *             .build());
- * 
- *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
- *             .bucket(exampleBucket.id())
- *             .acl("private")
- *             .build());
- * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .firehose(LoggingConfigurationDestinationConfigurationFirehoseArgs.builder()
- *                     .deliveryStreamName(example.name())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Basic Usage - Logging to S3
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.ivschat.LoggingConfiguration;
- * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationS3Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucketName("tf-ivschat-logging")
- *             .forceDestroy(true)
- *             .build());
- * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(example.id())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
- * 
- * Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
- * 
- * % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
- * 
- */
 @ResourceType(type="aws:ivschat/loggingConfiguration:LoggingConfiguration")
 public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Logging Configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Logging Configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     * 
-     */
     @Export(name="destinationConfiguration", refs={LoggingConfigurationDestinationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LoggingConfigurationDestinationConfiguration> destinationConfiguration;
 
-    /**
-     * @return Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     * 
-     */
     public Output<Optional<LoggingConfigurationDestinationConfiguration>> destinationConfiguration() {
         return Codegen.optional(this.destinationConfiguration);
     }
-    /**
-     * Logging Configuration name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Logging Configuration name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the Logging Configuration.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the Logging Configuration.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

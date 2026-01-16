@@ -9,65 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Manages the custom permissions profile for a user.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.UserCustomPermission("example", new()
-    ///     {
-    ///         UserName = exampleAwsQuicksightUser.UserName,
-    ///         CustomPermissionsName = exampleAwsQuicksightCustomPermissions.CustomPermissionsName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/userCustomPermission:UserCustomPermission")]
     public partial class UserCustomPermission : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom permissions profile name.
-        /// </summary>
         [Output("customPermissionsName")]
         public Output<string> CustomPermissionsName { get; private set; } = null!;
 
-        /// <summary>
-        /// Namespace that the user belongs to. Defaults to `Default`.
-        /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Username of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -120,29 +76,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Custom permissions profile name.
-        /// </summary>
         [Input("customPermissionsName", required: true)]
         public Input<string> CustomPermissionsName { get; set; } = null!;
 
-        /// <summary>
-        /// Namespace that the user belongs to. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Username of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -157,29 +99,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Custom permissions profile name.
-        /// </summary>
         [Input("customPermissionsName")]
         public Input<string>? CustomPermissionsName { get; set; }
 
-        /// <summary>
-        /// Namespace that the user belongs to. Defaults to `Default`.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Username of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

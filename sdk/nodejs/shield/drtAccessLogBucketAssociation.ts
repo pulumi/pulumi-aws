@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Shield DRT Access Log Bucket Association.
- * Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.shield.DrtAccessRoleArnAssociation("test", {roleArn: `arn:aws:iam:${current.region}:${currentAwsCallerIdentity.accountId}:${shieldDrtAccessRoleName}`});
- * const testDrtAccessLogBucketAssociation = new aws.shield.DrtAccessLogBucketAssociation("test", {
- *     logBucket: shieldDrtAccessLogBucket,
- *     roleArnAssociationId: test.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
- *
- * ```sh
- * $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
- * ```
- */
 export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
     /**
      * Get an existing DrtAccessLogBucketAssociation resource's state with the given name, ID, and optional extra
@@ -62,12 +35,9 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DrtAccessLogBucketAssociation.__pulumiType;
     }
 
-    /**
-     * The Amazon S3 bucket that contains the logs that you want to share.
-     */
     declare public readonly logBucket: pulumi.Output<string>;
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * Unused
      */
     declare public readonly roleArnAssociationId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
@@ -109,12 +79,9 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DrtAccessLogBucketAssociation resources.
  */
 export interface DrtAccessLogBucketAssociationState {
-    /**
-     * The Amazon S3 bucket that contains the logs that you want to share.
-     */
     logBucket?: pulumi.Input<string>;
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * Unused
      */
     roleArnAssociationId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts>;
@@ -124,12 +91,9 @@ export interface DrtAccessLogBucketAssociationState {
  * The set of arguments for constructing a DrtAccessLogBucketAssociation resource.
  */
 export interface DrtAccessLogBucketAssociationArgs {
-    /**
-     * The Amazon S3 bucket that contains the logs that you want to share.
-     */
     logBucket: pulumi.Input<string>;
     /**
-     * The ID of the Role Arn association used for allowing Shield DRT Access.
+     * Unused
      */
     roleArnAssociationId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts>;

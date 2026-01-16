@@ -15,17 +15,9 @@ public final class AllowedImagesSettingsImageCriterionCreationDateConditionArgs 
 
     public static final AllowedImagesSettingsImageCriterionCreationDateConditionArgs Empty = new AllowedImagesSettingsImageCriterionCreationDateConditionArgs();
 
-    /**
-     * Maximum number of days since the AMI was created.
-     * 
-     */
     @Import(name="maximumDaysSinceCreated")
     private @Nullable Output<Integer> maximumDaysSinceCreated;
 
-    /**
-     * @return Maximum number of days since the AMI was created.
-     * 
-     */
     public Optional<Output<Integer>> maximumDaysSinceCreated() {
         return Optional.ofNullable(this.maximumDaysSinceCreated);
     }
@@ -54,23 +46,11 @@ public final class AllowedImagesSettingsImageCriterionCreationDateConditionArgs 
             $ = new AllowedImagesSettingsImageCriterionCreationDateConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumDaysSinceCreated Maximum number of days since the AMI was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumDaysSinceCreated(@Nullable Output<Integer> maximumDaysSinceCreated) {
             $.maximumDaysSinceCreated = maximumDaysSinceCreated;
             return this;
         }
 
-        /**
-         * @param maximumDaysSinceCreated Maximum number of days since the AMI was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumDaysSinceCreated(Integer maximumDaysSinceCreated) {
             return maximumDaysSinceCreated(Output.of(maximumDaysSinceCreated));
         }

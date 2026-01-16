@@ -14,15 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetWorkspacesResult {
     private @Nullable String aliasPrefix;
-    /**
-     * @return List of aliases of the matched Prometheus workspaces.
-     * 
-     */
     private List<String> aliases;
-    /**
-     * @return List of ARNs of the matched Prometheus workspaces.
-     * 
-     */
     private List<String> arns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,27 +22,15 @@ public final class GetWorkspacesResult {
      */
     private String id;
     private String region;
-    /**
-     * @return List of workspace IDs of the matched Prometheus workspaces.
-     * 
-     */
     private List<String> workspaceIds;
 
     private GetWorkspacesResult() {}
     public Optional<String> aliasPrefix() {
         return Optional.ofNullable(this.aliasPrefix);
     }
-    /**
-     * @return List of aliases of the matched Prometheus workspaces.
-     * 
-     */
     public List<String> aliases() {
         return this.aliases;
     }
-    /**
-     * @return List of ARNs of the matched Prometheus workspaces.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -64,10 +44,6 @@ public final class GetWorkspacesResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of workspace IDs of the matched Prometheus workspaces.
-     * 
-     */
     public List<String> workspaceIds() {
         return this.workspaceIds;
     }

@@ -16,17 +16,9 @@ public final class UserPoolSignInPolicyArgs extends com.pulumi.resources.Resourc
 
     public static final UserPoolSignInPolicyArgs Empty = new UserPoolSignInPolicyArgs();
 
-    /**
-     * The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-     * 
-     */
     @Import(name="allowedFirstAuthFactors")
     private @Nullable Output<List<String>> allowedFirstAuthFactors;
 
-    /**
-     * @return The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-     * 
-     */
     public Optional<Output<List<String>>> allowedFirstAuthFactors() {
         return Optional.ofNullable(this.allowedFirstAuthFactors);
     }
@@ -55,33 +47,15 @@ public final class UserPoolSignInPolicyArgs extends com.pulumi.resources.Resourc
             $ = new UserPoolSignInPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedFirstAuthFactors The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedFirstAuthFactors(@Nullable Output<List<String>> allowedFirstAuthFactors) {
             $.allowedFirstAuthFactors = allowedFirstAuthFactors;
             return this;
         }
 
-        /**
-         * @param allowedFirstAuthFactors The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedFirstAuthFactors(List<String> allowedFirstAuthFactors) {
             return allowedFirstAuthFactors(Output.of(allowedFirstAuthFactors));
         }
 
-        /**
-         * @param allowedFirstAuthFactors The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedFirstAuthFactors(String... allowedFirstAuthFactors) {
             return allowedFirstAuthFactors(List.of(allowedFirstAuthFactors));
         }

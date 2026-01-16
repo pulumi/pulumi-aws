@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SecretRotationRotationRules {
-    /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-     * 
-     */
     private @Nullable Integer automaticallyAfterDays;
-    /**
-     * @return The length of the rotation window in hours. For example, `3h` for a three hour window.
-     * 
-     */
     private @Nullable String duration;
-    /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-     * 
-     */
     private @Nullable String scheduleExpression;
 
     private SecretRotationRotationRules() {}
-    /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-     * 
-     */
     public Optional<Integer> automaticallyAfterDays() {
         return Optional.ofNullable(this.automaticallyAfterDays);
     }
-    /**
-     * @return The length of the rotation window in hours. For example, `3h` for a three hour window.
-     * 
-     */
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
     }
-    /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
-     * 
-     */
     public Optional<String> scheduleExpression() {
         return Optional.ofNullable(this.scheduleExpression);
     }

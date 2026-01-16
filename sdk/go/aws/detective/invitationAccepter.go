@@ -12,63 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/detective"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := detective.NewGraph(ctx, "primary", nil)
-//			if err != nil {
-//				return err
-//			}
-//			primaryMember, err := detective.NewMember(ctx, "primary", &detective.MemberArgs{
-//				AccountId:    pulumi.String("ACCOUNT ID"),
-//				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primary.GraphArn,
-//				Message:      pulumi.String("Message of the invite"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
-//				GraphArn: primary.GraphArn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-// ```
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
 
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region   pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInvitationAccepter registers a new resource with the given unique name, arguments, and options.
@@ -104,17 +52,13 @@ func GetInvitationAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvitationAccepter resources.
 type invitationAccepterState struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn *string `pulumi:"graphArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region   *string `pulumi:"region"`
 }
 
 type InvitationAccepterState struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (InvitationAccepterState) ElementType() reflect.Type {
@@ -122,18 +66,14 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 }
 
 type invitationAccepterArgs struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
-	GraphArn string `pulumi:"graphArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	GraphArn string  `pulumi:"graphArn"`
+	Region   *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InvitationAccepter resource.
 type InvitationAccepterArgs struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region   pulumi.StringPtrInput
 }
 
 func (InvitationAccepterArgs) ElementType() reflect.Type {
@@ -223,12 +163,10 @@ func (o InvitationAccepterOutput) ToInvitationAccepterOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the behavior graph that the member account is accepting the invitation for.
 func (o InvitationAccepterOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InvitationAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

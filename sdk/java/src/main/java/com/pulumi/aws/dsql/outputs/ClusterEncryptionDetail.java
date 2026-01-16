@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterEncryptionDetail {
-    /**
-     * @return The status of encryption for the DSQL Cluster.
-     * 
-     */
     private String encryptionStatus;
-    /**
-     * @return The type of encryption that protects the data on the DSQL Cluster.
-     * 
-     */
     private String encryptionType;
 
     private ClusterEncryptionDetail() {}
-    /**
-     * @return The status of encryption for the DSQL Cluster.
-     * 
-     */
     public String encryptionStatus() {
         return this.encryptionStatus;
     }
-    /**
-     * @return The type of encryption that protects the data on the DSQL Cluster.
-     * 
-     */
     public String encryptionType() {
         return this.encryptionType;
     }

@@ -27,9 +27,6 @@ class DomainPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainPolicy resource.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] access_policies: IAM policy document specifying the access policies for the domain
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_policies", access_policies)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -39,9 +36,6 @@ class DomainPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
-        """
-        IAM policy document specifying the access policies for the domain
-        """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
@@ -51,9 +45,6 @@ class DomainPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the domain.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -63,9 +54,6 @@ class DomainPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,9 +69,6 @@ class _DomainPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainPolicy resources.
-        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] access_policies: IAM policy document specifying the access policies for the domain
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -95,9 +80,6 @@ class _DomainPolicyState:
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
-        """
-        IAM policy document specifying the access policies for the domain
-        """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
@@ -107,9 +89,6 @@ class _DomainPolicyState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the domain.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -119,9 +98,6 @@ class _DomainPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -140,41 +116,9 @@ class DomainPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticsearch.Domain("example",
-            domain_name="tf-test",
-            elasticsearch_version="2.3")
-        main = aws.elasticsearch.DomainPolicy("main",
-            domain_name=example.domain_name,
-            access_policies=example.arn.apply(lambda arn: f\"\"\"{{
-            \\"Version\\": \\"2012-10-17\\",
-            \\"Statement\\": [
-                {{
-                    \\"Action\\": \\"es:*\\",
-                    \\"Principal\\": \\"*\\",
-                    \\"Effect\\": \\"Allow\\",
-                    \\"Condition\\": {{
-                        \\"IpAddress\\": {{\\"aws:SourceIp\\": \\"127.0.0.1/32\\"}}
-                    }},
-                    \\"Resource\\": \\"{arn}/*\\"
-                }}
-            ]
-        }}
-        \"\"\"))
-        ```
-
+        Create a DomainPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -183,36 +127,7 @@ class DomainPolicy(pulumi.CustomResource):
                  args: DomainPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticsearch.Domain("example",
-            domain_name="tf-test",
-            elasticsearch_version="2.3")
-        main = aws.elasticsearch.DomainPolicy("main",
-            domain_name=example.domain_name,
-            access_policies=example.arn.apply(lambda arn: f\"\"\"{{
-            \\"Version\\": \\"2012-10-17\\",
-            \\"Statement\\": [
-                {{
-                    \\"Action\\": \\"es:*\\",
-                    \\"Principal\\": \\"*\\",
-                    \\"Effect\\": \\"Allow\\",
-                    \\"Condition\\": {{
-                        \\"IpAddress\\": {{\\"aws:SourceIp\\": \\"127.0.0.1/32\\"}}
-                    }},
-                    \\"Resource\\": \\"{arn}/*\\"
-                }}
-            ]
-        }}
-        \"\"\"))
-        ```
-
+        Create a DomainPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,9 +182,6 @@ class DomainPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain
-        :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,24 +195,15 @@ class DomainPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[_builtins.str]:
-        """
-        IAM policy document specifying the access policies for the domain
-        """
         return pulumi.get(self, "access_policies")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the domain.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

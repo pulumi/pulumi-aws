@@ -83,41 +83,26 @@ class GetReceivedLicenseResult:
     @_builtins.property
     @pulumi.getter
     def beneficiary(self) -> _builtins.str:
-        """
-        Granted license beneficiary. This is in the form of the ARN of the root user of the account.
-        """
         return pulumi.get(self, "beneficiary")
 
     @_builtins.property
     @pulumi.getter(name="consumptionConfigurations")
     def consumption_configurations(self) -> Sequence['outputs.GetReceivedLicenseConsumptionConfigurationResult']:
-        """
-        Configuration for consumption of the license. Detailed below
-        """
         return pulumi.get(self, "consumption_configurations")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> _builtins.str:
-        """
-        Creation time of the granted license in RFC 3339 format.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter
     def entitlements(self) -> Sequence['outputs.GetReceivedLicenseEntitlementResult']:
-        """
-        License entitlements. Detailed below
-        """
         return pulumi.get(self, "entitlements")
 
     @_builtins.property
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> _builtins.str:
-        """
-        Home Region of the granted license.
-        """
         return pulumi.get(self, "home_region")
 
     @_builtins.property
@@ -131,42 +116,26 @@ class GetReceivedLicenseResult:
     @_builtins.property
     @pulumi.getter
     def issuers(self) -> Sequence['outputs.GetReceivedLicenseIssuerResult']:
-        """
-        Granted license issuer. Detailed below
-        """
         return pulumi.get(self, "issuers")
 
     @_builtins.property
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the license.
-        """
         return pulumi.get(self, "license_arn")
 
     @_builtins.property
     @pulumi.getter(name="licenseMetadatas")
     def license_metadatas(self) -> Sequence['outputs.GetReceivedLicenseLicenseMetadataResult']:
-        """
-        Granted license metadata. This is in the form of a set of all meta data. Detailed below
-        """
         return pulumi.get(self, "license_metadatas")
 
     @_builtins.property
     @pulumi.getter(name="licenseName")
     def license_name(self) -> _builtins.str:
-        """
-        License name.
-        """
         return pulumi.get(self, "license_name")
 
     @_builtins.property
     @pulumi.getter(name="productName")
     def product_name(self) -> _builtins.str:
-        """
-        Product name.
-        * `product_sku ` - Product SKU.
-        """
         return pulumi.get(self, "product_name")
 
     @_builtins.property
@@ -177,9 +146,6 @@ class GetReceivedLicenseResult:
     @_builtins.property
     @pulumi.getter(name="receivedMetadatas")
     def received_metadatas(self) -> Sequence['outputs.GetReceivedLicenseReceivedMetadataResult']:
-        """
-        Granted license received metadata. Detailed below
-        """
         return pulumi.get(self, "received_metadatas")
 
     @_builtins.property
@@ -190,25 +156,16 @@ class GetReceivedLicenseResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Granted license status.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def validities(self) -> Sequence['outputs.GetReceivedLicenseValidityResult']:
-        """
-        Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
-        """
         return pulumi.get(self, "validities")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Version of the granted license.
-        """
         return pulumi.get(self, "version")
 
 
@@ -241,22 +198,7 @@ def get_received_license(license_arn: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReceivedLicenseResult:
     """
-    This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
-
-    ## Example Usage
-
-    The following shows getting the received license data using and ARN.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.licensemanager.get_received_license(license_arn="arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
-    ```
-
-
-    :param _builtins.str license_arn: The ARN of the received license you want data for.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['licenseArn'] = license_arn
@@ -286,22 +228,7 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[_builtins.str
                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicenseResult]:
     """
-    This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
-
-    ## Example Usage
-
-    The following shows getting the received license data using and ARN.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.licensemanager.get_received_license(license_arn="arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
-    ```
-
-
-    :param _builtins.str license_arn: The ARN of the received license you want data for.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['licenseArn'] = license_arn

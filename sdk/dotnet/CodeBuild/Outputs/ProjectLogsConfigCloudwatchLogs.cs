@@ -13,18 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectLogsConfigCloudwatchLogs
     {
-        /// <summary>
-        /// Group name of the logs in CloudWatch Logs.
-        /// </summary>
         public readonly string? GroupName;
-        /// <summary>
-        /// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-        /// `DISABLED`. Defaults to `ENABLED`.
-        /// </summary>
         public readonly string? Status;
-        /// <summary>
-        /// Prefix of the log stream name of the logs in CloudWatch Logs.
-        /// </summary>
         public readonly string? StreamName;
 
         [OutputConstructor]

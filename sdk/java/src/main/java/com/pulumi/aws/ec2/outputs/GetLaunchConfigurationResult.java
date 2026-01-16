@@ -16,145 +16,49 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchConfigurationResult {
-    /**
-     * @return Amazon Resource Name of the launch configuration.
-     * 
-     */
     private String arn;
-    /**
-     * @return Whether a Public IP address is associated with the instance.
-     * 
-     */
     private Boolean associatePublicIpAddress;
-    /**
-     * @return EBS Block Devices attached to the instance.
-     * 
-     */
     private List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices;
-    /**
-     * @return Whether the launched EC2 instance will be EBS-optimized.
-     * 
-     */
     private Boolean ebsOptimized;
-    /**
-     * @return Whether Detailed Monitoring is Enabled.
-     * 
-     */
     private Boolean enableMonitoring;
-    /**
-     * @return The Ephemeral volumes on the instance.
-     * 
-     */
     private List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
-    /**
-     * @return The IAM Instance Profile to associate with launched instances.
-     * 
-     */
     private String iamInstanceProfile;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return EC2 Image ID of the instance.
-     * 
-     */
     private String imageId;
-    /**
-     * @return Instance Type of the instance to launch.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return Key Name that should be used for the instance.
-     * 
-     */
     private String keyName;
-    /**
-     * @return Metadata options for the instance.
-     * 
-     */
     private List<GetLaunchConfigurationMetadataOption> metadataOptions;
-    /**
-     * @return Name of the launch configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return Tenancy of the instance.
-     * 
-     */
     private String placementTenancy;
     private String region;
-    /**
-     * @return Root Block Device of the instance.
-     * 
-     */
     private List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices;
-    /**
-     * @return List of associated Security Group IDS.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return Price to use for reserving Spot instances.
-     * 
-     */
     private String spotPrice;
-    /**
-     * @return User Data of the instance.
-     * 
-     */
     private String userData;
 
     private GetLaunchConfigurationResult() {}
-    /**
-     * @return Amazon Resource Name of the launch configuration.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Whether a Public IP address is associated with the instance.
-     * 
-     */
     public Boolean associatePublicIpAddress() {
         return this.associatePublicIpAddress;
     }
-    /**
-     * @return EBS Block Devices attached to the instance.
-     * 
-     */
     public List<GetLaunchConfigurationEbsBlockDevice> ebsBlockDevices() {
         return this.ebsBlockDevices;
     }
-    /**
-     * @return Whether the launched EC2 instance will be EBS-optimized.
-     * 
-     */
     public Boolean ebsOptimized() {
         return this.ebsOptimized;
     }
-    /**
-     * @return Whether Detailed Monitoring is Enabled.
-     * 
-     */
     public Boolean enableMonitoring() {
         return this.enableMonitoring;
     }
-    /**
-     * @return The Ephemeral volumes on the instance.
-     * 
-     */
     public List<GetLaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices() {
         return this.ephemeralBlockDevices;
     }
-    /**
-     * @return The IAM Instance Profile to associate with launched instances.
-     * 
-     */
     public String iamInstanceProfile() {
         return this.iamInstanceProfile;
     }
@@ -165,76 +69,36 @@ public final class GetLaunchConfigurationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return EC2 Image ID of the instance.
-     * 
-     */
     public String imageId() {
         return this.imageId;
     }
-    /**
-     * @return Instance Type of the instance to launch.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return Key Name that should be used for the instance.
-     * 
-     */
     public String keyName() {
         return this.keyName;
     }
-    /**
-     * @return Metadata options for the instance.
-     * 
-     */
     public List<GetLaunchConfigurationMetadataOption> metadataOptions() {
         return this.metadataOptions;
     }
-    /**
-     * @return Name of the launch configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Tenancy of the instance.
-     * 
-     */
     public String placementTenancy() {
         return this.placementTenancy;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Root Block Device of the instance.
-     * 
-     */
     public List<GetLaunchConfigurationRootBlockDevice> rootBlockDevices() {
         return this.rootBlockDevices;
     }
-    /**
-     * @return List of associated Security Group IDS.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return Price to use for reserving Spot instances.
-     * 
-     */
     public String spotPrice() {
         return this.spotPrice;
     }
-    /**
-     * @return User Data of the instance.
-     * 
-     */
     public String userData() {
         return this.userData;
     }

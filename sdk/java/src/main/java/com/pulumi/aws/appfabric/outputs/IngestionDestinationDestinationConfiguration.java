@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IngestionDestinationDestinationConfiguration {
-    /**
-     * @return Contains information about an audit log processing configuration.
-     * 
-     */
     private @Nullable IngestionDestinationDestinationConfigurationAuditLog auditLog;
 
     private IngestionDestinationDestinationConfiguration() {}
-    /**
-     * @return Contains information about an audit log processing configuration.
-     * 
-     */
     public Optional<IngestionDestinationDestinationConfigurationAuditLog> auditLog() {
         return Optional.ofNullable(this.auditLog);
     }

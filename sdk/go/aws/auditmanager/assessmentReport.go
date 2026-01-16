@@ -12,61 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Audit Manager Assessment Report.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessmentReport(ctx, "test", &auditmanager.AssessmentReportArgs{
-//				Name:         pulumi.String("example"),
-//				AssessmentId: pulumi.Any(testAwsAuditmanagerAssessment.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
-// ```
 type AssessmentReport struct {
 	pulumi.CustomResourceState
 
-	// Unique identifier of the assessment to create the report from.
-	//
-	// The following arguments are optional:
-	AssessmentId pulumi.StringOutput `pulumi:"assessmentId"`
-	// Name of the user who created the assessment report.
-	Author pulumi.StringOutput `pulumi:"author"`
-	// Description of the assessment report.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the assessment report.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	AssessmentId pulumi.StringOutput    `pulumi:"assessmentId"`
+	Author       pulumi.StringOutput    `pulumi:"author"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Region       pulumi.StringOutput    `pulumi:"region"`
+	Status       pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewAssessmentReport registers a new resource with the given unique name, arguments, and options.
@@ -102,37 +56,21 @@ func GetAssessmentReport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssessmentReport resources.
 type assessmentReportState struct {
-	// Unique identifier of the assessment to create the report from.
-	//
-	// The following arguments are optional:
 	AssessmentId *string `pulumi:"assessmentId"`
-	// Name of the user who created the assessment report.
-	Author *string `pulumi:"author"`
-	// Description of the assessment report.
-	Description *string `pulumi:"description"`
-	// Name of the assessment report.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-	Status *string `pulumi:"status"`
+	Author       *string `pulumi:"author"`
+	Description  *string `pulumi:"description"`
+	Name         *string `pulumi:"name"`
+	Region       *string `pulumi:"region"`
+	Status       *string `pulumi:"status"`
 }
 
 type AssessmentReportState struct {
-	// Unique identifier of the assessment to create the report from.
-	//
-	// The following arguments are optional:
 	AssessmentId pulumi.StringPtrInput
-	// Name of the user who created the assessment report.
-	Author pulumi.StringPtrInput
-	// Description of the assessment report.
-	Description pulumi.StringPtrInput
-	// Name of the assessment report.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
-	Status pulumi.StringPtrInput
+	Author       pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
 }
 
 func (AssessmentReportState) ElementType() reflect.Type {
@@ -140,30 +78,18 @@ func (AssessmentReportState) ElementType() reflect.Type {
 }
 
 type assessmentReportArgs struct {
-	// Unique identifier of the assessment to create the report from.
-	//
-	// The following arguments are optional:
-	AssessmentId string `pulumi:"assessmentId"`
-	// Description of the assessment report.
-	Description *string `pulumi:"description"`
-	// Name of the assessment report.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AssessmentId string  `pulumi:"assessmentId"`
+	Description  *string `pulumi:"description"`
+	Name         *string `pulumi:"name"`
+	Region       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AssessmentReport resource.
 type AssessmentReportArgs struct {
-	// Unique identifier of the assessment to create the report from.
-	//
-	// The following arguments are optional:
 	AssessmentId pulumi.StringInput
-	// Description of the assessment report.
-	Description pulumi.StringPtrInput
-	// Name of the assessment report.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
 }
 
 func (AssessmentReportArgs) ElementType() reflect.Type {
@@ -253,34 +179,26 @@ func (o AssessmentReportOutput) ToAssessmentReportOutputWithContext(ctx context.
 	return o
 }
 
-// Unique identifier of the assessment to create the report from.
-//
-// The following arguments are optional:
 func (o AssessmentReportOutput) AssessmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.AssessmentId }).(pulumi.StringOutput)
 }
 
-// Name of the user who created the assessment report.
 func (o AssessmentReportOutput) Author() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Author }).(pulumi.StringOutput)
 }
 
-// Description of the assessment report.
 func (o AssessmentReportOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the assessment report.
 func (o AssessmentReportOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssessmentReportOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
 func (o AssessmentReportOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -15,65 +15,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserHierarchyStructureHierarchyStructure {
-    /**
-     * @return Details of level five. See below.
-     * 
-     */
     private List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives;
-    /**
-     * @return Details of level four. See below.
-     * 
-     */
     private List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours;
-    /**
-     * @return Details of level one. See below.
-     * 
-     */
     private List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes;
-    /**
-     * @return Details of level three. See below.
-     * 
-     */
     private List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees;
-    /**
-     * @return Details of level two. See below.
-     * 
-     */
     private List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos;
 
     private GetUserHierarchyStructureHierarchyStructure() {}
-    /**
-     * @return Details of level five. See below.
-     * 
-     */
     public List<GetUserHierarchyStructureHierarchyStructureLevelFife> levelFives() {
         return this.levelFives;
     }
-    /**
-     * @return Details of level four. See below.
-     * 
-     */
     public List<GetUserHierarchyStructureHierarchyStructureLevelFour> levelFours() {
         return this.levelFours;
     }
-    /**
-     * @return Details of level one. See below.
-     * 
-     */
     public List<GetUserHierarchyStructureHierarchyStructureLevelOne> levelOnes() {
         return this.levelOnes;
     }
-    /**
-     * @return Details of level three. See below.
-     * 
-     */
     public List<GetUserHierarchyStructureHierarchyStructureLevelThree> levelThrees() {
         return this.levelThrees;
     }
-    /**
-     * @return Details of level two. See below.
-     * 
-     */
     public List<GetUserHierarchyStructureHierarchyStructureLevelTwo> levelTwos() {
         return this.levelTwos;
     }

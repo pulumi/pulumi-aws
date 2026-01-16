@@ -17,32 +17,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs();
 
-    /**
-     * Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
-     * 
-     */
     @Import(name="s3Location")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs> s3Location;
 
-    /**
-     * @return Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs>> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }
 
-    /**
-     * Storage service used for this location. `S3` is the only valid value.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Storage service used for this location. `S3` is the only valid value.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,44 +56,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Location Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs> s3Location) {
             $.s3Location = s3Location;
             return this;
         }
 
-        /**
-         * @param s3Location Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs s3Location) {
             return s3Location(Output.of(s3Location));
         }
 
-        /**
-         * @param type Storage service used for this location. `S3` is the only valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Storage service used for this location. `S3` is the only valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

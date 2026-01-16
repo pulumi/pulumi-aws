@@ -14,47 +14,23 @@ public final class ReplicationInstanceKerberosAuthenticationSettingsArgs extends
 
     public static final ReplicationInstanceKerberosAuthenticationSettingsArgs Empty = new ReplicationInstanceKerberosAuthenticationSettingsArgs();
 
-    /**
-     * ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-     * 
-     */
     @Import(name="keyCacheSecretIamArn", required=true)
     private Output<String> keyCacheSecretIamArn;
 
-    /**
-     * @return ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-     * 
-     */
     public Output<String> keyCacheSecretIamArn() {
         return this.keyCacheSecretIamArn;
     }
 
-    /**
-     * Secret ID that stores the key cache file required for Kerberos authentication.
-     * 
-     */
     @Import(name="keyCacheSecretId", required=true)
     private Output<String> keyCacheSecretId;
 
-    /**
-     * @return Secret ID that stores the key cache file required for Kerberos authentication.
-     * 
-     */
     public Output<String> keyCacheSecretId() {
         return this.keyCacheSecretId;
     }
 
-    /**
-     * Contents of krb5 configuration file required for Kerberos authentication.
-     * 
-     */
     @Import(name="krb5FileContents", required=true)
     private Output<String> krb5FileContents;
 
-    /**
-     * @return Contents of krb5 configuration file required for Kerberos authentication.
-     * 
-     */
     public Output<String> krb5FileContents() {
         return this.krb5FileContents;
     }
@@ -85,65 +61,29 @@ public final class ReplicationInstanceKerberosAuthenticationSettingsArgs extends
             $ = new ReplicationInstanceKerberosAuthenticationSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyCacheSecretIamArn ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyCacheSecretIamArn(Output<String> keyCacheSecretIamArn) {
             $.keyCacheSecretIamArn = keyCacheSecretIamArn;
             return this;
         }
 
-        /**
-         * @param keyCacheSecretIamArn ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyCacheSecretIamArn(String keyCacheSecretIamArn) {
             return keyCacheSecretIamArn(Output.of(keyCacheSecretIamArn));
         }
 
-        /**
-         * @param keyCacheSecretId Secret ID that stores the key cache file required for Kerberos authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyCacheSecretId(Output<String> keyCacheSecretId) {
             $.keyCacheSecretId = keyCacheSecretId;
             return this;
         }
 
-        /**
-         * @param keyCacheSecretId Secret ID that stores the key cache file required for Kerberos authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyCacheSecretId(String keyCacheSecretId) {
             return keyCacheSecretId(Output.of(keyCacheSecretId));
         }
 
-        /**
-         * @param krb5FileContents Contents of krb5 configuration file required for Kerberos authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder krb5FileContents(Output<String> krb5FileContents) {
             $.krb5FileContents = krb5FileContents;
             return this;
         }
 
-        /**
-         * @param krb5FileContents Contents of krb5 configuration file required for Kerberos authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder krb5FileContents(String krb5FileContents) {
             return krb5FileContents(Output.of(krb5FileContents));
         }

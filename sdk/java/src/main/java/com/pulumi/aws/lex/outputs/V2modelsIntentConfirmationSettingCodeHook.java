@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHook {
-    /**
-     * @return Whether a dialog code hook is used when the intent is activated.
-     * 
-     */
     private Boolean active;
-    /**
-     * @return Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     private Boolean enableCodeHookInvocation;
-    /**
-     * @return Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     private @Nullable String invocationLabel;
-    /**
-     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
-     * 
-     */
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification postCodeHookSpecification;
 
     private V2modelsIntentConfirmationSettingCodeHook() {}
-    /**
-     * @return Whether a dialog code hook is used when the intent is activated.
-     * 
-     */
     public Boolean active() {
         return this.active;
     }
-    /**
-     * @return Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     public Boolean enableCodeHookInvocation() {
         return this.enableCodeHookInvocation;
     }
-    /**
-     * @return Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     public Optional<String> invocationLabel() {
         return Optional.ofNullable(this.invocationLabel);
     }
-    /**
-     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
-     * 
-     */
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification postCodeHookSpecification() {
         return this.postCodeHookSpecification;
     }

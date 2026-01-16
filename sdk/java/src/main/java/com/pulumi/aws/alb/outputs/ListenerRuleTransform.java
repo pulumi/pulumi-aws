@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleTransform {
-    /**
-     * @return Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-     * 
-     */
     private @Nullable ListenerRuleTransformHostHeaderRewriteConfig hostHeaderRewriteConfig;
-    /**
-     * @return Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-     * 
-     */
     private String type;
-    /**
-     * @return Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-     * 
-     */
     private @Nullable ListenerRuleTransformUrlRewriteConfig urlRewriteConfig;
 
     private ListenerRuleTransform() {}
-    /**
-     * @return Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-     * 
-     */
     public Optional<ListenerRuleTransformHostHeaderRewriteConfig> hostHeaderRewriteConfig() {
         return Optional.ofNullable(this.hostHeaderRewriteConfig);
     }
-    /**
-     * @return Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-     * 
-     */
     public Optional<ListenerRuleTransformUrlRewriteConfig> urlRewriteConfig() {
         return Optional.ofNullable(this.urlRewriteConfig);
     }

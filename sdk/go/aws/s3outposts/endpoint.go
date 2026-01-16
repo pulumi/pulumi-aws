@@ -12,66 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Outposts Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3outposts.NewEndpoint(ctx, "example", &s3outposts.EndpointArgs{
-//				OutpostId:       pulumi.Any(exampleAwsOutpostsOutpost.Id),
-//				SecurityGroupId: pulumi.Any(exampleAwsSecurityGroup.Id),
-//				SubnetId:        pulumi.Any(exampleAwsSubnet.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
-// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-	AccessType pulumi.StringOutput `pulumi:"accessType"`
-	// Amazon Resource Name (ARN) of the endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// VPC CIDR block of the endpoint.
-	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
-	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
-	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	// Identifier of the EC2 Subnet.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	AccessType            pulumi.StringOutput                 `pulumi:"accessType"`
+	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
+	CidrBlock             pulumi.StringOutput                 `pulumi:"cidrBlock"`
+	CreationTime          pulumi.StringOutput                 `pulumi:"creationTime"`
+	CustomerOwnedIpv4Pool pulumi.StringPtrOutput              `pulumi:"customerOwnedIpv4Pool"`
+	NetworkInterfaces     EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	OutpostId             pulumi.StringOutput                 `pulumi:"outpostId"`
+	Region                pulumi.StringOutput                 `pulumi:"region"`
+	SecurityGroupId       pulumi.StringOutput                 `pulumi:"securityGroupId"`
+	SubnetId              pulumi.StringOutput                 `pulumi:"subnetId"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -113,49 +66,29 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
-	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-	AccessType *string `pulumi:"accessType"`
-	// Amazon Resource Name (ARN) of the endpoint.
-	Arn *string `pulumi:"arn"`
-	// VPC CIDR block of the endpoint.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime *string `pulumi:"creationTime"`
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
-	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId *string `pulumi:"outpostId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// Identifier of the EC2 Subnet.
-	SubnetId *string `pulumi:"subnetId"`
+	AccessType            *string                    `pulumi:"accessType"`
+	Arn                   *string                    `pulumi:"arn"`
+	CidrBlock             *string                    `pulumi:"cidrBlock"`
+	CreationTime          *string                    `pulumi:"creationTime"`
+	CustomerOwnedIpv4Pool *string                    `pulumi:"customerOwnedIpv4Pool"`
+	NetworkInterfaces     []EndpointNetworkInterface `pulumi:"networkInterfaces"`
+	OutpostId             *string                    `pulumi:"outpostId"`
+	Region                *string                    `pulumi:"region"`
+	SecurityGroupId       *string                    `pulumi:"securityGroupId"`
+	SubnetId              *string                    `pulumi:"subnetId"`
 }
 
 type EndpointState struct {
-	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-	AccessType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the endpoint.
-	Arn pulumi.StringPtrInput
-	// VPC CIDR block of the endpoint.
-	CidrBlock pulumi.StringPtrInput
-	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime pulumi.StringPtrInput
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	AccessType            pulumi.StringPtrInput
+	Arn                   pulumi.StringPtrInput
+	CidrBlock             pulumi.StringPtrInput
+	CreationTime          pulumi.StringPtrInput
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
-	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-	NetworkInterfaces EndpointNetworkInterfaceArrayInput
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId pulumi.StringPtrInput
-	// Identifier of the EC2 Subnet.
-	SubnetId pulumi.StringPtrInput
+	NetworkInterfaces     EndpointNetworkInterfaceArrayInput
+	OutpostId             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	SecurityGroupId       pulumi.StringPtrInput
+	SubnetId              pulumi.StringPtrInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -163,34 +96,22 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-	AccessType *string `pulumi:"accessType"`
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	AccessType            *string `pulumi:"accessType"`
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId string `pulumi:"outpostId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId string `pulumi:"securityGroupId"`
-	// Identifier of the EC2 Subnet.
-	SubnetId string `pulumi:"subnetId"`
+	OutpostId             string  `pulumi:"outpostId"`
+	Region                *string `pulumi:"region"`
+	SecurityGroupId       string  `pulumi:"securityGroupId"`
+	SubnetId              string  `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-	AccessType pulumi.StringPtrInput
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	AccessType            pulumi.StringPtrInput
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId pulumi.StringInput
-	// Identifier of the EC2 Subnet.
-	SubnetId pulumi.StringInput
+	OutpostId             pulumi.StringInput
+	Region                pulumi.StringPtrInput
+	SecurityGroupId       pulumi.StringInput
+	SubnetId              pulumi.StringInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -280,52 +201,42 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
-// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
 func (o EndpointOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AccessType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// VPC CIDR block of the endpoint.
 func (o EndpointOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o EndpointOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 func (o EndpointOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
 }
 
-// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 func (o EndpointOutput) NetworkInterfaces() EndpointNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(EndpointNetworkInterfaceArrayOutput)
 }
 
-// Identifier of the Outpost to contain this endpoint.
 func (o EndpointOutput) OutpostId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.OutpostId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier of the EC2 Security Group.
 func (o EndpointOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
-// Identifier of the EC2 Subnet.
 func (o EndpointOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

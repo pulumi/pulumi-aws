@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EventEndpointRoutingConfig {
-    /**
-     * @return Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
-     * 
-     */
     private EventEndpointRoutingConfigFailoverConfig failoverConfig;
 
     private EventEndpointRoutingConfig() {}
-    /**
-     * @return Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
-     * 
-     */
     public EventEndpointRoutingConfigFailoverConfig failoverConfig() {
         return this.failoverConfig;
     }

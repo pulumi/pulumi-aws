@@ -9,97 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route 53 Resolver DNS Firewall rule group association resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.ResolverFirewallRuleGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleResolverFirewallRuleGroupAssociation = new Aws.Route53.ResolverFirewallRuleGroupAssociation("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         FirewallRuleGroupId = example.Id,
-    ///         Priority = 100,
-    ///         VpcId = exampleAwsVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")]
     public partial class ResolverFirewallRuleGroupAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN (Amazon Resource Name) of the firewall rule group association.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the firewall rule group.
-        /// </summary>
         [Output("firewallRuleGroupId")]
         public Output<string> FirewallRuleGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Output("mutationProtection")]
         public Output<string> MutationProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// A name that lets you identify the rule group association, to manage and use it.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the VPC that you want to associate with the rule group.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -149,51 +85,29 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverFirewallRuleGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier of the firewall rule group.
-        /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("mutationProtection")]
         public Input<string>? MutationProtection { get; set; }
 
-        /// <summary>
-        /// A name that lets you identify the rule group association, to manage and use it.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The unique identifier of the VPC that you want to associate with the rule group.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -205,48 +119,26 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverFirewallRuleGroupAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN (Amazon Resource Name) of the firewall rule group association.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the firewall rule group.
-        /// </summary>
         [Input("firewallRuleGroupId")]
         public Input<string>? FirewallRuleGroupId { get; set; }
 
-        /// <summary>
-        /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("mutationProtection")]
         public Input<string>? MutationProtection { get; set; }
 
-        /// <summary>
-        /// A name that lets you identify the rule group association, to manage and use it.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -255,19 +147,12 @@ namespace Pulumi.Aws.Route53
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The unique identifier of the VPC that you want to associate with the rule group.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDomainEndpointOptions {
-    /**
-     * @return Fully qualified domain for your custom endpoint.
-     * 
-     */
     private @Nullable String customEndpoint;
-    /**
-     * @return ACM certificate ARN for your custom endpoint.
-     * 
-     */
     private @Nullable String customEndpointCertificateArn;
-    /**
-     * @return Whether to enable custom endpoint for the OpenSearch domain.
-     * 
-     */
     private @Nullable Boolean customEndpointEnabled;
-    /**
-     * @return Whether or not to require HTTPS. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean enforceHttps;
-    /**
-     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     private @Nullable String tlsSecurityPolicy;
 
     private DomainDomainEndpointOptions() {}
-    /**
-     * @return Fully qualified domain for your custom endpoint.
-     * 
-     */
     public Optional<String> customEndpoint() {
         return Optional.ofNullable(this.customEndpoint);
     }
-    /**
-     * @return ACM certificate ARN for your custom endpoint.
-     * 
-     */
     public Optional<String> customEndpointCertificateArn() {
         return Optional.ofNullable(this.customEndpointCertificateArn);
     }
-    /**
-     * @return Whether to enable custom endpoint for the OpenSearch domain.
-     * 
-     */
     public Optional<Boolean> customEndpointEnabled() {
         return Optional.ofNullable(this.customEndpointEnabled);
     }
-    /**
-     * @return Whether or not to require HTTPS. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> enforceHttps() {
         return Optional.ofNullable(this.enforceHttps);
     }
-    /**
-     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Optional<String> tlsSecurityPolicy() {
         return Optional.ofNullable(this.tlsSecurityPolicy);
     }

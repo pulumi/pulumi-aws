@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
     public sealed class TablePointInTimeRecoveryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

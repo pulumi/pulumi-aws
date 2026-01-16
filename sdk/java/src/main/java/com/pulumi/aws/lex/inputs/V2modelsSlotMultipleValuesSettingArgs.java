@@ -15,17 +15,9 @@ public final class V2modelsSlotMultipleValuesSettingArgs extends com.pulumi.reso
 
     public static final V2modelsSlotMultipleValuesSettingArgs Empty = new V2modelsSlotMultipleValuesSettingArgs();
 
-    /**
-     * Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
-     * 
-     */
     @Import(name="allowMultipleValues")
     private @Nullable Output<Boolean> allowMultipleValues;
 
-    /**
-     * @return Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
-     * 
-     */
     public Optional<Output<Boolean>> allowMultipleValues() {
         return Optional.ofNullable(this.allowMultipleValues);
     }
@@ -54,23 +46,11 @@ public final class V2modelsSlotMultipleValuesSettingArgs extends com.pulumi.reso
             $ = new V2modelsSlotMultipleValuesSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowMultipleValues Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowMultipleValues(@Nullable Output<Boolean> allowMultipleValues) {
             $.allowMultipleValues = allowMultipleValues;
             return this;
         }
 
-        /**
-         * @param allowMultipleValues Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowMultipleValues(Boolean allowMultipleValues) {
             return allowMultipleValues(Output.of(allowMultipleValues));
         }

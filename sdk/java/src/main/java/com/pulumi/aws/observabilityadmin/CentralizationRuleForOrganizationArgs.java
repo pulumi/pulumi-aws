@@ -19,66 +19,30 @@ public final class CentralizationRuleForOrganizationArgs extends com.pulumi.reso
 
     public static final CentralizationRuleForOrganizationArgs Empty = new CentralizationRuleForOrganizationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for the centralization rule. See `rule` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="rule")
     private @Nullable Output<CentralizationRuleForOrganizationRuleArgs> rule;
 
-    /**
-     * @return Configuration block for the centralization rule. See `rule` below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleArgs>> rule() {
         return Optional.ofNullable(this.rule);
     }
 
-    /**
-     * Name of the centralization rule. Must be unique within the organization.
-     * 
-     */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
-    /**
-     * @return Name of the centralization rule. Must be unique within the organization.
-     * 
-     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -118,90 +82,38 @@ public final class CentralizationRuleForOrganizationArgs extends com.pulumi.reso
             $ = new CentralizationRuleForOrganizationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rule Configuration block for the centralization rule. See `rule` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(@Nullable Output<CentralizationRuleForOrganizationRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
 
-        /**
-         * @param rule Configuration block for the centralization rule. See `rule` below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(CentralizationRuleForOrganizationRuleArgs rule) {
             return rule(Output.of(rule));
         }
 
-        /**
-         * @param ruleName Name of the centralization rule. Must be unique within the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
-        /**
-         * @param ruleName Name of the centralization rule. Must be unique within the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

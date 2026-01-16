@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetPhysicalTableMapS3SourceUploadSettings
     {
-        /// <summary>
-        /// Whether the file has a header row, or the files each have a header row.
-        /// </summary>
         public readonly bool? ContainsHeader;
-        /// <summary>
-        /// Delimiter between values in the file.
-        /// </summary>
         public readonly string? Delimiter;
-        /// <summary>
-        /// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-        /// </summary>
         public readonly string? Format;
-        /// <summary>
-        /// A row number to start reading data from.
-        /// </summary>
         public readonly int? StartFromRow;
-        /// <summary>
-        /// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
-        /// </summary>
         public readonly string? TextQualifier;
 
         [OutputConstructor]

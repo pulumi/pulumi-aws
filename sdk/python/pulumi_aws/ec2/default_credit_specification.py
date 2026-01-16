@@ -27,9 +27,6 @@ class DefaultCreditSpecificationArgs:
                  timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DefaultCreditSpecification resource.
-        :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        :param pulumi.Input[_builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cpu_credits", cpu_credits)
         pulumi.set(__self__, "instance_family", instance_family)
@@ -41,9 +38,6 @@ class DefaultCreditSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="cpuCredits")
     def cpu_credits(self) -> pulumi.Input[_builtins.str]:
-        """
-        Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        """
         return pulumi.get(self, "cpu_credits")
 
     @cpu_credits.setter
@@ -53,9 +47,6 @@ class DefaultCreditSpecificationArgs:
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
@@ -65,9 +56,6 @@ class DefaultCreditSpecificationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -93,9 +81,6 @@ class _DefaultCreditSpecificationState:
                  timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DefaultCreditSpecification resources.
-        :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        :param pulumi.Input[_builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cpu_credits is not None:
             pulumi.set(__self__, "cpu_credits", cpu_credits)
@@ -109,9 +94,6 @@ class _DefaultCreditSpecificationState:
     @_builtins.property
     @pulumi.getter(name="cpuCredits")
     def cpu_credits(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        """
         return pulumi.get(self, "cpu_credits")
 
     @cpu_credits.setter
@@ -121,9 +103,6 @@ class _DefaultCreditSpecificationState:
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
@@ -133,9 +112,6 @@ class _DefaultCreditSpecificationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -164,32 +140,9 @@ class DefaultCreditSpecification(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.DefaultCreditSpecification("example",
-            instance_family="t2",
-            cpu_credits="standard")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
-
-        % pulumi import aws_ec2_default_credit_specification.example t2
-
+        Create a DefaultCreditSpecification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        :param pulumi.Input[_builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -198,27 +151,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
                  args: DefaultCreditSpecificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.DefaultCreditSpecification("example",
-            instance_family="t2",
-            cpu_credits="standard")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
-
-        % pulumi import aws_ec2_default_credit_specification.example t2
-
+        Create a DefaultCreditSpecification resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DefaultCreditSpecificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,9 +209,6 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        :param pulumi.Input[_builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,25 +223,16 @@ class DefaultCreditSpecification(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cpuCredits")
     def cpu_credits(self) -> pulumi.Output[_builtins.str]:
-        """
-        Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-        """
         return pulumi.get(self, "cpu_credits")
 
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> pulumi.Output[_builtins.str]:
-        """
-        Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        """
         return pulumi.get(self, "instance_family")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

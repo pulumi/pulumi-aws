@@ -11,114 +11,12 @@ namespace Pulumi.Aws.Cognito
 {
     public static class GetUserPools
     {
-        /// <summary>
-        /// Use this data source to get a list of cognito user pools.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
-        ///     {
-        ///         Name = apiGatewayName,
-        ///     });
-        /// 
-        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
-        ///     {
-        ///         Name = cognitoUserPoolName,
-        ///     });
-        /// 
-        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
-        ///     {
-        ///         Name = "cognito",
-        ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetUserPoolsResult> InvokeAsync(GetUserPoolsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of cognito user pools.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
-        ///     {
-        ///         Name = apiGatewayName,
-        ///     });
-        /// 
-        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
-        ///     {
-        ///         Name = cognitoUserPoolName,
-        ///     });
-        /// 
-        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
-        ///     {
-        ///         Name = "cognito",
-        ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserPoolsResult> Invoke(GetUserPoolsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of cognito user pools.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
-        ///     {
-        ///         Name = apiGatewayName,
-        ///     });
-        /// 
-        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
-        ///     {
-        ///         Name = cognitoUserPoolName,
-        ///     });
-        /// 
-        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
-        ///     {
-        ///         Name = "cognito",
-        ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetUserPoolsResult> Invoke(GetUserPoolsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsInvokeArgs(), options.WithDefaults());
     }
@@ -126,15 +24,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -146,15 +38,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -168,17 +54,11 @@ namespace Pulumi.Aws.Cognito
     [OutputType]
     public sealed class GetUserPoolsResult
     {
-        /// <summary>
-        /// Set of cognito user pool Amazon Resource Names (ARNs).
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of cognito user pool ids.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Name;
         public readonly string Region;

@@ -9,111 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Creates an Amazon CloudFront Connection Group.
-    /// 
-    /// For information about CloudFront Connection Groups, see the [AWS CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.ConnectionGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Enabled = true,
-    ///         Ipv6Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/connectionGroup:ConnectionGroup")]
     public partial class ConnectionGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the associated Anycast IP List. `Ipv6Enabled` must not be set to `True` in order to set this argument
-        /// </summary>
         [Output("anycastIpListId")]
         public Output<string?> AnycastIpListId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the connection group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the connection group is enabled. Default is `True`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Current version of the connection group.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether IPv6 is enabled for the connection group. Default is `False`.
-        /// </summary>
         [Output("ipv6Enabled")]
         public Output<bool> Ipv6Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the connection group is the default connection group for the distribution tenants.
-        /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time when the connection group was last modified.
-        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the connection group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-        /// </summary>
         [Output("routingEndpoint")]
         public Output<string> RoutingEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Current status of the connection group.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -169,36 +100,20 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ConnectionGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the associated Anycast IP List. `Ipv6Enabled` must not be set to `True` in order to set this argument
-        /// </summary>
         [Input("anycastIpListId")]
         public Input<string>? AnycastIpListId { get; set; }
 
-        /// <summary>
-        /// Whether the connection group is enabled. Default is `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Whether IPv6 is enabled for the connection group. Default is `False`.
-        /// </summary>
         [Input("ipv6Enabled")]
         public Input<bool>? Ipv6Enabled { get; set; }
 
-        /// <summary>
-        /// Name of the connection group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -219,72 +134,38 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ConnectionGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the associated Anycast IP List. `Ipv6Enabled` must not be set to `True` in order to set this argument
-        /// </summary>
         [Input("anycastIpListId")]
         public Input<string>? AnycastIpListId { get; set; }
 
-        /// <summary>
-        /// ARN of the connection group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Whether the connection group is enabled. Default is `True`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Current version of the connection group.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Whether IPv6 is enabled for the connection group. Default is `False`.
-        /// </summary>
         [Input("ipv6Enabled")]
         public Input<bool>? Ipv6Enabled { get; set; }
 
-        /// <summary>
-        /// Whether the connection group is the default connection group for the distribution tenants.
-        /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
-        /// <summary>
-        /// Date and time when the connection group was last modified.
-        /// </summary>
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
 
-        /// <summary>
-        /// Name of the connection group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-        /// </summary>
         [Input("routingEndpoint")]
         public Input<string>? RoutingEndpoint { get; set; }
 
-        /// <summary>
-        /// Current status of the connection group.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -293,10 +174,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

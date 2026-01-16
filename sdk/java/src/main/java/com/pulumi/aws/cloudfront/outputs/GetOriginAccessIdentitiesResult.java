@@ -13,35 +13,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetOriginAccessIdentitiesResult {
     private @Nullable List<String> comments;
-    /**
-     * @return Set of ARNs of the matched origin access identities.
-     * 
-     */
     private List<String> iamArns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Set of ids of the matched origin access identities.
-     * 
-     */
     private List<String> ids;
-    /**
-     * @return Set of S3 canonical user IDs of the matched origin access identities.
-     * 
-     */
     private List<String> s3CanonicalUserIds;
 
     private GetOriginAccessIdentitiesResult() {}
     public List<String> comments() {
         return this.comments == null ? List.of() : this.comments;
     }
-    /**
-     * @return Set of ARNs of the matched origin access identities.
-     * 
-     */
     public List<String> iamArns() {
         return this.iamArns;
     }
@@ -52,17 +36,9 @@ public final class GetOriginAccessIdentitiesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of ids of the matched origin access identities.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }
-    /**
-     * @return Set of S3 canonical user IDs of the matched origin access identities.
-     * 
-     */
     public List<String> s3CanonicalUserIds() {
         return this.s3CanonicalUserIds;
     }

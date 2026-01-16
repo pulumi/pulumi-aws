@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigTypeConverterArgs extends com.
 
     public static final LogTransformerTransformerConfigTypeConverterArgs Empty = new LogTransformerTransformerConfigTypeConverterArgs();
 
-    /**
-     * Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-     * 
-     */
     @Import(name="entries", required=true)
     private Output<List<LogTransformerTransformerConfigTypeConverterEntryArgs>> entries;
 
-    /**
-     * @return Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-     * 
-     */
     public Output<List<LogTransformerTransformerConfigTypeConverterEntryArgs>> entries() {
         return this.entries;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigTypeConverterArgs extends com.
             $ = new LogTransformerTransformerConfigTypeConverterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(Output<List<LogTransformerTransformerConfigTypeConverterEntryArgs>> entries) {
             $.entries = entries;
             return this;
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(List<LogTransformerTransformerConfigTypeConverterEntryArgs> entries) {
             return entries(Output.of(entries));
         }
 
-        /**
-         * @param entries Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `typeConverter` `entry` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entries(LogTransformerTransformerConfigTypeConverterEntryArgs... entries) {
             return entries(List.of(entries));
         }

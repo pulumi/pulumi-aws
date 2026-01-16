@@ -9,226 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Manages an AWS Lambda Code Signing Config. Use this resource to define allowed signing profiles and code-signing validation policies for Lambda functions to ensure code integrity and authenticity.
-    /// 
-    /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create signing profiles for different environments
-    ///     var prod = new Aws.Signer.SigningProfile("prod", new()
-    ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         NamePrefix = "prod_lambda_",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    ///     var dev = new Aws.Signer.SigningProfile("dev", new()
-    ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         NamePrefix = "dev_lambda_",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "development" },
-    ///         },
-    ///     });
-    /// 
-    ///     // Code signing configuration with enforcement
-    ///     var example = new Aws.Lambda.CodeSigningConfig("example", new()
-    ///     {
-    ///         Description = "Code signing configuration for Lambda functions",
-    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
-    ///         {
-    ///             SigningProfileVersionArns = new[]
-    ///             {
-    ///                 prod.VersionArn,
-    ///                 dev.VersionArn,
-    ///             },
-    ///         },
-    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
-    ///         {
-    ///             UntrustedArtifactOnDeployment = "Enforce",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Purpose", "code-signing" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Warning Only Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.CodeSigningConfig("example", new()
-    ///     {
-    ///         Description = "Development code signing configuration",
-    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
-    ///         {
-    ///             SigningProfileVersionArns = new[]
-    ///             {
-    ///                 dev.VersionArn,
-    ///             },
-    ///         },
-    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
-    ///         {
-    ///             UntrustedArtifactOnDeployment = "Warn",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "development" },
-    ///             { "Purpose", "code-signing" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Multiple Environment Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Production signing configuration
-    ///     var prod = new Aws.Lambda.CodeSigningConfig("prod", new()
-    ///     {
-    ///         Description = "Production code signing configuration with strict enforcement",
-    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
-    ///         {
-    ///             SigningProfileVersionArns = new[]
-    ///             {
-    ///                 prodAwsSignerSigningProfile.VersionArn,
-    ///             },
-    ///         },
-    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
-    ///         {
-    ///             UntrustedArtifactOnDeployment = "Enforce",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Security", "strict" },
-    ///         },
-    ///     });
-    /// 
-    ///     // Development signing configuration
-    ///     var dev = new Aws.Lambda.CodeSigningConfig("dev", new()
-    ///     {
-    ///         Description = "Development code signing configuration with warnings",
-    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
-    ///         {
-    ///             SigningProfileVersionArns = new[]
-    ///             {
-    ///                 devAwsSignerSigningProfile.VersionArn,
-    ///                 test.VersionArn,
-    ///             },
-    ///         },
-    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
-    ///         {
-    ///             UntrustedArtifactOnDeployment = "Warn",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "development" },
-    ///             { "Security", "flexible" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// For backwards compatibility, the following legacy `pulumi import` command is also supported:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
     public partial class CodeSigningConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("allowedPublishers")]
         public Output<Outputs.CodeSigningConfigAllowedPublishers> AllowedPublishers { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the code signing configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the code signing configuration.
-        /// </summary>
         [Output("configId")]
         public Output<string> ConfigId { get; private set; } = null!;
 
-        /// <summary>
-        /// Descriptive name for this code signing configuration.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time that the code signing configuration was last modified.
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-        /// </summary>
         [Output("policies")]
         public Output<Outputs.CodeSigningConfigPolicies> Policies { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -278,38 +85,20 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class CodeSigningConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("allowedPublishers", required: true)]
         public Input<Inputs.CodeSigningConfigAllowedPublishersArgs> AllowedPublishers { get; set; } = null!;
 
-        /// <summary>
-        /// Descriptive name for this code signing configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-        /// </summary>
         [Input("policies")]
         public Input<Inputs.CodeSigningConfigPoliciesArgs>? Policies { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -324,56 +113,29 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class CodeSigningConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("allowedPublishers")]
         public Input<Inputs.CodeSigningConfigAllowedPublishersGetArgs>? AllowedPublishers { get; set; }
 
-        /// <summary>
-        /// ARN of the code signing configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the code signing configuration.
-        /// </summary>
         [Input("configId")]
         public Input<string>? ConfigId { get; set; }
 
-        /// <summary>
-        /// Descriptive name for this code signing configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Date and time that the code signing configuration was last modified.
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
-        /// <summary>
-        /// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
-        /// </summary>
         [Input("policies")]
         public Input<Inputs.CodeSigningConfigPoliciesGetArgs>? Policies { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -382,10 +144,6 @@ namespace Pulumi.Aws.Lambda
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

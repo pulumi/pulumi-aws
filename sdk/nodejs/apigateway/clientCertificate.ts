@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an API Gateway Client Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const demo = new aws.apigateway.ClientCertificate("demo", {description: "My client certificate"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
- * ```
- */
 export class ClientCertificate extends pulumi.CustomResource {
     /**
      * Get an existing ClientCertificate resource's state with the given name, ID, and optional extra
@@ -52,37 +32,13 @@ export class ClientCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClientCertificate.__pulumiType;
     }
 
-    /**
-     * ARN
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Date when the client certificate was created.
-     */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
-    /**
-     * Description of the client certificate.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Date when the client certificate will expire.
-     */
     declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
-    /**
-     * The PEM-encoded public key of the client certificate.
-     */
     declare public /*out*/ readonly pemEncodedCertificate: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -126,37 +82,13 @@ export class ClientCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClientCertificate resources.
  */
 export interface ClientCertificateState {
-    /**
-     * ARN
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Date when the client certificate was created.
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * Description of the client certificate.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Date when the client certificate will expire.
-     */
     expirationDate?: pulumi.Input<string>;
-    /**
-     * The PEM-encoded public key of the client certificate.
-     */
     pemEncodedCertificate?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -164,16 +96,7 @@ export interface ClientCertificateState {
  * The set of arguments for constructing a ClientCertificate resource.
  */
 export interface ClientCertificateArgs {
-    /**
-     * Description of the client certificate.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

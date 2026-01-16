@@ -15,32 +15,16 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
 
     public static final DataSetDataSetUsageConfigurationArgs Empty = new DataSetDataSetUsageConfigurationArgs();
 
-    /**
-     * Controls whether a child dataset of a direct query can use this dataset as a source.
-     * 
-     */
     @Import(name="disableUseAsDirectQuerySource")
     private @Nullable Output<Boolean> disableUseAsDirectQuerySource;
 
-    /**
-     * @return Controls whether a child dataset of a direct query can use this dataset as a source.
-     * 
-     */
     public Optional<Output<Boolean>> disableUseAsDirectQuerySource() {
         return Optional.ofNullable(this.disableUseAsDirectQuerySource);
     }
 
-    /**
-     * Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
-     * 
-     */
     @Import(name="disableUseAsImportedSource")
     private @Nullable Output<Boolean> disableUseAsImportedSource;
 
-    /**
-     * @return Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
-     * 
-     */
     public Optional<Output<Boolean>> disableUseAsImportedSource() {
         return Optional.ofNullable(this.disableUseAsImportedSource);
     }
@@ -70,44 +54,20 @@ public final class DataSetDataSetUsageConfigurationArgs extends com.pulumi.resou
             $ = new DataSetDataSetUsageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param disableUseAsDirectQuerySource Controls whether a child dataset of a direct query can use this dataset as a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableUseAsDirectQuerySource(@Nullable Output<Boolean> disableUseAsDirectQuerySource) {
             $.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
             return this;
         }
 
-        /**
-         * @param disableUseAsDirectQuerySource Controls whether a child dataset of a direct query can use this dataset as a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableUseAsDirectQuerySource(Boolean disableUseAsDirectQuerySource) {
             return disableUseAsDirectQuerySource(Output.of(disableUseAsDirectQuerySource));
         }
 
-        /**
-         * @param disableUseAsImportedSource Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableUseAsImportedSource(@Nullable Output<Boolean> disableUseAsImportedSource) {
             $.disableUseAsImportedSource = disableUseAsImportedSource;
             return this;
         }
 
-        /**
-         * @param disableUseAsImportedSource Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableUseAsImportedSource(Boolean disableUseAsImportedSource) {
             return disableUseAsImportedSource(Output.of(disableUseAsImportedSource));
         }

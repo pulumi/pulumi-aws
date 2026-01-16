@@ -17,47 +17,23 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs e
 
     public static final JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs Empty = new JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs();
 
-    /**
-     * The entry point of job application.
-     * 
-     */
     @Import(name="entryPoint", required=true)
     private Output<String> entryPoint;
 
-    /**
-     * @return The entry point of job application.
-     * 
-     */
     public Output<String> entryPoint() {
         return this.entryPoint;
     }
 
-    /**
-     * The arguments for job application.
-     * 
-     */
     @Import(name="entryPointArguments")
     private @Nullable Output<List<String>> entryPointArguments;
 
-    /**
-     * @return The arguments for job application.
-     * 
-     */
     public Optional<Output<List<String>>> entryPointArguments() {
         return Optional.ofNullable(this.entryPointArguments);
     }
 
-    /**
-     * The Spark submit parameters that are used for job runs.
-     * 
-     */
     @Import(name="sparkSubmitParameters")
     private @Nullable Output<String> sparkSubmitParameters;
 
-    /**
-     * @return The Spark submit parameters that are used for job runs.
-     * 
-     */
     public Optional<Output<String>> sparkSubmitParameters() {
         return Optional.ofNullable(this.sparkSubmitParameters);
     }
@@ -88,75 +64,33 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs e
             $ = new JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entryPoint The entry point of job application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoint(Output<String> entryPoint) {
             $.entryPoint = entryPoint;
             return this;
         }
 
-        /**
-         * @param entryPoint The entry point of job application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPoint(String entryPoint) {
             return entryPoint(Output.of(entryPoint));
         }
 
-        /**
-         * @param entryPointArguments The arguments for job application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPointArguments(@Nullable Output<List<String>> entryPointArguments) {
             $.entryPointArguments = entryPointArguments;
             return this;
         }
 
-        /**
-         * @param entryPointArguments The arguments for job application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPointArguments(List<String> entryPointArguments) {
             return entryPointArguments(Output.of(entryPointArguments));
         }
 
-        /**
-         * @param entryPointArguments The arguments for job application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entryPointArguments(String... entryPointArguments) {
             return entryPointArguments(List.of(entryPointArguments));
         }
 
-        /**
-         * @param sparkSubmitParameters The Spark submit parameters that are used for job runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSubmitParameters(@Nullable Output<String> sparkSubmitParameters) {
             $.sparkSubmitParameters = sparkSubmitParameters;
             return this;
         }
 
-        /**
-         * @param sparkSubmitParameters The Spark submit parameters that are used for job runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sparkSubmitParameters(String sparkSubmitParameters) {
             return sparkSubmitParameters(Output.of(sparkSubmitParameters));
         }

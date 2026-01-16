@@ -11,155 +11,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a DocumentDB Cluster.
-//
-// Changes to a DocumentDB Cluster can occur when you manually change a
-// parameter, such as `port`, and are reflected in the next maintenance
-// window. Because of this, this provider may report a difference in its planning
-// phase because a modification has not yet taken place. You can use the
-// `applyImmediately` flag to instruct the service to apply the change immediately
-// (see documentation below).
-//
-// > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/docdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewCluster(ctx, "docdb", &docdb.ClusterArgs{
-//				ClusterIdentifier:     pulumi.String("my-docdb-cluster"),
-//				Engine:                pulumi.String("docdb"),
-//				MasterUsername:        pulumi.String("foo"),
-//				MasterPassword:        pulumi.String("mustbeeightchars"),
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				PreferredBackupWindow: pulumi.String("07:00-09:00"),
-//				SkipFinalSnapshot:     pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
-//
-// ```sh
-// $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-	AllowMajorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowMajorVersionUpgrade"`
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`.
-	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
-	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
-	// List of DocumentDB Instances that are a part of this cluster
-	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
-	// The DocumentDB Cluster Resource ID
-	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
-	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
-	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
-	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `profiler`.
+	AllowMajorVersionUpgrade     pulumi.BoolPtrOutput     `pulumi:"allowMajorVersionUpgrade"`
+	ApplyImmediately             pulumi.BoolPtrOutput     `pulumi:"applyImmediately"`
+	Arn                          pulumi.StringOutput      `pulumi:"arn"`
+	AvailabilityZones            pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	BackupRetentionPeriod        pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
+	ClusterIdentifier            pulumi.StringOutput      `pulumi:"clusterIdentifier"`
+	ClusterIdentifierPrefix      pulumi.StringOutput      `pulumi:"clusterIdentifierPrefix"`
+	ClusterMembers               pulumi.StringArrayOutput `pulumi:"clusterMembers"`
+	ClusterResourceId            pulumi.StringOutput      `pulumi:"clusterResourceId"`
+	DbClusterParameterGroupName  pulumi.StringOutput      `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName            pulumi.StringOutput      `pulumi:"dbSubnetGroupName"`
+	DeletionProtection           pulumi.BoolPtrOutput     `pulumi:"deletionProtection"`
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
-	// The DNS address of the DocumentDB instance
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The database engine version. Updating this argument results in an outage.
-	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
-	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
-	// The global cluster identifier specified on `docdb.GlobalCluster`.
-	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
-	// The Route53 Hosted Zone ID of the endpoint
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
-	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
+	Endpoint                     pulumi.StringOutput      `pulumi:"endpoint"`
+	Engine                       pulumi.StringPtrOutput   `pulumi:"engine"`
+	EngineVersion                pulumi.StringOutput      `pulumi:"engineVersion"`
+	FinalSnapshotIdentifier      pulumi.StringPtrOutput   `pulumi:"finalSnapshotIdentifier"`
+	GlobalClusterIdentifier      pulumi.StringPtrOutput   `pulumi:"globalClusterIdentifier"`
+	HostedZoneId                 pulumi.StringOutput      `pulumi:"hostedZoneId"`
+	KmsKeyId                     pulumi.StringOutput      `pulumi:"kmsKeyId"`
+	ManageMasterUserPassword     pulumi.BoolPtrOutput     `pulumi:"manageMasterUserPassword"`
+	MasterPassword               pulumi.StringPtrOutput   `pulumi:"masterPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
-	MasterPasswordWo pulumi.StringPtrOutput `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
-	MasterPasswordWoVersion pulumi.IntPtrOutput                `pulumi:"masterPasswordWoVersion"`
-	MasterUserSecrets       ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
-	// Username for the master DB user.
-	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
-	// The network type of the DB cluster (`IPV4` or `DUAL`).
-	NetworkType pulumi.StringOutput `pulumi:"networkType"`
-	// The port on which the DB accepts connections
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
-	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-	RestoreToPointInTime ClusterRestoreToPointInTimePtrOutput `pulumi:"restoreToPointInTime"`
-	// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+	MasterPasswordWo                 pulumi.StringPtrOutput                           `pulumi:"masterPasswordWo"`
+	MasterPasswordWoVersion          pulumi.IntPtrOutput                              `pulumi:"masterPasswordWoVersion"`
+	MasterUserSecrets                ClusterMasterUserSecretArrayOutput               `pulumi:"masterUserSecrets"`
+	MasterUsername                   pulumi.StringOutput                              `pulumi:"masterUsername"`
+	NetworkType                      pulumi.StringOutput                              `pulumi:"networkType"`
+	Port                             pulumi.IntPtrOutput                              `pulumi:"port"`
+	PreferredBackupWindow            pulumi.StringOutput                              `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow       pulumi.StringOutput                              `pulumi:"preferredMaintenanceWindow"`
+	ReaderEndpoint                   pulumi.StringOutput                              `pulumi:"readerEndpoint"`
+	Region                           pulumi.StringOutput                              `pulumi:"region"`
+	RestoreToPointInTime             ClusterRestoreToPointInTimePtrOutput             `pulumi:"restoreToPointInTime"`
 	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrOutput `pulumi:"serverlessV2ScalingConfiguration"`
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// List of VPC security groups to associate
-	// with the Cluster
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	SkipFinalSnapshot                pulumi.BoolPtrOutput                             `pulumi:"skipFinalSnapshot"`
+	SnapshotIdentifier               pulumi.StringPtrOutput                           `pulumi:"snapshotIdentifier"`
+	StorageEncrypted                 pulumi.BoolPtrOutput                             `pulumi:"storageEncrypted"`
+	StorageType                      pulumi.StringPtrOutput                           `pulumi:"storageType"`
+	Tags                             pulumi.StringMapOutput                           `pulumi:"tags"`
+	TagsAll                          pulumi.StringMapOutput                           `pulumi:"tagsAll"`
+	VpcSecurityGroupIds              pulumi.StringArrayOutput                         `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -203,201 +99,93 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`.
-	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster
-	Arn *string `pulumi:"arn"`
-	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
-	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
-	// List of DocumentDB Instances that are a part of this cluster
-	ClusterMembers []string `pulumi:"clusterMembers"`
-	// The DocumentDB Cluster Resource ID
-	ClusterResourceId *string `pulumi:"clusterResourceId"`
-	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
-	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
-	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `profiler`.
+	AllowMajorVersionUpgrade     *bool    `pulumi:"allowMajorVersionUpgrade"`
+	ApplyImmediately             *bool    `pulumi:"applyImmediately"`
+	Arn                          *string  `pulumi:"arn"`
+	AvailabilityZones            []string `pulumi:"availabilityZones"`
+	BackupRetentionPeriod        *int     `pulumi:"backupRetentionPeriod"`
+	ClusterIdentifier            *string  `pulumi:"clusterIdentifier"`
+	ClusterIdentifierPrefix      *string  `pulumi:"clusterIdentifierPrefix"`
+	ClusterMembers               []string `pulumi:"clusterMembers"`
+	ClusterResourceId            *string  `pulumi:"clusterResourceId"`
+	DbClusterParameterGroupName  *string  `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName            *string  `pulumi:"dbSubnetGroupName"`
+	DeletionProtection           *bool    `pulumi:"deletionProtection"`
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
-	// The DNS address of the DocumentDB instance
-	Endpoint *string `pulumi:"endpoint"`
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-	Engine *string `pulumi:"engine"`
-	// The database engine version. Updating this argument results in an outage.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
-	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The global cluster identifier specified on `docdb.GlobalCluster`.
-	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
-	// The Route53 Hosted Zone ID of the endpoint
-	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
-	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword *string `pulumi:"masterPassword"`
+	Endpoint                     *string  `pulumi:"endpoint"`
+	Engine                       *string  `pulumi:"engine"`
+	EngineVersion                *string  `pulumi:"engineVersion"`
+	FinalSnapshotIdentifier      *string  `pulumi:"finalSnapshotIdentifier"`
+	GlobalClusterIdentifier      *string  `pulumi:"globalClusterIdentifier"`
+	HostedZoneId                 *string  `pulumi:"hostedZoneId"`
+	KmsKeyId                     *string  `pulumi:"kmsKeyId"`
+	ManageMasterUserPassword     *bool    `pulumi:"manageMasterUserPassword"`
+	MasterPassword               *string  `pulumi:"masterPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
-	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
-	MasterPasswordWoVersion *int                      `pulumi:"masterPasswordWoVersion"`
-	MasterUserSecrets       []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
-	// Username for the master DB user.
-	MasterUsername *string `pulumi:"masterUsername"`
-	// The network type of the DB cluster (`IPV4` or `DUAL`).
-	NetworkType *string `pulumi:"networkType"`
-	// The port on which the DB accepts connections
-	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-	ReaderEndpoint *string `pulumi:"readerEndpoint"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-	RestoreToPointInTime *ClusterRestoreToPointInTime `pulumi:"restoreToPointInTime"`
-	// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+	MasterPasswordWo                 *string                                  `pulumi:"masterPasswordWo"`
+	MasterPasswordWoVersion          *int                                     `pulumi:"masterPasswordWoVersion"`
+	MasterUserSecrets                []ClusterMasterUserSecret                `pulumi:"masterUserSecrets"`
+	MasterUsername                   *string                                  `pulumi:"masterUsername"`
+	NetworkType                      *string                                  `pulumi:"networkType"`
+	Port                             *int                                     `pulumi:"port"`
+	PreferredBackupWindow            *string                                  `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow       *string                                  `pulumi:"preferredMaintenanceWindow"`
+	ReaderEndpoint                   *string                                  `pulumi:"readerEndpoint"`
+	Region                           *string                                  `pulumi:"region"`
+	RestoreToPointInTime             *ClusterRestoreToPointInTime             `pulumi:"restoreToPointInTime"`
 	ServerlessV2ScalingConfiguration *ClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-	StorageType *string `pulumi:"storageType"`
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// List of VPC security groups to associate
-	// with the Cluster
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	SkipFinalSnapshot                *bool                                    `pulumi:"skipFinalSnapshot"`
+	SnapshotIdentifier               *string                                  `pulumi:"snapshotIdentifier"`
+	StorageEncrypted                 *bool                                    `pulumi:"storageEncrypted"`
+	StorageType                      *string                                  `pulumi:"storageType"`
+	Tags                             map[string]string                        `pulumi:"tags"`
+	TagsAll                          map[string]string                        `pulumi:"tagsAll"`
+	VpcSecurityGroupIds              []string                                 `pulumi:"vpcSecurityGroupIds"`
 }
 
 type ClusterState struct {
-	// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-	AllowMajorVersionUpgrade pulumi.BoolPtrInput
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`.
-	ApplyImmediately pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of cluster
-	Arn pulumi.StringPtrInput
-	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-	AvailabilityZones pulumi.StringArrayInput
-	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod pulumi.IntPtrInput
-	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-	ClusterIdentifier pulumi.StringPtrInput
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix pulumi.StringPtrInput
-	// List of DocumentDB Instances that are a part of this cluster
-	ClusterMembers pulumi.StringArrayInput
-	// The DocumentDB Cluster Resource ID
-	ClusterResourceId pulumi.StringPtrInput
-	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName pulumi.StringPtrInput
-	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-	DeletionProtection pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `profiler`.
+	AllowMajorVersionUpgrade     pulumi.BoolPtrInput
+	ApplyImmediately             pulumi.BoolPtrInput
+	Arn                          pulumi.StringPtrInput
+	AvailabilityZones            pulumi.StringArrayInput
+	BackupRetentionPeriod        pulumi.IntPtrInput
+	ClusterIdentifier            pulumi.StringPtrInput
+	ClusterIdentifierPrefix      pulumi.StringPtrInput
+	ClusterMembers               pulumi.StringArrayInput
+	ClusterResourceId            pulumi.StringPtrInput
+	DbClusterParameterGroupName  pulumi.StringPtrInput
+	DbSubnetGroupName            pulumi.StringPtrInput
+	DeletionProtection           pulumi.BoolPtrInput
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
-	// The DNS address of the DocumentDB instance
-	Endpoint pulumi.StringPtrInput
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-	Engine pulumi.StringPtrInput
-	// The database engine version. Updating this argument results in an outage.
-	EngineVersion pulumi.StringPtrInput
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
-	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The global cluster identifier specified on `docdb.GlobalCluster`.
-	GlobalClusterIdentifier pulumi.StringPtrInput
-	// The Route53 Hosted Zone ID of the endpoint
-	HostedZoneId pulumi.StringPtrInput
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId pulumi.StringPtrInput
-	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
-	ManageMasterUserPassword pulumi.BoolPtrInput
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword pulumi.StringPtrInput
+	Endpoint                     pulumi.StringPtrInput
+	Engine                       pulumi.StringPtrInput
+	EngineVersion                pulumi.StringPtrInput
+	FinalSnapshotIdentifier      pulumi.StringPtrInput
+	GlobalClusterIdentifier      pulumi.StringPtrInput
+	HostedZoneId                 pulumi.StringPtrInput
+	KmsKeyId                     pulumi.StringPtrInput
+	ManageMasterUserPassword     pulumi.BoolPtrInput
+	MasterPassword               pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
-	MasterPasswordWo pulumi.StringPtrInput
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
-	MasterPasswordWoVersion pulumi.IntPtrInput
-	MasterUserSecrets       ClusterMasterUserSecretArrayInput
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrInput
-	// The network type of the DB cluster (`IPV4` or `DUAL`).
-	NetworkType pulumi.StringPtrInput
-	// The port on which the DB accepts connections
-	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow pulumi.StringPtrInput
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
-	ReaderEndpoint pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-	RestoreToPointInTime ClusterRestoreToPointInTimePtrInput
-	// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+	MasterPasswordWo                 pulumi.StringPtrInput
+	MasterPasswordWoVersion          pulumi.IntPtrInput
+	MasterUserSecrets                ClusterMasterUserSecretArrayInput
+	MasterUsername                   pulumi.StringPtrInput
+	NetworkType                      pulumi.StringPtrInput
+	Port                             pulumi.IntPtrInput
+	PreferredBackupWindow            pulumi.StringPtrInput
+	PreferredMaintenanceWindow       pulumi.StringPtrInput
+	ReaderEndpoint                   pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	RestoreToPointInTime             ClusterRestoreToPointInTimePtrInput
 	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrInput
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot pulumi.BoolPtrInput
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-	SnapshotIdentifier pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted pulumi.BoolPtrInput
-	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-	StorageType pulumi.StringPtrInput
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// List of VPC security groups to associate
-	// with the Cluster
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	SkipFinalSnapshot                pulumi.BoolPtrInput
+	SnapshotIdentifier               pulumi.StringPtrInput
+	StorageEncrypted                 pulumi.BoolPtrInput
+	StorageType                      pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
+	TagsAll                          pulumi.StringMapInput
+	VpcSecurityGroupIds              pulumi.StringArrayInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -405,176 +193,80 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`.
-	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
-	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
-	// List of DocumentDB Instances that are a part of this cluster
-	ClusterMembers []string `pulumi:"clusterMembers"`
-	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
-	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
-	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `profiler`.
+	AllowMajorVersionUpgrade     *bool    `pulumi:"allowMajorVersionUpgrade"`
+	ApplyImmediately             *bool    `pulumi:"applyImmediately"`
+	AvailabilityZones            []string `pulumi:"availabilityZones"`
+	BackupRetentionPeriod        *int     `pulumi:"backupRetentionPeriod"`
+	ClusterIdentifier            *string  `pulumi:"clusterIdentifier"`
+	ClusterIdentifierPrefix      *string  `pulumi:"clusterIdentifierPrefix"`
+	ClusterMembers               []string `pulumi:"clusterMembers"`
+	DbClusterParameterGroupName  *string  `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName            *string  `pulumi:"dbSubnetGroupName"`
+	DeletionProtection           *bool    `pulumi:"deletionProtection"`
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-	Engine *string `pulumi:"engine"`
-	// The database engine version. Updating this argument results in an outage.
-	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
-	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The global cluster identifier specified on `docdb.GlobalCluster`.
-	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
-	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword *string `pulumi:"masterPassword"`
+	Engine                       *string  `pulumi:"engine"`
+	EngineVersion                *string  `pulumi:"engineVersion"`
+	FinalSnapshotIdentifier      *string  `pulumi:"finalSnapshotIdentifier"`
+	GlobalClusterIdentifier      *string  `pulumi:"globalClusterIdentifier"`
+	KmsKeyId                     *string  `pulumi:"kmsKeyId"`
+	ManageMasterUserPassword     *bool    `pulumi:"manageMasterUserPassword"`
+	MasterPassword               *string  `pulumi:"masterPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
-	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
-	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
-	// Username for the master DB user.
-	MasterUsername *string `pulumi:"masterUsername"`
-	// The network type of the DB cluster (`IPV4` or `DUAL`).
-	NetworkType *string `pulumi:"networkType"`
-	// The port on which the DB accepts connections
-	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-	RestoreToPointInTime *ClusterRestoreToPointInTime `pulumi:"restoreToPointInTime"`
-	// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+	MasterPasswordWo                 *string                                  `pulumi:"masterPasswordWo"`
+	MasterPasswordWoVersion          *int                                     `pulumi:"masterPasswordWoVersion"`
+	MasterUsername                   *string                                  `pulumi:"masterUsername"`
+	NetworkType                      *string                                  `pulumi:"networkType"`
+	Port                             *int                                     `pulumi:"port"`
+	PreferredBackupWindow            *string                                  `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow       *string                                  `pulumi:"preferredMaintenanceWindow"`
+	Region                           *string                                  `pulumi:"region"`
+	RestoreToPointInTime             *ClusterRestoreToPointInTime             `pulumi:"restoreToPointInTime"`
 	ServerlessV2ScalingConfiguration *ClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-	StorageType *string `pulumi:"storageType"`
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// List of VPC security groups to associate
-	// with the Cluster
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	SkipFinalSnapshot                *bool                                    `pulumi:"skipFinalSnapshot"`
+	SnapshotIdentifier               *string                                  `pulumi:"snapshotIdentifier"`
+	StorageEncrypted                 *bool                                    `pulumi:"storageEncrypted"`
+	StorageType                      *string                                  `pulumi:"storageType"`
+	Tags                             map[string]string                        `pulumi:"tags"`
+	VpcSecurityGroupIds              []string                                 `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
-	AllowMajorVersionUpgrade pulumi.BoolPtrInput
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`.
-	ApplyImmediately pulumi.BoolPtrInput
-	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-	AvailabilityZones pulumi.StringArrayInput
-	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod pulumi.IntPtrInput
-	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
-	ClusterIdentifier pulumi.StringPtrInput
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
-	ClusterIdentifierPrefix pulumi.StringPtrInput
-	// List of DocumentDB Instances that are a part of this cluster
-	ClusterMembers pulumi.StringArrayInput
-	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName pulumi.StringPtrInput
-	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-	DeletionProtection pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `profiler`.
+	AllowMajorVersionUpgrade     pulumi.BoolPtrInput
+	ApplyImmediately             pulumi.BoolPtrInput
+	AvailabilityZones            pulumi.StringArrayInput
+	BackupRetentionPeriod        pulumi.IntPtrInput
+	ClusterIdentifier            pulumi.StringPtrInput
+	ClusterIdentifierPrefix      pulumi.StringPtrInput
+	ClusterMembers               pulumi.StringArrayInput
+	DbClusterParameterGroupName  pulumi.StringPtrInput
+	DbSubnetGroupName            pulumi.StringPtrInput
+	DeletionProtection           pulumi.BoolPtrInput
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
-	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
-	Engine pulumi.StringPtrInput
-	// The database engine version. Updating this argument results in an outage.
-	EngineVersion pulumi.StringPtrInput
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
-	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The global cluster identifier specified on `docdb.GlobalCluster`.
-	GlobalClusterIdentifier pulumi.StringPtrInput
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId pulumi.StringPtrInput
-	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
-	ManageMasterUserPassword pulumi.BoolPtrInput
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword pulumi.StringPtrInput
+	Engine                       pulumi.StringPtrInput
+	EngineVersion                pulumi.StringPtrInput
+	FinalSnapshotIdentifier      pulumi.StringPtrInput
+	GlobalClusterIdentifier      pulumi.StringPtrInput
+	KmsKeyId                     pulumi.StringPtrInput
+	ManageMasterUserPassword     pulumi.BoolPtrInput
+	MasterPassword               pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
-	MasterPasswordWo pulumi.StringPtrInput
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
-	MasterPasswordWoVersion pulumi.IntPtrInput
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrInput
-	// The network type of the DB cluster (`IPV4` or `DUAL`).
-	NetworkType pulumi.StringPtrInput
-	// The port on which the DB accepts connections
-	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-	PreferredBackupWindow pulumi.StringPtrInput
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-	RestoreToPointInTime ClusterRestoreToPointInTimePtrInput
-	// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
+	MasterPasswordWo                 pulumi.StringPtrInput
+	MasterPasswordWoVersion          pulumi.IntPtrInput
+	MasterUsername                   pulumi.StringPtrInput
+	NetworkType                      pulumi.StringPtrInput
+	Port                             pulumi.IntPtrInput
+	PreferredBackupWindow            pulumi.StringPtrInput
+	PreferredMaintenanceWindow       pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	RestoreToPointInTime             ClusterRestoreToPointInTimePtrInput
 	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrInput
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot pulumi.BoolPtrInput
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-	SnapshotIdentifier pulumi.StringPtrInput
-	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted pulumi.BoolPtrInput
-	// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
-	StorageType pulumi.StringPtrInput
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// List of VPC security groups to associate
-	// with the Cluster
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	SkipFinalSnapshot                pulumi.BoolPtrInput
+	SnapshotIdentifier               pulumi.StringPtrInput
+	StorageEncrypted                 pulumi.BoolPtrInput
+	StorageType                      pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
+	VpcSecurityGroupIds              pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -664,132 +356,99 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
 func (o ClusterOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AllowMajorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether any cluster modifications
-// are applied immediately, or during the next maintenance window. Default is
-// `false`.
 func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The days to retain backups for. Default `1`
 func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringOutput)
 }
 
-// List of DocumentDB Instances that are a part of this cluster
 func (o ClusterOutput) ClusterMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ClusterMembers }).(pulumi.StringArrayOutput)
 }
 
-// The DocumentDB Cluster Resource ID
 func (o ClusterOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
 }
 
-// A cluster parameter group to associate with the cluster.
 func (o ClusterOutput) DbClusterParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbClusterParameterGroupName }).(pulumi.StringOutput)
 }
 
-// A DB subnet group to associate with this DB instance.
 func (o ClusterOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
 }
 
-// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
 func (o ClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
-// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-// The following log types are supported: `audit`, `profiler`.
 func (o ClusterOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
-// The DNS address of the DocumentDB instance
 func (o ClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-// The database engine version. Updating this argument results in an outage.
 func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The name of your final DB snapshot
-// when this DB cluster is deleted. If omitted, no final snapshot will be
-// made.
 func (o ClusterOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.FinalSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The global cluster identifier specified on `docdb.GlobalCluster`.
 func (o ClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.GlobalClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The Route53 Hosted Zone ID of the endpoint
 func (o ClusterOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
 func (o ClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
 }
 
-// Password for the master DB user. Note that this may
-// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password for the master DB user. Note that this may
-// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
 func (o ClusterOutput) MasterPasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 func (o ClusterOutput) MasterPasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.MasterPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
@@ -798,89 +457,68 @@ func (o ClusterOutput) MasterUserSecrets() ClusterMasterUserSecretArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterMasterUserSecretArrayOutput { return v.MasterUserSecrets }).(ClusterMasterUserSecretArrayOutput)
 }
 
-// Username for the master DB user.
 func (o ClusterOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
-// The network type of the DB cluster (`IPV4` or `DUAL`).
 func (o ClusterOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
-// The port on which the DB accepts connections
 func (o ClusterOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 func (o ClusterOutput) PreferredBackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
 }
 
-// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
 func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReaderEndpoint }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
 func (o ClusterOutput) RestoreToPointInTime() ClusterRestoreToPointInTimePtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterRestoreToPointInTimePtrOutput { return v.RestoreToPointInTime }).(ClusterRestoreToPointInTimePtrOutput)
 }
 
-// Scaling configuration of an Amazon DocumentDB Serverless cluster. See Serverless V2 Scaling Configuration below for details.
 func (o ClusterOutput) ServerlessV2ScalingConfiguration() ClusterServerlessV2ScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServerlessV2ScalingConfigurationPtrOutput {
 		return v.ServerlessV2ScalingConfiguration
 	}).(ClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
-// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 func (o ClusterOutput) SkipFinalSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.SkipFinalSnapshot }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the DB cluster is encrypted. The default is `false`.
 func (o ClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
 func (o ClusterOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// List of VPC security groups to associate
-// with the Cluster
-//
-// For more detailed documentation about each argument, refer to
-// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

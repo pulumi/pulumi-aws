@@ -27,11 +27,6 @@ class RouteServerPropagationArgs:
                  timeouts: Optional[pulumi.Input['RouteServerPropagationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerPropagation resource.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "route_server_id", route_server_id)
         pulumi.set(__self__, "route_table_id", route_table_id)
@@ -43,9 +38,6 @@ class RouteServerPropagationArgs:
     @_builtins.property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique identifier for the route server to be associated.
-        """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
@@ -55,11 +47,6 @@ class RouteServerPropagationArgs:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the route table to which route server will propagate routes.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -69,9 +56,6 @@ class RouteServerPropagationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,11 +81,6 @@ class _RouteServerPropagationState:
                  timeouts: Optional[pulumi.Input['RouteServerPropagationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering RouteServerPropagation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
-               
-               The following arguments are optional:
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -115,9 +94,6 @@ class _RouteServerPropagationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -127,9 +103,6 @@ class _RouteServerPropagationState:
     @_builtins.property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique identifier for the route server to be associated.
-        """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
@@ -139,11 +112,6 @@ class _RouteServerPropagationState:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the route table to which route server will propagate routes.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -172,36 +140,9 @@ class RouteServerPropagation(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['RouteServerPropagationTimeoutsArgs', 'RouteServerPropagationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource for managing propagation between VPC (Virtual Private Cloud) route server and a route table.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpc.RouteServerPropagation("example",
-            route_server_id=example_aws_vpc_route_server["routeServerId"],
-            route_table_id=example_aws_route_table["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Propagation using the associated resource ID and route table ID separated by a comma (,). For example:
-
-        ```sh
-        $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72
-        ```
-
+        Create a RouteServerPropagation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -210,29 +151,7 @@ class RouteServerPropagation(pulumi.CustomResource):
                  args: RouteServerPropagationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for managing propagation between VPC (Virtual Private Cloud) route server and a route table.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpc.RouteServerPropagation("example",
-            route_server_id=example_aws_vpc_route_server["routeServerId"],
-            route_table_id=example_aws_route_table["id"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Propagation using the associated resource ID and route table ID separated by a comma (,). For example:
-
-        ```sh
-        $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72
-        ```
-
+        Create a RouteServerPropagation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteServerPropagationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,11 +209,6 @@ class RouteServerPropagation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,27 +223,16 @@ class RouteServerPropagation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique identifier for the route server to be associated.
-        """
         return pulumi.get(self, "route_server_id")
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the route table to which route server will propagate routes.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "route_table_id")
 
     @_builtins.property

@@ -16,14 +16,14 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
     public static final StreamProcessorInputArgs Empty = new StreamProcessorInputArgs();
 
     /**
-     * Kinesis input stream. See `kinesisVideoStream`.
+     * Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
      * 
      */
     @Import(name="kinesisVideoStream")
     private @Nullable Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream;
 
     /**
-     * @return Kinesis input stream. See `kinesisVideoStream`.
+     * @return Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
      * 
      */
     public Optional<Output<StreamProcessorInputKinesisVideoStreamArgs>> kinesisVideoStream() {
@@ -55,7 +55,7 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisVideoStream Kinesis input stream. See `kinesisVideoStream`.
+         * @param kinesisVideoStream Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisVideoStream Kinesis input stream. See `kinesisVideoStream`.
+         * @param kinesisVideoStream Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor.
          * 
          * @return builder
          * 

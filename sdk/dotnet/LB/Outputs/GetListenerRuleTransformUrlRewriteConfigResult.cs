@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleTransformUrlRewriteConfigResult
     {
-        /// <summary>
-        /// Block for URL rewrite configuration. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleTransformUrlRewriteConfigRewriteResult> Rewrites;
 
         [OutputConstructor]

@@ -18,39 +18,21 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
 
     public static final DetectorState Empty = new DetectorState();
 
-    /**
-     * The AWS account ID of the GuardDuty detector
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The AWS account ID of the GuardDuty detector
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty detector
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-     * 
      * @deprecated
      * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      * 
@@ -60,8 +42,6 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<DetectorDatasourcesArgs> datasources;
 
     /**
-     * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-     * 
      * @deprecated
      * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
      * 
@@ -71,77 +51,37 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.datasources);
     }
 
-    /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
-     * 
-     */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
-    /**
-     * @return Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enable() {
         return Optional.ofNullable(this.enable);
     }
 
-    /**
-     * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     * 
-     */
     @Import(name="findingPublishingFrequency")
     private @Nullable Output<String> findingPublishingFrequency;
 
-    /**
-     * @return Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     * 
-     */
     public Optional<Output<String>> findingPublishingFrequency() {
         return Optional.ofNullable(this.findingPublishingFrequency);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -177,51 +117,25 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
             $ = new DetectorState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The AWS account ID of the GuardDuty detector
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The AWS account ID of the GuardDuty detector
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty detector
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty detector
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
-         * @param datasources Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -235,8 +149,6 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datasources Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -248,107 +160,47 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
             return datasources(Output.of(datasources));
         }
 
-        /**
-         * @param enable Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(@Nullable Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
-        /**
-         * @param findingPublishingFrequency Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingPublishingFrequency(@Nullable Output<String> findingPublishingFrequency) {
             $.findingPublishingFrequency = findingPublishingFrequency;
             return this;
         }
 
-        /**
-         * @param findingPublishingFrequency Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
             return findingPublishingFrequency(Output.of(findingPublishingFrequency));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

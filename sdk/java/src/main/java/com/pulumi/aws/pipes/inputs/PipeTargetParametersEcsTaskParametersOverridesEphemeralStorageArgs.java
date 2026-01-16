@@ -14,17 +14,9 @@ public final class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorag
 
     public static final PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs Empty = new PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs();
 
-    /**
-     * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-     * 
-     */
     @Import(name="sizeInGib", required=true)
     private Output<Integer> sizeInGib;
 
-    /**
-     * @return The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-     * 
-     */
     public Output<Integer> sizeInGib() {
         return this.sizeInGib;
     }
@@ -53,23 +45,11 @@ public final class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorag
             $ = new PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sizeInGib The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeInGib(Output<Integer> sizeInGib) {
             $.sizeInGib = sizeInGib;
             return this;
         }
 
-        /**
-         * @param sizeInGib The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sizeInGib(Integer sizeInGib) {
             return sizeInGib(Output.of(sizeInGib));
         }

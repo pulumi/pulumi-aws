@@ -14,32 +14,16 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
 
     public static final AppAuthorizationCredentialOauth2CredentialArgs Empty = new AppAuthorizationCredentialOauth2CredentialArgs();
 
-    /**
-     * The client ID of the client application.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return The client ID of the client application.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * The client secret of the client application.
-     * 
-     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
-    /**
-     * @return The client secret of the client application.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
@@ -69,44 +53,20 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
             $ = new AppAuthorizationCredentialOauth2CredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientId The client ID of the client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId The client ID of the client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecret The client secret of the client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
-        /**
-         * @param clientSecret The client secret of the client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }

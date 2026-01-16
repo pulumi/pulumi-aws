@@ -15,17 +15,9 @@ public final class ApplicationMonitoringConfigurationPrometheusMonitoringConfigu
 
     public static final ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs Empty = new ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs();
 
-    /**
-     * The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-     * 
-     */
     @Import(name="remoteWriteUrl")
     private @Nullable Output<String> remoteWriteUrl;
 
-    /**
-     * @return The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-     * 
-     */
     public Optional<Output<String>> remoteWriteUrl() {
         return Optional.ofNullable(this.remoteWriteUrl);
     }
@@ -54,23 +46,11 @@ public final class ApplicationMonitoringConfigurationPrometheusMonitoringConfigu
             $ = new ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param remoteWriteUrl The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteWriteUrl(@Nullable Output<String> remoteWriteUrl) {
             $.remoteWriteUrl = remoteWriteUrl;
             return this;
         }
 
-        /**
-         * @param remoteWriteUrl The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteWriteUrl(String remoteWriteUrl) {
             return remoteWriteUrl(Output.of(remoteWriteUrl));
         }

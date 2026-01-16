@@ -17,117 +17,51 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetNatGatewayPlainArgs Empty = new GetNatGatewayPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * NAT Gateways in the current Region. The given filters must match exactly one
-     * NAT Gateway whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetNatGatewayFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * NAT Gateways in the current Region. The given filters must match exactly one
-     * NAT Gateway whose data will be exported as attributes.
-     * 
-     */
     public Optional<List<GetNatGatewayFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the specific NAT Gateway to retrieve.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the specific NAT Gateway to retrieve.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * ID of subnet that the NAT Gateway resides in.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable String subnetId;
 
-    /**
-     * @return ID of subnet that the NAT Gateway resides in.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired NAT Gateway.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired NAT Gateway.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ID of the VPC that the NAT Gateway resides in.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
-    /**
-     * @return ID of the VPC that the NAT Gateway resides in.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -162,97 +96,40 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetNatGatewayPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * NAT Gateways in the current Region. The given filters must match exactly one
-         * NAT Gateway whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetNatGatewayFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * NAT Gateways in the current Region. The given filters must match exactly one
-         * NAT Gateway whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNatGatewayFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id ID of the specific NAT Gateway to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param state State of the NAT Gateway (pending | failed | available | deleting | deleted ).
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param subnetId ID of subnet that the NAT Gateway resides in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable String subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired NAT Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param vpcId ID of the VPC that the NAT Gateway resides in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable String vpcId) {
             $.vpcId = vpcId;
             return this;

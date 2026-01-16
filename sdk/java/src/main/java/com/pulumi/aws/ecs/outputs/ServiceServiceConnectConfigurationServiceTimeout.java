@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceTimeout {
-    /**
-     * @return Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-     * 
-     */
     private @Nullable Integer idleTimeoutSeconds;
-    /**
-     * @return Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
-     * 
-     */
     private @Nullable Integer perRequestTimeoutSeconds;
 
     private ServiceServiceConnectConfigurationServiceTimeout() {}
-    /**
-     * @return Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-     * 
-     */
     public Optional<Integer> idleTimeoutSeconds() {
         return Optional.ofNullable(this.idleTimeoutSeconds);
     }
-    /**
-     * @return Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
-     * 
-     */
     public Optional<Integer> perRequestTimeoutSeconds() {
         return Optional.ofNullable(this.perRequestTimeoutSeconds);
     }

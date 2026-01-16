@@ -18,92 +18,44 @@ public final class AutoScalingConfigurationVersionArgs extends com.pulumi.resour
 
     public static final AutoScalingConfigurationVersionArgs Empty = new AutoScalingConfigurationVersionArgs();
 
-    /**
-     * Name of the auto scaling configuration.
-     * 
-     */
     @Import(name="autoScalingConfigurationName", required=true)
     private Output<String> autoScalingConfigurationName;
 
-    /**
-     * @return Name of the auto scaling configuration.
-     * 
-     */
     public Output<String> autoScalingConfigurationName() {
         return this.autoScalingConfigurationName;
     }
 
-    /**
-     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-     * 
-     */
     @Import(name="maxConcurrency")
     private @Nullable Output<Integer> maxConcurrency;
 
-    /**
-     * @return Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrency() {
         return Optional.ofNullable(this.maxConcurrency);
     }
 
-    /**
-     * Maximal number of instances that App Runner provisions for your service.
-     * 
-     */
     @Import(name="maxSize")
     private @Nullable Output<Integer> maxSize;
 
-    /**
-     * @return Maximal number of instances that App Runner provisions for your service.
-     * 
-     */
     public Optional<Output<Integer>> maxSize() {
         return Optional.ofNullable(this.maxSize);
     }
 
-    /**
-     * Minimal number of instances that App Runner provisions for your service.
-     * 
-     */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
-    /**
-     * @return Minimal number of instances that App Runner provisions for your service.
-     * 
-     */
     public Optional<Output<Integer>> minSize() {
         return Optional.ofNullable(this.minSize);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -137,128 +89,56 @@ public final class AutoScalingConfigurationVersionArgs extends com.pulumi.resour
             $ = new AutoScalingConfigurationVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingConfigurationName Name of the auto scaling configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingConfigurationName(Output<String> autoScalingConfigurationName) {
             $.autoScalingConfigurationName = autoScalingConfigurationName;
             return this;
         }
 
-        /**
-         * @param autoScalingConfigurationName Name of the auto scaling configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingConfigurationName(String autoScalingConfigurationName) {
             return autoScalingConfigurationName(Output.of(autoScalingConfigurationName));
         }
 
-        /**
-         * @param maxConcurrency Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrency(@Nullable Output<Integer> maxConcurrency) {
             $.maxConcurrency = maxConcurrency;
             return this;
         }
 
-        /**
-         * @param maxConcurrency Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrency(Integer maxConcurrency) {
             return maxConcurrency(Output.of(maxConcurrency));
         }
 
-        /**
-         * @param maxSize Maximal number of instances that App Runner provisions for your service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxSize(@Nullable Output<Integer> maxSize) {
             $.maxSize = maxSize;
             return this;
         }
 
-        /**
-         * @param maxSize Maximal number of instances that App Runner provisions for your service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxSize(Integer maxSize) {
             return maxSize(Output.of(maxSize));
         }
 
-        /**
-         * @param minSize Minimal number of instances that App Runner provisions for your service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minSize(@Nullable Output<Integer> minSize) {
             $.minSize = minSize;
             return this;
         }
 
-        /**
-         * @param minSize Minimal number of instances that App Runner provisions for your service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minSize(Integer minSize) {
             return minSize(Output.of(minSize));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

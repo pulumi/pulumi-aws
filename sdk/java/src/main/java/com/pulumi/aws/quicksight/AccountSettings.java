@@ -16,65 +16,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS QuickSight Account Settings.
- * 
- * &gt; Deletion of this resource will not modify any settings, only remove the resource from state.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.AccountSubscription;
- * import com.pulumi.aws.quicksight.AccountSubscriptionArgs;
- * import com.pulumi.aws.quicksight.AccountSettings;
- * import com.pulumi.aws.quicksight.AccountSettingsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var subscription = new AccountSubscription("subscription", AccountSubscriptionArgs.builder()
- *             .accountName("quicksight-terraform")
- *             .authenticationMethod("IAM_AND_QUICKSIGHT")
- *             .edition("ENTERPRISE")
- *             .notificationEmail("notification}{@literal @}{@code email.com")
- *             .build());
- * 
- *         var example = new AccountSettings("example", AccountSettingsArgs.builder()
- *             .terminationProtectionEnabled(false)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(subscription)
- *                 .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight Account Settings using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/accountSettings:AccountSettings example &#34;012345678901&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/accountSettings:AccountSettings")
 public class AccountSettings extends com.pulumi.resources.CustomResource {
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
@@ -83,45 +24,21 @@ public class AccountSettings extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     * 
-     */
     @Export(name="defaultNamespace", refs={String.class}, tree="[0]")
     private Output<String> defaultNamespace;
 
-    /**
-     * @return The default namespace for this Amazon Web Services account. Currently, the default is `default`.
-     * 
-     */
     public Output<String> defaultNamespace() {
         return this.defaultNamespace;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     * 
-     */
     @Export(name="terminationProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> terminationProtectionEnabled;
 
-    /**
-     * @return A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
-     * 
-     */
     public Output<Boolean> terminationProtectionEnabled() {
         return this.terminationProtectionEnabled;
     }

@@ -10,65 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsBotMember {
-    /**
-     * @return (Required) - Alias ID of a bot that is a member of this network of bots.
-     * 
-     */
     private String aliasId;
-    /**
-     * @return (Required) - Alias name of a bot that is a member of this network of bots.
-     * 
-     */
     private String aliasName;
-    /**
-     * @return (Required) - Unique ID of a bot that is a member of this network of bots.
-     * 
-     */
     private String id;
-    /**
-     * @return Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-     * 
-     */
     private String name;
-    /**
-     * @return (Required) - Version of a bot that is a member of this network of bots.
-     * 
-     */
     private String version;
 
     private V2modelsBotMember() {}
-    /**
-     * @return (Required) - Alias ID of a bot that is a member of this network of bots.
-     * 
-     */
     public String aliasId() {
         return this.aliasId;
     }
-    /**
-     * @return (Required) - Alias name of a bot that is a member of this network of bots.
-     * 
-     */
     public String aliasName() {
         return this.aliasName;
     }
-    /**
-     * @return (Required) - Unique ID of a bot that is a member of this network of bots.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return (Required) - Version of a bot that is a member of this network of bots.
-     * 
-     */
     public String version() {
         return this.version;
     }

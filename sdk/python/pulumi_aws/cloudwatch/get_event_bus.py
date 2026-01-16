@@ -56,25 +56,16 @@ class GetEventBusResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deadLetterConfigs")
     def dead_letter_configs(self) -> Sequence['outputs.GetEventBusDeadLetterConfigResult']:
-        """
-        Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
-        """
         return pulumi.get(self, "dead_letter_configs")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Event bus description.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -88,17 +79,11 @@ class GetEventBusResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> _builtins.str:
-        """
-        Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
-        """
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property
     @pulumi.getter(name="logConfigs")
     def log_configs(self) -> Sequence['outputs.GetEventBusLogConfigResult']:
-        """
-        Block for logging configuration settings for the event bus.
-        """
         return pulumi.get(self, "log_configs")
 
     @_builtins.property
@@ -132,22 +117,7 @@ def get_event_bus(name: Optional[_builtins.str] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventBusResult:
     """
-    This data source can be used to fetch information about a specific
-    EventBridge event bus. Use this data source to compute the ARN of
-    an event bus, given the name of the bus.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_event_bus(name="example-bus-name")
-    ```
-
-
-    :param _builtins.str name: Name of the event bus.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -168,22 +138,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusResult]:
     """
-    This data source can be used to fetch information about a specific
-    EventBridge event bus. Use this data source to compute the ARN of
-    an event bus, given the name of the bus.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_event_bus(name="example-bus-name")
-    ```
-
-
-    :param _builtins.str name: Name of the event bus.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -9,90 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lex
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lex/v2modelsSlot:V2modelsSlot")]
     public partial class V2modelsSlot : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier of the bot associated with the slot.
-        /// </summary>
         [Output("botId")]
         public Output<string> BotId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the bot associated with the slot.
-        /// </summary>
         [Output("botVersion")]
         public Output<string> BotVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the slot.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the intent that contains the slot.
-        /// </summary>
         [Output("intentId")]
         public Output<string> IntentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the language and locale that the slot will be used in.
-        /// </summary>
         [Output("localeId")]
         public Output<string> LocaleId { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the slot returns multiple values in one response.
-        /// See the `MultipleValuesSetting` argument reference below.
-        /// </summary>
         [Output("multipleValuesSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotMultipleValuesSetting>> MultipleValuesSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the slot.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Determines how slot values are used in Amazon CloudWatch logs.
-        /// See the `ObfuscationSetting` argument reference below.
-        /// </summary>
         [Output("obfuscationSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotObfuscationSetting>> ObfuscationSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier associated with the slot.
-        /// </summary>
         [Output("slotId")]
         public Output<string> SlotId { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the slot type associated with this slot.
-        /// </summary>
         [Output("slotTypeId")]
         public Output<string> SlotTypeId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifications for the constituent sub slots and the expression for the composite slot.
-        /// See the `SubSlotSetting` argument reference below.
-        /// </summary>
         [Output("subSlotSettings")]
         public Output<ImmutableArray<Outputs.V2modelsSlotSubSlotSetting>> SubSlotSettings { get; private set; } = null!;
 
@@ -148,87 +100,48 @@ namespace Pulumi.Aws.Lex
 
     public sealed class V2modelsSlotArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the bot associated with the slot.
-        /// </summary>
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the bot associated with the slot.
-        /// </summary>
         [Input("botVersion", required: true)]
         public Input<string> BotVersion { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the slot.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of the intent that contains the slot.
-        /// </summary>
         [Input("intentId", required: true)]
         public Input<string> IntentId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the language and locale that the slot will be used in.
-        /// </summary>
         [Input("localeId", required: true)]
         public Input<string> LocaleId { get; set; } = null!;
 
         [Input("multipleValuesSettings")]
         private InputList<Inputs.V2modelsSlotMultipleValuesSettingArgs>? _multipleValuesSettings;
-
-        /// <summary>
-        /// Whether the slot returns multiple values in one response.
-        /// See the `MultipleValuesSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotMultipleValuesSettingArgs> MultipleValuesSettings
         {
             get => _multipleValuesSettings ?? (_multipleValuesSettings = new InputList<Inputs.V2modelsSlotMultipleValuesSettingArgs>());
             set => _multipleValuesSettings = value;
         }
 
-        /// <summary>
-        /// Name of the slot.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("obfuscationSettings")]
         private InputList<Inputs.V2modelsSlotObfuscationSettingArgs>? _obfuscationSettings;
-
-        /// <summary>
-        /// Determines how slot values are used in Amazon CloudWatch logs.
-        /// See the `ObfuscationSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotObfuscationSettingArgs> ObfuscationSettings
         {
             get => _obfuscationSettings ?? (_obfuscationSettings = new InputList<Inputs.V2modelsSlotObfuscationSettingArgs>());
             set => _obfuscationSettings = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the slot type associated with this slot.
-        /// </summary>
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
 
         [Input("subSlotSettings")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingArgs>? _subSlotSettings;
-
-        /// <summary>
-        /// Specifications for the constituent sub slots and the expression for the composite slot.
-        /// See the `SubSlotSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingArgs> SubSlotSettings
         {
             get => _subSlotSettings ?? (_subSlotSettings = new InputList<Inputs.V2modelsSlotSubSlotSettingArgs>());
@@ -249,93 +162,51 @@ namespace Pulumi.Aws.Lex
 
     public sealed class V2modelsSlotState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the bot associated with the slot.
-        /// </summary>
         [Input("botId")]
         public Input<string>? BotId { get; set; }
 
-        /// <summary>
-        /// Version of the bot associated with the slot.
-        /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }
 
-        /// <summary>
-        /// Description of the slot.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of the intent that contains the slot.
-        /// </summary>
         [Input("intentId")]
         public Input<string>? IntentId { get; set; }
 
-        /// <summary>
-        /// Identifier of the language and locale that the slot will be used in.
-        /// </summary>
         [Input("localeId")]
         public Input<string>? LocaleId { get; set; }
 
         [Input("multipleValuesSettings")]
         private InputList<Inputs.V2modelsSlotMultipleValuesSettingGetArgs>? _multipleValuesSettings;
-
-        /// <summary>
-        /// Whether the slot returns multiple values in one response.
-        /// See the `MultipleValuesSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotMultipleValuesSettingGetArgs> MultipleValuesSettings
         {
             get => _multipleValuesSettings ?? (_multipleValuesSettings = new InputList<Inputs.V2modelsSlotMultipleValuesSettingGetArgs>());
             set => _multipleValuesSettings = value;
         }
 
-        /// <summary>
-        /// Name of the slot.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("obfuscationSettings")]
         private InputList<Inputs.V2modelsSlotObfuscationSettingGetArgs>? _obfuscationSettings;
-
-        /// <summary>
-        /// Determines how slot values are used in Amazon CloudWatch logs.
-        /// See the `ObfuscationSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotObfuscationSettingGetArgs> ObfuscationSettings
         {
             get => _obfuscationSettings ?? (_obfuscationSettings = new InputList<Inputs.V2modelsSlotObfuscationSettingGetArgs>());
             set => _obfuscationSettings = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Unique identifier associated with the slot.
-        /// </summary>
         [Input("slotId")]
         public Input<string>? SlotId { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the slot type associated with this slot.
-        /// </summary>
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
 
         [Input("subSlotSettings")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs>? _subSlotSettings;
-
-        /// <summary>
-        /// Specifications for the constituent sub slots and the expression for the composite slot.
-        /// See the `SubSlotSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs> SubSlotSettings
         {
             get => _subSlotSettings ?? (_subSlotSettings = new InputList<Inputs.V2modelsSlotSubSlotSettingGetArgs>());

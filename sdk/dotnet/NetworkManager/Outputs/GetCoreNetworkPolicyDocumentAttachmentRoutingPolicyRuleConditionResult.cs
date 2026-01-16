@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionResult
     {
-        /// <summary>
-        /// Must be `routing-policy-label`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Routing policy label to match.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

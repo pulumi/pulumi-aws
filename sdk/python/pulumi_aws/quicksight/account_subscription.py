@@ -41,28 +41,6 @@ class AccountSubscriptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSubscription resource.
-        :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "authentication_method", authentication_method)
@@ -104,9 +82,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -116,9 +91,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> pulumi.Input[_builtins.str]:
-        """
-        Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
@@ -128,9 +100,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def edition(self) -> pulumi.Input[_builtins.str]:
-        """
-        Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        """
         return pulumi.get(self, "edition")
 
     @edition.setter
@@ -140,11 +109,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
     def notification_email(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "notification_email")
 
     @notification_email.setter
@@ -154,9 +118,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryName")
     def active_directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "active_directory_name")
 
     @active_directory_name.setter
@@ -166,9 +127,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="adminGroups")
     def admin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "admin_groups")
 
     @admin_groups.setter
@@ -178,9 +136,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="adminProGroups")
     def admin_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "admin_pro_groups")
 
     @admin_pro_groups.setter
@@ -190,9 +145,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="authorGroups")
     def author_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Author group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "author_groups")
 
     @author_groups.setter
@@ -202,9 +154,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="authorProGroups")
     def author_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Author PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "author_pro_groups")
 
     @author_pro_groups.setter
@@ -214,9 +163,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -226,9 +172,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="contactNumber")
     def contact_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "contact_number")
 
     @contact_number.setter
@@ -238,9 +181,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Active Directory ID that is associated with your Amazon QuickSight account.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -250,9 +190,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -262,9 +199,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -274,9 +208,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
     @iam_identity_center_instance_arn.setter
@@ -286,9 +217,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -298,9 +226,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="readerGroups")
     def reader_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Reader group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "reader_groups")
 
     @reader_groups.setter
@@ -310,9 +235,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter(name="readerProGroups")
     def reader_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "reader_pro_groups")
 
     @reader_pro_groups.setter
@@ -322,9 +244,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def realm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        """
         return pulumi.get(self, "realm")
 
     @realm.setter
@@ -334,9 +253,6 @@ class AccountSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -370,29 +286,6 @@ class _AccountSubscriptionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSubscription resources.
-        :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        :param pulumi.Input[_builtins.str] account_subscription_status: Status of the Amazon QuickSight account's subscription.
-        :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -440,9 +333,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -452,9 +342,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="accountSubscriptionStatus")
     def account_subscription_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the Amazon QuickSight account's subscription.
-        """
         return pulumi.get(self, "account_subscription_status")
 
     @account_subscription_status.setter
@@ -464,9 +351,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryName")
     def active_directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "active_directory_name")
 
     @active_directory_name.setter
@@ -476,9 +360,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="adminGroups")
     def admin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "admin_groups")
 
     @admin_groups.setter
@@ -488,9 +369,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="adminProGroups")
     def admin_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "admin_pro_groups")
 
     @admin_pro_groups.setter
@@ -500,9 +378,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
@@ -512,9 +387,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="authorGroups")
     def author_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Author group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "author_groups")
 
     @author_groups.setter
@@ -524,9 +396,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="authorProGroups")
     def author_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Author PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "author_pro_groups")
 
     @author_pro_groups.setter
@@ -536,9 +405,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -548,9 +414,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="contactNumber")
     def contact_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "contact_number")
 
     @contact_number.setter
@@ -560,9 +423,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Active Directory ID that is associated with your Amazon QuickSight account.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -572,9 +432,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        """
         return pulumi.get(self, "edition")
 
     @edition.setter
@@ -584,9 +441,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -596,9 +450,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -608,9 +459,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
     @iam_identity_center_instance_arn.setter
@@ -620,9 +468,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -632,11 +477,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
     def notification_email(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "notification_email")
 
     @notification_email.setter
@@ -646,9 +486,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="readerGroups")
     def reader_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Reader group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "reader_groups")
 
     @reader_groups.setter
@@ -658,9 +495,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter(name="readerProGroups")
     def reader_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "reader_pro_groups")
 
     @reader_pro_groups.setter
@@ -670,9 +504,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def realm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        """
         return pulumi.get(self, "realm")
 
     @realm.setter
@@ -682,9 +513,6 @@ class _AccountSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -720,55 +548,9 @@ class AccountSubscription(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS QuickSight Account Subscription.
-
-        > Due to the absence of the `admin_group`, `author_group`, `reader_group`, `admin_pro_group`, `author_pro_group`, and `reader_pro_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        subscription = aws.quicksight.AccountSubscription("subscription",
-            account_name="quicksight-pulumi",
-            authentication_method="IAM_AND_QUICKSIGHT",
-            edition="ENTERPRISE",
-            notification_email="notification@email.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
-        ```
-
+        Create a AccountSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -777,31 +559,7 @@ class AccountSubscription(pulumi.CustomResource):
                  args: AccountSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS QuickSight Account Subscription.
-
-        > Due to the absence of the `admin_group`, `author_group`, `reader_group`, `admin_pro_group`, `author_pro_group`, and `reader_pro_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        subscription = aws.quicksight.AccountSubscription("subscription",
-            account_name="quicksight-pulumi",
-            authentication_method="IAM_AND_QUICKSIGHT",
-            edition="ENTERPRISE",
-            notification_email="notification@email.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
-        ```
-
+        Create a AccountSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -913,29 +671,6 @@ class AccountSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        :param pulumi.Input[_builtins.str] account_subscription_status: Status of the Amazon QuickSight account's subscription.
-        :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -967,170 +702,105 @@ class AccountSubscription(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
-        """
         return pulumi.get(self, "account_name")
 
     @_builtins.property
     @pulumi.getter(name="accountSubscriptionStatus")
     def account_subscription_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the Amazon QuickSight account's subscription.
-        """
         return pulumi.get(self, "account_subscription_status")
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryName")
     def active_directory_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "active_directory_name")
 
     @_builtins.property
     @pulumi.getter(name="adminGroups")
     def admin_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "admin_groups")
 
     @_builtins.property
     @pulumi.getter(name="adminProGroups")
     def admin_pro_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Admin PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "admin_pro_groups")
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> pulumi.Output[_builtins.str]:
-        """
-        Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
-        """
         return pulumi.get(self, "authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="authorGroups")
     def author_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Author group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "author_groups")
 
     @_builtins.property
     @pulumi.getter(name="authorProGroups")
     def author_pro_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Author PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "author_pro_groups")
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property
     @pulumi.getter(name="contactNumber")
     def contact_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "contact_number")
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Active Directory ID that is associated with your Amazon QuickSight account.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter
     def edition(self) -> pulumi.Output[_builtins.str]:
-        """
-        Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
-        """
         return pulumi.get(self, "edition")
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "email_address")
 
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "first_name")
 
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
-        """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        """
         return pulumi.get(self, "last_name")
 
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
     def notification_email(self) -> pulumi.Output[_builtins.str]:
-        """
-        Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "notification_email")
 
     @_builtins.property
     @pulumi.getter(name="readerGroups")
     def reader_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Reader group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "reader_groups")
 
     @_builtins.property
     @pulumi.getter(name="readerProGroups")
     def reader_pro_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Reader PRO group associated with your Active Directory or IAM Identity Center account.
-        """
         return pulumi.get(self, "reader_pro_groups")
 
     @_builtins.property
     @pulumi.getter
     def realm(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Realm of the Active Directory that is associated with your Amazon QuickSight account.
-        """
         return pulumi.get(self, "realm")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

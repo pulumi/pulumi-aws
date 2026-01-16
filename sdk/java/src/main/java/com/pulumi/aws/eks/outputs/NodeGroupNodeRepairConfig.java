@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NodeGroupNodeRepairConfig {
-    /**
-     * @return Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
-     * 
-     */
     private @Nullable Integer maxParallelNodesRepairedCount;
-    /**
-     * @return Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
-     * 
-     */
     private @Nullable Integer maxParallelNodesRepairedPercentage;
-    /**
-     * @return Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
-     * 
-     */
     private @Nullable Integer maxUnhealthyNodeThresholdCount;
-    /**
-     * @return Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
-     * 
-     */
     private @Nullable Integer maxUnhealthyNodeThresholdPercentage;
-    /**
-     * @return Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
-     * 
-     */
     private @Nullable List<NodeGroupNodeRepairConfigNodeRepairConfigOverride> nodeRepairConfigOverrides;
 
     private NodeGroupNodeRepairConfig() {}
-    /**
-     * @return Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
-     * 
-     */
     public Optional<Integer> maxParallelNodesRepairedCount() {
         return Optional.ofNullable(this.maxParallelNodesRepairedCount);
     }
-    /**
-     * @return Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
-     * 
-     */
     public Optional<Integer> maxParallelNodesRepairedPercentage() {
         return Optional.ofNullable(this.maxParallelNodesRepairedPercentage);
     }
-    /**
-     * @return Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
-     * 
-     */
     public Optional<Integer> maxUnhealthyNodeThresholdCount() {
         return Optional.ofNullable(this.maxUnhealthyNodeThresholdCount);
     }
-    /**
-     * @return Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
-     * 
-     */
     public Optional<Integer> maxUnhealthyNodeThresholdPercentage() {
         return Optional.ofNullable(this.maxUnhealthyNodeThresholdPercentage);
     }
-    /**
-     * @return Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
-     * 
-     */
     public List<NodeGroupNodeRepairConfigNodeRepairConfigOverride> nodeRepairConfigOverrides() {
         return this.nodeRepairConfigOverrides == null ? List.of() : this.nodeRepairConfigOverrides;
     }

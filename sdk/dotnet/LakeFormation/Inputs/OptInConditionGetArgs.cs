@@ -12,9 +12,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class OptInConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
-        /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 

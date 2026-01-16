@@ -9,89 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
-    /// 
-    /// Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role.
-    /// When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
-    /// Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
-    /// When you register subsequent paths, Lake Formation adds the path to the existing policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.S3.GetBucket.Invoke(new()
-    ///     {
-    ///         Bucket = "an-example-bucket",
-    ///     });
-    /// 
-    ///     var exampleResource = new Aws.LakeFormation.Resource("example", new()
-    ///     {
-    ///         Arn = example.Apply(getBucketResult =&gt; getBucketResult.Arn),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
-        /// </summary>
         [Output("hybridAccessEnabled")]
         public Output<bool> HybridAccessEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Role that has read/write access to the resource.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        /// </summary>
         [Output("useServiceLinkedRole")]
         public Output<bool?> UseServiceLinkedRole { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-        /// </summary>
         [Output("withFederation")]
         public Output<bool> WithFederation { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-        /// </summary>
         [Output("withPrivilegedAccess")]
         public Output<bool> WithPrivilegedAccess { get; private set; } = null!;
 
@@ -141,49 +82,24 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
-        /// </summary>
         [Input("hybridAccessEnabled")]
         public Input<bool>? HybridAccessEnabled { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Role that has read/write access to the resource.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        /// </summary>
         [Input("useServiceLinkedRole")]
         public Input<bool>? UseServiceLinkedRole { get; set; }
 
-        /// <summary>
-        /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-        /// </summary>
         [Input("withFederation")]
         public Input<bool>? WithFederation { get; set; }
 
-        /// <summary>
-        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-        /// </summary>
         [Input("withPrivilegedAccess")]
         public Input<bool>? WithPrivilegedAccess { get; set; }
 
@@ -195,55 +111,27 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
-        /// </summary>
         [Input("hybridAccessEnabled")]
         public Input<bool>? HybridAccessEnabled { get; set; }
 
-        /// <summary>
-        /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Role that has read/write access to the resource.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        /// </summary>
         [Input("useServiceLinkedRole")]
         public Input<bool>? UseServiceLinkedRole { get; set; }
 
-        /// <summary>
-        /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
-        /// </summary>
         [Input("withFederation")]
         public Input<bool>? WithFederation { get; set; }
 
-        /// <summary>
-        /// Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-        /// </summary>
         [Input("withPrivilegedAccess")]
         public Input<bool>? WithPrivilegedAccess { get; set; }
 

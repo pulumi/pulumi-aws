@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTenantCustomizationsWebAcl
     {
-        /// <summary>
-        /// Action to take for the web ACL. Valid values: `Allow`, `Block`.
-        /// </summary>
         public readonly string? Action;
-        /// <summary>
-        /// ARN of the distribution tenant.
-        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

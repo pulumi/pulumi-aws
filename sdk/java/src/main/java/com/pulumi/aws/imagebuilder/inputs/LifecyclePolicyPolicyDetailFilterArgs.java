@@ -17,66 +17,30 @@ public final class LifecyclePolicyPolicyDetailFilterArgs extends com.pulumi.reso
 
     public static final LifecyclePolicyPolicyDetailFilterArgs Empty = new LifecyclePolicyPolicyDetailFilterArgs();
 
-    /**
-     * For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-     * 
-     */
     @Import(name="retainAtLeast")
     private @Nullable Output<Integer> retainAtLeast;
 
-    /**
-     * @return For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-     * 
-     */
     public Optional<Output<Integer>> retainAtLeast() {
         return Optional.ofNullable(this.retainAtLeast);
     }
 
-    /**
-     * Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
 
-    /**
-     * The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
-    /**
-     * @return The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> value() {
         return this.value;
     }
@@ -108,90 +72,38 @@ public final class LifecyclePolicyPolicyDetailFilterArgs extends com.pulumi.reso
             $ = new LifecyclePolicyPolicyDetailFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param retainAtLeast For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainAtLeast(@Nullable Output<Integer> retainAtLeast) {
             $.retainAtLeast = retainAtLeast;
             return this;
         }
 
-        /**
-         * @param retainAtLeast For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainAtLeast(Integer retainAtLeast) {
             return retainAtLeast(Output.of(retainAtLeast));
         }
 
-        /**
-         * @param type Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param unit Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }
 
-        /**
-         * @param value The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerRuleTransformArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for host header rewrite. Required if `Type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
-        /// </summary>
         [Input("hostHeaderRewriteConfig")]
         public Input<Inputs.ListenerRuleTransformHostHeaderRewriteConfigArgs>? HostHeaderRewriteConfig { get; set; }
 
-        /// <summary>
-        /// Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for URL rewrite. Required if `Type` is `url-rewrite`. See URL Rewrite Config Blocks below.
-        /// </summary>
         [Input("urlRewriteConfig")]
         public Input<Inputs.ListenerRuleTransformUrlRewriteConfigArgs>? UrlRewriteConfig { get; set; }
 

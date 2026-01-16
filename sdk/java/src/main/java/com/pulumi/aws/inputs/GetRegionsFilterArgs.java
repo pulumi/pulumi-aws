@@ -15,32 +15,16 @@ public final class GetRegionsFilterArgs extends com.pulumi.resources.ResourceArg
 
     public static final GetRegionsFilterArgs Empty = new GetRegionsFilterArgs();
 
-    /**
-     * Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GetRegionsFilterArgs extends com.pulumi.resources.ResourceArg
             $ = new GetRegionsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

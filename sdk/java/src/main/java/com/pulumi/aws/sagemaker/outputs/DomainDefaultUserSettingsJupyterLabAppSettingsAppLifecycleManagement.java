@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings idleSettings;
 
     private DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement() {}
-    /**
-     * @return Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
-     * 
-     */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings> idleSettings() {
         return Optional.ofNullable(this.idleSettings);
     }

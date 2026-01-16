@@ -9,78 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Manages the content and status of IP rules.
-    /// 
-    /// &gt; Deletion of this resource clears all IP restrictions from a QuickSight account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.IpRestriction("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         IpRestrictionRuleMap = 
-    ///         {
-    ///             { "108.56.166.202/32", "Allow self" },
-    ///         },
-    ///         VpcIdRestrictionRuleMap = 
-    ///         {
-    ///             { exampleAwsVpc.Id, "Main VPC" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import QuickSight IP restriction using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/ipRestriction:IpRestriction")]
     public partial class IpRestriction : global::Pulumi.CustomResource
     {
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether IP rules are turned on.
-        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of allowed IPv4 CIDR ranges and descriptions.
-        /// </summary>
         [Output("ipRestrictionRuleMap")]
         public Output<ImmutableDictionary<string, string>?> IpRestrictionRuleMap { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of allowed VPC endpoint IDs and descriptions.
-        /// </summary>
         [Output("vpcEndpointIdRestrictionRuleMap")]
         public Output<ImmutableDictionary<string, string>?> VpcEndpointIdRestrictionRuleMap { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-        /// </summary>
         [Output("vpcIdRestrictionRuleMap")]
         public Output<ImmutableDictionary<string, string>?> VpcIdRestrictionRuleMap { get; private set; } = null!;
 
@@ -133,36 +79,22 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Whether IP rules are turned on.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         [Input("ipRestrictionRuleMap")]
         private InputMap<string>? _ipRestrictionRuleMap;
-
-        /// <summary>
-        /// Map of allowed IPv4 CIDR ranges and descriptions.
-        /// </summary>
         public InputMap<string> IpRestrictionRuleMap
         {
             get => _ipRestrictionRuleMap ?? (_ipRestrictionRuleMap = new InputMap<string>());
             set => _ipRestrictionRuleMap = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("vpcEndpointIdRestrictionRuleMap")]
         private InputMap<string>? _vpcEndpointIdRestrictionRuleMap;
-
-        /// <summary>
-        /// Map of allowed VPC endpoint IDs and descriptions.
-        /// </summary>
         public InputMap<string> VpcEndpointIdRestrictionRuleMap
         {
             get => _vpcEndpointIdRestrictionRuleMap ?? (_vpcEndpointIdRestrictionRuleMap = new InputMap<string>());
@@ -171,10 +103,6 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("vpcIdRestrictionRuleMap")]
         private InputMap<string>? _vpcIdRestrictionRuleMap;
-
-        /// <summary>
-        /// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-        /// </summary>
         public InputMap<string> VpcIdRestrictionRuleMap
         {
             get => _vpcIdRestrictionRuleMap ?? (_vpcIdRestrictionRuleMap = new InputMap<string>());
@@ -192,36 +120,22 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Whether IP rules are turned on.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("ipRestrictionRuleMap")]
         private InputMap<string>? _ipRestrictionRuleMap;
-
-        /// <summary>
-        /// Map of allowed IPv4 CIDR ranges and descriptions.
-        /// </summary>
         public InputMap<string> IpRestrictionRuleMap
         {
             get => _ipRestrictionRuleMap ?? (_ipRestrictionRuleMap = new InputMap<string>());
             set => _ipRestrictionRuleMap = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("vpcEndpointIdRestrictionRuleMap")]
         private InputMap<string>? _vpcEndpointIdRestrictionRuleMap;
-
-        /// <summary>
-        /// Map of allowed VPC endpoint IDs and descriptions.
-        /// </summary>
         public InputMap<string> VpcEndpointIdRestrictionRuleMap
         {
             get => _vpcEndpointIdRestrictionRuleMap ?? (_vpcEndpointIdRestrictionRuleMap = new InputMap<string>());
@@ -230,10 +144,6 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("vpcIdRestrictionRuleMap")]
         private InputMap<string>? _vpcIdRestrictionRuleMap;
-
-        /// <summary>
-        /// Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
-        /// </summary>
         public InputMap<string> VpcIdRestrictionRuleMap
         {
             get => _vpcIdRestrictionRuleMap ?? (_vpcIdRestrictionRuleMap = new InputMap<string>());

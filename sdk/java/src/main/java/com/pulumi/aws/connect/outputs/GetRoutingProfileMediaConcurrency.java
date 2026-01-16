@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRoutingProfileMediaConcurrency {
-    /**
-     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     private String channel;
-    /**
-     * @return Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-     * 
-     */
     private Integer concurrency;
-    /**
-     * @return Configuration block for cross-channel behavior. Documented below.
-     * 
-     */
     private List<GetRoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehaviors;
 
     private GetRoutingProfileMediaConcurrency() {}
-    /**
-     * @return Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     public String channel() {
         return this.channel;
     }
-    /**
-     * @return Number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
-     * 
-     */
     public Integer concurrency() {
         return this.concurrency;
     }
-    /**
-     * @return Configuration block for cross-channel behavior. Documented below.
-     * 
-     */
     public List<GetRoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehaviors() {
         return this.crossChannelBehaviors;
     }

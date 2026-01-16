@@ -14,17 +14,9 @@ public final class DataSourceConfigurationTemplateConfigurationArgs extends com.
 
     public static final DataSourceConfigurationTemplateConfigurationArgs Empty = new DataSourceConfigurationTemplateConfigurationArgs();
 
-    /**
-     * JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-     * 
-     */
     @Import(name="template", required=true)
     private Output<String> template;
 
-    /**
-     * @return JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-     * 
-     */
     public Output<String> template() {
         return this.template;
     }
@@ -53,23 +45,11 @@ public final class DataSourceConfigurationTemplateConfigurationArgs extends com.
             $ = new DataSourceConfigurationTemplateConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param template JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder template(Output<String> template) {
             $.template = template;
             return this;
         }
 
-        /**
-         * @param template JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder template(String template) {
             return template(Output.of(template));
         }

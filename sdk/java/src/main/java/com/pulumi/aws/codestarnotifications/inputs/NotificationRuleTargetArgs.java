@@ -16,47 +16,23 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
 
     public static final NotificationRuleTargetArgs Empty = new NotificationRuleTargetArgs();
 
-    /**
-     * The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-     * 
-     */
     @Import(name="address", required=true)
     private Output<String> address;
 
-    /**
-     * @return The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-     * 
-     */
     public Output<String> address() {
         return this.address;
     }
 
-    /**
-     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -87,65 +63,29 @@ public final class NotificationRuleTargetArgs extends com.pulumi.resources.Resou
             $ = new NotificationRuleTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
-        /**
-         * @param status The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param type The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput
     {
-        /// <summary>
-        /// The ARN of the input Kinesis data stream to read.
-        /// </summary>
         public readonly string ResourceArn;
 
         [OutputConstructor]

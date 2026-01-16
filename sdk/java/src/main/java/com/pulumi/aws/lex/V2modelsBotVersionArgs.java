@@ -19,79 +19,37 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
 
     public static final V2modelsBotVersionArgs Empty = new V2modelsBotVersionArgs();
 
-    /**
-     * Idientifier of the bot to create the version for.
-     * 
-     */
     @Import(name="botId", required=true)
     private Output<String> botId;
 
-    /**
-     * @return Idientifier of the bot to create the version for.
-     * 
-     */
     public Output<String> botId() {
         return this.botId;
     }
 
-    /**
-     * Version number assigned to the version.
-     * 
-     */
     @Import(name="botVersion")
     private @Nullable Output<String> botVersion;
 
-    /**
-     * @return Version number assigned to the version.
-     * 
-     */
     public Optional<Output<String>> botVersion() {
         return Optional.ofNullable(this.botVersion);
     }
 
-    /**
-     * A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the version. Use the description to help identify the version in lists.
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     * 
-     */
     @Import(name="localeSpecification", required=true)
     private Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification;
 
-    /**
-     * @return Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     * 
-     */
     public Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification() {
         return this.localeSpecification;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -132,109 +90,47 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
             $ = new V2modelsBotVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botId Idientifier of the bot to create the version for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(Output<String> botId) {
             $.botId = botId;
             return this;
         }
 
-        /**
-         * @param botId Idientifier of the bot to create the version for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botId(String botId) {
             return botId(Output.of(botId));
         }
 
-        /**
-         * @param botVersion Version number assigned to the version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(@Nullable Output<String> botVersion) {
             $.botVersion = botVersion;
             return this;
         }
 
-        /**
-         * @param botVersion Version number assigned to the version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botVersion(String botVersion) {
             return botVersion(Output.of(botVersion));
         }
 
-        /**
-         * @param description A description of the version. Use the description to help identify the version in lists.
-         * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the version. Use the description to help identify the version in lists.
-         * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param localeSpecification Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeSpecification(Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification) {
             $.localeSpecification = localeSpecification;
             return this;
         }
 
-        /**
-         * @param localeSpecification Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localeSpecification(Map<String,V2modelsBotVersionLocaleSpecificationArgs> localeSpecification) {
             return localeSpecification(Output.of(localeSpecification));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

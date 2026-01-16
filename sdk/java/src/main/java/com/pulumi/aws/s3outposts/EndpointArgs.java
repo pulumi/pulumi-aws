@@ -16,92 +16,44 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EndpointArgs Empty = new EndpointArgs();
 
-    /**
-     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     * 
-     */
     @Import(name="accessType")
     private @Nullable Output<String> accessType;
 
-    /**
-     * @return Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     * 
-     */
     public Optional<Output<String>> accessType() {
         return Optional.ofNullable(this.accessType);
     }
 
-    /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     * 
-     */
     @Import(name="customerOwnedIpv4Pool")
     private @Nullable Output<String> customerOwnedIpv4Pool;
 
-    /**
-     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     * 
-     */
     public Optional<Output<String>> customerOwnedIpv4Pool() {
         return Optional.ofNullable(this.customerOwnedIpv4Pool);
     }
 
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     @Import(name="outpostId", required=true)
     private Output<String> outpostId;
 
-    /**
-     * @return Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     public Output<String> outpostId() {
         return this.outpostId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the EC2 Security Group.
-     * 
-     */
     @Import(name="securityGroupId", required=true)
     private Output<String> securityGroupId;
 
-    /**
-     * @return Identifier of the EC2 Security Group.
-     * 
-     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
 
-    /**
-     * Identifier of the EC2 Subnet.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return Identifier of the EC2 Subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -135,128 +87,56 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessType Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessType(@Nullable Output<String> accessType) {
             $.accessType = accessType;
             return this;
         }
 
-        /**
-         * @param accessType Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessType(String accessType) {
             return accessType(Output.of(accessType));
         }
 
-        /**
-         * @param customerOwnedIpv4Pool The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerOwnedIpv4Pool(@Nullable Output<String> customerOwnedIpv4Pool) {
             $.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             return this;
         }
 
-        /**
-         * @param customerOwnedIpv4Pool The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
             return customerOwnedIpv4Pool(Output.of(customerOwnedIpv4Pool));
         }
 
-        /**
-         * @param outpostId Identifier of the Outpost to contain this endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostId(Output<String> outpostId) {
             $.outpostId = outpostId;
             return this;
         }
 
-        /**
-         * @param outpostId Identifier of the Outpost to contain this endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostId(String outpostId) {
             return outpostId(Output.of(outpostId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityGroupId Identifier of the EC2 Security Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(Output<String> securityGroupId) {
             $.securityGroupId = securityGroupId;
             return this;
         }
 
-        /**
-         * @param securityGroupId Identifier of the EC2 Security Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(String securityGroupId) {
             return securityGroupId(Output.of(securityGroupId));
         }
 
-        /**
-         * @param subnetId Identifier of the EC2 Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId Identifier of the EC2 Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

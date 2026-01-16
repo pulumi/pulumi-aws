@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelCdiInputSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum CDI input resolution.
-        /// </summary>
         [Input("resolution", required: true)]
         public Input<string> Resolution { get; set; } = null!;
 

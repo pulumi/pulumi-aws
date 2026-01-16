@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DataZone.Inputs
 
     public sealed class FormTypeImportGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the form type. Must be the name of the structure in smithy document.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Revision of the Form Type.
-        /// </summary>
         [Input("revision", required: true)]
         public Input<string> Revision { get; set; } = null!;
 

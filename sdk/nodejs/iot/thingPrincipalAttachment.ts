@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Attaches Principal to AWS IoT Thing.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.iot.Thing("example", {name: "example"});
- * const cert = new aws.iot.Certificate("cert", {
- *     csr: std.file({
- *         input: "csr.pem",
- *     }).then(invoke => invoke.result),
- *     active: true,
- * });
- * const att = new aws.iot.ThingPrincipalAttachment("att", {
- *     principal: cert.arn,
- *     thing: example.name,
- * });
- * ```
- */
 export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**
      * Get an existing ThingPrincipalAttachment resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingPrincipalAttachment.__pulumiType;
     }
 
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     */
     declare public readonly principal: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the thing.
-     */
     declare public readonly thing: pulumi.Output<string>;
-    /**
-     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     */
     declare public readonly thingPrincipalType: pulumi.Output<string>;
 
     /**
@@ -111,21 +76,9 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ThingPrincipalAttachment resources.
  */
 export interface ThingPrincipalAttachmentState {
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     */
     principal?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the thing.
-     */
     thing?: pulumi.Input<string>;
-    /**
-     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     */
     thingPrincipalType?: pulumi.Input<string>;
 }
 
@@ -133,20 +86,8 @@ export interface ThingPrincipalAttachmentState {
  * The set of arguments for constructing a ThingPrincipalAttachment resource.
  */
 export interface ThingPrincipalAttachmentArgs {
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     */
     principal: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the thing.
-     */
     thing: pulumi.Input<string>;
-    /**
-     * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
-     */
     thingPrincipalType?: pulumi.Input<string>;
 }

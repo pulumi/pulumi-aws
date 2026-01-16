@@ -7,94 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS RDS (Relational Database) zero-ETL integration. You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.html).
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "redshift-example"});
- * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("example", {
- *     namespaceName: example.namespaceName,
- *     workgroupName: "example-workspace",
- *     baseCapacity: 8,
- *     publiclyAccessible: false,
- *     subnetIds: [
- *         example1.id,
- *         example2.id,
- *         example3.id,
- *     ],
- *     configParameters: [{
- *         parameterKey: "enable_case_sensitive_identifier",
- *         parameterValue: "true",
- *     }],
- * });
- * const exampleIntegration = new aws.rds.Integration("example", {
- *     integrationName: "example",
- *     sourceArn: exampleAwsRdsCluster.arn,
- *     targetArn: example.arn,
- * });
- * ```
- *
- * ### Use own KMS key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const keyPolicy = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["kms:*"],
- *             resources: ["*"],
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [`arn:aws:iam::${current.accountId}:root`],
- *             }],
- *         },
- *         {
- *             actions: ["kms:CreateGrant"],
- *             resources: ["*"],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["redshift.amazonaws.com"],
- *             }],
- *         },
- *     ],
- * }));
- * const example = new aws.kms.Key("example", {
- *     deletionWindowInDays: 10,
- *     policy: keyPolicy.then(keyPolicy => keyPolicy.json),
- * });
- * const exampleIntegration = new aws.rds.Integration("example", {
- *     integrationName: "example",
- *     sourceArn: exampleAwsRdsCluster.arn,
- *     targetArn: exampleAwsRedshiftserverlessNamespace.arn,
- *     kmsKeyId: example.arn,
- *     additionalEncryptionContext: {
- *         example: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the RDS integration.
- *
- * Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
- *
- * % pulumi import aws_rds_integration.example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
- */
 export class Integration extends pulumi.CustomResource {
     /**
      * Get an existing Integration resource's state with the given name, ID, and optional extra
@@ -123,57 +35,15 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
-    /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data.
-     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kmsKeyId` parameter.
-     */
     declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * ARN of the Integration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Data filters for the integration.
-     * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
-     * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
-     * Multiple expressions are separated by a comma.
-     * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
-     */
     declare public readonly dataFilter: pulumi.Output<string>;
-    /**
-     * Name of the integration.
-     */
     declare public readonly integrationName: pulumi.Output<string>;
-    /**
-     * KMS key identifier for the key to use to encrypt the integration.
-     * If you don't specify an encryption key, RDS uses a default AWS owned key.
-     * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the database to use as the source for replication.
-     */
     declare public readonly sourceArn: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the Redshift data warehouse to use as the target for replication.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.rds.IntegrationTimeouts | undefined>;
 
@@ -233,57 +103,15 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
-    /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data.
-     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kmsKeyId` parameter.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Integration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Data filters for the integration.
-     * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
-     * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
-     * Multiple expressions are separated by a comma.
-     * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
-     */
     dataFilter?: pulumi.Input<string>;
-    /**
-     * Name of the integration.
-     */
     integrationName?: pulumi.Input<string>;
-    /**
-     * KMS key identifier for the key to use to encrypt the integration.
-     * If you don't specify an encryption key, RDS uses a default AWS owned key.
-     * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the database to use as the source for replication.
-     */
     sourceArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Redshift data warehouse to use as the target for replication.
-     *
-     * The following arguments are optional:
-     */
     targetArn?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.rds.IntegrationTimeouts>;
 }
@@ -292,49 +120,13 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
-    /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data.
-     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kmsKeyId` parameter.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Data filters for the integration.
-     * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
-     * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
-     * Multiple expressions are separated by a comma.
-     * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
-     */
     dataFilter?: pulumi.Input<string>;
-    /**
-     * Name of the integration.
-     */
     integrationName: pulumi.Input<string>;
-    /**
-     * KMS key identifier for the key to use to encrypt the integration.
-     * If you don't specify an encryption key, RDS uses a default AWS owned key.
-     * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the database to use as the source for replication.
-     */
     sourceArn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Redshift data warehouse to use as the target for replication.
-     *
-     * The following arguments are optional:
-     */
     targetArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.rds.IntegrationTimeouts>;
 }

@@ -17,16 +17,14 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
     public static final IdentityCenterConfigurationArgs Empty = new IdentityCenterConfigurationArgs();
 
     /**
-     * Identifier for the Data Catalog.
-     * By default, the account ID.
+     * The ID of the Data Catalog.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog.
-     * By default, the account ID.
+     * @return The ID of the Data Catalog.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -34,35 +32,23 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * ARN of the IAM Identity Center Instance to associate.
-     * 
-     * The following arguments are optional:
+     * The ARN of the Identity Center instance.
      * 
      */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
     /**
-     * @return ARN of the IAM Identity Center Instance to associate.
-     * 
-     * The following arguments are optional:
+     * @return The ARN of the Identity Center instance.
      * 
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -94,8 +80,7 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog.
-         * By default, the account ID.
+         * @param catalogId The ID of the Data Catalog.
          * 
          * @return builder
          * 
@@ -106,8 +91,7 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog.
-         * By default, the account ID.
+         * @param catalogId The ID of the Data Catalog.
          * 
          * @return builder
          * 
@@ -117,9 +101,7 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param instanceArn ARN of the IAM Identity Center Instance to associate.
-         * 
-         * The following arguments are optional:
+         * @param instanceArn The ARN of the Identity Center instance.
          * 
          * @return builder
          * 
@@ -130,9 +112,7 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param instanceArn ARN of the IAM Identity Center Instance to associate.
-         * 
-         * The following arguments are optional:
+         * @param instanceArn The ARN of the Identity Center instance.
          * 
          * @return builder
          * 
@@ -141,23 +121,11 @@ public final class IdentityCenterConfigurationArgs extends com.pulumi.resources.
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

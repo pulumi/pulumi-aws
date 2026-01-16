@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentOutputContext
     {
-        /// <summary>
-        /// Name of the output context.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-        /// </summary>
         public readonly int TimeToLiveInSeconds;
-        /// <summary>
-        /// Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-        /// </summary>
         public readonly int TurnsToLive;
 
         [OutputConstructor]

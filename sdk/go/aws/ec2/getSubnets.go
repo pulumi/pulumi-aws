@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a set of subnet IDs.
-//
-// ## Example Usage
-//
-// The following shows outputting all CIDR blocks for every subnet ID in a VPC.
-//
-// The following example retrieves a set of all subnets in a VPC with a custom
-// tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
-// can loop through the subnets, putting instances across availability zones.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// private, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-// Filters: []ec2.GetSubnetsFilter{
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// vpcId,
-// },
-// },
-// },
-// Tags: map[string]interface{}{
-// "Tier": "Private",
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// var app []*ec2.Instance
-// for key0, val0 := range interface{}(std.Toset(ctx, &std.TosetArgs{
-// Input: private.Ids,
-// }, nil).Result) {
-// __res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &ec2.InstanceArgs{
-// Ami: pulumi.Any(ami),
-// InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-// SubnetId: pulumi.Any(val0),
-// })
-// if err != nil {
-// return err
-// }
-// app = append(app, __res)
-// }
-// return nil
-// })
-// }
-// ```
 func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.InvokeOption) (*GetSubnetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubnetsResult
@@ -79,21 +23,16 @@ func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSubnets.
 type GetSubnetsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetSubnetsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired subnets.
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string            `pulumi:"region"`
+	Tags    map[string]string  `pulumi:"tags"`
 }
 
 // A collection of values returned by getSubnets.
 type GetSubnetsResult struct {
 	Filters []GetSubnetsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the subnet ids found.
+	Id     string            `pulumi:"id"`
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -110,13 +49,9 @@ func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSubnets.
 type GetSubnetsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetSubnetsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired subnets.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput      `pulumi:"region"`
+	Tags    pulumi.StringMapInput      `pulumi:"tags"`
 }
 
 func (GetSubnetsOutputArgs) ElementType() reflect.Type {
@@ -147,7 +82,6 @@ func (o GetSubnetsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the subnet ids found.
 func (o GetSubnetsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSubnetsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SesV2.Inputs
 
     public sealed class AccountVdmAttributesGuardianAttributesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("optimizedSharedDelivery")]
         public Input<string>? OptimizedSharedDelivery { get; set; }
 

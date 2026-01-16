@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentPromptVariantMetadata
     {
-        /// <summary>
-        /// Key of a metadata tag for a prompt variant.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Value of a metadata tag for a prompt variant.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

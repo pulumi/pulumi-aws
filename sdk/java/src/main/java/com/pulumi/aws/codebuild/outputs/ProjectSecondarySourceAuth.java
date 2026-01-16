@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ProjectSecondarySourceAuth {
-    /**
-     * @return The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-     * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-     * 
-     */
     private String resource;
-    /**
-     * @return The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-     * `SECRETS_MANAGER`.
-     * 
-     */
     private String type;
 
     private ProjectSecondarySourceAuth() {}
-    /**
-     * @return The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
-     * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
-     * 
-     */
     public String resource() {
         return this.resource;
     }
-    /**
-     * @return The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
-     * `SECRETS_MANAGER`.
-     * 
-     */
     public String type() {
         return this.type;
     }

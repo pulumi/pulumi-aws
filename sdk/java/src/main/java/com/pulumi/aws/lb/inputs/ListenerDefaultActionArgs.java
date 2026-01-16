@@ -23,141 +23,65 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
 
     public static final ListenerDefaultActionArgs Empty = new ListenerDefaultActionArgs();
 
-    /**
-     * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
-     * 
-     */
     @Import(name="authenticateCognito")
     private @Nullable Output<ListenerDefaultActionAuthenticateCognitoArgs> authenticateCognito;
 
-    /**
-     * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
-     * 
-     */
     public Optional<Output<ListenerDefaultActionAuthenticateCognitoArgs>> authenticateCognito() {
         return Optional.ofNullable(this.authenticateCognito);
     }
 
-    /**
-     * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
-     * 
-     */
     @Import(name="authenticateOidc")
     private @Nullable Output<ListenerDefaultActionAuthenticateOidcArgs> authenticateOidc;
 
-    /**
-     * @return Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
-     * 
-     */
     public Optional<Output<ListenerDefaultActionAuthenticateOidcArgs>> authenticateOidc() {
         return Optional.ofNullable(this.authenticateOidc);
     }
 
-    /**
-     * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-     * 
-     */
     @Import(name="fixedResponse")
     private @Nullable Output<ListenerDefaultActionFixedResponseArgs> fixedResponse;
 
-    /**
-     * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-     * 
-     */
     public Optional<Output<ListenerDefaultActionFixedResponseArgs>> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
 
-    /**
-     * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
-     * 
-     */
     @Import(name="forward")
     private @Nullable Output<ListenerDefaultActionForwardArgs> forward;
 
-    /**
-     * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
-     * 
-     */
     public Optional<Output<ListenerDefaultActionForwardArgs>> forward() {
         return Optional.ofNullable(this.forward);
     }
 
-    /**
-     * Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
-     * 
-     */
     @Import(name="jwtValidation")
     private @Nullable Output<ListenerDefaultActionJwtValidationArgs> jwtValidation;
 
-    /**
-     * @return Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
-     * 
-     */
     public Optional<Output<ListenerDefaultActionJwtValidationArgs>> jwtValidation() {
         return Optional.ofNullable(this.jwtValidation);
     }
 
-    /**
-     * Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
-     * 
-     */
     @Import(name="order")
     private @Nullable Output<Integer> order;
 
-    /**
-     * @return Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
-     * 
-     */
     public Optional<Output<Integer>> order() {
         return Optional.ofNullable(this.order);
     }
 
-    /**
-     * Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
-     * 
-     */
     @Import(name="redirect")
     private @Nullable Output<ListenerDefaultActionRedirectArgs> redirect;
 
-    /**
-     * @return Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
-     * 
-     */
     public Optional<Output<ListenerDefaultActionRedirectArgs>> redirect() {
         return Optional.ofNullable(this.redirect);
     }
 
-    /**
-     * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
-     * 
-     */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
-    /**
-     * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
-     * 
-     */
     public Optional<Output<String>> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }
 
-    /**
-     * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -194,195 +118,83 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
             $ = new ListenerDefaultActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticateCognito Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateCognito(@Nullable Output<ListenerDefaultActionAuthenticateCognitoArgs> authenticateCognito) {
             $.authenticateCognito = authenticateCognito;
             return this;
         }
 
-        /**
-         * @param authenticateCognito Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateCognito(ListenerDefaultActionAuthenticateCognitoArgs authenticateCognito) {
             return authenticateCognito(Output.of(authenticateCognito));
         }
 
-        /**
-         * @param authenticateOidc Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateOidc(@Nullable Output<ListenerDefaultActionAuthenticateOidcArgs> authenticateOidc) {
             $.authenticateOidc = authenticateOidc;
             return this;
         }
 
-        /**
-         * @param authenticateOidc Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateOidc(ListenerDefaultActionAuthenticateOidcArgs authenticateOidc) {
             return authenticateOidc(Output.of(authenticateOidc));
         }
 
-        /**
-         * @param fixedResponse Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponse(@Nullable Output<ListenerDefaultActionFixedResponseArgs> fixedResponse) {
             $.fixedResponse = fixedResponse;
             return this;
         }
 
-        /**
-         * @param fixedResponse Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponse(ListenerDefaultActionFixedResponseArgs fixedResponse) {
             return fixedResponse(Output.of(fixedResponse));
         }
 
-        /**
-         * @param forward Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(@Nullable Output<ListenerDefaultActionForwardArgs> forward) {
             $.forward = forward;
             return this;
         }
 
-        /**
-         * @param forward Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(ListenerDefaultActionForwardArgs forward) {
             return forward(Output.of(forward));
         }
 
-        /**
-         * @param jwtValidation Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtValidation(@Nullable Output<ListenerDefaultActionJwtValidationArgs> jwtValidation) {
             $.jwtValidation = jwtValidation;
             return this;
         }
 
-        /**
-         * @param jwtValidation Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtValidation(ListenerDefaultActionJwtValidationArgs jwtValidation) {
             return jwtValidation(Output.of(jwtValidation));
         }
 
-        /**
-         * @param order Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(@Nullable Output<Integer> order) {
             $.order = order;
             return this;
         }
 
-        /**
-         * @param order Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
-        /**
-         * @param redirect Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirect(@Nullable Output<ListenerDefaultActionRedirectArgs> redirect) {
             $.redirect = redirect;
             return this;
         }
 
-        /**
-         * @param redirect Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirect(ListenerDefaultActionRedirectArgs redirect) {
             return redirect(Output.of(redirect));
         }
 
-        /**
-         * @param targetGroupArn ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(@Nullable Output<String> targetGroupArn) {
             $.targetGroupArn = targetGroupArn;
             return this;
         }
 
-        /**
-         * @param targetGroupArn ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(String targetGroupArn) {
             return targetGroupArn(Output.of(targetGroupArn));
         }
 
-        /**
-         * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

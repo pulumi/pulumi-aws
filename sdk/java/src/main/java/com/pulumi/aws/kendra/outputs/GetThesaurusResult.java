@@ -14,30 +14,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThesaurusResult {
-    /**
-     * @return ARN of the Thesaurus.
-     * 
-     */
     private String arn;
-    /**
-     * @return Unix datetime that the Thesaurus was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description of the Thesaurus.
-     * 
-     */
     private String description;
-    /**
-     * @return When the `status` field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     private String errorMessage;
-    /**
-     * @return Size of the Thesaurus file in bytes.
-     * 
-     */
     private Integer fileSizeBytes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -45,82 +25,30 @@ public final class GetThesaurusResult {
      */
     private String id;
     private String indexId;
-    /**
-     * @return Name of the Thesaurus.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     private String roleArn;
-    /**
-     * @return S3 location of the Thesaurus input data. Detailed below.
-     * 
-     */
     private List<GetThesaurusSourceS3Path> sourceS3Paths;
-    /**
-     * @return Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
-     * 
-     */
     private String status;
-    /**
-     * @return Number of synonym rules in the Thesaurus file.
-     * 
-     */
     private Integer synonymRuleCount;
-    /**
-     * @return Metadata that helps organize the Thesaurus you create.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
-     * 
-     */
     private Integer termCount;
     private String thesaurusId;
-    /**
-     * @return Date and time that the Thesaurus was last updated.
-     * 
-     */
     private String updatedAt;
 
     private GetThesaurusResult() {}
-    /**
-     * @return ARN of the Thesaurus.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Unix datetime that the Thesaurus was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description of the Thesaurus.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return When the `status` field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     public String errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * @return Size of the Thesaurus file in bytes.
-     * 
-     */
     public Integer fileSizeBytes() {
         return this.fileSizeBytes;
     }
@@ -134,65 +62,33 @@ public final class GetThesaurusResult {
     public String indexId() {
         return this.indexId;
     }
-    /**
-     * @return Name of the Thesaurus.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return S3 location of the Thesaurus input data. Detailed below.
-     * 
-     */
     public List<GetThesaurusSourceS3Path> sourceS3Paths() {
         return this.sourceS3Paths;
     }
-    /**
-     * @return Status of the Thesaurus. It is ready to use when the status is `ACTIVE`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Number of synonym rules in the Thesaurus file.
-     * 
-     */
     public Integer synonymRuleCount() {
         return this.synonymRuleCount;
     }
-    /**
-     * @return Metadata that helps organize the Thesaurus you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Number of unique terms in the Thesaurus file. For example, the synonyms `a,b,c` and `a=&gt;d`, the term count would be 4.
-     * 
-     */
     public Integer termCount() {
         return this.termCount;
     }
     public String thesaurusId() {
         return this.thesaurusId;
     }
-    /**
-     * @return Date and time that the Thesaurus was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

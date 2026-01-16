@@ -16,32 +16,16 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
 
     public static final ServerWorkflowDetailsArgs Empty = new ServerWorkflowDetailsArgs();
 
-    /**
-     * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
-     * 
-     */
     @Import(name="onPartialUpload")
     private @Nullable Output<ServerWorkflowDetailsOnPartialUploadArgs> onPartialUpload;
 
-    /**
-     * @return A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
-     * 
-     */
     public Optional<Output<ServerWorkflowDetailsOnPartialUploadArgs>> onPartialUpload() {
         return Optional.ofNullable(this.onPartialUpload);
     }
 
-    /**
-     * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
-     * 
-     */
     @Import(name="onUpload")
     private @Nullable Output<ServerWorkflowDetailsOnUploadArgs> onUpload;
 
-    /**
-     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
-     * 
-     */
     public Optional<Output<ServerWorkflowDetailsOnUploadArgs>> onUpload() {
         return Optional.ofNullable(this.onUpload);
     }
@@ -71,44 +55,20 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
             $ = new ServerWorkflowDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onPartialUpload A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onPartialUpload(@Nullable Output<ServerWorkflowDetailsOnPartialUploadArgs> onPartialUpload) {
             $.onPartialUpload = onPartialUpload;
             return this;
         }
 
-        /**
-         * @param onPartialUpload A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onPartialUpload(ServerWorkflowDetailsOnPartialUploadArgs onPartialUpload) {
             return onPartialUpload(Output.of(onPartialUpload));
         }
 
-        /**
-         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUpload(@Nullable Output<ServerWorkflowDetailsOnUploadArgs> onUpload) {
             $.onUpload = onUpload;
             return this;
         }
 
-        /**
-         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUpload(ServerWorkflowDetailsOnUploadArgs onUpload) {
             return onUpload(Output.of(onUpload));
         }

@@ -11,57 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
-//				Name:        pulumi.String("development"),
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
-//
-// ```sh
-// $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-// ```
 type HttpNamespace struct {
 	pulumi.CustomResourceState
 
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description that you specify for the namespace when you create it.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of an HTTP namespace.
-	HttpName pulumi.StringOutput `pulumi:"httpName"`
-	// The name of the http namespace.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	HttpName    pulumi.StringOutput    `pulumi:"httpName"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewHttpNamespace registers a new resource with the given unique name, arguments, and options.
@@ -94,37 +53,23 @@ func GetHttpNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HttpNamespace resources.
 type httpNamespaceState struct {
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn *string `pulumi:"arn"`
-	// The description that you specify for the namespace when you create it.
-	Description *string `pulumi:"description"`
-	// The name of an HTTP namespace.
-	HttpName *string `pulumi:"httpName"`
-	// The name of the http namespace.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	HttpName    *string           `pulumi:"httpName"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type HttpNamespaceState struct {
-	// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-	Arn pulumi.StringPtrInput
-	// The description that you specify for the namespace when you create it.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The name of an HTTP namespace.
-	HttpName pulumi.StringPtrInput
-	// The name of the http namespace.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	HttpName    pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (HttpNamespaceState) ElementType() reflect.Type {
@@ -132,26 +77,18 @@ func (HttpNamespaceState) ElementType() reflect.Type {
 }
 
 type httpNamespaceArgs struct {
-	// The description that you specify for the namespace when you create it.
-	Description *string `pulumi:"description"`
-	// The name of the http namespace.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HttpNamespace resource.
 type HttpNamespaceArgs struct {
-	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrInput
-	// The name of the http namespace.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (HttpNamespaceArgs) ElementType() reflect.Type {
@@ -241,37 +178,30 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN that Amazon Route 53 assigns to the namespace when you create it.
 func (o HttpNamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description that you specify for the namespace when you create it.
 func (o HttpNamespaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of an HTTP namespace.
 func (o HttpNamespaceOutput) HttpName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.HttpName }).(pulumi.StringOutput)
 }
 
-// The name of the http namespace.
 func (o HttpNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HttpNamespaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HttpNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HttpNamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

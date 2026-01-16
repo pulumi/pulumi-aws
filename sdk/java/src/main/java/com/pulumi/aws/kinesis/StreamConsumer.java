@@ -15,132 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a Kinesis Stream Consumer.
- * 
- * &gt; **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
- * 
- * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.kinesis.StreamConsumer;
- * import com.pulumi.aws.kinesis.StreamConsumerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Stream("example", StreamArgs.builder()
- *             .name("example-stream")
- *             .shardCount(1)
- *             .build());
- * 
- *         var exampleStreamConsumer = new StreamConsumer("exampleStreamConsumer", StreamConsumerArgs.builder()
- *             .name("example-consumer")
- *             .streamArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
- * 
- * ```sh
- * $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
- * ```
- * 
- */
 @ResourceType(type="aws:kinesis/streamConsumer:StreamConsumer")
 public class StreamConsumer extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the stream consumer.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the stream consumer.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-     * 
-     */
     @Export(name="creationTimestamp", refs={String.class}, tree="[0]")
     private Output<String> creationTimestamp;
 
-    /**
-     * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-     * 
-     */
     public Output<String> creationTimestamp() {
         return this.creationTimestamp;
     }
-    /**
-     * Name of the stream consumer.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the stream consumer.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-     * 
-     */
     @Export(name="streamArn", refs={String.class}, tree="[0]")
     private Output<String> streamArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-     * 
-     */
     public Output<String> streamArn() {
         return this.streamArn;
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration for an Iceberg orphan file deletion optimizer.
-        /// </summary>
         [Input("icebergConfiguration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs>? IcebergConfiguration { get; set; }
 

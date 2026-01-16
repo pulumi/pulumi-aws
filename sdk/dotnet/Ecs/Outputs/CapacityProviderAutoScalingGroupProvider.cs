@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderAutoScalingGroupProvider
     {
-        /// <summary>
-        /// ARN of the associated auto scaling group.
-        /// </summary>
         public readonly string AutoScalingGroupArn;
-        /// <summary>
-        /// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
-        /// </summary>
         public readonly string? ManagedDraining;
-        /// <summary>
-        /// Configuration block defining the parameters of the auto scaling. Detailed below.
-        /// </summary>
         public readonly Outputs.CapacityProviderAutoScalingGroupProviderManagedScaling? ManagedScaling;
-        /// <summary>
-        /// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? ManagedTerminationProtection;
 
         [OutputConstructor]

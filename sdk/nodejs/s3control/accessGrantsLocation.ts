@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Access Grants location.
- * A location is an S3 resource (bucket or prefix) in a permission grant that the grantee can access.
- * The S3 data must be in the same Region as your S3 Access Grants instance.
- * When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.AccessGrantsInstance("example", {});
- * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("example", {
- *     iamRoleArn: exampleAwsIamRole.arn,
- *     locationScope: "s3://",
- * }, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
- * ```
- */
 export class AccessGrantsLocation extends pulumi.CustomResource {
     /**
      * Get an existing AccessGrantsLocation resource's state with the given name, ID, and optional extra
@@ -61,35 +32,13 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessGrantsLocation.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants location.
-     */
     declare public /*out*/ readonly accessGrantsLocationArn: pulumi.Output<string>;
-    /**
-     * Unique ID of the S3 Access Grants location.
-     */
     declare public /*out*/ readonly accessGrantsLocationId: pulumi.Output<string>;
     declare public readonly accountId: pulumi.Output<string>;
-    /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
-     */
     declare public readonly iamRoleArn: pulumi.Output<string>;
-    /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-     */
     declare public readonly locationScope: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -139,35 +88,13 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessGrantsLocation resources.
  */
 export interface AccessGrantsLocationState {
-    /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants location.
-     */
     accessGrantsLocationArn?: pulumi.Input<string>;
-    /**
-     * Unique ID of the S3 Access Grants location.
-     */
     accessGrantsLocationId?: pulumi.Input<string>;
     accountId?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
-     */
     iamRoleArn?: pulumi.Input<string>;
-    /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-     */
     locationScope?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -176,21 +103,8 @@ export interface AccessGrantsLocationState {
  */
 export interface AccessGrantsLocationArgs {
     accountId?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
-     */
     iamRoleArn: pulumi.Input<string>;
-    /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-     */
     locationScope: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

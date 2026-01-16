@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fms.Outputs
     [OutputType]
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy
     {
-        /// <summary>
-        /// Defines NACL entries for Network ACL policy. See the `NetworkAclEntrySet` block.
-        /// </summary>
         public readonly Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet? NetworkAclEntrySet;
 
         [OutputConstructor]

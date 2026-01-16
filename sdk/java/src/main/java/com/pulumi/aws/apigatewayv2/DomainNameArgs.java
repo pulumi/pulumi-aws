@@ -19,77 +19,37 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainNameArgs Empty = new DomainNameArgs();
 
-    /**
-     * Domain name. Must be between 1 and 512 characters in length.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Domain name. Must be between 1 and 512 characters in length.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Domain name configuration. See below.
-     * 
-     */
     @Import(name="domainNameConfiguration", required=true)
     private Output<DomainNameDomainNameConfigurationArgs> domainNameConfiguration;
 
-    /**
-     * @return Domain name configuration. See below.
-     * 
-     */
     public Output<DomainNameDomainNameConfigurationArgs> domainNameConfiguration() {
         return this.domainNameConfiguration;
     }
 
-    /**
-     * Mutual TLS authentication configuration for the domain name.
-     * 
-     */
     @Import(name="mutualTlsAuthentication")
     private @Nullable Output<DomainNameMutualTlsAuthenticationArgs> mutualTlsAuthentication;
 
-    /**
-     * @return Mutual TLS authentication configuration for the domain name.
-     * 
-     */
     public Optional<Output<DomainNameMutualTlsAuthenticationArgs>> mutualTlsAuthentication() {
         return Optional.ofNullable(this.mutualTlsAuthentication);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -122,107 +82,47 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainNameArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Domain name. Must be between 1 and 512 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Domain name. Must be between 1 and 512 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param domainNameConfiguration Domain name configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameConfiguration(Output<DomainNameDomainNameConfigurationArgs> domainNameConfiguration) {
             $.domainNameConfiguration = domainNameConfiguration;
             return this;
         }
 
-        /**
-         * @param domainNameConfiguration Domain name configuration. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameConfiguration(DomainNameDomainNameConfigurationArgs domainNameConfiguration) {
             return domainNameConfiguration(Output.of(domainNameConfiguration));
         }
 
-        /**
-         * @param mutualTlsAuthentication Mutual TLS authentication configuration for the domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mutualTlsAuthentication(@Nullable Output<DomainNameMutualTlsAuthenticationArgs> mutualTlsAuthentication) {
             $.mutualTlsAuthentication = mutualTlsAuthentication;
             return this;
         }
 
-        /**
-         * @param mutualTlsAuthentication Mutual TLS authentication configuration for the domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mutualTlsAuthentication(DomainNameMutualTlsAuthenticationArgs mutualTlsAuthentication) {
             return mutualTlsAuthentication(Output.of(mutualTlsAuthentication));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

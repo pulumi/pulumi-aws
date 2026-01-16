@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class AllowedImagesSettingsImageCriterion
     {
-        /// <summary>
-        /// Condition based on AMI creation date. See `CreationDateCondition` below.
-        /// </summary>
         public readonly Outputs.AllowedImagesSettingsImageCriterionCreationDateCondition? CreationDateCondition;
-        /// <summary>
-        /// Condition based on AMI deprecation time. See `DeprecationTimeCondition` below.
-        /// </summary>
         public readonly Outputs.AllowedImagesSettingsImageCriterionDeprecationTimeCondition? DeprecationTimeCondition;
-        /// <summary>
-        /// Set of AMI name patterns to allow. Maximum of 50 names.
-        /// </summary>
         public readonly ImmutableArray<string> ImageNames;
-        /// <summary>
-        /// Set of image providers to allow. Maximum of 200 providers. Valid values include `Amazon`, `aws-marketplace`, `aws-backup-vault`, `None`, or a 12-digit AWS account ID.
-        /// </summary>
         public readonly ImmutableArray<string> ImageProviders;
-        /// <summary>
-        /// Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
-        /// </summary>
         public readonly ImmutableArray<string> MarketplaceProductCodes;
 
         [OutputConstructor]

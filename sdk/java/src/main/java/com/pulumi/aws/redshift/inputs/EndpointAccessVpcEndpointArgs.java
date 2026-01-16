@@ -17,47 +17,23 @@ public final class EndpointAccessVpcEndpointArgs extends com.pulumi.resources.Re
 
     public static final EndpointAccessVpcEndpointArgs Empty = new EndpointAccessVpcEndpointArgs();
 
-    /**
-     * One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-     * 
-     */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<EndpointAccessVpcEndpointNetworkInterfaceArgs>> networkInterfaces;
 
-    /**
-     * @return One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-     * 
-     */
     public Optional<Output<List<EndpointAccessVpcEndpointNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
 
-    /**
-     * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
-    /**
-     * The VPC identifier that the endpoint is associated.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The VPC identifier that the endpoint is associated.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -88,75 +64,33 @@ public final class EndpointAccessVpcEndpointArgs extends com.pulumi.resources.Re
             $ = new EndpointAccessVpcEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkInterfaces One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaces(@Nullable Output<List<EndpointAccessVpcEndpointNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
         }
 
-        /**
-         * @param networkInterfaces One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaces(List<EndpointAccessVpcEndpointNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
 
-        /**
-         * @param networkInterfaces One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaces(EndpointAccessVpcEndpointNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
 
-        /**
-         * @param vpcEndpointId The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
-        /**
-         * @param vpcId The VPC identifier that the endpoint is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC identifier that the endpoint is associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

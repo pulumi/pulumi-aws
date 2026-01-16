@@ -14,28 +14,17 @@ namespace Pulumi.Aws.LB.Inputs
     {
         [Input("hostHeaderRewriteConfigs")]
         private InputList<Inputs.GetListenerRuleTransformHostHeaderRewriteConfigInputArgs>? _hostHeaderRewriteConfigs;
-
-        /// <summary>
-        /// Block for host header rewrite. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleTransformHostHeaderRewriteConfigInputArgs> HostHeaderRewriteConfigs
         {
             get => _hostHeaderRewriteConfigs ?? (_hostHeaderRewriteConfigs = new InputList<Inputs.GetListenerRuleTransformHostHeaderRewriteConfigInputArgs>());
             set => _hostHeaderRewriteConfigs = value;
         }
 
-        /// <summary>
-        /// Type of transform.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("urlRewriteConfigs")]
         private InputList<Inputs.GetListenerRuleTransformUrlRewriteConfigInputArgs>? _urlRewriteConfigs;
-
-        /// <summary>
-        /// Block for URL rewrite. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetListenerRuleTransformUrlRewriteConfigInputArgs> UrlRewriteConfigs
         {
             get => _urlRewriteConfigs ?? (_urlRewriteConfigs = new InputList<Inputs.GetListenerRuleTransformUrlRewriteConfigInputArgs>());

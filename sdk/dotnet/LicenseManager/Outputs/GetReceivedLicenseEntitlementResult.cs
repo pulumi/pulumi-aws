@@ -13,29 +13,11 @@ namespace Pulumi.Aws.LicenseManager.Outputs
     [OutputType]
     public sealed class GetReceivedLicenseEntitlementResult
     {
-        /// <summary>
-        /// Indicates whether check-ins are allowed.
-        /// </summary>
         public readonly bool AllowCheckIn;
-        /// <summary>
-        /// Maximum entitlement count. Use if the unit is not None.
-        /// </summary>
         public readonly int MaxCount;
-        /// <summary>
-        /// The key name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Indicates whether overages are allowed.
-        /// </summary>
         public readonly bool Overage;
-        /// <summary>
-        /// Entitlement unit.
-        /// </summary>
         public readonly string Unit;
-        /// <summary>
-        /// The value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

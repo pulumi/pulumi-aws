@@ -12,57 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/macie2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := macie2.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewClassificationExportConfiguration(ctx, "example", &macie2.ClassificationExportConfigurationArgs{
-//				S3Destination: &macie2.ClassificationExportConfigurationS3DestinationArgs{
-//					BucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//					KeyPrefix:  pulumi.String("exampleprefix/"),
-//					KmsKeyArn:  pulumi.Any(exampleAwsKmsKey.Arn),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the region. For example:
-//
-// ```sh
-// $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
-// ```
 type ClassificationExportConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for a S3 Destination. Defined below
+	Region        pulumi.StringOutput                                  `pulumi:"region"`
 	S3Destination ClassificationExportConfigurationS3DestinationOutput `pulumi:"s3Destination"`
 }
 
@@ -99,16 +52,12 @@ func GetClassificationExportConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClassificationExportConfiguration resources.
 type classificationExportConfigurationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for a S3 Destination. Defined below
+	Region        *string                                         `pulumi:"region"`
 	S3Destination *ClassificationExportConfigurationS3Destination `pulumi:"s3Destination"`
 }
 
 type ClassificationExportConfigurationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for a S3 Destination. Defined below
+	Region        pulumi.StringPtrInput
 	S3Destination ClassificationExportConfigurationS3DestinationPtrInput
 }
 
@@ -117,17 +66,13 @@ func (ClassificationExportConfigurationState) ElementType() reflect.Type {
 }
 
 type classificationExportConfigurationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block for a S3 Destination. Defined below
+	Region        *string                                        `pulumi:"region"`
 	S3Destination ClassificationExportConfigurationS3Destination `pulumi:"s3Destination"`
 }
 
 // The set of arguments for constructing a ClassificationExportConfiguration resource.
 type ClassificationExportConfigurationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block for a S3 Destination. Defined below
+	Region        pulumi.StringPtrInput
 	S3Destination ClassificationExportConfigurationS3DestinationInput
 }
 
@@ -218,12 +163,10 @@ func (o ClassificationExportConfigurationOutput) ToClassificationExportConfigura
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClassificationExportConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClassificationExportConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for a S3 Destination. Defined below
 func (o ClassificationExportConfigurationOutput) S3Destination() ClassificationExportConfigurationS3DestinationOutput {
 	return o.ApplyT(func(v *ClassificationExportConfiguration) ClassificationExportConfigurationS3DestinationOutput {
 		return v.S3Destination

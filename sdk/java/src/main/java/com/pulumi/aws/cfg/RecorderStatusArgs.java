@@ -17,47 +17,23 @@ public final class RecorderStatusArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RecorderStatusArgs Empty = new RecorderStatusArgs();
 
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     * 
-     */
     @Import(name="isEnabled", required=true)
     private Output<Boolean> isEnabled;
 
-    /**
-     * @return Whether the configuration recorder should be enabled or disabled.
-     * 
-     */
     public Output<Boolean> isEnabled() {
         return this.isEnabled;
     }
 
-    /**
-     * The name of the recorder
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the recorder
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class RecorderStatusArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RecorderStatusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param isEnabled Whether the configuration recorder should be enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isEnabled(Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
-        /**
-         * @param isEnabled Whether the configuration recorder should be enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
-        /**
-         * @param name The name of the recorder
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the recorder
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ZoneVpc {
-    /**
-     * @return ID of the VPC to associate.
-     * 
-     */
     private String vpcId;
-    /**
-     * @return Region of the VPC to associate. Defaults to AWS provider region.
-     * 
-     */
     private @Nullable String vpcRegion;
 
     private ZoneVpc() {}
-    /**
-     * @return ID of the VPC to associate.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }
-    /**
-     * @return Region of the VPC to associate. Defaults to AWS provider region.
-     * 
-     */
     public Optional<String> vpcRegion() {
         return Optional.ofNullable(this.vpcRegion);
     }

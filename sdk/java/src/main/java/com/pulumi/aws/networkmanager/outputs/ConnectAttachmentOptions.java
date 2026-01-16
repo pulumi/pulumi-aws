@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectAttachmentOptions {
-    /**
-     * @return Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-     * 
-     */
     private @Nullable String protocol;
 
     private ConnectAttachmentOptions() {}
-    /**
-     * @return Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-     * 
-     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }

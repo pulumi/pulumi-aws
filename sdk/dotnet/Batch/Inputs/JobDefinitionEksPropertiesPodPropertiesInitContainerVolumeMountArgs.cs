@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("mountPath", required: true)]
         public Input<string> MountPath { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the job definition.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

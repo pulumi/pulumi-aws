@@ -17,101 +17,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint Email Template resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.EmailTemplate;
- * import com.pulumi.aws.pinpoint.EmailTemplateArgs;
- * import com.pulumi.aws.pinpoint.inputs.EmailTemplateEmailTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new EmailTemplate("test", EmailTemplateArgs.builder()
- *             .templateName("testing")
- *             .emailTemplates(EmailTemplateEmailTemplateArgs.builder()
- *                 .subject("testing")
- *                 .textPart("we are testing template text part")
- *                 .headers(EmailTemplateEmailTemplateHeaderArgs.builder()
- *                     .name("testingname")
- *                     .value("testingvalue")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Pinpoint Email Template using the `template_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/emailTemplate:EmailTemplate")
 public class EmailTemplate extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the message template.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the message template.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     * 
-     */
     @Export(name="emailTemplates", refs={List.class,EmailTemplateEmailTemplate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EmailTemplateEmailTemplate>> emailTemplates;
 
-    /**
-     * @return Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
-     * 
-     */
     public Output<Optional<List<EmailTemplateEmailTemplate>>> emailTemplates() {
         return Codegen.optional(this.emailTemplates);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -127,17 +49,9 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     * 
-     */
     @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 
-    /**
-     * @return name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-     * 
-     */
     public Output<String> templateName() {
         return this.templateName;
     }

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorSettings {
     /**
-     * @return Label detection settings to use on a streaming video. See `connectedHome`.
+     * @return Label detection settings to use on a streaming video.
      * 
      */
     private @Nullable StreamProcessorSettingsConnectedHome connectedHome;
     /**
-     * @return Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+     * @return Face search settings to use on a streaming video.
      * 
      */
     private @Nullable StreamProcessorSettingsFaceSearch faceSearch;
 
     private StreamProcessorSettings() {}
     /**
-     * @return Label detection settings to use on a streaming video. See `connectedHome`.
+     * @return Label detection settings to use on a streaming video.
      * 
      */
     public Optional<StreamProcessorSettingsConnectedHome> connectedHome() {
         return Optional.ofNullable(this.connectedHome);
     }
     /**
-     * @return Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+     * @return Face search settings to use on a streaming video.
      * 
      */
     public Optional<StreamProcessorSettingsFaceSearch> faceSearch() {

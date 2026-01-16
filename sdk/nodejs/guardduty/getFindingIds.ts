@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS GuardDuty Finding Ids.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.guardduty.getFindingIds({
- *     detectorId: exampleAwsGuarddutyDetector.id,
- * });
- * ```
- */
 export function getFindingIds(args: GetFindingIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:guardduty/getFindingIds:getFindingIds", {
@@ -32,13 +16,7 @@ export function getFindingIds(args: GetFindingIdsArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getFindingIds.
  */
 export interface GetFindingIdsArgs {
-    /**
-     * ID of the GuardDuty detector.
-     */
     detectorId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -47,33 +25,11 @@ export interface GetFindingIdsArgs {
  */
 export interface GetFindingIdsResult {
     readonly detectorId: string;
-    /**
-     * A list of finding IDs for the specified detector.
-     */
     readonly findingIds: string[];
-    /**
-     * Indicates whether findings are present for the specified detector.
-     */
     readonly hasFindings: boolean;
     readonly id: string;
     readonly region: string;
 }
-/**
- * Data source for managing an AWS GuardDuty Finding Ids.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.guardduty.getFindingIds({
- *     detectorId: exampleAwsGuarddutyDetector.id,
- * });
- * ```
- */
 export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFindingIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:guardduty/getFindingIds:getFindingIds", {
@@ -86,12 +42,6 @@ export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getFindingIds.
  */
 export interface GetFindingIdsOutputArgs {
-    /**
-     * ID of the GuardDuty detector.
-     */
     detectorId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

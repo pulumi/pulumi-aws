@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Billing.Inputs
 
     public sealed class ViewDataFilterExpressionDimensionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of metadata values that you can use to filter and group your results.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

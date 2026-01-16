@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-     * 
-     */
     private String fileSystemPath;
 
     private DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig() {}
-    /**
-     * @return The ID of your Amazon EFS file system.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
-     * 
-     */
     public String fileSystemPath() {
         return this.fileSystemPath;
     }

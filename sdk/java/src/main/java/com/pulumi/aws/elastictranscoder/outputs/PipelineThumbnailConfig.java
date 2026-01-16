@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineThumbnailConfig {
-    /**
-     * @return The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-     * 
-     */
     private @Nullable String bucket;
-    /**
-     * @return The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-     * 
-     */
     private @Nullable String storageClass;
 
     private PipelineThumbnailConfig() {}
-    /**
-     * @return The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-     * 
-     */
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
-    /**
-     * @return The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-     * 
-     */
     public Optional<String> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }

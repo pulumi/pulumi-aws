@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionCustomErrorResponse {
-    /**
-     * @return Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-     * 
-     */
     private @Nullable Integer errorCachingMinTtl;
-    /**
-     * @return HTTP status code for which you want to specify a custom error page and/or a caching duration.
-     * 
-     */
     private Integer errorCode;
-    /**
-     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-     * 
-     */
     private @Nullable String responseCode;
-    /**
-     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-     * 
-     */
     private @Nullable String responsePagePath;
 
     private MultitenantDistributionCustomErrorResponse() {}
-    /**
-     * @return Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-     * 
-     */
     public Optional<Integer> errorCachingMinTtl() {
         return Optional.ofNullable(this.errorCachingMinTtl);
     }
-    /**
-     * @return HTTP status code for which you want to specify a custom error page and/or a caching duration.
-     * 
-     */
     public Integer errorCode() {
         return this.errorCode;
     }
-    /**
-     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-     * 
-     */
     public Optional<String> responseCode() {
         return Optional.ofNullable(this.responseCode);
     }
-    /**
-     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-     * 
-     */
     public Optional<String> responsePagePath() {
         return Optional.ofNullable(this.responsePagePath);
     }

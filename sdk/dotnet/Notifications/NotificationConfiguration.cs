@@ -9,113 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Notifications
 {
-    /// <summary>
-    /// Resource for managing an AWS User Notifications Notification Configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Notifications.NotificationConfiguration("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Description = "Example notification configuration",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Project", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Aggregation Duration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Notifications.NotificationConfiguration("example", new()
-    ///     {
-    ///         Name = "example-aggregation",
-    ///         Description = "Example notification configuration with aggregation",
-    ///         AggregationDuration = "SHORT",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Project", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:notifications/notificationConfiguration:NotificationConfiguration")]
     public partial class NotificationConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-        /// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-        /// notifications). Default: `NONE`.
-        /// </summary>
         [Output("aggregationDuration")]
         public Output<string> AggregationDuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the NotificationConfiguration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-        /// maximum length of 256.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-        /// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-        /// configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those
-        /// defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags`
-        /// configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -165,38 +76,17 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class NotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-        /// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-        /// notifications). Default: `NONE`.
-        /// </summary>
         [Input("aggregationDuration")]
         public Input<string>? AggregationDuration { get; set; }
 
-        /// <summary>
-        /// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-        /// maximum length of 256.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-        /// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-        /// configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those
-        /// defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -211,44 +101,20 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class NotificationConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
-        /// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
-        /// notifications). Default: `NONE`.
-        /// </summary>
         [Input("aggregationDuration")]
         public Input<string>? AggregationDuration { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the NotificationConfiguration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
-        /// maximum length of 256.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
-        /// constraints: Minimum length of 1, maximum length of 64. Pattern: `[A-Za-z0-9_\-]+`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. A tag is a string-to-string map of key-value pairs. If
-        /// configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those
-        /// defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -257,11 +123,6 @@ namespace Pulumi.Aws.Notifications
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags`
-        /// configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

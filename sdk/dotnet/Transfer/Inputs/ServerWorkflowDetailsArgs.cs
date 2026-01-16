@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class ServerWorkflowDetailsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `OnPartialUpload` Block below for details.
-        /// </summary>
         [Input("onPartialUpload")]
         public Input<Inputs.ServerWorkflowDetailsOnPartialUploadArgs>? OnPartialUpload { get; set; }
 
-        /// <summary>
-        /// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `OnUpload` Block below for details.
-        /// </summary>
         [Input("onUpload")]
         public Input<Inputs.ServerWorkflowDetailsOnUploadArgs>? OnUpload { get; set; }
 

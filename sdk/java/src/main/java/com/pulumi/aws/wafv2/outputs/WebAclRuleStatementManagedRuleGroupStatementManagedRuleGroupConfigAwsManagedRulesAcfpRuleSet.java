@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet {
-    /**
-     * @return The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
-     * 
-     */
     private String creationPath;
-    /**
-     * @return Whether or not to allow the use of regular expressions in the login page path.
-     * 
-     */
     private @Nullable Boolean enableRegexInPath;
-    /**
-     * @return The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
-     * 
-     */
     private String registrationPagePath;
-    /**
-     * @return The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
-     * 
-     */
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection requestInspection;
-    /**
-     * @return The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection responseInspection;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet() {}
-    /**
-     * @return The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
-     * 
-     */
     public String creationPath() {
         return this.creationPath;
     }
-    /**
-     * @return Whether or not to allow the use of regular expressions in the login page path.
-     * 
-     */
     public Optional<Boolean> enableRegexInPath() {
         return Optional.ofNullable(this.enableRegexInPath);
     }
-    /**
-     * @return The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
-     * 
-     */
     public String registrationPagePath() {
         return this.registrationPagePath;
     }
-    /**
-     * @return The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
-     * 
-     */
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection requestInspection() {
         return this.requestInspection;
     }
-    /**
-     * @return The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection> responseInspection() {
         return Optional.ofNullable(this.responseInspection);
     }

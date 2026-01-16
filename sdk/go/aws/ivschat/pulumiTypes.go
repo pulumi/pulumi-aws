@@ -14,12 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LoggingConfigurationDestinationConfiguration struct {
-	// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 	CloudwatchLogs *LoggingConfigurationDestinationConfigurationCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-	Firehose *LoggingConfigurationDestinationConfigurationFirehose `pulumi:"firehose"`
-	// An Amazon S3 destination configuration where chat activity will be logged.
-	S3 *LoggingConfigurationDestinationConfigurationS3 `pulumi:"s3"`
+	Firehose       *LoggingConfigurationDestinationConfigurationFirehose       `pulumi:"firehose"`
+	S3             *LoggingConfigurationDestinationConfigurationS3             `pulumi:"s3"`
 }
 
 // LoggingConfigurationDestinationConfigurationInput is an input type that accepts LoggingConfigurationDestinationConfigurationArgs and LoggingConfigurationDestinationConfigurationOutput values.
@@ -34,12 +31,9 @@ type LoggingConfigurationDestinationConfigurationInput interface {
 }
 
 type LoggingConfigurationDestinationConfigurationArgs struct {
-	// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 	CloudwatchLogs LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-	Firehose LoggingConfigurationDestinationConfigurationFirehosePtrInput `pulumi:"firehose"`
-	// An Amazon S3 destination configuration where chat activity will be logged.
-	S3 LoggingConfigurationDestinationConfigurationS3PtrInput `pulumi:"s3"`
+	Firehose       LoggingConfigurationDestinationConfigurationFirehosePtrInput       `pulumi:"firehose"`
+	S3             LoggingConfigurationDestinationConfigurationS3PtrInput             `pulumi:"s3"`
 }
 
 func (LoggingConfigurationDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -119,21 +113,18 @@ func (o LoggingConfigurationDestinationConfigurationOutput) ToLoggingConfigurati
 	}).(LoggingConfigurationDestinationConfigurationPtrOutput)
 }
 
-// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationOutput) CloudwatchLogs() LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfigurationCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
-// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationOutput) Firehose() LoggingConfigurationDestinationConfigurationFirehosePtrOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfigurationFirehose {
 		return v.Firehose
 	}).(LoggingConfigurationDestinationConfigurationFirehosePtrOutput)
 }
 
-// An Amazon S3 destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationOutput) S3() LoggingConfigurationDestinationConfigurationS3PtrOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfigurationS3 {
 		return v.S3
@@ -164,7 +155,6 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) Elem() LoggingCon
 	}).(LoggingConfigurationDestinationConfigurationOutput)
 }
 
-// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) CloudwatchLogs() LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfigurationCloudwatchLogs {
 		if v == nil {
@@ -174,7 +164,6 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) CloudwatchLogs() 
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
-// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) Firehose() LoggingConfigurationDestinationConfigurationFirehosePtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfigurationFirehose {
 		if v == nil {
@@ -184,7 +173,6 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) Firehose() Loggin
 	}).(LoggingConfigurationDestinationConfigurationFirehosePtrOutput)
 }
 
-// An Amazon S3 destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) S3() LoggingConfigurationDestinationConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfigurationS3 {
 		if v == nil {
@@ -195,7 +183,6 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) S3() LoggingConfi
 }
 
 type LoggingConfigurationDestinationConfigurationCloudwatchLogs struct {
-	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 	LogGroupName string `pulumi:"logGroupName"`
 }
 
@@ -211,7 +198,6 @@ type LoggingConfigurationDestinationConfigurationCloudwatchLogsInput interface {
 }
 
 type LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs struct {
-	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 }
 
@@ -292,7 +278,6 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) ToLogg
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
-// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
@@ -321,7 +306,6 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) Ele
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput)
 }
 
-// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationCloudwatchLogs) *string {
 		if v == nil {
@@ -332,7 +316,6 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) Log
 }
 
 type LoggingConfigurationDestinationConfigurationFirehose struct {
-	// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 	DeliveryStreamName string `pulumi:"deliveryStreamName"`
 }
 
@@ -348,7 +331,6 @@ type LoggingConfigurationDestinationConfigurationFirehoseInput interface {
 }
 
 type LoggingConfigurationDestinationConfigurationFirehoseArgs struct {
-	// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
 }
 
@@ -429,7 +411,6 @@ func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) ToLoggingCon
 	}).(LoggingConfigurationDestinationConfigurationFirehosePtrOutput)
 }
 
-// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
@@ -458,7 +439,6 @@ func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) Elem() Lo
 	}).(LoggingConfigurationDestinationConfigurationFirehoseOutput)
 }
 
-// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationFirehose) *string {
 		if v == nil {
@@ -469,9 +449,6 @@ func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) DeliveryS
 }
 
 type LoggingConfigurationDestinationConfigurationS3 struct {
-	// Name of the Amazon S3 bucket where chat activity will be logged.
-	//
-	// The following arguments are optional:
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -487,9 +464,6 @@ type LoggingConfigurationDestinationConfigurationS3Input interface {
 }
 
 type LoggingConfigurationDestinationConfigurationS3Args struct {
-	// Name of the Amazon S3 bucket where chat activity will be logged.
-	//
-	// The following arguments are optional:
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -570,9 +544,6 @@ func (o LoggingConfigurationDestinationConfigurationS3Output) ToLoggingConfigura
 	}).(LoggingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
-// Name of the Amazon S3 bucket where chat activity will be logged.
-//
-// The following arguments are optional:
 func (o LoggingConfigurationDestinationConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -601,9 +572,6 @@ func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) Elem() LoggingC
 	}).(LoggingConfigurationDestinationConfigurationS3Output)
 }
 
-// Name of the Amazon S3 bucket where chat activity will be logged.
-//
-// The following arguments are optional:
 func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationS3) *string {
 		if v == nil {
@@ -614,12 +582,8 @@ func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) BucketName() pu
 }
 
 type RoomMessageReviewHandler struct {
-	// The fallback behavior (whether the message
-	// is allowed or denied) if the handler does not return a valid response,
-	// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
 	FallbackResult *string `pulumi:"fallbackResult"`
-	// ARN of the lambda message review handler function.
-	Uri *string `pulumi:"uri"`
+	Uri            *string `pulumi:"uri"`
 }
 
 // RoomMessageReviewHandlerInput is an input type that accepts RoomMessageReviewHandlerArgs and RoomMessageReviewHandlerOutput values.
@@ -634,12 +598,8 @@ type RoomMessageReviewHandlerInput interface {
 }
 
 type RoomMessageReviewHandlerArgs struct {
-	// The fallback behavior (whether the message
-	// is allowed or denied) if the handler does not return a valid response,
-	// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
 	FallbackResult pulumi.StringPtrInput `pulumi:"fallbackResult"`
-	// ARN of the lambda message review handler function.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri            pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (RoomMessageReviewHandlerArgs) ElementType() reflect.Type {
@@ -719,14 +679,10 @@ func (o RoomMessageReviewHandlerOutput) ToRoomMessageReviewHandlerPtrOutputWithC
 	}).(RoomMessageReviewHandlerPtrOutput)
 }
 
-// The fallback behavior (whether the message
-// is allowed or denied) if the handler does not return a valid response,
-// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
 func (o RoomMessageReviewHandlerOutput) FallbackResult() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoomMessageReviewHandler) *string { return v.FallbackResult }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the lambda message review handler function.
 func (o RoomMessageReviewHandlerOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoomMessageReviewHandler) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -755,9 +711,6 @@ func (o RoomMessageReviewHandlerPtrOutput) Elem() RoomMessageReviewHandlerOutput
 	}).(RoomMessageReviewHandlerOutput)
 }
 
-// The fallback behavior (whether the message
-// is allowed or denied) if the handler does not return a valid response,
-// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
 func (o RoomMessageReviewHandlerPtrOutput) FallbackResult() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoomMessageReviewHandler) *string {
 		if v == nil {
@@ -767,7 +720,6 @@ func (o RoomMessageReviewHandlerPtrOutput) FallbackResult() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the lambda message review handler function.
 func (o RoomMessageReviewHandlerPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoomMessageReviewHandler) *string {
 		if v == nil {

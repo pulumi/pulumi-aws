@@ -13,16 +13,7 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class GameServerGroupInstanceDefinition
     {
-        /// <summary>
-        /// An EC2 instance type.
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// Instance weighting that indicates how much this instance type contributes
-        /// to the total capacity of a game server group.
-        /// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
-        /// the most cost-effective options.
-        /// </summary>
         public readonly string? WeightedCapacity;
 
         [OutputConstructor]

@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.getVpcIpamPools` provides details about IPAM pools.
-//
-// This resource can prove useful when IPAM pools are created in another root
-// module and you need the pool ids as input variables. For example, pools
-// can be shared via RAM and used to create vpcs with CIDRs from that pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIpamPools(ctx, &ec2.GetVpcIpamPoolsArgs{
-//				Filters: []ec2.GetVpcIpamPoolsFilter{
-//					{
-//						Name: "description",
-//						Values: []string{
-//							"*test*",
-//						},
-//					},
-//					{
-//						Name: "address-family",
-//						Values: []string{
-//							"ipv4",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamPoolsResult
@@ -67,20 +23,15 @@ func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pul
 
 // A collection of arguments for invoking getVpcIpamPools.
 type GetVpcIpamPoolsArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters []GetVpcIpamPoolsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region  *string                 `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpamPools.
 type GetVpcIpamPoolsResult struct {
 	Filters []GetVpcIpamPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of IPAM pools and their attributes. See below for details
+	Id        string                    `pulumi:"id"`
 	IpamPools []GetVpcIpamPoolsIpamPool `pulumi:"ipamPools"`
 	Region    string                    `pulumi:"region"`
 }
@@ -96,12 +47,8 @@ func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, 
 
 // A collection of arguments for invoking getVpcIpamPools.
 type GetVpcIpamPoolsOutputArgs struct {
-	// Custom filter block as described below.
-	//
-	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters GetVpcIpamPoolsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region  pulumi.StringPtrInput           `pulumi:"region"`
 }
 
 func (GetVpcIpamPoolsOutputArgs) ElementType() reflect.Type {
@@ -132,7 +79,6 @@ func (o GetVpcIpamPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of IPAM pools and their attributes. See below for details
 func (o GetVpcIpamPoolsResultOutput) IpamPools() GetVpcIpamPoolsIpamPoolArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsResult) []GetVpcIpamPoolsIpamPool { return v.IpamPools }).(GetVpcIpamPoolsIpamPoolArrayOutput)
 }

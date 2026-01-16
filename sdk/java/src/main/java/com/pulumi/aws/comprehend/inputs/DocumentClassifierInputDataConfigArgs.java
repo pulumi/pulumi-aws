@@ -17,74 +17,30 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
 
     public static final DocumentClassifierInputDataConfigArgs Empty = new DocumentClassifierInputDataConfigArgs();
 
-    /**
-     * List of training datasets produced by Amazon SageMaker AI Ground Truth.
-     * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-     * See the `augmentedManifests` Configuration Block section below.
-     * 
-     */
     @Import(name="augmentedManifests")
     private @Nullable Output<List<DocumentClassifierInputDataConfigAugmentedManifestArgs>> augmentedManifests;
 
-    /**
-     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
-     * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-     * See the `augmentedManifests` Configuration Block section below.
-     * 
-     */
     public Optional<Output<List<DocumentClassifierInputDataConfigAugmentedManifestArgs>>> augmentedManifests() {
         return Optional.ofNullable(this.augmentedManifests);
     }
 
-    /**
-     * The format for the training data.
-     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-     * 
-     */
     @Import(name="dataFormat")
     private @Nullable Output<String> dataFormat;
 
-    /**
-     * @return The format for the training data.
-     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-     * 
-     */
     public Optional<Output<String>> dataFormat() {
         return Optional.ofNullable(this.dataFormat);
     }
 
-    /**
-     * Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `{@literal @}`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-     * Default is `|`.
-     * 
-     */
     @Import(name="labelDelimiter")
     private @Nullable Output<String> labelDelimiter;
 
-    /**
-     * @return Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `{@literal @}`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-     * Default is `|`.
-     * 
-     */
     public Optional<Output<String>> labelDelimiter() {
         return Optional.ofNullable(this.labelDelimiter);
     }
 
-    /**
-     * Location of training documents.
-     * Used if `dataFormat` is `COMPREHEND_CSV`.
-     * 
-     */
     @Import(name="s3Uri")
     private @Nullable Output<String> s3Uri;
 
-    /**
-     * @return Location of training documents.
-     * Used if `dataFormat` is `COMPREHEND_CSV`.
-     * 
-     */
     public Optional<Output<String>> s3Uri() {
         return Optional.ofNullable(this.s3Uri);
     }
@@ -124,110 +80,42 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
             $ = new DocumentClassifierInputDataConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param augmentedManifests List of training datasets produced by Amazon SageMaker AI Ground Truth.
-         * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-         * See the `augmentedManifests` Configuration Block section below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder augmentedManifests(@Nullable Output<List<DocumentClassifierInputDataConfigAugmentedManifestArgs>> augmentedManifests) {
             $.augmentedManifests = augmentedManifests;
             return this;
         }
 
-        /**
-         * @param augmentedManifests List of training datasets produced by Amazon SageMaker AI Ground Truth.
-         * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-         * See the `augmentedManifests` Configuration Block section below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder augmentedManifests(List<DocumentClassifierInputDataConfigAugmentedManifestArgs> augmentedManifests) {
             return augmentedManifests(Output.of(augmentedManifests));
         }
 
-        /**
-         * @param augmentedManifests List of training datasets produced by Amazon SageMaker AI Ground Truth.
-         * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
-         * See the `augmentedManifests` Configuration Block section below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder augmentedManifests(DocumentClassifierInputDataConfigAugmentedManifestArgs... augmentedManifests) {
             return augmentedManifests(List.of(augmentedManifests));
         }
 
-        /**
-         * @param dataFormat The format for the training data.
-         * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFormat(@Nullable Output<String> dataFormat) {
             $.dataFormat = dataFormat;
             return this;
         }
 
-        /**
-         * @param dataFormat The format for the training data.
-         * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFormat(String dataFormat) {
             return dataFormat(Output.of(dataFormat));
         }
 
-        /**
-         * @param labelDelimiter Delimiter between labels when training a multi-label classifier.
-         * Valid values are `|`, `~`, `!`, `{@literal @}`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-         * Default is `|`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelDelimiter(@Nullable Output<String> labelDelimiter) {
             $.labelDelimiter = labelDelimiter;
             return this;
         }
 
-        /**
-         * @param labelDelimiter Delimiter between labels when training a multi-label classifier.
-         * Valid values are `|`, `~`, `!`, `{@literal @}`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-         * Default is `|`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelDelimiter(String labelDelimiter) {
             return labelDelimiter(Output.of(labelDelimiter));
         }
 
-        /**
-         * @param s3Uri Location of training documents.
-         * Used if `dataFormat` is `COMPREHEND_CSV`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(@Nullable Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri Location of training documents.
-         * Used if `dataFormat` is `COMPREHEND_CSV`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

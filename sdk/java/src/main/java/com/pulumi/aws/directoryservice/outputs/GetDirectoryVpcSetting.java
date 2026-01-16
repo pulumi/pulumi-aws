@@ -12,32 +12,16 @@ import java.util.Objects;
 @CustomType
 public final class GetDirectoryVpcSetting {
     private List<String> availabilityZones;
-    /**
-     * @return Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-     * 
-     */
     private List<String> subnetIds;
-    /**
-     * @return ID of the VPC that the connector is in.
-     * 
-     */
     private String vpcId;
 
     private GetDirectoryVpcSetting() {}
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * @return Identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * @return ID of the VPC that the connector is in.
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -133,17 +133,11 @@ class FirewallAvailabilityZoneMapping(dict):
 
     def __init__(__self__, *,
                  availability_zone_id: _builtins.str):
-        """
-        :param _builtins.str availability_zone_id: The ID of the Availability Zone where the firewall endpoint is located..
-        """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        The ID of the Availability Zone where the firewall endpoint is located..
-        """
         return pulumi.get(self, "availability_zone_id")
 
 
@@ -169,10 +163,6 @@ class FirewallEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  key_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-        :param _builtins.str key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
-        """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -180,17 +170,11 @@ class FirewallEncryptionConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -218,10 +202,6 @@ class FirewallFirewallStatus(dict):
     def __init__(__self__, *,
                  sync_states: Optional[Sequence['outputs.FirewallFirewallStatusSyncState']] = None,
                  transit_gateway_attachment_sync_states: Optional[Sequence['outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState']] = None):
-        """
-        :param Sequence['FirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
-        :param Sequence['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs'] transit_gateway_attachment_sync_states: Set of transit gateway configured for use by the firewall.
-        """
         if sync_states is not None:
             pulumi.set(__self__, "sync_states", sync_states)
         if transit_gateway_attachment_sync_states is not None:
@@ -230,17 +210,11 @@ class FirewallFirewallStatus(dict):
     @_builtins.property
     @pulumi.getter(name="syncStates")
     def sync_states(self) -> Optional[Sequence['outputs.FirewallFirewallStatusSyncState']]:
-        """
-        Set of subnets configured for use by the firewall.
-        """
         return pulumi.get(self, "sync_states")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentSyncStates")
     def transit_gateway_attachment_sync_states(self) -> Optional[Sequence['outputs.FirewallFirewallStatusTransitGatewayAttachmentSyncState']]:
-        """
-        Set of transit gateway configured for use by the firewall.
-        """
         return pulumi.get(self, "transit_gateway_attachment_sync_states")
 
 
@@ -266,10 +240,6 @@ class FirewallFirewallStatusSyncState(dict):
     def __init__(__self__, *,
                  attachments: Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']] = None,
                  availability_zone: Optional[_builtins.str] = None):
-        """
-        :param Sequence['FirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
-        :param _builtins.str availability_zone: The Availability Zone where the subnet is configured.
-        """
         if attachments is not None:
             pulumi.set(__self__, "attachments", attachments)
         if availability_zone is not None:
@@ -278,17 +248,11 @@ class FirewallFirewallStatusSyncState(dict):
     @_builtins.property
     @pulumi.getter
     def attachments(self) -> Optional[Sequence['outputs.FirewallFirewallStatusSyncStateAttachment']]:
-        """
-        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
-        """
         return pulumi.get(self, "attachments")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        The Availability Zone where the subnet is configured.
-        """
         return pulumi.get(self, "availability_zone")
 
 
@@ -316,10 +280,6 @@ class FirewallFirewallStatusSyncStateAttachment(dict):
     def __init__(__self__, *,
                  endpoint_id: Optional[_builtins.str] = None,
                  subnet_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        :param _builtins.str subnet_id: The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
-        """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
         if subnet_id is not None:
@@ -328,17 +288,11 @@ class FirewallFirewallStatusSyncStateAttachment(dict):
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[_builtins.str]:
-        """
-        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -363,18 +317,12 @@ class FirewallFirewallStatusTransitGatewayAttachmentSyncState(dict):
 
     def __init__(__self__, *,
                  attachment_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str attachment_id: The unique identifier of the transit gateway attachment.
-        """
         if attachment_id is not None:
             pulumi.set(__self__, "attachment_id", attachment_id)
 
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier of the transit gateway attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
 
@@ -400,10 +348,6 @@ class FirewallPolicyEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  key_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-        :param _builtins.str key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
-        """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -411,17 +355,11 @@ class FirewallPolicyEncryptionConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -470,19 +408,6 @@ class FirewallPolicyFirewallPolicy(dict):
                  stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomAction']] = None,
                  stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference']] = None,
                  tls_inspection_configuration_arn: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] stateless_default_actions: Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-               In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-        :param Sequence[_builtins.str] stateless_fragment_default_actions: Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-               In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-        :param 'FirewallPolicyFirewallPolicyPolicyVariablesArgs' policy_variables: . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
-        :param Sequence[_builtins.str] stateful_default_actions: Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, `aws:alert_established, `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
-        :param 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs' stateful_engine_options: A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
-        :param Sequence['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs'] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
-        :param Sequence['FirewallPolicyFirewallPolicyStatelessCustomActionArgs'] stateless_custom_actions: Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
-        :param Sequence['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs'] stateless_rule_group_references: Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
-        :param _builtins.str tls_inspection_configuration_arn: The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
-        """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
@@ -503,75 +428,46 @@ class FirewallPolicyFirewallPolicy(dict):
     @_builtins.property
     @pulumi.getter(name="statelessDefaultActions")
     def stateless_default_actions(self) -> Sequence[_builtins.str]:
-        """
-        Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-        In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-        """
         return pulumi.get(self, "stateless_default_actions")
 
     @_builtins.property
     @pulumi.getter(name="statelessFragmentDefaultActions")
     def stateless_fragment_default_actions(self) -> Sequence[_builtins.str]:
-        """
-        Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-        In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-        """
         return pulumi.get(self, "stateless_fragment_default_actions")
 
     @_builtins.property
     @pulumi.getter(name="policyVariables")
     def policy_variables(self) -> Optional['outputs.FirewallPolicyFirewallPolicyPolicyVariables']:
-        """
-        . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
-        """
         return pulumi.get(self, "policy_variables")
 
     @_builtins.property
     @pulumi.getter(name="statefulDefaultActions")
     def stateful_default_actions(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, `aws:alert_established, `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
-        """
         return pulumi.get(self, "stateful_default_actions")
 
     @_builtins.property
     @pulumi.getter(name="statefulEngineOptions")
     def stateful_engine_options(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions']:
-        """
-        A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
-        """
         return pulumi.get(self, "stateful_engine_options")
 
     @_builtins.property
     @pulumi.getter(name="statefulRuleGroupReferences")
     def stateful_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference']]:
-        """
-        Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
-        """
         return pulumi.get(self, "stateful_rule_group_references")
 
     @_builtins.property
     @pulumi.getter(name="statelessCustomActions")
     def stateless_custom_actions(self) -> Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomAction']]:
-        """
-        Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
-        """
         return pulumi.get(self, "stateless_custom_actions")
 
     @_builtins.property
     @pulumi.getter(name="statelessRuleGroupReferences")
     def stateless_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference']]:
-        """
-        Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
-        """
         return pulumi.get(self, "stateless_rule_group_references")
 
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfigurationArn")
     def tls_inspection_configuration_arn(self) -> Optional[_builtins.str]:
-        """
-        The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
-        """
         return pulumi.get(self, "tls_inspection_configuration_arn")
 
 
@@ -627,27 +523,17 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable(dict):
     def __init__(__self__, *,
                  ip_set: 'outputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet',
                  key: _builtins.str):
-        """
-        :param 'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs' ip_set: A configuration block that defines a set of IP addresses. See IP Set below for details.
-        :param _builtins.str key: An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
-        """
         pulumi.set(__self__, "ip_set", ip_set)
         pulumi.set(__self__, "key", key)
 
     @_builtins.property
     @pulumi.getter(name="ipSet")
     def ip_set(self) -> 'outputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet':
-        """
-        A configuration block that defines a set of IP addresses. See IP Set below for details.
-        """
         return pulumi.get(self, "ip_set")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
-        """
         return pulumi.get(self, "key")
 
 
@@ -655,17 +541,11 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable(dict):
 class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet(dict):
     def __init__(__self__, *,
                  definitions: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] definitions: Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-        """
         pulumi.set(__self__, "definitions", definitions)
 
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> Sequence[_builtins.str]:
-        """
-        Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-        """
         return pulumi.get(self, "definitions")
 
 
@@ -696,11 +576,6 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
                  flow_timeouts: Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts'] = None,
                  rule_order: Optional[_builtins.str] = None,
                  stream_exception_policy: Optional[_builtins.str] = None):
-        """
-        :param 'FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs' flow_timeouts: Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-        :param _builtins.str rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        :param _builtins.str stream_exception_policy: Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-        """
         if flow_timeouts is not None:
             pulumi.set(__self__, "flow_timeouts", flow_timeouts)
         if rule_order is not None:
@@ -711,25 +586,16 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
     @_builtins.property
     @pulumi.getter(name="flowTimeouts")
     def flow_timeouts(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts']:
-        """
-        Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-        """
         return pulumi.get(self, "flow_timeouts")
 
     @_builtins.property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[_builtins.str]:
-        """
-        Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        """
         return pulumi.get(self, "rule_order")
 
     @_builtins.property
     @pulumi.getter(name="streamExceptionPolicy")
     def stream_exception_policy(self) -> Optional[_builtins.str]:
-        """
-        Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-        """
         return pulumi.get(self, "stream_exception_policy")
 
 
@@ -754,18 +620,12 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts(dict):
 
     def __init__(__self__, *,
                  tcp_idle_timeout_seconds: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int tcp_idle_timeout_seconds: Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-        """
         if tcp_idle_timeout_seconds is not None:
             pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
 
     @_builtins.property
     @pulumi.getter(name="tcpIdleTimeoutSeconds")
     def tcp_idle_timeout_seconds(self) -> Optional[_builtins.int]:
-        """
-        Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-        """
         return pulumi.get(self, "tcp_idle_timeout_seconds")
 
 
@@ -795,14 +655,6 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
                  deep_threat_inspection: Optional[_builtins.str] = None,
                  override: Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride'] = None,
                  priority: Optional[_builtins.int] = None):
-        """
-        :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
-        :param _builtins.str deep_threat_inspection: Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-               
-               For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-        :param 'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs' override: Configuration block for override values
-        :param _builtins.int priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-        """
         pulumi.set(__self__, "resource_arn", resource_arn)
         if deep_threat_inspection is not None:
             pulumi.set(__self__, "deep_threat_inspection", deep_threat_inspection)
@@ -814,35 +666,21 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the stateful rule group.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="deepThreatInspection")
     def deep_threat_inspection(self) -> Optional[_builtins.str]:
-        """
-        Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
-
-        For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
-        """
         return pulumi.get(self, "deep_threat_inspection")
 
     @_builtins.property
     @pulumi.getter
     def override(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride']:
-        """
-        Configuration block for override values
-        """
         return pulumi.get(self, "override")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[_builtins.int]:
-        """
-        An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
-        """
         return pulumi.get(self, "priority")
 
 
@@ -850,18 +688,12 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride(dict):
     def __init__(__self__, *,
                  action: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str action: The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-        """
         if action is not None:
             pulumi.set(__self__, "action", action)
 
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[_builtins.str]:
-        """
-        The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-        """
         return pulumi.get(self, "action")
 
 
@@ -889,27 +721,17 @@ class FirewallPolicyFirewallPolicyStatelessCustomAction(dict):
     def __init__(__self__, *,
                  action_definition: 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition',
                  action_name: _builtins.str):
-        """
-        :param 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs' action_definition: A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-        :param _builtins.str action_name: A friendly name of the custom action.
-        """
         pulumi.set(__self__, "action_definition", action_definition)
         pulumi.set(__self__, "action_name", action_name)
 
     @_builtins.property
     @pulumi.getter(name="actionDefinition")
     def action_definition(self) -> 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition':
-        """
-        A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-        """
         return pulumi.get(self, "action_definition")
 
     @_builtins.property
     @pulumi.getter(name="actionName")
     def action_name(self) -> _builtins.str:
-        """
-        A friendly name of the custom action.
-        """
         return pulumi.get(self, "action_name")
 
 
@@ -934,17 +756,11 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(dict):
 
     def __init__(__self__, *,
                  publish_metric_action: 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction'):
-        """
-        :param 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs' publish_metric_action: A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-        """
         pulumi.set(__self__, "publish_metric_action", publish_metric_action)
 
     @_builtins.property
     @pulumi.getter(name="publishMetricAction")
     def publish_metric_action(self) -> 'outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction':
-        """
-        A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-        """
         return pulumi.get(self, "publish_metric_action")
 
 
@@ -952,17 +768,11 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition(dict):
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension']):
-        """
-        :param Sequence['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs'] dimensions: Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-        """
         pulumi.set(__self__, "dimensions", dimensions)
 
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension']:
-        """
-        Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-        """
         return pulumi.get(self, "dimensions")
 
 
@@ -970,17 +780,11 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension(dict):
     def __init__(__self__, *,
                  value: _builtins.str):
-        """
-        :param _builtins.str value: The string value to use in the custom metric dimension.
-        """
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The string value to use in the custom metric dimension.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1006,27 +810,17 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReference(dict):
     def __init__(__self__, *,
                  priority: _builtins.int,
                  resource_arn: _builtins.str):
-        """
-        :param _builtins.int priority: An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
-        :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the stateless rule group.
-        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the stateless rule group.
-        """
         return pulumi.get(self, "resource_arn")
 
 
@@ -1054,10 +848,6 @@ class FirewallSubnetMapping(dict):
     def __init__(__self__, *,
                  subnet_id: _builtins.str,
                  ip_address_type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str subnet_id: The unique identifier for the subnet.
-        :param _builtins.str ip_address_type: The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
-        """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -1065,17 +855,11 @@ class FirewallSubnetMapping(dict):
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The unique identifier for the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
-        """
-        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
-        """
         return pulumi.get(self, "ip_address_type")
 
 
@@ -1131,17 +915,11 @@ class LoggingConfigurationLoggingConfiguration(dict):
 
     def __init__(__self__, *,
                  log_destination_configs: Sequence['outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig']):
-        """
-        :param Sequence['LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs'] log_destination_configs: Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
-        """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
 
     @_builtins.property
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> Sequence['outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig']:
-        """
-        Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
-        """
         return pulumi.get(self, "log_destination_configs")
 
 
@@ -1172,14 +950,6 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
                  log_destination: Mapping[str, _builtins.str],
                  log_destination_type: _builtins.str,
                  log_type: _builtins.str):
-        """
-        :param Mapping[str, _builtins.str] log_destination: A map describing the logging destination for the chosen `log_destination_type`.
-               * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
-               * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-               * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
-        :param _builtins.str log_destination_type: The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
-        :param _builtins.str log_type: The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
-        """
         pulumi.set(__self__, "log_destination", log_destination)
         pulumi.set(__self__, "log_destination_type", log_destination_type)
         pulumi.set(__self__, "log_type", log_type)
@@ -1187,28 +957,16 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
     @_builtins.property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Mapping[str, _builtins.str]:
-        """
-        A map describing the logging destination for the chosen `log_destination_type`.
-        * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
-        * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
-        * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
-        """
         return pulumi.get(self, "log_destination")
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> _builtins.str:
-        """
-        The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @_builtins.property
     @pulumi.getter(name="logType")
     def log_type(self) -> _builtins.str:
-        """
-        The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
-        """
         return pulumi.get(self, "log_type")
 
 
@@ -1234,10 +992,6 @@ class RuleGroupEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  key_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-        :param _builtins.str key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
-        """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -1245,17 +999,11 @@ class RuleGroupEncryptionConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
-        """
         return pulumi.get(self, "key_id")
 
 
@@ -1289,12 +1037,6 @@ class RuleGroupRuleGroup(dict):
                  reference_sets: Optional['outputs.RuleGroupRuleGroupReferenceSets'] = None,
                  rule_variables: Optional['outputs.RuleGroupRuleGroupRuleVariables'] = None,
                  stateful_rule_options: Optional['outputs.RuleGroupRuleGroupStatefulRuleOptions'] = None):
-        """
-        :param 'RuleGroupRuleGroupRulesSourceArgs' rules_source: A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-        :param 'RuleGroupRuleGroupReferenceSetsArgs' reference_sets: A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
-        :param 'RuleGroupRuleGroupRuleVariablesArgs' rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
-        :param 'RuleGroupRuleGroupStatefulRuleOptionsArgs' stateful_rule_options: A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
-        """
         pulumi.set(__self__, "rules_source", rules_source)
         if reference_sets is not None:
             pulumi.set(__self__, "reference_sets", reference_sets)
@@ -1306,33 +1048,21 @@ class RuleGroupRuleGroup(dict):
     @_builtins.property
     @pulumi.getter(name="rulesSource")
     def rules_source(self) -> 'outputs.RuleGroupRuleGroupRulesSource':
-        """
-        A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-        """
         return pulumi.get(self, "rules_source")
 
     @_builtins.property
     @pulumi.getter(name="referenceSets")
     def reference_sets(self) -> Optional['outputs.RuleGroupRuleGroupReferenceSets']:
-        """
-        A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
-        """
         return pulumi.get(self, "reference_sets")
 
     @_builtins.property
     @pulumi.getter(name="ruleVariables")
     def rule_variables(self) -> Optional['outputs.RuleGroupRuleGroupRuleVariables']:
-        """
-        A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
-        """
         return pulumi.get(self, "rule_variables")
 
     @_builtins.property
     @pulumi.getter(name="statefulRuleOptions")
     def stateful_rule_options(self) -> Optional['outputs.RuleGroupRuleGroupStatefulRuleOptions']:
-        """
-        A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
-        """
         return pulumi.get(self, "stateful_rule_options")
 
 
@@ -1388,18 +1118,12 @@ class RuleGroupRuleGroupReferenceSetsIpSetReference(dict):
     def __init__(__self__, *,
                  ip_set_references: Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference'],
                  key: _builtins.str):
-        """
-        :param Sequence['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs'] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-        """
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "key", key)
 
     @_builtins.property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference']:
-        """
-        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-        """
         return pulumi.get(self, "ip_set_references")
 
     @_builtins.property
@@ -1429,17 +1153,11 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference(dict):
 
     def __init__(__self__, *,
                  reference_arn: _builtins.str):
-        """
-        :param _builtins.str reference_arn: Set of Managed Prefix IP ARN(s)
-        """
         pulumi.set(__self__, "reference_arn", reference_arn)
 
     @_builtins.property
     @pulumi.getter(name="referenceArn")
     def reference_arn(self) -> _builtins.str:
-        """
-        Set of Managed Prefix IP ARN(s)
-        """
         return pulumi.get(self, "reference_arn")
 
 
@@ -1467,10 +1185,6 @@ class RuleGroupRuleGroupRuleVariables(dict):
     def __init__(__self__, *,
                  ip_sets: Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesIpSet']] = None,
                  port_sets: Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesPortSet']] = None):
-        """
-        :param Sequence['RuleGroupRuleGroupRuleVariablesIpSetArgs'] ip_sets: Set of configuration blocks that define IP address information. See IP Sets below for details.
-        :param Sequence['RuleGroupRuleGroupRuleVariablesPortSetArgs'] port_sets: Set of configuration blocks that define port range information. See Port Sets below for details.
-        """
         if ip_sets is not None:
             pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
@@ -1479,17 +1193,11 @@ class RuleGroupRuleGroupRuleVariables(dict):
     @_builtins.property
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesIpSet']]:
-        """
-        Set of configuration blocks that define IP address information. See IP Sets below for details.
-        """
         return pulumi.get(self, "ip_sets")
 
     @_builtins.property
     @pulumi.getter(name="portSets")
     def port_sets(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRuleVariablesPortSet']]:
-        """
-        Set of configuration blocks that define port range information. See Port Sets below for details.
-        """
         return pulumi.get(self, "port_sets")
 
 
@@ -1515,27 +1223,17 @@ class RuleGroupRuleGroupRuleVariablesIpSet(dict):
     def __init__(__self__, *,
                  ip_set: 'outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet',
                  key: _builtins.str):
-        """
-        :param 'RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs' ip_set: A configuration block that defines a set of IP addresses. See IP Set below for details.
-        :param _builtins.str key: A unique alphanumeric string to identify the `ip_set`.
-        """
         pulumi.set(__self__, "ip_set", ip_set)
         pulumi.set(__self__, "key", key)
 
     @_builtins.property
     @pulumi.getter(name="ipSet")
     def ip_set(self) -> 'outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet':
-        """
-        A configuration block that defines a set of IP addresses. See IP Set below for details.
-        """
         return pulumi.get(self, "ip_set")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        A unique alphanumeric string to identify the `ip_set`.
-        """
         return pulumi.get(self, "key")
 
 
@@ -1543,17 +1241,11 @@ class RuleGroupRuleGroupRuleVariablesIpSet(dict):
 class RuleGroupRuleGroupRuleVariablesIpSetIpSet(dict):
     def __init__(__self__, *,
                  definitions: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] definitions: Set of IP addresses and address ranges, in CIDR notation.
-        """
         pulumi.set(__self__, "definitions", definitions)
 
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> Sequence[_builtins.str]:
-        """
-        Set of IP addresses and address ranges, in CIDR notation.
-        """
         return pulumi.get(self, "definitions")
 
 
@@ -1579,27 +1271,17 @@ class RuleGroupRuleGroupRuleVariablesPortSet(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  port_set: 'outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet'):
-        """
-        :param _builtins.str key: An unique alphanumeric string to identify the `port_set`.
-        :param 'RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs' port_set: A configuration block that defines a set of port ranges. See Port Set below for details.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "port_set", port_set)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        An unique alphanumeric string to identify the `port_set`.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter(name="portSet")
     def port_set(self) -> 'outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet':
-        """
-        A configuration block that defines a set of port ranges. See Port Set below for details.
-        """
         return pulumi.get(self, "port_set")
 
 
@@ -1607,17 +1289,11 @@ class RuleGroupRuleGroupRuleVariablesPortSet(dict):
 class RuleGroupRuleGroupRuleVariablesPortSetPortSet(dict):
     def __init__(__self__, *,
                  definitions: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] definitions: Set of port ranges.
-        """
         pulumi.set(__self__, "definitions", definitions)
 
     @_builtins.property
     @pulumi.getter
     def definitions(self) -> Sequence[_builtins.str]:
-        """
-        Set of port ranges.
-        """
         return pulumi.get(self, "definitions")
 
 
@@ -1651,12 +1327,6 @@ class RuleGroupRuleGroupRulesSource(dict):
                  rules_string: Optional[_builtins.str] = None,
                  stateful_rules: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRule']] = None,
                  stateless_rules_and_custom_actions: Optional['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions'] = None):
-        """
-        :param 'RuleGroupRuleGroupRulesSourceRulesSourceListArgs' rules_source_list: A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-        :param _builtins.str rules_string: Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatefulRuleArgs'] stateful_rules: Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs' stateless_rules_and_custom_actions: A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-        """
         if rules_source_list is not None:
             pulumi.set(__self__, "rules_source_list", rules_source_list)
         if rules_string is not None:
@@ -1669,33 +1339,21 @@ class RuleGroupRuleGroupRulesSource(dict):
     @_builtins.property
     @pulumi.getter(name="rulesSourceList")
     def rules_source_list(self) -> Optional['outputs.RuleGroupRuleGroupRulesSourceRulesSourceList']:
-        """
-        A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-        """
         return pulumi.get(self, "rules_source_list")
 
     @_builtins.property
     @pulumi.getter(name="rulesString")
     def rules_string(self) -> Optional[_builtins.str]:
-        """
-        Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
-        """
         return pulumi.get(self, "rules_string")
 
     @_builtins.property
     @pulumi.getter(name="statefulRules")
     def stateful_rules(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRule']]:
-        """
-        Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
-        """
         return pulumi.get(self, "stateful_rules")
 
     @_builtins.property
     @pulumi.getter(name="statelessRulesAndCustomActions")
     def stateless_rules_and_custom_actions(self) -> Optional['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions']:
-        """
-        A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
-        """
         return pulumi.get(self, "stateless_rules_and_custom_actions")
 
 
@@ -1724,11 +1382,6 @@ class RuleGroupRuleGroupRulesSourceRulesSourceList(dict):
                  generated_rules_type: _builtins.str,
                  target_types: Sequence[_builtins.str],
                  targets: Sequence[_builtins.str]):
-        """
-        :param _builtins.str generated_rules_type: String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-        :param Sequence[_builtins.str] target_types: Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-        :param Sequence[_builtins.str] targets: Set of domains that you want to inspect for in your traffic flows.
-        """
         pulumi.set(__self__, "generated_rules_type", generated_rules_type)
         pulumi.set(__self__, "target_types", target_types)
         pulumi.set(__self__, "targets", targets)
@@ -1736,25 +1389,16 @@ class RuleGroupRuleGroupRulesSourceRulesSourceList(dict):
     @_builtins.property
     @pulumi.getter(name="generatedRulesType")
     def generated_rules_type(self) -> _builtins.str:
-        """
-        String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
-        """
         return pulumi.get(self, "generated_rules_type")
 
     @_builtins.property
     @pulumi.getter(name="targetTypes")
     def target_types(self) -> Sequence[_builtins.str]:
-        """
-        Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
-        """
         return pulumi.get(self, "target_types")
 
     @_builtins.property
     @pulumi.getter
     def targets(self) -> Sequence[_builtins.str]:
-        """
-        Set of domains that you want to inspect for in your traffic flows.
-        """
         return pulumi.get(self, "targets")
 
 
@@ -1781,11 +1425,6 @@ class RuleGroupRuleGroupRulesSourceStatefulRule(dict):
                  action: _builtins.str,
                  header: 'outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader',
                  rule_options: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption']):
-        """
-        :param _builtins.str action: Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
-        :param 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs' header: A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs'] rule_options: Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "rule_options", rule_options)
@@ -1793,25 +1432,16 @@ class RuleGroupRuleGroupRulesSourceStatefulRule(dict):
     @_builtins.property
     @pulumi.getter
     def action(self) -> _builtins.str:
-        """
-        Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def header(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader':
-        """
-        A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
-        """
         return pulumi.get(self, "header")
 
     @_builtins.property
     @pulumi.getter(name="ruleOptions")
     def rule_options(self) -> Sequence['outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption']:
-        """
-        Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
-        """
         return pulumi.get(self, "rule_options")
 
 
@@ -1843,14 +1473,6 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeader(dict):
                  protocol: _builtins.str,
                  source: _builtins.str,
                  source_port: _builtins.str):
-        """
-        :param _builtins.str destination: The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
-        :param _builtins.str destination_port: The destination port to inspect for. To match with any address, specify `ANY`.
-        :param _builtins.str direction: The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
-        :param _builtins.str protocol: The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-        :param _builtins.str source: The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
-        :param _builtins.str source_port: The source port to inspect for. To match with any address, specify `ANY`.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_port", destination_port)
         pulumi.set(__self__, "direction", direction)
@@ -1861,49 +1483,31 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeader(dict):
     @_builtins.property
     @pulumi.getter
     def destination(self) -> _builtins.str:
-        """
-        The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
-        """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> _builtins.str:
-        """
-        The destination port to inspect for. To match with any address, specify `ANY`.
-        """
         return pulumi.get(self, "destination_port")
 
     @_builtins.property
     @pulumi.getter
     def direction(self) -> _builtins.str:
-        """
-        The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
-        """
         return pulumi.get(self, "direction")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> _builtins.str:
-        """
-        The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
-        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
-        """
-        The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
-        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter(name="sourcePort")
     def source_port(self) -> _builtins.str:
-        """
-        The source port to inspect for. To match with any address, specify `ANY`.
-        """
         return pulumi.get(self, "source_port")
 
 
@@ -1912,11 +1516,6 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(dict):
     def __init__(__self__, *,
                  keyword: _builtins.str,
                  settings: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str keyword: Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-               See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-        :param Sequence[_builtins.str] settings: Set of strings for additional settings to use in stateful rule inspection.
-        """
         pulumi.set(__self__, "keyword", keyword)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
@@ -1924,18 +1523,11 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption(dict):
     @_builtins.property
     @pulumi.getter
     def keyword(self) -> _builtins.str:
-        """
-        Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
-        See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
-        """
         return pulumi.get(self, "keyword")
 
     @_builtins.property
     @pulumi.getter
     def settings(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of strings for additional settings to use in stateful rule inspection.
-        """
         return pulumi.get(self, "settings")
 
 
@@ -1963,10 +1555,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(dict):
     def __init__(__self__, *,
                  stateless_rules: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule'],
                  custom_actions: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction']] = None):
-        """
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs'] stateless_rules: Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs'] custom_actions: Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
-        """
         pulumi.set(__self__, "stateless_rules", stateless_rules)
         if custom_actions is not None:
             pulumi.set(__self__, "custom_actions", custom_actions)
@@ -1974,17 +1562,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions(dict):
     @_builtins.property
     @pulumi.getter(name="statelessRules")
     def stateless_rules(self) -> Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule']:
-        """
-        Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
-        """
         return pulumi.get(self, "stateless_rules")
 
     @_builtins.property
     @pulumi.getter(name="customActions")
     def custom_actions(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction']]:
-        """
-        Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
-        """
         return pulumi.get(self, "custom_actions")
 
 
@@ -2012,27 +1594,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction(di
     def __init__(__self__, *,
                  action_definition: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition',
                  action_name: _builtins.str):
-        """
-        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs' action_definition: A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-        :param _builtins.str action_name: A friendly name of the custom action.
-        """
         pulumi.set(__self__, "action_definition", action_definition)
         pulumi.set(__self__, "action_name", action_name)
 
     @_builtins.property
     @pulumi.getter(name="actionDefinition")
     def action_definition(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition':
-        """
-        A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-        """
         return pulumi.get(self, "action_definition")
 
     @_builtins.property
     @pulumi.getter(name="actionName")
     def action_name(self) -> _builtins.str:
-        """
-        A friendly name of the custom action.
-        """
         return pulumi.get(self, "action_name")
 
 
@@ -2057,17 +1629,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
 
     def __init__(__self__, *,
                  publish_metric_action: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction'):
-        """
-        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs' publish_metric_action: A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-        """
         pulumi.set(__self__, "publish_metric_action", publish_metric_action)
 
     @_builtins.property
     @pulumi.getter(name="publishMetricAction")
     def publish_metric_action(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction':
-        """
-        A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
-        """
         return pulumi.get(self, "publish_metric_action")
 
 
@@ -2075,17 +1641,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricAction(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension']):
-        """
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs'] dimensions: Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
-        """
         pulumi.set(__self__, "dimensions", dimensions)
 
     @_builtins.property
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension']:
-        """
-        Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
-        """
         return pulumi.get(self, "dimensions")
 
 
@@ -2093,17 +1653,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimension(dict):
     def __init__(__self__, *,
                  value: _builtins.str):
-        """
-        :param _builtins.str value: The value to use in the custom metric dimension.
-        """
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value to use in the custom metric dimension.
-        """
         return pulumi.get(self, "value")
 
 
@@ -2129,27 +1683,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule(d
     def __init__(__self__, *,
                  priority: _builtins.int,
                  rule_definition: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition'):
-        """
-        :param _builtins.int priority: A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
-        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs' rule_definition: A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
-        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_definition", rule_definition)
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
-        """
-        A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="ruleDefinition")
     def rule_definition(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition':
-        """
-        A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
-        """
         return pulumi.get(self, "rule_definition")
 
 
@@ -2175,27 +1719,17 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  actions: Sequence[_builtins.str],
                  match_attributes: 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes'):
-        """
-        :param Sequence[_builtins.str] actions: Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-        :param 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs' match_attributes: A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
-        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "match_attributes", match_attributes)
 
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Sequence[_builtins.str]:
-        """
-        Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter(name="matchAttributes")
     def match_attributes(self) -> 'outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes':
-        """
-        A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
-        """
         return pulumi.get(self, "match_attributes")
 
 
@@ -2229,14 +1763,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
                  source_ports: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort']] = None,
                  sources: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource']] = None,
                  tcp_flags: Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag']] = None):
-        """
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs'] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs'] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        :param Sequence[_builtins.int] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs'] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs'] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-        :param Sequence['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs'] tcp_flags: Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
-        """
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
@@ -2253,49 +1779,31 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @_builtins.property
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort']]:
-        """
-        Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
-        """
         return pulumi.get(self, "destination_ports")
 
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination']]:
-        """
-        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        """
         return pulumi.get(self, "destinations")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[Sequence[_builtins.int]]:
-        """
-        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
-        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter(name="sourcePorts")
     def source_ports(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort']]:
-        """
-        Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
-        """
         return pulumi.get(self, "source_ports")
 
     @_builtins.property
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource']]:
-        """
-        Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-        """
         return pulumi.get(self, "sources")
 
     @_builtins.property
     @pulumi.getter(name="tcpFlags")
     def tcp_flags(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag']]:
-        """
-        Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
-        """
         return pulumi.get(self, "tcp_flags")
 
 
@@ -2320,17 +1828,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 
     def __init__(__self__, *,
                  address_definition: _builtins.str):
-        """
-        :param _builtins.str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
-        """
         pulumi.set(__self__, "address_definition", address_definition)
 
     @_builtins.property
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> _builtins.str:
-        """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
-        """
         return pulumi.get(self, "address_definition")
 
 
@@ -2358,10 +1860,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  from_port: _builtins.int,
                  to_port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
-        :param _builtins.int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
             pulumi.set(__self__, "to_port", to_port)
@@ -2369,17 +1867,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> _builtins.int:
-        """
-        The lower limit of the port range. This must be less than or equal to the `to_port`.
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[_builtins.int]:
-        """
-        The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         return pulumi.get(self, "to_port")
 
 
@@ -2404,17 +1896,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 
     def __init__(__self__, *,
                  address_definition: _builtins.str):
-        """
-        :param _builtins.str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
-        """
         pulumi.set(__self__, "address_definition", address_definition)
 
     @_builtins.property
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> _builtins.str:
-        """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4 and IPv6.
-        """
         return pulumi.get(self, "address_definition")
 
 
@@ -2442,10 +1928,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  from_port: _builtins.int,
                  to_port: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
-        :param _builtins.int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
             pulumi.set(__self__, "to_port", to_port)
@@ -2453,17 +1935,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> _builtins.int:
-        """
-        The lower limit of the port range. This must be less than or equal to the `to_port`.
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[_builtins.int]:
-        """
-        The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         return pulumi.get(self, "to_port")
 
 
@@ -2472,12 +1948,6 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def __init__(__self__, *,
                  flags: Sequence[_builtins.str],
                  masks: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] flags: Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-               Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        :param Sequence[_builtins.str] masks: Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-               Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        """
         pulumi.set(__self__, "flags", flags)
         if masks is not None:
             pulumi.set(__self__, "masks", masks)
@@ -2485,19 +1955,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @_builtins.property
     @pulumi.getter
     def flags(self) -> Sequence[_builtins.str]:
-        """
-        Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-        Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        """
         return pulumi.get(self, "flags")
 
     @_builtins.property
     @pulumi.getter
     def masks(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-        Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-        """
         return pulumi.get(self, "masks")
 
 
@@ -2522,17 +1984,11 @@ class RuleGroupRuleGroupStatefulRuleOptions(dict):
 
     def __init__(__self__, *,
                  rule_order: _builtins.str):
-        """
-        :param _builtins.str rule_order: Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        """
         pulumi.set(__self__, "rule_order", rule_order)
 
     @_builtins.property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> _builtins.str:
-        """
-        Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        """
         return pulumi.get(self, "rule_order")
 
 
@@ -2564,12 +2020,6 @@ class TlsInspectionConfigurationCertificate(dict):
                  certificate_serial: _builtins.str,
                  status: _builtins.str,
                  status_message: _builtins.str):
-        """
-        :param _builtins.str certificate_arn: ARN of the certificate.
-        :param _builtins.str certificate_serial: Serial number of the certificate.
-        :param _builtins.str status: Status of the certificate.
-        :param _builtins.str status_message: Details about the certificate status, including information about certificate errors.
-        """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "certificate_serial", certificate_serial)
         pulumi.set(__self__, "status", status)
@@ -2578,33 +2028,21 @@ class TlsInspectionConfigurationCertificate(dict):
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
-        """
-        ARN of the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateSerial")
     def certificate_serial(self) -> _builtins.str:
-        """
-        Serial number of the certificate.
-        """
         return pulumi.get(self, "certificate_serial")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the certificate.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Details about the certificate status, including information about certificate errors.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -2636,12 +2074,6 @@ class TlsInspectionConfigurationCertificateAuthority(dict):
                  certificate_serial: _builtins.str,
                  status: _builtins.str,
                  status_message: _builtins.str):
-        """
-        :param _builtins.str certificate_arn: ARN of the certificate.
-        :param _builtins.str certificate_serial: Serial number of the certificate.
-        :param _builtins.str status: Status of the certificate.
-        :param _builtins.str status_message: Details about the certificate status, including information about certificate errors.
-        """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "certificate_serial", certificate_serial)
         pulumi.set(__self__, "status", status)
@@ -2650,33 +2082,21 @@ class TlsInspectionConfigurationCertificateAuthority(dict):
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
-        """
-        ARN of the certificate.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="certificateSerial")
     def certificate_serial(self) -> _builtins.str:
-        """
-        Serial number of the certificate.
-        """
         return pulumi.get(self, "certificate_serial")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the certificate.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        Details about the certificate status, including information about certificate errors.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -2702,27 +2122,17 @@ class TlsInspectionConfigurationEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  key_id: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str key_id: ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-        :param _builtins.str type: Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-        """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
-        """
         return pulumi.get(self, "key_id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -2790,18 +2200,12 @@ class TlsInspectionConfigurationTlsInspectionConfiguration(dict):
 
     def __init__(__self__, *,
                  server_certificate_configuration: Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration'] = None):
-        """
-        :param 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs' server_certificate_configuration: Server certificate configurations that are associated with the TLS configuration. Detailed below.
-        """
         if server_certificate_configuration is not None:
             pulumi.set(__self__, "server_certificate_configuration", server_certificate_configuration)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateConfiguration")
     def server_certificate_configuration(self) -> Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration']:
-        """
-        Server certificate configurations that are associated with the TLS configuration. Detailed below.
-        """
         return pulumi.get(self, "server_certificate_configuration")
 
 
@@ -2833,12 +2237,6 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
                  check_certificate_revocation_status: Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus'] = None,
                  scopes: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope']] = None,
                  server_certificates: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate']] = None):
-        """
-        :param _builtins.str certificate_authority_arn: ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
-        :param 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs' check_certificate_revocation_status: Check Certificate Revocation Status block. Detailed below.
-        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs'] scopes: Scope block. Detailed below.
-        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs'] server_certificates: Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
-        """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if check_certificate_revocation_status is not None:
@@ -2851,33 +2249,21 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @_builtins.property
     @pulumi.getter(name="checkCertificateRevocationStatus")
     def check_certificate_revocation_status(self) -> Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus']:
-        """
-        Check Certificate Revocation Status block. Detailed below.
-        """
         return pulumi.get(self, "check_certificate_revocation_status")
 
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope']]:
-        """
-        Scope block. Detailed below.
-        """
         return pulumi.get(self, "scopes")
 
     @_builtins.property
     @pulumi.getter(name="serverCertificates")
     def server_certificates(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate']]:
-        """
-        Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
-        """
         return pulumi.get(self, "server_certificates")
 
 
@@ -2948,13 +2334,6 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
                  destinations: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination']] = None,
                  source_ports: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort']] = None,
                  sources: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource']] = None):
-        """
-        :param Sequence[_builtins.int] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs'] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs'] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs'] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs'] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-        """
         pulumi.set(__self__, "protocols", protocols)
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
@@ -2968,41 +2347,26 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Sequence[_builtins.int]:
-        """
-        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
-        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort']]:
-        """
-        Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
-        """
         return pulumi.get(self, "destination_ports")
 
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination']]:
-        """
-        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        """
         return pulumi.get(self, "destinations")
 
     @_builtins.property
     @pulumi.getter(name="sourcePorts")
     def source_ports(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort']]:
-        """
-        Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
-        """
         return pulumi.get(self, "source_ports")
 
     @_builtins.property
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource']]:
-        """
-        Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-        """
         return pulumi.get(self, "sources")
 
 
@@ -3027,17 +2391,11 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
 
     def __init__(__self__, *,
                  address_definition: _builtins.str):
-        """
-        :param _builtins.str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-        """
         pulumi.set(__self__, "address_definition", address_definition)
 
     @_builtins.property
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> _builtins.str:
-        """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-        """
         return pulumi.get(self, "address_definition")
 
 
@@ -3065,27 +2423,17 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     def __init__(__self__, *,
                  from_port: _builtins.int,
                  to_port: _builtins.int):
-        """
-        :param _builtins.int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
-        :param _builtins.int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> _builtins.int:
-        """
-        The lower limit of the port range. This must be less than or equal to the `to_port`.
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> _builtins.int:
-        """
-        The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         return pulumi.get(self, "to_port")
 
 
@@ -3110,17 +2458,11 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
 
     def __init__(__self__, *,
                  address_definition: _builtins.str):
-        """
-        :param _builtins.str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-        """
         pulumi.set(__self__, "address_definition", address_definition)
 
     @_builtins.property
     @pulumi.getter(name="addressDefinition")
     def address_definition(self) -> _builtins.str:
-        """
-        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-        """
         return pulumi.get(self, "address_definition")
 
 
@@ -3148,27 +2490,17 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     def __init__(__self__, *,
                  from_port: _builtins.int,
                  to_port: _builtins.int):
-        """
-        :param _builtins.int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
-        :param _builtins.int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> _builtins.int:
-        """
-        The lower limit of the port range. This must be less than or equal to the `to_port`.
-        """
         return pulumi.get(self, "from_port")
 
     @_builtins.property
     @pulumi.getter(name="toPort")
     def to_port(self) -> _builtins.int:
-        """
-        The upper limit of the port range. This must be greater than or equal to the `from_port`.
-        """
         return pulumi.get(self, "to_port")
 
 
@@ -3193,18 +2525,12 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
 
     def __init__(__self__, *,
                  resource_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str resource_arn: ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
-        """
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
-        """
         return pulumi.get(self, "resource_arn")
 
 
@@ -3232,10 +2558,6 @@ class VpcEndpointAssociationSubnetMapping(dict):
     def __init__(__self__, *,
                  subnet_id: _builtins.str,
                  ip_address_type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str subnet_id: The unique identifier for the subnet.
-        :param _builtins.str ip_address_type: The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
-        """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -3243,17 +2565,11 @@ class VpcEndpointAssociationSubnetMapping(dict):
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The unique identifier for the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
-        """
-        The subnet's IP address type. Valid values: `"DUALSTACK"`, `"IPV4"`.
-        """
         return pulumi.get(self, "ip_address_type")
 
 
@@ -3339,27 +2655,17 @@ class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState(dic
     def __init__(__self__, *,
                  attachments: Sequence['outputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment'],
                  availability_zone: _builtins.str):
-        """
-        :param Sequence['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
-        :param _builtins.str availability_zone: The Availability Zone where the subnet is configured.
-        """
         pulumi.set(__self__, "attachments", attachments)
         pulumi.set(__self__, "availability_zone", availability_zone)
 
     @_builtins.property
     @pulumi.getter
     def attachments(self) -> Sequence['outputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachment']:
-        """
-        Nested list describing the attachment status of the firewall's VPC Endpoint Association with a single VPC subnet.
-        """
         return pulumi.get(self, "attachments")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The Availability Zone where the subnet is configured.
-        """
         return pulumi.get(self, "availability_zone")
 
 
@@ -3391,10 +2697,6 @@ class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAtta
                  status: _builtins.str,
                  status_message: _builtins.str,
                  subnet_id: _builtins.str):
-        """
-        :param _builtins.str endpoint_id: The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        :param _builtins.str subnet_id: The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
-        """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "status_message", status_message)
@@ -3403,9 +2705,6 @@ class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAtta
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> _builtins.str:
-        """
-        The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @_builtins.property
@@ -3421,9 +2720,6 @@ class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAtta
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The unique identifier of the subnet that you've specified to be used for a VPC Endpoint Association endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -3431,17 +2727,11 @@ class VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAtta
 class GetFirewallAvailabilityZoneMappingResult(dict):
     def __init__(__self__, *,
                  availability_zone_id: _builtins.str):
-        """
-        :param _builtins.str availability_zone_id: The ID of the Availability Zone where the firewall endpoint is located.
-        """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        The ID of the Availability Zone where the firewall endpoint is located.
-        """
         return pulumi.get(self, "availability_zone_id")
 
 
@@ -3450,27 +2740,17 @@ class GetFirewallEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  key_id: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str key_id: The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-        :param _builtins.str type: The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-        """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> _builtins.str:
-        """
-        The ID of the AWS Key Management Service (AWS KMS) customer managed key.
-        """
         return pulumi.get(self, "key_id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
-        """
         return pulumi.get(self, "type")
 
 
@@ -3482,13 +2762,6 @@ class GetFirewallFirewallStatusResult(dict):
                  status: _builtins.str,
                  sync_states: Sequence['outputs.GetFirewallFirewallStatusSyncStateResult'],
                  transit_gateway_attachment_sync_states: Sequence['outputs.GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult']):
-        """
-        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryArgs'] capacity_usage_summaries: Aggregated count of all resources used by reference sets in a firewall.
-        :param _builtins.str configuration_sync_state_summary: Summary of sync states for all availability zones in which the firewall is configured.
-        :param _builtins.str status: The current status of the firewall endpoint instantiation in the subnet.
-        :param Sequence['GetFirewallFirewallStatusSyncStateArgs'] sync_states: Set of subnets configured for use by the firewall.
-        :param Sequence['GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs'] transit_gateway_attachment_sync_states: Set of transit gateway configured for use by the firewall.
-        """
         pulumi.set(__self__, "capacity_usage_summaries", capacity_usage_summaries)
         pulumi.set(__self__, "configuration_sync_state_summary", configuration_sync_state_summary)
         pulumi.set(__self__, "status", status)
@@ -3498,41 +2771,26 @@ class GetFirewallFirewallStatusResult(dict):
     @_builtins.property
     @pulumi.getter(name="capacityUsageSummaries")
     def capacity_usage_summaries(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryResult']:
-        """
-        Aggregated count of all resources used by reference sets in a firewall.
-        """
         return pulumi.get(self, "capacity_usage_summaries")
 
     @_builtins.property
     @pulumi.getter(name="configurationSyncStateSummary")
     def configuration_sync_state_summary(self) -> _builtins.str:
-        """
-        Summary of sync states for all availability zones in which the firewall is configured.
-        """
         return pulumi.get(self, "configuration_sync_state_summary")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the firewall endpoint instantiation in the subnet.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="syncStates")
     def sync_states(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateResult']:
-        """
-        Set of subnets configured for use by the firewall.
-        """
         return pulumi.get(self, "sync_states")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentSyncStates")
     def transit_gateway_attachment_sync_states(self) -> Sequence['outputs.GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult']:
-        """
-        Set of transit gateway configured for use by the firewall.
-        """
         return pulumi.get(self, "transit_gateway_attachment_sync_states")
 
 
@@ -3540,17 +2798,11 @@ class GetFirewallFirewallStatusResult(dict):
 class GetFirewallFirewallStatusCapacityUsageSummaryResult(dict):
     def __init__(__self__, *,
                  cidrs: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']):
-        """
-        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrArgs'] cidrs: Capacity usage of CIDR blocks used by IP set references in a firewall.
-        """
         pulumi.set(__self__, "cidrs", cidrs)
 
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrResult']:
-        """
-        Capacity usage of CIDR blocks used by IP set references in a firewall.
-        """
         return pulumi.get(self, "cidrs")
 
 
@@ -3560,11 +2812,6 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
                  available_cidr_count: _builtins.int,
                  ip_set_references: Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult'],
                  utilized_cidr_count: _builtins.int):
-        """
-        :param _builtins.int available_cidr_count: Available number of CIDR blocks available for use by the IP set references in a firewall.
-        :param Sequence['GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceArgs'] ip_set_references: The list of IP set references used by a firewall.
-        :param _builtins.int utilized_cidr_count: Number of CIDR blocks used by the IP set references in a firewall.
-        """
         pulumi.set(__self__, "available_cidr_count", available_cidr_count)
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "utilized_cidr_count", utilized_cidr_count)
@@ -3572,25 +2819,16 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
     @_builtins.property
     @pulumi.getter(name="availableCidrCount")
     def available_cidr_count(self) -> _builtins.int:
-        """
-        Available number of CIDR blocks available for use by the IP set references in a firewall.
-        """
         return pulumi.get(self, "available_cidr_count")
 
     @_builtins.property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> Sequence['outputs.GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult']:
-        """
-        The list of IP set references used by a firewall.
-        """
         return pulumi.get(self, "ip_set_references")
 
     @_builtins.property
     @pulumi.getter(name="utilizedCidrCount")
     def utilized_cidr_count(self) -> _builtins.int:
-        """
-        Number of CIDR blocks used by the IP set references in a firewall.
-        """
         return pulumi.get(self, "utilized_cidr_count")
 
 
@@ -3598,17 +2836,11 @@ class GetFirewallFirewallStatusCapacityUsageSummaryCidrResult(dict):
 class GetFirewallFirewallStatusCapacityUsageSummaryCidrIpSetReferenceResult(dict):
     def __init__(__self__, *,
                  resolved_cidr_count: _builtins.int):
-        """
-        :param _builtins.int resolved_cidr_count: Total number of CIDR blocks used by the IP set references in a firewall.
-        """
         pulumi.set(__self__, "resolved_cidr_count", resolved_cidr_count)
 
     @_builtins.property
     @pulumi.getter(name="resolvedCidrCount")
     def resolved_cidr_count(self) -> _builtins.int:
-        """
-        Total number of CIDR blocks used by the IP set references in a firewall.
-        """
         return pulumi.get(self, "resolved_cidr_count")
 
 
@@ -3617,27 +2849,17 @@ class GetFirewallFirewallStatusSyncStateResult(dict):
     def __init__(__self__, *,
                  attachments: Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult'],
                  availability_zone: _builtins.str):
-        """
-        :param Sequence['GetFirewallFirewallStatusSyncStateAttachmentArgs'] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
-        :param _builtins.str availability_zone: The Availability Zone where the subnet is configured.
-        """
         pulumi.set(__self__, "attachments", attachments)
         pulumi.set(__self__, "availability_zone", availability_zone)
 
     @_builtins.property
     @pulumi.getter
     def attachments(self) -> Sequence['outputs.GetFirewallFirewallStatusSyncStateAttachmentResult']:
-        """
-        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
-        """
         return pulumi.get(self, "attachments")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        The Availability Zone where the subnet is configured.
-        """
         return pulumi.get(self, "availability_zone")
 
 
@@ -3648,12 +2870,6 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
                  status: _builtins.str,
                  status_message: _builtins.str,
                  subnet_id: _builtins.str):
-        """
-        :param _builtins.str endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        :param _builtins.str status: The current status of the firewall endpoint instantiation in the subnet.
-        :param _builtins.str status_message: A message providing additional information about the current status.
-        :param _builtins.str subnet_id: The unique identifier for the subnet.
-        """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "status_message", status_message)
@@ -3662,33 +2878,21 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
     @_builtins.property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> _builtins.str:
-        """
-        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        """
         return pulumi.get(self, "endpoint_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        The current status of the firewall endpoint instantiation in the subnet.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        A message providing additional information about the current status.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The unique identifier for the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -3698,11 +2902,6 @@ class GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult(dict):
                  attachment_id: _builtins.str,
                  status_message: _builtins.str,
                  transit_gateway_attachment_status: _builtins.str):
-        """
-        :param _builtins.str attachment_id: The unique identifier of the transit gateway attachment.
-        :param _builtins.str status_message: A message providing additional information about the current status.
-        :param _builtins.str transit_gateway_attachment_status: The current status of the transit gateway attachment.
-        """
         pulumi.set(__self__, "attachment_id", attachment_id)
         pulumi.set(__self__, "status_message", status_message)
         pulumi.set(__self__, "transit_gateway_attachment_status", transit_gateway_attachment_status)
@@ -3710,25 +2909,16 @@ class GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult(dict):
     @_builtins.property
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> _builtins.str:
-        """
-        The unique identifier of the transit gateway attachment.
-        """
         return pulumi.get(self, "attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
-        """
-        A message providing additional information about the current status.
-        """
         return pulumi.get(self, "status_message")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentStatus")
     def transit_gateway_attachment_status(self) -> _builtins.str:
-        """
-        The current status of the transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_status")
 
 
@@ -4004,17 +3194,11 @@ class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult(dict):
 class GetFirewallSubnetMappingResult(dict):
     def __init__(__self__, *,
                  subnet_id: _builtins.str):
-        """
-        :param _builtins.str subnet_id: The unique identifier for the subnet.
-        """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The unique identifier for the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 

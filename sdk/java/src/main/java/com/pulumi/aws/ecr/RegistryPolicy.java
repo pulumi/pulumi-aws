@@ -13,120 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Policy.
- * 
- * &gt; **NOTE on ECR Registry Policies:** While the AWS Management Console interface may suggest the ability to define multiple policies by creating multiple statements, ECR registry policies are effectively managed as singular entities at the regional level by the AWS APIs. Therefore, the `aws.ecr.RegistryPolicy` resource should be configured only once per region with all necessary statements defined in the same policy. Attempting to define multiple `aws.ecr.RegistryPolicy` resources may result in perpetual differences, with one policy overriding another.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.ecr.RegistryPolicy;
- * import com.pulumi.aws.ecr.RegistryPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var example = new RegistryPolicy("example", RegistryPolicyArgs.builder()
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", "testpolicy"),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
- *                         )),
- *                         jsonProperty("Action", jsonArray("ecr:ReplicateImage")),
- *                         jsonProperty("Resource", jsonArray(String.format("arn:%s:ecr:%s:%s:repository/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId())))
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
- * 
- * ```sh
- * $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/registryPolicy:RegistryPolicy")
 public class RegistryPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The registry ID where the registry was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the registry was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }

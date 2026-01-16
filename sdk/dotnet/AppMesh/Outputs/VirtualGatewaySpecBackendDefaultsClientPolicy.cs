@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicy
     {
-        /// <summary>
-        /// Transport Layer Security (TLS) client policy.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTls? Tls;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreGatewayTargetCredentialProviderConfiguration
     {
-        /// <summary>
-        /// API key-based authentication configuration. See `ApiKey` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey? ApiKey;
-        /// <summary>
-        /// Use the gateway's IAM role for authentication. This is an empty configuration block.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole? GatewayIamRole;
-        /// <summary>
-        /// OAuth-based authentication configuration. See `Oauth` below.
-        /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth? Oauth;
 
         [OutputConstructor]

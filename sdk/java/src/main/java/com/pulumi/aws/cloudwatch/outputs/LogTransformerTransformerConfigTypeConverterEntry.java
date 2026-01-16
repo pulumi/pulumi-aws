@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigTypeConverterEntry {
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     private String key;
-    /**
-     * @return Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-     * 
-     */
     private String type;
 
     private LogTransformerTransformerConfigTypeConverterEntry() {}
-    /**
-     * @return Specifies the key with the value that will be converted to a different type.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-     * 
-     */
     public String type() {
         return this.type;
     }

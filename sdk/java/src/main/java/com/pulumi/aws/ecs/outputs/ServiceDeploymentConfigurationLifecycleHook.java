@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDeploymentConfigurationLifecycleHook {
-    /**
-     * @return Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-     * 
-     */
     private @Nullable String hookDetails;
-    /**
-     * @return ARN of the Lambda function to invoke for the lifecycle hook.
-     * 
-     */
     private String hookTargetArn;
-    /**
-     * @return Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-     * 
-     */
     private List<String> lifecycleStages;
-    /**
-     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function.
-     * 
-     */
     private String roleArn;
 
     private ServiceDeploymentConfigurationLifecycleHook() {}
-    /**
-     * @return Custom parameters that Amazon ECS will pass to the hook target invocations (such as a Lambda function).
-     * 
-     */
     public Optional<String> hookDetails() {
         return Optional.ofNullable(this.hookDetails);
     }
-    /**
-     * @return ARN of the Lambda function to invoke for the lifecycle hook.
-     * 
-     */
     public String hookTargetArn() {
         return this.hookTargetArn;
     }
-    /**
-     * @return Stages during the deployment when the hook should be invoked. Valid values: `RECONCILE_SERVICE`, `PRE_SCALE_UP`, `POST_SCALE_UP`, `TEST_TRAFFIC_SHIFT`, `POST_TEST_TRAFFIC_SHIFT`, `PRODUCTION_TRAFFIC_SHIFT`, `POST_PRODUCTION_TRAFFIC_SHIFT`.
-     * 
-     */
     public List<String> lifecycleStages() {
         return this.lifecycleStages;
     }
-    /**
-     * @return ARN of the IAM role that grants the service permission to invoke the Lambda function.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRoutingProfileMediaConcurrencyCrossChannelBehavior {
-    /**
-     * @return Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
-     * 
-     */
     private String behaviorType;
 
     private GetRoutingProfileMediaConcurrencyCrossChannelBehavior() {}
-    /**
-     * @return Cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY`, `ROUTE_ANY_CHANNEL`.
-     * 
-     */
     public String behaviorType() {
         return this.behaviorType;
     }

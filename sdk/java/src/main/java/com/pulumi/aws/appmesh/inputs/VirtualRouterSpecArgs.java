@@ -16,19 +16,9 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
 
     public static final VirtualRouterSpecArgs Empty = new VirtualRouterSpecArgs();
 
-    /**
-     * Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
-     * 
-     */
     @Import(name="listeners")
     private @Nullable Output<List<VirtualRouterSpecListenerArgs>> listeners;
 
-    /**
-     * @return Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
-     * 
-     */
     public Optional<Output<List<VirtualRouterSpecListenerArgs>>> listeners() {
         return Optional.ofNullable(this.listeners);
     }
@@ -57,36 +47,15 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
             $ = new VirtualRouterSpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
-         * Currently only one listener is supported per virtual router.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listeners(@Nullable Output<List<VirtualRouterSpecListenerArgs>> listeners) {
             $.listeners = listeners;
             return this;
         }
 
-        /**
-         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
-         * Currently only one listener is supported per virtual router.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listeners(List<VirtualRouterSpecListenerArgs> listeners) {
             return listeners(Output.of(listeners));
         }
 
-        /**
-         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
-         * Currently only one listener is supported per virtual router.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listeners(VirtualRouterSpecListenerArgs... listeners) {
             return listeners(List.of(listeners));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsTimecodeConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The source for the timecode that will be associated with the events outputs.
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
-        /// <summary>
-        /// Threshold in frames beyond which output timecode is resynchronized to the input timecode.
-        /// </summary>
         [Input("syncThreshold")]
         public Input<int>? SyncThreshold { get; set; }
 

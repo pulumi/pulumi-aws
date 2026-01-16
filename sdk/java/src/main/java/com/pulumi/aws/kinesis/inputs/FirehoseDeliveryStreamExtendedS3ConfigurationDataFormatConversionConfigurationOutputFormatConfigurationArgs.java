@@ -14,17 +14,9 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs();
 
-    /**
-     * Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
-     * 
-     */
     @Import(name="serializer", required=true)
     private Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs> serializer;
 
-    /**
-     * @return Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
-     * 
-     */
     public Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs> serializer() {
         return this.serializer;
     }
@@ -53,23 +45,11 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
             $ = new FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param serializer Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serializer(Output<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs> serializer) {
             $.serializer = serializer;
             return this;
         }
 
-        /**
-         * @param serializer Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serializer(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs serializer) {
             return serializer(Output.of(serializer));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("containerArguments")]
         private InputList<string>? _containerArguments;
-
-        /// <summary>
-        /// The arguments for the container when you're running the application.
-        /// </summary>
         public InputList<string> ContainerArguments
         {
             get => _containerArguments ?? (_containerArguments = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("containerEntrypoints")]
         private InputList<string>? _containerEntrypoints;
-
-        /// <summary>
-        /// The entrypoint used to run the application in the container.
-        /// </summary>
         public InputList<string> ContainerEntrypoints
         {
             get => _containerEntrypoints ?? (_containerEntrypoints = new InputList<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("containerEnvironmentVariables")]
         private InputMap<string>? _containerEnvironmentVariables;
-
-        /// <summary>
-        /// The environment variables to set in the container.
-        /// </summary>
         public InputMap<string> ContainerEnvironmentVariables
         {
             get => _containerEnvironmentVariables ?? (_containerEnvironmentVariables = new InputMap<string>());

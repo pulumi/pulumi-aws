@@ -24,9 +24,6 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the data stream or consumer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -36,9 +33,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy document.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,9 +42,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the data stream or consumer.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -60,9 +51,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _ResourcePolicyState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the data stream or consumer.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -92,9 +77,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy document.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -104,9 +86,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the data stream or consumer.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -137,55 +113,9 @@ class ResourcePolicy(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an Amazon Kinesis Streams resource policy.
-        Use a resource policy to manage cross-account access to your data streams or consumers.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kinesis.ResourcePolicy("example",
-            resource_arn=example_aws_kinesis_stream["arn"],
-            policy=f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Id\\": \\"writePolicy\\",
-          \\"Statement\\": [{{
-            \\"Sid\\": \\"writestatement\\",
-            \\"Effect\\": \\"Allow\\",
-            \\"Principal\\": {{
-              \\"AWS\\": \\"123456789456\\"
-            }},
-            \\"Action\\": [
-              \\"kinesis:DescribeStreamSummary\\",
-              \\"kinesis:ListShards\\",
-              \\"kinesis:PutRecord\\",
-              \\"kinesis:PutRecords\\"
-            ],
-            \\"Resource\\": \\"{example_aws_kinesis_stream["arn"]}\\"
-          }}]
-        }}
-        \"\"\")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
-
-        Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
-
-        % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the data stream or consumer.
         """
         ...
     @overload
@@ -194,50 +124,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an Amazon Kinesis Streams resource policy.
-        Use a resource policy to manage cross-account access to your data streams or consumers.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kinesis.ResourcePolicy("example",
-            resource_arn=example_aws_kinesis_stream["arn"],
-            policy=f\"\"\"{{
-          \\"Version\\": \\"2012-10-17\\",
-          \\"Id\\": \\"writePolicy\\",
-          \\"Statement\\": [{{
-            \\"Sid\\": \\"writestatement\\",
-            \\"Effect\\": \\"Allow\\",
-            \\"Principal\\": {{
-              \\"AWS\\": \\"123456789456\\"
-            }},
-            \\"Action\\": [
-              \\"kinesis:DescribeStreamSummary\\",
-              \\"kinesis:ListShards\\",
-              \\"kinesis:PutRecord\\",
-              \\"kinesis:PutRecords\\"
-            ],
-            \\"Resource\\": \\"{example_aws_kinesis_stream["arn"]}\\"
-          }}]
-        }}
-        \"\"\")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
-
-        Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
-
-        % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,9 +179,6 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the data stream or consumer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -308,24 +192,15 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The policy document.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the data stream or consumer.
-        """
         return pulumi.get(self, "resource_arn")
 

@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EKS Identity Provider Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.IdentityProviderConfig("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     oidc: {
- *         clientId: "your client_id",
- *         identityProviderConfigName: "example",
- *         issuerUrl: "your issuer_url",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
- *
- * ```sh
- * $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
- * ```
- */
 export class IdentityProviderConfig extends pulumi.CustomResource {
     /**
      * Get an existing IdentityProviderConfig resource's state with the given name, ID, and optional extra
@@ -62,33 +35,12 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityProviderConfig.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the EKS Cluster.
-     */
     declare public readonly clusterName: pulumi.Output<string>;
-    /**
-     * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     */
     declare public readonly oidc: pulumi.Output<outputs.eks.IdentityProviderConfigOidc>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the EKS Identity Provider Configuration.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -136,33 +88,12 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IdentityProviderConfig resources.
  */
 export interface IdentityProviderConfigState {
-    /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the EKS Cluster.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     */
     oidc?: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the EKS Identity Provider Configuration.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -170,20 +101,8 @@ export interface IdentityProviderConfigState {
  * The set of arguments for constructing a IdentityProviderConfig resource.
  */
 export interface IdentityProviderConfigArgs {
-    /**
-     * Name of the EKS Cluster.
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     */
     oidc: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

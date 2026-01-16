@@ -13,9 +13,6 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class IdcApplicationServiceIntegrationLakeFormation
     {
-        /// <summary>
-        /// Lake formation scope.
-        /// </summary>
         public readonly Outputs.IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery? LakeFormationQuery;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomRoutingAcceleratorIpSet {
-    /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-     * 
-     */
     private @Nullable List<String> ipAddresses;
-    /**
-     * @return The type of IP addresses included in this IP set.
-     * 
-     */
     private @Nullable String ipFamily;
 
     private CustomRoutingAcceleratorIpSet() {}
-    /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-     * 
-     */
     public List<String> ipAddresses() {
         return this.ipAddresses == null ? List.of() : this.ipAddresses;
     }
-    /**
-     * @return The type of IP addresses included in this IP set.
-     * 
-     */
     public Optional<String> ipFamily() {
         return Optional.ofNullable(this.ipFamily);
     }

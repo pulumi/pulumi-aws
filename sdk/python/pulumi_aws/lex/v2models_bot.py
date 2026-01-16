@@ -34,18 +34,6 @@ class V2modelsBotArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a V2modelsBot resource.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        :param pulumi.Input[_builtins.str] description: Description of the bot. It appears in lists to help you identify a particular bot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]] members: List of bot members in a network to be created. See `bot_members`.
-        :param pulumi.Input[_builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        :param pulumi.Input[_builtins.str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -71,9 +59,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Input[_builtins.int]:
-        """
-        Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
@@ -83,11 +68,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of an IAM role that has permission to access the bot.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -97,9 +77,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter(name="dataPrivacies")
     def data_privacies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]]:
-        """
-        Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        """
         return pulumi.get(self, "data_privacies")
 
     @data_privacies.setter
@@ -109,9 +86,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the bot. It appears in lists to help you identify a particular bot.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -121,9 +95,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]:
-        """
-        List of bot members in a network to be created. See `bot_members`.
-        """
         return pulumi.get(self, "members")
 
     @members.setter
@@ -133,9 +104,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -145,9 +113,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -157,9 +122,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of tags to add to the bot. You can only add tags when you create a bot.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -169,9 +131,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter(name="testBotAliasTags")
     def test_bot_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        """
         return pulumi.get(self, "test_bot_alias_tags")
 
     @test_bot_alias_tags.setter
@@ -190,9 +149,6 @@ class V2modelsBotArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -218,18 +174,6 @@ class _V2modelsBotState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering V2modelsBot resources.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        :param pulumi.Input[_builtins.str] description: Description of the bot. It appears in lists to help you identify a particular bot.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]] members: List of bot members in a network to be created. See `bot_members`.
-        :param pulumi.Input[_builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        :param pulumi.Input[_builtins.str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -270,9 +214,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter(name="dataPrivacies")
     def data_privacies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]]:
-        """
-        Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        """
         return pulumi.get(self, "data_privacies")
 
     @data_privacies.setter
@@ -282,9 +223,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the bot. It appears in lists to help you identify a particular bot.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -294,9 +232,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
@@ -306,9 +241,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]:
-        """
-        List of bot members in a network to be created. See `bot_members`.
-        """
         return pulumi.get(self, "members")
 
     @members.setter
@@ -318,9 +250,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -330,9 +259,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -342,11 +268,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an IAM role that has permission to access the bot.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -356,9 +277,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of tags to add to the bot. You can only add tags when you create a bot.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -377,9 +295,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter(name="testBotAliasTags")
     def test_bot_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        """
         return pulumi.get(self, "test_bot_alias_tags")
 
     @test_bot_alias_tags.setter
@@ -398,9 +313,6 @@ class _V2modelsBotState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -427,69 +339,9 @@ class V2modelsBot(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lex V2 Models Bot.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "lexv2.amazonaws.com",
-                    },
-                }],
-            }),
-            tags={
-                "created_by": "aws",
-            })
-        example = aws.lex.V2modelsBot("example",
-            name="example",
-            description="Example description",
-            data_privacies=[{
-                "child_directed": False,
-            }],
-            idle_session_ttl_in_seconds=60,
-            role_arn=example_role.arn,
-            type="Bot",
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
-        ```
-
+        Create a V2modelsBot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        :param pulumi.Input[_builtins.str] description: Description of the bot. It appears in lists to help you identify a particular bot.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]] members: List of bot members in a network to be created. See `bot_members`.
-        :param pulumi.Input[_builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        :param pulumi.Input[_builtins.str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         ...
     @overload
@@ -498,55 +350,7 @@ class V2modelsBot(pulumi.CustomResource):
                  args: V2modelsBotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lex V2 Models Bot.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("example",
-            name="example",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "lexv2.amazonaws.com",
-                    },
-                }],
-            }),
-            tags={
-                "created_by": "aws",
-            })
-        example = aws.lex.V2modelsBot("example",
-            name="example",
-            description="Example description",
-            data_privacies=[{
-                "child_directed": False,
-            }],
-            idle_session_ttl_in_seconds=60,
-            role_arn=example_role.arn,
-            type="Bot",
-            tags={
-                "foo": "bar",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
-        ```
-
+        Create a V2modelsBot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param V2modelsBotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -629,18 +433,6 @@ class V2modelsBot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        :param pulumi.Input[_builtins.str] description: Description of the bot. It appears in lists to help you identify a particular bot.
-        :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]] members: List of bot members in a network to be created. See `bot_members`.
-        :param pulumi.Input[_builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        :param pulumi.Input[_builtins.str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -669,67 +461,41 @@ class V2modelsBot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dataPrivacies")
     def data_privacies(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsBotDataPrivacy']]]:
-        """
-        Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
-        """
         return pulumi.get(self, "data_privacies")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the bot. It appears in lists to help you identify a particular bot.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Output[_builtins.int]:
-        """
-        Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @_builtins.property
     @pulumi.getter
     def members(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsBotMember']]]:
-        """
-        List of bot members in a network to be created. See `bot_members`.
-        """
         return pulumi.get(self, "members")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of an IAM role that has permission to access the bot.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        List of tags to add to the bot. You can only add tags when you create a bot.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -740,9 +506,6 @@ class V2modelsBot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="testBotAliasTags")
     def test_bot_alias_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
-        """
         return pulumi.get(self, "test_bot_alias_tags")
 
     @_builtins.property
@@ -753,8 +516,5 @@ class V2modelsBot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
-        """
         return pulumi.get(self, "type")
 

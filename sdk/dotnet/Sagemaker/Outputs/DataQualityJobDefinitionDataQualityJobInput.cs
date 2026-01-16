@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobInput
     {
-        /// <summary>
-        /// Input object for the batch transform job. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInput? BatchTransformInput;
-        /// <summary>
-        /// Input object for the endpoint. Fields are documented below.
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionDataQualityJobInputEndpointInput? EndpointInput;
 
         [OutputConstructor]

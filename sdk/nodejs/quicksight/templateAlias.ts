@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight Template Alias.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.TemplateAlias("example", {
- *     aliasName: "example-alias",
- *     templateId: test.templateId,
- *     templateVersionNumber: test.versionNumber,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
- * ```
- */
 export class TemplateAlias extends pulumi.CustomResource {
     /**
      * Get an existing TemplateAlias resource's state with the given name, ID, and optional extra
@@ -58,28 +32,11 @@ export class TemplateAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === TemplateAlias.__pulumiType;
     }
 
-    /**
-     * Display name of the template alias.
-     */
     declare public readonly aliasName: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the template alias.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the template.
-     */
     declare public readonly templateId: pulumi.Output<string>;
-    /**
-     * Version number of the template.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly templateVersionNumber: pulumi.Output<number>;
 
     /**
@@ -128,28 +85,11 @@ export class TemplateAlias extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TemplateAlias resources.
  */
 export interface TemplateAliasState {
-    /**
-     * Display name of the template alias.
-     */
     aliasName?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the template alias.
-     */
     arn?: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the template.
-     */
     templateId?: pulumi.Input<string>;
-    /**
-     * Version number of the template.
-     *
-     * The following arguments are optional:
-     */
     templateVersionNumber?: pulumi.Input<number>;
 }
 
@@ -157,23 +97,9 @@ export interface TemplateAliasState {
  * The set of arguments for constructing a TemplateAlias resource.
  */
 export interface TemplateAliasArgs {
-    /**
-     * Display name of the template alias.
-     */
     aliasName: pulumi.Input<string>;
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the template.
-     */
     templateId: pulumi.Input<string>;
-    /**
-     * Version number of the template.
-     *
-     * The following arguments are optional:
-     */
     templateVersionNumber: pulumi.Input<number>;
 }

@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Batch.Outputs
     {
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir? EmptyDir;
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath? HostPath;
-        /// <summary>
-        /// Name of the job definition.
-        /// </summary>
         public readonly string? Name;
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret? Secret;
 

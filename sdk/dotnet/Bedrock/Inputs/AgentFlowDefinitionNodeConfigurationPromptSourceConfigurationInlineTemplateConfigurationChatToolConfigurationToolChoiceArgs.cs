@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        /// </summary>
         [Input("any")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs>? Any { get; set; }
 
-        /// <summary>
-        /// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-        /// </summary>
         [Input("auto")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs>? Auto { get; set; }
 
-        /// <summary>
-        /// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-        /// </summary>
         [Input("tool")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs>? Tool { get; set; }
 

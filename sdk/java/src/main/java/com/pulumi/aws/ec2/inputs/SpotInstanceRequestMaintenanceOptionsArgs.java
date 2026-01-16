@@ -15,17 +15,9 @@ public final class SpotInstanceRequestMaintenanceOptionsArgs extends com.pulumi.
 
     public static final SpotInstanceRequestMaintenanceOptionsArgs Empty = new SpotInstanceRequestMaintenanceOptionsArgs();
 
-    /**
-     * Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-     * 
-     */
     @Import(name="autoRecovery")
     private @Nullable Output<String> autoRecovery;
 
-    /**
-     * @return Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-     * 
-     */
     public Optional<Output<String>> autoRecovery() {
         return Optional.ofNullable(this.autoRecovery);
     }
@@ -54,23 +46,11 @@ public final class SpotInstanceRequestMaintenanceOptionsArgs extends com.pulumi.
             $ = new SpotInstanceRequestMaintenanceOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoRecovery Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoRecovery(@Nullable Output<String> autoRecovery) {
             $.autoRecovery = autoRecovery;
             return this;
         }
 
-        /**
-         * @param autoRecovery Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoRecovery(String autoRecovery) {
             return autoRecovery(Output.of(autoRecovery));
         }

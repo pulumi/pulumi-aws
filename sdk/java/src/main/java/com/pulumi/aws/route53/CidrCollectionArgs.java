@@ -15,17 +15,9 @@ public final class CidrCollectionArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final CidrCollectionArgs Empty = new CidrCollectionArgs();
 
-    /**
-     * Unique name for the CIDR collection.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name for the CIDR collection.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,23 +46,11 @@ public final class CidrCollectionArgs extends com.pulumi.resources.ResourceArgs 
             $ = new CidrCollectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Unique name for the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name for the CIDR collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -18,47 +18,23 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs extends com
 
     public static final LifecyclePolicyPolicyDetailsScheduleShareRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleShareRuleArgs();
 
-    /**
-     * The IDs of the AWS accounts with which to share the snapshots.
-     * 
-     */
     @Import(name="targetAccounts", required=true)
     private Output<List<String>> targetAccounts;
 
-    /**
-     * @return The IDs of the AWS accounts with which to share the snapshots.
-     * 
-     */
     public Output<List<String>> targetAccounts() {
         return this.targetAccounts;
     }
 
-    /**
-     * The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-     * 
-     */
     @Import(name="unshareInterval")
     private @Nullable Output<Integer> unshareInterval;
 
-    /**
-     * @return The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-     * 
-     */
     public Optional<Output<Integer>> unshareInterval() {
         return Optional.ofNullable(this.unshareInterval);
     }
 
-    /**
-     * The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-     * 
-     */
     @Import(name="unshareIntervalUnit")
     private @Nullable Output<String> unshareIntervalUnit;
 
-    /**
-     * @return The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-     * 
-     */
     public Optional<Output<String>> unshareIntervalUnit() {
         return Optional.ofNullable(this.unshareIntervalUnit);
     }
@@ -89,75 +65,33 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs extends com
             $ = new LifecyclePolicyPolicyDetailsScheduleShareRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetAccounts The IDs of the AWS accounts with which to share the snapshots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetAccounts(Output<List<String>> targetAccounts) {
             $.targetAccounts = targetAccounts;
             return this;
         }
 
-        /**
-         * @param targetAccounts The IDs of the AWS accounts with which to share the snapshots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetAccounts(List<String> targetAccounts) {
             return targetAccounts(Output.of(targetAccounts));
         }
 
-        /**
-         * @param targetAccounts The IDs of the AWS accounts with which to share the snapshots.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetAccounts(String... targetAccounts) {
             return targetAccounts(List.of(targetAccounts));
         }
 
-        /**
-         * @param unshareInterval The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unshareInterval(@Nullable Output<Integer> unshareInterval) {
             $.unshareInterval = unshareInterval;
             return this;
         }
 
-        /**
-         * @param unshareInterval The period after which snapshots that are shared with other AWS accounts are automatically unshared.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unshareInterval(Integer unshareInterval) {
             return unshareInterval(Output.of(unshareInterval));
         }
 
-        /**
-         * @param unshareIntervalUnit The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unshareIntervalUnit(@Nullable Output<String> unshareIntervalUnit) {
             $.unshareIntervalUnit = unshareIntervalUnit;
             return this;
         }
 
-        /**
-         * @param unshareIntervalUnit The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unshareIntervalUnit(String unshareIntervalUnit) {
             return unshareIntervalUnit(Output.of(unshareIntervalUnit));
         }

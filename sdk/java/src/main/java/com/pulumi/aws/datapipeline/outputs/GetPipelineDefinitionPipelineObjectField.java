@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPipelineDefinitionPipelineObjectField {
-    /**
-     * @return Field identifier.
-     * 
-     */
     private String key;
-    /**
-     * @return Field value, expressed as the identifier of another object
-     * 
-     */
     private String refValue;
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     private String stringValue;
 
     private GetPipelineDefinitionPipelineObjectField() {}
-    /**
-     * @return Field identifier.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Field value, expressed as the identifier of another object
-     * 
-     */
     public String refValue() {
         return this.refValue;
     }
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     public String stringValue() {
         return this.stringValue;
     }

@@ -65,27 +65,17 @@ class EfsLocationEc2Config(dict):
     def __init__(__self__, *,
                  security_group_arns: Sequence[_builtins.str],
                  subnet_arn: _builtins.str):
-        """
-        :param Sequence[_builtins.str] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-        :param _builtins.str subnet_arn: Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-        """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "subnet_arn", subnet_arn)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-        """
         return pulumi.get(self, "security_group_arns")
 
     @_builtins.property
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> _builtins.str:
-        """
-        Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-        """
         return pulumi.get(self, "subnet_arn")
 
 
@@ -93,17 +83,11 @@ class EfsLocationEc2Config(dict):
 class FsxOpenZfsFileSystemProtocol(dict):
     def __init__(__self__, *,
                  nfs: 'outputs.FsxOpenZfsFileSystemProtocolNfs'):
-        """
-        :param 'FsxOpenZfsFileSystemProtocolNfsArgs' nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-        """
         pulumi.set(__self__, "nfs", nfs)
 
     @_builtins.property
     @pulumi.getter
     def nfs(self) -> 'outputs.FsxOpenZfsFileSystemProtocolNfs':
-        """
-        Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-        """
         return pulumi.get(self, "nfs")
 
 
@@ -128,17 +112,11 @@ class FsxOpenZfsFileSystemProtocolNfs(dict):
 
     def __init__(__self__, *,
                  mount_options: 'outputs.FsxOpenZfsFileSystemProtocolNfsMountOptions'):
-        """
-        :param 'FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs' mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
-        """
         pulumi.set(__self__, "mount_options", mount_options)
 
     @_builtins.property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> 'outputs.FsxOpenZfsFileSystemProtocolNfsMountOptions':
-        """
-        Represents the mount options that are available for DataSync to access an NFS location. See below.
-        """
         return pulumi.get(self, "mount_options")
 
 
@@ -146,18 +124,12 @@ class FsxOpenZfsFileSystemProtocolNfs(dict):
 class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-        """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-        """
         return pulumi.get(self, "version")
 
 
@@ -165,17 +137,11 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
 class LocationAzureBlobSasConfiguration(dict):
     def __init__(__self__, *,
                  token: _builtins.str):
-        """
-        :param _builtins.str token: A SAS token that provides permissions to access your Azure Blob Storage.
-        """
         pulumi.set(__self__, "token", token)
 
     @_builtins.property
     @pulumi.getter
     def token(self) -> _builtins.str:
-        """
-        A SAS token that provides permissions to access your Azure Blob Storage.
-        """
         return pulumi.get(self, "token")
 
 
@@ -184,10 +150,6 @@ class LocationFsxOntapFileSystemProtocol(dict):
     def __init__(__self__, *,
                  nfs: Optional['outputs.LocationFsxOntapFileSystemProtocolNfs'] = None,
                  smb: Optional['outputs.LocationFsxOntapFileSystemProtocolSmb'] = None):
-        """
-        :param 'LocationFsxOntapFileSystemProtocolNfsArgs' nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-        :param 'LocationFsxOntapFileSystemProtocolSmbArgs' smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-        """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
         if smb is not None:
@@ -196,17 +158,11 @@ class LocationFsxOntapFileSystemProtocol(dict):
     @_builtins.property
     @pulumi.getter
     def nfs(self) -> Optional['outputs.LocationFsxOntapFileSystemProtocolNfs']:
-        """
-        Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-        """
         return pulumi.get(self, "nfs")
 
     @_builtins.property
     @pulumi.getter
     def smb(self) -> Optional['outputs.LocationFsxOntapFileSystemProtocolSmb']:
-        """
-        Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
-        """
         return pulumi.get(self, "smb")
 
 
@@ -231,17 +187,11 @@ class LocationFsxOntapFileSystemProtocolNfs(dict):
 
     def __init__(__self__, *,
                  mount_options: 'outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions'):
-        """
-        :param 'LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs' mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-        """
         pulumi.set(__self__, "mount_options", mount_options)
 
     @_builtins.property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> 'outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions':
-        """
-        Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
-        """
         return pulumi.get(self, "mount_options")
 
 
@@ -282,12 +232,6 @@ class LocationFsxOntapFileSystemProtocolSmb(dict):
                  password: _builtins.str,
                  user: _builtins.str,
                  domain: Optional[_builtins.str] = None):
-        """
-        :param 'LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs' mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-        :param _builtins.str password: Password of a user who has permission to access your SVM.
-        :param _builtins.str user: Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-        :param _builtins.str domain: Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-        """
         pulumi.set(__self__, "mount_options", mount_options)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "user", user)
@@ -297,33 +241,21 @@ class LocationFsxOntapFileSystemProtocolSmb(dict):
     @_builtins.property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> 'outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions':
-        """
-        Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
-        """
         return pulumi.get(self, "mount_options")
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> _builtins.str:
-        """
-        Password of a user who has permission to access your SVM.
-        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def user(self) -> _builtins.str:
-        """
-        Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-        """
         return pulumi.get(self, "user")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[_builtins.str]:
-        """
-        Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-        """
         return pulumi.get(self, "domain")
 
 
@@ -345,27 +277,17 @@ class LocationHdfsNameNode(dict):
     def __init__(__self__, *,
                  hostname: _builtins.str,
                  port: _builtins.int):
-        """
-        :param _builtins.str hostname: The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
-        :param _builtins.int port: The port that the NameNode uses to listen to client requests.
-        """
         pulumi.set(__self__, "hostname", hostname)
         pulumi.set(__self__, "port", port)
 
     @_builtins.property
     @pulumi.getter
     def hostname(self) -> _builtins.str:
-        """
-        The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
-        """
         return pulumi.get(self, "hostname")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        The port that the NameNode uses to listen to client requests.
-        """
         return pulumi.get(self, "port")
 
 
@@ -393,10 +315,6 @@ class LocationHdfsQopConfiguration(dict):
     def __init__(__self__, *,
                  data_transfer_protection: Optional[_builtins.str] = None,
                  rpc_protection: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str data_transfer_protection: The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-        :param _builtins.str rpc_protection: The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-        """
         if data_transfer_protection is not None:
             pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
         if rpc_protection is not None:
@@ -405,17 +323,11 @@ class LocationHdfsQopConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="dataTransferProtection")
     def data_transfer_protection(self) -> Optional[_builtins.str]:
-        """
-        The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-        """
         return pulumi.get(self, "data_transfer_protection")
 
     @_builtins.property
     @pulumi.getter(name="rpcProtection")
     def rpc_protection(self) -> Optional[_builtins.str]:
-        """
-        The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-        """
         return pulumi.get(self, "rpc_protection")
 
 
@@ -423,18 +335,12 @@ class LocationHdfsQopConfiguration(dict):
 class LocationSmbMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str version: The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
-        """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
-        """
         return pulumi.get(self, "version")
 
 
@@ -442,18 +348,12 @@ class LocationSmbMountOptions(dict):
 class NfsLocationMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-        """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
-        """
-        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-        """
         return pulumi.get(self, "version")
 
 
@@ -478,17 +378,11 @@ class NfsLocationOnPremConfig(dict):
 
     def __init__(__self__, *,
                  agent_arns: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-        """
         pulumi.set(__self__, "agent_arns", agent_arns)
 
     @_builtins.property
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-        """
         return pulumi.get(self, "agent_arns")
 
 
@@ -513,17 +407,11 @@ class S3LocationS3Config(dict):
 
     def __init__(__self__, *,
                  bucket_access_role_arn: _builtins.str):
-        """
-        :param _builtins.str bucket_access_role_arn: ARN of the IAM Role used to connect to the S3 Bucket.
-        """
         pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
 
     @_builtins.property
     @pulumi.getter(name="bucketAccessRoleArn")
     def bucket_access_role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM Role used to connect to the S3 Bucket.
-        """
         return pulumi.get(self, "bucket_access_role_arn")
 
 
@@ -549,10 +437,6 @@ class TaskExcludes(dict):
     def __init__(__self__, *,
                  filter_type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-        :param _builtins.str value: A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-        """
         if filter_type is not None:
             pulumi.set(__self__, "filter_type", filter_type)
         if value is not None:
@@ -561,17 +445,11 @@ class TaskExcludes(dict):
     @_builtins.property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[_builtins.str]:
-        """
-        The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-        """
         return pulumi.get(self, "filter_type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-        """
         return pulumi.get(self, "value")
 
 
@@ -597,10 +475,6 @@ class TaskIncludes(dict):
     def __init__(__self__, *,
                  filter_type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-        :param _builtins.str value: A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-        """
         if filter_type is not None:
             pulumi.set(__self__, "filter_type", filter_type)
         if value is not None:
@@ -609,17 +483,11 @@ class TaskIncludes(dict):
     @_builtins.property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[_builtins.str]:
-        """
-        The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-        """
         return pulumi.get(self, "filter_type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-        """
         return pulumi.get(self, "value")
 
 
@@ -678,23 +546,6 @@ class TaskOptions(dict):
                  transfer_mode: Optional[_builtins.str] = None,
                  uid: Optional[_builtins.str] = None,
                  verify_mode: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str atime: A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-        :param _builtins.int bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
-        :param _builtins.str gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-        :param _builtins.str log_level: Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
-        :param _builtins.str mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-        :param _builtins.str object_tags: Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
-        :param _builtins.str overwrite_mode: Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
-        :param _builtins.str posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-        :param _builtins.str preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
-        :param _builtins.str preserve_devices: Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-        :param _builtins.str security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
-        :param _builtins.str task_queueing: Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
-        :param _builtins.str transfer_mode: Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
-        :param _builtins.str uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-        :param _builtins.str verify_mode: Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
-        """
         if atime is not None:
             pulumi.set(__self__, "atime", atime)
         if bytes_per_second is not None:
@@ -729,121 +580,76 @@ class TaskOptions(dict):
     @_builtins.property
     @pulumi.getter
     def atime(self) -> Optional[_builtins.str]:
-        """
-        A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-        """
         return pulumi.get(self, "atime")
 
     @_builtins.property
     @pulumi.getter(name="bytesPerSecond")
     def bytes_per_second(self) -> Optional[_builtins.int]:
-        """
-        Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
-        """
         return pulumi.get(self, "bytes_per_second")
 
     @_builtins.property
     @pulumi.getter
     def gid(self) -> Optional[_builtins.str]:
-        """
-        Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-        """
         return pulumi.get(self, "gid")
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[_builtins.str]:
-        """
-        Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
-        """
         return pulumi.get(self, "log_level")
 
     @_builtins.property
     @pulumi.getter
     def mtime(self) -> Optional[_builtins.str]:
-        """
-        A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-        """
         return pulumi.get(self, "mtime")
 
     @_builtins.property
     @pulumi.getter(name="objectTags")
     def object_tags(self) -> Optional[_builtins.str]:
-        """
-        Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
-        """
         return pulumi.get(self, "object_tags")
 
     @_builtins.property
     @pulumi.getter(name="overwriteMode")
     def overwrite_mode(self) -> Optional[_builtins.str]:
-        """
-        Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
-        """
         return pulumi.get(self, "overwrite_mode")
 
     @_builtins.property
     @pulumi.getter(name="posixPermissions")
     def posix_permissions(self) -> Optional[_builtins.str]:
-        """
-        Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-        """
         return pulumi.get(self, "posix_permissions")
 
     @_builtins.property
     @pulumi.getter(name="preserveDeletedFiles")
     def preserve_deleted_files(self) -> Optional[_builtins.str]:
-        """
-        Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
-        """
         return pulumi.get(self, "preserve_deleted_files")
 
     @_builtins.property
     @pulumi.getter(name="preserveDevices")
     def preserve_devices(self) -> Optional[_builtins.str]:
-        """
-        Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-        """
         return pulumi.get(self, "preserve_devices")
 
     @_builtins.property
     @pulumi.getter(name="securityDescriptorCopyFlags")
     def security_descriptor_copy_flags(self) -> Optional[_builtins.str]:
-        """
-        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
-        """
         return pulumi.get(self, "security_descriptor_copy_flags")
 
     @_builtins.property
     @pulumi.getter(name="taskQueueing")
     def task_queueing(self) -> Optional[_builtins.str]:
-        """
-        Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
-        """
         return pulumi.get(self, "task_queueing")
 
     @_builtins.property
     @pulumi.getter(name="transferMode")
     def transfer_mode(self) -> Optional[_builtins.str]:
-        """
-        Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
-        """
         return pulumi.get(self, "transfer_mode")
 
     @_builtins.property
     @pulumi.getter
     def uid(self) -> Optional[_builtins.str]:
-        """
-        User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-        """
         return pulumi.get(self, "uid")
 
     @_builtins.property
     @pulumi.getter(name="verifyMode")
     def verify_mode(self) -> Optional[_builtins.str]:
-        """
-        Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
-        """
         return pulumi.get(self, "verify_mode")
 
 
@@ -868,17 +674,11 @@ class TaskSchedule(dict):
 
     def __init__(__self__, *,
                  schedule_expression: _builtins.str):
-        """
-        :param _builtins.str schedule_expression: Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-        """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> _builtins.str:
-        """
-        Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-        """
         return pulumi.get(self, "schedule_expression")
 
 
@@ -915,13 +715,6 @@ class TaskTaskReportConfig(dict):
                  report_level: Optional[_builtins.str] = None,
                  report_overrides: Optional['outputs.TaskTaskReportConfigReportOverrides'] = None,
                  s3_object_versioning: Optional[_builtins.str] = None):
-        """
-        :param 'TaskTaskReportConfigS3DestinationArgs' s3_destination: Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
-        :param _builtins.str output_type: Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
-        :param _builtins.str report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        :param 'TaskTaskReportConfigReportOverridesArgs' report_overrides: Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
-        :param _builtins.str s3_object_versioning: Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
-        """
         pulumi.set(__self__, "s3_destination", s3_destination)
         if output_type is not None:
             pulumi.set(__self__, "output_type", output_type)
@@ -935,41 +728,26 @@ class TaskTaskReportConfig(dict):
     @_builtins.property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> 'outputs.TaskTaskReportConfigS3Destination':
-        """
-        Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
-        """
         return pulumi.get(self, "s3_destination")
 
     @_builtins.property
     @pulumi.getter(name="outputType")
     def output_type(self) -> Optional[_builtins.str]:
-        """
-        Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
-        """
         return pulumi.get(self, "output_type")
 
     @_builtins.property
     @pulumi.getter(name="reportLevel")
     def report_level(self) -> Optional[_builtins.str]:
-        """
-        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        """
         return pulumi.get(self, "report_level")
 
     @_builtins.property
     @pulumi.getter(name="reportOverrides")
     def report_overrides(self) -> Optional['outputs.TaskTaskReportConfigReportOverrides']:
-        """
-        Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
-        """
         return pulumi.get(self, "report_overrides")
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersioning")
     def s3_object_versioning(self) -> Optional[_builtins.str]:
-        """
-        Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
-        """
         return pulumi.get(self, "s3_object_versioning")
 
 
@@ -1003,14 +781,6 @@ class TaskTaskReportConfigReportOverrides(dict):
                  skipped_override: Optional[_builtins.str] = None,
                  transferred_override: Optional[_builtins.str] = None,
                  verified_override: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str deleted_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        :param _builtins.str skipped_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        :param _builtins.str transferred_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        :param _builtins.str verified_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-               
-               > **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-        """
         if deleted_override is not None:
             pulumi.set(__self__, "deleted_override", deleted_override)
         if skipped_override is not None:
@@ -1023,35 +793,21 @@ class TaskTaskReportConfigReportOverrides(dict):
     @_builtins.property
     @pulumi.getter(name="deletedOverride")
     def deleted_override(self) -> Optional[_builtins.str]:
-        """
-        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        """
         return pulumi.get(self, "deleted_override")
 
     @_builtins.property
     @pulumi.getter(name="skippedOverride")
     def skipped_override(self) -> Optional[_builtins.str]:
-        """
-        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        """
         return pulumi.get(self, "skipped_override")
 
     @_builtins.property
     @pulumi.getter(name="transferredOverride")
     def transferred_override(self) -> Optional[_builtins.str]:
-        """
-        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-        """
         return pulumi.get(self, "transferred_override")
 
     @_builtins.property
     @pulumi.getter(name="verifiedOverride")
     def verified_override(self) -> Optional[_builtins.str]:
-        """
-        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-
-        > **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-        """
         return pulumi.get(self, "verified_override")
 
 
@@ -1080,11 +836,6 @@ class TaskTaskReportConfigS3Destination(dict):
                  bucket_access_role_arn: _builtins.str,
                  s3_bucket_arn: _builtins.str,
                  subdirectory: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_access_role_arn: Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-        :param _builtins.str s3_bucket_arn: Specifies the ARN of the S3 bucket where DataSync uploads your report.
-        :param _builtins.str subdirectory: Specifies a bucket prefix for your report.
-        """
         pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
         pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if subdirectory is not None:
@@ -1093,25 +844,16 @@ class TaskTaskReportConfigS3Destination(dict):
     @_builtins.property
     @pulumi.getter(name="bucketAccessRoleArn")
     def bucket_access_role_arn(self) -> _builtins.str:
-        """
-        Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-        """
         return pulumi.get(self, "bucket_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> _builtins.str:
-        """
-        Specifies the ARN of the S3 bucket where DataSync uploads your report.
-        """
         return pulumi.get(self, "s3_bucket_arn")
 
     @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> Optional[_builtins.str]:
-        """
-        Specifies a bucket prefix for your report.
-        """
         return pulumi.get(self, "subdirectory")
 
 

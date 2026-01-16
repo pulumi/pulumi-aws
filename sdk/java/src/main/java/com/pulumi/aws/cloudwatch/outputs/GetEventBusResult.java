@@ -13,58 +13,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventBusResult {
-    /**
-     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     private String arn;
-    /**
-     * @return Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
-     * 
-     */
     private List<GetEventBusDeadLetterConfig> deadLetterConfigs;
-    /**
-     * @return Event bus description.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
-     * 
-     */
     private String kmsKeyIdentifier;
-    /**
-     * @return Block for logging configuration settings for the event bus.
-     * 
-     */
     private List<GetEventBusLogConfig> logConfigs;
     private String name;
     private String region;
 
     private GetEventBusResult() {}
-    /**
-     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
-     * 
-     */
     public List<GetEventBusDeadLetterConfig> deadLetterConfigs() {
         return this.deadLetterConfigs;
     }
-    /**
-     * @return Event bus description.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -75,17 +43,9 @@ public final class GetEventBusResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
-     * 
-     */
     public String kmsKeyIdentifier() {
         return this.kmsKeyIdentifier;
     }
-    /**
-     * @return Block for logging configuration settings for the event bus.
-     * 
-     */
     public List<GetEventBusLogConfig> logConfigs() {
         return this.logConfigs;
     }

@@ -22,7 +22,6 @@ class CidrCollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CidrCollection resource.
-        :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -30,9 +29,6 @@ class CidrCollectionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the CIDR collection.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -48,9 +44,6 @@ class _CidrCollectionState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CidrCollection resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the CIDR collection.
-        :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
-        :param pulumi.Input[_builtins.int] version: The lastest version of the CIDR collection.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -62,9 +55,6 @@ class _CidrCollectionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the CIDR collection.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -74,9 +64,6 @@ class _CidrCollectionState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique name for the CIDR collection.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,9 +73,6 @@ class _CidrCollectionState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The lastest version of the CIDR collection.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -105,28 +89,9 @@ class CidrCollection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Route53 CIDR collection resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.CidrCollection("example", name="collection-1")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CIDR collections using their ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
-        ```
-
+        Create a CidrCollection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
         """
         ...
     @overload
@@ -135,25 +100,7 @@ class CidrCollection(pulumi.CustomResource):
                  args: Optional[CidrCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route53 CIDR collection resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.CidrCollection("example", name="collection-1")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CIDR collections using their ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
-        ```
-
+        Create a CidrCollection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CidrCollectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,9 +149,6 @@ class CidrCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the CIDR collection.
-        :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
-        :param pulumi.Input[_builtins.int] version: The lastest version of the CIDR collection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -218,24 +162,15 @@ class CidrCollection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the CIDR collection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique name for the CIDR collection.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The lastest version of the CIDR collection.
-        """
         return pulumi.get(self, "version")
 

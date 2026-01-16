@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThemeConfigurationSheetTileBorder {
-    /**
-     * @return The option to enable display of borders for visuals.
-     * 
-     */
     private @Nullable Boolean show;
 
     private ThemeConfigurationSheetTileBorder() {}
-    /**
-     * @return The option to enable display of borders for visuals.
-     * 
-     */
     public Optional<Boolean> show() {
         return Optional.ofNullable(this.show);
     }

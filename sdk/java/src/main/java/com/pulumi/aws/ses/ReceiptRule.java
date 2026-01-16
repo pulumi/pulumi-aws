@@ -23,290 +23,101 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SES receipt rule resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ReceiptRule;
- * import com.pulumi.aws.ses.ReceiptRuleArgs;
- * import com.pulumi.aws.ses.inputs.ReceiptRuleAddHeaderActionArgs;
- * import com.pulumi.aws.ses.inputs.ReceiptRuleS3ActionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         // Add a header to the email and store it in S3
- *         var store = new ReceiptRule("store", ReceiptRuleArgs.builder()
- *             .name("store")
- *             .ruleSetName("default-rule-set")
- *             .recipients("karen}{@literal @}{@code example.com")
- *             .enabled(true)
- *             .scanEnabled(true)
- *             .addHeaderActions(ReceiptRuleAddHeaderActionArgs.builder()
- *                 .headerName("Custom-Header")
- *                 .headerValue("Added by SES")
- *                 .position(1)
- *                 .build())
- *             .s3Actions(ReceiptRuleS3ActionArgs.builder()
- *                 .bucketName("emails")
- *                 .position(2)
- *                 .build())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
- * ```
- * 
- */
 @ResourceType(type="aws:ses/receiptRule:ReceiptRule")
 public class ReceiptRule extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of Add Header Action blocks. Documented below.
-     * 
-     */
     @Export(name="addHeaderActions", refs={List.class,ReceiptRuleAddHeaderAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleAddHeaderAction>> addHeaderActions;
 
-    /**
-     * @return A list of Add Header Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleAddHeaderAction>>> addHeaderActions() {
         return Codegen.optional(this.addHeaderActions);
     }
-    /**
-     * The name of the rule to place this rule after
-     * 
-     */
     @Export(name="after", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> after;
 
-    /**
-     * @return The name of the rule to place this rule after
-     * 
-     */
     public Output<Optional<String>> after() {
         return Codegen.optional(this.after);
     }
-    /**
-     * The SES receipt rule ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The SES receipt rule ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A list of Bounce Action blocks. Documented below.
-     * 
-     */
     @Export(name="bounceActions", refs={List.class,ReceiptRuleBounceAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleBounceAction>> bounceActions;
 
-    /**
-     * @return A list of Bounce Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleBounceAction>>> bounceActions() {
         return Codegen.optional(this.bounceActions);
     }
-    /**
-     * If true, the rule will be enabled
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return If true, the rule will be enabled
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * A list of Lambda Action blocks. Documented below.
-     * 
-     */
     @Export(name="lambdaActions", refs={List.class,ReceiptRuleLambdaAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleLambdaAction>> lambdaActions;
 
-    /**
-     * @return A list of Lambda Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleLambdaAction>>> lambdaActions() {
         return Codegen.optional(this.lambdaActions);
     }
-    /**
-     * The name of the rule
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the rule
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A list of email addresses
-     * 
-     */
     @Export(name="recipients", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> recipients;
 
-    /**
-     * @return A list of email addresses
-     * 
-     */
     public Output<Optional<List<String>>> recipients() {
         return Codegen.optional(this.recipients);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the rule set
-     * 
-     */
     @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
-    /**
-     * @return The name of the rule set
-     * 
-     */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }
-    /**
-     * A list of S3 Action blocks. Documented below.
-     * 
-     */
     @Export(name="s3Actions", refs={List.class,ReceiptRuleS3Action.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleS3Action>> s3Actions;
 
-    /**
-     * @return A list of S3 Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleS3Action>>> s3Actions() {
         return Codegen.optional(this.s3Actions);
     }
-    /**
-     * If true, incoming emails will be scanned for spam and viruses
-     * 
-     */
     @Export(name="scanEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> scanEnabled;
 
-    /**
-     * @return If true, incoming emails will be scanned for spam and viruses
-     * 
-     */
     public Output<Optional<Boolean>> scanEnabled() {
         return Codegen.optional(this.scanEnabled);
     }
-    /**
-     * A list of SNS Action blocks. Documented below.
-     * 
-     */
     @Export(name="snsActions", refs={List.class,ReceiptRuleSnsAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleSnsAction>> snsActions;
 
-    /**
-     * @return A list of SNS Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleSnsAction>>> snsActions() {
         return Codegen.optional(this.snsActions);
     }
-    /**
-     * A list of Stop Action blocks. Documented below.
-     * 
-     */
     @Export(name="stopActions", refs={List.class,ReceiptRuleStopAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleStopAction>> stopActions;
 
-    /**
-     * @return A list of Stop Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleStopAction>>> stopActions() {
         return Codegen.optional(this.stopActions);
     }
-    /**
-     * `Require` or `Optional`
-     * 
-     */
     @Export(name="tlsPolicy", refs={String.class}, tree="[0]")
     private Output<String> tlsPolicy;
 
-    /**
-     * @return `Require` or `Optional`
-     * 
-     */
     public Output<String> tlsPolicy() {
         return this.tlsPolicy;
     }
-    /**
-     * A list of WorkMail Action blocks. Documented below.
-     * 
-     */
     @Export(name="workmailActions", refs={List.class,ReceiptRuleWorkmailAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleWorkmailAction>> workmailActions;
 
-    /**
-     * @return A list of WorkMail Action blocks. Documented below.
-     * 
-     */
     public Output<Optional<List<ReceiptRuleWorkmailAction>>> workmailActions() {
         return Codegen.optional(this.workmailActions);
     }

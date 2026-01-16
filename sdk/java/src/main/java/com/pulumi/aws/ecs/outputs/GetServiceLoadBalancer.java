@@ -13,65 +13,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceLoadBalancer {
-    /**
-     * @return Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
-     * 
-     */
     private List<GetServiceLoadBalancerAdvancedConfiguration> advancedConfigurations;
-    /**
-     * @return Name of the container to associate with the load balancer.
-     * 
-     */
     private String containerName;
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     private Integer containerPort;
-    /**
-     * @return Name of the load balancer.
-     * 
-     */
     private String elbName;
-    /**
-     * @return ARN of the target group to associate with the load balancer.
-     * 
-     */
     private String targetGroupArn;
 
     private GetServiceLoadBalancer() {}
-    /**
-     * @return Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
-     * 
-     */
     public List<GetServiceLoadBalancerAdvancedConfiguration> advancedConfigurations() {
         return this.advancedConfigurations;
     }
-    /**
-     * @return Name of the container to associate with the load balancer.
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     public Integer containerPort() {
         return this.containerPort;
     }
-    /**
-     * @return Name of the load balancer.
-     * 
-     */
     public String elbName() {
         return this.elbName;
     }
-    /**
-     * @return ARN of the target group to associate with the load balancer.
-     * 
-     */
     public String targetGroupArn() {
         return this.targetGroupArn;
     }

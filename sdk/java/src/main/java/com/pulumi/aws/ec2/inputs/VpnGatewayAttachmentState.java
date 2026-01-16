@@ -15,47 +15,23 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
 
     public static final VpnGatewayAttachmentState Empty = new VpnGatewayAttachmentState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the VPC.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
 
-    /**
-     * The ID of the Virtual Private Gateway.
-     * 
-     */
     @Import(name="vpnGatewayId")
     private @Nullable Output<String> vpnGatewayId;
 
-    /**
-     * @return The ID of the Virtual Private Gateway.
-     * 
-     */
     public Optional<Output<String>> vpnGatewayId() {
         return Optional.ofNullable(this.vpnGatewayId);
     }
@@ -86,65 +62,29 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
             $ = new VpnGatewayAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(@Nullable Output<String> vpnGatewayId) {
             $.vpnGatewayId = vpnGatewayId;
             return this;
         }
 
-        /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(String vpnGatewayId) {
             return vpnGatewayId(Output.of(vpnGatewayId));
         }

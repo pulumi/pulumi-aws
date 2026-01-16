@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationSheetTileLayoutMargin {
-    /**
-     * @return This Boolean value controls whether to display sheet margins.
-     * 
-     */
     private Boolean show;
 
     private GetThemeConfigurationSheetTileLayoutMargin() {}
-    /**
-     * @return This Boolean value controls whether to display sheet margins.
-     * 
-     */
     public Boolean show() {
         return this.show;
     }

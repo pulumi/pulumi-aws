@@ -12,81 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds the specified user to the specified group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
-//				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
-//					TemporaryPasswordValidityDays: pulumi.Int(7),
-//					MinimumLength:                 pulumi.Int(6),
-//					RequireUppercase:              pulumi.Bool(false),
-//					RequireSymbols:                pulumi.Bool(false),
-//					RequireNumbers:                pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := cognito.NewUser(ctx, "example", &cognito.UserArgs{
-//				UserPoolId: example.ID(),
-//				Username:   pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "example", &cognito.UserGroupArgs{
-//				UserPoolId: example.ID(),
-//				Name:       pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserInGroup(ctx, "example", &cognito.UserInGroupArgs{
-//				UserPoolId: example.ID(),
-//				GroupName:  exampleUserGroup.Name,
-//				Username:   exampleUser.Username,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
-// ```
 type UserInGroup struct {
 	pulumi.CustomResourceState
 
-	// The name of the group to which the user is to be added.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The user pool ID of the user and group.
+	GroupName  pulumi.StringOutput `pulumi:"groupName"`
+	Region     pulumi.StringOutput `pulumi:"region"`
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
-	// The username of the user to be added to the group.
-	Username pulumi.StringOutput `pulumi:"username"`
+	Username   pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewUserInGroup registers a new resource with the given unique name, arguments, and options.
@@ -128,25 +60,17 @@ func GetUserInGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserInGroup resources.
 type userInGroupState struct {
-	// The name of the group to which the user is to be added.
-	GroupName *string `pulumi:"groupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user pool ID of the user and group.
+	GroupName  *string `pulumi:"groupName"`
+	Region     *string `pulumi:"region"`
 	UserPoolId *string `pulumi:"userPoolId"`
-	// The username of the user to be added to the group.
-	Username *string `pulumi:"username"`
+	Username   *string `pulumi:"username"`
 }
 
 type UserInGroupState struct {
-	// The name of the group to which the user is to be added.
-	GroupName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user pool ID of the user and group.
+	GroupName  pulumi.StringPtrInput
+	Region     pulumi.StringPtrInput
 	UserPoolId pulumi.StringPtrInput
-	// The username of the user to be added to the group.
-	Username pulumi.StringPtrInput
+	Username   pulumi.StringPtrInput
 }
 
 func (UserInGroupState) ElementType() reflect.Type {
@@ -154,26 +78,18 @@ func (UserInGroupState) ElementType() reflect.Type {
 }
 
 type userInGroupArgs struct {
-	// The name of the group to which the user is to be added.
-	GroupName string `pulumi:"groupName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user pool ID of the user and group.
-	UserPoolId string `pulumi:"userPoolId"`
-	// The username of the user to be added to the group.
-	Username string `pulumi:"username"`
+	GroupName  string  `pulumi:"groupName"`
+	Region     *string `pulumi:"region"`
+	UserPoolId string  `pulumi:"userPoolId"`
+	Username   string  `pulumi:"username"`
 }
 
 // The set of arguments for constructing a UserInGroup resource.
 type UserInGroupArgs struct {
-	// The name of the group to which the user is to be added.
-	GroupName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user pool ID of the user and group.
+	GroupName  pulumi.StringInput
+	Region     pulumi.StringPtrInput
 	UserPoolId pulumi.StringInput
-	// The username of the user to be added to the group.
-	Username pulumi.StringInput
+	Username   pulumi.StringInput
 }
 
 func (UserInGroupArgs) ElementType() reflect.Type {
@@ -263,22 +179,18 @@ func (o UserInGroupOutput) ToUserInGroupOutputWithContext(ctx context.Context) U
 	return o
 }
 
-// The name of the group to which the user is to be added.
 func (o UserInGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserInGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The user pool ID of the user and group.
 func (o UserInGroupOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-// The username of the user to be added to the group.
 func (o UserInGroupOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

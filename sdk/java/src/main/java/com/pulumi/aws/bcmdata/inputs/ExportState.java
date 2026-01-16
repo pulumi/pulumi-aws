@@ -18,49 +18,23 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
 
     public static final ExportState Empty = new ExportState();
 
-    /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     * 
-     */
     @Import(name="export")
     private @Nullable Output<ExportExportArgs> export;
 
-    /**
-     * @return The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-     * 
-     */
     public Optional<Output<ExportExportArgs>> export() {
         return Optional.ofNullable(this.export);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -107,67 +81,29 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
             $ = new ExportState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) for this export.
-         * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) for this export.
-         * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param export The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder export(@Nullable Output<ExportExportArgs> export) {
             $.export = export;
             return this;
         }
 
-        /**
-         * @param export The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder export(ExportExportArgs export) {
             return export(Output.of(export));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

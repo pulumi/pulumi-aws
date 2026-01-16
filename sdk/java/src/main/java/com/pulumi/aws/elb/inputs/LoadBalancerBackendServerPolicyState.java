@@ -17,62 +17,30 @@ public final class LoadBalancerBackendServerPolicyState extends com.pulumi.resou
 
     public static final LoadBalancerBackendServerPolicyState Empty = new LoadBalancerBackendServerPolicyState();
 
-    /**
-     * The instance port to apply the policy to.
-     * 
-     */
     @Import(name="instancePort")
     private @Nullable Output<Integer> instancePort;
 
-    /**
-     * @return The instance port to apply the policy to.
-     * 
-     */
     public Optional<Output<Integer>> instancePort() {
         return Optional.ofNullable(this.instancePort);
     }
 
-    /**
-     * The load balancer to attach the policy to.
-     * 
-     */
     @Import(name="loadBalancerName")
     private @Nullable Output<String> loadBalancerName;
 
-    /**
-     * @return The load balancer to attach the policy to.
-     * 
-     */
     public Optional<Output<String>> loadBalancerName() {
         return Optional.ofNullable(this.loadBalancerName);
     }
 
-    /**
-     * List of Policy Names to apply to the backend server.
-     * 
-     */
     @Import(name="policyNames")
     private @Nullable Output<List<String>> policyNames;
 
-    /**
-     * @return List of Policy Names to apply to the backend server.
-     * 
-     */
     public Optional<Output<List<String>>> policyNames() {
         return Optional.ofNullable(this.policyNames);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,96 +72,42 @@ public final class LoadBalancerBackendServerPolicyState extends com.pulumi.resou
             $ = new LoadBalancerBackendServerPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instancePort The instance port to apply the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePort(@Nullable Output<Integer> instancePort) {
             $.instancePort = instancePort;
             return this;
         }
 
-        /**
-         * @param instancePort The instance port to apply the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePort(Integer instancePort) {
             return instancePort(Output.of(instancePort));
         }
 
-        /**
-         * @param loadBalancerName The load balancer to attach the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerName(@Nullable Output<String> loadBalancerName) {
             $.loadBalancerName = loadBalancerName;
             return this;
         }
 
-        /**
-         * @param loadBalancerName The load balancer to attach the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancerName(String loadBalancerName) {
             return loadBalancerName(Output.of(loadBalancerName));
         }
 
-        /**
-         * @param policyNames List of Policy Names to apply to the backend server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(@Nullable Output<List<String>> policyNames) {
             $.policyNames = policyNames;
             return this;
         }
 
-        /**
-         * @param policyNames List of Policy Names to apply to the backend server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(List<String> policyNames) {
             return policyNames(Output.of(policyNames));
         }
 
-        /**
-         * @param policyNames List of Policy Names to apply to the backend server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

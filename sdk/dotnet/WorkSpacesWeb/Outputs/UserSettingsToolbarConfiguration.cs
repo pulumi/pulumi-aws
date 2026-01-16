@@ -13,21 +13,9 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class UserSettingsToolbarConfiguration
     {
-        /// <summary>
-        /// List of toolbar items to be hidden.
-        /// </summary>
         public readonly ImmutableArray<string> HiddenToolbarItems;
-        /// <summary>
-        /// Maximum display resolution that is allowed for the session.
-        /// </summary>
         public readonly string? MaxDisplayResolution;
-        /// <summary>
-        /// Type of toolbar displayed during the session.
-        /// </summary>
         public readonly string? ToolbarType;
-        /// <summary>
-        /// Visual mode of the toolbar.
-        /// </summary>
         public readonly string? VisualMode;
 
         [OutputConstructor]

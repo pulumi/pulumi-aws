@@ -25,10 +25,6 @@ class ObjectLambdaAccessPointPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
-        :param pulumi.Input[_builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[_builtins.str] name: The name of the Object Lambda Access Point.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         if account_id is not None:
@@ -41,9 +37,6 @@ class ObjectLambdaAccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Object Lambda Access Point resource policy document.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -53,9 +46,6 @@ class ObjectLambdaAccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -65,9 +55,6 @@ class ObjectLambdaAccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Object Lambda Access Point.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -77,9 +64,6 @@ class ObjectLambdaAccessPointPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,11 +81,6 @@ class _ObjectLambdaAccessPointPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectLambdaAccessPointPolicy resources.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
-        :param pulumi.Input[_builtins.str] name: The name of the Object Lambda Access Point.
-        :param pulumi.Input[_builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -117,9 +96,6 @@ class _ObjectLambdaAccessPointPolicyState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -129,9 +105,6 @@ class _ObjectLambdaAccessPointPolicyState:
     @_builtins.property
     @pulumi.getter(name="hasPublicAccessPolicy")
     def has_public_access_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether this access point currently has a policy that allows public access.
-        """
         return pulumi.get(self, "has_public_access_policy")
 
     @has_public_access_policy.setter
@@ -141,9 +114,6 @@ class _ObjectLambdaAccessPointPolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Object Lambda Access Point.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -153,9 +123,6 @@ class _ObjectLambdaAccessPointPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Object Lambda Access Point resource policy document.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -165,9 +132,6 @@ class _ObjectLambdaAccessPointPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -187,61 +151,9 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an S3 Object Lambda Access Point resource policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.id,
-            name="example")
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
-            name="example",
-            configuration={
-                "supporting_access_point": example_access_point.arn,
-                "transformation_configurations": [{
-                    "actions": ["GetObject"],
-                    "content_transformation": {
-                        "aws_lambda": {
-                            "function_arn": example_aws_lambda_function["arn"],
-                        },
-                    },
-                }],
-            })
-        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("example",
-            name=example_object_lambda_access_point.name,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3-object-lambda:GetObject",
-                    "Principal": {
-                        "AWS": current["accountId"],
-                    },
-                    "Resource": example_object_lambda_access_point.arn,
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
-        ```
-
+        Create a ObjectLambdaAccessPointPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[_builtins.str] name: The name of the Object Lambda Access Point.
-        :param pulumi.Input[_builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -250,55 +162,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                  args: ObjectLambdaAccessPointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an S3 Object Lambda Access Point resource policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.id,
-            name="example")
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
-            name="example",
-            configuration={
-                "supporting_access_point": example_access_point.arn,
-                "transformation_configurations": [{
-                    "actions": ["GetObject"],
-                    "content_transformation": {
-                        "aws_lambda": {
-                            "function_arn": example_aws_lambda_function["arn"],
-                        },
-                    },
-                }],
-            })
-        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("example",
-            name=example_object_lambda_access_point.name,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3-object-lambda:GetObject",
-                    "Principal": {
-                        "AWS": current["accountId"],
-                    },
-                    "Resource": example_object_lambda_access_point.arn,
-                }],
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
-        ```
-
+        Create a ObjectLambdaAccessPointPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ObjectLambdaAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,11 +220,6 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
-        :param pulumi.Input[_builtins.str] name: The name of the Object Lambda Access Point.
-        :param pulumi.Input[_builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,40 +235,25 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter(name="hasPublicAccessPolicy")
     def has_public_access_policy(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether this access point currently has a policy that allows public access.
-        """
         return pulumi.get(self, "has_public_access_policy")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Object Lambda Access Point.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Object Lambda Access Point resource policy document.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

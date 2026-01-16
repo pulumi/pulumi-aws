@@ -17,259 +17,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SSM Maintenance Window resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.MaintenanceWindow;
- * import com.pulumi.aws.ssm.MaintenanceWindowArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var production = new MaintenanceWindow("production", MaintenanceWindowArgs.builder()
- *             .name("maintenance-window-application")
- *             .schedule("cron(0 16 ? * TUE *)")
- *             .duration(3)
- *             .cutoff(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `id` - (String) ID of the maintenance window.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
- * 
- * % pulumi import aws_ssm_maintenance_window.example mw-0123456789
- * 
- */
 @ResourceType(type="aws:ssm/maintenanceWindow:MaintenanceWindow")
 public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-     * 
-     */
     @Export(name="allowUnassociatedTargets", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUnassociatedTargets;
 
-    /**
-     * @return Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-     * 
-     */
     public Output<Optional<Boolean>> allowUnassociatedTargets() {
         return Codegen.optional(this.allowUnassociatedTargets);
     }
-    /**
-     * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-     * 
-     */
     @Export(name="cutoff", refs={Integer.class}, tree="[0]")
     private Output<Integer> cutoff;
 
-    /**
-     * @return The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-     * 
-     */
     public Output<Integer> cutoff() {
         return this.cutoff;
     }
-    /**
-     * A description for the maintenance window.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description for the maintenance window.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The duration of the Maintenance Window in hours.
-     * 
-     */
     @Export(name="duration", refs={Integer.class}, tree="[0]")
     private Output<Integer> duration;
 
-    /**
-     * @return The duration of the Maintenance Window in hours.
-     * 
-     */
     public Output<Integer> duration() {
         return this.duration;
     }
-    /**
-     * Whether the maintenance window is enabled. Default: `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the maintenance window is enabled. Default: `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-     * 
-     */
     @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDate;
 
-    /**
-     * @return Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-     * 
-     */
     public Output<Optional<String>> endDate() {
         return Codegen.optional(this.endDate);
     }
-    /**
-     * The name of the maintenance window.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the maintenance window.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-     * 
-     */
     @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output<String> schedule;
 
-    /**
-     * @return The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-     * 
-     */
     public Output<String> schedule() {
         return this.schedule;
     }
-    /**
-     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-     * 
-     */
     @Export(name="scheduleOffset", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> scheduleOffset;
 
-    /**
-     * @return The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-     * 
-     */
     public Output<Optional<Integer>> scheduleOffset() {
         return Codegen.optional(this.scheduleOffset);
     }
-    /**
-     * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-     * 
-     */
     @Export(name="scheduleTimezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scheduleTimezone;
 
-    /**
-     * @return Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-     * 
-     */
     public Output<Optional<String>> scheduleTimezone() {
         return Codegen.optional(this.scheduleTimezone);
     }
-    /**
-     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-     * 
-     */
     @Export(name="startDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startDate;
 
-    /**
-     * @return Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-     * 
-     */
     public Output<Optional<String>> startDate() {
         return Codegen.optional(this.startDate);
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

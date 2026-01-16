@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleS3 {
-    /**
-     * @return The Amazon S3 bucket name.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-     * 
-     */
     private @Nullable String cannedAcl;
-    /**
-     * @return The object key.
-     * 
-     */
     private String key;
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleS3() {}
-    /**
-     * @return The Amazon S3 bucket name.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-     * 
-     */
     public Optional<String> cannedAcl() {
         return Optional.ofNullable(this.cannedAcl);
     }
-    /**
-     * @return The object key.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

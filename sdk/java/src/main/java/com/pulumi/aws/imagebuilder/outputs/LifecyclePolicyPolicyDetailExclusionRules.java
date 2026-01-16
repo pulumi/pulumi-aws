@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailExclusionRules {
-    /**
-     * @return Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailExclusionRulesAmis amis;
-    /**
-     * @return Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-     * 
-     */
     private @Nullable Map<String,String> tagMap;
 
     private LifecyclePolicyPolicyDetailExclusionRules() {}
-    /**
-     * @return Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailExclusionRulesAmis> amis() {
         return Optional.ofNullable(this.amis);
     }
-    /**
-     * @return Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-     * 
-     */
     public Map<String,String> tagMap() {
         return this.tagMap == null ? Map.of() : this.tagMap;
     }

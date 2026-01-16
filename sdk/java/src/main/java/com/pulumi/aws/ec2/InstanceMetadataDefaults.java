@@ -14,118 +14,35 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages regional EC2 instance metadata default settings.
- * More information can be found in the [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html) user guide.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.InstanceMetadataDefaults;
- * import com.pulumi.aws.ec2.InstanceMetadataDefaultsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var enforce_imdsv2 = new InstanceMetadataDefaults("enforce-imdsv2", InstanceMetadataDefaultsArgs.builder()
- *             .httpTokens("required")
- *             .httpPutResponseHopLimit(1)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * You cannot import this resource.
- * 
- */
 @ResourceType(type="aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults")
 public class InstanceMetadataDefaults extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether the metadata service is available. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
-     * 
-     */
     @Export(name="httpEndpoint", refs={String.class}, tree="[0]")
     private Output<String> httpEndpoint;
 
-    /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
-     * 
-     */
     public Output<String> httpEndpoint() {
         return this.httpEndpoint;
     }
-    /**
-     * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
-     * 
-     */
     @Export(name="httpPutResponseHopLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> httpPutResponseHopLimit;
 
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
-     * 
-     */
     public Output<Integer> httpPutResponseHopLimit() {
         return this.httpPutResponseHopLimit;
     }
-    /**
-     * Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;`, `&#34;required&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
-     * 
-     */
     @Export(name="httpTokens", refs={String.class}, tree="[0]")
     private Output<String> httpTokens;
 
-    /**
-     * @return Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;`, `&#34;required&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
-     * 
-     */
     public Output<String> httpTokens() {
         return this.httpTokens;
     }
-    /**
-     * Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
-     * 
-     */
     @Export(name="instanceMetadataTags", refs={String.class}, tree="[0]")
     private Output<String> instanceMetadataTags;
 
-    /**
-     * @return Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
-     * 
-     */
     public Output<String> instanceMetadataTags() {
         return this.instanceMetadataTags;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -17,62 +17,30 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
 
     public static final MultitenantDistributionCustomErrorResponseArgs Empty = new MultitenantDistributionCustomErrorResponseArgs();
 
-    /**
-     * Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-     * 
-     */
     @Import(name="errorCachingMinTtl")
     private @Nullable Output<Integer> errorCachingMinTtl;
 
-    /**
-     * @return Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-     * 
-     */
     public Optional<Output<Integer>> errorCachingMinTtl() {
         return Optional.ofNullable(this.errorCachingMinTtl);
     }
 
-    /**
-     * HTTP status code for which you want to specify a custom error page and/or a caching duration.
-     * 
-     */
     @Import(name="errorCode", required=true)
     private Output<Integer> errorCode;
 
-    /**
-     * @return HTTP status code for which you want to specify a custom error page and/or a caching duration.
-     * 
-     */
     public Output<Integer> errorCode() {
         return this.errorCode;
     }
 
-    /**
-     * HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-     * 
-     */
     @Import(name="responseCode")
     private @Nullable Output<String> responseCode;
 
-    /**
-     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-     * 
-     */
     public Optional<Output<String>> responseCode() {
         return Optional.ofNullable(this.responseCode);
     }
 
-    /**
-     * Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-     * 
-     */
     @Import(name="responsePagePath")
     private @Nullable Output<String> responsePagePath;
 
-    /**
-     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-     * 
-     */
     public Optional<Output<String>> responsePagePath() {
         return Optional.ofNullable(this.responsePagePath);
     }
@@ -104,86 +72,38 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
             $ = new MultitenantDistributionCustomErrorResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorCachingMinTtl Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCachingMinTtl(@Nullable Output<Integer> errorCachingMinTtl) {
             $.errorCachingMinTtl = errorCachingMinTtl;
             return this;
         }
 
-        /**
-         * @param errorCachingMinTtl Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCachingMinTtl(Integer errorCachingMinTtl) {
             return errorCachingMinTtl(Output.of(errorCachingMinTtl));
         }
 
-        /**
-         * @param errorCode HTTP status code for which you want to specify a custom error page and/or a caching duration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCode(Output<Integer> errorCode) {
             $.errorCode = errorCode;
             return this;
         }
 
-        /**
-         * @param errorCode HTTP status code for which you want to specify a custom error page and/or a caching duration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCode(Integer errorCode) {
             return errorCode(Output.of(errorCode));
         }
 
-        /**
-         * @param responseCode HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(@Nullable Output<String> responseCode) {
             $.responseCode = responseCode;
             return this;
         }
 
-        /**
-         * @param responseCode HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(String responseCode) {
             return responseCode(Output.of(responseCode));
         }
 
-        /**
-         * @param responsePagePath Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responsePagePath(@Nullable Output<String> responsePagePath) {
             $.responsePagePath = responsePagePath;
             return this;
         }
 
-        /**
-         * @param responsePagePath Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responsePagePath(String responsePagePath) {
             return responsePagePath(Output.of(responsePagePath));
         }

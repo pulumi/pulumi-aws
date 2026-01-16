@@ -19,62 +19,30 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
 
     public static final V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs Empty = new V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs();
 
-    /**
-     * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-     * 
-     */
     @Import(name="condition", required=true)
     private Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs> condition;
 
-    /**
-     * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-     * 
-     */
     public Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs> condition() {
         return this.condition;
     }
 
-    /**
-     * Name of the branch.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the branch.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     @Import(name="nextStep", required=true)
     private Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs> nextStep;
 
-    /**
-     * @return Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     public Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs> nextStep() {
         return this.nextStep;
     }
 
-    /**
-     * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     @Import(name="response")
     private @Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs> response;
 
-    /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     public Optional<Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs>> response() {
         return Optional.ofNullable(this.response);
     }
@@ -106,86 +74,38 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
             $ = new V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs condition) {
             return condition(Output.of(condition));
         }
 
-        /**
-         * @param name Name of the branch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the branch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs nextStep) {
             return nextStep(Output.of(nextStep));
         }
 
-        /**
-         * @param response Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder response(@Nullable Output<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs> response) {
             $.response = response;
             return this;
         }
 
-        /**
-         * @param response Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder response(V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs response) {
             return response(Output.of(response));
         }

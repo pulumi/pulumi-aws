@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDelivery {
-    /**
-     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
-     * 
-     */
     private @Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-     * 
-     */
     private @Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose;
-    /**
-     * @return Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-     * 
-     */
     private @Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3;
 
     private ConnectorLogDeliveryWorkerLogDelivery() {}
-    /**
-     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
-     * 
-     */
     public Optional<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-     * 
-     */
     public Optional<ConnectorLogDeliveryWorkerLogDeliveryFirehose> firehose() {
         return Optional.ofNullable(this.firehose);
     }
-    /**
-     * @return Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-     * 
-     */
     public Optional<ConnectorLogDeliveryWorkerLogDeliveryS3> s3() {
         return Optional.ofNullable(this.s3);
     }

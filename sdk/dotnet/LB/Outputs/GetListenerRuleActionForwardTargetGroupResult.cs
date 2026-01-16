@@ -13,14 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionForwardTargetGroupResult
     {
-        /// <summary>
-        /// ARN of the Listener Rule.
-        /// Either `Arn` or `ListenerArn` must be set.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Weight of the target group.
-        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

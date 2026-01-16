@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API version that the destination connector uses.
-        /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
 
-        /// <summary>
-        /// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-        /// </summary>
         [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
 
-        /// <summary>
-        /// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-        /// </summary>
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
-        /// <summary>
-        /// This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
-        /// </summary>
         [Input("destinationConnectorProperties", required: true)]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs> DestinationConnectorProperties { get; set; } = null!;
 

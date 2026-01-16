@@ -15,89 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCoreInstanceGroup {
-    /**
-     * @return String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
-     * 
-     */
     private @Nullable String autoscalingPolicy;
-    /**
-     * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-     * 
-     */
     private @Nullable String bidPrice;
-    /**
-     * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-     * 
-     */
     private @Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs;
-    /**
-     * @return Core node type Instance Group ID, if using Instance Group for this node type.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Target number of instances for the instance group. Must be at least 1. Defaults to 1.
-     * 
-     */
     private @Nullable Integer instanceCount;
-    /**
-     * @return EC2 instance type for all instances in the instance group.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return Friendly name given to the instance group.
-     * 
-     */
     private @Nullable String name;
 
     private ClusterCoreInstanceGroup() {}
-    /**
-     * @return String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
-     * 
-     */
     public Optional<String> autoscalingPolicy() {
         return Optional.ofNullable(this.autoscalingPolicy);
     }
-    /**
-     * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-     * 
-     */
     public Optional<String> bidPrice() {
         return Optional.ofNullable(this.bidPrice);
     }
-    /**
-     * @return Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-     * 
-     */
     public List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs() {
         return this.ebsConfigs == null ? List.of() : this.ebsConfigs;
     }
-    /**
-     * @return Core node type Instance Group ID, if using Instance Group for this node type.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Target number of instances for the instance group. Must be at least 1. Defaults to 1.
-     * 
-     */
     public Optional<Integer> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
     }
-    /**
-     * @return EC2 instance type for all instances in the instance group.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return Friendly name given to the instance group.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

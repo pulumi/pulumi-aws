@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Keyspaces.Inputs
     {
         [Input("regionLists")]
         private InputList<string>? _regionLists;
-
-        /// <summary>
-        /// Replication regions. If `ReplicationStrategy` is `MULTI_REGION`, `RegionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
-        /// </summary>
         public InputList<string> RegionLists
         {
             get => _regionLists ?? (_regionLists = new InputList<string>());
             set => _regionLists = value;
         }
 
-        /// <summary>
-        /// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
-        /// </summary>
         [Input("replicationStrategy")]
         public Input<string>? ReplicationStrategy { get; set; }
 

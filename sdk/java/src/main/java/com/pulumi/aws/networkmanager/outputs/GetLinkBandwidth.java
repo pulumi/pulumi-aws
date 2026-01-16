@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinkBandwidth {
-    /**
-     * @return Download speed in Mbps.
-     * 
-     */
     private Integer downloadSpeed;
-    /**
-     * @return Upload speed in Mbps.
-     * 
-     */
     private Integer uploadSpeed;
 
     private GetLinkBandwidth() {}
-    /**
-     * @return Download speed in Mbps.
-     * 
-     */
     public Integer downloadSpeed() {
         return this.downloadSpeed;
     }
-    /**
-     * @return Upload speed in Mbps.
-     * 
-     */
     public Integer uploadSpeed() {
         return this.uploadSpeed;
     }

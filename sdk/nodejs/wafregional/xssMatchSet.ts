@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const xssMatchSet = new aws.wafregional.XssMatchSet("xss_match_set", {
- *     name: "xss_match_set",
- *     xssMatchTuples: [
- *         {
- *             textTransformation: "NONE",
- *             fieldToMatch: {
- *                 type: "URI",
- *             },
- *         },
- *         {
- *             textTransformation: "NONE",
- *             fieldToMatch: {
- *                 type: "QUERY_STRING",
- *             },
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
- * ```
- */
 export class XssMatchSet extends pulumi.CustomResource {
     /**
      * Get an existing XssMatchSet resource's state with the given name, ID, and optional extra
@@ -71,17 +35,8 @@ export class XssMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === XssMatchSet.__pulumiType;
     }
 
-    /**
-     * The name of the set
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     */
     declare public readonly xssMatchTuples: pulumi.Output<outputs.wafregional.XssMatchSetXssMatchTuple[] | undefined>;
 
     /**
@@ -115,17 +70,8 @@ export class XssMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering XssMatchSet resources.
  */
 export interface XssMatchSetState {
-    /**
-     * The name of the set
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     */
     xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
 }
 
@@ -133,16 +79,7 @@ export interface XssMatchSetState {
  * The set of arguments for constructing a XssMatchSet resource.
  */
 export interface XssMatchSetArgs {
-    /**
-     * The name of the set
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     */
     xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
 }

@@ -16,61 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Registers customer managed keys in a Amazon QuickSight account.
- * 
- * &gt; Deletion of this resource clears all CMK registrations from a QuickSight account. QuickSight then uses AWS owned keys to encrypt your resources.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.KeyRegistration;
- * import com.pulumi.aws.quicksight.KeyRegistrationArgs;
- * import com.pulumi.aws.quicksight.inputs.KeyRegistrationKeyRegistrationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new KeyRegistration("example", KeyRegistrationArgs.builder()
- *             .keyRegistrations(            
- *                 KeyRegistrationKeyRegistrationArgs.builder()
- *                     .keyArn(example1.arn())
- *                     .build(),
- *                 KeyRegistrationKeyRegistrationArgs.builder()
- *                     .keyArn(example2.arn())
- *                     .defaultKey(true)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import QuickSight key registration using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/keyRegistration:KeyRegistration example &#34;012345678901&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/keyRegistration:KeyRegistration")
 public class KeyRegistration extends com.pulumi.resources.CustomResource {
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
@@ -79,31 +24,15 @@ public class KeyRegistration extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * Registered keys. See key_registration.
-     * 
-     */
     @Export(name="keyRegistrations", refs={List.class,KeyRegistrationKeyRegistration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KeyRegistrationKeyRegistration>> keyRegistrations;
 
-    /**
-     * @return Registered keys. See key_registration.
-     * 
-     */
     public Output<Optional<List<KeyRegistrationKeyRegistration>>> keyRegistrations() {
         return Codegen.optional(this.keyRegistrations);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

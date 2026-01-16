@@ -14,29 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketV2ServerSideEncryptionConfigurationRule {
-    /**
-     * @return Single object for setting server-side encryption by default. (documented below)
-     * 
-     */
     private List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults;
-    /**
-     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     * 
-     */
     private @Nullable Boolean bucketKeyEnabled;
 
     private BucketV2ServerSideEncryptionConfigurationRule() {}
-    /**
-     * @return Single object for setting server-side encryption by default. (documented below)
-     * 
-     */
     public List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefaults() {
         return this.applyServerSideEncryptionByDefaults;
     }
-    /**
-     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-     * 
-     */
     public Optional<Boolean> bucketKeyEnabled() {
         return Optional.ofNullable(this.bucketKeyEnabled);
     }

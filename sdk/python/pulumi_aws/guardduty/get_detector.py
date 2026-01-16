@@ -56,25 +56,16 @@ class GetDetectorResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the detector.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def features(self) -> Sequence['outputs.GetDetectorFeatureResult']:
-        """
-        Current configuration of the detector features.
-        """
         return pulumi.get(self, "features")
 
     @_builtins.property
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> _builtins.str:
-        """
-        The frequency of notifications sent about subsequent finding occurrences.
-        """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @_builtins.property
@@ -90,25 +81,16 @@ class GetDetectorResult:
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> _builtins.str:
-        """
-        Service-linked role that grants GuardDuty access to the resources in the AWS account.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Current status of the detector.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -133,21 +115,7 @@ def get_detector(id: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDetectorResult:
     """
-    Retrieve information about a GuardDuty detector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.guardduty.get_detector()
-    ```
-
-
-    :param _builtins.str id: ID of the detector.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -170,21 +138,7 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = No
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
-    Retrieve information about a GuardDuty detector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.guardduty.get_detector()
-    ```
-
-
-    :param _builtins.str id: ID of the detector.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

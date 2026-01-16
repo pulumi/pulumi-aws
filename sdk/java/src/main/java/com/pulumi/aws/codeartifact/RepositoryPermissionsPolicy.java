@@ -13,188 +13,47 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeArtifact Repostory Permissions Policy Resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.codeartifact.Domain;
- * import com.pulumi.aws.codeartifact.DomainArgs;
- * import com.pulumi.aws.codeartifact.Repository;
- * import com.pulumi.aws.codeartifact.RepositoryArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.codeartifact.RepositoryPermissionsPolicy;
- * import com.pulumi.aws.codeartifact.RepositoryPermissionsPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
- *             .description("domain key")
- *             .build());
- * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .domain("example")
- *             .encryptionKey(exampleKey.arn())
- *             .build());
- * 
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
- *             .repository("example")
- *             .domain(exampleDomain.domain())
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("codeartifact:ReadFromRepository")
- *                 .resources(exampleRepository.arn())
- *                 .build())
- *             .build());
- * 
- *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", RepositoryPermissionsPolicyArgs.builder()
- *             .repository(exampleRepository.repository())
- *             .domain(exampleDomain.domain())
- *             .policyDocument(example.applyValue(_example -> _example.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
- * 
- * Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
- * 
- * % pulumi import aws_codeartifact_repository_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
- * 
- */
 @ResourceType(type="aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")
 public class RepositoryPermissionsPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the domain on which to set the resource policy.
-     * 
-     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
-    /**
-     * @return The name of the domain on which to set the resource policy.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
-    /**
-     * The account number of the AWS account that owns the domain.
-     * 
-     */
     @Export(name="domainOwner", refs={String.class}, tree="[0]")
     private Output<String> domainOwner;
 
-    /**
-     * @return The account number of the AWS account that owns the domain.
-     * 
-     */
     public Output<String> domainOwner() {
         return this.domainOwner;
     }
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return A JSON policy string to be set as the access control resource policy on the provided domain.
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-     * 
-     */
     @Export(name="policyRevision", refs={String.class}, tree="[0]")
     private Output<String> policyRevision;
 
-    /**
-     * @return The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-     * 
-     */
     public Output<String> policyRevision() {
         return this.policyRevision;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The name of the repository to set the resource policy on.
-     * 
-     */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
-    /**
-     * @return The name of the repository to set the resource policy on.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
-    /**
-     * The ARN of the resource associated with the resource policy.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the resource associated with the resource policy.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

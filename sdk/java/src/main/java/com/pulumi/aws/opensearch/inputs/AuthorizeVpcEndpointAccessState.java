@@ -17,62 +17,30 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
 
     public static final AuthorizeVpcEndpointAccessState Empty = new AuthorizeVpcEndpointAccessState();
 
-    /**
-     * AWS account ID to grant access to.
-     * 
-     */
     @Import(name="account")
     private @Nullable Output<String> account;
 
-    /**
-     * @return AWS account ID to grant access to.
-     * 
-     */
     public Optional<Output<String>> account() {
         return Optional.ofNullable(this.account);
     }
 
-    /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-     * 
-     */
     @Import(name="authorizedPrincipals")
     private @Nullable Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs>> authorizedPrincipals;
 
-    /**
-     * @return Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-     * 
-     */
     public Optional<Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs>>> authorizedPrincipals() {
         return Optional.ofNullable(this.authorizedPrincipals);
     }
 
-    /**
-     * Name of OpenSearch Service domain to provide access to.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return Name of OpenSearch Service domain to provide access to.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,96 +72,42 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
             $ = new AuthorizeVpcEndpointAccessState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param account AWS account ID to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(@Nullable Output<String> account) {
             $.account = account;
             return this;
         }
 
-        /**
-         * @param account AWS account ID to grant access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder account(String account) {
             return account(Output.of(account));
         }
 
-        /**
-         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedPrincipals(@Nullable Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs>> authorizedPrincipals) {
             $.authorizedPrincipals = authorizedPrincipals;
             return this;
         }
 
-        /**
-         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedPrincipals(List<AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs> authorizedPrincipals) {
             return authorizedPrincipals(Output.of(authorizedPrincipals));
         }
 
-        /**
-         * @param authorizedPrincipals Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizedPrincipals(AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs... authorizedPrincipals) {
             return authorizedPrincipals(List.of(authorizedPrincipals));
         }
 
-        /**
-         * @param domainName Name of OpenSearch Service domain to provide access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Name of OpenSearch Service domain to provide access to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -13,21 +13,9 @@ public final class GetSessionContextPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetSessionContextPlainArgs Empty = new GetSessionContextPlainArgs();
 
-    /**
-     * ARN for an assumed role.
-     * 
-     * &gt; If `arn` is a non-role ARN, Pulumi gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN for an assumed role.
-     * 
-     * &gt; If `arn` is a non-role ARN, Pulumi gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -56,14 +44,6 @@ public final class GetSessionContextPlainArgs extends com.pulumi.resources.Invok
             $ = new GetSessionContextPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN for an assumed role.
-         * 
-         * &gt; If `arn` is a non-role ARN, Pulumi gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;

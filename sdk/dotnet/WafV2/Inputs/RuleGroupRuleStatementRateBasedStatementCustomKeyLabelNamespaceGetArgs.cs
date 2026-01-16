@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The namespace to use for aggregation
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

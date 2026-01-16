@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ebs.Outputs
     [OutputType]
     public sealed class SnapshotImportDiskContainerUserBucket
     {
-        /// <summary>
-        /// The name of the Amazon S3 bucket where the disk image is located.
-        /// </summary>
         public readonly string S3Bucket;
-        /// <summary>
-        /// The file name of the disk image.
-        /// </summary>
         public readonly string S3Key;
 
         [OutputConstructor]

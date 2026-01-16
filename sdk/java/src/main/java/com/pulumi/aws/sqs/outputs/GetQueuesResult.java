@@ -19,10 +19,6 @@ public final class GetQueuesResult {
      */
     private String id;
     private @Nullable String queueNamePrefix;
-    /**
-     * @return A list of queue URLs.
-     * 
-     */
     private List<String> queueUrls;
     private String region;
 
@@ -37,10 +33,6 @@ public final class GetQueuesResult {
     public Optional<String> queueNamePrefix() {
         return Optional.ofNullable(this.queueNamePrefix);
     }
-    /**
-     * @return A list of queue URLs.
-     * 
-     */
     public List<String> queueUrls() {
         return this.queueUrls;
     }

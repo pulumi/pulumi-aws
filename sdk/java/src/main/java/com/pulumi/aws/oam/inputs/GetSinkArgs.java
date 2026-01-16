@@ -17,47 +17,23 @@ public final class GetSinkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSinkArgs Empty = new GetSinkArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the sink.
-     * 
-     */
     @Import(name="sinkIdentifier", required=true)
     private Output<String> sinkIdentifier;
 
-    /**
-     * @return ARN of the sink.
-     * 
-     */
     public Output<String> sinkIdentifier() {
         return this.sinkIdentifier;
     }
 
-    /**
-     * Tags assigned to the sink.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags assigned to the sink.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetSinkArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSinkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sinkIdentifier ARN of the sink.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(Output<String> sinkIdentifier) {
             $.sinkIdentifier = sinkIdentifier;
             return this;
         }
 
-        /**
-         * @param sinkIdentifier ARN of the sink.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(String sinkIdentifier) {
             return sinkIdentifier(Output.of(sinkIdentifier));
         }
 
-        /**
-         * @param tags Tags assigned to the sink.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags assigned to the sink.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

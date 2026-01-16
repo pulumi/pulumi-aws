@@ -16,111 +16,51 @@ public final class TenantState extends com.pulumi.resources.ResourceArgs {
 
     public static final TenantState Empty = new TenantState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Current sending status of the tenant.
-     * 
-     */
     @Import(name="sendingStatus")
     private @Nullable Output<String> sendingStatus;
 
-    /**
-     * @return Current sending status of the tenant.
-     * 
-     */
     public Optional<Output<String>> sendingStatus() {
         return Optional.ofNullable(this.sendingStatus);
     }
 
-    /**
-     * Map of tags to assign to the tenant.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the tenant.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the tenant, including provider default tags.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the tenant, including provider default tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * ARN of the Tenant.
-     * 
-     */
     @Import(name="tenantArn")
     private @Nullable Output<String> tenantArn;
 
-    /**
-     * @return ARN of the Tenant.
-     * 
-     */
     public Optional<Output<String>> tenantArn() {
         return Optional.ofNullable(this.tenantArn);
     }
 
-    /**
-     * ID of the Tenant.
-     * 
-     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
-    /**
-     * @return ID of the Tenant.
-     * 
-     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
 
-    /**
-     * Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="tenantName")
     private @Nullable Output<String> tenantName;
 
-    /**
-     * @return Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> tenantName() {
         return Optional.ofNullable(this.tenantName);
     }
@@ -155,153 +95,65 @@ public final class TenantState extends com.pulumi.resources.ResourceArgs {
             $ = new TenantState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sendingStatus Current sending status of the tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingStatus(@Nullable Output<String> sendingStatus) {
             $.sendingStatus = sendingStatus;
             return this;
         }
 
-        /**
-         * @param sendingStatus Current sending status of the tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingStatus(String sendingStatus) {
             return sendingStatus(Output.of(sendingStatus));
         }
 
-        /**
-         * @param tags Map of tags to assign to the tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the tenant, including provider default tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the tenant, including provider default tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param tenantArn ARN of the Tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantArn(@Nullable Output<String> tenantArn) {
             $.tenantArn = tenantArn;
             return this;
         }
 
-        /**
-         * @param tenantArn ARN of the Tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantArn(String tenantArn) {
             return tenantArn(Output.of(tenantArn));
         }
 
-        /**
-         * @param tenantId ID of the Tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
-        /**
-         * @param tenantId ID of the Tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }
 
-        /**
-         * @param tenantName Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantName(@Nullable Output<String> tenantName) {
             $.tenantName = tenantName;
             return this;
         }
 
-        /**
-         * @param tenantName Name of the SESV2 tenant.  The name must be unique within the AWS account and Region.  Changing the tenant name forces creation of a new tenant.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder tenantName(String tenantName) {
             return tenantName(Output.of(tenantName));
         }

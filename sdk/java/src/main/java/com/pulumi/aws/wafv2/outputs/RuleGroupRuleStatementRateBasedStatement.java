@@ -17,81 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatement {
-    /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
-     * 
-     */
     private @Nullable String aggregateKeyType;
-    /**
-     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys;
-    /**
-     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-     * 
-     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
-     * 
-     */
     private @Nullable Integer evaluationWindowSec;
-    /**
-     * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
-    /**
-     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
-     * 
-     */
     private Integer limit;
-    /**
-     * @return An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
 
     private RuleGroupRuleStatementRateBasedStatement() {}
-    /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
-     * 
-     */
     public Optional<String> aggregateKeyType() {
         return Optional.ofNullable(this.aggregateKeyType);
     }
-    /**
-     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys() {
         return this.customKeys == null ? List.of() : this.customKeys;
     }
-    /**
-     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-     * 
-     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
-     * 
-     */
     public Optional<Integer> evaluationWindowSec() {
         return Optional.ofNullable(this.evaluationWindowSec);
     }
-    /**
-     * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementForwardedIpConfig> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
-    /**
-     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
-     * 
-     */
     public Integer limit() {
         return this.limit;
     }
-    /**
-     * @return An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatement> scopeDownStatement() {
         return Optional.ofNullable(this.scopeDownStatement);
     }

@@ -15,32 +15,16 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
 
     public static final DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs Empty = new DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs();
 
-    /**
-     * Signing Amazon Web Services Region for IAM authorization.
-     * 
-     */
     @Import(name="signingRegion")
     private @Nullable Output<String> signingRegion;
 
-    /**
-     * @return Signing Amazon Web Services Region for IAM authorization.
-     * 
-     */
     public Optional<Output<String>> signingRegion() {
         return Optional.ofNullable(this.signingRegion);
     }
 
-    /**
-     * Signing service name for IAM authorization.
-     * 
-     */
     @Import(name="signingServiceName")
     private @Nullable Output<String> signingServiceName;
 
-    /**
-     * @return Signing service name for IAM authorization.
-     * 
-     */
     public Optional<Output<String>> signingServiceName() {
         return Optional.ofNullable(this.signingServiceName);
     }
@@ -70,44 +54,20 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs exten
             $ = new DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param signingRegion Signing Amazon Web Services Region for IAM authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingRegion(@Nullable Output<String> signingRegion) {
             $.signingRegion = signingRegion;
             return this;
         }
 
-        /**
-         * @param signingRegion Signing Amazon Web Services Region for IAM authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingRegion(String signingRegion) {
             return signingRegion(Output.of(signingRegion));
         }
 
-        /**
-         * @param signingServiceName Signing service name for IAM authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingServiceName(@Nullable Output<String> signingServiceName) {
             $.signingServiceName = signingServiceName;
             return this;
         }
 
-        /**
-         * @param signingServiceName Signing service name for IAM authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingServiceName(String signingServiceName) {
             return signingServiceName(Output.of(signingServiceName));
         }

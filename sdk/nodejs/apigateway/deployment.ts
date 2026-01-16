@@ -6,27 +6,6 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
-/**
- * Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `aws.apigateway.Stage` resource and optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
- *
- * To properly capture all REST API configuration in a deployment, this resource must have dependencies on all prior resources that manage resources/paths, methods, integrations, etc.
- *
- * * For REST APIs that are configured via OpenAPI specification (`aws.apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
- * * When the REST API configuration involves other resources (`aws.apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `dependsOn`, since `dependsOn` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
- *
- * ```sh
- * $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
- * ```
- * The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
- *
- * The `triggers` argument cannot be imported.
- */
 export class Deployment extends pulumi.CustomResource {
     /**
      * Get an existing Deployment resource's state with the given name, ID, and optional extra
@@ -55,29 +34,11 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
-    /**
-     * Creation date of the deployment
-     */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
-    /**
-     * Description of the deployment.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * REST API identifier.
-     */
     declare public readonly restApi: pulumi.Output<string>;
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     */
     declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map to set on the related stage.
-     */
     declare public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -120,29 +81,11 @@ export class Deployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Deployment resources.
  */
 export interface DeploymentState {
-    /**
-     * Creation date of the deployment
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * Description of the deployment.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * REST API identifier.
-     */
     restApi?: pulumi.Input<string | RestApi>;
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map to set on the related stage.
-     */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -150,24 +93,9 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
-    /**
-     * Description of the deployment.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * REST API identifier.
-     */
     restApi: pulumi.Input<string | RestApi>;
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map to set on the related stage.
-     */
     variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

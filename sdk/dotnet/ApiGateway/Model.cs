@@ -9,85 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Provides a Model for a REST API Gateway.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("MyDemoAPI", new()
-    ///     {
-    ///         Name = "MyDemoAPI",
-    ///         Description = "This is my API for demonstration purposes",
-    ///     });
-    /// 
-    ///     var myDemoModel = new Aws.ApiGateway.Model("MyDemoModel", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         Name = "user",
-    ///         Description = "a JSON schema",
-    ///         ContentType = "application/json",
-    ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["type"] = "object",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:apigateway/model:Model example 12345abcde/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/model:Model")]
     public partial class Model : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Content type of the model
-        /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the model
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the model
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the associated REST API
-        /// </summary>
         [Output("restApi")]
         public Output<string> RestApi { get; private set; } = null!;
 
-        /// <summary>
-        /// Schema of the model in a JSON form
-        /// </summary>
         [Output("schema")]
         public Output<string?> Schema { get; private set; } = null!;
 
@@ -137,39 +76,21 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content type of the model
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the model
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the model
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API
-        /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
 
-        /// <summary>
-        /// Schema of the model in a JSON form
-        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
@@ -181,39 +102,21 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ModelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content type of the model
-        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
-        /// <summary>
-        /// Description of the model
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the model
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the associated REST API
-        /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
 
-        /// <summary>
-        /// Schema of the model in a JSON form
-        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 

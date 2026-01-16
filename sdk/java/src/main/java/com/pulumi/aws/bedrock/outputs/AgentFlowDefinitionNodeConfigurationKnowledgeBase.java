@@ -15,43 +15,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationKnowledgeBase {
-    /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration guardrailConfiguration;
-    /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration inferenceConfiguration;
-    /**
-     * @return The unique identifier of the knowledge base to query.
-     * 
-     */
     private String knowledgeBaseId;
     private String modelId;
     private @Nullable Integer numberOfResults;
 
     private AgentFlowDefinitionNodeConfigurationKnowledgeBase() {}
-    /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
-    /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
-    /**
-     * @return The unique identifier of the knowledge base to query.
-     * 
-     */
     public String knowledgeBaseId() {
         return this.knowledgeBaseId;
     }

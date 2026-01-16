@@ -12,17 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class GetTaskExecutionPlacementStrategyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The field to apply the placement strategy against.
-        /// </summary>
         [Input("field")]
         public string? Field { get; set; }
 
-        /// <summary>
-        /// The type of placement strategy. Valid values are `Random`, `Spread`, and `Binpack`.
-        /// 
-        /// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 

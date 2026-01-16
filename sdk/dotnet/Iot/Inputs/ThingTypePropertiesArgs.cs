@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class ThingTypePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the thing type.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("searchableAttributes")]
         private InputList<string>? _searchableAttributes;
-
-        /// <summary>
-        /// A list of searchable thing attribute names.
-        /// </summary>
         public InputList<string> SearchableAttributes
         {
             get => _searchableAttributes ?? (_searchableAttributes = new InputList<string>());

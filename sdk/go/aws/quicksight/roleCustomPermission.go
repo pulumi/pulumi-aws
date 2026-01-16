@@ -12,56 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the custom permissions that are associated with a role.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRoleCustomPermission(ctx, "example", &quicksight.RoleCustomPermissionArgs{
-//				Role:                  pulumi.String("READER"),
-//				CustomPermissionsName: pulumi.Any(exampleAwsQuicksightCustomPermissions.CustomPermissionsName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `role`. For example:
-//
-// ```sh
-// $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER
-// ```
 type RoleCustomPermission struct {
 	pulumi.CustomResourceState
 
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Custom permissions profile name.
+	AwsAccountId          pulumi.StringOutput `pulumi:"awsAccountId"`
 	CustomPermissionsName pulumi.StringOutput `pulumi:"customPermissionsName"`
-	// Namespace containing the role. Defaults to `default`.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role pulumi.StringOutput `pulumi:"role"`
+	Namespace             pulumi.StringOutput `pulumi:"namespace"`
+	Region                pulumi.StringOutput `pulumi:"region"`
+	Role                  pulumi.StringOutput `pulumi:"role"`
 }
 
 // NewRoleCustomPermission registers a new resource with the given unique name, arguments, and options.
@@ -100,31 +58,19 @@ func GetRoleCustomPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleCustomPermission resources.
 type roleCustomPermissionState struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Custom permissions profile name.
+	AwsAccountId          *string `pulumi:"awsAccountId"`
 	CustomPermissionsName *string `pulumi:"customPermissionsName"`
-	// Namespace containing the role. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role *string `pulumi:"role"`
+	Namespace             *string `pulumi:"namespace"`
+	Region                *string `pulumi:"region"`
+	Role                  *string `pulumi:"role"`
 }
 
 type RoleCustomPermissionState struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Custom permissions profile name.
+	AwsAccountId          pulumi.StringPtrInput
 	CustomPermissionsName pulumi.StringPtrInput
-	// Namespace containing the role. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role pulumi.StringPtrInput
+	Namespace             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Role                  pulumi.StringPtrInput
 }
 
 func (RoleCustomPermissionState) ElementType() reflect.Type {
@@ -132,32 +78,20 @@ func (RoleCustomPermissionState) ElementType() reflect.Type {
 }
 
 type roleCustomPermissionArgs struct {
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Custom permissions profile name.
-	CustomPermissionsName string `pulumi:"customPermissionsName"`
-	// Namespace containing the role. Defaults to `default`.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role string `pulumi:"role"`
+	AwsAccountId          *string `pulumi:"awsAccountId"`
+	CustomPermissionsName string  `pulumi:"customPermissionsName"`
+	Namespace             *string `pulumi:"namespace"`
+	Region                *string `pulumi:"region"`
+	Role                  string  `pulumi:"role"`
 }
 
 // The set of arguments for constructing a RoleCustomPermission resource.
 type RoleCustomPermissionArgs struct {
-	AwsAccountId pulumi.StringPtrInput
-	// Custom permissions profile name.
+	AwsAccountId          pulumi.StringPtrInput
 	CustomPermissionsName pulumi.StringInput
-	// Namespace containing the role. Defaults to `default`.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-	//
-	// The following arguments are optional:
-	Role pulumi.StringInput
+	Namespace             pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Role                  pulumi.StringInput
 }
 
 func (RoleCustomPermissionArgs) ElementType() reflect.Type {
@@ -251,24 +185,18 @@ func (o RoleCustomPermissionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleCustomPermission) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Custom permissions profile name.
 func (o RoleCustomPermissionOutput) CustomPermissionsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleCustomPermission) pulumi.StringOutput { return v.CustomPermissionsName }).(pulumi.StringOutput)
 }
 
-// Namespace containing the role. Defaults to `default`.
 func (o RoleCustomPermissionOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleCustomPermission) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RoleCustomPermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleCustomPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-//
-// The following arguments are optional:
 func (o RoleCustomPermissionOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleCustomPermission) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

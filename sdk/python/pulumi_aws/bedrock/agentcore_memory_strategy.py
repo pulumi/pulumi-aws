@@ -32,15 +32,6 @@ class AgentcoreMemoryStrategyArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemoryStrategy resource.
-        :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
-        :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "memory_id", memory_id)
         pulumi.set(__self__, "namespaces", namespaces)
@@ -61,9 +52,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter(name="memoryId")
     def memory_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the memory to associate with this strategy. Changing this forces a new resource.
-        """
         return pulumi.get(self, "memory_id")
 
     @memory_id.setter
@@ -73,11 +61,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter
     def namespaces(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
@@ -87,9 +70,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -99,9 +79,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']]:
-        """
-        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -111,9 +88,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the memory strategy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -132,9 +106,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the memory strategy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -144,9 +115,6 @@ class AgentcoreMemoryStrategyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,16 +146,6 @@ class _AgentcoreMemoryStrategyState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreMemoryStrategy resources.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
-        :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
-        :param pulumi.Input[_builtins.str] memory_strategy_id: Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
-        :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -213,9 +171,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']]:
-        """
-        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -225,9 +180,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the memory strategy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -246,9 +198,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter(name="memoryId")
     def memory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the memory to associate with this strategy. Changing this forces a new resource.
-        """
         return pulumi.get(self, "memory_id")
 
     @memory_id.setter
@@ -258,9 +207,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter(name="memoryStrategyId")
     def memory_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
-        """
         return pulumi.get(self, "memory_strategy_id")
 
     @memory_strategy_id.setter
@@ -270,9 +216,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the memory strategy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -282,11 +225,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter
     def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
@@ -296,9 +234,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -317,9 +252,6 @@ class _AgentcoreMemoryStrategyState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -344,149 +276,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
-
-        **Important Limitations:**
-
-        - Each memory can have a maximum of 6 strategies total
-        - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
-        - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
-
-        ## Example Usage
-
-        ### Semantic Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        semantic = aws.bedrock.AgentcoreMemoryStrategy("semantic",
-            name="semantic-strategy",
-            memory_id=example["id"],
-            type="SEMANTIC",
-            description="Semantic understanding strategy",
-            namespaces=["default"])
-        ```
-
-        ### Summarization Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        summary = aws.bedrock.AgentcoreMemoryStrategy("summary",
-            name="summary-strategy",
-            memory_id=example["id"],
-            type="SUMMARIZATION",
-            description="Text summarization strategy",
-            namespaces=["{sessionId}"])
-        ```
-
-        ### User Preference Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_pref = aws.bedrock.AgentcoreMemoryStrategy("user_pref",
-            name="user-preference-strategy",
-            memory_id=example["id"],
-            type="USER_PREFERENCE",
-            description="User preference tracking strategy",
-            namespaces=["preferences"])
-        ```
-
-        ### Custom Strategy with Semantic Override
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        custom_semantic = aws.bedrock.AgentcoreMemoryStrategy("custom_semantic",
-            name="custom-semantic-strategy",
-            memory_id=example["id"],
-            memory_execution_role_arn=example["memoryExecutionRoleArn"],
-            type="CUSTOM",
-            description="Custom semantic processing strategy",
-            namespaces=["{sessionId}"],
-            configuration={
-                "type": "SEMANTIC_OVERRIDE",
-                "consolidation": {
-                    "append_to_prompt": "Focus on extracting key semantic relationships and concepts",
-                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
-                },
-                "extraction": {
-                    "append_to_prompt": "Extract and categorize semantic information",
-                    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
-                },
-            })
-        ```
-
-        ### Custom Strategy with Summary Override
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        custom_summary = aws.bedrock.AgentcoreMemoryStrategy("custom_summary",
-            name="custom-summary-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom summarization strategy",
-            namespaces=["summaries"],
-            configuration={
-                "type": "SUMMARY_OVERRIDE",
-                "consolidation": {
-                    "append_to_prompt": "Create concise summaries while preserving key details",
-                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
-                },
-            })
-        ```
-
-        ### Custom Strategy with User Preference Override
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        custom_user_pref = aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref",
-            name="custom-user-preference-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom user preference tracking strategy",
-            namespaces=["user_prefs"],
-            configuration={
-                "type": "USER_PREFERENCE_OVERRIDE",
-                "consolidation": {
-                    "append_to_prompt": "Consolidate user preferences and behavioral patterns",
-                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
-                },
-                "extraction": {
-                    "append_to_prompt": "Extract user preferences and interaction patterns",
-                    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
-        ```
-
+        Create a AgentcoreMemoryStrategy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
-        :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
-        :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
         """
         ...
     @overload
@@ -495,138 +287,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                  args: AgentcoreMemoryStrategyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
-
-        **Important Limitations:**
-
-        - Each memory can have a maximum of 6 strategies total
-        - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
-        - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
-
-        ## Example Usage
-
-        ### Semantic Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        semantic = aws.bedrock.AgentcoreMemoryStrategy("semantic",
-            name="semantic-strategy",
-            memory_id=example["id"],
-            type="SEMANTIC",
-            description="Semantic understanding strategy",
-            namespaces=["default"])
-        ```
-
-        ### Summarization Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        summary = aws.bedrock.AgentcoreMemoryStrategy("summary",
-            name="summary-strategy",
-            memory_id=example["id"],
-            type="SUMMARIZATION",
-            description="Text summarization strategy",
-            namespaces=["{sessionId}"])
-        ```
-
-        ### User Preference Strategy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_pref = aws.bedrock.AgentcoreMemoryStrategy("user_pref",
-            name="user-preference-strategy",
-            memory_id=example["id"],
-            type="USER_PREFERENCE",
-            description="User preference tracking strategy",
-            namespaces=["preferences"])
-        ```
-
-        ### Custom Strategy with Semantic Override
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        custom_semantic = aws.bedrock.AgentcoreMemoryStrategy("custom_semantic",
-            name="custom-semantic-strategy",
-            memory_id=example["id"],
-            memory_execution_role_arn=example["memoryExecutionRoleArn"],
-            type="CUSTOM",
-            description="Custom semantic processing strategy",
-            namespaces=["{sessionId}"],
-            configuration={
-                "type": "SEMANTIC_OVERRIDE",
-                "consolidation": {
-                    "append_to_prompt": "Focus on extracting key semantic relationships and concepts",
-                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
-                },
-                "extraction": {
-                    "append_to_prompt": "Extract and categorize semantic information",
-                    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
-                },
-            })
-        ```
-
-        ### Custom Strategy with Summary Override
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        custom_summary = aws.bedrock.AgentcoreMemoryStrategy("custom_summary",
-            name="custom-summary-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom summarization strategy",
-            namespaces=["summaries"],
-            configuration={
-                "type": "SUMMARY_OVERRIDE",
-                "consolidation": {
-                    "append_to_prompt": "Create concise summaries while preserving key details",
-                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
-                },
-            })
-        ```
-
-        ### Custom Strategy with User Preference Override
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        custom_user_pref = aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref",
-            name="custom-user-preference-strategy",
-            memory_id=example["id"],
-            type="CUSTOM",
-            description="Custom user preference tracking strategy",
-            namespaces=["user_prefs"],
-            configuration={
-                "type": "USER_PREFERENCE_OVERRIDE",
-                "consolidation": {
-                    "append_to_prompt": "Consolidate user preferences and behavioral patterns",
-                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
-                },
-                "extraction": {
-                    "append_to_prompt": "Extract user preferences and interaction patterns",
-                    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
-        ```
-
+        Create a AgentcoreMemoryStrategy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreMemoryStrategyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -703,16 +364,6 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
-        :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
-        :param pulumi.Input[_builtins.str] memory_strategy_id: Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
-        :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -733,17 +384,11 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreMemoryStrategyConfiguration']]:
-        """
-        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the memory strategy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -754,43 +399,26 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="memoryId")
     def memory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the memory to associate with this strategy. Changing this forces a new resource.
-        """
         return pulumi.get(self, "memory_id")
 
     @_builtins.property
     @pulumi.getter(name="memoryStrategyId")
     def memory_strategy_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
-        """
         return pulumi.get(self, "memory_strategy_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the memory strategy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespaces(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "namespaces")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -801,8 +429,5 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
-        """
         return pulumi.get(self, "type")
 

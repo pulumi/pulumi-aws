@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSigningProfileSigningMaterial {
-    /**
-     * @return ARN of the certificate used for signing.
-     * 
-     */
     private String certificateArn;
 
     private GetSigningProfileSigningMaterial() {}
-    /**
-     * @return ARN of the certificate used for signing.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }

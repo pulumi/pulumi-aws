@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexDocumentMetadataConfigurationUpdate {
-    /**
-     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
-     * 
-     */
     private String name;
-    /**
-     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
-     * 
-     */
     private @Nullable IndexDocumentMetadataConfigurationUpdateRelevance relevance;
-    /**
-     * @return A block that provides information about how the field is used during a search. Documented below. Detailed below
-     * 
-     */
     private @Nullable IndexDocumentMetadataConfigurationUpdateSearch search;
-    /**
-     * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-     * 
-     */
     private String type;
 
     private IndexDocumentMetadataConfigurationUpdate() {}
-    /**
-     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
-     * 
-     */
     public Optional<IndexDocumentMetadataConfigurationUpdateRelevance> relevance() {
         return Optional.ofNullable(this.relevance);
     }
-    /**
-     * @return A block that provides information about how the field is used during a search. Documented below. Detailed below
-     * 
-     */
     public Optional<IndexDocumentMetadataConfigurationUpdateSearch> search() {
         return Optional.ofNullable(this.search);
     }
-    /**
-     * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

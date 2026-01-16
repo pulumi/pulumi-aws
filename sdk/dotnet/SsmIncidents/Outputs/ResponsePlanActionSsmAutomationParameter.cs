@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanActionSsmAutomationParameter
     {
-        /// <summary>
-        /// The name of parameter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The values for the associated parameter name.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

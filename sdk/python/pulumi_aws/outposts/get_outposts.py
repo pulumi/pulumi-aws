@@ -55,9 +55,6 @@ class GetOutpostsResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        Set of Amazon Resource Names (ARNs).
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -81,9 +78,6 @@ class GetOutpostsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -125,23 +119,7 @@ def get_outposts(availability_zone: Optional[_builtins.str] = None,
                  site_id: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostsResult:
     """
-    Provides details about multiple Outposts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outposts(site_id=id)
-    ```
-
-
-    :param _builtins.str availability_zone: Availability Zone name.
-    :param _builtins.str availability_zone_id: Availability Zone identifier.
-    :param _builtins.str owner_id: AWS Account identifier of the Outpost owner.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str site_id: Site identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -168,23 +146,7 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[_built
                         site_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostsResult]:
     """
-    Provides details about multiple Outposts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outposts(site_id=id)
-    ```
-
-
-    :param _builtins.str availability_zone: Availability Zone name.
-    :param _builtins.str availability_zone_id: Availability Zone identifier.
-    :param _builtins.str owner_id: AWS Account identifier of the Outpost owner.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str site_id: Site identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone

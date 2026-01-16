@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS User Notifications Notification Hub.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.notifications.NotificationHub("example", {notificationHubRegion: "us-west-2"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
- *
- * ```sh
- * $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
- * ```
- */
 export class NotificationHub extends pulumi.CustomResource {
     /**
      * Get an existing NotificationHub resource's state with the given name, ID, and optional extra
@@ -57,9 +35,6 @@ export class NotificationHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationHub.__pulumiType;
     }
 
-    /**
-     * Notification Hub region.
-     */
     declare public readonly notificationHubRegion: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.notifications.NotificationHubTimeouts | undefined>;
 
@@ -95,9 +70,6 @@ export class NotificationHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationHub resources.
  */
 export interface NotificationHubState {
-    /**
-     * Notification Hub region.
-     */
     notificationHubRegion?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.notifications.NotificationHubTimeouts>;
 }
@@ -106,9 +78,6 @@ export interface NotificationHubState {
  * The set of arguments for constructing a NotificationHub resource.
  */
 export interface NotificationHubArgs {
-    /**
-     * Notification Hub region.
-     */
     notificationHubRegion: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.notifications.NotificationHubTimeouts>;
 }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumn
     {
-        /// <summary>
-        /// Description of the column that helps the query engine understand the contents of the column.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether to include or exclude the column during query generation. Valid values `INCLUDE`, `EXCLUDE`.
-        /// </summary>
         public readonly string? Inclusion;
-        /// <summary>
-        /// Name of the column for which the other fields in this object apply.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

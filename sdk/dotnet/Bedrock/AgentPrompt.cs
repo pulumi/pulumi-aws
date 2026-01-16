@@ -9,166 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Resource for managing an AWS Bedrock Agents Prompt.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentPrompt("example", new()
-    ///     {
-    ///         Name = "MyPrompt",
-    ///         Description = "My prompt description.",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With Variants
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentPrompt("example", new()
-    ///     {
-    ///         Name = "MakePlaylist",
-    ///         Description = "My first prompt.",
-    ///         DefaultVariant = "Variant1",
-    ///         Variants = new[]
-    ///         {
-    ///             new Aws.Bedrock.Inputs.AgentPromptVariantArgs
-    ///             {
-    ///                 Name = "Variant1",
-    ///                 ModelId = "amazon.titan-text-express-v1",
-    ///                 InferenceConfiguration = new Aws.Bedrock.Inputs.AgentPromptVariantInferenceConfigurationArgs
-    ///                 {
-    ///                     Text = new Aws.Bedrock.Inputs.AgentPromptVariantInferenceConfigurationTextArgs
-    ///                     {
-    ///                         Temperature = 0.8,
-    ///                     },
-    ///                 },
-    ///                 TemplateType = "TEXT",
-    ///                 TemplateConfiguration = new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationArgs
-    ///                 {
-    ///                     Text = new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationTextArgs
-    ///                     {
-    ///                         Text = "Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.",
-    ///                         InputVariables = new[]
-    ///                         {
-    ///                             new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationTextInputVariableArgs
-    ///                             {
-    ///                                 Name = "genre",
-    ///                             },
-    ///                             new Aws.Bedrock.Inputs.AgentPromptVariantTemplateConfigurationTextInputVariableArgs
-    ///                             {
-    ///                                 Name = "number",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentPrompt:AgentPrompt")]
     public partial class AgentPrompt : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the prompt.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Time at which the prompt was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        /// </summary>
         [Output("customerEncryptionKeyArn")]
         public Output<string?> CustomerEncryptionKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the default variant for your prompt.
-        /// </summary>
         [Output("defaultVariant")]
         public Output<string?> DefaultVariant { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the prompt.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the prompt.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Time at which the prompt was last updated.
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        /// </summary>
         [Output("variants")]
         public Output<ImmutableArray<Outputs.AgentPromptVariant>> Variants { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -218,44 +94,23 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentPromptArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        /// </summary>
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the default variant for your prompt.
-        /// </summary>
         [Input("defaultVariant")]
         public Input<string>? DefaultVariant { get; set; }
 
-        /// <summary>
-        /// Description of the prompt.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the prompt.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -264,10 +119,6 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("variants")]
         private InputList<Inputs.AgentPromptVariantArgs>? _variants;
-
-        /// <summary>
-        /// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        /// </summary>
         public InputList<Inputs.AgentPromptVariantArgs> Variants
         {
             get => _variants ?? (_variants = new InputList<Inputs.AgentPromptVariantArgs>());
@@ -282,56 +133,29 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentPromptState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the prompt.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Time at which the prompt was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
-        /// </summary>
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the default variant for your prompt.
-        /// </summary>
         [Input("defaultVariant")]
         public Input<string>? DefaultVariant { get; set; }
 
-        /// <summary>
-        /// Description of the prompt.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the prompt.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -340,37 +164,23 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Time at which the prompt was last updated.
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         [Input("variants")]
         private InputList<Inputs.AgentPromptVariantGetArgs>? _variants;
-
-        /// <summary>
-        /// A list of objects, each containing details about a variant of the prompt. See Variant for more information.
-        /// </summary>
         public InputList<Inputs.AgentPromptVariantGetArgs> Variants
         {
             get => _variants ?? (_variants = new InputList<Inputs.AgentPromptVariantGetArgs>());
             set => _variants = value;
         }
 
-        /// <summary>
-        /// Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

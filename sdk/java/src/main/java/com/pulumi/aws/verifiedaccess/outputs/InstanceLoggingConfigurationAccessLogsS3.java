@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceLoggingConfigurationAccessLogsS3 {
-    /**
-     * @return The name of S3 bucket.
-     * 
-     */
     private @Nullable String bucketName;
-    /**
-     * @return The ID of the AWS account that owns the Amazon S3 bucket.
-     * 
-     */
     private @Nullable String bucketOwner;
-    /**
-     * @return Indicates whether logging is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The bucket prefix.
-     * 
-     */
     private @Nullable String prefix;
 
     private InstanceLoggingConfigurationAccessLogsS3() {}
-    /**
-     * @return The name of S3 bucket.
-     * 
-     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
-    /**
-     * @return The ID of the AWS account that owns the Amazon S3 bucket.
-     * 
-     */
     public Optional<String> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
-    /**
-     * @return Indicates whether logging is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The bucket prefix.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

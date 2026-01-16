@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Bedrock Guardrail Version.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.GuardrailVersion("example", {
- *     description: "example",
- *     guardrailArn: test.guardrailArn,
- *     skipDestroy: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
- * ```
- */
 export class GuardrailVersion extends pulumi.CustomResource {
     /**
      * Get an existing GuardrailVersion resource's state with the given name, ID, and optional extra
@@ -61,28 +35,11 @@ export class GuardrailVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === GuardrailVersion.__pulumiType;
     }
 
-    /**
-     * Description of the Guardrail version.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Guardrail ARN.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly guardrailArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-     */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.GuardrailVersionTimeouts | undefined>;
-    /**
-     * Guardrail version.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
@@ -125,28 +82,11 @@ export class GuardrailVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GuardrailVersion resources.
  */
 export interface GuardrailVersionState {
-    /**
-     * Description of the Guardrail version.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Guardrail ARN.
-     *
-     * The following arguments are optional:
-     */
     guardrailArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-     */
     skipDestroy?: pulumi.Input<boolean>;
     timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts>;
-    /**
-     * Guardrail version.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -154,23 +94,9 @@ export interface GuardrailVersionState {
  * The set of arguments for constructing a GuardrailVersion resource.
  */
 export interface GuardrailVersionArgs {
-    /**
-     * Description of the Guardrail version.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Guardrail ARN.
-     *
-     * The following arguments are optional:
-     */
     guardrailArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-     */
     skipDestroy?: pulumi.Input<boolean>;
     timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts>;
 }

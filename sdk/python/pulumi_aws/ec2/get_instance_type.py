@@ -227,249 +227,151 @@ class GetInstanceTypeResult:
     @_builtins.property
     @pulumi.getter(name="autoRecoverySupported")
     def auto_recovery_supported(self) -> _builtins.bool:
-        """
-        `true` if auto recovery is supported.
-        """
         return pulumi.get(self, "auto_recovery_supported")
 
     @_builtins.property
     @pulumi.getter(name="bandwidthWeightings")
     def bandwidth_weightings(self) -> Sequence[_builtins.str]:
-        """
-        A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
-        """
         return pulumi.get(self, "bandwidth_weightings")
 
     @_builtins.property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> _builtins.bool:
-        """
-        `true` if it is a bare metal instance type.
-        """
         return pulumi.get(self, "bare_metal")
 
     @_builtins.property
     @pulumi.getter(name="bootModes")
     def boot_modes(self) -> Sequence[_builtins.str]:
-        """
-        A set of strings of supported boot modes.
-        """
         return pulumi.get(self, "boot_modes")
 
     @_builtins.property
     @pulumi.getter(name="burstablePerformanceSupported")
     def burstable_performance_supported(self) -> _builtins.bool:
-        """
-        `true` if the instance type is a burstable performance instance type.
-        """
         return pulumi.get(self, "burstable_performance_supported")
 
     @_builtins.property
     @pulumi.getter(name="currentGeneration")
     def current_generation(self) -> _builtins.bool:
-        """
-        `true`  if the instance type is a current generation.
-        """
         return pulumi.get(self, "current_generation")
 
     @_builtins.property
     @pulumi.getter(name="dedicatedHostsSupported")
     def dedicated_hosts_supported(self) -> _builtins.bool:
-        """
-        `true` if Dedicated Hosts are supported on the instance type.
-        """
         return pulumi.get(self, "dedicated_hosts_supported")
 
     @_builtins.property
     @pulumi.getter(name="defaultCores")
     def default_cores(self) -> _builtins.int:
-        """
-        Default number of cores for the instance type.
-        """
         return pulumi.get(self, "default_cores")
 
     @_builtins.property
     @pulumi.getter(name="defaultNetworkCardIndex")
     def default_network_card_index(self) -> _builtins.int:
-        """
-        The index of the default network card, starting at `0`.
-        """
         return pulumi.get(self, "default_network_card_index")
 
     @_builtins.property
     @pulumi.getter(name="defaultThreadsPerCore")
     def default_threads_per_core(self) -> _builtins.int:
-        """
-        The  default  number of threads per core for the instance type.
-        """
         return pulumi.get(self, "default_threads_per_core")
 
     @_builtins.property
     @pulumi.getter(name="defaultVcpus")
     def default_vcpus(self) -> _builtins.int:
-        """
-        Default number of vCPUs for the instance type.
-        """
         return pulumi.get(self, "default_vcpus")
 
     @_builtins.property
     @pulumi.getter(name="ebsEncryptionSupport")
     def ebs_encryption_support(self) -> _builtins.str:
-        """
-        Indicates whether Amazon EBS encryption is supported.
-        """
         return pulumi.get(self, "ebs_encryption_support")
 
     @_builtins.property
     @pulumi.getter(name="ebsNvmeSupport")
     def ebs_nvme_support(self) -> _builtins.str:
-        """
-        Whether non-volatile memory express (NVMe) is supported.
-        """
         return pulumi.get(self, "ebs_nvme_support")
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimizedSupport")
     def ebs_optimized_support(self) -> _builtins.str:
-        """
-        Indicates that the instance type is Amazon EBS-optimized.
-        """
         return pulumi.get(self, "ebs_optimized_support")
 
     @_builtins.property
     @pulumi.getter(name="ebsPerformanceBaselineBandwidth")
     def ebs_performance_baseline_bandwidth(self) -> _builtins.int:
-        """
-        The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
-        """
         return pulumi.get(self, "ebs_performance_baseline_bandwidth")
 
     @_builtins.property
     @pulumi.getter(name="ebsPerformanceBaselineIops")
     def ebs_performance_baseline_iops(self) -> _builtins.int:
-        """
-        The baseline input/output storage operations per seconds for an EBS-optimized instance type.
-        """
         return pulumi.get(self, "ebs_performance_baseline_iops")
 
     @_builtins.property
     @pulumi.getter(name="ebsPerformanceBaselineThroughput")
     def ebs_performance_baseline_throughput(self) -> _builtins.float:
-        """
-        The baseline throughput performance for an EBS-optimized instance type, in MBps.
-        """
         return pulumi.get(self, "ebs_performance_baseline_throughput")
 
     @_builtins.property
     @pulumi.getter(name="ebsPerformanceMaximumBandwidth")
     def ebs_performance_maximum_bandwidth(self) -> _builtins.int:
-        """
-        The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
-        """
         return pulumi.get(self, "ebs_performance_maximum_bandwidth")
 
     @_builtins.property
     @pulumi.getter(name="ebsPerformanceMaximumIops")
     def ebs_performance_maximum_iops(self) -> _builtins.int:
-        """
-        The maximum input/output storage operations per second for an EBS-optimized instance type.
-        """
         return pulumi.get(self, "ebs_performance_maximum_iops")
 
     @_builtins.property
     @pulumi.getter(name="ebsPerformanceMaximumThroughput")
     def ebs_performance_maximum_throughput(self) -> _builtins.float:
-        """
-        The maximum throughput performance for an EBS-optimized instance type, in MBps.
-        """
         return pulumi.get(self, "ebs_performance_maximum_throughput")
 
     @_builtins.property
     @pulumi.getter(name="efaMaximumInterfaces")
     def efa_maximum_interfaces(self) -> _builtins.int:
-        """
-        The maximum number of Elastic Fabric Adapters for the instance type.
-        """
         return pulumi.get(self, "efa_maximum_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="efaSupported")
     def efa_supported(self) -> _builtins.bool:
-        """
-        `true` if Elastic Fabric Adapter (EFA) is supported.
-        """
         return pulumi.get(self, "efa_supported")
 
     @_builtins.property
     @pulumi.getter(name="enaSrdSupported")
     def ena_srd_supported(self) -> _builtins.bool:
-        """
-        `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
-        """
         return pulumi.get(self, "ena_srd_supported")
 
     @_builtins.property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> _builtins.str:
-        """
-        Indicates whether Elastic Network Adapter (ENA) is `"supported"`, `"required"`, or `"unsupported"`.
-        """
         return pulumi.get(self, "ena_support")
 
     @_builtins.property
     @pulumi.getter(name="encryptionInTransitSupported")
     def encryption_in_transit_supported(self) -> _builtins.bool:
-        """
-        `true` if encryption in-transit between instances is supported.
-        """
         return pulumi.get(self, "encryption_in_transit_supported")
 
     @_builtins.property
     @pulumi.getter
     def fpgas(self) -> Sequence['outputs.GetInstanceTypeFpgaResult']:
-        """
-        Describes the FPGA accelerator settings for the instance type.
-        * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
-        * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-        * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
-        * `fpgas.#.name` - The name of the FPGA accelerator.
-        """
         return pulumi.get(self, "fpgas")
 
     @_builtins.property
     @pulumi.getter(name="freeTierEligible")
     def free_tier_eligible(self) -> _builtins.bool:
-        """
-        `true` if the instance type is eligible for the free tier.
-        """
         return pulumi.get(self, "free_tier_eligible")
 
     @_builtins.property
     @pulumi.getter
     def gpuses(self) -> Sequence['outputs.GetInstanceTypeGpusResult']:
-        """
-        Describes the GPU accelerators for the instance type.
-        * `gpus.#.count` - The number of GPUs for the instance type.
-        * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-        * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
-        * `gpus.#.name` - The name of the GPU accelerator.
-        """
         return pulumi.get(self, "gpuses")
 
     @_builtins.property
     @pulumi.getter(name="hibernationSupported")
     def hibernation_supported(self) -> _builtins.bool:
-        """
-        `true` if On-Demand hibernation is supported.
-        """
         return pulumi.get(self, "hibernation_supported")
 
     @_builtins.property
     @pulumi.getter
     def hypervisor(self) -> _builtins.str:
-        """
-        Hypervisor used for the instance type.
-        """
         return pulumi.get(self, "hypervisor")
 
     @_builtins.property
@@ -483,32 +385,16 @@ class GetInstanceTypeResult:
     @_builtins.property
     @pulumi.getter(name="inferenceAccelerators")
     def inference_accelerators(self) -> Sequence['outputs.GetInstanceTypeInferenceAcceleratorResult']:
-        """
-        Describes the Inference accelerators for the instance type.
-        * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-        * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-        * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
-        * `inference_accelerators.#.name` - The name of the Inference accelerator.
-        """
         return pulumi.get(self, "inference_accelerators")
 
     @_builtins.property
     @pulumi.getter(name="instanceDisks")
     def instance_disks(self) -> Sequence['outputs.GetInstanceTypeInstanceDiskResult']:
-        """
-        Describes the disks for the instance type.
-        * `instance_disks.#.count` - The number of disks with this configuration.
-        * `instance_disks.#.size` - The size of the disk in GB.
-        * `instance_disks.#.type` - The type of disk.
-        """
         return pulumi.get(self, "instance_disks")
 
     @_builtins.property
     @pulumi.getter(name="instanceStorageSupported")
     def instance_storage_supported(self) -> _builtins.bool:
-        """
-        `true` if instance storage is supported.
-        """
         return pulumi.get(self, "instance_storage_supported")
 
     @_builtins.property
@@ -519,127 +405,71 @@ class GetInstanceTypeResult:
     @_builtins.property
     @pulumi.getter(name="ipv6Supported")
     def ipv6_supported(self) -> _builtins.bool:
-        """
-        `true` if IPv6 is supported.
-        """
         return pulumi.get(self, "ipv6_supported")
 
     @_builtins.property
     @pulumi.getter(name="maximumIpv4AddressesPerInterface")
     def maximum_ipv4_addresses_per_interface(self) -> _builtins.int:
-        """
-        The maximum number of IPv4 addresses per network interface.
-        """
         return pulumi.get(self, "maximum_ipv4_addresses_per_interface")
 
     @_builtins.property
     @pulumi.getter(name="maximumIpv6AddressesPerInterface")
     def maximum_ipv6_addresses_per_interface(self) -> _builtins.int:
-        """
-        The maximum number of IPv6 addresses per network interface.
-        """
         return pulumi.get(self, "maximum_ipv6_addresses_per_interface")
 
     @_builtins.property
     @pulumi.getter(name="maximumNetworkCards")
     def maximum_network_cards(self) -> _builtins.int:
-        """
-        The maximum number of physical network cards that can be allocated to the instance.
-        """
         return pulumi.get(self, "maximum_network_cards")
 
     @_builtins.property
     @pulumi.getter(name="maximumNetworkInterfaces")
     def maximum_network_interfaces(self) -> _builtins.int:
-        """
-        The maximum number of network interfaces for the instance type.
-        """
         return pulumi.get(self, "maximum_network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="mediaAccelerators")
     def media_accelerators(self) -> Sequence['outputs.GetInstanceTypeMediaAcceleratorResult']:
-        """
-        Describes the media accelerator settings for the instance type.
-        * `media_accelerators.#.count` - The number of media accelerators for the instance type.
-        * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
-        * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
-        * `media_accelerators.#.name` - The name of the media accelerator.
-        """
         return pulumi.get(self, "media_accelerators")
 
     @_builtins.property
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> _builtins.int:
-        """
-        Size of the instance memory, in MiB.
-        """
         return pulumi.get(self, "memory_size")
 
     @_builtins.property
     @pulumi.getter(name="networkCards")
     def network_cards(self) -> Sequence['outputs.GetInstanceTypeNetworkCardResult']:
-        """
-        Describes the network cards for the instance type.
-        * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
-        * `network_cards.#.index` - The index of the network card.
-        * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
-        * `network_cards.#.performance` - Describes the network performance of the network card.
-        * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
-        """
         return pulumi.get(self, "network_cards")
 
     @_builtins.property
     @pulumi.getter(name="networkPerformance")
     def network_performance(self) -> _builtins.str:
-        """
-        Describes the network performance.
-        """
         return pulumi.get(self, "network_performance")
 
     @_builtins.property
     @pulumi.getter(name="neuronDevices")
     def neuron_devices(self) -> Sequence['outputs.GetInstanceTypeNeuronDeviceResult']:
-        """
-        Describes the Neuron accelerator settings for the instance type.
-        * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
-        * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
-        * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
-        * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
-        * `neuron_devices.#.name` - The name of the neuron accelerator.
-        """
         return pulumi.get(self, "neuron_devices")
 
     @_builtins.property
     @pulumi.getter(name="nitroEnclavesSupport")
     def nitro_enclaves_support(self) -> _builtins.str:
-        """
-        Indicates whether Nitro Enclaves is `"supported"` or `"unsupported"`.
-        """
         return pulumi.get(self, "nitro_enclaves_support")
 
     @_builtins.property
     @pulumi.getter(name="nitroTpmSupport")
     def nitro_tpm_support(self) -> _builtins.str:
-        """
-        Indicates whether NitroTPM is `"supported"` or `"unsupported"`.
-        """
         return pulumi.get(self, "nitro_tpm_support")
 
     @_builtins.property
     @pulumi.getter(name="nitroTpmSupportedVersions")
     def nitro_tpm_supported_versions(self) -> Sequence[_builtins.str]:
-        """
-        A set of strings indicating the supported NitroTPM versions.
-        """
         return pulumi.get(self, "nitro_tpm_supported_versions")
 
     @_builtins.property
     @pulumi.getter(name="phcSupport")
     def phc_support(self) -> _builtins.str:
-        """
-        `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
-        """
         return pulumi.get(self, "phc_support")
 
     @_builtins.property
@@ -650,121 +480,76 @@ class GetInstanceTypeResult:
     @_builtins.property
     @pulumi.getter(name="supportedArchitectures")
     def supported_architectures(self) -> Sequence[_builtins.str]:
-        """
-        A list of strings of architectures supported by the instance type.
-        """
         return pulumi.get(self, "supported_architectures")
 
     @_builtins.property
     @pulumi.getter(name="supportedCpuFeatures")
     def supported_cpu_features(self) -> Sequence[_builtins.str]:
-        """
-        A set of strings indicating supported CPU features.
-        """
         return pulumi.get(self, "supported_cpu_features")
 
     @_builtins.property
     @pulumi.getter(name="supportedPlacementStrategies")
     def supported_placement_strategies(self) -> Sequence[_builtins.str]:
-        """
-        A list of supported placement groups types.
-        """
         return pulumi.get(self, "supported_placement_strategies")
 
     @_builtins.property
     @pulumi.getter(name="supportedRootDeviceTypes")
     def supported_root_device_types(self) -> Sequence[_builtins.str]:
-        """
-        A list of supported root device types.
-        """
         return pulumi.get(self, "supported_root_device_types")
 
     @_builtins.property
     @pulumi.getter(name="supportedUsagesClasses")
     def supported_usages_classes(self) -> Sequence[_builtins.str]:
-        """
-        A list of supported usage classes.  Usage classes are `"spot"`, `"on-demand"`, or `"capacity-block"`.
-        """
         return pulumi.get(self, "supported_usages_classes")
 
     @_builtins.property
     @pulumi.getter(name="supportedVirtualizationTypes")
     def supported_virtualization_types(self) -> Sequence[_builtins.str]:
-        """
-        The supported virtualization types.
-        """
         return pulumi.get(self, "supported_virtualization_types")
 
     @_builtins.property
     @pulumi.getter(name="sustainedClockSpeed")
     def sustained_clock_speed(self) -> _builtins.float:
-        """
-        The speed of the processor, in GHz.
-        """
         return pulumi.get(self, "sustained_clock_speed")
 
     @_builtins.property
     @pulumi.getter(name="totalFpgaMemory")
     def total_fpga_memory(self) -> _builtins.int:
-        """
-        Total memory of all FPGA accelerators for the instance type (in MiB).
-        """
         return pulumi.get(self, "total_fpga_memory")
 
     @_builtins.property
     @pulumi.getter(name="totalGpuMemory")
     def total_gpu_memory(self) -> _builtins.int:
-        """
-        Total size of the memory for the GPU accelerators for the instance type (in MiB).
-        """
         return pulumi.get(self, "total_gpu_memory")
 
     @_builtins.property
     @pulumi.getter(name="totalInferenceMemory")
     def total_inference_memory(self) -> _builtins.int:
-        """
-        The total size of the memory for the neuron accelerators for the instance type (in MiB).
-        """
         return pulumi.get(self, "total_inference_memory")
 
     @_builtins.property
     @pulumi.getter(name="totalInstanceStorage")
     def total_instance_storage(self) -> _builtins.int:
-        """
-        The total size of the instance disks, in GB.
-        """
         return pulumi.get(self, "total_instance_storage")
 
     @_builtins.property
     @pulumi.getter(name="totalMediaMemory")
     def total_media_memory(self) -> _builtins.int:
-        """
-        The total size of the memory for the media accelerators for the instance type (in MiB).
-        """
         return pulumi.get(self, "total_media_memory")
 
     @_builtins.property
     @pulumi.getter(name="totalNeuronDeviceMemory")
     def total_neuron_device_memory(self) -> _builtins.int:
-        """
-        The total size of the memory for the neuron accelerators for the instance type (in MiB).
-        """
         return pulumi.get(self, "total_neuron_device_memory")
 
     @_builtins.property
     @pulumi.getter(name="validCores")
     def valid_cores(self) -> Sequence[_builtins.int]:
-        """
-        List of the valid number of cores that can be configured for the instance type.
-        """
         return pulumi.get(self, "valid_cores")
 
     @_builtins.property
     @pulumi.getter(name="validThreadsPerCores")
     def valid_threads_per_cores(self) -> Sequence[_builtins.int]:
-        """
-        List of the valid number of threads per core that can be configured for the instance type.
-        """
         return pulumi.get(self, "valid_threads_per_cores")
 
 
@@ -845,20 +630,7 @@ def get_instance_type(instance_type: Optional[_builtins.str] = None,
                       region: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeResult:
     """
-    Get characteristics for a single EC2 Instance Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_instance_type(instance_type="t2.micro")
-    ```
-
-
-    :param _builtins.str instance_type: Instance
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type
@@ -936,20 +708,7 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[_builtins.str]
                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeResult]:
     """
-    Get characteristics for a single EC2 Instance Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_instance_type(instance_type="t2.micro")
-    ```
-
-
-    :param _builtins.str instance_type: Instance
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type

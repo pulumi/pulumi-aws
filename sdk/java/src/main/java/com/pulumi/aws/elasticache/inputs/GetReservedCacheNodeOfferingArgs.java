@@ -16,91 +16,37 @@ public final class GetReservedCacheNodeOfferingArgs extends com.pulumi.resources
 
     public static final GetReservedCacheNodeOfferingArgs Empty = new GetReservedCacheNodeOfferingArgs();
 
-    /**
-     * Node type for the reserved cache node.
-     * See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-     * 
-     */
     @Import(name="cacheNodeType", required=true)
     private Output<String> cacheNodeType;
 
-    /**
-     * @return Node type for the reserved cache node.
-     * See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-     * 
-     */
     public Output<String> cacheNodeType() {
         return this.cacheNodeType;
     }
 
-    /**
-     * Duration of the reservation in RFC3339 duration format.
-     * Valid values are `P1Y` (one year) and `P3Y` (three years).
-     * 
-     */
     @Import(name="duration", required=true)
     private Output<String> duration;
 
-    /**
-     * @return Duration of the reservation in RFC3339 duration format.
-     * Valid values are `P1Y` (one year) and `P3Y` (three years).
-     * 
-     */
     public Output<String> duration() {
         return this.duration;
     }
 
-    /**
-     * Offering type of this reserved cache node.
-     * For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-     * For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-     * For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-     * 
-     */
     @Import(name="offeringType", required=true)
     private Output<String> offeringType;
 
-    /**
-     * @return Offering type of this reserved cache node.
-     * For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-     * For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-     * For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-     * 
-     */
     public Output<String> offeringType() {
         return this.offeringType;
     }
 
-    /**
-     * Engine type for the reserved cache node.
-     * Valid values are `redis`, `valkey` and `memcached`.
-     * 
-     */
     @Import(name="productDescription", required=true)
     private Output<String> productDescription;
 
-    /**
-     * @return Engine type for the reserved cache node.
-     * Valid values are `redis`, `valkey` and `memcached`.
-     * 
-     */
     public Output<String> productDescription() {
         return this.productDescription;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -133,121 +79,47 @@ public final class GetReservedCacheNodeOfferingArgs extends com.pulumi.resources
             $ = new GetReservedCacheNodeOfferingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cacheNodeType Node type for the reserved cache node.
-         * See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-         * See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheNodeType(Output<String> cacheNodeType) {
             $.cacheNodeType = cacheNodeType;
             return this;
         }
 
-        /**
-         * @param cacheNodeType Node type for the reserved cache node.
-         * See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-         * See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheNodeType(String cacheNodeType) {
             return cacheNodeType(Output.of(cacheNodeType));
         }
 
-        /**
-         * @param duration Duration of the reservation in RFC3339 duration format.
-         * Valid values are `P1Y` (one year) and `P3Y` (three years).
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Output<String> duration) {
             $.duration = duration;
             return this;
         }
 
-        /**
-         * @param duration Duration of the reservation in RFC3339 duration format.
-         * Valid values are `P1Y` (one year) and `P3Y` (three years).
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(String duration) {
             return duration(Output.of(duration));
         }
 
-        /**
-         * @param offeringType Offering type of this reserved cache node.
-         * For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-         * For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-         * For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder offeringType(Output<String> offeringType) {
             $.offeringType = offeringType;
             return this;
         }
 
-        /**
-         * @param offeringType Offering type of this reserved cache node.
-         * For the latest generation of nodes (e.g. M5, R5, T4 and newer) valid values are `No Upfront`, `Partial Upfront`, and `All Upfront`.
-         * For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
-         * For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder offeringType(String offeringType) {
             return offeringType(Output.of(offeringType));
         }
 
-        /**
-         * @param productDescription Engine type for the reserved cache node.
-         * Valid values are `redis`, `valkey` and `memcached`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productDescription(Output<String> productDescription) {
             $.productDescription = productDescription;
             return this;
         }
 
-        /**
-         * @param productDescription Engine type for the reserved cache node.
-         * Valid values are `redis`, `valkey` and `memcached`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productDescription(String productDescription) {
             return productDescription(Output.of(productDescription));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

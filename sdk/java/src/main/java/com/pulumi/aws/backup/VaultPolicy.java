@@ -13,140 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup vault policy resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.backup.Vault;
- * import com.pulumi.aws.backup.VaultArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.backup.VaultPolicy;
- * import com.pulumi.aws.backup.VaultPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         final var example = exampleVault.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers(current.accountId())
- *                     .build())
- *                 .actions(                
- *                     "backup:DescribeBackupVault",
- *                     "backup:DeleteBackupVault",
- *                     "backup:PutBackupVaultAccessPolicy",
- *                     "backup:DeleteBackupVaultAccessPolicy",
- *                     "backup:GetBackupVaultAccessPolicy",
- *                     "backup:StartBackupJob",
- *                     "backup:GetBackupVaultNotifications",
- *                     "backup:PutBackupVaultNotifications")
- *                 .resources(_arn)
- *                 .build())
- *             .build()));
- * 
- *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()
- *             .backupVaultName(exampleVault.name())
- *             .policy(example.json())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup vault policy using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
- * ```
- * 
- */
 @ResourceType(type="aws:backup/vaultPolicy:VaultPolicy")
 public class VaultPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the vault.
-     * 
-     */
     @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
-    /**
-     * @return The ARN of the vault.
-     * 
-     */
     public Output<String> backupVaultArn() {
         return this.backupVaultArn;
     }
-    /**
-     * Name of the backup vault to add policy for.
-     * 
-     */
     @Export(name="backupVaultName", refs={String.class}, tree="[0]")
     private Output<String> backupVaultName;
 
-    /**
-     * @return Name of the backup vault to add policy for.
-     * 
-     */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
     }
-    /**
-     * The backup vault access policy document in JSON format.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The backup vault access policy document in JSON format.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

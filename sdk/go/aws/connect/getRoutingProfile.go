@@ -11,63 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect Routing Profile.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupRoutingProfile(ctx, &connect.LookupRoutingProfileArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `routingProfileId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupRoutingProfile(ctx, &connect.LookupRoutingProfileArgs{
-//				InstanceId:       "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				RoutingProfileId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRoutingProfile(ctx *pulumi.Context, args *LookupRoutingProfileArgs, opts ...pulumi.InvokeOption) (*LookupRoutingProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoutingProfileResult
@@ -80,40 +23,27 @@ func LookupRoutingProfile(ctx *pulumi.Context, args *LookupRoutingProfileArgs, o
 
 // A collection of arguments for invoking getRoutingProfile.
 type LookupRoutingProfileArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Returns information on a specific Routing Profile by name
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Returns information on a specific Routing Profile by Routing Profile id
-	//
-	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
-	RoutingProfileId *string `pulumi:"routingProfileId"`
-	// Map of tags to assign to the Routing Profile.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceId       string            `pulumi:"instanceId"`
+	Name             *string           `pulumi:"name"`
+	Region           *string           `pulumi:"region"`
+	RoutingProfileId *string           `pulumi:"routingProfileId"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRoutingProfile.
 type LookupRoutingProfileResult struct {
-	// ARN of the Routing Profile.
-	Arn string `pulumi:"arn"`
-	// Specifies the default outbound queue for the Routing Profile.
+	Arn                    string `pulumi:"arn"`
 	DefaultOutboundQueueId string `pulumi:"defaultOutboundQueueId"`
-	// Description of the Routing Profile.
-	Description string `pulumi:"description"`
+	Description            string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
+	Id                 string                              `pulumi:"id"`
+	InstanceId         string                              `pulumi:"instanceId"`
 	MediaConcurrencies []GetRoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
 	Name               string                              `pulumi:"name"`
-	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs     []GetRoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	Region           string                         `pulumi:"region"`
-	RoutingProfileId string                         `pulumi:"routingProfileId"`
-	// Map of tags to assign to the Routing Profile.
-	Tags map[string]string `pulumi:"tags"`
+	QueueConfigs       []GetRoutingProfileQueueConfig      `pulumi:"queueConfigs"`
+	Region             string                              `pulumi:"region"`
+	RoutingProfileId   string                              `pulumi:"routingProfileId"`
+	Tags               map[string]string                   `pulumi:"tags"`
 }
 
 func LookupRoutingProfileOutput(ctx *pulumi.Context, args LookupRoutingProfileOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingProfileResultOutput {
@@ -127,18 +57,11 @@ func LookupRoutingProfileOutput(ctx *pulumi.Context, args LookupRoutingProfileOu
 
 // A collection of arguments for invoking getRoutingProfile.
 type LookupRoutingProfileOutputArgs struct {
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Returns information on a specific Routing Profile by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Returns information on a specific Routing Profile by Routing Profile id
-	//
-	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
+	InstanceId       pulumi.StringInput    `pulumi:"instanceId"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Region           pulumi.StringPtrInput `pulumi:"region"`
 	RoutingProfileId pulumi.StringPtrInput `pulumi:"routingProfileId"`
-	// Map of tags to assign to the Routing Profile.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags             pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupRoutingProfileOutputArgs) ElementType() reflect.Type {
@@ -160,17 +83,14 @@ func (o LookupRoutingProfileResultOutput) ToLookupRoutingProfileResultOutputWith
 	return o
 }
 
-// ARN of the Routing Profile.
 func (o LookupRoutingProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the default outbound queue for the Routing Profile.
 func (o LookupRoutingProfileResultOutput) DefaultOutboundQueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.DefaultOutboundQueueId }).(pulumi.StringOutput)
 }
 
-// Description of the Routing Profile.
 func (o LookupRoutingProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -184,7 +104,6 @@ func (o LookupRoutingProfileResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
 func (o LookupRoutingProfileResultOutput) MediaConcurrencies() GetRoutingProfileMediaConcurrencyArrayOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) []GetRoutingProfileMediaConcurrency { return v.MediaConcurrencies }).(GetRoutingProfileMediaConcurrencyArrayOutput)
 }
@@ -193,7 +112,6 @@ func (o LookupRoutingProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 func (o LookupRoutingProfileResultOutput) QueueConfigs() GetRoutingProfileQueueConfigArrayOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) []GetRoutingProfileQueueConfig { return v.QueueConfigs }).(GetRoutingProfileQueueConfigArrayOutput)
 }
@@ -206,7 +124,6 @@ func (o LookupRoutingProfileResultOutput) RoutingProfileId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.RoutingProfileId }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the Routing Profile.
 func (o LookupRoutingProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

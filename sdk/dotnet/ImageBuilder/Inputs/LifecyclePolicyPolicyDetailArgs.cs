@@ -12,23 +12,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration details for the policy action.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.LifecyclePolicyPolicyDetailActionArgs>? Action { get; set; }
 
-        /// <summary>
-        /// Additional rules to specify resources that should be exempt from policy actions.
-        /// </summary>
         [Input("exclusionRules")]
         public Input<Inputs.LifecyclePolicyPolicyDetailExclusionRulesArgs>? ExclusionRules { get; set; }
 
-        /// <summary>
-        /// Specifies the resources that the lifecycle policy applies to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.LifecyclePolicyPolicyDetailFilterArgs>? Filter { get; set; }
 

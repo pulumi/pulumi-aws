@@ -20,113 +20,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElement {
-    /**
-     * @return Configuration for Amazon Transcribe Call Analytics processor.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration amazonTranscribeCallAnalyticsProcessorConfiguration;
-    /**
-     * @return Configuration for Amazon Transcribe processor.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration amazonTranscribeProcessorConfiguration;
-    /**
-     * @return Configuration for Kinesis Data Stream sink.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration kinesisDataStreamSinkConfiguration;
-    /**
-     * @return Configuration for Lambda Function sink.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration lambdaFunctionSinkConfiguration;
-    /**
-     * @return Configuration for S3 recording sink.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration s3RecordingSinkConfiguration;
-    /**
-     * @return Configuration for SNS Topic sink.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration snsTopicSinkConfiguration;
-    /**
-     * @return Configuration for SQS Queue sink.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration sqsQueueSinkConfiguration;
-    /**
-     * @return Element type.
-     * 
-     */
     private String type;
-    /**
-     * @return Configuration for Voice analytics processor.
-     * 
-     */
     private @Nullable MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration voiceAnalyticsProcessorConfiguration;
 
     private MediaInsightsPipelineConfigurationElement() {}
-    /**
-     * @return Configuration for Amazon Transcribe Call Analytics processor.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration> amazonTranscribeCallAnalyticsProcessorConfiguration() {
         return Optional.ofNullable(this.amazonTranscribeCallAnalyticsProcessorConfiguration);
     }
-    /**
-     * @return Configuration for Amazon Transcribe processor.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration> amazonTranscribeProcessorConfiguration() {
         return Optional.ofNullable(this.amazonTranscribeProcessorConfiguration);
     }
-    /**
-     * @return Configuration for Kinesis Data Stream sink.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration> kinesisDataStreamSinkConfiguration() {
         return Optional.ofNullable(this.kinesisDataStreamSinkConfiguration);
     }
-    /**
-     * @return Configuration for Lambda Function sink.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration> lambdaFunctionSinkConfiguration() {
         return Optional.ofNullable(this.lambdaFunctionSinkConfiguration);
     }
-    /**
-     * @return Configuration for S3 recording sink.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration> s3RecordingSinkConfiguration() {
         return Optional.ofNullable(this.s3RecordingSinkConfiguration);
     }
-    /**
-     * @return Configuration for SNS Topic sink.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration> snsTopicSinkConfiguration() {
         return Optional.ofNullable(this.snsTopicSinkConfiguration);
     }
-    /**
-     * @return Configuration for SQS Queue sink.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration> sqsQueueSinkConfiguration() {
         return Optional.ofNullable(this.sqsQueueSinkConfiguration);
     }
-    /**
-     * @return Element type.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Configuration for Voice analytics processor.
-     * 
-     */
     public Optional<MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration> voiceAnalyticsProcessorConfiguration() {
         return Optional.ofNullable(this.voiceAnalyticsProcessorConfiguration);
     }

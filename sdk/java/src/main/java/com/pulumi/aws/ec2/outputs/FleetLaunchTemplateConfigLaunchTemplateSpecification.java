@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetLaunchTemplateConfigLaunchTemplateSpecification {
-    /**
-     * @return The ID of the launch template.
-     * 
-     */
     private @Nullable String launchTemplateId;
-    /**
-     * @return The name of the launch template.
-     * 
-     */
     private @Nullable String launchTemplateName;
-    /**
-     * @return The launch template version number, `$Latest`, or `$Default.`
-     * 
-     */
     private String version;
 
     private FleetLaunchTemplateConfigLaunchTemplateSpecification() {}
-    /**
-     * @return The ID of the launch template.
-     * 
-     */
     public Optional<String> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
-    /**
-     * @return The name of the launch template.
-     * 
-     */
     public Optional<String> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
-    /**
-     * @return The launch template version number, `$Latest`, or `$Default.`
-     * 
-     */
     public String version() {
         return this.version;
     }

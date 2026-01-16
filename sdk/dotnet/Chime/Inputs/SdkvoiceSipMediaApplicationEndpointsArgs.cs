@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Chime.Inputs
 
     public sealed class SdkvoiceSipMediaApplicationEndpointsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-        /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;
 

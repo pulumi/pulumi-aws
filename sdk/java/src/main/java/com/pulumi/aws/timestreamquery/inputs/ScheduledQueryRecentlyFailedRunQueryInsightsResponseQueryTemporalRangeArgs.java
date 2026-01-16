@@ -16,17 +16,9 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
 
     public static final ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs Empty = new ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs();
 
-    /**
-     * Insights into the most sub-optimal performing table on the temporal axis:
-     * 
-     */
     @Import(name="maxes")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs>> maxes;
 
-    /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
-     * 
-     */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs>>> maxes() {
         return Optional.ofNullable(this.maxes);
     }
@@ -55,33 +47,15 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
             $ = new ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxes(@Nullable Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs>> maxes) {
             $.maxes = maxes;
             return this;
         }
 
-        /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxes(List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs> maxes) {
             return maxes(Output.of(maxes));
         }
 
-        /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxes(ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs... maxes) {
             return maxes(List.of(maxes));
         }

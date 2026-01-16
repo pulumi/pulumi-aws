@@ -13,14 +13,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class EntityRecognizerInputDataConfigDocuments
     {
-        /// <summary>
-        /// Specifies how the input files should be processed.
-        /// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-        /// </summary>
         public readonly string? InputFormat;
-        /// <summary>
-        /// Location of training documents.
-        /// </summary>
         public readonly string S3Uri;
         public readonly string? TestS3Uri;
 

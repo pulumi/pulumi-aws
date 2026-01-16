@@ -25,10 +25,6 @@ class ActionTargetArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionTarget resource.
-        :param pulumi.Input[_builtins.str] description: The name of the custom action target.
-        :param pulumi.Input[_builtins.str] identifier: The ID for the custom action target.
-        :param pulumi.Input[_builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "identifier", identifier)
@@ -40,9 +36,6 @@ class ActionTargetArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the custom action target.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -52,9 +45,6 @@ class ActionTargetArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID for the custom action target.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -64,9 +54,6 @@ class ActionTargetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for the custom action target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,9 +63,6 @@ class ActionTargetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,11 +80,6 @@ class _ActionTargetState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionTarget resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Security Hub custom action target.
-        :param pulumi.Input[_builtins.str] description: The name of the custom action target.
-        :param pulumi.Input[_builtins.str] identifier: The ID for the custom action target.
-        :param pulumi.Input[_builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -116,9 +95,6 @@ class _ActionTargetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the Security Hub custom action target.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -128,9 +104,6 @@ class _ActionTargetState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the custom action target.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -140,9 +113,6 @@ class _ActionTargetState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID for the custom action target.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -152,9 +122,6 @@ class _ActionTargetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for the custom action target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -164,9 +131,6 @@ class _ActionTargetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -186,36 +150,9 @@ class ActionTarget(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates Security Hub custom action.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        example_action_target = aws.securityhub.ActionTarget("example",
-            name="Send notification to chat",
-            identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
-        ```
-
+        Create a ActionTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The name of the custom action target.
-        :param pulumi.Input[_builtins.str] identifier: The ID for the custom action target.
-        :param pulumi.Input[_builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -224,30 +161,7 @@ class ActionTarget(pulumi.CustomResource):
                  args: ActionTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates Security Hub custom action.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        example_action_target = aws.securityhub.ActionTarget("example",
-            name="Send notification to chat",
-            identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
-        ```
-
+        Create a ActionTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ActionTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,11 +221,6 @@ class ActionTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Security Hub custom action target.
-        :param pulumi.Input[_builtins.str] description: The name of the custom action target.
-        :param pulumi.Input[_builtins.str] identifier: The ID for the custom action target.
-        :param pulumi.Input[_builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -327,40 +236,25 @@ class ActionTarget(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the Security Hub custom action target.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the custom action target.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID for the custom action target.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The description for the custom action target.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

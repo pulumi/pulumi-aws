@@ -10,20 +10,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterParameterGroupResult {
-    /**
-     * @return ARN of the cluster parameter group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the cluster parameter group.
-     * 
-     */
     private String description;
-    /**
-     * @return Family of the cluster parameter group.
-     * 
-     */
     private String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -34,24 +22,12 @@ public final class GetClusterParameterGroupResult {
     private String region;
 
     private GetClusterParameterGroupResult() {}
-    /**
-     * @return ARN of the cluster parameter group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the cluster parameter group.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Family of the cluster parameter group.
-     * 
-     */
     public String family() {
         return this.family;
     }

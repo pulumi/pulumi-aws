@@ -12,60 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Detective Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Detective can be found in the [Detective User Guide](https://docs.aws.amazon.com/detective/latest/adminguide/accounts-orgs-transition.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/detective"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("detective.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewOrganizationAdminAccount(ctx, "example", &detective.OrganizationAdminAccountArgs{
-//				AccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-// ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
-	// AWS account identifier to designate as a delegated administrator for Detective.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region    pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationAdminAccount registers a new resource with the given unique name, arguments, and options.
@@ -101,17 +52,13 @@ func GetOrganizationAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationAdminAccount resources.
 type organizationAdminAccountState struct {
-	// AWS account identifier to designate as a delegated administrator for Detective.
 	AccountId *string `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region    *string `pulumi:"region"`
 }
 
 type OrganizationAdminAccountState struct {
-	// AWS account identifier to designate as a delegated administrator for Detective.
 	AccountId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (OrganizationAdminAccountState) ElementType() reflect.Type {
@@ -119,18 +66,14 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 }
 
 type organizationAdminAccountArgs struct {
-	// AWS account identifier to designate as a delegated administrator for Detective.
-	AccountId string `pulumi:"accountId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AccountId string  `pulumi:"accountId"`
+	Region    *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationAdminAccount resource.
 type OrganizationAdminAccountArgs struct {
-	// AWS account identifier to designate as a delegated administrator for Detective.
 	AccountId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 }
 
 func (OrganizationAdminAccountArgs) ElementType() reflect.Type {
@@ -220,12 +163,10 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 	return o
 }
 
-// AWS account identifier to designate as a delegated administrator for Detective.
 func (o OrganizationAdminAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationAdminAccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

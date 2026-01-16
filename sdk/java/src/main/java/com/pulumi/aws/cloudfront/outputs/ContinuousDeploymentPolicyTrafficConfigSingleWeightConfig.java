@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
-    /**
-     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
-     * 
-     */
     private @Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig sessionStickinessConfig;
-    /**
-     * @return The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
-     * 
-     */
     private Double weight;
 
     private ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig() {}
-    /**
-     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
-     * 
-     */
     public Optional<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig> sessionStickinessConfig() {
         return Optional.ofNullable(this.sessionStickinessConfig);
     }
-    /**
-     * @return The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
-     * 
-     */
     public Double weight() {
         return this.weight;
     }

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        /// </summary>
         [Input("guardrailConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationGetArgs>? GuardrailConfiguration { get; set; }
 
-        /// <summary>
-        /// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-        /// </summary>
         [Input("inferenceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationGetArgs>? InferenceConfiguration { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the knowledge base to query.
-        /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class ContactsRotationRecurrenceWeeklySettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) The day of the week when the shift coverage occurs.
-        /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The hand off time. See Hand Off Time for more details.
-        /// </summary>
         [Input("handOffTime")]
         public Input<Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs>? HandOffTime { get; set; }
 

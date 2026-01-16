@@ -15,17 +15,9 @@ public final class DomainConfigurationTlsConfigArgs extends com.pulumi.resources
 
     public static final DomainConfigurationTlsConfigArgs Empty = new DomainConfigurationTlsConfigArgs();
 
-    /**
-     * The security policy for a domain configuration.
-     * 
-     */
     @Import(name="securityPolicy")
     private @Nullable Output<String> securityPolicy;
 
-    /**
-     * @return The security policy for a domain configuration.
-     * 
-     */
     public Optional<Output<String>> securityPolicy() {
         return Optional.ofNullable(this.securityPolicy);
     }
@@ -54,23 +46,11 @@ public final class DomainConfigurationTlsConfigArgs extends com.pulumi.resources
             $ = new DomainConfigurationTlsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityPolicy The security policy for a domain configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityPolicy(@Nullable Output<String> securityPolicy) {
             $.securityPolicy = securityPolicy;
             return this;
         }
 
-        /**
-         * @param securityPolicy The security policy for a domain configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityPolicy(String securityPolicy) {
             return securityPolicy(Output.of(securityPolicy));
         }

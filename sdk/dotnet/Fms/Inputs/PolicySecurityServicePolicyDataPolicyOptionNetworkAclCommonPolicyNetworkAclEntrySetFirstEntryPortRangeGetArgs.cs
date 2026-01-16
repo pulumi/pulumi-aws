@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fms.Inputs
 
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The beginning port number of the range.
-        /// </summary>
         [Input("from")]
         public Input<int>? From { get; set; }
 
-        /// <summary>
-        /// The ending port number of the range.
-        /// </summary>
         [Input("to")]
         public Input<int>? To { get; set; }
 

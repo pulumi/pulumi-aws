@@ -17,47 +17,23 @@ public final class KeyGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeyGroupArgs Empty = new KeyGroupArgs();
 
-    /**
-     * A comment to describe the key group..
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return A comment to describe the key group..
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * A list of the identifiers of the public keys in the key group.
-     * 
-     */
     @Import(name="items", required=true)
     private Output<List<String>> items;
 
-    /**
-     * @return A list of the identifiers of the public keys in the key group.
-     * 
-     */
     public Output<List<String>> items() {
         return this.items;
     }
 
-    /**
-     * A name to identify the key group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name to identify the key group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -88,75 +64,33 @@ public final class KeyGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeyGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment A comment to describe the key group..
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment A comment to describe the key group..
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param items A list of the identifiers of the public keys in the key group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(Output<List<String>> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items A list of the identifiers of the public keys in the key group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(List<String> items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param items A list of the identifiers of the public keys in the key group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(String... items) {
             return items(List.of(items));
         }
 
-        /**
-         * @param name A name to identify the key group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name to identify the key group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

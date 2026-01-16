@@ -15,17 +15,9 @@ public final class ConnectorKafkaClusterClientAuthenticationArgs extends com.pul
 
     public static final ConnectorKafkaClusterClientAuthenticationArgs Empty = new ConnectorKafkaClusterClientAuthenticationArgs();
 
-    /**
-     * The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-     * 
-     */
     @Import(name="authenticationType")
     private @Nullable Output<String> authenticationType;
 
-    /**
-     * @return The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-     * 
-     */
     public Optional<Output<String>> authenticationType() {
         return Optional.ofNullable(this.authenticationType);
     }
@@ -54,23 +46,11 @@ public final class ConnectorKafkaClusterClientAuthenticationArgs extends com.pul
             $ = new ConnectorKafkaClusterClientAuthenticationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationType The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationType(@Nullable Output<String> authenticationType) {
             $.authenticationType = authenticationType;
             return this;
         }
 
-        /**
-         * @param authenticationType The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationType(String authenticationType) {
             return authenticationType(Output.of(authenticationType));
         }

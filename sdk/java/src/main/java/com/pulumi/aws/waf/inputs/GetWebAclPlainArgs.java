@@ -13,17 +13,9 @@ public final class GetWebAclPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWebAclPlainArgs Empty = new GetWebAclPlainArgs();
 
-    /**
-     * Name of the WAF Web ACL.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the WAF Web ACL.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -52,12 +44,6 @@ public final class GetWebAclPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetWebAclPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the WAF Web ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

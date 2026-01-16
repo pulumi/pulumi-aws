@@ -14,17 +14,9 @@ public final class DevEnvironmentPersistentStorageArgs extends com.pulumi.resour
 
     public static final DevEnvironmentPersistentStorageArgs Empty = new DevEnvironmentPersistentStorageArgs();
 
-    /**
-     * The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-     * 
-     */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
-    /**
-     * @return The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-     * 
-     */
     public Output<Integer> size() {
         return this.size;
     }
@@ -53,23 +45,11 @@ public final class DevEnvironmentPersistentStorageArgs extends com.pulumi.resour
             $ = new DevEnvironmentPersistentStorageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }

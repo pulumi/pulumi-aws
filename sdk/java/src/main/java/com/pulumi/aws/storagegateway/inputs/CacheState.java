@@ -15,47 +15,23 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
 
     public static final CacheState Empty = new CacheState();
 
-    /**
-     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-     * 
-     */
     @Import(name="diskId")
     private @Nullable Output<String> diskId;
 
-    /**
-     * @return Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-     * 
-     */
     public Optional<Output<String>> diskId() {
         return Optional.ofNullable(this.diskId);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     @Import(name="gatewayArn")
     private @Nullable Output<String> gatewayArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     public Optional<Output<String>> gatewayArn() {
         return Optional.ofNullable(this.gatewayArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
             $ = new CacheState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskId Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskId(@Nullable Output<String> diskId) {
             $.diskId = diskId;
             return this;
         }
 
-        /**
-         * @param diskId Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskId(String diskId) {
             return diskId(Output.of(diskId));
         }
 
-        /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayArn(@Nullable Output<String> gatewayArn) {
             $.gatewayArn = gatewayArn;
             return this;
         }
 
-        /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayArn(String gatewayArn) {
             return gatewayArn(Output.of(gatewayArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -26,11 +26,6 @@ class UserPoolDomainArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
-        :param pulumi.Input[_builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        :param pulumi.Input[_builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -44,9 +39,6 @@ class UserPoolDomainArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
-        """
-        For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -56,9 +48,6 @@ class UserPoolDomainArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -68,9 +57,6 @@ class UserPoolDomainArgs:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -80,9 +66,6 @@ class UserPoolDomainArgs:
     @_builtins.property
     @pulumi.getter(name="managedLoginVersion")
     def managed_login_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        """
         return pulumi.get(self, "managed_login_version")
 
     @managed_login_version.setter
@@ -92,9 +75,6 @@ class UserPoolDomainArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -118,17 +98,6 @@ class _UserPoolDomainState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolDomain resources.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for the user pool owner.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        :param pulumi.Input[_builtins.str] cloudfront_distribution: The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        :param pulumi.Input[_builtins.str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-        :param pulumi.Input[_builtins.str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
-        :param pulumi.Input[_builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        :param pulumi.Input[_builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket: The S3 bucket where the static files for this domain are stored.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
-        :param pulumi.Input[_builtins.str] version: The app version.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -156,9 +125,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS account ID for the user pool owner.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -168,9 +134,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -180,9 +143,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistribution")
     def cloudfront_distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        """
         return pulumi.get(self, "cloudfront_distribution")
 
     @cloudfront_distribution.setter
@@ -192,9 +152,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistributionArn")
     def cloudfront_distribution_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-        """
         return pulumi.get(self, "cloudfront_distribution_arn")
 
     @cloudfront_distribution_arn.setter
@@ -204,9 +161,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistributionZoneId")
     def cloudfront_distribution_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Route 53 hosted zone ID of the CloudFront distribution.
-        """
         return pulumi.get(self, "cloudfront_distribution_zone_id")
 
     @cloudfront_distribution_zone_id.setter
@@ -216,9 +170,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -228,9 +179,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="managedLoginVersion")
     def managed_login_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        """
         return pulumi.get(self, "managed_login_version")
 
     @managed_login_version.setter
@@ -240,9 +188,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -252,9 +197,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 bucket where the static files for this domain are stored.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -264,9 +206,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -276,9 +215,6 @@ class _UserPoolDomainState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The app version.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -299,60 +235,9 @@ class UserPoolDomain(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Cognito User Pool Domain resource.
-
-        ## Example Usage
-
-        ### Amazon Cognito domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example-pool")
-        main = aws.cognito.UserPoolDomain("main",
-            domain="example-domain",
-            user_pool_id=example.id)
-        ```
-
-        ### Custom Cognito domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("example", name="example-pool")
-        main = aws.cognito.UserPoolDomain("main",
-            domain="auth.example.com",
-            certificate_arn=cert["arn"],
-            user_pool_id=example_user_pool.id)
-        example = aws.route53.get_zone(name="example.com")
-        auth_cognito__a = aws.route53.Record("auth-cognito-A",
-            name=main.domain,
-            type=aws.route53.RecordType.A,
-            zone_id=example.zone_id,
-            aliases=[{
-                "evaluate_target_health": False,
-                "name": main.cloudfront_distribution,
-                "zone_id": main.cloudfront_distribution_zone_id,
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-        ```
-
+        Create a UserPoolDomain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        :param pulumi.Input[_builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        :param pulumi.Input[_builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
         """
         ...
     @overload
@@ -361,53 +246,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  args: UserPoolDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cognito User Pool Domain resource.
-
-        ## Example Usage
-
-        ### Amazon Cognito domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example-pool")
-        main = aws.cognito.UserPoolDomain("main",
-            domain="example-domain",
-            user_pool_id=example.id)
-        ```
-
-        ### Custom Cognito domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("example", name="example-pool")
-        main = aws.cognito.UserPoolDomain("main",
-            domain="auth.example.com",
-            certificate_arn=cert["arn"],
-            user_pool_id=example_user_pool.id)
-        example = aws.route53.get_zone(name="example.com")
-        auth_cognito__a = aws.route53.Record("auth-cognito-A",
-            name=main.domain,
-            type=aws.route53.RecordType.A,
-            zone_id=example.zone_id,
-            aliases=[{
-                "evaluate_target_health": False,
-                "name": main.cloudfront_distribution,
-                "zone_id": main.cloudfront_distribution_zone_id,
-            }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-        ```
-
+        Create a UserPoolDomain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserPoolDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -480,17 +319,6 @@ class UserPoolDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for the user pool owner.
-        :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        :param pulumi.Input[_builtins.str] cloudfront_distribution: The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        :param pulumi.Input[_builtins.str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-        :param pulumi.Input[_builtins.str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
-        :param pulumi.Input[_builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        :param pulumi.Input[_builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket: The S3 bucket where the static files for this domain are stored.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
-        :param pulumi.Input[_builtins.str] version: The app version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -512,88 +340,55 @@ class UserPoolDomain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS account ID for the user pool owner.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        """
         return pulumi.get(self, "certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistribution")
     def cloudfront_distribution(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        """
         return pulumi.get(self, "cloudfront_distribution")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistributionArn")
     def cloudfront_distribution_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-        """
         return pulumi.get(self, "cloudfront_distribution_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistributionZoneId")
     def cloudfront_distribution_zone_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Route 53 hosted zone ID of the CloudFront distribution.
-        """
         return pulumi.get(self, "cloudfront_distribution_zone_id")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
-        """
-        For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter(name="managedLoginVersion")
     def managed_login_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        """
         return pulumi.get(self, "managed_login_version")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        The S3 bucket where the static files for this domain are stored.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The app version.
-        """
         return pulumi.get(self, "version")
 

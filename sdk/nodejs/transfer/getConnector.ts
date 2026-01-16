@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS Transfer Family Connector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.transfer.getConnector({
- *     id: "c-xxxxxxxxxxxxxx",
- * });
- * ```
- */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:transfer/getConnector:getConnector", {
@@ -33,13 +19,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getConnector.
  */
 export interface GetConnectorArgs {
-    /**
-     * Unique identifier for connector
-     */
     id: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -47,63 +27,19 @@ export interface GetConnectorArgs {
  * A collection of values returned by getConnector.
  */
 export interface GetConnectorResult {
-    /**
-     * ARN of the AWS Identity and Access Management role.
-     */
     readonly accessRole: string;
-    /**
-     * ARN of the Connector.
-     */
     readonly arn: string;
-    /**
-     * Structure containing the parameters for an AS2 connector object. Contains the following attributes:
-     */
     readonly as2Configs: outputs.transfer.GetConnectorAs2Config[];
-    /**
-     * Egress configuration for the connector. Contains the following attributes:
-     */
     readonly egressConfigs: outputs.transfer.GetConnectorEgressConfig[];
     readonly id: string;
-    /**
-     * ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
-     */
     readonly loggingRole: string;
     readonly region: string;
-    /**
-     * Name of security policy.
-     */
     readonly securityPolicyName: string;
-    /**
-     * List of egress Ip addresses.
-     */
     readonly serviceManagedEgressIpAddresses: string[];
-    /**
-     * Object containing the following attributes:
-     */
     readonly sftpConfigs: outputs.transfer.GetConnectorSftpConfig[];
-    /**
-     * Object containing the following attributes:
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * URL of the partner's AS2 or SFTP endpoint.
-     */
     readonly url: string;
 }
-/**
- * Data source for managing an AWS Transfer Family Connector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.transfer.getConnector({
- *     id: "c-xxxxxxxxxxxxxx",
- * });
- * ```
- */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:transfer/getConnector:getConnector", {
@@ -116,12 +52,6 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getConnector.
  */
 export interface GetConnectorOutputArgs {
-    /**
-     * Unique identifier for connector
-     */
     id: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

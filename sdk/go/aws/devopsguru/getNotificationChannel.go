@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS DevOps Guru Notification Channel.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.LookupNotificationChannel(ctx, &devopsguru.LookupNotificationChannelArgs{
-//				Id: "channel-1234",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChannelArgs, opts ...pulumi.InvokeOption) (*LookupNotificationChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNotificationChannelResult
@@ -52,24 +23,18 @@ func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChan
 
 // A collection of arguments for invoking getNotificationChannel.
 type LookupNotificationChannelArgs struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters []GetNotificationChannelFilter `pulumi:"filters"`
-	// Unique identifier for the notification channel.
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// SNS noficiation channel configurations. See the `sns` attribute reference below.
-	Sns []GetNotificationChannelSn `pulumi:"sns"`
+	Id      string                         `pulumi:"id"`
+	Region  *string                        `pulumi:"region"`
+	Sns     []GetNotificationChannelSn     `pulumi:"sns"`
 }
 
 // A collection of values returned by getNotificationChannel.
 type LookupNotificationChannelResult struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters []GetNotificationChannelFilter `pulumi:"filters"`
 	Id      string                         `pulumi:"id"`
 	Region  string                         `pulumi:"region"`
-	// SNS noficiation channel configurations. See the `sns` attribute reference below.
-	Sns []GetNotificationChannelSn `pulumi:"sns"`
+	Sns     []GetNotificationChannelSn     `pulumi:"sns"`
 }
 
 func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificationChannelOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationChannelResultOutput {
@@ -83,14 +48,10 @@ func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificatio
 
 // A collection of arguments for invoking getNotificationChannel.
 type LookupNotificationChannelOutputArgs struct {
-	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters GetNotificationChannelFilterArrayInput `pulumi:"filters"`
-	// Unique identifier for the notification channel.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// SNS noficiation channel configurations. See the `sns` attribute reference below.
-	Sns GetNotificationChannelSnArrayInput `pulumi:"sns"`
+	Id      pulumi.StringInput                     `pulumi:"id"`
+	Region  pulumi.StringPtrInput                  `pulumi:"region"`
+	Sns     GetNotificationChannelSnArrayInput     `pulumi:"sns"`
 }
 
 func (LookupNotificationChannelOutputArgs) ElementType() reflect.Type {
@@ -112,7 +73,6 @@ func (o LookupNotificationChannelResultOutput) ToLookupNotificationChannelResult
 	return o
 }
 
-// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 func (o LookupNotificationChannelResultOutput) Filters() GetNotificationChannelFilterArrayOutput {
 	return o.ApplyT(func(v LookupNotificationChannelResult) []GetNotificationChannelFilter { return v.Filters }).(GetNotificationChannelFilterArrayOutput)
 }
@@ -125,7 +85,6 @@ func (o LookupNotificationChannelResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNotificationChannelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// SNS noficiation channel configurations. See the `sns` attribute reference below.
 func (o LookupNotificationChannelResultOutput) Sns() GetNotificationChannelSnArrayOutput {
 	return o.ApplyT(func(v LookupNotificationChannelResult) []GetNotificationChannelSn { return v.Sns }).(GetNotificationChannelSnArrayOutput)
 }

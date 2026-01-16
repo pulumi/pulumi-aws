@@ -18,51 +18,23 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RecoveryGroupArgs Empty = new RecoveryGroupArgs();
 
-    /**
-     * List of cell arns to add as nested fault domains within this recovery group
-     * 
-     */
     @Import(name="cells")
     private @Nullable Output<List<String>> cells;
 
-    /**
-     * @return List of cell arns to add as nested fault domains within this recovery group
-     * 
-     */
     public Optional<Output<List<String>>> cells() {
         return Optional.ofNullable(this.cells);
     }
 
-    /**
-     * A unique name describing the recovery group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="recoveryGroupName", required=true)
     private Output<String> recoveryGroupName;
 
-    /**
-     * @return A unique name describing the recovery group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> recoveryGroupName() {
         return this.recoveryGroupName;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -93,79 +65,33 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RecoveryGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cells List of cell arns to add as nested fault domains within this recovery group
-         * 
-         * @return builder
-         * 
-         */
         public Builder cells(@Nullable Output<List<String>> cells) {
             $.cells = cells;
             return this;
         }
 
-        /**
-         * @param cells List of cell arns to add as nested fault domains within this recovery group
-         * 
-         * @return builder
-         * 
-         */
         public Builder cells(List<String> cells) {
             return cells(Output.of(cells));
         }
 
-        /**
-         * @param cells List of cell arns to add as nested fault domains within this recovery group
-         * 
-         * @return builder
-         * 
-         */
         public Builder cells(String... cells) {
             return cells(List.of(cells));
         }
 
-        /**
-         * @param recoveryGroupName A unique name describing the recovery group.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryGroupName(Output<String> recoveryGroupName) {
             $.recoveryGroupName = recoveryGroupName;
             return this;
         }
 
-        /**
-         * @param recoveryGroupName A unique name describing the recovery group.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryGroupName(String recoveryGroupName) {
             return recoveryGroupName(Output.of(recoveryGroupName));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

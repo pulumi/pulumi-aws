@@ -17,77 +17,37 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyStoreArgs Empty = new PolicyStoreArgs();
 
-    /**
-     * Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-     * 
-     */
     @Import(name="deletionProtection")
     private @Nullable Output<String> deletionProtection;
 
-    /**
-     * @return Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> deletionProtection() {
         return Optional.ofNullable(this.deletionProtection);
     }
 
-    /**
-     * A description of the Policy Store.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the Policy Store.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Validation settings for the policy store.
-     * 
-     */
     @Import(name="validationSettings")
     private @Nullable Output<PolicyStoreValidationSettingsArgs> validationSettings;
 
-    /**
-     * @return Validation settings for the policy store.
-     * 
-     */
     public Optional<Output<PolicyStoreValidationSettingsArgs>> validationSettings() {
         return Optional.ofNullable(this.validationSettings);
     }
@@ -120,107 +80,47 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletionProtection(@Nullable Output<String> deletionProtection) {
             $.deletionProtection = deletionProtection;
             return this;
         }
 
-        /**
-         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletionProtection(String deletionProtection) {
             return deletionProtection(Output.of(deletionProtection));
         }
 
-        /**
-         * @param description A description of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the Policy Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param validationSettings Validation settings for the policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationSettings(@Nullable Output<PolicyStoreValidationSettingsArgs> validationSettings) {
             $.validationSettings = validationSettings;
             return this;
         }
 
-        /**
-         * @param validationSettings Validation settings for the policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationSettings(PolicyStoreValidationSettingsArgs validationSettings) {
             return validationSettings(Output.of(validationSettings));
         }

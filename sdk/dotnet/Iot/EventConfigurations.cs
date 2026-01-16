@@ -9,62 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Manages IoT event configurations.
-    /// 
-    /// &gt; **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.EventConfigurations("example", new()
-    ///     {
-    ///         Configurations = 
-    ///         {
-    ///             { "THING", true },
-    ///             { "THING_GROUP", false },
-    ///             { "THING_TYPE", false },
-    ///             { "THING_GROUP_MEMBERSHIP", false },
-    ///             { "THING_GROUP_HIERARCHY", false },
-    ///             { "THING_TYPE_ASSOCIATION", false },
-    ///             { "JOB", false },
-    ///             { "JOB_EXECUTION", false },
-    ///             { "POLICY", false },
-    ///             { "CERTIFICATE", true },
-    ///             { "CA_CERTIFICATE", false },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/eventConfigurations:EventConfigurations")]
     public partial class EventConfigurations : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        /// </summary>
         [Output("eventConfigurations")]
         public Output<ImmutableDictionary<string, bool>> Configurations { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -116,19 +66,12 @@ namespace Pulumi.Aws.Iot
     {
         [Input("eventConfigurations", required: true)]
         private InputMap<bool>? _eventConfigurations;
-
-        /// <summary>
-        /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        /// </summary>
         public InputMap<bool> Configurations
         {
             get => _eventConfigurations ?? (_eventConfigurations = new InputMap<bool>());
             set => _eventConfigurations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -142,19 +85,12 @@ namespace Pulumi.Aws.Iot
     {
         [Input("eventConfigurations")]
         private InputMap<bool>? _eventConfigurations;
-
-        /// <summary>
-        /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
-        /// </summary>
         public InputMap<bool> Configurations
         {
             get => _eventConfigurations ?? (_eventConfigurations = new InputMap<bool>());
             set => _eventConfigurations = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

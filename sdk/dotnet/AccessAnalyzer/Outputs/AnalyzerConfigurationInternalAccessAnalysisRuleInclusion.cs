@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerConfigurationInternalAccessAnalysisRuleInclusion
     {
-        /// <summary>
-        /// List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
-        /// </summary>
         public readonly ImmutableArray<string> AccountIds;
-        /// <summary>
-        /// List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
-        /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
-        /// <summary>
-        /// List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
-        /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
 
         [OutputConstructor]

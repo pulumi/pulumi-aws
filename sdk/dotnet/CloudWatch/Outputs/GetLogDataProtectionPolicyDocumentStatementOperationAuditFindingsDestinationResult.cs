@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult
     {
-        /// <summary>
-        /// Configures CloudWatch Logs as a findings destination.
-        /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult? CloudwatchLogs;
-        /// <summary>
-        /// Configures Kinesis Firehose as a findings destination.
-        /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult? Firehose;
-        /// <summary>
-        /// Configures S3 as a findings destination.
-        /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result? S3;
 
         [OutputConstructor]

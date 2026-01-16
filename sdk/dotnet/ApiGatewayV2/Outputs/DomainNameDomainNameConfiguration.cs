@@ -13,33 +13,12 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
     [OutputType]
     public sealed class DomainNameDomainNameConfiguration
     {
-        /// <summary>
-        /// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
-        /// </summary>
         public readonly string CertificateArn;
-        /// <summary>
-        /// Endpoint type. Valid values: `REGIONAL`.
-        /// </summary>
         public readonly string EndpointType;
-        /// <summary>
-        /// Amazon Route 53 Hosted Zone ID of the endpoint.
-        /// </summary>
         public readonly string? HostedZoneId;
-        /// <summary>
-        /// The IP address types that can invoke the domain name. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your domain name, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `Ipv4`.
-        /// </summary>
         public readonly string? IpAddressType;
-        /// <summary>
-        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `CertificateArn` is issued via an ACM Private CA or `MutualTlsAuthentication` is configured with an ACM-imported certificate.)
-        /// </summary>
         public readonly string? OwnershipVerificationCertificateArn;
-        /// <summary>
-        /// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-        /// </summary>
         public readonly string SecurityPolicy;
-        /// <summary>
-        /// Target domain name.
-        /// </summary>
         public readonly string? TargetDomainName;
 
         [OutputConstructor]

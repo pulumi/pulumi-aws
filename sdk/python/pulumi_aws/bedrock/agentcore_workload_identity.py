@@ -24,11 +24,6 @@ class AgentcoreWorkloadIdentityArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreWorkloadIdentity resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        :param pulumi.Input[_builtins.str] name: Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allowed_resource_oauth2_return_urls is not None:
             pulumi.set(__self__, "allowed_resource_oauth2_return_urls", allowed_resource_oauth2_return_urls)
@@ -40,9 +35,6 @@ class AgentcoreWorkloadIdentityArgs:
     @_builtins.property
     @pulumi.getter(name="allowedResourceOauth2ReturnUrls")
     def allowed_resource_oauth2_return_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        """
         return pulumi.get(self, "allowed_resource_oauth2_return_urls")
 
     @allowed_resource_oauth2_return_urls.setter
@@ -52,11 +44,6 @@ class AgentcoreWorkloadIdentityArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -66,9 +53,6 @@ class AgentcoreWorkloadIdentityArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -85,12 +69,6 @@ class _AgentcoreWorkloadIdentityState:
                  workload_identity_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreWorkloadIdentity resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        :param pulumi.Input[_builtins.str] name: Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workload_identity_arn: ARN of the Workload Identity.
         """
         if allowed_resource_oauth2_return_urls is not None:
             pulumi.set(__self__, "allowed_resource_oauth2_return_urls", allowed_resource_oauth2_return_urls)
@@ -104,9 +82,6 @@ class _AgentcoreWorkloadIdentityState:
     @_builtins.property
     @pulumi.getter(name="allowedResourceOauth2ReturnUrls")
     def allowed_resource_oauth2_return_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        """
         return pulumi.get(self, "allowed_resource_oauth2_return_urls")
 
     @allowed_resource_oauth2_return_urls.setter
@@ -116,11 +91,6 @@ class _AgentcoreWorkloadIdentityState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -130,9 +100,6 @@ class _AgentcoreWorkloadIdentityState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -142,9 +109,6 @@ class _AgentcoreWorkloadIdentityState:
     @_builtins.property
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Workload Identity.
-        """
         return pulumi.get(self, "workload_identity_arn")
 
     @workload_identity_arn.setter
@@ -163,51 +127,9 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Workload Identity. Workload Identity provides OAuth2-based authentication and authorization for AI agents to access external resources securely.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreWorkloadIdentity("example",
-            name="example-workload-identity",
-            allowed_resource_oauth2_return_urls=["https://example.com/callback"])
-        ```
-
-        ### Workload Identity with Multiple Return URLs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreWorkloadIdentity("example",
-            name="example-workload-identity",
-            allowed_resource_oauth2_return_urls=[
-                "https://app.example.com/oauth/callback",
-                "https://api.example.com/auth/return",
-                "https://example.com/callback",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
-        ```
-
+        Create a AgentcoreWorkloadIdentity resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        :param pulumi.Input[_builtins.str] name: Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -216,44 +138,7 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
                  args: Optional[AgentcoreWorkloadIdentityArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Workload Identity. Workload Identity provides OAuth2-based authentication and authorization for AI agents to access external resources securely.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreWorkloadIdentity("example",
-            name="example-workload-identity",
-            allowed_resource_oauth2_return_urls=["https://example.com/callback"])
-        ```
-
-        ### Workload Identity with Multiple Return URLs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreWorkloadIdentity("example",
-            name="example-workload-identity",
-            allowed_resource_oauth2_return_urls=[
-                "https://app.example.com/oauth/callback",
-                "https://api.example.com/auth/return",
-                "https://example.com/callback",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
-        ```
-
+        Create a AgentcoreWorkloadIdentity resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreWorkloadIdentityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,12 +191,6 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        :param pulumi.Input[_builtins.str] name: Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workload_identity_arn: ARN of the Workload Identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -326,34 +205,20 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowedResourceOauth2ReturnUrls")
     def allowed_resource_oauth2_return_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
-        """
         return pulumi.get(self, "allowed_resource_oauth2_return_urls")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Workload Identity.
-        """
         return pulumi.get(self, "workload_identity_arn")
 

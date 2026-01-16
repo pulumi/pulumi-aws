@@ -17,92 +17,44 @@ public final class CloudFormationTypeArgs extends com.pulumi.resources.ResourceA
 
     public static final CloudFormationTypeArgs Empty = new CloudFormationTypeArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-     * 
-     */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-     * 
-     */
     public Optional<Output<String>> executionRoleArn() {
         return Optional.ofNullable(this.executionRoleArn);
     }
 
-    /**
-     * Configuration block containing logging configuration.
-     * 
-     */
     @Import(name="loggingConfig")
     private @Nullable Output<CloudFormationTypeLoggingConfigArgs> loggingConfig;
 
-    /**
-     * @return Configuration block containing logging configuration.
-     * 
-     */
     public Optional<Output<CloudFormationTypeLoggingConfigArgs>> loggingConfig() {
         return Optional.ofNullable(this.loggingConfig);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-     * 
-     */
     @Import(name="schemaHandlerPackage", required=true)
     private Output<String> schemaHandlerPackage;
 
-    /**
-     * @return URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-     * 
-     */
     public Output<String> schemaHandlerPackage() {
         return this.schemaHandlerPackage;
     }
 
-    /**
-     * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-     * 
-     */
     @Import(name="typeName", required=true)
     private Output<String> typeName;
 
-    /**
-     * @return CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-     * 
-     */
     public Output<String> typeName() {
         return this.typeName;
     }
@@ -136,128 +88,56 @@ public final class CloudFormationTypeArgs extends com.pulumi.resources.ResourceA
             $ = new CloudFormationTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(@Nullable Output<String> executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
         }
 
-        /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(String executionRoleArn) {
             return executionRoleArn(Output.of(executionRoleArn));
         }
 
-        /**
-         * @param loggingConfig Configuration block containing logging configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfig(@Nullable Output<CloudFormationTypeLoggingConfigArgs> loggingConfig) {
             $.loggingConfig = loggingConfig;
             return this;
         }
 
-        /**
-         * @param loggingConfig Configuration block containing logging configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfig(CloudFormationTypeLoggingConfigArgs loggingConfig) {
             return loggingConfig(Output.of(loggingConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param schemaHandlerPackage URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaHandlerPackage(Output<String> schemaHandlerPackage) {
             $.schemaHandlerPackage = schemaHandlerPackage;
             return this;
         }
 
-        /**
-         * @param schemaHandlerPackage URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schemaHandlerPackage(String schemaHandlerPackage) {
             return schemaHandlerPackage(Output.of(schemaHandlerPackage));
         }
 
-        /**
-         * @param type CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param typeName CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typeName(Output<String> typeName) {
             $.typeName = typeName;
             return this;
         }
 
-        /**
-         * @param typeName CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typeName(String typeName) {
             return typeName(Output.of(typeName));
         }

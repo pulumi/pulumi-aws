@@ -17,208 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppConfig Environment resource for an `aws.appconfig.Application` resource. One or more environments can be defined for an application.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appconfig.Application;
- * import com.pulumi.aws.appconfig.ApplicationArgs;
- * import com.pulumi.aws.appconfig.Environment;
- * import com.pulumi.aws.appconfig.EnvironmentArgs;
- * import com.pulumi.aws.appconfig.inputs.EnvironmentMonitorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
- *             .name("example-application-tf")
- *             .description("Example AppConfig Application")
- *             .tags(Map.of("Type", "AppConfig Application"))
- *             .build());
- * 
- *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .name("example-environment-tf")
- *             .description("Example AppConfig Environment")
- *             .applicationId(exampleApplication.id())
- *             .monitors(EnvironmentMonitorArgs.builder()
- *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.arn())
- *                 .alarmRoleArn(exampleAwsIamRole.arn())
- *                 .build())
- *             .tags(Map.of("Type", "AppConfig Environment"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
- * 
- * ```sh
- * $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
-    /**
-     * AppConfig application ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return AppConfig application ID. Must be between 4 and 7 characters in length.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * ARN of the AppConfig Environment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig Environment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the environment. Can be at most 1024 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the environment. Can be at most 1024 characters.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * AppConfig environment ID.
-     * 
-     */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
-    /**
-     * @return AppConfig environment ID.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
-    /**
-     * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-     * 
-     */
     @Export(name="monitors", refs={List.class,EnvironmentMonitor.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentMonitor>> monitors;
 
-    /**
-     * @return Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-     * 
-     */
     public Output<Optional<List<EnvironmentMonitor>>> monitors() {
         return Codegen.optional(this.monitors);
     }
-    /**
-     * Name for the environment. Must be between 1 and 64 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the environment. Must be between 1 and 64 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

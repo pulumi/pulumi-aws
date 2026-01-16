@@ -28,12 +28,6 @@ class GuardrailVersionArgs:
                  timeouts: Optional[pulumi.Input['GuardrailVersionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a GuardrailVersion resource.
-        :param pulumi.Input[_builtins.str] guardrail_arn: Guardrail ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         """
         pulumi.set(__self__, "guardrail_arn", guardrail_arn)
         if description is not None:
@@ -48,11 +42,6 @@ class GuardrailVersionArgs:
     @_builtins.property
     @pulumi.getter(name="guardrailArn")
     def guardrail_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Guardrail ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "guardrail_arn")
 
     @guardrail_arn.setter
@@ -62,9 +51,6 @@ class GuardrailVersionArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the Guardrail version.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,9 +60,6 @@ class GuardrailVersionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -86,9 +69,6 @@ class GuardrailVersionArgs:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -116,13 +96,6 @@ class _GuardrailVersionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GuardrailVersion resources.
-        :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
-        :param pulumi.Input[_builtins.str] guardrail_arn: Guardrail ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-        :param pulumi.Input[_builtins.str] version: Guardrail version.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -140,9 +113,6 @@ class _GuardrailVersionState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the Guardrail version.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -152,11 +122,6 @@ class _GuardrailVersionState:
     @_builtins.property
     @pulumi.getter(name="guardrailArn")
     def guardrail_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Guardrail ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "guardrail_arn")
 
     @guardrail_arn.setter
@@ -166,9 +131,6 @@ class _GuardrailVersionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,9 +140,6 @@ class _GuardrailVersionState:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -199,9 +158,6 @@ class _GuardrailVersionState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Guardrail version.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -222,38 +178,9 @@ class GuardrailVersion(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['GuardrailVersionTimeoutsArgs', 'GuardrailVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Guardrail Version.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.GuardrailVersion("example",
-            description="example",
-            guardrail_arn=test["guardrailArn"],
-            skip_destroy=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
-        ```
-
+        Create a GuardrailVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
-        :param pulumi.Input[_builtins.str] guardrail_arn: Guardrail ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         """
         ...
     @overload
@@ -262,30 +189,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  args: GuardrailVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Guardrail Version.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.GuardrailVersion("example",
-            description="example",
-            guardrail_arn=test["guardrailArn"],
-            skip_destroy=True)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
-        ```
-
+        Create a GuardrailVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GuardrailVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,13 +250,6 @@ class GuardrailVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
-        :param pulumi.Input[_builtins.str] guardrail_arn: Guardrail ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-        :param pulumi.Input[_builtins.str] version: Guardrail version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -369,35 +266,21 @@ class GuardrailVersion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the Guardrail version.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="guardrailArn")
     def guardrail_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Guardrail ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "guardrail_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-        """
         return pulumi.get(self, "skip_destroy")
 
     @_builtins.property
@@ -408,8 +291,5 @@ class GuardrailVersion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Guardrail version.
-        """
         return pulumi.get(self, "version")
 

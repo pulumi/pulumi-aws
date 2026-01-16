@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS QuickSight Folder Membership.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.FolderMembership("example", {
- *     folderId: exampleAwsQuicksightFolder.folderId,
- *     memberType: "DATASET",
- *     memberId: exampleAwsQuicksightDataSet.dataSetId,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
- * ```
- */
 export class FolderMembership extends pulumi.CustomResource {
     /**
      * Get an existing FolderMembership resource's state with the given name, ID, and optional extra
@@ -59,23 +33,9 @@ export class FolderMembership extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Identifier for the folder.
-     */
     declare public readonly folderId: pulumi.Output<string>;
-    /**
-     * ID of the asset (the dashboard, analysis, or dataset).
-     */
     declare public readonly memberId: pulumi.Output<string>;
-    /**
-     * Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly memberType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -123,23 +83,9 @@ export class FolderMembership extends pulumi.CustomResource {
  */
 export interface FolderMembershipState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier for the folder.
-     */
     folderId?: pulumi.Input<string>;
-    /**
-     * ID of the asset (the dashboard, analysis, or dataset).
-     */
     memberId?: pulumi.Input<string>;
-    /**
-     * Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-     *
-     * The following arguments are optional:
-     */
     memberType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -148,22 +94,8 @@ export interface FolderMembershipState {
  */
 export interface FolderMembershipArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Identifier for the folder.
-     */
     folderId: pulumi.Input<string>;
-    /**
-     * ID of the asset (the dashboard, analysis, or dataset).
-     */
     memberId: pulumi.Input<string>;
-    /**
-     * Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
-     *
-     * The following arguments are optional:
-     */
     memberType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

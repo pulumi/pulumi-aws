@@ -58,9 +58,6 @@ class GetPeeringAttachmentsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -85,35 +82,7 @@ def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachme
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringAttachmentsResult:
     """
-    Get information on EC2 Transit Gateway Peering Attachments.
-
-    ## Example Usage
-
-    ### All Resources
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_peering_attachments()
-    ```
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    filtered = aws.ec2transitgateway.get_peering_attachments(filters=[{
-        "name": "state",
-        "values": ["pendingAcceptance"],
-    }])
-    unit = [aws.ec2transitgateway.get_peering_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -130,35 +99,7 @@ def get_peering_attachments_output(filters: Optional[pulumi.Input[Optional[Seque
                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringAttachmentsResult]:
     """
-    Get information on EC2 Transit Gateway Peering Attachments.
-
-    ## Example Usage
-
-    ### All Resources
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_peering_attachments()
-    ```
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    filtered = aws.ec2transitgateway.get_peering_attachments(filters=[{
-        "name": "state",
-        "values": ["pendingAcceptance"],
-    }])
-    unit = [aws.ec2transitgateway.get_peering_attachment(id=filtered.ids[__index]) for __index in len(filtered.ids).apply(lambda length: range(length))]
-    ```
-
-
-    :param Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

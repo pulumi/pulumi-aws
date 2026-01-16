@@ -59,9 +59,6 @@ class GetPlanResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the backup plan.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -75,9 +72,6 @@ class GetPlanResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Display name of a backup plan.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -93,33 +87,21 @@ class GetPlanResult:
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetPlanRuleResult']:
-        """
-        Rules of a backup plan.
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter(name="scanSettings")
     def scan_settings(self) -> Sequence['outputs.GetPlanScanSettingResult']:
-        """
-        Scanning configuration for the backup rule.
-        """
         return pulumi.get(self, "scan_settings")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Metadata that you can assign to help organize the plans you create.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-        """
         return pulumi.get(self, "version")
 
 
@@ -145,21 +127,7 @@ def get_plan(plan_id: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlanResult:
     """
-    Use this data source to get information on an existing backup plan.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_plan(plan_id="my_example_backup_plan_id")
-    ```
-
-
-    :param _builtins.str plan_id: Backup plan ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the plans you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['planId'] = plan_id
@@ -183,21 +151,7 @@ def get_plan_output(plan_id: Optional[pulumi.Input[_builtins.str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
-    Use this data source to get information on an existing backup plan.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_plan(plan_id="my_example_backup_plan_id")
-    ```
-
-
-    :param _builtins.str plan_id: Backup plan ID.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the plans you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['planId'] = plan_id

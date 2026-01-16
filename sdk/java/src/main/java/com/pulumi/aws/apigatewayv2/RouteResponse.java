@@ -15,145 +15,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 route response.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.RouteResponse;
- * import com.pulumi.aws.apigatewayv2.RouteResponseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RouteResponse("example", RouteResponseArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .routeId(exampleAwsApigatewayv2Route.id())
- *             .routeResponseKey("$default")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Enabling Two-Way Communication
- * 
- * For websocket routes that require two-way communication enabled, an `aws.apigatewayv2.RouteResponse` needs to be added to the route with `routeResponseKey = &#34;$default&#34;`. More information available  is available in [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- * 
- * You can only define the $default route response for WebSocket APIs. You can use an integration response to manipulate the response from a backend service. For more information, see [Overview of integration responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html#apigateway-websocket-api-integration-response-overview).
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/routeResponse:RouteResponse")
 public class RouteResponse extends com.pulumi.resources.CustomResource {
-    /**
-     * API identifier.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-     * 
-     */
     @Export(name="modelSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> modelSelectionExpression;
 
-    /**
-     * @return The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-     * 
-     */
     public Output<Optional<String>> modelSelectionExpression() {
         return Codegen.optional(this.modelSelectionExpression);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Response models for the route response.
-     * 
-     */
     @Export(name="responseModels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
-    /**
-     * @return Response models for the route response.
-     * 
-     */
     public Output<Optional<Map<String,String>>> responseModels() {
         return Codegen.optional(this.responseModels);
     }
-    /**
-     * Identifier of the `aws.apigatewayv2.Route`.
-     * 
-     */
     @Export(name="routeId", refs={String.class}, tree="[0]")
     private Output<String> routeId;
 
-    /**
-     * @return Identifier of the `aws.apigatewayv2.Route`.
-     * 
-     */
     public Output<String> routeId() {
         return this.routeId;
     }
-    /**
-     * Route response key.
-     * 
-     */
     @Export(name="routeResponseKey", refs={String.class}, tree="[0]")
     private Output<String> routeResponseKey;
 
-    /**
-     * @return Route response key.
-     * 
-     */
     public Output<String> routeResponseKey() {
         return this.routeResponseKey;
     }

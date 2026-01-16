@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an Image Builder Distribution Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.LookupDistributionConfiguration(ctx, &imagebuilder.LookupDistributionConfigurationArgs{
-//				Arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDistributionConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionConfigurationResult
@@ -50,33 +23,23 @@ func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributi
 
 // A collection of arguments for invoking getDistributionConfiguration.
 type LookupDistributionConfigurationArgs struct {
-	// ARN of the distribution configuration.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the distribution configuration.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    string            `pulumi:"arn"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDistributionConfiguration.
 type LookupDistributionConfigurationResult struct {
-	Arn string `pulumi:"arn"`
-	// Date the distribution configuration was created.
-	DateCreated string `pulumi:"dateCreated"`
-	// Date the distribution configuration was updated.
-	DateUpdated string `pulumi:"dateUpdated"`
-	// Description of the container distribution configuration.
-	Description string `pulumi:"description"`
-	// Set of distributions.
+	Arn           string                                     `pulumi:"arn"`
+	DateCreated   string                                     `pulumi:"dateCreated"`
+	DateUpdated   string                                     `pulumi:"dateUpdated"`
+	Description   string                                     `pulumi:"description"`
 	Distributions []GetDistributionConfigurationDistribution `pulumi:"distributions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the distribution configuration.
-	Name string `pulumi:"name"`
-	// AWS Region of distribution.
-	Region string `pulumi:"region"`
-	// Key-value map of resource tags for the distribution configuration.
-	Tags map[string]string `pulumi:"tags"`
+	Id     string            `pulumi:"id"`
+	Name   string            `pulumi:"name"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
@@ -90,12 +53,9 @@ func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistr
 
 // A collection of arguments for invoking getDistributionConfiguration.
 type LookupDistributionConfigurationOutputArgs struct {
-	// ARN of the distribution configuration.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags for the distribution configuration.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDistributionConfigurationOutputArgs) ElementType() reflect.Type {
@@ -121,22 +81,18 @@ func (o LookupDistributionConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date the distribution configuration was created.
 func (o LookupDistributionConfigurationResultOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Date the distribution configuration was updated.
 func (o LookupDistributionConfigurationResultOutput) DateUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
-// Description of the container distribution configuration.
 func (o LookupDistributionConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Set of distributions.
 func (o LookupDistributionConfigurationResultOutput) Distributions() GetDistributionConfigurationDistributionArrayOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) []GetDistributionConfigurationDistribution {
 		return v.Distributions
@@ -148,17 +104,14 @@ func (o LookupDistributionConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the distribution configuration.
 func (o LookupDistributionConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// AWS Region of distribution.
 func (o LookupDistributionConfigurationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the distribution configuration.
 func (o LookupDistributionConfigurationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDistributionConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

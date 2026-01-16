@@ -16,164 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an ElastiCache user group resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.User;
- * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.UserGroup;
- * import com.pulumi.aws.elasticache.UserGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var test = new User("test", UserArgs.builder()
- *             .userId("testUserId")
- *             .userName("default")
- *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
- *             .engine("redis")
- *             .passwords("password123456789")
- *             .build());
- * 
- *         var testUserGroup = new UserGroup("testUserGroup", UserGroupArgs.builder()
- *             .engine("redis")
- *             .userGroupId("userGroupId")
- *             .userIds(test.userId())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
- * ```
- * 
- */
 @ResourceType(type="aws:elasticache/userGroup:UserGroup")
 public class UserGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN that identifies the user group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN that identifies the user group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The current supported value are `redis`, `valkey` (case insensitive).
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return The current supported value are `redis`, `valkey` (case insensitive).
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The ID of the user group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
-    /**
-     * @return The ID of the user group.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userGroupId() {
         return this.userGroupId;
     }
-    /**
-     * The list of user IDs that belong to the user group.
-     * 
-     */
     @Export(name="userIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userIds;
 
-    /**
-     * @return The list of user IDs that belong to the user group.
-     * 
-     */
     public Output<Optional<List<String>>> userIds() {
         return Codegen.optional(this.userIds);
     }

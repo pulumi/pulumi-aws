@@ -13,53 +13,17 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfiguration
     {
-        /// <summary>
-        /// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
-        /// </summary>
         public readonly int? BytesScannedCutoffPerQuery;
-        /// <summary>
-        /// Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationCustomerContentEncryptionConfiguration? CustomerContentEncryptionConfiguration;
-        /// <summary>
-        /// Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
-        /// </summary>
         public readonly bool? EnableMinimumEncryptionConfiguration;
-        /// <summary>
-        /// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `True`.
-        /// </summary>
         public readonly bool? EnforceWorkgroupConfiguration;
-        /// <summary>
-        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationEngineVersion? EngineVersion;
-        /// <summary>
-        /// Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
-        /// </summary>
         public readonly string? ExecutionRole;
-        /// <summary>
-        /// Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationIdentityCenterConfiguration? IdentityCenterConfiguration;
-        /// <summary>
-        /// Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
-        /// <summary>
-        /// Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationMonitoringConfiguration? MonitoringConfiguration;
-        /// <summary>
-        /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `True`.
-        /// </summary>
         public readonly bool? PublishCloudwatchMetricsEnabled;
-        /// <summary>
-        /// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-        /// </summary>
         public readonly bool? RequesterPaysEnabled;
-        /// <summary>
-        /// Configuration block with result settings. See Result Configuration below.
-        /// </summary>
         public readonly Outputs.WorkgroupConfigurationResultConfiguration? ResultConfiguration;
 
         [OutputConstructor]

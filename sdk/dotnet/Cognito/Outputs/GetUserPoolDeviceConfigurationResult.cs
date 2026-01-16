@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class GetUserPoolDeviceConfigurationResult
     {
-        /// <summary>
-        /// - Whether a challenge is required on new devices.
-        /// </summary>
         public readonly bool ChallengeRequiredOnNewDevice;
-        /// <summary>
-        /// - Whether devices are only remembered if the user prompts it.
-        /// </summary>
         public readonly bool DeviceOnlyRememberedOnUserPrompt;
 
         [OutputConstructor]

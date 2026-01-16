@@ -14,17 +14,9 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
 
     public static final V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessageArgs Empty = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessageArgs();
 
-    /**
-     * SSML text that defines the prompt.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return SSML text that defines the prompt.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
             $ = new V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value SSML text that defines the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value SSML text that defines the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

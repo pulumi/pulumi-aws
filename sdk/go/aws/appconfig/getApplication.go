@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an AWS AppConfig Application.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.LookupApplication(ctx, &appconfig.LookupApplicationArgs{
-//				Name: pulumi.StringRef("my-appconfig-application"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationResult
@@ -52,19 +23,14 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 
 // A collection of arguments for invoking getApplication.
 type LookupApplicationArgs struct {
-	// ID of the Application. Either `id` or `name` must be specified.
-	Id *string `pulumi:"id"`
-	// AWS AppConfig Application name. Either `name` or `id` must be specified.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     *string `pulumi:"id"`
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
-	// ARN of the Application.
-	Arn string `pulumi:"arn"`
-	// Description of the Application.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
@@ -82,11 +48,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 
 // A collection of arguments for invoking getApplication.
 type LookupApplicationOutputArgs struct {
-	// ID of the Application. Either `id` or `name` must be specified.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// AWS AppConfig Application name. Either `name` or `id` must be specified.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -109,12 +72,10 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-// ARN of the Application.
 func (o LookupApplicationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the Application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Description }).(pulumi.StringOutput)
 }

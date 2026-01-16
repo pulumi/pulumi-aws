@@ -17,15 +17,7 @@ import javax.annotation.Nullable;
 public final class GetRegionsResult {
     private @Nullable Boolean allRegions;
     private @Nullable List<GetRegionsFilter> filters;
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     private String id;
-    /**
-     * @return Names of regions that meets the criteria.
-     * 
-     */
     private List<String> names;
 
     private GetRegionsResult() {}
@@ -35,17 +27,9 @@ public final class GetRegionsResult {
     public List<GetRegionsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Names of regions that meets the criteria.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

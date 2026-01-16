@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderCapacityProviderScalingConfigScalingPolicy
     {
-        /// <summary>
-        /// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
-        /// </summary>
         public readonly string PredefinedMetricType;
-        /// <summary>
-        /// The target value for the scaling policy.
-        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

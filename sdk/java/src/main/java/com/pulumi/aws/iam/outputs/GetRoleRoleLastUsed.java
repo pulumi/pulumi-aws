@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRoleRoleLastUsed {
-    /**
-     * @return The date and time, in RFC 3339 format, that the role was last used.
-     * 
-     */
     private String lastUsedDate;
-    /**
-     * @return The name of the AWS Region in which the role was last used.
-     * 
-     */
     private String region;
 
     private GetRoleRoleLastUsed() {}
-    /**
-     * @return The date and time, in RFC 3339 format, that the role was last used.
-     * 
-     */
     public String lastUsedDate() {
         return this.lastUsedDate;
     }
-    /**
-     * @return The name of the AWS Region in which the role was last used.
-     * 
-     */
     public String region() {
         return this.region;
     }

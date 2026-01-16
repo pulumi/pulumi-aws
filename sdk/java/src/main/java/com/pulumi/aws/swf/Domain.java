@@ -15,166 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SWF Domain resource.
- * 
- * ## Example Usage
- * 
- * To register a basic SWF domain:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.swf.Domain;
- * import com.pulumi.aws.swf.DomainArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Domain("foo", DomainArgs.builder()
- *             .name("foo")
- *             .description("SWF Domain")
- *             .workflowExecutionRetentionPeriodInDays("30")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SWF Domains using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:swf/domain:Domain foo test-domain
- * ```
- * 
- */
 @ResourceType(type="aws:swf/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN)
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN)
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The domain description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The domain description.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the domain. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the domain. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-     * 
-     */
     @Export(name="workflowExecutionRetentionPeriodInDays", refs={String.class}, tree="[0]")
     private Output<String> workflowExecutionRetentionPeriodInDays;
 
-    /**
-     * @return Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-     * 
-     */
     public Output<String> workflowExecutionRetentionPeriodInDays() {
         return this.workflowExecutionRetentionPeriodInDays;
     }

@@ -16,17 +16,9 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
 
     public static final ConnectPeerConfigurationBgpConfigurationArgs Empty = new ConnectPeerConfigurationBgpConfigurationArgs();
 
-    /**
-     * Connect peer core network address.
-     * 
-     */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     public Optional<Output<String>> coreNetworkAddress() {
         return Optional.ofNullable(this.coreNetworkAddress);
     }
@@ -38,36 +30,16 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         return Optional.ofNullable(this.coreNetworkAsn);
     }
 
-    /**
-     * Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }
 
-    /**
-     * Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     @Import(name="peerAsn")
     private @Nullable Output<String> peerAsn;
 
-    /**
-     * @return Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-     * 
-     */
     public Optional<Output<String>> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
@@ -99,23 +71,11 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
             $ = new ConnectPeerConfigurationBgpConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coreNetworkAddress Connect peer core network address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkAddress(@Nullable Output<String> coreNetworkAddress) {
             $.coreNetworkAddress = coreNetworkAddress;
             return this;
         }
 
-        /**
-         * @param coreNetworkAddress Connect peer core network address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkAddress(String coreNetworkAddress) {
             return coreNetworkAddress(Output.of(coreNetworkAddress));
         }
@@ -129,48 +89,20 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
             return coreNetworkAsn(Output.of(coreNetworkAsn));
         }
 
-        /**
-         * @param peerAddress Connect peer address.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(@Nullable Output<String> peerAddress) {
             $.peerAddress = peerAddress;
             return this;
         }
 
-        /**
-         * @param peerAddress Connect peer address.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(String peerAddress) {
             return peerAddress(Output.of(peerAddress));
         }
 
-        /**
-         * @param peerAsn Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAsn(@Nullable Output<String> peerAsn) {
             $.peerAsn = peerAsn;
             return this;
         }
 
-        /**
-         * @param peerAsn Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAsn(String peerAsn) {
             return peerAsn(Output.of(peerAsn));
         }

@@ -30,14 +30,6 @@ class AgentcoreCodeInterpreterArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreCodeInterpreterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreCodeInterpreter resource.
-        :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
-        :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -57,9 +49,6 @@ class AgentcoreCodeInterpreterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the code interpreter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,9 +58,6 @@ class AgentcoreCodeInterpreterArgs:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -81,9 +67,6 @@ class AgentcoreCodeInterpreterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the code interpreter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,11 +76,6 @@ class AgentcoreCodeInterpreterArgs:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']]:
-        """
-        Network configuration for the code interpreter. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -107,9 +85,6 @@ class AgentcoreCodeInterpreterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,9 +94,6 @@ class AgentcoreCodeInterpreterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -153,17 +125,6 @@ class _AgentcoreCodeInterpreterState:
                  timeouts: Optional[pulumi.Input['AgentcoreCodeInterpreterTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
-        :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
-        :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
-        :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
-        :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if code_interpreter_arn is not None:
             pulumi.set(__self__, "code_interpreter_arn", code_interpreter_arn)
@@ -189,9 +150,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter(name="codeInterpreterArn")
     def code_interpreter_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Code Interpreter.
-        """
         return pulumi.get(self, "code_interpreter_arn")
 
     @code_interpreter_arn.setter
@@ -201,9 +159,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter(name="codeInterpreterId")
     def code_interpreter_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier of the Code Interpreter.
-        """
         return pulumi.get(self, "code_interpreter_id")
 
     @code_interpreter_id.setter
@@ -213,9 +168,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the code interpreter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -225,9 +177,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -237,9 +186,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the code interpreter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -249,11 +195,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']]:
-        """
-        Network configuration for the code interpreter. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -263,9 +204,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -275,9 +213,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -287,9 +222,6 @@ class _AgentcoreCodeInterpreterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -321,68 +253,9 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentcoreCodeInterpreterTimeoutsArgs', 'AgentcoreCodeInterpreterTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter for data analysis",
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ### Code Interpreter with Execution Role
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-code-interpreter-role",
-            assume_role_policy=assume_role.json)
-        example_agentcore_code_interpreter = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter with custom execution role",
-            execution_role_arn=example.arn,
-            network_configuration={
-                "network_mode": "SANDBOX",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Code Interpreter using the code interpreter ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
-        ```
-
+        Create a AgentcoreCodeInterpreter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
-        :param pulumi.Input[Union['AgentcoreCodeInterpreterNetworkConfigurationArgs', 'AgentcoreCodeInterpreterNetworkConfigurationArgsDict']] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -391,58 +264,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
                  args: Optional[AgentcoreCodeInterpreterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Code Interpreter. Code Interpreter provides a secure environment for AI agents to execute Python code, enabling data analysis, calculations, and file processing capabilities.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter for data analysis",
-            network_configuration={
-                "network_mode": "PUBLIC",
-            })
-        ```
-
-        ### Code Interpreter with Execution Role
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-code-interpreter-role",
-            assume_role_policy=assume_role.json)
-        example_agentcore_code_interpreter = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter with custom execution role",
-            execution_role_arn=example.arn,
-            network_configuration={
-                "network_mode": "SANDBOX",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Code Interpreter using the code interpreter ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
-        ```
-
+        Create a AgentcoreCodeInterpreter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreCodeInterpreterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -511,17 +333,6 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
-        :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
-        :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
-        :param pulumi.Input[Union['AgentcoreCodeInterpreterNetworkConfigurationArgs', 'AgentcoreCodeInterpreterNetworkConfigurationArgsDict']] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -542,75 +353,46 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="codeInterpreterArn")
     def code_interpreter_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Code Interpreter.
-        """
         return pulumi.get(self, "code_interpreter_arn")
 
     @_builtins.property
     @pulumi.getter(name="codeInterpreterId")
     def code_interpreter_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier of the Code Interpreter.
-        """
         return pulumi.get(self, "code_interpreter_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the code interpreter.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the code interpreter.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreCodeInterpreterNetworkConfiguration']]:
-        """
-        Network configuration for the code interpreter. See `network_configuration` below.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "network_configuration")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

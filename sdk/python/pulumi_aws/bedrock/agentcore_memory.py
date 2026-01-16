@@ -31,15 +31,6 @@ class AgentcoreMemoryArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemory resource.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the memory.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        :param pulumi.Input[_builtins.str] name: Name of the memory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
         if description is not None:
@@ -60,11 +51,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "event_expiry_duration")
 
     @event_expiry_duration.setter
@@ -74,9 +60,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the memory.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,9 +69,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
@@ -98,9 +78,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
     def memory_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
@@ -110,9 +87,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the memory.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -122,9 +96,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -134,9 +105,6 @@ class AgentcoreMemoryArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -168,17 +136,6 @@ class _AgentcoreMemoryState:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreMemory resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Memory.
-        :param pulumi.Input[_builtins.str] description: Description of the memory.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        :param pulumi.Input[_builtins.str] name: Name of the memory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -204,9 +161,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Memory.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -216,9 +170,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the memory.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -228,9 +179,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
@@ -240,11 +188,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "event_expiry_duration")
 
     @event_expiry_duration.setter
@@ -254,9 +197,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
     def memory_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
@@ -266,9 +206,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the memory.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -278,9 +215,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -290,9 +224,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -302,9 +233,6 @@ class _AgentcoreMemoryState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -337,70 +265,9 @@ class AgentcoreMemory(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['AgentcoreMemoryTimeoutsArgs', 'AgentcoreMemoryTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Memory. Memory provides persistent storage for AI agent interactions, allowing agents to retain context across conversations and sessions.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-memory-role",
-            assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
-        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
-            name="example_memory",
-            event_expiry_duration=30)
-        ```
-
-        ### Memory with Custom Encryption and Role
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="KMS key for Bedrock AgentCore Memory")
-        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
-            name="example_memory",
-            description="Memory for customer service agent",
-            event_expiry_duration=60,
-            encryption_key_arn=example.arn,
-            memory_execution_role_arn=example_aws_iam_role["arn"],
-            client_token="unique-client-token")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
-        ```
-
+        Create a AgentcoreMemory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Description of the memory.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        :param pulumi.Input[_builtins.str] name: Name of the memory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -409,59 +276,7 @@ class AgentcoreMemory(pulumi.CustomResource):
                  args: AgentcoreMemoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Memory. Memory provides persistent storage for AI agent interactions, allowing agents to retain context across conversations and sessions.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["bedrock-agentcore.amazonaws.com"],
-            }],
-        }])
-        example = aws.iam.Role("example",
-            name="bedrock-agentcore-memory-role",
-            assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
-        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
-            name="example_memory",
-            event_expiry_duration=30)
-        ```
-
-        ### Memory with Custom Encryption and Role
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="KMS key for Bedrock AgentCore Memory")
-        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
-            name="example_memory",
-            description="Memory for customer service agent",
-            event_expiry_duration=60,
-            encryption_key_arn=example.arn,
-            memory_execution_role_arn=example_aws_iam_role["arn"],
-            client_token="unique-client-token")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
-
-        ```sh
-        $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
-        ```
-
+        Create a AgentcoreMemory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AgentcoreMemoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -533,17 +348,6 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Memory.
-        :param pulumi.Input[_builtins.str] description: Description of the memory.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        :param pulumi.Input[_builtins.str] name: Name of the memory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -564,75 +368,46 @@ class AgentcoreMemory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Memory.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the memory.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        """
         return pulumi.get(self, "encryption_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "event_expiry_duration")
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
     def memory_execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
-        """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the memory.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

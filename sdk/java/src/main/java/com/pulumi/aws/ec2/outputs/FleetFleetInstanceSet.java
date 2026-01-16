@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetFleetInstanceSet {
-    /**
-     * @return The IDs of the instances.
-     * 
-     */
     private @Nullable List<String> instanceIds;
-    /**
-     * @return The instance type.
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-     * 
-     */
     private @Nullable String lifecycle;
-    /**
-     * @return The value is `Windows` for Windows instances. Otherwise, the value is blank.
-     * 
-     */
     private @Nullable String platform;
 
     private FleetFleetInstanceSet() {}
-    /**
-     * @return The IDs of the instances.
-     * 
-     */
     public List<String> instanceIds() {
         return this.instanceIds == null ? List.of() : this.instanceIds;
     }
-    /**
-     * @return The instance type.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-     * 
-     */
     public Optional<String> lifecycle() {
         return Optional.ofNullable(this.lifecycle);
     }
-    /**
-     * @return The value is `Windows` for Windows instances. Otherwise, the value is blank.
-     * 
-     */
     public Optional<String> platform() {
         return Optional.ofNullable(this.platform);
     }

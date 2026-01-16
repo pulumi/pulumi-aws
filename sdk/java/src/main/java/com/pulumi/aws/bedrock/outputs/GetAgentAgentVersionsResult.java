@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAgentAgentVersionsResult {
     private String agentId;
-    /**
-     * @return List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     * 
-     */
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,10 +26,6 @@ public final class GetAgentAgentVersionsResult {
     public String agentId() {
         return this.agentId;
     }
-    /**
-     * @return List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     * 
-     */
     public List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries() {
         return this.agentVersionSummaries == null ? List.of() : this.agentVersionSummaries;
     }

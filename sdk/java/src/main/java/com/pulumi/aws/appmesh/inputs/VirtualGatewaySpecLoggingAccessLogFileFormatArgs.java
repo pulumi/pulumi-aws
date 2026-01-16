@@ -17,32 +17,16 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
 
     public static final VirtualGatewaySpecLoggingAccessLogFileFormatArgs Empty = new VirtualGatewaySpecLoggingAccessLogFileFormatArgs();
 
-    /**
-     * The logging format for JSON.
-     * 
-     */
     @Import(name="jsons")
     private @Nullable Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>> jsons;
 
-    /**
-     * @return The logging format for JSON.
-     * 
-     */
     public Optional<Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>>> jsons() {
         return Optional.ofNullable(this.jsons);
     }
 
-    /**
-     * The logging format for text. Must be between 1 and 1000 characters in length.
-     * 
-     */
     @Import(name="text")
     private @Nullable Output<String> text;
 
-    /**
-     * @return The logging format for text. Must be between 1 and 1000 characters in length.
-     * 
-     */
     public Optional<Output<String>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -72,54 +56,24 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
             $ = new VirtualGatewaySpecLoggingAccessLogFileFormatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param jsons The logging format for JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsons(@Nullable Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>> jsons) {
             $.jsons = jsons;
             return this;
         }
 
-        /**
-         * @param jsons The logging format for JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsons(List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs> jsons) {
             return jsons(Output.of(jsons));
         }
 
-        /**
-         * @param jsons The logging format for JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsons(VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs... jsons) {
             return jsons(List.of(jsons));
         }
 
-        /**
-         * @param text The logging format for text. Must be between 1 and 1000 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(@Nullable Output<String> text) {
             $.text = text;
             return this;
         }
 
-        /**
-         * @param text The logging format for text. Must be between 1 and 1000 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder text(String text) {
             return text(Output.of(text));
         }

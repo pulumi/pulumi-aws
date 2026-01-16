@@ -12,35 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon S3 Tables Table Policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-//
-// ```sh
-// $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-// ```
 type TablePolicy struct {
 	pulumi.CustomResourceState
 
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Web Services resource-based policy document in JSON format.
+	Name           pulumi.StringOutput `pulumi:"name"`
+	Namespace      pulumi.StringOutput `pulumi:"namespace"`
+	Region         pulumi.StringOutput `pulumi:"region"`
 	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
-	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
 
@@ -83,36 +61,18 @@ func GetTablePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TablePolicy resources.
 type tablePolicyState struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace *string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Web Services resource-based policy document in JSON format.
+	Name           *string `pulumi:"name"`
+	Namespace      *string `pulumi:"namespace"`
+	Region         *string `pulumi:"region"`
 	ResourcePolicy *string `pulumi:"resourcePolicy"`
-	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 }
 
 type TablePolicyState struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Web Services resource-based policy document in JSON format.
+	Name           pulumi.StringPtrInput
+	Namespace      pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 	ResourcePolicy pulumi.StringPtrInput
-	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn pulumi.StringPtrInput
 }
 
@@ -121,37 +81,19 @@ func (TablePolicyState) ElementType() reflect.Type {
 }
 
 type tablePolicyArgs struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace string `pulumi:"namespace"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Amazon Web Services resource-based policy document in JSON format.
-	ResourcePolicy string `pulumi:"resourcePolicy"`
-	// ARN referencing the Table Bucket that contains this Namespace.
-	TableBucketArn string `pulumi:"tableBucketArn"`
+	Name           *string `pulumi:"name"`
+	Namespace      string  `pulumi:"namespace"`
+	Region         *string `pulumi:"region"`
+	ResourcePolicy string  `pulumi:"resourcePolicy"`
+	TableBucketArn string  `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a TablePolicy resource.
 type TablePolicyArgs struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	Namespace pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Amazon Web Services resource-based policy document in JSON format.
+	Name           pulumi.StringPtrInput
+	Namespace      pulumi.StringInput
+	Region         pulumi.StringPtrInput
 	ResourcePolicy pulumi.StringInput
-	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn pulumi.StringInput
 }
 
@@ -242,31 +184,22 @@ func (o TablePolicyOutput) ToTablePolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Name of the table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o TablePolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the namespace for this table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o TablePolicyOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TablePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Web Services resource-based policy document in JSON format.
 func (o TablePolicyOutput) ResourcePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.ResourcePolicy }).(pulumi.StringOutput)
 }
 
-// ARN referencing the Table Bucket that contains this Namespace.
 func (o TablePolicyOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

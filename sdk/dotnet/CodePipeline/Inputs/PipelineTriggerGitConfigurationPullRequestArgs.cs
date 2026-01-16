@@ -12,27 +12,17 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class PipelineTriggerGitConfigurationPullRequestArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The field that specifies to filter on branches for the pull request trigger configuration. A `Branches` block is documented below.
-        /// </summary>
         [Input("branches")]
         public Input<Inputs.PipelineTriggerGitConfigurationPullRequestBranchesArgs>? Branches { get; set; }
 
         [Input("events")]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
             set => _events = value;
         }
 
-        /// <summary>
-        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `FilePaths` block is documented below.
-        /// </summary>
         [Input("filePaths")]
         public Input<Inputs.PipelineTriggerGitConfigurationPullRequestFilePathsArgs>? FilePaths { get; set; }
 

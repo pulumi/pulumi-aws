@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceStorageConfigStorageConfigS3Config {
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The S3 bucket prefix.
-     * 
-     */
     private String bucketPrefix;
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     private @Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig;
 
     private InstanceStorageConfigStorageConfigS3Config() {}
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The S3 bucket prefix.
-     * 
-     */
     public String bucketPrefix() {
         return this.bucketPrefix;
     }
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     public Optional<InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfig() {
         return Optional.ofNullable(this.encryptionConfig);
     }

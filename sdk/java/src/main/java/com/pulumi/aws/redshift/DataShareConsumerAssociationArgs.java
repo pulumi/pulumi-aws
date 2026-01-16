@@ -17,96 +17,44 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
 
     public static final DataShareConsumerAssociationArgs Empty = new DataShareConsumerAssociationArgs();
 
-    /**
-     * Whether to allow write operations for a datashare.
-     * 
-     */
     @Import(name="allowWrites")
     private @Nullable Output<Boolean> allowWrites;
 
-    /**
-     * @return Whether to allow write operations for a datashare.
-     * 
-     */
     public Optional<Output<Boolean>> allowWrites() {
         return Optional.ofNullable(this.allowWrites);
     }
 
-    /**
-     * Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
-     * 
-     */
     @Import(name="associateEntireAccount")
     private @Nullable Output<Boolean> associateEntireAccount;
 
-    /**
-     * @return Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
-     * 
-     */
     public Optional<Output<Boolean>> associateEntireAccount() {
         return Optional.ofNullable(this.associateEntireAccount);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
-     * 
-     */
     @Import(name="consumerArn")
     private @Nullable Output<String> consumerArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
-     * 
-     */
     public Optional<Output<String>> consumerArn() {
         return Optional.ofNullable(this.consumerArn);
     }
 
-    /**
-     * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
-     * 
-     */
     @Import(name="consumerRegion")
     private @Nullable Output<String> consumerRegion;
 
-    /**
-     * @return From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
-     * 
-     */
     public Optional<Output<String>> consumerRegion() {
         return Optional.ofNullable(this.consumerRegion);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="dataShareArn", required=true)
     private Output<String> dataShareArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> dataShareArn() {
         return this.dataShareArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -140,132 +88,56 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
             $ = new DataShareConsumerAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowWrites Whether to allow write operations for a datashare.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowWrites(@Nullable Output<Boolean> allowWrites) {
             $.allowWrites = allowWrites;
             return this;
         }
 
-        /**
-         * @param allowWrites Whether to allow write operations for a datashare.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowWrites(Boolean allowWrites) {
             return allowWrites(Output.of(allowWrites));
         }
 
-        /**
-         * @param associateEntireAccount Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateEntireAccount(@Nullable Output<Boolean> associateEntireAccount) {
             $.associateEntireAccount = associateEntireAccount;
             return this;
         }
 
-        /**
-         * @param associateEntireAccount Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associateEntireAccount(Boolean associateEntireAccount) {
             return associateEntireAccount(Output.of(associateEntireAccount));
         }
 
-        /**
-         * @param consumerArn Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerArn(@Nullable Output<String> consumerArn) {
             $.consumerArn = consumerArn;
             return this;
         }
 
-        /**
-         * @param consumerArn Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerArn(String consumerArn) {
             return consumerArn(Output.of(consumerArn));
         }
 
-        /**
-         * @param consumerRegion From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerRegion(@Nullable Output<String> consumerRegion) {
             $.consumerRegion = consumerRegion;
             return this;
         }
 
-        /**
-         * @param consumerRegion From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerRegion(String consumerRegion) {
             return consumerRegion(Output.of(consumerRegion));
         }
 
-        /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataShareArn(Output<String> dataShareArn) {
             $.dataShareArn = dataShareArn;
             return this;
         }
 
-        /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataShareArn(String dataShareArn) {
             return dataShareArn(Output.of(dataShareArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

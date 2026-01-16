@@ -13,23 +13,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ImagePipelineWorkflow
     {
-        /// <summary>
-        /// The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-        /// </summary>
         public readonly string? OnFailure;
-        /// <summary>
-        /// The parallel group in which to run a test Workflow.
-        /// </summary>
         public readonly string? ParallelGroup;
-        /// <summary>
-        /// Configuration block for the workflow parameters. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ImagePipelineWorkflowParameter> Parameters;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Workflow.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string WorkflowArn;
 
         [OutputConstructor]

@@ -14,19 +14,9 @@ public final class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs e
 
     public static final OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs Empty = new OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs();
 
-    /**
-     * If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     @Import(name="enable", required=true)
     private Output<Boolean> enable;
 
-    /**
-     * @return If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     public Output<Boolean> enable() {
         return this.enable;
     }
@@ -55,25 +45,11 @@ public final class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs e
             $ = new OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enable If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }

@@ -65,17 +65,11 @@ class GetVirtualServiceResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the virtual service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
-        """
-        Creation date of the virtual service.
-        """
         return pulumi.get(self, "created_date")
 
     @_builtins.property
@@ -89,9 +83,6 @@ class GetVirtualServiceResult:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
-        """
-        Last update date of the virtual service.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @_builtins.property
@@ -117,25 +108,16 @@ class GetVirtualServiceResult:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> _builtins.str:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualServiceSpecResult']:
-        """
-        Virtual service specification. See the `appmesh.VirtualService` resource for details.
-        """
         return pulumi.get(self, "specs")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -165,34 +147,7 @@ def get_virtual_service(mesh_name: Optional[_builtins.str] = None,
                         tags: Optional[Mapping[str, _builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualServiceResult:
     """
-    The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
-        mesh_name="example-mesh")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
-        mesh_name="example-mesh",
-        mesh_owner=current.account_id)
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual service exists.
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the virtual service.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name
@@ -222,34 +177,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[_builtins.str]] 
                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualServiceResult]:
     """
-    The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
-        mesh_name="example-mesh")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    test = aws.appmesh.get_virtual_service(name="example.mesh.local",
-        mesh_name="example-mesh",
-        mesh_owner=current.account_id)
-    ```
-
-
-    :param _builtins.str mesh_name: Name of the service mesh in which the virtual service exists.
-    :param _builtins.str mesh_owner: AWS account ID of the service mesh's owner.
-    :param _builtins.str name: Name of the virtual service.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshName'] = mesh_name

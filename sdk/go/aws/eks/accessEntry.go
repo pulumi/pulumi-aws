@@ -12,74 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Entry Configurations for an EKS Cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAccessEntry(ctx, "example", &eks.AccessEntryArgs{
-//				ClusterName:  pulumi.Any(exampleAwsEksCluster.Name),
-//				PrincipalArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				KubernetesGroups: pulumi.StringArray{
-//					pulumi.String("group-1"),
-//					pulumi.String("group-2"),
-//				},
-//				Type: pulumi.String("STANDARD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EKS access entry using the `cluster_name` and `principal_arn` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
-// ```
 type AccessEntry struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Access Entry.
-	AccessEntryArn pulumi.StringOutput `pulumi:"accessEntryArn"`
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
+	AccessEntryArn   pulumi.StringOutput      `pulumi:"accessEntryArn"`
+	ClusterName      pulumi.StringOutput      `pulumi:"clusterName"`
+	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
 	KubernetesGroups pulumi.StringArrayOutput `pulumi:"kubernetesGroups"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	//
-	// The following arguments are optional:
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	ModifiedAt       pulumi.StringOutput      `pulumi:"modifiedAt"`
+	PrincipalArn     pulumi.StringOutput      `pulumi:"principalArn"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
+	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	Type             pulumi.StringPtrOutput   `pulumi:"type"`
+	UserName         pulumi.StringOutput      `pulumi:"userName"`
 }
 
 // NewAccessEntry registers a new resource with the given unique name, arguments, and options.
@@ -118,57 +64,31 @@ func GetAccessEntry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessEntry resources.
 type accessEntryState struct {
-	// Amazon Resource Name (ARN) of the Access Entry.
-	AccessEntryArn *string `pulumi:"accessEntryArn"`
-	// Name of the EKS Cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-	KubernetesGroups []string `pulumi:"kubernetesGroups"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-	ModifiedAt *string `pulumi:"modifiedAt"`
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	//
-	// The following arguments are optional:
-	PrincipalArn *string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-	Type *string `pulumi:"type"`
-	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-	UserName *string `pulumi:"userName"`
+	AccessEntryArn   *string           `pulumi:"accessEntryArn"`
+	ClusterName      *string           `pulumi:"clusterName"`
+	CreatedAt        *string           `pulumi:"createdAt"`
+	KubernetesGroups []string          `pulumi:"kubernetesGroups"`
+	ModifiedAt       *string           `pulumi:"modifiedAt"`
+	PrincipalArn     *string           `pulumi:"principalArn"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
+	Type             *string           `pulumi:"type"`
+	UserName         *string           `pulumi:"userName"`
 }
 
 type AccessEntryState struct {
-	// Amazon Resource Name (ARN) of the Access Entry.
-	AccessEntryArn pulumi.StringPtrInput
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringPtrInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-	CreatedAt pulumi.StringPtrInput
-	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
+	AccessEntryArn   pulumi.StringPtrInput
+	ClusterName      pulumi.StringPtrInput
+	CreatedAt        pulumi.StringPtrInput
 	KubernetesGroups pulumi.StringArrayInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-	ModifiedAt pulumi.StringPtrInput
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	//
-	// The following arguments are optional:
-	PrincipalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-	Type pulumi.StringPtrInput
-	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-	UserName pulumi.StringPtrInput
+	ModifiedAt       pulumi.StringPtrInput
+	PrincipalArn     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	Type             pulumi.StringPtrInput
+	UserName         pulumi.StringPtrInput
 }
 
 func (AccessEntryState) ElementType() reflect.Type {
@@ -176,42 +96,24 @@ func (AccessEntryState) ElementType() reflect.Type {
 }
 
 type accessEntryArgs struct {
-	// Name of the EKS Cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-	KubernetesGroups []string `pulumi:"kubernetesGroups"`
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	//
-	// The following arguments are optional:
-	PrincipalArn string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-	Type *string `pulumi:"type"`
-	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-	UserName *string `pulumi:"userName"`
+	ClusterName      string            `pulumi:"clusterName"`
+	KubernetesGroups []string          `pulumi:"kubernetesGroups"`
+	PrincipalArn     string            `pulumi:"principalArn"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	Type             *string           `pulumi:"type"`
+	UserName         *string           `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a AccessEntry resource.
 type AccessEntryArgs struct {
-	// Name of the EKS Cluster.
-	ClusterName pulumi.StringInput
-	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
+	ClusterName      pulumi.StringInput
 	KubernetesGroups pulumi.StringArrayInput
-	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	//
-	// The following arguments are optional:
-	PrincipalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-	Type pulumi.StringPtrInput
-	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-	UserName pulumi.StringPtrInput
+	PrincipalArn     pulumi.StringInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	Type             pulumi.StringPtrInput
+	UserName         pulumi.StringPtrInput
 }
 
 func (AccessEntryArgs) ElementType() reflect.Type {
@@ -301,59 +203,46 @@ func (o AccessEntryOutput) ToAccessEntryOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Access Entry.
 func (o AccessEntryOutput) AccessEntryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.AccessEntryArn }).(pulumi.StringOutput)
 }
 
-// Name of the EKS Cluster.
 func (o AccessEntryOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 func (o AccessEntryOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
 func (o AccessEntryOutput) KubernetesGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringArrayOutput { return v.KubernetesGroups }).(pulumi.StringArrayOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 func (o AccessEntryOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-//
-// The following arguments are optional:
 func (o AccessEntryOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessEntryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AccessEntryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 func (o AccessEntryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
 func (o AccessEntryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
 func (o AccessEntryOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

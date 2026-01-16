@@ -13,129 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS FIS (Fault Injection Simulator) Target Account Configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.fis.TargetAccountConfiguration;
- * import com.pulumi.aws.fis.TargetAccountConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TargetAccountConfiguration("example", TargetAccountConfigurationArgs.builder()
- *             .experimentTemplateId(exampleAwsFisExperimentTemplate.id())
- *             .accountId(current.accountId())
- *             .roleArn(fisRole.arn())
- *             .description("Example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import FIS (Fault Injection Simulator) Target Account Configuration using the `account_id,experiment_template_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
- * ```
- * 
- */
 @ResourceType(type="aws:fis/targetAccountConfiguration:TargetAccountConfiguration")
 public class TargetAccountConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Account ID of the target account.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return Account ID of the target account.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Description of the target account.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description of the target account.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Experiment Template ID.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="experimentTemplateId", refs={String.class}, tree="[0]")
     private Output<String> experimentTemplateId;
 
-    /**
-     * @return Experiment Template ID.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> experimentTemplateId() {
         return this.experimentTemplateId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the IAM Role for the target account.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM Role for the target account.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

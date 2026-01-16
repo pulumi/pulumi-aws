@@ -7,54 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of VPC Ids for a region.
- *
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
- *
- * ## Example Usage
- *
- * The following shows outputting all VPC Ids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const foo = await aws.ec2.getVpcs({
- *         tags: {
- *             service: "production",
- *         },
- *     });
- *     return {
- *         foo: foo.ids,
- *     };
- * }
- * ```
- *
- * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const foo = await aws.ec2.getVpcs({});
- *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
- *         id: foo.ids[__index],
- *     })));
- *     const testFlowLog: aws.ec2.FlowLog[] = [];
- * foo.ids.length.apply(rangeBody => {
- *         for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range.value].id)}));
- *         }
- *     });
- *     return {
- *         foo: foo.ids,
- *     };
- * }
- * ```
- */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,18 +21,8 @@ export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promis
  * A collection of arguments for invoking getVpcs.
  */
 export interface GetVpcsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetVpcsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -93,61 +35,10 @@ export interface GetVpcsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the VPC Ids found.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * This resource can be useful for getting back a list of VPC Ids for a region.
- *
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
- *
- * ## Example Usage
- *
- * The following shows outputting all VPC Ids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const foo = await aws.ec2.getVpcs({
- *         tags: {
- *             service: "production",
- *         },
- *     });
- *     return {
- *         foo: foo.ids,
- *     };
- * }
- * ```
- *
- * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const foo = await aws.ec2.getVpcs({});
- *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
- *         id: foo.ids[__index],
- *     })));
- *     const testFlowLog: aws.ec2.FlowLog[] = [];
- * foo.ids.length.apply(rangeBody => {
- *         for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range.value].id)}));
- *         }
- *     });
- *     return {
- *         foo: foo.ids,
- *     };
- * }
- * ```
- */
 export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -162,17 +53,7 @@ export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOutp
  * A collection of arguments for invoking getVpcs.
  */
 export interface GetVpcsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

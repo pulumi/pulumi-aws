@@ -13,38 +13,13 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionAuthenticateCognitoResult
     {
-        /// <summary>
-        /// Set of additional parameters for the request.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> AuthenticationRequestExtraParams;
-        /// <summary>
-        /// Behavior when the client is not authenticated.
-        /// </summary>
         public readonly string OnUnauthenticatedRequest;
-        /// <summary>
-        /// Set of user claims requested.
-        /// </summary>
         public readonly string Scope;
-        /// <summary>
-        /// Name of the cookie used to maintain session information.
-        /// </summary>
         public readonly string SessionCookieName;
-        /// <summary>
-        /// Maximum duration of the authentication session in seconds.
-        /// </summary>
         public readonly int SessionTimeout;
-        /// <summary>
-        /// ARN of the Cognito user pool.
-        /// </summary>
         public readonly string UserPoolArn;
-        /// <summary>
-        /// ID of the Cognito user pool client.
-        /// </summary>
         public readonly string UserPoolClientId;
-        /// <summary>
-        /// Domain prefix or fully-qualified domain name of the Cognito user pool.
-        /// </summary>
         public readonly string UserPoolDomain;
 
         [OutputConstructor]

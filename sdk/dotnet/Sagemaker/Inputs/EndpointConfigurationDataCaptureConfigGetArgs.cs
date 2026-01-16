@@ -12,45 +12,26 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class EndpointConfigurationDataCaptureConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content type headers to capture. See `CaptureContentTypeHeader` below.
-        /// </summary>
         [Input("captureContentTypeHeader")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs>? CaptureContentTypeHeader { get; set; }
 
         [Input("captureOptions", required: true)]
         private InputList<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionGetArgs>? _captureOptions;
-
-        /// <summary>
-        /// What data to capture. Fields are documented below.
-        /// </summary>
         public InputList<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionGetArgs> CaptureOptions
         {
             get => _captureOptions ?? (_captureOptions = new InputList<Inputs.EndpointConfigurationDataCaptureConfigCaptureOptionGetArgs>());
             set => _captureOptions = value;
         }
 
-        /// <summary>
-        /// URL for S3 location where the captured data is stored.
-        /// </summary>
         [Input("destinationS3Uri", required: true)]
         public Input<string> DestinationS3Uri { get; set; } = null!;
 
-        /// <summary>
-        /// Flag to enable data capture. Defaults to `False`.
-        /// </summary>
         [Input("enableCapture")]
         public Input<bool>? EnableCapture { get; set; }
 
-        /// <summary>
-        /// Portion of data to capture. Should be between 0 and 100.
-        /// </summary>
         [Input("initialSamplingPercentage", required: true)]
         public Input<int> InitialSamplingPercentage { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of a KMS key that SageMaker AI uses to encrypt the captured data on S3.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

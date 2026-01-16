@@ -30,13 +30,6 @@ class ListenerRuleArgs:
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[_builtins.int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "conditions", conditions)
@@ -53,9 +46,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]:
-        """
-        An Action block. Action blocks are documented below.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -65,9 +55,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]:
-        """
-        A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -77,9 +64,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the listener to which to attach the rule.
-        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -89,9 +73,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -101,9 +82,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -113,9 +91,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -125,9 +100,6 @@ class ListenerRuleArgs:
     @_builtins.property
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]:
-        """
-        Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-        """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
@@ -149,15 +121,6 @@ class _ListenerRuleState:
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]] = None):
         """
         Input properties used for looking up and filtering ListenerRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the rule (matches `id`)
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[_builtins.int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -181,9 +144,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]]:
-        """
-        An Action block. Action blocks are documented below.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -193,9 +153,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the rule (matches `id`)
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -205,9 +162,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]]:
-        """
-        A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -217,9 +171,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the listener to which to attach the rule.
-        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -229,9 +180,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -241,9 +189,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -253,9 +198,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -265,9 +207,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -277,9 +216,6 @@ class _ListenerRuleState:
     @_builtins.property
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]:
-        """
-        Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-        """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
@@ -302,19 +238,9 @@ class ListenerRule(pulumi.CustomResource):
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a Load Balancer Listener Rule resource.
-
-        > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
-
+        Create a ListenerRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleConditionArgs', 'ListenerRuleConditionArgsDict']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[_builtins.int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         ...
     @overload
@@ -323,10 +249,7 @@ class ListenerRule(pulumi.CustomResource):
                  args: ListenerRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Load Balancer Listener Rule resource.
-
-        > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
-
+        Create a ListenerRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ListenerRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -401,15 +324,6 @@ class ListenerRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the rule (matches `id`)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleConditionArgs', 'ListenerRuleConditionArgsDict']]]] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[_builtins.int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -429,72 +343,45 @@ class ListenerRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleAction']]:
-        """
-        An Action block. Action blocks are documented below.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the rule (matches `id`)
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleCondition']]:
-        """
-        A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        """
         return pulumi.get(self, "conditions")
 
     @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the listener to which to attach the rule.
-        """
         return pulumi.get(self, "listener_arn")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> pulumi.Output[_builtins.int]:
-        """
-        The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def transforms(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerRuleTransform']]]:
-        """
-        Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-        """
         return pulumi.get(self, "transforms")
 

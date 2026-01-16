@@ -19,77 +19,37 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccessPointArgs Empty = new AccessPointArgs();
 
-    /**
-     * ID of the file system for which the access point is intended.
-     * 
-     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
-    /**
-     * @return ID of the file system for which the access point is intended.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
 
-    /**
-     * Operating system user and group applied to all file system requests made using the access point. Detailed below.
-     * 
-     */
     @Import(name="posixUser")
     private @Nullable Output<AccessPointPosixUserArgs> posixUser;
 
-    /**
-     * @return Operating system user and group applied to all file system requests made using the access point. Detailed below.
-     * 
-     */
     public Optional<Output<AccessPointPosixUserArgs>> posixUser() {
         return Optional.ofNullable(this.posixUser);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-     * 
-     */
     @Import(name="rootDirectory")
     private @Nullable Output<AccessPointRootDirectoryArgs> rootDirectory;
 
-    /**
-     * @return Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-     * 
-     */
     public Optional<Output<AccessPointRootDirectoryArgs>> rootDirectory() {
         return Optional.ofNullable(this.rootDirectory);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -122,107 +82,47 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AccessPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemId ID of the file system for which the access point is intended.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId ID of the file system for which the access point is intended.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param posixUser Operating system user and group applied to all file system requests made using the access point. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder posixUser(@Nullable Output<AccessPointPosixUserArgs> posixUser) {
             $.posixUser = posixUser;
             return this;
         }
 
-        /**
-         * @param posixUser Operating system user and group applied to all file system requests made using the access point. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder posixUser(AccessPointPosixUserArgs posixUser) {
             return posixUser(Output.of(posixUser));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rootDirectory Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootDirectory(@Nullable Output<AccessPointRootDirectoryArgs> rootDirectory) {
             $.rootDirectory = rootDirectory;
             return this;
         }
 
-        /**
-         * @param rootDirectory Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rootDirectory(AccessPointRootDirectoryArgs rootDirectory) {
             return rootDirectory(Output.of(rootDirectory));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

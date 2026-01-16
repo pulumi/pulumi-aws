@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult
     {
-        /// <summary>
-        /// The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-        /// </summary>
         public readonly string EdgeLocation;
-        /// <summary>
-        /// The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-        /// </summary>
         public readonly string PeerEdgeLocation;
-        /// <summary>
-        /// A set of routing policy names to apply to this edge location pair.
-        /// </summary>
         public readonly ImmutableArray<string> RoutingPolicyNames;
 
         [OutputConstructor]

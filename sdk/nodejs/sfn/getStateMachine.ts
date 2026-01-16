@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARN of a State Machine in AWS Step
- * Function (SFN). By using this data source, you can reference a
- * state machine without having to hard code the ARNs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sfn.getStateMachine({
- *     name: "an_example_sfn_name",
- * });
- * ```
- */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
@@ -32,13 +16,7 @@ export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getStateMachine.
  */
 export interface GetStateMachineArgs {
-    /**
-     * Friendly name of the state machine to match.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -46,17 +24,8 @@ export interface GetStateMachineArgs {
  * A collection of values returned by getStateMachine.
  */
 export interface GetStateMachineResult {
-    /**
-     * Set to the arn of the state function.
-     */
     readonly arn: string;
-    /**
-     * Date the state machine was created.
-     */
     readonly creationDate: string;
-    /**
-     * Set to the state machine definition.
-     */
     readonly definition: string;
     readonly description: string;
     /**
@@ -65,35 +34,10 @@ export interface GetStateMachineResult {
     readonly id: string;
     readonly name: string;
     readonly region: string;
-    /**
-     * The revision identifier for the state machine.
-     */
     readonly revisionId: string;
-    /**
-     * Set to the roleArn used by the state function.
-     */
     readonly roleArn: string;
-    /**
-     * Set to the current status of the state machine.
-     */
     readonly status: string;
 }
-/**
- * Use this data source to get the ARN of a State Machine in AWS Step
- * Function (SFN). By using this data source, you can reference a
- * state machine without having to hard code the ARNs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sfn.getStateMachine({
- *     name: "an_example_sfn_name",
- * });
- * ```
- */
 export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getStateMachine:getStateMachine", {
@@ -106,12 +50,6 @@ export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pu
  * A collection of arguments for invoking getStateMachine.
  */
 export interface GetStateMachineOutputArgs {
-    /**
-     * Friendly name of the state machine to match.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

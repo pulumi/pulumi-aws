@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionActiveTrustedKeyGroup
     {
-        /// <summary>
-        /// Whether any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// List of key groups. See Key Group Items below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionActiveTrustedKeyGroupItem> Items;
 
         [OutputConstructor]

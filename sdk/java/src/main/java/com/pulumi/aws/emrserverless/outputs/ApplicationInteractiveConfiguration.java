@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationInteractiveConfiguration {
-    /**
-     * @return Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-     * 
-     */
     private @Nullable Boolean livyEndpointEnabled;
-    /**
-     * @return Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-     * 
-     */
     private @Nullable Boolean studioEnabled;
 
     private ApplicationInteractiveConfiguration() {}
-    /**
-     * @return Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-     * 
-     */
     public Optional<Boolean> livyEndpointEnabled() {
         return Optional.ofNullable(this.livyEndpointEnabled);
     }
-    /**
-     * @return Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-     * 
-     */
     public Optional<Boolean> studioEnabled() {
         return Optional.ofNullable(this.studioEnabled);
     }

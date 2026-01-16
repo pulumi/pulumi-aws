@@ -4,46 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about hardware assets in an Outpost.
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: exampleAwsOutpostsOutpost.arn,
- * });
- * ```
- *
- * ### With Host ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: exampleAwsOutpostsOutpost.arn,
- *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
- * });
- * ```
- *
- * ### With Status ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: exampleAwsOutpostsOutpost.arn,
- *     statusIdFilters: ["ACTIVE"],
- * });
- * ```
- */
 export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getAssets:getAssets", {
@@ -58,21 +18,9 @@ export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getAssets.
  */
 export interface GetAssetsArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: string;
-    /**
-     * Filters by list of Host IDs of a Dedicated Host.
-     */
     hostIdFilters?: string[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
-     */
     statusIdFilters?: string[];
 }
 
@@ -81,9 +29,6 @@ export interface GetAssetsArgs {
  */
 export interface GetAssetsResult {
     readonly arn: string;
-    /**
-     * List of all the asset ids found. This data source will fail if none are found.
-     */
     readonly assetIds: string[];
     readonly hostIdFilters?: string[];
     /**
@@ -93,46 +38,6 @@ export interface GetAssetsResult {
     readonly region: string;
     readonly statusIdFilters?: string[];
 }
-/**
- * Information about hardware assets in an Outpost.
- *
- * ## Example Usage
- *
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: exampleAwsOutpostsOutpost.arn,
- * });
- * ```
- *
- * ### With Host ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: exampleAwsOutpostsOutpost.arn,
- *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
- * });
- * ```
- *
- * ### With Status ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: exampleAwsOutpostsOutpost.arn,
- *     statusIdFilters: ["ACTIVE"],
- * });
- * ```
- */
 export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getAssets:getAssets", {
@@ -147,20 +52,8 @@ export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getAssets.
  */
 export interface GetAssetsOutputArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Filters by list of Host IDs of a Dedicated Host.
-     */
     hostIdFilters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
-     */
     statusIdFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -14,32 +14,16 @@ public final class LifecyclePolicyResourceSelectionRecipeArgs extends com.pulumi
 
     public static final LifecyclePolicyResourceSelectionRecipeArgs Empty = new LifecyclePolicyResourceSelectionRecipeArgs();
 
-    /**
-     * The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The version of the Image Builder recipe specified by the name field.
-     * 
-     */
     @Import(name="semanticVersion", required=true)
     private Output<String> semanticVersion;
 
-    /**
-     * @return The version of the Image Builder recipe specified by the name field.
-     * 
-     */
     public Output<String> semanticVersion() {
         return this.semanticVersion;
     }
@@ -69,44 +53,20 @@ public final class LifecyclePolicyResourceSelectionRecipeArgs extends com.pulumi
             $ = new LifecyclePolicyResourceSelectionRecipeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param semanticVersion The version of the Image Builder recipe specified by the name field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder semanticVersion(Output<String> semanticVersion) {
             $.semanticVersion = semanticVersion;
             return this;
         }
 
-        /**
-         * @param semanticVersion The version of the Image Builder recipe specified by the name field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder semanticVersion(String semanticVersion) {
             return semanticVersion(Output.of(semanticVersion));
         }

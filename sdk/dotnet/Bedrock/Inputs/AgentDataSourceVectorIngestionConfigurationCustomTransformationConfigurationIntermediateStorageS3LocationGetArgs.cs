@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 URI for intermediate storage.
-        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 

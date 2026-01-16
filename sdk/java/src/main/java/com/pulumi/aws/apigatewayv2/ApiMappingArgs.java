@@ -16,77 +16,37 @@ public final class ApiMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ApiMappingArgs Empty = new ApiMappingArgs();
 
-    /**
-     * API identifier.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-     * 
-     */
     @Import(name="apiMappingKey")
     private @Nullable Output<String> apiMappingKey;
 
-    /**
-     * @return The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-     * 
-     */
     public Optional<Output<String>> apiMappingKey() {
         return Optional.ofNullable(this.apiMappingKey);
     }
 
-    /**
-     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     * 
-     */
     @Import(name="stage", required=true)
     private Output<String> stage;
 
-    /**
-     * @return API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     * 
-     */
     public Output<String> stage() {
         return this.stage;
     }
@@ -119,107 +79,47 @@ public final class ApiMappingArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ApiMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param apiMappingKey The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiMappingKey(@Nullable Output<String> apiMappingKey) {
             $.apiMappingKey = apiMappingKey;
             return this;
         }
 
-        /**
-         * @param apiMappingKey The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiMappingKey(String apiMappingKey) {
             return apiMappingKey(Output.of(apiMappingKey));
         }
 
-        /**
-         * @param domainName Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param stage API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(Output<String> stage) {
             $.stage = stage;
             return this;
         }
 
-        /**
-         * @param stage API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(String stage) {
             return stage(Output.of(stage));
         }

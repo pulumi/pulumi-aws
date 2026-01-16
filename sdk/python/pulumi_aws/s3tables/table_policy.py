@@ -26,15 +26,6 @@ class TablePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TablePolicy resource.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "resource_policy", resource_policy)
@@ -47,11 +38,6 @@ class TablePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the namespace for this table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -61,9 +47,6 @@ class TablePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Web Services resource-based policy document in JSON format.
-        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -73,9 +56,6 @@ class TablePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -85,11 +65,6 @@ class TablePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -99,9 +74,6 @@ class TablePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,15 +91,6 @@ class _TablePolicyState:
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TablePolicy resources.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -143,11 +106,6 @@ class _TablePolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -157,11 +115,6 @@ class _TablePolicyState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the namespace for this table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -171,9 +124,6 @@ class _TablePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -183,9 +133,6 @@ class _TablePolicyState:
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Web Services resource-based policy document in JSON format.
-        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -195,9 +142,6 @@ class _TablePolicyState:
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -218,31 +162,9 @@ class TablePolicy(pulumi.CustomResource):
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon S3 Tables Table Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-        ```
-
+        Create a TablePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         ...
     @overload
@@ -251,20 +173,7 @@ class TablePolicy(pulumi.CustomResource):
                  args: TablePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon S3 Tables Table Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ## Import
-
-        Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
-
-        ```sh
-        $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
-        ```
-
+        Create a TablePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TablePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,15 +236,6 @@ class TablePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
-               Must be between 1 and 255 characters in length.
-               Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
-        :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,44 +251,25 @@ class TablePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the namespace for this table.
-        Must be between 1 and 255 characters in length.
-        Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Web Services resource-based policy document in JSON format.
-        """
         return pulumi.get(self, "resource_policy")
 
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN referencing the Table Bucket that contains this Namespace.
-        """
         return pulumi.get(self, "table_bucket_arn")
 

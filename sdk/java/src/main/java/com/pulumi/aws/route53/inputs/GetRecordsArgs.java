@@ -16,32 +16,16 @@ public final class GetRecordsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRecordsArgs Empty = new GetRecordsArgs();
 
-    /**
-     * Regex string to apply to the resource record names returned by AWS.
-     * 
-     */
     @Import(name="nameRegex")
     private @Nullable Output<String> nameRegex;
 
-    /**
-     * @return Regex string to apply to the resource record names returned by AWS.
-     * 
-     */
     public Optional<Output<String>> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
 
-    /**
-     * The ID of the hosted zone that contains the resource record sets that you want to list.
-     * 
-     */
     @Import(name="zoneId", required=true)
     private Output<String> zoneId;
 
-    /**
-     * @return The ID of the hosted zone that contains the resource record sets that you want to list.
-     * 
-     */
     public Output<String> zoneId() {
         return this.zoneId;
     }
@@ -71,44 +55,20 @@ public final class GetRecordsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRecordsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the resource record names returned by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(@Nullable Output<String> nameRegex) {
             $.nameRegex = nameRegex;
             return this;
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the resource record names returned by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(String nameRegex) {
             return nameRegex(Output.of(nameRegex));
         }
 
-        /**
-         * @param zoneId The ID of the hosted zone that contains the resource record sets that you want to list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(Output<String> zoneId) {
             $.zoneId = zoneId;
             return this;
         }
 
-        /**
-         * @param zoneId The ID of the hosted zone that contains the resource record sets that you want to list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
         }

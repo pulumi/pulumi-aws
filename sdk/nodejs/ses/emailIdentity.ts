@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SES email identity resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ses.EmailIdentity("example", {email: "email@example.com"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SES email identities using the email address. For example:
- *
- * ```sh
- * $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
- * ```
- */
 export class EmailIdentity extends pulumi.CustomResource {
     /**
      * Get an existing EmailIdentity resource's state with the given name, ID, and optional extra
@@ -52,17 +32,8 @@ export class EmailIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentity.__pulumiType;
     }
 
-    /**
-     * The ARN of the email identity.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The email address to assign to SES.
-     */
     declare public readonly email: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -99,17 +70,8 @@ export class EmailIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmailIdentity resources.
  */
 export interface EmailIdentityState {
-    /**
-     * The ARN of the email identity.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The email address to assign to SES.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -117,12 +79,6 @@ export interface EmailIdentityState {
  * The set of arguments for constructing a EmailIdentity resource.
  */
 export interface EmailIdentityArgs {
-    /**
-     * The email address to assign to SES.
-     */
     email: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

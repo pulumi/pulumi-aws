@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayInterceptorConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Input configuration for the interceptor. See `InputConfiguration` below.
-        /// </summary>
         [Input("inputConfiguration")]
         public Input<Inputs.AgentcoreGatewayInterceptorConfigurationInputConfigurationGetArgs>? InputConfiguration { get; set; }
 
         [Input("interceptionPoints", required: true)]
         private InputList<string>? _interceptionPoints;
-
-        /// <summary>
-        /// Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
-        /// </summary>
         public InputList<string> InterceptionPoints
         {
             get => _interceptionPoints ?? (_interceptionPoints = new InputList<string>());
             set => _interceptionPoints = value;
         }
 
-        /// <summary>
-        /// Interceptor infrastructure configuration. See `Interceptor` below.
-        /// </summary>
         [Input("interceptor")]
         public Input<Inputs.AgentcoreGatewayInterceptorConfigurationInterceptorGetArgs>? Interceptor { get; set; }
 

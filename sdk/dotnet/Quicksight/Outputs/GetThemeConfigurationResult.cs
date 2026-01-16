@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class GetThemeConfigurationResult
     {
-        /// <summary>
-        /// Color properties that apply to chart data colors. See data_color_palette.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationDataColorPaletteResult> DataColorPalettes;
-        /// <summary>
-        /// Display options related to sheets. See sheet.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetResult> Sheets;
-        /// <summary>
-        /// Determines the typography options. See typography.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationTypographyResult> Typographies;
-        /// <summary>
-        /// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationUiColorPaletteResult> UiColorPalettes;
 
         [OutputConstructor]

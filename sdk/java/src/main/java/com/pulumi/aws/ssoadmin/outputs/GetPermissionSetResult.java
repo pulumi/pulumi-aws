@@ -13,10 +13,6 @@ import java.util.Objects;
 public final class GetPermissionSetResult {
     private String arn;
     private String createdDate;
-    /**
-     * @return Description of the Permission Set.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,20 +22,8 @@ public final class GetPermissionSetResult {
     private String instanceArn;
     private String name;
     private String region;
-    /**
-     * @return Relay state URL used to redirect users within the application during the federation authentication process.
-     * 
-     */
     private String relayState;
-    /**
-     * @return Length of time that the application user sessions are valid in the ISO-8601 standard.
-     * 
-     */
     private String sessionDuration;
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetPermissionSetResult() {}
@@ -49,10 +33,6 @@ public final class GetPermissionSetResult {
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the Permission Set.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -72,24 +52,12 @@ public final class GetPermissionSetResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Relay state URL used to redirect users within the application during the federation authentication process.
-     * 
-     */
     public String relayState() {
         return this.relayState;
     }
-    /**
-     * @return Length of time that the application user sessions are valid in the ISO-8601 standard.
-     * 
-     */
     public String sessionDuration() {
         return this.sessionDuration;
     }
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class HubS3StorageConfig
     {
-        /// <summary>
-        /// The Amazon S3 bucket prefix for hosting hub content.interface.
-        /// </summary>
         public readonly string? S3OutputPath;
 
         [OutputConstructor]

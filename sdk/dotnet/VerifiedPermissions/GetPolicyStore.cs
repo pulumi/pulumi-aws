@@ -11,81 +11,12 @@ namespace Pulumi.Aws.VerifiedPermissions
 {
     public static class GetPolicyStore
     {
-        /// <summary>
-        /// Data source for managing an AWS Verified Permissions Policy Store.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VerifiedPermissions.GetPolicyStore.Invoke(new()
-        ///     {
-        ///         Id = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPolicyStoreResult> InvokeAsync(GetPolicyStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Verified Permissions Policy Store.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VerifiedPermissions.GetPolicyStore.Invoke(new()
-        ///     {
-        ///         Id = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Verified Permissions Policy Store.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VerifiedPermissions.GetPolicyStore.Invoke(new()
-        ///     {
-        ///         Id = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class GetPolicyStoreArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class GetPolicyStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,32 +54,14 @@ namespace Pulumi.Aws.VerifiedPermissions
     [OutputType]
     public sealed class GetPolicyStoreResult
     {
-        /// <summary>
-        /// The ARN of the Policy Store.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The date the Policy Store was created.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Whether the policy store can be deleted.
-        /// </summary>
         public readonly string DeletionProtection;
         public readonly string Description;
         public readonly string Id;
-        /// <summary>
-        /// The date the Policy Store was last updated.
-        /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string Region;
-        /// <summary>
-        /// Map of key-value pairs associated with the policy store.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Validation settings for the policy store.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> ValidationSettings;
 
         [OutputConstructor]

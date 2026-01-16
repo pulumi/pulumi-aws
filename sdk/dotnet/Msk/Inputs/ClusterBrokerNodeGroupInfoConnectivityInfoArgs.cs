@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Access control settings for brokers. See ConnectivityInfo public_access Argument Reference below.
-        /// </summary>
         [Input("publicAccess")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs>? PublicAccess { get; set; }
 
-        /// <summary>
-        /// VPC connectivity access control for brokers. See ConnectivityInfo vpc_connectivity Argument Reference below.
-        /// </summary>
         [Input("vpcConnectivity")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs>? VpcConnectivity { get; set; }
 

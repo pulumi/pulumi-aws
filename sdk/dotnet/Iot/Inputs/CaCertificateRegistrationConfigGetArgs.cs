@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class CaCertificateRegistrationConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the role.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// The template body.
-        /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
-        /// <summary>
-        /// The name of the provisioning template.
-        /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
 

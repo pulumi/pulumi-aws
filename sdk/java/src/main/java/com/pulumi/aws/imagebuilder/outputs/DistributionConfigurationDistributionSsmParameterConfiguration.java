@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionSsmParameterConfiguration {
-    /**
-     * @return AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-     * 
-     */
     private @Nullable String amiAccountId;
-    /**
-     * @return Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-     * 
-     */
     private @Nullable String dataType;
-    /**
-     * @return Name of the SSM parameter that will store the AMI ID after distribution.
-     * 
-     */
     private String parameterName;
 
     private DistributionConfigurationDistributionSsmParameterConfiguration() {}
-    /**
-     * @return AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-     * 
-     */
     public Optional<String> amiAccountId() {
         return Optional.ofNullable(this.amiAccountId);
     }
-    /**
-     * @return Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-     * 
-     */
     public Optional<String> dataType() {
         return Optional.ofNullable(this.dataType);
     }
-    /**
-     * @return Name of the SSM parameter that will store the AMI ID after distribution.
-     * 
-     */
     public String parameterName() {
         return this.parameterName;
     }

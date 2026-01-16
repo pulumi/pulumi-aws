@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcEndpointDnsOption {
-    /**
-     * @return The DNS records created for the endpoint.
-     * 
-     */
     private String dnsRecordIpType;
-    /**
-     * @return Indicates whether to enable private DNS only for inbound endpoints.
-     * 
-     */
     private Boolean privateDnsOnlyForInboundResolverEndpoint;
-    /**
-     * @return Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
-     * 
-     */
     private String privateDnsPreference;
-    /**
-     * @return List of private domains to create private hosted zones for and associate with the specified VPC.
-     * 
-     */
     private List<String> privateDnsSpecifiedDomains;
 
     private GetVpcEndpointDnsOption() {}
-    /**
-     * @return The DNS records created for the endpoint.
-     * 
-     */
     public String dnsRecordIpType() {
         return this.dnsRecordIpType;
     }
-    /**
-     * @return Indicates whether to enable private DNS only for inbound endpoints.
-     * 
-     */
     public Boolean privateDnsOnlyForInboundResolverEndpoint() {
         return this.privateDnsOnlyForInboundResolverEndpoint;
     }
-    /**
-     * @return Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
-     * 
-     */
     public String privateDnsPreference() {
         return this.privateDnsPreference;
     }
-    /**
-     * @return List of private domains to create private hosted zones for and associate with the specified VPC.
-     * 
-     */
     public List<String> privateDnsSpecifiedDomains() {
         return this.privateDnsSpecifiedDomains;
     }

@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CanaryArtifactConfig struct {
-	// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
 	S3Encryption *CanaryArtifactConfigS3Encryption `pulumi:"s3Encryption"`
 }
 
@@ -30,7 +29,6 @@ type CanaryArtifactConfigInput interface {
 }
 
 type CanaryArtifactConfigArgs struct {
-	// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
 	S3Encryption CanaryArtifactConfigS3EncryptionPtrInput `pulumi:"s3Encryption"`
 }
 
@@ -111,7 +109,6 @@ func (o CanaryArtifactConfigOutput) ToCanaryArtifactConfigPtrOutputWithContext(c
 	}).(CanaryArtifactConfigPtrOutput)
 }
 
-// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
 func (o CanaryArtifactConfigOutput) S3Encryption() CanaryArtifactConfigS3EncryptionPtrOutput {
 	return o.ApplyT(func(v CanaryArtifactConfig) *CanaryArtifactConfigS3Encryption { return v.S3Encryption }).(CanaryArtifactConfigS3EncryptionPtrOutput)
 }
@@ -140,7 +137,6 @@ func (o CanaryArtifactConfigPtrOutput) Elem() CanaryArtifactConfigOutput {
 	}).(CanaryArtifactConfigOutput)
 }
 
-// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
 func (o CanaryArtifactConfigPtrOutput) S3Encryption() CanaryArtifactConfigS3EncryptionPtrOutput {
 	return o.ApplyT(func(v *CanaryArtifactConfig) *CanaryArtifactConfigS3Encryption {
 		if v == nil {
@@ -151,10 +147,8 @@ func (o CanaryArtifactConfigPtrOutput) S3Encryption() CanaryArtifactConfigS3Encr
 }
 
 type CanaryArtifactConfigS3Encryption struct {
-	// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
-	// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	KmsKeyArn      *string `pulumi:"kmsKeyArn"`
 }
 
 // CanaryArtifactConfigS3EncryptionInput is an input type that accepts CanaryArtifactConfigS3EncryptionArgs and CanaryArtifactConfigS3EncryptionOutput values.
@@ -169,10 +163,8 @@ type CanaryArtifactConfigS3EncryptionInput interface {
 }
 
 type CanaryArtifactConfigS3EncryptionArgs struct {
-	// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
-	// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	KmsKeyArn      pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (CanaryArtifactConfigS3EncryptionArgs) ElementType() reflect.Type {
@@ -252,12 +244,10 @@ func (o CanaryArtifactConfigS3EncryptionOutput) ToCanaryArtifactConfigS3Encrypti
 	}).(CanaryArtifactConfigS3EncryptionPtrOutput)
 }
 
-// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 func (o CanaryArtifactConfigS3EncryptionOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryArtifactConfigS3Encryption) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
 func (o CanaryArtifactConfigS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryArtifactConfigS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -286,7 +276,6 @@ func (o CanaryArtifactConfigS3EncryptionPtrOutput) Elem() CanaryArtifactConfigS3
 	}).(CanaryArtifactConfigS3EncryptionOutput)
 }
 
-// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 func (o CanaryArtifactConfigS3EncryptionPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryArtifactConfigS3Encryption) *string {
 		if v == nil {
@@ -296,7 +285,6 @@ func (o CanaryArtifactConfigS3EncryptionPtrOutput) EncryptionMode() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
 func (o CanaryArtifactConfigS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryArtifactConfigS3Encryption) *string {
 		if v == nil {
@@ -307,16 +295,11 @@ func (o CanaryArtifactConfigS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrO
 }
 
 type CanaryRunConfig struct {
-	// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-	ActiveTracing *bool `pulumi:"activeTracing"`
-	// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+	ActiveTracing        *bool             `pulumi:"activeTracing"`
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-	EphemeralStorage *int `pulumi:"ephemeralStorage"`
-	// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-	MemoryInMb *int `pulumi:"memoryInMb"`
-	// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	EphemeralStorage     *int              `pulumi:"ephemeralStorage"`
+	MemoryInMb           *int              `pulumi:"memoryInMb"`
+	TimeoutInSeconds     *int              `pulumi:"timeoutInSeconds"`
 }
 
 // CanaryRunConfigInput is an input type that accepts CanaryRunConfigArgs and CanaryRunConfigOutput values.
@@ -331,16 +314,11 @@ type CanaryRunConfigInput interface {
 }
 
 type CanaryRunConfigArgs struct {
-	// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-	ActiveTracing pulumi.BoolPtrInput `pulumi:"activeTracing"`
-	// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+	ActiveTracing        pulumi.BoolPtrInput   `pulumi:"activeTracing"`
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-	EphemeralStorage pulumi.IntPtrInput `pulumi:"ephemeralStorage"`
-	// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-	MemoryInMb pulumi.IntPtrInput `pulumi:"memoryInMb"`
-	// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	EphemeralStorage     pulumi.IntPtrInput    `pulumi:"ephemeralStorage"`
+	MemoryInMb           pulumi.IntPtrInput    `pulumi:"memoryInMb"`
+	TimeoutInSeconds     pulumi.IntPtrInput    `pulumi:"timeoutInSeconds"`
 }
 
 func (CanaryRunConfigArgs) ElementType() reflect.Type {
@@ -420,27 +398,22 @@ func (o CanaryRunConfigOutput) ToCanaryRunConfigPtrOutputWithContext(ctx context
 	}).(CanaryRunConfigPtrOutput)
 }
 
-// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
 func (o CanaryRunConfigOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *bool { return v.ActiveTracing }).(pulumi.BoolPtrOutput)
 }
 
-// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
 func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CanaryRunConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
 func (o CanaryRunConfigOutput) EphemeralStorage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.EphemeralStorage }).(pulumi.IntPtrOutput)
 }
 
-// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
 func (o CanaryRunConfigOutput) MemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMb }).(pulumi.IntPtrOutput)
 }
 
-// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
 func (o CanaryRunConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -469,7 +442,6 @@ func (o CanaryRunConfigPtrOutput) Elem() CanaryRunConfigOutput {
 	}).(CanaryRunConfigOutput)
 }
 
-// Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
 func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *bool {
 		if v == nil {
@@ -479,7 +451,6 @@ func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
 func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) map[string]string {
 		if v == nil {
@@ -489,7 +460,6 @@ func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput 
 	}).(pulumi.StringMapOutput)
 }
 
-// Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
 func (o CanaryRunConfigPtrOutput) EphemeralStorage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
 		if v == nil {
@@ -499,7 +469,6 @@ func (o CanaryRunConfigPtrOutput) EphemeralStorage() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
 func (o CanaryRunConfigPtrOutput) MemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
 		if v == nil {
@@ -509,7 +478,6 @@ func (o CanaryRunConfigPtrOutput) MemoryInMb() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
 func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
 		if v == nil {
@@ -520,12 +488,9 @@ func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 }
 
 type CanarySchedule struct {
-	// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
-	DurationInSeconds *int `pulumi:"durationInSeconds"`
-	// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
-	Expression string `pulumi:"expression"`
-	// Configuration block for canary retries. Detailed below.
-	RetryConfig *CanaryScheduleRetryConfig `pulumi:"retryConfig"`
+	DurationInSeconds *int                       `pulumi:"durationInSeconds"`
+	Expression        string                     `pulumi:"expression"`
+	RetryConfig       *CanaryScheduleRetryConfig `pulumi:"retryConfig"`
 }
 
 // CanaryScheduleInput is an input type that accepts CanaryScheduleArgs and CanaryScheduleOutput values.
@@ -540,12 +505,9 @@ type CanaryScheduleInput interface {
 }
 
 type CanaryScheduleArgs struct {
-	// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
-	DurationInSeconds pulumi.IntPtrInput `pulumi:"durationInSeconds"`
-	// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
-	Expression pulumi.StringInput `pulumi:"expression"`
-	// Configuration block for canary retries. Detailed below.
-	RetryConfig CanaryScheduleRetryConfigPtrInput `pulumi:"retryConfig"`
+	DurationInSeconds pulumi.IntPtrInput                `pulumi:"durationInSeconds"`
+	Expression        pulumi.StringInput                `pulumi:"expression"`
+	RetryConfig       CanaryScheduleRetryConfigPtrInput `pulumi:"retryConfig"`
 }
 
 func (CanaryScheduleArgs) ElementType() reflect.Type {
@@ -625,17 +587,14 @@ func (o CanaryScheduleOutput) ToCanarySchedulePtrOutputWithContext(ctx context.C
 	}).(CanarySchedulePtrOutput)
 }
 
-// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
 func (o CanaryScheduleOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// Configuration block for canary retries. Detailed below.
 func (o CanaryScheduleOutput) RetryConfig() CanaryScheduleRetryConfigPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *CanaryScheduleRetryConfig { return v.RetryConfig }).(CanaryScheduleRetryConfigPtrOutput)
 }
@@ -664,7 +623,6 @@ func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
 	}).(CanaryScheduleOutput)
 }
 
-// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
 func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *int {
 		if v == nil {
@@ -674,7 +632,6 @@ func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
 func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *string {
 		if v == nil {
@@ -684,7 +641,6 @@ func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for canary retries. Detailed below.
 func (o CanarySchedulePtrOutput) RetryConfig() CanaryScheduleRetryConfigPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *CanaryScheduleRetryConfig {
 		if v == nil {
@@ -695,7 +651,6 @@ func (o CanarySchedulePtrOutput) RetryConfig() CanaryScheduleRetryConfigPtrOutpu
 }
 
 type CanaryScheduleRetryConfig struct {
-	// Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
 	MaxRetries int `pulumi:"maxRetries"`
 }
 
@@ -711,7 +666,6 @@ type CanaryScheduleRetryConfigInput interface {
 }
 
 type CanaryScheduleRetryConfigArgs struct {
-	// Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
 	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
 }
 
@@ -792,7 +746,6 @@ func (o CanaryScheduleRetryConfigOutput) ToCanaryScheduleRetryConfigPtrOutputWit
 	}).(CanaryScheduleRetryConfigPtrOutput)
 }
 
-// Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
 func (o CanaryScheduleRetryConfigOutput) MaxRetries() pulumi.IntOutput {
 	return o.ApplyT(func(v CanaryScheduleRetryConfig) int { return v.MaxRetries }).(pulumi.IntOutput)
 }
@@ -821,7 +774,6 @@ func (o CanaryScheduleRetryConfigPtrOutput) Elem() CanaryScheduleRetryConfigOutp
 	}).(CanaryScheduleRetryConfigOutput)
 }
 
-// Maximum number of retries. The value must be less than or equal to `2`. If `maxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
 func (o CanaryScheduleRetryConfigPtrOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryScheduleRetryConfig) *int {
 		if v == nil {
@@ -832,14 +784,10 @@ func (o CanaryScheduleRetryConfigPtrOutput) MaxRetries() pulumi.IntPtrOutput {
 }
 
 type CanaryTimeline struct {
-	// Date and time the canary was created.
-	Created *string `pulumi:"created"`
-	// Date and time the canary was most recently modified.
+	Created      *string `pulumi:"created"`
 	LastModified *string `pulumi:"lastModified"`
-	// Date and time that the canary's most recent run started.
-	LastStarted *string `pulumi:"lastStarted"`
-	// Date and time that the canary's most recent run ended.
-	LastStopped *string `pulumi:"lastStopped"`
+	LastStarted  *string `pulumi:"lastStarted"`
+	LastStopped  *string `pulumi:"lastStopped"`
 }
 
 // CanaryTimelineInput is an input type that accepts CanaryTimelineArgs and CanaryTimelineOutput values.
@@ -854,14 +802,10 @@ type CanaryTimelineInput interface {
 }
 
 type CanaryTimelineArgs struct {
-	// Date and time the canary was created.
-	Created pulumi.StringPtrInput `pulumi:"created"`
-	// Date and time the canary was most recently modified.
+	Created      pulumi.StringPtrInput `pulumi:"created"`
 	LastModified pulumi.StringPtrInput `pulumi:"lastModified"`
-	// Date and time that the canary's most recent run started.
-	LastStarted pulumi.StringPtrInput `pulumi:"lastStarted"`
-	// Date and time that the canary's most recent run ended.
-	LastStopped pulumi.StringPtrInput `pulumi:"lastStopped"`
+	LastStarted  pulumi.StringPtrInput `pulumi:"lastStarted"`
+	LastStopped  pulumi.StringPtrInput `pulumi:"lastStopped"`
 }
 
 func (CanaryTimelineArgs) ElementType() reflect.Type {
@@ -915,22 +859,18 @@ func (o CanaryTimelineOutput) ToCanaryTimelineOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Date and time the canary was created.
 func (o CanaryTimelineOutput) Created() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryTimeline) *string { return v.Created }).(pulumi.StringPtrOutput)
 }
 
-// Date and time the canary was most recently modified.
 func (o CanaryTimelineOutput) LastModified() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryTimeline) *string { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
-// Date and time that the canary's most recent run started.
 func (o CanaryTimelineOutput) LastStarted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryTimeline) *string { return v.LastStarted }).(pulumi.StringPtrOutput)
 }
 
-// Date and time that the canary's most recent run ended.
 func (o CanaryTimelineOutput) LastStopped() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryTimeline) *string { return v.LastStopped }).(pulumi.StringPtrOutput)
 }
@@ -956,14 +896,10 @@ func (o CanaryTimelineArrayOutput) Index(i pulumi.IntInput) CanaryTimelineOutput
 }
 
 type CanaryVpcConfig struct {
-	// If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-	Ipv6AllowedForDualStack *bool `pulumi:"ipv6AllowedForDualStack"`
-	// IDs of the security groups for this canary.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// IDs of the subnets where this canary is to run.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// ID of the VPC where this canary is to run.
-	VpcId *string `pulumi:"vpcId"`
+	Ipv6AllowedForDualStack *bool    `pulumi:"ipv6AllowedForDualStack"`
+	SecurityGroupIds        []string `pulumi:"securityGroupIds"`
+	SubnetIds               []string `pulumi:"subnetIds"`
+	VpcId                   *string  `pulumi:"vpcId"`
 }
 
 // CanaryVpcConfigInput is an input type that accepts CanaryVpcConfigArgs and CanaryVpcConfigOutput values.
@@ -978,14 +914,10 @@ type CanaryVpcConfigInput interface {
 }
 
 type CanaryVpcConfigArgs struct {
-	// If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-	Ipv6AllowedForDualStack pulumi.BoolPtrInput `pulumi:"ipv6AllowedForDualStack"`
-	// IDs of the security groups for this canary.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// IDs of the subnets where this canary is to run.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// ID of the VPC where this canary is to run.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Ipv6AllowedForDualStack pulumi.BoolPtrInput     `pulumi:"ipv6AllowedForDualStack"`
+	SecurityGroupIds        pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds               pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId                   pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
 
 func (CanaryVpcConfigArgs) ElementType() reflect.Type {
@@ -1065,22 +997,18 @@ func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context
 	}).(CanaryVpcConfigPtrOutput)
 }
 
-// If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
 func (o CanaryVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
 }
 
-// IDs of the security groups for this canary.
 func (o CanaryVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// IDs of the subnets where this canary is to run.
 func (o CanaryVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// ID of the VPC where this canary is to run.
 func (o CanaryVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -1109,7 +1037,6 @@ func (o CanaryVpcConfigPtrOutput) Elem() CanaryVpcConfigOutput {
 	}).(CanaryVpcConfigOutput)
 }
 
-// If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
 func (o CanaryVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) *bool {
 		if v == nil {
@@ -1119,7 +1046,6 @@ func (o CanaryVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// IDs of the security groups for this canary.
 func (o CanaryVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) []string {
 		if v == nil {
@@ -1129,7 +1055,6 @@ func (o CanaryVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// IDs of the subnets where this canary is to run.
 func (o CanaryVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) []string {
 		if v == nil {
@@ -1139,7 +1064,6 @@ func (o CanaryVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// ID of the VPC where this canary is to run.
 func (o CanaryVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) *string {
 		if v == nil {
@@ -1150,15 +1074,10 @@ func (o CanaryVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetRuntimeVersionsRuntimeVersion struct {
-	// Date of deprecation if the runtme version is deprecated.
 	DeprecationDate string `pulumi:"deprecationDate"`
-	// Description of the runtime version, created by Amazon.
-	Description string `pulumi:"description"`
-	// Date that the runtime version was released.
-	ReleaseDate string `pulumi:"releaseDate"`
-	// Name of the runtime version.
-	// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-	VersionName string `pulumi:"versionName"`
+	Description     string `pulumi:"description"`
+	ReleaseDate     string `pulumi:"releaseDate"`
+	VersionName     string `pulumi:"versionName"`
 }
 
 // GetRuntimeVersionsRuntimeVersionInput is an input type that accepts GetRuntimeVersionsRuntimeVersionArgs and GetRuntimeVersionsRuntimeVersionOutput values.
@@ -1173,15 +1092,10 @@ type GetRuntimeVersionsRuntimeVersionInput interface {
 }
 
 type GetRuntimeVersionsRuntimeVersionArgs struct {
-	// Date of deprecation if the runtme version is deprecated.
 	DeprecationDate pulumi.StringInput `pulumi:"deprecationDate"`
-	// Description of the runtime version, created by Amazon.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Date that the runtime version was released.
-	ReleaseDate pulumi.StringInput `pulumi:"releaseDate"`
-	// Name of the runtime version.
-	// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-	VersionName pulumi.StringInput `pulumi:"versionName"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	ReleaseDate     pulumi.StringInput `pulumi:"releaseDate"`
+	VersionName     pulumi.StringInput `pulumi:"versionName"`
 }
 
 func (GetRuntimeVersionsRuntimeVersionArgs) ElementType() reflect.Type {
@@ -1235,23 +1149,18 @@ func (o GetRuntimeVersionsRuntimeVersionOutput) ToGetRuntimeVersionsRuntimeVersi
 	return o
 }
 
-// Date of deprecation if the runtme version is deprecated.
 func (o GetRuntimeVersionsRuntimeVersionOutput) DeprecationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.DeprecationDate }).(pulumi.StringOutput)
 }
 
-// Description of the runtime version, created by Amazon.
 func (o GetRuntimeVersionsRuntimeVersionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Date that the runtime version was released.
 func (o GetRuntimeVersionsRuntimeVersionOutput) ReleaseDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.ReleaseDate }).(pulumi.StringOutput)
 }
 
-// Name of the runtime version.
-// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
 func (o GetRuntimeVersionsRuntimeVersionOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.VersionName }).(pulumi.StringOutput)
 }

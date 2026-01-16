@@ -12,21 +12,12 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
 
     public sealed class AcceleratorAttributesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether flow logs are enabled. Defaults to `False`. Valid values: `True`, `False`.
-        /// </summary>
         [Input("flowLogsEnabled")]
         public Input<bool>? FlowLogsEnabled { get; set; }
 
-        /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs. Required if `FlowLogsEnabled` is `True`.
-        /// </summary>
         [Input("flowLogsS3Bucket")]
         public Input<string>? FlowLogsS3Bucket { get; set; }
 
-        /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `FlowLogsEnabled` is `True`.
-        /// </summary>
         [Input("flowLogsS3Prefix")]
         public Input<string>? FlowLogsS3Prefix { get; set; }
 

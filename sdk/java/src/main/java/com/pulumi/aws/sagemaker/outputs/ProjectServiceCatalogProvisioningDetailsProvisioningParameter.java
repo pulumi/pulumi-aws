@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectServiceCatalogProvisioningDetailsProvisioningParameter {
-    /**
-     * @return The key that identifies a provisioning parameter.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the provisioning parameter.
-     * 
-     */
     private @Nullable String value;
 
     private ProjectServiceCatalogProvisioningDetailsProvisioningParameter() {}
-    /**
-     * @return The key that identifies a provisioning parameter.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the provisioning parameter.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -16,51 +16,23 @@ public final class ResourceLfTagLfTagArgs extends com.pulumi.resources.ResourceA
 
     public static final ResourceLfTagLfTagArgs Empty = new ResourceLfTagLfTagArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Key name for an existing LF-tag.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key name for an existing LF-tag.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Value from the possible values for the LF-tag.
-     * 
-     * The following argument is optional:
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value from the possible values for the LF-tag.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -91,69 +63,29 @@ public final class ResourceLfTagLfTagArgs extends com.pulumi.resources.ResourceA
             $ = new ResourceLfTagLfTagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param key Key name for an existing LF-tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key name for an existing LF-tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Value from the possible values for the LF-tag.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value from the possible values for the LF-tag.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

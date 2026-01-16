@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS DocDB (DocumentDB) Elastic Cluster.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.docdb.ElasticCluster("example", {
- *     name: "my-docdb-cluster",
- *     adminUserName: "foo",
- *     adminUserPassword: "mustbeeightchars",
- *     authType: "PLAIN_TEXT",
- *     shardCapacity: 2,
- *     shardCount: 1,
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
- *
- * Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
- *
- * % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
- */
 export class ElasticCluster extends pulumi.CustomResource {
     /**
      * Get an existing ElasticCluster resource's state with the given name, ID, and optional extra
@@ -68,76 +35,23 @@ export class ElasticCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticCluster.__pulumiType;
     }
 
-    /**
-     * Name of the Elastic DocumentDB cluster administrator
-     */
     declare public readonly adminUserName: pulumi.Output<string>;
-    /**
-     * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-     */
     declare public readonly adminUserPassword: pulumi.Output<string>;
-    /**
-     * ARN of the DocumentDB Elastic Cluster
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-     */
     declare public readonly authType: pulumi.Output<string>;
-    /**
-     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-     */
     declare public readonly backupRetentionPeriod: pulumi.Output<number>;
-    /**
-     * The DNS address of the DocDB instance
-     */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
-    /**
-     * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * Name of the Elastic DocumentDB cluster
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
-     */
     declare public readonly preferredBackupWindow: pulumi.Output<string>;
-    /**
-     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-     */
     declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-     */
     declare public readonly shardCapacity: pulumi.Output<number>;
-    /**
-     * Number of shards assigned to the elastic cluster. Maximum is 32
-     *
-     * The following arguments are optional:
-     */
     declare public readonly shardCount: pulumi.Output<number>;
-    /**
-     * IDs of subnets in which the Elastic DocumentDB Cluster operates.
-     */
     declare public readonly subnetIds: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.docdb.ElasticClusterTimeouts | undefined>;
-    /**
-     * List of VPC security groups to associate with the Elastic DocumentDB Cluster
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-     */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
     /**
@@ -218,76 +132,23 @@ export class ElasticCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ElasticCluster resources.
  */
 export interface ElasticClusterState {
-    /**
-     * Name of the Elastic DocumentDB cluster administrator
-     */
     adminUserName?: pulumi.Input<string>;
-    /**
-     * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-     */
     adminUserPassword?: pulumi.Input<string>;
-    /**
-     * ARN of the DocumentDB Elastic Cluster
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-     */
     authType?: pulumi.Input<string>;
-    /**
-     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-     */
     backupRetentionPeriod?: pulumi.Input<number>;
-    /**
-     * The DNS address of the DocDB instance
-     */
     endpoint?: pulumi.Input<string>;
-    /**
-     * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Name of the Elastic DocumentDB cluster
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
-     */
     preferredBackupWindow?: pulumi.Input<string>;
-    /**
-     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-     */
     shardCapacity?: pulumi.Input<number>;
-    /**
-     * Number of shards assigned to the elastic cluster. Maximum is 32
-     *
-     * The following arguments are optional:
-     */
     shardCount?: pulumi.Input<number>;
-    /**
-     * IDs of subnets in which the Elastic DocumentDB Cluster operates.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.docdb.ElasticClusterTimeouts>;
-    /**
-     * List of VPC security groups to associate with the Elastic DocumentDB Cluster
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -295,66 +156,19 @@ export interface ElasticClusterState {
  * The set of arguments for constructing a ElasticCluster resource.
  */
 export interface ElasticClusterArgs {
-    /**
-     * Name of the Elastic DocumentDB cluster administrator
-     */
     adminUserName: pulumi.Input<string>;
-    /**
-     * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-     */
     adminUserPassword: pulumi.Input<string>;
-    /**
-     * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-     */
     authType: pulumi.Input<string>;
-    /**
-     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-     */
     backupRetentionPeriod?: pulumi.Input<number>;
-    /**
-     * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Name of the Elastic DocumentDB cluster
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
-     */
     preferredBackupWindow?: pulumi.Input<string>;
-    /**
-     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-     */
     shardCapacity: pulumi.Input<number>;
-    /**
-     * Number of shards assigned to the elastic cluster. Maximum is 32
-     *
-     * The following arguments are optional:
-     */
     shardCount: pulumi.Input<number>;
-    /**
-     * IDs of subnets in which the Elastic DocumentDB Cluster operates.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.docdb.ElasticClusterTimeouts>;
-    /**
-     * List of VPC security groups to associate with the Elastic DocumentDB Cluster
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class GetTaskExecutionPlacementConstraintArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
-        /// </summary>
         [Input("expression")]
         public string? Expression { get; set; }
 
-        /// <summary>
-        /// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
-        /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 

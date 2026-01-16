@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Control Bucket Policy.
- *
- * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.BucketPolicy("example", {
- *     bucket: exampleAwsS3controlBucket.arn,
- *     policy: JSON.stringify({
- *         Id: "testBucketPolicy",
- *         Statement: [{
- *             Action: "s3-outposts:PutBucketLifecycleConfiguration",
- *             Effect: "Deny",
- *             Principal: {
- *                 AWS: "*",
- *             },
- *             Resource: exampleAwsS3controlBucket.arn,
- *             Sid: "statement1",
- *         }],
- *         Version: "2012-10-17",
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
- *
- * ```sh
- * $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
- * ```
- */
 export class BucketPolicy extends pulumi.CustomResource {
     /**
      * Get an existing BucketPolicy resource's state with the given name, ID, and optional extra
@@ -69,17 +32,8 @@ export class BucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketPolicy.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * JSON string of the resource policy.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -119,17 +73,8 @@ export class BucketPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketPolicy resources.
  */
 export interface BucketPolicyState {
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * JSON string of the resource policy.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -137,16 +82,7 @@ export interface BucketPolicyState {
  * The set of arguments for constructing a BucketPolicy resource.
  */
 export interface BucketPolicyArgs {
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * JSON string of the resource policy.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

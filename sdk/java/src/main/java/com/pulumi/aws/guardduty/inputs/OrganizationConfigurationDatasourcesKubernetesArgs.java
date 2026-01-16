@@ -14,19 +14,9 @@ public final class OrganizationConfigurationDatasourcesKubernetesArgs extends co
 
     public static final OrganizationConfigurationDatasourcesKubernetesArgs Empty = new OrganizationConfigurationDatasourcesKubernetesArgs();
 
-    /**
-     * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
-     * 
-     */
     @Import(name="auditLogs", required=true)
     private Output<OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> auditLogs;
 
-    /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
-     * 
-     */
     public Output<OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> auditLogs() {
         return this.auditLogs;
     }
@@ -55,25 +45,11 @@ public final class OrganizationConfigurationDatasourcesKubernetesArgs extends co
             $ = new OrganizationConfigurationDatasourcesKubernetesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param auditLogs Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLogs(Output<OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> auditLogs) {
             $.auditLogs = auditLogs;
             return this;
         }
 
-        /**
-         * @param auditLogs Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLogs(OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs auditLogs) {
             return auditLogs(Output.of(auditLogs));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class TargetGroupTargetFailoverGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `Rebalance` and `NoRebalance`. Must match the attribute value set for `OnUnhealthy`. Default: `NoRebalance`.
-        /// </summary>
         [Input("onDeregistration", required: true)]
         public Input<string> OnDeregistration { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `Rebalance` and `NoRebalance`. Must match the attribute value set for `OnDeregistration`. Default: `NoRebalance`.
-        /// </summary>
         [Input("onUnhealthy", required: true)]
         public Input<string> OnUnhealthy { get; set; } = null!;
 

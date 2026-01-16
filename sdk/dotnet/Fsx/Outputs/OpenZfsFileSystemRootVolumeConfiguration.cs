@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OpenZfsFileSystemRootVolumeConfiguration
     {
-        /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        /// </summary>
         public readonly bool? CopyTagsToSnapshots;
-        /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        /// </summary>
         public readonly string? DataCompressionType;
-        /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See `NfsExports` Block for details.
-        /// </summary>
         public readonly Outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports? NfsExports;
-        /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
-        /// </summary>
         public readonly bool? ReadOnly;
-        /// <summary>
-        /// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        /// </summary>
         public readonly int? RecordSizeKib;
-        /// <summary>
-        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `UserAndGroupQuotas` Block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> UserAndGroupQuotas;
 
         [OutputConstructor]

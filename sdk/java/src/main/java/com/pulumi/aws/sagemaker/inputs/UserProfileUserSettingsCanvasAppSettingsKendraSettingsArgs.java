@@ -15,17 +15,9 @@ public final class UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs ex
 
     public static final UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs Empty = new UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs();
 
-    /**
-     * Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -54,23 +46,11 @@ public final class UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs ex
             $ = new UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

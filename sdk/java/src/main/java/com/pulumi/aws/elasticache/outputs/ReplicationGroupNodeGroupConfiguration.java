@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationGroupNodeGroupConfiguration {
-    /**
-     * @return ID for the node group. Redis (cluster mode disabled) replication groups don&#39;t have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-     * 
-     */
     private @Nullable String nodeGroupId;
-    /**
-     * @return Availability zone for the primary node.
-     * 
-     */
     private @Nullable String primaryAvailabilityZone;
-    /**
-     * @return ARN of the Outpost for the primary node.
-     * 
-     */
     private @Nullable String primaryOutpostArn;
-    /**
-     * @return List of availability zones for the replica nodes.
-     * 
-     */
     private @Nullable List<String> replicaAvailabilityZones;
-    /**
-     * @return Number of replica nodes in this node group.
-     * 
-     */
     private @Nullable Integer replicaCount;
-    /**
-     * @return List of ARNs of the Outposts for the replica nodes.
-     * 
-     */
     private @Nullable List<String> replicaOutpostArns;
-    /**
-     * @return Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-     * 
-     */
     private @Nullable String slots;
 
     private ReplicationGroupNodeGroupConfiguration() {}
-    /**
-     * @return ID for the node group. Redis (cluster mode disabled) replication groups don&#39;t have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-     * 
-     */
     public Optional<String> nodeGroupId() {
         return Optional.ofNullable(this.nodeGroupId);
     }
-    /**
-     * @return Availability zone for the primary node.
-     * 
-     */
     public Optional<String> primaryAvailabilityZone() {
         return Optional.ofNullable(this.primaryAvailabilityZone);
     }
-    /**
-     * @return ARN of the Outpost for the primary node.
-     * 
-     */
     public Optional<String> primaryOutpostArn() {
         return Optional.ofNullable(this.primaryOutpostArn);
     }
-    /**
-     * @return List of availability zones for the replica nodes.
-     * 
-     */
     public List<String> replicaAvailabilityZones() {
         return this.replicaAvailabilityZones == null ? List.of() : this.replicaAvailabilityZones;
     }
-    /**
-     * @return Number of replica nodes in this node group.
-     * 
-     */
     public Optional<Integer> replicaCount() {
         return Optional.ofNullable(this.replicaCount);
     }
-    /**
-     * @return List of ARNs of the Outposts for the replica nodes.
-     * 
-     */
     public List<String> replicaOutpostArns() {
         return this.replicaOutpostArns == null ? List.of() : this.replicaOutpostArns;
     }
-    /**
-     * @return Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-     * 
-     */
     public Optional<String> slots() {
         return Optional.ofNullable(this.slots);
     }

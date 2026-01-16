@@ -16,91 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRouteMatch {
-    /**
-     * @return Client request headers to match on.
-     * 
-     */
     private @Nullable List<RouteSpecHttpRouteMatchHeader> headers;
-    /**
-     * @return Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-     * 
-     */
     private @Nullable String method;
-    /**
-     * @return Client request path to match on.
-     * 
-     */
     private @Nullable RouteSpecHttpRouteMatchPath path;
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return Path with which to match requests.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Client request query parameters to match on.
-     * 
-     */
     private @Nullable List<RouteSpecHttpRouteMatchQueryParameter> queryParameters;
-    /**
-     * @return Client request header scheme to match on. Valid values: `http`, `https`.
-     * 
-     */
     private @Nullable String scheme;
 
     private RouteSpecHttpRouteMatch() {}
-    /**
-     * @return Client request headers to match on.
-     * 
-     */
     public List<RouteSpecHttpRouteMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-     * 
-     */
     public Optional<String> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Client request path to match on.
-     * 
-     */
     public Optional<RouteSpecHttpRouteMatchPath> path() {
         return Optional.ofNullable(this.path);
     }
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return Path with which to match requests.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Client request query parameters to match on.
-     * 
-     */
     public List<RouteSpecHttpRouteMatchQueryParameter> queryParameters() {
         return this.queryParameters == null ? List.of() : this.queryParameters;
     }
-    /**
-     * @return Client request header scheme to match on. Valid values: `http`, `https`.
-     * 
-     */
     public Optional<String> scheme() {
         return Optional.ofNullable(this.scheme);
     }

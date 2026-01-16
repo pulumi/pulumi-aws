@@ -18,47 +18,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs();
 
-    /**
-     * Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-     * 
-     */
     @Import(name="archiveCdnSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs> archiveCdnSettings;
 
-    /**
-     * @return Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs>> archiveCdnSettings() {
         return Optional.ofNullable(this.archiveCdnSettings);
     }
 
-    /**
-     * A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination;
 
-    /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination() {
         return this.destination;
     }
 
-    /**
-     * Number of seconds to write to archive file before closing and starting a new one.
-     * 
-     */
     @Import(name="rolloverInterval")
     private @Nullable Output<Integer> rolloverInterval;
 
-    /**
-     * @return Number of seconds to write to archive file before closing and starting a new one.
-     * 
-     */
     public Optional<Output<Integer>> rolloverInterval() {
         return Optional.ofNullable(this.rolloverInterval);
     }
@@ -89,65 +65,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param archiveCdnSettings Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveCdnSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs> archiveCdnSettings) {
             $.archiveCdnSettings = archiveCdnSettings;
             return this;
         }
 
-        /**
-         * @param archiveCdnSettings Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveCdnSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs archiveCdnSettings) {
             return archiveCdnSettings(Output.of(archiveCdnSettings));
         }
 
-        /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param rolloverInterval Number of seconds to write to archive file before closing and starting a new one.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rolloverInterval(@Nullable Output<Integer> rolloverInterval) {
             $.rolloverInterval = rolloverInterval;
             return this;
         }
 
-        /**
-         * @param rolloverInterval Number of seconds to write to archive file before closing and starting a new one.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rolloverInterval(Integer rolloverInterval) {
             return rolloverInterval(Output.of(rolloverInterval));
         }

@@ -17,8 +17,6 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetBucketObjectPlainArgs Empty = new GetBucketObjectPlainArgs();
 
     /**
-     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-     * 
      * @deprecated
      * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      * 
@@ -28,8 +26,6 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     private String bucket;
 
     /**
-     * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-     * 
      * @deprecated
      * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      * 
@@ -39,17 +35,9 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         return this.bucket;
     }
 
-    /**
-     * Full path to the object inside the bucket
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return Full path to the object inside the bucket
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -61,47 +49,23 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.range);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags assigned to the object.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the object.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Specific version ID of the object returned (defaults to latest version)
-     * 
-     */
     @Import(name="versionId")
     private @Nullable String versionId;
 
-    /**
-     * @return Specific version ID of the object returned (defaults to latest version)
-     * 
-     */
     public Optional<String> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -136,8 +100,6 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-         * 
          * @return builder
          * 
          * @deprecated
@@ -150,12 +112,6 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
             return this;
         }
 
-        /**
-         * @param key Full path to the object inside the bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -166,34 +122,16 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param versionId Specific version ID of the object returned (defaults to latest version)
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable String versionId) {
             $.versionId = versionId;
             return this;

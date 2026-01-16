@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MemoryDB User.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.LookupUser(ctx, &memorydb.LookupUserArgs{
-//				UserName: "my-user",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
@@ -50,30 +23,22 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags assigned to the user.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the user.
-	UserName string `pulumi:"userName"`
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
+	UserName string            `pulumi:"userName"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// Access permissions string used for this user.
-	AccessString string `pulumi:"accessString"`
-	// ARN of the user.
-	Arn string `pulumi:"arn"`
-	// Denotes the user's authentication properties.
+	AccessString        string                      `pulumi:"accessString"`
+	Arn                 string                      `pulumi:"arn"`
 	AuthenticationModes []GetUserAuthenticationMode `pulumi:"authenticationModes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Minimum engine version supported for the user.
-	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
-	Region               string `pulumi:"region"`
-	// Map of tags assigned to the user.
-	Tags     map[string]string `pulumi:"tags"`
-	UserName string            `pulumi:"userName"`
+	Id                   string            `pulumi:"id"`
+	MinimumEngineVersion string            `pulumi:"minimumEngineVersion"`
+	Region               string            `pulumi:"region"`
+	Tags                 map[string]string `pulumi:"tags"`
+	UserName             string            `pulumi:"userName"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -87,12 +52,9 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags assigned to the user.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Name of the user.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	UserName pulumi.StringInput    `pulumi:"userName"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {
@@ -114,17 +76,14 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// Access permissions string used for this user.
 func (o LookupUserResultOutput) AccessString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.AccessString }).(pulumi.StringOutput)
 }
 
-// ARN of the user.
 func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Denotes the user's authentication properties.
 func (o LookupUserResultOutput) AuthenticationModes() GetUserAuthenticationModeArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserAuthenticationMode { return v.AuthenticationModes }).(GetUserAuthenticationModeArrayOutput)
 }
@@ -134,7 +93,6 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Minimum engine version supported for the user.
 func (o LookupUserResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
@@ -143,7 +101,6 @@ func (o LookupUserResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the user.
 func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

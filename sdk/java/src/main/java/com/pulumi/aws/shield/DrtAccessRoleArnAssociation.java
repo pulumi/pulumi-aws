@@ -15,93 +15,11 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
- * For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.shield.DrtAccessRoleArnAssociation;
- * import com.pulumi.aws.shield.DrtAccessRoleArnAssociationArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("example-role")
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Version", "2012-10-17"),
- *                     jsonProperty("Statement", jsonArray(jsonObject(
- *                         jsonProperty("Sid", ""),
- *                         jsonProperty("Effect", "Allow"),
- *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", "drt.shield.amazonaws.com")
- *                         )),
- *                         jsonProperty("Action", "sts:AssumeRole")
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var example = new DrtAccessRoleArnAssociation("example", DrtAccessRoleArnAssociationArgs.builder()
- *             .roleArn(exampleRole.arn())
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(exampleRole.name())
- *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")
 public class DrtAccessRoleArnAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

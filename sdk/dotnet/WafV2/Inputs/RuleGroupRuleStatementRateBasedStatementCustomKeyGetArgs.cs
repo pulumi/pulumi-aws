@@ -15,69 +15,36 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("asn")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyAsnGetArgs>? Asn { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `Cookie` below for details.
-        /// </summary>
         [Input("cookie")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieGetArgs>? Cookie { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `ForwardedIp` below for details.
-        /// </summary>
         [Input("forwardedIp")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpGetArgs>? ForwardedIp { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `Header` below for details.
-        /// </summary>
         [Input("header")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderGetArgs>? Header { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `HttpMethod` below for details.
-        /// </summary>
         [Input("httpMethod")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodGetArgs>? HttpMethod { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
-        /// </summary>
         [Input("ip")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIpGetArgs>? Ip { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-        /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintGetArgs>? Ja3Fingerprint { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-        /// </summary>
         [Input("ja4Fingerprint")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintGetArgs>? Ja4Fingerprint { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `LabelNamespace` below for details.
-        /// </summary>
         [Input("labelNamespace")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceGetArgs>? LabelNamespace { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the specified query argument as an aggregate key. See RateLimit `QueryArgument` below for details.
-        /// </summary>
         [Input("queryArgument")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentGetArgs>? QueryArgument { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the request's query string as an aggregate key. See RateLimit `QueryString` below for details.
-        /// </summary>
         [Input("queryString")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringGetArgs>? QueryString { get; set; }
 
-        /// <summary>
-        /// (Optional) Use the request's URI path as an aggregate key. See RateLimit `UriPath` below for details.
-        /// </summary>
         [Input("uriPath")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathGetArgs>? UriPath { get; set; }
 

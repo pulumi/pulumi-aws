@@ -14,17 +14,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs();
 
-    /**
-     * Name of the Amazon Redshift database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return Name of the Amazon Redshift database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
@@ -53,23 +45,11 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName Name of the Amazon Redshift database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name of the Amazon Redshift database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }

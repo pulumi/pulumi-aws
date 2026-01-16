@@ -16,47 +16,23 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCod
 
     public static final AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args Empty = new AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args();
 
-    /**
-     * Name of the Amazon S3 bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-     * 
-     */
     @Import(name="prefix", required=true)
     private Output<String> prefix;
 
-    /**
-     * @return Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-     * 
-     */
     public Output<String> prefix() {
         return this.prefix;
     }
 
-    /**
-     * Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-     * 
-     */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
-    /**
-     * @return Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-     * 
-     */
     public Optional<Output<String>> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -87,65 +63,29 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCod
             $ = new AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param prefix Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param versionId Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable Output<String> versionId) {
             $.versionId = versionId;
             return this;
         }
 
-        /**
-         * @param versionId Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(String versionId) {
             return versionId(Output.of(versionId));
         }

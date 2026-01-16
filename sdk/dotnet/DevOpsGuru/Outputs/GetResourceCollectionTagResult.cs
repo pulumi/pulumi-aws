@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class GetResourceCollectionTagResult
     {
-        /// <summary>
-        /// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-        /// </summary>
         public readonly string AppBoundaryKey;
-        /// <summary>
-        /// Array of tag values.
-        /// </summary>
         public readonly ImmutableArray<string> TagValues;
 
         [OutputConstructor]

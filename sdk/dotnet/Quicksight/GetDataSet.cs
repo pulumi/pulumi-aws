@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Quicksight
 {
     public static class GetDataSet
     {
-        /// <summary>
-        /// Data source for managing a QuickSight Data Set.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetDataSet.Invoke(new()
-        ///     {
-        ///         DataSetId = "example-id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDataSetResult> InvokeAsync(GetDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSetResult>("aws:quicksight/getDataSet:getDataSet", args ?? new GetDataSetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing a QuickSight Data Set.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetDataSet.Invoke(new()
-        ///     {
-        ///         DataSetId = "example-id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws:quicksight/getDataSet:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing a QuickSight Data Set.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetDataSet.Invoke(new()
-        ///     {
-        ///         DataSetId = "example-id",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws:quicksight/getDataSet:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
     }
@@ -96,15 +27,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier for the data set.
-        /// </summary>
         [Input("dataSetId", required: true)]
         public string DataSetId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -127,15 +52,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier for the data set.
-        /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages AWS Compute Optimizer enrollment status.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.computeoptimizer.EnrollmentStatus("example", {status: "Active"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import enrollment status using the account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:computeoptimizer/enrollmentStatus:EnrollmentStatus example 123456789012
- * ```
- */
 export class EnrollmentStatus extends pulumi.CustomResource {
     /**
      * Get an existing EnrollmentStatus resource's state with the given name, ID, and optional extra
@@ -55,21 +35,9 @@ export class EnrollmentStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnrollmentStatus.__pulumiType;
     }
 
-    /**
-     * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     */
     declare public readonly includeMemberAccounts: pulumi.Output<boolean>;
-    /**
-     * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-     */
     declare public /*out*/ readonly numberOfMemberAccountsOptedIn: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     */
     declare public readonly status: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.computeoptimizer.EnrollmentStatusTimeouts | undefined>;
 
@@ -111,21 +79,9 @@ export class EnrollmentStatus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EnrollmentStatus resources.
  */
 export interface EnrollmentStatusState {
-    /**
-     * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     */
     includeMemberAccounts?: pulumi.Input<boolean>;
-    /**
-     * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-     */
     numberOfMemberAccountsOptedIn?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     */
     status?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.computeoptimizer.EnrollmentStatusTimeouts>;
 }
@@ -134,17 +90,8 @@ export interface EnrollmentStatusState {
  * The set of arguments for constructing a EnrollmentStatus resource.
  */
 export interface EnrollmentStatusArgs {
-    /**
-     * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-     */
     includeMemberAccounts?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The enrollment status of the account. Valid values: `Active`, `Inactive`.
-     */
     status: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.computeoptimizer.EnrollmentStatusTimeouts>;
 }

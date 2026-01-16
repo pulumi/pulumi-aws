@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetTrackingOptions {
-    /**
-     * @return The domain to use for tracking open and click events.
-     * 
-     */
     private String customRedirectDomain;
-    /**
-     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-     * 
-     */
     private @Nullable String httpsPolicy;
 
     private ConfigurationSetTrackingOptions() {}
-    /**
-     * @return The domain to use for tracking open and click events.
-     * 
-     */
     public String customRedirectDomain() {
         return this.customRedirectDomain;
     }
-    /**
-     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
-     * 
-     */
     public Optional<String> httpsPolicy() {
         return Optional.ofNullable(this.httpsPolicy);
     }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
     {
         [Input("maxes")]
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisGetArgs>? _maxes;
-
-        /// <summary>
-        /// Insights into the most sub-optimal performing table on the temporal axis:
-        /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisGetArgs> Maxes
         {
             get => _maxes ?? (_maxes = new InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisGetArgs>());

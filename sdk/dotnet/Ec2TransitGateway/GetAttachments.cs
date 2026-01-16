@@ -11,141 +11,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetAttachments
     {
-        /// <summary>
-        /// Get information on EC2 Transit Gateway Attachments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAttachmentsResult> InvokeAsync(GetAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on EC2 Transit Gateway Attachments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on EC2 Transit Gateway Attachments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsInvokeArgs(), options.WithDefaults());
     }
@@ -155,19 +26,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetAttachmentsFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetAttachmentsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetAttachmentsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -189,19 +53,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetAttachmentsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetAttachmentsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetAttachmentsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -228,9 +85,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.getAttachment][2] data source, searching by identifier.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;

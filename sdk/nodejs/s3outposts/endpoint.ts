@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Outposts Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3outposts.Endpoint("example", {
- *     outpostId: exampleAwsOutpostsOutpost.id,
- *     securityGroupId: exampleAwsSecurityGroup.id,
- *     subnetId: exampleAwsSubnet.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
- * ```
- */
 export class Endpoint extends pulumi.CustomResource {
     /**
      * Get an existing Endpoint resource's state with the given name, ID, and optional extra
@@ -59,45 +35,15 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
-    /**
-     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     */
     declare public readonly accessType: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the endpoint.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * VPC CIDR block of the endpoint.
-     */
     declare public /*out*/ readonly cidrBlock: pulumi.Output<string>;
-    /**
-     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
-    /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     */
     declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
-    /**
-     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     */
     declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     */
     declare public readonly outpostId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Identifier of the EC2 Security Group.
-     */
     declare public readonly securityGroupId: pulumi.Output<string>;
-    /**
-     * Identifier of the EC2 Subnet.
-     */
     declare public readonly subnetId: pulumi.Output<string>;
 
     /**
@@ -154,45 +100,15 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
-    /**
-     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     */
     accessType?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the endpoint.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * VPC CIDR block of the endpoint.
-     */
     cidrBlock?: pulumi.Input<string>;
-    /**
-     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     creationTime?: pulumi.Input<string>;
-    /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
-    /**
-     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.s3outposts.EndpointNetworkInterface>[]>;
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     */
     outpostId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 Security Group.
-     */
     securityGroupId?: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 Subnet.
-     */
     subnetId?: pulumi.Input<string>;
 }
 
@@ -200,28 +116,10 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
-    /**
-     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-     */
     accessType?: pulumi.Input<string>;
-    /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-     */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     */
     outpostId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 Security Group.
-     */
     securityGroupId: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 Subnet.
-     */
     subnetId: pulumi.Input<string>;
 }

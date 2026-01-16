@@ -13,31 +13,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFaqResult {
-    /**
-     * @return ARN of the FAQ.
-     * 
-     */
     private String arn;
-    /**
-     * @return Unix datetime that the faq was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description of the FAQ.
-     * 
-     */
     private String description;
-    /**
-     * @return When the `status` field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     private String errorMessage;
     private String faqId;
-    /**
-     * @return File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     * 
-     */
     private String fileFormat;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -45,79 +25,31 @@ public final class GetFaqResult {
      */
     private String id;
     private String indexId;
-    /**
-     * @return Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     * 
-     */
     private String languageCode;
-    /**
-     * @return Name of the FAQ.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     private String roleArn;
-    /**
-     * @return S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     private List<GetFaqS3Path> s3Paths;
-    /**
-     * @return Status of the FAQ. It is ready to use when the status is ACTIVE.
-     * 
-     */
     private String status;
-    /**
-     * @return Metadata that helps organize the FAQs you create.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Date and time that the FAQ was last updated.
-     * 
-     */
     private String updatedAt;
 
     private GetFaqResult() {}
-    /**
-     * @return ARN of the FAQ.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Unix datetime that the faq was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description of the FAQ.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return When the `status` field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     public String errorMessage() {
         return this.errorMessage;
     }
     public String faqId() {
         return this.faqId;
     }
-    /**
-     * @return File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     * 
-     */
     public String fileFormat() {
         return this.fileFormat;
     }
@@ -131,55 +63,27 @@ public final class GetFaqResult {
     public String indexId() {
         return this.indexId;
     }
-    /**
-     * @return Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
-    /**
-     * @return Name of the FAQ.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return S3 location of the FAQ input data. Detailed below.
-     * 
-     */
     public List<GetFaqS3Path> s3Paths() {
         return this.s3Paths;
     }
-    /**
-     * @return Status of the FAQ. It is ready to use when the status is ACTIVE.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Metadata that helps organize the FAQs you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Date and time that the FAQ was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }

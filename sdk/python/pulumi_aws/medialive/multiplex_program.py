@@ -28,12 +28,6 @@ class MultiplexProgramArgs:
                  timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a MultiplexProgram resource.
-        :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "multiplex_id", multiplex_id)
         pulumi.set(__self__, "program_name", program_name)
@@ -47,9 +41,6 @@ class MultiplexProgramArgs:
     @_builtins.property
     @pulumi.getter(name="multiplexId")
     def multiplex_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Multiplex ID.
-        """
         return pulumi.get(self, "multiplex_id")
 
     @multiplex_id.setter
@@ -59,9 +50,6 @@ class MultiplexProgramArgs:
     @_builtins.property
     @pulumi.getter(name="programName")
     def program_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique program name.
-        """
         return pulumi.get(self, "program_name")
 
     @program_name.setter
@@ -71,11 +59,6 @@ class MultiplexProgramArgs:
     @_builtins.property
     @pulumi.getter(name="multiplexProgramSettings")
     def multiplex_program_settings(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']]:
-        """
-        MultiplexProgram settings. See Multiplex Program Settings for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "multiplex_program_settings")
 
     @multiplex_program_settings.setter
@@ -85,9 +68,6 @@ class MultiplexProgramArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -114,12 +94,6 @@ class _MultiplexProgramState:
                  timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering MultiplexProgram resources.
-        :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if multiplex_id is not None:
             pulumi.set(__self__, "multiplex_id", multiplex_id)
@@ -135,9 +109,6 @@ class _MultiplexProgramState:
     @_builtins.property
     @pulumi.getter(name="multiplexId")
     def multiplex_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Multiplex ID.
-        """
         return pulumi.get(self, "multiplex_id")
 
     @multiplex_id.setter
@@ -147,11 +118,6 @@ class _MultiplexProgramState:
     @_builtins.property
     @pulumi.getter(name="multiplexProgramSettings")
     def multiplex_program_settings(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']]:
-        """
-        MultiplexProgram settings. See Multiplex Program Settings for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "multiplex_program_settings")
 
     @multiplex_program_settings.setter
@@ -161,9 +127,6 @@ class _MultiplexProgramState:
     @_builtins.property
     @pulumi.getter(name="programName")
     def program_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique program name.
-        """
         return pulumi.get(self, "program_name")
 
     @program_name.setter
@@ -173,9 +136,6 @@ class _MultiplexProgramState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -205,61 +165,9 @@ class MultiplexProgram(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS MediaLive MultiplexProgram.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example = aws.medialive.Multiplex("example",
-            name="example-multiplex-changed",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings={
-                "transport_stream_bitrate": 1000000,
-                "transport_stream_id": 1,
-                "transport_stream_reserved_bitrate": 1,
-                "maximum_video_buffer_delay_milliseconds": 1000,
-            },
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        example_multiplex_program = aws.medialive.MultiplexProgram("example",
-            program_name="example_program",
-            multiplex_id=example.id,
-            multiplex_program_settings={
-                "program_number": 1,
-                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
-                "video_settings": {
-                    "constant_bitrate": 100000,
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
-
-        ```sh
-        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-        ```
-
+        Create a MultiplexProgram resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -268,53 +176,7 @@ class MultiplexProgram(pulumi.CustomResource):
                  args: MultiplexProgramArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS MediaLive MultiplexProgram.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example = aws.medialive.Multiplex("example",
-            name="example-multiplex-changed",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings={
-                "transport_stream_bitrate": 1000000,
-                "transport_stream_id": 1,
-                "transport_stream_reserved_bitrate": 1,
-                "maximum_video_buffer_delay_milliseconds": 1000,
-            },
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        example_multiplex_program = aws.medialive.MultiplexProgram("example",
-            program_name="example_program",
-            multiplex_id=example.id,
-            multiplex_program_settings={
-                "program_number": 1,
-                "preferred_channel_pipeline": "CURRENTLY_ACTIVE",
-                "video_settings": {
-                    "constant_bitrate": 100000,
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
-
-        ```sh
-        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-        ```
-
+        Create a MultiplexProgram resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MultiplexProgramArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,12 +237,6 @@ class MultiplexProgram(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
-        :param pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] program_name: Unique program name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -396,35 +252,21 @@ class MultiplexProgram(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="multiplexId")
     def multiplex_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Multiplex ID.
-        """
         return pulumi.get(self, "multiplex_id")
 
     @_builtins.property
     @pulumi.getter(name="multiplexProgramSettings")
     def multiplex_program_settings(self) -> pulumi.Output[Optional['outputs.MultiplexProgramMultiplexProgramSettings']]:
-        """
-        MultiplexProgram settings. See Multiplex Program Settings for more details.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "multiplex_program_settings")
 
     @_builtins.property
     @pulumi.getter(name="programName")
     def program_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique program name.
-        """
         return pulumi.get(self, "program_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

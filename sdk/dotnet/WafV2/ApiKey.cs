@@ -9,62 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafV2
 {
-    /// <summary>
-    /// Provides an AWS WAFv2 API Key resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WafV2.ApiKey("example", new()
-    ///     {
-    ///         Scope = "REGIONAL",
-    ///         TokenDomains = new[]
-    ///         {
-    ///             "example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WAFv2 API Key using `api_key,scope`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:wafv2/apiKey:ApiKey example a1b2c3d4-5678-90ab-cdef-EXAMPLE11111,REGIONAL
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafv2/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The generated API key. This value is sensitive.
+        /// The API key value. This is sensitive and not included in responses.
         /// </summary>
         [Output("apiKey")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         /// </summary>
         [Output("tokenDomains")]
         public Output<ImmutableArray<string>> TokenDomains { get; private set; } = null!;
@@ -119,14 +83,11 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -135,7 +96,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<string>? _tokenDomains;
 
         /// <summary>
-        /// The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         /// </summary>
         public InputList<string> TokenDomains
         {
@@ -155,7 +116,7 @@ namespace Pulumi.Aws.WafV2
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// The generated API key. This value is sensitive.
+        /// The API key value. This is sensitive and not included in responses.
         /// </summary>
         public Input<string>? Key
         {
@@ -167,14 +128,11 @@ namespace Pulumi.Aws.WafV2
             }
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -183,7 +141,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<string>? _tokenDomains;
 
         /// <summary>
-        /// The domains that you want to be able to use the API key with, for example `example.com`. You can specify up to 5 domains. Changing this forces a new resource to be created.
+        /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
         /// </summary>
         public InputList<string> TokenDomains
         {

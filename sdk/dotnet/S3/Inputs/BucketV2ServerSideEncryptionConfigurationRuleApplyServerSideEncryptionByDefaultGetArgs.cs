@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `SseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `SseAlgorithm` is `aws:kms`.
-        /// </summary>
         [Input("kmsMasterKeyId")]
         public Input<string>? KmsMasterKeyId { get; set; }
 
-        /// <summary>
-        /// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-        /// </summary>
         [Input("sseAlgorithm", required: true)]
         public Input<string> SseAlgorithm { get; set; } = null!;
 

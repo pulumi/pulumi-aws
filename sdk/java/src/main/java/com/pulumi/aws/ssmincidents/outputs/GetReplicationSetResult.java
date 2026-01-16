@@ -14,76 +14,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationSetResult {
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication set.
-     * 
-     */
     private String arn;
-    /**
-     * @return The ARN of the user who created the replication set.
-     * 
-     */
     private String createdBy;
-    /**
-     * @return If `true`, the last remaining Region in a replication set can’t be deleted.
-     * 
-     */
     private Boolean deletionProtected;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The ARN of the user who last modified the replication set.
-     * 
-     */
     private String lastModifiedBy;
     /**
-     * @return (**Deprecated**) The replication set&#39;s Regions. Use `regions` instead.
-     * 
      * @deprecated
      * region is deprecated. Use regions instead.
      * 
      */
     @Deprecated /* region is deprecated. Use regions instead. */
     private List<GetReplicationSetRegion> region;
-    /**
-     * @return The replication set&#39;s Regions.
-     * 
-     */
     private List<GetReplicationSetRegion> regions;
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     private String status;
-    /**
-     * @return All tags applied to the replication set.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetReplicationSetResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication set.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The ARN of the user who created the replication set.
-     * 
-     */
     public String createdBy() {
         return this.createdBy;
     }
-    /**
-     * @return If `true`, the last remaining Region in a replication set can’t be deleted.
-     * 
-     */
     public Boolean deletionProtected() {
         return this.deletionProtected;
     }
@@ -94,16 +51,10 @@ public final class GetReplicationSetResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The ARN of the user who last modified the replication set.
-     * 
-     */
     public String lastModifiedBy() {
         return this.lastModifiedBy;
     }
     /**
-     * @return (**Deprecated**) The replication set&#39;s Regions. Use `regions` instead.
-     * 
      * @deprecated
      * region is deprecated. Use regions instead.
      * 
@@ -112,25 +63,12 @@ public final class GetReplicationSetResult {
     public List<GetReplicationSetRegion> region() {
         return this.region;
     }
-    /**
-     * @return The replication set&#39;s Regions.
-     * 
-     */
     public List<GetReplicationSetRegion> regions() {
         return this.regions;
     }
-    /**
-     * @return The current status of the Region.
-     * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return All tags applied to the replication set.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

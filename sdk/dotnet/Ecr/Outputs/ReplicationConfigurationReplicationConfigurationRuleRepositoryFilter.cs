@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter
     {
-        /// <summary>
-        /// The repository filter details.
-        /// </summary>
         public readonly string Filter;
-        /// <summary>
-        /// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        /// </summary>
         public readonly string FilterType;
 
         [OutputConstructor]

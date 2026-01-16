@@ -25,12 +25,6 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[_builtins.str] policy: n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-        :param pulumi.Input[_builtins.bool] confirm_remove_self_resource_access: Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -42,11 +36,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -56,9 +45,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -68,9 +54,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="confirmRemoveSelfResourceAccess")
     def confirm_remove_self_resource_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        """
         return pulumi.get(self, "confirm_remove_self_resource_access")
 
     @confirm_remove_self_resource_access.setter
@@ -80,9 +63,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -100,13 +80,6 @@ class _ResourcePolicyState:
                  revision_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
-        :param pulumi.Input[_builtins.bool] confirm_remove_self_resource_access: Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        :param pulumi.Input[_builtins.str] policy: n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-        :param pulumi.Input[_builtins.str] revision_id: A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
         """
         if confirm_remove_self_resource_access is not None:
             pulumi.set(__self__, "confirm_remove_self_resource_access", confirm_remove_self_resource_access)
@@ -122,9 +95,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="confirmRemoveSelfResourceAccess")
     def confirm_remove_self_resource_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        """
         return pulumi.get(self, "confirm_remove_self_resource_access")
 
     @confirm_remove_self_resource_access.setter
@@ -134,11 +104,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -148,9 +113,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -160,9 +122,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -172,9 +131,6 @@ class _ResourcePolicyState:
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
-        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -194,41 +150,9 @@ class ResourcePolicy(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS DynamoDB Resource Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.ResourcePolicy("example",
-            resource_arn=example_aws_dynamodb_table["arn"],
-            policy=test["json"])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
-
-        Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
-
-        % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] confirm_remove_self_resource_access: Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        :param pulumi.Input[_builtins.str] policy: n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
         """
         ...
     @overload
@@ -237,33 +161,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS DynamoDB Resource Policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.ResourcePolicy("example",
-            resource_arn=example_aws_dynamodb_table["arn"],
-            policy=test["json"])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
-
-        Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
-
-        % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,13 +221,6 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] confirm_remove_self_resource_access: Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        :param pulumi.Input[_builtins.str] policy: n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-        :param pulumi.Input[_builtins.str] revision_id: A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -345,42 +236,25 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="confirmRemoveSelfResourceAccess")
     def confirm_remove_self_resource_access(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
-        """
         return pulumi.get(self, "confirm_remove_self_resource_access")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
-        """
         return pulumi.get(self, "revision_id")
 

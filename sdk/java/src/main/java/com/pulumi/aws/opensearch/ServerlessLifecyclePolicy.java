@@ -14,70 +14,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.ServerlessLifecyclePolicy;
- * import com.pulumi.aws.opensearch.ServerlessLifecyclePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServerlessLifecyclePolicy("example", ServerlessLifecyclePolicyArgs.builder()
- *             .name("example")
- *             .type("retention")
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("Rules", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "index"),
- *                             jsonProperty("Resource", jsonArray("index/autoparts-inventory/*")),
- *                             jsonProperty("MinIndexRetention", "81d")
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("ResourceType", "index"),
- *                             jsonProperty("Resource", jsonArray("index/sales/orders*")),
- *                             jsonProperty("NoMinIndexRetention", true)
- *                         )
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
- * 
- * ```sh
- * $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy")
 public class ServerlessLifecyclePolicy extends com.pulumi.resources.CustomResource {
     /**
@@ -136,24 +72,14 @@ public class ServerlessLifecyclePolicy extends com.pulumi.resources.CustomResour
     public Output<String> policyVersion() {
         return this.policyVersion;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
     /**
      * Type of lifecycle policy. Must be `retention`.
-     * 
-     * The following arguments are optional:
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
@@ -161,8 +87,6 @@ public class ServerlessLifecyclePolicy extends com.pulumi.resources.CustomResour
 
     /**
      * @return Type of lifecycle policy. Must be `retention`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

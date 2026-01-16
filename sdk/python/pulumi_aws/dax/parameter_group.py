@@ -27,10 +27,6 @@ class ParameterGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
-        :param pulumi.Input[_builtins.str] description: A description of the parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The parameters of the parameter group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -44,9 +40,6 @@ class ParameterGroupArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,9 +49,6 @@ class ParameterGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the parameter group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -68,9 +58,6 @@ class ParameterGroupArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
-        """
-        The parameters of the parameter group.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -80,9 +67,6 @@ class ParameterGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,10 +83,6 @@ class _ParameterGroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ParameterGroup resources.
-        :param pulumi.Input[_builtins.str] description: A description of the parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The parameters of the parameter group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -116,9 +96,6 @@ class _ParameterGroupState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -128,9 +105,6 @@ class _ParameterGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the parameter group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -140,9 +114,6 @@ class _ParameterGroupState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
-        """
-        The parameters of the parameter group.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -152,9 +123,6 @@ class _ParameterGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -174,42 +142,9 @@ class ParameterGroup(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a DAX Parameter Group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dax.ParameterGroup("example",
-            name="example",
-            parameters=[
-                {
-                    "name": "query-ttl-millis",
-                    "value": "100000",
-                },
-                {
-                    "name": "record-ttl-millis",
-                    "value": "100000",
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-        ```
-
+        Create a ParameterGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description of the parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: The parameters of the parameter group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -218,36 +153,7 @@ class ParameterGroup(pulumi.CustomResource):
                  args: Optional[ParameterGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a DAX Parameter Group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dax.ParameterGroup("example",
-            name="example",
-            parameters=[
-                {
-                    "name": "query-ttl-millis",
-                    "value": "100000",
-                },
-                {
-                    "name": "record-ttl-millis",
-                    "value": "100000",
-                },
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-        ```
-
+        Create a ParameterGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,10 +207,6 @@ class ParameterGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description of the parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: The parameters of the parameter group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -319,32 +221,20 @@ class ParameterGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description of the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the parameter group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Sequence['outputs.ParameterGroupParameter']]:
-        """
-        The parameters of the parameter group.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

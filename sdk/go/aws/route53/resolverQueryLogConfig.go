@@ -12,67 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver query logging configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
-//				Name:           pulumi.String("example"),
-//				DestinationArn: pulumi.Any(exampleAwsS3Bucket.Arn),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
-// ```
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the resource that you want Route 53 Resolver to send query logs.
-	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
-	// The name of the Route 53 Resolver query logging configuration.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS account ID of the account that created the query logging configuration.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
-	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	DestinationArn pulumi.StringOutput    `pulumi:"destinationArn"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	OwnerId        pulumi.StringOutput    `pulumi:"ownerId"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	ShareStatus    pulumi.StringOutput    `pulumi:"shareStatus"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewResolverQueryLogConfig registers a new resource with the given unique name, arguments, and options.
@@ -108,47 +58,25 @@ func GetResolverQueryLogConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverQueryLogConfig resources.
 type resolverQueryLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the resource that you want Route 53 Resolver to send query logs.
-	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-	DestinationArn *string `pulumi:"destinationArn"`
-	// The name of the Route 53 Resolver query logging configuration.
-	Name *string `pulumi:"name"`
-	// The AWS account ID of the account that created the query logging configuration.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
-	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus *string `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string           `pulumi:"arn"`
+	DestinationArn *string           `pulumi:"destinationArn"`
+	Name           *string           `pulumi:"name"`
+	OwnerId        *string           `pulumi:"ownerId"`
+	Region         *string           `pulumi:"region"`
+	ShareStatus    *string           `pulumi:"shareStatus"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
 }
 
 type ResolverQueryLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-	Arn pulumi.StringPtrInput
-	// The ARN of the resource that you want Route 53 Resolver to send query logs.
-	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
+	Arn            pulumi.StringPtrInput
 	DestinationArn pulumi.StringPtrInput
-	// The name of the Route 53 Resolver query logging configuration.
-	Name pulumi.StringPtrInput
-	// The AWS account ID of the account that created the query logging configuration.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
-	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name           pulumi.StringPtrInput
+	OwnerId        pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	ShareStatus    pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (ResolverQueryLogConfigState) ElementType() reflect.Type {
@@ -156,28 +84,18 @@ func (ResolverQueryLogConfigState) ElementType() reflect.Type {
 }
 
 type resolverQueryLogConfigArgs struct {
-	// The ARN of the resource that you want Route 53 Resolver to send query logs.
-	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-	DestinationArn string `pulumi:"destinationArn"`
-	// The name of the Route 53 Resolver query logging configuration.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DestinationArn string            `pulumi:"destinationArn"`
+	Name           *string           `pulumi:"name"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverQueryLogConfig resource.
 type ResolverQueryLogConfigArgs struct {
-	// The ARN of the resource that you want Route 53 Resolver to send query logs.
-	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
 	DestinationArn pulumi.StringInput
-	// The name of the Route 53 Resolver query logging configuration.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (ResolverQueryLogConfigArgs) ElementType() reflect.Type {
@@ -267,45 +185,34 @@ func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigOutputWithContext(
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
 func (o ResolverQueryLogConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the resource that you want Route 53 Resolver to send query logs.
-// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
 func (o ResolverQueryLogConfigOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// The name of the Route 53 Resolver query logging configuration.
 func (o ResolverQueryLogConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the account that created the query logging configuration.
 func (o ResolverQueryLogConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverQueryLogConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-// Sharing is configured through AWS Resource Access Manager (AWS RAM).
-// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 func (o ResolverQueryLogConfigOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverQueryLogConfigOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverQueryLogConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

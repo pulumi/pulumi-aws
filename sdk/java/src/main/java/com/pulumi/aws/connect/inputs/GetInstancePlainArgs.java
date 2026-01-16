@@ -15,66 +15,30 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetInstancePlainArgs Empty = new GetInstancePlainArgs();
 
-    /**
-     * Returns information on a specific connect instance by alias
-     * 
-     * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-     * 
-     */
     @Import(name="instanceAlias")
     private @Nullable String instanceAlias;
 
-    /**
-     * @return Returns information on a specific connect instance by alias
-     * 
-     * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-     * 
-     */
     public Optional<String> instanceAlias() {
         return Optional.ofNullable(this.instanceAlias);
     }
 
-    /**
-     * Returns information on a specific connect instance by id
-     * 
-     */
     @Import(name="instanceId")
     private @Nullable String instanceId;
 
-    /**
-     * @return Returns information on a specific connect instance by id
-     * 
-     */
     public Optional<String> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assigned to the instance.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags to assigned to the instance.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -106,47 +70,21 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetInstancePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceAlias Returns information on a specific connect instance by alias
-         * 
-         * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceAlias(@Nullable String instanceAlias) {
             $.instanceAlias = instanceAlias;
             return this;
         }
 
-        /**
-         * @param instanceId Returns information on a specific connect instance by id
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(@Nullable String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assigned to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

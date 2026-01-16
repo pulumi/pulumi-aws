@@ -11,44 +11,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationResult {
-    /**
-     * @return ARN of the application.
-     * 
-     */
     private String applicationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the application.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return A list of capabilities describing the permissions needed to deploy the application.
-     * 
-     */
     private List<String> requiredCapabilities;
     private String semanticVersion;
-    /**
-     * @return URL pointing to the source code of the application version.
-     * 
-     */
     private String sourceCodeUrl;
-    /**
-     * @return URL pointing to the Cloud Formation template for the application version.
-     * 
-     */
     private String templateUrl;
 
     private GetApplicationResult() {}
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public String applicationId() {
         return this.applicationId;
     }
@@ -59,37 +35,21 @@ public final class GetApplicationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the application.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return A list of capabilities describing the permissions needed to deploy the application.
-     * 
-     */
     public List<String> requiredCapabilities() {
         return this.requiredCapabilities;
     }
     public String semanticVersion() {
         return this.semanticVersion;
     }
-    /**
-     * @return URL pointing to the source code of the application version.
-     * 
-     */
     public String sourceCodeUrl() {
         return this.sourceCodeUrl;
     }
-    /**
-     * @return URL pointing to the Cloud Formation template for the application version.
-     * 
-     */
     public String templateUrl() {
         return this.templateUrl;
     }

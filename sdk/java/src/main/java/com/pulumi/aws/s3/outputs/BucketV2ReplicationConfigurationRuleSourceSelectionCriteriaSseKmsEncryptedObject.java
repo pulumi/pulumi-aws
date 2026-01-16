@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
-    /**
-     * @return Boolean which indicates if this criteria is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject() {}
-    /**
-     * @return Boolean which indicates if this criteria is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

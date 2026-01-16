@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Control Tower Baseline.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.controltower.Baseline("example", {
- *     baselineIdentifier: "arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
- *     baselineVersion: "4.0",
- *     targetIdentifier: test.arn,
- *     parameters: {
- *         key: "IdentityCenterEnabledBaselineArn",
- *         value: "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Control Tower Baseline using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
- * ```
- */
 export class Baseline extends pulumi.CustomResource {
     /**
      * Get an existing Baseline resource's state with the given name, ID, and optional extra
@@ -65,40 +35,14 @@ export class Baseline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Baseline.__pulumiType;
     }
 
-    /**
-     * ARN of the Baseline.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ARN of the baseline to be enabled.
-     */
     declare public readonly baselineIdentifier: pulumi.Output<string>;
-    /**
-     * The version of the baseline to be enabled.
-     */
     declare public readonly baselineVersion: pulumi.Output<string>;
     declare public /*out*/ readonly operationIdentifier: pulumi.Output<string>;
-    /**
-     * A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     */
     declare public readonly parameters: pulumi.Output<outputs.controltower.BaselineParameters | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetIdentifier: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.controltower.BaselineTimeouts | undefined>;
 
@@ -156,40 +100,14 @@ export class Baseline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Baseline resources.
  */
 export interface BaselineState {
-    /**
-     * ARN of the Baseline.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN of the baseline to be enabled.
-     */
     baselineIdentifier?: pulumi.Input<string>;
-    /**
-     * The version of the baseline to be enabled.
-     */
     baselineVersion?: pulumi.Input<string>;
     operationIdentifier?: pulumi.Input<string>;
-    /**
-     * A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     */
     parameters?: pulumi.Input<inputs.controltower.BaselineParameters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     *
-     * The following arguments are optional:
-     */
     targetIdentifier?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.controltower.BaselineTimeouts>;
 }
@@ -198,31 +116,11 @@ export interface BaselineState {
  * The set of arguments for constructing a Baseline resource.
  */
 export interface BaselineArgs {
-    /**
-     * The ARN of the baseline to be enabled.
-     */
     baselineIdentifier: pulumi.Input<string>;
-    /**
-     * The version of the baseline to be enabled.
-     */
     baselineVersion: pulumi.Input<string>;
-    /**
-     * A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
-     */
     parameters?: pulumi.Input<inputs.controltower.BaselineParameters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
-     *
-     * The following arguments are optional:
-     */
     targetIdentifier: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.controltower.BaselineTimeouts>;
 }

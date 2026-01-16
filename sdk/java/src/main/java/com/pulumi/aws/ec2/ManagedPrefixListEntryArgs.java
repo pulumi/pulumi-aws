@@ -16,62 +16,30 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
 
     public static final ManagedPrefixListEntryArgs Empty = new ManagedPrefixListEntryArgs();
 
-    /**
-     * CIDR block of this entry.
-     * 
-     */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
-    /**
-     * @return CIDR block of this entry.
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }
 
-    /**
-     * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ID of the prefix list.
-     * 
-     */
     @Import(name="prefixListId", required=true)
     private Output<String> prefixListId;
 
-    /**
-     * @return The ID of the prefix list.
-     * 
-     */
     public Output<String> prefixListId() {
         return this.prefixListId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
             $ = new ManagedPrefixListEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr CIDR block of this entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr CIDR block of this entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }
 
-        /**
-         * @param description Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param prefixListId The ID of the prefix list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListId(Output<String> prefixListId) {
             $.prefixListId = prefixListId;
             return this;
         }
 
-        /**
-         * @param prefixListId The ID of the prefix list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListId(String prefixListId) {
             return prefixListId(Output.of(prefixListId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

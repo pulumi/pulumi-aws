@@ -17,93 +17,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Query Logging Configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.WorkspaceArgs;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.amp.QueryLoggingConfiguration;
- * import com.pulumi.aws.amp.QueryLoggingConfigurationArgs;
- * import com.pulumi.aws.amp.inputs.QueryLoggingConfigurationDestinationArgs;
- * import com.pulumi.aws.amp.inputs.QueryLoggingConfigurationDestinationCloudwatchLogsArgs;
- * import com.pulumi.aws.amp.inputs.QueryLoggingConfigurationDestinationFiltersArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workspace("example", WorkspaceArgs.builder()
- *             .alias("example")
- *             .build());
- * 
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
- *             .name("/aws/prometheus/query-logs/example")
- *             .build());
- * 
- *         var exampleQueryLoggingConfiguration = new QueryLoggingConfiguration("exampleQueryLoggingConfiguration", QueryLoggingConfigurationArgs.builder()
- *             .workspaceId(example.id())
- *             .destinations(QueryLoggingConfigurationDestinationArgs.builder()
- *                 .cloudwatchLogs(QueryLoggingConfigurationDestinationCloudwatchLogsArgs.builder()
- *                     .logGroupArn(exampleLogGroup.arn().applyValue(_arn -> String.format("%s:*", _arn)))
- *                     .build())
- *                 .filters(QueryLoggingConfigurationDestinationFiltersArgs.builder()
- *                     .qspThreshold(1000)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration")
 public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration block for the logging destinations. See `destinations`.
-     * 
-     */
     @Export(name="destinations", refs={List.class,QueryLoggingConfigurationDestination.class}, tree="[0,1]")
     private Output</* @Nullable */ List<QueryLoggingConfigurationDestination>> destinations;
 
-    /**
-     * @return Configuration block for the logging destinations. See `destinations`.
-     * 
-     */
     public Output<Optional<List<QueryLoggingConfigurationDestination>>> destinations() {
         return Codegen.optional(this.destinations);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -113,21 +37,9 @@ public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResour
     public Output<Optional<QueryLoggingConfigurationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the AMP workspace for which to configure query logging.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The ID of the AMP workspace for which to configure query logging.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

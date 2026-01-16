@@ -12,45 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentClassifierOutputDataConfig {
-    /**
-     * @return KMS Key used to encrypt the output documents.
-     * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Full path for the output documents.
-     * 
-     */
     private @Nullable String outputS3Uri;
-    /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `outputS3Uri`.
-     * 
-     */
     private String s3Uri;
 
     private DocumentClassifierOutputDataConfig() {}
-    /**
-     * @return KMS Key used to encrypt the output documents.
-     * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Full path for the output documents.
-     * 
-     */
     public Optional<String> outputS3Uri() {
         return Optional.ofNullable(this.outputS3Uri);
     }
-    /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `outputS3Uri`.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }

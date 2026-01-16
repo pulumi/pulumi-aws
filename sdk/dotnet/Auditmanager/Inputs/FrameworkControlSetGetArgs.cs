@@ -14,25 +14,15 @@ namespace Pulumi.Aws.Auditmanager.Inputs
     {
         [Input("controls")]
         private InputList<Inputs.FrameworkControlSetControlGetArgs>? _controls;
-
-        /// <summary>
-        /// Configuration block(s) for the controls within the control set. See `Controls` Block below for details.
-        /// </summary>
         public InputList<Inputs.FrameworkControlSetControlGetArgs> Controls
         {
             get => _controls ?? (_controls = new InputList<Inputs.FrameworkControlSetControlGetArgs>());
             set => _controls = value;
         }
 
-        /// <summary>
-        /// Unique identifier for the framework.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Name of the control set.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

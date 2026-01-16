@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableMagneticStoreWriteProperty {
-    /**
-     * @return Flag that is set based on if magnetic store writes are enabled.
-     * 
-     */
     private Boolean enableMagneticStoreWrites;
-    /**
-     * @return Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
-     * 
-     */
     private List<GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation> magneticStoreRejectedDataLocations;
 
     private GetTableMagneticStoreWriteProperty() {}
-    /**
-     * @return Flag that is set based on if magnetic store writes are enabled.
-     * 
-     */
     public Boolean enableMagneticStoreWrites() {
         return this.enableMagneticStoreWrites;
     }
-    /**
-     * @return Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
-     * 
-     */
     public List<GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation> magneticStoreRejectedDataLocations() {
         return this.magneticStoreRejectedDataLocations;
     }

@@ -19,171 +19,79 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectState Empty = new ProjectState();
 
-    /**
-     * Timestamp of when the project was made.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return Timestamp of when the project was made.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Creator of the project.
-     * 
-     */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
-    /**
-     * @return Creator of the project.
-     * 
-     */
     public Optional<Output<String>> createdBy() {
         return Optional.ofNullable(this.createdBy);
     }
 
-    /**
-     * Description of project.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of project.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     @Import(name="domainIdentifier")
     private @Nullable Output<String> domainIdentifier;
 
-    /**
-     * @return Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     public Optional<Output<String>> domainIdentifier() {
         return Optional.ofNullable(this.domainIdentifier);
     }
 
-    /**
-     * List of error messages if operation cannot be completed.
-     * 
-     */
     @Import(name="failureReasons")
     private @Nullable Output<List<ProjectFailureReasonArgs>> failureReasons;
 
-    /**
-     * @return List of error messages if operation cannot be completed.
-     * 
-     */
     public Optional<Output<List<ProjectFailureReasonArgs>>> failureReasons() {
         return Optional.ofNullable(this.failureReasons);
     }
 
-    /**
-     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     @Import(name="glossaryTerms")
     private @Nullable Output<List<String>> glossaryTerms;
 
-    /**
-     * @return List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-     * 
-     */
     public Optional<Output<List<String>>> glossaryTerms() {
         return Optional.ofNullable(this.glossaryTerms);
     }
 
-    /**
-     * Timestamp of when the project was last updated.
-     * 
-     */
     @Import(name="lastUpdatedAt")
     private @Nullable Output<String> lastUpdatedAt;
 
-    /**
-     * @return Timestamp of when the project was last updated.
-     * 
-     */
     public Optional<Output<String>> lastUpdatedAt() {
         return Optional.ofNullable(this.lastUpdatedAt);
     }
 
-    /**
-     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-     * 
-     */
     @Import(name="projectStatus")
     private @Nullable Output<String> projectStatus;
 
-    /**
-     * @return Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-     * 
-     */
     public Optional<Output<String>> projectStatus() {
         return Optional.ofNullable(this.projectStatus);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Optional flag to delete all child entities within the project.
-     * 
-     */
     @Import(name="skipDeletionCheck")
     private @Nullable Output<Boolean> skipDeletionCheck;
 
-    /**
-     * @return Optional flag to delete all child entities within the project.
-     * 
-     */
     public Optional<Output<Boolean>> skipDeletionCheck() {
         return Optional.ofNullable(this.skipDeletionCheck);
     }
@@ -230,257 +138,109 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
             $ = new ProjectState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdAt Timestamp of when the project was made.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Timestamp of when the project was made.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param createdBy Creator of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdBy(@Nullable Output<String> createdBy) {
             $.createdBy = createdBy;
             return this;
         }
 
-        /**
-         * @param createdBy Creator of the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
         }
 
-        /**
-         * @param description Description of project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param domainIdentifier Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(@Nullable Output<String> domainIdentifier) {
             $.domainIdentifier = domainIdentifier;
             return this;
         }
 
-        /**
-         * @param domainIdentifier Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
         }
 
-        /**
-         * @param failureReasons List of error messages if operation cannot be completed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureReasons(@Nullable Output<List<ProjectFailureReasonArgs>> failureReasons) {
             $.failureReasons = failureReasons;
             return this;
         }
 
-        /**
-         * @param failureReasons List of error messages if operation cannot be completed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureReasons(List<ProjectFailureReasonArgs> failureReasons) {
             return failureReasons(Output.of(failureReasons));
         }
 
-        /**
-         * @param failureReasons List of error messages if operation cannot be completed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureReasons(ProjectFailureReasonArgs... failureReasons) {
             return failureReasons(List.of(failureReasons));
         }
 
-        /**
-         * @param glossaryTerms List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryTerms(@Nullable Output<List<String>> glossaryTerms) {
             $.glossaryTerms = glossaryTerms;
             return this;
         }
 
-        /**
-         * @param glossaryTerms List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryTerms(List<String> glossaryTerms) {
             return glossaryTerms(Output.of(glossaryTerms));
         }
 
-        /**
-         * @param glossaryTerms List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder glossaryTerms(String... glossaryTerms) {
             return glossaryTerms(List.of(glossaryTerms));
         }
 
-        /**
-         * @param lastUpdatedAt Timestamp of when the project was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedAt(@Nullable Output<String> lastUpdatedAt) {
             $.lastUpdatedAt = lastUpdatedAt;
             return this;
         }
 
-        /**
-         * @param lastUpdatedAt Timestamp of when the project was last updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastUpdatedAt(String lastUpdatedAt) {
             return lastUpdatedAt(Output.of(lastUpdatedAt));
         }
 
-        /**
-         * @param name Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param projectStatus Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectStatus(@Nullable Output<String> projectStatus) {
             $.projectStatus = projectStatus;
             return this;
         }
 
-        /**
-         * @param projectStatus Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectStatus(String projectStatus) {
             return projectStatus(Output.of(projectStatus));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param skipDeletionCheck Optional flag to delete all child entities within the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDeletionCheck(@Nullable Output<Boolean> skipDeletionCheck) {
             $.skipDeletionCheck = skipDeletionCheck;
             return this;
         }
 
-        /**
-         * @param skipDeletionCheck Optional flag to delete all child entities within the project.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDeletionCheck(Boolean skipDeletionCheck) {
             return skipDeletionCheck(Output.of(skipDeletionCheck));
         }

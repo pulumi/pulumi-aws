@@ -14,32 +14,16 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
 
     public static final ChannelMaintenanceArgs Empty = new ChannelMaintenanceArgs();
 
-    /**
-     * The day of the week to use for maintenance.
-     * 
-     */
     @Import(name="maintenanceDay", required=true)
     private Output<String> maintenanceDay;
 
-    /**
-     * @return The day of the week to use for maintenance.
-     * 
-     */
     public Output<String> maintenanceDay() {
         return this.maintenanceDay;
     }
 
-    /**
-     * The hour maintenance will start.
-     * 
-     */
     @Import(name="maintenanceStartTime", required=true)
     private Output<String> maintenanceStartTime;
 
-    /**
-     * @return The hour maintenance will start.
-     * 
-     */
     public Output<String> maintenanceStartTime() {
         return this.maintenanceStartTime;
     }
@@ -69,44 +53,20 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
             $ = new ChannelMaintenanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maintenanceDay The day of the week to use for maintenance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceDay(Output<String> maintenanceDay) {
             $.maintenanceDay = maintenanceDay;
             return this;
         }
 
-        /**
-         * @param maintenanceDay The day of the week to use for maintenance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceDay(String maintenanceDay) {
             return maintenanceDay(Output.of(maintenanceDay));
         }
 
-        /**
-         * @param maintenanceStartTime The hour maintenance will start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceStartTime(Output<String> maintenanceStartTime) {
             $.maintenanceStartTime = maintenanceStartTime;
             return this;
         }
 
-        /**
-         * @param maintenanceStartTime The hour maintenance will start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maintenanceStartTime(String maintenanceStartTime) {
             return maintenanceStartTime(Output.of(maintenanceStartTime));
         }

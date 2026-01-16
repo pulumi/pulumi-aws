@@ -12,101 +12,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTemplatesTemplate {
-    /**
-     * @return Indicates whether the quota is global.
-     * 
-     */
     private Boolean globalQuota;
-    /**
-     * @return Quota identifier.
-     * 
-     */
     private String quotaCode;
-    /**
-     * @return Quota name.
-     * 
-     */
     private String quotaName;
-    /**
-     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-     * 
-     */
     private String region;
-    /**
-     * @return Service identifier.
-     * 
-     */
     private String serviceCode;
-    /**
-     * @return Service name.
-     * 
-     */
     private String serviceName;
-    /**
-     * @return Unit of measurement.
-     * 
-     */
     private String unit;
-    /**
-     * @return The new, increased value for the quota.
-     * 
-     */
     private Double value;
 
     private GetTemplatesTemplate() {}
-    /**
-     * @return Indicates whether the quota is global.
-     * 
-     */
     public Boolean globalQuota() {
         return this.globalQuota;
     }
-    /**
-     * @return Quota identifier.
-     * 
-     */
     public String quotaCode() {
         return this.quotaCode;
     }
-    /**
-     * @return Quota name.
-     * 
-     */
     public String quotaName() {
         return this.quotaName;
     }
-    /**
-     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Service identifier.
-     * 
-     */
     public String serviceCode() {
         return this.serviceCode;
     }
-    /**
-     * @return Service name.
-     * 
-     */
     public String serviceName() {
         return this.serviceName;
     }
-    /**
-     * @return Unit of measurement.
-     * 
-     */
     public String unit() {
         return this.unit;
     }
-    /**
-     * @return The new, increased value for the quota.
-     * 
-     */
     public Double value() {
         return this.value;
     }

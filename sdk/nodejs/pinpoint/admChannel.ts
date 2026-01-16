@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
- *
- * > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const channel = new aws.pinpoint.AdmChannel("channel", {
- *     applicationId: app.applicationId,
- *     clientId: "",
- *     clientSecret: "",
- *     enabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
- *
- * ```sh
- * $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
- * ```
- */
 export class AdmChannel extends pulumi.CustomResource {
     /**
      * Get an existing AdmChannel resource's state with the given name, ID, and optional extra
@@ -59,25 +32,10 @@ export class AdmChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdmChannel.__pulumiType;
     }
 
-    /**
-     * The application ID.
-     */
     declare public readonly applicationId: pulumi.Output<string>;
-    /**
-     * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     */
     declare public readonly clientId: pulumi.Output<string>;
-    /**
-     * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     */
     declare public readonly clientSecret: pulumi.Output<string>;
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -126,25 +84,10 @@ export class AdmChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AdmChannel resources.
  */
 export interface AdmChannelState {
-    /**
-     * The application ID.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     */
     clientId?: pulumi.Input<string>;
-    /**
-     * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     */
     clientSecret?: pulumi.Input<string>;
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -152,24 +95,9 @@ export interface AdmChannelState {
  * The set of arguments for constructing a AdmChannel resource.
  */
 export interface AdmChannelArgs {
-    /**
-     * The application ID.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     */
     clientId: pulumi.Input<string>;
-    /**
-     * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     */
     clientSecret: pulumi.Input<string>;
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

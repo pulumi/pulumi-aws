@@ -52,17 +52,11 @@ class GetUserGroupResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the user group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        A comma-delimited string concatenating `name` and `user_pool_id`.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -73,9 +67,6 @@ class GetUserGroupResult:
     @_builtins.property
     @pulumi.getter
     def precedence(self) -> _builtins.int:
-        """
-        Precedence of the user group.
-        """
         return pulumi.get(self, "precedence")
 
     @_builtins.property
@@ -86,9 +77,6 @@ class GetUserGroupResult:
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM role to be associated with the user group.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
@@ -117,24 +105,7 @@ def get_user_group(name: Optional[_builtins.str] = None,
                    user_pool_id: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserGroupResult:
     """
-    Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_user_group(user_pool_id="us-west-2_aaaaaaaaa",
-        name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the user group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: User pool the client belongs to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -156,24 +127,7 @@ def get_user_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                           user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupResult]:
     """
-    Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_user_group(user_pool_id="us-west-2_aaaaaaaaa",
-        name="example")
-    ```
-
-
-    :param _builtins.str name: Name of the user group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str user_pool_id: User pool the client belongs to.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

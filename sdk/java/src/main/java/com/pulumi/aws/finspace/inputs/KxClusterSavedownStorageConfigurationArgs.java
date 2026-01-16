@@ -16,49 +16,23 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
 
     public static final KxClusterSavedownStorageConfigurationArgs Empty = new KxClusterSavedownStorageConfigurationArgs();
 
-    /**
-     * Size of temporary storage in gigabytes. Must be between 10 and 16000.
-     * 
-     */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
-    /**
-     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
-     * 
-     */
     public Optional<Output<Integer>> size() {
         return Optional.ofNullable(this.size);
     }
 
-    /**
-     * Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-     * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-     * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The name of the kdb volume that you want to use as writeable save-down storage for clusters.
-     * 
-     */
     @Import(name="volumeName")
     private @Nullable Output<String> volumeName;
 
-    /**
-     * @return The name of the kdb volume that you want to use as writeable save-down storage for clusters.
-     * 
-     */
     public Optional<Output<String>> volumeName() {
         return Optional.ofNullable(this.volumeName);
     }
@@ -89,67 +63,29 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
             $ = new KxClusterSavedownStorageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size Size of temporary storage in gigabytes. Must be between 10 and 16000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(@Nullable Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size Size of temporary storage in gigabytes. Must be between 10 and 16000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }
 
-        /**
-         * @param type Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-         * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-         * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param volumeName The name of the kdb volume that you want to use as writeable save-down storage for clusters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeName(@Nullable Output<String> volumeName) {
             $.volumeName = volumeName;
             return this;
         }
 
-        /**
-         * @param volumeName The name of the kdb volume that you want to use as writeable save-down storage for clusters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeName(String volumeName) {
             return volumeName(Output.of(volumeName));
         }

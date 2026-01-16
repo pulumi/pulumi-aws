@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseStorageConfigurationS3VectorsConfiguration
     {
-        /// <summary>
-        /// ARN of the S3 Vectors index. Conflicts with `IndexName` and `VectorBucketArn`.
-        /// </summary>
         public readonly string? IndexArn;
-        /// <summary>
-        /// Name of the S3 Vectors index. Must be specified with `VectorBucketArn`. Conflicts with `IndexArn`.
-        /// </summary>
         public readonly string? IndexName;
-        /// <summary>
-        /// ARN of the S3 Vectors vector bucket. Must be specified with `IndexName`. Conflicts with `IndexArn`.
-        /// </summary>
         public readonly string? VectorBucketArn;
 
         [OutputConstructor]

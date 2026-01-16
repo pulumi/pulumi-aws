@@ -15,17 +15,9 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
 
     public static final BudgetCostFilterArgs Empty = new BudgetCostFilterArgs();
 
-    /**
-     * The name of a budget. Unique within accounts.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of a budget. Unique within accounts.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,23 +54,11 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
             $ = new BudgetCostFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of a budget. Unique within accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of a budget. Unique within accounts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

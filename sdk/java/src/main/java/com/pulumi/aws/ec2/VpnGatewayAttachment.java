@@ -13,110 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Virtual Private Gateway attachment resource, allowing for an existing
- * hardware VPN gateway to be attached and/or detached from a VPC.
- * 
- * &gt; **Note:** The `aws.ec2.VpnGateway`
- * resource can also automatically attach the Virtual Private Gateway it creates
- * to an existing VPC by setting the `vpcId` attribute accordingly.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
- * import com.pulumi.aws.ec2.VpnGatewayAttachment;
- * import com.pulumi.aws.ec2.VpnGatewayAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var network = new Vpc("network", VpcArgs.builder()
- *             .cidrBlock("10.0.0.0/16")
- *             .build());
- * 
- *         var vpn = new VpnGateway("vpn", VpnGatewayArgs.builder()
- *             .tags(Map.of("Name", "example-vpn-gateway"))
- *             .build());
- * 
- *         var vpnAttachment = new VpnGatewayAttachment("vpnAttachment", VpnGatewayAttachmentArgs.builder()
- *             .vpcId(network.id())
- *             .vpnGatewayId(vpn.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
- * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
- * guides for more information.
- * 
- * ## Import
- * 
- * You cannot import this resource.
- * 
- */
 @ResourceType(type="aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")
 public class VpnGatewayAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the VPC.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
-    /**
-     * The ID of the Virtual Private Gateway.
-     * 
-     */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
-    /**
-     * @return The ID of the Virtual Private Gateway.
-     * 
-     */
     public Output<String> vpnGatewayId() {
         return this.vpnGatewayId;
     }

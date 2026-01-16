@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GlobalReplicationGroupGlobalNodeGroup {
-    /**
-     * @return The ID of the global node group.
-     * 
-     */
     private @Nullable String globalNodeGroupId;
-    /**
-     * @return The keyspace for this node group.
-     * 
-     */
     private @Nullable String slots;
 
     private GlobalReplicationGroupGlobalNodeGroup() {}
-    /**
-     * @return The ID of the global node group.
-     * 
-     */
     public Optional<String> globalNodeGroupId() {
         return Optional.ofNullable(this.globalNodeGroupId);
     }
-    /**
-     * @return The keyspace for this node group.
-     * 
-     */
     public Optional<String> slots() {
         return Optional.ofNullable(this.slots);
     }

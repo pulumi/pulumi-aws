@@ -12,78 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Cognito User Identity Provider resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example-pool"),
-//				AutoVerifiedAttributes: pulumi.StringArray{
-//					pulumi.String("email"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewIdentityProvider(ctx, "example_provider", &cognito.IdentityProviderArgs{
-//				UserPoolId:   example.ID(),
-//				ProviderName: pulumi.String("Google"),
-//				ProviderType: pulumi.String("Google"),
-//				ProviderDetails: pulumi.StringMap{
-//					"authorize_scopes": pulumi.String("email"),
-//					"client_id":        pulumi.String("your client_id"),
-//					"client_secret":    pulumi.String("your client_secret"),
-//				},
-//				AttributeMapping: pulumi.StringMap{
-//					"email":    pulumi.String("email"),
-//					"username": pulumi.String("sub"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
-// ```
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
-	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-	AttributeMapping pulumi.StringMapOutput `pulumi:"attributeMapping"`
-	// The list of identity providers.
-	IdpIdentifiers pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
-	// The map of identity details, such as access token
-	ProviderDetails pulumi.StringMapOutput `pulumi:"providerDetails"`
-	// The provider name
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The user pool id
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	AttributeMapping pulumi.StringMapOutput   `pulumi:"attributeMapping"`
+	IdpIdentifiers   pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
+	ProviderDetails  pulumi.StringMapOutput   `pulumi:"providerDetails"`
+	ProviderName     pulumi.StringOutput      `pulumi:"providerName"`
+	ProviderType     pulumi.StringOutput      `pulumi:"providerType"`
+	Region           pulumi.StringOutput      `pulumi:"region"`
+	UserPoolId       pulumi.StringOutput      `pulumi:"userPoolId"`
 }
 
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
@@ -128,37 +66,23 @@ func GetIdentityProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityProvider resources.
 type identityProviderState struct {
-	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
 	AttributeMapping map[string]string `pulumi:"attributeMapping"`
-	// The list of identity providers.
-	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
-	// The map of identity details, such as access token
-	ProviderDetails map[string]string `pulumi:"providerDetails"`
-	// The provider name
-	ProviderName *string `pulumi:"providerName"`
-	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType *string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user pool id
-	UserPoolId *string `pulumi:"userPoolId"`
+	IdpIdentifiers   []string          `pulumi:"idpIdentifiers"`
+	ProviderDetails  map[string]string `pulumi:"providerDetails"`
+	ProviderName     *string           `pulumi:"providerName"`
+	ProviderType     *string           `pulumi:"providerType"`
+	Region           *string           `pulumi:"region"`
+	UserPoolId       *string           `pulumi:"userPoolId"`
 }
 
 type IdentityProviderState struct {
-	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
 	AttributeMapping pulumi.StringMapInput
-	// The list of identity providers.
-	IdpIdentifiers pulumi.StringArrayInput
-	// The map of identity details, such as access token
-	ProviderDetails pulumi.StringMapInput
-	// The provider name
-	ProviderName pulumi.StringPtrInput
-	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user pool id
-	UserPoolId pulumi.StringPtrInput
+	IdpIdentifiers   pulumi.StringArrayInput
+	ProviderDetails  pulumi.StringMapInput
+	ProviderName     pulumi.StringPtrInput
+	ProviderType     pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	UserPoolId       pulumi.StringPtrInput
 }
 
 func (IdentityProviderState) ElementType() reflect.Type {
@@ -166,38 +90,24 @@ func (IdentityProviderState) ElementType() reflect.Type {
 }
 
 type identityProviderArgs struct {
-	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
 	AttributeMapping map[string]string `pulumi:"attributeMapping"`
-	// The list of identity providers.
-	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
-	// The map of identity details, such as access token
-	ProviderDetails map[string]string `pulumi:"providerDetails"`
-	// The provider name
-	ProviderName string `pulumi:"providerName"`
-	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType string `pulumi:"providerType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user pool id
-	UserPoolId string `pulumi:"userPoolId"`
+	IdpIdentifiers   []string          `pulumi:"idpIdentifiers"`
+	ProviderDetails  map[string]string `pulumi:"providerDetails"`
+	ProviderName     string            `pulumi:"providerName"`
+	ProviderType     string            `pulumi:"providerType"`
+	Region           *string           `pulumi:"region"`
+	UserPoolId       string            `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
 type IdentityProviderArgs struct {
-	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
 	AttributeMapping pulumi.StringMapInput
-	// The list of identity providers.
-	IdpIdentifiers pulumi.StringArrayInput
-	// The map of identity details, such as access token
-	ProviderDetails pulumi.StringMapInput
-	// The provider name
-	ProviderName pulumi.StringInput
-	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user pool id
-	UserPoolId pulumi.StringInput
+	IdpIdentifiers   pulumi.StringArrayInput
+	ProviderDetails  pulumi.StringMapInput
+	ProviderName     pulumi.StringInput
+	ProviderType     pulumi.StringInput
+	Region           pulumi.StringPtrInput
+	UserPoolId       pulumi.StringInput
 }
 
 func (IdentityProviderArgs) ElementType() reflect.Type {
@@ -287,37 +197,30 @@ func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.
 	return o
 }
 
-// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
 func (o IdentityProviderOutput) AttributeMapping() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.AttributeMapping }).(pulumi.StringMapOutput)
 }
 
-// The list of identity providers.
 func (o IdentityProviderOutput) IdpIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringArrayOutput { return v.IdpIdentifiers }).(pulumi.StringArrayOutput)
 }
 
-// The map of identity details, such as access token
 func (o IdentityProviderOutput) ProviderDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.ProviderDetails }).(pulumi.StringMapOutput)
 }
 
-// The provider name
 func (o IdentityProviderOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
 func (o IdentityProviderOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The user pool id
 func (o IdentityProviderOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

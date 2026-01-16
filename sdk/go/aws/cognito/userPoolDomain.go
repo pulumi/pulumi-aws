@@ -12,131 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Cognito User Pool Domain resource.
-//
-// ## Example Usage
-//
-// ### Amazon Cognito domain
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example-pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-//				Domain:     pulumi.String("example-domain"),
-//				UserPoolId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Cognito domain
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example-pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-//				Domain:         pulumi.String("auth.example.com"),
-//				CertificateArn: pulumi.Any(cert.Arn),
-//				UserPoolId:     exampleUserPool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//				Name: pulumi.StringRef("example.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "auth-cognito-A", &route53.RecordArgs{
-//				Name:   main.Domain,
-//				Type:   pulumi.String(route53.RecordTypeA),
-//				ZoneId: pulumi.String(example.ZoneId),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						EvaluateTargetHealth: pulumi.Bool(false),
-//						Name:                 main.CloudfrontDistribution,
-//						ZoneId:               main.CloudfrontDistributionZoneId,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
-//
-// ```sh
-// $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-// ```
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the user pool owner.
-	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-	CloudfrontDistribution pulumi.StringOutput `pulumi:"cloudfrontDistribution"`
-	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-	CloudfrontDistributionArn pulumi.StringOutput `pulumi:"cloudfrontDistributionArn"`
-	// The Route 53 hosted zone ID of the CloudFront distribution.
-	CloudfrontDistributionZoneId pulumi.StringOutput `pulumi:"cloudfrontDistributionZoneId"`
-	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-	Domain pulumi.StringOutput `pulumi:"domain"`
-	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-	ManagedLoginVersion pulumi.IntOutput `pulumi:"managedLoginVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The S3 bucket where the static files for this domain are stored.
-	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
-	// The user pool ID.
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
-	// The app version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	AwsAccountId                 pulumi.StringOutput    `pulumi:"awsAccountId"`
+	CertificateArn               pulumi.StringPtrOutput `pulumi:"certificateArn"`
+	CloudfrontDistribution       pulumi.StringOutput    `pulumi:"cloudfrontDistribution"`
+	CloudfrontDistributionArn    pulumi.StringOutput    `pulumi:"cloudfrontDistributionArn"`
+	CloudfrontDistributionZoneId pulumi.StringOutput    `pulumi:"cloudfrontDistributionZoneId"`
+	Domain                       pulumi.StringOutput    `pulumi:"domain"`
+	ManagedLoginVersion          pulumi.IntOutput       `pulumi:"managedLoginVersion"`
+	Region                       pulumi.StringOutput    `pulumi:"region"`
+	S3Bucket                     pulumi.StringOutput    `pulumi:"s3Bucket"`
+	UserPoolId                   pulumi.StringOutput    `pulumi:"userPoolId"`
+	Version                      pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewUserPoolDomain registers a new resource with the given unique name, arguments, and options.
@@ -175,53 +64,31 @@ func GetUserPoolDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPoolDomain resources.
 type userPoolDomainState struct {
-	// The AWS account ID for the user pool owner.
-	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-	CloudfrontDistribution *string `pulumi:"cloudfrontDistribution"`
-	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-	CloudfrontDistributionArn *string `pulumi:"cloudfrontDistributionArn"`
-	// The Route 53 hosted zone ID of the CloudFront distribution.
+	AwsAccountId                 *string `pulumi:"awsAccountId"`
+	CertificateArn               *string `pulumi:"certificateArn"`
+	CloudfrontDistribution       *string `pulumi:"cloudfrontDistribution"`
+	CloudfrontDistributionArn    *string `pulumi:"cloudfrontDistributionArn"`
 	CloudfrontDistributionZoneId *string `pulumi:"cloudfrontDistributionZoneId"`
-	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-	Domain *string `pulumi:"domain"`
-	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The S3 bucket where the static files for this domain are stored.
-	S3Bucket *string `pulumi:"s3Bucket"`
-	// The user pool ID.
-	UserPoolId *string `pulumi:"userPoolId"`
-	// The app version.
-	Version *string `pulumi:"version"`
+	Domain                       *string `pulumi:"domain"`
+	ManagedLoginVersion          *int    `pulumi:"managedLoginVersion"`
+	Region                       *string `pulumi:"region"`
+	S3Bucket                     *string `pulumi:"s3Bucket"`
+	UserPoolId                   *string `pulumi:"userPoolId"`
+	Version                      *string `pulumi:"version"`
 }
 
 type UserPoolDomainState struct {
-	// The AWS account ID for the user pool owner.
-	AwsAccountId pulumi.StringPtrInput
-	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-	CertificateArn pulumi.StringPtrInput
-	// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-	CloudfrontDistribution pulumi.StringPtrInput
-	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
-	CloudfrontDistributionArn pulumi.StringPtrInput
-	// The Route 53 hosted zone ID of the CloudFront distribution.
+	AwsAccountId                 pulumi.StringPtrInput
+	CertificateArn               pulumi.StringPtrInput
+	CloudfrontDistribution       pulumi.StringPtrInput
+	CloudfrontDistributionArn    pulumi.StringPtrInput
 	CloudfrontDistributionZoneId pulumi.StringPtrInput
-	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-	Domain pulumi.StringPtrInput
-	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-	ManagedLoginVersion pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The S3 bucket where the static files for this domain are stored.
-	S3Bucket pulumi.StringPtrInput
-	// The user pool ID.
-	UserPoolId pulumi.StringPtrInput
-	// The app version.
-	Version pulumi.StringPtrInput
+	Domain                       pulumi.StringPtrInput
+	ManagedLoginVersion          pulumi.IntPtrInput
+	Region                       pulumi.StringPtrInput
+	S3Bucket                     pulumi.StringPtrInput
+	UserPoolId                   pulumi.StringPtrInput
+	Version                      pulumi.StringPtrInput
 }
 
 func (UserPoolDomainState) ElementType() reflect.Type {
@@ -229,30 +96,20 @@ func (UserPoolDomainState) ElementType() reflect.Type {
 }
 
 type userPoolDomainArgs struct {
-	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-	Domain string `pulumi:"domain"`
-	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The user pool ID.
-	UserPoolId string `pulumi:"userPoolId"`
+	CertificateArn      *string `pulumi:"certificateArn"`
+	Domain              string  `pulumi:"domain"`
+	ManagedLoginVersion *int    `pulumi:"managedLoginVersion"`
+	Region              *string `pulumi:"region"`
+	UserPoolId          string  `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolDomain resource.
 type UserPoolDomainArgs struct {
-	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-	CertificateArn pulumi.StringPtrInput
-	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-	Domain pulumi.StringInput
-	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
+	CertificateArn      pulumi.StringPtrInput
+	Domain              pulumi.StringInput
 	ManagedLoginVersion pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The user pool ID.
-	UserPoolId pulumi.StringInput
+	Region              pulumi.StringPtrInput
+	UserPoolId          pulumi.StringInput
 }
 
 func (UserPoolDomainArgs) ElementType() reflect.Type {
@@ -342,57 +199,46 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The AWS account ID for the user pool owner.
 func (o UserPoolDomainOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 func (o UserPoolDomainOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 func (o UserPoolDomainOutput) CloudfrontDistribution() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudfrontDistribution }).(pulumi.StringOutput)
 }
 
-// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 func (o UserPoolDomainOutput) CloudfrontDistributionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudfrontDistributionArn }).(pulumi.StringOutput)
 }
 
-// The Route 53 hosted zone ID of the CloudFront distribution.
 func (o UserPoolDomainOutput) CloudfrontDistributionZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudfrontDistributionZoneId }).(pulumi.StringOutput)
 }
 
-// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 func (o UserPoolDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
 func (o UserPoolDomainOutput) ManagedLoginVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.IntOutput { return v.ManagedLoginVersion }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserPoolDomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The S3 bucket where the static files for this domain are stored.
 func (o UserPoolDomainOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// The user pool ID.
 func (o UserPoolDomainOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-// The app version.
 func (o UserPoolDomainOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

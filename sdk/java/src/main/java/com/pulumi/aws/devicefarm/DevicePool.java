@@ -18,187 +18,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage AWS Device Farm Device Pools.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.devicefarm.DevicePool;
- * import com.pulumi.aws.devicefarm.DevicePoolArgs;
- * import com.pulumi.aws.devicefarm.inputs.DevicePoolRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DevicePool("example", DevicePoolArgs.builder()
- *             .name("example")
- *             .projectArn(exampleAwsDevicefarmProject.arn())
- *             .rules(DevicePoolRuleArgs.builder()
- *                 .attribute("OS_VERSION")
- *                 .operator("EQUALS")
- *                 .value("\"AVAILABLE\"")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
- * 
- * Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
- * 
- * % pulumi import aws_devicefarm_device_pool.example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- * 
- */
 @ResourceType(type="aws:devicefarm/devicePool:DevicePool")
 public class DevicePool extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name of this Device Pool
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name of this Device Pool
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The device pool&#39;s description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The device pool&#39;s description.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The number of devices that Device Farm can add to your device pool.
-     * 
-     */
     @Export(name="maxDevices", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxDevices;
 
-    /**
-     * @return The number of devices that Device Farm can add to your device pool.
-     * 
-     */
     public Output<Optional<Integer>> maxDevices() {
         return Codegen.optional(this.maxDevices);
     }
-    /**
-     * The name of the Device Pool
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Device Pool
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ARN of the project for the device pool.
-     * 
-     */
     @Export(name="projectArn", refs={String.class}, tree="[0]")
     private Output<String> projectArn;
 
-    /**
-     * @return The ARN of the project for the device pool.
-     * 
-     */
     public Output<String> projectArn() {
         return this.projectArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The device pool&#39;s rules. See Rule.
-     * 
-     */
     @Export(name="rules", refs={List.class,DevicePoolRule.class}, tree="[0,1]")
     private Output<List<DevicePoolRule>> rules;
 
-    /**
-     * @return The device pool&#39;s rules. See Rule.
-     * 
-     */
     public Output<List<DevicePoolRule>> rules() {
         return this.rules;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

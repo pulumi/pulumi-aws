@@ -15,14 +15,14 @@ public final class StreamProcessorDataSharingPreferenceArgs extends com.pulumi.r
     public static final StreamProcessorDataSharingPreferenceArgs Empty = new StreamProcessorDataSharingPreferenceArgs();
 
     /**
-     * Whether you are sharing data with Rekognition to improve model performance.
+     * Do you want to share data with Rekognition to improve model performance.
      * 
      */
     @Import(name="optIn", required=true)
     private Output<Boolean> optIn;
 
     /**
-     * @return Whether you are sharing data with Rekognition to improve model performance.
+     * @return Do you want to share data with Rekognition to improve model performance.
      * 
      */
     public Output<Boolean> optIn() {
@@ -54,7 +54,7 @@ public final class StreamProcessorDataSharingPreferenceArgs extends com.pulumi.r
         }
 
         /**
-         * @param optIn Whether you are sharing data with Rekognition to improve model performance.
+         * @param optIn Do you want to share data with Rekognition to improve model performance.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class StreamProcessorDataSharingPreferenceArgs extends com.pulumi.r
         }
 
         /**
-         * @param optIn Whether you are sharing data with Rekognition to improve model performance.
+         * @param optIn Do you want to share data with Rekognition to improve model performance.
          * 
          * @return builder
          * 

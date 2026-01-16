@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceRelationalDatabaseConfigHttpEndpointConfig {
-    /**
-     * @return AWS secret store ARN for database credentials.
-     * 
-     */
     private String awsSecretStoreArn;
-    /**
-     * @return Logical database name.
-     * 
-     */
     private @Nullable String databaseName;
-    /**
-     * @return Amazon RDS cluster identifier.
-     * 
-     */
     private String dbClusterIdentifier;
-    /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return Logical schema name.
-     * 
-     */
     private @Nullable String schema;
 
     private DataSourceRelationalDatabaseConfigHttpEndpointConfig() {}
-    /**
-     * @return AWS secret store ARN for database credentials.
-     * 
-     */
     public String awsSecretStoreArn() {
         return this.awsSecretStoreArn;
     }
-    /**
-     * @return Logical database name.
-     * 
-     */
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
-    /**
-     * @return Amazon RDS cluster identifier.
-     * 
-     */
     public String dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
-    /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return Logical schema name.
-     * 
-     */
     public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }

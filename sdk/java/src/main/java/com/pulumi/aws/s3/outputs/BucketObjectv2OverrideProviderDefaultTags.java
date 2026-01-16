@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketObjectv2OverrideProviderDefaultTags {
-    /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private BucketObjectv2OverrideProviderDefaultTags() {}
-    /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

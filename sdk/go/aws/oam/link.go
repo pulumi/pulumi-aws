@@ -12,164 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Observability Access Manager Link.
-//
-// > **NOTE:** Creating an `oam.Link` may sometimes fail if the `oam.SinkPolicy` for the attached `oam.Sink` is not created before the `oam.Link`. To prevent this, declare an explicit dependency using a `dependsOn` meta-argument.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSink, err := oam.NewSink(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleSinkPolicy, err := oam.NewSinkPolicy(ctx, "example", &oam.SinkPolicyArgs{
-//				SinkIdentifier: exampleSink.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("AWS::CloudWatch::Metric"),
-//				},
-//				SinkIdentifier: exampleSink.Arn,
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("prod"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSinkPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Log Group Filtering
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
-//				LinkConfiguration: &oam.LinkLinkConfigurationArgs{
-//					LogGroupConfiguration: &oam.LinkLinkConfigurationLogGroupConfigurationArgs{
-//						Filter: pulumi.String("LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'"),
-//					},
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("AWS::Logs::LogGroup"),
-//				},
-//				SinkIdentifier: pulumi.Any(exampleAwsOamSink.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsOamSinkPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Metric Filtering
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
-//				LinkConfiguration: &oam.LinkLinkConfigurationArgs{
-//					MetricConfiguration: &oam.LinkLinkConfigurationMetricConfigurationArgs{
-//						Filter: pulumi.String("Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')"),
-//					},
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("AWS::CloudWatch::Metric"),
-//				},
-//				SinkIdentifier: pulumi.Any(exampleAwsOamSink.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsOamSinkPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
-// ```
 type Link struct {
 	pulumi.CustomResourceState
 
-	// ARN of the link.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Label that is assigned to this link.
-	Label pulumi.StringOutput `pulumi:"label"`
-	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate pulumi.StringOutput `pulumi:"labelTemplate"`
-	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	Arn               pulumi.StringOutput            `pulumi:"arn"`
+	Label             pulumi.StringOutput            `pulumi:"label"`
+	LabelTemplate     pulumi.StringOutput            `pulumi:"labelTemplate"`
 	LinkConfiguration LinkLinkConfigurationPtrOutput `pulumi:"linkConfiguration"`
-	// ID string that AWS generated as part of the link ARN.
-	LinkId pulumi.StringOutput `pulumi:"linkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Types of data that the source account shares with the monitoring account.
-	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
-	// ARN of the sink that is used for this link.
-	SinkArn pulumi.StringOutput `pulumi:"sinkArn"`
-	// Identifier of the sink to use to create this link.
-	//
-	// The following arguments are optional:
-	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	LinkId            pulumi.StringOutput            `pulumi:"linkId"`
+	Region            pulumi.StringOutput            `pulumi:"region"`
+	ResourceTypes     pulumi.StringArrayOutput       `pulumi:"resourceTypes"`
+	SinkArn           pulumi.StringOutput            `pulumi:"sinkArn"`
+	SinkIdentifier    pulumi.StringOutput            `pulumi:"sinkIdentifier"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput         `pulumi:"tagsAll"`
 }
 
 // NewLink registers a new resource with the given unique name, arguments, and options.
@@ -211,55 +67,31 @@ func GetLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Link resources.
 type linkState struct {
-	// ARN of the link.
-	Arn *string `pulumi:"arn"`
-	// Label that is assigned to this link.
-	Label *string `pulumi:"label"`
-	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate *string `pulumi:"labelTemplate"`
-	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	Arn               *string                `pulumi:"arn"`
+	Label             *string                `pulumi:"label"`
+	LabelTemplate     *string                `pulumi:"labelTemplate"`
 	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
-	// ID string that AWS generated as part of the link ARN.
-	LinkId *string `pulumi:"linkId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Types of data that the source account shares with the monitoring account.
-	ResourceTypes []string `pulumi:"resourceTypes"`
-	// ARN of the sink that is used for this link.
-	SinkArn *string `pulumi:"sinkArn"`
-	// Identifier of the sink to use to create this link.
-	//
-	// The following arguments are optional:
-	SinkIdentifier *string `pulumi:"sinkIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	LinkId            *string                `pulumi:"linkId"`
+	Region            *string                `pulumi:"region"`
+	ResourceTypes     []string               `pulumi:"resourceTypes"`
+	SinkArn           *string                `pulumi:"sinkArn"`
+	SinkIdentifier    *string                `pulumi:"sinkIdentifier"`
+	Tags              map[string]string      `pulumi:"tags"`
+	TagsAll           map[string]string      `pulumi:"tagsAll"`
 }
 
 type LinkState struct {
-	// ARN of the link.
-	Arn pulumi.StringPtrInput
-	// Label that is assigned to this link.
-	Label pulumi.StringPtrInput
-	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate pulumi.StringPtrInput
-	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	Arn               pulumi.StringPtrInput
+	Label             pulumi.StringPtrInput
+	LabelTemplate     pulumi.StringPtrInput
 	LinkConfiguration LinkLinkConfigurationPtrInput
-	// ID string that AWS generated as part of the link ARN.
-	LinkId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Types of data that the source account shares with the monitoring account.
-	ResourceTypes pulumi.StringArrayInput
-	// ARN of the sink that is used for this link.
-	SinkArn pulumi.StringPtrInput
-	// Identifier of the sink to use to create this link.
-	//
-	// The following arguments are optional:
-	SinkIdentifier pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	LinkId            pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	ResourceTypes     pulumi.StringArrayInput
+	SinkArn           pulumi.StringPtrInput
+	SinkIdentifier    pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (LinkState) ElementType() reflect.Type {
@@ -267,38 +99,22 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
-	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate string `pulumi:"labelTemplate"`
-	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LabelTemplate     string                 `pulumi:"labelTemplate"`
 	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Types of data that the source account shares with the monitoring account.
-	ResourceTypes []string `pulumi:"resourceTypes"`
-	// Identifier of the sink to use to create this link.
-	//
-	// The following arguments are optional:
-	SinkIdentifier string `pulumi:"sinkIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region            *string                `pulumi:"region"`
+	ResourceTypes     []string               `pulumi:"resourceTypes"`
+	SinkIdentifier    string                 `pulumi:"sinkIdentifier"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
-	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-	LabelTemplate pulumi.StringInput
-	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LabelTemplate     pulumi.StringInput
 	LinkConfiguration LinkLinkConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Types of data that the source account shares with the monitoring account.
-	ResourceTypes pulumi.StringArrayInput
-	// Identifier of the sink to use to create this link.
-	//
-	// The following arguments are optional:
-	SinkIdentifier pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region            pulumi.StringPtrInput
+	ResourceTypes     pulumi.StringArrayInput
+	SinkIdentifier    pulumi.StringInput
+	Tags              pulumi.StringMapInput
 }
 
 func (LinkArgs) ElementType() reflect.Type {
@@ -388,54 +204,42 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
 }
 
-// ARN of the link.
 func (o LinkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Label that is assigned to this link.
 func (o LinkOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
-// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 func (o LinkOutput) LabelTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LabelTemplate }).(pulumi.StringOutput)
 }
 
-// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
 func (o LinkOutput) LinkConfiguration() LinkLinkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Link) LinkLinkConfigurationPtrOutput { return v.LinkConfiguration }).(LinkLinkConfigurationPtrOutput)
 }
 
-// ID string that AWS generated as part of the link ARN.
 func (o LinkOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LinkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Types of data that the source account shares with the monitoring account.
 func (o LinkOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the sink that is used for this link.
 func (o LinkOutput) SinkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SinkArn }).(pulumi.StringOutput)
 }
 
-// Identifier of the sink to use to create this link.
-//
-// The following arguments are optional:
 func (o LinkOutput) SinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SinkIdentifier }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

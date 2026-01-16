@@ -15,62 +15,30 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretPlainArgs Empty = new GetSecretPlainArgs();
 
-    /**
-     * ARN of the secret to retrieve.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the secret to retrieve.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name of the secret to retrieve.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the secret to retrieve.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags of the secret.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags of the secret.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -102,45 +70,21 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSecretPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the secret to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name Name of the secret to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Tags of the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

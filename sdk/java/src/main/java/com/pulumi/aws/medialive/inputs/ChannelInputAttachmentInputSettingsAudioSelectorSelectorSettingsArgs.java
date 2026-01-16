@@ -18,62 +18,30 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs();
 
-    /**
-     * Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-     * 
-     */
     @Import(name="audioHlsRenditionSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs> audioHlsRenditionSelection;
 
-    /**
-     * @return Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs>> audioHlsRenditionSelection() {
         return Optional.ofNullable(this.audioHlsRenditionSelection);
     }
 
-    /**
-     * Audio Language Selection. See Audio Language Selection for more details.
-     * 
-     */
     @Import(name="audioLanguageSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs> audioLanguageSelection;
 
-    /**
-     * @return Audio Language Selection. See Audio Language Selection for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs>> audioLanguageSelection() {
         return Optional.ofNullable(this.audioLanguageSelection);
     }
 
-    /**
-     * Audio Pid Selection. See Audio PID Selection for more details.
-     * 
-     */
     @Import(name="audioPidSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs> audioPidSelection;
 
-    /**
-     * @return Audio Pid Selection. See Audio PID Selection for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs>> audioPidSelection() {
         return Optional.ofNullable(this.audioPidSelection);
     }
 
-    /**
-     * Audio Track Selection. See Audio Track Selection for more details.
-     * 
-     */
     @Import(name="audioTrackSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs> audioTrackSelection;
 
-    /**
-     * @return Audio Track Selection. See Audio Track Selection for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs>> audioTrackSelection() {
         return Optional.ofNullable(this.audioTrackSelection);
     }
@@ -105,86 +73,38 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioHlsRenditionSelection Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioHlsRenditionSelection(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs> audioHlsRenditionSelection) {
             $.audioHlsRenditionSelection = audioHlsRenditionSelection;
             return this;
         }
 
-        /**
-         * @param audioHlsRenditionSelection Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioHlsRenditionSelection(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs audioHlsRenditionSelection) {
             return audioHlsRenditionSelection(Output.of(audioHlsRenditionSelection));
         }
 
-        /**
-         * @param audioLanguageSelection Audio Language Selection. See Audio Language Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioLanguageSelection(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs> audioLanguageSelection) {
             $.audioLanguageSelection = audioLanguageSelection;
             return this;
         }
 
-        /**
-         * @param audioLanguageSelection Audio Language Selection. See Audio Language Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioLanguageSelection(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs audioLanguageSelection) {
             return audioLanguageSelection(Output.of(audioLanguageSelection));
         }
 
-        /**
-         * @param audioPidSelection Audio Pid Selection. See Audio PID Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioPidSelection(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs> audioPidSelection) {
             $.audioPidSelection = audioPidSelection;
             return this;
         }
 
-        /**
-         * @param audioPidSelection Audio Pid Selection. See Audio PID Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioPidSelection(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs audioPidSelection) {
             return audioPidSelection(Output.of(audioPidSelection));
         }
 
-        /**
-         * @param audioTrackSelection Audio Track Selection. See Audio Track Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioTrackSelection(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs> audioTrackSelection) {
             $.audioTrackSelection = audioTrackSelection;
             return this;
         }
 
-        /**
-         * @param audioTrackSelection Audio Track Selection. See Audio Track Selection for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioTrackSelection(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs audioTrackSelection) {
             return audioTrackSelection(Output.of(audioTrackSelection));
         }

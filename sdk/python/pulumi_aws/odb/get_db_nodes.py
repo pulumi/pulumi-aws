@@ -49,9 +49,6 @@ class GetDbNodesResult:
     @_builtins.property
     @pulumi.getter(name="dbNodes")
     def db_nodes(self) -> Sequence['outputs.GetDbNodesDbNodeResult']:
-        """
-        The list of DB nodes along with their properties.
-        """
         return pulumi.get(self, "db_nodes")
 
     @_builtins.property
@@ -84,26 +81,7 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbNodesResult:
     """
-    Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_nodes(cloud_vm_cluster_id="example")
-    ```
-
-
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cloudVmClusterId'] = cloud_vm_cluster_id
@@ -120,26 +98,7 @@ def get_db_nodes_output(cloud_vm_cluster_id: Optional[pulumi.Input[_builtins.str
                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodesResult]:
     """
-    Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
-
-    You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.odb.get_db_nodes(cloud_vm_cluster_id="example")
-    ```
-
-
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['cloudVmClusterId'] = cloud_vm_cluster_id

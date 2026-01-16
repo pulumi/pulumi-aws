@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeNetworkConfiguration {
-    /**
-     * @return Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     private String networkMode;
-    /**
-     * @return Network mode configuration. See `networkModeConfig` below.
-     * 
-     */
     private @Nullable AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig networkModeConfig;
 
     private AgentcoreAgentRuntimeNetworkConfiguration() {}
-    /**
-     * @return Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
-     * 
-     */
     public String networkMode() {
         return this.networkMode;
     }
-    /**
-     * @return Network mode configuration. See `networkModeConfig` below.
-     * 
-     */
     public Optional<AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig> networkModeConfig() {
         return Optional.ofNullable(this.networkModeConfig);
     }

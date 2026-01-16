@@ -11,138 +11,12 @@ namespace Pulumi.Aws.Workspaces
 {
     public static class GetWorkspace
     {
-        /// <summary>
-        /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Filter By Workspace ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
-        ///     {
-        ///         WorkspaceId = "ws-cj5xcxsz5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter By Directory ID &amp; User Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
-        ///     {
-        ///         DirectoryId = "d-9967252f57",
-        ///         UserName = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Filter By Workspace ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
-        ///     {
-        ///         WorkspaceId = "ws-cj5xcxsz5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter By Directory ID &amp; User Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
-        ///     {
-        ///         DirectoryId = "d-9967252f57",
-        ///         UserName = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Filter By Workspace ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
-        ///     {
-        ///         WorkspaceId = "ws-cj5xcxsz5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter By Directory ID &amp; User Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Workspaces.GetWorkspace.Invoke(new()
-        ///     {
-        ///         DirectoryId = "d-9967252f57",
-        ///         UserName = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
@@ -150,39 +24,23 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the directory for the WorkSpace. You have to specify `UserName` along with `DirectoryId`. You cannot combine this parameter with `WorkspaceId`.
-        /// </summary>
         [Input("directoryId")]
         public string? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags for the WorkSpace.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `WorkspaceId`.
-        /// </summary>
         [Input("userName")]
         public string? UserName { get; set; }
 
-        /// <summary>
-        /// ID of the WorkSpace. You cannot combine this parameter with `DirectoryId`.
-        /// </summary>
         [Input("workspaceId")]
         public string? WorkspaceId { get; set; }
 
@@ -194,39 +52,23 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the directory for the WorkSpace. You have to specify `UserName` along with `DirectoryId`. You cannot combine this parameter with `WorkspaceId`.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags for the WorkSpace.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `WorkspaceId`.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
-        /// <summary>
-        /// ID of the WorkSpace. You cannot combine this parameter with `DirectoryId`.
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 
@@ -240,50 +82,22 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetWorkspaceResult
     {
-        /// <summary>
-        /// ID of the bundle for the WorkSpace.
-        /// </summary>
         public readonly string BundleId;
-        /// <summary>
-        /// Name of the WorkSpace, as seen by the operating system.
-        /// </summary>
         public readonly string ComputerName;
         public readonly string DirectoryId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IP address of the WorkSpace.
-        /// </summary>
         public readonly string IpAddress;
         public readonly string Region;
-        /// <summary>
-        /// Indicates whether the data stored on the root volume is encrypted.
-        /// </summary>
         public readonly bool RootVolumeEncryptionEnabled;
-        /// <summary>
-        /// Operational state of the WorkSpace.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Tags for the WorkSpace.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string UserName;
-        /// <summary>
-        /// Indicates whether the data stored on the user volume
-        /// is encrypted.
-        /// </summary>
         public readonly bool UserVolumeEncryptionEnabled;
-        /// <summary>
-        /// Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        /// </summary>
         public readonly string VolumeEncryptionKey;
         public readonly string WorkspaceId;
-        /// <summary>
-        /// WorkSpace properties.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceWorkspacePropertyResult> WorkspaceProperties;
 
         [OutputConstructor]

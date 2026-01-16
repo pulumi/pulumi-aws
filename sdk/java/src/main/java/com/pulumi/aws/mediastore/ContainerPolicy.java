@@ -13,126 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.mediastore.Container;
- * import com.pulumi.aws.mediastore.ContainerArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.mediastore.ContainerPolicy;
- * import com.pulumi.aws.mediastore.ContainerPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("MediaStoreFullAccess")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.accountId()))
- *                     .build())
- *                 .actions("mediastore:*")
- *                 .resources(exampleContainer.name().applyValue(_name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.region(),currentGetCallerIdentity.accountId(),_name)))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("Bool")
- *                     .variable("aws:SecureTransport")
- *                     .values("true")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleContainerPolicy = new ContainerPolicy("exampleContainerPolicy", ContainerPolicyArgs.builder()
- *             .containerName(exampleContainer.name())
- *             .policy(example.applyValue(_example -> _example.json()))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
- * 
- * ```sh
- * $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:mediastore/containerPolicy:ContainerPolicy")
 public class ContainerPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the container.
-     * 
-     */
     @Export(name="containerName", refs={String.class}, tree="[0]")
     private Output<String> containerName;
 
-    /**
-     * @return The name of the container.
-     * 
-     */
     public Output<String> containerName() {
         return this.containerName;
     }
-    /**
-     * The contents of the policy.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The contents of the policy.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

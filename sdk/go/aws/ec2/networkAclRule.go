@@ -12,104 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an entry (a rule) in a network ACL with the specified rule number.
-//
-// > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-// provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-// defined in-line. At this time you cannot use a Network ACL with in-line rules
-// in conjunction with any Network ACL Rule resources. Doing so will cause
-// a conflict of rule settings and will overwrite rules.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkAclRule(ctx, "bar", &ec2.NetworkAclRuleArgs{
-//				NetworkAclId: bar.ID(),
-//				RuleNumber:   pulumi.Int(200),
-//				Egress:       pulumi.Bool(false),
-//				Protocol:     pulumi.String("tcp"),
-//				RuleAction:   pulumi.String("allow"),
-//				CidrBlock:    pulumi.Any(foo.CidrBlock),
-//				FromPort:     pulumi.Int(22),
-//				ToPort:       pulumi.Int(22),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
-//
-// ## Import
-//
-// Using the procotol's decimal value:
-//
-// __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
-//
-// Using the procotol's string value:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
-// ```
-// Using the procotol's decimal value:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
-// ```
 type NetworkAclRule struct {
 	pulumi.CustomResourceState
 
-	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
-	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress pulumi.BoolPtrOutput `pulumi:"egress"`
-	// The from port to match.
-	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	//
-	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
-	//
-	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
-	//
-	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
-	IcmpCode pulumi.IntPtrOutput `pulumi:"icmpCode"`
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType pulumi.IntPtrOutput `pulumi:"icmpType"`
-	// The IPv6 CIDR block to allow or deny.
+	CidrBlock     pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	Egress        pulumi.BoolPtrOutput   `pulumi:"egress"`
+	FromPort      pulumi.IntPtrOutput    `pulumi:"fromPort"`
+	IcmpCode      pulumi.IntPtrOutput    `pulumi:"icmpCode"`
+	IcmpType      pulumi.IntPtrOutput    `pulumi:"icmpType"`
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
-	// The ID of the network ACL.
-	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
-	// The protocol. A value of -1 means all protocols.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction pulumi.StringOutput `pulumi:"ruleAction"`
-	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber pulumi.IntOutput `pulumi:"ruleNumber"`
-	// The to port to match.
-	ToPort pulumi.IntPtrOutput `pulumi:"toPort"`
+	NetworkAclId  pulumi.StringOutput    `pulumi:"networkAclId"`
+	Protocol      pulumi.StringOutput    `pulumi:"protocol"`
+	Region        pulumi.StringOutput    `pulumi:"region"`
+	RuleAction    pulumi.StringOutput    `pulumi:"ruleAction"`
+	RuleNumber    pulumi.IntOutput       `pulumi:"ruleNumber"`
+	ToPort        pulumi.IntPtrOutput    `pulumi:"toPort"`
 }
 
 // NewNetworkAclRule registers a new resource with the given unique name, arguments, and options.
@@ -154,69 +71,33 @@ func GetNetworkAclRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkAclRule resources.
 type networkAclRuleState struct {
-	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress *bool `pulumi:"egress"`
-	// The from port to match.
-	FromPort *int `pulumi:"fromPort"`
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	//
-	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
-	//
-	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
-	//
-	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
-	IcmpCode *int `pulumi:"icmpCode"`
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType *int `pulumi:"icmpType"`
-	// The IPv6 CIDR block to allow or deny.
+	CidrBlock     *string `pulumi:"cidrBlock"`
+	Egress        *bool   `pulumi:"egress"`
+	FromPort      *int    `pulumi:"fromPort"`
+	IcmpCode      *int    `pulumi:"icmpCode"`
+	IcmpType      *int    `pulumi:"icmpType"`
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The ID of the network ACL.
-	NetworkAclId *string `pulumi:"networkAclId"`
-	// The protocol. A value of -1 means all protocols.
-	Protocol *string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction *string `pulumi:"ruleAction"`
-	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber *int `pulumi:"ruleNumber"`
-	// The to port to match.
-	ToPort *int `pulumi:"toPort"`
+	NetworkAclId  *string `pulumi:"networkAclId"`
+	Protocol      *string `pulumi:"protocol"`
+	Region        *string `pulumi:"region"`
+	RuleAction    *string `pulumi:"ruleAction"`
+	RuleNumber    *int    `pulumi:"ruleNumber"`
+	ToPort        *int    `pulumi:"toPort"`
 }
 
 type NetworkAclRuleState struct {
-	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock pulumi.StringPtrInput
-	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress pulumi.BoolPtrInput
-	// The from port to match.
-	FromPort pulumi.IntPtrInput
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	//
-	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
-	//
-	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
-	//
-	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
-	IcmpCode pulumi.IntPtrInput
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType pulumi.IntPtrInput
-	// The IPv6 CIDR block to allow or deny.
+	CidrBlock     pulumi.StringPtrInput
+	Egress        pulumi.BoolPtrInput
+	FromPort      pulumi.IntPtrInput
+	IcmpCode      pulumi.IntPtrInput
+	IcmpType      pulumi.IntPtrInput
 	Ipv6CidrBlock pulumi.StringPtrInput
-	// The ID of the network ACL.
-	NetworkAclId pulumi.StringPtrInput
-	// The protocol. A value of -1 means all protocols.
-	Protocol pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction pulumi.StringPtrInput
-	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber pulumi.IntPtrInput
-	// The to port to match.
-	ToPort pulumi.IntPtrInput
+	NetworkAclId  pulumi.StringPtrInput
+	Protocol      pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	RuleAction    pulumi.StringPtrInput
+	RuleNumber    pulumi.IntPtrInput
+	ToPort        pulumi.IntPtrInput
 }
 
 func (NetworkAclRuleState) ElementType() reflect.Type {
@@ -224,70 +105,34 @@ func (NetworkAclRuleState) ElementType() reflect.Type {
 }
 
 type networkAclRuleArgs struct {
-	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress *bool `pulumi:"egress"`
-	// The from port to match.
-	FromPort *int `pulumi:"fromPort"`
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	//
-	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
-	//
-	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
-	//
-	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
-	IcmpCode *int `pulumi:"icmpCode"`
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType *int `pulumi:"icmpType"`
-	// The IPv6 CIDR block to allow or deny.
+	CidrBlock     *string `pulumi:"cidrBlock"`
+	Egress        *bool   `pulumi:"egress"`
+	FromPort      *int    `pulumi:"fromPort"`
+	IcmpCode      *int    `pulumi:"icmpCode"`
+	IcmpType      *int    `pulumi:"icmpType"`
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The ID of the network ACL.
-	NetworkAclId string `pulumi:"networkAclId"`
-	// The protocol. A value of -1 means all protocols.
-	Protocol string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction string `pulumi:"ruleAction"`
-	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber int `pulumi:"ruleNumber"`
-	// The to port to match.
-	ToPort *int `pulumi:"toPort"`
+	NetworkAclId  string  `pulumi:"networkAclId"`
+	Protocol      string  `pulumi:"protocol"`
+	Region        *string `pulumi:"region"`
+	RuleAction    string  `pulumi:"ruleAction"`
+	RuleNumber    int     `pulumi:"ruleNumber"`
+	ToPort        *int    `pulumi:"toPort"`
 }
 
 // The set of arguments for constructing a NetworkAclRule resource.
 type NetworkAclRuleArgs struct {
-	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock pulumi.StringPtrInput
-	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress pulumi.BoolPtrInput
-	// The from port to match.
-	FromPort pulumi.IntPtrInput
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-	//
-	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
-	//
-	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
-	//
-	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
-	IcmpCode pulumi.IntPtrInput
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-	IcmpType pulumi.IntPtrInput
-	// The IPv6 CIDR block to allow or deny.
+	CidrBlock     pulumi.StringPtrInput
+	Egress        pulumi.BoolPtrInput
+	FromPort      pulumi.IntPtrInput
+	IcmpCode      pulumi.IntPtrInput
+	IcmpType      pulumi.IntPtrInput
 	Ipv6CidrBlock pulumi.StringPtrInput
-	// The ID of the network ACL.
-	NetworkAclId pulumi.StringInput
-	// The protocol. A value of -1 means all protocols.
-	Protocol pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction pulumi.StringInput
-	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber pulumi.IntInput
-	// The to port to match.
-	ToPort pulumi.IntPtrInput
+	NetworkAclId  pulumi.StringInput
+	Protocol      pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	RuleAction    pulumi.StringInput
+	RuleNumber    pulumi.IntInput
+	ToPort        pulumi.IntPtrInput
 }
 
 func (NetworkAclRuleArgs) ElementType() reflect.Type {
@@ -377,68 +222,50 @@ func (o NetworkAclRuleOutput) ToNetworkAclRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
 func (o NetworkAclRuleOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
 func (o NetworkAclRuleOutput) Egress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.BoolPtrOutput { return v.Egress }).(pulumi.BoolPtrOutput)
 }
 
-// The from port to match.
 func (o NetworkAclRuleOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntPtrOutput { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
-// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-//
-// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
-//
-// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
-//
-// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 func (o NetworkAclRuleOutput) IcmpCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntPtrOutput { return v.IcmpCode }).(pulumi.IntPtrOutput)
 }
 
-// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 func (o NetworkAclRuleOutput) IcmpType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntPtrOutput { return v.IcmpType }).(pulumi.IntPtrOutput)
 }
 
-// The IPv6 CIDR block to allow or deny.
 func (o NetworkAclRuleOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the network ACL.
 func (o NetworkAclRuleOutput) NetworkAclId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringOutput { return v.NetworkAclId }).(pulumi.StringOutput)
 }
 
-// The protocol. A value of -1 means all protocols.
 func (o NetworkAclRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkAclRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
 func (o NetworkAclRuleOutput) RuleAction() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringOutput { return v.RuleAction }).(pulumi.StringOutput)
 }
 
-// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
 func (o NetworkAclRuleOutput) RuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntOutput { return v.RuleNumber }).(pulumi.IntOutput)
 }
 
-// The to port to match.
 func (o NetworkAclRuleOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntPtrOutput { return v.ToPort }).(pulumi.IntPtrOutput)
 }

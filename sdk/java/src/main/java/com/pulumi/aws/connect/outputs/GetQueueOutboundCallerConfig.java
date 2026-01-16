@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQueueOutboundCallerConfig {
-    /**
-     * @return Specifies the caller ID name.
-     * 
-     */
     private String outboundCallerIdName;
-    /**
-     * @return Specifies the caller ID number.
-     * 
-     */
     private String outboundCallerIdNumberId;
-    /**
-     * @return Outbound whisper flow to be used during an outbound call.
-     * 
-     */
     private String outboundFlowId;
 
     private GetQueueOutboundCallerConfig() {}
-    /**
-     * @return Specifies the caller ID name.
-     * 
-     */
     public String outboundCallerIdName() {
         return this.outboundCallerIdName;
     }
-    /**
-     * @return Specifies the caller ID number.
-     * 
-     */
     public String outboundCallerIdNumberId() {
         return this.outboundCallerIdNumberId;
     }
-    /**
-     * @return Outbound whisper flow to be used during an outbound call.
-     * 
-     */
     public String outboundFlowId() {
         return this.outboundFlowId;
     }

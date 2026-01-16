@@ -12,34 +12,18 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The required duration in minutes. This value must be a multiple of 60.
-        /// </summary>
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
 
-        /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Can be `Hibernate`,
-        /// `Stop`, or `Terminate`. (Default: `Terminate`).
-        /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
-        /// <summary>
-        /// The maximum hourly price you're willing to pay for the Spot Instances.
-        /// </summary>
         [Input("maxPrice")]
         public Input<string>? MaxPrice { get; set; }
 
-        /// <summary>
-        /// The Spot Instance request type. Can be `one-time`, or `Persistent`.
-        /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }
 
-        /// <summary>
-        /// The end date of the request.
-        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 

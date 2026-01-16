@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailExclusionRulesAmis {
-    /**
-     * @return Configures whether public AMIs are excluded from the lifecycle action.
-     * 
-     */
     private @Nullable Boolean isPublic;
-    /**
-     * @return Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched lastLaunched;
-    /**
-     * @return Configures AWS Regions that are excluded from the lifecycle action.
-     * 
-     */
     private @Nullable List<String> regions;
-    /**
-     * @return Specifies AWS accounts whose resources are excluded from the lifecycle action.
-     * 
-     */
     private @Nullable List<String> sharedAccounts;
-    /**
-     * @return Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-     * 
-     */
     private @Nullable Map<String,String> tagMap;
 
     private LifecyclePolicyPolicyDetailExclusionRulesAmis() {}
-    /**
-     * @return Configures whether public AMIs are excluded from the lifecycle action.
-     * 
-     */
     public Optional<Boolean> isPublic() {
         return Optional.ofNullable(this.isPublic);
     }
-    /**
-     * @return Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched> lastLaunched() {
         return Optional.ofNullable(this.lastLaunched);
     }
-    /**
-     * @return Configures AWS Regions that are excluded from the lifecycle action.
-     * 
-     */
     public List<String> regions() {
         return this.regions == null ? List.of() : this.regions;
     }
-    /**
-     * @return Specifies AWS accounts whose resources are excluded from the lifecycle action.
-     * 
-     */
     public List<String> sharedAccounts() {
         return this.sharedAccounts == null ? List.of() : this.sharedAccounts;
     }
-    /**
-     * @return Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-     * 
-     */
     public Map<String,String> tagMap() {
         return this.tagMap == null ? Map.of() : this.tagMap;
     }

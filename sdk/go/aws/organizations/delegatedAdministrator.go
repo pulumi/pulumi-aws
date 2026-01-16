@@ -12,73 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewDelegatedAdministrator(ctx, "example", &organizations.DelegatedAdministratorArgs{
-//				AccountId:        pulumi.String("123456789012"),
-//				ServicePrincipal: pulumi.String("principal"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `service_principal` (String) Service principal for the AWS service.
-//
-// * `delegated_account_id` (String) Account ID to be designated as a delegated administrator.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
-//
-// % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
 type DelegatedAdministrator struct {
 	pulumi.CustomResourceState
 
-	// The account ID number of the member account in the organization to register as a delegated administrator.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date when the account was made a delegated administrator.
+	AccountId             pulumi.StringOutput `pulumi:"accountId"`
+	Arn                   pulumi.StringOutput `pulumi:"arn"`
 	DelegationEnabledDate pulumi.StringOutput `pulumi:"delegationEnabledDate"`
-	// The email address that is associated with the delegated administrator's AWS account.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// The method by which the delegated administrator's account joined the organization.
-	JoinedMethod pulumi.StringOutput `pulumi:"joinedMethod"`
-	// The date when the delegated administrator's account became a part of the organization.
-	JoinedTimestamp pulumi.StringOutput `pulumi:"joinedTimestamp"`
-	// The friendly name of the delegated administrator's account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The service principal of the AWS service for which you want to make the member account a delegated administrator.
-	ServicePrincipal pulumi.StringOutput `pulumi:"servicePrincipal"`
-	// The status of the delegated administrator's account in the organization.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Email                 pulumi.StringOutput `pulumi:"email"`
+	JoinedMethod          pulumi.StringOutput `pulumi:"joinedMethod"`
+	JoinedTimestamp       pulumi.StringOutput `pulumi:"joinedTimestamp"`
+	Name                  pulumi.StringOutput `pulumi:"name"`
+	ServicePrincipal      pulumi.StringOutput `pulumi:"servicePrincipal"`
+	Status                pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewDelegatedAdministrator registers a new resource with the given unique name, arguments, and options.
@@ -117,45 +62,27 @@ func GetDelegatedAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DelegatedAdministrator resources.
 type delegatedAdministratorState struct {
-	// The account ID number of the member account in the organization to register as a delegated administrator.
-	AccountId *string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
-	Arn *string `pulumi:"arn"`
-	// The date when the account was made a delegated administrator.
+	AccountId             *string `pulumi:"accountId"`
+	Arn                   *string `pulumi:"arn"`
 	DelegationEnabledDate *string `pulumi:"delegationEnabledDate"`
-	// The email address that is associated with the delegated administrator's AWS account.
-	Email *string `pulumi:"email"`
-	// The method by which the delegated administrator's account joined the organization.
-	JoinedMethod *string `pulumi:"joinedMethod"`
-	// The date when the delegated administrator's account became a part of the organization.
-	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
-	// The friendly name of the delegated administrator's account.
-	Name *string `pulumi:"name"`
-	// The service principal of the AWS service for which you want to make the member account a delegated administrator.
-	ServicePrincipal *string `pulumi:"servicePrincipal"`
-	// The status of the delegated administrator's account in the organization.
-	Status *string `pulumi:"status"`
+	Email                 *string `pulumi:"email"`
+	JoinedMethod          *string `pulumi:"joinedMethod"`
+	JoinedTimestamp       *string `pulumi:"joinedTimestamp"`
+	Name                  *string `pulumi:"name"`
+	ServicePrincipal      *string `pulumi:"servicePrincipal"`
+	Status                *string `pulumi:"status"`
 }
 
 type DelegatedAdministratorState struct {
-	// The account ID number of the member account in the organization to register as a delegated administrator.
-	AccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
-	Arn pulumi.StringPtrInput
-	// The date when the account was made a delegated administrator.
+	AccountId             pulumi.StringPtrInput
+	Arn                   pulumi.StringPtrInput
 	DelegationEnabledDate pulumi.StringPtrInput
-	// The email address that is associated with the delegated administrator's AWS account.
-	Email pulumi.StringPtrInput
-	// The method by which the delegated administrator's account joined the organization.
-	JoinedMethod pulumi.StringPtrInput
-	// The date when the delegated administrator's account became a part of the organization.
-	JoinedTimestamp pulumi.StringPtrInput
-	// The friendly name of the delegated administrator's account.
-	Name pulumi.StringPtrInput
-	// The service principal of the AWS service for which you want to make the member account a delegated administrator.
-	ServicePrincipal pulumi.StringPtrInput
-	// The status of the delegated administrator's account in the organization.
-	Status pulumi.StringPtrInput
+	Email                 pulumi.StringPtrInput
+	JoinedMethod          pulumi.StringPtrInput
+	JoinedTimestamp       pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	ServicePrincipal      pulumi.StringPtrInput
+	Status                pulumi.StringPtrInput
 }
 
 func (DelegatedAdministratorState) ElementType() reflect.Type {
@@ -163,17 +90,13 @@ func (DelegatedAdministratorState) ElementType() reflect.Type {
 }
 
 type delegatedAdministratorArgs struct {
-	// The account ID number of the member account in the organization to register as a delegated administrator.
-	AccountId string `pulumi:"accountId"`
-	// The service principal of the AWS service for which you want to make the member account a delegated administrator.
+	AccountId        string `pulumi:"accountId"`
 	ServicePrincipal string `pulumi:"servicePrincipal"`
 }
 
 // The set of arguments for constructing a DelegatedAdministrator resource.
 type DelegatedAdministratorArgs struct {
-	// The account ID number of the member account in the organization to register as a delegated administrator.
-	AccountId pulumi.StringInput
-	// The service principal of the AWS service for which you want to make the member account a delegated administrator.
+	AccountId        pulumi.StringInput
 	ServicePrincipal pulumi.StringInput
 }
 
@@ -264,47 +187,38 @@ func (o DelegatedAdministratorOutput) ToDelegatedAdministratorOutputWithContext(
 	return o
 }
 
-// The account ID number of the member account in the organization to register as a delegated administrator.
 func (o DelegatedAdministratorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the delegated administrator's account.
 func (o DelegatedAdministratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date when the account was made a delegated administrator.
 func (o DelegatedAdministratorOutput) DelegationEnabledDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.DelegationEnabledDate }).(pulumi.StringOutput)
 }
 
-// The email address that is associated with the delegated administrator's AWS account.
 func (o DelegatedAdministratorOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// The method by which the delegated administrator's account joined the organization.
 func (o DelegatedAdministratorOutput) JoinedMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.JoinedMethod }).(pulumi.StringOutput)
 }
 
-// The date when the delegated administrator's account became a part of the organization.
 func (o DelegatedAdministratorOutput) JoinedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.JoinedTimestamp }).(pulumi.StringOutput)
 }
 
-// The friendly name of the delegated administrator's account.
 func (o DelegatedAdministratorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The service principal of the AWS service for which you want to make the member account a delegated administrator.
 func (o DelegatedAdministratorOutput) ServicePrincipal() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.ServicePrincipal }).(pulumi.StringOutput)
 }
 
-// The status of the delegated administrator's account in the organization.
 func (o DelegatedAdministratorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

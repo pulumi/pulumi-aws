@@ -13,32 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
     private @Nullable String instanceUrl;
-    /**
-     * @return Indicates whether the connector profile applies to a sandbox or production environment.
-     * 
-     */
     private @Nullable Boolean isSandboxEnvironment;
-    /**
-     * @return Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-     * 
-     */
     private @Nullable Boolean usePrivatelinkForMetadataAndAuthorization;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce() {}
     public Optional<String> instanceUrl() {
         return Optional.ofNullable(this.instanceUrl);
     }
-    /**
-     * @return Indicates whether the connector profile applies to a sandbox or production environment.
-     * 
-     */
     public Optional<Boolean> isSandboxEnvironment() {
         return Optional.ofNullable(this.isSandboxEnvironment);
     }
-    /**
-     * @return Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-     * 
-     */
     public Optional<Boolean> usePrivatelinkForMetadataAndAuthorization() {
         return Optional.ofNullable(this.usePrivatelinkForMetadataAndAuthorization);
     }

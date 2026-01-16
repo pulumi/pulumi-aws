@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Sfn
 {
     public static class GetStateMachine
     {
-        /// <summary>
-        /// Use this data source to get the ARN of a State Machine in AWS Step
-        /// Function (SFN). By using this data source, you can reference a
-        /// state machine without having to hard code the ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
-        ///     {
-        ///         Name = "an_example_sfn_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN of a State Machine in AWS Step
-        /// Function (SFN). By using this data source, you can reference a
-        /// state machine without having to hard code the ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
-        ///     {
-        ///         Name = "an_example_sfn_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN of a State Machine in AWS Step
-        /// Function (SFN). By using this data source, you can reference a
-        /// state machine without having to hard code the ARNs as input.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
-        ///     {
-        ///         Name = "an_example_sfn_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class GetStateMachineArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly name of the state machine to match.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class GetStateMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly name of the state machine to match.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,17 +54,8 @@ namespace Pulumi.Aws.Sfn
     [OutputType]
     public sealed class GetStateMachineResult
     {
-        /// <summary>
-        /// Set to the arn of the state function.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Date the state machine was created.
-        /// </summary>
         public readonly string CreationDate;
-        /// <summary>
-        /// Set to the state machine definition.
-        /// </summary>
         public readonly string Definition;
         public readonly string Description;
         /// <summary>
@@ -154,17 +64,8 @@ namespace Pulumi.Aws.Sfn
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// The revision identifier for the state machine.
-        /// </summary>
         public readonly string RevisionId;
-        /// <summary>
-        /// Set to the RoleArn used by the state function.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// Set to the current status of the state machine.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

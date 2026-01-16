@@ -11,213 +11,12 @@ namespace Pulumi.Aws.Fis
 {
     public static class GetExperimentTemplates
     {
-        /// <summary>
-        /// This resource can be useful for getting back a set of FIS experiment template IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting a list of all FIS experiment template IDs
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Aws.Fis.GetExperimentTemplates.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["all"] = all.Apply(getExperimentTemplatesResult =&gt; getExperimentTemplatesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following shows filtering FIS experiment templates by tag
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fis.GetExperimentTemplates.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "example" },
-        ///             { "Tier", "1" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-        ///     {
-        ///         Statements = new[]
-        ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-        ///             {
-        ///                 Sid = "StartFISExperiment",
-        ///                 Effect = "Allow",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "fis:StartExperiment",
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     $"arn:aws:fis:*:*:experiment-template/{example.Apply(getExperimentTemplatesResult =&gt; getExperimentTemplatesResult.Ids[0])}",
-        ///                     "arn:aws:fis:*:*:experiment/*",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetExperimentTemplatesResult> InvokeAsync(GetExperimentTemplatesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentTemplatesResult>("aws:fis/getExperimentTemplates:getExperimentTemplates", args ?? new GetExperimentTemplatesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a set of FIS experiment template IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting a list of all FIS experiment template IDs
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Aws.Fis.GetExperimentTemplates.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["all"] = all.Apply(getExperimentTemplatesResult =&gt; getExperimentTemplatesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following shows filtering FIS experiment templates by tag
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fis.GetExperimentTemplates.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "example" },
-        ///             { "Tier", "1" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-        ///     {
-        ///         Statements = new[]
-        ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-        ///             {
-        ///                 Sid = "StartFISExperiment",
-        ///                 Effect = "Allow",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "fis:StartExperiment",
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     $"arn:aws:fis:*:*:experiment-template/{example.Apply(getExperimentTemplatesResult =&gt; getExperimentTemplatesResult.Ids[0])}",
-        ///                     "arn:aws:fis:*:*:experiment/*",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetExperimentTemplatesResult> Invoke(GetExperimentTemplatesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentTemplatesResult>("aws:fis/getExperimentTemplates:getExperimentTemplates", args ?? new GetExperimentTemplatesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This resource can be useful for getting back a set of FIS experiment template IDs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following shows outputting a list of all FIS experiment template IDs
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var all = Aws.Fis.GetExperimentTemplates.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["all"] = all.Apply(getExperimentTemplatesResult =&gt; getExperimentTemplatesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following shows filtering FIS experiment templates by tag
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fis.GetExperimentTemplates.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "example" },
-        ///             { "Tier", "1" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleGetPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-        ///     {
-        ///         Statements = new[]
-        ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-        ///             {
-        ///                 Sid = "StartFISExperiment",
-        ///                 Effect = "Allow",
-        ///                 Actions = new[]
-        ///                 {
-        ///                     "fis:StartExperiment",
-        ///                 },
-        ///                 Resources = new[]
-        ///                 {
-        ///                     $"arn:aws:fis:*:*:experiment-template/{example.Apply(getExperimentTemplatesResult =&gt; getExperimentTemplatesResult.Ids[0])}",
-        ///                     "arn:aws:fis:*:*:experiment/*",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetExperimentTemplatesResult> Invoke(GetExperimentTemplatesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentTemplatesResult>("aws:fis/getExperimentTemplates:getExperimentTemplates", args ?? new GetExperimentTemplatesInvokeArgs(), options.WithDefaults());
     }
@@ -225,19 +24,11 @@ namespace Pulumi.Aws.Fis
 
     public sealed class GetExperimentTemplatesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired experiment templates.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -252,19 +43,11 @@ namespace Pulumi.Aws.Fis
 
     public sealed class GetExperimentTemplatesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired experiment templates.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -285,9 +68,6 @@ namespace Pulumi.Aws.Fis
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of all the experiment template ids found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;

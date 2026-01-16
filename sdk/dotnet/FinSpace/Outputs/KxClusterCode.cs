@@ -13,17 +13,8 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxClusterCode
     {
-        /// <summary>
-        /// Unique name for the S3 bucket.
-        /// </summary>
         public readonly string S3Bucket;
-        /// <summary>
-        /// Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
-        /// </summary>
         public readonly string S3Key;
-        /// <summary>
-        /// Version of an S3 Object.
-        /// </summary>
         public readonly string? S3ObjectVersion;
 
         [OutputConstructor]

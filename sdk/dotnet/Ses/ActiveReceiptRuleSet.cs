@@ -9,53 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ses
 {
-    /// <summary>
-    /// Provides a resource to designate the active SES receipt rule set
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ses.ActiveReceiptRuleSet("main", new()
-    ///     {
-    ///         RuleSetName = "primary-rules",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")]
     public partial class ActiveReceiptRuleSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The SES receipt rule set ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the rule set
-        /// </summary>
         [Output("ruleSetName")]
         public Output<string> RuleSetName { get; private set; } = null!;
 
@@ -105,15 +67,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ActiveReceiptRuleSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the rule set
-        /// </summary>
         [Input("ruleSetName", required: true)]
         public Input<string> RuleSetName { get; set; } = null!;
 
@@ -125,21 +81,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ActiveReceiptRuleSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SES receipt rule set ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the rule set
-        /// </summary>
         [Input("ruleSetName")]
         public Input<string>? RuleSetName { get; set; }
 

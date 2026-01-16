@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationInteractiveConfiguration
     {
-        /// <summary>
-        /// Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
-        /// </summary>
         public readonly bool? LivyEndpointEnabled;
-        /// <summary>
-        /// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
-        /// </summary>
         public readonly bool? StudioEnabled;
 
         [OutputConstructor]

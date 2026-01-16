@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointRedisSettings {
-    /**
-     * @return The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-     * 
-     */
     private @Nullable String authPassword;
-    /**
-     * @return The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
-     * 
-     */
     private String authType;
-    /**
-     * @return The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-     * 
-     */
     private @Nullable String authUserName;
-    /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Fully qualified domain name of the endpoint.
-     * 
-     */
     private String serverName;
-    /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-     * 
-     */
     private @Nullable String sslCaCertificateArn;
-    /**
-     * @return The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-     * 
-     */
     private @Nullable String sslSecurityProtocol;
 
     private EndpointRedisSettings() {}
-    /**
-     * @return The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-     * 
-     */
     public Optional<String> authPassword() {
         return Optional.ofNullable(this.authPassword);
     }
-    /**
-     * @return The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
-     * 
-     */
     public String authType() {
         return this.authType;
     }
-    /**
-     * @return The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-     * 
-     */
     public Optional<String> authUserName() {
         return Optional.ofNullable(this.authUserName);
     }
-    /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Fully qualified domain name of the endpoint.
-     * 
-     */
     public String serverName() {
         return this.serverName;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-     * 
-     */
     public Optional<String> sslCaCertificateArn() {
         return Optional.ofNullable(this.sslCaCertificateArn);
     }
-    /**
-     * @return The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-     * 
-     */
     public Optional<String> sslSecurityProtocol() {
         return Optional.ofNullable(this.sslSecurityProtocol);
     }

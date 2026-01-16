@@ -13,13 +13,7 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class TableMagneticStoreWriteProperties
     {
-        /// <summary>
-        /// A flag to enable magnetic store writes.
-        /// </summary>
         public readonly bool? EnableMagneticStoreWrites;
-        /// <summary>
-        /// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
-        /// </summary>
         public readonly Outputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation? MagneticStoreRejectedDataLocation;
 
         [OutputConstructor]

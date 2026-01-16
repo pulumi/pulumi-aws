@@ -9,115 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ResourceExplorer
 {
-    /// <summary>
-    /// Provides a resource to manage a Resource Explorer view.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ResourceExplorer.Index("example", new()
-    ///     {
-    ///         Type = "LOCAL",
-    ///     });
-    /// 
-    ///     var exampleView = new Aws.ResourceExplorer.View("example", new()
-    ///     {
-    ///         Name = "exampleview",
-    ///         Filters = new Aws.ResourceExplorer.Inputs.ViewFiltersArgs
-    ///         {
-    ///             FilterString = "resourcetype:ec2:instance",
-    ///         },
-    ///         IncludedProperties = new[]
-    ///         {
-    ///             new Aws.ResourceExplorer.Inputs.ViewIncludedPropertyArgs
-    ///             {
-    ///                 Name = "tags",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
-    /// 
-    /// Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
-    /// </summary>
     [AwsResourceType("aws:resourceexplorer/view:View")]
     public partial class View : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Resource Explorer view.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `False`.
-        /// </summary>
         [Output("defaultView")]
         public Output<bool> DefaultView { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        /// </summary>
         [Output("filters")]
         public Output<Outputs.ViewFilters?> Filters { get; private set; } = null!;
 
-        /// <summary>
-        /// Optional fields to be included in search results from this view. See Included Properties below for more details.
-        /// </summary>
         [Output("includedProperties")]
         public Output<ImmutableArray<Outputs.ViewIncludedProperty>> IncludedProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -167,54 +85,31 @@ namespace Pulumi.Aws.ResourceExplorer
 
     public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `False`.
-        /// </summary>
         [Input("defaultView")]
         public Input<bool>? DefaultView { get; set; }
 
-        /// <summary>
-        /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        /// </summary>
         [Input("filters")]
         public Input<Inputs.ViewFiltersArgs>? Filters { get; set; }
 
         [Input("includedProperties")]
         private InputList<Inputs.ViewIncludedPropertyArgs>? _includedProperties;
-
-        /// <summary>
-        /// Optional fields to be included in search results from this view. See Included Properties below for more details.
-        /// </summary>
         public InputList<Inputs.ViewIncludedPropertyArgs> IncludedProperties
         {
             get => _includedProperties ?? (_includedProperties = new InputList<Inputs.ViewIncludedPropertyArgs>());
             set => _includedProperties = value;
         }
 
-        /// <summary>
-        /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -229,60 +124,34 @@ namespace Pulumi.Aws.ResourceExplorer
 
     public sealed class ViewState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Resource Explorer view.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `False`.
-        /// </summary>
         [Input("defaultView")]
         public Input<bool>? DefaultView { get; set; }
 
-        /// <summary>
-        /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        /// </summary>
         [Input("filters")]
         public Input<Inputs.ViewFiltersGetArgs>? Filters { get; set; }
 
         [Input("includedProperties")]
         private InputList<Inputs.ViewIncludedPropertyGetArgs>? _includedProperties;
-
-        /// <summary>
-        /// Optional fields to be included in search results from this view. See Included Properties below for more details.
-        /// </summary>
         public InputList<Inputs.ViewIncludedPropertyGetArgs> IncludedProperties
         {
             get => _includedProperties ?? (_includedProperties = new InputList<Inputs.ViewIncludedPropertyGetArgs>());
             set => _includedProperties = value;
         }
 
-        /// <summary>
-        /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -291,10 +160,6 @@ namespace Pulumi.Aws.ResourceExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

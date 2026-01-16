@@ -16,47 +16,23 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
 
     public static final KeyValueStoreState Empty = new KeyValueStoreState();
 
-    /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Comment.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return Comment.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * ETag hash of the KeyValueStore.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return ETag hash of the KeyValueStore.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
@@ -68,21 +44,9 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.lastModifiedTime);
     }
 
-    /**
-     * Unique name for your CloudFront KeyValueStore.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name for your CloudFront KeyValueStore.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -123,65 +87,29 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
             $ = new KeyValueStoreState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param comment Comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment Comment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param etag ETag hash of the KeyValueStore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag ETag hash of the KeyValueStore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
@@ -195,27 +123,11 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
             return lastModifiedTime(Output.of(lastModifiedTime));
         }
 
-        /**
-         * @param name Unique name for your CloudFront KeyValueStore.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name for your CloudFront KeyValueStore.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -11,32 +11,16 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings {
     private String cbetCheckDigitString;
-    /**
-     * @return Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-     * 
-     */
     private String cbetStepaside;
-    /**
-     * @return CBET source ID to use in the watermark.
-     * 
-     */
     private String csid;
 
     private ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings() {}
     public String cbetCheckDigitString() {
         return this.cbetCheckDigitString;
     }
-    /**
-     * @return Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
-     * 
-     */
     public String cbetStepaside() {
         return this.cbetStepaside;
     }
-    /**
-     * @return CBET source ID to use in the watermark.
-     * 
-     */
     public String csid() {
         return this.csid;
     }

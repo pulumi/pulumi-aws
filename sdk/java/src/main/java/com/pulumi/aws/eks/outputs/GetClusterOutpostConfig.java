@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterOutpostConfig {
-    /**
-     * @return The Amazon EC2 instance type for all Kubernetes control plane instances.
-     * 
-     */
     private String controlPlaneInstanceType;
-    /**
-     * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * 
-     */
     private List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
-    /**
-     * @return List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
-     * 
-     */
     private List<String> outpostArns;
 
     private GetClusterOutpostConfig() {}
-    /**
-     * @return The Amazon EC2 instance type for all Kubernetes control plane instances.
-     * 
-     */
     public String controlPlaneInstanceType() {
         return this.controlPlaneInstanceType;
     }
-    /**
-     * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * 
-     */
     public List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements() {
         return this.controlPlanePlacements;
     }
-    /**
-     * @return List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
-     * 
-     */
     public List<String> outpostArns() {
         return this.outpostArns;
     }

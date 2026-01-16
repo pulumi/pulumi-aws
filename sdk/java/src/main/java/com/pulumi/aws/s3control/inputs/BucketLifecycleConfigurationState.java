@@ -17,47 +17,23 @@ public final class BucketLifecycleConfigurationState extends com.pulumi.resource
 
     public static final BucketLifecycleConfigurationState Empty = new BucketLifecycleConfigurationState();
 
-    /**
-     * Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the bucket.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
-     * 
-     */
     @Import(name="rules")
     private @Nullable Output<List<BucketLifecycleConfigurationRuleArgs>> rules;
 
-    /**
-     * @return Configuration block(s) containing lifecycle rules for the bucket.
-     * 
-     */
     public Optional<Output<List<BucketLifecycleConfigurationRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
@@ -88,75 +64,33 @@ public final class BucketLifecycleConfigurationState extends com.pulumi.resource
             $ = new BucketLifecycleConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Amazon Resource Name (ARN) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Amazon Resource Name (ARN) of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rules Configuration block(s) containing lifecycle rules for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(@Nullable Output<List<BucketLifecycleConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Configuration block(s) containing lifecycle rules for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<BucketLifecycleConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Configuration block(s) containing lifecycle rules for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(BucketLifecycleConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

@@ -18,47 +18,23 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
 
     public static final CentralizationRuleForOrganizationRuleSourceArgs Empty = new CentralizationRuleForOrganizationRuleSourceArgs();
 
-    /**
-     * Set of AWS regions from which to centralize logs. Must contain at least one region.
-     * 
-     */
     @Import(name="regions", required=true)
     private Output<List<String>> regions;
 
-    /**
-     * @return Set of AWS regions from which to centralize logs. Must contain at least one region.
-     * 
-     */
     public Output<List<String>> regions() {
         return this.regions;
     }
 
-    /**
-     * Scope defining which resources to include. Use organization ID format: `OrganizationId = &#39;o-example123456&#39;`.
-     * 
-     */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
-    /**
-     * @return Scope defining which resources to include. Use organization ID format: `OrganizationId = &#39;o-example123456&#39;`.
-     * 
-     */
     public Output<String> scope() {
         return this.scope;
     }
 
-    /**
-     * Configuration block for source logs settings. See `sourceLogsConfiguration` below.
-     * 
-     */
     @Import(name="sourceLogsConfiguration")
     private @Nullable Output<CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs> sourceLogsConfiguration;
 
-    /**
-     * @return Configuration block for source logs settings. See `sourceLogsConfiguration` below.
-     * 
-     */
     public Optional<Output<CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs>> sourceLogsConfiguration() {
         return Optional.ofNullable(this.sourceLogsConfiguration);
     }
@@ -89,75 +65,33 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
             $ = new CentralizationRuleForOrganizationRuleSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regions Set of AWS regions from which to centralize logs. Must contain at least one region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Set of AWS regions from which to centralize logs. Must contain at least one region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions Set of AWS regions from which to centralize logs. Must contain at least one region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param scope Scope defining which resources to include. Use organization ID format: `OrganizationId = &#39;o-example123456&#39;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
-        /**
-         * @param scope Scope defining which resources to include. Use organization ID format: `OrganizationId = &#39;o-example123456&#39;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
-        /**
-         * @param sourceLogsConfiguration Configuration block for source logs settings. See `sourceLogsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceLogsConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs> sourceLogsConfiguration) {
             $.sourceLogsConfiguration = sourceLogsConfiguration;
             return this;
         }
 
-        /**
-         * @param sourceLogsConfiguration Configuration block for source logs settings. See `sourceLogsConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs sourceLogsConfiguration) {
             return sourceLogsConfiguration(Output.of(sourceLogsConfiguration));
         }

@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EfsLocationEc2Config struct {
-	// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
-	// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-	SubnetArn string `pulumi:"subnetArn"`
+	SubnetArn         string   `pulumi:"subnetArn"`
 }
 
 // EfsLocationEc2ConfigInput is an input type that accepts EfsLocationEc2ConfigArgs and EfsLocationEc2ConfigOutput values.
@@ -32,10 +30,8 @@ type EfsLocationEc2ConfigInput interface {
 }
 
 type EfsLocationEc2ConfigArgs struct {
-	// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
 	SecurityGroupArns pulumi.StringArrayInput `pulumi:"securityGroupArns"`
-	// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-	SubnetArn pulumi.StringInput `pulumi:"subnetArn"`
+	SubnetArn         pulumi.StringInput      `pulumi:"subnetArn"`
 }
 
 func (EfsLocationEc2ConfigArgs) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o EfsLocationEc2ConfigOutput) ToEfsLocationEc2ConfigPtrOutputWithContext(c
 	}).(EfsLocationEc2ConfigPtrOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EfsLocationEc2Config) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigOutput) SubnetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EfsLocationEc2Config) string { return v.SubnetArn }).(pulumi.StringOutput)
 }
@@ -149,7 +143,6 @@ func (o EfsLocationEc2ConfigPtrOutput) Elem() EfsLocationEc2ConfigOutput {
 	}).(EfsLocationEc2ConfigOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EfsLocationEc2Config) []string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o EfsLocationEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocationEc2Config) *string {
 		if v == nil {
@@ -170,7 +162,6 @@ func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 }
 
 type FsxOpenZfsFileSystemProtocol struct {
-	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
 	Nfs FsxOpenZfsFileSystemProtocolNfs `pulumi:"nfs"`
 }
 
@@ -186,7 +177,6 @@ type FsxOpenZfsFileSystemProtocolInput interface {
 }
 
 type FsxOpenZfsFileSystemProtocolArgs struct {
-	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
 	Nfs FsxOpenZfsFileSystemProtocolNfsInput `pulumi:"nfs"`
 }
 
@@ -267,7 +257,6 @@ func (o FsxOpenZfsFileSystemProtocolOutput) ToFsxOpenZfsFileSystemProtocolPtrOut
 	}).(FsxOpenZfsFileSystemProtocolPtrOutput)
 }
 
-// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
 func (o FsxOpenZfsFileSystemProtocolOutput) Nfs() FsxOpenZfsFileSystemProtocolNfsOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocol) FsxOpenZfsFileSystemProtocolNfs { return v.Nfs }).(FsxOpenZfsFileSystemProtocolNfsOutput)
 }
@@ -296,7 +285,6 @@ func (o FsxOpenZfsFileSystemProtocolPtrOutput) Elem() FsxOpenZfsFileSystemProtoc
 	}).(FsxOpenZfsFileSystemProtocolOutput)
 }
 
-// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
 func (o FsxOpenZfsFileSystemProtocolPtrOutput) Nfs() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocol) *FsxOpenZfsFileSystemProtocolNfs {
 		if v == nil {
@@ -307,7 +295,6 @@ func (o FsxOpenZfsFileSystemProtocolPtrOutput) Nfs() FsxOpenZfsFileSystemProtoco
 }
 
 type FsxOpenZfsFileSystemProtocolNfs struct {
-	// Represents the mount options that are available for DataSync to access an NFS location. See below.
 	MountOptions FsxOpenZfsFileSystemProtocolNfsMountOptions `pulumi:"mountOptions"`
 }
 
@@ -323,7 +310,6 @@ type FsxOpenZfsFileSystemProtocolNfsInput interface {
 }
 
 type FsxOpenZfsFileSystemProtocolNfsArgs struct {
-	// Represents the mount options that are available for DataSync to access an NFS location. See below.
 	MountOptions FsxOpenZfsFileSystemProtocolNfsMountOptionsInput `pulumi:"mountOptions"`
 }
 
@@ -404,7 +390,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToFsxOpenZfsFileSystemProtocolNfs
 	}).(FsxOpenZfsFileSystemProtocolNfsPtrOutput)
 }
 
-// Represents the mount options that are available for DataSync to access an NFS location. See below.
 func (o FsxOpenZfsFileSystemProtocolNfsOutput) MountOptions() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfs) FsxOpenZfsFileSystemProtocolNfsMountOptions {
 		return v.MountOptions
@@ -435,7 +420,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) Elem() FsxOpenZfsFileSystemPro
 	}).(FsxOpenZfsFileSystemProtocolNfsOutput)
 }
 
-// Represents the mount options that are available for DataSync to access an NFS location. See below.
 func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) MountOptions() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfs) *FsxOpenZfsFileSystemProtocolNfsMountOptions {
 		if v == nil {
@@ -446,7 +430,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) MountOptions() FsxOpenZfsFileS
 }
 
 type FsxOpenZfsFileSystemProtocolNfsMountOptions struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 	Version *string `pulumi:"version"`
 }
 
@@ -462,7 +445,6 @@ type FsxOpenZfsFileSystemProtocolNfsMountOptionsInput interface {
 }
 
 type FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -543,7 +525,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSyste
 	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -572,7 +553,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Elem() FsxOpenZfsF
 	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfsMountOptions) *string {
 		if v == nil {
@@ -583,7 +563,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.S
 }
 
 type LocationAzureBlobSasConfiguration struct {
-	// A SAS token that provides permissions to access your Azure Blob Storage.
 	Token string `pulumi:"token"`
 }
 
@@ -599,7 +578,6 @@ type LocationAzureBlobSasConfigurationInput interface {
 }
 
 type LocationAzureBlobSasConfigurationArgs struct {
-	// A SAS token that provides permissions to access your Azure Blob Storage.
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -680,7 +658,6 @@ func (o LocationAzureBlobSasConfigurationOutput) ToLocationAzureBlobSasConfigura
 	}).(LocationAzureBlobSasConfigurationPtrOutput)
 }
 
-// A SAS token that provides permissions to access your Azure Blob Storage.
 func (o LocationAzureBlobSasConfigurationOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationAzureBlobSasConfiguration) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -709,7 +686,6 @@ func (o LocationAzureBlobSasConfigurationPtrOutput) Elem() LocationAzureBlobSasC
 	}).(LocationAzureBlobSasConfigurationOutput)
 }
 
-// A SAS token that provides permissions to access your Azure Blob Storage.
 func (o LocationAzureBlobSasConfigurationPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationAzureBlobSasConfiguration) *string {
 		if v == nil {
@@ -720,9 +696,7 @@ func (o LocationAzureBlobSasConfigurationPtrOutput) Token() pulumi.StringPtrOutp
 }
 
 type LocationFsxOntapFileSystemProtocol struct {
-	// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 	Nfs *LocationFsxOntapFileSystemProtocolNfs `pulumi:"nfs"`
-	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
 	Smb *LocationFsxOntapFileSystemProtocolSmb `pulumi:"smb"`
 }
 
@@ -738,9 +712,7 @@ type LocationFsxOntapFileSystemProtocolInput interface {
 }
 
 type LocationFsxOntapFileSystemProtocolArgs struct {
-	// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 	Nfs LocationFsxOntapFileSystemProtocolNfsPtrInput `pulumi:"nfs"`
-	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
 	Smb LocationFsxOntapFileSystemProtocolSmbPtrInput `pulumi:"smb"`
 }
 
@@ -821,12 +793,10 @@ func (o LocationFsxOntapFileSystemProtocolOutput) ToLocationFsxOntapFileSystemPr
 	}).(LocationFsxOntapFileSystemProtocolPtrOutput)
 }
 
-// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 func (o LocationFsxOntapFileSystemProtocolOutput) Nfs() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolNfs { return v.Nfs }).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
 func (o LocationFsxOntapFileSystemProtocolOutput) Smb() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolSmb { return v.Smb }).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
 }
@@ -855,7 +825,6 @@ func (o LocationFsxOntapFileSystemProtocolPtrOutput) Elem() LocationFsxOntapFile
 	}).(LocationFsxOntapFileSystemProtocolOutput)
 }
 
-// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 func (o LocationFsxOntapFileSystemProtocolPtrOutput) Nfs() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolNfs {
 		if v == nil {
@@ -865,7 +834,6 @@ func (o LocationFsxOntapFileSystemProtocolPtrOutput) Nfs() LocationFsxOntapFileS
 	}).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
 func (o LocationFsxOntapFileSystemProtocolPtrOutput) Smb() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolSmb {
 		if v == nil {
@@ -876,7 +844,6 @@ func (o LocationFsxOntapFileSystemProtocolPtrOutput) Smb() LocationFsxOntapFileS
 }
 
 type LocationFsxOntapFileSystemProtocolNfs struct {
-	// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
 	MountOptions LocationFsxOntapFileSystemProtocolNfsMountOptions `pulumi:"mountOptions"`
 }
 
@@ -892,7 +859,6 @@ type LocationFsxOntapFileSystemProtocolNfsInput interface {
 }
 
 type LocationFsxOntapFileSystemProtocolNfsArgs struct {
-	// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
 	MountOptions LocationFsxOntapFileSystemProtocolNfsMountOptionsInput `pulumi:"mountOptions"`
 }
 
@@ -973,7 +939,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToLocationFsxOntapFileSyste
 	}).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
 func (o LocationFsxOntapFileSystemProtocolNfsOutput) MountOptions() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolNfs) LocationFsxOntapFileSystemProtocolNfsMountOptions {
 		return v.MountOptions
@@ -1004,7 +969,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) Elem() LocationFsxOntapF
 	}).(LocationFsxOntapFileSystemProtocolNfsOutput)
 }
 
-// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
 func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) MountOptions() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolNfs) *LocationFsxOntapFileSystemProtocolNfsMountOptions {
 		if v == nil {
@@ -1148,14 +1112,10 @@ func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) Version() pu
 }
 
 type LocationFsxOntapFileSystemProtocolSmb struct {
-	// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-	Domain *string `pulumi:"domain"`
-	// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+	Domain       *string                                           `pulumi:"domain"`
 	MountOptions LocationFsxOntapFileSystemProtocolSmbMountOptions `pulumi:"mountOptions"`
-	// Password of a user who has permission to access your SVM.
-	Password string `pulumi:"password"`
-	// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-	User string `pulumi:"user"`
+	Password     string                                            `pulumi:"password"`
+	User         string                                            `pulumi:"user"`
 }
 
 // LocationFsxOntapFileSystemProtocolSmbInput is an input type that accepts LocationFsxOntapFileSystemProtocolSmbArgs and LocationFsxOntapFileSystemProtocolSmbOutput values.
@@ -1170,14 +1130,10 @@ type LocationFsxOntapFileSystemProtocolSmbInput interface {
 }
 
 type LocationFsxOntapFileSystemProtocolSmbArgs struct {
-	// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+	Domain       pulumi.StringPtrInput                                  `pulumi:"domain"`
 	MountOptions LocationFsxOntapFileSystemProtocolSmbMountOptionsInput `pulumi:"mountOptions"`
-	// Password of a user who has permission to access your SVM.
-	Password pulumi.StringInput `pulumi:"password"`
-	// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
-	User pulumi.StringInput `pulumi:"user"`
+	Password     pulumi.StringInput                                     `pulumi:"password"`
+	User         pulumi.StringInput                                     `pulumi:"user"`
 }
 
 func (LocationFsxOntapFileSystemProtocolSmbArgs) ElementType() reflect.Type {
@@ -1257,24 +1213,20 @@ func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToLocationFsxOntapFileSyste
 	}).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
 }
 
-// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
 func (o LocationFsxOntapFileSystemProtocolSmbOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
 func (o LocationFsxOntapFileSystemProtocolSmbOutput) MountOptions() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) LocationFsxOntapFileSystemProtocolSmbMountOptions {
 		return v.MountOptions
 	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput)
 }
 
-// Password of a user who has permission to access your SVM.
 func (o LocationFsxOntapFileSystemProtocolSmbOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
 func (o LocationFsxOntapFileSystemProtocolSmbOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) string { return v.User }).(pulumi.StringOutput)
 }
@@ -1303,7 +1255,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Elem() LocationFsxOntapF
 	}).(LocationFsxOntapFileSystemProtocolSmbOutput)
 }
 
-// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
 func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *string {
 		if v == nil {
@@ -1313,7 +1264,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Domain() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
 func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) MountOptions() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *LocationFsxOntapFileSystemProtocolSmbMountOptions {
 		if v == nil {
@@ -1323,7 +1273,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) MountOptions() LocationF
 	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
 }
 
-// Password of a user who has permission to access your SVM.
 func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *string {
 		if v == nil {
@@ -1333,7 +1282,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Password() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
 func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *string {
 		if v == nil {
@@ -1477,10 +1425,8 @@ func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) Version() pu
 }
 
 type LocationHdfsNameNode struct {
-	// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
 	Hostname string `pulumi:"hostname"`
-	// The port that the NameNode uses to listen to client requests.
-	Port int `pulumi:"port"`
+	Port     int    `pulumi:"port"`
 }
 
 // LocationHdfsNameNodeInput is an input type that accepts LocationHdfsNameNodeArgs and LocationHdfsNameNodeOutput values.
@@ -1495,10 +1441,8 @@ type LocationHdfsNameNodeInput interface {
 }
 
 type LocationHdfsNameNodeArgs struct {
-	// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
 	Hostname pulumi.StringInput `pulumi:"hostname"`
-	// The port that the NameNode uses to listen to client requests.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (LocationHdfsNameNodeArgs) ElementType() reflect.Type {
@@ -1552,12 +1496,10 @@ func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutputWithContext(ctx 
 	return o
 }
 
-// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
 func (o LocationHdfsNameNodeOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationHdfsNameNode) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
-// The port that the NameNode uses to listen to client requests.
 func (o LocationHdfsNameNodeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LocationHdfsNameNode) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1583,10 +1525,8 @@ func (o LocationHdfsNameNodeArrayOutput) Index(i pulumi.IntInput) LocationHdfsNa
 }
 
 type LocationHdfsQopConfiguration struct {
-	// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 	DataTransferProtection *string `pulumi:"dataTransferProtection"`
-	// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-	RpcProtection *string `pulumi:"rpcProtection"`
+	RpcProtection          *string `pulumi:"rpcProtection"`
 }
 
 // LocationHdfsQopConfigurationInput is an input type that accepts LocationHdfsQopConfigurationArgs and LocationHdfsQopConfigurationOutput values.
@@ -1601,10 +1541,8 @@ type LocationHdfsQopConfigurationInput interface {
 }
 
 type LocationHdfsQopConfigurationArgs struct {
-	// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 	DataTransferProtection pulumi.StringPtrInput `pulumi:"dataTransferProtection"`
-	// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-	RpcProtection pulumi.StringPtrInput `pulumi:"rpcProtection"`
+	RpcProtection          pulumi.StringPtrInput `pulumi:"rpcProtection"`
 }
 
 func (LocationHdfsQopConfigurationArgs) ElementType() reflect.Type {
@@ -1684,12 +1622,10 @@ func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationPtrOut
 	}).(LocationHdfsQopConfigurationPtrOutput)
 }
 
-// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 func (o LocationHdfsQopConfigurationOutput) DataTransferProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationHdfsQopConfiguration) *string { return v.DataTransferProtection }).(pulumi.StringPtrOutput)
 }
 
-// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 func (o LocationHdfsQopConfigurationOutput) RpcProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationHdfsQopConfiguration) *string { return v.RpcProtection }).(pulumi.StringPtrOutput)
 }
@@ -1718,7 +1654,6 @@ func (o LocationHdfsQopConfigurationPtrOutput) Elem() LocationHdfsQopConfigurati
 	}).(LocationHdfsQopConfigurationOutput)
 }
 
-// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 func (o LocationHdfsQopConfigurationPtrOutput) DataTransferProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationHdfsQopConfiguration) *string {
 		if v == nil {
@@ -1728,7 +1663,6 @@ func (o LocationHdfsQopConfigurationPtrOutput) DataTransferProtection() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 func (o LocationHdfsQopConfigurationPtrOutput) RpcProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationHdfsQopConfiguration) *string {
 		if v == nil {
@@ -1739,7 +1673,6 @@ func (o LocationHdfsQopConfigurationPtrOutput) RpcProtection() pulumi.StringPtrO
 }
 
 type LocationSmbMountOptions struct {
-	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 	Version *string `pulumi:"version"`
 }
 
@@ -1755,7 +1688,6 @@ type LocationSmbMountOptionsInput interface {
 }
 
 type LocationSmbMountOptionsArgs struct {
-	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1836,7 +1768,6 @@ func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutputWithCon
 	}).(LocationSmbMountOptionsPtrOutput)
 }
 
-// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 func (o LocationSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1865,7 +1796,6 @@ func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
 	}).(LocationSmbMountOptionsOutput)
 }
 
-// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationSmbMountOptions) *string {
 		if v == nil {
@@ -1876,7 +1806,6 @@ func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type NfsLocationMountOptions struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 	Version *string `pulumi:"version"`
 }
 
@@ -1892,7 +1821,6 @@ type NfsLocationMountOptionsInput interface {
 }
 
 type NfsLocationMountOptionsArgs struct {
-	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1973,7 +1901,6 @@ func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutputWithCon
 	}).(NfsLocationMountOptionsPtrOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 func (o NfsLocationMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsLocationMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2002,7 +1929,6 @@ func (o NfsLocationMountOptionsPtrOutput) Elem() NfsLocationMountOptionsOutput {
 	}).(NfsLocationMountOptionsOutput)
 }
 
-// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 func (o NfsLocationMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsLocationMountOptions) *string {
 		if v == nil {
@@ -2013,7 +1939,6 @@ func (o NfsLocationMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type NfsLocationOnPremConfig struct {
-	// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 	AgentArns []string `pulumi:"agentArns"`
 }
 
@@ -2029,7 +1954,6 @@ type NfsLocationOnPremConfigInput interface {
 }
 
 type NfsLocationOnPremConfigArgs struct {
-	// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 	AgentArns pulumi.StringArrayInput `pulumi:"agentArns"`
 }
 
@@ -2110,7 +2034,6 @@ func (o NfsLocationOnPremConfigOutput) ToNfsLocationOnPremConfigPtrOutputWithCon
 	}).(NfsLocationOnPremConfigPtrOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 func (o NfsLocationOnPremConfigOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NfsLocationOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -2139,7 +2062,6 @@ func (o NfsLocationOnPremConfigPtrOutput) Elem() NfsLocationOnPremConfigOutput {
 	}).(NfsLocationOnPremConfigOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 func (o NfsLocationOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NfsLocationOnPremConfig) []string {
 		if v == nil {
@@ -2150,7 +2072,6 @@ func (o NfsLocationOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 type S3LocationS3Config struct {
-	// ARN of the IAM Role used to connect to the S3 Bucket.
 	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
 }
 
@@ -2166,7 +2087,6 @@ type S3LocationS3ConfigInput interface {
 }
 
 type S3LocationS3ConfigArgs struct {
-	// ARN of the IAM Role used to connect to the S3 Bucket.
 	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
 }
 
@@ -2247,7 +2167,6 @@ func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigPtrOutputWithContext(ctx c
 	}).(S3LocationS3ConfigPtrOutput)
 }
 
-// ARN of the IAM Role used to connect to the S3 Bucket.
 func (o S3LocationS3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v S3LocationS3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
 }
@@ -2276,7 +2195,6 @@ func (o S3LocationS3ConfigPtrOutput) Elem() S3LocationS3ConfigOutput {
 	}).(S3LocationS3ConfigOutput)
 }
 
-// ARN of the IAM Role used to connect to the S3 Bucket.
 func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3LocationS3Config) *string {
 		if v == nil {
@@ -2287,10 +2205,8 @@ func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutpu
 }
 
 type TaskExcludes struct {
-	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 	FilterType *string `pulumi:"filterType"`
-	// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-	Value *string `pulumi:"value"`
+	Value      *string `pulumi:"value"`
 }
 
 // TaskExcludesInput is an input type that accepts TaskExcludesArgs and TaskExcludesOutput values.
@@ -2305,10 +2221,8 @@ type TaskExcludesInput interface {
 }
 
 type TaskExcludesArgs struct {
-	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value      pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TaskExcludesArgs) ElementType() reflect.Type {
@@ -2388,12 +2302,10 @@ func (o TaskExcludesOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Conte
 	}).(TaskExcludesPtrOutput)
 }
 
-// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 func (o TaskExcludesOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskExcludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 func (o TaskExcludesOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskExcludes) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2422,7 +2334,6 @@ func (o TaskExcludesPtrOutput) Elem() TaskExcludesOutput {
 	}).(TaskExcludesOutput)
 }
 
-// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 func (o TaskExcludesPtrOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskExcludes) *string {
 		if v == nil {
@@ -2432,7 +2343,6 @@ func (o TaskExcludesPtrOutput) FilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 func (o TaskExcludesPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskExcludes) *string {
 		if v == nil {
@@ -2443,10 +2353,8 @@ func (o TaskExcludesPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TaskIncludes struct {
-	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 	FilterType *string `pulumi:"filterType"`
-	// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-	Value *string `pulumi:"value"`
+	Value      *string `pulumi:"value"`
 }
 
 // TaskIncludesInput is an input type that accepts TaskIncludesArgs and TaskIncludesOutput values.
@@ -2461,10 +2369,8 @@ type TaskIncludesInput interface {
 }
 
 type TaskIncludesArgs struct {
-	// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value      pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TaskIncludesArgs) ElementType() reflect.Type {
@@ -2544,12 +2450,10 @@ func (o TaskIncludesOutput) ToTaskIncludesPtrOutputWithContext(ctx context.Conte
 	}).(TaskIncludesPtrOutput)
 }
 
-// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 func (o TaskIncludesOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskIncludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 func (o TaskIncludesOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskIncludes) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2578,7 +2482,6 @@ func (o TaskIncludesPtrOutput) Elem() TaskIncludesOutput {
 	}).(TaskIncludesOutput)
 }
 
-// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 func (o TaskIncludesPtrOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskIncludes) *string {
 		if v == nil {
@@ -2588,7 +2491,6 @@ func (o TaskIncludesPtrOutput) FilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
 func (o TaskIncludesPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskIncludes) *string {
 		if v == nil {
@@ -2599,36 +2501,21 @@ func (o TaskIncludesPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TaskOptions struct {
-	// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-	Atime *string `pulumi:"atime"`
-	// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
-	BytesPerSecond *int `pulumi:"bytesPerSecond"`
-	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-	Gid *string `pulumi:"gid"`
-	// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
-	LogLevel *string `pulumi:"logLevel"`
-	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-	Mtime *string `pulumi:"mtime"`
-	// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
-	ObjectTags *string `pulumi:"objectTags"`
-	// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
-	OverwriteMode *string `pulumi:"overwriteMode"`
-	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-	PosixPermissions *string `pulumi:"posixPermissions"`
-	// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
-	PreserveDeletedFiles *string `pulumi:"preserveDeletedFiles"`
-	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-	PreserveDevices *string `pulumi:"preserveDevices"`
-	// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
+	Atime                       *string `pulumi:"atime"`
+	BytesPerSecond              *int    `pulumi:"bytesPerSecond"`
+	Gid                         *string `pulumi:"gid"`
+	LogLevel                    *string `pulumi:"logLevel"`
+	Mtime                       *string `pulumi:"mtime"`
+	ObjectTags                  *string `pulumi:"objectTags"`
+	OverwriteMode               *string `pulumi:"overwriteMode"`
+	PosixPermissions            *string `pulumi:"posixPermissions"`
+	PreserveDeletedFiles        *string `pulumi:"preserveDeletedFiles"`
+	PreserveDevices             *string `pulumi:"preserveDevices"`
 	SecurityDescriptorCopyFlags *string `pulumi:"securityDescriptorCopyFlags"`
-	// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
-	TaskQueueing *string `pulumi:"taskQueueing"`
-	// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
-	TransferMode *string `pulumi:"transferMode"`
-	// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-	Uid *string `pulumi:"uid"`
-	// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
-	VerifyMode *string `pulumi:"verifyMode"`
+	TaskQueueing                *string `pulumi:"taskQueueing"`
+	TransferMode                *string `pulumi:"transferMode"`
+	Uid                         *string `pulumi:"uid"`
+	VerifyMode                  *string `pulumi:"verifyMode"`
 }
 
 // TaskOptionsInput is an input type that accepts TaskOptionsArgs and TaskOptionsOutput values.
@@ -2643,36 +2530,21 @@ type TaskOptionsInput interface {
 }
 
 type TaskOptionsArgs struct {
-	// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-	Atime pulumi.StringPtrInput `pulumi:"atime"`
-	// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
-	BytesPerSecond pulumi.IntPtrInput `pulumi:"bytesPerSecond"`
-	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-	Gid pulumi.StringPtrInput `pulumi:"gid"`
-	// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
-	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-	Mtime pulumi.StringPtrInput `pulumi:"mtime"`
-	// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
-	ObjectTags pulumi.StringPtrInput `pulumi:"objectTags"`
-	// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
-	OverwriteMode pulumi.StringPtrInput `pulumi:"overwriteMode"`
-	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
-	PosixPermissions pulumi.StringPtrInput `pulumi:"posixPermissions"`
-	// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
-	PreserveDeletedFiles pulumi.StringPtrInput `pulumi:"preserveDeletedFiles"`
-	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-	PreserveDevices pulumi.StringPtrInput `pulumi:"preserveDevices"`
-	// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
+	Atime                       pulumi.StringPtrInput `pulumi:"atime"`
+	BytesPerSecond              pulumi.IntPtrInput    `pulumi:"bytesPerSecond"`
+	Gid                         pulumi.StringPtrInput `pulumi:"gid"`
+	LogLevel                    pulumi.StringPtrInput `pulumi:"logLevel"`
+	Mtime                       pulumi.StringPtrInput `pulumi:"mtime"`
+	ObjectTags                  pulumi.StringPtrInput `pulumi:"objectTags"`
+	OverwriteMode               pulumi.StringPtrInput `pulumi:"overwriteMode"`
+	PosixPermissions            pulumi.StringPtrInput `pulumi:"posixPermissions"`
+	PreserveDeletedFiles        pulumi.StringPtrInput `pulumi:"preserveDeletedFiles"`
+	PreserveDevices             pulumi.StringPtrInput `pulumi:"preserveDevices"`
 	SecurityDescriptorCopyFlags pulumi.StringPtrInput `pulumi:"securityDescriptorCopyFlags"`
-	// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
-	TaskQueueing pulumi.StringPtrInput `pulumi:"taskQueueing"`
-	// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
-	TransferMode pulumi.StringPtrInput `pulumi:"transferMode"`
-	// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
-	Uid pulumi.StringPtrInput `pulumi:"uid"`
-	// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
-	VerifyMode pulumi.StringPtrInput `pulumi:"verifyMode"`
+	TaskQueueing                pulumi.StringPtrInput `pulumi:"taskQueueing"`
+	TransferMode                pulumi.StringPtrInput `pulumi:"transferMode"`
+	Uid                         pulumi.StringPtrInput `pulumi:"uid"`
+	VerifyMode                  pulumi.StringPtrInput `pulumi:"verifyMode"`
 }
 
 func (TaskOptionsArgs) ElementType() reflect.Type {
@@ -2752,77 +2624,62 @@ func (o TaskOptionsOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context
 	}).(TaskOptionsPtrOutput)
 }
 
-// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
 func (o TaskOptionsOutput) Atime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Atime }).(pulumi.StringPtrOutput)
 }
 
-// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
 func (o TaskOptionsOutput) BytesPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *int { return v.BytesPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Gid }).(pulumi.StringPtrOutput)
 }
 
-// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
 func (o TaskOptionsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
 
-// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
 func (o TaskOptionsOutput) ObjectTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.ObjectTags }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
 func (o TaskOptionsOutput) OverwriteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.OverwriteMode }).(pulumi.StringPtrOutput)
 }
 
-// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsOutput) PosixPermissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PosixPermissions }).(pulumi.StringPtrOutput)
 }
 
-// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
 func (o TaskOptionsOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDeletedFiles }).(pulumi.StringPtrOutput)
 }
 
-// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 func (o TaskOptionsOutput) PreserveDevices() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDevices }).(pulumi.StringPtrOutput)
 }
 
-// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
 func (o TaskOptionsOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.SecurityDescriptorCopyFlags }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
 func (o TaskOptionsOutput) TaskQueueing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.TaskQueueing }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
 func (o TaskOptionsOutput) TransferMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.TransferMode }).(pulumi.StringPtrOutput)
 }
 
-// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsOutput) Uid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Uid }).(pulumi.StringPtrOutput)
 }
 
-// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
 func (o TaskOptionsOutput) VerifyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.VerifyMode }).(pulumi.StringPtrOutput)
 }
@@ -2851,7 +2708,6 @@ func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
 	}).(TaskOptionsOutput)
 }
 
-// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
 func (o TaskOptionsPtrOutput) Atime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2861,7 +2717,6 @@ func (o TaskOptionsPtrOutput) Atime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
 func (o TaskOptionsPtrOutput) BytesPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *int {
 		if v == nil {
@@ -2871,7 +2726,6 @@ func (o TaskOptionsPtrOutput) BytesPerSecond() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2881,7 +2735,6 @@ func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
 func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2891,7 +2744,6 @@ func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2901,7 +2753,6 @@ func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
 func (o TaskOptionsPtrOutput) ObjectTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2911,7 +2762,6 @@ func (o TaskOptionsPtrOutput) ObjectTags() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
 func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2921,7 +2771,6 @@ func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsPtrOutput) PosixPermissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2931,7 +2780,6 @@ func (o TaskOptionsPtrOutput) PosixPermissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
 func (o TaskOptionsPtrOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2941,7 +2789,6 @@ func (o TaskOptionsPtrOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2951,7 +2798,6 @@ func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
 func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2961,7 +2807,6 @@ func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
 func (o TaskOptionsPtrOutput) TaskQueueing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2971,7 +2816,6 @@ func (o TaskOptionsPtrOutput) TaskQueueing() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
 func (o TaskOptionsPtrOutput) TransferMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2981,7 +2825,6 @@ func (o TaskOptionsPtrOutput) TransferMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -2991,7 +2834,6 @@ func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
 func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -3002,7 +2844,6 @@ func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 }
 
 type TaskSchedule struct {
-	// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -3018,7 +2859,6 @@ type TaskScheduleInput interface {
 }
 
 type TaskScheduleArgs struct {
-	// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -3099,7 +2939,6 @@ func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Conte
 	}).(TaskSchedulePtrOutput)
 }
 
-// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -3128,7 +2967,6 @@ func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
 	}).(TaskScheduleOutput)
 }
 
-// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSchedule) *string {
 		if v == nil {
@@ -3139,16 +2977,11 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 }
 
 type TaskTaskReportConfig struct {
-	// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
-	OutputType *string `pulumi:"outputType"`
-	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	ReportLevel *string `pulumi:"reportLevel"`
-	// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
-	ReportOverrides *TaskTaskReportConfigReportOverrides `pulumi:"reportOverrides"`
-	// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
-	S3Destination TaskTaskReportConfigS3Destination `pulumi:"s3Destination"`
-	// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
-	S3ObjectVersioning *string `pulumi:"s3ObjectVersioning"`
+	OutputType         *string                              `pulumi:"outputType"`
+	ReportLevel        *string                              `pulumi:"reportLevel"`
+	ReportOverrides    *TaskTaskReportConfigReportOverrides `pulumi:"reportOverrides"`
+	S3Destination      TaskTaskReportConfigS3Destination    `pulumi:"s3Destination"`
+	S3ObjectVersioning *string                              `pulumi:"s3ObjectVersioning"`
 }
 
 // TaskTaskReportConfigInput is an input type that accepts TaskTaskReportConfigArgs and TaskTaskReportConfigOutput values.
@@ -3163,16 +2996,11 @@ type TaskTaskReportConfigInput interface {
 }
 
 type TaskTaskReportConfigArgs struct {
-	// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
-	OutputType pulumi.StringPtrInput `pulumi:"outputType"`
-	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	ReportLevel pulumi.StringPtrInput `pulumi:"reportLevel"`
-	// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
-	ReportOverrides TaskTaskReportConfigReportOverridesPtrInput `pulumi:"reportOverrides"`
-	// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
-	S3Destination TaskTaskReportConfigS3DestinationInput `pulumi:"s3Destination"`
-	// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
-	S3ObjectVersioning pulumi.StringPtrInput `pulumi:"s3ObjectVersioning"`
+	OutputType         pulumi.StringPtrInput                       `pulumi:"outputType"`
+	ReportLevel        pulumi.StringPtrInput                       `pulumi:"reportLevel"`
+	ReportOverrides    TaskTaskReportConfigReportOverridesPtrInput `pulumi:"reportOverrides"`
+	S3Destination      TaskTaskReportConfigS3DestinationInput      `pulumi:"s3Destination"`
+	S3ObjectVersioning pulumi.StringPtrInput                       `pulumi:"s3ObjectVersioning"`
 }
 
 func (TaskTaskReportConfigArgs) ElementType() reflect.Type {
@@ -3252,27 +3080,22 @@ func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigPtrOutputWithContext(c
 	}).(TaskTaskReportConfigPtrOutput)
 }
 
-// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
 func (o TaskTaskReportConfigOutput) OutputType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.OutputType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigOutput) ReportLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.ReportLevel }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
 func (o TaskTaskReportConfigOutput) ReportOverrides() TaskTaskReportConfigReportOverridesPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfig) *TaskTaskReportConfigReportOverrides { return v.ReportOverrides }).(TaskTaskReportConfigReportOverridesPtrOutput)
 }
 
-// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
 func (o TaskTaskReportConfigOutput) S3Destination() TaskTaskReportConfigS3DestinationOutput {
 	return o.ApplyT(func(v TaskTaskReportConfig) TaskTaskReportConfigS3Destination { return v.S3Destination }).(TaskTaskReportConfigS3DestinationOutput)
 }
 
-// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
 func (o TaskTaskReportConfigOutput) S3ObjectVersioning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.S3ObjectVersioning }).(pulumi.StringPtrOutput)
 }
@@ -3301,7 +3124,6 @@ func (o TaskTaskReportConfigPtrOutput) Elem() TaskTaskReportConfigOutput {
 	}).(TaskTaskReportConfigOutput)
 }
 
-// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
 func (o TaskTaskReportConfigPtrOutput) OutputType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
 		if v == nil {
@@ -3311,7 +3133,6 @@ func (o TaskTaskReportConfigPtrOutput) OutputType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigPtrOutput) ReportLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
 		if v == nil {
@@ -3321,7 +3142,6 @@ func (o TaskTaskReportConfigPtrOutput) ReportLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
 func (o TaskTaskReportConfigPtrOutput) ReportOverrides() TaskTaskReportConfigReportOverridesPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfig) *TaskTaskReportConfigReportOverrides {
 		if v == nil {
@@ -3331,7 +3151,6 @@ func (o TaskTaskReportConfigPtrOutput) ReportOverrides() TaskTaskReportConfigRep
 	}).(TaskTaskReportConfigReportOverridesPtrOutput)
 }
 
-// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
 func (o TaskTaskReportConfigPtrOutput) S3Destination() TaskTaskReportConfigS3DestinationPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfig) *TaskTaskReportConfigS3Destination {
 		if v == nil {
@@ -3341,7 +3160,6 @@ func (o TaskTaskReportConfigPtrOutput) S3Destination() TaskTaskReportConfigS3Des
 	}).(TaskTaskReportConfigS3DestinationPtrOutput)
 }
 
-// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
 func (o TaskTaskReportConfigPtrOutput) S3ObjectVersioning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
 		if v == nil {
@@ -3352,16 +3170,10 @@ func (o TaskTaskReportConfigPtrOutput) S3ObjectVersioning() pulumi.StringPtrOutp
 }
 
 type TaskTaskReportConfigReportOverrides struct {
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	DeletedOverride *string `pulumi:"deletedOverride"`
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	SkippedOverride *string `pulumi:"skippedOverride"`
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	DeletedOverride     *string `pulumi:"deletedOverride"`
+	SkippedOverride     *string `pulumi:"skippedOverride"`
 	TransferredOverride *string `pulumi:"transferredOverride"`
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	//
-	// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-	VerifiedOverride *string `pulumi:"verifiedOverride"`
+	VerifiedOverride    *string `pulumi:"verifiedOverride"`
 }
 
 // TaskTaskReportConfigReportOverridesInput is an input type that accepts TaskTaskReportConfigReportOverridesArgs and TaskTaskReportConfigReportOverridesOutput values.
@@ -3376,16 +3188,10 @@ type TaskTaskReportConfigReportOverridesInput interface {
 }
 
 type TaskTaskReportConfigReportOverridesArgs struct {
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	DeletedOverride pulumi.StringPtrInput `pulumi:"deletedOverride"`
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	SkippedOverride pulumi.StringPtrInput `pulumi:"skippedOverride"`
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	DeletedOverride     pulumi.StringPtrInput `pulumi:"deletedOverride"`
+	SkippedOverride     pulumi.StringPtrInput `pulumi:"skippedOverride"`
 	TransferredOverride pulumi.StringPtrInput `pulumi:"transferredOverride"`
-	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-	//
-	// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-	VerifiedOverride pulumi.StringPtrInput `pulumi:"verifiedOverride"`
+	VerifiedOverride    pulumi.StringPtrInput `pulumi:"verifiedOverride"`
 }
 
 func (TaskTaskReportConfigReportOverridesArgs) ElementType() reflect.Type {
@@ -3465,24 +3271,18 @@ func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportO
 	}).(TaskTaskReportConfigReportOverridesPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigReportOverridesOutput) DeletedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.DeletedOverride }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigReportOverridesOutput) SkippedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.SkippedOverride }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigReportOverridesOutput) TransferredOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.TransferredOverride }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-//
-// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
 func (o TaskTaskReportConfigReportOverridesOutput) VerifiedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.VerifiedOverride }).(pulumi.StringPtrOutput)
 }
@@ -3511,7 +3311,6 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) Elem() TaskTaskReportConfi
 	}).(TaskTaskReportConfigReportOverridesOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigReportOverridesPtrOutput) DeletedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
 		if v == nil {
@@ -3521,7 +3320,6 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) DeletedOverride() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigReportOverridesPtrOutput) SkippedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
 		if v == nil {
@@ -3531,7 +3329,6 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) SkippedOverride() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
 func (o TaskTaskReportConfigReportOverridesPtrOutput) TransferredOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
 		if v == nil {
@@ -3541,9 +3338,6 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) TransferredOverride() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-//
-// > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
 func (o TaskTaskReportConfigReportOverridesPtrOutput) VerifiedOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
 		if v == nil {
@@ -3554,12 +3348,9 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) VerifiedOverride() pulumi.
 }
 
 type TaskTaskReportConfigS3Destination struct {
-	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
-	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
-	S3BucketArn string `pulumi:"s3BucketArn"`
-	// Specifies a bucket prefix for your report.
-	Subdirectory *string `pulumi:"subdirectory"`
+	BucketAccessRoleArn string  `pulumi:"bucketAccessRoleArn"`
+	S3BucketArn         string  `pulumi:"s3BucketArn"`
+	Subdirectory        *string `pulumi:"subdirectory"`
 }
 
 // TaskTaskReportConfigS3DestinationInput is an input type that accepts TaskTaskReportConfigS3DestinationArgs and TaskTaskReportConfigS3DestinationOutput values.
@@ -3574,12 +3365,9 @@ type TaskTaskReportConfigS3DestinationInput interface {
 }
 
 type TaskTaskReportConfigS3DestinationArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
-	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
-	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
-	// Specifies a bucket prefix for your report.
-	Subdirectory pulumi.StringPtrInput `pulumi:"subdirectory"`
+	BucketAccessRoleArn pulumi.StringInput    `pulumi:"bucketAccessRoleArn"`
+	S3BucketArn         pulumi.StringInput    `pulumi:"s3BucketArn"`
+	Subdirectory        pulumi.StringPtrInput `pulumi:"subdirectory"`
 }
 
 func (TaskTaskReportConfigS3DestinationArgs) ElementType() reflect.Type {
@@ -3659,17 +3447,14 @@ func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3Destina
 	}).(TaskTaskReportConfigS3DestinationPtrOutput)
 }
 
-// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
 func (o TaskTaskReportConfigS3DestinationOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
 }
 
-// Specifies the ARN of the S3 bucket where DataSync uploads your report.
 func (o TaskTaskReportConfigS3DestinationOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.S3BucketArn }).(pulumi.StringOutput)
 }
 
-// Specifies a bucket prefix for your report.
 func (o TaskTaskReportConfigS3DestinationOutput) Subdirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) *string { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
@@ -3698,7 +3483,6 @@ func (o TaskTaskReportConfigS3DestinationPtrOutput) Elem() TaskTaskReportConfigS
 	}).(TaskTaskReportConfigS3DestinationOutput)
 }
 
-// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
 func (o TaskTaskReportConfigS3DestinationPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
 		if v == nil {
@@ -3708,7 +3492,6 @@ func (o TaskTaskReportConfigS3DestinationPtrOutput) BucketAccessRoleArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ARN of the S3 bucket where DataSync uploads your report.
 func (o TaskTaskReportConfigS3DestinationPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
 		if v == nil {
@@ -3718,7 +3501,6 @@ func (o TaskTaskReportConfigS3DestinationPtrOutput) S3BucketArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a bucket prefix for your report.
 func (o TaskTaskReportConfigS3DestinationPtrOutput) Subdirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
 		if v == nil {

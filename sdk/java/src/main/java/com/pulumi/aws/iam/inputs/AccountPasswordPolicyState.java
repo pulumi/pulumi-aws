@@ -16,152 +16,72 @@ public final class AccountPasswordPolicyState extends com.pulumi.resources.Resou
 
     public static final AccountPasswordPolicyState Empty = new AccountPasswordPolicyState();
 
-    /**
-     * Whether to allow users to change their own password
-     * 
-     */
     @Import(name="allowUsersToChangePassword")
     private @Nullable Output<Boolean> allowUsersToChangePassword;
 
-    /**
-     * @return Whether to allow users to change their own password
-     * 
-     */
     public Optional<Output<Boolean>> allowUsersToChangePassword() {
         return Optional.ofNullable(this.allowUsersToChangePassword);
     }
 
-    /**
-     * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-     * 
-     */
     @Import(name="expirePasswords")
     private @Nullable Output<Boolean> expirePasswords;
 
-    /**
-     * @return Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-     * 
-     */
     public Optional<Output<Boolean>> expirePasswords() {
         return Optional.ofNullable(this.expirePasswords);
     }
 
-    /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-     * 
-     */
     @Import(name="hardExpiry")
     private @Nullable Output<Boolean> hardExpiry;
 
-    /**
-     * @return Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-     * 
-     */
     public Optional<Output<Boolean>> hardExpiry() {
         return Optional.ofNullable(this.hardExpiry);
     }
 
-    /**
-     * The number of days that an user password is valid.
-     * 
-     */
     @Import(name="maxPasswordAge")
     private @Nullable Output<Integer> maxPasswordAge;
 
-    /**
-     * @return The number of days that an user password is valid.
-     * 
-     */
     public Optional<Output<Integer>> maxPasswordAge() {
         return Optional.ofNullable(this.maxPasswordAge);
     }
 
-    /**
-     * Minimum length to require for user passwords.
-     * 
-     */
     @Import(name="minimumPasswordLength")
     private @Nullable Output<Integer> minimumPasswordLength;
 
-    /**
-     * @return Minimum length to require for user passwords.
-     * 
-     */
     public Optional<Output<Integer>> minimumPasswordLength() {
         return Optional.ofNullable(this.minimumPasswordLength);
     }
 
-    /**
-     * The number of previous passwords that users are prevented from reusing.
-     * 
-     */
     @Import(name="passwordReusePrevention")
     private @Nullable Output<Integer> passwordReusePrevention;
 
-    /**
-     * @return The number of previous passwords that users are prevented from reusing.
-     * 
-     */
     public Optional<Output<Integer>> passwordReusePrevention() {
         return Optional.ofNullable(this.passwordReusePrevention);
     }
 
-    /**
-     * Whether to require lowercase characters for user passwords.
-     * 
-     */
     @Import(name="requireLowercaseCharacters")
     private @Nullable Output<Boolean> requireLowercaseCharacters;
 
-    /**
-     * @return Whether to require lowercase characters for user passwords.
-     * 
-     */
     public Optional<Output<Boolean>> requireLowercaseCharacters() {
         return Optional.ofNullable(this.requireLowercaseCharacters);
     }
 
-    /**
-     * Whether to require numbers for user passwords.
-     * 
-     */
     @Import(name="requireNumbers")
     private @Nullable Output<Boolean> requireNumbers;
 
-    /**
-     * @return Whether to require numbers for user passwords.
-     * 
-     */
     public Optional<Output<Boolean>> requireNumbers() {
         return Optional.ofNullable(this.requireNumbers);
     }
 
-    /**
-     * Whether to require symbols for user passwords.
-     * 
-     */
     @Import(name="requireSymbols")
     private @Nullable Output<Boolean> requireSymbols;
 
-    /**
-     * @return Whether to require symbols for user passwords.
-     * 
-     */
     public Optional<Output<Boolean>> requireSymbols() {
         return Optional.ofNullable(this.requireSymbols);
     }
 
-    /**
-     * Whether to require uppercase characters for user passwords.
-     * 
-     */
     @Import(name="requireUppercaseCharacters")
     private @Nullable Output<Boolean> requireUppercaseCharacters;
 
-    /**
-     * @return Whether to require uppercase characters for user passwords.
-     * 
-     */
     public Optional<Output<Boolean>> requireUppercaseCharacters() {
         return Optional.ofNullable(this.requireUppercaseCharacters);
     }
@@ -199,212 +119,92 @@ public final class AccountPasswordPolicyState extends com.pulumi.resources.Resou
             $ = new AccountPasswordPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowUsersToChangePassword Whether to allow users to change their own password
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowUsersToChangePassword(@Nullable Output<Boolean> allowUsersToChangePassword) {
             $.allowUsersToChangePassword = allowUsersToChangePassword;
             return this;
         }
 
-        /**
-         * @param allowUsersToChangePassword Whether to allow users to change their own password
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowUsersToChangePassword(Boolean allowUsersToChangePassword) {
             return allowUsersToChangePassword(Output.of(allowUsersToChangePassword));
         }
 
-        /**
-         * @param expirePasswords Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expirePasswords(@Nullable Output<Boolean> expirePasswords) {
             $.expirePasswords = expirePasswords;
             return this;
         }
 
-        /**
-         * @param expirePasswords Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expirePasswords(Boolean expirePasswords) {
             return expirePasswords(Output.of(expirePasswords));
         }
 
-        /**
-         * @param hardExpiry Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-         * 
-         * @return builder
-         * 
-         */
         public Builder hardExpiry(@Nullable Output<Boolean> hardExpiry) {
             $.hardExpiry = hardExpiry;
             return this;
         }
 
-        /**
-         * @param hardExpiry Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
-         * 
-         * @return builder
-         * 
-         */
         public Builder hardExpiry(Boolean hardExpiry) {
             return hardExpiry(Output.of(hardExpiry));
         }
 
-        /**
-         * @param maxPasswordAge The number of days that an user password is valid.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPasswordAge(@Nullable Output<Integer> maxPasswordAge) {
             $.maxPasswordAge = maxPasswordAge;
             return this;
         }
 
-        /**
-         * @param maxPasswordAge The number of days that an user password is valid.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPasswordAge(Integer maxPasswordAge) {
             return maxPasswordAge(Output.of(maxPasswordAge));
         }
 
-        /**
-         * @param minimumPasswordLength Minimum length to require for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumPasswordLength(@Nullable Output<Integer> minimumPasswordLength) {
             $.minimumPasswordLength = minimumPasswordLength;
             return this;
         }
 
-        /**
-         * @param minimumPasswordLength Minimum length to require for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumPasswordLength(Integer minimumPasswordLength) {
             return minimumPasswordLength(Output.of(minimumPasswordLength));
         }
 
-        /**
-         * @param passwordReusePrevention The number of previous passwords that users are prevented from reusing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordReusePrevention(@Nullable Output<Integer> passwordReusePrevention) {
             $.passwordReusePrevention = passwordReusePrevention;
             return this;
         }
 
-        /**
-         * @param passwordReusePrevention The number of previous passwords that users are prevented from reusing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordReusePrevention(Integer passwordReusePrevention) {
             return passwordReusePrevention(Output.of(passwordReusePrevention));
         }
 
-        /**
-         * @param requireLowercaseCharacters Whether to require lowercase characters for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireLowercaseCharacters(@Nullable Output<Boolean> requireLowercaseCharacters) {
             $.requireLowercaseCharacters = requireLowercaseCharacters;
             return this;
         }
 
-        /**
-         * @param requireLowercaseCharacters Whether to require lowercase characters for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireLowercaseCharacters(Boolean requireLowercaseCharacters) {
             return requireLowercaseCharacters(Output.of(requireLowercaseCharacters));
         }
 
-        /**
-         * @param requireNumbers Whether to require numbers for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireNumbers(@Nullable Output<Boolean> requireNumbers) {
             $.requireNumbers = requireNumbers;
             return this;
         }
 
-        /**
-         * @param requireNumbers Whether to require numbers for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireNumbers(Boolean requireNumbers) {
             return requireNumbers(Output.of(requireNumbers));
         }
 
-        /**
-         * @param requireSymbols Whether to require symbols for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireSymbols(@Nullable Output<Boolean> requireSymbols) {
             $.requireSymbols = requireSymbols;
             return this;
         }
 
-        /**
-         * @param requireSymbols Whether to require symbols for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireSymbols(Boolean requireSymbols) {
             return requireSymbols(Output.of(requireSymbols));
         }
 
-        /**
-         * @param requireUppercaseCharacters Whether to require uppercase characters for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireUppercaseCharacters(@Nullable Output<Boolean> requireUppercaseCharacters) {
             $.requireUppercaseCharacters = requireUppercaseCharacters;
             return this;
         }
 
-        /**
-         * @param requireUppercaseCharacters Whether to require uppercase characters for user passwords.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireUppercaseCharacters(Boolean requireUppercaseCharacters) {
             return requireUppercaseCharacters(Output.of(requireUppercaseCharacters));
         }

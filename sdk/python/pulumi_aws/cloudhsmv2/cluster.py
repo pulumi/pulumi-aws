@@ -29,12 +29,6 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
-        :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "hsm_type", hsm_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -50,9 +44,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="hsmType")
     def hsm_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        """
         return pulumi.get(self, "hsm_type")
 
     @hsm_type.setter
@@ -62,9 +53,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The IDs of subnets in which cluster will operate.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -74,9 +62,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -86,9 +71,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -98,9 +80,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of Cloud HSM v2 cluster backup to be restored.
-        """
         return pulumi.get(self, "source_backup_identifier")
 
     @source_backup_identifier.setter
@@ -110,9 +89,6 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,18 +113,6 @@ class _ClusterState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]] cluster_certificates: The list of cluster certificates.
-        :param pulumi.Input[_builtins.str] cluster_id: The id of the CloudHSM cluster.
-        :param pulumi.Input[_builtins.str] cluster_state: The state of the CloudHSM cluster.
-        :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
-        :param pulumi.Input[_builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
         """
         if cluster_certificates is not None:
             pulumi.set(__self__, "cluster_certificates", cluster_certificates)
@@ -178,9 +142,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterCertificates")
     def cluster_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]]]:
-        """
-        The list of cluster certificates.
-        """
         return pulumi.get(self, "cluster_certificates")
 
     @cluster_certificates.setter
@@ -190,9 +151,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The id of the CloudHSM cluster.
-        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -202,9 +160,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterState")
     def cluster_state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state of the CloudHSM cluster.
-        """
         return pulumi.get(self, "cluster_state")
 
     @cluster_state.setter
@@ -214,9 +169,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="hsmType")
     def hsm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        """
         return pulumi.get(self, "hsm_type")
 
     @hsm_type.setter
@@ -226,9 +178,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -238,9 +187,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -250,9 +196,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the security group associated with the CloudHSM cluster.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -262,9 +205,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of Cloud HSM v2 cluster backup to be restored.
-        """
         return pulumi.get(self, "source_backup_identifier")
 
     @source_backup_identifier.setter
@@ -274,9 +214,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The IDs of subnets in which cluster will operate.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -286,9 +223,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -298,9 +232,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -310,9 +241,6 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The id of the VPC that the CloudHSM cluster resides in.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -334,65 +262,9 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates an Amazon CloudHSM v2 cluster.
-
-        For information about CloudHSM v2, see the
-        [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
-        CloudHSM API Reference][2].
-
-        > **NOTE:** A CloudHSM Cluster can take several minutes to set up.
-        Practically no single attribute can be updated, except for `tags`.
-        If you need to delete a cluster, you have to remove its HSM modules first.
-        To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
-
-        ## Example Usage
-
-        The following example below creates a CloudHSM cluster.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        cloudhsm_v2_vpc = aws.ec2.Vpc("cloudhsm_v2_vpc",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "example-aws_cloudhsm_v2_cluster",
-            })
-        cloudhsm_v2_subnets = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{range['value']}",
-                vpc_id=cloudhsm_v2_vpc.id,
-                cidr_block=subnets[range["value"]],
-                map_public_ip_on_launch=False,
-                availability_zone=available.names[range["value"]],
-                tags={
-                    "Name": "example-aws_cloudhsm_v2_cluster",
-                }))
-        cloudhsm_v2_cluster = aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster",
-            hsm_type="hsm1.medium",
-            subnet_ids=[__item.id for __item in cloudhsm_v2_subnets],
-            tags={
-                "Name": "example-aws_cloudhsm_v2_cluster",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -401,57 +273,7 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an Amazon CloudHSM v2 cluster.
-
-        For information about CloudHSM v2, see the
-        [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
-        CloudHSM API Reference][2].
-
-        > **NOTE:** A CloudHSM Cluster can take several minutes to set up.
-        Practically no single attribute can be updated, except for `tags`.
-        If you need to delete a cluster, you have to remove its HSM modules first.
-        To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
-
-        ## Example Usage
-
-        The following example below creates a CloudHSM cluster.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        cloudhsm_v2_vpc = aws.ec2.Vpc("cloudhsm_v2_vpc",
-            cidr_block="10.0.0.0/16",
-            tags={
-                "Name": "example-aws_cloudhsm_v2_cluster",
-            })
-        cloudhsm_v2_subnets = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{range['value']}",
-                vpc_id=cloudhsm_v2_vpc.id,
-                cidr_block=subnets[range["value"]],
-                map_public_ip_on_launch=False,
-                availability_zone=available.names[range["value"]],
-                tags={
-                    "Name": "example-aws_cloudhsm_v2_cluster",
-                }))
-        cloudhsm_v2_cluster = aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster",
-            hsm_type="hsm1.medium",
-            subnet_ids=[__item.id for __item in cloudhsm_v2_subnets],
-            tags={
-                "Name": "example-aws_cloudhsm_v2_cluster",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
-        ```
-
+        Create a Cluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -527,18 +349,6 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterCertificateArgs', 'ClusterClusterCertificateArgsDict']]]] cluster_certificates: The list of cluster certificates.
-        :param pulumi.Input[_builtins.str] cluster_id: The id of the CloudHSM cluster.
-        :param pulumi.Input[_builtins.str] cluster_state: The state of the CloudHSM cluster.
-        :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
-        :param pulumi.Input[_builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -561,96 +371,60 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterCertificates")
     def cluster_certificates(self) -> pulumi.Output[Sequence['outputs.ClusterClusterCertificate']]:
-        """
-        The list of cluster certificates.
-        """
         return pulumi.get(self, "cluster_certificates")
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The id of the CloudHSM cluster.
-        """
         return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="clusterState")
     def cluster_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The state of the CloudHSM cluster.
-        """
         return pulumi.get(self, "cluster_state")
 
     @_builtins.property
     @pulumi.getter(name="hsmType")
     def hsm_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
-        """
         return pulumi.get(self, "hsm_type")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the security group associated with the CloudHSM cluster.
-        """
         return pulumi.get(self, "security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of Cloud HSM v2 cluster backup to be restored.
-        """
         return pulumi.get(self, "source_backup_identifier")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The IDs of subnets in which cluster will operate.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The id of the VPC that the CloudHSM cluster resides in.
-        """
         return pulumi.get(self, "vpc_id")
 

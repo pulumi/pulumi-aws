@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class ConfigurationSetEventDestinationEventDestinationEventBridgeDestination
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
-        /// </summary>
         public readonly string EventBusArn;
 
         [OutputConstructor]

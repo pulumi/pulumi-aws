@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventTargetRunCommandTarget {
-    /**
-     * @return Can be either `tag:tag-key` or `InstanceIds`.
-     * 
-     */
     private String key;
-    /**
-     * @return If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-     * 
-     */
     private List<String> values;
 
     private EventTargetRunCommandTarget() {}
-    /**
-     * @return Can be either `tag:tag-key` or `InstanceIds`.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

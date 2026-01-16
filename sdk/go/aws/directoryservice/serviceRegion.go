@@ -12,191 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a replicated Region and directory for Multi-Region replication.
-// Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-// State: pulumi.StringRef("available"),
-// Filters: []aws.GetAvailabilityZonesFilter{
-// {
-// Name: "opt-in-status",
-// Values: []string{
-// "opt-in-not-required",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-// CidrBlock: pulumi.String("10.0.0.0/16"),
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("Primary"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// var exampleSubnet []*ec2.Subnet
-//
-//	for index := 0; index < 2; index++ {
-//	    key0 := index
-//	    val0 := index
-//
-// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-// VpcId: exampleVpc.ID(),
-// AvailabilityZone: pulumi.String(available.Names[val0]),
-// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
-// }).(pulumi.StringPtrOutput)),
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("Primary"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// exampleSubnet = append(exampleSubnet, __res)
-// }
-// exampleDirectory, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
-// Name: pulumi.String("example.com"),
-// Password: pulumi.String("SuperSecretPassw0rd"),
-// Type: pulumi.String("MicrosoftAD"),
-// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: exampleVpc.ID(),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:44,17-36),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// available_secondary, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-// State: pulumi.StringRef("available"),
-// Filters: []aws.GetAvailabilityZonesFilter{
-// {
-// Name: "opt-in-status",
-// Values: []string{
-// "opt-in-not-required",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example_secondary, err := ec2.NewVpc(ctx, "example-secondary", &ec2.VpcArgs{
-// CidrBlock: pulumi.String("10.1.0.0/16"),
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("Secondary"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// invokeCidrsubnet1, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// var example_secondarySubnet []*ec2.Subnet
-//
-//	for index := 0; index < 2; index++ {
-//	    key0 := index
-//	    val0 := index
-//
-// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
-// VpcId: example_secondary.ID(),
-// AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
-// CidrBlock: pulumi.String(example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
-// }).(pulumi.StringPtrOutput)),
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("Secondary"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// example_secondarySubnet = append(example_secondarySubnet, __res)
-// }
-// _, err = directoryservice.NewServiceRegion(ctx, "example", &directoryservice.ServiceRegionArgs{
-// DirectoryId: exampleDirectory.ID(),
-// RegionName: pulumi.String(example.Name),
-// VpcSettings: &directoryservice.ServiceRegionVpcSettingsArgs{
-// VpcId: example_secondary.ID(),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:87,17-46),
-// },
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("Secondary"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
-//
-// ```sh
-// $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-// ```
 type ServiceRegion struct {
 	pulumi.CustomResourceState
 
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringOutput `pulumi:"regionName"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettingsOutput `pulumi:"vpcSettings"`
+	DesiredNumberOfDomainControllers pulumi.IntOutput               `pulumi:"desiredNumberOfDomainControllers"`
+	DirectoryId                      pulumi.StringOutput            `pulumi:"directoryId"`
+	Region                           pulumi.StringOutput            `pulumi:"region"`
+	RegionName                       pulumi.StringOutput            `pulumi:"regionName"`
+	Tags                             pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll                          pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	VpcSettings                      ServiceRegionVpcSettingsOutput `pulumi:"vpcSettings"`
 }
 
 // NewServiceRegion registers a new resource with the given unique name, arguments, and options.
@@ -238,37 +63,23 @@ func GetServiceRegion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceRegion resources.
 type serviceRegionState struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId *string `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName *string `pulumi:"regionName"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings *ServiceRegionVpcSettings `pulumi:"vpcSettings"`
+	DesiredNumberOfDomainControllers *int                      `pulumi:"desiredNumberOfDomainControllers"`
+	DirectoryId                      *string                   `pulumi:"directoryId"`
+	Region                           *string                   `pulumi:"region"`
+	RegionName                       *string                   `pulumi:"regionName"`
+	Tags                             map[string]string         `pulumi:"tags"`
+	TagsAll                          map[string]string         `pulumi:"tagsAll"`
+	VpcSettings                      *ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
 
 type ServiceRegionState struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettingsPtrInput
+	DirectoryId                      pulumi.StringPtrInput
+	Region                           pulumi.StringPtrInput
+	RegionName                       pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
+	TagsAll                          pulumi.StringMapInput
+	VpcSettings                      ServiceRegionVpcSettingsPtrInput
 }
 
 func (ServiceRegionState) ElementType() reflect.Type {
@@ -276,34 +87,22 @@ func (ServiceRegionState) ElementType() reflect.Type {
 }
 
 type serviceRegionArgs struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId string `pulumi:"directoryId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName string `pulumi:"regionName"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettings `pulumi:"vpcSettings"`
+	DesiredNumberOfDomainControllers *int                     `pulumi:"desiredNumberOfDomainControllers"`
+	DirectoryId                      string                   `pulumi:"directoryId"`
+	Region                           *string                  `pulumi:"region"`
+	RegionName                       string                   `pulumi:"regionName"`
+	Tags                             map[string]string        `pulumi:"tags"`
+	VpcSettings                      ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
 
 // The set of arguments for constructing a ServiceRegion resource.
 type ServiceRegionArgs struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettingsInput
+	DirectoryId                      pulumi.StringInput
+	Region                           pulumi.StringPtrInput
+	RegionName                       pulumi.StringInput
+	Tags                             pulumi.StringMapInput
+	VpcSettings                      ServiceRegionVpcSettingsInput
 }
 
 func (ServiceRegionArgs) ElementType() reflect.Type {
@@ -393,37 +192,30 @@ func (o ServiceRegionOutput) ToServiceRegionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 func (o ServiceRegionOutput) DesiredNumberOfDomainControllers() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.IntOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntOutput)
 }
 
-// The identifier of the directory to which you want to add Region replication.
 func (o ServiceRegionOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceRegionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the Region where you want to add domain controllers for replication.
 func (o ServiceRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.RegionName }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceRegionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceRegionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// VPC information in the replicated Region. Detailed below.
 func (o ServiceRegionOutput) VpcSettings() ServiceRegionVpcSettingsOutput {
 	return o.ApplyT(func(v *ServiceRegion) ServiceRegionVpcSettingsOutput { return v.VpcSettings }).(ServiceRegionVpcSettingsOutput)
 }

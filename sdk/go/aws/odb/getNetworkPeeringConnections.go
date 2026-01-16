@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for retrieving all oracle database network peering resource in Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetNetworkPeeringConnections(ctx, &odb.GetNetworkPeeringConnectionsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetNetworkPeeringConnections(ctx *pulumi.Context, args *GetNetworkPeeringConnectionsArgs, opts ...pulumi.InvokeOption) (*GetNetworkPeeringConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkPeeringConnectionsResult
@@ -52,17 +23,14 @@ func GetNetworkPeeringConnections(ctx *pulumi.Context, args *GetNetworkPeeringCo
 
 // A collection of arguments for invoking getNetworkPeeringConnections.
 type GetNetworkPeeringConnectionsArgs struct {
-	// The list of ODB peering connections. A summary of an ODB peering connection.
 	OdbPeeringConnections []GetNetworkPeeringConnectionsOdbPeeringConnection `pulumi:"odbPeeringConnections"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                *string                                            `pulumi:"region"`
 }
 
 // A collection of values returned by getNetworkPeeringConnections.
 type GetNetworkPeeringConnectionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The list of ODB peering connections. A summary of an ODB peering connection.
+	Id                    string                                             `pulumi:"id"`
 	OdbPeeringConnections []GetNetworkPeeringConnectionsOdbPeeringConnection `pulumi:"odbPeeringConnections"`
 	Region                string                                             `pulumi:"region"`
 }
@@ -78,10 +46,8 @@ func GetNetworkPeeringConnectionsOutput(ctx *pulumi.Context, args GetNetworkPeer
 
 // A collection of arguments for invoking getNetworkPeeringConnections.
 type GetNetworkPeeringConnectionsOutputArgs struct {
-	// The list of ODB peering connections. A summary of an ODB peering connection.
 	OdbPeeringConnections GetNetworkPeeringConnectionsOdbPeeringConnectionArrayInput `pulumi:"odbPeeringConnections"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region                pulumi.StringPtrInput                                      `pulumi:"region"`
 }
 
 func (GetNetworkPeeringConnectionsOutputArgs) ElementType() reflect.Type {
@@ -108,7 +74,6 @@ func (o GetNetworkPeeringConnectionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The list of ODB peering connections. A summary of an ODB peering connection.
 func (o GetNetworkPeeringConnectionsResultOutput) OdbPeeringConnections() GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput {
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsResult) []GetNetworkPeeringConnectionsOdbPeeringConnection {
 		return v.OdbPeeringConnections

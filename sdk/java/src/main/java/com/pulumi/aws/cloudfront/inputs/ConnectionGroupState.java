@@ -18,182 +18,86 @@ public final class ConnectionGroupState extends com.pulumi.resources.ResourceArg
 
     public static final ConnectionGroupState Empty = new ConnectionGroupState();
 
-    /**
-     * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     * 
-     */
     @Import(name="anycastIpListId")
     private @Nullable Output<String> anycastIpListId;
 
-    /**
-     * @return ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-     * 
-     */
     public Optional<Output<String>> anycastIpListId() {
         return Optional.ofNullable(this.anycastIpListId);
     }
 
-    /**
-     * ARN of the connection group.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the connection group.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Whether the connection group is enabled. Default is `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the connection group is enabled. Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Current version of the connection group.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return Current version of the connection group.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * Whether IPv6 is enabled for the connection group. Default is `false`.
-     * 
-     */
     @Import(name="ipv6Enabled")
     private @Nullable Output<Boolean> ipv6Enabled;
 
-    /**
-     * @return Whether IPv6 is enabled for the connection group. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ipv6Enabled() {
         return Optional.ofNullable(this.ipv6Enabled);
     }
 
-    /**
-     * Whether the connection group is the default connection group for the distribution tenants.
-     * 
-     */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
-    /**
-     * @return Whether the connection group is the default connection group for the distribution tenants.
-     * 
-     */
     public Optional<Output<Boolean>> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
 
-    /**
-     * Date and time when the connection group was last modified.
-     * 
-     */
     @Import(name="lastModifiedTime")
     private @Nullable Output<String> lastModifiedTime;
 
-    /**
-     * @return Date and time when the connection group was last modified.
-     * 
-     */
     public Optional<Output<String>> lastModifiedTime() {
         return Optional.ofNullable(this.lastModifiedTime);
     }
 
-    /**
-     * Name of the connection group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the connection group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-     * 
-     */
     @Import(name="routingEndpoint")
     private @Nullable Output<String> routingEndpoint;
 
-    /**
-     * @return The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-     * 
-     */
     public Optional<Output<String>> routingEndpoint() {
         return Optional.ofNullable(this.routingEndpoint);
     }
 
-    /**
-     * Current status of the connection group.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Current status of the connection group.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -249,254 +153,110 @@ public final class ConnectionGroupState extends com.pulumi.resources.ResourceArg
             $ = new ConnectionGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param anycastIpListId ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-         * 
-         * @return builder
-         * 
-         */
         public Builder anycastIpListId(@Nullable Output<String> anycastIpListId) {
             $.anycastIpListId = anycastIpListId;
             return this;
         }
 
-        /**
-         * @param anycastIpListId ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
-         * 
-         * @return builder
-         * 
-         */
         public Builder anycastIpListId(String anycastIpListId) {
             return anycastIpListId(Output.of(anycastIpListId));
         }
 
-        /**
-         * @param arn ARN of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param enabled Whether the connection group is enabled. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the connection group is enabled. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param etag Current version of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag Current version of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param ipv6Enabled Whether IPv6 is enabled for the connection group. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Enabled(@Nullable Output<Boolean> ipv6Enabled) {
             $.ipv6Enabled = ipv6Enabled;
             return this;
         }
 
-        /**
-         * @param ipv6Enabled Whether IPv6 is enabled for the connection group. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv6Enabled(Boolean ipv6Enabled) {
             return ipv6Enabled(Output.of(ipv6Enabled));
         }
 
-        /**
-         * @param isDefault Whether the connection group is the default connection group for the distribution tenants.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(@Nullable Output<Boolean> isDefault) {
             $.isDefault = isDefault;
             return this;
         }
 
-        /**
-         * @param isDefault Whether the connection group is the default connection group for the distribution tenants.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
         }
 
-        /**
-         * @param lastModifiedTime Date and time when the connection group was last modified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModifiedTime(@Nullable Output<String> lastModifiedTime) {
             $.lastModifiedTime = lastModifiedTime;
             return this;
         }
 
-        /**
-         * @param lastModifiedTime Date and time when the connection group was last modified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModifiedTime(String lastModifiedTime) {
             return lastModifiedTime(Output.of(lastModifiedTime));
         }
 
-        /**
-         * @param name Name of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param routingEndpoint The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingEndpoint(@Nullable Output<String> routingEndpoint) {
             $.routingEndpoint = routingEndpoint;
             return this;
         }
 
-        /**
-         * @param routingEndpoint The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingEndpoint(String routingEndpoint) {
             return routingEndpoint(Output.of(routingEndpoint));
         }
 
-        /**
-         * @param status Current status of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current status of the connection group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

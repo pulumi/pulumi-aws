@@ -15,115 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages Amazon S3 Tables Table Replication configuration.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3tables.TableReplication;
- * import com.pulumi.aws.s3tables.TableReplicationArgs;
- * import com.pulumi.aws.s3tables.inputs.TableReplicationRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TableReplication("example", TableReplicationArgs.builder()
- *             .tableArn(exampleAwsS3tablesTable.arn())
- *             .role(exampleAwsIamRole.arn())
- *             .rule(TableReplicationRuleArgs.builder()
- *                 .destinations(TableReplicationRuleDestinationArgs.builder()
- *                     .destinationTableBucketArn(target.arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import S3 Tables Table Replication using the `table_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3tables/tableReplication:TableReplication example &#39;arn:aws:s3tables:us-west-2:123456789012:table/example-table&#39;
- * ```
- * 
- */
 @ResourceType(type="aws:s3tables/tableReplication:TableReplication")
 public class TableReplication extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN referencing the IAM role assumed by S3 when replicating tables.
-     * 
-     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
-    /**
-     * @return ARN referencing the IAM role assumed by S3 when replicating tables.
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
-    /**
-     * Replication rules. See Rule below for more details.
-     * 
-     */
     @Export(name="rule", refs={TableReplicationRule.class}, tree="[0]")
     private Output</* @Nullable */ TableReplicationRule> rule;
 
-    /**
-     * @return Replication rules. See Rule below for more details.
-     * 
-     */
     public Output<Optional<TableReplicationRule>> rule() {
         return Codegen.optional(this.rule);
     }
-    /**
-     * ARN referencing the Table that owns this replication configuration.
-     * 
-     */
     @Export(name="tableArn", refs={String.class}, tree="[0]")
     private Output<String> tableArn;
 
-    /**
-     * @return ARN referencing the Table that owns this replication configuration.
-     * 
-     */
     public Output<String> tableArn() {
         return this.tableArn;
     }

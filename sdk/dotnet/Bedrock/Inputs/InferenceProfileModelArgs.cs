@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class InferenceProfileModelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the model.
-        /// </summary>
         [Input("modelArn", required: true)]
         public Input<string> ModelArn { get; set; } = null!;
 

@@ -75,25 +75,16 @@ class GetOutpostResult:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability Zone name.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
-        """
-        Availability Zone identifier.
-        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the Outpost.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -104,9 +95,6 @@ class GetOutpostResult:
     @_builtins.property
     @pulumi.getter(name="lifecycleStatus")
     def lifecycle_status(self) -> _builtins.str:
-        """
-        The life cycle status.
-        """
         return pulumi.get(self, "lifecycle_status")
 
     @_builtins.property
@@ -127,33 +115,21 @@ class GetOutpostResult:
     @_builtins.property
     @pulumi.getter(name="siteArn")
     def site_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the site.
-        """
         return pulumi.get(self, "site_arn")
 
     @_builtins.property
     @pulumi.getter(name="siteId")
     def site_id(self) -> _builtins.str:
-        """
-        The ID of the site.
-        """
         return pulumi.get(self, "site_id")
 
     @_builtins.property
     @pulumi.getter(name="supportedHardwareType")
     def supported_hardware_type(self) -> _builtins.str:
-        """
-        The hardware type.
-        """
         return pulumi.get(self, "supported_hardware_type")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        The Outpost tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -186,24 +162,7 @@ def get_outpost(arn: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostResult:
     """
-    Provides details about an Outposts Outpost.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outpost(name="example")
-    ```
-
-
-    :param _builtins.str arn: ARN.
-    :param _builtins.str id: Identifier of the Outpost.
-    :param _builtins.str name: Name of the Outpost.
-    :param _builtins.str owner_id: AWS Account identifier of the Outpost owner.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: The Outpost tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -237,24 +196,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = No
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostResult]:
     """
-    Provides details about an Outposts Outpost.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outpost(name="example")
-    ```
-
-
-    :param _builtins.str arn: ARN.
-    :param _builtins.str id: Identifier of the Outpost.
-    :param _builtins.str name: Name of the Outpost.
-    :param _builtins.str owner_id: AWS Account identifier of the Outpost owner.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: The Outpost tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        /// </summary>
         [Input("contentSecurityPolicy", required: true)]
         public Input<string> ContentSecurityPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 

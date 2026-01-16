@@ -7,46 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the details of resource records in a Route 53 hosted zone.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * Return all records in the zone.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.route53.getZone({
- *     name: "test.com.",
- *     privateZone: true,
- * });
- * const example = selected.then(selected => aws.route53.getRecords({
- *     zoneId: selected.zoneId,
- * }));
- * ```
- *
- * ### Basic Usage with filter
- *
- * Return the records that starts with `www`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.route53.getZone({
- *     name: "test.com.",
- *     privateZone: true,
- * });
- * const example = selected.then(selected => aws.route53.getRecords({
- *     zoneId: selected.zoneId,
- *     nameRegex: "^www",
- * }));
- * ```
- */
 export function getRecords(args: GetRecordsArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getRecords:getRecords", {
@@ -59,13 +19,7 @@ export function getRecords(args: GetRecordsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getRecords.
  */
 export interface GetRecordsArgs {
-    /**
-     * Regex string to apply to the resource record names returned by AWS.
-     */
     nameRegex?: string;
-    /**
-     * The ID of the hosted zone that contains the resource record sets that you want to list.
-     */
     zoneId: string;
 }
 
@@ -78,52 +32,9 @@ export interface GetRecordsResult {
      */
     readonly id: string;
     readonly nameRegex?: string;
-    /**
-     * The resource records sets.
-     */
     readonly resourceRecordSets: outputs.route53.GetRecordsResourceRecordSet[];
     readonly zoneId: string;
 }
-/**
- * Use this data source to get the details of resource records in a Route 53 hosted zone.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * Return all records in the zone.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.route53.getZone({
- *     name: "test.com.",
- *     privateZone: true,
- * });
- * const example = selected.then(selected => aws.route53.getRecords({
- *     zoneId: selected.zoneId,
- * }));
- * ```
- *
- * ### Basic Usage with filter
- *
- * Return the records that starts with `www`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.route53.getZone({
- *     name: "test.com.",
- *     privateZone: true,
- * });
- * const example = selected.then(selected => aws.route53.getRecords({
- *     zoneId: selected.zoneId,
- *     nameRegex: "^www",
- * }));
- * ```
- */
 export function getRecordsOutput(args: GetRecordsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRecordsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getRecords:getRecords", {
@@ -136,12 +47,6 @@ export function getRecordsOutput(args: GetRecordsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getRecords.
  */
 export interface GetRecordsOutputArgs {
-    /**
-     * Regex string to apply to the resource record names returned by AWS.
-     */
     nameRegex?: pulumi.Input<string>;
-    /**
-     * The ID of the hosted zone that contains the resource record sets that you want to list.
-     */
     zoneId: pulumi.Input<string>;
 }

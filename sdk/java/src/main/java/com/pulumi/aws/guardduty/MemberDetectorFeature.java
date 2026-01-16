@@ -16,193 +16,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features) for a member account.
- * 
- * &gt; **NOTE:** Deleting this resource does not disable the detector feature in the member account, the resource in simply removed from state instead.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.guardduty.MemberDetectorFeature;
- * import com.pulumi.aws.guardduty.MemberDetectorFeatureArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Detector("example", DetectorArgs.builder()
- *             .enable(true)
- *             .build());
- * 
- *         var runtimeMonitoring = new MemberDetectorFeature("runtimeMonitoring", MemberDetectorFeatureArgs.builder()
- *             .detectorId(example.id())
- *             .accountId("123456789012")
- *             .name("S3_DATA_EVENTS")
- *             .status("ENABLED")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Extended Threat Detection for EKS
- * 
- * To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.guardduty.DetectorFeature;
- * import com.pulumi.aws.guardduty.DetectorFeatureArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorFeatureAdditionalConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Detector("example", DetectorArgs.builder()
- *             .enable(true)
- *             .build());
- * 
- *         var eksProtection = new DetectorFeature("eksProtection", DetectorFeatureArgs.builder()
- *             .detectorId(example.id())
- *             .accountId("123456789012")
- *             .name("EKS_AUDIT_LOGS")
- *             .status("ENABLED")
- *             .build());
- * 
- *         var eksRuntimeMonitoring = new DetectorFeature("eksRuntimeMonitoring", DetectorFeatureArgs.builder()
- *             .detectorId(example.id())
- *             .accountId("123456789012")
- *             .name("EKS_RUNTIME_MONITORING")
- *             .status("ENABLED")
- *             .additionalConfigurations(DetectorFeatureAdditionalConfigurationArgs.builder()
- *                 .name("EKS_ADDON_MANAGEMENT")
- *                 .status("ENABLED")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:guardduty/memberDetectorFeature:MemberDetectorFeature")
 public class MemberDetectorFeature extends com.pulumi.resources.CustomResource {
-    /**
-     * Member account ID to be updated.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return Member account ID to be updated.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Additional feature configuration block. See below.
-     * 
-     */
     @Export(name="additionalConfigurations", refs={List.class,MemberDetectorFeatureAdditionalConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MemberDetectorFeatureAdditionalConfiguration>> additionalConfigurations;
 
-    /**
-     * @return Additional feature configuration block. See below.
-     * 
-     */
     public Output<Optional<List<MemberDetectorFeatureAdditionalConfiguration>>> additionalConfigurations() {
         return Codegen.optional(this.additionalConfigurations);
     }
-    /**
-     * Amazon GuardDuty detector ID.
-     * 
-     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
-    /**
-     * @return Amazon GuardDuty detector ID.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
-    /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentAgentMemoryConfigurationSessionSummaryConfiguration
     {
-        /// <summary>
-        /// Maximum number of recent session summaries to include in the agent's prompt context.
-        /// </summary>
         public readonly int MaxRecentSessions;
 
         [OutputConstructor]

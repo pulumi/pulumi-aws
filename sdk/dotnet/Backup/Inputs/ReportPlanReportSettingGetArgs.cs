@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Backup.Inputs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
-
-        /// <summary>
-        /// Specifies the list of accounts a report covers.
-        /// </summary>
         public InputList<string> Accounts
         {
             get => _accounts ?? (_accounts = new InputList<string>());
@@ -26,28 +22,17 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("frameworkArns")]
         private InputList<string>? _frameworkArns;
-
-        /// <summary>
-        /// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
-        /// </summary>
         public InputList<string> FrameworkArns
         {
             get => _frameworkArns ?? (_frameworkArns = new InputList<string>());
             set => _frameworkArns = value;
         }
 
-        /// <summary>
-        /// Specifies the number of frameworks a report covers.
-        /// </summary>
         [Input("numberOfFrameworks")]
         public Input<int>? NumberOfFrameworks { get; set; }
 
         [Input("organizationUnits")]
         private InputList<string>? _organizationUnits;
-
-        /// <summary>
-        /// Specifies the list of Organizational Units a report covers.
-        /// </summary>
         public InputList<string> OrganizationUnits
         {
             get => _organizationUnits ?? (_organizationUnits = new InputList<string>());
@@ -56,19 +41,12 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("regions")]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// Specifies the list of regions a report covers.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
         }
 
-        /// <summary>
-        /// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
-        /// </summary>
         [Input("reportTemplate", required: true)]
         public Input<string> ReportTemplate { get; set; } = null!;
 

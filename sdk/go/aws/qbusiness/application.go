@@ -12,73 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Q Business Application resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/qbusiness"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := qbusiness.NewApplication(ctx, "example", &qbusiness.ApplicationArgs{
-//				DisplayName:               pulumi.String("example-app"),
-//				IamServiceRoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
-//				IdentityCenterInstanceArn: pulumi.Any(exampleAwsSsoadminInstances.Arns[0]),
-//				AttachmentsConfiguration: &qbusiness.ApplicationAttachmentsConfigurationArgs{
-//					AttachmentsControlMode: pulumi.String("ENABLED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a Q Business Application using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:qbusiness/application:Application example id-12345678
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Q Business application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
+	Arn                      pulumi.StringOutput                          `pulumi:"arn"`
 	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrOutput `pulumi:"attachmentsConfiguration"`
-	// Description of the Amazon Q application.
+	// A description of the Amazon Q application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the Amazon Q application.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Information about encryption configuration. See `encryptionConfiguration` below.
+	// The display name of the Amazon Q application.
+	DisplayName             pulumi.StringOutput                         `pulumi:"displayName"`
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-	IamServiceRoleArn pulumi.StringOutput `pulumi:"iamServiceRoleArn"`
-	// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
+	// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+	IamServiceRoleArn            pulumi.StringOutput `pulumi:"iamServiceRoleArn"`
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
-	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-	//
-	// The following arguments are optional:
-	IdentityCenterInstanceArn pulumi.StringOutput `pulumi:"identityCenterInstanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput    `pulumi:"region"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
-	Timeouts ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
+	// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
+	IdentityCenterInstanceArn pulumi.StringOutput          `pulumi:"identityCenterInstanceArn"`
+	Region                    pulumi.StringOutput          `pulumi:"region"`
+	Tags                      pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput       `pulumi:"tagsAll"`
+	Timeouts                  ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -120,57 +72,41 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// ARN of the Q Business application.
-	Arn *string `pulumi:"arn"`
-	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
+	Arn                      *string                              `pulumi:"arn"`
 	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
-	// Description of the Amazon Q application.
+	// A description of the Amazon Q application.
 	Description *string `pulumi:"description"`
-	// Name of the Amazon Q application.
-	DisplayName *string `pulumi:"displayName"`
-	// Information about encryption configuration. See `encryptionConfiguration` below.
+	// The display name of the Amazon Q application.
+	DisplayName             *string                             `pulumi:"displayName"`
 	EncryptionConfiguration *ApplicationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
-	// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
+	// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+	IamServiceRoleArn            *string `pulumi:"iamServiceRoleArn"`
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
-	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-	//
-	// The following arguments are optional:
-	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string    `pulumi:"tagsAll"`
-	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
+	// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
+	IdentityCenterInstanceArn *string              `pulumi:"identityCenterInstanceArn"`
+	Region                    *string              `pulumi:"region"`
+	Tags                      map[string]string    `pulumi:"tags"`
+	TagsAll                   map[string]string    `pulumi:"tagsAll"`
+	Timeouts                  *ApplicationTimeouts `pulumi:"timeouts"`
 }
 
 type ApplicationState struct {
-	// ARN of the Q Business application.
-	Arn pulumi.StringPtrInput
-	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
+	Arn                      pulumi.StringPtrInput
 	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrInput
-	// Description of the Amazon Q application.
+	// A description of the Amazon Q application.
 	Description pulumi.StringPtrInput
-	// Name of the Amazon Q application.
-	DisplayName pulumi.StringPtrInput
-	// Information about encryption configuration. See `encryptionConfiguration` below.
+	// The display name of the Amazon Q application.
+	DisplayName             pulumi.StringPtrInput
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrInput
-	// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
-	IamServiceRoleArn pulumi.StringPtrInput
-	// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
+	// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
+	IamServiceRoleArn            pulumi.StringPtrInput
 	IdentityCenterApplicationArn pulumi.StringPtrInput
-	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-	//
-	// The following arguments are optional:
+	// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
 	IdentityCenterInstanceArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ApplicationTimeoutsPtrInput
+	Region                    pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	Timeouts                  ApplicationTimeoutsPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -178,46 +114,36 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
 	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
-	// Description of the Amazon Q application.
+	// A description of the Amazon Q application.
 	Description *string `pulumi:"description"`
-	// Name of the Amazon Q application.
-	DisplayName string `pulumi:"displayName"`
-	// Information about encryption configuration. See `encryptionConfiguration` below.
+	// The display name of the Amazon Q application.
+	DisplayName             string                              `pulumi:"displayName"`
 	EncryptionConfiguration *ApplicationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
 	IamServiceRoleArn string `pulumi:"iamServiceRoleArn"`
-	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-	//
-	// The following arguments are optional:
-	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string              `pulumi:"region"`
-	Tags     map[string]string    `pulumi:"tags"`
-	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
+	// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
+	IdentityCenterInstanceArn string               `pulumi:"identityCenterInstanceArn"`
+	Region                    *string              `pulumi:"region"`
+	Tags                      map[string]string    `pulumi:"tags"`
+	Timeouts                  *ApplicationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
 	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrInput
-	// Description of the Amazon Q application.
+	// A description of the Amazon Q application.
 	Description pulumi.StringPtrInput
-	// Name of the Amazon Q application.
-	DisplayName pulumi.StringInput
-	// Information about encryption configuration. See `encryptionConfiguration` below.
+	// The display name of the Amazon Q application.
+	DisplayName             pulumi.StringInput
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrInput
-	// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
 	IamServiceRoleArn pulumi.StringInput
-	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-	//
-	// The following arguments are optional:
+	// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
 	IdentityCenterInstanceArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	Timeouts ApplicationTimeoutsPtrInput
+	Region                    pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	Timeouts                  ApplicationTimeoutsPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -307,49 +233,42 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// ARN of the Q Business application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
 func (o ApplicationOutput) AttachmentsConfiguration() ApplicationAttachmentsConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationAttachmentsConfigurationPtrOutput { return v.AttachmentsConfiguration }).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
-// Description of the Amazon Q application.
+// A description of the Amazon Q application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Amazon Q application.
+// The display name of the Amazon Q application.
 func (o ApplicationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Information about encryption configuration. See `encryptionConfiguration` below.
 func (o ApplicationOutput) EncryptionConfiguration() ApplicationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ApplicationEncryptionConfigurationPtrOutput)
 }
 
-// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
 func (o ApplicationOutput) IamServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IamServiceRoleArn }).(pulumi.StringOutput)
 }
 
-// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
 func (o ApplicationOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IdentityCenterApplicationArn }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-//
-// The following arguments are optional:
+// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
 func (o ApplicationOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -358,7 +277,6 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

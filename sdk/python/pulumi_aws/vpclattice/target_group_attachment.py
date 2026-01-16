@@ -26,9 +26,6 @@ class TargetGroupAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
-        :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
-        :param pulumi.Input[_builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "target_group_identifier", target_group_identifier)
@@ -38,9 +35,6 @@ class TargetGroupAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Input['TargetGroupAttachmentTargetArgs']:
-        """
-        The target.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -50,9 +44,6 @@ class TargetGroupAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID or Amazon Resource Name (ARN) of the target group.
-        """
         return pulumi.get(self, "target_group_identifier")
 
     @target_group_identifier.setter
@@ -62,9 +53,6 @@ class TargetGroupAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +68,6 @@ class _TargetGroupAttachmentState:
                  target_group_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroupAttachment resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
-        :param pulumi.Input[_builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -94,9 +79,6 @@ class _TargetGroupAttachmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -106,9 +88,6 @@ class _TargetGroupAttachmentState:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']]:
-        """
-        The target.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -118,9 +97,6 @@ class _TargetGroupAttachmentState:
     @_builtins.property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID or Amazon Resource Name (ARN) of the target group.
-        """
         return pulumi.get(self, "target_group_identifier")
 
     @target_group_identifier.setter
@@ -139,29 +115,9 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  target_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides the ability to register a target with an AWS VPC Lattice Target Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroupAttachment("example",
-            target_group_identifier=example_aws_vpclattice_target_group["id"],
-            target={
-                "id": example_aws_lb["arn"],
-                "port": 80,
-            })
-        ```
-
+        Create a TargetGroupAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']] target: The target.
-        :param pulumi.Input[_builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         ...
     @overload
@@ -170,24 +126,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  args: TargetGroupAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides the ability to register a target with an AWS VPC Lattice Target Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.TargetGroupAttachment("example",
-            target_group_identifier=example_aws_vpclattice_target_group["id"],
-            target={
-                "id": example_aws_lb["arn"],
-                "port": 80,
-            })
-        ```
-
+        Create a TargetGroupAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,9 +181,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']] target: The target.
-        :param pulumi.Input[_builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -258,24 +194,15 @@ class TargetGroupAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def target(self) -> pulumi.Output['outputs.TargetGroupAttachmentTarget']:
-        """
-        The target.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID or Amazon Resource Name (ARN) of the target group.
-        """
         return pulumi.get(self, "target_group_identifier")
 

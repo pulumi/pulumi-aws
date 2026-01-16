@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     [OutputType]
     public sealed class EventSourcesConfigEventSourceAmazonCodeGuruProfiler
     {
-        /// <summary>
-        /// Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

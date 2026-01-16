@@ -40,17 +40,11 @@ class InvoiceUnitRule(dict):
 
     def __init__(__self__, *,
                  linked_accounts: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] linked_accounts: Set of AWS account IDs included in this invoice unit.
-        """
         pulumi.set(__self__, "linked_accounts", linked_accounts)
 
     @_builtins.property
     @pulumi.getter(name="linkedAccounts")
     def linked_accounts(self) -> Sequence[_builtins.str]:
-        """
-        Set of AWS account IDs included in this invoice unit.
-        """
         return pulumi.get(self, "linked_accounts")
 
 

@@ -16,34 +16,16 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
 
     public static final StackAccessEndpointArgs Empty = new StackAccessEndpointArgs();
 
-    /**
-     * Type of the interface endpoint.
-     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-     * 
-     */
     @Import(name="endpointType", required=true)
     private Output<String> endpointType;
 
-    /**
-     * @return Type of the interface endpoint.
-     * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-     * 
-     */
     public Output<String> endpointType() {
         return this.endpointType;
     }
 
-    /**
-     * ID of the VPC in which the interface endpoint is used.
-     * 
-     */
     @Import(name="vpceId")
     private @Nullable Output<String> vpceId;
 
-    /**
-     * @return ID of the VPC in which the interface endpoint is used.
-     * 
-     */
     public Optional<Output<String>> vpceId() {
         return Optional.ofNullable(this.vpceId);
     }
@@ -73,46 +55,20 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
             $ = new StackAccessEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointType Type of the interface endpoint.
-         * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(Output<String> endpointType) {
             $.endpointType = endpointType;
             return this;
         }
 
-        /**
-         * @param endpointType Type of the interface endpoint.
-         * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(String endpointType) {
             return endpointType(Output.of(endpointType));
         }
 
-        /**
-         * @param vpceId ID of the VPC in which the interface endpoint is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceId(@Nullable Output<String> vpceId) {
             $.vpceId = vpceId;
             return this;
         }
 
-        /**
-         * @param vpceId ID of the VPC in which the interface endpoint is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpceId(String vpceId) {
             return vpceId(Output.of(vpceId));
         }

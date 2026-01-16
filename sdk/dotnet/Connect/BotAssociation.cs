@@ -9,140 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Add an Amazon Lex bot](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-lex.html).
-    /// 
-    /// &gt; **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.BotAssociation("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
-    ///         {
-    ///             LexRegion = "us-west-2",
-    ///             Name = "Test",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Including a sample Lex bot
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var example = new Aws.Lex.Intent("example", new()
-    ///     {
-    ///         CreateVersion = true,
-    ///         Name = "connect_lex_intent",
-    ///         FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
-    ///         {
-    ///             Type = "ReturnIntent",
-    ///         },
-    ///         SampleUtterances = new[]
-    ///         {
-    ///             "I would like to pick up flowers.",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBot = new Aws.Lex.Bot("example", new()
-    ///     {
-    ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
-    ///         {
-    ///             Messages = new[]
-    ///             {
-    ///                 new Aws.Lex.Inputs.BotAbortStatementMessageArgs
-    ///                 {
-    ///                     Content = "Sorry, I am not able to assist at this time.",
-    ///                     ContentType = "PlainText",
-    ///                 },
-    ///             },
-    ///         },
-    ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
-    ///         {
-    ///             MaxAttempts = 2,
-    ///             Messages = new[]
-    ///             {
-    ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
-    ///                 {
-    ///                     Content = "I didn't understand you, what would you like to do?",
-    ///                     ContentType = "PlainText",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Intents = new[]
-    ///         {
-    ///             new Aws.Lex.Inputs.BotIntentArgs
-    ///             {
-    ///                 IntentName = example.Name,
-    ///                 IntentVersion = "1",
-    ///             },
-    ///         },
-    ///         ChildDirected = false,
-    ///         Name = "connect_lex_bot",
-    ///         ProcessBehavior = "BUILD",
-    ///     });
-    /// 
-    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("example", new()
-    ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
-    ///         {
-    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             Name = exampleBot.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/botAssociation:BotAssociation")]
     public partial class BotAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        /// </summary>
         [Output("lexBot")]
         public Output<Outputs.BotAssociationLexBot> LexBot { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -192,21 +67,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class BotAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        /// </summary>
         [Input("lexBot", required: true)]
         public Input<Inputs.BotAssociationLexBotArgs> LexBot { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -218,21 +84,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class BotAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        /// </summary>
         [Input("lexBot")]
         public Input<Inputs.BotAssociationLexBotGetArgs>? LexBot { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -13,149 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration {
-    /**
-     * @return Labels all personally identifiable information (PII) identified in Transcript events.
-     * 
-     */
     private @Nullable String contentIdentificationType;
-    /**
-     * @return Redacts all personally identifiable information (PII) identified in Transcript events.
-     * 
-     */
     private @Nullable String contentRedactionType;
-    /**
-     * @return Enables partial result stabilization in Transcript events.
-     * 
-     */
     private @Nullable Boolean enablePartialResultsStabilization;
-    /**
-     * @return Filters partial Utterance events from delivery to the insights target.
-     * 
-     */
     private @Nullable Boolean filterPartialResults;
-    /**
-     * @return Language code for the transcription model.
-     * 
-     */
     private String languageCode;
-    /**
-     * @return Name of custom language model for transcription.
-     * 
-     */
     private @Nullable String languageModelName;
-    /**
-     * @return Level of stability to use when partial results stabilization is enabled.
-     * 
-     */
     private @Nullable String partialResultsStability;
-    /**
-     * @return Types of personally identifiable information (PII) to redact from a Transcript event.
-     * 
-     */
     private @Nullable String piiEntityTypes;
-    /**
-     * @return Enables speaker partitioning (diarization) in your Transcript events.
-     * 
-     */
     private @Nullable Boolean showSpeakerLabel;
-    /**
-     * @return Method for applying a vocabulary filter to Transcript events.
-     * 
-     */
     private @Nullable String vocabularyFilterMethod;
-    /**
-     * @return Name of the custom vocabulary filter to use when processing Transcript events.
-     * 
-     */
     private @Nullable String vocabularyFilterName;
-    /**
-     * @return Name of the custom vocabulary to use when processing Transcript events.
-     * 
-     */
     private @Nullable String vocabularyName;
 
     private MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration() {}
-    /**
-     * @return Labels all personally identifiable information (PII) identified in Transcript events.
-     * 
-     */
     public Optional<String> contentIdentificationType() {
         return Optional.ofNullable(this.contentIdentificationType);
     }
-    /**
-     * @return Redacts all personally identifiable information (PII) identified in Transcript events.
-     * 
-     */
     public Optional<String> contentRedactionType() {
         return Optional.ofNullable(this.contentRedactionType);
     }
-    /**
-     * @return Enables partial result stabilization in Transcript events.
-     * 
-     */
     public Optional<Boolean> enablePartialResultsStabilization() {
         return Optional.ofNullable(this.enablePartialResultsStabilization);
     }
-    /**
-     * @return Filters partial Utterance events from delivery to the insights target.
-     * 
-     */
     public Optional<Boolean> filterPartialResults() {
         return Optional.ofNullable(this.filterPartialResults);
     }
-    /**
-     * @return Language code for the transcription model.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
-    /**
-     * @return Name of custom language model for transcription.
-     * 
-     */
     public Optional<String> languageModelName() {
         return Optional.ofNullable(this.languageModelName);
     }
-    /**
-     * @return Level of stability to use when partial results stabilization is enabled.
-     * 
-     */
     public Optional<String> partialResultsStability() {
         return Optional.ofNullable(this.partialResultsStability);
     }
-    /**
-     * @return Types of personally identifiable information (PII) to redact from a Transcript event.
-     * 
-     */
     public Optional<String> piiEntityTypes() {
         return Optional.ofNullable(this.piiEntityTypes);
     }
-    /**
-     * @return Enables speaker partitioning (diarization) in your Transcript events.
-     * 
-     */
     public Optional<Boolean> showSpeakerLabel() {
         return Optional.ofNullable(this.showSpeakerLabel);
     }
-    /**
-     * @return Method for applying a vocabulary filter to Transcript events.
-     * 
-     */
     public Optional<String> vocabularyFilterMethod() {
         return Optional.ofNullable(this.vocabularyFilterMethod);
     }
-    /**
-     * @return Name of the custom vocabulary filter to use when processing Transcript events.
-     * 
-     */
     public Optional<String> vocabularyFilterName() {
         return Optional.ofNullable(this.vocabularyFilterName);
     }
-    /**
-     * @return Name of the custom vocabulary to use when processing Transcript events.
-     * 
-     */
     public Optional<String> vocabularyName() {
         return Optional.ofNullable(this.vocabularyName);
     }

@@ -12,18 +12,9 @@ namespace Pulumi.Aws.SsoAdmin.Inputs
 
     public sealed class ApplicationPortalOptionsSignInOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// URL that accepts authentication requests for an application.
-        /// </summary>
         [Input("applicationUrl")]
         public Input<string>? ApplicationUrl { get; set; }
 
-        /// <summary>
-        /// Determines how IAM Identity Center navigates the user to the target application.
-        /// Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-        /// If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `ApplicationUrl`.
-        /// If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-        /// </summary>
         [Input("origin", required: true)]
         public Input<string> Origin { get; set; } = null!;
 

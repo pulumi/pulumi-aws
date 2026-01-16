@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Cfg.Inputs
     {
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());

@@ -13,111 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.macie2.Account;
- * import com.pulumi.aws.macie2.Member;
- * import com.pulumi.aws.macie2.MemberArgs;
- * import com.pulumi.aws.macie2.InvitationAccepter;
- * import com.pulumi.aws.macie2.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primary = new Account("primary");
- * 
- *         var member = new Account("member");
- * 
- *         var primaryMember = new Member("primaryMember", MemberArgs.builder()
- *             .accountId("ACCOUNT ID")
- *             .email("EMAIL")
- *             .invite(true)
- *             .invitationMessage("Message of the invite")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primary)
- *                 .build());
- * 
- *         var memberInvitationAccepter = new InvitationAccepter("memberInvitationAccepter", InvitationAccepterArgs.builder()
- *             .administratorAccountId("ADMINISTRATOR ACCOUNT ID")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryMember)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:macie2/invitationAccepter:InvitationAccepter")
 public class InvitationAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account ID for the account that sent the invitation.
-     * 
-     */
     @Export(name="administratorAccountId", refs={String.class}, tree="[0]")
     private Output<String> administratorAccountId;
 
-    /**
-     * @return The AWS account ID for the account that sent the invitation.
-     * 
-     */
     public Output<String> administratorAccountId() {
         return this.administratorAccountId;
     }
-    /**
-     * The unique identifier for the invitation.
-     * 
-     */
     @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
-    /**
-     * @return The unique identifier for the invitation.
-     * 
-     */
     public Output<String> invitationId() {
         return this.invitationId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

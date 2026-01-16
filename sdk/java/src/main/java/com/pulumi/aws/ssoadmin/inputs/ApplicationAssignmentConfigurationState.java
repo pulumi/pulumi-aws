@@ -16,47 +16,23 @@ public final class ApplicationAssignmentConfigurationState extends com.pulumi.re
 
     public static final ApplicationAssignmentConfigurationState Empty = new ApplicationAssignmentConfigurationState();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
 
-    /**
-     * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     * 
-     */
     @Import(name="assignmentRequired")
     private @Nullable Output<Boolean> assignmentRequired;
 
-    /**
-     * @return Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-     * 
-     */
     public Optional<Output<Boolean>> assignmentRequired() {
         return Optional.ofNullable(this.assignmentRequired);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class ApplicationAssignmentConfigurationState extends com.pulumi.re
             $ = new ApplicationAssignmentConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
-        /**
-         * @param applicationArn ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
 
-        /**
-         * @param assignmentRequired Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignmentRequired(@Nullable Output<Boolean> assignmentRequired) {
             $.assignmentRequired = assignmentRequired;
             return this;
         }
 
-        /**
-         * @param assignmentRequired Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder assignmentRequired(Boolean assignmentRequired) {
             return assignmentRequired(Output.of(assignmentRequired));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

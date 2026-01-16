@@ -11,88 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a firewall.
-//
-// ## Example Usage
-//
-// ### Find firewall policy by ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Arn: pulumi.StringRef(arn),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Find firewall policy by Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Name: pulumi.StringRef("Test"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Find firewall policy by ARN and Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
-//				Arn:  pulumi.StringRef(arn),
-//				Name: pulumi.StringRef("Test"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallResult
@@ -105,59 +23,35 @@ func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulum
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallArgs struct {
-	// ARN of the firewall.
-	Arn *string `pulumi:"arn"`
-	// Descriptive name of the firewall.
-	//
-	// One or more of these arguments is required.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    *string           `pulumi:"arn"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
-	// ARN of the firewall.
-	Arn string `pulumi:"arn"`
-	// Indicates whether the firewall is protected against changes to its Availability Zone configuration.
-	AvailabilityZoneChangeProtection bool `pulumi:"availabilityZoneChangeProtection"`
-	// Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
-	AvailabilityZoneMappings []GetFirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
-	// A flag indicating whether the firewall is protected against deletion.
-	DeleteProtection bool `pulumi:"deleteProtection"`
-	// Description of the firewall.
-	Description string `pulumi:"description"`
-	// Set of types for which to collect analysis metrics.
-	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
-	// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
-	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// ARN of the VPC Firewall policy.
-	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
-	// A flag indicating whether the firewall is protected against a change to the firewall policy association.
-	FirewallPolicyChangeProtection bool `pulumi:"firewallPolicyChangeProtection"`
-	// Nested list of information about the current status of the firewall.
-	FirewallStatuses []GetFirewallFirewallStatus `pulumi:"firewallStatuses"`
+	Arn                              string                               `pulumi:"arn"`
+	AvailabilityZoneChangeProtection bool                                 `pulumi:"availabilityZoneChangeProtection"`
+	AvailabilityZoneMappings         []GetFirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
+	DeleteProtection                 bool                                 `pulumi:"deleteProtection"`
+	Description                      string                               `pulumi:"description"`
+	EnabledAnalysisTypes             []string                             `pulumi:"enabledAnalysisTypes"`
+	EncryptionConfigurations         []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
+	FirewallPolicyArn                string                               `pulumi:"firewallPolicyArn"`
+	FirewallPolicyChangeProtection   bool                                 `pulumi:"firewallPolicyChangeProtection"`
+	FirewallStatuses                 []GetFirewallFirewallStatus          `pulumi:"firewallStatuses"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Descriptive name of the firewall.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// A flag indicating whether the firewall is protected against changes to the subnet associations.
-	SubnetChangeProtection bool `pulumi:"subnetChangeProtection"`
-	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
-	SubnetMappings []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique identifier of the transit gateway associated with this firewall.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// The AWS account ID that owns the transit gateway.
-	TransitGatewayOwnerAccountId string `pulumi:"transitGatewayOwnerAccountId"`
-	// String token used when updating a firewall.
-	UpdateToken string `pulumi:"updateToken"`
-	// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-	VpcId string `pulumi:"vpcId"`
+	Id                           string                     `pulumi:"id"`
+	Name                         string                     `pulumi:"name"`
+	Region                       string                     `pulumi:"region"`
+	SubnetChangeProtection       bool                       `pulumi:"subnetChangeProtection"`
+	SubnetMappings               []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
+	Tags                         map[string]string          `pulumi:"tags"`
+	TransitGatewayId             string                     `pulumi:"transitGatewayId"`
+	TransitGatewayOwnerAccountId string                     `pulumi:"transitGatewayOwnerAccountId"`
+	UpdateToken                  string                     `pulumi:"updateToken"`
+	VpcId                        string                     `pulumi:"vpcId"`
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
@@ -171,16 +65,10 @@ func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, op
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallOutputArgs struct {
-	// ARN of the firewall.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Descriptive name of the firewall.
-	//
-	// One or more of these arguments is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupFirewallOutputArgs) ElementType() reflect.Type {
@@ -202,52 +90,42 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the firewall.
 func (o LookupFirewallResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates whether the firewall is protected against changes to its Availability Zone configuration.
 func (o LookupFirewallResultOutput) AvailabilityZoneChangeProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.AvailabilityZoneChangeProtection }).(pulumi.BoolOutput)
 }
 
-// Set of Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall.
 func (o LookupFirewallResultOutput) AvailabilityZoneMappings() GetFirewallAvailabilityZoneMappingArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallAvailabilityZoneMapping { return v.AvailabilityZoneMappings }).(GetFirewallAvailabilityZoneMappingArrayOutput)
 }
 
-// A flag indicating whether the firewall is protected against deletion.
 func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
 
-// Description of the firewall.
 func (o LookupFirewallResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Set of types for which to collect analysis metrics.
 func (o LookupFirewallResultOutput) EnabledAnalysisTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []string { return v.EnabledAnalysisTypes }).(pulumi.StringArrayOutput)
 }
 
-// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
 func (o LookupFirewallResultOutput) EncryptionConfigurations() GetFirewallEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallEncryptionConfiguration { return v.EncryptionConfigurations }).(GetFirewallEncryptionConfigurationArrayOutput)
 }
 
-// ARN of the VPC Firewall policy.
 func (o LookupFirewallResultOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
 
-// A flag indicating whether the firewall is protected against a change to the firewall policy association.
 func (o LookupFirewallResultOutput) FirewallPolicyChangeProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.FirewallPolicyChangeProtection }).(pulumi.BoolOutput)
 }
 
-// Nested list of information about the current status of the firewall.
 func (o LookupFirewallResultOutput) FirewallStatuses() GetFirewallFirewallStatusArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallFirewallStatus { return v.FirewallStatuses }).(GetFirewallFirewallStatusArrayOutput)
 }
@@ -257,7 +135,6 @@ func (o LookupFirewallResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Descriptive name of the firewall.
 func (o LookupFirewallResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -266,37 +143,30 @@ func (o LookupFirewallResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A flag indicating whether the firewall is protected against changes to the subnet associations.
 func (o LookupFirewallResultOutput) SubnetChangeProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupFirewallResult) bool { return v.SubnetChangeProtection }).(pulumi.BoolOutput)
 }
 
-// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
 func (o LookupFirewallResultOutput) SubnetMappings() GetFirewallSubnetMappingArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallSubnetMapping { return v.SubnetMappings }).(GetFirewallSubnetMappingArrayOutput)
 }
 
-// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupFirewallResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFirewallResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The unique identifier of the transit gateway associated with this firewall.
 func (o LookupFirewallResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// The AWS account ID that owns the transit gateway.
 func (o LookupFirewallResultOutput) TransitGatewayOwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.TransitGatewayOwnerAccountId }).(pulumi.StringOutput)
 }
 
-// String token used when updating a firewall.
 func (o LookupFirewallResultOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.UpdateToken }).(pulumi.StringOutput)
 }
 
-// Unique identifier of the VPC where AWS Network Firewall should create the firewall.
 func (o LookupFirewallResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

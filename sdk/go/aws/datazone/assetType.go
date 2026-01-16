@@ -12,70 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Asset Type.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datazone.NewAssetType(ctx, "test", &datazone.AssetTypeArgs{
-//				Description:             pulumi.String("example"),
-//				DomainIdentifier:        pulumi.Any(testAwsDatazoneDomain.Id),
-//				Name:                    pulumi.String("example"),
-//				OwningProjectIdentifier: pulumi.Any(testAwsDatazoneProject.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Asset Type using the `domain_identifier,name`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
-// ```
 type AssetType struct {
 	pulumi.CustomResourceState
 
-	// The timestamp when the custom asset type was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The user who created the custom asset type.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// The description of the custom asset type.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
-	// The metadata forms that are to be attached to the custom asset type.
-	FormsInputs AssetTypeFormsInputArrayOutput `pulumi:"formsInputs"`
-	// The name of the custom asset type.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The unique identifier of the Amazon DataZone project that owns the custom asset type.
-	//
-	// The following arguments are optional:
-	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The revision of the asset type.
-	Revision pulumi.StringOutput        `pulumi:"revision"`
-	Timeouts AssetTypeTimeoutsPtrOutput `pulumi:"timeouts"`
+	CreatedAt               pulumi.StringOutput            `pulumi:"createdAt"`
+	CreatedBy               pulumi.StringOutput            `pulumi:"createdBy"`
+	Description             pulumi.StringPtrOutput         `pulumi:"description"`
+	DomainIdentifier        pulumi.StringOutput            `pulumi:"domainIdentifier"`
+	FormsInputs             AssetTypeFormsInputArrayOutput `pulumi:"formsInputs"`
+	Name                    pulumi.StringOutput            `pulumi:"name"`
+	OwningProjectIdentifier pulumi.StringOutput            `pulumi:"owningProjectIdentifier"`
+	Region                  pulumi.StringOutput            `pulumi:"region"`
+	Revision                pulumi.StringOutput            `pulumi:"revision"`
+	Timeouts                AssetTypeTimeoutsPtrOutput     `pulumi:"timeouts"`
 }
 
 // NewAssetType registers a new resource with the given unique name, arguments, and options.
@@ -114,51 +63,29 @@ func GetAssetType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssetType resources.
 type assetTypeState struct {
-	// The timestamp when the custom asset type was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The user who created the custom asset type.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The description of the custom asset type.
-	Description *string `pulumi:"description"`
-	// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// The metadata forms that are to be attached to the custom asset type.
-	FormsInputs []AssetTypeFormsInput `pulumi:"formsInputs"`
-	// The name of the custom asset type.
-	Name *string `pulumi:"name"`
-	// The unique identifier of the Amazon DataZone project that owns the custom asset type.
-	//
-	// The following arguments are optional:
-	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The revision of the asset type.
-	Revision *string            `pulumi:"revision"`
-	Timeouts *AssetTypeTimeouts `pulumi:"timeouts"`
+	CreatedAt               *string               `pulumi:"createdAt"`
+	CreatedBy               *string               `pulumi:"createdBy"`
+	Description             *string               `pulumi:"description"`
+	DomainIdentifier        *string               `pulumi:"domainIdentifier"`
+	FormsInputs             []AssetTypeFormsInput `pulumi:"formsInputs"`
+	Name                    *string               `pulumi:"name"`
+	OwningProjectIdentifier *string               `pulumi:"owningProjectIdentifier"`
+	Region                  *string               `pulumi:"region"`
+	Revision                *string               `pulumi:"revision"`
+	Timeouts                *AssetTypeTimeouts    `pulumi:"timeouts"`
 }
 
 type AssetTypeState struct {
-	// The timestamp when the custom asset type was created.
-	CreatedAt pulumi.StringPtrInput
-	// The user who created the custom asset type.
-	CreatedBy pulumi.StringPtrInput
-	// The description of the custom asset type.
-	Description pulumi.StringPtrInput
-	// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-	DomainIdentifier pulumi.StringPtrInput
-	// The metadata forms that are to be attached to the custom asset type.
-	FormsInputs AssetTypeFormsInputArrayInput
-	// The name of the custom asset type.
-	Name pulumi.StringPtrInput
-	// The unique identifier of the Amazon DataZone project that owns the custom asset type.
-	//
-	// The following arguments are optional:
+	CreatedAt               pulumi.StringPtrInput
+	CreatedBy               pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	DomainIdentifier        pulumi.StringPtrInput
+	FormsInputs             AssetTypeFormsInputArrayInput
+	Name                    pulumi.StringPtrInput
 	OwningProjectIdentifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The revision of the asset type.
-	Revision pulumi.StringPtrInput
-	Timeouts AssetTypeTimeoutsPtrInput
+	Region                  pulumi.StringPtrInput
+	Revision                pulumi.StringPtrInput
+	Timeouts                AssetTypeTimeoutsPtrInput
 }
 
 func (AssetTypeState) ElementType() reflect.Type {
@@ -166,40 +93,24 @@ func (AssetTypeState) ElementType() reflect.Type {
 }
 
 type assetTypeArgs struct {
-	// The description of the custom asset type.
-	Description *string `pulumi:"description"`
-	// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-	DomainIdentifier string `pulumi:"domainIdentifier"`
-	// The metadata forms that are to be attached to the custom asset type.
-	FormsInputs []AssetTypeFormsInput `pulumi:"formsInputs"`
-	// The name of the custom asset type.
-	Name *string `pulumi:"name"`
-	// The unique identifier of the Amazon DataZone project that owns the custom asset type.
-	//
-	// The following arguments are optional:
-	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string            `pulumi:"region"`
-	Timeouts *AssetTypeTimeouts `pulumi:"timeouts"`
+	Description             *string               `pulumi:"description"`
+	DomainIdentifier        string                `pulumi:"domainIdentifier"`
+	FormsInputs             []AssetTypeFormsInput `pulumi:"formsInputs"`
+	Name                    *string               `pulumi:"name"`
+	OwningProjectIdentifier string                `pulumi:"owningProjectIdentifier"`
+	Region                  *string               `pulumi:"region"`
+	Timeouts                *AssetTypeTimeouts    `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AssetType resource.
 type AssetTypeArgs struct {
-	// The description of the custom asset type.
-	Description pulumi.StringPtrInput
-	// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-	DomainIdentifier pulumi.StringInput
-	// The metadata forms that are to be attached to the custom asset type.
-	FormsInputs AssetTypeFormsInputArrayInput
-	// The name of the custom asset type.
-	Name pulumi.StringPtrInput
-	// The unique identifier of the Amazon DataZone project that owns the custom asset type.
-	//
-	// The following arguments are optional:
+	Description             pulumi.StringPtrInput
+	DomainIdentifier        pulumi.StringInput
+	FormsInputs             AssetTypeFormsInputArrayInput
+	Name                    pulumi.StringPtrInput
 	OwningProjectIdentifier pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
-	Timeouts AssetTypeTimeoutsPtrInput
+	Region                  pulumi.StringPtrInput
+	Timeouts                AssetTypeTimeoutsPtrInput
 }
 
 func (AssetTypeArgs) ElementType() reflect.Type {
@@ -289,49 +200,38 @@ func (o AssetTypeOutput) ToAssetTypeOutputWithContext(ctx context.Context) Asset
 	return o
 }
 
-// The timestamp when the custom asset type was created.
 func (o AssetTypeOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The user who created the custom asset type.
 func (o AssetTypeOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The description of the custom asset type.
 func (o AssetTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
 func (o AssetTypeOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
-// The metadata forms that are to be attached to the custom asset type.
 func (o AssetTypeOutput) FormsInputs() AssetTypeFormsInputArrayOutput {
 	return o.ApplyT(func(v *AssetType) AssetTypeFormsInputArrayOutput { return v.FormsInputs }).(AssetTypeFormsInputArrayOutput)
 }
 
-// The name of the custom asset type.
 func (o AssetTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the Amazon DataZone project that owns the custom asset type.
-//
-// The following arguments are optional:
 func (o AssetTypeOutput) OwningProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.OwningProjectIdentifier }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssetTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The revision of the asset type.
 func (o AssetTypeOutput) Revision() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssetType) pulumi.StringOutput { return v.Revision }).(pulumi.StringOutput)
 }

@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LogTransformerTransformerConfigSplitString {
-    /**
-     * @return Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-     * 
-     */
     private List<LogTransformerTransformerConfigSplitStringEntry> entries;
 
     private LogTransformerTransformerConfigSplitString() {}
-    /**
-     * @return Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `splitString` `entry` below for details.
-     * 
-     */
     public List<LogTransformerTransformerConfigSplitStringEntry> entries() {
         return this.entries;
     }

@@ -12,73 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directoryservice.NewRadiusSettings(ctx, "example", &directoryservice.RadiusSettingsArgs{
-//				DirectoryId:            pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
-//				AuthenticationProtocol: pulumi.String("PAP"),
-//				DisplayLabel:           pulumi.String("example"),
-//				RadiusPort:             pulumi.Int(1812),
-//				RadiusRetries:          pulumi.Int(4),
-//				RadiusServers: pulumi.StringArray{
-//					pulumi.String("10.0.1.5"),
-//				},
-//				RadiusTimeout: pulumi.Int(1),
-//				SharedSecret:  pulumi.String("12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import RADIUS settings using the directory ID. For example:
-//
-// ```sh
-// $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
-// ```
 type RadiusSettings struct {
 	pulumi.CustomResourceState
 
-	// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-	AuthenticationProtocol pulumi.StringOutput `pulumi:"authenticationProtocol"`
-	// The identifier of the directory for which you want to manager RADIUS settings.
-	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
-	// Display label.
-	DisplayLabel pulumi.StringOutput `pulumi:"displayLabel"`
-	// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-	RadiusPort pulumi.IntOutput `pulumi:"radiusPort"`
-	// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-	RadiusRetries pulumi.IntOutput `pulumi:"radiusRetries"`
-	// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-	RadiusServers pulumi.StringArrayOutput `pulumi:"radiusServers"`
-	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-	RadiusTimeout pulumi.IntOutput `pulumi:"radiusTimeout"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Required for enabling RADIUS on the directory.
-	SharedSecret pulumi.StringOutput `pulumi:"sharedSecret"`
-	// Not currently used.
-	UseSameUsername pulumi.BoolPtrOutput `pulumi:"useSameUsername"`
+	AuthenticationProtocol pulumi.StringOutput      `pulumi:"authenticationProtocol"`
+	DirectoryId            pulumi.StringOutput      `pulumi:"directoryId"`
+	DisplayLabel           pulumi.StringOutput      `pulumi:"displayLabel"`
+	RadiusPort             pulumi.IntOutput         `pulumi:"radiusPort"`
+	RadiusRetries          pulumi.IntOutput         `pulumi:"radiusRetries"`
+	RadiusServers          pulumi.StringArrayOutput `pulumi:"radiusServers"`
+	RadiusTimeout          pulumi.IntOutput         `pulumi:"radiusTimeout"`
+	Region                 pulumi.StringOutput      `pulumi:"region"`
+	SharedSecret           pulumi.StringOutput      `pulumi:"sharedSecret"`
+	UseSameUsername        pulumi.BoolPtrOutput     `pulumi:"useSameUsername"`
 }
 
 // NewRadiusSettings registers a new resource with the given unique name, arguments, and options.
@@ -142,49 +88,29 @@ func GetRadiusSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RadiusSettings resources.
 type radiusSettingsState struct {
-	// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-	AuthenticationProtocol *string `pulumi:"authenticationProtocol"`
-	// The identifier of the directory for which you want to manager RADIUS settings.
-	DirectoryId *string `pulumi:"directoryId"`
-	// Display label.
-	DisplayLabel *string `pulumi:"displayLabel"`
-	// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-	RadiusPort *int `pulumi:"radiusPort"`
-	// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-	RadiusRetries *int `pulumi:"radiusRetries"`
-	// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-	RadiusServers []string `pulumi:"radiusServers"`
-	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-	RadiusTimeout *int `pulumi:"radiusTimeout"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Required for enabling RADIUS on the directory.
-	SharedSecret *string `pulumi:"sharedSecret"`
-	// Not currently used.
-	UseSameUsername *bool `pulumi:"useSameUsername"`
+	AuthenticationProtocol *string  `pulumi:"authenticationProtocol"`
+	DirectoryId            *string  `pulumi:"directoryId"`
+	DisplayLabel           *string  `pulumi:"displayLabel"`
+	RadiusPort             *int     `pulumi:"radiusPort"`
+	RadiusRetries          *int     `pulumi:"radiusRetries"`
+	RadiusServers          []string `pulumi:"radiusServers"`
+	RadiusTimeout          *int     `pulumi:"radiusTimeout"`
+	Region                 *string  `pulumi:"region"`
+	SharedSecret           *string  `pulumi:"sharedSecret"`
+	UseSameUsername        *bool    `pulumi:"useSameUsername"`
 }
 
 type RadiusSettingsState struct {
-	// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
 	AuthenticationProtocol pulumi.StringPtrInput
-	// The identifier of the directory for which you want to manager RADIUS settings.
-	DirectoryId pulumi.StringPtrInput
-	// Display label.
-	DisplayLabel pulumi.StringPtrInput
-	// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-	RadiusPort pulumi.IntPtrInput
-	// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-	RadiusRetries pulumi.IntPtrInput
-	// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-	RadiusServers pulumi.StringArrayInput
-	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-	RadiusTimeout pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Required for enabling RADIUS on the directory.
-	SharedSecret pulumi.StringPtrInput
-	// Not currently used.
-	UseSameUsername pulumi.BoolPtrInput
+	DirectoryId            pulumi.StringPtrInput
+	DisplayLabel           pulumi.StringPtrInput
+	RadiusPort             pulumi.IntPtrInput
+	RadiusRetries          pulumi.IntPtrInput
+	RadiusServers          pulumi.StringArrayInput
+	RadiusTimeout          pulumi.IntPtrInput
+	Region                 pulumi.StringPtrInput
+	SharedSecret           pulumi.StringPtrInput
+	UseSameUsername        pulumi.BoolPtrInput
 }
 
 func (RadiusSettingsState) ElementType() reflect.Type {
@@ -192,50 +118,30 @@ func (RadiusSettingsState) ElementType() reflect.Type {
 }
 
 type radiusSettingsArgs struct {
-	// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-	AuthenticationProtocol string `pulumi:"authenticationProtocol"`
-	// The identifier of the directory for which you want to manager RADIUS settings.
-	DirectoryId string `pulumi:"directoryId"`
-	// Display label.
-	DisplayLabel string `pulumi:"displayLabel"`
-	// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-	RadiusPort int `pulumi:"radiusPort"`
-	// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-	RadiusRetries int `pulumi:"radiusRetries"`
-	// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-	RadiusServers []string `pulumi:"radiusServers"`
-	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-	RadiusTimeout int `pulumi:"radiusTimeout"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Required for enabling RADIUS on the directory.
-	SharedSecret string `pulumi:"sharedSecret"`
-	// Not currently used.
-	UseSameUsername *bool `pulumi:"useSameUsername"`
+	AuthenticationProtocol string   `pulumi:"authenticationProtocol"`
+	DirectoryId            string   `pulumi:"directoryId"`
+	DisplayLabel           string   `pulumi:"displayLabel"`
+	RadiusPort             int      `pulumi:"radiusPort"`
+	RadiusRetries          int      `pulumi:"radiusRetries"`
+	RadiusServers          []string `pulumi:"radiusServers"`
+	RadiusTimeout          int      `pulumi:"radiusTimeout"`
+	Region                 *string  `pulumi:"region"`
+	SharedSecret           string   `pulumi:"sharedSecret"`
+	UseSameUsername        *bool    `pulumi:"useSameUsername"`
 }
 
 // The set of arguments for constructing a RadiusSettings resource.
 type RadiusSettingsArgs struct {
-	// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
 	AuthenticationProtocol pulumi.StringInput
-	// The identifier of the directory for which you want to manager RADIUS settings.
-	DirectoryId pulumi.StringInput
-	// Display label.
-	DisplayLabel pulumi.StringInput
-	// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-	RadiusPort pulumi.IntInput
-	// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-	RadiusRetries pulumi.IntInput
-	// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-	RadiusServers pulumi.StringArrayInput
-	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-	RadiusTimeout pulumi.IntInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Required for enabling RADIUS on the directory.
-	SharedSecret pulumi.StringInput
-	// Not currently used.
-	UseSameUsername pulumi.BoolPtrInput
+	DirectoryId            pulumi.StringInput
+	DisplayLabel           pulumi.StringInput
+	RadiusPort             pulumi.IntInput
+	RadiusRetries          pulumi.IntInput
+	RadiusServers          pulumi.StringArrayInput
+	RadiusTimeout          pulumi.IntInput
+	Region                 pulumi.StringPtrInput
+	SharedSecret           pulumi.StringInput
+	UseSameUsername        pulumi.BoolPtrInput
 }
 
 func (RadiusSettingsArgs) ElementType() reflect.Type {
@@ -325,52 +231,42 @@ func (o RadiusSettingsOutput) ToRadiusSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
 func (o RadiusSettingsOutput) AuthenticationProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.AuthenticationProtocol }).(pulumi.StringOutput)
 }
 
-// The identifier of the directory for which you want to manager RADIUS settings.
 func (o RadiusSettingsOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// Display label.
 func (o RadiusSettingsOutput) DisplayLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.DisplayLabel }).(pulumi.StringOutput)
 }
 
-// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
 func (o RadiusSettingsOutput) RadiusPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.IntOutput { return v.RadiusPort }).(pulumi.IntOutput)
 }
 
-// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
 func (o RadiusSettingsOutput) RadiusRetries() pulumi.IntOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.IntOutput { return v.RadiusRetries }).(pulumi.IntOutput)
 }
 
-// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
 func (o RadiusSettingsOutput) RadiusServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringArrayOutput { return v.RadiusServers }).(pulumi.StringArrayOutput)
 }
 
-// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 func (o RadiusSettingsOutput) RadiusTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.IntOutput { return v.RadiusTimeout }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RadiusSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Required for enabling RADIUS on the directory.
 func (o RadiusSettingsOutput) SharedSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.SharedSecret }).(pulumi.StringOutput)
 }
 
-// Not currently used.
 func (o RadiusSettingsOutput) UseSameUsername() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.BoolPtrOutput { return v.UseSameUsername }).(pulumi.BoolPtrOutput)
 }

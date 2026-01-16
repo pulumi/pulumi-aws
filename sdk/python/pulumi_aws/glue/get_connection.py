@@ -68,49 +68,31 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Glue Connection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="athenaProperties")
     def athena_properties(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of connection properties specific to the Athena compute environment.
-        """
         return pulumi.get(self, "athena_properties")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> _builtins.str:
-        """
-        Catalog ID of the Glue Connection.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of connection properties.
-        """
         return pulumi.get(self, "connection_properties")
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> _builtins.str:
-        """
-        Type of Glue Connection.
-        """
         return pulumi.get(self, "connection_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the connection.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -121,25 +103,16 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter(name="matchCriterias")
     def match_criterias(self) -> Sequence[_builtins.str]:
-        """
-        A list of criteria that can be used in selecting this connection.
-        """
         return pulumi.get(self, "match_criterias")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the Glue Connection.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="physicalConnectionRequirements")
     def physical_connection_requirements(self) -> Sequence['outputs.GetConnectionPhysicalConnectionRequirementResult']:
-        """
-        A map of physical connection requirements, such as VPC and SecurityGroup.
-        """
         return pulumi.get(self, "physical_connection_requirements")
 
     @_builtins.property
@@ -150,9 +123,6 @@ class GetConnectionResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags assigned to the resource
-        """
         return pulumi.get(self, "tags")
 
 
@@ -181,22 +151,7 @@ def get_connection(id: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    This data source can be used to fetch information about a specific Glue Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.glue.get_connection(id="123456789123:connection")
-    ```
-
-
-    :param _builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
-           `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -223,22 +178,7 @@ def get_connection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    This data source can be used to fetch information about a specific Glue Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.glue.get_connection(id="123456789123:connection")
-    ```
-
-
-    :param _builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
-           `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

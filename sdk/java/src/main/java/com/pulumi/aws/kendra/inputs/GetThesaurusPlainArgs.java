@@ -16,62 +16,30 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetThesaurusPlainArgs Empty = new GetThesaurusPlainArgs();
 
-    /**
-     * Identifier of the index that contains the Thesaurus.
-     * 
-     */
     @Import(name="indexId", required=true)
     private String indexId;
 
-    /**
-     * @return Identifier of the index that contains the Thesaurus.
-     * 
-     */
     public String indexId() {
         return this.indexId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Metadata that helps organize the Thesaurus you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Metadata that helps organize the Thesaurus you create.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier of the Thesaurus.
-     * 
-     */
     @Import(name="thesaurusId", required=true)
     private String thesaurusId;
 
-    /**
-     * @return Identifier of the Thesaurus.
-     * 
-     */
     public String thesaurusId() {
         return this.thesaurusId;
     }
@@ -103,45 +71,21 @@ public final class GetThesaurusPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetThesaurusPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the Thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Metadata that helps organize the Thesaurus you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param thesaurusId Identifier of the Thesaurus.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thesaurusId(String thesaurusId) {
             $.thesaurusId = thesaurusId;
             return this;

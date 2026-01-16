@@ -17,47 +17,23 @@ public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulum
 
     public static final ClusterServerlessv2ScalingConfigurationArgs Empty = new ClusterServerlessv2ScalingConfigurationArgs();
 
-    /**
-     * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     @Import(name="maxCapacity", required=true)
     private Output<Double> maxCapacity;
 
-    /**
-     * @return Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
 
-    /**
-     * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     @Import(name="minCapacity", required=true)
     private Output<Double> minCapacity;
 
-    /**
-     * @return Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-     * 
-     */
     public Output<Double> minCapacity() {
         return this.minCapacity;
     }
 
-    /**
-     * Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-     * 
-     */
     @Import(name="secondsUntilAutoPause")
     private @Nullable Output<Integer> secondsUntilAutoPause;
 
-    /**
-     * @return Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-     * 
-     */
     public Optional<Output<Integer>> secondsUntilAutoPause() {
         return Optional.ofNullable(this.secondsUntilAutoPause);
     }
@@ -88,65 +64,29 @@ public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulum
             $ = new ClusterServerlessv2ScalingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxCapacity Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(Output<Double> maxCapacity) {
             $.maxCapacity = maxCapacity;
             return this;
         }
 
-        /**
-         * @param maxCapacity Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(Double maxCapacity) {
             return maxCapacity(Output.of(maxCapacity));
         }
 
-        /**
-         * @param minCapacity Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCapacity(Output<Double> minCapacity) {
             $.minCapacity = minCapacity;
             return this;
         }
 
-        /**
-         * @param minCapacity Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCapacity(Double minCapacity) {
             return minCapacity(Output.of(minCapacity));
         }
 
-        /**
-         * @param secondsUntilAutoPause Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondsUntilAutoPause(@Nullable Output<Integer> secondsUntilAutoPause) {
             $.secondsUntilAutoPause = secondsUntilAutoPause;
             return this;
         }
 
-        /**
-         * @param secondsUntilAutoPause Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secondsUntilAutoPause(Integer secondsUntilAutoPause) {
             return secondsUntilAutoPause(Output.of(secondsUntilAutoPause));
         }

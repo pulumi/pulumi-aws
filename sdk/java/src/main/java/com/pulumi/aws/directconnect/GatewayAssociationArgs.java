@@ -17,106 +17,44 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
 
     public static final GatewayAssociationArgs Empty = new GatewayAssociationArgs();
 
-    /**
-     * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-     * 
-     * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
-     * 
-     * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
-     * 
-     */
     @Import(name="allowedPrefixes")
     private @Nullable Output<List<String>> allowedPrefixes;
 
-    /**
-     * @return VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-     * 
-     * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
-     * 
-     * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
-     * 
-     */
     public Optional<Output<List<String>>> allowedPrefixes() {
         return Optional.ofNullable(this.allowedPrefixes);
     }
 
-    /**
-     * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * Used for single account Direct Connect gateway associations.
-     * 
-     */
     @Import(name="associatedGatewayId")
     private @Nullable Output<String> associatedGatewayId;
 
-    /**
-     * @return The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * Used for single account Direct Connect gateway associations.
-     * 
-     */
     public Optional<Output<String>> associatedGatewayId() {
         return Optional.ofNullable(this.associatedGatewayId);
     }
 
-    /**
-     * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * Used for cross-account Direct Connect gateway associations.
-     * 
-     */
     @Import(name="associatedGatewayOwnerAccountId")
     private @Nullable Output<String> associatedGatewayOwnerAccountId;
 
-    /**
-     * @return The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-     * Used for cross-account Direct Connect gateway associations.
-     * 
-     */
     public Optional<Output<String>> associatedGatewayOwnerAccountId() {
         return Optional.ofNullable(this.associatedGatewayOwnerAccountId);
     }
 
-    /**
-     * The ID of the Direct Connect gateway.
-     * 
-     */
     @Import(name="dxGatewayId", required=true)
     private Output<String> dxGatewayId;
 
-    /**
-     * @return The ID of the Direct Connect gateway.
-     * 
-     */
     public Output<String> dxGatewayId() {
         return this.dxGatewayId;
     }
 
-    /**
-     * The ID of the Direct Connect gateway association proposal.
-     * Used for cross-account Direct Connect gateway associations.
-     * 
-     */
     @Import(name="proposalId")
     private @Nullable Output<String> proposalId;
 
-    /**
-     * @return The ID of the Direct Connect gateway association proposal.
-     * Used for cross-account Direct Connect gateway associations.
-     * 
-     */
     public Optional<Output<String>> proposalId() {
         return Optional.ofNullable(this.proposalId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -150,156 +88,60 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
             $ = new GatewayAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedPrefixes VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-         * 
-         * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
-         * 
-         * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedPrefixes(@Nullable Output<List<String>> allowedPrefixes) {
             $.allowedPrefixes = allowedPrefixes;
             return this;
         }
 
-        /**
-         * @param allowedPrefixes VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-         * 
-         * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
-         * 
-         * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedPrefixes(List<String> allowedPrefixes) {
             return allowedPrefixes(Output.of(allowedPrefixes));
         }
 
-        /**
-         * @param allowedPrefixes VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-         * 
-         * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
-         * 
-         * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedPrefixes(String... allowedPrefixes) {
             return allowedPrefixes(List.of(allowedPrefixes));
         }
 
-        /**
-         * @param associatedGatewayId The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-         * Used for single account Direct Connect gateway associations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedGatewayId(@Nullable Output<String> associatedGatewayId) {
             $.associatedGatewayId = associatedGatewayId;
             return this;
         }
 
-        /**
-         * @param associatedGatewayId The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-         * Used for single account Direct Connect gateway associations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedGatewayId(String associatedGatewayId) {
             return associatedGatewayId(Output.of(associatedGatewayId));
         }
 
-        /**
-         * @param associatedGatewayOwnerAccountId The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-         * Used for cross-account Direct Connect gateway associations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedGatewayOwnerAccountId(@Nullable Output<String> associatedGatewayOwnerAccountId) {
             $.associatedGatewayOwnerAccountId = associatedGatewayOwnerAccountId;
             return this;
         }
 
-        /**
-         * @param associatedGatewayOwnerAccountId The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-         * Used for cross-account Direct Connect gateway associations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedGatewayOwnerAccountId(String associatedGatewayOwnerAccountId) {
             return associatedGatewayOwnerAccountId(Output.of(associatedGatewayOwnerAccountId));
         }
 
-        /**
-         * @param dxGatewayId The ID of the Direct Connect gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dxGatewayId(Output<String> dxGatewayId) {
             $.dxGatewayId = dxGatewayId;
             return this;
         }
 
-        /**
-         * @param dxGatewayId The ID of the Direct Connect gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dxGatewayId(String dxGatewayId) {
             return dxGatewayId(Output.of(dxGatewayId));
         }
 
-        /**
-         * @param proposalId The ID of the Direct Connect gateway association proposal.
-         * Used for cross-account Direct Connect gateway associations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder proposalId(@Nullable Output<String> proposalId) {
             $.proposalId = proposalId;
             return this;
         }
 
-        /**
-         * @param proposalId The ID of the Direct Connect gateway association proposal.
-         * Used for cross-account Direct Connect gateway associations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder proposalId(String proposalId) {
             return proposalId(Output.of(proposalId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

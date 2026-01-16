@@ -12,112 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppConfig Extension resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTopic, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
-//				Name: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"appconfig.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testRole, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
-//				Name:             pulumi.String("test"),
-//				AssumeRolePolicy: pulumi.String(test.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appconfig.NewExtension(ctx, "test", &appconfig.ExtensionArgs{
-//				Name:        pulumi.String("test"),
-//				Description: pulumi.String("test description"),
-//				ActionPoints: appconfig.ExtensionActionPointArray{
-//					&appconfig.ExtensionActionPointArgs{
-//						Point: pulumi.String("ON_DEPLOYMENT_COMPLETE"),
-//						Actions: appconfig.ExtensionActionPointActionArray{
-//							&appconfig.ExtensionActionPointActionArgs{
-//								Name:    pulumi.String("test"),
-//								RoleArn: testRole.Arn,
-//								Uri:     testTopic.Arn,
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Extension"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
-//
-// ```sh
-// $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
-// ```
 type Extension struct {
 	pulumi.CustomResourceState
 
-	// The action points defined in the extension. Detailed below.
 	ActionPoints ExtensionActionPointArrayOutput `pulumi:"actionPoints"`
-	// ARN of the AppConfig Extension.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Information about the extension.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-	Parameters ExtensionParameterArrayOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The version number for the extension.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Arn          pulumi.StringOutput             `pulumi:"arn"`
+	Description  pulumi.StringOutput             `pulumi:"description"`
+	Name         pulumi.StringOutput             `pulumi:"name"`
+	Parameters   ExtensionParameterArrayOutput   `pulumi:"parameters"`
+	Region       pulumi.StringOutput             `pulumi:"region"`
+	Tags         pulumi.StringMapOutput          `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput          `pulumi:"tagsAll"`
+	Version      pulumi.IntOutput                `pulumi:"version"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -153,43 +59,27 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
-	// The action points defined in the extension. Detailed below.
 	ActionPoints []ExtensionActionPoint `pulumi:"actionPoints"`
-	// ARN of the AppConfig Extension.
-	Arn *string `pulumi:"arn"`
-	// Information about the extension.
-	Description *string `pulumi:"description"`
-	// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-	Name *string `pulumi:"name"`
-	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-	Parameters []ExtensionParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The version number for the extension.
-	Version *int `pulumi:"version"`
+	Arn          *string                `pulumi:"arn"`
+	Description  *string                `pulumi:"description"`
+	Name         *string                `pulumi:"name"`
+	Parameters   []ExtensionParameter   `pulumi:"parameters"`
+	Region       *string                `pulumi:"region"`
+	Tags         map[string]string      `pulumi:"tags"`
+	TagsAll      map[string]string      `pulumi:"tagsAll"`
+	Version      *int                   `pulumi:"version"`
 }
 
 type ExtensionState struct {
-	// The action points defined in the extension. Detailed below.
 	ActionPoints ExtensionActionPointArrayInput
-	// ARN of the AppConfig Extension.
-	Arn pulumi.StringPtrInput
-	// Information about the extension.
-	Description pulumi.StringPtrInput
-	// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-	Name pulumi.StringPtrInput
-	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-	Parameters ExtensionParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The version number for the extension.
-	Version pulumi.IntPtrInput
+	Arn          pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Parameters   ExtensionParameterArrayInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
+	Version      pulumi.IntPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {
@@ -197,34 +87,22 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	// The action points defined in the extension. Detailed below.
 	ActionPoints []ExtensionActionPoint `pulumi:"actionPoints"`
-	// Information about the extension.
-	Description *string `pulumi:"description"`
-	// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-	Name *string `pulumi:"name"`
-	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-	Parameters []ExtensionParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description  *string                `pulumi:"description"`
+	Name         *string                `pulumi:"name"`
+	Parameters   []ExtensionParameter   `pulumi:"parameters"`
+	Region       *string                `pulumi:"region"`
+	Tags         map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	// The action points defined in the extension. Detailed below.
 	ActionPoints ExtensionActionPointArrayInput
-	// Information about the extension.
-	Description pulumi.StringPtrInput
-	// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-	Name pulumi.StringPtrInput
-	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-	Parameters ExtensionParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description  pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Parameters   ExtensionParameterArrayInput
+	Region       pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {
@@ -314,37 +192,30 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
-// The action points defined in the extension. Detailed below.
 func (o ExtensionOutput) ActionPoints() ExtensionActionPointArrayOutput {
 	return o.ApplyT(func(v *Extension) ExtensionActionPointArrayOutput { return v.ActionPoints }).(ExtensionActionPointArrayOutput)
 }
 
-// ARN of the AppConfig Extension.
 func (o ExtensionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Information about the extension.
 func (o ExtensionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
 func (o ExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 func (o ExtensionOutput) Parameters() ExtensionParameterArrayOutput {
 	return o.ApplyT(func(v *Extension) ExtensionParameterArrayOutput { return v.Parameters }).(ExtensionParameterArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ExtensionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -353,7 +224,6 @@ func (o ExtensionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The version number for the extension.
 func (o ExtensionOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *Extension) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

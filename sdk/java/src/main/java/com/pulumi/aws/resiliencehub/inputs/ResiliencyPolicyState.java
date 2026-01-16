@@ -18,32 +18,22 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
 
     public static final ResiliencyPolicyState Empty = new ResiliencyPolicyState();
 
-    /**
-     * ARN of the Resiliency Policy.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Resiliency Policy.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
     /**
-     * Data Location Constraint of the Policy.
-     * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+     * Specifies a high-level geographical location constraint for where resilience policy data can be stored.
      * 
      */
     @Import(name="dataLocationConstraint")
     private @Nullable Output<String> dataLocationConstraint;
 
     /**
-     * @return Data Location Constraint of the Policy.
-     * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+     * @return Specifies a high-level geographical location constraint for where resilience policy data can be stored.
      * 
      */
     public Optional<Output<String>> dataLocationConstraint() {
@@ -51,14 +41,14 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Description of Resiliency Policy.
+     * The description for the policy.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of Resiliency Policy.
+     * @return The description for the policy.
      * 
      */
     public Optional<Output<String>> description() {
@@ -66,14 +56,14 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Estimated Cost Tier of the Resiliency Policy.
+     * Specifies the estimated cost tier of the resiliency policy.
      * 
      */
     @Import(name="estimatedCostTier")
     private @Nullable Output<String> estimatedCostTier;
 
     /**
-     * @return Estimated Cost Tier of the Resiliency Policy.
+     * @return Specifies the estimated cost tier of the resiliency policy.
      * 
      */
     public Optional<Output<String>> estimatedCostTier() {
@@ -81,18 +71,14 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of Resiliency Policy.
-     * Must be between 2 and 60 characters long.
-     * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+     * The name of the policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of Resiliency Policy.
-     * Must be between 2 and 60 characters long.
-     * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+     * @return The name of the policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -100,80 +86,50 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-     * 
-     * The following arguments are optional:
+     * The resiliency failure policy.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<ResiliencyPolicyPolicyArgs> policy;
 
     /**
-     * @return The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-     * 
-     * The following arguments are optional:
+     * @return The resiliency failure policy.
      * 
      */
     public Optional<Output<ResiliencyPolicyPolicyArgs>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
     /**
-     * Resiliency Policy Tier.
-     * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+     * The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
      * 
      */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
     /**
-     * @return Resiliency Policy Tier.
-     * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+     * @return The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
      * 
      */
     public Optional<Output<String>> tier() {
@@ -221,30 +177,17 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
             $ = new ResiliencyPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Resiliency Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Resiliency Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
-         * @param dataLocationConstraint Data Location Constraint of the Policy.
-         * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+         * @param dataLocationConstraint Specifies a high-level geographical location constraint for where resilience policy data can be stored.
          * 
          * @return builder
          * 
@@ -255,8 +198,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataLocationConstraint Data Location Constraint of the Policy.
-         * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+         * @param dataLocationConstraint Specifies a high-level geographical location constraint for where resilience policy data can be stored.
          * 
          * @return builder
          * 
@@ -266,7 +208,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description Description of Resiliency Policy.
+         * @param description The description for the policy.
          * 
          * @return builder
          * 
@@ -277,7 +219,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description Description of Resiliency Policy.
+         * @param description The description for the policy.
          * 
          * @return builder
          * 
@@ -287,7 +229,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param estimatedCostTier Estimated Cost Tier of the Resiliency Policy.
+         * @param estimatedCostTier Specifies the estimated cost tier of the resiliency policy.
          * 
          * @return builder
          * 
@@ -298,7 +240,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param estimatedCostTier Estimated Cost Tier of the Resiliency Policy.
+         * @param estimatedCostTier Specifies the estimated cost tier of the resiliency policy.
          * 
          * @return builder
          * 
@@ -308,9 +250,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Name of Resiliency Policy.
-         * Must be between 2 and 60 characters long.
-         * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+         * @param name The name of the policy.
          * 
          * @return builder
          * 
@@ -321,9 +261,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Name of Resiliency Policy.
-         * Must be between 2 and 60 characters long.
-         * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+         * @param name The name of the policy.
          * 
          * @return builder
          * 
@@ -333,9 +271,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-         * 
-         * The following arguments are optional:
+         * @param policy The resiliency failure policy.
          * 
          * @return builder
          * 
@@ -346,9 +282,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-         * 
-         * The following arguments are optional:
+         * @param policy The resiliency failure policy.
          * 
          * @return builder
          * 
@@ -357,72 +291,35 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
         /**
-         * @param tier Resiliency Policy Tier.
-         * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+         * @param tier The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
          * 
          * @return builder
          * 
@@ -433,8 +330,7 @@ public final class ResiliencyPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tier Resiliency Policy Tier.
-         * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+         * @param tier The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
          * 
          * @return builder
          * 

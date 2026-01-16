@@ -12,18 +12,11 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class LfTagExpressionExpressionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key-name for the LF-Tag.
-        /// </summary>
         [Input("tagKey", required: true)]
         public Input<string> TagKey { get; set; } = null!;
 
         [Input("tagValues", required: true)]
         private InputList<string>? _tagValues;
-
-        /// <summary>
-        /// A list of possible values for the LF-Tag
-        /// </summary>
         public InputList<string> TagValues
         {
             get => _tagValues ?? (_tagValues = new InputList<string>());

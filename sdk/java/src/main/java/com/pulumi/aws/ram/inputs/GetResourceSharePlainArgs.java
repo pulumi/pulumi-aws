@@ -18,92 +18,44 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetResourceSharePlainArgs Empty = new GetResourceSharePlainArgs();
 
-    /**
-     * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetResourceShareFilter> filters;
 
-    /**
-     * @return Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-     * 
-     */
     public Optional<List<GetResourceShareFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Name of the resource share to retrieve.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the resource share to retrieve.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-     * 
-     */
     @Import(name="resourceOwner", required=true)
     private String resourceOwner;
 
-    /**
-     * @return Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-     * 
-     */
     public String resourceOwner() {
         return this.resourceOwner;
     }
 
-    /**
-     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-     * 
-     */
     @Import(name="resourceShareStatus")
     private @Nullable String resourceShareStatus;
 
-    /**
-     * @return Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-     * 
-     */
     public Optional<String> resourceShareStatus() {
         return Optional.ofNullable(this.resourceShareStatus);
     }
 
-    /**
-     * Tags attached to the resource share.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags attached to the resource share.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -137,77 +89,35 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
             $ = new GetResourceSharePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetResourceShareFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetResourceShareFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param name Name of the resource share to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param resourceOwner Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceOwner(String resourceOwner) {
             $.resourceOwner = resourceOwner;
             return this;
         }
 
-        /**
-         * @param resourceShareStatus Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareStatus(@Nullable String resourceShareStatus) {
             $.resourceShareStatus = resourceShareStatus;
             return this;
         }
 
-        /**
-         * @param tags Tags attached to the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

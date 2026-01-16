@@ -19,120 +19,40 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCatalogTableResult {
-    /**
-     * @return The ARN of the Glue Table.
-     * 
-     */
     private String arn;
-    /**
-     * @return ID of the Data Catalog in which the table resides.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return Name of the catalog database that contains the target table.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Description of the table.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the target table.
-     * 
-     */
     private String name;
-    /**
-     * @return Owner of the table.
-     * 
-     */
     private String owner;
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     private Map<String,String> parameters;
-    /**
-     * @return Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-     * 
-     */
     private List<GetCatalogTablePartitionIndex> partitionIndices;
-    /**
-     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-     * 
-     */
     private List<GetCatalogTablePartitionKey> partitionKeys;
     private @Nullable String queryAsOfTime;
-    /**
-     * @return Region of the target table.
-     * 
-     */
     private String region;
-    /**
-     * @return Retention time for this table.
-     * 
-     */
     private Integer retention;
-    /**
-     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptor> storageDescriptors;
-    /**
-     * @return Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-     * 
-     */
     private String tableType;
-    /**
-     * @return Configuration block of a target table for resource linking. See `targetTable` below.
-     * 
-     */
     private List<GetCatalogTableTargetTable> targetTables;
     private @Nullable Integer transactionId;
-    /**
-     * @return If the table is a view, the expanded text of the view; otherwise null.
-     * 
-     */
     private String viewExpandedText;
-    /**
-     * @return If the table is a view, the original text of the view; otherwise null.
-     * 
-     */
     private String viewOriginalText;
 
     private GetCatalogTableResult() {}
-    /**
-     * @return The ARN of the Glue Table.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ID of the Data Catalog in which the table resides.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return Name of the catalog database that contains the target table.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Description of the table.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -143,93 +63,45 @@ public final class GetCatalogTableResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the target table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Owner of the table.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
-     * 
-     */
     public List<GetCatalogTablePartitionIndex> partitionIndices() {
         return this.partitionIndices;
     }
-    /**
-     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
-     * 
-     */
     public List<GetCatalogTablePartitionKey> partitionKeys() {
         return this.partitionKeys;
     }
     public Optional<String> queryAsOfTime() {
         return Optional.ofNullable(this.queryAsOfTime);
     }
-    /**
-     * @return Region of the target table.
-     * 
-     */
     public String region() {
         return this.region;
     }
-    /**
-     * @return Retention time for this table.
-     * 
-     */
     public Integer retention() {
         return this.retention;
     }
-    /**
-     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptor> storageDescriptors() {
         return this.storageDescriptors;
     }
-    /**
-     * @return Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-     * 
-     */
     public String tableType() {
         return this.tableType;
     }
-    /**
-     * @return Configuration block of a target table for resource linking. See `targetTable` below.
-     * 
-     */
     public List<GetCatalogTableTargetTable> targetTables() {
         return this.targetTables;
     }
     public Optional<Integer> transactionId() {
         return Optional.ofNullable(this.transactionId);
     }
-    /**
-     * @return If the table is a view, the expanded text of the view; otherwise null.
-     * 
-     */
     public String viewExpandedText() {
         return this.viewExpandedText;
     }
-    /**
-     * @return If the table is a view, the original text of the view; otherwise null.
-     * 
-     */
     public String viewOriginalText() {
         return this.viewOriginalText;
     }

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionCacheBehaviorSettingsForwardedHeaders
     {
         /// <summary>
-        /// Specific headers to forward to your distribution's origin.
+        /// The specific headers to forward to your distribution's origin.
         /// </summary>
         public readonly ImmutableArray<string> HeadersAllowLists;
         /// <summary>
-        /// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `Default`, `allow-list`, `All`.
+        /// The headers that you want your distribution to forward to your origin and base caching on.
         /// </summary>
         public readonly string? Option;
 

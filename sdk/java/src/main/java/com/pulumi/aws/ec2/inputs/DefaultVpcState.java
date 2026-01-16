@@ -32,17 +32,9 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.assignGeneratedIpv6CidrBlock);
     }
 
-    /**
-     * The primary IPv4 CIDR block for the VPC
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return The primary IPv4 CIDR block for the VPC
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
@@ -103,32 +95,16 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.existingDefaultVpc);
     }
 
-    /**
-     * Whether destroying the resource deletes the default VPC. Default: `false`
-     * 
-     */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
-    /**
-     * @return Whether destroying the resource deletes the default VPC. Default: `false`
-     * 
-     */
     public Optional<Output<Boolean>> forceDestroy() {
         return Optional.ofNullable(this.forceDestroy);
     }
 
-    /**
-     * The allowed tenancy of instances launched into the VPC
-     * 
-     */
     @Import(name="instanceTenancy")
     private @Nullable Output<String> instanceTenancy;
 
-    /**
-     * @return The allowed tenancy of instances launched into the VPC
-     * 
-     */
     public Optional<Output<String>> instanceTenancy() {
         return Optional.ofNullable(this.instanceTenancy);
     }
@@ -267,23 +243,11 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
             return assignGeneratedIpv6CidrBlock(Output.of(assignGeneratedIpv6CidrBlock));
         }
 
-        /**
-         * @param cidrBlock The primary IPv4 CIDR block for the VPC
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock The primary IPv4 CIDR block for the VPC
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
@@ -360,44 +324,20 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
             return existingDefaultVpc(Output.of(existingDefaultVpc));
         }
 
-        /**
-         * @param forceDestroy Whether destroying the resource deletes the default VPC. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
             $.forceDestroy = forceDestroy;
             return this;
         }
 
-        /**
-         * @param forceDestroy Whether destroying the resource deletes the default VPC. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDestroy(Boolean forceDestroy) {
             return forceDestroy(Output.of(forceDestroy));
         }
 
-        /**
-         * @param instanceTenancy The allowed tenancy of instances launched into the VPC
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTenancy(@Nullable Output<String> instanceTenancy) {
             $.instanceTenancy = instanceTenancy;
             return this;
         }
 
-        /**
-         * @param instanceTenancy The allowed tenancy of instances launched into the VPC
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTenancy(String instanceTenancy) {
             return instanceTenancy(Output.of(instanceTenancy));
         }

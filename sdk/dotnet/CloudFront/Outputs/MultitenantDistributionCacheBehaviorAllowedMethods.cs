@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionCacheBehaviorAllowedMethods
     {
-        /// <summary>
-        /// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-        /// </summary>
         public readonly ImmutableArray<string> CachedMethods;
         public readonly ImmutableArray<string> Items;
 

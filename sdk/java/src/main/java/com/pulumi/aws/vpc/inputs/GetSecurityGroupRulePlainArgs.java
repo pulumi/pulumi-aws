@@ -16,55 +16,23 @@ public final class GetSecurityGroupRulePlainArgs extends com.pulumi.resources.In
 
     public static final GetSecurityGroupRulePlainArgs Empty = new GetSecurityGroupRulePlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * security group rules. The given filters must match exactly one security group rule
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetSecurityGroupRuleFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * security group rules. The given filters must match exactly one security group rule
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<List<GetSecurityGroupRuleFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the security group rule to select.
-     * 
-     */
     @Import(name="securityGroupRuleId")
     private @Nullable String securityGroupRuleId;
 
-    /**
-     * @return ID of the security group rule to select.
-     * 
-     */
     public Optional<String> securityGroupRuleId() {
         return Optional.ofNullable(this.securityGroupRuleId);
     }
@@ -95,52 +63,20 @@ public final class GetSecurityGroupRulePlainArgs extends com.pulumi.resources.In
             $ = new GetSecurityGroupRulePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * security group rules. The given filters must match exactly one security group rule
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetSecurityGroupRuleFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * security group rules. The given filters must match exactly one security group rule
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSecurityGroupRuleFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param securityGroupRuleId ID of the security group rule to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupRuleId(@Nullable String securityGroupRuleId) {
             $.securityGroupRuleId = securityGroupRuleId;
             return this;

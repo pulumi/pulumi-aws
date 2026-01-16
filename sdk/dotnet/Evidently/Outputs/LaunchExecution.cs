@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class LaunchExecution
     {
-        /// <summary>
-        /// The date and time that the launch ended.
-        /// </summary>
         public readonly string? EndedTime;
-        /// <summary>
-        /// The date and time that the launch started.
-        /// </summary>
         public readonly string? StartedTime;
 
         [OutputConstructor]

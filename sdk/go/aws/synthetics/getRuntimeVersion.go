@@ -11,63 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS CloudWatch Synthetics Runtime Version.
-//
-// ## Example Usage
-//
-// ### Latest Runtime Version
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.GetRuntimeVersion(ctx, &synthetics.GetRuntimeVersionArgs{
-//				Prefix: "syn-nodejs-puppeteer",
-//				Latest: pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Specific Runtime Version
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.GetRuntimeVersion(ctx, &synthetics.GetRuntimeVersionArgs{
-//				Prefix:  "syn-nodejs-puppeteer",
-//				Version: pulumi.StringRef("9.0"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRuntimeVersion(ctx *pulumi.Context, args *GetRuntimeVersionArgs, opts ...pulumi.InvokeOption) (*GetRuntimeVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRuntimeVersionResult
@@ -80,34 +23,23 @@ func GetRuntimeVersion(ctx *pulumi.Context, args *GetRuntimeVersionArgs, opts ..
 
 // A collection of arguments for invoking getRuntimeVersion.
 type GetRuntimeVersionArgs struct {
-	// Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-	Latest *bool `pulumi:"latest"`
-	// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-	//
-	// The following arguments are optional:
-	Prefix string `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
+	Latest  *bool   `pulumi:"latest"`
+	Prefix  string  `pulumi:"prefix"`
+	Region  *string `pulumi:"region"`
 	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getRuntimeVersion.
 type GetRuntimeVersionResult struct {
-	// Date of deprecation if the runtme version is deprecated.
-	DeprecationDate string `pulumi:"deprecationDate"`
-	// Description of the runtime version, created by Amazon.
-	Description string `pulumi:"description"`
-	// Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-	Id     string `pulumi:"id"`
-	Latest *bool  `pulumi:"latest"`
-	Prefix string `pulumi:"prefix"`
-	Region string `pulumi:"region"`
-	// Date that the runtime version was released.
-	ReleaseDate string  `pulumi:"releaseDate"`
-	Version     *string `pulumi:"version"`
-	// Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-	VersionName string `pulumi:"versionName"`
+	DeprecationDate string  `pulumi:"deprecationDate"`
+	Description     string  `pulumi:"description"`
+	Id              string  `pulumi:"id"`
+	Latest          *bool   `pulumi:"latest"`
+	Prefix          string  `pulumi:"prefix"`
+	Region          string  `pulumi:"region"`
+	ReleaseDate     string  `pulumi:"releaseDate"`
+	Version         *string `pulumi:"version"`
+	VersionName     string  `pulumi:"versionName"`
 }
 
 func GetRuntimeVersionOutput(ctx *pulumi.Context, args GetRuntimeVersionOutputArgs, opts ...pulumi.InvokeOption) GetRuntimeVersionResultOutput {
@@ -121,15 +53,9 @@ func GetRuntimeVersionOutput(ctx *pulumi.Context, args GetRuntimeVersionOutputAr
 
 // A collection of arguments for invoking getRuntimeVersion.
 type GetRuntimeVersionOutputArgs struct {
-	// Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
-	Latest pulumi.BoolPtrInput `pulumi:"latest"`
-	// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
-	//
-	// The following arguments are optional:
-	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
+	Latest  pulumi.BoolPtrInput   `pulumi:"latest"`
+	Prefix  pulumi.StringInput    `pulumi:"prefix"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -152,17 +78,14 @@ func (o GetRuntimeVersionResultOutput) ToGetRuntimeVersionResultOutputWithContex
 	return o
 }
 
-// Date of deprecation if the runtme version is deprecated.
 func (o GetRuntimeVersionResultOutput) DeprecationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.DeprecationDate }).(pulumi.StringOutput)
 }
 
-// Description of the runtime version, created by Amazon.
 func (o GetRuntimeVersionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
 func (o GetRuntimeVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -179,7 +102,6 @@ func (o GetRuntimeVersionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Date that the runtime version was released.
 func (o GetRuntimeVersionResultOutput) ReleaseDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.ReleaseDate }).(pulumi.StringOutput)
 }
@@ -188,7 +110,6 @@ func (o GetRuntimeVersionResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// Name of the runtime version. For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
 func (o GetRuntimeVersionResultOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.VersionName }).(pulumi.StringOutput)
 }

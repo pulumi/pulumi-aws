@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KxClusterScalingGroupConfiguration {
-    /**
-     * @return The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
-     * 
-     */
     private @Nullable Double cpu;
-    /**
-     * @return An optional hard limit on the amount of memory a kdb cluster can use.
-     * 
-     */
     private @Nullable Integer memoryLimit;
-    /**
-     * @return A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
-     * 
-     */
     private Integer memoryReservation;
-    /**
-     * @return The number of kdb cluster nodes.
-     * 
-     */
     private Integer nodeCount;
-    /**
-     * @return A unique identifier for the kdb scaling group.
-     * 
-     */
     private String scalingGroupName;
 
     private KxClusterScalingGroupConfiguration() {}
-    /**
-     * @return The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
-     * 
-     */
     public Optional<Double> cpu() {
         return Optional.ofNullable(this.cpu);
     }
-    /**
-     * @return An optional hard limit on the amount of memory a kdb cluster can use.
-     * 
-     */
     public Optional<Integer> memoryLimit() {
         return Optional.ofNullable(this.memoryLimit);
     }
-    /**
-     * @return A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
-     * 
-     */
     public Integer memoryReservation() {
         return this.memoryReservation;
     }
-    /**
-     * @return The number of kdb cluster nodes.
-     * 
-     */
     public Integer nodeCount() {
         return this.nodeCount;
     }
-    /**
-     * @return A unique identifier for the kdb scaling group.
-     * 
-     */
     public String scalingGroupName() {
         return this.scalingGroupName;
     }

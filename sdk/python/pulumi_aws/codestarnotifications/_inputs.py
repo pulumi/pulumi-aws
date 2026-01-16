@@ -24,17 +24,8 @@ MYPY = False
 if not MYPY:
     class NotificationRuleTargetArgsDict(TypedDict):
         address: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        """
 elif False:
     NotificationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -44,11 +35,6 @@ class NotificationRuleTargetArgs:
                  address: pulumi.Input[_builtins.str],
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] address: The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        :param pulumi.Input[_builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[_builtins.str] type: The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        """
         pulumi.set(__self__, "address", address)
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -58,9 +44,6 @@ class NotificationRuleTargetArgs:
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -70,9 +53,6 @@ class NotificationRuleTargetArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -82,9 +62,6 @@ class NotificationRuleTargetArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the notification target. Valid values are `SNS`, `AWSChatbotSlack`, and `AWSChatbotMicrosoftTeams`. Default value is `SNS`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter

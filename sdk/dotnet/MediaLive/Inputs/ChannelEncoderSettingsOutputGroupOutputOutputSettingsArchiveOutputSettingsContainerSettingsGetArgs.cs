@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        /// </summary>
         [Input("m2tsSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsGetArgs>? M2tsSettings { get; set; }
 
-        /// <summary>
-        /// Raw Settings. This can be set as an empty block.
-        /// </summary>
         [Input("rawSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsGetArgs>? RawSettings { get; set; }
 

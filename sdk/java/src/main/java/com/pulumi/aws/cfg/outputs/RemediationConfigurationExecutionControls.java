@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RemediationConfigurationExecutionControls {
-    /**
-     * @return Configuration block for SSM controls. See below.
-     * 
-     */
     private @Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls;
 
     private RemediationConfigurationExecutionControls() {}
-    /**
-     * @return Configuration block for SSM controls. See below.
-     * 
-     */
     public Optional<RemediationConfigurationExecutionControlsSsmControls> ssmControls() {
         return Optional.ofNullable(this.ssmControls);
     }

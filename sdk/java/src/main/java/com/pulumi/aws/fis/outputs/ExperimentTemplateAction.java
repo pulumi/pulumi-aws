@@ -15,77 +15,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateAction {
-    /**
-     * @return ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     private String actionId;
-    /**
-     * @return Description of the action.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return Friendly name of the action.
-     * 
-     */
     private String name;
-    /**
-     * @return Parameter(s) for the action, if applicable. See below.
-     * 
-     */
     private @Nullable List<ExperimentTemplateActionParameter> parameters;
-    /**
-     * @return Set of action names that must complete before this action can be executed.
-     * 
-     */
     private @Nullable List<String> startAfters;
-    /**
-     * @return Action&#39;s target, if applicable. See below.
-     * 
-     */
     private @Nullable ExperimentTemplateActionTarget target;
 
     private ExperimentTemplateAction() {}
-    /**
-     * @return ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
-     */
     public String actionId() {
         return this.actionId;
     }
-    /**
-     * @return Description of the action.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return Friendly name of the action.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Parameter(s) for the action, if applicable. See below.
-     * 
-     */
     public List<ExperimentTemplateActionParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
-    /**
-     * @return Set of action names that must complete before this action can be executed.
-     * 
-     */
     public List<String> startAfters() {
         return this.startAfters == null ? List.of() : this.startAfters;
     }
-    /**
-     * @return Action&#39;s target, if applicable. See below.
-     * 
-     */
     public Optional<ExperimentTemplateActionTarget> target() {
         return Optional.ofNullable(this.target);
     }

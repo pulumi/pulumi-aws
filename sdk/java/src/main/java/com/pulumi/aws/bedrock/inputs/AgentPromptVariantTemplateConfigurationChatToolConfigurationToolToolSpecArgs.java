@@ -17,51 +17,23 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
 
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs();
 
-    /**
-     * Description of the prompt.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the prompt.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The input schema of the tool. See Tool Input Schema for more information.
-     * 
-     */
     @Import(name="inputSchema")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs> inputSchema;
 
-    /**
-     * @return The input schema of the tool. See Tool Input Schema for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs>> inputSchema() {
         return Optional.ofNullable(this.inputSchema);
     }
 
-    /**
-     * Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the prompt.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -92,69 +64,29 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
             $ = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param inputSchema The input schema of the tool. See Tool Input Schema for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSchema(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs> inputSchema) {
             $.inputSchema = inputSchema;
             return this;
         }
 
-        /**
-         * @param inputSchema The input schema of the tool. See Tool Input Schema for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputSchema(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs inputSchema) {
             return inputSchema(Output.of(inputSchema));
         }
 
-        /**
-         * @param name Name of the prompt.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the prompt.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

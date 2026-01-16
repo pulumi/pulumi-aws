@@ -12,103 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeCommit Repository Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("MyTestRepository"),
-//				Description:    pulumi.String("This is the Sample App Repository"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS KMS Customer Managed Keys (CMK)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testKey, err := kms.NewKey(ctx, "test", &kms.KeyArgs{
-//				Description:          pulumi.String("test"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("MyTestRepository"),
-//				Description:    pulumi.String("This is the Sample App Repository"),
-//				KmsKeyId:       testKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeCommit repository using repository name. For example:
-//
-// ```sh
-// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the repository
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp pulumi.StringOutput `pulumi:"cloneUrlHttp"`
-	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh pulumi.StringOutput `pulumi:"cloneUrlSsh"`
-	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch pulumi.StringPtrOutput `pulumi:"defaultBranch"`
-	// The description of the repository. This needs to be less than 1000 characters
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the repository
-	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	CloneUrlHttp   pulumi.StringOutput    `pulumi:"cloneUrlHttp"`
+	CloneUrlSsh    pulumi.StringOutput    `pulumi:"cloneUrlSsh"`
+	DefaultBranch  pulumi.StringPtrOutput `pulumi:"defaultBranch"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	KmsKeyId       pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	RepositoryId   pulumi.StringOutput    `pulumi:"repositoryId"`
+	RepositoryName pulumi.StringOutput    `pulumi:"repositoryName"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -144,53 +61,31 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
-	// The ARN of the repository
-	Arn *string `pulumi:"arn"`
-	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp *string `pulumi:"cloneUrlHttp"`
-	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh *string `pulumi:"cloneUrlSsh"`
-	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch *string `pulumi:"defaultBranch"`
-	// The description of the repository. This needs to be less than 1000 characters
-	Description *string `pulumi:"description"`
-	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the repository
-	RepositoryId *string `pulumi:"repositoryId"`
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName *string `pulumi:"repositoryName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string           `pulumi:"arn"`
+	CloneUrlHttp   *string           `pulumi:"cloneUrlHttp"`
+	CloneUrlSsh    *string           `pulumi:"cloneUrlSsh"`
+	DefaultBranch  *string           `pulumi:"defaultBranch"`
+	Description    *string           `pulumi:"description"`
+	KmsKeyId       *string           `pulumi:"kmsKeyId"`
+	Region         *string           `pulumi:"region"`
+	RepositoryId   *string           `pulumi:"repositoryId"`
+	RepositoryName *string           `pulumi:"repositoryName"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
-	// The ARN of the repository
-	Arn pulumi.StringPtrInput
-	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp pulumi.StringPtrInput
-	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh pulumi.StringPtrInput
-	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch pulumi.StringPtrInput
-	// The description of the repository. This needs to be less than 1000 characters
-	Description pulumi.StringPtrInput
-	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-	KmsKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the repository
-	RepositoryId pulumi.StringPtrInput
-	// The name for the repository. This needs to be less than 100 characters.
+	Arn            pulumi.StringPtrInput
+	CloneUrlHttp   pulumi.StringPtrInput
+	CloneUrlSsh    pulumi.StringPtrInput
+	DefaultBranch  pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	KmsKeyId       pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	RepositoryId   pulumi.StringPtrInput
 	RepositoryName pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -198,34 +93,22 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch *string `pulumi:"defaultBranch"`
-	// The description of the repository. This needs to be less than 1000 characters
-	Description *string `pulumi:"description"`
-	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName string `pulumi:"repositoryName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DefaultBranch  *string           `pulumi:"defaultBranch"`
+	Description    *string           `pulumi:"description"`
+	KmsKeyId       *string           `pulumi:"kmsKeyId"`
+	Region         *string           `pulumi:"region"`
+	RepositoryName string            `pulumi:"repositoryName"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch pulumi.StringPtrInput
-	// The description of the repository. This needs to be less than 1000 characters
-	Description pulumi.StringPtrInput
-	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
-	KmsKeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name for the repository. This needs to be less than 100 characters.
+	DefaultBranch  pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	KmsKeyId       pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 	RepositoryName pulumi.StringInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -315,57 +198,46 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-// The ARN of the repository
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The URL to use for cloning the repository over HTTPS.
 func (o RepositoryOutput) CloneUrlHttp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlHttp }).(pulumi.StringOutput)
 }
 
-// The URL to use for cloning the repository over SSH.
 func (o RepositoryOutput) CloneUrlSsh() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.CloneUrlSsh }).(pulumi.StringOutput)
 }
 
-// The default branch of the repository. The branch specified here needs to exist.
 func (o RepositoryOutput) DefaultBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.DefaultBranch }).(pulumi.StringPtrOutput)
 }
 
-// The description of the repository. This needs to be less than 1000 characters
 func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 func (o RepositoryOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the repository
 func (o RepositoryOutput) RepositoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryId }).(pulumi.StringOutput)
 }
 
-// The name for the repository. This needs to be less than 100 characters.
 func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

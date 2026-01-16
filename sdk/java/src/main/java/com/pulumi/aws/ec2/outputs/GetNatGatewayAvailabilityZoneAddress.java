@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNatGatewayAvailabilityZoneAddress {
-    /**
-     * @return List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-     * 
-     */
     private List<String> allocationIds;
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     private String availabilityZoneId;
 
     private GetNatGatewayAvailabilityZoneAddress() {}
-    /**
-     * @return List of allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-     * 
-     */
     public List<String> allocationIds() {
         return this.allocationIds;
     }
-    /**
-     * @return Availability Zone where this specific NAT gateway configuration is active.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Availability Zone ID where this specific NAT gateway configuration is active
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }

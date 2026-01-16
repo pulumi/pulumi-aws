@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallFirewallStatusTransitGatewayAttachmentSyncState {
-    /**
-     * @return The unique identifier of the transit gateway attachment.
-     * 
-     */
     private String attachmentId;
-    /**
-     * @return A message providing additional information about the current status.
-     * 
-     */
     private String statusMessage;
-    /**
-     * @return The current status of the transit gateway attachment.
-     * 
-     */
     private String transitGatewayAttachmentStatus;
 
     private GetFirewallFirewallStatusTransitGatewayAttachmentSyncState() {}
-    /**
-     * @return The unique identifier of the transit gateway attachment.
-     * 
-     */
     public String attachmentId() {
         return this.attachmentId;
     }
-    /**
-     * @return A message providing additional information about the current status.
-     * 
-     */
     public String statusMessage() {
         return this.statusMessage;
     }
-    /**
-     * @return The current status of the transit gateway attachment.
-     * 
-     */
     public String transitGatewayAttachmentStatus() {
         return this.transitGatewayAttachmentStatus;
     }

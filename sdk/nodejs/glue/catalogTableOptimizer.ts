@@ -7,86 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Glue Catalog Table Optimizer.
- *
- * ## Example Usage
- *
- * ### Compaction Optimizer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.CatalogTableOptimizer("example", {
- *     catalogId: "123456789012",
- *     databaseName: "example_database",
- *     tableName: "example_table",
- *     configuration: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-role",
- *         enabled: true,
- *     },
- *     type: "compaction",
- * });
- * ```
- *
- * ### Snapshot Retention Optimizer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.CatalogTableOptimizer("example", {
- *     catalogId: "123456789012",
- *     databaseName: "example_database",
- *     tableName: "example_table",
- *     configuration: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-role",
- *         enabled: true,
- *         retentionConfiguration: {
- *             icebergConfiguration: {
- *                 snapshotRetentionPeriodInDays: 7,
- *                 numberOfSnapshotsToRetain: 3,
- *                 cleanExpiredFiles: true,
- *             },
- *         },
- *     },
- *     type: "retention",
- * });
- * ```
- *
- * ### Orphan File Deletion Optimizer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.CatalogTableOptimizer("example", {
- *     catalogId: "123456789012",
- *     databaseName: "example_database",
- *     tableName: "example_table",
- *     configuration: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-role",
- *         enabled: true,
- *         orphanFileDeletionConfiguration: {
- *             icebergConfiguration: {
- *                 orphanFileRetentionPeriodInDays: 7,
- *                 location: "s3://example-bucket/example_table/",
- *             },
- *         },
- *     },
- *     type: "orphan_file_deletion",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
- *
- * ```sh
- * $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
- * ```
- */
 export class CatalogTableOptimizer extends pulumi.CustomResource {
     /**
      * Get an existing CatalogTableOptimizer resource's state with the given name, ID, and optional extra
@@ -115,29 +35,11 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === CatalogTableOptimizer.__pulumiType;
     }
 
-    /**
-     * The Catalog ID of the table.
-     */
     declare public readonly catalogId: pulumi.Output<string>;
-    /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     */
     declare public readonly configuration: pulumi.Output<outputs.glue.CatalogTableOptimizerConfiguration | undefined>;
-    /**
-     * The name of the database in the catalog in which the table resides.
-     */
     declare public readonly databaseName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The name of the table.
-     */
     declare public readonly tableName: pulumi.Output<string>;
-    /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -189,29 +91,11 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CatalogTableOptimizer resources.
  */
 export interface CatalogTableOptimizerState {
-    /**
-     * The Catalog ID of the table.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     */
     configuration?: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration>;
-    /**
-     * The name of the database in the catalog in which the table resides.
-     */
     databaseName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the table.
-     */
     tableName?: pulumi.Input<string>;
-    /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -219,28 +103,10 @@ export interface CatalogTableOptimizerState {
  * The set of arguments for constructing a CatalogTableOptimizer resource.
  */
 export interface CatalogTableOptimizerArgs {
-    /**
-     * The Catalog ID of the table.
-     */
     catalogId: pulumi.Input<string>;
-    /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
-     */
     configuration?: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration>;
-    /**
-     * The name of the database in the catalog in which the table resides.
-     */
     databaseName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The name of the table.
-     */
     tableName: pulumi.Input<string>;
-    /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
-     */
     type: pulumi.Input<string>;
 }

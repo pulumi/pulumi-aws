@@ -58,9 +58,6 @@ class GetParametersByPathResult:
     @_builtins.property
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
-        """
-        A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
-        """
         return pulumi.get(self, "arns")
 
     @_builtins.property
@@ -74,9 +71,6 @@ class GetParametersByPathResult:
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        A list that contains the names of the retrieved parameters.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -97,17 +91,11 @@ class GetParametersByPathResult:
     @_builtins.property
     @pulumi.getter
     def types(self) -> Sequence[_builtins.str]:
-        """
-        A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
-        """
         return pulumi.get(self, "types")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
-        """
         return pulumi.get(self, "values")
 
     @_builtins.property
@@ -140,11 +128,6 @@ def get_parameters_by_path(path: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersByPathResult:
     """
     Use this data source to access information about an existing resource.
-
-    :param _builtins.str path: The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-    :param _builtins.bool recursive: Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool with_decryption: Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -171,11 +154,6 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[_builtins.str]] = 
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
     Use this data source to access information about an existing resource.
-
-    :param _builtins.str path: The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-    :param _builtins.bool recursive: Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool with_decryption: Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
     """
     __args__ = dict()
     __args__['path'] = path

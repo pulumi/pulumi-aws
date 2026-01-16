@@ -11,258 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcIpams
     {
-        /// <summary>
-        /// Data source for managing VPC IPAMs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         IpamIds = new[]
-        ///         {
-        ///             "ipam-abcd1234",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by `Tags`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamsFilterInputArgs
-        ///             {
-        ///                 Name = "tags.Some",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Value",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by `Tier`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamsFilterInputArgs
-        ///             {
-        ///                 Name = "tier",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "free",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetVpcIpamsResult> InvokeAsync(GetVpcIpamsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamsResult>("aws:ec2/getVpcIpams:getVpcIpams", args ?? new GetVpcIpamsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing VPC IPAMs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         IpamIds = new[]
-        ///         {
-        ///             "ipam-abcd1234",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by `Tags`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamsFilterInputArgs
-        ///             {
-        ///                 Name = "tags.Some",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Value",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by `Tier`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamsFilterInputArgs
-        ///             {
-        ///                 Name = "tier",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "free",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcIpamsResult> Invoke(GetVpcIpamsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamsResult>("aws:ec2/getVpcIpams:getVpcIpams", args ?? new GetVpcIpamsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing VPC IPAMs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         IpamIds = new[]
-        ///         {
-        ///             "ipam-abcd1234",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by `Tags`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamsFilterInputArgs
-        ///             {
-        ///                 Name = "tags.Some",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Value",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### Filter by `Tier`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcIpams.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamsFilterInputArgs
-        ///             {
-        ///                 Name = "tier",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "free",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetVpcIpamsResult> Invoke(GetVpcIpamsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamsResult>("aws:ec2/getVpcIpams:getVpcIpams", args ?? new GetVpcIpamsInvokeArgs(), options.WithDefaults());
     }
@@ -272,12 +26,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetVpcIpamsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available IPAMs.
-        /// </summary>
         public List<Inputs.GetVpcIpamsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcIpamsFilterArgs>());
@@ -286,19 +34,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("ipamIds")]
         private List<string>? _ipamIds;
-
-        /// <summary>
-        /// IDs of the IPAM resources to query for.
-        /// </summary>
         public List<string> IpamIds
         {
             get => _ipamIds ?? (_ipamIds = new List<string>());
             set => _ipamIds = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -312,12 +53,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcIpamsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// 
-        /// The arguments of this data source act as filters for querying the available IPAMs.
-        /// </summary>
         public InputList<Inputs.GetVpcIpamsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcIpamsFilterInputArgs>());
@@ -326,19 +61,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("ipamIds")]
         private InputList<string>? _ipamIds;
-
-        /// <summary>
-        /// IDs of the IPAM resources to query for.
-        /// </summary>
         public InputList<string> IpamIds
         {
             get => _ipamIds ?? (_ipamIds = new InputList<string>());
             set => _ipamIds = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -358,9 +86,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<string> IpamIds;
-        /// <summary>
-        /// List of IPAM resources matching the provided arguments.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamsIpamResult> Ipams;
         public readonly string Region;
 

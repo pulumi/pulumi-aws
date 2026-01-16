@@ -12,85 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SSM Maintenance Window resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewMaintenanceWindow(ctx, "production", &ssm.MaintenanceWindowArgs{
-//				Name:     pulumi.String("maintenance-window-application"),
-//				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
-//				Duration: pulumi.Int(3),
-//				Cutoff:   pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `id` - (String) ID of the maintenance window.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
-//
-// % pulumi import aws_ssm_maintenance_window.example mw-0123456789
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 
-	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-	AllowUnassociatedTargets pulumi.BoolPtrOutput `pulumi:"allowUnassociatedTargets"`
-	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff pulumi.IntOutput `pulumi:"cutoff"`
-	// A description for the maintenance window.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The duration of the Maintenance Window in hours.
-	Duration pulumi.IntOutput `pulumi:"duration"`
-	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
-	// The name of the maintenance window.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-	Schedule pulumi.StringOutput `pulumi:"schedule"`
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-	ScheduleOffset pulumi.IntPtrOutput `pulumi:"scheduleOffset"`
-	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AllowUnassociatedTargets pulumi.BoolPtrOutput   `pulumi:"allowUnassociatedTargets"`
+	Cutoff                   pulumi.IntOutput       `pulumi:"cutoff"`
+	Description              pulumi.StringPtrOutput `pulumi:"description"`
+	Duration                 pulumi.IntOutput       `pulumi:"duration"`
+	Enabled                  pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	EndDate                  pulumi.StringPtrOutput `pulumi:"endDate"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	Region                   pulumi.StringOutput    `pulumi:"region"`
+	Schedule                 pulumi.StringOutput    `pulumi:"schedule"`
+	ScheduleOffset           pulumi.IntPtrOutput    `pulumi:"scheduleOffset"`
+	ScheduleTimezone         pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
+	StartDate                pulumi.StringPtrOutput `pulumi:"startDate"`
+	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewMaintenanceWindow registers a new resource with the given unique name, arguments, and options.
@@ -132,65 +70,37 @@ func GetMaintenanceWindow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceWindow resources.
 type maintenanceWindowState struct {
-	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-	AllowUnassociatedTargets *bool `pulumi:"allowUnassociatedTargets"`
-	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff *int `pulumi:"cutoff"`
-	// A description for the maintenance window.
-	Description *string `pulumi:"description"`
-	// The duration of the Maintenance Window in hours.
-	Duration *int `pulumi:"duration"`
-	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate *string `pulumi:"endDate"`
-	// The name of the maintenance window.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-	Schedule *string `pulumi:"schedule"`
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-	ScheduleOffset *int `pulumi:"scheduleOffset"`
-	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate *string `pulumi:"startDate"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AllowUnassociatedTargets *bool             `pulumi:"allowUnassociatedTargets"`
+	Cutoff                   *int              `pulumi:"cutoff"`
+	Description              *string           `pulumi:"description"`
+	Duration                 *int              `pulumi:"duration"`
+	Enabled                  *bool             `pulumi:"enabled"`
+	EndDate                  *string           `pulumi:"endDate"`
+	Name                     *string           `pulumi:"name"`
+	Region                   *string           `pulumi:"region"`
+	Schedule                 *string           `pulumi:"schedule"`
+	ScheduleOffset           *int              `pulumi:"scheduleOffset"`
+	ScheduleTimezone         *string           `pulumi:"scheduleTimezone"`
+	StartDate                *string           `pulumi:"startDate"`
+	Tags                     map[string]string `pulumi:"tags"`
+	TagsAll                  map[string]string `pulumi:"tagsAll"`
 }
 
 type MaintenanceWindowState struct {
-	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 	AllowUnassociatedTargets pulumi.BoolPtrInput
-	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff pulumi.IntPtrInput
-	// A description for the maintenance window.
-	Description pulumi.StringPtrInput
-	// The duration of the Maintenance Window in hours.
-	Duration pulumi.IntPtrInput
-	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled pulumi.BoolPtrInput
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate pulumi.StringPtrInput
-	// The name of the maintenance window.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-	Schedule pulumi.StringPtrInput
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-	ScheduleOffset pulumi.IntPtrInput
-	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone pulumi.StringPtrInput
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Cutoff                   pulumi.IntPtrInput
+	Description              pulumi.StringPtrInput
+	Duration                 pulumi.IntPtrInput
+	Enabled                  pulumi.BoolPtrInput
+	EndDate                  pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Schedule                 pulumi.StringPtrInput
+	ScheduleOffset           pulumi.IntPtrInput
+	ScheduleTimezone         pulumi.StringPtrInput
+	StartDate                pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (MaintenanceWindowState) ElementType() reflect.Type {
@@ -198,62 +108,36 @@ func (MaintenanceWindowState) ElementType() reflect.Type {
 }
 
 type maintenanceWindowArgs struct {
-	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-	AllowUnassociatedTargets *bool `pulumi:"allowUnassociatedTargets"`
-	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff int `pulumi:"cutoff"`
-	// A description for the maintenance window.
-	Description *string `pulumi:"description"`
-	// The duration of the Maintenance Window in hours.
-	Duration int `pulumi:"duration"`
-	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate *string `pulumi:"endDate"`
-	// The name of the maintenance window.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-	Schedule string `pulumi:"schedule"`
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-	ScheduleOffset *int `pulumi:"scheduleOffset"`
-	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate *string `pulumi:"startDate"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AllowUnassociatedTargets *bool             `pulumi:"allowUnassociatedTargets"`
+	Cutoff                   int               `pulumi:"cutoff"`
+	Description              *string           `pulumi:"description"`
+	Duration                 int               `pulumi:"duration"`
+	Enabled                  *bool             `pulumi:"enabled"`
+	EndDate                  *string           `pulumi:"endDate"`
+	Name                     *string           `pulumi:"name"`
+	Region                   *string           `pulumi:"region"`
+	Schedule                 string            `pulumi:"schedule"`
+	ScheduleOffset           *int              `pulumi:"scheduleOffset"`
+	ScheduleTimezone         *string           `pulumi:"scheduleTimezone"`
+	StartDate                *string           `pulumi:"startDate"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
 type MaintenanceWindowArgs struct {
-	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 	AllowUnassociatedTargets pulumi.BoolPtrInput
-	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff pulumi.IntInput
-	// A description for the maintenance window.
-	Description pulumi.StringPtrInput
-	// The duration of the Maintenance Window in hours.
-	Duration pulumi.IntInput
-	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled pulumi.BoolPtrInput
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate pulumi.StringPtrInput
-	// The name of the maintenance window.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-	Schedule pulumi.StringInput
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
-	ScheduleOffset pulumi.IntPtrInput
-	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone pulumi.StringPtrInput
-	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Cutoff                   pulumi.IntInput
+	Description              pulumi.StringPtrInput
+	Duration                 pulumi.IntInput
+	Enabled                  pulumi.BoolPtrInput
+	EndDate                  pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Region                   pulumi.StringPtrInput
+	Schedule                 pulumi.StringInput
+	ScheduleOffset           pulumi.IntPtrInput
+	ScheduleTimezone         pulumi.StringPtrInput
+	StartDate                pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
@@ -343,72 +227,58 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx contex
 	return o
 }
 
-// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
 func (o MaintenanceWindowOutput) AllowUnassociatedTargets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.BoolPtrOutput { return v.AllowUnassociatedTargets }).(pulumi.BoolPtrOutput)
 }
 
-// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 func (o MaintenanceWindowOutput) Cutoff() pulumi.IntOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntOutput { return v.Cutoff }).(pulumi.IntOutput)
 }
 
-// A description for the maintenance window.
 func (o MaintenanceWindowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The duration of the Maintenance Window in hours.
 func (o MaintenanceWindowOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntOutput { return v.Duration }).(pulumi.IntOutput)
 }
 
-// Whether the maintenance window is enabled. Default: `true`.
 func (o MaintenanceWindowOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
 func (o MaintenanceWindowOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
-// The name of the maintenance window.
 func (o MaintenanceWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MaintenanceWindowOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 func (o MaintenanceWindowOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 func (o MaintenanceWindowOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntPtrOutput { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
-// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 func (o MaintenanceWindowOutput) ScheduleTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.ScheduleTimezone }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 func (o MaintenanceWindowOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MaintenanceWindowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MaintenanceWindowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

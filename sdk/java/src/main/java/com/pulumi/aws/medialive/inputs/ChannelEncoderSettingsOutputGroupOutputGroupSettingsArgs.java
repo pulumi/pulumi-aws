@@ -23,17 +23,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs();
 
-    /**
-     * Archive group settings. See Archive Group Settings for more details.
-     * 
-     */
     @Import(name="archiveGroupSettings")
     private @Nullable Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs>> archiveGroupSettings;
 
-    /**
-     * @return Archive group settings. See Archive Group Settings for more details.
-     * 
-     */
     public Optional<Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs>>> archiveGroupSettings() {
         return Optional.ofNullable(this.archiveGroupSettings);
     }
@@ -52,17 +44,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         return Optional.ofNullable(this.hlsGroupSettings);
     }
 
-    /**
-     * Media package group settings. See Media Package Group Settings for more details.
-     * 
-     */
     @Import(name="mediaPackageGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs> mediaPackageGroupSettings;
 
-    /**
-     * @return Media package group settings. See Media Package Group Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs>> mediaPackageGroupSettings() {
         return Optional.ofNullable(this.mediaPackageGroupSettings);
     }
@@ -81,17 +65,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
         return Optional.ofNullable(this.multiplexGroupSettings);
     }
 
-    /**
-     * RTMP group settings. See RTMP Group Settings for more details.
-     * 
-     */
     @Import(name="rtmpGroupSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs> rtmpGroupSettings;
 
-    /**
-     * @return RTMP group settings. See RTMP Group Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs>> rtmpGroupSettings() {
         return Optional.ofNullable(this.rtmpGroupSettings);
     }
@@ -134,33 +110,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param archiveGroupSettings Archive group settings. See Archive Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveGroupSettings(@Nullable Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs>> archiveGroupSettings) {
             $.archiveGroupSettings = archiveGroupSettings;
             return this;
         }
 
-        /**
-         * @param archiveGroupSettings Archive group settings. See Archive Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveGroupSettings(List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs> archiveGroupSettings) {
             return archiveGroupSettings(Output.of(archiveGroupSettings));
         }
 
-        /**
-         * @param archiveGroupSettings Archive group settings. See Archive Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs... archiveGroupSettings) {
             return archiveGroupSettings(List.of(archiveGroupSettings));
         }
@@ -183,23 +141,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
             return hlsGroupSettings(Output.of(hlsGroupSettings));
         }
 
-        /**
-         * @param mediaPackageGroupSettings Media package group settings. See Media Package Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mediaPackageGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs> mediaPackageGroupSettings) {
             $.mediaPackageGroupSettings = mediaPackageGroupSettings;
             return this;
         }
 
-        /**
-         * @param mediaPackageGroupSettings Media package group settings. See Media Package Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mediaPackageGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs mediaPackageGroupSettings) {
             return mediaPackageGroupSettings(Output.of(mediaPackageGroupSettings));
         }
@@ -222,23 +168,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs exte
             return multiplexGroupSettings(Output.of(multiplexGroupSettings));
         }
 
-        /**
-         * @param rtmpGroupSettings RTMP group settings. See RTMP Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rtmpGroupSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs> rtmpGroupSettings) {
             $.rtmpGroupSettings = rtmpGroupSettings;
             return this;
         }
 
-        /**
-         * @param rtmpGroupSettings RTMP group settings. See RTMP Group Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rtmpGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs rtmpGroupSettings) {
             return rtmpGroupSettings(Output.of(rtmpGroupSettings));
         }

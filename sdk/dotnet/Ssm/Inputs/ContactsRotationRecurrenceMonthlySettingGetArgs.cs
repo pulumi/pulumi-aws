@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class ContactsRotationRecurrenceMonthlySettingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required) The day of the month when monthly recurring on-call rotations begin.
-        /// </summary>
         [Input("dayOfMonth", required: true)]
         public Input<int> DayOfMonth { get; set; } = null!;
 
-        /// <summary>
-        /// (Required) The hand off time. See Hand Off Time for more details.
-        /// </summary>
         [Input("handOffTime")]
         public Input<Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeGetArgs>? HandOffTime { get; set; }
 

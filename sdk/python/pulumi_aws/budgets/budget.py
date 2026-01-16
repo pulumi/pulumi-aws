@@ -39,27 +39,6 @@ class BudgetArgs:
                  time_period_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Budget resource.
-        :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[_builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
-        :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        :param pulumi.Input[_builtins.str] limit_amount: The amount of cost or usage being measured for a budget.
-        :param pulumi.Input[_builtins.str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        :param pulumi.Input[_builtins.str] name: The name of a budget. Unique within accounts.
-        :param pulumi.Input[_builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        :param pulumi.Input[_builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-               
-               For more detailed documentation about each argument, refer to the [AWS official
-               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         """
         pulumi.set(__self__, "budget_type", budget_type)
         pulumi.set(__self__, "time_unit", time_unit)
@@ -95,9 +74,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="budgetType")
     def budget_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Whether this budget tracks monetary cost or usage.
-        """
         return pulumi.get(self, "budget_type")
 
     @budget_type.setter
@@ -107,11 +83,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> pulumi.Input[_builtins.str]:
-        """
-        The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
@@ -121,9 +92,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -133,9 +101,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="autoAdjustData")
     def auto_adjust_data(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]:
-        """
-        Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        """
         return pulumi.get(self, "auto_adjust_data")
 
     @auto_adjust_data.setter
@@ -145,9 +110,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="billingViewArn")
     def billing_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the billing view.
-        """
         return pulumi.get(self, "billing_view_arn")
 
     @billing_view_arn.setter
@@ -157,9 +119,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="costFilters")
     def cost_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
-        """
-        A list of CostFilter name/values pair to apply to budget.
-        """
         return pulumi.get(self, "cost_filters")
 
     @cost_filters.setter
@@ -169,9 +128,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="costTypes")
     def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
-        """
-        Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        """
         return pulumi.get(self, "cost_types")
 
     @cost_types.setter
@@ -181,9 +137,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="limitAmount")
     def limit_amount(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The amount of cost or usage being measured for a budget.
-        """
         return pulumi.get(self, "limit_amount")
 
     @limit_amount.setter
@@ -193,9 +146,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="limitUnit")
     def limit_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        """
         return pulumi.get(self, "limit_unit")
 
     @limit_unit.setter
@@ -205,9 +155,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -217,9 +164,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix of the name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -229,9 +173,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]]:
-        """
-        Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
@@ -241,9 +182,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="plannedLimits")
     def planned_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]:
-        """
-        Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        """
         return pulumi.get(self, "planned_limits")
 
     @planned_limits.setter
@@ -253,9 +191,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -265,9 +200,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="timePeriodEnd")
     def time_period_end(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        """
         return pulumi.get(self, "time_period_end")
 
     @time_period_end.setter
@@ -277,12 +209,6 @@ class BudgetArgs:
     @_builtins.property
     @pulumi.getter(name="timePeriodStart")
     def time_period_start(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-
-        For more detailed documentation about each argument, refer to the [AWS official
-        documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
-        """
         return pulumi.get(self, "time_period_start")
 
     @time_period_start.setter
@@ -313,29 +239,6 @@ class _BudgetState:
                  time_unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Budget resources.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the budget.
-        :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
-        :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
-        :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        :param pulumi.Input[_builtins.str] limit_amount: The amount of cost or usage being measured for a budget.
-        :param pulumi.Input[_builtins.str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        :param pulumi.Input[_builtins.str] name: The name of a budget. Unique within accounts.
-        :param pulumi.Input[_builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        :param pulumi.Input[_builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-               
-               For more detailed documentation about each argument, refer to the [AWS official
-               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
-        :param pulumi.Input[_builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-               
-               The following arguments are optional:
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -377,9 +280,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -389,9 +289,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the budget.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -401,9 +298,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="autoAdjustData")
     def auto_adjust_data(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]:
-        """
-        Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        """
         return pulumi.get(self, "auto_adjust_data")
 
     @auto_adjust_data.setter
@@ -413,9 +307,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="billingViewArn")
     def billing_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the billing view.
-        """
         return pulumi.get(self, "billing_view_arn")
 
     @billing_view_arn.setter
@@ -425,9 +316,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="budgetType")
     def budget_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether this budget tracks monetary cost or usage.
-        """
         return pulumi.get(self, "budget_type")
 
     @budget_type.setter
@@ -437,9 +325,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="costFilters")
     def cost_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
-        """
-        A list of CostFilter name/values pair to apply to budget.
-        """
         return pulumi.get(self, "cost_filters")
 
     @cost_filters.setter
@@ -449,9 +334,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="costTypes")
     def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
-        """
-        Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        """
         return pulumi.get(self, "cost_types")
 
     @cost_types.setter
@@ -461,9 +343,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="limitAmount")
     def limit_amount(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The amount of cost or usage being measured for a budget.
-        """
         return pulumi.get(self, "limit_amount")
 
     @limit_amount.setter
@@ -473,9 +352,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="limitUnit")
     def limit_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        """
         return pulumi.get(self, "limit_unit")
 
     @limit_unit.setter
@@ -485,9 +361,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -497,9 +370,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix of the name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -509,9 +379,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]]:
-        """
-        Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
@@ -521,9 +388,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="plannedLimits")
     def planned_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]:
-        """
-        Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        """
         return pulumi.get(self, "planned_limits")
 
     @planned_limits.setter
@@ -533,9 +397,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -545,9 +406,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -557,9 +415,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="timePeriodEnd")
     def time_period_end(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        """
         return pulumi.get(self, "time_period_end")
 
     @time_period_end.setter
@@ -569,12 +424,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="timePeriodStart")
     def time_period_start(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-
-        For more detailed documentation about each argument, refer to the [AWS official
-        documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
-        """
         return pulumi.get(self, "time_period_start")
 
     @time_period_start.setter
@@ -584,11 +433,6 @@ class _BudgetState:
     @_builtins.property
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
@@ -620,193 +464,9 @@ class Budget(pulumi.CustomResource):
                  time_unit: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec2 = aws.budgets.Budget("ec2",
-            name="budget-ec2-monthly",
-            budget_type="COST",
-            limit_amount="1200",
-            limit_unit="USD",
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY",
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Elastic Compute Cloud - Compute"],
-            }],
-            notifications=[{
-                "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
-                "threshold_type": "PERCENTAGE",
-                "notification_type": "FORECASTED",
-                "subscriber_email_addresses": ["test@example.com"],
-            }],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        Create a budget for *$100*.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost",
-            budget_type="COST",
-            limit_amount="100",
-            limit_unit="USD")
-        ```
-
-        Create a budget with planned budget limits.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", planned_limits=[
-            {
-                "start_time": "2017-07-01_00:00",
-                "amount": "100",
-                "unit": "USD",
-            },
-            {
-                "start_time": "2017-08-01_00:00",
-                "amount": "200",
-                "unit": "USD",
-            },
-        ])
-        ```
-
-        Create a budget for s3 with a limit of *3 GB* of storage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3 = aws.budgets.Budget("s3",
-            budget_type="USAGE",
-            limit_amount="3",
-            limit_unit="GB")
-        ```
-
-        Create a Savings Plan Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
-            budget_type="SAVINGS_PLANS_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
-            cost_types={
-                "include_credit": False,
-                "include_discount": False,
-                "include_other_subscription": False,
-                "include_recurring": False,
-                "include_refund": False,
-                "include_subscription": True,
-                "include_support": False,
-                "include_tax": False,
-                "include_upfront": False,
-                "use_blended": False,
-            })
-        ```
-
-        Create a RI Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ri_utilization = aws.budgets.Budget("ri_utilization",
-            budget_type="RI_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
-            cost_types={
-                "include_credit": False,
-                "include_discount": False,
-                "include_other_subscription": False,
-                "include_recurring": False,
-                "include_refund": False,
-                "include_subscription": True,
-                "include_support": False,
-                "include_tax": False,
-                "include_upfront": False,
-                "use_blended": False,
-            },
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Relational Database Service"],
-            }])
-        ```
-
-        Create a cost filter using resource tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[{
-            "name": "TagKeyValue",
-            "values": [
-                "aws:createdBy$Pulumi",
-                "user:business-unit$human_resources",
-            ],
-        }])
-        ```
-
-        Create a cost filter using resource tags, obtaining the tag value from a variable
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[{
-            "name": "TagKeyValue",
-            "values": [f"TagKey{'$'}{tag_value}"],
-        }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
-
-        ```sh
-        $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
-        ```
-
+        Create a Budget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
-        :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
-        :param pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        :param pulumi.Input[_builtins.str] limit_amount: The amount of cost or usage being measured for a budget.
-        :param pulumi.Input[_builtins.str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        :param pulumi.Input[_builtins.str] name: The name of a budget. Unique within accounts.
-        :param pulumi.Input[_builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        :param pulumi.Input[_builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-               
-               For more detailed documentation about each argument, refer to the [AWS official
-               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
-        :param pulumi.Input[_builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -815,170 +475,7 @@ class Budget(pulumi.CustomResource):
                  args: BudgetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec2 = aws.budgets.Budget("ec2",
-            name="budget-ec2-monthly",
-            budget_type="COST",
-            limit_amount="1200",
-            limit_unit="USD",
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY",
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Elastic Compute Cloud - Compute"],
-            }],
-            notifications=[{
-                "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
-                "threshold_type": "PERCENTAGE",
-                "notification_type": "FORECASTED",
-                "subscriber_email_addresses": ["test@example.com"],
-            }],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
-        Create a budget for *$100*.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost",
-            budget_type="COST",
-            limit_amount="100",
-            limit_unit="USD")
-        ```
-
-        Create a budget with planned budget limits.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", planned_limits=[
-            {
-                "start_time": "2017-07-01_00:00",
-                "amount": "100",
-                "unit": "USD",
-            },
-            {
-                "start_time": "2017-08-01_00:00",
-                "amount": "200",
-                "unit": "USD",
-            },
-        ])
-        ```
-
-        Create a budget for s3 with a limit of *3 GB* of storage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3 = aws.budgets.Budget("s3",
-            budget_type="USAGE",
-            limit_amount="3",
-            limit_unit="GB")
-        ```
-
-        Create a Savings Plan Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
-            budget_type="SAVINGS_PLANS_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
-            cost_types={
-                "include_credit": False,
-                "include_discount": False,
-                "include_other_subscription": False,
-                "include_recurring": False,
-                "include_refund": False,
-                "include_subscription": True,
-                "include_support": False,
-                "include_tax": False,
-                "include_upfront": False,
-                "use_blended": False,
-            })
-        ```
-
-        Create a RI Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ri_utilization = aws.budgets.Budget("ri_utilization",
-            budget_type="RI_UTILIZATION",
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE",
-            cost_types={
-                "include_credit": False,
-                "include_discount": False,
-                "include_other_subscription": False,
-                "include_recurring": False,
-                "include_refund": False,
-                "include_subscription": True,
-                "include_support": False,
-                "include_tax": False,
-                "include_upfront": False,
-                "use_blended": False,
-            },
-            cost_filters=[{
-                "name": "Service",
-                "values": ["Amazon Relational Database Service"],
-            }])
-        ```
-
-        Create a cost filter using resource tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[{
-            "name": "TagKeyValue",
-            "values": [
-                "aws:createdBy$Pulumi",
-                "user:business-unit$human_resources",
-            ],
-        }])
-        ```
-
-        Create a cost filter using resource tags, obtaining the tag value from a variable
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[{
-            "name": "TagKeyValue",
-            "values": [f"TagKey{'$'}{tag_value}"],
-        }])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
-
-        ```sh
-        $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
-        ```
-
+        Create a Budget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1076,29 +573,6 @@ class Budget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the budget.
-        :param pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        :param pulumi.Input[_builtins.str] billing_view_arn: ARN of the billing view.
-        :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
-        :param pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        :param pulumi.Input[_builtins.str] limit_amount: The amount of cost or usage being measured for a budget.
-        :param pulumi.Input[_builtins.str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        :param pulumi.Input[_builtins.str] name: The name of a budget. Unique within accounts.
-        :param pulumi.Input[_builtins.str] name_prefix: The prefix of the name of a budget. Unique within accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]] planned_limits: Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        :param pulumi.Input[_builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-               
-               For more detailed documentation about each argument, refer to the [AWS official
-               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
-        :param pulumi.Input[_builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1127,149 +601,90 @@ class Budget(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the budget.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="autoAdjustData")
     def auto_adjust_data(self) -> pulumi.Output[Optional['outputs.BudgetAutoAdjustData']]:
-        """
-        Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
-        """
         return pulumi.get(self, "auto_adjust_data")
 
     @_builtins.property
     @pulumi.getter(name="billingViewArn")
     def billing_view_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ARN of the billing view.
-        """
         return pulumi.get(self, "billing_view_arn")
 
     @_builtins.property
     @pulumi.getter(name="budgetType")
     def budget_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether this budget tracks monetary cost or usage.
-        """
         return pulumi.get(self, "budget_type")
 
     @_builtins.property
     @pulumi.getter(name="costFilters")
     def cost_filters(self) -> pulumi.Output[Sequence['outputs.BudgetCostFilter']]:
-        """
-        A list of CostFilter name/values pair to apply to budget.
-        """
         return pulumi.get(self, "cost_filters")
 
     @_builtins.property
     @pulumi.getter(name="costTypes")
     def cost_types(self) -> pulumi.Output['outputs.BudgetCostTypes']:
-        """
-        Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
-        """
         return pulumi.get(self, "cost_types")
 
     @_builtins.property
     @pulumi.getter(name="limitAmount")
     def limit_amount(self) -> pulumi.Output[_builtins.str]:
-        """
-        The amount of cost or usage being measured for a budget.
-        """
         return pulumi.get(self, "limit_amount")
 
     @_builtins.property
     @pulumi.getter(name="limitUnit")
     def limit_unit(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        """
         return pulumi.get(self, "limit_unit")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        The prefix of the name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name_prefix")
 
     @_builtins.property
     @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional[Sequence['outputs.BudgetNotification']]]:
-        """
-        Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
-        """
         return pulumi.get(self, "notifications")
 
     @_builtins.property
     @pulumi.getter(name="plannedLimits")
     def planned_limits(self) -> pulumi.Output[Optional[Sequence['outputs.BudgetPlannedLimit']]]:
-        """
-        Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        """
         return pulumi.get(self, "planned_limits")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="timePeriodEnd")
     def time_period_end(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-        """
         return pulumi.get(self, "time_period_end")
 
     @_builtins.property
     @pulumi.getter(name="timePeriodStart")
     def time_period_start(self) -> pulumi.Output[_builtins.str]:
-        """
-        The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
-
-        For more detailed documentation about each argument, refer to the [AWS official
-        documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
-        """
         return pulumi.get(self, "time_period_start")
 
     @_builtins.property
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> pulumi.Output[_builtins.str]:
-        """
-        The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "time_unit")
 

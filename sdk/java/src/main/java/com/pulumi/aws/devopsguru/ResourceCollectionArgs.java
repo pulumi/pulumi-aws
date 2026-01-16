@@ -18,66 +18,30 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
 
     public static final ResourceCollectionArgs Empty = new ResourceCollectionArgs();
 
-    /**
-     * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
     @Import(name="cloudformation")
     private @Nullable Output<ResourceCollectionCloudformationArgs> cloudformation;
 
-    /**
-     * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-     * 
-     */
     public Optional<Output<ResourceCollectionCloudformationArgs>> cloudformation() {
         return Optional.ofNullable(this.cloudformation);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<ResourceCollectionTagsArgs> tags;
 
-    /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
     public Optional<Output<ResourceCollectionTagsArgs>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -109,90 +73,38 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
             $ = new ResourceCollectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudformation A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudformation(@Nullable Output<ResourceCollectionCloudformationArgs> cloudformation) {
             $.cloudformation = cloudformation;
             return this;
         }
 
-        /**
-         * @param cloudformation A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudformation(ResourceCollectionCloudformationArgs cloudformation) {
             return cloudformation(Output.of(cloudformation));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<ResourceCollectionTagsArgs> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(ResourceCollectionTagsArgs tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param type Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

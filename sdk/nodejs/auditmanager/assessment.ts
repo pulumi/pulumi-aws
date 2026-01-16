@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Audit Manager Assessment.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.auditmanager.Assessment("test", {
- *     name: "example",
- *     assessmentReportsDestination: {
- *         destination: `s3://${testAwsS3Bucket.id}`,
- *         destinationType: "S3",
- *     },
- *     frameworkId: testAwsAuditmanagerFramework.id,
- *     roles: [{
- *         roleArn: testAwsIamRole.arn,
- *         roleType: "PROCESS_OWNER",
- *     }],
- *     scope: {
- *         awsAccounts: [{
- *             id: current.accountId,
- *         }],
- *         awsServices: [{
- *             serviceName: "S3",
- *         }],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
- * ```
- */
 export class Assessment extends pulumi.CustomResource {
     /**
      * Get an existing Assessment resource's state with the given name, ID, and optional extra
@@ -76,51 +35,16 @@ export class Assessment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assessment.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the assessment.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
-     */
     declare public readonly assessmentReportsDestination: pulumi.Output<outputs.auditmanager.AssessmentAssessmentReportsDestination | undefined>;
-    /**
-     * Description of the assessment.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Unique identifier of the framework the assessment will be created from.
-     */
     declare public readonly frameworkId: pulumi.Output<string>;
-    /**
-     * Name of the assessment.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * List of roles for the assessment. See `roles` below.
-     */
     declare public readonly roles: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
-    /**
-     * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-     */
     declare public /*out*/ readonly rolesAlls: pulumi.Output<outputs.auditmanager.AssessmentRolesAll[]>;
-    /**
-     * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly scope: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
-    /**
-     * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -176,51 +100,16 @@ export class Assessment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Assessment resources.
  */
 export interface AssessmentState {
-    /**
-     * Amazon Resource Name (ARN) of the assessment.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
-     */
     assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentAssessmentReportsDestination>;
-    /**
-     * Description of the assessment.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the framework the assessment will be created from.
-     */
     frameworkId?: pulumi.Input<string>;
-    /**
-     * Name of the assessment.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * List of roles for the assessment. See `roles` below.
-     */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
-    /**
-     * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-     */
     rolesAlls?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRolesAll>[]>;
-    /**
-     * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-     *
-     * The following arguments are optional:
-     */
     scope?: pulumi.Input<inputs.auditmanager.AssessmentScope>;
-    /**
-     * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -229,38 +118,12 @@ export interface AssessmentState {
  * The set of arguments for constructing a Assessment resource.
  */
 export interface AssessmentArgs {
-    /**
-     * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
-     */
     assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentAssessmentReportsDestination>;
-    /**
-     * Description of the assessment.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Unique identifier of the framework the assessment will be created from.
-     */
     frameworkId: pulumi.Input<string>;
-    /**
-     * Name of the assessment.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * List of roles for the assessment. See `roles` below.
-     */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
-    /**
-     * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
-     *
-     * The following arguments are optional:
-     */
     scope?: pulumi.Input<inputs.auditmanager.AssessmentScope>;
-    /**
-     * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

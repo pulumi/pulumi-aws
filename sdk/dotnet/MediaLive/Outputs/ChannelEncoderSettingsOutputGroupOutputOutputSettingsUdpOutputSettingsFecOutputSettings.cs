@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings
     {
-        /// <summary>
-        /// The height of the FEC protection matrix.
-        /// </summary>
         public readonly int? ColumnDepth;
-        /// <summary>
-        /// Enables column only or column and row based FEC.
-        /// </summary>
         public readonly string? IncludeFec;
-        /// <summary>
-        /// The width of the FEC protection matrix.
-        /// </summary>
         public readonly int? RowLength;
 
         [OutputConstructor]

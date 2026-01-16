@@ -14,10 +14,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     {
         [Input("recipes")]
         private InputList<Inputs.LifecyclePolicyResourceSelectionRecipeArgs>? _recipes;
-
-        /// <summary>
-        /// A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-        /// </summary>
         public InputList<Inputs.LifecyclePolicyResourceSelectionRecipeArgs> Recipes
         {
             get => _recipes ?? (_recipes = new InputList<Inputs.LifecyclePolicyResourceSelectionRecipeArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("tagMap")]
         private InputMap<string>? _tagMap;
-
-        /// <summary>
-        /// A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-        /// </summary>
         public InputMap<string> TagMap
         {
             get => _tagMap ?? (_tagMap = new InputMap<string>());

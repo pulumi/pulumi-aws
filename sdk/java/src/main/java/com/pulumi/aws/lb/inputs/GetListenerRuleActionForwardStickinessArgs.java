@@ -15,32 +15,16 @@ public final class GetListenerRuleActionForwardStickinessArgs extends com.pulumi
 
     public static final GetListenerRuleActionForwardStickinessArgs Empty = new GetListenerRuleActionForwardStickinessArgs();
 
-    /**
-     * The time period, in seconds, during which requests from a client should be routed to the same target group.
-     * 
-     */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
-    /**
-     * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
-     * 
-     */
     public Output<Integer> duration() {
         return this.duration;
     }
 
-    /**
-     * Indicates whether target group stickiness is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether target group stickiness is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -70,44 +54,20 @@ public final class GetListenerRuleActionForwardStickinessArgs extends com.pulumi
             $ = new GetListenerRuleActionForwardStickinessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param duration The time period, in seconds, during which requests from a client should be routed to the same target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Output<Integer> duration) {
             $.duration = duration;
             return this;
         }
 
-        /**
-         * @param duration The time period, in seconds, during which requests from a client should be routed to the same target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
 
-        /**
-         * @param enabled Indicates whether target group stickiness is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether target group stickiness is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

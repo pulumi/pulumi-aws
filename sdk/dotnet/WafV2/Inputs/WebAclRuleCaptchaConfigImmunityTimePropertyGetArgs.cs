@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleCaptchaConfigImmunityTimePropertyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
-        /// </summary>
         [Input("immunityTime")]
         public Input<int>? ImmunityTime { get; set; }
 

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetInstanceTypesFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

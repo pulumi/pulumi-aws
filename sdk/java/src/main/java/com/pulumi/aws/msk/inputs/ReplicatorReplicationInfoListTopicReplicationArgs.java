@@ -20,107 +20,51 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
 
     public static final ReplicatorReplicationInfoListTopicReplicationArgs Empty = new ReplicatorReplicationInfoListTopicReplicationArgs();
 
-    /**
-     * Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-     * 
-     */
     @Import(name="copyAccessControlListsForTopics")
     private @Nullable Output<Boolean> copyAccessControlListsForTopics;
 
-    /**
-     * @return Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-     * 
-     */
     public Optional<Output<Boolean>> copyAccessControlListsForTopics() {
         return Optional.ofNullable(this.copyAccessControlListsForTopics);
     }
 
-    /**
-     * Whether to periodically configure remote topics to match their corresponding upstream topics.
-     * 
-     */
     @Import(name="copyTopicConfigurations")
     private @Nullable Output<Boolean> copyTopicConfigurations;
 
-    /**
-     * @return Whether to periodically configure remote topics to match their corresponding upstream topics.
-     * 
-     */
     public Optional<Output<Boolean>> copyTopicConfigurations() {
         return Optional.ofNullable(this.copyTopicConfigurations);
     }
 
-    /**
-     * Whether to periodically check for new topics and partitions.
-     * 
-     */
     @Import(name="detectAndCopyNewTopics")
     private @Nullable Output<Boolean> detectAndCopyNewTopics;
 
-    /**
-     * @return Whether to periodically check for new topics and partitions.
-     * 
-     */
     public Optional<Output<Boolean>> detectAndCopyNewTopics() {
         return Optional.ofNullable(this.detectAndCopyNewTopics);
     }
 
-    /**
-     * Configuration for specifying the position in the topics to start replicating from.
-     * 
-     */
     @Import(name="startingPosition")
     private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs> startingPosition;
 
-    /**
-     * @return Configuration for specifying the position in the topics to start replicating from.
-     * 
-     */
     public Optional<Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs>> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
 
-    /**
-     * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-     * 
-     */
     @Import(name="topicNameConfiguration")
     private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration;
 
-    /**
-     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-     * 
-     */
     public Optional<Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>> topicNameConfiguration() {
         return Optional.ofNullable(this.topicNameConfiguration);
     }
 
-    /**
-     * List of regular expression patterns indicating the topics that should not be replica.
-     * 
-     */
     @Import(name="topicsToExcludes")
     private @Nullable Output<List<String>> topicsToExcludes;
 
-    /**
-     * @return List of regular expression patterns indicating the topics that should not be replica.
-     * 
-     */
     public Optional<Output<List<String>>> topicsToExcludes() {
         return Optional.ofNullable(this.topicsToExcludes);
     }
 
-    /**
-     * List of regular expression patterns indicating the topics to copy.
-     * 
-     */
     @Import(name="topicsToReplicates", required=true)
     private Output<List<String>> topicsToReplicates;
 
-    /**
-     * @return List of regular expression patterns indicating the topics to copy.
-     * 
-     */
     public Output<List<String>> topicsToReplicates() {
         return this.topicsToReplicates;
     }
@@ -155,169 +99,73 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
             $ = new ReplicatorReplicationInfoListTopicReplicationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param copyAccessControlListsForTopics Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyAccessControlListsForTopics(@Nullable Output<Boolean> copyAccessControlListsForTopics) {
             $.copyAccessControlListsForTopics = copyAccessControlListsForTopics;
             return this;
         }
 
-        /**
-         * @param copyAccessControlListsForTopics Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyAccessControlListsForTopics(Boolean copyAccessControlListsForTopics) {
             return copyAccessControlListsForTopics(Output.of(copyAccessControlListsForTopics));
         }
 
-        /**
-         * @param copyTopicConfigurations Whether to periodically configure remote topics to match their corresponding upstream topics.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyTopicConfigurations(@Nullable Output<Boolean> copyTopicConfigurations) {
             $.copyTopicConfigurations = copyTopicConfigurations;
             return this;
         }
 
-        /**
-         * @param copyTopicConfigurations Whether to periodically configure remote topics to match their corresponding upstream topics.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyTopicConfigurations(Boolean copyTopicConfigurations) {
             return copyTopicConfigurations(Output.of(copyTopicConfigurations));
         }
 
-        /**
-         * @param detectAndCopyNewTopics Whether to periodically check for new topics and partitions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectAndCopyNewTopics(@Nullable Output<Boolean> detectAndCopyNewTopics) {
             $.detectAndCopyNewTopics = detectAndCopyNewTopics;
             return this;
         }
 
-        /**
-         * @param detectAndCopyNewTopics Whether to periodically check for new topics and partitions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectAndCopyNewTopics(Boolean detectAndCopyNewTopics) {
             return detectAndCopyNewTopics(Output.of(detectAndCopyNewTopics));
         }
 
-        /**
-         * @param startingPosition Configuration for specifying the position in the topics to start replicating from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(@Nullable Output<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs> startingPosition) {
             $.startingPosition = startingPosition;
             return this;
         }
 
-        /**
-         * @param startingPosition Configuration for specifying the position in the topics to start replicating from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs startingPosition) {
             return startingPosition(Output.of(startingPosition));
         }
 
-        /**
-         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicNameConfiguration(@Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration) {
             $.topicNameConfiguration = topicNameConfiguration;
             return this;
         }
 
-        /**
-         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs topicNameConfiguration) {
             return topicNameConfiguration(Output.of(topicNameConfiguration));
         }
 
-        /**
-         * @param topicsToExcludes List of regular expression patterns indicating the topics that should not be replica.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsToExcludes(@Nullable Output<List<String>> topicsToExcludes) {
             $.topicsToExcludes = topicsToExcludes;
             return this;
         }
 
-        /**
-         * @param topicsToExcludes List of regular expression patterns indicating the topics that should not be replica.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsToExcludes(List<String> topicsToExcludes) {
             return topicsToExcludes(Output.of(topicsToExcludes));
         }
 
-        /**
-         * @param topicsToExcludes List of regular expression patterns indicating the topics that should not be replica.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsToExcludes(String... topicsToExcludes) {
             return topicsToExcludes(List.of(topicsToExcludes));
         }
 
-        /**
-         * @param topicsToReplicates List of regular expression patterns indicating the topics to copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsToReplicates(Output<List<String>> topicsToReplicates) {
             $.topicsToReplicates = topicsToReplicates;
             return this;
         }
 
-        /**
-         * @param topicsToReplicates List of regular expression patterns indicating the topics to copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsToReplicates(List<String> topicsToReplicates) {
             return topicsToReplicates(Output.of(topicsToReplicates));
         }
 
-        /**
-         * @param topicsToReplicates List of regular expression patterns indicating the topics to copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicsToReplicates(String... topicsToReplicates) {
             return topicsToReplicates(List.of(topicsToReplicates));
         }

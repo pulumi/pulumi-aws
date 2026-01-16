@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Opensearch Package Association.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDomain = new aws.opensearch.Domain("my_domain", {
- *     domainName: "my-opensearch-domain",
- *     engineVersion: "Elasticsearch_7.10",
- *     clusterConfig: {
- *         instanceType: "r4.large.search",
- *     },
- * });
- * const example = new aws.opensearch.Package("example", {
- *     packageName: "example-txt",
- *     packageSource: {
- *         s3BucketName: myOpensearchPackages.bucket,
- *         s3Key: exampleAwsS3Object.key,
- *     },
- *     packageType: "TXT-DICTIONARY",
- * });
- * const examplePackageAssociation = new aws.opensearch.PackageAssociation("example", {
- *     packageId: example.id,
- *     domainName: myDomain.domainName,
- * });
- * ```
- */
 export class PackageAssociation extends pulumi.CustomResource {
     /**
      * Get an existing PackageAssociation resource's state with the given name, ID, and optional extra
@@ -64,18 +32,9 @@ export class PackageAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackageAssociation.__pulumiType;
     }
 
-    /**
-     * Name of the domain to associate the package with.
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * Internal ID of the package to associate with a domain.
-     */
     declare public readonly packageId: pulumi.Output<string>;
     declare public /*out*/ readonly referencePath: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -117,18 +76,9 @@ export class PackageAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PackageAssociation resources.
  */
 export interface PackageAssociationState {
-    /**
-     * Name of the domain to associate the package with.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Internal ID of the package to associate with a domain.
-     */
     packageId?: pulumi.Input<string>;
     referencePath?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -136,16 +86,7 @@ export interface PackageAssociationState {
  * The set of arguments for constructing a PackageAssociation resource.
  */
 export interface PackageAssociationArgs {
-    /**
-     * Name of the domain to associate the package with.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Internal ID of the package to associate with a domain.
-     */
     packageId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

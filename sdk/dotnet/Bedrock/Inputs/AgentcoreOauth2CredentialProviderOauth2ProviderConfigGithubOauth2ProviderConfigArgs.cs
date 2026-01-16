@@ -73,10 +73,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("oauthDiscoveries")]
         private InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs>? _oauthDiscoveries;
-
-        /// <summary>
-        /// OAuth discovery configuration. See `OauthDiscovery` below.
-        /// </summary>
         public InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs> OauthDiscoveries
         {
             get => _oauthDiscoveries ?? (_oauthDiscoveries = new InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs>());

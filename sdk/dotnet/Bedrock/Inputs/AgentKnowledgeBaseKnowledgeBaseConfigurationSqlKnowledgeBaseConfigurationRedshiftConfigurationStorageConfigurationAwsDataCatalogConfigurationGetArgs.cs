@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("tableNames", required: true)]
         private InputList<string>? _tableNames;
-
-        /// <summary>
-        /// List of names of the tables to use.
-        /// </summary>
         public InputList<string> TableNames
         {
             get => _tableNames ?? (_tableNames = new InputList<string>());

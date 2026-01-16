@@ -11,89 +11,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVoicesVoice {
-    /**
-     * @return Additional codes for languages available for the specified voice in addition to its default language.
-     * 
-     */
     private List<String> additionalLanguageCodes;
-    /**
-     * @return Gender of the voice.
-     * 
-     */
     private String gender;
-    /**
-     * @return Amazon Polly assigned voice ID.
-     * 
-     */
     private String id;
-    /**
-     * @return Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-     * 
-     */
     private String languageCode;
-    /**
-     * @return Human readable name of the language in English.
-     * 
-     */
     private String languageName;
-    /**
-     * @return Name of the voice.
-     * 
-     */
     private String name;
-    /**
-     * @return Specifies which engines are supported by a given voice.
-     * 
-     */
     private List<String> supportedEngines;
 
     private GetVoicesVoice() {}
-    /**
-     * @return Additional codes for languages available for the specified voice in addition to its default language.
-     * 
-     */
     public List<String> additionalLanguageCodes() {
         return this.additionalLanguageCodes;
     }
-    /**
-     * @return Gender of the voice.
-     * 
-     */
     public String gender() {
         return this.gender;
     }
-    /**
-     * @return Amazon Polly assigned voice ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
-    /**
-     * @return Human readable name of the language in English.
-     * 
-     */
     public String languageName() {
         return this.languageName;
     }
-    /**
-     * @return Name of the voice.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Specifies which engines are supported by a given voice.
-     * 
-     */
     public List<String> supportedEngines() {
         return this.supportedEngines;
     }

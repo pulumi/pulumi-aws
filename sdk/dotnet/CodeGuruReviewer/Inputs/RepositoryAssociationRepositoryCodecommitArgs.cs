@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodeGuruReviewer.Inputs
 
     public sealed class RepositoryAssociationRepositoryCodecommitArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the AWS CodeCommit repository.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

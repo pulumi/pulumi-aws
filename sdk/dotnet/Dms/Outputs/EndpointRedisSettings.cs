@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class EndpointRedisSettings
     {
-        /// <summary>
-        /// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-        /// </summary>
         public readonly string? AuthPassword;
-        /// <summary>
-        /// The type of authentication to perform when connecting to a Redis target. Options include `None`, `auth-token`, and `auth-role`. The `auth-token` option requires an `AuthPassword` value to be provided. The `auth-role` option requires `AuthUserName` and `AuthPassword` values to be provided.
-        /// </summary>
         public readonly string AuthType;
-        /// <summary>
-        /// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        /// </summary>
         public readonly string? AuthUserName;
-        /// <summary>
-        /// Transmission Control Protocol (TCP) port for the endpoint.
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// Fully qualified domain name of the endpoint.
-        /// </summary>
         public readonly string ServerName;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        /// </summary>
         public readonly string? SslCaCertificateArn;
-        /// <summary>
-        /// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `Plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-        /// </summary>
         public readonly string? SslSecurityProtocol;
 
         [OutputConstructor]

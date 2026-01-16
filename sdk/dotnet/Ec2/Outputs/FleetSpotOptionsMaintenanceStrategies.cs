@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetSpotOptionsMaintenanceStrategies
     {
-        /// <summary>
-        /// Nested argument containing the capacity rebalance for your fleet request. Defined below.
-        /// </summary>
         public readonly Outputs.FleetSpotOptionsMaintenanceStrategiesCapacityRebalance? CapacityRebalance;
 
         [OutputConstructor]

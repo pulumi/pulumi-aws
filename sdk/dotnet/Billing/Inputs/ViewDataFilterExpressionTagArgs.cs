@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Billing.Inputs
 
     public sealed class ViewDataFilterExpressionTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key of the tag.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of values for the tag.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

@@ -14,17 +14,9 @@ public final class RecommendationPreferencesExternalMetricsPreferenceArgs extend
 
     public static final RecommendationPreferencesExternalMetricsPreferenceArgs Empty = new RecommendationPreferencesExternalMetricsPreferenceArgs();
 
-    /**
-     * The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
@@ -53,23 +45,11 @@ public final class RecommendationPreferencesExternalMetricsPreferenceArgs extend
             $ = new RecommendationPreferencesExternalMetricsPreferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param source The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

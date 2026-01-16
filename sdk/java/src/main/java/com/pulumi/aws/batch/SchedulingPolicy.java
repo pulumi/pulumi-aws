@@ -16,79 +16,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Batch Scheduling Policy resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.batch.SchedulingPolicy;
- * import com.pulumi.aws.batch.SchedulingPolicyArgs;
- * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()
- *             .name("example")
- *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
- *                 .computeReservation(1)
- *                 .shareDecaySeconds(3600)
- *                 .shareDistributions(                
- *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                         .shareIdentifier("A1*")
- *                         .weightFactor(0.1)
- *                         .build(),
- *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                         .shareIdentifier("A2")
- *                         .weightFactor(0.2)
- *                         .build())
- *                 .build())
- *             .tags(Map.of("Name", "Example Batch Scheduling Policy"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
- * ```
- * 
- */
 @ResourceType(type="aws:batch/schedulingPolicy:SchedulingPolicy")
 public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name of the scheduling policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name of the scheduling policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -98,59 +30,27 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchedulingPolicyFairSharePolicy>> fairSharePolicy() {
         return Codegen.optional(this.fairSharePolicy);
     }
-    /**
-     * Specifies the name of the scheduling policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Specifies the name of the scheduling policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

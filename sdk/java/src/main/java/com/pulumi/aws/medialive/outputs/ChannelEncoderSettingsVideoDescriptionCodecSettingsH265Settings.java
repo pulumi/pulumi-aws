@@ -17,441 +17,153 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
-    /**
-     * @return Enables or disables adaptive quantization.
-     * 
-     */
     private @Nullable String adaptiveQuantization;
-    /**
-     * @return Indicates that AFD values will be written into the output stream.
-     * 
-     */
     private @Nullable String afdSignaling;
-    /**
-     * @return Whether or not EML should insert an Alternative Transfer Function SEI message.
-     * 
-     */
     private @Nullable String alternativeTransferFunction;
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     private Integer bitrate;
-    /**
-     * @return Size of buffer in bits.
-     * 
-     */
     private @Nullable Integer bufSize;
-    /**
-     * @return Includes color space metadata in the output.
-     * 
-     */
     private @Nullable String colorMetadata;
-    /**
-     * @return Define the color metadata for the output. H265 Color Space Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings colorSpaceSettings;
-    /**
-     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings filterSettings;
-    /**
-     * @return Four bit AFD value to write on all frames of video in the output stream.
-     * 
-     */
     private @Nullable String fixedAfd;
     private @Nullable String flickerAq;
-    /**
-     * @return Framerate denominator.
-     * 
-     */
     private Integer framerateDenominator;
-    /**
-     * @return Framerate numerator.
-     * 
-     */
     private Integer framerateNumerator;
-    /**
-     * @return Frequency of closed GOPs.
-     * 
-     */
     private @Nullable Integer gopClosedCadence;
-    /**
-     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
-     * 
-     */
     private @Nullable Double gopSize;
-    /**
-     * @return Indicates if the `gopSize` is specified in frames or seconds.
-     * 
-     */
     private @Nullable String gopSizeUnits;
-    /**
-     * @return H265 level.
-     * 
-     */
     private @Nullable String level;
-    /**
-     * @return Amount of lookahead.
-     * 
-     */
     private @Nullable String lookAheadRateControl;
-    /**
-     * @return Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-     * 
-     */
     private @Nullable Integer maxBitrate;
-    /**
-     * @return Min interval.
-     * 
-     */
     private @Nullable Integer minIInterval;
-    /**
-     * @return Set the minimum QP.
-     * 
-     */
     private @Nullable Integer minQp;
-    /**
-     * @return Enables or disables motion vector over picture boundaries.
-     * 
-     */
     private @Nullable String mvOverPictureBoundaries;
-    /**
-     * @return Enables or disables the motion vector temporal predictor.
-     * 
-     */
     private @Nullable String mvTemporalPredictor;
-    /**
-     * @return Pixel Aspect Ratio denominator.
-     * 
-     */
     private @Nullable Integer parDenominator;
-    /**
-     * @return Pixel Aspect Ratio numerator.
-     * 
-     */
     private @Nullable Integer parNumerator;
-    /**
-     * @return H265 profile.
-     * 
-     */
     private @Nullable String profile;
-    /**
-     * @return Controls the target quality for the video encode.
-     * 
-     */
     private @Nullable Integer qvbrQualityLevel;
-    /**
-     * @return Rate control mode.
-     * 
-     */
     private @Nullable String rateControlMode;
-    /**
-     * @return Sets the scan type of the output.
-     * 
-     */
     private @Nullable String scanType;
-    /**
-     * @return Scene change detection.
-     * 
-     */
     private @Nullable String sceneChangeDetect;
-    /**
-     * @return Number of slices per picture.
-     * 
-     */
     private @Nullable Integer slices;
-    /**
-     * @return Set the H265 tier in the output.
-     * 
-     */
     private @Nullable String tier;
-    /**
-     * @return Sets the height of tiles.
-     * 
-     */
     private @Nullable Integer tileHeight;
-    /**
-     * @return Enables or disables padding of tiles.
-     * 
-     */
     private @Nullable String tilePadding;
-    /**
-     * @return Sets the width of tiles.
-     * 
-     */
     private @Nullable Integer tileWidth;
-    /**
-     * @return Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings timecodeBurninSettings;
-    /**
-     * @return Determines how timecodes should be inserted into the video elementary stream.
-     * 
-     */
     private @Nullable String timecodeInsertion;
-    /**
-     * @return Sets the size of the treeblock.
-     * 
-     */
     private @Nullable String treeblockSize;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings() {}
-    /**
-     * @return Enables or disables adaptive quantization.
-     * 
-     */
     public Optional<String> adaptiveQuantization() {
         return Optional.ofNullable(this.adaptiveQuantization);
     }
-    /**
-     * @return Indicates that AFD values will be written into the output stream.
-     * 
-     */
     public Optional<String> afdSignaling() {
         return Optional.ofNullable(this.afdSignaling);
     }
-    /**
-     * @return Whether or not EML should insert an Alternative Transfer Function SEI message.
-     * 
-     */
     public Optional<String> alternativeTransferFunction() {
         return Optional.ofNullable(this.alternativeTransferFunction);
     }
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Integer bitrate() {
         return this.bitrate;
     }
-    /**
-     * @return Size of buffer in bits.
-     * 
-     */
     public Optional<Integer> bufSize() {
         return Optional.ofNullable(this.bufSize);
     }
-    /**
-     * @return Includes color space metadata in the output.
-     * 
-     */
     public Optional<String> colorMetadata() {
         return Optional.ofNullable(this.colorMetadata);
     }
-    /**
-     * @return Define the color metadata for the output. H265 Color Space Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings> colorSpaceSettings() {
         return Optional.ofNullable(this.colorSpaceSettings);
     }
-    /**
-     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings> filterSettings() {
         return Optional.ofNullable(this.filterSettings);
     }
-    /**
-     * @return Four bit AFD value to write on all frames of video in the output stream.
-     * 
-     */
     public Optional<String> fixedAfd() {
         return Optional.ofNullable(this.fixedAfd);
     }
     public Optional<String> flickerAq() {
         return Optional.ofNullable(this.flickerAq);
     }
-    /**
-     * @return Framerate denominator.
-     * 
-     */
     public Integer framerateDenominator() {
         return this.framerateDenominator;
     }
-    /**
-     * @return Framerate numerator.
-     * 
-     */
     public Integer framerateNumerator() {
         return this.framerateNumerator;
     }
-    /**
-     * @return Frequency of closed GOPs.
-     * 
-     */
     public Optional<Integer> gopClosedCadence() {
         return Optional.ofNullable(this.gopClosedCadence);
     }
-    /**
-     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
-     * 
-     */
     public Optional<Double> gopSize() {
         return Optional.ofNullable(this.gopSize);
     }
-    /**
-     * @return Indicates if the `gopSize` is specified in frames or seconds.
-     * 
-     */
     public Optional<String> gopSizeUnits() {
         return Optional.ofNullable(this.gopSizeUnits);
     }
-    /**
-     * @return H265 level.
-     * 
-     */
     public Optional<String> level() {
         return Optional.ofNullable(this.level);
     }
-    /**
-     * @return Amount of lookahead.
-     * 
-     */
     public Optional<String> lookAheadRateControl() {
         return Optional.ofNullable(this.lookAheadRateControl);
     }
-    /**
-     * @return Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-     * 
-     */
     public Optional<Integer> maxBitrate() {
         return Optional.ofNullable(this.maxBitrate);
     }
-    /**
-     * @return Min interval.
-     * 
-     */
     public Optional<Integer> minIInterval() {
         return Optional.ofNullable(this.minIInterval);
     }
-    /**
-     * @return Set the minimum QP.
-     * 
-     */
     public Optional<Integer> minQp() {
         return Optional.ofNullable(this.minQp);
     }
-    /**
-     * @return Enables or disables motion vector over picture boundaries.
-     * 
-     */
     public Optional<String> mvOverPictureBoundaries() {
         return Optional.ofNullable(this.mvOverPictureBoundaries);
     }
-    /**
-     * @return Enables or disables the motion vector temporal predictor.
-     * 
-     */
     public Optional<String> mvTemporalPredictor() {
         return Optional.ofNullable(this.mvTemporalPredictor);
     }
-    /**
-     * @return Pixel Aspect Ratio denominator.
-     * 
-     */
     public Optional<Integer> parDenominator() {
         return Optional.ofNullable(this.parDenominator);
     }
-    /**
-     * @return Pixel Aspect Ratio numerator.
-     * 
-     */
     public Optional<Integer> parNumerator() {
         return Optional.ofNullable(this.parNumerator);
     }
-    /**
-     * @return H265 profile.
-     * 
-     */
     public Optional<String> profile() {
         return Optional.ofNullable(this.profile);
     }
-    /**
-     * @return Controls the target quality for the video encode.
-     * 
-     */
     public Optional<Integer> qvbrQualityLevel() {
         return Optional.ofNullable(this.qvbrQualityLevel);
     }
-    /**
-     * @return Rate control mode.
-     * 
-     */
     public Optional<String> rateControlMode() {
         return Optional.ofNullable(this.rateControlMode);
     }
-    /**
-     * @return Sets the scan type of the output.
-     * 
-     */
     public Optional<String> scanType() {
         return Optional.ofNullable(this.scanType);
     }
-    /**
-     * @return Scene change detection.
-     * 
-     */
     public Optional<String> sceneChangeDetect() {
         return Optional.ofNullable(this.sceneChangeDetect);
     }
-    /**
-     * @return Number of slices per picture.
-     * 
-     */
     public Optional<Integer> slices() {
         return Optional.ofNullable(this.slices);
     }
-    /**
-     * @return Set the H265 tier in the output.
-     * 
-     */
     public Optional<String> tier() {
         return Optional.ofNullable(this.tier);
     }
-    /**
-     * @return Sets the height of tiles.
-     * 
-     */
     public Optional<Integer> tileHeight() {
         return Optional.ofNullable(this.tileHeight);
     }
-    /**
-     * @return Enables or disables padding of tiles.
-     * 
-     */
     public Optional<String> tilePadding() {
         return Optional.ofNullable(this.tilePadding);
     }
-    /**
-     * @return Sets the width of tiles.
-     * 
-     */
     public Optional<Integer> tileWidth() {
         return Optional.ofNullable(this.tileWidth);
     }
-    /**
-     * @return Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings> timecodeBurninSettings() {
         return Optional.ofNullable(this.timecodeBurninSettings);
     }
-    /**
-     * @return Determines how timecodes should be inserted into the video elementary stream.
-     * 
-     */
     public Optional<String> timecodeInsertion() {
         return Optional.ofNullable(this.timecodeInsertion);
     }
-    /**
-     * @return Sets the size of the treeblock.
-     * 
-     */
     public Optional<String> treeblockSize() {
         return Optional.ofNullable(this.treeblockSize);
     }

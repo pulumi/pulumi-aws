@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclAssociationConfig {
-    /**
-     * @return Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-     * 
-     */
     private @Nullable List<WebAclAssociationConfigRequestBody> requestBodies;
 
     private WebAclAssociationConfig() {}
-    /**
-     * @return Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
-     * 
-     */
     public List<WebAclAssociationConfigRequestBody> requestBodies() {
         return this.requestBodies == null ? List.of() : this.requestBodies;
     }

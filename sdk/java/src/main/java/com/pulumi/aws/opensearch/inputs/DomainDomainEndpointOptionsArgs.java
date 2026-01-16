@@ -16,77 +16,37 @@ public final class DomainDomainEndpointOptionsArgs extends com.pulumi.resources.
 
     public static final DomainDomainEndpointOptionsArgs Empty = new DomainDomainEndpointOptionsArgs();
 
-    /**
-     * Fully qualified domain for your custom endpoint.
-     * 
-     */
     @Import(name="customEndpoint")
     private @Nullable Output<String> customEndpoint;
 
-    /**
-     * @return Fully qualified domain for your custom endpoint.
-     * 
-     */
     public Optional<Output<String>> customEndpoint() {
         return Optional.ofNullable(this.customEndpoint);
     }
 
-    /**
-     * ACM certificate ARN for your custom endpoint.
-     * 
-     */
     @Import(name="customEndpointCertificateArn")
     private @Nullable Output<String> customEndpointCertificateArn;
 
-    /**
-     * @return ACM certificate ARN for your custom endpoint.
-     * 
-     */
     public Optional<Output<String>> customEndpointCertificateArn() {
         return Optional.ofNullable(this.customEndpointCertificateArn);
     }
 
-    /**
-     * Whether to enable custom endpoint for the OpenSearch domain.
-     * 
-     */
     @Import(name="customEndpointEnabled")
     private @Nullable Output<Boolean> customEndpointEnabled;
 
-    /**
-     * @return Whether to enable custom endpoint for the OpenSearch domain.
-     * 
-     */
     public Optional<Output<Boolean>> customEndpointEnabled() {
         return Optional.ofNullable(this.customEndpointEnabled);
     }
 
-    /**
-     * Whether or not to require HTTPS. Defaults to `true`.
-     * 
-     */
     @Import(name="enforceHttps")
     private @Nullable Output<Boolean> enforceHttps;
 
-    /**
-     * @return Whether or not to require HTTPS. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enforceHttps() {
         return Optional.ofNullable(this.enforceHttps);
     }
 
-    /**
-     * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     @Import(name="tlsSecurityPolicy")
     private @Nullable Output<String> tlsSecurityPolicy;
 
-    /**
-     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Optional<Output<String>> tlsSecurityPolicy() {
         return Optional.ofNullable(this.tlsSecurityPolicy);
     }
@@ -119,107 +79,47 @@ public final class DomainDomainEndpointOptionsArgs extends com.pulumi.resources.
             $ = new DomainDomainEndpointOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customEndpoint Fully qualified domain for your custom endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEndpoint(@Nullable Output<String> customEndpoint) {
             $.customEndpoint = customEndpoint;
             return this;
         }
 
-        /**
-         * @param customEndpoint Fully qualified domain for your custom endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEndpoint(String customEndpoint) {
             return customEndpoint(Output.of(customEndpoint));
         }
 
-        /**
-         * @param customEndpointCertificateArn ACM certificate ARN for your custom endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEndpointCertificateArn(@Nullable Output<String> customEndpointCertificateArn) {
             $.customEndpointCertificateArn = customEndpointCertificateArn;
             return this;
         }
 
-        /**
-         * @param customEndpointCertificateArn ACM certificate ARN for your custom endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEndpointCertificateArn(String customEndpointCertificateArn) {
             return customEndpointCertificateArn(Output.of(customEndpointCertificateArn));
         }
 
-        /**
-         * @param customEndpointEnabled Whether to enable custom endpoint for the OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEndpointEnabled(@Nullable Output<Boolean> customEndpointEnabled) {
             $.customEndpointEnabled = customEndpointEnabled;
             return this;
         }
 
-        /**
-         * @param customEndpointEnabled Whether to enable custom endpoint for the OpenSearch domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customEndpointEnabled(Boolean customEndpointEnabled) {
             return customEndpointEnabled(Output.of(customEndpointEnabled));
         }
 
-        /**
-         * @param enforceHttps Whether or not to require HTTPS. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforceHttps(@Nullable Output<Boolean> enforceHttps) {
             $.enforceHttps = enforceHttps;
             return this;
         }
 
-        /**
-         * @param enforceHttps Whether or not to require HTTPS. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enforceHttps(Boolean enforceHttps) {
             return enforceHttps(Output.of(enforceHttps));
         }
 
-        /**
-         * @param tlsSecurityPolicy Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsSecurityPolicy(@Nullable Output<String> tlsSecurityPolicy) {
             $.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
         }
 
-        /**
-         * @param tlsSecurityPolicy Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsSecurityPolicy(String tlsSecurityPolicy) {
             return tlsSecurityPolicy(Output.of(tlsSecurityPolicy));
         }

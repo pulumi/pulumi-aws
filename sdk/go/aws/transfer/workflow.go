@@ -12,117 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a AWS Transfer Workflow resource.
-//
-// ## Example Usage
-//
-// ### Basic single step example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
-//				Steps: transfer.WorkflowStepArray{
-//					&transfer.WorkflowStepArgs{
-//						DeleteStepDetails: &transfer.WorkflowStepDeleteStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
-//						},
-//						Type: pulumi.String("DELETE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Multistep example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
-//				Steps: transfer.WorkflowStepArray{
-//					&transfer.WorkflowStepArgs{
-//						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
-//							Target:             pulumi.Any(exampleAwsLambdaFunction.Arn),
-//							TimeoutSeconds:     pulumi.Int(60),
-//						},
-//						Type: pulumi.String("CUSTOM"),
-//					},
-//					&transfer.WorkflowStepArgs{
-//						TagStepDetails: &transfer.WorkflowStepTagStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
-//							Tags: transfer.WorkflowStepTagStepDetailsTagArray{
-//								&transfer.WorkflowStepTagStepDetailsTagArgs{
-//									Key:   pulumi.String("Name"),
-//									Value: pulumi.String("Hello World"),
-//								},
-//							},
-//						},
-//						Type: pulumi.String("TAG"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:transfer/workflow:Workflow example example
-// ```
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// The Workflow ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A textual description for the workflow.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+	Arn              pulumi.StringOutput                `pulumi:"arn"`
+	Description      pulumi.StringPtrOutput             `pulumi:"description"`
 	OnExceptionSteps WorkflowOnExceptionStepArrayOutput `pulumi:"onExceptionSteps"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-	Steps WorkflowStepArrayOutput `pulumi:"steps"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Region           pulumi.StringOutput                `pulumi:"region"`
+	Steps            WorkflowStepArrayOutput            `pulumi:"steps"`
+	Tags             pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -158,37 +57,23 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// The Workflow ARN.
-	Arn *string `pulumi:"arn"`
-	// A textual description for the workflow.
-	Description *string `pulumi:"description"`
-	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+	Arn              *string                   `pulumi:"arn"`
+	Description      *string                   `pulumi:"description"`
 	OnExceptionSteps []WorkflowOnExceptionStep `pulumi:"onExceptionSteps"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-	Steps []WorkflowStep `pulumi:"steps"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Region           *string                   `pulumi:"region"`
+	Steps            []WorkflowStep            `pulumi:"steps"`
+	Tags             map[string]string         `pulumi:"tags"`
+	TagsAll          map[string]string         `pulumi:"tagsAll"`
 }
 
 type WorkflowState struct {
-	// The Workflow ARN.
-	Arn pulumi.StringPtrInput
-	// A textual description for the workflow.
-	Description pulumi.StringPtrInput
-	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+	Arn              pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
 	OnExceptionSteps WorkflowOnExceptionStepArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-	Steps WorkflowStepArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region           pulumi.StringPtrInput
+	Steps            WorkflowStepArrayInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -196,30 +81,20 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	// A textual description for the workflow.
-	Description *string `pulumi:"description"`
-	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+	Description      *string                   `pulumi:"description"`
 	OnExceptionSteps []WorkflowOnExceptionStep `pulumi:"onExceptionSteps"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-	Steps []WorkflowStep `pulumi:"steps"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region           *string                   `pulumi:"region"`
+	Steps            []WorkflowStep            `pulumi:"steps"`
+	Tags             map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	// A textual description for the workflow.
-	Description pulumi.StringPtrInput
-	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+	Description      pulumi.StringPtrInput
 	OnExceptionSteps WorkflowOnExceptionStepArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-	Steps WorkflowStepArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region           pulumi.StringPtrInput
+	Steps            WorkflowStepArrayInput
+	Tags             pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -309,37 +184,30 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
-// The Workflow ARN.
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A textual description for the workflow.
 func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 func (o WorkflowOutput) OnExceptionSteps() WorkflowOnExceptionStepArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowOnExceptionStepArrayOutput { return v.OnExceptionSteps }).(WorkflowOnExceptionStepArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkflowOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 func (o WorkflowOutput) Steps() WorkflowStepArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStepArrayOutput { return v.Steps }).(WorkflowStepArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

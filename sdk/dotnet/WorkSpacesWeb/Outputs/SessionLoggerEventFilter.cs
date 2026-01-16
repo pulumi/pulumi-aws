@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class SessionLoggerEventFilter
     {
-        /// <summary>
-        /// Block that specifies to monitor all events. Set to `{}` to monitor all events.
-        /// </summary>
         public readonly Outputs.SessionLoggerEventFilterAll? All;
-        /// <summary>
-        /// List of specific events to monitor. Valid values include session events like `SessionStart`, `SessionEnd`, etc.
-        /// </summary>
         public readonly ImmutableArray<string> Includes;
 
         [OutputConstructor]

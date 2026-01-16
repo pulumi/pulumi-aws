@@ -15,32 +15,16 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
 
     public static final BudgetActionDefinitionScpActionDefinitionArgs Empty = new BudgetActionDefinitionScpActionDefinitionArgs();
 
-    /**
-     * The policy ID attached.
-     * 
-     */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
-    /**
-     * @return The policy ID attached.
-     * 
-     */
     public Output<String> policyId() {
         return this.policyId;
     }
 
-    /**
-     * A list of target IDs.
-     * 
-     */
     @Import(name="targetIds", required=true)
     private Output<List<String>> targetIds;
 
-    /**
-     * @return A list of target IDs.
-     * 
-     */
     public Output<List<String>> targetIds() {
         return this.targetIds;
     }
@@ -70,54 +54,24 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
             $ = new BudgetActionDefinitionScpActionDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyId The policy ID attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyId(Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
 
-        /**
-         * @param policyId The policy ID attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 
-        /**
-         * @param targetIds A list of target IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIds(Output<List<String>> targetIds) {
             $.targetIds = targetIds;
             return this;
         }
 
-        /**
-         * @param targetIds A list of target IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIds(List<String> targetIds) {
             return targetIds(Output.of(targetIds));
         }
 
-        /**
-         * @param targetIds A list of target IDs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIds(String... targetIds) {
             return targetIds(List.of(targetIds));
         }

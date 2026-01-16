@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Glue.Inputs
     {
         [Input("permissions")]
         private InputList<string>? _permissions;
-
-        /// <summary>
-        /// The permissions that are granted to the principal.
-        /// </summary>
         public InputList<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<string>());
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// The principal who is granted permissions.. See `Principal` below.
-        /// </summary>
         [Input("principal")]
         public Input<Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalGetArgs>? Principal { get; set; }
 

@@ -27,10 +27,6 @@ class ConfigurationPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationPolicy resource.
-        :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
-        :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration_policy", configuration_policy)
         if description is not None:
@@ -43,9 +39,6 @@ class ConfigurationPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="configurationPolicy")
     def configuration_policy(self) -> pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs']:
-        """
-        Defines how Security Hub is configured. See below.
-        """
         return pulumi.get(self, "configuration_policy")
 
     @configuration_policy.setter
@@ -55,9 +48,6 @@ class ConfigurationPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the configuration policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,9 +57,6 @@ class ConfigurationPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the configuration policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -79,9 +66,6 @@ class ConfigurationPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,10 +83,6 @@ class _ConfigurationPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationPolicy resources.
-        :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
-        :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,9 +107,6 @@ class _ConfigurationPolicyState:
     @_builtins.property
     @pulumi.getter(name="configurationPolicy")
     def configuration_policy(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs']]:
-        """
-        Defines how Security Hub is configured. See below.
-        """
         return pulumi.get(self, "configuration_policy")
 
     @configuration_policy.setter
@@ -139,9 +116,6 @@ class _ConfigurationPolicyState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the configuration policy.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -151,9 +125,6 @@ class _ConfigurationPolicyState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the configuration policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -163,9 +134,6 @@ class _ConfigurationPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -185,127 +153,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages Security Hub configuration policy
-
-        > **NOTE:** This resource requires `securityhub.OrganizationConfiguration` to be configured of type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
-
-        ## Example Usage
-
-        ### Default standards enabled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
-            auto_enable=False,
-            auto_enable_standards="NONE",
-            organization_configuration={
-                "configuration_type": "CENTRAL",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
-            name="Example",
-            description="This is an example configuration policy",
-            configuration_policy={
-                "service_enabled": True,
-                "enabled_standard_arns": [
-                    "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
-                    "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                ],
-                "security_controls_configuration": {
-                    "disabled_control_identifiers": [],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
-        ```
-
-        ### Disabled Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Disabled",
-            description="This is an example of disabled configuration policy",
-            configuration_policy={
-                "service_enabled": False,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ### Custom Control Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Custom Controls",
-            description="This is an example of configuration policy with custom control settings",
-            configuration_policy={
-                "service_enabled": True,
-                "enabled_standard_arns": [
-                    "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
-                    "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                ],
-                "security_controls_configuration": {
-                    "enabled_control_identifiers": [
-                        "APIGateway.1",
-                        "IAM.7",
-                    ],
-                    "security_control_custom_parameters": [
-                        {
-                            "security_control_id": "APIGateway.1",
-                            "parameters": [{
-                                "name": "loggingLevel",
-                                "value_type": "CUSTOM",
-                                "enum": {
-                                    "value": "INFO",
-                                },
-                            }],
-                        },
-                        {
-                            "security_control_id": "IAM.7",
-                            "parameters": [
-                                {
-                                    "name": "RequireLowercaseCharacters",
-                                    "value_type": "CUSTOM",
-                                    "bool": {
-                                        "value": False,
-                                    },
-                                },
-                                {
-                                    "name": "MaxPasswordAge",
-                                    "value_type": "CUSTOM",
-                                    "int": {
-                                        "value": 60,
-                                    },
-                                },
-                            ],
-                        },
-                    ],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an existing Security Hub enabled account using the universally unique identifier (UUID) of the policy. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example "00000000-1111-2222-3333-444444444444"
-        ```
-
+        Create a ConfigurationPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
-        :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -314,121 +164,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                  args: ConfigurationPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Security Hub configuration policy
-
-        > **NOTE:** This resource requires `securityhub.OrganizationConfiguration` to be configured of type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
-
-        ## Example Usage
-
-        ### Default standards enabled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
-            auto_enable=False,
-            auto_enable_standards="NONE",
-            organization_configuration={
-                "configuration_type": "CENTRAL",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
-            name="Example",
-            description="This is an example configuration policy",
-            configuration_policy={
-                "service_enabled": True,
-                "enabled_standard_arns": [
-                    "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
-                    "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                ],
-                "security_controls_configuration": {
-                    "disabled_control_identifiers": [],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
-        ```
-
-        ### Disabled Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Disabled",
-            description="This is an example of disabled configuration policy",
-            configuration_policy={
-                "service_enabled": False,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ### Custom Control Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Custom Controls",
-            description="This is an example of configuration policy with custom control settings",
-            configuration_policy={
-                "service_enabled": True,
-                "enabled_standard_arns": [
-                    "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
-                    "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-                ],
-                "security_controls_configuration": {
-                    "enabled_control_identifiers": [
-                        "APIGateway.1",
-                        "IAM.7",
-                    ],
-                    "security_control_custom_parameters": [
-                        {
-                            "security_control_id": "APIGateway.1",
-                            "parameters": [{
-                                "name": "loggingLevel",
-                                "value_type": "CUSTOM",
-                                "enum": {
-                                    "value": "INFO",
-                                },
-                            }],
-                        },
-                        {
-                            "security_control_id": "IAM.7",
-                            "parameters": [
-                                {
-                                    "name": "RequireLowercaseCharacters",
-                                    "value_type": "CUSTOM",
-                                    "bool": {
-                                        "value": False,
-                                    },
-                                },
-                                {
-                                    "name": "MaxPasswordAge",
-                                    "value_type": "CUSTOM",
-                                    "int": {
-                                        "value": 60,
-                                    },
-                                },
-                            ],
-                        },
-                    ],
-                },
-            },
-            opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an existing Security Hub enabled account using the universally unique identifier (UUID) of the policy. For example:
-
-        ```sh
-        $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example "00000000-1111-2222-3333-444444444444"
-        ```
-
+        Create a ConfigurationPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConfigurationPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -486,10 +222,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
-        :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -510,32 +242,20 @@ class ConfigurationPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="configurationPolicy")
     def configuration_policy(self) -> pulumi.Output['outputs.ConfigurationPolicyConfigurationPolicy']:
-        """
-        Defines how Security Hub is configured. See below.
-        """
         return pulumi.get(self, "configuration_policy")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the configuration policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the configuration policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

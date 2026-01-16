@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetPhysicalTableMapS3Source
     {
-        /// <summary>
-        /// ARN of the data source.
-        /// </summary>
         public readonly string DataSourceArn;
-        /// <summary>
-        /// Column schema of the table. See input_columns.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetPhysicalTableMapS3SourceInputColumn> InputColumns;
-        /// <summary>
-        /// Information about the format for the S3 source file or files. See upload_settings.
-        /// </summary>
         public readonly Outputs.DataSetPhysicalTableMapS3SourceUploadSettings UploadSettings;
 
         [OutputConstructor]

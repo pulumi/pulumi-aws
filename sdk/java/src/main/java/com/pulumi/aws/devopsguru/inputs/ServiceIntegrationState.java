@@ -18,62 +18,30 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
 
     public static final ServiceIntegrationState Empty = new ServiceIntegrationState();
 
-    /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     * 
-     */
     @Import(name="kmsServerSideEncryption")
     private @Nullable Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption;
 
-    /**
-     * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-     * 
-     */
     public Optional<Output<ServiceIntegrationKmsServerSideEncryptionArgs>> kmsServerSideEncryption() {
         return Optional.ofNullable(this.kmsServerSideEncryption);
     }
 
-    /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     * 
-     */
     @Import(name="logsAnomalyDetection")
     private @Nullable Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection;
 
-    /**
-     * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-     * 
-     */
     public Optional<Output<ServiceIntegrationLogsAnomalyDetectionArgs>> logsAnomalyDetection() {
         return Optional.ofNullable(this.logsAnomalyDetection);
     }
 
-    /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     * 
-     */
     @Import(name="opsCenter")
     private @Nullable Output<ServiceIntegrationOpsCenterArgs> opsCenter;
 
-    /**
-     * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-     * 
-     */
     public Optional<Output<ServiceIntegrationOpsCenterArgs>> opsCenter() {
         return Optional.ofNullable(this.opsCenter);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -105,86 +73,38 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
             $ = new ServiceIntegrationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsServerSideEncryption Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsServerSideEncryption(@Nullable Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption) {
             $.kmsServerSideEncryption = kmsServerSideEncryption;
             return this;
         }
 
-        /**
-         * @param kmsServerSideEncryption Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs kmsServerSideEncryption) {
             return kmsServerSideEncryption(Output.of(kmsServerSideEncryption));
         }
 
-        /**
-         * @param logsAnomalyDetection Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logsAnomalyDetection(@Nullable Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection) {
             $.logsAnomalyDetection = logsAnomalyDetection;
             return this;
         }
 
-        /**
-         * @param logsAnomalyDetection Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logsAnomalyDetection(ServiceIntegrationLogsAnomalyDetectionArgs logsAnomalyDetection) {
             return logsAnomalyDetection(Output.of(logsAnomalyDetection));
         }
 
-        /**
-         * @param opsCenter Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsCenter(@Nullable Output<ServiceIntegrationOpsCenterArgs> opsCenter) {
             $.opsCenter = opsCenter;
             return this;
         }
 
-        /**
-         * @param opsCenter Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder opsCenter(ServiceIntegrationOpsCenterArgs opsCenter) {
             return opsCenter(Output.of(opsCenter));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

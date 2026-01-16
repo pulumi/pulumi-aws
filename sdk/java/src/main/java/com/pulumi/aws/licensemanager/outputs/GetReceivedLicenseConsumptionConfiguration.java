@@ -13,30 +13,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReceivedLicenseConsumptionConfiguration {
-    /**
-     * @return Details about a borrow configuration. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations;
-    /**
-     * @return Details about a provisional configuration. Detailed below
-     * 
-     */
     private List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations;
     private String renewType;
 
     private GetReceivedLicenseConsumptionConfiguration() {}
-    /**
-     * @return Details about a borrow configuration. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseConsumptionConfigurationBorrowConfiguration> borrowConfigurations() {
         return this.borrowConfigurations;
     }
-    /**
-     * @return Details about a provisional configuration. Detailed below
-     * 
-     */
     public List<GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration> provisionalConfigurations() {
         return this.provisionalConfigurations;
     }

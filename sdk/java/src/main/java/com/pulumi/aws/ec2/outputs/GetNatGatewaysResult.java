@@ -21,10 +21,6 @@ public final class GetNatGatewaysResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the NAT gateway ids found.
-     * 
-     */
     private List<String> ids;
     private String region;
     private Map<String,String> tags;
@@ -41,10 +37,6 @@ public final class GetNatGatewaysResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the NAT gateway ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

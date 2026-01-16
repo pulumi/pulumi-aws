@@ -27,12 +27,6 @@ class HostedConfigurationVersionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
-        :param pulumi.Input[_builtins.str] application_id: Application ID.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[_builtins.str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -46,9 +40,6 @@ class HostedConfigurationVersionArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -58,9 +49,6 @@ class HostedConfigurationVersionArgs:
     @_builtins.property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Configuration profile ID.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -70,9 +58,6 @@ class HostedConfigurationVersionArgs:
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Input[_builtins.str]:
-        """
-        Content of the configuration or the configuration data.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -82,9 +67,6 @@ class HostedConfigurationVersionArgs:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -94,9 +76,6 @@ class HostedConfigurationVersionArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -106,9 +85,6 @@ class HostedConfigurationVersionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,14 +105,6 @@ class _HostedConfigurationVersionState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedConfigurationVersion resources.
-        :param pulumi.Input[_builtins.str] application_id: Application ID.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig  hosted configuration version.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[_builtins.str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] version_number: Version number of the hosted configuration.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -158,9 +126,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -170,9 +135,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AppConfig  hosted configuration version.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -182,9 +144,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration profile ID.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -194,9 +153,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Content of the configuration or the configuration data.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -206,9 +162,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -218,9 +171,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -230,9 +180,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -242,9 +189,6 @@ class _HostedConfigurationVersionState:
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version number of the hosted configuration.
-        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -266,139 +210,9 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AppConfig Hosted Configuration Version resource.
-
-        ## Example Usage
-
-        ### Freeform
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            description="Example Freeform Hosted Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "foo": "bar",
-                "fruit": [
-                    "apple",
-                    "pear",
-                    "orange",
-                ],
-                "isThingEnabled": True,
-            }))
-        ```
-
-        ### Feature Flags
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            description="Example Feature Flag Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "flags": {
-                    "foo": {
-                        "name": "foo",
-                        "_deprecation": {
-                            "status": "planned",
-                        },
-                    },
-                    "bar": {
-                        "name": "bar",
-                        "attributes": {
-                            "someAttribute": {
-                                "constraints": {
-                                    "type": "string",
-                                    "required": True,
-                                },
-                            },
-                            "someOtherAttribute": {
-                                "constraints": {
-                                    "type": "number",
-                                    "required": True,
-                                },
-                            },
-                        },
-                    },
-                },
-                "values": {
-                    "foo": {
-                        "enabled": "true",
-                    },
-                    "bar": {
-                        "enabled": "true",
-                        "someAttribute": "Hello World",
-                        "someOtherAttribute": 123,
-                    },
-                },
-                "version": "1",
-            }))
-        ```
-
-        ### Multi-variant Feature Flags
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            description="Example Multi-variant Feature Flag Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "flags": {
-                    "loggingenabled": {
-                        "name": "loggingEnabled",
-                    },
-                },
-                "values": {
-                    "loggingenabled": {
-                        "_variants": std.concat(input=[
-                            [{
-                                "enabled": True,
-                                "name": f"usersWithLoggingEnabled_{user_id}",
-                                "rule": f"(or (eq $userId \\"{user_id}\\"))",
-                            } for userId in appcfg_enable_logging_user_ids],
-                            [{
-                                "enabled": False,
-                                "name": "Default",
-                            }],
-                        ]).result,
-                    },
-                },
-                "version": "1",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-        ```
-
+        Create a HostedConfigurationVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Application ID.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[_builtins.str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -407,131 +221,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  args: HostedConfigurationVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppConfig Hosted Configuration Version resource.
-
-        ## Example Usage
-
-        ### Freeform
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            description="Example Freeform Hosted Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "foo": "bar",
-                "fruit": [
-                    "apple",
-                    "pear",
-                    "orange",
-                ],
-                "isThingEnabled": True,
-            }))
-        ```
-
-        ### Feature Flags
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            description="Example Feature Flag Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "flags": {
-                    "foo": {
-                        "name": "foo",
-                        "_deprecation": {
-                            "status": "planned",
-                        },
-                    },
-                    "bar": {
-                        "name": "bar",
-                        "attributes": {
-                            "someAttribute": {
-                                "constraints": {
-                                    "type": "string",
-                                    "required": True,
-                                },
-                            },
-                            "someOtherAttribute": {
-                                "constraints": {
-                                    "type": "number",
-                                    "required": True,
-                                },
-                            },
-                        },
-                    },
-                },
-                "values": {
-                    "foo": {
-                        "enabled": "true",
-                    },
-                    "bar": {
-                        "enabled": "true",
-                        "someAttribute": "Hello World",
-                        "someOtherAttribute": 123,
-                    },
-                },
-                "version": "1",
-            }))
-        ```
-
-        ### Multi-variant Feature Flags
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=example_aws_appconfig_application["id"],
-            configuration_profile_id=example_aws_appconfig_configuration_profile["configurationProfileId"],
-            description="Example Multi-variant Feature Flag Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "flags": {
-                    "loggingenabled": {
-                        "name": "loggingEnabled",
-                    },
-                },
-                "values": {
-                    "loggingenabled": {
-                        "_variants": std.concat(input=[
-                            [{
-                                "enabled": True,
-                                "name": f"usersWithLoggingEnabled_{user_id}",
-                                "rule": f"(or (eq $userId \\"{user_id}\\"))",
-                            } for userId in appcfg_enable_logging_user_ids],
-                            [{
-                                "enabled": False,
-                                "name": "Default",
-                            }],
-                        ]).result,
-                    },
-                },
-                "version": "1",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-        ```
-
+        Create a HostedConfigurationVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HostedConfigurationVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -605,14 +295,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Application ID.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig  hosted configuration version.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[_builtins.str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[_builtins.str] description: Description of the configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] version_number: Version number of the hosted configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -631,64 +313,40 @@ class HostedConfigurationVersion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the AppConfig  hosted configuration version.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configuration profile ID.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:
-        """
-        Content of the configuration or the configuration data.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version number of the hosted configuration.
-        """
         return pulumi.get(self, "version_number")
 

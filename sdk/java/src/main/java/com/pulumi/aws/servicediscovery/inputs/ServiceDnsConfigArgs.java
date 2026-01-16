@@ -18,47 +18,23 @@ public final class ServiceDnsConfigArgs extends com.pulumi.resources.ResourceArg
 
     public static final ServiceDnsConfigArgs Empty = new ServiceDnsConfigArgs();
 
-    /**
-     * An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-     * 
-     */
     @Import(name="dnsRecords", required=true)
     private Output<List<ServiceDnsConfigDnsRecordArgs>> dnsRecords;
 
-    /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-     * 
-     */
     public Output<List<ServiceDnsConfigDnsRecordArgs>> dnsRecords() {
         return this.dnsRecords;
     }
 
-    /**
-     * The ID of the namespace to use for DNS configuration.
-     * 
-     */
     @Import(name="namespaceId", required=true)
     private Output<String> namespaceId;
 
-    /**
-     * @return The ID of the namespace to use for DNS configuration.
-     * 
-     */
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
 
-    /**
-     * The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-     * 
-     */
     @Import(name="routingPolicy")
     private @Nullable Output<String> routingPolicy;
 
-    /**
-     * @return The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-     * 
-     */
     public Optional<Output<String>> routingPolicy() {
         return Optional.ofNullable(this.routingPolicy);
     }
@@ -89,75 +65,33 @@ public final class ServiceDnsConfigArgs extends com.pulumi.resources.ResourceArg
             $ = new ServiceDnsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsRecords An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecords(Output<List<ServiceDnsConfigDnsRecordArgs>> dnsRecords) {
             $.dnsRecords = dnsRecords;
             return this;
         }
 
-        /**
-         * @param dnsRecords An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecords(List<ServiceDnsConfigDnsRecordArgs> dnsRecords) {
             return dnsRecords(Output.of(dnsRecords));
         }
 
-        /**
-         * @param dnsRecords An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsRecords(ServiceDnsConfigDnsRecordArgs... dnsRecords) {
             return dnsRecords(List.of(dnsRecords));
         }
 
-        /**
-         * @param namespaceId The ID of the namespace to use for DNS configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceId(Output<String> namespaceId) {
             $.namespaceId = namespaceId;
             return this;
         }
 
-        /**
-         * @param namespaceId The ID of the namespace to use for DNS configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespaceId(String namespaceId) {
             return namespaceId(Output.of(namespaceId));
         }
 
-        /**
-         * @param routingPolicy The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicy(@Nullable Output<String> routingPolicy) {
             $.routingPolicy = routingPolicy;
             return this;
         }
 
-        /**
-         * @param routingPolicy The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicy(String routingPolicy) {
             return routingPolicy(Output.of(routingPolicy));
         }

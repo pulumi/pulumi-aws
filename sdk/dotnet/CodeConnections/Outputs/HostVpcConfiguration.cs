@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CodeConnections.Outputs
     [OutputType]
     public sealed class HostVpcConfiguration
     {
-        /// <summary>
-        /// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        /// </summary>
         public readonly string? TlsCertificate;
-        /// <summary>
-        /// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

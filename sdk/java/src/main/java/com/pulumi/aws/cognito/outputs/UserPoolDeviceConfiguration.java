@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolDeviceConfiguration {
-    /**
-     * @return Whether a challenge is required on a new device. Only applicable to a new device.
-     * 
-     */
     private @Nullable Boolean challengeRequiredOnNewDevice;
-    /**
-     * @return Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `deviceConfiguration` block is &#34;No.&#34;
-     * 
-     */
     private @Nullable Boolean deviceOnlyRememberedOnUserPrompt;
 
     private UserPoolDeviceConfiguration() {}
-    /**
-     * @return Whether a challenge is required on a new device. Only applicable to a new device.
-     * 
-     */
     public Optional<Boolean> challengeRequiredOnNewDevice() {
         return Optional.ofNullable(this.challengeRequiredOnNewDevice);
     }
-    /**
-     * @return Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `deviceConfiguration` block is &#34;No.&#34;
-     * 
-     */
     public Optional<Boolean> deviceOnlyRememberedOnUserPrompt() {
         return Optional.ofNullable(this.deviceOnlyRememberedOnUserPrompt);
     }

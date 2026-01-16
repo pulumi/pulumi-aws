@@ -23,17 +23,9 @@ public final class ImagePipelineImageScanningConfigurationEcrConfigurationArgs e
         return Optional.ofNullable(this.containerTags);
     }
 
-    /**
-     * The name of the repository to scan
-     * 
-     */
     @Import(name="repositoryName")
     private @Nullable Output<String> repositoryName;
 
-    /**
-     * @return The name of the repository to scan
-     * 
-     */
     public Optional<Output<String>> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
     }
@@ -76,23 +68,11 @@ public final class ImagePipelineImageScanningConfigurationEcrConfigurationArgs e
             return containerTags(List.of(containerTags));
         }
 
-        /**
-         * @param repositoryName The name of the repository to scan
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(@Nullable Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name of the repository to scan
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
-//
-// > **NOTE:** This data source can only be used in the `us-east-1` region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecrpublic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecrpublic.GetAuthorizationToken(ctx, &ecrpublic.GetAuthorizationTokenArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs, opts ...pulumi.InvokeOption) (*GetAuthorizationTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizationTokenResult
@@ -50,22 +23,17 @@ func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs,
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAuthorizationToken.
 type GetAuthorizationTokenResult struct {
-	// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
 	AuthorizationToken string `pulumi:"authorizationToken"`
-	// Time in UTC RFC3339 format when the authorization token expires.
-	ExpiresAt string `pulumi:"expiresAt"`
+	ExpiresAt          string `pulumi:"expiresAt"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Password decoded from the authorization token.
+	Id       string `pulumi:"id"`
 	Password string `pulumi:"password"`
 	Region   string `pulumi:"region"`
-	// User name decoded from the authorization token.
 	UserName string `pulumi:"userName"`
 }
 
@@ -80,7 +48,6 @@ func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationToken
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -103,12 +70,10 @@ func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutputWi
 	return o
 }
 
-// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
 func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
 }
 
-// Time in UTC RFC3339 format when the authorization token expires.
 func (o GetAuthorizationTokenResultOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
 }
@@ -118,7 +83,6 @@ func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Password decoded from the authorization token.
 func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -127,7 +91,6 @@ func (o GetAuthorizationTokenResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// User name decoded from the authorization token.
 func (o GetAuthorizationTokenResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.UserName }).(pulumi.StringOutput)
 }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LandingZoneDriftStatus {
-    /**
-     * @return The drift status of the landing zone.
-     * 
-     */
     private @Nullable String status;
 
     private LandingZoneDriftStatus() {}
-    /**
-     * @return The drift status of the landing zone.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

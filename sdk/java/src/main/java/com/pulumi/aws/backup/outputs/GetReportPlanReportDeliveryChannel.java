@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReportPlanReportDeliveryChannel {
-    /**
-     * @return List of the format of your reports: CSV, JSON, or both.
-     * 
-     */
     private List<String> formats;
-    /**
-     * @return Unique name of the S3 bucket that receives your reports.
-     * 
-     */
     private String s3BucketName;
-    /**
-     * @return Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-     * 
-     */
     private String s3KeyPrefix;
 
     private GetReportPlanReportDeliveryChannel() {}
-    /**
-     * @return List of the format of your reports: CSV, JSON, or both.
-     * 
-     */
     public List<String> formats() {
         return this.formats;
     }
-    /**
-     * @return Unique name of the S3 bucket that receives your reports.
-     * 
-     */
     public String s3BucketName() {
         return this.s3BucketName;
     }
-    /**
-     * @return Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name.
-     * 
-     */
     public String s3KeyPrefix() {
         return this.s3KeyPrefix;
     }

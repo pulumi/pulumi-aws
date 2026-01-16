@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupTriggerConfiguration
     {
-        /// <summary>
-        /// The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
-        /// </summary>
         public readonly ImmutableArray<string> TriggerEvents;
-        /// <summary>
-        /// The name of the notification trigger.
-        /// </summary>
         public readonly string TriggerName;
-        /// <summary>
-        /// The ARN of the SNS topic through which notifications are sent.
-        /// </summary>
         public readonly string TriggerTargetArn;
 
         [OutputConstructor]

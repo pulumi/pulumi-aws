@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
-//				Arn: "exampleARN",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponsePlanResult
@@ -52,35 +23,25 @@ func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts 
 
 // A collection of arguments for invoking getResponsePlan.
 type LookupResponsePlanArgs struct {
-	// The Amazon Resource Name (ARN) of the response plan.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The tags applied to the response plan.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    string            `pulumi:"arn"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getResponsePlan.
 type LookupResponsePlanResult struct {
-	// (Optional) The actions that the response plan starts at the beginning of an incident.
-	Actions []GetResponsePlanAction `pulumi:"actions"`
-	Arn     string                  `pulumi:"arn"`
-	// The Chatbot chat channel used for collaboration during an incident.
-	ChatChannels []string `pulumi:"chatChannels"`
-	// The long format of the response plan name. This field can contain spaces.
-	DisplayName string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-	Engagements []string `pulumi:"engagements"`
+	Actions      []GetResponsePlanAction `pulumi:"actions"`
+	Arn          string                  `pulumi:"arn"`
+	ChatChannels []string                `pulumi:"chatChannels"`
+	DisplayName  string                  `pulumi:"displayName"`
+	Engagements  []string                `pulumi:"engagements"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string                            `pulumi:"id"`
 	IncidentTemplates []GetResponsePlanIncidentTemplate `pulumi:"incidentTemplates"`
-	// Information about third-party services integrated into the response plan. The following values are supported:
-	Integrations []GetResponsePlanIntegration `pulumi:"integrations"`
-	// The name of the PagerDuty configuration.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// The tags applied to the response plan.
-	Tags map[string]string `pulumi:"tags"`
+	Integrations      []GetResponsePlanIntegration      `pulumi:"integrations"`
+	Name              string                            `pulumi:"name"`
+	Region            string                            `pulumi:"region"`
+	Tags              map[string]string                 `pulumi:"tags"`
 }
 
 func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutputArgs, opts ...pulumi.InvokeOption) LookupResponsePlanResultOutput {
@@ -94,12 +55,9 @@ func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutput
 
 // A collection of arguments for invoking getResponsePlan.
 type LookupResponsePlanOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the response plan.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The tags applied to the response plan.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupResponsePlanOutputArgs) ElementType() reflect.Type {
@@ -121,7 +79,6 @@ func (o LookupResponsePlanResultOutput) ToLookupResponsePlanResultOutputWithCont
 	return o
 }
 
-// (Optional) The actions that the response plan starts at the beginning of an incident.
 func (o LookupResponsePlanResultOutput) Actions() GetResponsePlanActionArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []GetResponsePlanAction { return v.Actions }).(GetResponsePlanActionArrayOutput)
 }
@@ -130,17 +87,14 @@ func (o LookupResponsePlanResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Chatbot chat channel used for collaboration during an incident.
 func (o LookupResponsePlanResultOutput) ChatChannels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []string { return v.ChatChannels }).(pulumi.StringArrayOutput)
 }
 
-// The long format of the response plan name. This field can contain spaces.
 func (o LookupResponsePlanResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
 func (o LookupResponsePlanResultOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []string { return v.Engagements }).(pulumi.StringArrayOutput)
 }
@@ -154,12 +108,10 @@ func (o LookupResponsePlanResultOutput) IncidentTemplates() GetResponsePlanIncid
 	return o.ApplyT(func(v LookupResponsePlanResult) []GetResponsePlanIncidentTemplate { return v.IncidentTemplates }).(GetResponsePlanIncidentTemplateArrayOutput)
 }
 
-// Information about third-party services integrated into the response plan. The following values are supported:
 func (o LookupResponsePlanResultOutput) Integrations() GetResponsePlanIntegrationArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []GetResponsePlanIntegration { return v.Integrations }).(GetResponsePlanIntegrationArrayOutput)
 }
 
-// The name of the PagerDuty configuration.
 func (o LookupResponsePlanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -168,7 +120,6 @@ func (o LookupResponsePlanResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The tags applied to the response plan.
 func (o LookupResponsePlanResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

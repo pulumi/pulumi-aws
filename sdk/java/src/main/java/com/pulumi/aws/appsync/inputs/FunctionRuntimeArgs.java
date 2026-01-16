@@ -14,32 +14,16 @@ public final class FunctionRuntimeArgs extends com.pulumi.resources.ResourceArgs
 
     public static final FunctionRuntimeArgs Empty = new FunctionRuntimeArgs();
 
-    /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-     * 
-     */
     @Import(name="runtimeVersion", required=true)
     private Output<String> runtimeVersion;
 
-    /**
-     * @return The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-     * 
-     */
     public Output<String> runtimeVersion() {
         return this.runtimeVersion;
     }
@@ -69,44 +53,20 @@ public final class FunctionRuntimeArgs extends com.pulumi.resources.ResourceArgs
             $ = new FunctionRuntimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param runtimeVersion The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtimeVersion(Output<String> runtimeVersion) {
             $.runtimeVersion = runtimeVersion;
             return this;
         }
 
-        /**
-         * @param runtimeVersion The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runtimeVersion(String runtimeVersion) {
             return runtimeVersion(Output.of(runtimeVersion));
         }

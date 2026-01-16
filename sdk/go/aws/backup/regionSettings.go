@@ -12,74 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Backup Region Settings resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
-//				ResourceTypeOptInPreference: pulumi.BoolMap{
-//					"Aurora":                 pulumi.Bool(true),
-//					"CloudFormation":         pulumi.Bool(true),
-//					"DocumentDB":             pulumi.Bool(true),
-//					"DSQL":                   pulumi.Bool(true),
-//					"DynamoDB":               pulumi.Bool(true),
-//					"EBS":                    pulumi.Bool(true),
-//					"EC2":                    pulumi.Bool(true),
-//					"EFS":                    pulumi.Bool(true),
-//					"FSx":                    pulumi.Bool(true),
-//					"Neptune":                pulumi.Bool(true),
-//					"Redshift":               pulumi.Bool(true),
-//					"Redshift Serverless":    pulumi.Bool(false),
-//					"RDS":                    pulumi.Bool(false),
-//					"S3":                     pulumi.Bool(false),
-//					"SAP HANA on Amazon EC2": pulumi.Bool(false),
-//					"Storage Gateway":        pulumi.Bool(false),
-//					"VirtualMachine":         pulumi.Bool(false),
-//				},
-//				ResourceTypeManagementPreference: pulumi.BoolMap{
-//					"CloudFormation": pulumi.Bool(true),
-//					"DSQL":           pulumi.Bool(true),
-//					"DynamoDB":       pulumi.Bool(false),
-//					"EFS":            pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup Region Settings using the `region`. For example:
-//
-// ```sh
-// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-// ```
 type RegionSettings struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+	Region                           pulumi.StringOutput  `pulumi:"region"`
 	ResourceTypeManagementPreference pulumi.BoolMapOutput `pulumi:"resourceTypeManagementPreference"`
-	// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-	ResourceTypeOptInPreference pulumi.BoolMapOutput `pulumi:"resourceTypeOptInPreference"`
+	ResourceTypeOptInPreference      pulumi.BoolMapOutput `pulumi:"resourceTypeOptInPreference"`
 }
 
 // NewRegionSettings registers a new resource with the given unique name, arguments, and options.
@@ -115,21 +53,15 @@ func GetRegionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegionSettings resources.
 type regionSettingsState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+	Region                           *string         `pulumi:"region"`
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
-	// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-	ResourceTypeOptInPreference map[string]bool `pulumi:"resourceTypeOptInPreference"`
+	ResourceTypeOptInPreference      map[string]bool `pulumi:"resourceTypeOptInPreference"`
 }
 
 type RegionSettingsState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+	Region                           pulumi.StringPtrInput
 	ResourceTypeManagementPreference pulumi.BoolMapInput
-	// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-	ResourceTypeOptInPreference pulumi.BoolMapInput
+	ResourceTypeOptInPreference      pulumi.BoolMapInput
 }
 
 func (RegionSettingsState) ElementType() reflect.Type {
@@ -137,22 +69,16 @@ func (RegionSettingsState) ElementType() reflect.Type {
 }
 
 type regionSettingsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+	Region                           *string         `pulumi:"region"`
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
-	// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-	ResourceTypeOptInPreference map[string]bool `pulumi:"resourceTypeOptInPreference"`
+	ResourceTypeOptInPreference      map[string]bool `pulumi:"resourceTypeOptInPreference"`
 }
 
 // The set of arguments for constructing a RegionSettings resource.
 type RegionSettingsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+	Region                           pulumi.StringPtrInput
 	ResourceTypeManagementPreference pulumi.BoolMapInput
-	// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
-	ResourceTypeOptInPreference pulumi.BoolMapInput
+	ResourceTypeOptInPreference      pulumi.BoolMapInput
 }
 
 func (RegionSettingsArgs) ElementType() reflect.Type {
@@ -242,17 +168,14 @@ func (o RegionSettingsOutput) ToRegionSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegionSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegionSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
 func (o RegionSettingsOutput) ResourceTypeManagementPreference() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *RegionSettings) pulumi.BoolMapOutput { return v.ResourceTypeManagementPreference }).(pulumi.BoolMapOutput)
 }
 
-// A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
 func (o RegionSettingsOutput) ResourceTypeOptInPreference() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *RegionSettings) pulumi.BoolMapOutput { return v.ResourceTypeOptInPreference }).(pulumi.BoolMapOutput)
 }

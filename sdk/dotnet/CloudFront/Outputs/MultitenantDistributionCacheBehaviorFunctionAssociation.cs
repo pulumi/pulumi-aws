@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionCacheBehaviorFunctionAssociation
     {
-        /// <summary>
-        /// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        /// </summary>
         public readonly string EventType;
-        /// <summary>
-        /// ARN of the CloudFront function.
-        /// </summary>
         public readonly string FunctionArn;
 
         [OutputConstructor]

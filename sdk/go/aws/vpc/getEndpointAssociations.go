@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.GetEndpointAssociations(ctx, &vpc.GetEndpointAssociationsArgs{
-//				VpcEndpointId: exampleAwsVpcEndpoint.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEndpointAssociations(ctx *pulumi.Context, args *GetEndpointAssociationsArgs, opts ...pulumi.InvokeOption) (*GetEndpointAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointAssociationsResult
@@ -52,15 +23,12 @@ func GetEndpointAssociations(ctx *pulumi.Context, args *GetEndpointAssociationsA
 
 // A collection of arguments for invoking getEndpointAssociations.
 type GetEndpointAssociationsArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ID of the specific VPC Endpoint to retrieve.
-	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	Region        *string `pulumi:"region"`
+	VpcEndpointId string  `pulumi:"vpcEndpointId"`
 }
 
 // A collection of values returned by getEndpointAssociations.
 type GetEndpointAssociationsResult struct {
-	// Associations for the VPC Endpoint. Association blocks are documented below.
 	Associations []GetEndpointAssociationsAssociation `pulumi:"associations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
@@ -79,10 +47,8 @@ func GetEndpointAssociationsOutput(ctx *pulumi.Context, args GetEndpointAssociat
 
 // A collection of arguments for invoking getEndpointAssociations.
 type GetEndpointAssociationsOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID of the specific VPC Endpoint to retrieve.
-	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
+	VpcEndpointId pulumi.StringInput    `pulumi:"vpcEndpointId"`
 }
 
 func (GetEndpointAssociationsOutputArgs) ElementType() reflect.Type {
@@ -104,7 +70,6 @@ func (o GetEndpointAssociationsResultOutput) ToGetEndpointAssociationsResultOutp
 	return o
 }
 
-// Associations for the VPC Endpoint. Association blocks are documented below.
 func (o GetEndpointAssociationsResultOutput) Associations() GetEndpointAssociationsAssociationArrayOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsResult) []GetEndpointAssociationsAssociation { return v.Associations }).(GetEndpointAssociationsAssociationArrayOutput)
 }

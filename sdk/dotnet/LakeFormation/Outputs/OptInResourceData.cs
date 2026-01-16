@@ -13,41 +13,14 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceData
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OptInResourceDataCatalog> Catalogs;
-        /// <summary>
-        /// Data cell filter. See Data Cells Filter for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OptInResourceDataDataCellsFilter> DataCellsFilters;
-        /// <summary>
-        /// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OptInResourceDataDataLocation> DataLocations;
-        /// <summary>
-        /// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
-        /// </summary>
         public readonly Outputs.OptInResourceDataDatabase? Database;
-        /// <summary>
-        /// LF-tag key and values attached to a resource.
-        /// </summary>
         public readonly Outputs.OptInResourceDataLfTag? LfTag;
-        /// <summary>
-        /// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OptInResourceDataLfTagExpression> LfTagExpressions;
-        /// <summary>
-        /// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OptInResourceDataLfTagPolicy> LfTagPolicies;
-        /// <summary>
-        /// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
-        /// </summary>
         public readonly Outputs.OptInResourceDataTable? Table;
-        /// <summary>
-        /// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
-        /// </summary>
         public readonly Outputs.OptInResourceDataTableWithColumns? TableWithColumns;
 
         [OutputConstructor]

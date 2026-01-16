@@ -16,62 +16,30 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
 
     public static final IdentitySourceState Empty = new IdentitySourceState();
 
-    /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<IdentitySourceConfigurationArgs> configuration;
 
-    /**
-     * @return Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-     * 
-     */
     public Optional<Output<IdentitySourceConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
-     * 
-     */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
-    /**
-     * @return Specifies the ID of the policy store in which you want to store this identity source.
-     * 
-     */
     public Optional<Output<String>> policyStoreId() {
         return Optional.ofNullable(this.policyStoreId);
     }
 
-    /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     * 
-     */
     @Import(name="principalEntityType")
     private @Nullable Output<String> principalEntityType;
 
-    /**
-     * @return Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-     * 
-     */
     public Optional<Output<String>> principalEntityType() {
         return Optional.ofNullable(this.principalEntityType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,86 +71,38 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
             $ = new IdentitySourceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configuration Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<IdentitySourceConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(IdentitySourceConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param policyStoreId Specifies the ID of the policy store in which you want to store this identity source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(@Nullable Output<String> policyStoreId) {
             $.policyStoreId = policyStoreId;
             return this;
         }
 
-        /**
-         * @param policyStoreId Specifies the ID of the policy store in which you want to store this identity source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
         }
 
-        /**
-         * @param principalEntityType Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalEntityType(@Nullable Output<String> principalEntityType) {
             $.principalEntityType = principalEntityType;
             return this;
         }
 
-        /**
-         * @param principalEntityType Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalEntityType(String principalEntityType) {
             return principalEntityType(Output.of(principalEntityType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

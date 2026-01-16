@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Networkflowmonitor.Outputs
     [OutputType]
     public sealed class ScopeTargetTargetIdentifierTargetId
     {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
         public readonly string AccountId;
 
         [OutputConstructor]

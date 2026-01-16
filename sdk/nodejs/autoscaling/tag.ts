@@ -7,51 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
- *
- * > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.autoscaling.Group` and `aws.autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `aws.autoscaling.Group` resource will try to remove the tag being added by the `aws.autoscaling.Tag` resource.
- *
- * > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: "example",
- *     nodeGroupName: "example",
- * });
- * const exampleTag: aws.autoscaling.Tag[] = [];
- * std.tosetOutput({
- *     input: std.flattenOutput({
- *         input: example.resources.apply(resources => resources.map(resources => (resources.autoscalingGroups))),
- *     }).apply(invoke => .map(asg => (asg.name))),
- * }).apply(invoke => {
- *     for (const range of invoke.result.map((v, k) => ({key: k, value: v}))) {
- *         exampleTag.push(new aws.autoscaling.Tag(`example-${range.key}`, {
- *             autoscalingGroupName: range.value,
- *             tag: {
- *                 key: "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
- *                 value: "SPOT",
- *                 propagateAtLaunch: false,
- *             },
- *         }));
- *     }
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
- *
- * ```sh
- * $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
- * ```
- */
 export class Tag extends pulumi.CustomResource {
     /**
      * Get an existing Tag resource's state with the given name, ID, and optional extra
@@ -80,17 +35,8 @@ export class Tag extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tag.__pulumiType;
     }
 
-    /**
-     * Name of the Autoscaling Group to apply the tag to.
-     */
     declare public readonly autoscalingGroupName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Tag to create. The `tag` block is documented below.
-     */
     declare public readonly tag: pulumi.Output<outputs.autoscaling.TagTag>;
 
     /**
@@ -130,17 +76,8 @@ export class Tag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tag resources.
  */
 export interface TagState {
-    /**
-     * Name of the Autoscaling Group to apply the tag to.
-     */
     autoscalingGroupName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tag to create. The `tag` block is documented below.
-     */
     tag?: pulumi.Input<inputs.autoscaling.TagTag>;
 }
 
@@ -148,16 +85,7 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
-    /**
-     * Name of the Autoscaling Group to apply the tag to.
-     */
     autoscalingGroupName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Tag to create. The `tag` block is documented below.
-     */
     tag: pulumi.Input<inputs.autoscaling.TagTag>;
 }

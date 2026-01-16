@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
-    /**
-     * @return Amazon S3 destination URI for log publishing.
-     * 
-     */
     private String logUri;
 
     private JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration() {}
-    /**
-     * @return Amazon S3 destination URI for log publishing.
-     * 
-     */
     public String logUri() {
         return this.logUri;
     }

@@ -12,60 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
-//
-// > **NOTE:** The AWS account utilizing this resource must be an Organizations management account. Also, you must enable trusted access for AWS Identity and Access Management in AWS Organizations.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("iam.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewOrganizationsFeatures(ctx, "example", &iam.OrganizationsFeaturesArgs{
-//				EnabledFeatures: pulumi.StringArray{
-//					pulumi.String("RootCredentialsManagement"),
-//					pulumi.String("RootSessions"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import root access features using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
-// ```
 type OrganizationsFeatures struct {
 	pulumi.CustomResourceState
 
-	// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 	EnabledFeatures pulumi.StringArrayOutput `pulumi:"enabledFeatures"`
 }
 
@@ -102,12 +51,10 @@ func GetOrganizationsFeatures(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationsFeatures resources.
 type organizationsFeaturesState struct {
-	// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 	EnabledFeatures []string `pulumi:"enabledFeatures"`
 }
 
 type OrganizationsFeaturesState struct {
-	// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 	EnabledFeatures pulumi.StringArrayInput
 }
 
@@ -116,13 +63,11 @@ func (OrganizationsFeaturesState) ElementType() reflect.Type {
 }
 
 type organizationsFeaturesArgs struct {
-	// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 	EnabledFeatures []string `pulumi:"enabledFeatures"`
 }
 
 // The set of arguments for constructing a OrganizationsFeatures resource.
 type OrganizationsFeaturesArgs struct {
-	// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 	EnabledFeatures pulumi.StringArrayInput
 }
 
@@ -213,7 +158,6 @@ func (o OrganizationsFeaturesOutput) ToOrganizationsFeaturesOutputWithContext(ct
 	return o
 }
 
-// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
 func (o OrganizationsFeaturesOutput) EnabledFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationsFeatures) pulumi.StringArrayOutput { return v.EnabledFeatures }).(pulumi.StringArrayOutput)
 }

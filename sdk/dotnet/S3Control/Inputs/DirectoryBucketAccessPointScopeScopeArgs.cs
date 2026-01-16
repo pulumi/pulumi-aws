@@ -14,10 +14,6 @@ namespace Pulumi.Aws.S3Control.Inputs
     {
         [Input("permissions")]
         private InputList<string>? _permissions;
-
-        /// <summary>
-        /// You can specify a list of API operations as permissions for the access point.
-        /// </summary>
         public InputList<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<string>());
@@ -26,12 +22,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
         [Input("prefixes")]
         private InputList<string>? _prefixes;
-
-        /// <summary>
-        /// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-        /// 
-        /// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-        /// </summary>
         public InputList<string> Prefixes
         {
             get => _prefixes ?? (_prefixes = new InputList<string>());

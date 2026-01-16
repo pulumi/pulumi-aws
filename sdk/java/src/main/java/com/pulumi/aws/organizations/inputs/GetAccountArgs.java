@@ -17,32 +17,16 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountArgs Empty = new GetAccountArgs();
 
-    /**
-     * Account ID number of a delegated administrator account in the organization.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return Account ID number of a delegated administrator account in the organization.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,44 +56,20 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Account ID number of a delegated administrator account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Account ID number of a delegated administrator account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

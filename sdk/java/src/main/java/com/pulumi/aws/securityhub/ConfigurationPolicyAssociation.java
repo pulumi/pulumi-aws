@@ -13,104 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages Security Hub configuration policy associations.
- * 
- * &gt; **NOTE:** This resource requires `aws.securityhub.OrganizationConfiguration` to be configured with type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.FindingAggregator;
- * import com.pulumi.aws.securityhub.FindingAggregatorArgs;
- * import com.pulumi.aws.securityhub.OrganizationConfiguration;
- * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
- * import com.pulumi.aws.securityhub.inputs.OrganizationConfigurationOrganizationConfigurationArgs;
- * import com.pulumi.aws.securityhub.ConfigurationPolicy;
- * import com.pulumi.aws.securityhub.ConfigurationPolicyArgs;
- * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicyArgs;
- * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs;
- * import com.pulumi.aws.securityhub.ConfigurationPolicyAssociation;
- * import com.pulumi.aws.securityhub.ConfigurationPolicyAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()
- *             .linkingMode("ALL_REGIONS")
- *             .build());
- * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
- *             .autoEnable(false)
- *             .autoEnableStandards("NONE")
- *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
- *                 .configurationType("CENTRAL")
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()
- *             .name("Example")
- *             .description("This is an example configuration policy")
- *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
- *                 .serviceEnabled(true)
- *                 .enabledStandardArns(                
- *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
- *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
- *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
- *                     .disabledControlIdentifiers()
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganizationConfiguration)
- *                 .build());
- * 
- *         var accountExample = new ConfigurationPolicyAssociation("accountExample", ConfigurationPolicyAssociationArgs.builder()
- *             .targetId("123456789012")
- *             .policyId(exampleConfigurationPolicy.id())
- *             .build());
- * 
- *         var rootExample = new ConfigurationPolicyAssociation("rootExample", ConfigurationPolicyAssociationArgs.builder()
- *             .targetId("r-abcd")
- *             .policyId(exampleConfigurationPolicy.id())
- *             .build());
- * 
- *         var ouExample = new ConfigurationPolicyAssociation("ouExample", ConfigurationPolicyAssociationArgs.builder()
- *             .targetId("ou-abcd-12345678")
- *             .policyId(exampleConfigurationPolicy.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
- * 
- * ```sh
- * $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")
 public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomResource {
     /**
@@ -127,17 +29,9 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
     public Output<String> policyId() {
         return this.policyId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

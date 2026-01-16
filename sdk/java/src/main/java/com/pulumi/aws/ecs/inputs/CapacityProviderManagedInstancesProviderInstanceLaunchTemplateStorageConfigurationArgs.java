@@ -14,17 +14,9 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs();
 
-    /**
-     * The size of the tasks volume in GiB. Must be at least 1.
-     * 
-     */
     @Import(name="storageSizeGib", required=true)
     private Output<Integer> storageSizeGib;
 
-    /**
-     * @return The size of the tasks volume in GiB. Must be at least 1.
-     * 
-     */
     public Output<Integer> storageSizeGib() {
         return this.storageSizeGib;
     }
@@ -53,23 +45,11 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param storageSizeGib The size of the tasks volume in GiB. Must be at least 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageSizeGib(Output<Integer> storageSizeGib) {
             $.storageSizeGib = storageSizeGib;
             return this;
         }
 
-        /**
-         * @param storageSizeGib The size of the tasks volume in GiB. Must be at least 1.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageSizeGib(Integer storageSizeGib) {
             return storageSizeGib(Output.of(storageSizeGib));
         }

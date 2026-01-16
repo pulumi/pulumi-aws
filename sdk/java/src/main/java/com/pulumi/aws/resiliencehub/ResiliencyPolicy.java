@@ -17,226 +17,111 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Resilience Hub Resiliency Policy.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.resiliencehub.ResiliencyPolicy;
- * import com.pulumi.aws.resiliencehub.ResiliencyPolicyArgs;
- * import com.pulumi.aws.resiliencehub.inputs.ResiliencyPolicyPolicyArgs;
- * import com.pulumi.aws.resiliencehub.inputs.ResiliencyPolicyPolicyRegionArgs;
- * import com.pulumi.aws.resiliencehub.inputs.ResiliencyPolicyPolicyAzArgs;
- * import com.pulumi.aws.resiliencehub.inputs.ResiliencyPolicyPolicyHardwareArgs;
- * import com.pulumi.aws.resiliencehub.inputs.ResiliencyPolicyPolicySoftwareArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResiliencyPolicy("example", ResiliencyPolicyArgs.builder()
- *             .name("testexample")
- *             .description("testexample")
- *             .tier("NonCritical")
- *             .dataLocationConstraint("AnyLocation")
- *             .policy(ResiliencyPolicyPolicyArgs.builder()
- *                 .region(ResiliencyPolicyPolicyRegionArgs.builder()
- *                     .rpo("24h")
- *                     .rto("24h")
- *                     .build())
- *                 .az(ResiliencyPolicyPolicyAzArgs.builder()
- *                     .rpo("24h")
- *                     .rto("24h")
- *                     .build())
- *                 .hardware(ResiliencyPolicyPolicyHardwareArgs.builder()
- *                     .rpo("24h")
- *                     .rto("24h")
- *                     .build())
- *                 .software(ResiliencyPolicyPolicySoftwareArgs.builder()
- *                     .rpo("24h")
- *                     .rto("24h")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
- * ```
- * 
- */
 @ResourceType(type="aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy")
 public class ResiliencyPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Resiliency Policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Resiliency Policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Data Location Constraint of the Policy.
-     * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+     * Specifies a high-level geographical location constraint for where resilience policy data can be stored.
      * 
      */
     @Export(name="dataLocationConstraint", refs={String.class}, tree="[0]")
     private Output<String> dataLocationConstraint;
 
     /**
-     * @return Data Location Constraint of the Policy.
-     * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
+     * @return Specifies a high-level geographical location constraint for where resilience policy data can be stored.
      * 
      */
     public Output<String> dataLocationConstraint() {
         return this.dataLocationConstraint;
     }
     /**
-     * Description of Resiliency Policy.
+     * The description for the policy.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of Resiliency Policy.
+     * @return The description for the policy.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Estimated Cost Tier of the Resiliency Policy.
+     * Specifies the estimated cost tier of the resiliency policy.
      * 
      */
     @Export(name="estimatedCostTier", refs={String.class}, tree="[0]")
     private Output<String> estimatedCostTier;
 
     /**
-     * @return Estimated Cost Tier of the Resiliency Policy.
+     * @return Specifies the estimated cost tier of the resiliency policy.
      * 
      */
     public Output<String> estimatedCostTier() {
         return this.estimatedCostTier;
     }
     /**
-     * Name of Resiliency Policy.
-     * Must be between 2 and 60 characters long.
-     * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+     * The name of the policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of Resiliency Policy.
-     * Must be between 2 and 60 characters long.
-     * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
+     * @return The name of the policy.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-     * 
-     * The following arguments are optional:
+     * The resiliency failure policy.
      * 
      */
     @Export(name="policy", refs={ResiliencyPolicyPolicy.class}, tree="[0]")
     private Output</* @Nullable */ ResiliencyPolicyPolicy> policy;
 
     /**
-     * @return The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
-     * 
-     * The following arguments are optional:
+     * @return The resiliency failure policy.
      * 
      */
     public Output<Optional<ResiliencyPolicyPolicy>> policy() {
         return Codegen.optional(this.policy);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Resiliency Policy Tier.
-     * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+     * The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
      * 
      */
     @Export(name="tier", refs={String.class}, tree="[0]")
     private Output<String> tier;
 
     /**
-     * @return Resiliency Policy Tier.
-     * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
+     * @return The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
      * 
      */
     public Output<String> tier() {

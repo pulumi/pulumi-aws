@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cfg.Inputs
 
     public sealed class RecorderRecordingModeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default recording frequency. `CONTINUOUS` or `DAILY`.
-        /// </summary>
         [Input("recordingFrequency")]
         public Input<string>? RecordingFrequency { get; set; }
 
-        /// <summary>
-        /// Recording mode overrides. Detailed below.
-        /// </summary>
         [Input("recordingModeOverride")]
         public Input<Inputs.RecorderRecordingModeRecordingModeOverrideGetArgs>? RecordingModeOverride { get; set; }
 

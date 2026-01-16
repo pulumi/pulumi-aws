@@ -13,61 +13,19 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetRouteTableRouteResult
     {
-        /// <summary>
-        /// ID of the Carrier Gateway.
-        /// </summary>
         public readonly string CarrierGatewayId;
-        /// <summary>
-        /// CIDR block of the route.
-        /// </summary>
         public readonly string CidrBlock;
-        /// <summary>
-        /// ARN of the core network.
-        /// </summary>
         public readonly string CoreNetworkArn;
-        /// <summary>
-        /// The ID of a managed prefix list destination of the route.
-        /// </summary>
         public readonly string DestinationPrefixListId;
-        /// <summary>
-        /// ID of the Egress Only Internet Gateway.
-        /// </summary>
         public readonly string EgressOnlyGatewayId;
-        /// <summary>
-        /// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-        /// </summary>
         public readonly string GatewayId;
-        /// <summary>
-        /// EC2 instance ID.
-        /// </summary>
         public readonly string InstanceId;
-        /// <summary>
-        /// IPv6 CIDR block of the route.
-        /// </summary>
         public readonly string Ipv6CidrBlock;
-        /// <summary>
-        /// Local Gateway ID.
-        /// </summary>
         public readonly string LocalGatewayId;
-        /// <summary>
-        /// NAT Gateway ID.
-        /// </summary>
         public readonly string NatGatewayId;
-        /// <summary>
-        /// ID of the elastic network interface (eni) to use.
-        /// </summary>
         public readonly string NetworkInterfaceId;
-        /// <summary>
-        /// EC2 Transit Gateway ID.
-        /// </summary>
         public readonly string TransitGatewayId;
-        /// <summary>
-        /// VPC Endpoint ID.
-        /// </summary>
         public readonly string VpcEndpointId;
-        /// <summary>
-        /// VPC Peering ID.
-        /// </summary>
         public readonly string VpcPeeringConnectionId;
 
         [OutputConstructor]

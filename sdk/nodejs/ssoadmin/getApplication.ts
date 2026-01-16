@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS SSO Admin Application.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplication({
- *     applicationArn: "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
- * });
- * ```
- */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplication:getApplication", {
@@ -35,13 +19,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationArgs {
-    /**
-     * ARN of the application.
-     */
     applicationArn: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -49,57 +27,17 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    /**
-     * AWS account ID.
-     */
     readonly applicationAccount: string;
     readonly applicationArn: string;
-    /**
-     * ARN of the application provider.
-     */
     readonly applicationProviderArn: string;
-    /**
-     * Description of the application.
-     */
     readonly description: string;
-    /**
-     * ARN of the application.
-     */
     readonly id: string;
-    /**
-     * ARN of the instance of IAM Identity Center.
-     */
     readonly instanceArn: string;
-    /**
-     * Name of the application.
-     */
     readonly name: string;
-    /**
-     * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-     */
     readonly portalOptions: outputs.ssoadmin.GetApplicationPortalOption[];
     readonly region: string;
-    /**
-     * Status of the application.
-     */
     readonly status: string;
 }
-/**
- * Data source for managing an AWS SSO Admin Application.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplication({
- *     applicationArn: "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
- * });
- * ```
- */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplication:getApplication", {
@@ -112,12 +50,6 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationOutputArgs {
-    /**
-     * ARN of the application.
-     */
     applicationArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

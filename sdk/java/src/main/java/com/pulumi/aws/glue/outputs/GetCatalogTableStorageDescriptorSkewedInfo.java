@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSkewedInfo {
-    /**
-     * @return List of names of columns that contain skewed values.
-     * 
-     */
     private List<String> skewedColumnNames;
-    /**
-     * @return List of values that appear so frequently as to be considered skewed.
-     * 
-     */
     private Map<String,String> skewedColumnValueLocationMaps;
-    /**
-     * @return Map of skewed values to the columns that contain them.
-     * 
-     */
     private List<String> skewedColumnValues;
 
     private GetCatalogTableStorageDescriptorSkewedInfo() {}
-    /**
-     * @return List of names of columns that contain skewed values.
-     * 
-     */
     public List<String> skewedColumnNames() {
         return this.skewedColumnNames;
     }
-    /**
-     * @return List of values that appear so frequently as to be considered skewed.
-     * 
-     */
     public Map<String,String> skewedColumnValueLocationMaps() {
         return this.skewedColumnValueLocationMaps;
     }
-    /**
-     * @return Map of skewed values to the columns that contain them.
-     * 
-     */
     public List<String> skewedColumnValues() {
         return this.skewedColumnValues;
     }

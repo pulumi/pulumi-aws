@@ -83,57 +83,36 @@ class GetProxyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the DB Proxy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def auths(self) -> Sequence['outputs.GetProxyAuthResult']:
-        """
-        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
-        """
         return pulumi.get(self, "auths")
 
     @_builtins.property
     @pulumi.getter(name="debugLogging")
     def debug_logging(self) -> _builtins.bool:
-        """
-        Whether the proxy includes detailed information about SQL statements in its logs.
-        """
         return pulumi.get(self, "debug_logging")
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthScheme")
     def default_auth_scheme(self) -> _builtins.str:
-        """
-        Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
-        """
         return pulumi.get(self, "default_auth_scheme")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Endpoint that you can use to connect to the DB proxy.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="endpointNetworkType")
     def endpoint_network_type(self) -> _builtins.str:
-        """
-        Network type of the DB proxy endpoint.
-        """
         return pulumi.get(self, "endpoint_network_type")
 
     @_builtins.property
     @pulumi.getter(name="engineFamily")
     def engine_family(self) -> _builtins.str:
-        """
-        Kinds of databases that the proxy can connect to.
-        """
         return pulumi.get(self, "engine_family")
 
     @_builtins.property
@@ -147,9 +126,6 @@ class GetProxyResult:
     @_builtins.property
     @pulumi.getter(name="idleClientTimeout")
     def idle_client_timeout(self) -> _builtins.int:
-        """
-        Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
-        """
         return pulumi.get(self, "idle_client_timeout")
 
     @_builtins.property
@@ -165,49 +141,31 @@ class GetProxyResult:
     @_builtins.property
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> _builtins.bool:
-        """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-        """
         return pulumi.get(self, "require_tls")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetConnectionNetworkType")
     def target_connection_network_type(self) -> _builtins.str:
-        """
-        Network type that the proxy uses to connect to the target database.
-        """
         return pulumi.get(self, "target_connection_network_type")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        Provides the VPC ID of the DB proxy.
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        Provides a list of VPC security groups that the proxy belongs to.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        EC2 subnet IDs for the proxy.
-        """
         return pulumi.get(self, "vpc_subnet_ids")
 
 
@@ -240,20 +198,7 @@ def get_proxy(name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProxyResult:
     """
-    Use this data source to get information about a DB Proxy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    proxy = aws.rds.get_proxy(name="my-test-db-proxy")
-    ```
-
-
-    :param _builtins.str name: Name of the DB proxy.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -283,20 +228,7 @@ def get_proxy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProxyResult]:
     """
-    Use this data source to get information about a DB Proxy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    proxy = aws.rds.get_proxy(name="my-test-db-proxy")
-    ```
-
-
-    :param _builtins.str name: Name of the DB proxy.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

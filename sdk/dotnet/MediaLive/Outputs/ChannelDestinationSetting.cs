@@ -13,21 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelDestinationSetting
     {
-        /// <summary>
-        /// Key used to extract the password from EC2 Parameter store.
-        /// </summary>
         public readonly string? PasswordParam;
-        /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
-        /// </summary>
         public readonly string? StreamName;
-        /// <summary>
-        /// A URL specifying a destination.
-        /// </summary>
         public readonly string? Url;
-        /// <summary>
-        /// Username for destination.
-        /// </summary>
         public readonly string? Username;
 
         [OutputConstructor]

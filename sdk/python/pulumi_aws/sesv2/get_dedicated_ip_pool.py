@@ -53,17 +53,11 @@ class GetDedicatedIpPoolResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Dedicated IP Pool.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dedicatedIps")
     def dedicated_ips(self) -> Sequence['outputs.GetDedicatedIpPoolDedicatedIpResult']:
-        """
-        A list of objects describing the pool's dedicated IP's. See `dedicated_ips`.
-        """
         return pulumi.get(self, "dedicated_ips")
 
     @_builtins.property
@@ -87,17 +81,11 @@ class GetDedicatedIpPoolResult:
     @_builtins.property
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> _builtins.str:
-        """
-        (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
-        """
         return pulumi.get(self, "scaling_mode")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags attached to the pool.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -121,23 +109,7 @@ def get_dedicated_ip_pool(pool_name: Optional[_builtins.str] = None,
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedIpPoolResult:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_dedicated_ip_pool(pool_name="my-pool")
-    ```
-
-
-    :param _builtins.str pool_name: Name of the dedicated IP pool.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags attached to the pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
@@ -159,23 +131,7 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[_builtins.str]
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
-    Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_dedicated_ip_pool(pool_name="my-pool")
-    ```
-
-
-    :param _builtins.str pool_name: Name of the dedicated IP pool.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags attached to the pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name

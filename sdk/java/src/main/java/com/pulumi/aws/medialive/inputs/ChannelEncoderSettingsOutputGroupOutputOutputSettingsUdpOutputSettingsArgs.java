@@ -19,47 +19,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs();
 
-    /**
-     * UDP output buffering in milliseconds.
-     * 
-     */
     @Import(name="bufferMsec")
     private @Nullable Output<Integer> bufferMsec;
 
-    /**
-     * @return UDP output buffering in milliseconds.
-     * 
-     */
     public Optional<Output<Integer>> bufferMsec() {
         return Optional.ofNullable(this.bufferMsec);
     }
 
-    /**
-     * UDP container settings. See Container Settings for more details.
-     * 
-     */
     @Import(name="containerSettings", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs> containerSettings;
 
-    /**
-     * @return UDP container settings. See Container Settings for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs> containerSettings() {
         return this.containerSettings;
     }
 
-    /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs> destination;
 
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs> destination() {
         return this.destination;
     }
@@ -98,65 +74,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bufferMsec UDP output buffering in milliseconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferMsec(@Nullable Output<Integer> bufferMsec) {
             $.bufferMsec = bufferMsec;
             return this;
         }
 
-        /**
-         * @param bufferMsec UDP output buffering in milliseconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferMsec(Integer bufferMsec) {
             return bufferMsec(Output.of(bufferMsec));
         }
 
-        /**
-         * @param containerSettings UDP container settings. See Container Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerSettings(Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs> containerSettings) {
             $.containerSettings = containerSettings;
             return this;
         }
 
-        /**
-         * @param containerSettings UDP container settings. See Container Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs containerSettings) {
             return containerSettings(Output.of(containerSettings));
         }
 
-        /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }

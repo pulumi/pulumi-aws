@@ -15,32 +15,16 @@ public final class AnalysisPermissionArgs extends com.pulumi.resources.ResourceA
 
     public static final AnalysisPermissionArgs Empty = new AnalysisPermissionArgs();
 
-    /**
-     * List of IAM actions to grant or revoke permissions on.
-     * 
-     */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
-    /**
-     * @return List of IAM actions to grant or revoke permissions on.
-     * 
-     */
     public Output<List<String>> actions() {
         return this.actions;
     }
 
-    /**
-     * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-     * 
-     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
-    /**
-     * @return ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
@@ -70,54 +54,24 @@ public final class AnalysisPermissionArgs extends com.pulumi.resources.ResourceA
             $ = new AnalysisPermissionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions List of IAM actions to grant or revoke permissions on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(Output<List<String>> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions List of IAM actions to grant or revoke permissions on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(List<String> actions) {
             return actions(Output.of(actions));
         }
 
-        /**
-         * @param actions List of IAM actions to grant or revoke permissions on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param principal ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }

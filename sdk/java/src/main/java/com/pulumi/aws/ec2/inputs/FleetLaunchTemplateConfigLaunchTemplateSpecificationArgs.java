@@ -16,47 +16,23 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
 
     public static final FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs Empty = new FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs();
 
-    /**
-     * The ID of the launch template.
-     * 
-     */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
-    /**
-     * @return The ID of the launch template.
-     * 
-     */
     public Optional<Output<String>> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
 
-    /**
-     * The name of the launch template.
-     * 
-     */
     @Import(name="launchTemplateName")
     private @Nullable Output<String> launchTemplateName;
 
-    /**
-     * @return The name of the launch template.
-     * 
-     */
     public Optional<Output<String>> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
 
-    /**
-     * The launch template version number, `$Latest`, or `$Default.`
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return The launch template version number, `$Latest`, or `$Default.`
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
@@ -87,65 +63,29 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
             $ = new FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param launchTemplateId The ID of the launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(@Nullable Output<String> launchTemplateId) {
             $.launchTemplateId = launchTemplateId;
             return this;
         }
 
-        /**
-         * @param launchTemplateId The ID of the launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(String launchTemplateId) {
             return launchTemplateId(Output.of(launchTemplateId));
         }
 
-        /**
-         * @param launchTemplateName The name of the launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateName(@Nullable Output<String> launchTemplateName) {
             $.launchTemplateName = launchTemplateName;
             return this;
         }
 
-        /**
-         * @param launchTemplateName The name of the launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateName(String launchTemplateName) {
             return launchTemplateName(Output.of(launchTemplateName));
         }
 
-        /**
-         * @param version The launch template version number, `$Latest`, or `$Default.`
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The launch template version number, `$Latest`, or `$Default.`
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

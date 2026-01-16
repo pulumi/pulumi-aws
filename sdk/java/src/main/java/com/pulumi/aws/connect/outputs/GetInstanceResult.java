@@ -12,112 +12,44 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceResult {
-    /**
-     * @return ARN of the instance.
-     * 
-     */
     private String arn;
     private Boolean autoResolveBestVoicesEnabled;
-    /**
-     * @return Whether contact flow logs are enabled.
-     * 
-     */
     private Boolean contactFlowLogsEnabled;
-    /**
-     * @return Whether contact lens is enabled.
-     * 
-     */
     private Boolean contactLensEnabled;
-    /**
-     * @return When the instance was created.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return Whether early media for outbound calls is enabled .
-     * 
-     */
     private Boolean earlyMediaEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Specifies The identity management type attached to the instance.
-     * 
-     */
     private String identityManagementType;
-    /**
-     * @return Whether inbound calls are enabled.
-     * 
-     */
     private Boolean inboundCallsEnabled;
     private String instanceAlias;
     private String instanceId;
-    /**
-     * @return Whether multi-party calls/conference is enabled.
-     * 
-     */
     private Boolean multiPartyConferenceEnabled;
-    /**
-     * @return Whether outbound calls are enabled.
-     * 
-     */
     private Boolean outboundCallsEnabled;
     private String region;
-    /**
-     * @return Service role of the instance.
-     * 
-     */
     private String serviceRole;
-    /**
-     * @return State of the instance.
-     * 
-     */
     private String status;
-    /**
-     * @return A map of tags to assigned to the instance.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetInstanceResult() {}
-    /**
-     * @return ARN of the instance.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public Boolean autoResolveBestVoicesEnabled() {
         return this.autoResolveBestVoicesEnabled;
     }
-    /**
-     * @return Whether contact flow logs are enabled.
-     * 
-     */
     public Boolean contactFlowLogsEnabled() {
         return this.contactFlowLogsEnabled;
     }
-    /**
-     * @return Whether contact lens is enabled.
-     * 
-     */
     public Boolean contactLensEnabled() {
         return this.contactLensEnabled;
     }
-    /**
-     * @return When the instance was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return Whether early media for outbound calls is enabled .
-     * 
-     */
     public Boolean earlyMediaEnabled() {
         return this.earlyMediaEnabled;
     }
@@ -128,17 +60,9 @@ public final class GetInstanceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Specifies The identity management type attached to the instance.
-     * 
-     */
     public String identityManagementType() {
         return this.identityManagementType;
     }
-    /**
-     * @return Whether inbound calls are enabled.
-     * 
-     */
     public Boolean inboundCallsEnabled() {
         return this.inboundCallsEnabled;
     }
@@ -148,41 +72,21 @@ public final class GetInstanceResult {
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return Whether multi-party calls/conference is enabled.
-     * 
-     */
     public Boolean multiPartyConferenceEnabled() {
         return this.multiPartyConferenceEnabled;
     }
-    /**
-     * @return Whether outbound calls are enabled.
-     * 
-     */
     public Boolean outboundCallsEnabled() {
         return this.outboundCallsEnabled;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Service role of the instance.
-     * 
-     */
     public String serviceRole() {
         return this.serviceRole;
     }
-    /**
-     * @return State of the instance.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return A map of tags to assigned to the instance.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

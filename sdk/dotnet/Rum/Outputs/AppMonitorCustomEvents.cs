@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Rum.Outputs
     [OutputType]
     public sealed class AppMonitorCustomEvents
     {
-        /// <summary>
-        /// Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

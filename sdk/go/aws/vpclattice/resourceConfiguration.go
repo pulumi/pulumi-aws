@@ -11,215 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS VPC Lattice Resource Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
-//				Name:                      pulumi.String("Example"),
-//				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
-//				PortRanges: pulumi.StringArray{
-//					pulumi.String("80"),
-//				},
-//				Protocol: pulumi.String("TCP"),
-//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
-//					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
-//						DomainName:    pulumi.String("example.com"),
-//						IpAddressType: pulumi.String("IPV4"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### IP Address Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
-//				Name:                      pulumi.String("Example"),
-//				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
-//				PortRanges: pulumi.StringArray{
-//					pulumi.String("80"),
-//				},
-//				Protocol: pulumi.String("TCP"),
-//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
-//					IpResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{
-//						IpAddress: pulumi.String("10.0.0.1"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With custom domain
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := vpclattice.NewDomainVerification(ctx, "example", &vpclattice.DomainVerificationArgs{
-//				DomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpclattice.NewResourceConfiguration(ctx, "example", &vpclattice.ResourceConfigurationArgs{
-//				Name:                      pulumi.String("Example"),
-//				ResourceGatewayIdentifier: pulumi.Any(exampleAwsVpclatticeResourceGateway.Id),
-//				CustomDomainName:          pulumi.String("custom.example.com"),
-//				DomainVerificationId:      example.ID(),
-//				PortRanges: pulumi.StringArray{
-//					pulumi.String("443"),
-//				},
-//				Protocol: pulumi.String("TCP"),
-//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
-//					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
-//						DomainName:    pulumi.String("test.example.com"),
-//						IpAddressType: pulumi.String("IPV4"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### ARN Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewResourceConfiguration(ctx, "test", &vpclattice.ResourceConfigurationArgs{
-//				Name:                      pulumi.String("Example"),
-//				ResourceGatewayIdentifier: pulumi.Any(testAwsVpclatticeResourceGateway.Id),
-//				Type:                      pulumi.String("ARN"),
-//				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
-//					ArnResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{
-//						Arn: pulumi.Any(example.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:vpclattice/resourceConfiguration:ResourceConfiguration example rcfg-1234567890abcdef1
-// ```
 type ResourceConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Allow or Deny the association of this resource to a shareable service network.
-	AllowAssociationToShareableServiceNetwork pulumi.BoolOutput `pulumi:"allowAssociationToShareableServiceNetwork"`
-	// ARN of the resource gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
-	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
-	// ARN of the domain verification.
-	DomainVerificationArn pulumi.StringOutput `pulumi:"domainVerificationArn"`
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-	DomainVerificationId pulumi.StringOutput `pulumi:"domainVerificationId"`
-	// Domain verification status.
-	DomainVerificationStatus pulumi.StringOutput `pulumi:"domainVerificationStatus"`
-	// Name for the Resource Configuration.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
-	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
-	//
-	// The following arguments are optional:
-	ResourceConfigurationDefinition ResourceConfigurationResourceConfigurationDefinitionPtrOutput `pulumi:"resourceConfigurationDefinition"`
-	// ID of Resource Configuration where `type` is `CHILD`.
-	ResourceConfigurationGroupId pulumi.StringPtrOutput `pulumi:"resourceConfigurationGroupId"`
-	// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
-	ResourceGatewayIdentifier pulumi.StringOutput `pulumi:"resourceGatewayIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
-	Timeouts ResourceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AllowAssociationToShareableServiceNetwork pulumi.BoolOutput                                             `pulumi:"allowAssociationToShareableServiceNetwork"`
+	Arn                                       pulumi.StringOutput                                           `pulumi:"arn"`
+	CustomDomainName                          pulumi.StringPtrOutput                                        `pulumi:"customDomainName"`
+	DomainVerificationArn                     pulumi.StringOutput                                           `pulumi:"domainVerificationArn"`
+	DomainVerificationId                      pulumi.StringOutput                                           `pulumi:"domainVerificationId"`
+	DomainVerificationStatus                  pulumi.StringOutput                                           `pulumi:"domainVerificationStatus"`
+	Name                                      pulumi.StringOutput                                           `pulumi:"name"`
+	PortRanges                                pulumi.StringArrayOutput                                      `pulumi:"portRanges"`
+	Protocol                                  pulumi.StringOutput                                           `pulumi:"protocol"`
+	Region                                    pulumi.StringOutput                                           `pulumi:"region"`
+	ResourceConfigurationDefinition           ResourceConfigurationResourceConfigurationDefinitionPtrOutput `pulumi:"resourceConfigurationDefinition"`
+	ResourceConfigurationGroupId              pulumi.StringPtrOutput                                        `pulumi:"resourceConfigurationGroupId"`
+	ResourceGatewayIdentifier                 pulumi.StringOutput                                           `pulumi:"resourceGatewayIdentifier"`
+	Tags                                      pulumi.StringMapOutput                                        `pulumi:"tags"`
+	TagsAll                                   pulumi.StringMapOutput                                        `pulumi:"tagsAll"`
+	Timeouts                                  ResourceConfigurationTimeoutsPtrOutput                        `pulumi:"timeouts"`
+	Type                                      pulumi.StringOutput                                           `pulumi:"type"`
 }
 
 // NewResourceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -252,79 +63,43 @@ func GetResourceConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceConfiguration resources.
 type resourceConfigurationState struct {
-	// Allow or Deny the association of this resource to a shareable service network.
-	AllowAssociationToShareableServiceNetwork *bool `pulumi:"allowAssociationToShareableServiceNetwork"`
-	// ARN of the resource gateway.
-	Arn *string `pulumi:"arn"`
-	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// ARN of the domain verification.
-	DomainVerificationArn *string `pulumi:"domainVerificationArn"`
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-	DomainVerificationId *string `pulumi:"domainVerificationId"`
-	// Domain verification status.
-	DomainVerificationStatus *string `pulumi:"domainVerificationStatus"`
-	// Name for the Resource Configuration.
-	Name *string `pulumi:"name"`
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
-	PortRanges []string `pulumi:"portRanges"`
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
-	Protocol *string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
-	//
-	// The following arguments are optional:
-	ResourceConfigurationDefinition *ResourceConfigurationResourceConfigurationDefinition `pulumi:"resourceConfigurationDefinition"`
-	// ID of Resource Configuration where `type` is `CHILD`.
-	ResourceConfigurationGroupId *string `pulumi:"resourceConfigurationGroupId"`
-	// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
-	ResourceGatewayIdentifier *string `pulumi:"resourceGatewayIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  map[string]string              `pulumi:"tagsAll"`
-	Timeouts *ResourceConfigurationTimeouts `pulumi:"timeouts"`
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-	Type *string `pulumi:"type"`
+	AllowAssociationToShareableServiceNetwork *bool                                                 `pulumi:"allowAssociationToShareableServiceNetwork"`
+	Arn                                       *string                                               `pulumi:"arn"`
+	CustomDomainName                          *string                                               `pulumi:"customDomainName"`
+	DomainVerificationArn                     *string                                               `pulumi:"domainVerificationArn"`
+	DomainVerificationId                      *string                                               `pulumi:"domainVerificationId"`
+	DomainVerificationStatus                  *string                                               `pulumi:"domainVerificationStatus"`
+	Name                                      *string                                               `pulumi:"name"`
+	PortRanges                                []string                                              `pulumi:"portRanges"`
+	Protocol                                  *string                                               `pulumi:"protocol"`
+	Region                                    *string                                               `pulumi:"region"`
+	ResourceConfigurationDefinition           *ResourceConfigurationResourceConfigurationDefinition `pulumi:"resourceConfigurationDefinition"`
+	ResourceConfigurationGroupId              *string                                               `pulumi:"resourceConfigurationGroupId"`
+	ResourceGatewayIdentifier                 *string                                               `pulumi:"resourceGatewayIdentifier"`
+	Tags                                      map[string]string                                     `pulumi:"tags"`
+	TagsAll                                   map[string]string                                     `pulumi:"tagsAll"`
+	Timeouts                                  *ResourceConfigurationTimeouts                        `pulumi:"timeouts"`
+	Type                                      *string                                               `pulumi:"type"`
 }
 
 type ResourceConfigurationState struct {
-	// Allow or Deny the association of this resource to a shareable service network.
 	AllowAssociationToShareableServiceNetwork pulumi.BoolPtrInput
-	// ARN of the resource gateway.
-	Arn pulumi.StringPtrInput
-	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
-	CustomDomainName pulumi.StringPtrInput
-	// ARN of the domain verification.
-	DomainVerificationArn pulumi.StringPtrInput
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-	DomainVerificationId pulumi.StringPtrInput
-	// Domain verification status.
-	DomainVerificationStatus pulumi.StringPtrInput
-	// Name for the Resource Configuration.
-	Name pulumi.StringPtrInput
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
-	PortRanges pulumi.StringArrayInput
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
-	Protocol pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
-	//
-	// The following arguments are optional:
-	ResourceConfigurationDefinition ResourceConfigurationResourceConfigurationDefinitionPtrInput
-	// ID of Resource Configuration where `type` is `CHILD`.
-	ResourceConfigurationGroupId pulumi.StringPtrInput
-	// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
-	ResourceGatewayIdentifier pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ResourceConfigurationTimeoutsPtrInput
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-	Type pulumi.StringPtrInput
+	Arn                                       pulumi.StringPtrInput
+	CustomDomainName                          pulumi.StringPtrInput
+	DomainVerificationArn                     pulumi.StringPtrInput
+	DomainVerificationId                      pulumi.StringPtrInput
+	DomainVerificationStatus                  pulumi.StringPtrInput
+	Name                                      pulumi.StringPtrInput
+	PortRanges                                pulumi.StringArrayInput
+	Protocol                                  pulumi.StringPtrInput
+	Region                                    pulumi.StringPtrInput
+	ResourceConfigurationDefinition           ResourceConfigurationResourceConfigurationDefinitionPtrInput
+	ResourceConfigurationGroupId              pulumi.StringPtrInput
+	ResourceGatewayIdentifier                 pulumi.StringPtrInput
+	Tags                                      pulumi.StringMapInput
+	TagsAll                                   pulumi.StringMapInput
+	Timeouts                                  ResourceConfigurationTimeoutsPtrInput
+	Type                                      pulumi.StringPtrInput
 }
 
 func (ResourceConfigurationState) ElementType() reflect.Type {
@@ -332,64 +107,36 @@ func (ResourceConfigurationState) ElementType() reflect.Type {
 }
 
 type resourceConfigurationArgs struct {
-	// Allow or Deny the association of this resource to a shareable service network.
-	AllowAssociationToShareableServiceNetwork *bool `pulumi:"allowAssociationToShareableServiceNetwork"`
-	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-	DomainVerificationId *string `pulumi:"domainVerificationId"`
-	// Name for the Resource Configuration.
-	Name *string `pulumi:"name"`
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
-	PortRanges []string `pulumi:"portRanges"`
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
-	Protocol *string `pulumi:"protocol"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
-	//
-	// The following arguments are optional:
-	ResourceConfigurationDefinition *ResourceConfigurationResourceConfigurationDefinition `pulumi:"resourceConfigurationDefinition"`
-	// ID of Resource Configuration where `type` is `CHILD`.
-	ResourceConfigurationGroupId *string `pulumi:"resourceConfigurationGroupId"`
-	// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
-	ResourceGatewayIdentifier *string `pulumi:"resourceGatewayIdentifier"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string              `pulumi:"tags"`
-	Timeouts *ResourceConfigurationTimeouts `pulumi:"timeouts"`
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-	Type *string `pulumi:"type"`
+	AllowAssociationToShareableServiceNetwork *bool                                                 `pulumi:"allowAssociationToShareableServiceNetwork"`
+	CustomDomainName                          *string                                               `pulumi:"customDomainName"`
+	DomainVerificationId                      *string                                               `pulumi:"domainVerificationId"`
+	Name                                      *string                                               `pulumi:"name"`
+	PortRanges                                []string                                              `pulumi:"portRanges"`
+	Protocol                                  *string                                               `pulumi:"protocol"`
+	Region                                    *string                                               `pulumi:"region"`
+	ResourceConfigurationDefinition           *ResourceConfigurationResourceConfigurationDefinition `pulumi:"resourceConfigurationDefinition"`
+	ResourceConfigurationGroupId              *string                                               `pulumi:"resourceConfigurationGroupId"`
+	ResourceGatewayIdentifier                 *string                                               `pulumi:"resourceGatewayIdentifier"`
+	Tags                                      map[string]string                                     `pulumi:"tags"`
+	Timeouts                                  *ResourceConfigurationTimeouts                        `pulumi:"timeouts"`
+	Type                                      *string                                               `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ResourceConfiguration resource.
 type ResourceConfigurationArgs struct {
-	// Allow or Deny the association of this resource to a shareable service network.
 	AllowAssociationToShareableServiceNetwork pulumi.BoolPtrInput
-	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
-	CustomDomainName pulumi.StringPtrInput
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
-	DomainVerificationId pulumi.StringPtrInput
-	// Name for the Resource Configuration.
-	Name pulumi.StringPtrInput
-	// Port ranges to access the Resource either single port `80` or range `80-81` range.
-	PortRanges pulumi.StringArrayInput
-	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
-	Protocol pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
-	//
-	// The following arguments are optional:
-	ResourceConfigurationDefinition ResourceConfigurationResourceConfigurationDefinitionPtrInput
-	// ID of Resource Configuration where `type` is `CHILD`.
-	ResourceConfigurationGroupId pulumi.StringPtrInput
-	// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
-	ResourceGatewayIdentifier pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ResourceConfigurationTimeoutsPtrInput
-	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
-	Type pulumi.StringPtrInput
+	CustomDomainName                          pulumi.StringPtrInput
+	DomainVerificationId                      pulumi.StringPtrInput
+	Name                                      pulumi.StringPtrInput
+	PortRanges                                pulumi.StringArrayInput
+	Protocol                                  pulumi.StringPtrInput
+	Region                                    pulumi.StringPtrInput
+	ResourceConfigurationDefinition           ResourceConfigurationResourceConfigurationDefinitionPtrInput
+	ResourceConfigurationGroupId              pulumi.StringPtrInput
+	ResourceGatewayIdentifier                 pulumi.StringPtrInput
+	Tags                                      pulumi.StringMapInput
+	Timeouts                                  ResourceConfigurationTimeoutsPtrInput
+	Type                                      pulumi.StringPtrInput
 }
 
 func (ResourceConfigurationArgs) ElementType() reflect.Type {
@@ -479,81 +226,64 @@ func (o ResourceConfigurationOutput) ToResourceConfigurationOutputWithContext(ct
 	return o
 }
 
-// Allow or Deny the association of this resource to a shareable service network.
 func (o ResourceConfigurationOutput) AllowAssociationToShareableServiceNetwork() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.BoolOutput { return v.AllowAssociationToShareableServiceNetwork }).(pulumi.BoolOutput)
 }
 
-// ARN of the resource gateway.
 func (o ResourceConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
 func (o ResourceConfigurationOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the domain verification.
 func (o ResourceConfigurationOutput) DomainVerificationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationArn }).(pulumi.StringOutput)
 }
 
-// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 func (o ResourceConfigurationOutput) DomainVerificationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationId }).(pulumi.StringOutput)
 }
 
-// Domain verification status.
 func (o ResourceConfigurationOutput) DomainVerificationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationStatus }).(pulumi.StringOutput)
 }
 
-// Name for the Resource Configuration.
 func (o ResourceConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Port ranges to access the Resource either single port `80` or range `80-81` range.
 func (o ResourceConfigurationOutput) PortRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringArrayOutput { return v.PortRanges }).(pulumi.StringArrayOutput)
 }
 
-// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 func (o ResourceConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
-//
-// The following arguments are optional:
 func (o ResourceConfigurationOutput) ResourceConfigurationDefinition() ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
 		return v.ResourceConfigurationDefinition
 	}).(ResourceConfigurationResourceConfigurationDefinitionPtrOutput)
 }
 
-// ID of Resource Configuration where `type` is `CHILD`.
 func (o ResourceConfigurationOutput) ResourceConfigurationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.ResourceConfigurationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
 func (o ResourceConfigurationOutput) ResourceGatewayIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.ResourceGatewayIdentifier }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResourceConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResourceConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -562,7 +292,6 @@ func (o ResourceConfigurationOutput) Timeouts() ResourceConfigurationTimeoutsPtr
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationTimeoutsPtrOutput { return v.Timeouts }).(ResourceConfigurationTimeoutsPtrOutput)
 }
 
-// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
 func (o ResourceConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

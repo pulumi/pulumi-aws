@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetEcsParametersPlacementConstraint {
-    /**
-     * @return A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return The type of constraint. One of: `distinctInstance`, `memberOf`.
-     * 
-     */
     private String type;
 
     private ScheduleTargetEcsParametersPlacementConstraint() {}
-    /**
-     * @return A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return The type of constraint. One of: `distinctInstance`, `memberOf`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -15,105 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing Security Group VPC Associations.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpc.SecurityGroupVpcAssociation;
- * import com.pulumi.aws.vpc.SecurityGroupVpcAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupVpcAssociation("example", SecurityGroupVpcAssociationArgs.builder()
- *             .securityGroupId("sg-05f1f54ab49bb39a3")
- *             .vpcId("vpc-01df9d105095412ba")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `vpc_id` (String) VPC ID.
- * 
- * * `security_group_id` (String) Security Group ID.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
- * 
- * % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
- * 
- */
 @ResourceType(type="aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation")
 public class SecurityGroupVpcAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the security group.
-     * 
-     */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
-    /**
-     * @return The ID of the security group.
-     * 
-     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
-    /**
-     * State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
@@ -123,17 +41,9 @@ public class SecurityGroupVpcAssociation extends com.pulumi.resources.CustomReso
     public Output<Optional<SecurityGroupVpcAssociationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the VPC to make the association with.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to make the association with.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

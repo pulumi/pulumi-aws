@@ -11,52 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The VPC Peering Connection data source provides details about
-// a specific VPC peering connection.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Declare the data source
-//			pc, err := ec2.LookupVpcPeeringConnection(ctx, &ec2.LookupVpcPeeringConnectionArgs{
-//				VpcId:         pulumi.StringRef(foo.Id),
-//				PeerCidrBlock: pulumi.StringRef("10.0.1.0/22"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			// Create a route table
-//			rt, err := ec2.NewRouteTable(ctx, "rt", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Create a route
-//			_, err = ec2.NewRoute(ctx, "r", &ec2.RouteArgs{
-//				RouteTableId:           rt.ID(),
-//				DestinationCidrBlock:   pulumi.String(pc.PeerCidrBlock),
-//				VpcPeeringConnectionId: pulumi.String(pc.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcPeeringConnectionResult
@@ -69,63 +23,36 @@ func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConne
 
 // A collection of arguments for invoking getVpcPeeringConnection.
 type LookupVpcPeeringConnectionArgs struct {
-	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// Custom filter block as described below.
-	Filters []GetVpcPeeringConnectionFilter `pulumi:"filters"`
-	// ID of the specific VPC Peering Connection to retrieve.
-	Id *string `pulumi:"id"`
-	// AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-	OwnerId *string `pulumi:"ownerId"`
-	// Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerCidrBlock *string `pulumi:"peerCidrBlock"`
-	// AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerOwnerId *string `pulumi:"peerOwnerId"`
-	// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerVpcId *string `pulumi:"peerVpcId"`
-	// Status of the specific VPC Peering Connection to retrieve.
-	Status *string `pulumi:"status"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPC Peering Connection.
-	//
-	// The arguments of this data source act as filters for querying the available VPC peering connection.
-	// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
-	Tags map[string]string `pulumi:"tags"`
-	// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
-	VpcId *string `pulumi:"vpcId"`
+	CidrBlock     *string                         `pulumi:"cidrBlock"`
+	Filters       []GetVpcPeeringConnectionFilter `pulumi:"filters"`
+	Id            *string                         `pulumi:"id"`
+	OwnerId       *string                         `pulumi:"ownerId"`
+	PeerCidrBlock *string                         `pulumi:"peerCidrBlock"`
+	PeerOwnerId   *string                         `pulumi:"peerOwnerId"`
+	PeerVpcId     *string                         `pulumi:"peerVpcId"`
+	Status        *string                         `pulumi:"status"`
+	Tags          map[string]string               `pulumi:"tags"`
+	VpcId         *string                         `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getVpcPeeringConnection.
 type LookupVpcPeeringConnectionResult struct {
-	// Configuration block that describes [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
-	Accepter map[string]bool `pulumi:"accepter"`
-	// CIDR block associated to the VPC of the specific VPC Peering Connection.
-	CidrBlock string `pulumi:"cidrBlock"`
-	// List of objects with IPv4 CIDR blocks of the requester VPC.
-	CidrBlockSets []GetVpcPeeringConnectionCidrBlockSet `pulumi:"cidrBlockSets"`
-	Filters       []GetVpcPeeringConnectionFilter       `pulumi:"filters"`
-	Id            string                                `pulumi:"id"`
-	// List of objects with IPv6 CIDR blocks of the requester VPC.
-	Ipv6CidrBlockSets []GetVpcPeeringConnectionIpv6CidrBlockSet `pulumi:"ipv6CidrBlockSets"`
-	OwnerId           string                                    `pulumi:"ownerId"`
-	PeerCidrBlock     string                                    `pulumi:"peerCidrBlock"`
-	// List of objects with IPv4 CIDR blocks of the accepter VPC.
-	PeerCidrBlockSets []GetVpcPeeringConnectionPeerCidrBlockSet `pulumi:"peerCidrBlockSets"`
-	// List of objects with IPv6 CIDR blocks of the accepter VPC.
+	Accepter              map[string]bool                               `pulumi:"accepter"`
+	CidrBlock             string                                        `pulumi:"cidrBlock"`
+	CidrBlockSets         []GetVpcPeeringConnectionCidrBlockSet         `pulumi:"cidrBlockSets"`
+	Filters               []GetVpcPeeringConnectionFilter               `pulumi:"filters"`
+	Id                    string                                        `pulumi:"id"`
+	Ipv6CidrBlockSets     []GetVpcPeeringConnectionIpv6CidrBlockSet     `pulumi:"ipv6CidrBlockSets"`
+	OwnerId               string                                        `pulumi:"ownerId"`
+	PeerCidrBlock         string                                        `pulumi:"peerCidrBlock"`
+	PeerCidrBlockSets     []GetVpcPeeringConnectionPeerCidrBlockSet     `pulumi:"peerCidrBlockSets"`
 	PeerIpv6CidrBlockSets []GetVpcPeeringConnectionPeerIpv6CidrBlockSet `pulumi:"peerIpv6CidrBlockSets"`
 	PeerOwnerId           string                                        `pulumi:"peerOwnerId"`
-	// Region of the accepter VPC.
-	PeerRegion string `pulumi:"peerRegion"`
-	PeerVpcId  string `pulumi:"peerVpcId"`
-	// (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
-	//
+	PeerRegion            string                                        `pulumi:"peerRegion"`
+	PeerVpcId             string                                        `pulumi:"peerVpcId"`
 	// Deprecated: region is deprecated. Use requesterRegion instead.
-	Region string `pulumi:"region"`
-	// Configuration block that describes [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-	Requester map[string]bool `pulumi:"requester"`
-	// Region of the requester VPC.
+	Region          string            `pulumi:"region"`
+	Requester       map[string]bool   `pulumi:"requester"`
 	RequesterRegion string            `pulumi:"requesterRegion"`
 	Status          string            `pulumi:"status"`
 	Tags            map[string]string `pulumi:"tags"`
@@ -143,30 +70,16 @@ func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeering
 
 // A collection of arguments for invoking getVpcPeeringConnection.
 type LookupVpcPeeringConnectionOutputArgs struct {
-	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// Custom filter block as described below.
-	Filters GetVpcPeeringConnectionFilterArrayInput `pulumi:"filters"`
-	// ID of the specific VPC Peering Connection to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
-	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	// Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerCidrBlock pulumi.StringPtrInput `pulumi:"peerCidrBlock"`
-	// AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerOwnerId pulumi.StringPtrInput `pulumi:"peerOwnerId"`
-	// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerVpcId pulumi.StringPtrInput `pulumi:"peerVpcId"`
-	// Status of the specific VPC Peering Connection to retrieve.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPC Peering Connection.
-	//
-	// The arguments of this data source act as filters for querying the available VPC peering connection.
-	// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	CidrBlock     pulumi.StringPtrInput                   `pulumi:"cidrBlock"`
+	Filters       GetVpcPeeringConnectionFilterArrayInput `pulumi:"filters"`
+	Id            pulumi.StringPtrInput                   `pulumi:"id"`
+	OwnerId       pulumi.StringPtrInput                   `pulumi:"ownerId"`
+	PeerCidrBlock pulumi.StringPtrInput                   `pulumi:"peerCidrBlock"`
+	PeerOwnerId   pulumi.StringPtrInput                   `pulumi:"peerOwnerId"`
+	PeerVpcId     pulumi.StringPtrInput                   `pulumi:"peerVpcId"`
+	Status        pulumi.StringPtrInput                   `pulumi:"status"`
+	Tags          pulumi.StringMapInput                   `pulumi:"tags"`
+	VpcId         pulumi.StringPtrInput                   `pulumi:"vpcId"`
 }
 
 func (LookupVpcPeeringConnectionOutputArgs) ElementType() reflect.Type {
@@ -188,18 +101,14 @@ func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResu
 	return o
 }
 
-// Configuration block that describes [VPC Peering Connection]
-// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 func (o LookupVpcPeeringConnectionResultOutput) Accepter() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) map[string]bool { return v.Accepter }).(pulumi.BoolMapOutput)
 }
 
-// CIDR block associated to the VPC of the specific VPC Peering Connection.
 func (o LookupVpcPeeringConnectionResultOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// List of objects with IPv4 CIDR blocks of the requester VPC.
 func (o LookupVpcPeeringConnectionResultOutput) CidrBlockSets() GetVpcPeeringConnectionCidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionCidrBlockSet { return v.CidrBlockSets }).(GetVpcPeeringConnectionCidrBlockSetArrayOutput)
 }
@@ -212,7 +121,6 @@ func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of objects with IPv6 CIDR blocks of the requester VPC.
 func (o LookupVpcPeeringConnectionResultOutput) Ipv6CidrBlockSets() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionIpv6CidrBlockSet {
 		return v.Ipv6CidrBlockSets
@@ -227,14 +135,12 @@ func (o LookupVpcPeeringConnectionResultOutput) PeerCidrBlock() pulumi.StringOut
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerCidrBlock }).(pulumi.StringOutput)
 }
 
-// List of objects with IPv4 CIDR blocks of the accepter VPC.
 func (o LookupVpcPeeringConnectionResultOutput) PeerCidrBlockSets() GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionPeerCidrBlockSet {
 		return v.PeerCidrBlockSets
 	}).(GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput)
 }
 
-// List of objects with IPv6 CIDR blocks of the accepter VPC.
 func (o LookupVpcPeeringConnectionResultOutput) PeerIpv6CidrBlockSets() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionPeerIpv6CidrBlockSet {
 		return v.PeerIpv6CidrBlockSets
@@ -245,7 +151,6 @@ func (o LookupVpcPeeringConnectionResultOutput) PeerOwnerId() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerOwnerId }).(pulumi.StringOutput)
 }
 
-// Region of the accepter VPC.
 func (o LookupVpcPeeringConnectionResultOutput) PeerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerRegion }).(pulumi.StringOutput)
 }
@@ -254,20 +159,15 @@ func (o LookupVpcPeeringConnectionResultOutput) PeerVpcId() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
-// (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
-//
 // Deprecated: region is deprecated. Use requesterRegion instead.
 func (o LookupVpcPeeringConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block that describes [VPC Peering Connection]
-// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 func (o LookupVpcPeeringConnectionResultOutput) Requester() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) map[string]bool { return v.Requester }).(pulumi.BoolMapOutput)
 }
 
-// Region of the requester VPC.
 func (o LookupVpcPeeringConnectionResultOutput) RequesterRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.RequesterRegion }).(pulumi.StringOutput)
 }

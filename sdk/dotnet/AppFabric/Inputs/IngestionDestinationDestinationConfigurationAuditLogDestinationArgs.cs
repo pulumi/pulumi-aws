@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFabric.Inputs
 
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Contains information about an Amazon Data Firehose delivery stream.
-        /// </summary>
         [Input("firehoseStream")]
         public Input<Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs>? FirehoseStream { get; set; }
 
-        /// <summary>
-        /// Contains information about an Amazon S3 bucket.
-        /// </summary>
         [Input("s3Bucket")]
         public Input<Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs>? S3Bucket { get; set; }
 

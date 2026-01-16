@@ -17,62 +17,30 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
 
     public static final FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs Empty = new FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs();
 
-    /**
-     * The name of the Apache Iceberg database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the Apache Iceberg database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
-     * 
-     */
     @Import(name="s3ErrorOutputPrefix")
     private @Nullable Output<String> s3ErrorOutputPrefix;
 
-    /**
-     * @return The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
-     * 
-     */
     public Optional<Output<String>> s3ErrorOutputPrefix() {
         return Optional.ofNullable(this.s3ErrorOutputPrefix);
     }
 
-    /**
-     * The name of the Apache Iceberg Table.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the Apache Iceberg Table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
 
-    /**
-     * A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
-     * 
-     */
     @Import(name="uniqueKeys")
     private @Nullable Output<List<String>> uniqueKeys;
 
-    /**
-     * @return A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
-     * 
-     */
     public Optional<Output<List<String>>> uniqueKeys() {
         return Optional.ofNullable(this.uniqueKeys);
     }
@@ -104,96 +72,42 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
             $ = new FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName The name of the Apache Iceberg database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the Apache Iceberg database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param s3ErrorOutputPrefix The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ErrorOutputPrefix(@Nullable Output<String> s3ErrorOutputPrefix) {
             $.s3ErrorOutputPrefix = s3ErrorOutputPrefix;
             return this;
         }
 
-        /**
-         * @param s3ErrorOutputPrefix The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3ErrorOutputPrefix(String s3ErrorOutputPrefix) {
             return s3ErrorOutputPrefix(Output.of(s3ErrorOutputPrefix));
         }
 
-        /**
-         * @param tableName The name of the Apache Iceberg Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the Apache Iceberg Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
 
-        /**
-         * @param uniqueKeys A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueKeys(@Nullable Output<List<String>> uniqueKeys) {
             $.uniqueKeys = uniqueKeys;
             return this;
         }
 
-        /**
-         * @param uniqueKeys A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueKeys(List<String> uniqueKeys) {
             return uniqueKeys(Output.of(uniqueKeys));
         }
 
-        /**
-         * @param uniqueKeys A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueKeys(String... uniqueKeys) {
             return uniqueKeys(List.of(uniqueKeys));
         }

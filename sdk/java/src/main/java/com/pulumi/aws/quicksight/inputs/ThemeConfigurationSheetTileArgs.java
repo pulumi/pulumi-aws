@@ -15,17 +15,9 @@ public final class ThemeConfigurationSheetTileArgs extends com.pulumi.resources.
 
     public static final ThemeConfigurationSheetTileArgs Empty = new ThemeConfigurationSheetTileArgs();
 
-    /**
-     * The border around a tile. See border.
-     * 
-     */
     @Import(name="border")
     private @Nullable Output<ThemeConfigurationSheetTileBorderArgs> border;
 
-    /**
-     * @return The border around a tile. See border.
-     * 
-     */
     public Optional<Output<ThemeConfigurationSheetTileBorderArgs>> border() {
         return Optional.ofNullable(this.border);
     }
@@ -54,23 +46,11 @@ public final class ThemeConfigurationSheetTileArgs extends com.pulumi.resources.
             $ = new ThemeConfigurationSheetTileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param border The border around a tile. See border.
-         * 
-         * @return builder
-         * 
-         */
         public Builder border(@Nullable Output<ThemeConfigurationSheetTileBorderArgs> border) {
             $.border = border;
             return this;
         }
 
-        /**
-         * @param border The border around a tile. See border.
-         * 
-         * @return builder
-         * 
-         */
         public Builder border(ThemeConfigurationSheetTileBorderArgs border) {
             return border(Output.of(border));
         }

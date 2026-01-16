@@ -15,32 +15,16 @@ public final class GetAuthorizersPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetAuthorizersPlainArgs Empty = new GetAuthorizersPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the associated REST API.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private String restApiId;
 
-    /**
-     * @return ID of the associated REST API.
-     * 
-     */
     public String restApiId() {
         return this.restApiId;
     }
@@ -70,23 +54,11 @@ public final class GetAuthorizersPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetAuthorizersPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             $.restApiId = restApiId;
             return this;

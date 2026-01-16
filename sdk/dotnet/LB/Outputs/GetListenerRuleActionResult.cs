@@ -13,43 +13,13 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleActionResult
     {
-        /// <summary>
-        /// An action to authenticate using Amazon Cognito.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionAuthenticateCognitoResult> AuthenticateCognitos;
-        /// <summary>
-        /// An action to authenticate using OIDC.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionAuthenticateOidcResult> AuthenticateOidcs;
-        /// <summary>
-        /// An action to return a fixed response.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionFixedResponseResult> FixedResponses;
-        /// <summary>
-        /// An action to forward the request.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionForwardResult> Forwards;
-        /// <summary>
-        /// An action to validate using JWT.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionJwtValidationResult> JwtValidations;
-        /// <summary>
-        /// The evaluation order of the action.
-        /// </summary>
         public readonly int Order;
-        /// <summary>
-        /// An action to redirect the request.
-        /// Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionRedirectResult> Redirects;
-        /// <summary>
-        /// Type of transform.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

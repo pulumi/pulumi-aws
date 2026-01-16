@@ -84,41 +84,26 @@ class GetDedicatedHostResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the Dedicated Host.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> _builtins.str:
-        """
-        The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
-        """
         return pulumi.get(self, "asset_id")
 
     @_builtins.property
     @pulumi.getter(name="autoPlacement")
     def auto_placement(self) -> _builtins.str:
-        """
-        Whether auto-placement is on or off.
-        """
         return pulumi.get(self, "auto_placement")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability Zone of the Dedicated Host.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter
     def cores(self) -> _builtins.int:
-        """
-        Number of cores on the Dedicated Host.
-        """
         return pulumi.get(self, "cores")
 
     @_builtins.property
@@ -134,9 +119,6 @@ class GetDedicatedHostResult:
     @_builtins.property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> _builtins.str:
-        """
-        Whether host recovery is enabled or disabled for the Dedicated Host.
-        """
         return pulumi.get(self, "host_recovery")
 
     @_builtins.property
@@ -150,33 +132,21 @@ class GetDedicatedHostResult:
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
     def instance_family(self) -> _builtins.str:
-        """
-        Instance family supported by the Dedicated Host. For example, "m5".
-        """
         return pulumi.get(self, "instance_family")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
-        """
-        Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> _builtins.str:
-        """
-        ARN of the AWS Outpost on which the Dedicated Host is allocated.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the Dedicated Host.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
@@ -187,9 +157,6 @@ class GetDedicatedHostResult:
     @_builtins.property
     @pulumi.getter
     def sockets(self) -> _builtins.int:
-        """
-        Number of sockets on the Dedicated Host.
-        """
         return pulumi.get(self, "sockets")
 
     @_builtins.property
@@ -200,9 +167,6 @@ class GetDedicatedHostResult:
     @_builtins.property
     @pulumi.getter(name="totalVcpus")
     def total_vcpus(self) -> _builtins.int:
-        """
-        Total number of vCPUs on the Dedicated Host.
-        """
         return pulumi.get(self, "total_vcpus")
 
 
@@ -237,39 +201,7 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
                        tags: Optional[Mapping[str, _builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
-    Use this data source to get information about an EC2 Dedicated Host.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_dedicated_host = aws.ec2.DedicatedHost("test",
-        instance_type="c5.18xlarge",
-        availability_zone="us-west-2a")
-    test = aws.ec2.get_dedicated_host_output(host_id=test_dedicated_host.id)
-    ```
-
-    ### Filter Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_dedicated_host(filters=[{
-        "name": "instance-type",
-        "values": ["c5.18xlarge"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
-    :param _builtins.str host_id: ID of the Dedicated Host.
-           
-           The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
-           The given filters must match exactly one host whose data will be exported as attributes.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -303,39 +235,7 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
-    Use this data source to get information about an EC2 Dedicated Host.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_dedicated_host = aws.ec2.DedicatedHost("test",
-        instance_type="c5.18xlarge",
-        availability_zone="us-west-2a")
-    test = aws.ec2.get_dedicated_host_output(host_id=test_dedicated_host.id)
-    ```
-
-    ### Filter Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_dedicated_host(filters=[{
-        "name": "instance-type",
-        "values": ["c5.18xlarge"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
-    :param _builtins.str host_id: ID of the Dedicated Host.
-           
-           The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
-           The given filters must match exactly one host whose data will be exported as attributes.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

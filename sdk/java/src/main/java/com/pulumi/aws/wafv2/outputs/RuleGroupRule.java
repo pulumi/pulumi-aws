@@ -19,89 +19,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRule {
-    /**
-     * @return The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-     * 
-     */
     private RuleGroupRuleAction action;
-    /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleCaptchaConfig captchaConfig;
-    /**
-     * @return A friendly name of the rule.
-     * 
-     */
     private String name;
-    /**
-     * @return If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleRuleLabel> ruleLabels;
-    /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
-     * 
-     */
     private RuleGroupRuleStatement statement;
-    /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     * 
-     */
     private RuleGroupRuleVisibilityConfig visibilityConfig;
 
     private RuleGroupRule() {}
-    /**
-     * @return The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-     * 
-     */
     public RuleGroupRuleAction action() {
         return this.action;
     }
-    /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     * 
-     */
     public Optional<RuleGroupRuleCaptchaConfig> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
     }
-    /**
-     * @return A friendly name of the rule.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-     * 
-     */
     public List<RuleGroupRuleRuleLabel> ruleLabels() {
         return this.ruleLabels == null ? List.of() : this.ruleLabels;
     }
-    /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
-     * 
-     */
     public RuleGroupRuleStatement statement() {
         return this.statement;
     }
-    /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     * 
-     */
     public RuleGroupRuleVisibilityConfig visibilityConfig() {
         return this.visibilityConfig;
     }

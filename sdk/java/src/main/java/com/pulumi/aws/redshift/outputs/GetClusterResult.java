@@ -15,371 +15,123 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
-    /**
-     * @return Whether major version upgrades can be applied during maintenance period
-     * 
-     */
     private Boolean allowVersionUpgrade;
-    /**
-     * @return The value represents how the cluster is configured to use AQUA.
-     * 
-     */
     private String aquaConfigurationStatus;
-    /**
-     * @return ARN of cluster.
-     * 
-     */
     private String arn;
-    /**
-     * @return The backup retention period
-     * 
-     */
     private Integer automatedSnapshotRetentionPeriod;
-    /**
-     * @return Availability zone of the cluster
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Indicates whether the cluster is able to be relocated to another availability zone.
-     * 
-     */
     private Boolean availabilityZoneRelocationEnabled;
-    /**
-     * @return Name of the S3 bucket where the log files are to be stored
-     * 
-     */
     private String bucketName;
-    /**
-     * @return Cluster identifier
-     * 
-     */
     private String clusterIdentifier;
-    /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
-     * 
-     */
     private String clusterNamespaceArn;
-    /**
-     * @return Nodes in the cluster. Cluster node blocks are documented below
-     * 
-     */
     private List<GetClusterClusterNode> clusterNodes;
-    /**
-     * @return The name of the parameter group to be associated with this cluster
-     * 
-     */
     private String clusterParameterGroupName;
-    /**
-     * @return Public key for the cluster
-     * 
-     */
     private String clusterPublicKey;
-    /**
-     * @return The cluster revision number
-     * 
-     */
     private String clusterRevisionNumber;
-    /**
-     * @return The name of a cluster subnet group to be associated with this cluster
-     * 
-     */
     private String clusterSubnetGroupName;
-    /**
-     * @return Cluster type
-     * 
-     */
     private String clusterType;
     private String clusterVersion;
-    /**
-     * @return Name of the default database in the cluster
-     * 
-     */
     private String databaseName;
-    /**
-     * @return The ARN for the IAM role that was set as default for the cluster when the cluster was created.
-     * 
-     */
     private String defaultIamRoleArn;
-    /**
-     * @return Elastic IP of the cluster
-     * 
-     */
     private String elasticIp;
-    /**
-     * @return Whether cluster logging is enabled
-     * 
-     */
     private Boolean enableLogging;
-    /**
-     * @return Whether the cluster data is encrypted
-     * 
-     */
     private Boolean encrypted;
-    /**
-     * @return Cluster endpoint
-     * 
-     */
     private String endpoint;
-    /**
-     * @return Whether enhanced VPC routing is enabled
-     * 
-     */
     private Boolean enhancedVpcRouting;
-    /**
-     * @return IAM roles associated to the cluster
-     * 
-     */
     private List<String> iamRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return KMS encryption key associated to the cluster
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return The log destination type.
-     * 
-     */
     private String logDestinationType;
-    /**
-     * @return Collection of exported log types. Log types include the connection log, user log and user activity log.
-     * 
-     */
     private List<String> logExports;
-    /**
-     * @return The name of the maintenance track for the restored cluster.
-     * 
-     */
     private String maintenanceTrackName;
-    /**
-     * @return (Optional)  The default number of days to retain a manual snapshot.
-     * 
-     */
     private Integer manualSnapshotRetentionPeriod;
-    /**
-     * @return Username for the master DB user
-     * 
-     */
     private String masterUsername;
-    /**
-     * @return If the cluster is a Multi-AZ deployment
-     * 
-     */
     private Boolean multiAz;
-    /**
-     * @return Cluster node type
-     * 
-     */
     private String nodeType;
-    /**
-     * @return Number of nodes in the cluster
-     * 
-     */
     private Integer numberOfNodes;
-    /**
-     * @return Port the cluster responds on
-     * 
-     */
     private Integer port;
-    /**
-     * @return The maintenance window
-     * 
-     */
     private String preferredMaintenanceWindow;
-    /**
-     * @return Whether the cluster is publicly accessible
-     * 
-     */
     private Boolean publiclyAccessible;
     private String region;
-    /**
-     * @return Folder inside the S3 bucket where the log files are stored
-     * 
-     */
     private String s3KeyPrefix;
-    /**
-     * @return Tags associated to the cluster
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return VPC Id associated with the cluster
-     * 
-     */
     private String vpcId;
-    /**
-     * @return The VPC security group Ids associated with the cluster
-     * 
-     */
     private List<String> vpcSecurityGroupIds;
 
     private GetClusterResult() {}
-    /**
-     * @return Whether major version upgrades can be applied during maintenance period
-     * 
-     */
     public Boolean allowVersionUpgrade() {
         return this.allowVersionUpgrade;
     }
-    /**
-     * @return The value represents how the cluster is configured to use AQUA.
-     * 
-     */
     public String aquaConfigurationStatus() {
         return this.aquaConfigurationStatus;
     }
-    /**
-     * @return ARN of cluster.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The backup retention period
-     * 
-     */
     public Integer automatedSnapshotRetentionPeriod() {
         return this.automatedSnapshotRetentionPeriod;
     }
-    /**
-     * @return Availability zone of the cluster
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Indicates whether the cluster is able to be relocated to another availability zone.
-     * 
-     */
     public Boolean availabilityZoneRelocationEnabled() {
         return this.availabilityZoneRelocationEnabled;
     }
-    /**
-     * @return Name of the S3 bucket where the log files are to be stored
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return Cluster identifier
-     * 
-     */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
-     * 
-     */
     public String clusterNamespaceArn() {
         return this.clusterNamespaceArn;
     }
-    /**
-     * @return Nodes in the cluster. Cluster node blocks are documented below
-     * 
-     */
     public List<GetClusterClusterNode> clusterNodes() {
         return this.clusterNodes;
     }
-    /**
-     * @return The name of the parameter group to be associated with this cluster
-     * 
-     */
     public String clusterParameterGroupName() {
         return this.clusterParameterGroupName;
     }
-    /**
-     * @return Public key for the cluster
-     * 
-     */
     public String clusterPublicKey() {
         return this.clusterPublicKey;
     }
-    /**
-     * @return The cluster revision number
-     * 
-     */
     public String clusterRevisionNumber() {
         return this.clusterRevisionNumber;
     }
-    /**
-     * @return The name of a cluster subnet group to be associated with this cluster
-     * 
-     */
     public String clusterSubnetGroupName() {
         return this.clusterSubnetGroupName;
     }
-    /**
-     * @return Cluster type
-     * 
-     */
     public String clusterType() {
         return this.clusterType;
     }
     public String clusterVersion() {
         return this.clusterVersion;
     }
-    /**
-     * @return Name of the default database in the cluster
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return The ARN for the IAM role that was set as default for the cluster when the cluster was created.
-     * 
-     */
     public String defaultIamRoleArn() {
         return this.defaultIamRoleArn;
     }
-    /**
-     * @return Elastic IP of the cluster
-     * 
-     */
     public String elasticIp() {
         return this.elasticIp;
     }
-    /**
-     * @return Whether cluster logging is enabled
-     * 
-     */
     public Boolean enableLogging() {
         return this.enableLogging;
     }
-    /**
-     * @return Whether the cluster data is encrypted
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
-    /**
-     * @return Cluster endpoint
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return Whether enhanced VPC routing is enabled
-     * 
-     */
     public Boolean enhancedVpcRouting() {
         return this.enhancedVpcRouting;
     }
-    /**
-     * @return IAM roles associated to the cluster
-     * 
-     */
     public List<String> iamRoles() {
         return this.iamRoles;
     }
@@ -390,118 +142,54 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return KMS encryption key associated to the cluster
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return The log destination type.
-     * 
-     */
     public String logDestinationType() {
         return this.logDestinationType;
     }
-    /**
-     * @return Collection of exported log types. Log types include the connection log, user log and user activity log.
-     * 
-     */
     public List<String> logExports() {
         return this.logExports;
     }
-    /**
-     * @return The name of the maintenance track for the restored cluster.
-     * 
-     */
     public String maintenanceTrackName() {
         return this.maintenanceTrackName;
     }
-    /**
-     * @return (Optional)  The default number of days to retain a manual snapshot.
-     * 
-     */
     public Integer manualSnapshotRetentionPeriod() {
         return this.manualSnapshotRetentionPeriod;
     }
-    /**
-     * @return Username for the master DB user
-     * 
-     */
     public String masterUsername() {
         return this.masterUsername;
     }
-    /**
-     * @return If the cluster is a Multi-AZ deployment
-     * 
-     */
     public Boolean multiAz() {
         return this.multiAz;
     }
-    /**
-     * @return Cluster node type
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }
-    /**
-     * @return Number of nodes in the cluster
-     * 
-     */
     public Integer numberOfNodes() {
         return this.numberOfNodes;
     }
-    /**
-     * @return Port the cluster responds on
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return The maintenance window
-     * 
-     */
     public String preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }
-    /**
-     * @return Whether the cluster is publicly accessible
-     * 
-     */
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Folder inside the S3 bucket where the log files are stored
-     * 
-     */
     public String s3KeyPrefix() {
         return this.s3KeyPrefix;
     }
-    /**
-     * @return Tags associated to the cluster
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return VPC Id associated with the cluster
-     * 
-     */
     public String vpcId() {
         return this.vpcId;
     }
-    /**
-     * @return The VPC security group Ids associated with the cluster
-     * 
-     */
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }

@@ -22,17 +22,9 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         return this.checkDigitString;
     }
 
-    /**
-     * The Nielsen Source ID to include in the watermark.
-     * 
-     */
     @Import(name="sid", required=true)
     private Output<Double> sid;
 
-    /**
-     * @return The Nielsen Source ID to include in the watermark.
-     * 
-     */
     public Output<Double> sid() {
         return this.sid;
     }
@@ -71,23 +63,11 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             return checkDigitString(Output.of(checkDigitString));
         }
 
-        /**
-         * @param sid The Nielsen Source ID to include in the watermark.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sid(Output<Double> sid) {
             $.sid = sid;
             return this;
         }
 
-        /**
-         * @param sid The Nielsen Source ID to include in the watermark.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sid(Double sid) {
             return sid(Output.of(sid));
         }

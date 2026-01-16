@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("excludes")]
         private InputList<string>? _excludes;
-
-        /// <summary>
-        /// A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
-        /// </summary>
         public InputList<string> Excludes
         {
             get => _excludes ?? (_excludes = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
         [Input("includes")]
         private InputList<string>? _includes;
-
-        /// <summary>
-        /// A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
-        /// </summary>
         public InputList<string> Includes
         {
             get => _includes ?? (_includes = new InputList<string>());

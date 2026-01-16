@@ -12,134 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
-//
-// > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
-//				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(example.Arns[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewManagedPolicyAttachment(ctx, "example", &ssoadmin.ManagedPolicyAttachmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
-//				PermissionSetArn: examplePermissionSet.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Account Assignment
-//
-// > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
-//				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(example.Arns[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("Admin"),
-//				Description:     pulumi.String("Admin Group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccountAssignment, err := ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				PermissionSetArn: examplePermissionSet.Arn,
-//				PrincipalId:      exampleGroup.GroupId,
-//				PrincipalType:    pulumi.String("GROUP"),
-//				TargetId:         pulumi.String("123456789012"),
-//				TargetType:       pulumi.String("AWS_ACCOUNT"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewManagedPolicyAttachment(ctx, "example", &ssoadmin.ManagedPolicyAttachmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
-//				PermissionSetArn: examplePermissionSet.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccountAssignment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Managed Policy Attachments using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
-//
-// ```sh
-// $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-// ```
 type ManagedPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-	ManagedPolicyArn pulumi.StringOutput `pulumi:"managedPolicyArn"`
-	// The name of the IAM Managed Policy.
+	InstanceArn       pulumi.StringOutput `pulumi:"instanceArn"`
+	ManagedPolicyArn  pulumi.StringOutput `pulumi:"managedPolicyArn"`
 	ManagedPolicyName pulumi.StringOutput `pulumi:"managedPolicyName"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	PermissionSetArn  pulumi.StringOutput `pulumi:"permissionSetArn"`
+	Region            pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewManagedPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -181,29 +61,19 @@ func GetManagedPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedPolicyAttachment resources.
 type managedPolicyAttachmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-	ManagedPolicyArn *string `pulumi:"managedPolicyArn"`
-	// The name of the IAM Managed Policy.
+	InstanceArn       *string `pulumi:"instanceArn"`
+	ManagedPolicyArn  *string `pulumi:"managedPolicyArn"`
 	ManagedPolicyName *string `pulumi:"managedPolicyName"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn *string `pulumi:"permissionSetArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	PermissionSetArn  *string `pulumi:"permissionSetArn"`
+	Region            *string `pulumi:"region"`
 }
 
 type ManagedPolicyAttachmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringPtrInput
-	// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-	ManagedPolicyArn pulumi.StringPtrInput
-	// The name of the IAM Managed Policy.
+	InstanceArn       pulumi.StringPtrInput
+	ManagedPolicyArn  pulumi.StringPtrInput
 	ManagedPolicyName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PermissionSetArn  pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 }
 
 func (ManagedPolicyAttachmentState) ElementType() reflect.Type {
@@ -211,26 +81,18 @@ func (ManagedPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type managedPolicyAttachmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn string `pulumi:"instanceArn"`
-	// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-	ManagedPolicyArn string `pulumi:"managedPolicyArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	PermissionSetArn string `pulumi:"permissionSetArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	InstanceArn      string  `pulumi:"instanceArn"`
+	ManagedPolicyArn string  `pulumi:"managedPolicyArn"`
+	PermissionSetArn string  `pulumi:"permissionSetArn"`
+	Region           *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ManagedPolicyAttachment resource.
 type ManagedPolicyAttachmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringInput
-	// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+	InstanceArn      pulumi.StringInput
 	ManagedPolicyArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 }
 
 func (ManagedPolicyAttachmentArgs) ElementType() reflect.Type {
@@ -320,27 +182,22 @@ func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
 func (o ManagedPolicyAttachmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
 func (o ManagedPolicyAttachmentOutput) ManagedPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.ManagedPolicyArn }).(pulumi.StringOutput)
 }
 
-// The name of the IAM Managed Policy.
 func (o ManagedPolicyAttachmentOutput) ManagedPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.ManagedPolicyName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
 func (o ManagedPolicyAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ManagedPolicyAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

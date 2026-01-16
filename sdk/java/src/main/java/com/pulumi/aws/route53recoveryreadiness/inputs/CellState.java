@@ -17,96 +17,44 @@ public final class CellState extends com.pulumi.resources.ResourceArgs {
 
     public static final CellState Empty = new CellState();
 
-    /**
-     * ARN of the cell
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the cell
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name describing the cell.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="cellName")
     private @Nullable Output<String> cellName;
 
-    /**
-     * @return Unique name describing the cell.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> cellName() {
         return Optional.ofNullable(this.cellName);
     }
 
-    /**
-     * List of cell arns to add as nested fault domains within this cell.
-     * 
-     */
     @Import(name="cells")
     private @Nullable Output<List<String>> cells;
 
-    /**
-     * @return List of cell arns to add as nested fault domains within this cell.
-     * 
-     */
     public Optional<Output<List<String>>> cells() {
         return Optional.ofNullable(this.cells);
     }
 
-    /**
-     * List of readiness scopes (recovery groups or cells) that contain this cell.
-     * 
-     */
     @Import(name="parentReadinessScopes")
     private @Nullable Output<List<String>> parentReadinessScopes;
 
-    /**
-     * @return List of readiness scopes (recovery groups or cells) that contain this cell.
-     * 
-     */
     public Optional<Output<List<String>>> parentReadinessScopes() {
         return Optional.ofNullable(this.parentReadinessScopes);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -140,152 +88,64 @@ public final class CellState extends com.pulumi.resources.ResourceArgs {
             $ = new CellState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the cell
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the cell
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param cellName Unique name describing the cell.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder cellName(@Nullable Output<String> cellName) {
             $.cellName = cellName;
             return this;
         }
 
-        /**
-         * @param cellName Unique name describing the cell.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder cellName(String cellName) {
             return cellName(Output.of(cellName));
         }
 
-        /**
-         * @param cells List of cell arns to add as nested fault domains within this cell.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cells(@Nullable Output<List<String>> cells) {
             $.cells = cells;
             return this;
         }
 
-        /**
-         * @param cells List of cell arns to add as nested fault domains within this cell.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cells(List<String> cells) {
             return cells(Output.of(cells));
         }
 
-        /**
-         * @param cells List of cell arns to add as nested fault domains within this cell.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cells(String... cells) {
             return cells(List.of(cells));
         }
 
-        /**
-         * @param parentReadinessScopes List of readiness scopes (recovery groups or cells) that contain this cell.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentReadinessScopes(@Nullable Output<List<String>> parentReadinessScopes) {
             $.parentReadinessScopes = parentReadinessScopes;
             return this;
         }
 
-        /**
-         * @param parentReadinessScopes List of readiness scopes (recovery groups or cells) that contain this cell.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentReadinessScopes(List<String> parentReadinessScopes) {
             return parentReadinessScopes(Output.of(parentReadinessScopes));
         }
 
-        /**
-         * @param parentReadinessScopes List of readiness scopes (recovery groups or cells) that contain this cell.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentReadinessScopes(String... parentReadinessScopes) {
             return parentReadinessScopes(List.of(parentReadinessScopes));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

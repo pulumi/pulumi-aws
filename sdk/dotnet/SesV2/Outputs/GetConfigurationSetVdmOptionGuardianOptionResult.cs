@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class GetConfigurationSetVdmOptionGuardianOptionResult
     {
-        /// <summary>
-        /// Specifies the status of your VDM optimized shared delivery.
-        /// </summary>
         public readonly string OptimizedSharedDelivery;
 
         [OutputConstructor]

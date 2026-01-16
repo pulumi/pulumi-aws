@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateExperimentReportConfigurationDataSources
     {
-        /// <summary>
-        /// The data sources for the experiment report. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard> CloudwatchDashboards;
 
         [OutputConstructor]

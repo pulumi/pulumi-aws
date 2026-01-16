@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class GetLifecyclePolicyDocumentRuleResult
     {
-        /// <summary>
-        /// Specifies the action to take.
-        /// </summary>
         public readonly Outputs.GetLifecyclePolicyDocumentRuleActionResult? Action;
-        /// <summary>
-        /// Describes the purpose of a rule within a lifecycle policy.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `Priority`. Values do not need to be sequential across rules in a policy. A rule with a `TagStatus` value of `Any` must have the highest value for `Priority` and be evaluated last.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// Collects parameters describing the selection criteria for the ECR lifecycle policy:
-        /// </summary>
         public readonly Outputs.GetLifecyclePolicyDocumentRuleSelectionResult? Selection;
 
         [OutputConstructor]

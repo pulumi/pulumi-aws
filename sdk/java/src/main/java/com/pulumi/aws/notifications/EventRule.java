@@ -15,161 +15,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS User Notifications Event Rule.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.notifications.NotificationConfiguration;
- * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
- * import com.pulumi.aws.notifications.EventRule;
- * import com.pulumi.aws.notifications.EventRuleArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NotificationConfiguration("example", NotificationConfigurationArgs.builder()
- *             .name("example")
- *             .description("example configuration")
- *             .build());
- * 
- *         var exampleEventRule = new EventRule("exampleEventRule", EventRuleArgs.builder()
- *             .eventPattern(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("detail", jsonObject(
- *                         jsonProperty("state", jsonObject(
- *                             jsonProperty("value", jsonArray("ALARM"))
- *                         ))
- *                     ))
- *                 )))
- *             .eventType("CloudWatch Alarm State Change")
- *             .notificationConfigurationArn(example.arn())
- *             .regions(            
- *                 "us-east-1",
- *                 "us-west-2")
- *             .source("aws.cloudwatch")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import User Notifications Event Rule using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
- * ```
- * 
- */
 @ResourceType(type="aws:notifications/eventRule:EventRule")
 public class EventRule extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Event Rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Event Rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     * 
-     */
     @Export(name="eventPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventPattern;
 
-    /**
-     * @return JSON string defining the event pattern to match. Maximum length is 4096 characters.
-     * 
-     */
     public Output<Optional<String>> eventPattern() {
         return Codegen.optional(this.eventPattern);
     }
-    /**
-     * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     * 
-     */
     @Export(name="eventType", refs={String.class}, tree="[0]")
     private Output<String> eventType;
 
-    /**
-     * @return Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
-     * 
-     */
     public Output<String> eventType() {
         return this.eventType;
     }
-    /**
-     * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     * 
-     */
     @Export(name="notificationConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> notificationConfigurationArn;
 
-    /**
-     * @return ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
-     * 
-     */
     public Output<String> notificationConfigurationArn() {
         return this.notificationConfigurationArn;
     }
-    /**
-     * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     * 
-     */
     @Export(name="regions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> regions;
 
-    /**
-     * @return Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
-     * 
-     */
     public Output<List<String>> regions() {
         return this.regions;
     }
-    /**
-     * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
-    /**
-     * @return Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }

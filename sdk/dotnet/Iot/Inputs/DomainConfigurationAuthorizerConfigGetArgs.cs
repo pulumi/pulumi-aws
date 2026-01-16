@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class DomainConfigurationAuthorizerConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-        /// </summary>
         [Input("allowAuthorizerOverride")]
         public Input<bool>? AllowAuthorizerOverride { get; set; }
 
-        /// <summary>
-        /// The name of the authorization service for a domain configuration.
-        /// </summary>
         [Input("defaultAuthorizerName")]
         public Input<string>? DefaultAuthorizerName { get; set; }
 

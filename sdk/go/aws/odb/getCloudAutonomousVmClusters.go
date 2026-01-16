@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing cloud autonomous vm clusters in AWS for Oracle Database@AWS.
-//
-// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := odb.GetCloudAutonomousVmClusters(ctx, &odb.GetCloudAutonomousVmClustersArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCloudAutonomousVmClusters(ctx *pulumi.Context, args *GetCloudAutonomousVmClustersArgs, opts ...pulumi.InvokeOption) (*GetCloudAutonomousVmClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudAutonomousVmClustersResult
@@ -52,13 +23,11 @@ func GetCloudAutonomousVmClusters(ctx *pulumi.Context, args *GetCloudAutonomousV
 
 // A collection of arguments for invoking getCloudAutonomousVmClusters.
 type GetCloudAutonomousVmClustersArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCloudAutonomousVmClusters.
 type GetCloudAutonomousVmClustersResult struct {
-	// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
 	CloudAutonomousVmClusters []GetCloudAutonomousVmClustersCloudAutonomousVmCluster `pulumi:"cloudAutonomousVmClusters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -76,7 +45,6 @@ func GetCloudAutonomousVmClustersOutput(ctx *pulumi.Context, args GetCloudAutono
 
 // A collection of arguments for invoking getCloudAutonomousVmClusters.
 type GetCloudAutonomousVmClustersOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -99,7 +67,6 @@ func (o GetCloudAutonomousVmClustersResultOutput) ToGetCloudAutonomousVmClusters
 	return o
 }
 
-// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
 func (o GetCloudAutonomousVmClustersResultOutput) CloudAutonomousVmClusters() GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersResult) []GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
 		return v.CloudAutonomousVmClusters

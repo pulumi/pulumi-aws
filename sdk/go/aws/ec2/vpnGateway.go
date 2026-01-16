@@ -11,61 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create a VPC VPN Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpnGateway(ctx, "vpn_gw", &ec2.VpnGatewayArgs{
-//				VpcId: pulumi.Any(main.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
-// ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
 
-	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
-	// Amazon Resource Name (ARN) of the VPN Gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Availability Zone for the virtual private gateway.
+	AmazonSideAsn    pulumi.StringOutput    `pulumi:"amazonSideAsn"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC ID to create in.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Region           pulumi.StringOutput    `pulumi:"region"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VpcId            pulumi.StringOutput    `pulumi:"vpcId"`
 }
 
 // NewVpnGateway registers a new resource with the given unique name, arguments, and options.
@@ -98,37 +53,23 @@ func GetVpnGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnGateway resources.
 type vpnGatewayState struct {
-	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// Amazon Resource Name (ARN) of the VPN Gateway.
-	Arn *string `pulumi:"arn"`
-	// The Availability Zone for the virtual private gateway.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC ID to create in.
-	VpcId *string `pulumi:"vpcId"`
+	AmazonSideAsn    *string           `pulumi:"amazonSideAsn"`
+	Arn              *string           `pulumi:"arn"`
+	AvailabilityZone *string           `pulumi:"availabilityZone"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
+	VpcId            *string           `pulumi:"vpcId"`
 }
 
 type VpnGatewayState struct {
-	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the VPN Gateway.
-	Arn pulumi.StringPtrInput
-	// The Availability Zone for the virtual private gateway.
+	AmazonSideAsn    pulumi.StringPtrInput
+	Arn              pulumi.StringPtrInput
 	AvailabilityZone pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The VPC ID to create in.
-	VpcId pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
+	VpcId            pulumi.StringPtrInput
 }
 
 func (VpnGatewayState) ElementType() reflect.Type {
@@ -136,30 +77,20 @@ func (VpnGatewayState) ElementType() reflect.Type {
 }
 
 type vpnGatewayArgs struct {
-	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// The Availability Zone for the virtual private gateway.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID to create in.
-	VpcId *string `pulumi:"vpcId"`
+	AmazonSideAsn    *string           `pulumi:"amazonSideAsn"`
+	AvailabilityZone *string           `pulumi:"availabilityZone"`
+	Region           *string           `pulumi:"region"`
+	Tags             map[string]string `pulumi:"tags"`
+	VpcId            *string           `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpnGateway resource.
 type VpnGatewayArgs struct {
-	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn pulumi.StringPtrInput
-	// The Availability Zone for the virtual private gateway.
+	AmazonSideAsn    pulumi.StringPtrInput
 	AvailabilityZone pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The VPC ID to create in.
-	VpcId pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	VpcId            pulumi.StringPtrInput
 }
 
 func (VpnGatewayArgs) ElementType() reflect.Type {
@@ -249,37 +180,30 @@ func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) Vpn
 	return o
 }
 
-// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 func (o VpnGatewayOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the VPN Gateway.
 func (o VpnGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Availability Zone for the virtual private gateway.
 func (o VpnGatewayOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpnGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpnGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpnGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC ID to create in.
 func (o VpnGatewayOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

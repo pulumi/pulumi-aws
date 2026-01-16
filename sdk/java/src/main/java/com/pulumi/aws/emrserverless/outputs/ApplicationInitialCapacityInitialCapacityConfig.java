@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationInitialCapacityInitialCapacityConfig {
-    /**
-     * @return The resource configuration of the initial capacity configuration.
-     * 
-     */
     private @Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration;
-    /**
-     * @return The number of workers in the initial capacity configuration.
-     * 
-     */
     private Integer workerCount;
 
     private ApplicationInitialCapacityInitialCapacityConfig() {}
-    /**
-     * @return The resource configuration of the initial capacity configuration.
-     * 
-     */
     public Optional<ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration> workerConfiguration() {
         return Optional.ofNullable(this.workerConfiguration);
     }
-    /**
-     * @return The number of workers in the initial capacity configuration.
-     * 
-     */
     public Integer workerCount() {
         return this.workerCount;
     }

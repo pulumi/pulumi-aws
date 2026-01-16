@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecorderRecordingMode {
-    /**
-     * @return Default recording frequency. `CONTINUOUS` or `DAILY`.
-     * 
-     */
     private @Nullable String recordingFrequency;
-    /**
-     * @return Recording mode overrides. Detailed below.
-     * 
-     */
     private @Nullable RecorderRecordingModeRecordingModeOverride recordingModeOverride;
 
     private RecorderRecordingMode() {}
-    /**
-     * @return Default recording frequency. `CONTINUOUS` or `DAILY`.
-     * 
-     */
     public Optional<String> recordingFrequency() {
         return Optional.ofNullable(this.recordingFrequency);
     }
-    /**
-     * @return Recording mode overrides. Detailed below.
-     * 
-     */
     public Optional<RecorderRecordingModeRecordingModeOverride> recordingModeOverride() {
         return Optional.ofNullable(this.recordingModeOverride);
     }

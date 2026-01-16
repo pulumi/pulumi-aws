@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
-    /**
-     * @return ARN of the Capacity Provider.
-     * 
-     */
     private String capacityProviderArn;
-    /**
-     * @return Memory GiB per vCPU for the execution environment.
-     * 
-     */
     private @Nullable Double executionEnvironmentMemoryGibPerVcpu;
-    /**
-     * @return Maximum concurrency per execution environment.
-     * 
-     */
     private @Nullable Integer perExecutionEnvironmentMaxConcurrency;
 
     private FunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig() {}
-    /**
-     * @return ARN of the Capacity Provider.
-     * 
-     */
     public String capacityProviderArn() {
         return this.capacityProviderArn;
     }
-    /**
-     * @return Memory GiB per vCPU for the execution environment.
-     * 
-     */
     public Optional<Double> executionEnvironmentMemoryGibPerVcpu() {
         return Optional.ofNullable(this.executionEnvironmentMemoryGibPerVcpu);
     }
-    /**
-     * @return Maximum concurrency per execution environment.
-     * 
-     */
     public Optional<Integer> perExecutionEnvironmentMaxConcurrency() {
         return Optional.ofNullable(this.perExecutionEnvironmentMaxConcurrency);
     }

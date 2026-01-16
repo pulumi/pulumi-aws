@@ -13,45 +13,15 @@ namespace Pulumi.Aws.Amplify.Outputs
     [OutputType]
     public sealed class AppAutoBranchCreationConfig
     {
-        /// <summary>
-        /// Basic authorization credentials for the autocreated branch.
-        /// </summary>
         public readonly string? BasicAuthCredentials;
-        /// <summary>
-        /// Build specification (build spec) for the autocreated branch.
-        /// </summary>
         public readonly string? BuildSpec;
-        /// <summary>
-        /// Enables auto building for the autocreated branch.
-        /// </summary>
         public readonly bool? EnableAutoBuild;
-        /// <summary>
-        /// Enables basic authorization for the autocreated branch.
-        /// </summary>
         public readonly bool? EnableBasicAuth;
-        /// <summary>
-        /// Enables performance mode for the branch.
-        /// </summary>
         public readonly bool? EnablePerformanceMode;
-        /// <summary>
-        /// Enables pull request previews for the autocreated branch.
-        /// </summary>
         public readonly bool? EnablePullRequestPreview;
-        /// <summary>
-        /// Environment variables for the autocreated branch.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
-        /// <summary>
-        /// Framework for the autocreated branch.
-        /// </summary>
         public readonly string? Framework;
-        /// <summary>
-        /// Amplify environment name for the pull request.
-        /// </summary>
         public readonly string? PullRequestEnvironmentName;
-        /// <summary>
-        /// Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        /// </summary>
         public readonly string? Stage;
 
         [OutputConstructor]

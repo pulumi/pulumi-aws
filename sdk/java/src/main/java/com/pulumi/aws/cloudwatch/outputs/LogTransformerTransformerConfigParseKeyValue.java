@@ -12,89 +12,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LogTransformerTransformerConfigParseKeyValue {
-    /**
-     * @return Specifies the destination field to put the extracted key-value pairs into.
-     * 
-     */
     private @Nullable String destination;
-    /**
-     * @return Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&amp;` character.
-     * 
-     */
     private @Nullable String fieldDelimiter;
-    /**
-     * @return Specifies a prefix that will be added to all transformed keys.
-     * 
-     */
     private @Nullable String keyPrefix;
-    /**
-     * @return Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-     * 
-     */
     private @Nullable String keyValueDelimiter;
-    /**
-     * @return Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-     * 
-     */
     private @Nullable String nonMatchValue;
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean overwriteIfExists;
-    /**
-     * @return Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     private @Nullable String source;
 
     private LogTransformerTransformerConfigParseKeyValue() {}
-    /**
-     * @return Specifies the destination field to put the extracted key-value pairs into.
-     * 
-     */
     public Optional<String> destination() {
         return Optional.ofNullable(this.destination);
     }
-    /**
-     * @return Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&amp;` character.
-     * 
-     */
     public Optional<String> fieldDelimiter() {
         return Optional.ofNullable(this.fieldDelimiter);
     }
-    /**
-     * @return Specifies a prefix that will be added to all transformed keys.
-     * 
-     */
     public Optional<String> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
-    /**
-     * @return Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-     * 
-     */
     public Optional<String> keyValueDelimiter() {
         return Optional.ofNullable(this.keyValueDelimiter);
     }
-    /**
-     * @return Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-     * 
-     */
     public Optional<String> nonMatchValue() {
         return Optional.ofNullable(this.nonMatchValue);
     }
-    /**
-     * @return Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> overwriteIfExists() {
         return Optional.ofNullable(this.overwriteIfExists);
     }
-    /**
-     * @return Specifies the path to the field in the log event that will be parsed. Defaults to `{@literal @}message`.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }

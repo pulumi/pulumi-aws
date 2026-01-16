@@ -12,24 +12,14 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class DistributionConfigurationDistributionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-        /// </summary>
         [Input("amiDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationGetArgs>? AmiDistributionConfiguration { get; set; }
 
-        /// <summary>
-        /// Configuration block with container distribution settings. Detailed below.
-        /// </summary>
         [Input("containerDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs>? ContainerDistributionConfiguration { get; set; }
 
         [Input("fastLaunchConfigurations")]
         private InputList<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationGetArgs>? _fastLaunchConfigurations;
-
-        /// <summary>
-        /// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-        /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationGetArgs> FastLaunchConfigurations
         {
             get => _fastLaunchConfigurations ?? (_fastLaunchConfigurations = new InputList<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationGetArgs>());
@@ -38,10 +28,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("launchTemplateConfigurations")]
         private InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationGetArgs>? _launchTemplateConfigurations;
-
-        /// <summary>
-        /// Set of launch template configuration settings that apply to image distribution. Detailed below.
-        /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationGetArgs> LaunchTemplateConfigurations
         {
             get => _launchTemplateConfigurations ?? (_launchTemplateConfigurations = new InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationGetArgs>());
@@ -50,34 +36,20 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         [Input("licenseConfigurationArns")]
         private InputList<string>? _licenseConfigurationArns;
-
-        /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-        /// </summary>
         public InputList<string> LicenseConfigurationArns
         {
             get => _licenseConfigurationArns ?? (_licenseConfigurationArns = new InputList<string>());
             set => _licenseConfigurationArns = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block with S3 export settings. Detailed below.
-        /// </summary>
         [Input("s3ExportConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionS3ExportConfigurationGetArgs>? S3ExportConfiguration { get; set; }
 
         [Input("ssmParameterConfigurations")]
         private InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationGetArgs>? _ssmParameterConfigurations;
-
-        /// <summary>
-        /// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
-        /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationGetArgs> SsmParameterConfigurations
         {
             get => _ssmParameterConfigurations ?? (_ssmParameterConfigurations = new InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationGetArgs>());

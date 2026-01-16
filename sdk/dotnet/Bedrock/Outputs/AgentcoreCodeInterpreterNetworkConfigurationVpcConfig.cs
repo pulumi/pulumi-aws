@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreCodeInterpreterNetworkConfigurationVpcConfig
     {
-        /// <summary>
-        /// Security groups associated with the VPC configuration.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// Subnets associated with the VPC configuration.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

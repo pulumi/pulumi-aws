@@ -13,25 +13,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistributionFastLaunchConfiguration
     {
-        /// <summary>
-        /// The owner account ID for the fast-launch enabled Windows AMI.
-        /// </summary>
         public readonly string AccountId;
-        /// <summary>
-        /// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `True` to start using Windows faster launching, or `False` to stop using it.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
-        /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate? LaunchTemplate;
-        /// <summary>
-        /// The maximum number of parallel instances that are launched for creating resources.
-        /// </summary>
         public readonly int? MaxParallelLaunches;
-        /// <summary>
-        /// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
-        /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration? SnapshotConfiguration;
 
         [OutputConstructor]

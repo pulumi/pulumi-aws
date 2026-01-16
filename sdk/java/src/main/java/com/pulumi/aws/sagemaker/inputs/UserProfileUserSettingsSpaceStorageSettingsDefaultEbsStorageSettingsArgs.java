@@ -14,32 +14,16 @@ public final class UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageS
 
     public static final UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs Empty = new UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs();
 
-    /**
-     * The default size of the EBS storage volume for a private space.
-     * 
-     */
     @Import(name="defaultEbsVolumeSizeInGb", required=true)
     private Output<Integer> defaultEbsVolumeSizeInGb;
 
-    /**
-     * @return The default size of the EBS storage volume for a private space.
-     * 
-     */
     public Output<Integer> defaultEbsVolumeSizeInGb() {
         return this.defaultEbsVolumeSizeInGb;
     }
 
-    /**
-     * The maximum size of the EBS storage volume for a private space.
-     * 
-     */
     @Import(name="maximumEbsVolumeSizeInGb", required=true)
     private Output<Integer> maximumEbsVolumeSizeInGb;
 
-    /**
-     * @return The maximum size of the EBS storage volume for a private space.
-     * 
-     */
     public Output<Integer> maximumEbsVolumeSizeInGb() {
         return this.maximumEbsVolumeSizeInGb;
     }
@@ -69,44 +53,20 @@ public final class UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageS
             $ = new UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultEbsVolumeSizeInGb The default size of the EBS storage volume for a private space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultEbsVolumeSizeInGb(Output<Integer> defaultEbsVolumeSizeInGb) {
             $.defaultEbsVolumeSizeInGb = defaultEbsVolumeSizeInGb;
             return this;
         }
 
-        /**
-         * @param defaultEbsVolumeSizeInGb The default size of the EBS storage volume for a private space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultEbsVolumeSizeInGb(Integer defaultEbsVolumeSizeInGb) {
             return defaultEbsVolumeSizeInGb(Output.of(defaultEbsVolumeSizeInGb));
         }
 
-        /**
-         * @param maximumEbsVolumeSizeInGb The maximum size of the EBS storage volume for a private space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumEbsVolumeSizeInGb(Output<Integer> maximumEbsVolumeSizeInGb) {
             $.maximumEbsVolumeSizeInGb = maximumEbsVolumeSizeInGb;
             return this;
         }
 
-        /**
-         * @param maximumEbsVolumeSizeInGb The maximum size of the EBS storage volume for a private space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumEbsVolumeSizeInGb(Integer maximumEbsVolumeSizeInGb) {
             return maximumEbsVolumeSizeInGb(Output.of(maximumEbsVolumeSizeInGb));
         }

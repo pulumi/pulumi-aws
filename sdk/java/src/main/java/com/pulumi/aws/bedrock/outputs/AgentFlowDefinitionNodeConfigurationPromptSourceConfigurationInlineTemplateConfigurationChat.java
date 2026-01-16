@@ -16,44 +16,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat {
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable> inputVariables;
-    /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages;
-    /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-     * 
-     */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem> systems;
-    /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration toolConfiguration;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat() {}
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariable> inputVariables() {
         return this.inputVariables == null ? List.of() : this.inputVariables;
     }
-    /**
-     * @return A list of messages in the chat for the prompt. See Message for more information.
-     * 
-     */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage> messages() {
         return this.messages == null ? List.of() : this.messages;
     }
-    /**
-     * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
-     * 
-     */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystem> systems() {
         return this.systems == null ? List.of() : this.systems;
     }
-    /**
-     * @return Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfiguration> toolConfiguration() {
         return Optional.ofNullable(this.toolConfiguration);
     }

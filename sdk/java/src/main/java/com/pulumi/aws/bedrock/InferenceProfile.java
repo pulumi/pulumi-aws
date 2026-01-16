@@ -19,193 +19,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Bedrock Inference Profile.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.bedrock.InferenceProfile;
- * import com.pulumi.aws.bedrock.InferenceProfileArgs;
- * import com.pulumi.aws.bedrock.inputs.InferenceProfileModelSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new InferenceProfile("example", InferenceProfileArgs.builder()
- *             .name("Claude Sonnet for Project 123")
- *             .description("Profile with tag for cost allocation tracking")
- *             .modelSource(InferenceProfileModelSourceArgs.builder()
- *                 .copyFrom("arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0")
- *                 .build())
- *             .tags(Map.of("ProjectID", "123"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/inferenceProfile:InferenceProfile")
 public class InferenceProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the inference profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the inference profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The time at which the inference profile was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The time at which the inference profile was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * The description of the inference profile.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the inference profile.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="modelSource", refs={InferenceProfileModelSource.class}, tree="[0]")
     private Output</* @Nullable */ InferenceProfileModelSource> modelSource;
 
-    /**
-     * @return The source of the model this inference profile will track metrics and cost for. See `modelSource`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<InferenceProfileModelSource>> modelSource() {
         return Codegen.optional(this.modelSource);
     }
-    /**
-     * A list of information about each model in the inference profile. See `models`.
-     * 
-     */
     @Export(name="models", refs={List.class,InferenceProfileModel.class}, tree="[0,1]")
     private Output<List<InferenceProfileModel>> models;
 
-    /**
-     * @return A list of information about each model in the inference profile. See `models`.
-     * 
-     */
     public Output<List<InferenceProfileModel>> models() {
         return this.models;
     }
-    /**
-     * The name of the inference profile.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the inference profile.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value mapping of resource tags for the inference profile.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags for the inference profile.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -221,31 +87,15 @@ public class InferenceProfile extends com.pulumi.resources.CustomResource {
     public Output<Optional<InferenceProfileTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * The time at which the inference profile was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return The time at which the inference profile was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

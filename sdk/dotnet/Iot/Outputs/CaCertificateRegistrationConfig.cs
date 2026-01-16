@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class CaCertificateRegistrationConfig
     {
-        /// <summary>
-        /// The ARN of the role.
-        /// </summary>
         public readonly string? RoleArn;
-        /// <summary>
-        /// The template body.
-        /// </summary>
         public readonly string? TemplateBody;
-        /// <summary>
-        /// The name of the provisioning template.
-        /// </summary>
         public readonly string? TemplateName;
 
         [OutputConstructor]

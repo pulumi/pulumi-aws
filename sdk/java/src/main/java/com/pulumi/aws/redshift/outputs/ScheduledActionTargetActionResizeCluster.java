@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledActionTargetActionResizeCluster {
-    /**
-     * @return A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-     * 
-     */
     private @Nullable Boolean classic;
-    /**
-     * @return The unique identifier for the cluster to resize.
-     * 
-     */
     private String clusterIdentifier;
-    /**
-     * @return The new cluster type for the specified cluster.
-     * 
-     */
     private @Nullable String clusterType;
-    /**
-     * @return The new node type for the nodes you are adding.
-     * 
-     */
     private @Nullable String nodeType;
-    /**
-     * @return The new number of nodes for the cluster.
-     * 
-     */
     private @Nullable Integer numberOfNodes;
 
     private ScheduledActionTargetActionResizeCluster() {}
-    /**
-     * @return A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-     * 
-     */
     public Optional<Boolean> classic() {
         return Optional.ofNullable(this.classic);
     }
-    /**
-     * @return The unique identifier for the cluster to resize.
-     * 
-     */
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * @return The new cluster type for the specified cluster.
-     * 
-     */
     public Optional<String> clusterType() {
         return Optional.ofNullable(this.clusterType);
     }
-    /**
-     * @return The new node type for the nodes you are adding.
-     * 
-     */
     public Optional<String> nodeType() {
         return Optional.ofNullable(this.nodeType);
     }
-    /**
-     * @return The new number of nodes for the cluster.
-     * 
-     */
     public Optional<Integer> numberOfNodes() {
         return Optional.ofNullable(this.numberOfNodes);
     }

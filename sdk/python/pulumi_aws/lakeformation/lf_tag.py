@@ -25,10 +25,6 @@ class LfTagArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LfTag resource.
-        :param pulumi.Input[_builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of possible values an attribute can take.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -40,9 +36,6 @@ class LfTagArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Key-name for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -52,9 +45,6 @@ class LfTagArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of possible values an attribute can take.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -64,9 +54,6 @@ class LfTagArgs:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -76,9 +63,6 @@ class LfTagArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _LfTagState:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LfTag resources.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of possible values an attribute can take.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -112,9 +92,6 @@ class _LfTagState:
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -124,9 +101,6 @@ class _LfTagState:
     @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Key-name for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -136,9 +110,6 @@ class _LfTagState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -148,9 +119,6 @@ class _LfTagState:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of possible values an attribute can take.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -170,37 +138,9 @@ class LfTag(pulumi.CustomResource):
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.LfTag("example",
-            key="module",
-            values=[
-                "Orders",
-                "Sales",
-                "Customers",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-        ```
-
+        Create a LfTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of possible values an attribute can take.
         """
         ...
     @overload
@@ -209,31 +149,7 @@ class LfTag(pulumi.CustomResource):
                  args: LfTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.LfTag("example",
-            key="module",
-            values=[
-                "Orders",
-                "Sales",
-                "Customers",
-            ])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-        ```
-
+        Create a LfTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LfTagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,10 +207,6 @@ class LfTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[_builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of possible values an attribute can take.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,32 +221,20 @@ class LfTag(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Key-name for the tag.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        List of possible values an attribute can take.
-        """
         return pulumi.get(self, "values")
 

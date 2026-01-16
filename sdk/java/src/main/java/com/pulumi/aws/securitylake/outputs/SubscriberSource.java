@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SubscriberSource {
-    /**
-     * @return Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-     * 
-     */
     private @Nullable SubscriberSourceAwsLogSourceResource awsLogSourceResource;
-    /**
-     * @return Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-     * 
-     */
     private @Nullable SubscriberSourceCustomLogSourceResource customLogSourceResource;
 
     private SubscriberSource() {}
-    /**
-     * @return Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-     * 
-     */
     public Optional<SubscriberSourceAwsLogSourceResource> awsLogSourceResource() {
         return Optional.ofNullable(this.awsLogSourceResource);
     }
-    /**
-     * @return Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-     * 
-     */
     public Optional<SubscriberSourceCustomLogSourceResource> customLogSourceResource() {
         return Optional.ofNullable(this.customLogSourceResource);
     }

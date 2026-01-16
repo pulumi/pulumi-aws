@@ -31,16 +31,6 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        :param pulumi.Input['DomainMatchingArgs'] matching: A block that specifies the process of matching duplicate profiles. Documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "default_expiration_days", default_expiration_days)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -60,11 +50,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="defaultExpirationDays")
     def default_expiration_days(self) -> pulumi.Input[_builtins.int]:
-        """
-        The default number of days until the data within the domain expires.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "default_expiration_days")
 
     @default_expiration_days.setter
@@ -74,9 +59,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name for your Customer Profile domain. It must be unique for your AWS account.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -86,9 +68,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")
     def dead_letter_queue_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        """
         return pulumi.get(self, "dead_letter_queue_url")
 
     @dead_letter_queue_url.setter
@@ -98,9 +77,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionKey")
     def default_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        """
         return pulumi.get(self, "default_encryption_key")
 
     @default_encryption_key.setter
@@ -110,9 +86,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def matching(self) -> Optional[pulumi.Input['DomainMatchingArgs']]:
-        """
-        A block that specifies the process of matching duplicate profiles. Documented below.
-        """
         return pulumi.get(self, "matching")
 
     @matching.setter
@@ -122,9 +95,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -134,9 +104,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
-        """
-        A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        """
         return pulumi.get(self, "rule_based_matching")
 
     @rule_based_matching.setter
@@ -146,9 +113,6 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -171,18 +135,6 @@ class _DomainState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-        :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input['DomainMatchingArgs'] matching: A block that specifies the process of matching duplicate profiles. Documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -208,9 +160,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -220,9 +169,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")
     def dead_letter_queue_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        """
         return pulumi.get(self, "dead_letter_queue_url")
 
     @dead_letter_queue_url.setter
@@ -232,9 +178,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionKey")
     def default_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        """
         return pulumi.get(self, "default_encryption_key")
 
     @default_encryption_key.setter
@@ -244,11 +187,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="defaultExpirationDays")
     def default_expiration_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The default number of days until the data within the domain expires.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "default_expiration_days")
 
     @default_expiration_days.setter
@@ -258,9 +196,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name for your Customer Profile domain. It must be unique for your AWS account.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -270,9 +205,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def matching(self) -> Optional[pulumi.Input['DomainMatchingArgs']]:
-        """
-        A block that specifies the process of matching duplicate profiles. Documented below.
-        """
         return pulumi.get(self, "matching")
 
     @matching.setter
@@ -282,9 +214,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,9 +223,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
-        """
-        A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        """
         return pulumi.get(self, "rule_based_matching")
 
     @rule_based_matching.setter
@@ -306,9 +232,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -318,9 +241,6 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -344,93 +264,9 @@ class Domain(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Customer Profiles Domain.
-        See the [Create Domain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.customerprofiles.Domain("example", domain_name="example")
-        ```
-
-        ### With SQS DLQ and KMS set
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sqs.Queue("example",
-            name="example",
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles SQS policy",
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": "*",
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
-                    },
-                }],
-            }))
-        example_key = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=10)
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example",
-            force_destroy=True)
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles S3 policy",
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:PutObject",
-                        "s3:ListBucket",
-                    ],
-                    "Resource": [
-                        example_bucket.arn,
-                        example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-                    ],
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
-                    },
-                }],
-            }))
-        test = aws.customerprofiles.Domain("test",
-            domain_name=example,
-            dead_letter_queue_url=example.id,
-            default_encryption_key=example_key.arn,
-            default_expiration_days=365)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
-
-        ```sh
-        $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
-        ```
-
+        Create a Domain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -439,81 +275,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Customer Profiles Domain.
-        See the [Create Domain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.customerprofiles.Domain("example", domain_name="example")
-        ```
-
-        ### With SQS DLQ and KMS set
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.sqs.Queue("example",
-            name="example",
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles SQS policy",
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": "*",
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
-                    },
-                }],
-            }))
-        example_key = aws.kms.Key("example",
-            description="example",
-            deletion_window_in_days=10)
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example",
-            force_destroy=True)
-        example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles S3 policy",
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:PutObject",
-                        "s3:ListBucket",
-                    ],
-                    "Resource": [
-                        example_bucket.arn,
-                        example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-                    ],
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
-                    },
-                }],
-            }))
-        test = aws.customerprofiles.Domain("test",
-            domain_name=example,
-            dead_letter_queue_url=example.id,
-            default_encryption_key=example_key.arn,
-            default_expiration_days=365)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
-
-        ```sh
-        $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
-        ```
-
+        Create a Domain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -587,18 +349,6 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-        :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -619,82 +369,50 @@ class Domain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Customer Profiles Domain.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")
     def dead_letter_queue_url(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
-        """
         return pulumi.get(self, "dead_letter_queue_url")
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionKey")
     def default_encryption_key(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-        """
         return pulumi.get(self, "default_encryption_key")
 
     @_builtins.property
     @pulumi.getter(name="defaultExpirationDays")
     def default_expiration_days(self) -> pulumi.Output[_builtins.int]:
-        """
-        The default number of days until the data within the domain expires.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "default_expiration_days")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name for your Customer Profile domain. It must be unique for your AWS account.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def matching(self) -> pulumi.Output[Optional['outputs.DomainMatching']]:
-        """
-        A block that specifies the process of matching duplicate profiles. Documented below.
-        """
         return pulumi.get(self, "matching")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> pulumi.Output[Optional['outputs.DomainRuleBasedMatching']]:
-        """
-        A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
-        """
         return pulumi.get(self, "rule_based_matching")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

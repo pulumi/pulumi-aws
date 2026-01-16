@@ -9,203 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsmIncidents
 {
-    /// <summary>
-    /// Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
-    /// 
-    /// &gt; **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// Create a replication set.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
-    ///     {
-    ///         Regions = new[]
-    ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
-    ///             {
-    ///                 Name = "us-west-2",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "exampleTag", "exampleValue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Add a Region to a replication set. (You can add only one Region at a time.)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
-    ///     {
-    ///         Regions = new[]
-    ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
-    ///             {
-    ///                 Name = "us-west-2",
-    ///             },
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
-    ///             {
-    ///                 Name = "ap-southeast-2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Delete a Region from a replication set. (You can delete only one Region at a time.)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
-    ///     {
-    ///         Regions = new[]
-    ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
-    ///             {
-    ///                 Name = "us-west-2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Basic Usage with an AWS Customer Managed Key
-    /// 
-    /// Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleKey = new Aws.Kms.Key("example_key");
-    /// 
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
-    ///     {
-    ///         Regions = new[]
-    ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
-    ///             {
-    ///                 Name = "us-west-2",
-    ///                 KmsKeyArn = exampleKey.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "exampleTag", "exampleValue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an Incident Manager replication. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssmincidents/replicationSet:ReplicationSet")]
     public partial class ReplicationSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the replication set.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the user who created the replication set.
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// If `True`, the last region in a replication set cannot be deleted.
-        /// </summary>
         [Output("deletionProtected")]
         public Output<bool> DeletionProtected { get; private set; } = null!;
 
-        /// <summary>
-        /// A timestamp showing when the replication set was last modified.
-        /// </summary>
         [Output("lastModifiedBy")]
         public Output<string> LastModifiedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// The replication set's Regions. Use `Regions` instead.
-        /// </summary>
         [Output("region")]
         public Output<ImmutableArray<Outputs.ReplicationSetRegion>> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The replication set's Regions.
-        /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<Outputs.ReplicationSetRegion>> Regions { get; private set; } = null!;
 
-        /// <summary>
-        /// The current status of the Region.
-        /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-        /// 
-        /// &gt; **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-        /// 
-        /// &gt; **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-        /// 
-        /// &gt; **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-        /// 
-        /// &gt; **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-        /// 
-        /// &gt; **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -257,10 +87,6 @@ namespace Pulumi.Aws.SsmIncidents
     {
         [Input("region")]
         private InputList<Inputs.ReplicationSetRegionArgs>? _region;
-
-        /// <summary>
-        /// The replication set's Regions. Use `Regions` instead.
-        /// </summary>
         [Obsolete(@"region is deprecated. Use regions instead.")]
         public InputList<Inputs.ReplicationSetRegionArgs> Region
         {
@@ -270,10 +96,6 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("regions")]
         private InputList<Inputs.ReplicationSetRegionArgs>? _regions;
-
-        /// <summary>
-        /// The replication set's Regions.
-        /// </summary>
         public InputList<Inputs.ReplicationSetRegionArgs> Regions
         {
             get => _regions ?? (_regions = new InputList<Inputs.ReplicationSetRegionArgs>());
@@ -282,22 +104,6 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-        /// 
-        /// &gt; **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-        /// 
-        /// &gt; **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-        /// 
-        /// &gt; **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-        /// 
-        /// &gt; **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-        /// 
-        /// &gt; **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -312,36 +118,20 @@ namespace Pulumi.Aws.SsmIncidents
 
     public sealed class ReplicationSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the replication set.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ARN of the user who created the replication set.
-        /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
-        /// <summary>
-        /// If `True`, the last region in a replication set cannot be deleted.
-        /// </summary>
         [Input("deletionProtected")]
         public Input<bool>? DeletionProtected { get; set; }
 
-        /// <summary>
-        /// A timestamp showing when the replication set was last modified.
-        /// </summary>
         [Input("lastModifiedBy")]
         public Input<string>? LastModifiedBy { get; set; }
 
         [Input("region")]
         private InputList<Inputs.ReplicationSetRegionGetArgs>? _region;
-
-        /// <summary>
-        /// The replication set's Regions. Use `Regions` instead.
-        /// </summary>
         [Obsolete(@"region is deprecated. Use regions instead.")]
         public InputList<Inputs.ReplicationSetRegionGetArgs> Region
         {
@@ -351,41 +141,17 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("regions")]
         private InputList<Inputs.ReplicationSetRegionGetArgs>? _regions;
-
-        /// <summary>
-        /// The replication set's Regions.
-        /// </summary>
         public InputList<Inputs.ReplicationSetRegionGetArgs> Regions
         {
             get => _regions ?? (_regions = new InputList<Inputs.ReplicationSetRegionGetArgs>());
             set => _regions = value;
         }
 
-        /// <summary>
-        /// The current status of the Region.
-        /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-        /// 
-        /// &gt; **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.
-        /// 
-        /// &gt; **NOTE:** After a replication set is created, you can add or delete only one Region at a time.
-        /// 
-        /// &gt; **NOTE:** Incident Manager does not support updating the customer managed key associated with a replication set. Instead, for a replication set with multiple Regions, you must first delete a Region from the replication set, then re-add it with a different customer managed key in separate deploy operations. For a replication set with only one Region, the entire replication set must be deleted and recreated. To do this, comment out the replication set and all response plans, and then run the deploy command to recreate the replication set with the new customer managed key.
-        /// 
-        /// &gt; **NOTE:** You must either use AWS-owned keys on all regions of a replication set, or customer managed keys. To change between an AWS owned key and a customer managed key, a replication set and it associated data must be deleted and recreated.
-        /// 
-        /// &gt; **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -394,10 +160,6 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

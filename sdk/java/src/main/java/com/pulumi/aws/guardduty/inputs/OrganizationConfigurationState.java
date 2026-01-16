@@ -16,28 +16,14 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
     public static final OrganizationConfigurationState Empty = new OrganizationConfigurationState();
 
-    /**
-     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
-     * 
-     */
     @Import(name="autoEnableOrganizationMembers")
     private @Nullable Output<String> autoEnableOrganizationMembers;
 
-    /**
-     * @return Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-     * Valid values are `ALL`, `NEW`, `NONE`.
-     * 
-     */
     public Optional<Output<String>> autoEnableOrganizationMembers() {
         return Optional.ofNullable(this.autoEnableOrganizationMembers);
     }
 
     /**
-     * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     * 
-     * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
-     * 
      * @deprecated
      * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
      * 
@@ -47,10 +33,6 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
     private @Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources;
 
     /**
-     * @return Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-     * 
-     * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
-     * 
      * @deprecated
      * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
      * 
@@ -60,32 +42,16 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         return Optional.ofNullable(this.datasources);
     }
 
-    /**
-     * The detector ID of the GuardDuty account.
-     * 
-     */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the GuardDuty account.
-     * 
-     */
     public Optional<Output<String>> detectorId() {
         return Optional.ofNullable(this.detectorId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -117,34 +83,16 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
             $ = new OrganizationConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-         * Valid values are `ALL`, `NEW`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnableOrganizationMembers(@Nullable Output<String> autoEnableOrganizationMembers) {
             $.autoEnableOrganizationMembers = autoEnableOrganizationMembers;
             return this;
         }
 
-        /**
-         * @param autoEnableOrganizationMembers Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
-         * Valid values are `ALL`, `NEW`, `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnableOrganizationMembers(String autoEnableOrganizationMembers) {
             return autoEnableOrganizationMembers(Output.of(autoEnableOrganizationMembers));
         }
 
         /**
-         * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-         * 
-         * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -158,10 +106,6 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
-         * 
-         * &gt; **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -173,44 +117,20 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
             return datasources(Output.of(datasources));
         }
 
-        /**
-         * @param detectorId The detector ID of the GuardDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(@Nullable Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
-        /**
-         * @param detectorId The detector ID of the GuardDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

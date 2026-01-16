@@ -16,10 +16,6 @@ public final class GetServiceResult {
      */
     private String id;
     private String region;
-    /**
-     * @return Code of the service.
-     * 
-     */
     private String serviceCode;
     private String serviceName;
 
@@ -34,10 +30,6 @@ public final class GetServiceResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Code of the service.
-     * 
-     */
     public String serviceCode() {
         return this.serviceCode;
     }

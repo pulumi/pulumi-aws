@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InternetMonitorHealthEventsConfig {
-    /**
-     * @return The health event threshold percentage set for availability scores.
-     * 
-     */
     private @Nullable Double availabilityScoreThreshold;
-    /**
-     * @return The health event threshold percentage set for performance scores.
-     * 
-     */
     private @Nullable Double performanceScoreThreshold;
 
     private InternetMonitorHealthEventsConfig() {}
-    /**
-     * @return The health event threshold percentage set for availability scores.
-     * 
-     */
     public Optional<Double> availabilityScoreThreshold() {
         return Optional.ofNullable(this.availabilityScoreThreshold);
     }
-    /**
-     * @return The health event threshold percentage set for performance scores.
-     * 
-     */
     public Optional<Double> performanceScoreThreshold() {
         return Optional.ofNullable(this.performanceScoreThreshold);
     }

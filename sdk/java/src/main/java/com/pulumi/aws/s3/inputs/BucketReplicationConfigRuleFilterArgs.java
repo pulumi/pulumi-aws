@@ -17,47 +17,23 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
 
     public static final BucketReplicationConfigRuleFilterArgs Empty = new BucketReplicationConfigRuleFilterArgs();
 
-    /**
-     * Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
-     * 
-     */
     @Import(name="and")
     private @Nullable Output<BucketReplicationConfigRuleFilterAndArgs> and;
 
-    /**
-     * @return Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
-     * 
-     */
     public Optional<Output<BucketReplicationConfigRuleFilterAndArgs>> and() {
         return Optional.ofNullable(this.and);
     }
 
-    /**
-     * Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     @Import(name="tag")
     private @Nullable Output<BucketReplicationConfigRuleFilterTagArgs> tag;
 
-    /**
-     * @return Configuration block for specifying a tag key and value. See below.
-     * 
-     */
     public Optional<Output<BucketReplicationConfigRuleFilterTagArgs>> tag() {
         return Optional.ofNullable(this.tag);
     }
@@ -88,65 +64,29 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
             $ = new BucketReplicationConfigRuleFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param and Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder and(@Nullable Output<BucketReplicationConfigRuleFilterAndArgs> and) {
             $.and = and;
             return this;
         }
 
-        /**
-         * @param and Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder and(BucketReplicationConfigRuleFilterAndArgs and) {
             return and(Output.of(and));
         }
 
-        /**
-         * @param prefix Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param tag Configuration block for specifying a tag key and value. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(@Nullable Output<BucketReplicationConfigRuleFilterTagArgs> tag) {
             $.tag = tag;
             return this;
         }
 
-        /**
-         * @param tag Configuration block for specifying a tag key and value. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tag(BucketReplicationConfigRuleFilterTagArgs tag) {
             return tag(Output.of(tag));
         }

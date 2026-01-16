@@ -14,64 +14,30 @@ public final class GetAppregistryAttributeGroupPlainArgs extends com.pulumi.reso
 
     public static final GetAppregistryAttributeGroupPlainArgs Empty = new GetAppregistryAttributeGroupPlainArgs();
 
-    /**
-     * ARN of the Attribute Group to find.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the Attribute Group to find.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID of the Attribute Group to find.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the Attribute Group to find.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the Attribute Group to find.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the Attribute Group to find.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; Exactly one of `arn`, `id`, or `name` must be set.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; Exactly one of `arn`, `id`, or `name` must be set.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -103,46 +69,21 @@ public final class GetAppregistryAttributeGroupPlainArgs extends com.pulumi.reso
             $ = new GetAppregistryAttributeGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Attribute Group to find.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param id ID of the Attribute Group to find.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Name of the Attribute Group to find.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; Exactly one of `arn`, `id`, or `name` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

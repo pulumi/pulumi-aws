@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleAction
     {
-        /// <summary>
-        /// A block that specifies that the automation rule action is an update to a finding field.  Documented below.
-        /// </summary>
         public readonly Outputs.AutomationRuleActionFindingFieldsUpdate? FindingFieldsUpdate;
-        /// <summary>
-        /// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

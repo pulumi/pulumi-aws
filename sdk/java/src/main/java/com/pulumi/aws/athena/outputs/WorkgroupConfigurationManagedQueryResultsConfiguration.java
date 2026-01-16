@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationManagedQueryResultsConfiguration {
-    /**
-     * @return If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration encryptionConfiguration;
 
     private WorkgroupConfigurationManagedQueryResultsConfiguration() {}
-    /**
-     * @return If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }

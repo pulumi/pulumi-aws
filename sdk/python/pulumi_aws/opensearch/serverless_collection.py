@@ -32,11 +32,7 @@ class ServerlessCollectionArgs:
         The set of arguments for constructing a ServerlessCollection resource.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         if description is not None:
@@ -71,8 +67,6 @@ class ServerlessCollectionArgs:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the collection.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -83,9 +77,6 @@ class ServerlessCollectionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -107,9 +98,6 @@ class ServerlessCollectionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -155,17 +143,12 @@ class _ServerlessCollectionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCollection resources.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         if arn is not None:
@@ -196,9 +179,6 @@ class _ServerlessCollectionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon Resource Name (ARN) of the collection.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -258,8 +238,6 @@ class _ServerlessCollectionState:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the collection.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -270,9 +248,6 @@ class _ServerlessCollectionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -294,9 +269,6 @@ class _ServerlessCollectionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -349,52 +321,12 @@ class ServerlessCollection(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Serverless Collection.
-
-        > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
-
-        > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": True,
-            }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example",
-        opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-        ```
-
+        Create a ServerlessCollection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         ...
@@ -404,43 +336,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  args: Optional[ServerlessCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Serverless Collection.
-
-        > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
-
-        > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
-            type="encryption",
-            policy=json.dumps({
-                "Rules": [{
-                    "Resource": ["collection/example"],
-                    "ResourceType": "collection",
-                }],
-                "AWSOwnedKey": True,
-            }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example",
-        opts = pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-        ```
-
+        Create a ServerlessCollection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessCollectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -513,17 +409,12 @@ class ServerlessCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -547,9 +438,6 @@ class ServerlessCollection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the collection.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -589,17 +477,12 @@ class ServerlessCollection(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the collection.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -613,9 +496,6 @@ class ServerlessCollection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

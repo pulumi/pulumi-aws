@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class RecordsExclusiveResourceRecordSetResourceRecordGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DNS record value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

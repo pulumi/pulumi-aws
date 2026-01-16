@@ -11,114 +11,12 @@ namespace Pulumi.Aws.Fsx
 {
     public static class GetOpenZfsSnapshot
     {
-        /// <summary>
-        /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Root volume Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
-        ///             {
-        ///                 Name = "volume-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fsvol-073a32b6098a73feb",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOpenZfsSnapshotResult> InvokeAsync(GetOpenZfsSnapshotArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Root volume Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
-        ///             {
-        ///                 Name = "volume-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fsvol-073a32b6098a73feb",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOpenZfsSnapshotResult> Invoke(GetOpenZfsSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Root volume Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
-        ///             {
-        ///                 Name = "volume-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fsvol-073a32b6098a73feb",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOpenZfsSnapshotResult> Invoke(GetOpenZfsSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotInvokeArgs(), options.WithDefaults());
     }
@@ -128,41 +26,23 @@ namespace Pulumi.Aws.Fsx
     {
         [Input("filters")]
         private List<Inputs.GetOpenZfsSnapshotFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. The
-        /// supported names are file-system-id or volume-id.
-        /// </summary>
         public List<Inputs.GetOpenZfsSnapshotFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetOpenZfsSnapshotFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If more than one result is returned, use the most recent snapshot.
-        /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("snapshotIds")]
         private List<string>? _snapshotIds;
-
-        /// <summary>
-        /// Returns information on a specific snapshot_id.
-        /// </summary>
         public List<string> SnapshotIds
         {
             get => _snapshotIds ?? (_snapshotIds = new List<string>());
@@ -171,10 +51,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// List of Tag values, with a maximum of 50 elements.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -191,41 +67,23 @@ namespace Pulumi.Aws.Fsx
     {
         [Input("filters")]
         private InputList<Inputs.GetOpenZfsSnapshotFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. The
-        /// supported names are file-system-id or volume-id.
-        /// </summary>
         public InputList<Inputs.GetOpenZfsSnapshotFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetOpenZfsSnapshotFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If more than one result is returned, use the most recent snapshot.
-        /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("snapshotIds")]
         private InputList<string>? _snapshotIds;
-
-        /// <summary>
-        /// Returns information on a specific snapshot_id.
-        /// </summary>
         public InputList<string> SnapshotIds
         {
             get => _snapshotIds ?? (_snapshotIds = new InputList<string>());
@@ -234,10 +92,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// List of Tag values, with a maximum of 50 elements.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -254,13 +108,7 @@ namespace Pulumi.Aws.Fsx
     [OutputType]
     public sealed class GetOpenZfsSnapshotResult
     {
-        /// <summary>
-        /// Amazon Resource Name of the snapshot.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Time that the resource was created.
-        /// </summary>
         public readonly string CreationTime;
         public readonly ImmutableArray<Outputs.GetOpenZfsSnapshotFilterResult> Filters;
         /// <summary>
@@ -268,23 +116,11 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string Id;
         public readonly bool? MostRecent;
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         public readonly string? Name;
         public readonly string Region;
-        /// <summary>
-        /// ID of the snapshot.
-        /// </summary>
         public readonly string SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
-        /// <summary>
-        /// List of Tag values, with a maximum of 50 elements.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// ID of the volume that the snapshot is of.
-        /// </summary>
         public readonly string VolumeId;
 
         [OutputConstructor]

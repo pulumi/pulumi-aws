@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllow {
-    /**
-     * @return Custom handling for allowed requests. See below.
-     * 
-     */
     private @Nullable WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandling customRequestHandling;
 
     private WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllow() {}
-    /**
-     * @return Custom handling for allowed requests. See below.
-     * 
-     */
     public Optional<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandling> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }

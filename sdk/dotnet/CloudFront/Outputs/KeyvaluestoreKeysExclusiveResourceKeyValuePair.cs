@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class KeyvaluestoreKeysExclusiveResourceKeyValuePair
     {
         /// <summary>
-        /// Key to put.
+        /// The key to put.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Value to put.
+        /// The value to put.
         /// </summary>
         public readonly string Value;
 

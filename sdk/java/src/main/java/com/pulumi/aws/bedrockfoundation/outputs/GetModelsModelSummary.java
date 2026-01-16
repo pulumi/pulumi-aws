@@ -12,113 +12,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetModelsModelSummary {
-    /**
-     * @return Customizations that the model supports.
-     * 
-     */
     private List<String> customizationsSupporteds;
-    /**
-     * @return Inference types that the model supports.
-     * 
-     */
     private List<String> inferenceTypesSupporteds;
-    /**
-     * @return Input modalities that the model supports.
-     * 
-     */
     private List<String> inputModalities;
-    /**
-     * @return Model ARN.
-     * 
-     */
     private String modelArn;
-    /**
-     * @return Model identifier.
-     * 
-     */
     private String modelId;
-    /**
-     * @return Model name.
-     * 
-     */
     private String modelName;
-    /**
-     * @return Output modalities that the model supports.
-     * 
-     */
     private List<String> outputModalities;
-    /**
-     * @return Model provider name.
-     * 
-     */
     private String providerName;
-    /**
-     * @return Indicates whether the model supports streaming.
-     * 
-     */
     private Boolean responseStreamingSupported;
 
     private GetModelsModelSummary() {}
-    /**
-     * @return Customizations that the model supports.
-     * 
-     */
     public List<String> customizationsSupporteds() {
         return this.customizationsSupporteds;
     }
-    /**
-     * @return Inference types that the model supports.
-     * 
-     */
     public List<String> inferenceTypesSupporteds() {
         return this.inferenceTypesSupporteds;
     }
-    /**
-     * @return Input modalities that the model supports.
-     * 
-     */
     public List<String> inputModalities() {
         return this.inputModalities;
     }
-    /**
-     * @return Model ARN.
-     * 
-     */
     public String modelArn() {
         return this.modelArn;
     }
-    /**
-     * @return Model identifier.
-     * 
-     */
     public String modelId() {
         return this.modelId;
     }
-    /**
-     * @return Model name.
-     * 
-     */
     public String modelName() {
         return this.modelName;
     }
-    /**
-     * @return Output modalities that the model supports.
-     * 
-     */
     public List<String> outputModalities() {
         return this.outputModalities;
     }
-    /**
-     * @return Model provider name.
-     * 
-     */
     public String providerName() {
         return this.providerName;
     }
-    /**
-     * @return Indicates whether the model supports streaming.
-     * 
-     */
     public Boolean responseStreamingSupported() {
         return this.responseStreamingSupported;
     }

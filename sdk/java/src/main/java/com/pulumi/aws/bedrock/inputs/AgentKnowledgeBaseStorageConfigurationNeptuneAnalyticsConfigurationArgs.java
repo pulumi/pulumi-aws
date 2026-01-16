@@ -17,32 +17,16 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
 
     public static final AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs();
 
-    /**
-     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping;
 
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs>> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
 
-    /**
-     * ARN of the Neptune Analytics vector store.
-     * 
-     */
     @Import(name="graphArn", required=true)
     private Output<String> graphArn;
 
-    /**
-     * @return ARN of the Neptune Analytics vector store.
-     * 
-     */
     public Output<String> graphArn() {
         return this.graphArn;
     }
@@ -72,44 +56,20 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
             $ = new AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
 
-        /**
-         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs fieldMapping) {
             return fieldMapping(Output.of(fieldMapping));
         }
 
-        /**
-         * @param graphArn ARN of the Neptune Analytics vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(Output<String> graphArn) {
             $.graphArn = graphArn;
             return this;
         }
 
-        /**
-         * @param graphArn ARN of the Neptune Analytics vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(String graphArn) {
             return graphArn(Output.of(graphArn));
         }

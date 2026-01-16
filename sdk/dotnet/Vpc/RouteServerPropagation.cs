@@ -9,58 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Provides a resource for managing propagation between VPC (Virtual Private Cloud) route server and a route table.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.RouteServerPropagation("example", new()
-    ///     {
-    ///         RouteServerId = exampleAwsVpcRouteServer.RouteServerId,
-    ///         RouteTableId = exampleAwsRouteTable.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Propagation using the associated resource ID and route table ID separated by a comma (,). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpc/routeServerPropagation:RouteServerPropagation")]
     public partial class RouteServerPropagation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the route server to be associated.
-        /// </summary>
         [Output("routeServerId")]
         public Output<string> RouteServerId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the route table to which route server will propagate routes.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
@@ -113,23 +70,12 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class RouteServerPropagationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the route server to be associated.
-        /// </summary>
         [Input("routeServerId", required: true)]
         public Input<string> RouteServerId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the route table to which route server will propagate routes.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
@@ -144,23 +90,12 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class RouteServerPropagationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the route server to be associated.
-        /// </summary>
         [Input("routeServerId")]
         public Input<string>? RouteServerId { get; set; }
 
-        /// <summary>
-        /// The ID of the route table to which route server will propagate routes.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 

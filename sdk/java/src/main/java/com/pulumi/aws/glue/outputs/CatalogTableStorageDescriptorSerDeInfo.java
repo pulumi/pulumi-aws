@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableStorageDescriptorSerDeInfo {
-    /**
-     * @return Name of the SerDe.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     private @Nullable Map<String,String> parameters;
-    /**
-     * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-     * 
-     */
     private @Nullable String serializationLibrary;
 
     private CatalogTableStorageDescriptorSerDeInfo() {}
-    /**
-     * @return Name of the SerDe.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
-    /**
-     * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-     * 
-     */
     public Optional<String> serializationLibrary() {
         return Optional.ofNullable(this.serializationLibrary);
     }

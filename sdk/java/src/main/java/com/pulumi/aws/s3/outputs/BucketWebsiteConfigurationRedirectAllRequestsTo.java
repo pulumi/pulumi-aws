@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketWebsiteConfigurationRedirectAllRequestsTo {
-    /**
-     * @return Name of the host where requests are redirected.
-     * 
-     */
     private String hostName;
-    /**
-     * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     private @Nullable String protocol;
 
     private BucketWebsiteConfigurationRedirectAllRequestsTo() {}
-    /**
-     * @return Name of the host where requests are redirected.
-     * 
-     */
     public String hostName() {
         return this.hostName;
     }
-    /**
-     * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }

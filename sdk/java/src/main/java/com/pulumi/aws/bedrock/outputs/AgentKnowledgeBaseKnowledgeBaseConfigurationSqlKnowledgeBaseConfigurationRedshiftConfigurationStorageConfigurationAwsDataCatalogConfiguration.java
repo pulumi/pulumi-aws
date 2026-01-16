@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration {
-    /**
-     * @return List of names of the tables to use.
-     * 
-     */
     private List<String> tableNames;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfiguration() {}
-    /**
-     * @return List of names of the tables to use.
-     * 
-     */
     public List<String> tableNames() {
         return this.tableNames;
     }

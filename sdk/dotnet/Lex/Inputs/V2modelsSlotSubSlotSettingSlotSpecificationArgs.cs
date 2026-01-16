@@ -15,19 +15,11 @@ namespace Pulumi.Aws.Lex.Inputs
         [Input("mapBlockKey", required: true)]
         public Input<string> MapBlockKey { get; set; } = null!;
 
-        /// <summary>
-        /// Unique identifier assigned to the slot type.
-        /// </summary>
         [Input("slotTypeId", required: true)]
         public Input<string> SlotTypeId { get; set; } = null!;
 
         [Input("valueElicitationSettings")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>? _valueElicitationSettings;
-
-        /// <summary>
-        /// Elicitation setting details for constituent sub slots of a composite slot.
-        /// See the `ValueElicitationSetting` argument reference below.
-        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs> ValueElicitationSettings
         {
             get => _valueElicitationSettings ?? (_valueElicitationSettings = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>());

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ChannelNamespaceHandlerConfigsOnPublish
     {
-        /// <summary>
-        /// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-        /// </summary>
         public readonly string Behavior;
-        /// <summary>
-        /// Integration data source configuration for the handler. See Integration below.
-        /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration? Integration;
 
         [OutputConstructor]

@@ -16,17 +16,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs();
 
-    /**
-     * A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
-     * 
-     */
     @Import(name="storageLocations")
     private @Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations;
 
-    /**
-     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
-     * 
-     */
     public Optional<Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>>> storageLocations() {
         return Optional.ofNullable(this.storageLocations);
     }
@@ -55,33 +47,15 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param storageLocations A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageLocations(@Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations) {
             $.storageLocations = storageLocations;
             return this;
         }
 
-        /**
-         * @param storageLocations A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageLocations(List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs> storageLocations) {
             return storageLocations(Output.of(storageLocations));
         }
 
-        /**
-         * @param storageLocations A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageLocations(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs... storageLocations) {
             return storageLocations(List.of(storageLocations));
         }

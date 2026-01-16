@@ -6605,13 +6605,7 @@ class ProviderIgnoreTagsArgs:
 if not MYPY:
     class GetAvailabilityZoneFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
 elif False:
     GetAvailabilityZoneFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6620,19 +6614,12 @@ class GetAvailabilityZoneFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6642,9 +6629,6 @@ class GetAvailabilityZoneFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6655,13 +6639,7 @@ class GetAvailabilityZoneFilterArgs:
 if not MYPY:
     class GetAvailabilityZonesFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
 elif False:
     GetAvailabilityZonesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6670,19 +6648,12 @@ class GetAvailabilityZonesFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6692,9 +6663,6 @@ class GetAvailabilityZonesFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6705,13 +6673,7 @@ class GetAvailabilityZonesFilterArgs:
 if not MYPY:
     class GetRegionsFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
 elif False:
     GetRegionsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6720,19 +6682,12 @@ class GetRegionsFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6742,9 +6697,6 @@ class GetRegionsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

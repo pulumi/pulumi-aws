@@ -52,13 +52,7 @@ MYPY = False
 if not MYPY:
     class QueryLoggingConfigurationDestinationArgsDict(TypedDict):
         cloudwatch_logs: NotRequired[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict']]
-        """
-        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        """
         filters: NotRequired[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgsDict']]
-        """
-        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-        """
 elif False:
     QueryLoggingConfigurationDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -67,10 +61,6 @@ class QueryLoggingConfigurationDestinationArgs:
     def __init__(__self__, *,
                  cloudwatch_logs: Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']] = None,
                  filters: Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']] = None):
-        """
-        :param pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        :param pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs'] filters: A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if filters is not None:
@@ -79,9 +69,6 @@ class QueryLoggingConfigurationDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']]:
-        """
-        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
@@ -91,9 +78,6 @@ class QueryLoggingConfigurationDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']]:
-        """
-        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -104,9 +88,6 @@ class QueryLoggingConfigurationDestinationArgs:
 if not MYPY:
     class QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict(TypedDict):
         log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-        """
 elif False:
     QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -114,17 +95,11 @@ elif False:
 class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-        """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
@@ -135,9 +110,6 @@ class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
 if not MYPY:
     class QueryLoggingConfigurationDestinationFiltersArgsDict(TypedDict):
         qsp_threshold: pulumi.Input[_builtins.int]
-        """
-        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-        """
 elif False:
     QueryLoggingConfigurationDestinationFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -145,17 +117,11 @@ elif False:
 class QueryLoggingConfigurationDestinationFiltersArgs:
     def __init__(__self__, *,
                  qsp_threshold: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] qsp_threshold: The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-        """
         pulumi.set(__self__, "qsp_threshold", qsp_threshold)
 
     @_builtins.property
     @pulumi.getter(name="qspThreshold")
     def qsp_threshold(self) -> pulumi.Input[_builtins.int]:
-        """
-        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-        """
         return pulumi.get(self, "qsp_threshold")
 
     @qsp_threshold.setter
@@ -310,9 +276,6 @@ class ResourcePolicyTimeoutsArgs:
 if not MYPY:
     class ScraperDestinationArgsDict(TypedDict):
         amp: NotRequired[pulumi.Input['ScraperDestinationAmpArgsDict']]
-        """
-        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-        """
 elif False:
     ScraperDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -320,18 +283,12 @@ elif False:
 class ScraperDestinationArgs:
     def __init__(__self__, *,
                  amp: Optional[pulumi.Input['ScraperDestinationAmpArgs']] = None):
-        """
-        :param pulumi.Input['ScraperDestinationAmpArgs'] amp: Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-        """
         if amp is not None:
             pulumi.set(__self__, "amp", amp)
 
     @_builtins.property
     @pulumi.getter
     def amp(self) -> Optional[pulumi.Input['ScraperDestinationAmpArgs']]:
-        """
-        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-        """
         return pulumi.get(self, "amp")
 
     @amp.setter
@@ -342,9 +299,6 @@ class ScraperDestinationArgs:
 if not MYPY:
     class ScraperDestinationAmpArgsDict(TypedDict):
         workspace_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the prometheus workspace.
-        """
 elif False:
     ScraperDestinationAmpArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -352,17 +306,11 @@ elif False:
 class ScraperDestinationAmpArgs:
     def __init__(__self__, *,
                  workspace_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] workspace_arn: The Amazon Resource Name (ARN) of the prometheus workspace.
-        """
         pulumi.set(__self__, "workspace_arn", workspace_arn)
 
     @_builtins.property
     @pulumi.getter(name="workspaceArn")
     def workspace_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the prometheus workspace.
-        """
         return pulumi.get(self, "workspace_arn")
 
     @workspace_arn.setter
@@ -373,13 +321,7 @@ class ScraperDestinationAmpArgs:
 if not MYPY:
     class ScraperRoleConfigurationArgsDict(TypedDict):
         source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        """
         target_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        """
 elif False:
     ScraperRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -388,10 +330,6 @@ class ScraperRoleConfigurationArgs:
     def __init__(__self__, *,
                  source_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  target_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] source_role_arn: The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        :param pulumi.Input[_builtins.str] target_role_arn: The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        """
         if source_role_arn is not None:
             pulumi.set(__self__, "source_role_arn", source_role_arn)
         if target_role_arn is not None:
@@ -400,9 +338,6 @@ class ScraperRoleConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        """
         return pulumi.get(self, "source_role_arn")
 
     @source_role_arn.setter
@@ -412,9 +347,6 @@ class ScraperRoleConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="targetRoleArn")
     def target_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        """
         return pulumi.get(self, "target_role_arn")
 
     @target_role_arn.setter
@@ -425,9 +357,6 @@ class ScraperRoleConfigurationArgs:
 if not MYPY:
     class ScraperSourceArgsDict(TypedDict):
         eks: NotRequired[pulumi.Input['ScraperSourceEksArgsDict']]
-        """
-        Configuration block for an EKS cluster source. See `eks`.
-        """
 elif False:
     ScraperSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -435,18 +364,12 @@ elif False:
 class ScraperSourceArgs:
     def __init__(__self__, *,
                  eks: Optional[pulumi.Input['ScraperSourceEksArgs']] = None):
-        """
-        :param pulumi.Input['ScraperSourceEksArgs'] eks: Configuration block for an EKS cluster source. See `eks`.
-        """
         if eks is not None:
             pulumi.set(__self__, "eks", eks)
 
     @_builtins.property
     @pulumi.getter
     def eks(self) -> Optional[pulumi.Input['ScraperSourceEksArgs']]:
-        """
-        Configuration block for an EKS cluster source. See `eks`.
-        """
         return pulumi.get(self, "eks")
 
     @eks.setter
@@ -458,13 +381,7 @@ if not MYPY:
     class ScraperSourceEksArgsDict(TypedDict):
         cluster_arn: pulumi.Input[_builtins.str]
         subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of subnet IDs. Must be in at least two different availability zones.
-        """
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        """
 elif False:
     ScraperSourceEksArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -474,10 +391,6 @@ class ScraperSourceEksArgs:
                  cluster_arn: pulumi.Input[_builtins.str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
@@ -495,9 +408,6 @@ class ScraperSourceEksArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        List of subnet IDs. Must be in at least two different availability zones.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -507,9 +417,6 @@ class ScraperSourceEksArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -592,13 +499,7 @@ class ScraperTimeoutsArgs:
 if not MYPY:
     class WorkspaceConfigurationLimitsPerLabelSetArgsDict(TypedDict):
         label_set: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        """
         limits: NotRequired[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict']]
-        """
-        Configuration block for the limits to apply to the specified label set. Detailed below.
-        """
 elif False:
     WorkspaceConfigurationLimitsPerLabelSetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -607,10 +508,6 @@ class WorkspaceConfigurationLimitsPerLabelSetArgs:
     def __init__(__self__, *,
                  label_set: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  limits: Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] label_set: Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        :param pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs'] limits: Configuration block for the limits to apply to the specified label set. Detailed below.
-        """
         pulumi.set(__self__, "label_set", label_set)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
@@ -618,9 +515,6 @@ class WorkspaceConfigurationLimitsPerLabelSetArgs:
     @_builtins.property
     @pulumi.getter(name="labelSet")
     def label_set(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        """
         return pulumi.get(self, "label_set")
 
     @label_set.setter
@@ -630,9 +524,6 @@ class WorkspaceConfigurationLimitsPerLabelSetArgs:
     @_builtins.property
     @pulumi.getter
     def limits(self) -> Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']]:
-        """
-        Configuration block for the limits to apply to the specified label set. Detailed below.
-        """
         return pulumi.get(self, "limits")
 
     @limits.setter
@@ -643,9 +534,6 @@ class WorkspaceConfigurationLimitsPerLabelSetArgs:
 if not MYPY:
     class WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict(TypedDict):
         max_series: pulumi.Input[_builtins.int]
-        """
-        Maximum number of active time series that can be ingested for metrics matching the label set.
-        """
 elif False:
     WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -653,17 +541,11 @@ elif False:
 class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs:
     def __init__(__self__, *,
                  max_series: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] max_series: Maximum number of active time series that can be ingested for metrics matching the label set.
-        """
         pulumi.set(__self__, "max_series", max_series)
 
     @_builtins.property
     @pulumi.getter(name="maxSeries")
     def max_series(self) -> pulumi.Input[_builtins.int]:
-        """
-        Maximum number of active time series that can be ingested for metrics matching the label set.
-        """
         return pulumi.get(self, "max_series")
 
     @max_series.setter
@@ -726,9 +608,6 @@ class WorkspaceConfigurationTimeoutsArgs:
 if not MYPY:
     class WorkspaceLoggingConfigurationArgsDict(TypedDict):
         log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        """
 elif False:
     WorkspaceLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -736,17 +615,11 @@ elif False:
 class WorkspaceLoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter

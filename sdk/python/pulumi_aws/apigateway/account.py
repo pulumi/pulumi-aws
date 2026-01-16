@@ -25,8 +25,6 @@ class AccountArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cloudwatch_role_arn is not None:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
@@ -36,9 +34,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchRoleArn")
     def cloudwatch_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        """
         return pulumi.get(self, "cloudwatch_role_arn")
 
     @cloudwatch_role_arn.setter
@@ -48,9 +43,6 @@ class AccountArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -68,11 +60,6 @@ class _AccountState:
                  throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
-        :param pulumi.Input[_builtins.str] api_key_version: The version of the API keys used for the account.
-        :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: A list of features supported for the account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         if api_key_version is not None:
             pulumi.set(__self__, "api_key_version", api_key_version)
@@ -88,9 +75,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="apiKeyVersion")
     def api_key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the API keys used for the account.
-        """
         return pulumi.get(self, "api_key_version")
 
     @api_key_version.setter
@@ -100,9 +84,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="cloudwatchRoleArn")
     def cloudwatch_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        """
         return pulumi.get(self, "cloudwatch_role_arn")
 
     @cloudwatch_role_arn.setter
@@ -112,9 +93,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of features supported for the account.
-        """
         return pulumi.get(self, "features")
 
     @features.setter
@@ -124,9 +102,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +111,6 @@ class _AccountState:
     @_builtins.property
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]:
-        """
-        Account-Level throttle settings. See exported fields below.
-        """
         return pulumi.get(self, "throttle_settings")
 
     @throttle_settings.setter
@@ -156,57 +128,9 @@ class Account(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["apigateway.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        cloudwatch_role = aws.iam.Role("cloudwatch",
-            name="api_gateway_cloudwatch_global",
-            assume_role_policy=assume_role.json)
-        demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "logs:PutLogEvents",
-                "logs:GetLogEvents",
-                "logs:FilterLogEvents",
-            ],
-            "resources": ["*"],
-        }])
-        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatch",
-            name="default",
-            role=cloudwatch_role.id,
-            policy=cloudwatch.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/account:Account demo 123456789012
-        ```
-
+        Create a Account resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -215,53 +139,7 @@ class Account(pulumi.CustomResource):
                  args: Optional[AccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["apigateway.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        cloudwatch_role = aws.iam.Role("cloudwatch",
-            name="api_gateway_cloudwatch_global",
-            assume_role_policy=assume_role.json)
-        demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "logs:PutLogEvents",
-                "logs:GetLogEvents",
-                "logs:FilterLogEvents",
-            ],
-            "resources": ["*"],
-        }])
-        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatch",
-            name="default",
-            role=cloudwatch_role.id,
-            policy=cloudwatch.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/account:Account demo 123456789012
-        ```
-
+        Create a Account resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,11 +193,6 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key_version: The version of the API keys used for the account.
-        :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: A list of features supported for the account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,40 +208,25 @@ class Account(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiKeyVersion")
     def api_key_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the API keys used for the account.
-        """
         return pulumi.get(self, "api_key_version")
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchRoleArn")
     def cloudwatch_role_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        """
         return pulumi.get(self, "cloudwatch_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def features(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of features supported for the account.
-        """
         return pulumi.get(self, "features")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> pulumi.Output[Sequence['outputs.AccountThrottleSetting']]:
-        """
-        Account-Level throttle settings. See exported fields below.
-        """
         return pulumi.get(self, "throttle_settings")
 

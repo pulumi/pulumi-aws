@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImagePipelineImageTestsConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether image tests are enabled. Defaults to `True`.
-        /// </summary>
         [Input("imageTestsEnabled")]
         public Input<bool>? ImageTestsEnabled { get; set; }
 
-        /// <summary>
-        /// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
-        /// </summary>
         [Input("timeoutMinutes")]
         public Input<int>? TimeoutMinutes { get; set; }
 

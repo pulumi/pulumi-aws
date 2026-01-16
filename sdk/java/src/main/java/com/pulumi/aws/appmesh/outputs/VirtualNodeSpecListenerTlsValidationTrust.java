@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecListenerTlsValidationTrust {
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerTlsValidationTrustFile file;
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds;
 
     private VirtualNodeSpecListenerTlsValidationTrust() {}
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerTlsValidationTrustFile> file() {
         return Optional.ofNullable(this.file);
     }
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecListenerTlsValidationTrustSds> sds() {
         return Optional.ofNullable(this.sds);
     }

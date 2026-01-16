@@ -35,21 +35,22 @@ class GraphArgs:
         """
         The set of arguments for constructing a Graph resource.
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+        :param pulumi.Input[_builtins.bool] deletion_protection: A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
                								The name must contain from 1 to 63 letters, numbers, or hyphens, 
                								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
                								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
                								followed by a combination of Stack Name and a UUID.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['GraphVectorSearchConfigurationArgs'] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether or not the graph can be reachable over the internet. 
+               								All access to graphs is IAM authenticated.
+               								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+               								the public IP address from the internet. When the graph isn't publicly available, you need 
+               								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+               								IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in other AZs.  Value must be between 0 and 2.
+        :param pulumi.Input['GraphVectorSearchConfigurationArgs'] vector_search_configuration: Vector search configuration for the Neptune Graph
         """
         pulumi.set(__self__, "provisioned_memory", provisioned_memory)
         if deletion_protection is not None:
@@ -78,8 +79,6 @@ class GraphArgs:
     def provisioned_memory(self) -> pulumi.Input[_builtins.int]:
         """
         The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "provisioned_memory")
 
@@ -91,7 +90,7 @@ class GraphArgs:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+        A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -131,7 +130,7 @@ class GraphArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+        Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -143,7 +142,12 @@ class GraphArgs:
     @pulumi.getter(name="publicConnectivity")
     def public_connectivity(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        Specifies whether or not the graph can be reachable over the internet. 
+        								All access to graphs is IAM authenticated.
+        								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+        								the public IP address from the internet. When the graph isn't publicly available, you need 
+        								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+        								IP address that is reachable from the VPC.
         """
         return pulumi.get(self, "public_connectivity")
 
@@ -154,9 +158,6 @@ class GraphArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -167,7 +168,7 @@ class GraphArgs:
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+        The number of replicas in other AZs.  Value must be between 0 and 2.
         """
         return pulumi.get(self, "replica_count")
 
@@ -178,9 +179,6 @@ class GraphArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -200,7 +198,7 @@ class GraphArgs:
     @pulumi.getter(name="vectorSearchConfiguration")
     def vector_search_configuration(self) -> Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']]:
         """
-        Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        Vector search configuration for the Neptune Graph
         """
         return pulumi.get(self, "vector_search_configuration")
 
@@ -228,25 +226,23 @@ class _GraphState:
                  vector_search_configuration: Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Graph resources.
-        :param pulumi.Input[_builtins.str] arn: (String) Graph resource ARN
-        :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
-        :param pulumi.Input[_builtins.str] endpoint: (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
+        :param pulumi.Input[_builtins.bool] deletion_protection: A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
                								The name must contain from 1 to 63 letters, numbers, or hyphens, 
                								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
                								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
                								followed by a combination of Stack Name and a UUID.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['GraphVectorSearchConfigurationArgs'] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether or not the graph can be reachable over the internet. 
+               								All access to graphs is IAM authenticated.
+               								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+               								the public IP address from the internet. When the graph isn't publicly available, you need 
+               								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+               								IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in other AZs.  Value must be between 0 and 2.
+        :param pulumi.Input['GraphVectorSearchConfigurationArgs'] vector_search_configuration: Vector search configuration for the Neptune Graph
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -280,9 +276,6 @@ class _GraphState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (String) Graph resource ARN
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -293,7 +286,7 @@ class _GraphState:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+        A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -304,9 +297,6 @@ class _GraphState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -345,7 +335,7 @@ class _GraphState:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+        Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -358,8 +348,6 @@ class _GraphState:
     def provisioned_memory(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "provisioned_memory")
 
@@ -371,7 +359,12 @@ class _GraphState:
     @pulumi.getter(name="publicConnectivity")
     def public_connectivity(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        Specifies whether or not the graph can be reachable over the internet. 
+        								All access to graphs is IAM authenticated.
+        								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+        								the public IP address from the internet. When the graph isn't publicly available, you need 
+        								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+        								IP address that is reachable from the VPC.
         """
         return pulumi.get(self, "public_connectivity")
 
@@ -382,9 +375,6 @@ class _GraphState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -395,7 +385,7 @@ class _GraphState:
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+        The number of replicas in other AZs.  Value must be between 0 and 2.
         """
         return pulumi.get(self, "replica_count")
 
@@ -406,9 +396,6 @@ class _GraphState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -418,9 +405,6 @@ class _GraphState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -440,7 +424,7 @@ class _GraphState:
     @pulumi.getter(name="vectorSearchConfiguration")
     def vector_search_configuration(self) -> Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']]:
         """
-        Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        Vector search configuration for the Neptune Graph
         """
         return pulumi.get(self, "vector_search_configuration")
 
@@ -468,61 +452,26 @@ class Graph(pulumi.CustomResource):
                  vector_search_configuration: Optional[pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
                  __props__=None):
         """
-        The `neptunegraph.Graph` resource creates an Amazon Analytics Graph.
-
-        ## Example Usage
-
-        ### Neptune Graph (with Vector Search configuration)
-
-        Creates a Neptune Graph with 16GB provisioned memory, vector search capability with 128 dimensions, and a single replica for high availability.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create Neptune Graph
-        example = aws.neptunegraph.Graph("example",
-            graph_name="example-graph-test-20250203",
-            provisioned_memory=16,
-            deletion_protection=False,
-            public_connectivity=False,
-            replica_count=1,
-            kms_key_identifier="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            vector_search_configuration={
-                "vector_search_dimension": 128,
-            },
-            tags={
-                "Environment": "Development",
-                "ModifiedBy": "AWS",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
-
-        ```sh
-        $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
-        ```
-
+        Create a Graph resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+        :param pulumi.Input[_builtins.bool] deletion_protection: A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
                								The name must contain from 1 to 63 letters, numbers, or hyphens, 
                								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
                								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
                								followed by a combination of Stack Name and a UUID.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether or not the graph can be reachable over the internet. 
+               								All access to graphs is IAM authenticated.
+               								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+               								the public IP address from the internet. When the graph isn't publicly available, you need 
+               								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+               								IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in other AZs.  Value must be between 0 and 2.
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector search configuration for the Neptune Graph
         """
         ...
     @overload
@@ -531,43 +480,7 @@ class Graph(pulumi.CustomResource):
                  args: GraphArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The `neptunegraph.Graph` resource creates an Amazon Analytics Graph.
-
-        ## Example Usage
-
-        ### Neptune Graph (with Vector Search configuration)
-
-        Creates a Neptune Graph with 16GB provisioned memory, vector search capability with 128 dimensions, and a single replica for high availability.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create Neptune Graph
-        example = aws.neptunegraph.Graph("example",
-            graph_name="example-graph-test-20250203",
-            provisioned_memory=16,
-            deletion_protection=False,
-            public_connectivity=False,
-            replica_count=1,
-            kms_key_identifier="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            vector_search_configuration={
-                "vector_search_dimension": 128,
-            },
-            tags={
-                "Environment": "Development",
-                "ModifiedBy": "AWS",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
-
-        ```sh
-        $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
-        ```
-
+        Create a Graph resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GraphArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -650,25 +563,23 @@ class Graph(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: (String) Graph resource ARN
-        :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
-        :param pulumi.Input[_builtins.str] endpoint: (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
+        :param pulumi.Input[_builtins.bool] deletion_protection: A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
                								The name must contain from 1 to 63 letters, numbers, or hyphens, 
                								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
                								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
                								followed by a combination of Stack Name and a UUID.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether or not the graph can be reachable over the internet. 
+               								All access to graphs is IAM authenticated.
+               								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+               								the public IP address from the internet. When the graph isn't publicly available, you need 
+               								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+               								IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.int] replica_count: The number of replicas in other AZs.  Value must be between 0 and 2.
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector search configuration for the Neptune Graph
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -693,25 +604,19 @@ class Graph(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        (String) Graph resource ARN
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[_builtins.bool]:
         """
-        Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+        A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
@@ -738,7 +643,7 @@ class Graph(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
+        Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -747,8 +652,6 @@ class Graph(pulumi.CustomResource):
     def provisioned_memory(self) -> pulumi.Output[_builtins.int]:
         """
         The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "provisioned_memory")
 
@@ -756,40 +659,36 @@ class Graph(pulumi.CustomResource):
     @pulumi.getter(name="publicConnectivity")
     def public_connectivity(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        Specifies whether or not the graph can be reachable over the internet. 
+        								All access to graphs is IAM authenticated.
+        								When the graph is publicly available, its domain name system (DNS) endpoint resolves to 
+        								the public IP address from the internet. When the graph isn't publicly available, you need 
+        								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
+        								IP address that is reachable from the VPC.
         """
         return pulumi.get(self, "public_connectivity")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
+        The number of replicas in other AZs.  Value must be between 0 and 2.
         """
         return pulumi.get(self, "replica_count")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -801,7 +700,7 @@ class Graph(pulumi.CustomResource):
     @pulumi.getter(name="vectorSearchConfiguration")
     def vector_search_configuration(self) -> pulumi.Output[Optional['outputs.GraphVectorSearchConfiguration']]:
         """
-        Vector Search Configuration (see below for nested schema of vector_search_configuration)
+        Vector search configuration for the Neptune Graph
         """
         return pulumi.get(self, "vector_search_configuration")
 

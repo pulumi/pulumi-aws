@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getRateBasedMod({
- *     name: "tfWAFRegionalRateBasedRule",
- * });
- * ```
- */
 export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
@@ -30,13 +16,7 @@ export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getRateBasedMod.
  */
 export interface GetRateBasedModArgs {
-    /**
-     * Name of the WAF Regional rate based rule.
-     */
     name: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,20 +31,6 @@ export interface GetRateBasedModResult {
     readonly name: string;
     readonly region: string;
 }
-/**
- * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getRateBasedMod({
- *     name: "tfWAFRegionalRateBasedRule",
- * });
- * ```
- */
 export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRateBasedModResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getRateBasedMod:getRateBasedMod", {
@@ -77,12 +43,6 @@ export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pu
  * A collection of arguments for invoking getRateBasedMod.
  */
 export interface GetRateBasedModOutputArgs {
-    /**
-     * Name of the WAF Regional rate based rule.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

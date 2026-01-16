@@ -15,32 +15,16 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
 
     public static final SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs Empty = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs();
 
-    /**
-     * Maximum. Set to `0` to exclude instance types with accelerators.
-     * 
-     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
-    /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
-     * 
-     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
-    /**
-     * Minimum.
-     * 
-     */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
-    /**
-     * @return Minimum.
-     * 
-     */
     public Optional<Output<Integer>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -70,44 +54,20 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
             $ = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
-        /**
-         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
-        /**
-         * @param min Minimum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(@Nullable Output<Integer> min) {
             $.min = min;
             return this;
         }
 
-        /**
-         * @param min Minimum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

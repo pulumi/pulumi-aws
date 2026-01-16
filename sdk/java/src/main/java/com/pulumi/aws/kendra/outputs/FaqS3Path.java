@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FaqS3Path {
-    /**
-     * @return The name of the S3 bucket that contains the file.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The name of the file.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     private String key;
 
     private FaqS3Path() {}
-    /**
-     * @return The name of the S3 bucket that contains the file.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The name of the file.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String key() {
         return this.key;
     }

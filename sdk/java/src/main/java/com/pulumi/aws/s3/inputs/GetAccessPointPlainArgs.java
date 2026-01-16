@@ -15,47 +15,23 @@ public final class GetAccessPointPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetAccessPointPlainArgs Empty = new GetAccessPointPlainArgs();
 
-    /**
-     * AWS account ID for the account that owns the specified access point.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable String accountId;
 
-    /**
-     * @return AWS account ID for the account that owns the specified access point.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * Name of the access point.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the access point.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,34 +62,16 @@ public final class GetAccessPointPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetAccessPointPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId AWS account ID for the account that owns the specified access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable String accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param name Name of the access point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

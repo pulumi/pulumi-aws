@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MultitenantDistributionOriginCustomHeader {
-    /**
-     * @return Name of the header.
-     * 
-     */
     private String headerName;
-    /**
-     * @return Value for the header.
-     * 
-     */
     private String headerValue;
 
     private MultitenantDistributionOriginCustomHeader() {}
-    /**
-     * @return Name of the header.
-     * 
-     */
     public String headerName() {
         return this.headerName;
     }
-    /**
-     * @return Value for the header.
-     * 
-     */
     public String headerValue() {
         return this.headerValue;
     }

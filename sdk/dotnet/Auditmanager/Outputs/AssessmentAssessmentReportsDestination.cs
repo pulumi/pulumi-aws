@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class AssessmentAssessmentReportsDestination
     {
-        /// <summary>
-        /// Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
-        /// </summary>
         public readonly string Destination;
-        /// <summary>
-        /// Destination type. Currently, `S3` is the only valid value.
-        /// </summary>
         public readonly string DestinationType;
 
         [OutputConstructor]

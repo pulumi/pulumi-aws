@@ -11,105 +11,12 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetInstances
     {
-        /// <summary>
-        /// Use this data source to get the instance IDs of SSM managed instances.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
-        ///             {
-        ///                 Name = "PlatformTypes",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssm/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the instance IDs of SSM managed instances.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
-        ///             {
-        ///                 Name = "PlatformTypes",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssm/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the instance IDs of SSM managed instances.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
-        ///             {
-        ///                 Name = "PlatformTypes",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssm/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
     }
@@ -119,19 +26,12 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("filters")]
         private List<Inputs.GetInstancesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInstancesFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -145,19 +45,12 @@ namespace Pulumi.Aws.Ssm
     {
         [Input("filters")]
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInstancesFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -176,9 +69,6 @@ namespace Pulumi.Aws.Ssm
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of instance IDs of the matched SSM managed instances.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;
 

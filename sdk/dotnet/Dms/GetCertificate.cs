@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Dms
 {
     public static class GetCertificate
     {
-        /// <summary>
-        /// Data source for managing an AWS DMS (Database Migration) Certificate.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Dms.GetCertificate.Invoke(new()
-        ///     {
-        ///         CertificateId = test.CertificateId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:dms/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DMS (Database Migration) Certificate.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Dms.GetCertificate.Invoke(new()
-        ///     {
-        ///         CertificateId = test.CertificateId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:dms/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DMS (Database Migration) Certificate.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Dms.GetCertificate.Invoke(new()
-        ///     {
-        ///         CertificateId = test.CertificateId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:dms/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-        /// </summary>
         [Input("certificateId", required: true)]
         public string CertificateId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -121,15 +46,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-        /// </summary>
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -151,48 +70,21 @@ namespace Pulumi.Aws.Dms
     [OutputType]
     public sealed class GetCertificateResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate.
-        /// </summary>
         public readonly string CertificateArn;
-        /// <summary>
-        /// The date that the certificate was created.
-        /// </summary>
         public readonly string CertificateCreationDate;
         public readonly string CertificateId;
-        /// <summary>
-        /// The owner of the certificate.
-        /// </summary>
         public readonly string CertificateOwner;
-        /// <summary>
-        /// The contents of a .pem file, which contains an X.509 certificate.
-        /// </summary>
         public readonly string CertificatePem;
-        /// <summary>
-        /// The owner of the certificate.
-        /// </summary>
         public readonly string CertificateWallet;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The key length of the cryptographic algorithm being used.
-        /// </summary>
         public readonly int KeyLength;
         public readonly string Region;
-        /// <summary>
-        /// The algorithm for the certificate.
-        /// </summary>
         public readonly string SigningAlgorithm;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The beginning date that the certificate is valid.
-        /// </summary>
         public readonly string ValidFromDate;
-        /// <summary>
-        /// The final date that the certificate is valid.
-        /// </summary>
         public readonly string ValidToDate;
 
         [OutputConstructor]

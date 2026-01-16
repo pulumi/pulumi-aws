@@ -24,9 +24,6 @@ class PolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[_builtins.str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the private CA to associate with the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -36,9 +33,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        JSON-formatted IAM policy to attach to the specified private CA resource.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -48,9 +42,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the private CA to associate with the policy.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -60,9 +51,6 @@ class PolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _PolicyState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[_builtins.str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the private CA to associate with the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -92,9 +77,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON-formatted IAM policy to attach to the specified private CA resource.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -104,9 +86,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -116,9 +95,6 @@ class _PolicyState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the private CA to associate with the policy.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -137,71 +113,9 @@ class Policy(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a resource based policy to a private CA.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[
-            {
-                "sid": "1",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [current["accountId"]],
-                }],
-                "actions": [
-                    "acm-pca:DescribeCertificateAuthority",
-                    "acm-pca:GetCertificate",
-                    "acm-pca:GetCertificateAuthorityCertificate",
-                    "acm-pca:ListPermissions",
-                    "acm-pca:ListTags",
-                ],
-                "resources": [example_aws_acmpca_certificate_authority["arn"]],
-            },
-            {
-                "sid": "2",
-                "effect": allow,
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [current["accountId"]],
-                }],
-                "actions": ["acm-pca:IssueCertificate"],
-                "resources": [example_aws_acmpca_certificate_authority["arn"]],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "acm-pca:TemplateArn",
-                    "values": ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
-                }],
-            },
-        ])
-        example_policy = aws.acmpca.Policy("example",
-            resource_arn=example_aws_acmpca_certificate_authority["arn"],
-            policy=example.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
-
-        Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
-
-        % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the private CA to associate with the policy.
         """
         ...
     @overload
@@ -210,66 +124,7 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a resource based policy to a private CA.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.get_policy_document(statements=[
-            {
-                "sid": "1",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [current["accountId"]],
-                }],
-                "actions": [
-                    "acm-pca:DescribeCertificateAuthority",
-                    "acm-pca:GetCertificate",
-                    "acm-pca:GetCertificateAuthorityCertificate",
-                    "acm-pca:ListPermissions",
-                    "acm-pca:ListTags",
-                ],
-                "resources": [example_aws_acmpca_certificate_authority["arn"]],
-            },
-            {
-                "sid": "2",
-                "effect": allow,
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [current["accountId"]],
-                }],
-                "actions": ["acm-pca:IssueCertificate"],
-                "resources": [example_aws_acmpca_certificate_authority["arn"]],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "acm-pca:TemplateArn",
-                    "values": ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
-                }],
-            },
-        ])
-        example_policy = aws.acmpca.Policy("example",
-            resource_arn=example_aws_acmpca_certificate_authority["arn"],
-            policy=example.json)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
-
-        Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
-
-        % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,9 +179,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the private CA to associate with the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,24 +192,15 @@ class Policy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        JSON-formatted IAM policy to attach to the specified private CA resource.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the private CA to associate with the policy.
-        """
         return pulumi.get(self, "resource_arn")
 

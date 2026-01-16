@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableStorageDescriptorSchemaReferenceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block that contains schema identity fields. Either this or the `SchemaVersionId` has to be provided. See `SchemaId` below.
-        /// </summary>
         [Input("schemaId")]
         public Input<Inputs.CatalogTableStorageDescriptorSchemaReferenceSchemaIdGetArgs>? SchemaId { get; set; }
 
-        /// <summary>
-        /// Unique ID assigned to a version of the schema. Either this or the `SchemaId` has to be provided.
-        /// </summary>
         [Input("schemaVersionId")]
         public Input<string>? SchemaVersionId { get; set; }
 
-        /// <summary>
-        /// Version number of the schema.
-        /// </summary>
         [Input("schemaVersionNumber", required: true)]
         public Input<int> SchemaVersionNumber { get; set; } = null!;
 

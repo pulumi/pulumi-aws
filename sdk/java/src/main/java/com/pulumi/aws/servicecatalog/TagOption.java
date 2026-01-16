@@ -15,81 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Service Catalog Tag Option.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.TagOption;
- * import com.pulumi.aws.servicecatalog.TagOptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TagOption("example", TagOptionArgs.builder()
- *             .key("nyckel")
- *             .value("värde")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/tagOption:TagOption")
 public class TagOption extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether tag option is active. Default is `true`.
-     * 
-     */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
-    /**
-     * @return Whether tag option is active. Default is `true`.
-     * 
-     */
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
-    /**
-     * Tag option key.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Tag option key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -99,35 +35,15 @@ public class TagOption extends com.pulumi.resources.CustomResource {
     public Output<String> owner() {
         return this.owner;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Tag option value.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Tag option value.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for a message in a custom format defined by the client application. See `CustomPayload`.
-        /// </summary>
         [Input("customPayload")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadGetArgs>? CustomPayload { get; set; }
 
-        /// <summary>
-        /// Configuration block for a message that defines a response card that the client application can show to the user. See `ImageResponseCard`.
-        /// </summary>
         [Input("imageResponseCard")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardGetArgs>? ImageResponseCard { get; set; }
 
-        /// <summary>
-        /// Configuration block for a message in plain text format. See `PlainTextMessage`.
-        /// </summary>
         [Input("plainTextMessage")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageGetArgs>? PlainTextMessage { get; set; }
 
-        /// <summary>
-        /// Configuration block for a message in Speech Synthesis Markup Language (SSML). See `SsmlMessage`.
-        /// </summary>
         [Input("ssmlMessage")]
         public Input<Inputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageGetArgs>? SsmlMessage { get; set; }
 

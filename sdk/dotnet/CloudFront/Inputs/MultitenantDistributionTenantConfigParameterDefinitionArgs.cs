@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("definitions")]
         private InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs>? _definitions;
-
-        /// <summary>
-        /// Definition of the parameter schema. See Parameter Definition Schema below.
-        /// </summary>
         public InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs> Definitions
         {
             get => _definitions ?? (_definitions = new InputList<Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs>());
             set => _definitions = value;
         }
 
-        /// <summary>
-        /// Name of the parameter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

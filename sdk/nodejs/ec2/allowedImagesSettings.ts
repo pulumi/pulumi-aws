@@ -7,56 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
- *
- * For more information about the image criteria that can be set, see the [AWS documentation on Allowed AMIs JSON configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration).
- *
- * > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
- *
- * > **NOTE:** There is only one allowed images settings configuration per AWS account and region. Creating this resource will configure the account-level settings.
- *
- * ## Example Usage
- *
- * ### Enable with Amazon AMIs only
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AllowedImagesSettings("example", {
- *     state: "enabled",
- *     imageCriterions: [{
- *         imageProviders: ["amazon"],
- *     }],
- * });
- * ```
- *
- * ### Enable audit mode with specific account IDs
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AllowedImagesSettings("example", {
- *     state: "audit-mode",
- *     imageCriterions: [{
- *         imageProviders: [
- *             "amazon",
- *             "123456789012",
- *         ],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EC2 allowed images settings. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
- * ```
- */
 export class AllowedImagesSettings extends pulumi.CustomResource {
     /**
      * Get an existing AllowedImagesSettings resource's state with the given name, ID, and optional extra
@@ -85,17 +35,8 @@ export class AllowedImagesSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AllowedImagesSettings.__pulumiType;
     }
 
-    /**
-     * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     */
     declare public readonly imageCriterions: pulumi.Output<outputs.ec2.AllowedImagesSettingsImageCriterion[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     */
     declare public readonly state: pulumi.Output<string>;
 
     /**
@@ -132,17 +73,8 @@ export class AllowedImagesSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AllowedImagesSettings resources.
  */
 export interface AllowedImagesSettingsState {
-    /**
-     * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     */
     imageCriterions?: pulumi.Input<pulumi.Input<inputs.ec2.AllowedImagesSettingsImageCriterion>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     */
     state?: pulumi.Input<string>;
 }
 
@@ -150,16 +82,7 @@ export interface AllowedImagesSettingsState {
  * The set of arguments for constructing a AllowedImagesSettings resource.
  */
 export interface AllowedImagesSettingsArgs {
-    /**
-     * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     */
     imageCriterions?: pulumi.Input<pulumi.Input<inputs.ec2.AllowedImagesSettingsImageCriterion>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     */
     state: pulumi.Input<string>;
 }

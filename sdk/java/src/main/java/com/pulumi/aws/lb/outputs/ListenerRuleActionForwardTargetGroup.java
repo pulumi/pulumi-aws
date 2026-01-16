@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionForwardTargetGroup {
-    /**
-     * @return The Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     private String arn;
-    /**
-     * @return The weight. The range is 0 to 999.
-     * 
-     */
     private @Nullable Integer weight;
 
     private ListenerRuleActionForwardTargetGroup() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The weight. The range is 0 to 999.
-     * 
-     */
     public Optional<Integer> weight() {
         return Optional.ofNullable(this.weight);
     }

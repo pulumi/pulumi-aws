@@ -28,11 +28,6 @@ class TestGridProjectArgs:
                  vpc_config: Optional[pulumi.Input['TestGridProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a TestGridProject resource.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the project.
-        :param pulumi.Input[_builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['TestGridProjectVpcConfigArgs'] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -48,9 +43,6 @@ class TestGridProjectArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable description of the project.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -60,9 +52,6 @@ class TestGridProjectArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Selenium testing project.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -72,9 +61,6 @@ class TestGridProjectArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -84,9 +70,6 @@ class TestGridProjectArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,9 +79,6 @@ class TestGridProjectArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['TestGridProjectVpcConfigArgs']]:
-        """
-        The VPC security groups and subnets that are attached to a project. See VPC Config below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -118,13 +98,6 @@ class _TestGridProjectState:
                  vpc_config: Optional[pulumi.Input['TestGridProjectVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering TestGridProject resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Test Grid Project.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the project.
-        :param pulumi.Input[_builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['TestGridProjectVpcConfigArgs'] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -144,9 +117,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name of this Test Grid Project.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -156,9 +126,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Human-readable description of the project.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -168,9 +135,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Selenium testing project.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -180,9 +144,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -192,9 +153,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -204,9 +162,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -216,9 +171,6 @@ class _TestGridProjectState:
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['TestGridProjectVpcConfigArgs']]:
-        """
-        The VPC security groups and subnets that are attached to a project. See VPC Config below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -239,44 +191,9 @@ class TestGridProject(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource to manage AWS Device Farm Test Grid Projects.
-
-        > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.devicefarm.TestGridProject("example",
-            name="example",
-            vpc_config={
-                "vpc_id": example_aws_vpc["id"],
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-                "security_group_ids": [__item["id"] for __item in example_aws_security_group],
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
-
-        Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
-
-        % pulumi import aws_devicefarm_test_grid_project.example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-
+        Create a TestGridProject resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the project.
-        :param pulumi.Input[_builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
         ...
     @overload
@@ -285,37 +202,7 @@ class TestGridProject(pulumi.CustomResource):
                  args: Optional[TestGridProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage AWS Device Farm Test Grid Projects.
-
-        > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.devicefarm.TestGridProject("example",
-            name="example",
-            vpc_config={
-                "vpc_id": example_aws_vpc["id"],
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-                "security_group_ids": [__item["id"] for __item in example_aws_security_group],
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
-
-        Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
-
-        % pulumi import aws_devicefarm_test_grid_project.example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-
+        Create a TestGridProject resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TestGridProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,13 +263,6 @@ class TestGridProject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Test Grid Project.
-        :param pulumi.Input[_builtins.str] description: Human-readable description of the project.
-        :param pulumi.Input[_builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,56 +280,35 @@ class TestGridProject(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name of this Test Grid Project.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Human-readable description of the project.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Selenium testing project.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.TestGridProjectVpcConfig']]:
-        """
-        The VPC security groups and subnets that are attached to a project. See VPC Config below.
-        """
         return pulumi.get(self, "vpc_config")
 

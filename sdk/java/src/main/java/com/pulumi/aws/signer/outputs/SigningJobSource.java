@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SigningJobSource {
-    /**
-     * @return A configuration block describing the S3 Source object: See S3 Source below for details.
-     * 
-     */
     private SigningJobSourceS3 s3;
 
     private SigningJobSource() {}
-    /**
-     * @return A configuration block describing the S3 Source object: See S3 Source below for details.
-     * 
-     */
     public SigningJobSourceS3 s3() {
         return this.s3;
     }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class KeyRegistrationKeyRegistrationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the key is set as the default key for encryption and decryption use.
-        /// </summary>
         [Input("defaultKey")]
         public Input<bool>? DefaultKey { get; set; }
 
-        /// <summary>
-        /// ARN of the AWS KMS key that is registered for encryption and decryption use.
-        /// </summary>
         [Input("keyArn", required: true)]
         public Input<string> KeyArn { get; set; } = null!;
 

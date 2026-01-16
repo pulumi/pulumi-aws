@@ -16,66 +16,30 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeySigningKeyArgs Empty = new KeySigningKeyArgs();
 
-    /**
-     * Identifier of the Route 53 Hosted Zone.
-     * 
-     */
     @Import(name="hostedZoneId", required=true)
     private Output<String> hostedZoneId;
 
-    /**
-     * @return Identifier of the Route 53 Hosted Zone.
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-     * 
-     */
     @Import(name="keyManagementServiceArn", required=true)
     private Output<String> keyManagementServiceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-     * 
-     */
     public Output<String> keyManagementServiceArn() {
         return this.keyManagementServiceArn;
     }
 
-    /**
-     * Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -107,90 +71,38 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeySigningKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostedZoneId Identifier of the Route 53 Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
-        /**
-         * @param hostedZoneId Identifier of the Route 53 Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }
 
-        /**
-         * @param keyManagementServiceArn Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyManagementServiceArn(Output<String> keyManagementServiceArn) {
             $.keyManagementServiceArn = keyManagementServiceArn;
             return this;
         }
 
-        /**
-         * @param keyManagementServiceArn Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyManagementServiceArn(String keyManagementServiceArn) {
             return keyManagementServiceArn(Output.of(keyManagementServiceArn));
         }
 
-        /**
-         * @param name Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param status Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

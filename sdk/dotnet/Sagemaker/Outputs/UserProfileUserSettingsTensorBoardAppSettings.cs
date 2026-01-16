@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsTensorBoardAppSettings
     {
-        /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
-        /// </summary>
         public readonly Outputs.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]

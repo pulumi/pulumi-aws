@@ -12,39 +12,21 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryLastRunSummaryExecutionStatGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Bytes metered for a single scheduled query run.
-        /// </summary>
         [Input("bytesMetered")]
         public Input<int>? BytesMetered { get; set; }
 
-        /// <summary>
-        /// Bytes scanned for a single scheduled query run.
-        /// </summary>
         [Input("cumulativeBytesScanned")]
         public Input<int>? CumulativeBytesScanned { get; set; }
 
-        /// <summary>
-        /// Data writes metered for records ingested in a single scheduled query run.
-        /// </summary>
         [Input("dataWrites")]
         public Input<int>? DataWrites { get; set; }
 
-        /// <summary>
-        /// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-        /// </summary>
         [Input("executionTimeInMillis")]
         public Input<int>? ExecutionTimeInMillis { get; set; }
 
-        /// <summary>
-        /// Number of rows present in the output from running a query before ingestion to destination data source.
-        /// </summary>
         [Input("queryResultRows")]
         public Input<int>? QueryResultRows { get; set; }
 
-        /// <summary>
-        /// Number of records ingested for a single scheduled query run.
-        /// </summary>
         [Input("recordsIngested")]
         public Input<int>? RecordsIngested { get; set; }
 

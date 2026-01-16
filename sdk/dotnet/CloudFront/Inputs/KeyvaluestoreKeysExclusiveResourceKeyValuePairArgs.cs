@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key to put.
+        /// The key to put.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Value to put.
+        /// The value to put.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUsersUserExternalId {
-    /**
-     * @return Identifier issued to this resource by an external identity provider.
-     * 
-     */
     private String id;
-    /**
-     * @return Issuer for an external identifier.
-     * 
-     */
     private String issuer;
 
     private GetUsersUserExternalId() {}
-    /**
-     * @return Identifier issued to this resource by an external identity provider.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Issuer for an external identifier.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }

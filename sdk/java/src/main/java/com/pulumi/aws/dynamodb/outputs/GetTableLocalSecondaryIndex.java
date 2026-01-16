@@ -11,20 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableLocalSecondaryIndex {
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     private String name;
     private List<String> nonKeyAttributes;
     private String projectionType;
     private String rangeKey;
 
     private GetTableLocalSecondaryIndex() {}
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     public String name() {
         return this.name;
     }

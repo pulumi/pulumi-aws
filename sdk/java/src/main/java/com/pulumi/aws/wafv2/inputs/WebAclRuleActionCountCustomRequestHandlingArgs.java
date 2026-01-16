@@ -15,17 +15,9 @@ public final class WebAclRuleActionCountCustomRequestHandlingArgs extends com.pu
 
     public static final WebAclRuleActionCountCustomRequestHandlingArgs Empty = new WebAclRuleActionCountCustomRequestHandlingArgs();
 
-    /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-     * 
-     */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-     * 
-     */
     public Output<List<WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
         return this.insertHeaders;
     }
@@ -54,33 +46,15 @@ public final class WebAclRuleActionCountCustomRequestHandlingArgs extends com.pu
             $ = new WebAclRuleActionCountCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(Output<List<WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(List<WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

@@ -12,91 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a VPC Endpoint Policy resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
-//				Service: pulumi.StringRef("dynamodb"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
-//				ServiceName: pulumi.String(example.ServiceName),
-//				VpcId:       exampleVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "AllowAll",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": "*",
-//						},
-//						"Action": []string{
-//							"dynamodb:*",
-//						},
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = ec2.NewVpcEndpointPolicy(ctx, "example", &ec2.VpcEndpointPolicyArgs{
-//				VpcEndpointId: exampleVpcEndpoint.ID(),
-//				Policy:        pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-// ```
 type VpcEndpointPolicy struct {
 	pulumi.CustomResourceState
 
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The VPC Endpoint ID.
+	Policy        pulumi.StringOutput `pulumi:"policy"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
@@ -133,20 +53,14 @@ func GetVpcEndpointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointPolicy resources.
 type vpcEndpointPolicyState struct {
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The VPC Endpoint ID.
+	Policy        *string `pulumi:"policy"`
+	Region        *string `pulumi:"region"`
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 type VpcEndpointPolicyState struct {
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The VPC Endpoint ID.
+	Policy        pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	VpcEndpointId pulumi.StringPtrInput
 }
 
@@ -155,21 +69,15 @@ func (VpcEndpointPolicyState) ElementType() reflect.Type {
 }
 
 type vpcEndpointPolicyArgs struct {
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The VPC Endpoint ID.
-	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	Policy        *string `pulumi:"policy"`
+	Region        *string `pulumi:"region"`
+	VpcEndpointId string  `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a VpcEndpointPolicy resource.
 type VpcEndpointPolicyArgs struct {
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The VPC Endpoint ID.
+	Policy        pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	VpcEndpointId pulumi.StringInput
 }
 
@@ -260,17 +168,14 @@ func (o VpcEndpointPolicyOutput) ToVpcEndpointPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 func (o VpcEndpointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The VPC Endpoint ID.
 func (o VpcEndpointPolicyOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }

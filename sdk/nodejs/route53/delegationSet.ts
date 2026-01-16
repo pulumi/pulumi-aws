@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.route53.DelegationSet("main", {referenceName: "DynDNS"});
- * const primary = new aws.route53.Zone("primary", {
- *     name: "mydomain.com",
- *     delegationSetId: main.id,
- * });
- * const secondary = new aws.route53.Zone("secondary", {
- *     name: "coolcompany.io",
- *     delegationSetId: main.id,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
- * ```
- */
 export class DelegationSet extends pulumi.CustomResource {
     /**
      * Get an existing DelegationSet resource's state with the given name, ID, and optional extra
@@ -60,19 +32,8 @@ export class DelegationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DelegationSet.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A list of authoritative name servers for the hosted zone
-     * (effectively a list of NS records).
-     */
     declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
-    /**
-     * This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     */
     declare public readonly referenceName: pulumi.Output<string | undefined>;
 
     /**
@@ -106,19 +67,8 @@ export class DelegationSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DelegationSet resources.
  */
 export interface DelegationSetState {
-    /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A list of authoritative name servers for the hosted zone
-     * (effectively a list of NS records).
-     */
     nameServers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     */
     referenceName?: pulumi.Input<string>;
 }
 
@@ -126,9 +76,5 @@ export interface DelegationSetState {
  * The set of arguments for constructing a DelegationSet resource.
  */
 export interface DelegationSetArgs {
-    /**
-     * This is a reference name used in Caller Reference
-     * (helpful for identifying single delegation set amongst others)
-     */
     referenceName?: pulumi.Input<string>;
 }

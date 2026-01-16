@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the intent.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("slots")]
         private InputList<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotGetArgs>? _slots;
-
-        /// <summary>
-        /// Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `Slot`.
-        /// </summary>
         public InputList<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotGetArgs> Slots
         {
             get => _slots ?? (_slots = new InputList<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotGetArgs>());

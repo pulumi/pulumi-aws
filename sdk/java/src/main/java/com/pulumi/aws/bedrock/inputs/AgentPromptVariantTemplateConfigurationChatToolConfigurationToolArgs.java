@@ -16,32 +16,16 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
 
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs();
 
-    /**
-     * Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-     * 
-     */
     @Import(name="cachePoint")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs> cachePoint;
 
-    /**
-     * @return Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs>> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
 
-    /**
-     * The specification for the tool. See Tool Specification for more information.
-     * 
-     */
     @Import(name="toolSpec")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs> toolSpec;
 
-    /**
-     * @return The specification for the tool. See Tool Specification for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs>> toolSpec() {
         return Optional.ofNullable(this.toolSpec);
     }
@@ -71,44 +55,20 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
             $ = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cachePoint Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachePoint(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs> cachePoint) {
             $.cachePoint = cachePoint;
             return this;
         }
 
-        /**
-         * @param cachePoint Creates a cache checkpoint within a tool designation. See Cache Point for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachePoint(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs cachePoint) {
             return cachePoint(Output.of(cachePoint));
         }
 
-        /**
-         * @param toolSpec The specification for the tool. See Tool Specification for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolSpec(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs> toolSpec) {
             $.toolSpec = toolSpec;
             return this;
         }
 
-        /**
-         * @param toolSpec The specification for the tool. See Tool Specification for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder toolSpec(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs toolSpec) {
             return toolSpec(Output.of(toolSpec));
         }

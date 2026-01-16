@@ -41,24 +41,6 @@ class V2modelsIntentArgs:
                  timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsIntent resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this intent.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input['V2modelsIntentClosingSettingArgs'] closing_setting: Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        :param pulumi.Input[_builtins.str] description: Description of the intent. Use the description to help identify the intent in lists.
-        :param pulumi.Input['V2modelsIntentDialogCodeHookArgs'] dialog_code_hook: Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs'] fulfillment_code_hook: Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        :param pulumi.Input['V2modelsIntentInitialResponseSettingArgs'] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        :param pulumi.Input['V2modelsIntentKendraConfigurationArgs'] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -97,9 +79,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the bot associated with this intent.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -109,9 +88,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the bot associated with this intent.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -121,9 +97,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -133,9 +106,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="closingSetting")
     def closing_setting(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']]:
-        """
-        Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        """
         return pulumi.get(self, "closing_setting")
 
     @closing_setting.setter
@@ -154,9 +124,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the intent. Use the description to help identify the intent in lists.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -166,9 +133,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']]:
-        """
-        Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
@@ -178,9 +142,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="fulfillmentCodeHook")
     def fulfillment_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']]:
-        """
-        Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        """
         return pulumi.get(self, "fulfillment_code_hook")
 
     @fulfillment_code_hook.setter
@@ -190,9 +151,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="initialResponseSetting")
     def initial_response_setting(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']]:
-        """
-        Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        """
         return pulumi.get(self, "initial_response_setting")
 
     @initial_response_setting.setter
@@ -202,9 +160,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="inputContexts")
     def input_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]:
-        """
-        Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        """
         return pulumi.get(self, "input_contexts")
 
     @input_contexts.setter
@@ -214,9 +169,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]:
-        """
-        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        """
         return pulumi.get(self, "kendra_configuration")
 
     @kendra_configuration.setter
@@ -226,11 +178,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -240,9 +187,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="outputContexts")
     def output_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]:
-        """
-        Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        """
         return pulumi.get(self, "output_contexts")
 
     @output_contexts.setter
@@ -252,9 +196,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the built-in intent to base this intent on.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
@@ -264,9 +205,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -276,9 +214,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
-        """
-        Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        """
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
@@ -288,9 +223,6 @@ class V2modelsIntentArgs:
     @_builtins.property
     @pulumi.getter(name="slotPriorities")
     def slot_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]:
-        """
-        Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
-        """
         return pulumi.get(self, "slot_priorities")
 
     @slot_priorities.setter
@@ -333,27 +265,6 @@ class _V2modelsIntentState:
                  timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsIntent resources.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this intent.
-        :param pulumi.Input['V2modelsIntentClosingSettingArgs'] closing_setting: Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        :param pulumi.Input[_builtins.str] creation_date_time: Timestamp of the date and time that the intent was created.
-        :param pulumi.Input[_builtins.str] description: Description of the intent. Use the description to help identify the intent in lists.
-        :param pulumi.Input['V2modelsIntentDialogCodeHookArgs'] dialog_code_hook: Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs'] fulfillment_code_hook: Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        :param pulumi.Input['V2modelsIntentInitialResponseSettingArgs'] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        :param pulumi.Input[_builtins.str] intent_id: Unique identifier for the intent.
-        :param pulumi.Input['V2modelsIntentKendraConfigurationArgs'] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        :param pulumi.Input[_builtins.str] last_updated_date_time: Timestamp of the last time that the intent was modified.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -401,9 +312,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the bot associated with this intent.
-        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -413,9 +321,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the bot associated with this intent.
-        """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
@@ -425,9 +330,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="closingSetting")
     def closing_setting(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']]:
-        """
-        Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        """
         return pulumi.get(self, "closing_setting")
 
     @closing_setting.setter
@@ -446,9 +348,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="creationDateTime")
     def creation_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp of the date and time that the intent was created.
-        """
         return pulumi.get(self, "creation_date_time")
 
     @creation_date_time.setter
@@ -458,9 +357,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the intent. Use the description to help identify the intent in lists.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -470,9 +366,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']]:
-        """
-        Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
@@ -482,9 +375,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="fulfillmentCodeHook")
     def fulfillment_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']]:
-        """
-        Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        """
         return pulumi.get(self, "fulfillment_code_hook")
 
     @fulfillment_code_hook.setter
@@ -494,9 +384,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="initialResponseSetting")
     def initial_response_setting(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']]:
-        """
-        Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        """
         return pulumi.get(self, "initial_response_setting")
 
     @initial_response_setting.setter
@@ -506,9 +393,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="inputContexts")
     def input_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]:
-        """
-        Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        """
         return pulumi.get(self, "input_contexts")
 
     @input_contexts.setter
@@ -518,9 +402,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="intentId")
     def intent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the intent.
-        """
         return pulumi.get(self, "intent_id")
 
     @intent_id.setter
@@ -530,9 +411,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]:
-        """
-        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        """
         return pulumi.get(self, "kendra_configuration")
 
     @kendra_configuration.setter
@@ -542,9 +420,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDateTime")
     def last_updated_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Timestamp of the last time that the intent was modified.
-        """
         return pulumi.get(self, "last_updated_date_time")
 
     @last_updated_date_time.setter
@@ -554,9 +429,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -566,11 +438,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -580,9 +447,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="outputContexts")
     def output_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]:
-        """
-        Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        """
         return pulumi.get(self, "output_contexts")
 
     @output_contexts.setter
@@ -592,9 +456,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier for the built-in intent to base this intent on.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
@@ -604,9 +465,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -616,9 +474,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
-        """
-        Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        """
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
@@ -628,9 +483,6 @@ class _V2modelsIntentState:
     @_builtins.property
     @pulumi.getter(name="slotPriorities")
     def slot_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]:
-        """
-        Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
-        """
         return pulumi.get(self, "slot_priorities")
 
     @slot_priorities.setter
@@ -673,34 +525,9 @@ class V2modelsIntent(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
-        ```
-
+        Create a V2modelsIntent resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this intent.
-        :param pulumi.Input[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']] closing_setting: Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        :param pulumi.Input[_builtins.str] description: Description of the intent. Use the description to help identify the intent in lists.
-        :param pulumi.Input[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']] dialog_code_hook: Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        :param pulumi.Input[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']] fulfillment_code_hook: Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        :param pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        :param pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
         ...
     @overload
@@ -709,14 +536,7 @@ class V2modelsIntent(pulumi.CustomResource):
                  args: V2modelsIntentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
-
-        ```sh
-        $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
-        ```
-
+        Create a V2modelsIntent resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param V2modelsIntentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -824,27 +644,6 @@ class V2modelsIntent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
-        :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this intent.
-        :param pulumi.Input[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']] closing_setting: Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        :param pulumi.Input[_builtins.str] creation_date_time: Timestamp of the date and time that the intent was created.
-        :param pulumi.Input[_builtins.str] description: Description of the intent. Use the description to help identify the intent in lists.
-        :param pulumi.Input[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']] dialog_code_hook: Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        :param pulumi.Input[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']] fulfillment_code_hook: Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        :param pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        :param pulumi.Input[_builtins.str] intent_id: Unique identifier for the intent.
-        :param pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        :param pulumi.Input[_builtins.str] last_updated_date_time: Timestamp of the last time that the intent was modified.
-        :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -876,25 +675,16 @@ class V2modelsIntent(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the bot associated with this intent.
-        """
         return pulumi.get(self, "bot_id")
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        Version of the bot associated with this intent.
-        """
         return pulumi.get(self, "bot_version")
 
     @_builtins.property
     @pulumi.getter(name="closingSetting")
     def closing_setting(self) -> pulumi.Output[Optional['outputs.V2modelsIntentClosingSetting']]:
-        """
-        Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
-        """
         return pulumi.get(self, "closing_setting")
 
     @_builtins.property
@@ -905,131 +695,81 @@ class V2modelsIntent(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="creationDateTime")
     def creation_date_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp of the date and time that the intent was created.
-        """
         return pulumi.get(self, "creation_date_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the intent. Use the description to help identify the intent in lists.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> pulumi.Output[Optional['outputs.V2modelsIntentDialogCodeHook']]:
-        """
-        Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
-        """
         return pulumi.get(self, "dialog_code_hook")
 
     @_builtins.property
     @pulumi.getter(name="fulfillmentCodeHook")
     def fulfillment_code_hook(self) -> pulumi.Output[Optional['outputs.V2modelsIntentFulfillmentCodeHook']]:
-        """
-        Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
-        """
         return pulumi.get(self, "fulfillment_code_hook")
 
     @_builtins.property
     @pulumi.getter(name="initialResponseSetting")
     def initial_response_setting(self) -> pulumi.Output[Optional['outputs.V2modelsIntentInitialResponseSetting']]:
-        """
-        Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
-        """
         return pulumi.get(self, "initial_response_setting")
 
     @_builtins.property
     @pulumi.getter(name="inputContexts")
     def input_contexts(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsIntentInputContext']]]:
-        """
-        Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        """
         return pulumi.get(self, "input_contexts")
 
     @_builtins.property
     @pulumi.getter(name="intentId")
     def intent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the intent.
-        """
         return pulumi.get(self, "intent_id")
 
     @_builtins.property
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> pulumi.Output[Optional['outputs.V2modelsIntentKendraConfiguration']]:
-        """
-        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
-        """
         return pulumi.get(self, "kendra_configuration")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDateTime")
     def last_updated_date_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp of the last time that the intent was modified.
-        """
         return pulumi.get(self, "last_updated_date_time")
 
     @_builtins.property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
-        """
         return pulumi.get(self, "locale_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="outputContexts")
     def output_contexts(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsIntentOutputContext']]]:
-        """
-        Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
-        """
         return pulumi.get(self, "output_contexts")
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Identifier for the built-in intent to base this intent on.
-        """
         return pulumi.get(self, "parent_intent_signature")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsIntentSampleUtterance']]]:
-        """
-        Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
-        """
         return pulumi.get(self, "sample_utterances")
 
     @_builtins.property
     @pulumi.getter(name="slotPriorities")
     def slot_priorities(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsIntentSlotPriority']]]:
-        """
-        Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
-        """
         return pulumi.get(self, "slot_priorities")
 
     @_builtins.property

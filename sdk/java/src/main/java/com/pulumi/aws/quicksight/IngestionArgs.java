@@ -23,66 +23,30 @@ public final class IngestionArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * ID of the dataset used in the ingestion.
-     * 
-     */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
-    /**
-     * @return ID of the dataset used in the ingestion.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
 
-    /**
-     * ID for the ingestion.
-     * 
-     */
     @Import(name="ingestionId", required=true)
     private Output<String> ingestionId;
 
-    /**
-     * @return ID for the ingestion.
-     * 
-     */
     public Output<String> ingestionId() {
         return this.ingestionId;
     }
 
-    /**
-     * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="ingestionType", required=true)
     private Output<String> ingestionType;
 
-    /**
-     * @return Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> ingestionType() {
         return this.ingestionType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -124,90 +88,38 @@ public final class IngestionArgs extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param dataSetId ID of the dataset used in the ingestion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId ID of the dataset used in the ingestion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }
 
-        /**
-         * @param ingestionId ID for the ingestion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionId(Output<String> ingestionId) {
             $.ingestionId = ingestionId;
             return this;
         }
 
-        /**
-         * @param ingestionId ID for the ingestion.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionId(String ingestionId) {
             return ingestionId(Output.of(ingestionId));
         }
 
-        /**
-         * @param ingestionType Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionType(Output<String> ingestionType) {
             $.ingestionType = ingestionType;
             return this;
         }
 
-        /**
-         * @param ingestionType Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingestionType(String ingestionType) {
             return ingestionType(Output.of(ingestionType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

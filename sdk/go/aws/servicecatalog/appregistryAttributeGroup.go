@@ -12,74 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Service Catalog AppRegistry Attribute Group.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"app":   "exampleapp",
-//				"group": "examplegroup",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = servicecatalog.NewAppregistryAttributeGroup(ctx, "example", &servicecatalog.AppregistryAttributeGroupArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("example description"),
-//				Attributes:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup example 1234567890abcfedhijk09876s
-// ```
 type AppregistryAttributeGroup struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Attribute Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A JSON string of nested key-value pairs that represents the attributes of the group.
-	//
-	// The following arguments are optional:
-	Attributes pulumi.StringOutput `pulumi:"attributes"`
-	// Description of the Attribute Group.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Attributes  pulumi.StringOutput    `pulumi:"attributes"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the Attribute Group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAppregistryAttributeGroup registers a new resource with the given unique name, arguments, and options.
@@ -115,41 +57,23 @@ func GetAppregistryAttributeGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppregistryAttributeGroup resources.
 type appregistryAttributeGroupState struct {
-	// ARN of the Attribute Group.
-	Arn *string `pulumi:"arn"`
-	// A JSON string of nested key-value pairs that represents the attributes of the group.
-	//
-	// The following arguments are optional:
-	Attributes *string `pulumi:"attributes"`
-	// Description of the Attribute Group.
-	Description *string `pulumi:"description"`
-	// Name of the Attribute Group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Attributes  *string           `pulumi:"attributes"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type AppregistryAttributeGroupState struct {
-	// ARN of the Attribute Group.
-	Arn pulumi.StringPtrInput
-	// A JSON string of nested key-value pairs that represents the attributes of the group.
-	//
-	// The following arguments are optional:
-	Attributes pulumi.StringPtrInput
-	// Description of the Attribute Group.
+	Arn         pulumi.StringPtrInput
+	Attributes  pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// Name of the Attribute Group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (AppregistryAttributeGroupState) ElementType() reflect.Type {
@@ -157,34 +81,20 @@ func (AppregistryAttributeGroupState) ElementType() reflect.Type {
 }
 
 type appregistryAttributeGroupArgs struct {
-	// A JSON string of nested key-value pairs that represents the attributes of the group.
-	//
-	// The following arguments are optional:
-	Attributes string `pulumi:"attributes"`
-	// Description of the Attribute Group.
-	Description *string `pulumi:"description"`
-	// Name of the Attribute Group.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Attributes  string            `pulumi:"attributes"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppregistryAttributeGroup resource.
 type AppregistryAttributeGroupArgs struct {
-	// A JSON string of nested key-value pairs that represents the attributes of the group.
-	//
-	// The following arguments are optional:
-	Attributes pulumi.StringInput
-	// Description of the Attribute Group.
+	Attributes  pulumi.StringInput
 	Description pulumi.StringPtrInput
-	// Name of the Attribute Group.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (AppregistryAttributeGroupArgs) ElementType() reflect.Type {
@@ -274,39 +184,30 @@ func (o AppregistryAttributeGroupOutput) ToAppregistryAttributeGroupOutputWithCo
 	return o
 }
 
-// ARN of the Attribute Group.
 func (o AppregistryAttributeGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A JSON string of nested key-value pairs that represents the attributes of the group.
-//
-// The following arguments are optional:
 func (o AppregistryAttributeGroupOutput) Attributes() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringOutput { return v.Attributes }).(pulumi.StringOutput)
 }
 
-// Description of the Attribute Group.
 func (o AppregistryAttributeGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Attribute Group.
 func (o AppregistryAttributeGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppregistryAttributeGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AppregistryAttributeGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AppregistryAttributeGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

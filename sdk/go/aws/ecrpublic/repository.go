@@ -12,85 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Public Elastic Container Registry Repository.
-//
-// > **NOTE:** This resource can only be used in the `us-east-1` region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecrpublic"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: png,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecrpublic.NewRepository(ctx, "foo", &ecrpublic.RepositoryArgs{
-//				RepositoryName: pulumi.String("bar"),
-//				CatalogData: &ecrpublic.RepositoryCatalogDataArgs{
-//					AboutText: pulumi.String("About Text"),
-//					Architectures: pulumi.StringArray{
-//						pulumi.String("ARM"),
-//					},
-//					Description:   pulumi.String("Description"),
-//					LogoImageBlob: pulumi.String(invokeFilebase64.Result),
-//					OperatingSystems: pulumi.StringArray{
-//						pulumi.String("Linux"),
-//					},
-//					UsageText: pulumi.String("Usage Text"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:ecrpublic/repository:Repository example example
-// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
-	// Full ARN of the repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Catalog data configuration for the repository. See below for schema.
-	CatalogData  RepositoryCatalogDataPtrOutput `pulumi:"catalogData"`
-	ForceDestroy pulumi.BoolPtrOutput           `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The registry ID where the repository was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
-	// Name of the repository.
-	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	// The URI of the repository.
-	RepositoryUri pulumi.StringOutput `pulumi:"repositoryUri"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn            pulumi.StringOutput            `pulumi:"arn"`
+	CatalogData    RepositoryCatalogDataPtrOutput `pulumi:"catalogData"`
+	ForceDestroy   pulumi.BoolPtrOutput           `pulumi:"forceDestroy"`
+	Region         pulumi.StringOutput            `pulumi:"region"`
+	RegistryId     pulumi.StringOutput            `pulumi:"registryId"`
+	RepositoryName pulumi.StringOutput            `pulumi:"repositoryName"`
+	RepositoryUri  pulumi.StringOutput            `pulumi:"repositoryUri"`
+	Tags           pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput         `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -126,43 +59,27 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
-	// Full ARN of the repository.
-	Arn *string `pulumi:"arn"`
-	// Catalog data configuration for the repository. See below for schema.
-	CatalogData  *RepositoryCatalogData `pulumi:"catalogData"`
-	ForceDestroy *bool                  `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The registry ID where the repository was created.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the repository.
-	RepositoryName *string `pulumi:"repositoryName"`
-	// The URI of the repository.
-	RepositoryUri *string `pulumi:"repositoryUri"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn            *string                `pulumi:"arn"`
+	CatalogData    *RepositoryCatalogData `pulumi:"catalogData"`
+	ForceDestroy   *bool                  `pulumi:"forceDestroy"`
+	Region         *string                `pulumi:"region"`
+	RegistryId     *string                `pulumi:"registryId"`
+	RepositoryName *string                `pulumi:"repositoryName"`
+	RepositoryUri  *string                `pulumi:"repositoryUri"`
+	Tags           map[string]string      `pulumi:"tags"`
+	TagsAll        map[string]string      `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
-	// Full ARN of the repository.
-	Arn pulumi.StringPtrInput
-	// Catalog data configuration for the repository. See below for schema.
-	CatalogData  RepositoryCatalogDataPtrInput
-	ForceDestroy pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The registry ID where the repository was created.
-	RegistryId pulumi.StringPtrInput
-	// Name of the repository.
+	Arn            pulumi.StringPtrInput
+	CatalogData    RepositoryCatalogDataPtrInput
+	ForceDestroy   pulumi.BoolPtrInput
+	Region         pulumi.StringPtrInput
+	RegistryId     pulumi.StringPtrInput
 	RepositoryName pulumi.StringPtrInput
-	// The URI of the repository.
-	RepositoryUri pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	RepositoryUri  pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -170,28 +87,20 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	// Catalog data configuration for the repository. See below for schema.
-	CatalogData  *RepositoryCatalogData `pulumi:"catalogData"`
-	ForceDestroy *bool                  `pulumi:"forceDestroy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the repository.
-	RepositoryName string `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CatalogData    *RepositoryCatalogData `pulumi:"catalogData"`
+	ForceDestroy   *bool                  `pulumi:"forceDestroy"`
+	Region         *string                `pulumi:"region"`
+	RepositoryName string                 `pulumi:"repositoryName"`
+	Tags           map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	// Catalog data configuration for the repository. See below for schema.
-	CatalogData  RepositoryCatalogDataPtrInput
-	ForceDestroy pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the repository.
+	CatalogData    RepositoryCatalogDataPtrInput
+	ForceDestroy   pulumi.BoolPtrInput
+	Region         pulumi.StringPtrInput
 	RepositoryName pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -281,12 +190,10 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-// Full ARN of the repository.
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Catalog data configuration for the repository. See below for schema.
 func (o RepositoryOutput) CatalogData() RepositoryCatalogDataPtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryCatalogDataPtrOutput { return v.CatalogData }).(RepositoryCatalogDataPtrOutput)
 }
@@ -295,32 +202,26 @@ func (o RepositoryOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The registry ID where the repository was created.
 func (o RepositoryOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Name of the repository.
 func (o RepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
-// The URI of the repository.
 func (o RepositoryOutput) RepositoryUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUri }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

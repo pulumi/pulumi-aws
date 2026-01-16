@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Qldb
 {
     public static class GetLedger
     {
-        /// <summary>
-        /// Use this data source to fetch information about a Quantum Ledger Database.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Qldb.GetLedger.Invoke(new()
-        ///     {
-        ///         Name = "an_example_ledger",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to fetch information about a Quantum Ledger Database.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Qldb.GetLedger.Invoke(new()
-        ///     {
-        ///         Name = "an_example_ledger",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to fetch information about a Quantum Ledger Database.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Qldb.GetLedger.Invoke(new()
-        ///     {
-        ///         Name = "an_example_ledger",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Qldb
 
     public sealed class GetLedgerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly name of the ledger to match.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -115,15 +46,9 @@ namespace Pulumi.Aws.Qldb
 
     public sealed class GetLedgerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly name of the ledger to match.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

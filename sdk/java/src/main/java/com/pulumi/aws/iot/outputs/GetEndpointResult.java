@@ -12,15 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointResult {
-    /**
-     * @return Endpoint based on `endpointType`:
-     * * No `endpointType`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
-     * * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
-     * * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
-     * * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-     * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
-     * 
-     */
     private String endpointAddress;
     private @Nullable String endpointType;
     /**
@@ -31,15 +22,6 @@ public final class GetEndpointResult {
     private String region;
 
     private GetEndpointResult() {}
-    /**
-     * @return Endpoint based on `endpointType`:
-     * * No `endpointType`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
-     * * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
-     * * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
-     * * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-     * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
-     * 
-     */
     public String endpointAddress() {
         return this.endpointAddress;
     }

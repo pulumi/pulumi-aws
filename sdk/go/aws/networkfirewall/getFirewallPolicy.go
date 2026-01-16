@@ -11,92 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a firewall policy.
-//
-// ## Example Usage
-//
-// ### Find firewall policy by name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Name: pulumi.StringRef(firewallPolicyName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Find firewall policy by ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Arn: pulumi.StringRef(firewallPolicyArn),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Find firewall policy by name and ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewallPolicy(ctx, &networkfirewall.LookupFirewallPolicyArgs{
-//				Arn:  pulumi.StringRef(firewallPolicyArn),
-//				Name: pulumi.StringRef(firewallPolicyName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
-//
-// > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallPolicyResult
@@ -109,33 +23,23 @@ func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, o
 
 // A collection of arguments for invoking getFirewallPolicy.
 type LookupFirewallPolicyArgs struct {
-	// ARN of the firewall policy.
-	Arn *string `pulumi:"arn"`
-	// Descriptive name of the firewall policy.
-	//
-	// One or more of these arguments is required.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the firewall policy.
-	Tags map[string]string `pulumi:"tags"`
+	Arn    *string           `pulumi:"arn"`
+	Name   *string           `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFirewallPolicy.
 type LookupFirewallPolicyResult struct {
-	Arn *string `pulumi:"arn"`
-	// Description of the firewall policy.
-	Description string `pulumi:"description"`
-	// The [policy][2] for the specified firewall policy.
+	Arn              *string                           `pulumi:"arn"`
+	Description      string                            `pulumi:"description"`
 	FirewallPolicies []GetFirewallPolicyFirewallPolicy `pulumi:"firewallPolicies"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
-	Name   *string `pulumi:"name"`
-	Region string  `pulumi:"region"`
-	// Key-value tags for the firewall policy.
-	Tags map[string]string `pulumi:"tags"`
-	// Token used for optimistic locking.
-	UpdateToken string `pulumi:"updateToken"`
+	Id          string            `pulumi:"id"`
+	Name        *string           `pulumi:"name"`
+	Region      string            `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	UpdateToken string            `pulumi:"updateToken"`
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
@@ -149,16 +53,10 @@ func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOu
 
 // A collection of arguments for invoking getFirewallPolicy.
 type LookupFirewallPolicyOutputArgs struct {
-	// ARN of the firewall policy.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Descriptive name of the firewall policy.
-	//
-	// One or more of these arguments is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value tags for the firewall policy.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupFirewallPolicyOutputArgs) ElementType() reflect.Type {
@@ -184,12 +82,10 @@ func (o LookupFirewallPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Description of the firewall policy.
 func (o LookupFirewallPolicyResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The [policy][2] for the specified firewall policy.
 func (o LookupFirewallPolicyResultOutput) FirewallPolicies() GetFirewallPolicyFirewallPolicyArrayOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) []GetFirewallPolicyFirewallPolicy { return v.FirewallPolicies }).(GetFirewallPolicyFirewallPolicyArrayOutput)
 }
@@ -207,12 +103,10 @@ func (o LookupFirewallPolicyResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the firewall policy.
 func (o LookupFirewallPolicyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Token used for optimistic locking.
 func (o LookupFirewallPolicyResultOutput) UpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.UpdateToken }).(pulumi.StringOutput)
 }

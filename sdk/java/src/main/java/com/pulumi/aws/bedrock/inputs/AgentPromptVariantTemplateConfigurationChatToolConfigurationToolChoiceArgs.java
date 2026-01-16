@@ -17,47 +17,23 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
 
     public static final AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs Empty = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs();
 
-    /**
-     * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-     * 
-     */
     @Import(name="any")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs> any;
 
-    /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs>> any() {
         return Optional.ofNullable(this.any);
     }
 
-    /**
-     * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-     * 
-     */
     @Import(name="auto")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs> auto;
 
-    /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs>> auto() {
         return Optional.ofNullable(this.auto);
     }
 
-    /**
-     * Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-     * 
-     */
     @Import(name="tool")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs> tool;
 
-    /**
-     * @return Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-     * 
-     */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs>> tool() {
         return Optional.ofNullable(this.tool);
     }
@@ -88,65 +64,29 @@ public final class AgentPromptVariantTemplateConfigurationChatToolConfigurationT
             $ = new AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder any(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs> any) {
             $.any = any;
             return this;
         }
 
-        /**
-         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder any(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs any) {
             return any(Output.of(any));
         }
 
-        /**
-         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auto(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs> auto) {
             $.auto = auto;
             return this;
         }
 
-        /**
-         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auto(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs auto) {
             return auto(Output.of(auto));
         }
 
-        /**
-         * @param tool Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tool(@Nullable Output<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs> tool) {
             $.tool = tool;
             return this;
         }
 
-        /**
-         * @param tool Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tool(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs tool) {
             return tool(Output.of(tool));
         }

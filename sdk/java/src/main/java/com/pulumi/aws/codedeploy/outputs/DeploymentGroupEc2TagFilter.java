@@ -11,45 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupEc2TagFilter {
-    /**
-     * @return The key of the tag filter.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return The value of the tag filter.
-     * 
-     * Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
-     * 
-     */
     private @Nullable String value;
 
     private DeploymentGroupEc2TagFilter() {}
-    /**
-     * @return The key of the tag filter.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return The value of the tag filter.
-     * 
-     * Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

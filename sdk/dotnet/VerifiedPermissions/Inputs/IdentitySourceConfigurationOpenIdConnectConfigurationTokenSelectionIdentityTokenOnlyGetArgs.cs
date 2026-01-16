@@ -14,19 +14,12 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     {
         [Input("clientIds")]
         private InputList<string>? _clientIds;
-
-        /// <summary>
-        /// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-        /// </summary>
         public InputList<string> ClientIds
         {
             get => _clientIds ?? (_clientIds = new InputList<string>());
             set => _clientIds = value;
         }
 
-        /// <summary>
-        /// The claim that determines the principal in OIDC identity tokens.
-        /// </summary>
         [Input("principalIdClaim")]
         public Input<string>? PrincipalIdClaim { get; set; }
 

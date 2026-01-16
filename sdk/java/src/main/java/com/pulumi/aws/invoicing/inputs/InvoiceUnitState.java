@@ -20,156 +20,72 @@ public final class InvoiceUnitState extends com.pulumi.resources.ResourceArgs {
 
     public static final InvoiceUnitState Empty = new InvoiceUnitState();
 
-    /**
-     * ARN of the invoice unit.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the invoice unit.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Description of the invoice unit.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the invoice unit.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-     * 
-     */
     @Import(name="invoiceReceiver")
     private @Nullable Output<String> invoiceReceiver;
 
-    /**
-     * @return AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-     * 
-     */
     public Optional<Output<String>> invoiceReceiver() {
         return Optional.ofNullable(this.invoiceReceiver);
     }
 
-    /**
-     * Timestamp when the invoice unit was last modified.
-     * 
-     */
     @Import(name="lastModified")
     private @Nullable Output<String> lastModified;
 
-    /**
-     * @return Timestamp when the invoice unit was last modified.
-     * 
-     */
     public Optional<Output<String>> lastModified() {
         return Optional.ofNullable(this.lastModified);
     }
 
-    /**
-     * Unique name of the invoice unit. Cannot be changed after creation.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name of the invoice unit. Cannot be changed after creation.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Configuration block for invoice unit rules. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="rules")
     private @Nullable Output<List<InvoiceUnitRuleArgs>> rules;
 
-    /**
-     * @return Configuration block for invoice unit rules. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<InvoiceUnitRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Whether tax inheritance is disabled for this invoice unit.
-     * 
-     */
     @Import(name="taxInheritanceDisabled")
     private @Nullable Output<Boolean> taxInheritanceDisabled;
 
-    /**
-     * @return Whether tax inheritance is disabled for this invoice unit.
-     * 
-     */
     public Optional<Output<Boolean>> taxInheritanceDisabled() {
         return Optional.ofNullable(this.taxInheritanceDisabled);
     }
@@ -215,228 +131,96 @@ public final class InvoiceUnitState extends com.pulumi.resources.ResourceArgs {
             $ = new InvoiceUnitState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Description of the invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param invoiceReceiver AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invoiceReceiver(@Nullable Output<String> invoiceReceiver) {
             $.invoiceReceiver = invoiceReceiver;
             return this;
         }
 
-        /**
-         * @param invoiceReceiver AWS account ID that receives invoices for this unit. Cannot be changed after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invoiceReceiver(String invoiceReceiver) {
             return invoiceReceiver(Output.of(invoiceReceiver));
         }
 
-        /**
-         * @param lastModified Timestamp when the invoice unit was last modified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModified(@Nullable Output<String> lastModified) {
             $.lastModified = lastModified;
             return this;
         }
 
-        /**
-         * @param lastModified Timestamp when the invoice unit was last modified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastModified(String lastModified) {
             return lastModified(Output.of(lastModified));
         }
 
-        /**
-         * @param name Unique name of the invoice unit. Cannot be changed after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name of the invoice unit. Cannot be changed after creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param rules Configuration block for invoice unit rules. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(@Nullable Output<List<InvoiceUnitRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules Configuration block for invoice unit rules. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<InvoiceUnitRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules Configuration block for invoice unit rules. See below.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(InvoiceUnitRuleArgs... rules) {
             return rules(List.of(rules));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param taxInheritanceDisabled Whether tax inheritance is disabled for this invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taxInheritanceDisabled(@Nullable Output<Boolean> taxInheritanceDisabled) {
             $.taxInheritanceDisabled = taxInheritanceDisabled;
             return this;
         }
 
-        /**
-         * @param taxInheritanceDisabled Whether tax inheritance is disabled for this invoice unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taxInheritanceDisabled(Boolean taxInheritanceDisabled) {
             return taxInheritanceDisabled(Output.of(taxInheritanceDisabled));
         }

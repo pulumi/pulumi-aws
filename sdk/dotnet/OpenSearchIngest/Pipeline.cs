@@ -9,183 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearchIngest
 {
-    /// <summary>
-    /// Resource for managing an AWS OpenSearch Ingestion Pipeline.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "osis-pipelines.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var examplePipeline = new Aws.OpenSearchIngest.Pipeline("example", new()
-    ///     {
-    ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Output.Tuple(example.Arn, current).Apply(values =&gt;
-    ///         {
-    ///             var arn = values.Item1;
-    ///             var current = values.Item2;
-    ///             return @$"version: \""2\""
-    /// example-pipeline:
-    ///   source:
-    ///     http:
-    ///       path: \""/example\""
-    ///   sink:
-    ///     - s3:
-    ///         aws:
-    ///           sts_role_arn: \""{arn}\""
-    ///           region: \""{current.Apply(getRegionResult =&gt; getRegionResult.Region)}\""
-    ///         bucket: \""example\""
-    ///         threshold:
-    ///           event_collect_timeout: \""60s\""
-    ///         codec:
-    ///           ndjson:
-    /// ";
-    ///         }),
-    ///         MaxUnits = 1,
-    ///         MinUnits = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Using file function
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpenSearchIngest.Pipeline("example", new()
-    ///     {
-    ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "example.yaml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         MaxUnits = 1,
-    ///         MinUnits = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearchingest/pipeline:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Key-value pairs to configure persistent buffering for the pipeline. See `BufferOptions` below.
-        /// </summary>
         [Output("bufferOptions")]
         public Output<Outputs.PipelineBufferOptions?> BufferOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `EncryptionAtRestOptions` below.
-        /// </summary>
         [Output("encryptionAtRestOptions")]
         public Output<Outputs.PipelineEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of ingestion endpoints for the pipeline, which you can send data to.
-        /// </summary>
         [Output("ingestEndpointUrls")]
         public Output<ImmutableArray<string>> IngestEndpointUrls { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pairs to configure log publishing. See `LogPublishingOptions` below.
-        /// </summary>
         [Output("logPublishingOptions")]
         public Output<Outputs.PipelineLogPublishingOptions?> LogPublishingOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        /// </summary>
         [Output("maxUnits")]
         public Output<int> MaxUnits { get; private set; } = null!;
 
-        /// <summary>
-        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        /// </summary>
         [Output("minUnits")]
         public Output<int> MinUnits { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the pipeline.
-        /// </summary>
         [Output("pipelineArn")]
         public Output<string> PipelineArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
-        /// </summary>
         [Output("pipelineConfigurationBody")]
         public Output<string> PipelineConfigurationBody { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("pipelineName")]
         public Output<string> PipelineName { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        /// </summary>
         [Output("pipelineRoleArn")]
         public Output<string> PipelineRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the pipeline. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -195,9 +54,6 @@ namespace Pulumi.Aws.OpenSearchIngest
         [Output("timeouts")]
         public Output<Outputs.PipelineTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `VpcOptions` below.
-        /// </summary>
         [Output("vpcOptions")]
         public Output<Outputs.PipelineVpcOptions?> VpcOptions { get; private set; } = null!;
 
@@ -247,68 +103,35 @@ namespace Pulumi.Aws.OpenSearchIngest
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key-value pairs to configure persistent buffering for the pipeline. See `BufferOptions` below.
-        /// </summary>
         [Input("bufferOptions")]
         public Input<Inputs.PipelineBufferOptionsArgs>? BufferOptions { get; set; }
 
-        /// <summary>
-        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `EncryptionAtRestOptions` below.
-        /// </summary>
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.PipelineEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
-        /// <summary>
-        /// Key-value pairs to configure log publishing. See `LogPublishingOptions` below.
-        /// </summary>
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsArgs>? LogPublishingOptions { get; set; }
 
-        /// <summary>
-        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        /// </summary>
         [Input("maxUnits", required: true)]
         public Input<int> MaxUnits { get; set; } = null!;
 
-        /// <summary>
-        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        /// </summary>
         [Input("minUnits", required: true)]
         public Input<int> MinUnits { get; set; } = null!;
 
-        /// <summary>
-        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
-        /// </summary>
         [Input("pipelineConfigurationBody", required: true)]
         public Input<string> PipelineConfigurationBody { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("pipelineName", required: true)]
         public Input<string> PipelineName { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        /// </summary>
         [Input("pipelineRoleArn")]
         public Input<string>? PipelineRoleArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the pipeline. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -318,9 +141,6 @@ namespace Pulumi.Aws.OpenSearchIngest
         [Input("timeouts")]
         public Input<Inputs.PipelineTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `VpcOptions` below.
-        /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.PipelineVpcOptionsArgs>? VpcOptions { get; set; }
 
@@ -332,86 +152,46 @@ namespace Pulumi.Aws.OpenSearchIngest
 
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key-value pairs to configure persistent buffering for the pipeline. See `BufferOptions` below.
-        /// </summary>
         [Input("bufferOptions")]
         public Input<Inputs.PipelineBufferOptionsGetArgs>? BufferOptions { get; set; }
 
-        /// <summary>
-        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `EncryptionAtRestOptions` below.
-        /// </summary>
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.PipelineEncryptionAtRestOptionsGetArgs>? EncryptionAtRestOptions { get; set; }
 
         [Input("ingestEndpointUrls")]
         private InputList<string>? _ingestEndpointUrls;
-
-        /// <summary>
-        /// The list of ingestion endpoints for the pipeline, which you can send data to.
-        /// </summary>
         public InputList<string> IngestEndpointUrls
         {
             get => _ingestEndpointUrls ?? (_ingestEndpointUrls = new InputList<string>());
             set => _ingestEndpointUrls = value;
         }
 
-        /// <summary>
-        /// Key-value pairs to configure log publishing. See `LogPublishingOptions` below.
-        /// </summary>
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsGetArgs>? LogPublishingOptions { get; set; }
 
-        /// <summary>
-        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        /// </summary>
         [Input("maxUnits")]
         public Input<int>? MaxUnits { get; set; }
 
-        /// <summary>
-        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        /// </summary>
         [Input("minUnits")]
         public Input<int>? MinUnits { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the pipeline.
-        /// </summary>
         [Input("pipelineArn")]
         public Input<string>? PipelineArn { get; set; }
 
-        /// <summary>
-        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
-        /// </summary>
         [Input("pipelineConfigurationBody")]
         public Input<string>? PipelineConfigurationBody { get; set; }
 
-        /// <summary>
-        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role that grants the pipeline permission to access AWS resources.
-        /// </summary>
         [Input("pipelineRoleArn")]
         public Input<string>? PipelineRoleArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the pipeline. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -429,9 +209,6 @@ namespace Pulumi.Aws.OpenSearchIngest
         [Input("timeouts")]
         public Input<Inputs.PipelineTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `VpcOptions` below.
-        /// </summary>
         [Input("vpcOptions")]
         public Input<Inputs.PipelineVpcOptionsGetArgs>? VpcOptions { get; set; }
 

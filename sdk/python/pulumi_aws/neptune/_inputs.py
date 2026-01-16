@@ -30,17 +30,8 @@ MYPY = False
 if not MYPY:
     class ClusterParameterGroupParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the neptune parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the neptune parameter.
-        """
         apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
 elif False:
     ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -50,11 +41,6 @@ class ClusterParameterGroupParameterArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  apply_method: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the neptune parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the neptune parameter.
-        :param pulumi.Input[_builtins.str] apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if apply_method is not None:
@@ -63,9 +49,6 @@ class ClusterParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the neptune parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -75,9 +58,6 @@ class ClusterParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the neptune parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -87,9 +67,6 @@ class ClusterParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         return pulumi.get(self, "apply_method")
 
     @apply_method.setter
@@ -100,13 +77,7 @@ class ClusterParameterGroupParameterArgs:
 if not MYPY:
     class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
         max_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
         min_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
 elif False:
     ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -115,10 +86,6 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
                  min_capacity: Optional[pulumi.Input[_builtins.float]] = None):
-        """
-        :param pulumi.Input[_builtins.float] max_capacity: Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        :param pulumi.Input[_builtins.float] min_capacity: Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
@@ -127,9 +94,6 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -139,9 +103,6 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -152,13 +113,7 @@ class ClusterServerlessV2ScalingConfigurationArgs:
 if not MYPY:
     class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
         db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of member DB Cluster.
-        """
         is_writer: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the member is the primary DB Cluster.
-        """
 elif False:
     GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -167,10 +122,6 @@ class GlobalClusterGlobalClusterMemberArgs:
     def __init__(__self__, *,
                  db_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  is_writer: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] db_cluster_arn: ARN of member DB Cluster.
-        :param pulumi.Input[_builtins.bool] is_writer: Whether the member is the primary DB Cluster.
-        """
         if db_cluster_arn is not None:
             pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
@@ -179,9 +130,6 @@ class GlobalClusterGlobalClusterMemberArgs:
     @_builtins.property
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of member DB Cluster.
-        """
         return pulumi.get(self, "db_cluster_arn")
 
     @db_cluster_arn.setter
@@ -191,9 +139,6 @@ class GlobalClusterGlobalClusterMemberArgs:
     @_builtins.property
     @pulumi.getter(name="isWriter")
     def is_writer(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the member is the primary DB Cluster.
-        """
         return pulumi.get(self, "is_writer")
 
     @is_writer.setter
@@ -204,17 +149,8 @@ class GlobalClusterGlobalClusterMemberArgs:
 if not MYPY:
     class ParameterGroupParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the Neptune parameter.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the Neptune parameter.
-        """
         apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
 elif False:
     ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -224,11 +160,6 @@ class ParameterGroupParameterArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  apply_method: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the Neptune parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the Neptune parameter.
-        :param pulumi.Input[_builtins.str] apply_method: The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if apply_method is not None:
@@ -237,9 +168,6 @@ class ParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Neptune parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -249,9 +177,6 @@ class ParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the Neptune parameter.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -261,9 +186,6 @@ class ParameterGroupParameterArgs:
     @_builtins.property
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         return pulumi.get(self, "apply_method")
 
     @apply_method.setter

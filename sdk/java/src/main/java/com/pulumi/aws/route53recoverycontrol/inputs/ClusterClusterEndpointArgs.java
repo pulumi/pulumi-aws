@@ -15,32 +15,16 @@ public final class ClusterClusterEndpointArgs extends com.pulumi.resources.Resou
 
     public static final ClusterClusterEndpointArgs Empty = new ClusterClusterEndpointArgs();
 
-    /**
-     * Cluster endpoint.
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
-    /**
-     * @return Cluster endpoint.
-     * 
-     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
 
-    /**
-     * Region of the endpoint.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region of the endpoint.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class ClusterClusterEndpointArgs extends com.pulumi.resources.Resou
             $ = new ClusterClusterEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint Cluster endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint Cluster endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param region Region of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

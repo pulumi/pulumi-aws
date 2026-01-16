@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DocDB.Outputs
     [OutputType]
     public sealed class ClusterServerlessV2ScalingConfiguration
     {
-        /// <summary>
-        /// Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-        /// </summary>
         public readonly double MaxCapacity;
-        /// <summary>
-        /// Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-        /// </summary>
         public readonly double MinCapacity;
 
         [OutputConstructor]

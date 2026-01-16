@@ -16,77 +16,37 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
 
     public static final RouteSpecGrpcRouteMatchMetadataMatchArgs Empty = new RouteSpecGrpcRouteMatchMetadataMatchArgs();
 
-    /**
-     * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
-    /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<Output<String>> exact() {
         return Optional.ofNullable(this.exact);
     }
 
-    /**
-     * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Object that specifies the range of numbers that the value sent by the client must be included in.
-     * 
-     */
     @Import(name="range")
     private @Nullable Output<RouteSpecGrpcRouteMatchMetadataMatchRangeArgs> range;
 
-    /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
-     * 
-     */
     public Optional<Output<RouteSpecGrpcRouteMatchMetadataMatchRangeArgs>> range() {
         return Optional.ofNullable(this.range);
     }
 
-    /**
-     * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
-    /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<Output<String>> regex() {
         return Optional.ofNullable(this.regex);
     }
 
-    /**
-     * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
-    /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<Output<String>> suffix() {
         return Optional.ofNullable(this.suffix);
     }
@@ -119,107 +79,47 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
             $ = new RouteSpecGrpcRouteMatchMetadataMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(@Nullable Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }
 
-        /**
-         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param range Object that specifies the range of numbers that the value sent by the client must be included in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder range(@Nullable Output<RouteSpecGrpcRouteMatchMetadataMatchRangeArgs> range) {
             $.range = range;
             return this;
         }
 
-        /**
-         * @param range Object that specifies the range of numbers that the value sent by the client must be included in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder range(RouteSpecGrpcRouteMatchMetadataMatchRangeArgs range) {
             return range(Output.of(range));
         }
 
-        /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(@Nullable Output<String> regex) {
             $.regex = regex;
             return this;
         }
 
-        /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(String regex) {
             return regex(Output.of(regex));
         }
 
-        /**
-         * @param suffix Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffix(@Nullable Output<String> suffix) {
             $.suffix = suffix;
             return this;
         }
 
-        /**
-         * @param suffix Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffix(String suffix) {
             return suffix(Output.of(suffix));
         }

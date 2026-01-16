@@ -16,36 +16,16 @@ public final class PullTimeUpdateExclusionArgs extends com.pulumi.resources.Reso
 
     public static final PullTimeUpdateExclusionArgs Empty = new PullTimeUpdateExclusionArgs();
 
-    /**
-     * ARN of the IAM principal to exclude from having image pull times recorded.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="principalArn", required=true)
     private Output<String> principalArn;
 
-    /**
-     * @return ARN of the IAM principal to exclude from having image pull times recorded.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> principalArn() {
         return this.principalArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -75,48 +55,20 @@ public final class PullTimeUpdateExclusionArgs extends com.pulumi.resources.Reso
             $ = new PullTimeUpdateExclusionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param principalArn ARN of the IAM principal to exclude from having image pull times recorded.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param principalArn ARN of the IAM principal to exclude from having image pull times recorded.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

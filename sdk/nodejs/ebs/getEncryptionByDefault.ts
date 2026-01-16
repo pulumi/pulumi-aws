@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.ebs.getEncryptionByDefault({});
- * ```
- */
 export function getEncryptionByDefault(args?: GetEncryptionByDefaultArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionByDefaultResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,9 +16,6 @@ export function getEncryptionByDefault(args?: GetEncryptionByDefaultArgs, opts?:
  * A collection of arguments for invoking getEncryptionByDefault.
  */
 export interface GetEncryptionByDefaultArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -38,9 +23,6 @@ export interface GetEncryptionByDefaultArgs {
  * A collection of values returned by getEncryptionByDefault.
  */
 export interface GetEncryptionByDefaultResult {
-    /**
-     * Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
-     */
     readonly enabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -48,18 +30,6 @@ export interface GetEncryptionByDefaultResult {
     readonly id: string;
     readonly region: string;
 }
-/**
- * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.ebs.getEncryptionByDefault({});
- * ```
- */
 export function getEncryptionByDefaultOutput(args?: GetEncryptionByDefaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionByDefaultResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,8 +42,5 @@ export function getEncryptionByDefaultOutput(args?: GetEncryptionByDefaultOutput
  * A collection of arguments for invoking getEncryptionByDefault.
  */
 export interface GetEncryptionByDefaultOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterShard {
-    /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Set of nodes in this shard.
-     * 
-     */
     private @Nullable List<ClusterShardNode> nodes;
-    /**
-     * @return Number of individual nodes in this shard.
-     * 
-     */
     private @Nullable Integer numNodes;
-    /**
-     * @return Keyspace for this shard. Example: `0-16383`.
-     * 
-     */
     private @Nullable String slots;
 
     private ClusterShard() {}
-    /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Set of nodes in this shard.
-     * 
-     */
     public List<ClusterShardNode> nodes() {
         return this.nodes == null ? List.of() : this.nodes;
     }
-    /**
-     * @return Number of individual nodes in this shard.
-     * 
-     */
     public Optional<Integer> numNodes() {
         return Optional.ofNullable(this.numNodes);
     }
-    /**
-     * @return Keyspace for this shard. Example: `0-16383`.
-     * 
-     */
     public Optional<String> slots() {
         return Optional.ofNullable(this.slots);
     }

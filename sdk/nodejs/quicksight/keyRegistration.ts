@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Registers customer managed keys in a Amazon QuickSight account.
- *
- * > Deletion of this resource clears all CMK registrations from a QuickSight account. QuickSight then uses AWS owned keys to encrypt your resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.KeyRegistration("example", {keyRegistrations: [
- *     {
- *         keyArn: example1.arn,
- *     },
- *     {
- *         keyArn: example2.arn,
- *         defaultKey: true,
- *     },
- * ]});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import QuickSight key registration using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:quicksight/keyRegistration:KeyRegistration example "012345678901"
- * ```
- */
 export class KeyRegistration extends pulumi.CustomResource {
     /**
      * Get an existing KeyRegistration resource's state with the given name, ID, and optional extra
@@ -66,13 +36,7 @@ export class KeyRegistration extends pulumi.CustomResource {
     }
 
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * Registered keys. See key_registration.
-     */
     declare public readonly keyRegistrations: pulumi.Output<outputs.quicksight.KeyRegistrationKeyRegistration[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -107,13 +71,7 @@ export class KeyRegistration extends pulumi.CustomResource {
  */
 export interface KeyRegistrationState {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Registered keys. See key_registration.
-     */
     keyRegistrations?: pulumi.Input<pulumi.Input<inputs.quicksight.KeyRegistrationKeyRegistration>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -122,12 +80,6 @@ export interface KeyRegistrationState {
  */
 export interface KeyRegistrationArgs {
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * Registered keys. See key_registration.
-     */
     keyRegistrations?: pulumi.Input<pulumi.Input<inputs.quicksight.KeyRegistrationKeyRegistration>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

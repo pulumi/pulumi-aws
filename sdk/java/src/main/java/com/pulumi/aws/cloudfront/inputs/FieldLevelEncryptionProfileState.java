@@ -16,92 +16,44 @@ public final class FieldLevelEncryptionProfileState extends com.pulumi.resources
 
     public static final FieldLevelEncryptionProfileState Empty = new FieldLevelEncryptionProfileState();
 
-    /**
-     * The Field Level Encryption Profile ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Field Level Encryption Profile ARN.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-     * 
-     */
     @Import(name="callerReference")
     private @Nullable Output<String> callerReference;
 
-    /**
-     * @return Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-     * 
-     */
     public Optional<Output<String>> callerReference() {
         return Optional.ofNullable(this.callerReference);
     }
 
-    /**
-     * An optional comment about the Field Level Encryption Profile.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return An optional comment about the Field Level Encryption Profile.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-     * 
-     */
     @Import(name="encryptionEntities")
     private @Nullable Output<FieldLevelEncryptionProfileEncryptionEntitiesArgs> encryptionEntities;
 
-    /**
-     * @return The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-     * 
-     */
     public Optional<Output<FieldLevelEncryptionProfileEncryptionEntitiesArgs>> encryptionEntities() {
         return Optional.ofNullable(this.encryptionEntities);
     }
 
-    /**
-     * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
-    /**
-     * @return The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     public Optional<Output<String>> etag() {
         return Optional.ofNullable(this.etag);
     }
 
-    /**
-     * The name of the Field Level Encryption Profile.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Field Level Encryption Profile.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -135,128 +87,56 @@ public final class FieldLevelEncryptionProfileState extends com.pulumi.resources
             $ = new FieldLevelEncryptionProfileState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Field Level Encryption Profile ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Field Level Encryption Profile ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param callerReference Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder callerReference(@Nullable Output<String> callerReference) {
             $.callerReference = callerReference;
             return this;
         }
 
-        /**
-         * @param callerReference Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder callerReference(String callerReference) {
             return callerReference(Output.of(callerReference));
         }
 
-        /**
-         * @param comment An optional comment about the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment An optional comment about the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param encryptionEntities The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionEntities(@Nullable Output<FieldLevelEncryptionProfileEncryptionEntitiesArgs> encryptionEntities) {
             $.encryptionEntities = encryptionEntities;
             return this;
         }
 
-        /**
-         * @param encryptionEntities The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs encryptionEntities) {
             return encryptionEntities(Output.of(encryptionEntities));
         }
 
-        /**
-         * @param etag The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(@Nullable Output<String> etag) {
             $.etag = etag;
             return this;
         }
 
-        /**
-         * @param etag The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder etag(String etag) {
             return etag(Output.of(etag));
         }
 
-        /**
-         * @param name The name of the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Field Level Encryption Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

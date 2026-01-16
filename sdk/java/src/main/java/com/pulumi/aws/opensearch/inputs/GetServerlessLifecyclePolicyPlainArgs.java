@@ -15,47 +15,23 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
 
     public static final GetServerlessLifecyclePolicyPlainArgs Empty = new GetServerlessLifecyclePolicyPlainArgs();
 
-    /**
-     * Name of the policy
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the policy
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Type of lifecycle policy. Must be `retention`.
-     * 
-     */
     @Import(name="type", required=true)
     private String type;
 
-    /**
-     * @return Type of lifecycle policy. Must be `retention`.
-     * 
-     */
     public String type() {
         return this.type;
     }
@@ -86,34 +62,16 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
             $ = new GetServerlessLifecyclePolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param type Type of lifecycle policy. Must be `retention`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             $.type = type;
             return this;

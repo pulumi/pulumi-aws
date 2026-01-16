@@ -10,65 +10,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteTableRoutesRoute {
-    /**
-     * @return The CIDR used for route destination matches.
-     * 
-     */
     private String destinationCidrBlock;
-    /**
-     * @return The ID of the prefix list used for destination matches.
-     * 
-     */
     private String prefixListId;
-    /**
-     * @return The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-     * 
-     */
     private String state;
-    /**
-     * @return The id of the transit gateway route table announcement, most of the time it is an empty string.
-     * 
-     */
     private String transitGatewayRouteTableAnnouncementId;
-    /**
-     * @return The type of the route, can be `propagated` or `static`.
-     * 
-     */
     private String type;
 
     private GetRouteTableRoutesRoute() {}
-    /**
-     * @return The CIDR used for route destination matches.
-     * 
-     */
     public String destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
-    /**
-     * @return The ID of the prefix list used for destination matches.
-     * 
-     */
     public String prefixListId() {
         return this.prefixListId;
     }
-    /**
-     * @return The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return The id of the transit gateway route table announcement, most of the time it is an empty string.
-     * 
-     */
     public String transitGatewayRouteTableAnnouncementId() {
         return this.transitGatewayRouteTableAnnouncementId;
     }
-    /**
-     * @return The type of the route, can be `propagated` or `static`.
-     * 
-     */
     public String type() {
         return this.type;
     }

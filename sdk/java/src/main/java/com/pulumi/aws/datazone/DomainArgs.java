@@ -20,141 +20,65 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainArgs Empty = new DomainArgs();
 
-    /**
-     * Description of the Domain.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the Domain.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ARN of the role used by DataZone to configure the Domain.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="domainExecutionRole", required=true)
     private Output<String> domainExecutionRole;
 
-    /**
-     * @return ARN of the role used by DataZone to configure the Domain.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> domainExecutionRole() {
         return this.domainExecutionRole;
     }
 
-    /**
-     * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-     * 
-     */
     @Import(name="domainVersion")
     private @Nullable Output<String> domainVersion;
 
-    /**
-     * @return Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-     * 
-     */
     public Optional<Output<String>> domainVersion() {
         return Optional.ofNullable(this.domainVersion);
     }
 
-    /**
-     * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-     * 
-     */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
-    /**
-     * @return ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-     * 
-     */
     public Optional<Output<String>> kmsKeyIdentifier() {
         return Optional.ofNullable(this.kmsKeyIdentifier);
     }
 
-    /**
-     * Name of the Domain.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the Domain.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-     * 
-     */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
-    /**
-     * @return ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-     * 
-     */
     public Optional<Output<String>> serviceRole() {
         return Optional.ofNullable(this.serviceRole);
     }
 
-    /**
-     * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-     * 
-     */
     @Import(name="singleSignOn")
     private @Nullable Output<DomainSingleSignOnArgs> singleSignOn;
 
-    /**
-     * @return Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-     * 
-     */
     public Optional<Output<DomainSingleSignOnArgs>> singleSignOn() {
         return Optional.ofNullable(this.singleSignOn);
     }
 
-    /**
-     * Whether to skip the deletion check for the Domain.
-     * 
-     */
     @Import(name="skipDeletionCheck")
     private @Nullable Output<Boolean> skipDeletionCheck;
 
-    /**
-     * @return Whether to skip the deletion check for the Domain.
-     * 
-     */
     public Optional<Output<Boolean>> skipDeletionCheck() {
         return Optional.ofNullable(this.skipDeletionCheck);
     }
@@ -207,195 +131,83 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param domainExecutionRole ARN of the role used by DataZone to configure the Domain.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainExecutionRole(Output<String> domainExecutionRole) {
             $.domainExecutionRole = domainExecutionRole;
             return this;
         }
 
-        /**
-         * @param domainExecutionRole ARN of the role used by DataZone to configure the Domain.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainExecutionRole(String domainExecutionRole) {
             return domainExecutionRole(Output.of(domainExecutionRole));
         }
 
-        /**
-         * @param domainVersion Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainVersion(@Nullable Output<String> domainVersion) {
             $.domainVersion = domainVersion;
             return this;
         }
 
-        /**
-         * @param domainVersion Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainVersion(String domainVersion) {
             return domainVersion(Output.of(domainVersion));
         }
 
-        /**
-         * @param kmsKeyIdentifier ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
             $.kmsKeyIdentifier = kmsKeyIdentifier;
             return this;
         }
 
-        /**
-         * @param kmsKeyIdentifier ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
             return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
-        /**
-         * @param name Name of the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceRole ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceRole(@Nullable Output<String> serviceRole) {
             $.serviceRole = serviceRole;
             return this;
         }
 
-        /**
-         * @param serviceRole ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceRole(String serviceRole) {
             return serviceRole(Output.of(serviceRole));
         }
 
-        /**
-         * @param singleSignOn Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleSignOn(@Nullable Output<DomainSingleSignOnArgs> singleSignOn) {
             $.singleSignOn = singleSignOn;
             return this;
         }
 
-        /**
-         * @param singleSignOn Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleSignOn(DomainSingleSignOnArgs singleSignOn) {
             return singleSignOn(Output.of(singleSignOn));
         }
 
-        /**
-         * @param skipDeletionCheck Whether to skip the deletion check for the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDeletionCheck(@Nullable Output<Boolean> skipDeletionCheck) {
             $.skipDeletionCheck = skipDeletionCheck;
             return this;
         }
 
-        /**
-         * @param skipDeletionCheck Whether to skip the deletion check for the Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipDeletionCheck(Boolean skipDeletionCheck) {
             return skipDeletionCheck(Output.of(skipDeletionCheck));
         }

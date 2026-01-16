@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpnConnection({
- *     filters: [{
- *         name: "customer-gateway-id",
- *         values: ["cgw-1234567890"],
- *     }],
- * });
- * export const vpnConnectionId = example.then(example => example.vpnConnectionId);
- * ```
- *
- * ### Find by VPN Connection ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpnConnection({
- *     vpnConnectionId: "vpn-abcd1234567890",
- * });
- * export const gatewayAssociationState = example.then(example => example.gatewayAssociationState);
- * ```
- */
 export function getVpnConnection(args?: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,17 +21,8 @@ export function getVpnConnection(args?: GetVpnConnectionArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getVpnConnection.
  */
 export interface GetVpnConnectionArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.ec2.GetVpnConnectionFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Identifier of the EC2 VPN Connection.
-     */
     vpnConnectionId?: string;
 }
 
@@ -71,106 +30,29 @@ export interface GetVpnConnectionArgs {
  * A collection of values returned by getVpnConnection.
  */
 export interface GetVpnConnectionResult {
-    /**
-     * Category of the VPN connection. A value of VPN indicates an AWS VPN connection. A value of VPN-Classic indicates an AWS Classic VPN connection.
-     */
     readonly category: string;
-    /**
-     * ARN of the core network.
-     */
     readonly coreNetworkArn: string;
-    /**
-     * ARN of the core network attachment.
-     */
     readonly coreNetworkAttachmentArn: string;
-    /**
-     * Configuration information for the VPN connection's customer gateway (in the native XML format).
-     */
     readonly customerGatewayConfiguration: string;
-    /**
-     * ID of the customer gateway at your end of the VPN connection.
-     */
     readonly customerGatewayId: string;
     readonly filters?: outputs.ec2.GetVpnConnectionFilter[];
-    /**
-     * Current state of the gateway association.
-     */
     readonly gatewayAssociationState: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
-     */
     readonly preSharedKeyArn: string;
     readonly region: string;
-    /**
-     * List of static routes associated with the VPN connection.
-     */
     readonly routes: outputs.ec2.GetVpnConnectionRoute[];
-    /**
-     * Current state of the VPN connection.
-     */
     readonly state: string;
-    /**
-     * Tags associated to the VPN Connection.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * ID of a transit gateway associated with the VPN connection.
-     */
     readonly transitGatewayId: string;
-    /**
-     * Type of VPN connection. Currently the only supported type is ipsec.1.
-     */
     readonly type: string;
-    /**
-     * List of objects containing information about the VPN tunnel.
-     */
     readonly vgwTelemetries: outputs.ec2.GetVpnConnectionVgwTelemetry[];
-    /**
-     * ID of a VPN concentrator associated with the VPN connection.
-     */
     readonly vpnConcentratorId: string;
     readonly vpnConnectionId: string;
-    /**
-     * ID of a virtual private gateway associated with the VPN connection.
-     */
     readonly vpnGatewayId: string;
 }
-/**
- * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpnConnection({
- *     filters: [{
- *         name: "customer-gateway-id",
- *         values: ["cgw-1234567890"],
- *     }],
- * });
- * export const vpnConnectionId = example.then(example => example.vpnConnectionId);
- * ```
- *
- * ### Find by VPN Connection ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getVpnConnection({
- *     vpnConnectionId: "vpn-abcd1234567890",
- * });
- * export const gatewayAssociationState = example.then(example => example.gatewayAssociationState);
- * ```
- */
 export function getVpnConnectionOutput(args?: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnConnectionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -185,16 +67,7 @@ export function getVpnConnectionOutput(args?: GetVpnConnectionOutputArgs, opts?:
  * A collection of arguments for invoking getVpnConnection.
  */
 export interface GetVpnConnectionOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnConnectionFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the EC2 VPN Connection.
-     */
     vpnConnectionId?: pulumi.Input<string>;
 }

@@ -17,47 +17,23 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
     public static final DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs();
 
-    /**
-     * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-     * 
-     */
     @Import(name="condition")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs> condition;
 
-    /**
-     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-     * 
-     */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs>> condition() {
         return Optional.ofNullable(this.condition);
     }
 
-    /**
-     * `TRUE` to delete content if the condition used for the target attribute is met.
-     * 
-     */
     @Import(name="documentContentDeletion")
     private @Nullable Output<Boolean> documentContentDeletion;
 
-    /**
-     * @return `TRUE` to delete content if the condition used for the target attribute is met.
-     * 
-     */
     public Optional<Output<Boolean>> documentContentDeletion() {
         return Optional.ofNullable(this.documentContentDeletion);
     }
 
-    /**
-     * Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-     * 
-     */
     @Import(name="target")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs> target;
 
-    /**
-     * @return Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs>> target() {
         return Optional.ofNullable(this.target);
     }
@@ -88,65 +64,29 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
             $ = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(@Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs condition) {
             return condition(Output.of(condition));
         }
 
-        /**
-         * @param documentContentDeletion `TRUE` to delete content if the condition used for the target attribute is met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder documentContentDeletion(@Nullable Output<Boolean> documentContentDeletion) {
             $.documentContentDeletion = documentContentDeletion;
             return this;
         }
 
-        /**
-         * @param documentContentDeletion `TRUE` to delete content if the condition used for the target attribute is met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder documentContentDeletion(Boolean documentContentDeletion) {
             return documentContentDeletion(Output.of(documentContentDeletion));
         }
 
-        /**
-         * @param target Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(@Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs target) {
             return target(Output.of(target));
         }

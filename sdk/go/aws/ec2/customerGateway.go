@@ -12,70 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.83.124.10"),
-//				Type:      pulumi.String("ipsec.1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main-customer-gateway"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Customer Gateways using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
-// ```
 type CustomerGateway struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the customer gateway.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-	BgpAsn pulumi.StringPtrOutput `pulumi:"bgpAsn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	BgpAsn         pulumi.StringPtrOutput `pulumi:"bgpAsn"`
 	BgpAsnExtended pulumi.StringPtrOutput `pulumi:"bgpAsnExtended"`
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	// A name for the customer gateway device.
-	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
-	// The IPv4 address for the customer gateway device's outside interface.
-	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of customer gateway. The only type AWS
-	// supports at this time is "ipsec.1".
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeviceName     pulumi.StringPtrOutput `pulumi:"deviceName"`
+	IpAddress      pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type           pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewCustomerGateway registers a new resource with the given unique name, arguments, and options.
@@ -111,51 +60,29 @@ func GetCustomerGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerGateway resources.
 type customerGatewayState struct {
-	// The ARN of the customer gateway.
-	Arn *string `pulumi:"arn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-	BgpAsn *string `pulumi:"bgpAsn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
-	BgpAsnExtended *string `pulumi:"bgpAsnExtended"`
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// A name for the customer gateway device.
-	DeviceName *string `pulumi:"deviceName"`
-	// The IPv4 address for the customer gateway device's outside interface.
-	IpAddress *string `pulumi:"ipAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of customer gateway. The only type AWS
-	// supports at this time is "ipsec.1".
-	Type *string `pulumi:"type"`
+	Arn            *string           `pulumi:"arn"`
+	BgpAsn         *string           `pulumi:"bgpAsn"`
+	BgpAsnExtended *string           `pulumi:"bgpAsnExtended"`
+	CertificateArn *string           `pulumi:"certificateArn"`
+	DeviceName     *string           `pulumi:"deviceName"`
+	IpAddress      *string           `pulumi:"ipAddress"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
+	Type           *string           `pulumi:"type"`
 }
 
 type CustomerGatewayState struct {
-	// The ARN of the customer gateway.
-	Arn pulumi.StringPtrInput
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-	BgpAsn pulumi.StringPtrInput
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	Arn            pulumi.StringPtrInput
+	BgpAsn         pulumi.StringPtrInput
 	BgpAsnExtended pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
-	// A name for the customer gateway device.
-	DeviceName pulumi.StringPtrInput
-	// The IPv4 address for the customer gateway device's outside interface.
-	IpAddress pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of customer gateway. The only type AWS
-	// supports at this time is "ipsec.1".
-	Type pulumi.StringPtrInput
+	DeviceName     pulumi.StringPtrInput
+	IpAddress      pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
+	Type           pulumi.StringPtrInput
 }
 
 func (CustomerGatewayState) ElementType() reflect.Type {
@@ -163,44 +90,26 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 }
 
 type customerGatewayArgs struct {
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-	BgpAsn *string `pulumi:"bgpAsn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
-	BgpAsnExtended *string `pulumi:"bgpAsnExtended"`
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// A name for the customer gateway device.
-	DeviceName *string `pulumi:"deviceName"`
-	// The IPv4 address for the customer gateway device's outside interface.
-	IpAddress *string `pulumi:"ipAddress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of customer gateway. The only type AWS
-	// supports at this time is "ipsec.1".
-	Type string `pulumi:"type"`
+	BgpAsn         *string           `pulumi:"bgpAsn"`
+	BgpAsnExtended *string           `pulumi:"bgpAsnExtended"`
+	CertificateArn *string           `pulumi:"certificateArn"`
+	DeviceName     *string           `pulumi:"deviceName"`
+	IpAddress      *string           `pulumi:"ipAddress"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
+	Type           string            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
-	BgpAsn pulumi.StringPtrInput
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	BgpAsn         pulumi.StringPtrInput
 	BgpAsnExtended pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
-	// A name for the customer gateway device.
-	DeviceName pulumi.StringPtrInput
-	// The IPv4 address for the customer gateway device's outside interface.
-	IpAddress pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of customer gateway. The only type AWS
-	// supports at this time is "ipsec.1".
-	Type pulumi.StringInput
+	DeviceName     pulumi.StringPtrInput
+	IpAddress      pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	Type           pulumi.StringInput
 }
 
 func (CustomerGatewayArgs) ElementType() reflect.Type {
@@ -290,53 +199,42 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ARN of the customer gateway.
 func (o CustomerGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
 func (o CustomerGatewayOutput) BgpAsn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.BgpAsn }).(pulumi.StringPtrOutput)
 }
 
-// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
 func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.BgpAsnExtended }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the customer gateway certificate.
 func (o CustomerGatewayOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// A name for the customer gateway device.
 func (o CustomerGatewayOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// The IPv4 address for the customer gateway device's outside interface.
 func (o CustomerGatewayOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomerGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomerGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomerGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of customer gateway. The only type AWS
-// supports at this time is "ipsec.1".
 func (o CustomerGatewayOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

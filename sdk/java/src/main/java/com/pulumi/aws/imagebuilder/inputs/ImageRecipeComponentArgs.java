@@ -18,32 +18,16 @@ public final class ImageRecipeComponentArgs extends com.pulumi.resources.Resourc
 
     public static final ImageRecipeComponentArgs Empty = new ImageRecipeComponentArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Component to associate.
-     * 
-     */
     @Import(name="componentArn", required=true)
     private Output<String> componentArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
-     * 
-     */
     public Output<String> componentArn() {
         return this.componentArn;
     }
 
-    /**
-     * Configuration block(s) for parameters to configure the component. Detailed below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<ImageRecipeComponentParameterArgs>> parameters;
 
-    /**
-     * @return Configuration block(s) for parameters to configure the component. Detailed below.
-     * 
-     */
     public Optional<Output<List<ImageRecipeComponentParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
@@ -73,54 +57,24 @@ public final class ImageRecipeComponentArgs extends com.pulumi.resources.Resourc
             $ = new ImageRecipeComponentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param componentArn Amazon Resource Name (ARN) of the Image Builder Component to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder componentArn(Output<String> componentArn) {
             $.componentArn = componentArn;
             return this;
         }
 
-        /**
-         * @param componentArn Amazon Resource Name (ARN) of the Image Builder Component to associate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder componentArn(String componentArn) {
             return componentArn(Output.of(componentArn));
         }
 
-        /**
-         * @param parameters Configuration block(s) for parameters to configure the component. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<ImageRecipeComponentParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Configuration block(s) for parameters to configure the component. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<ImageRecipeComponentParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Configuration block(s) for parameters to configure the component. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(ImageRecipeComponentParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }

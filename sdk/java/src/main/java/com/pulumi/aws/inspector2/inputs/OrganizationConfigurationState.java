@@ -17,47 +17,23 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
     public static final OrganizationConfigurationState Empty = new OrganizationConfigurationState();
 
-    /**
-     * Configuration block for auto enabling. See below.
-     * 
-     */
     @Import(name="autoEnable")
     private @Nullable Output<OrganizationConfigurationAutoEnableArgs> autoEnable;
 
-    /**
-     * @return Configuration block for auto enabling. See below.
-     * 
-     */
     public Optional<Output<OrganizationConfigurationAutoEnableArgs>> autoEnable() {
         return Optional.ofNullable(this.autoEnable);
     }
 
-    /**
-     * Whether your configuration reached the max account limit.
-     * 
-     */
     @Import(name="maxAccountLimitReached")
     private @Nullable Output<Boolean> maxAccountLimitReached;
 
-    /**
-     * @return Whether your configuration reached the max account limit.
-     * 
-     */
     public Optional<Output<Boolean>> maxAccountLimitReached() {
         return Optional.ofNullable(this.maxAccountLimitReached);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,65 +64,29 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
             $ = new OrganizationConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable Configuration block for auto enabling. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(@Nullable Output<OrganizationConfigurationAutoEnableArgs> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable Configuration block for auto enabling. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(OrganizationConfigurationAutoEnableArgs autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }
 
-        /**
-         * @param maxAccountLimitReached Whether your configuration reached the max account limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAccountLimitReached(@Nullable Output<Boolean> maxAccountLimitReached) {
             $.maxAccountLimitReached = maxAccountLimitReached;
             return this;
         }
 
-        /**
-         * @param maxAccountLimitReached Whether your configuration reached the max account limit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxAccountLimitReached(Boolean maxAccountLimitReached) {
             return maxAccountLimitReached(Output.of(maxAccountLimitReached));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

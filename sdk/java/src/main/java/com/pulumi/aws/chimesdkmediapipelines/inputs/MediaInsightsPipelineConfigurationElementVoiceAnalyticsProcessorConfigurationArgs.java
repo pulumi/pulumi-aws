@@ -14,32 +14,16 @@ public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProces
 
     public static final MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs();
 
-    /**
-     * Enable speaker search.
-     * 
-     */
     @Import(name="speakerSearchStatus", required=true)
     private Output<String> speakerSearchStatus;
 
-    /**
-     * @return Enable speaker search.
-     * 
-     */
     public Output<String> speakerSearchStatus() {
         return this.speakerSearchStatus;
     }
 
-    /**
-     * Enable voice tone analysis.
-     * 
-     */
     @Import(name="voiceToneAnalysisStatus", required=true)
     private Output<String> voiceToneAnalysisStatus;
 
-    /**
-     * @return Enable voice tone analysis.
-     * 
-     */
     public Output<String> voiceToneAnalysisStatus() {
         return this.voiceToneAnalysisStatus;
     }
@@ -69,44 +53,20 @@ public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProces
             $ = new MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param speakerSearchStatus Enable speaker search.
-         * 
-         * @return builder
-         * 
-         */
         public Builder speakerSearchStatus(Output<String> speakerSearchStatus) {
             $.speakerSearchStatus = speakerSearchStatus;
             return this;
         }
 
-        /**
-         * @param speakerSearchStatus Enable speaker search.
-         * 
-         * @return builder
-         * 
-         */
         public Builder speakerSearchStatus(String speakerSearchStatus) {
             return speakerSearchStatus(Output.of(speakerSearchStatus));
         }
 
-        /**
-         * @param voiceToneAnalysisStatus Enable voice tone analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceToneAnalysisStatus(Output<String> voiceToneAnalysisStatus) {
             $.voiceToneAnalysisStatus = voiceToneAnalysisStatus;
             return this;
         }
 
-        /**
-         * @param voiceToneAnalysisStatus Enable voice tone analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceToneAnalysisStatus(String voiceToneAnalysisStatus) {
             return voiceToneAnalysisStatus(Output.of(voiceToneAnalysisStatus));
         }

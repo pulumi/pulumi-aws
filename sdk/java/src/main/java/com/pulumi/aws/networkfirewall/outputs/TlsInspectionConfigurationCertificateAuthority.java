@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class TlsInspectionConfigurationCertificateAuthority {
-    /**
-     * @return ARN of the certificate.
-     * 
-     */
     private String certificateArn;
-    /**
-     * @return Serial number of the certificate.
-     * 
-     */
     private String certificateSerial;
-    /**
-     * @return Status of the certificate.
-     * 
-     */
     private String status;
-    /**
-     * @return Details about the certificate status, including information about certificate errors.
-     * 
-     */
     private String statusMessage;
 
     private TlsInspectionConfigurationCertificateAuthority() {}
-    /**
-     * @return ARN of the certificate.
-     * 
-     */
     public String certificateArn() {
         return this.certificateArn;
     }
-    /**
-     * @return Serial number of the certificate.
-     * 
-     */
     public String certificateSerial() {
         return this.certificateSerial;
     }
-    /**
-     * @return Status of the certificate.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Details about the certificate status, including information about certificate errors.
-     * 
-     */
     public String statusMessage() {
         return this.statusMessage;
     }

@@ -16,82 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcResult {
-    /**
-     * @return ARN of VPC
-     * 
-     */
     private String arn;
-    /**
-     * @return CIDR block for the association.
-     * 
-     */
     private String cidrBlock;
     private List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
     private Boolean default_;
     private String dhcpOptionsId;
-    /**
-     * @return Whether or not the VPC has DNS hostname support
-     * 
-     */
     private Boolean enableDnsHostnames;
-    /**
-     * @return Whether or not the VPC has DNS support
-     * 
-     */
     private Boolean enableDnsSupport;
-    /**
-     * @return Whether Network Address Usage metrics are enabled for your VPC
-     * 
-     */
     private Boolean enableNetworkAddressUsageMetrics;
     private @Nullable List<GetVpcFilter> filters;
     private String id;
-    /**
-     * @return Allowed tenancy of instances launched into the
-     * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
-     * 
-     */
     private String instanceTenancy;
-    /**
-     * @return Association ID for the IPv6 CIDR block.
-     * 
-     */
     private String ipv6AssociationId;
-    /**
-     * @return IPv6 CIDR block.
-     * 
-     */
     private String ipv6CidrBlock;
-    /**
-     * @return ID of the main route table associated with this VPC.
-     * 
-     */
     private String mainRouteTableId;
-    /**
-     * @return ID of the AWS account that owns the VPC.
-     * 
-     */
     private String ownerId;
     private String region;
-    /**
-     * @return State of the association.
-     * 
-     */
     private String state;
     private Map<String,String> tags;
 
     private GetVpcResult() {}
-    /**
-     * @return ARN of VPC
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return CIDR block for the association.
-     * 
-     */
     public String cidrBlock() {
         return this.cidrBlock;
     }
@@ -104,24 +51,12 @@ public final class GetVpcResult {
     public String dhcpOptionsId() {
         return this.dhcpOptionsId;
     }
-    /**
-     * @return Whether or not the VPC has DNS hostname support
-     * 
-     */
     public Boolean enableDnsHostnames() {
         return this.enableDnsHostnames;
     }
-    /**
-     * @return Whether or not the VPC has DNS support
-     * 
-     */
     public Boolean enableDnsSupport() {
         return this.enableDnsSupport;
     }
-    /**
-     * @return Whether Network Address Usage metrics are enabled for your VPC
-     * 
-     */
     public Boolean enableNetworkAddressUsageMetrics() {
         return this.enableNetworkAddressUsageMetrics;
     }
@@ -131,49 +66,24 @@ public final class GetVpcResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Allowed tenancy of instances launched into the
-     * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
-     * 
-     */
     public String instanceTenancy() {
         return this.instanceTenancy;
     }
-    /**
-     * @return Association ID for the IPv6 CIDR block.
-     * 
-     */
     public String ipv6AssociationId() {
         return this.ipv6AssociationId;
     }
-    /**
-     * @return IPv6 CIDR block.
-     * 
-     */
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }
-    /**
-     * @return ID of the main route table associated with this VPC.
-     * 
-     */
     public String mainRouteTableId() {
         return this.mainRouteTableId;
     }
-    /**
-     * @return ID of the AWS account that owns the VPC.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return State of the association.
-     * 
-     */
     public String state() {
         return this.state;
     }

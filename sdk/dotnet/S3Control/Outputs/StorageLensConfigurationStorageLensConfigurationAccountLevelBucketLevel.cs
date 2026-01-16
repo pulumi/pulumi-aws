@@ -13,25 +13,10 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
     {
-        /// <summary>
-        /// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics? ActivityMetrics;
-        /// <summary>
-        /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics;
-        /// <summary>
-        /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
-        /// <summary>
-        /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics? DetailedStatusCodeMetrics;
-        /// <summary>
-        /// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel? PrefixLevel;
 
         [OutputConstructor]

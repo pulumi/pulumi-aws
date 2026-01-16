@@ -49,11 +49,6 @@ class AppCampaignHook(dict):
                  lambda_function_name: Optional[_builtins.str] = None,
                  mode: Optional[_builtins.str] = None,
                  web_url: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str lambda_function_name: Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        :param _builtins.str mode: What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        :param _builtins.str web_url: Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        """
         if lambda_function_name is not None:
             pulumi.set(__self__, "lambda_function_name", lambda_function_name)
         if mode is not None:
@@ -64,25 +59,16 @@ class AppCampaignHook(dict):
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionName")
     def lambda_function_name(self) -> Optional[_builtins.str]:
-        """
-        Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        """
         return pulumi.get(self, "lambda_function_name")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
-        """
-        What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter(name="webUrl")
     def web_url(self) -> Optional[_builtins.str]:
-        """
-        Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        """
         return pulumi.get(self, "web_url")
 
 
@@ -112,12 +98,6 @@ class AppLimits(dict):
                  maximum_duration: Optional[_builtins.int] = None,
                  messages_per_second: Optional[_builtins.int] = None,
                  total: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int daily: The maximum number of messages that the campaign can send daily.
-        :param _builtins.int maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        :param _builtins.int messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        :param _builtins.int total: The maximum total number of messages that the campaign can send.
-        """
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
         if maximum_duration is not None:
@@ -130,33 +110,21 @@ class AppLimits(dict):
     @_builtins.property
     @pulumi.getter
     def daily(self) -> Optional[_builtins.int]:
-        """
-        The maximum number of messages that the campaign can send daily.
-        """
         return pulumi.get(self, "daily")
 
     @_builtins.property
     @pulumi.getter(name="maximumDuration")
     def maximum_duration(self) -> Optional[_builtins.int]:
-        """
-        The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        """
         return pulumi.get(self, "maximum_duration")
 
     @_builtins.property
     @pulumi.getter(name="messagesPerSecond")
     def messages_per_second(self) -> Optional[_builtins.int]:
-        """
-        The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        """
         return pulumi.get(self, "messages_per_second")
 
     @_builtins.property
     @pulumi.getter
     def total(self) -> Optional[_builtins.int]:
-        """
-        The maximum total number of messages that the campaign can send.
-        """
         return pulumi.get(self, "total")
 
 
@@ -165,10 +133,6 @@ class AppQuietTime(dict):
     def __init__(__self__, *,
                  end: Optional[_builtins.str] = None,
                  start: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str end: The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        :param _builtins.str start: The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -177,17 +141,11 @@ class AppQuietTime(dict):
     @_builtins.property
     @pulumi.getter
     def end(self) -> Optional[_builtins.str]:
-        """
-        The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        """
         return pulumi.get(self, "end")
 
     @_builtins.property
     @pulumi.getter
     def start(self) -> Optional[_builtins.str]:
-        """
-        The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        """
         return pulumi.get(self, "start")
 
 
@@ -224,13 +182,6 @@ class EmailTemplateEmailTemplate(dict):
                  recommender_id: Optional[_builtins.str] = None,
                  subject: Optional[_builtins.str] = None,
                  text_part: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str default_substitutions: JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-        :param _builtins.str html_part: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-        :param _builtins.str recommender_id: The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-        :param _builtins.str subject: Subject line, or title, to use in email messages that are based on the message template.
-        :param _builtins.str text_part: Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-        """
         if default_substitutions is not None:
             pulumi.set(__self__, "default_substitutions", default_substitutions)
         if description is not None:
@@ -249,9 +200,6 @@ class EmailTemplateEmailTemplate(dict):
     @_builtins.property
     @pulumi.getter(name="defaultSubstitutions")
     def default_substitutions(self) -> Optional[_builtins.str]:
-        """
-        JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-        """
         return pulumi.get(self, "default_substitutions")
 
     @_builtins.property
@@ -267,33 +215,21 @@ class EmailTemplateEmailTemplate(dict):
     @_builtins.property
     @pulumi.getter(name="htmlPart")
     def html_part(self) -> Optional[_builtins.str]:
-        """
-        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-        """
         return pulumi.get(self, "html_part")
 
     @_builtins.property
     @pulumi.getter(name="recommenderId")
     def recommender_id(self) -> Optional[_builtins.str]:
-        """
-        The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-        """
         return pulumi.get(self, "recommender_id")
 
     @_builtins.property
     @pulumi.getter
     def subject(self) -> Optional[_builtins.str]:
-        """
-        Subject line, or title, to use in email messages that are based on the message template.
-        """
         return pulumi.get(self, "subject")
 
     @_builtins.property
     @pulumi.getter(name="textPart")
     def text_part(self) -> Optional[_builtins.str]:
-        """
-        Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-        """
         return pulumi.get(self, "text_part")
 
 
@@ -302,10 +238,6 @@ class EmailTemplateEmailTemplateHeader(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the message header. The header name can contain up to 126 characters.
-        :param _builtins.str value: Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -314,17 +246,11 @@ class EmailTemplateEmailTemplateHeader(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the message header. The header name can contain up to 126 characters.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
-        """
         return pulumi.get(self, "value")
 
 

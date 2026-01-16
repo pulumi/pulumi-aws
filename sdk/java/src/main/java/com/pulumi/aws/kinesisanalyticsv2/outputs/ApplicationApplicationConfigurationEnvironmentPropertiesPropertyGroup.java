@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
-    /**
-     * @return The key of the application execution property key-value map.
-     * 
-     */
     private String propertyGroupId;
-    /**
-     * @return Application execution property key-value map.
-     * 
-     */
     private Map<String,String> propertyMap;
 
     private ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup() {}
-    /**
-     * @return The key of the application execution property key-value map.
-     * 
-     */
     public String propertyGroupId() {
         return this.propertyGroupId;
     }
-    /**
-     * @return Application execution property key-value map.
-     * 
-     */
     public Map<String,String> propertyMap() {
         return this.propertyMap;
     }

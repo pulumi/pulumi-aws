@@ -9,74 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedPermissions
 {
-    /// <summary>
-    /// Resource for managing an AWS Verified Permissions Policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.VerifiedPermissions.Policy("test", new()
-    ///     {
-    ///         PolicyStoreId = testAwsVerifiedpermissionsPolicyStore.Id,
-    ///         Definition = new Aws.VerifiedPermissions.Inputs.PolicyDefinitionArgs
-    ///         {
-    ///             Static = new Aws.VerifiedPermissions.Inputs.PolicyDefinitionStaticArgs
-    ///             {
-    ///                 Statement = "permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Verified Permissions Policy using the `policy_id,policy_store_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:verifiedpermissions/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The date the policy was created.
-        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The definition of the policy. See Definition below.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.PolicyDefinition?> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// The Policy ID of the policy.
-        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Policy Store ID of the policy store.
-        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -126,21 +73,12 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The definition of the policy. See Definition below.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.PolicyDefinitionArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// The Policy Store ID of the policy store.
-        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -152,33 +90,18 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The date the policy was created.
-        /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
-        /// <summary>
-        /// The definition of the policy. See Definition below.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.PolicyDefinitionGetArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// The Policy ID of the policy.
-        /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
-        /// <summary>
-        /// The Policy Store ID of the policy store.
-        /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

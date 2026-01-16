@@ -65,9 +65,6 @@ class GetResponsePlanResult:
     @_builtins.property
     @pulumi.getter
     def actions(self) -> Sequence['outputs.GetResponsePlanActionResult']:
-        """
-        (Optional) The actions that the response plan starts at the beginning of an incident.
-        """
         return pulumi.get(self, "actions")
 
     @_builtins.property
@@ -78,25 +75,16 @@ class GetResponsePlanResult:
     @_builtins.property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> Sequence[_builtins.str]:
-        """
-        The Chatbot chat channel used for collaboration during an incident.
-        """
         return pulumi.get(self, "chat_channels")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        The long format of the response plan name. This field can contain spaces.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter
     def engagements(self) -> Sequence[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        """
         return pulumi.get(self, "engagements")
 
     @_builtins.property
@@ -115,17 +103,11 @@ class GetResponsePlanResult:
     @_builtins.property
     @pulumi.getter
     def integrations(self) -> Sequence['outputs.GetResponsePlanIntegrationResult']:
-        """
-        Information about third-party services integrated into the response plan. The following values are supported:
-        """
         return pulumi.get(self, "integrations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the PagerDuty configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -136,9 +118,6 @@ class GetResponsePlanResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        The tags applied to the response plan.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -166,23 +145,7 @@ def get_response_plan(arn: Optional[_builtins.str] = None,
                       tags: Optional[Mapping[str, _builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResponsePlanResult:
     """
-    Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmincidents.ResponsePlan("example", arn="exampleARN")
-    ```
-
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: The tags applied to the response plan.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -208,23 +171,7 @@ def get_response_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponsePlanResult]:
     """
-    Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmincidents.ResponsePlan("example", arn="exampleARN")
-    ```
-
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: The tags applied to the response plan.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -107,17 +107,11 @@ class GetDirectoryResult:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfigs")
     def active_directory_configs(self) -> Sequence['outputs.GetDirectoryActiveDirectoryConfigResult']:
-        """
-        Configuration for Active Directory integration when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "active_directory_configs")
 
     @_builtins.property
     @pulumi.getter
     def alias(self) -> _builtins.str:
-        """
-        Directory alias.
-        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
@@ -128,9 +122,6 @@ class GetDirectoryResult:
     @_builtins.property
     @pulumi.getter(name="customerUserName")
     def customer_user_name(self) -> _builtins.str:
-        """
-        User name for the service account.
-        """
         return pulumi.get(self, "customer_user_name")
 
     @_builtins.property
@@ -141,33 +132,21 @@ class GetDirectoryResult:
     @_builtins.property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> _builtins.str:
-        """
-        Name of the directory.
-        """
         return pulumi.get(self, "directory_name")
 
     @_builtins.property
     @pulumi.getter(name="directoryType")
     def directory_type(self) -> _builtins.str:
-        """
-        Directory type.
-        """
         return pulumi.get(self, "directory_type")
 
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> Sequence[_builtins.str]:
-        """
-        IP addresses of the DNS servers for the directory.
-        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleId")
     def iam_role_id(self) -> _builtins.str:
-        """
-        Identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
-        """
         return pulumi.get(self, "iam_role_id")
 
     @_builtins.property
@@ -181,9 +160,6 @@ class GetDirectoryResult:
     @_builtins.property
     @pulumi.getter(name="ipGroupIds")
     def ip_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        Identifiers of the IP access control groups associated with the directory.
-        """
         return pulumi.get(self, "ip_group_ids")
 
     @_builtins.property
@@ -194,9 +170,6 @@ class GetDirectoryResult:
     @_builtins.property
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> _builtins.str:
-        """
-        Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-        """
         return pulumi.get(self, "registration_code")
 
     @_builtins.property
@@ -207,89 +180,56 @@ class GetDirectoryResult:
     @_builtins.property
     @pulumi.getter(name="selfServicePermissions")
     def self_service_permissions(self) -> Sequence['outputs.GetDirectorySelfServicePermissionResult']:
-        """
-        The permissions to enable or disable self-service capabilities.
-        """
         return pulumi.get(self, "self_service_permissions")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        Identifiers of the subnets where the directory resides.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        A map of tags assigned to the WorkSpaces directory.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def tenancy(self) -> _builtins.str:
-        """
-        Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
-        """
         return pulumi.get(self, "tenancy")
 
     @_builtins.property
     @pulumi.getter(name="userIdentityType")
     def user_identity_type(self) -> _builtins.str:
-        """
-        The user identity type for the WorkSpaces directory.
-        """
         return pulumi.get(self, "user_identity_type")
 
     @_builtins.property
     @pulumi.getter(name="workspaceAccessProperties")
     def workspace_access_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceAccessPropertyResult']:
-        """
-        Specifies which devices and operating systems users can use to access their WorkSpaces.
-        """
         return pulumi.get(self, "workspace_access_properties")
 
     @_builtins.property
     @pulumi.getter(name="workspaceCreationProperties")
     def workspace_creation_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceCreationPropertyResult']:
-        """
-        The default properties that are used for creating WorkSpaces.
-        """
         return pulumi.get(self, "workspace_creation_properties")
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryDescription")
     def workspace_directory_description(self) -> _builtins.str:
-        """
-        The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_description")
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryName")
     def workspace_directory_name(self) -> _builtins.str:
-        """
-        The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
-        """
         return pulumi.get(self, "workspace_directory_name")
 
     @_builtins.property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> _builtins.str:
-        """
-        The identifier of the security group that is assigned to new WorkSpaces.
-        """
         return pulumi.get(self, "workspace_security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="workspaceType")
     def workspace_type(self) -> _builtins.str:
-        """
-        The type of WorkSpaces directory.
-        """
         return pulumi.get(self, "workspace_type")
 
 
@@ -331,21 +271,7 @@ def get_directory(directory_id: Optional[_builtins.str] = None,
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryResult:
     """
-    Retrieve information about an AWS WorkSpaces directory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_directory(directory_id="d-9067783251")
-    ```
-
-
-    :param _builtins.str directory_id: Directory identifier for registration in WorkSpaces service.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the WorkSpaces directory.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
@@ -385,21 +311,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[_builtins.str]] = N
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
-    Retrieve information about an AWS WorkSpaces directory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_directory(directory_id="d-9067783251")
-    ```
-
-
-    :param _builtins.str directory_id: Directory identifier for registration in WorkSpaces service.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the WorkSpaces directory.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id

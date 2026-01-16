@@ -30,15 +30,6 @@ class LogAnomalyDetectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogAnomalyDetector resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_arn_lists: Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] anomaly_visibility_time: Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        :param pulumi.Input[_builtins.str] detector_name: Name for this anomaly detector.
-        :param pulumi.Input[_builtins.str] evaluation_frequency: Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        :param pulumi.Input[_builtins.str] filter_pattern: You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        :param pulumi.Input[_builtins.str] kms_key_id: Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "log_group_arn_lists", log_group_arn_lists)
@@ -69,11 +60,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter(name="logGroupArnLists")
     def log_group_arn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "log_group_arn_lists")
 
     @log_group_arn_lists.setter
@@ -83,9 +69,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter(name="anomalyVisibilityTime")
     def anomaly_visibility_time(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @anomaly_visibility_time.setter
@@ -95,9 +78,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter(name="detectorName")
     def detector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for this anomaly detector.
-        """
         return pulumi.get(self, "detector_name")
 
     @detector_name.setter
@@ -107,9 +87,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
     def evaluation_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        """
         return pulumi.get(self, "evaluation_frequency")
 
     @evaluation_frequency.setter
@@ -119,9 +96,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
@@ -131,9 +105,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -143,9 +114,6 @@ class LogAnomalyDetectorArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,16 +146,6 @@ class _LogAnomalyDetectorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogAnomalyDetector resources.
-        :param pulumi.Input[_builtins.int] anomaly_visibility_time: Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        :param pulumi.Input[_builtins.str] arn: ARN of the log anomaly detector that you just created.
-        :param pulumi.Input[_builtins.str] detector_name: Name for this anomaly detector.
-        :param pulumi.Input[_builtins.str] evaluation_frequency: Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        :param pulumi.Input[_builtins.str] filter_pattern: You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        :param pulumi.Input[_builtins.str] kms_key_id: Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_arn_lists: Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if anomaly_visibility_time is not None:
             pulumi.set(__self__, "anomaly_visibility_time", anomaly_visibility_time)
@@ -215,9 +173,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter(name="anomalyVisibilityTime")
     def anomaly_visibility_time(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @anomaly_visibility_time.setter
@@ -227,9 +182,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the log anomaly detector that you just created.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -239,9 +191,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter(name="detectorName")
     def detector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for this anomaly detector.
-        """
         return pulumi.get(self, "detector_name")
 
     @detector_name.setter
@@ -260,9 +209,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
     def evaluation_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        """
         return pulumi.get(self, "evaluation_frequency")
 
     @evaluation_frequency.setter
@@ -272,9 +218,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
@@ -284,9 +227,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -296,11 +236,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter(name="logGroupArnLists")
     def log_group_arn_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "log_group_arn_lists")
 
     @log_group_arn_lists.setter
@@ -310,9 +245,6 @@ class _LogAnomalyDetectorState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -355,46 +287,9 @@ class LogAnomalyDetector(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudWatch Logs Log Anomaly Detector.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            test.append(aws.cloudwatch.LogGroup(f"test-{range['value']}", name=f"testing-{range['value']}"))
-        test_log_anomaly_detector = aws.cloudwatch.LogAnomalyDetector("test",
-            detector_name="testing",
-            log_group_arn_lists=[test[0].arn],
-            anomaly_visibility_time=7,
-            evaluation_frequency="TEN_MIN",
-            enabled=False)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
-        ```
-
+        Create a LogAnomalyDetector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] anomaly_visibility_time: Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        :param pulumi.Input[_builtins.str] detector_name: Name for this anomaly detector.
-        :param pulumi.Input[_builtins.str] evaluation_frequency: Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        :param pulumi.Input[_builtins.str] filter_pattern: You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        :param pulumi.Input[_builtins.str] kms_key_id: Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_arn_lists: Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -403,35 +298,7 @@ class LogAnomalyDetector(pulumi.CustomResource):
                  args: LogAnomalyDetectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudWatch Logs Log Anomaly Detector.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            test.append(aws.cloudwatch.LogGroup(f"test-{range['value']}", name=f"testing-{range['value']}"))
-        test_log_anomaly_detector = aws.cloudwatch.LogAnomalyDetector("test",
-            detector_name="testing",
-            log_group_arn_lists=[test[0].arn],
-            anomaly_visibility_time=7,
-            evaluation_frequency="TEN_MIN",
-            enabled=False)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
-        ```
-
+        Create a LogAnomalyDetector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogAnomalyDetectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -508,16 +375,6 @@ class LogAnomalyDetector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] anomaly_visibility_time: Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        :param pulumi.Input[_builtins.str] arn: ARN of the log anomaly detector that you just created.
-        :param pulumi.Input[_builtins.str] detector_name: Name for this anomaly detector.
-        :param pulumi.Input[_builtins.str] evaluation_frequency: Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        :param pulumi.Input[_builtins.str] filter_pattern: You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        :param pulumi.Input[_builtins.str] kms_key_id: Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_arn_lists: Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,25 +396,16 @@ class LogAnomalyDetector(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="anomalyVisibilityTime")
     def anomaly_visibility_time(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the log anomaly detector that you just created.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="detectorName")
     def detector_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Name for this anomaly detector.
-        """
         return pulumi.get(self, "detector_name")
 
     @_builtins.property
@@ -568,43 +416,26 @@ class LogAnomalyDetector(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
     def evaluation_frequency(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        """
         return pulumi.get(self, "evaluation_frequency")
 
     @_builtins.property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        """
         return pulumi.get(self, "filter_pattern")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="logGroupArnLists")
     def log_group_arn_lists(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "log_group_arn_lists")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property

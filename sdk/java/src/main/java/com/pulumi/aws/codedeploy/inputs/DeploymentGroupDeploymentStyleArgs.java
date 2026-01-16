@@ -15,36 +15,16 @@ public final class DeploymentGroupDeploymentStyleArgs extends com.pulumi.resourc
 
     public static final DeploymentGroupDeploymentStyleArgs Empty = new DeploymentGroupDeploymentStyleArgs();
 
-    /**
-     * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-     * 
-     */
     @Import(name="deploymentOption")
     private @Nullable Output<String> deploymentOption;
 
-    /**
-     * @return Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-     * 
-     */
     public Optional<Output<String>> deploymentOption() {
         return Optional.ofNullable(this.deploymentOption);
     }
 
-    /**
-     * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-     * 
-     * _Only one `deploymentStyle` is allowed_.
-     * 
-     */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
-    /**
-     * @return Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-     * 
-     * _Only one `deploymentStyle` is allowed_.
-     * 
-     */
     public Optional<Output<String>> deploymentType() {
         return Optional.ofNullable(this.deploymentType);
     }
@@ -74,48 +54,20 @@ public final class DeploymentGroupDeploymentStyleArgs extends com.pulumi.resourc
             $ = new DeploymentGroupDeploymentStyleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deploymentOption Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentOption(@Nullable Output<String> deploymentOption) {
             $.deploymentOption = deploymentOption;
             return this;
         }
 
-        /**
-         * @param deploymentOption Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentOption(String deploymentOption) {
             return deploymentOption(Output.of(deploymentOption));
         }
 
-        /**
-         * @param deploymentType Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-         * 
-         * _Only one `deploymentStyle` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentType(@Nullable Output<String> deploymentType) {
             $.deploymentType = deploymentType;
             return this;
         }
 
-        /**
-         * @param deploymentType Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-         * 
-         * _Only one `deploymentStyle` is allowed_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deploymentType(String deploymentType) {
             return deploymentType(Output.of(deploymentType));
         }

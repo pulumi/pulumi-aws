@@ -15,77 +15,37 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
 
     public static final SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs Empty = new SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs();
 
-    /**
-     * The instance type.
-     * 
-     */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
-    /**
-     * @return The instance type.
-     * 
-     */
     public Optional<Output<String>> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-     * 
-     */
     @Import(name="lifecycleConfigArn")
     private @Nullable Output<String> lifecycleConfigArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-     * 
-     */
     public Optional<Output<String>> lifecycleConfigArn() {
         return Optional.ofNullable(this.lifecycleConfigArn);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
-     * 
-     */
     @Import(name="sagemakerImageArn")
     private @Nullable Output<String> sagemakerImageArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
-     * 
-     */
     public Optional<Output<String>> sagemakerImageArn() {
         return Optional.ofNullable(this.sagemakerImageArn);
     }
 
-    /**
-     * The SageMaker AI Image Version Alias.
-     * 
-     */
     @Import(name="sagemakerImageVersionAlias")
     private @Nullable Output<String> sagemakerImageVersionAlias;
 
-    /**
-     * @return The SageMaker AI Image Version Alias.
-     * 
-     */
     public Optional<Output<String>> sagemakerImageVersionAlias() {
         return Optional.ofNullable(this.sagemakerImageVersionAlias);
     }
 
-    /**
-     * The ARN of the image version created on the instance.
-     * 
-     */
     @Import(name="sagemakerImageVersionArn")
     private @Nullable Output<String> sagemakerImageVersionArn;
 
-    /**
-     * @return The ARN of the image version created on the instance.
-     * 
-     */
     public Optional<Output<String>> sagemakerImageVersionArn() {
         return Optional.ofNullable(this.sagemakerImageVersionArn);
     }
@@ -118,107 +78,47 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
             $ = new SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceType The instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(@Nullable Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType The instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param lifecycleConfigArn The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArn(@Nullable Output<String> lifecycleConfigArn) {
             $.lifecycleConfigArn = lifecycleConfigArn;
             return this;
         }
 
-        /**
-         * @param lifecycleConfigArn The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lifecycleConfigArn(String lifecycleConfigArn) {
             return lifecycleConfigArn(Output.of(lifecycleConfigArn));
         }
 
-        /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerImageArn(@Nullable Output<String> sagemakerImageArn) {
             $.sagemakerImageArn = sagemakerImageArn;
             return this;
         }
 
-        /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerImageArn(String sagemakerImageArn) {
             return sagemakerImageArn(Output.of(sagemakerImageArn));
         }
 
-        /**
-         * @param sagemakerImageVersionAlias The SageMaker AI Image Version Alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerImageVersionAlias(@Nullable Output<String> sagemakerImageVersionAlias) {
             $.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
             return this;
         }
 
-        /**
-         * @param sagemakerImageVersionAlias The SageMaker AI Image Version Alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerImageVersionAlias(String sagemakerImageVersionAlias) {
             return sagemakerImageVersionAlias(Output.of(sagemakerImageVersionAlias));
         }
 
-        /**
-         * @param sagemakerImageVersionArn The ARN of the image version created on the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerImageVersionArn(@Nullable Output<String> sagemakerImageVersionArn) {
             $.sagemakerImageVersionArn = sagemakerImageVersionArn;
             return this;
         }
 
-        /**
-         * @param sagemakerImageVersionArn The ARN of the image version created on the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sagemakerImageVersionArn(String sagemakerImageVersionArn) {
             return sagemakerImageVersionArn(Output.of(sagemakerImageVersionArn));
         }

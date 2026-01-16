@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceCredentialsCredentialPair
     {
-        /// <summary>
-        /// Password, maximum length of 1024 characters.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// User name, maximum length of 64 characters.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

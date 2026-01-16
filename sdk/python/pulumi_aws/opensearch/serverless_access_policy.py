@@ -26,13 +26,10 @@ class ServerlessAccessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessAccessPolicy resource.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] type: Type of access policy. Must be `data`.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
@@ -47,7 +44,7 @@ class ServerlessAccessPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        JSON policy document to use as the content for the new policy
+        JSON policy document to use as the content for the new policy.
         """
         return pulumi.get(self, "policy")
 
@@ -60,8 +57,6 @@ class ServerlessAccessPolicyArgs:
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of access policy. Must be `data`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -96,9 +91,6 @@ class ServerlessAccessPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,12 +111,9 @@ class _ServerlessAccessPolicyState:
         Input properties used for looking up and filtering ServerlessAccessPolicy resources.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] policy_version: Version of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of access policy. Must be `data`.
-               
-               The following arguments are optional:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -167,7 +156,7 @@ class _ServerlessAccessPolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        JSON policy document to use as the content for the new policy
+        JSON policy document to use as the content for the new policy.
         """
         return pulumi.get(self, "policy")
 
@@ -190,9 +179,6 @@ class _ServerlessAccessPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -204,8 +190,6 @@ class _ServerlessAccessPolicyState:
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of access policy. Must be `data`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -227,119 +211,13 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
-
-        ## Example Usage
-
-        ### Grant all collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            name="example",
-            type="data",
-            description="read and write permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-
-        ### Grant read-only collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            name="example",
-            type="data",
-            description="read-only permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": [
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                        ],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:DescribeCollectionItems"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-
-        ### Grant SAML identity permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            name="example",
-            type="data",
-            description="saml permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [
-                    "saml/123456789012/myprovider/user/Annie",
-                    "saml/123456789012/anotherprovider/group/Accounting",
-                ],
-            }]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
-        ```
-
+        Create a ServerlessAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] type: Type of access policy. Must be `data`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -348,110 +226,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                  args: ServerlessAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
-
-        ## Example Usage
-
-        ### Grant all collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            name="example",
-            type="data",
-            description="read and write permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-
-        ### Grant read-only collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            name="example",
-            type="data",
-            description="read-only permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": [
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                        ],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:DescribeCollectionItems"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-
-        ### Grant SAML identity permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            name="example",
-            type="data",
-            description="saml permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [
-                    "saml/123456789012/myprovider/user/Annie",
-                    "saml/123456789012/anotherprovider/group/Accounting",
-                ],
-            }]))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
-        ```
-
+        Create a ServerlessAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServerlessAccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -516,12 +291,9 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
-        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
+        :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] policy_version: Version of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of access policy. Must be `data`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -555,7 +327,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        JSON policy document to use as the content for the new policy
+        JSON policy document to use as the content for the new policy.
         """
         return pulumi.get(self, "policy")
 
@@ -570,9 +342,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -580,8 +349,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of access policy. Must be `data`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

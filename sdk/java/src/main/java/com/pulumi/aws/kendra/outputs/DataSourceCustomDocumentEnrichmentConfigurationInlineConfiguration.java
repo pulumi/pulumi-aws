@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
-    /**
-     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-     * 
-     */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition;
-    /**
-     * @return `TRUE` to delete content if the condition used for the target attribute is met.
-     * 
-     */
     private @Nullable Boolean documentContentDeletion;
-    /**
-     * @return Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-     * 
-     */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target;
 
     private DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration() {}
-    /**
-     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
-     * 
-     */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition> condition() {
         return Optional.ofNullable(this.condition);
     }
-    /**
-     * @return `TRUE` to delete content if the condition used for the target attribute is met.
-     * 
-     */
     public Optional<Boolean> documentContentDeletion() {
         return Optional.ofNullable(this.documentContentDeletion);
     }
-    /**
-     * @return Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
-     * 
-     */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget> target() {
         return Optional.ofNullable(this.target);
     }

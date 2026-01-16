@@ -17,32 +17,16 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
 
     public static final GatewayRouteSpecGrpcRouteMatchArgs Empty = new GatewayRouteSpecGrpcRouteMatchArgs();
 
-    /**
-     * The port number to match from the request.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
-    /**
-     * @return The port number to match from the request.
-     * 
-     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * Fully qualified domain name for the service to match from the request.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return Fully qualified domain name for the service to match from the request.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -72,44 +56,20 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
             $ = new GatewayRouteSpecGrpcRouteMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port number to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param serviceName Fully qualified domain name for the service to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Fully qualified domain name for the service to match from the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Dms
 {
     public static class GetReplicationSubnetGroup
     {
-        /// <summary>
-        /// Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Dms.GetReplicationSubnetGroup.Invoke(new()
-        ///     {
-        ///         ReplicationSubnetGroupId = testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetReplicationSubnetGroupResult> InvokeAsync(GetReplicationSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSubnetGroupResult>("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Dms.GetReplicationSubnetGroup.Invoke(new()
-        ///     {
-        ///         ReplicationSubnetGroupId = testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReplicationSubnetGroupResult> Invoke(GetReplicationSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSubnetGroupResult>("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Dms.GetReplicationSubnetGroup.Invoke(new()
-        ///     {
-        ///         ReplicationSubnetGroupId = testAwsDmsReplicationSubnetGroup.ReplicationSubnetGroupId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReplicationSubnetGroupResult> Invoke(GetReplicationSubnetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSubnetGroupResult>("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `Default`.
-        /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
         public string ReplicationSubnetGroupId { get; set; } = null!;
 
@@ -121,15 +46,9 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `Default`.
-        /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
         public Input<string> ReplicationSubnetGroupId { get; set; } = null!;
 
@@ -157,20 +76,11 @@ namespace Pulumi.Aws.Dms
         public readonly string Id;
         public readonly string Region;
         public readonly string ReplicationSubnetGroupArn;
-        /// <summary>
-        /// Description for the subnet group.
-        /// </summary>
         public readonly string ReplicationSubnetGroupDescription;
         public readonly string ReplicationSubnetGroupId;
         public readonly string SubnetGroupStatus;
-        /// <summary>
-        /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The ID of the VPC the subnet group is in.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

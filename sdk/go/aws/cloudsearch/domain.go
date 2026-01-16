@@ -11,89 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an CloudSearch domain resource.
-//
-// The provider waits for the domain to become `Active` when applying a configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudsearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
-//				Name: pulumi.String("example-domain"),
-//				ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
-//					DesiredInstanceType: pulumi.String("search.medium"),
-//				},
-//				IndexFields: cloudsearch.DomainIndexFieldArray{
-//					&cloudsearch.DomainIndexFieldArgs{
-//						Name:           pulumi.String("headline"),
-//						Type:           pulumi.String("text"),
-//						Search:         pulumi.Bool(true),
-//						Return:         pulumi.Bool(true),
-//						Sort:           pulumi.Bool(true),
-//						Highlight:      pulumi.Bool(false),
-//						AnalysisScheme: pulumi.String("_en_default_"),
-//					},
-//					&cloudsearch.DomainIndexFieldArgs{
-//						Name:         pulumi.String("price"),
-//						Type:         pulumi.String("double"),
-//						Search:       pulumi.Bool(true),
-//						Facet:        pulumi.Bool(true),
-//						Return:       pulumi.Bool(true),
-//						Sort:         pulumi.Bool(true),
-//						SourceFields: pulumi.String("headline"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudsearch/domain:Domain example example-domain
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The domain's ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The service endpoint for updating documents in a search domain.
-	DocumentServiceEndpoint pulumi.StringOutput `pulumi:"documentServiceEndpoint"`
-	// An internally generated unique identifier for the domain.
-	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// Domain endpoint options. Documented below.
-	EndpointOptions DomainEndpointOptionsOutput `pulumi:"endpointOptions"`
-	// The index fields for documents added to the domain. Documented below.
-	IndexFields DomainIndexFieldArrayOutput `pulumi:"indexFields"`
-	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// The name of the CloudSearch domain.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Domain scaling parameters. Documented below.
-	ScalingParameters DomainScalingParametersOutput `pulumi:"scalingParameters"`
-	// The service endpoint for requesting search results from a search domain.
-	SearchServiceEndpoint pulumi.StringOutput `pulumi:"searchServiceEndpoint"`
+	Arn                     pulumi.StringOutput           `pulumi:"arn"`
+	DocumentServiceEndpoint pulumi.StringOutput           `pulumi:"documentServiceEndpoint"`
+	DomainId                pulumi.StringOutput           `pulumi:"domainId"`
+	EndpointOptions         DomainEndpointOptionsOutput   `pulumi:"endpointOptions"`
+	IndexFields             DomainIndexFieldArrayOutput   `pulumi:"indexFields"`
+	MultiAz                 pulumi.BoolOutput             `pulumi:"multiAz"`
+	Name                    pulumi.StringOutput           `pulumi:"name"`
+	Region                  pulumi.StringOutput           `pulumi:"region"`
+	ScalingParameters       DomainScalingParametersOutput `pulumi:"scalingParameters"`
+	SearchServiceEndpoint   pulumi.StringOutput           `pulumi:"searchServiceEndpoint"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -126,49 +56,29 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// The domain's ARN.
-	Arn *string `pulumi:"arn"`
-	// The service endpoint for updating documents in a search domain.
-	DocumentServiceEndpoint *string `pulumi:"documentServiceEndpoint"`
-	// An internally generated unique identifier for the domain.
-	DomainId *string `pulumi:"domainId"`
-	// Domain endpoint options. Documented below.
-	EndpointOptions *DomainEndpointOptions `pulumi:"endpointOptions"`
-	// The index fields for documents added to the domain. Documented below.
-	IndexFields []DomainIndexField `pulumi:"indexFields"`
-	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the CloudSearch domain.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Domain scaling parameters. Documented below.
-	ScalingParameters *DomainScalingParameters `pulumi:"scalingParameters"`
-	// The service endpoint for requesting search results from a search domain.
-	SearchServiceEndpoint *string `pulumi:"searchServiceEndpoint"`
+	Arn                     *string                  `pulumi:"arn"`
+	DocumentServiceEndpoint *string                  `pulumi:"documentServiceEndpoint"`
+	DomainId                *string                  `pulumi:"domainId"`
+	EndpointOptions         *DomainEndpointOptions   `pulumi:"endpointOptions"`
+	IndexFields             []DomainIndexField       `pulumi:"indexFields"`
+	MultiAz                 *bool                    `pulumi:"multiAz"`
+	Name                    *string                  `pulumi:"name"`
+	Region                  *string                  `pulumi:"region"`
+	ScalingParameters       *DomainScalingParameters `pulumi:"scalingParameters"`
+	SearchServiceEndpoint   *string                  `pulumi:"searchServiceEndpoint"`
 }
 
 type DomainState struct {
-	// The domain's ARN.
-	Arn pulumi.StringPtrInput
-	// The service endpoint for updating documents in a search domain.
+	Arn                     pulumi.StringPtrInput
 	DocumentServiceEndpoint pulumi.StringPtrInput
-	// An internally generated unique identifier for the domain.
-	DomainId pulumi.StringPtrInput
-	// Domain endpoint options. Documented below.
-	EndpointOptions DomainEndpointOptionsPtrInput
-	// The index fields for documents added to the domain. Documented below.
-	IndexFields DomainIndexFieldArrayInput
-	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-	MultiAz pulumi.BoolPtrInput
-	// The name of the CloudSearch domain.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Domain scaling parameters. Documented below.
-	ScalingParameters DomainScalingParametersPtrInput
-	// The service endpoint for requesting search results from a search domain.
-	SearchServiceEndpoint pulumi.StringPtrInput
+	DomainId                pulumi.StringPtrInput
+	EndpointOptions         DomainEndpointOptionsPtrInput
+	IndexFields             DomainIndexFieldArrayInput
+	MultiAz                 pulumi.BoolPtrInput
+	Name                    pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	ScalingParameters       DomainScalingParametersPtrInput
+	SearchServiceEndpoint   pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -176,33 +86,21 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// Domain endpoint options. Documented below.
-	EndpointOptions *DomainEndpointOptions `pulumi:"endpointOptions"`
-	// The index fields for documents added to the domain. Documented below.
-	IndexFields []DomainIndexField `pulumi:"indexFields"`
-	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-	MultiAz *bool `pulumi:"multiAz"`
-	// The name of the CloudSearch domain.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Domain scaling parameters. Documented below.
+	EndpointOptions   *DomainEndpointOptions   `pulumi:"endpointOptions"`
+	IndexFields       []DomainIndexField       `pulumi:"indexFields"`
+	MultiAz           *bool                    `pulumi:"multiAz"`
+	Name              *string                  `pulumi:"name"`
+	Region            *string                  `pulumi:"region"`
 	ScalingParameters *DomainScalingParameters `pulumi:"scalingParameters"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// Domain endpoint options. Documented below.
-	EndpointOptions DomainEndpointOptionsPtrInput
-	// The index fields for documents added to the domain. Documented below.
-	IndexFields DomainIndexFieldArrayInput
-	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-	MultiAz pulumi.BoolPtrInput
-	// The name of the CloudSearch domain.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Domain scaling parameters. Documented below.
+	EndpointOptions   DomainEndpointOptionsPtrInput
+	IndexFields       DomainIndexFieldArrayInput
+	MultiAz           pulumi.BoolPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	ScalingParameters DomainScalingParametersPtrInput
 }
 
@@ -293,52 +191,42 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// The domain's ARN.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The service endpoint for updating documents in a search domain.
 func (o DomainOutput) DocumentServiceEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DocumentServiceEndpoint }).(pulumi.StringOutput)
 }
 
-// An internally generated unique identifier for the domain.
 func (o DomainOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// Domain endpoint options. Documented below.
 func (o DomainOutput) EndpointOptions() DomainEndpointOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainEndpointOptionsOutput { return v.EndpointOptions }).(DomainEndpointOptionsOutput)
 }
 
-// The index fields for documents added to the domain. Documented below.
 func (o DomainOutput) IndexFields() DomainIndexFieldArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainIndexFieldArrayOutput { return v.IndexFields }).(DomainIndexFieldArrayOutput)
 }
 
-// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
 func (o DomainOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Domain) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
-// The name of the CloudSearch domain.
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Domain scaling parameters. Documented below.
 func (o DomainOutput) ScalingParameters() DomainScalingParametersOutput {
 	return o.ApplyT(func(v *Domain) DomainScalingParametersOutput { return v.ScalingParameters }).(DomainScalingParametersOutput)
 }
 
-// The service endpoint for requesting search results from a search domain.
 func (o DomainOutput) SearchServiceEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SearchServiceEndpoint }).(pulumi.StringOutput)
 }

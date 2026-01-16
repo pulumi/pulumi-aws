@@ -15,77 +15,37 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
 
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyAction Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction();
 
-    /**
-     * The name of the network function group to attach to the attachment policy.
-     * 
-     */
     @Import(name="addToNetworkFunctionGroup")
     private @Nullable String addToNetworkFunctionGroup;
 
-    /**
-     * @return The name of the network function group to attach to the attachment policy.
-     * 
-     */
     public Optional<String> addToNetworkFunctionGroup() {
         return Optional.ofNullable(this.addToNetworkFunctionGroup);
     }
 
-    /**
-     * Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-     * 
-     */
     @Import(name="associationMethod")
     private @Nullable String associationMethod;
 
-    /**
-     * @return Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-     * 
-     */
     public Optional<String> associationMethod() {
         return Optional.ofNullable(this.associationMethod);
     }
 
-    /**
-     * Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
-     * 
-     */
     @Import(name="requireAcceptance")
     private @Nullable Boolean requireAcceptance;
 
-    /**
-     * @return Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
-     * 
-     */
     public Optional<Boolean> requireAcceptance() {
         return Optional.ofNullable(this.requireAcceptance);
     }
 
-    /**
-     * Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
-     * 
-     */
     @Import(name="segment")
     private @Nullable String segment;
 
-    /**
-     * @return Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
-     * 
-     */
     public Optional<String> segment() {
         return Optional.ofNullable(this.segment);
     }
 
-    /**
-     * Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
-     * 
-     */
     @Import(name="tagValueOfKey")
     private @Nullable String tagValueOfKey;
 
-    /**
-     * @return Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
-     * 
-     */
     public Optional<String> tagValueOfKey() {
         return Optional.ofNullable(this.tagValueOfKey);
     }
@@ -118,56 +78,26 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
             $ = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param addToNetworkFunctionGroup The name of the network function group to attach to the attachment policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder addToNetworkFunctionGroup(@Nullable String addToNetworkFunctionGroup) {
             $.addToNetworkFunctionGroup = addToNetworkFunctionGroup;
             return this;
         }
 
-        /**
-         * @param associationMethod Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationMethod(@Nullable String associationMethod) {
             $.associationMethod = associationMethod;
             return this;
         }
 
-        /**
-         * @param requireAcceptance Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireAcceptance(@Nullable Boolean requireAcceptance) {
             $.requireAcceptance = requireAcceptance;
             return this;
         }
 
-        /**
-         * @param segment Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder segment(@Nullable String segment) {
             $.segment = segment;
             return this;
         }
 
-        /**
-         * @param tagValueOfKey Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValueOfKey(@Nullable String tagValueOfKey) {
             $.tagValueOfKey = tagValueOfKey;
             return this;

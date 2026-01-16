@@ -16,32 +16,16 @@ public final class ClusterMultiRegionPropertiesArgs extends com.pulumi.resources
 
     public static final ClusterMultiRegionPropertiesArgs Empty = new ClusterMultiRegionPropertiesArgs();
 
-    /**
-     * List of DSQL Cluster ARNs peered to this cluster.
-     * 
-     */
     @Import(name="clusters")
     private @Nullable Output<List<String>> clusters;
 
-    /**
-     * @return List of DSQL Cluster ARNs peered to this cluster.
-     * 
-     */
     public Optional<Output<List<String>>> clusters() {
         return Optional.ofNullable(this.clusters);
     }
 
-    /**
-     * Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-     * 
-     */
     @Import(name="witnessRegion")
     private @Nullable Output<String> witnessRegion;
 
-    /**
-     * @return Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-     * 
-     */
     public Optional<Output<String>> witnessRegion() {
         return Optional.ofNullable(this.witnessRegion);
     }
@@ -71,54 +55,24 @@ public final class ClusterMultiRegionPropertiesArgs extends com.pulumi.resources
             $ = new ClusterMultiRegionPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusters List of DSQL Cluster ARNs peered to this cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusters(@Nullable Output<List<String>> clusters) {
             $.clusters = clusters;
             return this;
         }
 
-        /**
-         * @param clusters List of DSQL Cluster ARNs peered to this cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusters(List<String> clusters) {
             return clusters(Output.of(clusters));
         }
 
-        /**
-         * @param clusters List of DSQL Cluster ARNs peered to this cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusters(String... clusters) {
             return clusters(List.of(clusters));
         }
 
-        /**
-         * @param witnessRegion Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder witnessRegion(@Nullable Output<String> witnessRegion) {
             $.witnessRegion = witnessRegion;
             return this;
         }
 
-        /**
-         * @param witnessRegion Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder witnessRegion(String witnessRegion) {
             return witnessRegion(Output.of(witnessRegion));
         }

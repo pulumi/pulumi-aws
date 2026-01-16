@@ -24,9 +24,6 @@ class AccountSettingDefaultArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSettingDefault resource.
-        :param pulumi.Input[_builtins.str] value: State of the setting.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -37,9 +34,6 @@ class AccountSettingDefaultArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        State of the setting.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -49,9 +43,6 @@ class AccountSettingDefaultArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the account setting to set.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,9 +52,6 @@ class AccountSettingDefaultArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,9 +68,6 @@ class _AccountSettingDefaultState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSettingDefault resources.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: State of the setting.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -96,9 +81,6 @@ class _AccountSettingDefaultState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the account setting to set.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,9 +99,6 @@ class _AccountSettingDefaultState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,9 +108,6 @@ class _AccountSettingDefaultState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the setting.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -150,49 +126,9 @@ class AccountSettingDefault(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
-
-        > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
-
-        > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
-
-        ## Example Usage
-
-        ### Enable the long task ARN format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ecs.AccountSettingDefault("test",
-            name="taskLongArnFormat",
-            value="enabled")
-        ```
-
-        ### Set the default log driver mode to non-blocking
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ecs.AccountSettingDefault("test",
-            name="defaultLogDriverMode",
-            value="non-blocking")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-        ```
-
+        Create a AccountSettingDefault resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: State of the setting.
         """
         ...
     @overload
@@ -201,44 +137,7 @@ class AccountSettingDefault(pulumi.CustomResource):
                  args: AccountSettingDefaultArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
-
-        > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
-
-        > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
-
-        ## Example Usage
-
-        ### Enable the long task ARN format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ecs.AccountSettingDefault("test",
-            name="taskLongArnFormat",
-            value="enabled")
-        ```
-
-        ### Set the default log driver mode to non-blocking
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ecs.AccountSettingDefault("test",
-            name="defaultLogDriverMode",
-            value="non-blocking")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-        ```
-
+        Create a AccountSettingDefault resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountSettingDefaultArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,9 +192,6 @@ class AccountSettingDefault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] value: State of the setting.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,9 +206,6 @@ class AccountSettingDefault(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the account setting to set.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -323,16 +216,10 @@ class AccountSettingDefault(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the setting.
-        """
         return pulumi.get(self, "value")
 

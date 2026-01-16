@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PlanRuleScanAction {
-    /**
-     * @return Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     private String malwareScanner;
-    /**
-     * @return Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-     * 
-     */
     private String scanMode;
 
     private PlanRuleScanAction() {}
-    /**
-     * @return Malware scanner to use for the scan action. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     public String malwareScanner() {
         return this.malwareScanner;
     }
-    /**
-     * @return Scanning mode to use for the scan action. Valid values are `FULL_SCAN` and `INCREMENTAL_SCAN`.
-     * 
-     */
     public String scanMode() {
         return this.scanMode;
     }

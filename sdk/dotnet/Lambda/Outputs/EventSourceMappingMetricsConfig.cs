@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingMetricsConfig
     {
-        /// <summary>
-        /// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
-        /// </summary>
         public readonly ImmutableArray<string> Metrics;
 
         [OutputConstructor]

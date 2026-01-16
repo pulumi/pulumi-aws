@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class RevisionAssetsAssetImportAssetsFromSignedUrlGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the file to import.
-        /// </summary>
         [Input("filename", required: true)]
         public Input<string> Filename { get; set; } = null!;
 

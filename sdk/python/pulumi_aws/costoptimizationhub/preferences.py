@@ -23,8 +23,6 @@ class PreferencesArgs:
                  savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Preferences resource.
-        :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        :param pulumi.Input[_builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         if member_account_discount_visibility is not None:
             pulumi.set(__self__, "member_account_discount_visibility", member_account_discount_visibility)
@@ -34,9 +32,6 @@ class PreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="memberAccountDiscountVisibility")
     def member_account_discount_visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        """
         return pulumi.get(self, "member_account_discount_visibility")
 
     @member_account_discount_visibility.setter
@@ -46,9 +41,6 @@ class PreferencesArgs:
     @_builtins.property
     @pulumi.getter(name="savingsEstimationMode")
     def savings_estimation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        """
         return pulumi.get(self, "savings_estimation_mode")
 
     @savings_estimation_mode.setter
@@ -63,8 +55,6 @@ class _PreferencesState:
                  savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Preferences resources.
-        :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        :param pulumi.Input[_builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         if member_account_discount_visibility is not None:
             pulumi.set(__self__, "member_account_discount_visibility", member_account_discount_visibility)
@@ -74,9 +64,6 @@ class _PreferencesState:
     @_builtins.property
     @pulumi.getter(name="memberAccountDiscountVisibility")
     def member_account_discount_visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        """
         return pulumi.get(self, "member_account_discount_visibility")
 
     @member_account_discount_visibility.setter
@@ -86,9 +73,6 @@ class _PreferencesState:
     @_builtins.property
     @pulumi.getter(name="savingsEstimationMode")
     def savings_estimation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        """
         return pulumi.get(self, "savings_estimation_mode")
 
     @savings_estimation_mode.setter
@@ -106,42 +90,9 @@ class Preferences(pulumi.CustomResource):
                  savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing AWS Cost Optimization Hub Preferences.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.Preferences("example")
-        ```
-
-        ### Usage with all the arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.Preferences("example",
-            member_account_discount_visibility="None",
-            savings_estimation_mode="AfterDiscounts")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
-        ```
-
+        Create a Preferences resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        :param pulumi.Input[_builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         ...
     @overload
@@ -150,38 +101,7 @@ class Preferences(pulumi.CustomResource):
                  args: Optional[PreferencesArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing AWS Cost Optimization Hub Preferences.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.Preferences("example")
-        ```
-
-        ### Usage with all the arguments
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.costoptimizationhub.Preferences("example",
-            member_account_discount_visibility="None",
-            savings_estimation_mode="AfterDiscounts")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
-        ```
-
+        Create a Preferences resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PreferencesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,8 +149,6 @@ class Preferences(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        :param pulumi.Input[_builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -243,16 +161,10 @@ class Preferences(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="memberAccountDiscountVisibility")
     def member_account_discount_visibility(self) -> pulumi.Output[_builtins.str]:
-        """
-        Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
-        """
         return pulumi.get(self, "member_account_discount_visibility")
 
     @_builtins.property
     @pulumi.getter(name="savingsEstimationMode")
     def savings_estimation_mode(self) -> pulumi.Output[_builtins.str]:
-        """
-        Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-        """
         return pulumi.get(self, "savings_estimation_mode")
 

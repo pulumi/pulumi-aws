@@ -16,32 +16,16 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
 
     public static final GetReplicationInstancePlainArgs Empty = new GetReplicationInstancePlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The replication instance identifier.
-     * 
-     */
     @Import(name="replicationInstanceId", required=true)
     private String replicationInstanceId;
 
-    /**
-     * @return The replication instance identifier.
-     * 
-     */
     public String replicationInstanceId() {
         return this.replicationInstanceId;
     }
@@ -79,23 +63,11 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
             $ = new GetReplicationInstancePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param replicationInstanceId The replication instance identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationInstanceId(String replicationInstanceId) {
             $.replicationInstanceId = replicationInstanceId;
             return this;

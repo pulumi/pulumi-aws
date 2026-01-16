@@ -17,10 +17,6 @@ public final class GetProfilesProfilesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of Profiles.
-     * 
-     */
     private List<GetProfilesProfilesProfile> profiles;
     private String region;
 
@@ -32,10 +28,6 @@ public final class GetProfilesProfilesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of Profiles.
-     * 
-     */
     public List<GetProfilesProfilesProfile> profiles() {
         return this.profiles;
     }

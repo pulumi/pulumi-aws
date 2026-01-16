@@ -20,130 +20,58 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ListenerRuleArgs Empty = new ListenerRuleArgs();
 
-    /**
-     * The action for the listener rule.
-     * See `action` Block for details.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<ListenerRuleActionArgs> action;
 
-    /**
-     * @return The action for the listener rule.
-     * See `action` Block for details.
-     * 
-     */
     public Output<ListenerRuleActionArgs> action() {
         return this.action;
     }
 
-    /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
-     * 
-     */
     @Import(name="listenerIdentifier", required=true)
     private Output<String> listenerIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Name (ARN) of the listener.
-     * 
-     */
     public Output<String> listenerIdentifier() {
         return this.listenerIdentifier;
     }
 
-    /**
-     * The rule match.
-     * See `match` Block
-     * 
-     */
     @Import(name="match", required=true)
     private Output<ListenerRuleMatchArgs> match;
 
-    /**
-     * @return The rule match.
-     * See `match` Block
-     * 
-     */
     public Output<ListenerRuleMatchArgs> match() {
         return this.match;
     }
 
-    /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
-     * 
-     */
     @Import(name="serviceIdentifier", required=true)
     private Output<String> serviceIdentifier;
 
-    /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service.
-     * 
-     */
     public Output<String> serviceIdentifier() {
         return this.serviceIdentifier;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -179,178 +107,74 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ListenerRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action The action for the listener rule.
-         * See `action` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<ListenerRuleActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action The action for the listener rule.
-         * See `action` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(ListenerRuleActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param listenerIdentifier The ID or Amazon Resource Name (ARN) of the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerIdentifier(Output<String> listenerIdentifier) {
             $.listenerIdentifier = listenerIdentifier;
             return this;
         }
 
-        /**
-         * @param listenerIdentifier The ID or Amazon Resource Name (ARN) of the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listenerIdentifier(String listenerIdentifier) {
             return listenerIdentifier(Output.of(listenerIdentifier));
         }
 
-        /**
-         * @param match The rule match.
-         * See `match` Block
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<ListenerRuleMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match The rule match.
-         * See `match` Block
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(ListenerRuleMatchArgs match) {
             return match(Output.of(match));
         }
 
-        /**
-         * @param name The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param priority The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(Output<String> serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
 
-        /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceIdentifier(String serviceIdentifier) {
             return serviceIdentifier(Output.of(serviceIdentifier));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

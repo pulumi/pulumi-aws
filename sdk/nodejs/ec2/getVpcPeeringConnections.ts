@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get IDs of Amazon VPC peering connections
- * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
- *
- * Note: To use this data source in a count, the resources should exist before trying to access
- * the data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Declare the data source
- * const pcs = aws.ec2.getVpcPeeringConnections({
- *     filters: [{
- *         name: "requester-vpc-info.vpc-id",
- *         values: [foo.id],
- *     }],
- * });
- * // get the details of each resource
- * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
- *     id: _arg0_.ids[__index],
- * })));
- * ```
- */
 export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,20 +21,8 @@ export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, op
  * A collection of arguments for invoking getVpcPeeringConnections.
  */
 export interface GetVpcPeeringConnectionsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetVpcPeeringConnectionsFilter[];
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     *
-     * The arguments of this data source act as filters for querying the available VPC peering connections.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -73,39 +35,10 @@ export interface GetVpcPeeringConnectionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IDs of the VPC Peering Connections.
-     */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to get IDs of Amazon VPC peering connections
- * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
- *
- * Note: To use this data source in a count, the resources should exist before trying to access
- * the data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Declare the data source
- * const pcs = aws.ec2.getVpcPeeringConnections({
- *     filters: [{
- *         name: "requester-vpc-info.vpc-id",
- *         values: [foo.id],
- *     }],
- * });
- * // get the details of each resource
- * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
- *     id: _arg0_.ids[__index],
- * })));
- * ```
- */
 export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -120,19 +53,7 @@ export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOu
  * A collection of arguments for invoking getVpcPeeringConnections.
  */
 export interface GetVpcPeeringConnectionsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionsFilterArgs>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     *
-     * The arguments of this data source act as filters for querying the available VPC peering connections.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

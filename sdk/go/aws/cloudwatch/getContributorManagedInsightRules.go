@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.GetContributorManagedInsightRules(ctx, &cloudwatch.GetContributorManagedInsightRulesArgs{
-//				ResourceArn: "arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetContributorManagedInsightRules(ctx *pulumi.Context, args *GetContributorManagedInsightRulesArgs, opts ...pulumi.InvokeOption) (*GetContributorManagedInsightRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContributorManagedInsightRulesResult
@@ -52,21 +23,17 @@ func GetContributorManagedInsightRules(ctx *pulumi.Context, args *GetContributor
 
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	ResourceArn string `pulumi:"resourceArn"`
+	Region      *string `pulumi:"region"`
+	ResourceArn string  `pulumi:"resourceArn"`
 }
 
 // A collection of values returned by getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
+	Id           string                                         `pulumi:"id"`
 	ManagedRules []GetContributorManagedInsightRulesManagedRule `pulumi:"managedRules"`
 	Region       string                                         `pulumi:"region"`
-	// If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
-	ResourceArn string `pulumi:"resourceArn"`
+	ResourceArn  string                                         `pulumi:"resourceArn"`
 }
 
 func GetContributorManagedInsightRulesOutput(ctx *pulumi.Context, args GetContributorManagedInsightRulesOutputArgs, opts ...pulumi.InvokeOption) GetContributorManagedInsightRulesResultOutput {
@@ -80,10 +47,8 @@ func GetContributorManagedInsightRulesOutput(ctx *pulumi.Context, args GetContri
 
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	ResourceArn pulumi.StringInput    `pulumi:"resourceArn"`
 }
 
 func (GetContributorManagedInsightRulesOutputArgs) ElementType() reflect.Type {
@@ -110,7 +75,6 @@ func (o GetContributorManagedInsightRulesResultOutput) Id() pulumi.StringOutput 
 	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
 func (o GetContributorManagedInsightRulesResultOutput) ManagedRules() GetContributorManagedInsightRulesManagedRuleArrayOutput {
 	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) []GetContributorManagedInsightRulesManagedRule {
 		return v.ManagedRules
@@ -121,7 +85,6 @@ func (o GetContributorManagedInsightRulesResultOutput) Region() pulumi.StringOut
 	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
 func (o GetContributorManagedInsightRulesResultOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) string { return v.ResourceArn }).(pulumi.StringOutput)
 }

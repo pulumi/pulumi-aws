@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Ssm.Inputs
     {
         [Input("coverageTimes")]
         private InputList<Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeGetArgs>? _coverageTimes;
-
-        /// <summary>
-        /// (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        /// </summary>
         public InputList<Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeGetArgs> CoverageTimes
         {
             get => _coverageTimes ?? (_coverageTimes = new InputList<Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeGetArgs>());

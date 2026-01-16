@@ -15,32 +15,16 @@ public final class ConnectionConfirmationState extends com.pulumi.resources.Reso
 
     public static final ConnectionConfirmationState Empty = new ConnectionConfirmationState();
 
-    /**
-     * The ID of the hosted connection.
-     * 
-     */
     @Import(name="connectionId")
     private @Nullable Output<String> connectionId;
 
-    /**
-     * @return The ID of the hosted connection.
-     * 
-     */
     public Optional<Output<String>> connectionId() {
         return Optional.ofNullable(this.connectionId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class ConnectionConfirmationState extends com.pulumi.resources.Reso
             $ = new ConnectionConfirmationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionId The ID of the hosted connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(@Nullable Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
-        /**
-         * @param connectionId The ID of the hosted connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceCredentialsCredentialPair {
-    /**
-     * @return Password, maximum length of 1024 characters.
-     * 
-     */
     private String password;
-    /**
-     * @return User name, maximum length of 64 characters.
-     * 
-     */
     private String username;
 
     private DataSourceCredentialsCredentialPair() {}
-    /**
-     * @return Password, maximum length of 1024 characters.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return User name, maximum length of 64 characters.
-     * 
-     */
     public String username() {
         return this.username;
     }

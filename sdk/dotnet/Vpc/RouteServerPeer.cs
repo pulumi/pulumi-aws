@@ -9,200 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Vpc
 {
-    /// <summary>
-    /// Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Vpc.RouteServerPeer("test", new()
-    ///     {
-    ///         RouteServerEndpointId = example.RouteServerEndpointId,
-    ///         PeerAddress = "10.0.1.250",
-    ///         BgpOptions = new Aws.Vpc.Inputs.RouteServerPeerBgpOptionsArgs
-    ///         {
-    ///             PeerAsn = 65200,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Appliance 1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Complete Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Vpc.RouteServer("test", new()
-    ///     {
-    ///         AmazonSideAsn = 4294967294,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testVpcRouteServerAssociation = new Aws.Index.VpcRouteServerAssociation("test", new()
-    ///     {
-    ///         RouteServerId = test.RouteServerId,
-    ///         VpcId = testAwsVpc.Id,
-    ///     });
-    /// 
-    ///     var testRouteServerEndpoint = new Aws.Vpc.RouteServerEndpoint("test", new()
-    ///     {
-    ///         RouteServerId = test.RouteServerId,
-    ///         SubnetId = testAwsSubnet.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Test Endpoint" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             testVpcRouteServerAssociation,
-    ///         },
-    ///     });
-    /// 
-    ///     var testRouteServerPropagation = new Aws.Vpc.RouteServerPropagation("test", new()
-    ///     {
-    ///         RouteServerId = test.RouteServerId,
-    ///         RouteTableId = testAwsRouteTable.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             testVpcRouteServerAssociation,
-    ///         },
-    ///     });
-    /// 
-    ///     var testRouteServerPeer = new Aws.Vpc.RouteServerPeer("test", new()
-    ///     {
-    ///         RouteServerEndpointId = testRouteServerEndpoint.RouteServerEndpointId,
-    ///         PeerAddress = "10.0.1.250",
-    ///         BgpOptions = new Aws.Vpc.Inputs.RouteServerPeerBgpOptionsArgs
-    ///         {
-    ///             PeerAsn = 65000,
-    ///             PeerLivenessDetection = "bgp-keepalive",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Test Appliance" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_peer_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:vpc/routeServerPeer:RouteServerPeer")]
     public partial class RouteServerPeer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the route server peer.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        /// </summary>
         [Output("bgpOptions")]
         public Output<Outputs.RouteServerPeerBgpOptions?> BgpOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP address of the Elastic network interface for the route server endpoint.
-        /// </summary>
         [Output("endpointEniAddress")]
         public Output<string> EndpointEniAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Elastic network interface for the route server endpoint.
-        /// </summary>
         [Output("endpointEniId")]
         public Output<string> EndpointEniId { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv4 address of the peer device.
-        /// </summary>
         [Output("peerAddress")]
         public Output<string> PeerAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the route server endpoint for which to create a peer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("routeServerEndpointId")]
         public Output<string> RouteServerEndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the route server associated with this peer.
-        /// </summary>
         [Output("routeServerId")]
         public Output<string> RouteServerId { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the route server peer.
-        /// </summary>
         [Output("routeServerPeerId")]
         public Output<string> RouteServerPeerId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet containing the route server peer.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.RouteServerPeerTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC containing the route server peer.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -252,38 +100,20 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class RouteServerPeerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        /// </summary>
         [Input("bgpOptions")]
         public Input<Inputs.RouteServerPeerBgpOptionsArgs>? BgpOptions { get; set; }
 
-        /// <summary>
-        /// The IPv4 address of the peer device.
-        /// </summary>
         [Input("peerAddress", required: true)]
         public Input<string> PeerAddress { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the route server endpoint for which to create a peer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("routeServerEndpointId", required: true)]
         public Input<string> RouteServerEndpointId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -301,74 +131,38 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class RouteServerPeerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the route server peer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        /// </summary>
         [Input("bgpOptions")]
         public Input<Inputs.RouteServerPeerBgpOptionsGetArgs>? BgpOptions { get; set; }
 
-        /// <summary>
-        /// The IP address of the Elastic network interface for the route server endpoint.
-        /// </summary>
         [Input("endpointEniAddress")]
         public Input<string>? EndpointEniAddress { get; set; }
 
-        /// <summary>
-        /// The ID of the Elastic network interface for the route server endpoint.
-        /// </summary>
         [Input("endpointEniId")]
         public Input<string>? EndpointEniId { get; set; }
 
-        /// <summary>
-        /// The IPv4 address of the peer device.
-        /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the route server endpoint for which to create a peer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("routeServerEndpointId")]
         public Input<string>? RouteServerEndpointId { get; set; }
 
-        /// <summary>
-        /// The ID of the route server associated with this peer.
-        /// </summary>
         [Input("routeServerId")]
         public Input<string>? RouteServerId { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the route server peer.
-        /// </summary>
         [Input("routeServerPeerId")]
         public Input<string>? RouteServerPeerId { get; set; }
 
-        /// <summary>
-        /// The ID of the subnet containing the route server peer.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -377,10 +171,6 @@ namespace Pulumi.Aws.Vpc
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -390,9 +180,6 @@ namespace Pulumi.Aws.Vpc
         [Input("timeouts")]
         public Input<Inputs.RouteServerPeerTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC containing the route server peer.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

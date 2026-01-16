@@ -11,54 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regional Regex Pattern Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewRegexPatternSet(ctx, "example", &wafregional.RegexPatternSetArgs{
-//				Name: pulumi.String("example"),
-//				RegexPatternStrings: pulumi.StringArray{
-//					pulumi.String("one"),
-//					pulumi.String("two"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Regional Regex Pattern Set using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:wafregional/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-// ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
-	// The name or description of the Regex Pattern Set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                pulumi.StringOutput      `pulumi:"name"`
 	RegexPatternStrings pulumi.StringArrayOutput `pulumi:"regexPatternStrings"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region              pulumi.StringOutput      `pulumi:"region"`
 }
 
 // NewRegexPatternSet registers a new resource with the given unique name, arguments, and options.
@@ -91,21 +49,15 @@ func GetRegexPatternSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type regexPatternSetState struct {
-	// The name or description of the Regex Pattern Set.
-	Name *string `pulumi:"name"`
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                *string  `pulumi:"name"`
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region              *string  `pulumi:"region"`
 }
 
 type RegexPatternSetState struct {
-	// The name or description of the Regex Pattern Set.
-	Name pulumi.StringPtrInput
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                pulumi.StringPtrInput
 	RegexPatternStrings pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (RegexPatternSetState) ElementType() reflect.Type {
@@ -113,22 +65,16 @@ func (RegexPatternSetState) ElementType() reflect.Type {
 }
 
 type regexPatternSetArgs struct {
-	// The name or description of the Regex Pattern Set.
-	Name *string `pulumi:"name"`
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                *string  `pulumi:"name"`
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region              *string  `pulumi:"region"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
 type RegexPatternSetArgs struct {
-	// The name or description of the Regex Pattern Set.
-	Name pulumi.StringPtrInput
-	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	Name                pulumi.StringPtrInput
 	RegexPatternStrings pulumi.StringArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (RegexPatternSetArgs) ElementType() reflect.Type {
@@ -218,17 +164,14 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name or description of the Regex Pattern Set.
 func (o RegexPatternSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 func (o RegexPatternSetOutput) RegexPatternStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegexPatternStrings }).(pulumi.StringArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegexPatternSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -14,62 +14,30 @@ public final class TopicRuleCloudwatchAlarmArgs extends com.pulumi.resources.Res
 
     public static final TopicRuleCloudwatchAlarmArgs Empty = new TopicRuleCloudwatchAlarmArgs();
 
-    /**
-     * The CloudWatch alarm name.
-     * 
-     */
     @Import(name="alarmName", required=true)
     private Output<String> alarmName;
 
-    /**
-     * @return The CloudWatch alarm name.
-     * 
-     */
     public Output<String> alarmName() {
         return this.alarmName;
     }
 
-    /**
-     * The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * The reason for the alarm change.
-     * 
-     */
     @Import(name="stateReason", required=true)
     private Output<String> stateReason;
 
-    /**
-     * @return The reason for the alarm change.
-     * 
-     */
     public Output<String> stateReason() {
         return this.stateReason;
     }
 
-    /**
-     * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-     * 
-     */
     @Import(name="stateValue", required=true)
     private Output<String> stateValue;
 
-    /**
-     * @return The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-     * 
-     */
     public Output<String> stateValue() {
         return this.stateValue;
     }
@@ -101,86 +69,38 @@ public final class TopicRuleCloudwatchAlarmArgs extends com.pulumi.resources.Res
             $ = new TopicRuleCloudwatchAlarmArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alarmName The CloudWatch alarm name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarmName(Output<String> alarmName) {
             $.alarmName = alarmName;
             return this;
         }
 
-        /**
-         * @param alarmName The CloudWatch alarm name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarmName(String alarmName) {
             return alarmName(Output.of(alarmName));
         }
 
-        /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM role ARN that allows access to the CloudWatch alarm.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param stateReason The reason for the alarm change.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateReason(Output<String> stateReason) {
             $.stateReason = stateReason;
             return this;
         }
 
-        /**
-         * @param stateReason The reason for the alarm change.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateReason(String stateReason) {
             return stateReason(Output.of(stateReason));
         }
 
-        /**
-         * @param stateValue The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateValue(Output<String> stateValue) {
             $.stateValue = stateValue;
             return this;
         }
 
-        /**
-         * @param stateValue The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stateValue(String stateValue) {
             return stateValue(Output.of(stateValue));
         }

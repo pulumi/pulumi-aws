@@ -15,36 +15,16 @@ public final class GetLocalGatewayRouteTablesFilterArgs extends com.pulumi.resou
 
     public static final GetLocalGatewayRouteTablesFilterArgs Empty = new GetLocalGatewayRouteTablesFilterArgs();
 
-    /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given field.
-     * A Local Gateway Route Table will be selected if any one of the given values matches.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Set of values that are accepted for the given field.
-     * A Local Gateway Route Table will be selected if any one of the given values matches.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -74,59 +54,24 @@ public final class GetLocalGatewayRouteTablesFilterArgs extends com.pulumi.resou
             $ = new GetLocalGatewayRouteTablesFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * A Local Gateway Route Table will be selected if any one of the given values matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * A Local Gateway Route Table will be selected if any one of the given values matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field.
-         * A Local Gateway Route Table will be selected if any one of the given values matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

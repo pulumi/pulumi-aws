@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyTargetTrackingConfiguration
     {
-        /// <summary>
-        /// Customized metric. Conflicts with `PredefinedMetricSpecification`.
-        /// </summary>
         public readonly Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecification? CustomizedMetricSpecification;
-        /// <summary>
-        /// Whether scale in by the target tracking policy is disabled.
-        /// </summary>
         public readonly bool? DisableScaleIn;
-        /// <summary>
-        /// Predefined metric. Conflicts with `CustomizedMetricSpecification`.
-        /// </summary>
         public readonly Outputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecification? PredefinedMetricSpecification;
-        /// <summary>
-        /// Target value for the metric.
-        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

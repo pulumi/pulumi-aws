@@ -17,125 +17,51 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
 
     public static final ServerCertificateArgs Empty = new ServerCertificateArgs();
 
-    /**
-     * The contents of the public key certificate in
-     * PEM-encoded format.
-     * 
-     */
     @Import(name="certificateBody", required=true)
     private Output<String> certificateBody;
 
-    /**
-     * @return The contents of the public key certificate in
-     * PEM-encoded format.
-     * 
-     */
     public Output<String> certificateBody() {
         return this.certificateBody;
     }
 
-    /**
-     * The contents of the certificate chain.
-     * This is typically a concatenation of the PEM-encoded public key certificates
-     * of the chain.
-     * 
-     */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
-    /**
-     * @return The contents of the certificate chain.
-     * This is typically a concatenation of the PEM-encoded public key certificates
-     * of the chain.
-     * 
-     */
     public Optional<Output<String>> certificateChain() {
         return Optional.ofNullable(this.certificateChain);
     }
 
-    /**
-     * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * The IAM path for the server certificate.  If it is not
-     * included, it defaults to a slash (/). If this certificate is for use with
-     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return The IAM path for the server certificate.  If it is not
-     * included, it defaults to a slash (/). If this certificate is for use with
-     * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * The contents of the private key in PEM-encoded format.
-     * 
-     */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
-    /**
-     * @return The contents of the private key in PEM-encoded format.
-     * 
-     */
     public Output<String> privateKey() {
         return this.privateKey;
     }
 
-    /**
-     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -170,167 +96,65 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
             $ = new ServerCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateBody The contents of the public key certificate in
-         * PEM-encoded format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBody(Output<String> certificateBody) {
             $.certificateBody = certificateBody;
             return this;
         }
 
-        /**
-         * @param certificateBody The contents of the public key certificate in
-         * PEM-encoded format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBody(String certificateBody) {
             return certificateBody(Output.of(certificateBody));
         }
 
-        /**
-         * @param certificateChain The contents of the certificate chain.
-         * This is typically a concatenation of the PEM-encoded public key certificates
-         * of the chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(@Nullable Output<String> certificateChain) {
             $.certificateChain = certificateChain;
             return this;
         }
 
-        /**
-         * @param certificateChain The contents of the certificate chain.
-         * This is typically a concatenation of the PEM-encoded public key certificates
-         * of the chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(String certificateChain) {
             return certificateChain(Output.of(certificateChain));
         }
 
-        /**
-         * @param name The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param path The IAM path for the server certificate.  If it is not
-         * included, it defaults to a slash (/). If this certificate is for use with
-         * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-         * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The IAM path for the server certificate.  If it is not
-         * included, it defaults to a slash (/). If this certificate is for use with
-         * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-         * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param privateKey The contents of the private key in PEM-encoded format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
-        /**
-         * @param privateKey The contents of the private key in PEM-encoded format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
         }
 
-        /**
-         * @param tags Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificateBody` contains only one certificate. All other certificates should go in `certificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

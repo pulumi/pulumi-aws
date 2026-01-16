@@ -13,103 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Data Protection Settings Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettingsAssociation;
- * import com.pulumi.aws.workspacesweb.DataProtectionSettingsAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Portal("example", PortalArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleDataProtectionSettings = new DataProtectionSettings("exampleDataProtectionSettings", DataProtectionSettingsArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleDataProtectionSettingsAssociation = new DataProtectionSettingsAssociation("exampleDataProtectionSettingsAssociation", DataProtectionSettingsAssociationArgs.builder()
- *             .dataProtectionSettingsArn(exampleDataProtectionSettings.dataProtectionSettingsArn())
- *             .portalArn(example.portalArn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:workspacesweb/dataProtectionSettingsAssociation:DataProtectionSettingsAssociation")
 public class DataProtectionSettingsAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Export(name="dataProtectionSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> dataProtectionSettingsArn;
 
-    /**
-     * @return ARN of the data protection settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Output<String> dataProtectionSettingsArn() {
         return this.dataProtectionSettingsArn;
     }
-    /**
-     * ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portalArn", refs={String.class}, tree="[0]")
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the data protection settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

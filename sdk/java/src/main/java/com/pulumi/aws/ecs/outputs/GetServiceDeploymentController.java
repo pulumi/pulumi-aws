@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDeploymentController {
-    /**
-     * @return Constraint type
-     * 
-     */
     private String type;
 
     private GetServiceDeploymentController() {}
-    /**
-     * @return Constraint type
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -26,12 +26,6 @@ class RoleMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleMembership resource.
-        :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
-        :param pulumi.Input[_builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "member_name", member_name)
         pulumi.set(__self__, "role", role)
@@ -45,9 +39,6 @@ class RoleMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the group to be added to the role.
-        """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
@@ -57,11 +48,6 @@ class RoleMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Input[_builtins.str]:
-        """
-        Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -80,9 +66,6 @@ class RoleMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the namespace. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -92,9 +75,6 @@ class RoleMembershipArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,12 +92,6 @@ class _RoleMembershipState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleMembership resources.
-        :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-               
-               The following arguments are optional:
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -142,9 +116,6 @@ class _RoleMembershipState:
     @_builtins.property
     @pulumi.getter(name="memberName")
     def member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the group to be added to the role.
-        """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
@@ -154,9 +125,6 @@ class _RoleMembershipState:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the namespace. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -166,9 +134,6 @@ class _RoleMembershipState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -178,11 +143,6 @@ class _RoleMembershipState:
     @_builtins.property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -203,39 +163,9 @@ class RoleMembership(pulumi.CustomResource):
                  role: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS QuickSight Role Membership.
-
-        > The role membership APIs are disabled for identities managed by QuickSight. This resource can only be used when the QuickSight account subscription uses the Active Directory or IAM Identity Center authentication method.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.RoleMembership("example",
-            member_name="example-group",
-            role="READER")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
-        ```
-
+        Create a RoleMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -244,31 +174,7 @@ class RoleMembership(pulumi.CustomResource):
                  args: RoleMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS QuickSight Role Membership.
-
-        > The role membership APIs are disabled for identities managed by QuickSight. This resource can only be used when the QuickSight account subscription uses the Active Directory or IAM Identity Center authentication method.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.RoleMembership("example",
-            member_name="example-group",
-            role="READER")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
-
-        ```sh
-        $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
-        ```
-
+        Create a RoleMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RoleMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -329,12 +235,6 @@ class RoleMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
-        :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -355,34 +255,20 @@ class RoleMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the group to be added to the role.
-        """
         return pulumi.get(self, "member_name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the namespace. Defaults to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Output[_builtins.str]:
-        """
-        Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "role")
 

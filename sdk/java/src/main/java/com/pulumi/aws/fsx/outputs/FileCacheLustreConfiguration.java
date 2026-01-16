@@ -16,61 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FileCacheLustreConfiguration {
-    /**
-     * @return Specifies the cache deployment type. The only supported value is `CACHE_1`.
-     * 
-     */
     private String deploymentType;
     private @Nullable List<FileCacheLustreConfigurationLogConfiguration> logConfigurations;
-    /**
-     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
-     * 
-     */
     private List<FileCacheLustreConfigurationMetadataConfiguration> metadataConfigurations;
     private @Nullable String mountName;
-    /**
-     * @return Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
-     * 
-     */
     private Integer perUnitStorageThroughput;
-    /**
-     * @return A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
-     * 
-     */
     private @Nullable String weeklyMaintenanceStartTime;
 
     private FileCacheLustreConfiguration() {}
-    /**
-     * @return Specifies the cache deployment type. The only supported value is `CACHE_1`.
-     * 
-     */
     public String deploymentType() {
         return this.deploymentType;
     }
     public List<FileCacheLustreConfigurationLogConfiguration> logConfigurations() {
         return this.logConfigurations == null ? List.of() : this.logConfigurations;
     }
-    /**
-     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
-     * 
-     */
     public List<FileCacheLustreConfigurationMetadataConfiguration> metadataConfigurations() {
         return this.metadataConfigurations;
     }
     public Optional<String> mountName() {
         return Optional.ofNullable(this.mountName);
     }
-    /**
-     * @return Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
-     * 
-     */
     public Integer perUnitStorageThroughput() {
         return this.perUnitStorageThroughput;
     }
-    /**
-     * @return A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
-     * 
-     */
     public Optional<String> weeklyMaintenanceStartTime() {
         return Optional.ofNullable(this.weeklyMaintenanceStartTime);
     }

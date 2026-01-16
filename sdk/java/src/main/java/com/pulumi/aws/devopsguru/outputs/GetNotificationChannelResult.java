@@ -14,24 +14,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNotificationChannelResult {
-    /**
-     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     * 
-     */
     private @Nullable List<GetNotificationChannelFilter> filters;
     private String id;
     private String region;
-    /**
-     * @return SNS noficiation channel configurations. See the `sns` attribute reference below.
-     * 
-     */
     private @Nullable List<GetNotificationChannelSn> sns;
 
     private GetNotificationChannelResult() {}
-    /**
-     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-     * 
-     */
     public List<GetNotificationChannelFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -41,10 +29,6 @@ public final class GetNotificationChannelResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return SNS noficiation channel configurations. See the `sns` attribute reference below.
-     * 
-     */
     public List<GetNotificationChannelSn> sns() {
         return this.sns == null ? List.of() : this.sns;
     }

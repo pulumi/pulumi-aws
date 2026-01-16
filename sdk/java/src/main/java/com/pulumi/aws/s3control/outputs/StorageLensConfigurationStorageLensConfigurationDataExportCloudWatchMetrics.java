@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
-    /**
-     * @return Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-     * 
-     */
     private Boolean enabled;
 
     private StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics() {}
-    /**
-     * @return Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

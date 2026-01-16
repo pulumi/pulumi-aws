@@ -46,17 +46,11 @@ class GetDomainIdentityResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the domain identity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        Name of the domain
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
@@ -75,9 +69,6 @@ class GetDomainIdentityResult:
     @_builtins.property
     @pulumi.getter(name="verificationToken")
     def verification_token(self) -> _builtins.str:
-        """
-        Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
-        """
         return pulumi.get(self, "verification_token")
 
 
@@ -98,20 +89,7 @@ def get_domain_identity(domain: Optional[_builtins.str] = None,
                         region: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainIdentityResult:
     """
-    Retrieve the SES domain identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_domain_identity(domain="example.com")
-    ```
-
-
-    :param _builtins.str domain: Name of the domain
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -129,20 +107,7 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[_builtins.str]] = N
                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainIdentityResult]:
     """
-    Retrieve the SES domain identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_domain_identity(domain="example.com")
-    ```
-
-
-    :param _builtins.str domain: Name of the domain
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain

@@ -15,32 +15,16 @@ public final class ExpressGatewayServiceNetworkConfigurationArgs extends com.pul
 
     public static final ExpressGatewayServiceNetworkConfigurationArgs Empty = new ExpressGatewayServiceNetworkConfigurationArgs();
 
-    /**
-     * Security groups associated with the task. If not specified, the default security group for the VPC is used.
-     * 
-     */
     @Import(name="securityGroups", required=true)
     private Output<List<String>> securityGroups;
 
-    /**
-     * @return Security groups associated with the task. If not specified, the default security group for the VPC is used.
-     * 
-     */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
 
-    /**
-     * Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-     * 
-     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
-    /**
-     * @return Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-     * 
-     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
@@ -70,64 +54,28 @@ public final class ExpressGatewayServiceNetworkConfigurationArgs extends com.pul
             $ = new ExpressGatewayServiceNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroups Security groups associated with the task. If not specified, the default security group for the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups Security groups associated with the task. If not specified, the default security group for the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups Security groups associated with the task. If not specified, the default security group for the VPC is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param subnets Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets Subnets associated with the task. At least 2 subnets must be specified when using network configuration. If not specified, default subnets will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

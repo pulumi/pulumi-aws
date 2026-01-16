@@ -28,15 +28,6 @@ class ConstraintArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Constraint resource.
-        :param pulumi.Input[_builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-        :param pulumi.Input[_builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] description: Description of the constraint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "portfolio_id", portfolio_id)
@@ -52,9 +43,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[_builtins.str]:
-        """
-        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -64,9 +52,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -76,9 +61,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -88,11 +70,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -102,9 +79,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -114,9 +88,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the constraint.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -126,9 +97,6 @@ class ConstraintArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -150,16 +118,6 @@ class _ConstraintState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Constraint resources.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] description: Description of the constraint.
-        :param pulumi.Input[_builtins.str] owner: Owner of the constraint.
-        :param pulumi.Input[_builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-               
-               The following arguments are optional:
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -183,9 +141,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -195,9 +150,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the constraint.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -207,9 +159,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Owner of the constraint.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -219,9 +168,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -231,9 +177,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -243,9 +186,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -255,9 +195,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -276,11 +213,6 @@ class _ConstraintState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -303,48 +235,9 @@ class Constraint(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Constraint.
-
-        > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.Constraint("example",
-            description="Back off, man. I'm a scientist.",
-            portfolio_id=example_aws_servicecatalog_portfolio["id"],
-            product_id=example_aws_servicecatalog_product["id"],
-            type="LAUNCH",
-            parameters=json.dumps({
-                "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-        ```
-
+        Create a Constraint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] description: Description of the constraint.
-        :param pulumi.Input[_builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -353,37 +246,7 @@ class Constraint(pulumi.CustomResource):
                  args: ConstraintArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Constraint.
-
-        > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.Constraint("example",
-            description="Back off, man. I'm a scientist.",
-            portfolio_id=example_aws_servicecatalog_portfolio["id"],
-            product_id=example_aws_servicecatalog_product["id"],
-            type="LAUNCH",
-            parameters=json.dumps({
-                "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-        ```
-
+        Create a Constraint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConstraintArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -458,16 +321,6 @@ class Constraint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[_builtins.str] description: Description of the constraint.
-        :param pulumi.Input[_builtins.str] owner: Owner of the constraint.
-        :param pulumi.Input[_builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -487,57 +340,36 @@ class Constraint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the constraint.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        Owner of the constraint.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[_builtins.str]:
-        """
-        Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @_builtins.property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -548,10 +380,5 @@ class Constraint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 

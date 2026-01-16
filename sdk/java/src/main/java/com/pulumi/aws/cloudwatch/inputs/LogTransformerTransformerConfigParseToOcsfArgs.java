@@ -23,32 +23,16 @@ public final class LogTransformerTransformerConfigParseToOcsfArgs extends com.pu
         return this.eventSource;
     }
 
-    /**
-     * Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-     * 
-     */
     @Import(name="ocsfVersion", required=true)
     private Output<String> ocsfVersion;
 
-    /**
-     * @return Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-     * 
-     */
     public Output<String> ocsfVersion() {
         return this.ocsfVersion;
     }
 
-    /**
-     * Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -88,44 +72,20 @@ public final class LogTransformerTransformerConfigParseToOcsfArgs extends com.pu
             return eventSource(Output.of(eventSource));
         }
 
-        /**
-         * @param ocsfVersion Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocsfVersion(Output<String> ocsfVersion) {
             $.ocsfVersion = ocsfVersion;
             return this;
         }
 
-        /**
-         * @param ocsfVersion Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocsfVersion(String ocsfVersion) {
             return ocsfVersion(Output.of(ocsfVersion));
         }
 
-        /**
-         * @param source Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the source field to be parsed. The only allowed value is `{@literal @}message`. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

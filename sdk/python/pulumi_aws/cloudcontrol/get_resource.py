@@ -65,9 +65,6 @@ class GetResourceResult:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> _builtins.str:
-        """
-        JSON string matching the CloudFormation resource type schema with current configuration.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
@@ -113,26 +110,7 @@ def get_resource(identifier: Optional[_builtins.str] = None,
                  type_version_id: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudcontrol.get_resource(identifier="example",
-        type_name="AWS::ECS::Cluster")
-    ```
-
-
-    :param _builtins.str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str role_arn: ARN of the IAM Role to assume for operations.
-    :param _builtins.str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-           
-           The following arguments are optional:
-    :param _builtins.str type_version_id: Identifier of the CloudFormation resource type version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identifier'] = identifier
@@ -158,26 +136,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[_builtins.str]] = None
                         type_version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudcontrol.get_resource(identifier="example",
-        type_name="AWS::ECS::Cluster")
-    ```
-
-
-    :param _builtins.str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str role_arn: ARN of the IAM Role to assume for operations.
-    :param _builtins.str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-           
-           The following arguments are optional:
-    :param _builtins.str type_version_id: Identifier of the CloudFormation resource type version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['identifier'] = identifier

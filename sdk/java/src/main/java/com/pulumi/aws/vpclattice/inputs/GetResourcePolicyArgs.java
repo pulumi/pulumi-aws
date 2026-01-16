@@ -16,32 +16,16 @@ public final class GetResourcePolicyArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetResourcePolicyArgs Empty = new GetResourcePolicyArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Resource ARN of the resource for which a policy is retrieved.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return Resource ARN of the resource for which a policy is retrieved.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -71,44 +55,20 @@ public final class GetResourcePolicyArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetResourcePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn Resource ARN of the resource for which a policy is retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn Resource ARN of the resource for which a policy is retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

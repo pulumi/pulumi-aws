@@ -7,99 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CloudFront response headers policy resource.
- * A response headers policy contains information about a set of HTTP response headers and their values.
- * After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution.
- * When it’s attached to a cache behavior, CloudFront adds the headers in the policy to every response that it sends for requests that match the cache behavior.
- *
- * ## Example Usage
- *
- * The example below creates a CloudFront response headers policy.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
- *     name: "example-policy",
- *     comment: "test comment",
- *     corsConfig: {
- *         accessControlAllowCredentials: true,
- *         accessControlAllowHeaders: {
- *             items: ["test"],
- *         },
- *         accessControlAllowMethods: {
- *             items: ["GET"],
- *         },
- *         accessControlAllowOrigins: {
- *             items: ["test.example.comtest"],
- *         },
- *         originOverride: true,
- *     },
- * });
- * ```
- *
- * The example below creates a CloudFront response headers policy with a custom headers config.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
- *     name: "example-headers-policy",
- *     customHeadersConfig: {
- *         items: [
- *             {
- *                 header: "X-Permitted-Cross-Domain-Policies",
- *                 override: true,
- *                 value: "none",
- *             },
- *             {
- *                 header: "X-Test",
- *                 override: true,
- *                 value: "none",
- *             },
- *         ],
- *     },
- * });
- * ```
- *
- * The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
- *     name: "example-headers-policy",
- *     customHeadersConfig: {
- *         items: [{
- *             header: "X-Permitted-Cross-Domain-Policies",
- *             override: true,
- *             value: "none",
- *         }],
- *     },
- *     removeHeadersConfig: {
- *         items: [{
- *             header: "Set-Cookie",
- *         }],
- *     },
- *     serverTimingHeadersConfig: {
- *         enabled: true,
- *         samplingRate: 50,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
- * ```
- */
 export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResponseHeadersPolicy resource's state with the given name, ID, and optional extra
@@ -128,41 +35,14 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResponseHeadersPolicy.__pulumiType;
     }
 
-    /**
-     * The response headers policy ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-     */
     declare public readonly comment: pulumi.Output<string | undefined>;
-    /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-     */
     declare public readonly corsConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
-    /**
-     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-     */
     declare public readonly customHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig | undefined>;
-    /**
-     * The current version of the response headers policy.
-     */
     declare public /*out*/ readonly etag: pulumi.Output<string>;
-    /**
-     * A unique name to identify the response headers policy.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-     */
     declare public readonly removeHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig | undefined>;
-    /**
-     * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-     */
     declare public readonly securityHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
-    /**
-     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
-     */
     declare public readonly serverTimingHeadersConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig | undefined>;
 
     /**
@@ -208,41 +88,14 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResponseHeadersPolicy resources.
  */
 export interface ResponseHeadersPolicyState {
-    /**
-     * The response headers policy ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-     */
     corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig>;
-    /**
-     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-     */
     customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
-    /**
-     * The current version of the response headers policy.
-     */
     etag?: pulumi.Input<string>;
-    /**
-     * A unique name to identify the response headers policy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-     */
     removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig>;
-    /**
-     * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-     */
     securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig>;
-    /**
-     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
-     */
     serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig>;
 }
 
@@ -250,32 +103,11 @@ export interface ResponseHeadersPolicyState {
  * The set of arguments for constructing a ResponseHeadersPolicy resource.
  */
 export interface ResponseHeadersPolicyArgs {
-    /**
-     * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
-     */
     comment?: pulumi.Input<string>;
-    /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-     */
     corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig>;
-    /**
-     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-     */
     customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
-    /**
-     * A unique name to identify the response headers policy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
-     */
     removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig>;
-    /**
-     * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
-     */
     securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig>;
-    /**
-     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
-     */
     serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig>;
 }

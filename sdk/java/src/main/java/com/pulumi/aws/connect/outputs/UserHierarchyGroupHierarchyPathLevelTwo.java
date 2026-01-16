@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserHierarchyGroupHierarchyPathLevelTwo {
-    /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
-     * 
-     */
     private @Nullable String arn;
-    /**
-     * @return The identifier of the hierarchy group.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return The name of the user hierarchy group. Must not be more than 100 characters.
-     * 
-     */
     private @Nullable String name;
 
     private UserHierarchyGroupHierarchyPathLevelTwo() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
-    /**
-     * @return The identifier of the hierarchy group.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The name of the user hierarchy group. Must not be more than 100 characters.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

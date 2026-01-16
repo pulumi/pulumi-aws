@@ -18,157 +18,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Flow Monitor Scope.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.networkflowmonitor.Scope;
- * import com.pulumi.aws.networkflowmonitor.ScopeArgs;
- * import com.pulumi.aws.networkflowmonitor.inputs.ScopeTargetArgs;
- * import com.pulumi.aws.networkflowmonitor.inputs.ScopeTargetTargetIdentifierArgs;
- * import com.pulumi.aws.networkflowmonitor.inputs.ScopeTargetTargetIdentifierTargetIdArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         var example = new Scope("example", ScopeArgs.builder()
- *             .targets(ScopeTargetArgs.builder()
- *                 .region("us-east-1")
- *                 .targetIdentifier(ScopeTargetTargetIdentifierArgs.builder()
- *                     .targetType("ACCOUNT")
- *                     .targetId(ScopeTargetTargetIdentifierTargetIdArgs.builder()
- *                         .accountId(current.accountId())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Network Flow Monitor Scope using the scope ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkflowmonitor/scope:Scope example example-scope-id
- * ```
- * 
- */
 @ResourceType(type="aws:networkflowmonitor/scope:Scope")
 public class Scope extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     @Export(name="scopeArn", refs={String.class}, tree="[0]")
     private Output<String> scopeArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     public Output<String> scopeArn() {
         return this.scopeArn;
     }
-    /**
-     * The identifier for the scope that includes the resources you want to get data results for.
-     * 
-     */
     @Export(name="scopeId", refs={String.class}, tree="[0]")
     private Output<String> scopeId;
 
-    /**
-     * @return The identifier for the scope that includes the resources you want to get data results for.
-     * 
-     */
     public Output<String> scopeId() {
         return this.scopeId;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="targets", refs={List.class,ScopeTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScopeTarget>> targets;
 
-    /**
-     * @return The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<ScopeTarget>>> targets() {
         return Codegen.optional(this.targets);
     }

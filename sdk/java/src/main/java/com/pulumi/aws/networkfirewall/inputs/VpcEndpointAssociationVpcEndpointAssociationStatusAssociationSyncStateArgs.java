@@ -16,32 +16,16 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
 
     public static final VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs Empty = new VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs();
 
-    /**
-     * Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-     * 
-     */
     @Import(name="attachments", required=true)
     private Output<List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs>> attachments;
 
-    /**
-     * @return Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-     * 
-     */
     public Output<List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs>> attachments() {
         return this.attachments;
     }
 
-    /**
-     * The Availability Zone where the subnet is configured.
-     * 
-     */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone where the subnet is configured.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
@@ -71,54 +55,24 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
             $ = new VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attachments Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachments(Output<List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs>> attachments) {
             $.attachments = attachments;
             return this;
         }
 
-        /**
-         * @param attachments Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachments(List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs> attachments) {
             return attachments(Output.of(attachments));
         }
 
-        /**
-         * @param attachments Nested list describing the attachment status of the firewall&#39;s VPC Endpoint Association with a single VPC subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attachments(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs... attachments) {
             return attachments(List.of(attachments));
         }
 
-        /**
-         * @param availabilityZone The Availability Zone where the subnet is configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The Availability Zone where the subnet is configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }

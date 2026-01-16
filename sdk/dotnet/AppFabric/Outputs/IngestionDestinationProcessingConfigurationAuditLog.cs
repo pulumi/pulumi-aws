@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class IngestionDestinationProcessingConfigurationAuditLog
     {
-        /// <summary>
-        /// The format in which the audit logs need to be formatted. Valid values: `Json`, `Parquet`.
-        /// </summary>
         public readonly string Format;
-        /// <summary>
-        /// The event schema in which the audit logs need to be formatted. Valid values: `Ocsf`, `Raw`.
-        /// </summary>
         public readonly string Schema;
 
         [OutputConstructor]

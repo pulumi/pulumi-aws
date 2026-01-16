@@ -23,8 +23,6 @@ class DelegatedAdminAccountArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DelegatedAdminAccount resource.
-        :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         if region is not None:
@@ -33,9 +31,6 @@ class DelegatedAdminAccountArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Account to enable as delegated admin account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -45,9 +40,6 @@ class DelegatedAdminAccountArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -63,9 +55,6 @@ class _DelegatedAdminAccountState:
                  relationship_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DelegatedAdminAccount resources.
-        :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: Status of this delegated admin account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -77,9 +66,6 @@ class _DelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Account to enable as delegated admin account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -89,9 +75,6 @@ class _DelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -101,9 +84,6 @@ class _DelegatedAdminAccountState:
     @_builtins.property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of this delegated admin account.
-        """
         return pulumi.get(self, "relationship_status")
 
     @relationship_status.setter
@@ -121,32 +101,9 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Inspector Delegated Admin Account.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
-        ```
-
+        Create a DelegatedAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -155,28 +112,7 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  args: DelegatedAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Inspector Delegated Admin Account.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
-        ```
-
+        Create a DelegatedAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DelegatedAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,9 +164,6 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] relationship_status: Status of this delegated admin account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,24 +177,15 @@ class DelegatedAdminAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Account to enable as delegated admin account.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of this delegated admin account.
-        """
         return pulumi.get(self, "relationship_status")
 

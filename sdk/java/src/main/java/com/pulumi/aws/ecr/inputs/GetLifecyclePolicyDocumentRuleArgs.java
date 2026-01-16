@@ -19,62 +19,30 @@ public final class GetLifecyclePolicyDocumentRuleArgs extends com.pulumi.resourc
 
     public static final GetLifecyclePolicyDocumentRuleArgs Empty = new GetLifecyclePolicyDocumentRuleArgs();
 
-    /**
-     * Specifies the action to take.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<GetLifecyclePolicyDocumentRuleActionArgs> action;
 
-    /**
-     * @return Specifies the action to take.
-     * 
-     */
     public Optional<Output<GetLifecyclePolicyDocumentRuleActionArgs>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * Describes the purpose of a rule within a lifecycle policy.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Describes the purpose of a rule within a lifecycle policy.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * Collects parameters describing the selection criteria for the ECR lifecycle policy:
-     * 
-     */
     @Import(name="selection")
     private @Nullable Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection;
 
-    /**
-     * @return Collects parameters describing the selection criteria for the ECR lifecycle policy:
-     * 
-     */
     public Optional<Output<GetLifecyclePolicyDocumentRuleSelectionArgs>> selection() {
         return Optional.ofNullable(this.selection);
     }
@@ -106,86 +74,38 @@ public final class GetLifecyclePolicyDocumentRuleArgs extends com.pulumi.resourc
             $ = new GetLifecyclePolicyDocumentRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Specifies the action to take.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<GetLifecyclePolicyDocumentRuleActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Specifies the action to take.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(GetLifecyclePolicyDocumentRuleActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param description Describes the purpose of a rule within a lifecycle policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Describes the purpose of a rule within a lifecycle policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param priority Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of `any` must have the highest value for `priority` and be evaluated last.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param selection Collects parameters describing the selection criteria for the ECR lifecycle policy:
-         * 
-         * @return builder
-         * 
-         */
         public Builder selection(@Nullable Output<GetLifecyclePolicyDocumentRuleSelectionArgs> selection) {
             $.selection = selection;
             return this;
         }
 
-        /**
-         * @param selection Collects parameters describing the selection criteria for the ECR lifecycle policy:
-         * 
-         * @return builder
-         * 
-         */
         public Builder selection(GetLifecyclePolicyDocumentRuleSelectionArgs selection) {
             return selection(Output.of(selection));
         }

@@ -18,47 +18,23 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
 
     public static final PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs Empty = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs();
 
-    /**
-     * Dimensions of the metric.
-     * 
-     */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>> dimensions;
 
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public Optional<Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -89,75 +65,33 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             $ = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(@Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

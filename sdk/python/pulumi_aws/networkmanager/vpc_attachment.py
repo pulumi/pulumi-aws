@@ -29,14 +29,6 @@ class VpcAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
-        :param pulumi.Input[_builtins.str] vpc_arn: ARN of the VPC.
-               
-               The following arguments are optional:
-        :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment. See below.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "subnet_arns", subnet_arns)
@@ -51,9 +43,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of a core network for the VPC attachment.
-        """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
@@ -63,9 +52,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Subnet ARNs of the VPC attachment.
-        """
         return pulumi.get(self, "subnet_arns")
 
     @subnet_arns.setter
@@ -75,11 +61,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="vpcArn")
     def vpc_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the VPC.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_arn")
 
     @vpc_arn.setter
@@ -89,9 +70,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['VpcAttachmentOptionsArgs']]:
-        """
-        Options for the VPC attachment. See below.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -101,9 +79,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
@@ -113,9 +88,6 @@ class VpcAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -144,24 +116,6 @@ class _VpcAttachmentState:
                  vpc_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcAttachment resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment.
-        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment. See below.
-        :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
-        :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
-        :param pulumi.Input[_builtins.str] state: State of the attachment.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_arn: ARN of the VPC.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -199,9 +153,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -211,9 +162,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Policy rule number associated with the attachment.
-        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
@@ -223,9 +171,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of attachment.
-        """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
@@ -235,9 +180,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
@@ -247,9 +189,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of a core network for the VPC attachment.
-        """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
@@ -259,9 +198,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where the edge is located.
-        """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
@@ -271,9 +207,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['VpcAttachmentOptionsArgs']]:
-        """
-        Options for the VPC attachment. See below.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -283,9 +216,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the attachment account owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -295,9 +225,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Attachment resource ARN.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -307,9 +234,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
@@ -319,9 +243,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the segment attachment.
-        """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
@@ -331,9 +252,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the attachment.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -343,9 +261,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Subnet ARNs of the VPC attachment.
-        """
         return pulumi.get(self, "subnet_arns")
 
     @subnet_arns.setter
@@ -355,9 +270,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -367,9 +279,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -379,11 +288,6 @@ class _VpcAttachmentState:
     @_builtins.property
     @pulumi.getter(name="vpcArn")
     def vpc_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the VPC.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_arn")
 
     @vpc_arn.setter
@@ -405,58 +309,9 @@ class VpcAttachment(pulumi.CustomResource):
                  vpc_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Network Manager VPC attachment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[example_aws_subnet["arn"]],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"])
-        ```
-
-        ### Usage with Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[example_aws_subnet["arn"]],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"],
-            options={
-                "appliance_mode_support": False,
-                "dns_support": True,
-                "ipv6_support": False,
-                "security_group_referencing_support": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
-        ```
-
+        Create a VpcAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
-        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment. See below.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_arn: ARN of the VPC.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -465,48 +320,7 @@ class VpcAttachment(pulumi.CustomResource):
                  args: VpcAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Manager VPC attachment.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[example_aws_subnet["arn"]],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"])
-        ```
-
-        ### Usage with Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[example_aws_subnet["arn"]],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"],
-            options={
-                "appliance_mode_support": False,
-                "dns_support": True,
-                "ipv6_support": False,
-                "security_group_referencing_support": True,
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
-
-        ```sh
-        $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
-        ```
-
+        Create a VpcAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -592,24 +406,6 @@ class VpcAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
-        :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
-        :param pulumi.Input[_builtins.str] attachment_type: Type of attachment.
-        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
-        :param pulumi.Input[_builtins.str] core_network_id: ID of a core network for the VPC attachment.
-        :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment. See below.
-        :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
-        :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
-        :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        :param pulumi.Input[_builtins.str] segment_name: Name of the segment attachment.
-        :param pulumi.Input[_builtins.str] state: State of the attachment.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet ARNs of the VPC attachment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_arn: ARN of the VPC.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -636,130 +432,80 @@ class VpcAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the attachment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> pulumi.Output[_builtins.int]:
-        """
-        Policy rule number associated with the attachment.
-        """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of attachment.
-        """
         return pulumi.get(self, "attachment_type")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of a core network.
-        """
         return pulumi.get(self, "core_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of a core network for the VPC attachment.
-        """
         return pulumi.get(self, "core_network_id")
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where the edge is located.
-        """
         return pulumi.get(self, "edge_location")
 
     @_builtins.property
     @pulumi.getter
     def options(self) -> pulumi.Output['outputs.VpcAttachmentOptions']:
-        """
-        Options for the VPC attachment. See below.
-        """
         return pulumi.get(self, "options")
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the attachment account owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Attachment resource ARN.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
-        """
         return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the segment attachment.
-        """
         return pulumi.get(self, "segment_name")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the attachment.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Subnet ARNs of the VPC attachment.
-        """
         return pulumi.get(self, "subnet_arns")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="vpcArn")
     def vpc_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the VPC.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_arn")
 

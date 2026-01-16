@@ -12,17 +12,9 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class EventActionActionExportRevisionToS3Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configures server-side encryption of the exported revision.
-        /// Described in `Encryption` Configuration Block below.
-        /// </summary>
         [Input("encryption")]
         public Input<Inputs.EventActionActionExportRevisionToS3EncryptionArgs>? Encryption { get; set; }
 
-        /// <summary>
-        /// Configures the S3 destination of the exported revision.
-        /// Described in `RevisionDestination` Configuration Block below.
-        /// </summary>
         [Input("revisionDestination")]
         public Input<Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs>? RevisionDestination { get; set; }
 

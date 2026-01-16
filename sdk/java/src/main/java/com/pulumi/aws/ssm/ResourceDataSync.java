@@ -14,141 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SSM resource data sync.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.ssm.ResourceDataSync;
- * import com.pulumi.aws.ssm.ResourceDataSyncArgs;
- * import com.pulumi.aws.ssm.inputs.ResourceDataSyncS3DestinationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var hogeBucket = new Bucket("hogeBucket", BucketArgs.builder()
- *             .bucket("tf-test-bucket-1234")
- *             .build());
- * 
- *         final var hoge = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("SSMBucketPermissionsCheck")
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("ssm.amazonaws.com")
- *                         .build())
- *                     .actions("s3:GetBucketAcl")
- *                     .resources("arn:aws:s3:::tf-test-bucket-1234")
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("SSMBucketDelivery")
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("ssm.amazonaws.com")
- *                         .build())
- *                     .actions("s3:PutObject")
- *                     .resources("arn:aws:s3:::tf-test-bucket-1234/*")
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .variable("s3:x-amz-acl")
- *                         .values("bucket-owner-full-control")
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(hogeBucket.id())
- *             .policy(hoge.json())
- *             .build());
- * 
- *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()
- *             .name("foo")
- *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
- *                 .bucketName(hogeBucket.bucket())
- *                 .region(hogeBucket.region())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SSM resource data sync using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/resourceDataSync:ResourceDataSync")
 public class ResourceDataSync extends com.pulumi.resources.CustomResource {
-    /**
-     * Name for the configuration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Amazon S3 configuration details for the sync.
-     * 
-     */
     @Export(name="s3Destination", refs={ResourceDataSyncS3Destination.class}, tree="[0]")
     private Output<ResourceDataSyncS3Destination> s3Destination;
 
-    /**
-     * @return Amazon S3 configuration details for the sync.
-     * 
-     */
     public Output<ResourceDataSyncS3Destination> s3Destination() {
         return this.s3Destination;
     }

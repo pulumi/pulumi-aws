@@ -13,15 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class PermissionsDataLocation
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
-        /// 
-        /// The following argument is optional:
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string? CatalogId;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class ComputeEnvironmentComputeResourcesEc2Configuration
     {
-        /// <summary>
-        /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `ImageId` argument in the `ComputeResources` block.
-        /// </summary>
         public readonly string? ImageIdOverride;
-        /// <summary>
-        /// The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used. See [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.html) for the list of Kubernetes versions supported by AWS Batch on Amazon EKS.
-        /// </summary>
         public readonly string? ImageKubernetesVersion;
-        /// <summary>
-        /// The image type to match with the instance type to select an AMI. If the `ImageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-        /// </summary>
         public readonly string? ImageType;
 
         [OutputConstructor]

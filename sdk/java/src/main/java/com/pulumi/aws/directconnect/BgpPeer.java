@@ -14,188 +14,65 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Direct Connect BGP peer resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directconnect.BgpPeer;
- * import com.pulumi.aws.directconnect.BgpPeerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var peer = new BgpPeer("peer", BgpPeerArgs.builder()
- *             .virtualInterfaceId(foo.id())
- *             .addressFamily("ipv6")
- *             .bgpAsn(65351)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:directconnect/bgpPeer:BgpPeer")
 public class BgpPeer extends com.pulumi.resources.CustomResource {
-    /**
-     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-     * 
-     */
     @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
-    /**
-     * @return The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-     * 
-     */
     public Output<String> addressFamily() {
         return this.addressFamily;
     }
-    /**
-     * The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     @Export(name="amazonAddress", refs={String.class}, tree="[0]")
     private Output<String> amazonAddress;
 
-    /**
-     * @return The IPv4 CIDR address to use to send traffic to Amazon.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     public Output<String> amazonAddress() {
         return this.amazonAddress;
     }
-    /**
-     * The Direct Connect endpoint on which the BGP peer terminates.
-     * 
-     */
     @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
-    /**
-     * @return The Direct Connect endpoint on which the BGP peer terminates.
-     * 
-     */
     public Output<String> awsDevice() {
         return this.awsDevice;
     }
-    /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * 
-     */
     @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> bgpAsn;
 
-    /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-     * 
-     */
     public Output<Integer> bgpAsn() {
         return this.bgpAsn;
     }
-    /**
-     * The authentication key for BGP configuration.
-     * 
-     */
     @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
     private Output<String> bgpAuthKey;
 
-    /**
-     * @return The authentication key for BGP configuration.
-     * 
-     */
     public Output<String> bgpAuthKey() {
         return this.bgpAuthKey;
     }
-    /**
-     * The ID of the BGP peer.
-     * 
-     */
     @Export(name="bgpPeerId", refs={String.class}, tree="[0]")
     private Output<String> bgpPeerId;
 
-    /**
-     * @return The ID of the BGP peer.
-     * 
-     */
     public Output<String> bgpPeerId() {
         return this.bgpPeerId;
     }
-    /**
-     * The Up/Down state of the BGP peer.
-     * 
-     */
     @Export(name="bgpStatus", refs={String.class}, tree="[0]")
     private Output<String> bgpStatus;
 
-    /**
-     * @return The Up/Down state of the BGP peer.
-     * 
-     */
     public Output<String> bgpStatus() {
         return this.bgpStatus;
     }
-    /**
-     * The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     @Export(name="customerAddress", refs={String.class}, tree="[0]")
     private Output<String> customerAddress;
 
-    /**
-     * @return The IPv4 CIDR destination address to which Amazon should send traffic.
-     * Required for IPv4 BGP peers on public virtual interfaces.
-     * 
-     */
     public Output<String> customerAddress() {
         return this.customerAddress;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     * 
-     */
     @Export(name="virtualInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> virtualInterfaceId;
 
-    /**
-     * @return The ID of the Direct Connect virtual interface on which to create the BGP peer.
-     * 
-     */
     public Output<String> virtualInterfaceId() {
         return this.virtualInterfaceId;
     }

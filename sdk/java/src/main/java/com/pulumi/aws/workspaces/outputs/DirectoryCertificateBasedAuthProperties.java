@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryCertificateBasedAuthProperties {
-    /**
-     * @return The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-     * 
-     */
     private @Nullable String certificateAuthorityArn;
-    /**
-     * @return Status of certificate-based authentication. Default `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private DirectoryCertificateBasedAuthProperties() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
-     * 
-     */
     public Optional<String> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
-    /**
-     * @return Status of certificate-based authentication. Default `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

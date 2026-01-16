@@ -17,163 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup vault resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.Vault;
- * import com.pulumi.aws.backup.VaultArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Vault("example", VaultArgs.builder()
- *             .name("example_backup_vault")
- *             .kmsKeyArn(exampleAwsKmsKey.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Backup vault using the `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:backup/vault:Vault test-vault TestVault
- * ```
- * 
- */
 @ResourceType(type="aws:backup/vault:Vault")
 public class Vault extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the vault.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the vault.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * The server-side encryption key that is used to protect your backups.
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return The server-side encryption key that is used to protect your backups.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * Name of the backup vault to create.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the backup vault to create.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The number of recovery points that are stored in a backup vault.
-     * 
-     */
     @Export(name="recoveryPoints", refs={Integer.class}, tree="[0]")
     private Output<Integer> recoveryPoints;
 
-    /**
-     * @return The number of recovery points that are stored in a backup vault.
-     * 
-     */
     public Output<Integer> recoveryPoints() {
         return this.recoveryPoints;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

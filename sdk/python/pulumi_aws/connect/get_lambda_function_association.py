@@ -81,22 +81,7 @@ def get_lambda_function_association(function_arn: Optional[_builtins.str] = None
                                     region: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLambdaFunctionAssociationResult:
     """
-    Provides details about a specific Connect Lambda Function Association.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_lambda_function_association(function_arn="arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
-    :param _builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
@@ -115,22 +100,7 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[_
                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaFunctionAssociationResult]:
     """
-    Provides details about a specific Connect Lambda Function Association.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_lambda_function_association(function_arn="arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param _builtins.str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
-    :param _builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn

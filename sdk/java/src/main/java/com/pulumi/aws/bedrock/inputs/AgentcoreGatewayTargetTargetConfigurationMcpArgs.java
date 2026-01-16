@@ -18,62 +18,30 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpArgs();
 
-    /**
-     * Lambda function target configuration. See `lambda` below.
-     * 
-     */
     @Import(name="lambda")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs> lambda;
 
-    /**
-     * @return Lambda function target configuration. See `lambda` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs>> lambda() {
         return Optional.ofNullable(this.lambda);
     }
 
-    /**
-     * MCP server target configuration. See `mcpServer` below.
-     * 
-     */
     @Import(name="mcpServer")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs> mcpServer;
 
-    /**
-     * @return MCP server target configuration. See `mcpServer` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs>> mcpServer() {
         return Optional.ofNullable(this.mcpServer);
     }
 
-    /**
-     * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     @Import(name="openApiSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs> openApiSchema;
 
-    /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs>> openApiSchema() {
         return Optional.ofNullable(this.openApiSchema);
     }
 
-    /**
-     * Smithy model-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     @Import(name="smithyModel")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs> smithyModel;
 
-    /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs>> smithyModel() {
         return Optional.ofNullable(this.smithyModel);
     }
@@ -105,86 +73,38 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambda Lambda function target configuration. See `lambda` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambda(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs> lambda) {
             $.lambda = lambda;
             return this;
         }
 
-        /**
-         * @param lambda Lambda function target configuration. See `lambda` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs lambda) {
             return lambda(Output.of(lambda));
         }
 
-        /**
-         * @param mcpServer MCP server target configuration. See `mcpServer` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcpServer(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs> mcpServer) {
             $.mcpServer = mcpServer;
             return this;
         }
 
-        /**
-         * @param mcpServer MCP server target configuration. See `mcpServer` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs mcpServer) {
             return mcpServer(Output.of(mcpServer));
         }
 
-        /**
-         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openApiSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs> openApiSchema) {
             $.openApiSchema = openApiSchema;
             return this;
         }
 
-        /**
-         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder openApiSchema(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs openApiSchema) {
             return openApiSchema(Output.of(openApiSchema));
         }
 
-        /**
-         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smithyModel(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs> smithyModel) {
             $.smithyModel = smithyModel;
             return this;
         }
 
-        /**
-         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smithyModel(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs smithyModel) {
             return smithyModel(Output.of(smithyModel));
         }

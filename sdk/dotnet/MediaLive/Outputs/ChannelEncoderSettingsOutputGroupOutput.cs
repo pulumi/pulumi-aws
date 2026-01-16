@@ -13,25 +13,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutput
     {
-        /// <summary>
-        /// The names of the audio descriptions used as audio sources for the output.
-        /// </summary>
         public readonly ImmutableArray<string> AudioDescriptionNames;
-        /// <summary>
-        /// The names of the caption descriptions used as caption sources for the output.
-        /// </summary>
         public readonly ImmutableArray<string> CaptionDescriptionNames;
-        /// <summary>
-        /// The name used to identify an output.
-        /// </summary>
         public readonly string? OutputName;
-        /// <summary>
-        /// Settings for output. See Output Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettings OutputSettings;
-        /// <summary>
-        /// The name of the video description used as video source for the output.
-        /// </summary>
         public readonly string? VideoDescriptionName;
 
         [OutputConstructor]

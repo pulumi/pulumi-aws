@@ -12,33 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSchedulingPolicyFairSharePolicy {
-    /**
-     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-     * 
-     */
     private Integer computeReservation;
     private Integer shareDecaySeconds;
-    /**
-     * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
-     * 
-     */
     private List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions;
 
     private GetSchedulingPolicyFairSharePolicy() {}
-    /**
-     * @return Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-     * 
-     */
     public Integer computeReservation() {
         return this.computeReservation;
     }
     public Integer shareDecaySeconds() {
         return this.shareDecaySeconds;
     }
-    /**
-     * @return One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
-     * 
-     */
     public List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions() {
         return this.shareDistributions;
     }

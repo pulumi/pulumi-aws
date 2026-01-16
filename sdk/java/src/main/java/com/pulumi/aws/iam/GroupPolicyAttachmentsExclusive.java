@@ -14,43 +14,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
- * ```
- * 
- */
 @ResourceType(type="aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive")
 public class GroupPolicyAttachmentsExclusive extends com.pulumi.resources.CustomResource {
-    /**
-     * IAM group name.
-     * 
-     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
-    /**
-     * @return IAM group name.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
-    /**
-     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     @Export(name="policyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> policyArns;
 
-    /**
-     * @return A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyArns() {
         return this.policyArns;
     }

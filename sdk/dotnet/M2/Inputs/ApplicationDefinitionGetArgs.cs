@@ -12,15 +12,9 @@ namespace Pulumi.Aws.M2.Inputs
 
     public sealed class ApplicationDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON application definition. Either this or `S3Location` must be specified.
-        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
-        /// <summary>
-        /// Location of the application definition in S3. Either this or `Content` must be specified.
-        /// </summary>
         [Input("s3Location")]
         public Input<string>? S3Location { get; set; }
 

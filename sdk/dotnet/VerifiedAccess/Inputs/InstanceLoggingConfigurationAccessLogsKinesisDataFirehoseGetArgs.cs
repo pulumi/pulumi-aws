@@ -12,15 +12,9 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the delivery stream.
-        /// </summary>
         [Input("deliveryStream")]
         public Input<string>? DeliveryStream { get; set; }
 
-        /// <summary>
-        /// Indicates whether logging is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

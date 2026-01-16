@@ -14,36 +14,16 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
 
     public static final GetPermissionsDataLocationArgs Empty = new GetPermissionsDataLocationArgs();
 
-    /**
-     * ARN that uniquely identifies the data location resource.
-     * 
-     * The following argument is optional:
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     * The following argument is optional:
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
@@ -73,48 +53,20 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
             $ = new GetPermissionsDataLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN that uniquely identifies the data location resource.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN that uniquely identifies the data location resource.
-         * 
-         * The following argument is optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }

@@ -16,62 +16,30 @@ public final class ResolverRuleAssociationArgs extends com.pulumi.resources.Reso
 
     public static final ResolverRuleAssociationArgs Empty = new ResolverRuleAssociationArgs();
 
-    /**
-     * A name for the association that you&#39;re creating between a resolver rule and a VPC.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A name for the association that you&#39;re creating between a resolver rule and a VPC.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ID of the resolver rule that you want to associate with the VPC.
-     * 
-     */
     @Import(name="resolverRuleId", required=true)
     private Output<String> resolverRuleId;
 
-    /**
-     * @return The ID of the resolver rule that you want to associate with the VPC.
-     * 
-     */
     public Output<String> resolverRuleId() {
         return this.resolverRuleId;
     }
 
-    /**
-     * The ID of the VPC that you want to associate the resolver rule with.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC that you want to associate the resolver rule with.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -103,86 +71,38 @@ public final class ResolverRuleAssociationArgs extends com.pulumi.resources.Reso
             $ = new ResolverRuleAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name A name for the association that you&#39;re creating between a resolver rule and a VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A name for the association that you&#39;re creating between a resolver rule and a VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resolverRuleId The ID of the resolver rule that you want to associate with the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverRuleId(Output<String> resolverRuleId) {
             $.resolverRuleId = resolverRuleId;
             return this;
         }
 
-        /**
-         * @param resolverRuleId The ID of the resolver rule that you want to associate with the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverRuleId(String resolverRuleId) {
             return resolverRuleId(Output.of(resolverRuleId));
         }
 
-        /**
-         * @param vpcId The ID of the VPC that you want to associate the resolver rule with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC that you want to associate the resolver rule with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

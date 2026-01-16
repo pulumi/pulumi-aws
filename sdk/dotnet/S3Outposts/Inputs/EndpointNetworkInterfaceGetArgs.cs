@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Outposts.Inputs
 
     public sealed class EndpointNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the Elastic Network Interface (ENI).
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 

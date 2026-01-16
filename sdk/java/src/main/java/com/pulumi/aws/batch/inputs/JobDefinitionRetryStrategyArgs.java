@@ -17,32 +17,16 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
 
     public static final JobDefinitionRetryStrategyArgs Empty = new JobDefinitionRetryStrategyArgs();
 
-    /**
-     * Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-     * 
-     */
     @Import(name="attempts")
     private @Nullable Output<Integer> attempts;
 
-    /**
-     * @return Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-     * 
-     */
     public Optional<Output<Integer>> attempts() {
         return Optional.ofNullable(this.attempts);
     }
 
-    /**
-     * Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-     * 
-     */
     @Import(name="evaluateOnExits")
     private @Nullable Output<List<JobDefinitionRetryStrategyEvaluateOnExitArgs>> evaluateOnExits;
 
-    /**
-     * @return Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-     * 
-     */
     public Optional<Output<List<JobDefinitionRetryStrategyEvaluateOnExitArgs>>> evaluateOnExits() {
         return Optional.ofNullable(this.evaluateOnExits);
     }
@@ -72,54 +56,24 @@ public final class JobDefinitionRetryStrategyArgs extends com.pulumi.resources.R
             $ = new JobDefinitionRetryStrategyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attempts Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attempts(@Nullable Output<Integer> attempts) {
             $.attempts = attempts;
             return this;
         }
 
-        /**
-         * @param attempts Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attempts(Integer attempts) {
             return attempts(Output.of(attempts));
         }
 
-        /**
-         * @param evaluateOnExits Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateOnExits(@Nullable Output<List<JobDefinitionRetryStrategyEvaluateOnExitArgs>> evaluateOnExits) {
             $.evaluateOnExits = evaluateOnExits;
             return this;
         }
 
-        /**
-         * @param evaluateOnExits Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateOnExits(List<JobDefinitionRetryStrategyEvaluateOnExitArgs> evaluateOnExits) {
             return evaluateOnExits(Output.of(evaluateOnExits));
         }
 
-        /**
-         * @param evaluateOnExits Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateOnExits(JobDefinitionRetryStrategyEvaluateOnExitArgs... evaluateOnExits) {
             return evaluateOnExits(List.of(evaluateOnExits));
         }

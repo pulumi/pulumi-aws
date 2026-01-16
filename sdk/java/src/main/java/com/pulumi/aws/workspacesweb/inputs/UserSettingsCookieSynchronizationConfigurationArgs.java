@@ -17,32 +17,16 @@ public final class UserSettingsCookieSynchronizationConfigurationArgs extends co
 
     public static final UserSettingsCookieSynchronizationConfigurationArgs Empty = new UserSettingsCookieSynchronizationConfigurationArgs();
 
-    /**
-     * List of cookie specifications that are allowed to be synchronized to the remote browser.
-     * 
-     */
     @Import(name="allowlists")
     private @Nullable Output<List<UserSettingsCookieSynchronizationConfigurationAllowlistArgs>> allowlists;
 
-    /**
-     * @return List of cookie specifications that are allowed to be synchronized to the remote browser.
-     * 
-     */
     public Optional<Output<List<UserSettingsCookieSynchronizationConfigurationAllowlistArgs>>> allowlists() {
         return Optional.ofNullable(this.allowlists);
     }
 
-    /**
-     * List of cookie specifications that are blocked from being synchronized to the remote browser.
-     * 
-     */
     @Import(name="blocklists")
     private @Nullable Output<List<UserSettingsCookieSynchronizationConfigurationBlocklistArgs>> blocklists;
 
-    /**
-     * @return List of cookie specifications that are blocked from being synchronized to the remote browser.
-     * 
-     */
     public Optional<Output<List<UserSettingsCookieSynchronizationConfigurationBlocklistArgs>>> blocklists() {
         return Optional.ofNullable(this.blocklists);
     }
@@ -72,64 +56,28 @@ public final class UserSettingsCookieSynchronizationConfigurationArgs extends co
             $ = new UserSettingsCookieSynchronizationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowlists List of cookie specifications that are allowed to be synchronized to the remote browser.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowlists(@Nullable Output<List<UserSettingsCookieSynchronizationConfigurationAllowlistArgs>> allowlists) {
             $.allowlists = allowlists;
             return this;
         }
 
-        /**
-         * @param allowlists List of cookie specifications that are allowed to be synchronized to the remote browser.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowlists(List<UserSettingsCookieSynchronizationConfigurationAllowlistArgs> allowlists) {
             return allowlists(Output.of(allowlists));
         }
 
-        /**
-         * @param allowlists List of cookie specifications that are allowed to be synchronized to the remote browser.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowlists(UserSettingsCookieSynchronizationConfigurationAllowlistArgs... allowlists) {
             return allowlists(List.of(allowlists));
         }
 
-        /**
-         * @param blocklists List of cookie specifications that are blocked from being synchronized to the remote browser.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blocklists(@Nullable Output<List<UserSettingsCookieSynchronizationConfigurationBlocklistArgs>> blocklists) {
             $.blocklists = blocklists;
             return this;
         }
 
-        /**
-         * @param blocklists List of cookie specifications that are blocked from being synchronized to the remote browser.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blocklists(List<UserSettingsCookieSynchronizationConfigurationBlocklistArgs> blocklists) {
             return blocklists(Output.of(blocklists));
         }
 
-        /**
-         * @param blocklists List of cookie specifications that are blocked from being synchronized to the remote browser.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blocklists(UserSettingsCookieSynchronizationConfigurationBlocklistArgs... blocklists) {
             return blocklists(List.of(blocklists));
         }

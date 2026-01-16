@@ -13,109 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail bucket resource access. Use this resource to grant a Lightsail resource (such as an instance) access to a specific bucket.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Bucket;
- * import com.pulumi.aws.lightsail.BucketArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.BucketResourceAccess;
- * import com.pulumi.aws.lightsail.BucketResourceAccessArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .name("example-bucket")
- *             .bundleId("small_1_0")
- *             .build());
- * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .name("example-instance")
- *             .availabilityZone("us-east-1b")
- *             .blueprintId("amazon_linux_2")
- *             .bundleId("nano_3_0")
- *             .build());
- * 
- *         var exampleBucketResourceAccess = new BucketResourceAccess("exampleBucketResourceAccess", BucketResourceAccessArgs.builder()
- *             .bucketName(example.id())
- *             .resourceName(exampleInstance.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess example example-bucket,example-instance
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/bucketResourceAccess:BucketResourceAccess")
 public class BucketResourceAccess extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket to grant access to.
-     * 
-     */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
-    /**
-     * @return Name of the bucket to grant access to.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Name of the resource to grant bucket access.
-     * 
-     */
     @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
-    /**
-     * @return Name of the resource to grant bucket access.
-     * 
-     */
     public Output<String> resourceName() {
         return this.resourceName;
     }

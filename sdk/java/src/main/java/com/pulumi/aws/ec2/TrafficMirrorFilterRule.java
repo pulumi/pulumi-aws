@@ -17,259 +17,77 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Traffic mirror filter rule.\
- * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
- * 
- * ## Example Usage
- * 
- * To create a basic traffic mirror session
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.TrafficMirrorFilter;
- * import com.pulumi.aws.ec2.TrafficMirrorFilterArgs;
- * import com.pulumi.aws.ec2.TrafficMirrorFilterRule;
- * import com.pulumi.aws.ec2.TrafficMirrorFilterRuleArgs;
- * import com.pulumi.aws.ec2.inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs;
- * import com.pulumi.aws.ec2.inputs.TrafficMirrorFilterRuleSourcePortRangeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()
- *             .description("traffic mirror filter - example")
- *             .networkServices("amazon-dns")
- *             .build());
- * 
- *         var ruleout = new TrafficMirrorFilterRule("ruleout", TrafficMirrorFilterRuleArgs.builder()
- *             .description("test rule")
- *             .trafficMirrorFilterId(filter.id())
- *             .destinationCidrBlock("10.0.0.0/8")
- *             .sourceCidrBlock("10.0.0.0/8")
- *             .ruleNumber(1)
- *             .ruleAction("accept")
- *             .trafficDirection("egress")
- *             .build());
- * 
- *         var rulein = new TrafficMirrorFilterRule("rulein", TrafficMirrorFilterRuleArgs.builder()
- *             .description("test rule")
- *             .trafficMirrorFilterId(filter.id())
- *             .destinationCidrBlock("10.0.0.0/8")
- *             .sourceCidrBlock("10.0.0.0/8")
- *             .ruleNumber(1)
- *             .ruleAction("accept")
- *             .trafficDirection("ingress")
- *             .protocol(6)
- *             .destinationPortRange(TrafficMirrorFilterRuleDestinationPortRangeArgs.builder()
- *                 .fromPort(22)
- *                 .toPort(53)
- *                 .build())
- *             .sourcePortRange(TrafficMirrorFilterRuleSourcePortRangeArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(10)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")
 public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the traffic mirror filter rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the traffic mirror filter rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the traffic mirror filter rule.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the traffic mirror filter rule.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Destination CIDR block to assign to the Traffic Mirror rule.
-     * 
-     */
     @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
-    /**
-     * @return Destination CIDR block to assign to the Traffic Mirror rule.
-     * 
-     */
     public Output<String> destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
-    /**
-     * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-     * 
-     */
     @Export(name="destinationPortRange", refs={TrafficMirrorFilterRuleDestinationPortRange.class}, tree="[0]")
     private Output</* @Nullable */ TrafficMirrorFilterRuleDestinationPortRange> destinationPortRange;
 
-    /**
-     * @return Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-     * 
-     */
     public Output<Optional<TrafficMirrorFilterRuleDestinationPortRange>> destinationPortRange() {
         return Codegen.optional(this.destinationPortRange);
     }
-    /**
-     * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-     * 
-     */
     @Export(name="protocol", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> protocol;
 
-    /**
-     * @return Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-     * 
-     */
     public Output<Optional<Integer>> protocol() {
         return Codegen.optional(this.protocol);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
-     * 
-     */
     @Export(name="ruleAction", refs={String.class}, tree="[0]")
     private Output<String> ruleAction;
 
-    /**
-     * @return Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
-     * 
-     */
     public Output<String> ruleAction() {
         return this.ruleAction;
     }
-    /**
-     * Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
-     * 
-     */
     @Export(name="ruleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleNumber;
 
-    /**
-     * @return Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
-     * 
-     */
     public Output<Integer> ruleNumber() {
         return this.ruleNumber;
     }
-    /**
-     * Source CIDR block to assign to the Traffic Mirror rule.
-     * 
-     */
     @Export(name="sourceCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> sourceCidrBlock;
 
-    /**
-     * @return Source CIDR block to assign to the Traffic Mirror rule.
-     * 
-     */
     public Output<String> sourceCidrBlock() {
         return this.sourceCidrBlock;
     }
-    /**
-     * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-     * 
-     */
     @Export(name="sourcePortRange", refs={TrafficMirrorFilterRuleSourcePortRange.class}, tree="[0]")
     private Output</* @Nullable */ TrafficMirrorFilterRuleSourcePortRange> sourcePortRange;
 
-    /**
-     * @return Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-     * 
-     */
     public Output<Optional<TrafficMirrorFilterRuleSourcePortRange>> sourcePortRange() {
         return Codegen.optional(this.sourcePortRange);
     }
-    /**
-     * Direction of traffic to be captured. Valid values are `ingress` and `egress`
-     * 
-     * Traffic mirror port range support following attributes:
-     * 
-     */
     @Export(name="trafficDirection", refs={String.class}, tree="[0]")
     private Output<String> trafficDirection;
 
-    /**
-     * @return Direction of traffic to be captured. Valid values are `ingress` and `egress`
-     * 
-     * Traffic mirror port range support following attributes:
-     * 
-     */
     public Output<String> trafficDirection() {
         return this.trafficDirection;
     }
-    /**
-     * ID of the traffic mirror filter to which this rule should be added
-     * 
-     */
     @Export(name="trafficMirrorFilterId", refs={String.class}, tree="[0]")
     private Output<String> trafficMirrorFilterId;
 
-    /**
-     * @return ID of the traffic mirror filter to which this rule should be added
-     * 
-     */
     public Output<String> trafficMirrorFilterId() {
         return this.trafficMirrorFilterId;
     }

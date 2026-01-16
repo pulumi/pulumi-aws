@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Constraint.
- *
- * > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.Constraint("example", {
- *     description: "Back off, man. I'm a scientist.",
- *     portfolioId: exampleAwsServicecatalogPortfolio.id,
- *     productId: exampleAwsServicecatalogProduct.id,
- *     type: "LAUNCH",
- *     parameters: JSON.stringify({
- *         RoleArn: "arn:aws:iam::123456789012:role/LaunchRole",
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
- *
- * ```sh
- * $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
- * ```
- */
 export class Constraint extends pulumi.CustomResource {
     /**
      * Get an existing Constraint resource's state with the given name, ID, and optional extra
@@ -64,40 +32,14 @@ export class Constraint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Constraint.__pulumiType;
     }
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
-    /**
-     * Description of the constraint.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Owner of the constraint.
-     */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
-    /**
-     * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-     */
     declare public readonly parameters: pulumi.Output<string>;
-    /**
-     * Portfolio identifier.
-     */
     declare public readonly portfolioId: pulumi.Output<string>;
-    /**
-     * Product identifier.
-     */
     declare public readonly productId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -155,40 +97,14 @@ export class Constraint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Constraint resources.
  */
 export interface ConstraintState {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Description of the constraint.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Owner of the constraint.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-     */
     parameters?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId?: pulumi.Input<string>;
-    /**
-     * Product identifier.
-     */
     productId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
-    /**
-     * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-     *
-     * The following arguments are optional:
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -196,34 +112,11 @@ export interface ConstraintState {
  * The set of arguments for constructing a Constraint resource.
  */
 export interface ConstraintArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Description of the constraint.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
-     */
     parameters: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId: pulumi.Input<string>;
-    /**
-     * Product identifier.
-     */
     productId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-     *
-     * The following arguments are optional:
-     */
     type: pulumi.Input<string>;
 }

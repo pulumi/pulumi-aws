@@ -16,47 +16,23 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServerPlainArgs Empty = new GetServerPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID for an SFTP server.
-     * 
-     */
     @Import(name="serverId", required=true)
     private String serverId;
 
-    /**
-     * @return ID for an SFTP server.
-     * 
-     */
     public String serverId() {
         return this.serverId;
     }
 
-    /**
-     * Map of tags assigned to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param serverId ID for an SFTP server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(String serverId) {
             $.serverId = serverId;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

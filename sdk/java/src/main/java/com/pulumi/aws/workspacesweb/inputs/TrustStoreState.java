@@ -18,92 +18,44 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
 
     public static final TrustStoreState Empty = new TrustStoreState();
 
-    /**
-     * List of ARNs of the web portals associated with the trust store.
-     * 
-     */
     @Import(name="associatedPortalArns")
     private @Nullable Output<List<String>> associatedPortalArns;
 
-    /**
-     * @return List of ARNs of the web portals associated with the trust store.
-     * 
-     */
     public Optional<Output<List<String>>> associatedPortalArns() {
         return Optional.ofNullable(this.associatedPortalArns);
     }
 
-    /**
-     * Set of certificates to include in the trust store. See Certificate below.
-     * 
-     */
     @Import(name="certificates")
     private @Nullable Output<List<TrustStoreCertificateArgs>> certificates;
 
-    /**
-     * @return Set of certificates to include in the trust store. See Certificate below.
-     * 
-     */
     public Optional<Output<List<TrustStoreCertificateArgs>>> certificates() {
         return Optional.ofNullable(this.certificates);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * ARN of the trust store.
-     * 
-     */
     @Import(name="trustStoreArn")
     private @Nullable Output<String> trustStoreArn;
 
-    /**
-     * @return ARN of the trust store.
-     * 
-     */
     public Optional<Output<String>> trustStoreArn() {
         return Optional.ofNullable(this.trustStoreArn);
     }
@@ -137,148 +89,64 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
             $ = new TrustStoreState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param associatedPortalArns List of ARNs of the web portals associated with the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedPortalArns(@Nullable Output<List<String>> associatedPortalArns) {
             $.associatedPortalArns = associatedPortalArns;
             return this;
         }
 
-        /**
-         * @param associatedPortalArns List of ARNs of the web portals associated with the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedPortalArns(List<String> associatedPortalArns) {
             return associatedPortalArns(Output.of(associatedPortalArns));
         }
 
-        /**
-         * @param associatedPortalArns List of ARNs of the web portals associated with the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedPortalArns(String... associatedPortalArns) {
             return associatedPortalArns(List.of(associatedPortalArns));
         }
 
-        /**
-         * @param certificates Set of certificates to include in the trust store. See Certificate below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificates(@Nullable Output<List<TrustStoreCertificateArgs>> certificates) {
             $.certificates = certificates;
             return this;
         }
 
-        /**
-         * @param certificates Set of certificates to include in the trust store. See Certificate below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificates(List<TrustStoreCertificateArgs> certificates) {
             return certificates(Output.of(certificates));
         }
 
-        /**
-         * @param certificates Set of certificates to include in the trust store. See Certificate below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificates(TrustStoreCertificateArgs... certificates) {
             return certificates(List.of(certificates));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param trustStoreArn ARN of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreArn(@Nullable Output<String> trustStoreArn) {
             $.trustStoreArn = trustStoreArn;
             return this;
         }
 
-        /**
-         * @param trustStoreArn ARN of the trust store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreArn(String trustStoreArn) {
             return trustStoreArn(Output.of(trustStoreArn));
         }

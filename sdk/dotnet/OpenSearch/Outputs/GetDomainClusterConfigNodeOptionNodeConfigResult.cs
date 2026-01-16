@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainClusterConfigNodeOptionNodeConfigResult
     {
-        /// <summary>
-        /// Number of nodes of a particular node type in the cluster.
-        /// </summary>
         public readonly int Count;
-        /// <summary>
-        /// Enabled disabled toggle for off-peak update window
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The instance type of a particular node type in the cluster.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

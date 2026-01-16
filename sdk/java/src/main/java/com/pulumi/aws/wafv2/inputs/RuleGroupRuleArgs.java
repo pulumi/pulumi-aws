@@ -23,107 +23,51 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RuleGroupRuleArgs Empty = new RuleGroupRuleArgs();
 
-    /**
-     * The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<RuleGroupRuleActionArgs> action;
 
-    /**
-     * @return The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-     * 
-     */
     public Output<RuleGroupRuleActionArgs> action() {
         return this.action;
     }
 
-    /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     * 
-     */
     @Import(name="captchaConfig")
     private @Nullable Output<RuleGroupRuleCaptchaConfigArgs> captchaConfig;
 
-    /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleCaptchaConfigArgs>> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
     }
 
-    /**
-     * A friendly name of the rule.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-     * 
-     */
     @Import(name="ruleLabels")
     private @Nullable Output<List<RuleGroupRuleRuleLabelArgs>> ruleLabels;
 
-    /**
-     * @return Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-     * 
-     */
     public Optional<Output<List<RuleGroupRuleRuleLabelArgs>>> ruleLabels() {
         return Optional.ofNullable(this.ruleLabels);
     }
 
-    /**
-     * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
-     * 
-     */
     @Import(name="statement", required=true)
     private Output<RuleGroupRuleStatementArgs> statement;
 
-    /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
-     * 
-     */
     public Output<RuleGroupRuleStatementArgs> statement() {
         return this.statement;
     }
 
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     * 
-     */
     @Import(name="visibilityConfig", required=true)
     private Output<RuleGroupRuleVisibilityConfigArgs> visibilityConfig;
 
-    /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     * 
-     */
     public Output<RuleGroupRuleVisibilityConfigArgs> visibilityConfig() {
         return this.visibilityConfig;
     }
@@ -158,159 +102,69 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RuleGroupRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<RuleGroupRuleActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(RuleGroupRuleActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captchaConfig(@Nullable Output<RuleGroupRuleCaptchaConfigArgs> captchaConfig) {
             $.captchaConfig = captchaConfig;
             return this;
         }
 
-        /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captchaConfig(RuleGroupRuleCaptchaConfigArgs captchaConfig) {
             return captchaConfig(Output.of(captchaConfig));
         }
 
-        /**
-         * @param name A friendly name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A friendly name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param priority If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleLabels(@Nullable Output<List<RuleGroupRuleRuleLabelArgs>> ruleLabels) {
             $.ruleLabels = ruleLabels;
             return this;
         }
 
-        /**
-         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleLabels(List<RuleGroupRuleRuleLabelArgs> ruleLabels) {
             return ruleLabels(Output.of(ruleLabels));
         }
 
-        /**
-         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleLabels(RuleGroupRuleRuleLabelArgs... ruleLabels) {
             return ruleLabels(List.of(ruleLabels));
         }
 
-        /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(Output<RuleGroupRuleStatementArgs> statement) {
             $.statement = statement;
             return this;
         }
 
-        /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statement(RuleGroupRuleStatementArgs statement) {
             return statement(Output.of(statement));
         }
 
-        /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilityConfig(Output<RuleGroupRuleVisibilityConfigArgs> visibilityConfig) {
             $.visibilityConfig = visibilityConfig;
             return this;
         }
 
-        /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visibilityConfig(RuleGroupRuleVisibilityConfigArgs visibilityConfig) {
             return visibilityConfig(Output.of(visibilityConfig));
         }

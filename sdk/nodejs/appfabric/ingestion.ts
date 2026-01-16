@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS AppFabric Ingestion.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appfabric.Ingestion("example", {
- *     app: "OKTA",
- *     appBundleArn: exampleAwsAppfabricAppBundle.arn,
- *     tenantId: "example.okta.com",
- *     ingestionType: "auditLog",
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import AppFabric Ingestion using the `app_bundle_identifier` and `arn` separated by `,`. For example:
- *
- * ```sh
- * $ pulumi import aws:appfabric/ingestion:Ingestion example arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx,arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx/ingestion/32251416-710b-4425-96ca-xxxxxxxxxx
- * ```
- */
 export class Ingestion extends pulumi.CustomResource {
     /**
      * Get an existing Ingestion resource's state with the given name, ID, and optional extra
@@ -62,38 +32,13 @@ export class Ingestion extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ingestion.__pulumiType;
     }
 
-    /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     */
     declare public readonly app: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     declare public readonly appBundleArn: pulumi.Output<string>;
-    /**
-     * ARN of the Ingestion.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Ingestion type. Valid values are `auditLog`.
-     */
     declare public readonly ingestionType: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ID of the application tenant.
-     */
     declare public readonly tenantId: pulumi.Output<string>;
 
     /**
@@ -149,38 +94,13 @@ export class Ingestion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Ingestion resources.
  */
 export interface IngestionState {
-    /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     */
     app?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     appBundleArn?: pulumi.Input<string>;
-    /**
-     * ARN of the Ingestion.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Ingestion type. Valid values are `auditLog`.
-     */
     ingestionType?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ID of the application tenant.
-     */
     tenantId?: pulumi.Input<string>;
 }
 
@@ -188,29 +108,10 @@ export interface IngestionState {
  * The set of arguments for constructing a Ingestion resource.
  */
 export interface IngestionArgs {
-    /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
-     */
     app: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
-     */
     appBundleArn: pulumi.Input<string>;
-    /**
-     * Ingestion type. Valid values are `auditLog`.
-     */
     ingestionType: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ID of the application tenant.
-     */
     tenantId: pulumi.Input<string>;
 }

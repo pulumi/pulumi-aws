@@ -11,75 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing AWS Cost Optimization Hub Preferences.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/costoptimizationhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costoptimizationhub.NewPreferences(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with all the arguments
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/costoptimizationhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costoptimizationhub.NewPreferences(ctx, "example", &costoptimizationhub.PreferencesArgs{
-//				MemberAccountDiscountVisibility: pulumi.String("None"),
-//				SavingsEstimationMode:           pulumi.String("AfterDiscounts"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
-// ```
 type Preferences struct {
 	pulumi.CustomResourceState
 
-	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility pulumi.StringOutput `pulumi:"memberAccountDiscountVisibility"`
-	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-	SavingsEstimationMode pulumi.StringOutput `pulumi:"savingsEstimationMode"`
+	SavingsEstimationMode           pulumi.StringOutput `pulumi:"savingsEstimationMode"`
 }
 
 // NewPreferences registers a new resource with the given unique name, arguments, and options.
@@ -112,17 +48,13 @@ func GetPreferences(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Preferences resources.
 type preferencesState struct {
-	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility *string `pulumi:"memberAccountDiscountVisibility"`
-	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
+	SavingsEstimationMode           *string `pulumi:"savingsEstimationMode"`
 }
 
 type PreferencesState struct {
-	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility pulumi.StringPtrInput
-	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-	SavingsEstimationMode pulumi.StringPtrInput
+	SavingsEstimationMode           pulumi.StringPtrInput
 }
 
 func (PreferencesState) ElementType() reflect.Type {
@@ -130,18 +62,14 @@ func (PreferencesState) ElementType() reflect.Type {
 }
 
 type preferencesArgs struct {
-	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility *string `pulumi:"memberAccountDiscountVisibility"`
-	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
+	SavingsEstimationMode           *string `pulumi:"savingsEstimationMode"`
 }
 
 // The set of arguments for constructing a Preferences resource.
 type PreferencesArgs struct {
-	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility pulumi.StringPtrInput
-	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-	SavingsEstimationMode pulumi.StringPtrInput
+	SavingsEstimationMode           pulumi.StringPtrInput
 }
 
 func (PreferencesArgs) ElementType() reflect.Type {
@@ -231,12 +159,10 @@ func (o PreferencesOutput) ToPreferencesOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 func (o PreferencesOutput) MemberAccountDiscountVisibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preferences) pulumi.StringOutput { return v.MemberAccountDiscountVisibility }).(pulumi.StringOutput)
 }
 
-// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
 func (o PreferencesOutput) SavingsEstimationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preferences) pulumi.StringOutput { return v.SavingsEstimationMode }).(pulumi.StringOutput)
 }

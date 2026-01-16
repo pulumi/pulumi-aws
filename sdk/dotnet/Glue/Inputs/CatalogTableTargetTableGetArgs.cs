@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableTargetTableGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Data Catalog in which the table resides.
-        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the catalog database that contains the target table.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the target table.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region of the target table.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

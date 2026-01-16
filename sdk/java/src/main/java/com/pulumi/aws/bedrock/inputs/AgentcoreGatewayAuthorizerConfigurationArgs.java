@@ -15,17 +15,9 @@ public final class AgentcoreGatewayAuthorizerConfigurationArgs extends com.pulum
 
     public static final AgentcoreGatewayAuthorizerConfigurationArgs Empty = new AgentcoreGatewayAuthorizerConfigurationArgs();
 
-    /**
-     * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-     * 
-     */
     @Import(name="customJwtAuthorizer")
     private @Nullable Output<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs> customJwtAuthorizer;
 
-    /**
-     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-     * 
-     */
     public Optional<Output<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs>> customJwtAuthorizer() {
         return Optional.ofNullable(this.customJwtAuthorizer);
     }
@@ -54,23 +46,11 @@ public final class AgentcoreGatewayAuthorizerConfigurationArgs extends com.pulum
             $ = new AgentcoreGatewayAuthorizerConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customJwtAuthorizer(@Nullable Output<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs> customJwtAuthorizer) {
             $.customJwtAuthorizer = customJwtAuthorizer;
             return this;
         }
 
-        /**
-         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customJwtAuthorizer(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs customJwtAuthorizer) {
             return customJwtAuthorizer(Output.of(customJwtAuthorizer));
         }

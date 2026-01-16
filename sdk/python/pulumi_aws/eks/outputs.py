@@ -90,10 +90,6 @@ class AccessPolicyAssociationAccessScope(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  namespaces: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str type: Valid values are `namespace` or `cluster`.
-        :param Sequence[_builtins.str] namespaces: The namespaces to which the access scope applies when type is namespace.
-        """
         pulumi.set(__self__, "type", type)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
@@ -101,17 +97,11 @@ class AccessPolicyAssociationAccessScope(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Valid values are `namespace` or `cluster`.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def namespaces(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The namespaces to which the access scope applies when type is namespace.
-        """
         return pulumi.get(self, "namespaces")
 
 
@@ -139,27 +129,17 @@ class AddonPodIdentityAssociation(dict):
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  service_account: _builtins.str):
-        """
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
-        :param _builtins.str service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "service_account", service_account)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccount")
     def service_account(self) -> _builtins.str:
-        """
-        The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
-        """
         return pulumi.get(self, "service_account")
 
 
@@ -184,18 +164,12 @@ class CapabilityConfiguration(dict):
 
     def __init__(__self__, *,
                  argo_cd: Optional['outputs.CapabilityConfigurationArgoCd'] = None):
-        """
-        :param 'CapabilityConfigurationArgoCdArgs' argo_cd: ArgoCD configuration. See `argo_cd` below.
-        """
         if argo_cd is not None:
             pulumi.set(__self__, "argo_cd", argo_cd)
 
     @_builtins.property
     @pulumi.getter(name="argoCd")
     def argo_cd(self) -> Optional['outputs.CapabilityConfigurationArgoCd']:
-        """
-        ArgoCD configuration. See `argo_cd` below.
-        """
         return pulumi.get(self, "argo_cd")
 
 
@@ -230,13 +204,6 @@ class CapabilityConfigurationArgoCd(dict):
                  network_access: Optional['outputs.CapabilityConfigurationArgoCdNetworkAccess'] = None,
                  rbac_role_mappings: Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMapping']] = None,
                  server_url: Optional[_builtins.str] = None):
-        """
-        :param 'CapabilityConfigurationArgoCdAwsIdcArgs' aws_idc: AWS IAM Identity Center configuration. See `aws_idc` below.
-        :param _builtins.str namespace: Kubernetes namespace for ArgoCD.
-        :param 'CapabilityConfigurationArgoCdNetworkAccessArgs' network_access: Network access configuration. See `network_access` below.
-        :param Sequence['CapabilityConfigurationArgoCdRbacRoleMappingArgs'] rbac_role_mappings: RBAC role mappings. See `rbac_role_mapping` below.
-        :param _builtins.str server_url: URL of the Argo CD server.
-        """
         if aws_idc is not None:
             pulumi.set(__self__, "aws_idc", aws_idc)
         if namespace is not None:
@@ -251,41 +218,26 @@ class CapabilityConfigurationArgoCd(dict):
     @_builtins.property
     @pulumi.getter(name="awsIdc")
     def aws_idc(self) -> Optional['outputs.CapabilityConfigurationArgoCdAwsIdc']:
-        """
-        AWS IAM Identity Center configuration. See `aws_idc` below.
-        """
         return pulumi.get(self, "aws_idc")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[_builtins.str]:
-        """
-        Kubernetes namespace for ArgoCD.
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter(name="networkAccess")
     def network_access(self) -> Optional['outputs.CapabilityConfigurationArgoCdNetworkAccess']:
-        """
-        Network access configuration. See `network_access` below.
-        """
         return pulumi.get(self, "network_access")
 
     @_builtins.property
     @pulumi.getter(name="rbacRoleMappings")
     def rbac_role_mappings(self) -> Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMapping']]:
-        """
-        RBAC role mappings. See `rbac_role_mapping` below.
-        """
         return pulumi.get(self, "rbac_role_mappings")
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
     def server_url(self) -> Optional[_builtins.str]:
-        """
-        URL of the Argo CD server.
-        """
         return pulumi.get(self, "server_url")
 
 
@@ -316,10 +268,6 @@ class CapabilityConfigurationArgoCdAwsIdc(dict):
                  idc_instance_arn: _builtins.str,
                  idc_managed_application_arn: Optional[_builtins.str] = None,
                  idc_region: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str idc_instance_arn: ARN of the IAM Identity Center instance.
-        :param _builtins.str idc_region: Region of the IAM Identity Center instance.
-        """
         pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
         if idc_managed_application_arn is not None:
             pulumi.set(__self__, "idc_managed_application_arn", idc_managed_application_arn)
@@ -329,9 +277,6 @@ class CapabilityConfigurationArgoCdAwsIdc(dict):
     @_builtins.property
     @pulumi.getter(name="idcInstanceArn")
     def idc_instance_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM Identity Center instance.
-        """
         return pulumi.get(self, "idc_instance_arn")
 
     @_builtins.property
@@ -342,9 +287,6 @@ class CapabilityConfigurationArgoCdAwsIdc(dict):
     @_builtins.property
     @pulumi.getter(name="idcRegion")
     def idc_region(self) -> Optional[_builtins.str]:
-        """
-        Region of the IAM Identity Center instance.
-        """
         return pulumi.get(self, "idc_region")
 
 
@@ -369,18 +311,12 @@ class CapabilityConfigurationArgoCdNetworkAccess(dict):
 
     def __init__(__self__, *,
                  vpce_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] vpce_ids: VPC Endpoint IDs.
-        """
         if vpce_ids is not None:
             pulumi.set(__self__, "vpce_ids", vpce_ids)
 
     @_builtins.property
     @pulumi.getter(name="vpceIds")
     def vpce_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        VPC Endpoint IDs.
-        """
         return pulumi.get(self, "vpce_ids")
 
 
@@ -389,10 +325,6 @@ class CapabilityConfigurationArgoCdRbacRoleMapping(dict):
     def __init__(__self__, *,
                  role: _builtins.str,
                  identities: Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity']] = None):
-        """
-        :param _builtins.str role: ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-        :param Sequence['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs'] identities: List of identities. See `identity` below.
-        """
         pulumi.set(__self__, "role", role)
         if identities is not None:
             pulumi.set(__self__, "identities", identities)
@@ -400,17 +332,11 @@ class CapabilityConfigurationArgoCdRbacRoleMapping(dict):
     @_builtins.property
     @pulumi.getter
     def role(self) -> _builtins.str:
-        """
-        ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
-        """
         return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter
     def identities(self) -> Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity']]:
-        """
-        List of identities. See `identity` below.
-        """
         return pulumi.get(self, "identities")
 
 
@@ -419,27 +345,17 @@ class CapabilityConfigurationArgoCdRbacRoleMappingIdentity(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  type: _builtins.str):
-        """
-        :param _builtins.str id: Identity ID.
-        :param _builtins.str type: Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identity ID.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Identity type. Valid values: `SSO_USER`, `SSO_GROUP`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -510,10 +426,6 @@ class ClusterAccessConfig(dict):
     def __init__(__self__, *,
                  authentication_mode: Optional[_builtins.str] = None,
                  bootstrap_cluster_creator_admin_permissions: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str authentication_mode: The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        :param _builtins.bool bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-        """
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
         if bootstrap_cluster_creator_admin_permissions is not None:
@@ -522,17 +434,11 @@ class ClusterAccessConfig(dict):
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[_builtins.str]:
-        """
-        The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        """
         return pulumi.get(self, "authentication_mode")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
     def bootstrap_cluster_creator_admin_permissions(self) -> Optional[_builtins.bool]:
-        """
-        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
-        """
         return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
 
@@ -540,18 +446,12 @@ class ClusterAccessConfig(dict):
 class ClusterCertificateAuthority(dict):
     def __init__(__self__, *,
                  data: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str data: Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        """
         if data is not None:
             pulumi.set(__self__, "data", data)
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> Optional[_builtins.str]:
-        """
-        Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        """
         return pulumi.get(self, "data")
 
 
@@ -580,11 +480,6 @@ class ClusterComputeConfig(dict):
                  enabled: Optional[_builtins.bool] = None,
                  node_pools: Optional[Sequence[_builtins.str]] = None,
                  node_role_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.bool enabled: Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
-        :param Sequence[_builtins.str] node_pools: Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
-        :param _builtins.str node_role_arn: The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if node_pools is not None:
@@ -595,25 +490,16 @@ class ClusterComputeConfig(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="nodePools")
     def node_pools(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
-        """
         return pulumi.get(self, "node_pools")
 
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
-        """
         return pulumi.get(self, "node_role_arn")
 
 
@@ -621,18 +507,12 @@ class ClusterComputeConfig(dict):
 class ClusterControlPlaneScalingConfig(dict):
     def __init__(__self__, *,
                  tier: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-        """
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
     @_builtins.property
     @pulumi.getter
     def tier(self) -> Optional[_builtins.str]:
-        """
-        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
-        """
         return pulumi.get(self, "tier")
 
 
@@ -641,27 +521,17 @@ class ClusterEncryptionConfig(dict):
     def __init__(__self__, *,
                  provider: 'outputs.ClusterEncryptionConfigProvider',
                  resources: Sequence[_builtins.str]):
-        """
-        :param 'ClusterEncryptionConfigProviderArgs' provider: Configuration block with provider for encryption. Detailed below.
-        :param Sequence[_builtins.str] resources: List of strings with resources to be encrypted. Valid values: `secrets`.
-        """
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "resources", resources)
 
     @_builtins.property
     @pulumi.getter
     def provider(self) -> 'outputs.ClusterEncryptionConfigProvider':
-        """
-        Configuration block with provider for encryption. Detailed below.
-        """
         return pulumi.get(self, "provider")
 
     @_builtins.property
     @pulumi.getter
     def resources(self) -> Sequence[_builtins.str]:
-        """
-        List of strings with resources to be encrypted. Valid values: `secrets`.
-        """
         return pulumi.get(self, "resources")
 
 
@@ -686,17 +556,11 @@ class ClusterEncryptionConfigProvider(dict):
 
     def __init__(__self__, *,
                  key_arn: _builtins.str):
-        """
-        :param _builtins.str key_arn: ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-        """
         pulumi.set(__self__, "key_arn", key_arn)
 
     @_builtins.property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> _builtins.str:
-        """
-        ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
-        """
         return pulumi.get(self, "key_arn")
 
 
@@ -704,18 +568,12 @@ class ClusterEncryptionConfigProvider(dict):
 class ClusterIdentity(dict):
     def __init__(__self__, *,
                  oidcs: Optional[Sequence['outputs.ClusterIdentityOidc']] = None):
-        """
-        :param Sequence['ClusterIdentityOidcArgs'] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-        """
         if oidcs is not None:
             pulumi.set(__self__, "oidcs", oidcs)
 
     @_builtins.property
     @pulumi.getter
     def oidcs(self) -> Optional[Sequence['outputs.ClusterIdentityOidc']]:
-        """
-        Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-        """
         return pulumi.get(self, "oidcs")
 
 
@@ -723,18 +581,12 @@ class ClusterIdentity(dict):
 class ClusterIdentityOidc(dict):
     def __init__(__self__, *,
                  issuer: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str issuer: Issuer URL for the OpenID Connect identity provider.
-        """
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[_builtins.str]:
-        """
-        Issuer URL for the OpenID Connect identity provider.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -768,18 +620,6 @@ class ClusterKubernetesNetworkConfig(dict):
                  ip_family: Optional[_builtins.str] = None,
                  service_ipv4_cidr: Optional[_builtins.str] = None,
                  service_ipv6_cidr: Optional[_builtins.str] = None):
-        """
-        :param 'ClusterKubernetesNetworkConfigElasticLoadBalancingArgs' elastic_load_balancing: Configuration block with elastic load balancing configuration for the cluster. Detailed below.
-        :param _builtins.str ip_family: The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
-        :param _builtins.str service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-               
-               * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
-               
-               * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
-               
-               * Between /24 and /12.
-        :param _builtins.str service_ipv6_cidr: The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ip_family` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
-        """
         if elastic_load_balancing is not None:
             pulumi.set(__self__, "elastic_load_balancing", elastic_load_balancing)
         if ip_family is not None:
@@ -792,39 +632,21 @@ class ClusterKubernetesNetworkConfig(dict):
     @_builtins.property
     @pulumi.getter(name="elasticLoadBalancing")
     def elastic_load_balancing(self) -> Optional['outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing']:
-        """
-        Configuration block with elastic load balancing configuration for the cluster. Detailed below.
-        """
         return pulumi.get(self, "elastic_load_balancing")
 
     @_builtins.property
     @pulumi.getter(name="ipFamily")
     def ip_family(self) -> Optional[_builtins.str]:
-        """
-        The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
-        """
         return pulumi.get(self, "ip_family")
 
     @_builtins.property
     @pulumi.getter(name="serviceIpv4Cidr")
     def service_ipv4_cidr(self) -> Optional[_builtins.str]:
-        """
-        The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
-
-        * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
-
-        * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
-
-        * Between /24 and /12.
-        """
         return pulumi.get(self, "service_ipv4_cidr")
 
     @_builtins.property
     @pulumi.getter(name="serviceIpv6Cidr")
     def service_ipv6_cidr(self) -> Optional[_builtins.str]:
-        """
-        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ip_family` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
-        """
         return pulumi.get(self, "service_ipv6_cidr")
 
 
@@ -832,18 +654,12 @@ class ClusterKubernetesNetworkConfig(dict):
 class ClusterKubernetesNetworkConfigElasticLoadBalancing(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -874,20 +690,6 @@ class ClusterOutpostConfig(dict):
                  control_plane_instance_type: _builtins.str,
                  outpost_arns: Sequence[_builtins.str],
                  control_plane_placement: Optional['outputs.ClusterOutpostConfigControlPlanePlacement'] = None):
-        """
-        :param _builtins.str control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-               
-               * 1–20 nodes, then we recommend specifying a large instance type.
-               
-               * 21–100 nodes, then we recommend specifying an xlarge instance type.
-               
-               * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
-               
-               For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
-        :param Sequence[_builtins.str] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-        :param 'ClusterOutpostConfigControlPlanePlacementArgs' control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-               The `control_plane_placement` configuration block supports the following arguments:
-        """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
         if control_plane_placement is not None:
@@ -896,34 +698,16 @@ class ClusterOutpostConfig(dict):
     @_builtins.property
     @pulumi.getter(name="controlPlaneInstanceType")
     def control_plane_instance_type(self) -> _builtins.str:
-        """
-        The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-
-        * 1–20 nodes, then we recommend specifying a large instance type.
-
-        * 21–100 nodes, then we recommend specifying an xlarge instance type.
-
-        * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
-
-        For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
-        """
         return pulumi.get(self, "control_plane_instance_type")
 
     @_builtins.property
     @pulumi.getter(name="outpostArns")
     def outpost_arns(self) -> Sequence[_builtins.str]:
-        """
-        The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-        """
         return pulumi.get(self, "outpost_arns")
 
     @_builtins.property
     @pulumi.getter(name="controlPlanePlacement")
     def control_plane_placement(self) -> Optional['outputs.ClusterOutpostConfigControlPlanePlacement']:
-        """
-        An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-        The `control_plane_placement` configuration block supports the following arguments:
-        """
         return pulumi.get(self, "control_plane_placement")
 
 
@@ -948,17 +732,11 @@ class ClusterOutpostConfigControlPlanePlacement(dict):
 
     def __init__(__self__, *,
                  group_name: _builtins.str):
-        """
-        :param _builtins.str group_name: The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
-        """
         pulumi.set(__self__, "group_name", group_name)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> _builtins.str:
-        """
-        The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
-        """
         return pulumi.get(self, "group_name")
 
 
@@ -986,10 +764,6 @@ class ClusterRemoteNetworkConfig(dict):
     def __init__(__self__, *,
                  remote_node_networks: 'outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks',
                  remote_pod_networks: Optional['outputs.ClusterRemoteNetworkConfigRemotePodNetworks'] = None):
-        """
-        :param 'ClusterRemoteNetworkConfigRemoteNodeNetworksArgs' remote_node_networks: Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-        :param 'ClusterRemoteNetworkConfigRemotePodNetworksArgs' remote_pod_networks: Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-        """
         pulumi.set(__self__, "remote_node_networks", remote_node_networks)
         if remote_pod_networks is not None:
             pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
@@ -997,17 +771,11 @@ class ClusterRemoteNetworkConfig(dict):
     @_builtins.property
     @pulumi.getter(name="remoteNodeNetworks")
     def remote_node_networks(self) -> 'outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks':
-        """
-        Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-        """
         return pulumi.get(self, "remote_node_networks")
 
     @_builtins.property
     @pulumi.getter(name="remotePodNetworks")
     def remote_pod_networks(self) -> Optional['outputs.ClusterRemoteNetworkConfigRemotePodNetworks']:
-        """
-        Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
-        """
         return pulumi.get(self, "remote_pod_networks")
 
 
@@ -1015,18 +783,12 @@ class ClusterRemoteNetworkConfig(dict):
 class ClusterRemoteNetworkConfigRemoteNodeNetworks(dict):
     def __init__(__self__, *,
                  cidrs: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] cidrs: List of network CIDRs that can contain hybrid nodes.
-        """
         if cidrs is not None:
             pulumi.set(__self__, "cidrs", cidrs)
 
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of network CIDRs that can contain hybrid nodes.
-        """
         return pulumi.get(self, "cidrs")
 
 
@@ -1034,18 +796,12 @@ class ClusterRemoteNetworkConfigRemoteNodeNetworks(dict):
 class ClusterRemoteNetworkConfigRemotePodNetworks(dict):
     def __init__(__self__, *,
                  cidrs: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param Sequence[_builtins.str] cidrs: List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         if cidrs is not None:
             pulumi.set(__self__, "cidrs", cidrs)
 
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         return pulumi.get(self, "cidrs")
 
 
@@ -1070,18 +826,12 @@ class ClusterStorageConfig(dict):
 
     def __init__(__self__, *,
                  block_storage: Optional['outputs.ClusterStorageConfigBlockStorage'] = None):
-        """
-        :param 'ClusterStorageConfigBlockStorageArgs' block_storage: Configuration block with block storage configuration for the cluster. Detailed below.
-        """
         if block_storage is not None:
             pulumi.set(__self__, "block_storage", block_storage)
 
     @_builtins.property
     @pulumi.getter(name="blockStorage")
     def block_storage(self) -> Optional['outputs.ClusterStorageConfigBlockStorage']:
-        """
-        Configuration block with block storage configuration for the cluster. Detailed below.
-        """
         return pulumi.get(self, "block_storage")
 
 
@@ -1089,18 +839,12 @@ class ClusterStorageConfig(dict):
 class ClusterStorageConfigBlockStorage(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1125,18 +869,12 @@ class ClusterUpgradePolicy(dict):
 
     def __init__(__self__, *,
                  support_type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str support_type: Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-        """
         if support_type is not None:
             pulumi.set(__self__, "support_type", support_type)
 
     @_builtins.property
     @pulumi.getter(name="supportType")
     def support_type(self) -> Optional[_builtins.str]:
-        """
-        Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
-        """
         return pulumi.get(self, "support_type")
 
 
@@ -1179,15 +917,6 @@ class ClusterVpcConfig(dict):
                  public_access_cidrs: Optional[Sequence[_builtins.str]] = None,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  vpc_id: Optional[_builtins.str] = None):
-        """
-        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        :param _builtins.str cluster_security_group_id: Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
-        :param _builtins.bool endpoint_private_access: Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        :param _builtins.bool endpoint_public_access: Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        :param Sequence[_builtins.str] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        :param _builtins.str vpc_id: ID of the VPC associated with your cluster.
-        """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if cluster_security_group_id is not None:
             pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
@@ -1205,57 +934,36 @@ class ClusterVpcConfig(dict):
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="clusterSecurityGroupId")
     def cluster_security_group_id(self) -> Optional[_builtins.str]:
-        """
-        Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
-        """
         return pulumi.get(self, "cluster_security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="endpointPrivateAccess")
     def endpoint_private_access(self) -> Optional[_builtins.bool]:
-        """
-        Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        """
         return pulumi.get(self, "endpoint_private_access")
 
     @_builtins.property
     @pulumi.getter(name="endpointPublicAccess")
     def endpoint_public_access(self) -> Optional[_builtins.bool]:
-        """
-        Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        """
         return pulumi.get(self, "endpoint_public_access")
 
     @_builtins.property
     @pulumi.getter(name="publicAccessCidrs")
     def public_access_cidrs(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "public_access_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
-        """
-        ID of the VPC associated with your cluster.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -1263,18 +971,12 @@ class ClusterVpcConfig(dict):
 class ClusterZonalShiftConfig(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool enabled: Whether zonal shift is enabled for the cluster.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether zonal shift is enabled for the cluster.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1283,12 +985,6 @@ class FargateProfileSelector(dict):
     def __init__(__self__, *,
                  namespace: _builtins.str,
                  labels: Optional[Mapping[str, _builtins.str]] = None):
-        """
-        :param _builtins.str namespace: Kubernetes namespace for selection.
-               
-               The following arguments are optional:
-        :param Mapping[str, _builtins.str] labels: Key-value map of Kubernetes labels for selection.
-        """
         pulumi.set(__self__, "namespace", namespace)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -1296,19 +992,11 @@ class FargateProfileSelector(dict):
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
-        """
-        Kubernetes namespace for selection.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        Key-value map of Kubernetes labels for selection.
-        """
         return pulumi.get(self, "labels")
 
 
@@ -1354,16 +1042,6 @@ class IdentityProviderConfigOidc(dict):
                  required_claims: Optional[Mapping[str, _builtins.str]] = None,
                  username_claim: Optional[_builtins.str] = None,
                  username_prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str client_id: Client ID for the OpenID Connect identity provider.
-        :param _builtins.str identity_provider_config_name: The name of the identity provider config.
-        :param _builtins.str issuer_url: Issuer URL for the OpenID Connect identity provider.
-        :param _builtins.str groups_claim: The JWT claim that the provider will use to return groups.
-        :param _builtins.str groups_prefix: A prefix that is prepended to group claims e.g., `oidc:`.
-        :param Mapping[str, _builtins.str] required_claims: The key value pairs that describe required claims in the identity token.
-        :param _builtins.str username_claim: The JWT claim that the provider will use as the username.
-        :param _builtins.str username_prefix: A prefix that is prepended to username claims.
-        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "identity_provider_config_name", identity_provider_config_name)
         pulumi.set(__self__, "issuer_url", issuer_url)
@@ -1381,65 +1059,41 @@ class IdentityProviderConfigOidc(dict):
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> _builtins.str:
-        """
-        Client ID for the OpenID Connect identity provider.
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="identityProviderConfigName")
     def identity_provider_config_name(self) -> _builtins.str:
-        """
-        The name of the identity provider config.
-        """
         return pulumi.get(self, "identity_provider_config_name")
 
     @_builtins.property
     @pulumi.getter(name="issuerUrl")
     def issuer_url(self) -> _builtins.str:
-        """
-        Issuer URL for the OpenID Connect identity provider.
-        """
         return pulumi.get(self, "issuer_url")
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
     def groups_claim(self) -> Optional[_builtins.str]:
-        """
-        The JWT claim that the provider will use to return groups.
-        """
         return pulumi.get(self, "groups_claim")
 
     @_builtins.property
     @pulumi.getter(name="groupsPrefix")
     def groups_prefix(self) -> Optional[_builtins.str]:
-        """
-        A prefix that is prepended to group claims e.g., `oidc:`.
-        """
         return pulumi.get(self, "groups_prefix")
 
     @_builtins.property
     @pulumi.getter(name="requiredClaims")
     def required_claims(self) -> Optional[Mapping[str, _builtins.str]]:
-        """
-        The key value pairs that describe required claims in the identity token.
-        """
         return pulumi.get(self, "required_claims")
 
     @_builtins.property
     @pulumi.getter(name="usernameClaim")
     def username_claim(self) -> Optional[_builtins.str]:
-        """
-        The JWT claim that the provider will use as the username.
-        """
         return pulumi.get(self, "username_claim")
 
     @_builtins.property
     @pulumi.getter(name="usernamePrefix")
     def username_prefix(self) -> Optional[_builtins.str]:
-        """
-        A prefix that is prepended to username claims.
-        """
         return pulumi.get(self, "username_prefix")
 
 
@@ -1449,11 +1103,6 @@ class NodeGroupLaunchTemplate(dict):
                  version: _builtins.str,
                  id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
-        :param _builtins.str id: Identifier of the EC2 Launch Template. Conflicts with `name`.
-        :param _builtins.str name: Name of the EC2 Launch Template. Conflicts with `id`.
-        """
         pulumi.set(__self__, "version", version)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1463,25 +1112,16 @@ class NodeGroupLaunchTemplate(dict):
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
-        """
         return pulumi.get(self, "version")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        Identifier of the EC2 Launch Template. Conflicts with `name`.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the EC2 Launch Template. Conflicts with `id`.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1519,14 +1159,6 @@ class NodeGroupNodeRepairConfig(dict):
                  max_unhealthy_node_threshold_count: Optional[_builtins.int] = None,
                  max_unhealthy_node_threshold_percentage: Optional[_builtins.int] = None,
                  node_repair_config_overrides: Optional[Sequence['outputs.NodeGroupNodeRepairConfigNodeRepairConfigOverride']] = None):
-        """
-        :param _builtins.bool enabled: Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
-        :param _builtins.int max_parallel_nodes_repaired_count: Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `max_parallel_nodes_repaired_percentage`.
-        :param _builtins.int max_parallel_nodes_repaired_percentage: Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `max_parallel_nodes_repaired_count`.
-        :param _builtins.int max_unhealthy_node_threshold_count: Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `max_unhealthy_node_threshold_percentage`.
-        :param _builtins.int max_unhealthy_node_threshold_percentage: Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `max_unhealthy_node_threshold_count`.
-        :param Sequence['NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs'] node_repair_config_overrides: Granular overrides for specific repair actions. See `node_repair_config_overrides` below for details.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if max_parallel_nodes_repaired_count is not None:
@@ -1543,49 +1175,31 @@ class NodeGroupNodeRepairConfig(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="maxParallelNodesRepairedCount")
     def max_parallel_nodes_repaired_count(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `max_parallel_nodes_repaired_percentage`.
-        """
         return pulumi.get(self, "max_parallel_nodes_repaired_count")
 
     @_builtins.property
     @pulumi.getter(name="maxParallelNodesRepairedPercentage")
     def max_parallel_nodes_repaired_percentage(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `max_parallel_nodes_repaired_count`.
-        """
         return pulumi.get(self, "max_parallel_nodes_repaired_percentage")
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyNodeThresholdCount")
     def max_unhealthy_node_threshold_count(self) -> Optional[_builtins.int]:
-        """
-        Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `max_unhealthy_node_threshold_percentage`.
-        """
         return pulumi.get(self, "max_unhealthy_node_threshold_count")
 
     @_builtins.property
     @pulumi.getter(name="maxUnhealthyNodeThresholdPercentage")
     def max_unhealthy_node_threshold_percentage(self) -> Optional[_builtins.int]:
-        """
-        Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `max_unhealthy_node_threshold_count`.
-        """
         return pulumi.get(self, "max_unhealthy_node_threshold_percentage")
 
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfigOverrides")
     def node_repair_config_overrides(self) -> Optional[Sequence['outputs.NodeGroupNodeRepairConfigNodeRepairConfigOverride']]:
-        """
-        Granular overrides for specific repair actions. See `node_repair_config_overrides` below for details.
-        """
         return pulumi.get(self, "node_repair_config_overrides")
 
 
@@ -1619,12 +1233,6 @@ class NodeGroupNodeRepairConfigNodeRepairConfigOverride(dict):
                  node_monitoring_condition: _builtins.str,
                  node_unhealthy_reason: _builtins.str,
                  repair_action: _builtins.str):
-        """
-        :param _builtins.int min_repair_wait_time_mins: Minimum time in minutes to wait before attempting to repair a node with the specified `node_monitoring_condition` and `node_unhealthy_reason`.
-        :param _builtins.str node_monitoring_condition: Unhealthy condition reported by the node monitoring agent that this override applies to.
-        :param _builtins.str node_unhealthy_reason: Reason reported by the node monitoring agent that this override applies to.
-        :param _builtins.str repair_action: Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-        """
         pulumi.set(__self__, "min_repair_wait_time_mins", min_repair_wait_time_mins)
         pulumi.set(__self__, "node_monitoring_condition", node_monitoring_condition)
         pulumi.set(__self__, "node_unhealthy_reason", node_unhealthy_reason)
@@ -1633,33 +1241,21 @@ class NodeGroupNodeRepairConfigNodeRepairConfigOverride(dict):
     @_builtins.property
     @pulumi.getter(name="minRepairWaitTimeMins")
     def min_repair_wait_time_mins(self) -> _builtins.int:
-        """
-        Minimum time in minutes to wait before attempting to repair a node with the specified `node_monitoring_condition` and `node_unhealthy_reason`.
-        """
         return pulumi.get(self, "min_repair_wait_time_mins")
 
     @_builtins.property
     @pulumi.getter(name="nodeMonitoringCondition")
     def node_monitoring_condition(self) -> _builtins.str:
-        """
-        Unhealthy condition reported by the node monitoring agent that this override applies to.
-        """
         return pulumi.get(self, "node_monitoring_condition")
 
     @_builtins.property
     @pulumi.getter(name="nodeUnhealthyReason")
     def node_unhealthy_reason(self) -> _builtins.str:
-        """
-        Reason reported by the node monitoring agent that this override applies to.
-        """
         return pulumi.get(self, "node_unhealthy_reason")
 
     @_builtins.property
     @pulumi.getter(name="repairAction")
     def repair_action(self) -> _builtins.str:
-        """
-        Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
-        """
         return pulumi.get(self, "repair_action")
 
 
@@ -1687,10 +1283,6 @@ class NodeGroupRemoteAccess(dict):
     def __init__(__self__, *,
                  ec2_ssh_key: Optional[_builtins.str] = None,
                  source_security_group_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str ec2_ssh_key: EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
-        :param Sequence[_builtins.str] source_security_group_ids: Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        """
         if ec2_ssh_key is not None:
             pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
         if source_security_group_ids is not None:
@@ -1699,17 +1291,11 @@ class NodeGroupRemoteAccess(dict):
     @_builtins.property
     @pulumi.getter(name="ec2SshKey")
     def ec2_ssh_key(self) -> Optional[_builtins.str]:
-        """
-        EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
-        """
         return pulumi.get(self, "ec2_ssh_key")
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroupIds")
     def source_security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        """
         return pulumi.get(self, "source_security_group_ids")
 
 
@@ -1737,10 +1323,6 @@ class NodeGroupResource(dict):
     def __init__(__self__, *,
                  autoscaling_groups: Optional[Sequence['outputs.NodeGroupResourceAutoscalingGroup']] = None,
                  remote_access_security_group_id: Optional[_builtins.str] = None):
-        """
-        :param Sequence['NodeGroupResourceAutoscalingGroupArgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
-        :param _builtins.str remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
-        """
         if autoscaling_groups is not None:
             pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
         if remote_access_security_group_id is not None:
@@ -1749,17 +1331,11 @@ class NodeGroupResource(dict):
     @_builtins.property
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> Optional[Sequence['outputs.NodeGroupResourceAutoscalingGroup']]:
-        """
-        List of objects containing information about AutoScaling Groups.
-        """
         return pulumi.get(self, "autoscaling_groups")
 
     @_builtins.property
     @pulumi.getter(name="remoteAccessSecurityGroupId")
     def remote_access_security_group_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier of the remote access EC2 Security Group.
-        """
         return pulumi.get(self, "remote_access_security_group_id")
 
 
@@ -1767,18 +1343,12 @@ class NodeGroupResource(dict):
 class NodeGroupResourceAutoscalingGroup(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Name of the AutoScaling Group.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the AutoScaling Group.
-        """
         return pulumi.get(self, "name")
 
 
@@ -1809,11 +1379,6 @@ class NodeGroupScalingConfig(dict):
                  desired_size: _builtins.int,
                  max_size: _builtins.int,
                  min_size: _builtins.int):
-        """
-        :param _builtins.int desired_size: Desired number of worker nodes.
-        :param _builtins.int max_size: Maximum number of worker nodes.
-        :param _builtins.int min_size: Minimum number of worker nodes.
-        """
         pulumi.set(__self__, "desired_size", desired_size)
         pulumi.set(__self__, "max_size", max_size)
         pulumi.set(__self__, "min_size", min_size)
@@ -1821,25 +1386,16 @@ class NodeGroupScalingConfig(dict):
     @_builtins.property
     @pulumi.getter(name="desiredSize")
     def desired_size(self) -> _builtins.int:
-        """
-        Desired number of worker nodes.
-        """
         return pulumi.get(self, "desired_size")
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> _builtins.int:
-        """
-        Maximum number of worker nodes.
-        """
         return pulumi.get(self, "max_size")
 
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> _builtins.int:
-        """
-        Minimum number of worker nodes.
-        """
         return pulumi.get(self, "min_size")
 
 
@@ -1849,11 +1405,6 @@ class NodeGroupTaint(dict):
                  effect: _builtins.str,
                  key: _builtins.str,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str effect: The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
-        :param _builtins.str key: The key of the taint. Maximum length of 63.
-        :param _builtins.str value: The value of the taint. Maximum length of 63.
-        """
         pulumi.set(__self__, "effect", effect)
         pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1862,25 +1413,16 @@ class NodeGroupTaint(dict):
     @_builtins.property
     @pulumi.getter
     def effect(self) -> _builtins.str:
-        """
-        The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
-        """
         return pulumi.get(self, "effect")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        The key of the taint. Maximum length of 63.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        The value of the taint. Maximum length of 63.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1911,11 +1453,6 @@ class NodeGroupUpdateConfig(dict):
                  max_unavailable: Optional[_builtins.int] = None,
                  max_unavailable_percentage: Optional[_builtins.int] = None,
                  update_strategy: Optional[_builtins.str] = None):
-        """
-        :param _builtins.int max_unavailable: Desired max number of unavailable worker nodes during node group update.
-        :param _builtins.int max_unavailable_percentage: Desired max percentage of unavailable worker nodes during node group update.
-        :param _builtins.str update_strategy: Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
-        """
         if max_unavailable is not None:
             pulumi.set(__self__, "max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
@@ -1926,25 +1463,16 @@ class NodeGroupUpdateConfig(dict):
     @_builtins.property
     @pulumi.getter(name="maxUnavailable")
     def max_unavailable(self) -> Optional[_builtins.int]:
-        """
-        Desired max number of unavailable worker nodes during node group update.
-        """
         return pulumi.get(self, "max_unavailable")
 
     @_builtins.property
     @pulumi.getter(name="maxUnavailablePercentage")
     def max_unavailable_percentage(self) -> Optional[_builtins.int]:
-        """
-        Desired max percentage of unavailable worker nodes during node group update.
-        """
         return pulumi.get(self, "max_unavailable_percentage")
 
     @_builtins.property
     @pulumi.getter(name="updateStrategy")
     def update_strategy(self) -> Optional[_builtins.str]:
-        """
-        Strategy to use for updating the node group. Valid values: `MINIMAL` and `DEFAULT`.
-        """
         return pulumi.get(self, "update_strategy")
 
 
@@ -1953,27 +1481,17 @@ class GetAddonPodIdentityAssociationResult(dict):
     def __init__(__self__, *,
                  role_arn: _builtins.str,
                  service_account: _builtins.str):
-        """
-        :param _builtins.str role_arn: ARN of the IAM role associated with the EKS add-on.
-        :param _builtins.str service_account: Service account associated with the EKS add-on.
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "service_account", service_account)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM role associated with the EKS add-on.
-        """
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccount")
     def service_account(self) -> _builtins.str:
-        """
-        Service account associated with the EKS add-on.
-        """
         return pulumi.get(self, "service_account")
 
 
@@ -1982,27 +1500,17 @@ class GetClusterAccessConfigResult(dict):
     def __init__(__self__, *,
                  authentication_mode: _builtins.str,
                  bootstrap_cluster_creator_admin_permissions: _builtins.bool):
-        """
-        :param _builtins.str authentication_mode: Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        :param _builtins.bool bootstrap_cluster_creator_admin_permissions: Default to `true`.
-        """
         pulumi.set(__self__, "authentication_mode", authentication_mode)
         pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> _builtins.str:
-        """
-        Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        """
         return pulumi.get(self, "authentication_mode")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
     def bootstrap_cluster_creator_admin_permissions(self) -> _builtins.bool:
-        """
-        Default to `true`.
-        """
         return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
 
@@ -2010,17 +1518,11 @@ class GetClusterAccessConfigResult(dict):
 class GetClusterCertificateAuthorityResult(dict):
     def __init__(__self__, *,
                  data: _builtins.str):
-        """
-        :param _builtins.str data: The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        """
         pulumi.set(__self__, "data", data)
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> _builtins.str:
-        """
-        The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        """
         return pulumi.get(self, "data")
 
 
@@ -2030,11 +1532,6 @@ class GetClusterComputeConfigResult(dict):
                  enabled: _builtins.bool,
                  node_pools: Sequence[_builtins.str],
                  node_role_arn: _builtins.str):
-        """
-        :param _builtins.bool enabled: Whether zonal shift is enabled.
-        :param Sequence[_builtins.str] node_pools: List of node pools for the EKS Auto Mode compute capability.
-        :param _builtins.str node_role_arn: The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "node_pools", node_pools)
         pulumi.set(__self__, "node_role_arn", node_role_arn)
@@ -2042,25 +1539,16 @@ class GetClusterComputeConfigResult(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether zonal shift is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="nodePools")
     def node_pools(self) -> Sequence[_builtins.str]:
-        """
-        List of node pools for the EKS Auto Mode compute capability.
-        """
         return pulumi.get(self, "node_pools")
 
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> _builtins.str:
-        """
-        The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
-        """
         return pulumi.get(self, "node_role_arn")
 
 
@@ -2068,17 +1556,11 @@ class GetClusterComputeConfigResult(dict):
 class GetClusterControlPlaneScalingConfigResult(dict):
     def __init__(__self__, *,
                  tier: _builtins.str):
-        """
-        :param _builtins.str tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
-        """
         pulumi.set(__self__, "tier", tier)
 
     @_builtins.property
     @pulumi.getter
     def tier(self) -> _builtins.str:
-        """
-        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
-        """
         return pulumi.get(self, "tier")
 
 
@@ -2086,17 +1568,11 @@ class GetClusterControlPlaneScalingConfigResult(dict):
 class GetClusterIdentityResult(dict):
     def __init__(__self__, *,
                  oidcs: Sequence['outputs.GetClusterIdentityOidcResult']):
-        """
-        :param Sequence['GetClusterIdentityOidcArgs'] oidcs: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        """
         pulumi.set(__self__, "oidcs", oidcs)
 
     @_builtins.property
     @pulumi.getter
     def oidcs(self) -> Sequence['outputs.GetClusterIdentityOidcResult']:
-        """
-        Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        """
         return pulumi.get(self, "oidcs")
 
 
@@ -2104,17 +1580,11 @@ class GetClusterIdentityResult(dict):
 class GetClusterIdentityOidcResult(dict):
     def __init__(__self__, *,
                  issuer: _builtins.str):
-        """
-        :param _builtins.str issuer: Issuer URL for the OpenID Connect identity provider.
-        """
         pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> _builtins.str:
-        """
-        Issuer URL for the OpenID Connect identity provider.
-        """
         return pulumi.get(self, "issuer")
 
 
@@ -2125,12 +1595,6 @@ class GetClusterKubernetesNetworkConfigResult(dict):
                  ip_family: _builtins.str,
                  service_ipv4_cidr: _builtins.str,
                  service_ipv6_cidr: _builtins.str):
-        """
-        :param Sequence['GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs'] elastic_load_balancings: Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
-        :param _builtins.str ip_family: `ipv4` or `ipv6`.
-        :param _builtins.str service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
-        :param _builtins.str service_ipv6_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
-        """
         pulumi.set(__self__, "elastic_load_balancings", elastic_load_balancings)
         pulumi.set(__self__, "ip_family", ip_family)
         pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
@@ -2139,33 +1603,21 @@ class GetClusterKubernetesNetworkConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="elasticLoadBalancings")
     def elastic_load_balancings(self) -> Sequence['outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult']:
-        """
-        Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
-        """
         return pulumi.get(self, "elastic_load_balancings")
 
     @_builtins.property
     @pulumi.getter(name="ipFamily")
     def ip_family(self) -> _builtins.str:
-        """
-        `ipv4` or `ipv6`.
-        """
         return pulumi.get(self, "ip_family")
 
     @_builtins.property
     @pulumi.getter(name="serviceIpv4Cidr")
     def service_ipv4_cidr(self) -> _builtins.str:
-        """
-        The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
-        """
         return pulumi.get(self, "service_ipv4_cidr")
 
     @_builtins.property
     @pulumi.getter(name="serviceIpv6Cidr")
     def service_ipv6_cidr(self) -> _builtins.str:
-        """
-        The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
-        """
         return pulumi.get(self, "service_ipv6_cidr")
 
 
@@ -2173,17 +1625,11 @@ class GetClusterKubernetesNetworkConfigResult(dict):
 class GetClusterKubernetesNetworkConfigElasticLoadBalancingResult(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool):
-        """
-        :param _builtins.bool enabled: Whether zonal shift is enabled.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether zonal shift is enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -2193,11 +1639,6 @@ class GetClusterOutpostConfigResult(dict):
                  control_plane_instance_type: _builtins.str,
                  control_plane_placements: Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult'],
                  outpost_arns: Sequence[_builtins.str]):
-        """
-        :param _builtins.str control_plane_instance_type: The Amazon EC2 instance type for all Kubernetes control plane instances.
-        :param Sequence['GetClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placements: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-        :param Sequence[_builtins.str] outpost_arns: List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
-        """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "control_plane_placements", control_plane_placements)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
@@ -2205,25 +1646,16 @@ class GetClusterOutpostConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="controlPlaneInstanceType")
     def control_plane_instance_type(self) -> _builtins.str:
-        """
-        The Amazon EC2 instance type for all Kubernetes control plane instances.
-        """
         return pulumi.get(self, "control_plane_instance_type")
 
     @_builtins.property
     @pulumi.getter(name="controlPlanePlacements")
     def control_plane_placements(self) -> Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult']:
-        """
-        An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-        """
         return pulumi.get(self, "control_plane_placements")
 
     @_builtins.property
     @pulumi.getter(name="outpostArns")
     def outpost_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
-        """
         return pulumi.get(self, "outpost_arns")
 
 
@@ -2231,17 +1663,11 @@ class GetClusterOutpostConfigResult(dict):
 class GetClusterOutpostConfigControlPlanePlacementResult(dict):
     def __init__(__self__, *,
                  group_name: _builtins.str):
-        """
-        :param _builtins.str group_name: The name of the placement group for the Kubernetes control plane instances.
-        """
         pulumi.set(__self__, "group_name", group_name)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> _builtins.str:
-        """
-        The name of the placement group for the Kubernetes control plane instances.
-        """
         return pulumi.get(self, "group_name")
 
 
@@ -2250,27 +1676,17 @@ class GetClusterRemoteNetworkConfigResult(dict):
     def __init__(__self__, *,
                  remote_node_networks: Sequence['outputs.GetClusterRemoteNetworkConfigRemoteNodeNetworkResult'],
                  remote_pod_networks: Sequence['outputs.GetClusterRemoteNetworkConfigRemotePodNetworkResult']):
-        """
-        :param Sequence['GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs'] remote_node_networks: The networks that can contain hybrid nodes.
-        :param Sequence['GetClusterRemoteNetworkConfigRemotePodNetworkArgs'] remote_pod_networks: The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         pulumi.set(__self__, "remote_node_networks", remote_node_networks)
         pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
 
     @_builtins.property
     @pulumi.getter(name="remoteNodeNetworks")
     def remote_node_networks(self) -> Sequence['outputs.GetClusterRemoteNetworkConfigRemoteNodeNetworkResult']:
-        """
-        The networks that can contain hybrid nodes.
-        """
         return pulumi.get(self, "remote_node_networks")
 
     @_builtins.property
     @pulumi.getter(name="remotePodNetworks")
     def remote_pod_networks(self) -> Sequence['outputs.GetClusterRemoteNetworkConfigRemotePodNetworkResult']:
-        """
-        The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         return pulumi.get(self, "remote_pod_networks")
 
 
@@ -2278,17 +1694,11 @@ class GetClusterRemoteNetworkConfigResult(dict):
 class GetClusterRemoteNetworkConfigRemoteNodeNetworkResult(dict):
     def __init__(__self__, *,
                  cidrs: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] cidrs: List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         pulumi.set(__self__, "cidrs", cidrs)
 
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Sequence[_builtins.str]:
-        """
-        List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         return pulumi.get(self, "cidrs")
 
 
@@ -2296,17 +1706,11 @@ class GetClusterRemoteNetworkConfigRemoteNodeNetworkResult(dict):
 class GetClusterRemoteNetworkConfigRemotePodNetworkResult(dict):
     def __init__(__self__, *,
                  cidrs: Sequence[_builtins.str]):
-        """
-        :param Sequence[_builtins.str] cidrs: List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         pulumi.set(__self__, "cidrs", cidrs)
 
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Sequence[_builtins.str]:
-        """
-        List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
-        """
         return pulumi.get(self, "cidrs")
 
 
@@ -2314,17 +1718,11 @@ class GetClusterRemoteNetworkConfigRemotePodNetworkResult(dict):
 class GetClusterStorageConfigResult(dict):
     def __init__(__self__, *,
                  block_storages: Sequence['outputs.GetClusterStorageConfigBlockStorageResult']):
-        """
-        :param Sequence['GetClusterStorageConfigBlockStorageArgs'] block_storages: Contains block storage configuration for EKS Auto Mode enabled cluster.
-        """
         pulumi.set(__self__, "block_storages", block_storages)
 
     @_builtins.property
     @pulumi.getter(name="blockStorages")
     def block_storages(self) -> Sequence['outputs.GetClusterStorageConfigBlockStorageResult']:
-        """
-        Contains block storage configuration for EKS Auto Mode enabled cluster.
-        """
         return pulumi.get(self, "block_storages")
 
 
@@ -2332,17 +1730,11 @@ class GetClusterStorageConfigResult(dict):
 class GetClusterStorageConfigBlockStorageResult(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool):
-        """
-        :param _builtins.bool enabled: Whether zonal shift is enabled.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether zonal shift is enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -2350,17 +1742,11 @@ class GetClusterStorageConfigBlockStorageResult(dict):
 class GetClusterUpgradePolicyResult(dict):
     def __init__(__self__, *,
                  support_type: _builtins.str):
-        """
-        :param _builtins.str support_type: Support type to use for the cluster.
-        """
         pulumi.set(__self__, "support_type", support_type)
 
     @_builtins.property
     @pulumi.getter(name="supportType")
     def support_type(self) -> _builtins.str:
-        """
-        Support type to use for the cluster.
-        """
         return pulumi.get(self, "support_type")
 
 
@@ -2376,19 +1762,6 @@ class GetClusterVersionsClusterVersionResult(dict):
                  kubernetes_patch_version: _builtins.str,
                  release_date: _builtins.str,
                  version_status: _builtins.str):
-        """
-        :param _builtins.str cluster_type: Type of clusters to filter by.
-               Currently, the only valid value is `eks`.
-        :param _builtins.str cluster_version: Kubernetes version supported by EKS.
-        :param _builtins.str default_platform_version: Default eks platform version for the cluster version.
-        :param _builtins.bool default_version: Default Kubernetes version for the cluster version.
-        :param _builtins.str end_of_extended_support_date: End of extended support date for the cluster version.
-        :param _builtins.str end_of_standard_support_date: End of standard support date for the cluster version.
-        :param _builtins.str kubernetes_patch_version: Kubernetes patch version for the cluster version.
-        :param _builtins.str release_date: Release date of the cluster version.
-        :param _builtins.str version_status: Status of the EKS cluster versions to list.
-               Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-        """
         pulumi.set(__self__, "cluster_type", cluster_type)
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "default_platform_version", default_platform_version)
@@ -2402,75 +1775,46 @@ class GetClusterVersionsClusterVersionResult(dict):
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> _builtins.str:
-        """
-        Type of clusters to filter by.
-        Currently, the only valid value is `eks`.
-        """
         return pulumi.get(self, "cluster_type")
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> _builtins.str:
-        """
-        Kubernetes version supported by EKS.
-        """
         return pulumi.get(self, "cluster_version")
 
     @_builtins.property
     @pulumi.getter(name="defaultPlatformVersion")
     def default_platform_version(self) -> _builtins.str:
-        """
-        Default eks platform version for the cluster version.
-        """
         return pulumi.get(self, "default_platform_version")
 
     @_builtins.property
     @pulumi.getter(name="defaultVersion")
     def default_version(self) -> _builtins.bool:
-        """
-        Default Kubernetes version for the cluster version.
-        """
         return pulumi.get(self, "default_version")
 
     @_builtins.property
     @pulumi.getter(name="endOfExtendedSupportDate")
     def end_of_extended_support_date(self) -> _builtins.str:
-        """
-        End of extended support date for the cluster version.
-        """
         return pulumi.get(self, "end_of_extended_support_date")
 
     @_builtins.property
     @pulumi.getter(name="endOfStandardSupportDate")
     def end_of_standard_support_date(self) -> _builtins.str:
-        """
-        End of standard support date for the cluster version.
-        """
         return pulumi.get(self, "end_of_standard_support_date")
 
     @_builtins.property
     @pulumi.getter(name="kubernetesPatchVersion")
     def kubernetes_patch_version(self) -> _builtins.str:
-        """
-        Kubernetes patch version for the cluster version.
-        """
         return pulumi.get(self, "kubernetes_patch_version")
 
     @_builtins.property
     @pulumi.getter(name="releaseDate")
     def release_date(self) -> _builtins.str:
-        """
-        Release date of the cluster version.
-        """
         return pulumi.get(self, "release_date")
 
     @_builtins.property
     @pulumi.getter(name="versionStatus")
     def version_status(self) -> _builtins.str:
-        """
-        Status of the EKS cluster versions to list.
-        Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-        """
         return pulumi.get(self, "version_status")
 
 
@@ -2484,15 +1828,6 @@ class GetClusterVpcConfigResult(dict):
                  security_group_ids: Sequence[_builtins.str],
                  subnet_ids: Sequence[_builtins.str],
                  vpc_id: _builtins.str):
-        """
-        :param _builtins.str cluster_security_group_id: The cluster security group that was created by Amazon EKS for the cluster.
-        :param _builtins.bool endpoint_private_access: Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-        :param _builtins.bool endpoint_public_access: Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-        :param Sequence[_builtins.str] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-        :param Sequence[_builtins.str] security_group_ids: List of security group IDs
-        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs
-        :param _builtins.str vpc_id: The VPC associated with your cluster.
-        """
         pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
         pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
         pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
@@ -2504,57 +1839,36 @@ class GetClusterVpcConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="clusterSecurityGroupId")
     def cluster_security_group_id(self) -> _builtins.str:
-        """
-        The cluster security group that was created by Amazon EKS for the cluster.
-        """
         return pulumi.get(self, "cluster_security_group_id")
 
     @_builtins.property
     @pulumi.getter(name="endpointPrivateAccess")
     def endpoint_private_access(self) -> _builtins.bool:
-        """
-        Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-        """
         return pulumi.get(self, "endpoint_private_access")
 
     @_builtins.property
     @pulumi.getter(name="endpointPublicAccess")
     def endpoint_public_access(self) -> _builtins.bool:
-        """
-        Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-        """
         return pulumi.get(self, "endpoint_public_access")
 
     @_builtins.property
     @pulumi.getter(name="publicAccessCidrs")
     def public_access_cidrs(self) -> Sequence[_builtins.str]:
-        """
-        List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-        """
         return pulumi.get(self, "public_access_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of security group IDs
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of subnet IDs
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        The VPC associated with your cluster.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -2562,17 +1876,11 @@ class GetClusterVpcConfigResult(dict):
 class GetClusterZonalShiftConfigResult(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool):
-        """
-        :param _builtins.bool enabled: Whether zonal shift is enabled.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
-        """
-        Whether zonal shift is enabled.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -2582,11 +1890,6 @@ class GetNodeGroupLaunchTemplateResult(dict):
                  id: _builtins.str,
                  name: _builtins.str,
                  version: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the launch template.
-        :param _builtins.str name: Name of the AutoScaling Group.
-        :param _builtins.str version: Kubernetes version.
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
@@ -2594,25 +1897,16 @@ class GetNodeGroupLaunchTemplateResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The ID of the launch template.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the AutoScaling Group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> _builtins.str:
-        """
-        Kubernetes version.
-        """
         return pulumi.get(self, "version")
 
 
@@ -2621,27 +1915,17 @@ class GetNodeGroupRemoteAccessResult(dict):
     def __init__(__self__, *,
                  ec2_ssh_key: _builtins.str,
                  source_security_group_ids: Sequence[_builtins.str]):
-        """
-        :param _builtins.str ec2_ssh_key: EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-        :param Sequence[_builtins.str] source_security_group_ids: Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
-        """
         pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
         pulumi.set(__self__, "source_security_group_ids", source_security_group_ids)
 
     @_builtins.property
     @pulumi.getter(name="ec2SshKey")
     def ec2_ssh_key(self) -> _builtins.str:
-        """
-        EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-        """
         return pulumi.get(self, "ec2_ssh_key")
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroupIds")
     def source_security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
-        """
         return pulumi.get(self, "source_security_group_ids")
 
 
@@ -2650,27 +1934,17 @@ class GetNodeGroupResourceResult(dict):
     def __init__(__self__, *,
                  autoscaling_groups: Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult'],
                  remote_access_security_group_id: _builtins.str):
-        """
-        :param Sequence['GetNodeGroupResourceAutoscalingGroupArgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
-        :param _builtins.str remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
-        """
         pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
         pulumi.set(__self__, "remote_access_security_group_id", remote_access_security_group_id)
 
     @_builtins.property
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult']:
-        """
-        List of objects containing information about AutoScaling Groups.
-        """
         return pulumi.get(self, "autoscaling_groups")
 
     @_builtins.property
     @pulumi.getter(name="remoteAccessSecurityGroupId")
     def remote_access_security_group_id(self) -> _builtins.str:
-        """
-        Identifier of the remote access EC2 Security Group.
-        """
         return pulumi.get(self, "remote_access_security_group_id")
 
 
@@ -2678,17 +1952,11 @@ class GetNodeGroupResourceResult(dict):
 class GetNodeGroupResourceAutoscalingGroupResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
-        """
-        :param _builtins.str name: Name of the AutoScaling Group.
-        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the AutoScaling Group.
-        """
         return pulumi.get(self, "name")
 
 
@@ -2698,11 +1966,6 @@ class GetNodeGroupScalingConfigResult(dict):
                  desired_size: _builtins.int,
                  max_size: _builtins.int,
                  min_size: _builtins.int):
-        """
-        :param _builtins.int desired_size: Desired number of worker nodes.
-        :param _builtins.int max_size: Maximum number of worker nodes.
-        :param _builtins.int min_size: Minimum number of worker nodes.
-        """
         pulumi.set(__self__, "desired_size", desired_size)
         pulumi.set(__self__, "max_size", max_size)
         pulumi.set(__self__, "min_size", min_size)
@@ -2710,25 +1973,16 @@ class GetNodeGroupScalingConfigResult(dict):
     @_builtins.property
     @pulumi.getter(name="desiredSize")
     def desired_size(self) -> _builtins.int:
-        """
-        Desired number of worker nodes.
-        """
         return pulumi.get(self, "desired_size")
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> _builtins.int:
-        """
-        Maximum number of worker nodes.
-        """
         return pulumi.get(self, "max_size")
 
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> _builtins.int:
-        """
-        Minimum number of worker nodes.
-        """
         return pulumi.get(self, "min_size")
 
 
@@ -2738,11 +1992,6 @@ class GetNodeGroupTaintResult(dict):
                  effect: _builtins.str,
                  key: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str effect: The effect of the taint.
-        :param _builtins.str key: The key of the taint.
-        :param _builtins.str value: The value of the taint.
-        """
         pulumi.set(__self__, "effect", effect)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2750,25 +1999,16 @@ class GetNodeGroupTaintResult(dict):
     @_builtins.property
     @pulumi.getter
     def effect(self) -> _builtins.str:
-        """
-        The effect of the taint.
-        """
         return pulumi.get(self, "effect")
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        The key of the taint.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        The value of the taint.
-        """
         return pulumi.get(self, "value")
 
 

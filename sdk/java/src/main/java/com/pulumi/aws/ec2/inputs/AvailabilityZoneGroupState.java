@@ -15,47 +15,23 @@ public final class AvailabilityZoneGroupState extends com.pulumi.resources.Resou
 
     public static final AvailabilityZoneGroupState Empty = new AvailabilityZoneGroupState();
 
-    /**
-     * Name of the Availability Zone Group.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return Name of the Availability Zone Group.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-     * 
-     */
     @Import(name="optInStatus")
     private @Nullable Output<String> optInStatus;
 
-    /**
-     * @return Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-     * 
-     */
     public Optional<Output<String>> optInStatus() {
         return Optional.ofNullable(this.optInStatus);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class AvailabilityZoneGroupState extends com.pulumi.resources.Resou
             $ = new AvailabilityZoneGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName Name of the Availability Zone Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName Name of the Availability Zone Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param optInStatus Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(@Nullable Output<String> optInStatus) {
             $.optInStatus = optInStatus;
             return this;
         }
 
-        /**
-         * @param optInStatus Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(String optInStatus) {
             return optInStatus(Output.of(optInStatus));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -11,84 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetFunction
     {
-        /// <summary>
-        /// Provides information about a CloudFront Function.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
-        ///     {
-        ///         Name = functionName,
-        ///         Stage = "LIVE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:cloudfront/getFunction:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a CloudFront Function.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
-        ///     {
-        ///         Name = functionName,
-        ///         Stage = "LIVE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws:cloudfront/getFunction:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a CloudFront Function.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
-        ///     {
-        ///         Name = functionName,
-        ///         Stage = "LIVE",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws:cloudfront/getFunction:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
     }
@@ -96,15 +24,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the CloudFront function.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Function’s stage, either `DEVELOPMENT` or `LIVE`.
-        /// </summary>
         [Input("stage", required: true)]
         public string Stage { get; set; } = null!;
 
@@ -116,15 +38,9 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the CloudFront function.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Function’s stage, either `DEVELOPMENT` or `LIVE`.
-        /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
@@ -138,43 +54,19 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetFunctionResult
     {
-        /// <summary>
-        /// ARN identifying your CloudFront Function.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Source code of the function
-        /// </summary>
         public readonly string Code;
-        /// <summary>
-        /// Comment.
-        /// </summary>
         public readonly string Comment;
-        /// <summary>
-        /// ETag hash of the function
-        /// </summary>
         public readonly string Etag;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
-        /// </summary>
         public readonly ImmutableArray<string> KeyValueStoreAssociations;
-        /// <summary>
-        /// When this resource was last modified.
-        /// </summary>
         public readonly string LastModifiedTime;
         public readonly string Name;
-        /// <summary>
-        /// Identifier of the function's runtime.
-        /// </summary>
         public readonly string Runtime;
         public readonly string Stage;
-        /// <summary>
-        /// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

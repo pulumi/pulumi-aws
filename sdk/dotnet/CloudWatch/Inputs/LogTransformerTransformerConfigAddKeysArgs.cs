@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("entries", required: true)]
         private InputList<Inputs.LogTransformerTransformerConfigAddKeysEntryArgs>? _entries;
-
-        /// <summary>
-        /// Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `AddKeys` `Entry` below for details.
-        /// </summary>
         public InputList<Inputs.LogTransformerTransformerConfigAddKeysEntryArgs> Entries
         {
             get => _entries ?? (_entries = new InputList<Inputs.LogTransformerTransformerConfigAddKeysEntryArgs>());

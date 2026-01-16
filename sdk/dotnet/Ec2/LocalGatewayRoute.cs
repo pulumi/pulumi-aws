@@ -9,61 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.LocalGatewayRoute("example", new()
-    ///     {
-    ///         DestinationCidrBlock = "172.16.0.0/16",
-    ///         LocalGatewayRouteTableId = exampleAwsEc2LocalGatewayRouteTable.Id,
-    ///         LocalGatewayVirtualInterfaceGroupId = exampleAwsEc2LocalGatewayVirtualInterfaceGroup.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/localGatewayRoute:LocalGatewayRoute")]
     public partial class LocalGatewayRoute : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Route Table.
-        /// </summary>
         [Output("localGatewayRouteTableId")]
         public Output<string> LocalGatewayRouteTableId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Virtual Interface Group.
-        /// </summary>
         [Output("localGatewayVirtualInterfaceGroupId")]
         public Output<string> LocalGatewayVirtualInterfaceGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -113,27 +70,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LocalGatewayRouteArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Route Table.
-        /// </summary>
         [Input("localGatewayRouteTableId", required: true)]
         public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Virtual Interface Group.
-        /// </summary>
         [Input("localGatewayVirtualInterfaceGroupId", required: true)]
         public Input<string> LocalGatewayVirtualInterfaceGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -145,27 +90,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LocalGatewayRouteState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Route Table.
-        /// </summary>
         [Input("localGatewayRouteTableId")]
         public Input<string>? LocalGatewayRouteTableId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Virtual Interface Group.
-        /// </summary>
         [Input("localGatewayVirtualInterfaceGroupId")]
         public Input<string>? LocalGatewayVirtualInterfaceGroupId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

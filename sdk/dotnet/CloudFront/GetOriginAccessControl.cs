@@ -11,81 +11,12 @@ namespace Pulumi.Aws.CloudFront
 {
     public static class GetOriginAccessControl
     {
-        /// <summary>
-        /// Use this data source to retrieve information for an Amazon CloudFront origin access control config.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The below example retrieves a CloudFront origin access control config.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessControl.Invoke(new()
-        ///     {
-        ///         Id = "E2T5VTFBZJ3BJB",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetOriginAccessControlResult> InvokeAsync(GetOriginAccessControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessControlResult>("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args ?? new GetOriginAccessControlArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information for an Amazon CloudFront origin access control config.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The below example retrieves a CloudFront origin access control config.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessControl.Invoke(new()
-        ///     {
-        ///         Id = "E2T5VTFBZJ3BJB",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOriginAccessControlResult> Invoke(GetOriginAccessControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessControlResult>("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args ?? new GetOriginAccessControlInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to retrieve information for an Amazon CloudFront origin access control config.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The below example retrieves a CloudFront origin access control config.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessControl.Invoke(new()
-        ///     {
-        ///         Id = "E2T5VTFBZJ3BJB",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetOriginAccessControlResult> Invoke(GetOriginAccessControlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessControlResult>("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args ?? new GetOriginAccessControlInvokeArgs(), options.WithDefaults());
     }
@@ -93,9 +24,6 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetOriginAccessControlArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -107,9 +35,6 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class GetOriginAccessControlInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -123,34 +48,13 @@ namespace Pulumi.Aws.CloudFront
     [OutputType]
     public sealed class GetOriginAccessControlResult
     {
-        /// <summary>
-        /// The origin access control ARN.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// A description of the origin access control.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Current version of the origin access control's information. For example: `E2QWRUHAPOMQZL`.
-        /// </summary>
         public readonly string Etag;
         public readonly string Id;
-        /// <summary>
-        /// A name to identify the origin access control.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The type of origin that this origin access control is for.
-        /// </summary>
         public readonly string OriginAccessControlOriginType;
-        /// <summary>
-        /// Specifies which requests CloudFront signs.
-        /// </summary>
         public readonly string SigningBehavior;
-        /// <summary>
-        /// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests.
-        /// </summary>
         public readonly string SigningProtocol;
 
         [OutputConstructor]

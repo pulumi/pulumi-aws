@@ -14,32 +14,16 @@ public final class AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs extends com
 
     public static final AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs Empty = new AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs();
 
-    /**
-     * IAM principal that is allowed to access to the domain.
-     * 
-     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
-    /**
-     * @return IAM principal that is allowed to access to the domain.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
 
-    /**
-     * Type of principal.
-     * 
-     */
     @Import(name="principalType", required=true)
     private Output<String> principalType;
 
-    /**
-     * @return Type of principal.
-     * 
-     */
     public Output<String> principalType() {
         return this.principalType;
     }
@@ -69,44 +53,20 @@ public final class AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs extends com
             $ = new AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param principal IAM principal that is allowed to access to the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal IAM principal that is allowed to access to the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param principalType Type of principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(Output<String> principalType) {
             $.principalType = principalType;
             return this;
         }
 
-        /**
-         * @param principalType Type of principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
         }

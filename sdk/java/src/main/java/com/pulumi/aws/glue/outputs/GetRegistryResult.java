@@ -10,15 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRegistryResult {
-    /**
-     * @return Amazon Resource Name (ARN) of Glue Registry.
-     * 
-     */
     private String arn;
-    /**
-     * @return A description of the registry.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,17 +21,9 @@ public final class GetRegistryResult {
     private String region;
 
     private GetRegistryResult() {}
-    /**
-     * @return Amazon Resource Name (ARN) of Glue Registry.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return A description of the registry.
-     * 
-     */
     public String description() {
         return this.description;
     }

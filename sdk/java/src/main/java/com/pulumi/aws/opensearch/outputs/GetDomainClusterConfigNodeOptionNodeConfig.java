@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainClusterConfigNodeOptionNodeConfig {
-    /**
-     * @return Number of nodes of a particular node type in the cluster.
-     * 
-     */
     private Integer count;
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The instance type of a particular node type in the cluster.
-     * 
-     */
     private String type;
 
     private GetDomainClusterConfigNodeOptionNodeConfig() {}
-    /**
-     * @return Number of nodes of a particular node type in the cluster.
-     * 
-     */
     public Integer count() {
         return this.count;
     }
-    /**
-     * @return Enabled disabled toggle for off-peak update window
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The instance type of a particular node type in the cluster.
-     * 
-     */
     public String type() {
         return this.type;
     }

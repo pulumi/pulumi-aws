@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Q Business Application resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.qbusiness.Application("example", {
- *     displayName: "example-app",
- *     iamServiceRoleArn: exampleAwsIamRole.arn,
- *     identityCenterInstanceArn: exampleAwsSsoadminInstances.arns[0],
- *     attachmentsConfiguration: {
- *         attachmentsControlMode: "ENABLED",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a Q Business Application using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:qbusiness/application:Application example id-12345678
- * ```
- */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -62,48 +35,28 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    /**
-     * ARN of the Q Business application.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     */
     declare public readonly attachmentsConfiguration: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
     /**
-     * Description of the Amazon Q application.
+     * A description of the Amazon Q application.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Name of the Amazon Q application.
+     * The display name of the Amazon Q application.
      */
     declare public readonly displayName: pulumi.Output<string>;
-    /**
-     * Information about encryption configuration. See `encryptionConfiguration` below.
-     */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
     /**
-     * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      */
     declare public readonly iamServiceRoleArn: pulumi.Output<string>;
-    /**
-     * ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-     */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**
-     * ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     *
-     * The following arguments are optional:
+     * ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      */
     declare public readonly identityCenterInstanceArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.qbusiness.ApplicationTimeouts | undefined>;
 
@@ -165,48 +118,28 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    /**
-     * ARN of the Q Business application.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     */
     attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfiguration>;
     /**
-     * Description of the Amazon Q application.
+     * A description of the Amazon Q application.
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the Amazon Q application.
+     * The display name of the Amazon Q application.
      */
     displayName?: pulumi.Input<string>;
-    /**
-     * Information about encryption configuration. See `encryptionConfiguration` below.
-     */
     encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfiguration>;
     /**
-     * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      */
     iamServiceRoleArn?: pulumi.Input<string>;
-    /**
-     * ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
-     */
     identityCenterApplicationArn?: pulumi.Input<string>;
     /**
-     * ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     *
-     * The following arguments are optional:
+     * ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      */
     identityCenterInstanceArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.qbusiness.ApplicationTimeouts>;
 }
@@ -215,35 +148,24 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-     */
     attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfiguration>;
     /**
-     * Description of the Amazon Q application.
+     * A description of the Amazon Q application.
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the Amazon Q application.
+     * The display name of the Amazon Q application.
      */
     displayName: pulumi.Input<string>;
-    /**
-     * Information about encryption configuration. See `encryptionConfiguration` below.
-     */
     encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfiguration>;
     /**
-     * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
      */
     iamServiceRoleArn: pulumi.Input<string>;
     /**
-     * ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
-     *
-     * The following arguments are optional:
+     * ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
      */
     identityCenterInstanceArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.qbusiness.ApplicationTimeouts>;

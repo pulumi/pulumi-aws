@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleActionCountCustomRequestHandling {
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     private List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders;
 
     private RuleGroupRuleActionCountCustomRequestHandling() {}
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     public List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationInlineCode
     {
-        /// <summary>
-        /// The code that's executed in your inline code node.
-        /// </summary>
         public readonly string Code;
-        /// <summary>
-        /// The programming language used by your inline code node.
-        /// </summary>
         public readonly string Language;
 
         [OutputConstructor]

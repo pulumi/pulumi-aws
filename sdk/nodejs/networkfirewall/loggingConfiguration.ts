@@ -7,80 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Network Firewall Logging Configuration Resource
- *
- * ## Example Usage
- *
- * ### Logging to S3
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
- *     loggingConfiguration: {
- *         logDestinationConfigs: [{
- *             logDestination: {
- *                 bucketName: exampleAwsS3Bucket.bucket,
- *                 prefix: "example",
- *             },
- *             logDestinationType: "S3",
- *             logType: "FLOW",
- *         }],
- *     },
- * });
- * ```
- *
- * ### Logging to CloudWatch
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
- *     loggingConfiguration: {
- *         logDestinationConfigs: [{
- *             logDestination: {
- *                 logGroup: exampleAwsCloudwatchLogGroup.name,
- *             },
- *             logDestinationType: "CloudWatchLogs",
- *             logType: "ALERT",
- *         }],
- *     },
- * });
- * ```
- *
- * ### Logging to Kinesis Data Firehose
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
- *     loggingConfiguration: {
- *         logDestinationConfigs: [{
- *             logDestination: {
- *                 deliveryStream: exampleAwsKinesisFirehoseDeliveryStream.name,
- *             },
- *             logDestinationType: "KinesisDataFirehose",
- *             logType: "TLS",
- *         }],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
- * ```
- */
 export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing LoggingConfiguration resource's state with the given name, ID, and optional extra
@@ -109,21 +35,9 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggingConfiguration.__pulumiType;
     }
 
-    /**
-     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     */
     declare public readonly enableMonitoringDashboard: pulumi.Output<boolean>;
-    /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     */
     declare public readonly firewallArn: pulumi.Output<string>;
-    /**
-     * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     */
     declare public readonly loggingConfiguration: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -165,21 +79,9 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoggingConfiguration resources.
  */
 export interface LoggingConfigurationState {
-    /**
-     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     */
     enableMonitoringDashboard?: pulumi.Input<boolean>;
-    /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     */
     firewallArn?: pulumi.Input<string>;
-    /**
-     * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     */
     loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -187,20 +89,8 @@ export interface LoggingConfigurationState {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
-    /**
-     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     */
     enableMonitoringDashboard?: pulumi.Input<boolean>;
-    /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     */
     firewallArn: pulumi.Input<string>;
-    /**
-     * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     */
     loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

@@ -12,253 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Network Manager Connect Peer.
-//
-// Use this resource to create a Connect peer in AWS Network Manager. Connect peers establish BGP sessions with your on-premises networks through Connect attachments, enabling dynamic routing between your core network and external networks.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
-// }
-// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// SubnetArns: toPulumiArray(splat0),
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID(),
-// EdgeLocation: example.EdgeLocation,
-// Options: &networkmanager.ConnectAttachmentOptionsArgs{
-// Protocol: pulumi.String("GRE"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewConnectPeer(ctx, "example", &networkmanager.ConnectPeerArgs{
-// ConnectAttachmentId: exampleConnectAttachment.ID(),
-// PeerAddress: pulumi.String("127.0.0.1"),
-// BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
-// PeerAsn: pulumi.String("65000"),
-// },
-// InsideCidrBlocks: pulumi.StringArray{
-// pulumi.String("172.16.0.0/16"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
-// }
-// ```
-//
-// ### Usage with attachment accepter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
-// }
-// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// SubnetArns: toPulumiArray(splat0),
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// exampleAttachmentAccepter, err := networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: example.ID(),
-// AttachmentType: example.AttachmentType,
-// })
-// if err != nil {
-// return err
-// }
-// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID(),
-// EdgeLocation: example.EdgeLocation,
-// Options: &networkmanager.ConnectAttachmentOptionsArgs{
-// Protocol: pulumi.String("GRE"),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleAttachmentAccepter,
-// }))
-// if err != nil {
-// return err
-// }
-// example2, err := networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: exampleConnectAttachment.ID(),
-// AttachmentType: exampleConnectAttachment.AttachmentType,
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewConnectPeer(ctx, "example", &networkmanager.ConnectPeerArgs{
-// ConnectAttachmentId: exampleConnectAttachment.ID(),
-// PeerAddress: pulumi.String("127.0.0.1"),
-// BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
-// PeerAsn: pulumi.String("65500"),
-// },
-// InsideCidrBlocks: pulumi.StringArray{
-// pulumi.String("172.16.0.0/16"),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// example2,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
-// }
-// ```
-//
-// ### Usage with a Tunnel-less Connect attachment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
-// }
-// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-// SubnetArns: toPulumiArray(splat0),
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
-// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
-// TransportAttachmentId: example.ID(),
-// EdgeLocation: example.EdgeLocation,
-// Options: &networkmanager.ConnectAttachmentOptionsArgs{
-// Protocol: pulumi.String("NO_ENCAP"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewConnectPeer(ctx, "example", &networkmanager.ConnectPeerArgs{
-// ConnectAttachmentId: exampleConnectAttachment.ID(),
-// PeerAddress: pulumi.String("127.0.0.1"),
-// BgpOptions: &networkmanager.ConnectPeerBgpOptionsArgs{
-// PeerAsn: pulumi.String("65000"),
-// },
-// SubnetArn: pulumi.Any(example2.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
-//
-// ```sh
-// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
-// ```
 type ConnectPeer struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Connect peer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Connect peer BGP options. See bgpOptions for more information.
-	BgpOptions ConnectPeerBgpOptionsOutput `pulumi:"bgpOptions"`
-	// Configuration of the Connect peer.
-	Configurations ConnectPeerConfigurationArrayOutput `pulumi:"configurations"`
-	// ID of the connection attachment.
-	ConnectAttachmentId pulumi.StringOutput `pulumi:"connectAttachmentId"`
-	// ID of the Connect peer.
-	ConnectPeerId pulumi.StringOutput `pulumi:"connectPeerId"`
-	// Connect peer core network address.
-	CoreNetworkAddress pulumi.StringPtrOutput `pulumi:"coreNetworkAddress"`
-	// ID of a core network.
-	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// Timestamp when the Connect peer was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Region where the peer is located.
-	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
-	// Connect peer address.
-	//
-	// The following arguments are optional:
-	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
-	// State of the Connect peer.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
-	SubnetArn pulumi.StringPtrOutput `pulumi:"subnetArn"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                 pulumi.StringOutput                 `pulumi:"arn"`
+	BgpOptions          ConnectPeerBgpOptionsOutput         `pulumi:"bgpOptions"`
+	Configurations      ConnectPeerConfigurationArrayOutput `pulumi:"configurations"`
+	ConnectAttachmentId pulumi.StringOutput                 `pulumi:"connectAttachmentId"`
+	ConnectPeerId       pulumi.StringOutput                 `pulumi:"connectPeerId"`
+	CoreNetworkAddress  pulumi.StringPtrOutput              `pulumi:"coreNetworkAddress"`
+	CoreNetworkId       pulumi.StringOutput                 `pulumi:"coreNetworkId"`
+	CreatedAt           pulumi.StringOutput                 `pulumi:"createdAt"`
+	EdgeLocation        pulumi.StringOutput                 `pulumi:"edgeLocation"`
+	InsideCidrBlocks    pulumi.StringArrayOutput            `pulumi:"insideCidrBlocks"`
+	PeerAddress         pulumi.StringOutput                 `pulumi:"peerAddress"`
+	State               pulumi.StringOutput                 `pulumi:"state"`
+	SubnetArn           pulumi.StringPtrOutput              `pulumi:"subnetArn"`
+	Tags                pulumi.StringMapOutput              `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput              `pulumi:"tagsAll"`
 }
 
 // NewConnectPeer registers a new resource with the given unique name, arguments, and options.
@@ -297,73 +68,39 @@ func GetConnectPeer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectPeer resources.
 type connectPeerState struct {
-	// ARN of the Connect peer.
-	Arn *string `pulumi:"arn"`
-	// Connect peer BGP options. See bgpOptions for more information.
-	BgpOptions *ConnectPeerBgpOptions `pulumi:"bgpOptions"`
-	// Configuration of the Connect peer.
-	Configurations []ConnectPeerConfiguration `pulumi:"configurations"`
-	// ID of the connection attachment.
-	ConnectAttachmentId *string `pulumi:"connectAttachmentId"`
-	// ID of the Connect peer.
-	ConnectPeerId *string `pulumi:"connectPeerId"`
-	// Connect peer core network address.
-	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
-	// ID of a core network.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// Timestamp when the Connect peer was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Region where the peer is located.
-	EdgeLocation *string `pulumi:"edgeLocation"`
-	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// Connect peer address.
-	//
-	// The following arguments are optional:
-	PeerAddress *string `pulumi:"peerAddress"`
-	// State of the Connect peer.
-	State *string `pulumi:"state"`
-	// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
-	SubnetArn *string `pulumi:"subnetArn"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                 *string                    `pulumi:"arn"`
+	BgpOptions          *ConnectPeerBgpOptions     `pulumi:"bgpOptions"`
+	Configurations      []ConnectPeerConfiguration `pulumi:"configurations"`
+	ConnectAttachmentId *string                    `pulumi:"connectAttachmentId"`
+	ConnectPeerId       *string                    `pulumi:"connectPeerId"`
+	CoreNetworkAddress  *string                    `pulumi:"coreNetworkAddress"`
+	CoreNetworkId       *string                    `pulumi:"coreNetworkId"`
+	CreatedAt           *string                    `pulumi:"createdAt"`
+	EdgeLocation        *string                    `pulumi:"edgeLocation"`
+	InsideCidrBlocks    []string                   `pulumi:"insideCidrBlocks"`
+	PeerAddress         *string                    `pulumi:"peerAddress"`
+	State               *string                    `pulumi:"state"`
+	SubnetArn           *string                    `pulumi:"subnetArn"`
+	Tags                map[string]string          `pulumi:"tags"`
+	TagsAll             map[string]string          `pulumi:"tagsAll"`
 }
 
 type ConnectPeerState struct {
-	// ARN of the Connect peer.
-	Arn pulumi.StringPtrInput
-	// Connect peer BGP options. See bgpOptions for more information.
-	BgpOptions ConnectPeerBgpOptionsPtrInput
-	// Configuration of the Connect peer.
-	Configurations ConnectPeerConfigurationArrayInput
-	// ID of the connection attachment.
+	Arn                 pulumi.StringPtrInput
+	BgpOptions          ConnectPeerBgpOptionsPtrInput
+	Configurations      ConnectPeerConfigurationArrayInput
 	ConnectAttachmentId pulumi.StringPtrInput
-	// ID of the Connect peer.
-	ConnectPeerId pulumi.StringPtrInput
-	// Connect peer core network address.
-	CoreNetworkAddress pulumi.StringPtrInput
-	// ID of a core network.
-	CoreNetworkId pulumi.StringPtrInput
-	// Timestamp when the Connect peer was created.
-	CreatedAt pulumi.StringPtrInput
-	// Region where the peer is located.
-	EdgeLocation pulumi.StringPtrInput
-	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-	InsideCidrBlocks pulumi.StringArrayInput
-	// Connect peer address.
-	//
-	// The following arguments are optional:
-	PeerAddress pulumi.StringPtrInput
-	// State of the Connect peer.
-	State pulumi.StringPtrInput
-	// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
-	SubnetArn pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ConnectPeerId       pulumi.StringPtrInput
+	CoreNetworkAddress  pulumi.StringPtrInput
+	CoreNetworkId       pulumi.StringPtrInput
+	CreatedAt           pulumi.StringPtrInput
+	EdgeLocation        pulumi.StringPtrInput
+	InsideCidrBlocks    pulumi.StringArrayInput
+	PeerAddress         pulumi.StringPtrInput
+	State               pulumi.StringPtrInput
+	SubnetArn           pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (ConnectPeerState) ElementType() reflect.Type {
@@ -371,42 +108,24 @@ func (ConnectPeerState) ElementType() reflect.Type {
 }
 
 type connectPeerArgs struct {
-	// Connect peer BGP options. See bgpOptions for more information.
-	BgpOptions *ConnectPeerBgpOptions `pulumi:"bgpOptions"`
-	// ID of the connection attachment.
-	ConnectAttachmentId string `pulumi:"connectAttachmentId"`
-	// Connect peer core network address.
-	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
-	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// Connect peer address.
-	//
-	// The following arguments are optional:
-	PeerAddress string `pulumi:"peerAddress"`
-	// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
-	SubnetArn *string `pulumi:"subnetArn"`
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	BgpOptions          *ConnectPeerBgpOptions `pulumi:"bgpOptions"`
+	ConnectAttachmentId string                 `pulumi:"connectAttachmentId"`
+	CoreNetworkAddress  *string                `pulumi:"coreNetworkAddress"`
+	InsideCidrBlocks    []string               `pulumi:"insideCidrBlocks"`
+	PeerAddress         string                 `pulumi:"peerAddress"`
+	SubnetArn           *string                `pulumi:"subnetArn"`
+	Tags                map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectPeer resource.
 type ConnectPeerArgs struct {
-	// Connect peer BGP options. See bgpOptions for more information.
-	BgpOptions ConnectPeerBgpOptionsPtrInput
-	// ID of the connection attachment.
+	BgpOptions          ConnectPeerBgpOptionsPtrInput
 	ConnectAttachmentId pulumi.StringInput
-	// Connect peer core network address.
-	CoreNetworkAddress pulumi.StringPtrInput
-	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-	InsideCidrBlocks pulumi.StringArrayInput
-	// Connect peer address.
-	//
-	// The following arguments are optional:
-	PeerAddress pulumi.StringInput
-	// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
-	SubnetArn pulumi.StringPtrInput
-	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	CoreNetworkAddress  pulumi.StringPtrInput
+	InsideCidrBlocks    pulumi.StringArrayInput
+	PeerAddress         pulumi.StringInput
+	SubnetArn           pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (ConnectPeerArgs) ElementType() reflect.Type {
@@ -496,79 +215,62 @@ func (o ConnectPeerOutput) ToConnectPeerOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// ARN of the Connect peer.
 func (o ConnectPeerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Connect peer BGP options. See bgpOptions for more information.
 func (o ConnectPeerOutput) BgpOptions() ConnectPeerBgpOptionsOutput {
 	return o.ApplyT(func(v *ConnectPeer) ConnectPeerBgpOptionsOutput { return v.BgpOptions }).(ConnectPeerBgpOptionsOutput)
 }
 
-// Configuration of the Connect peer.
 func (o ConnectPeerOutput) Configurations() ConnectPeerConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConnectPeer) ConnectPeerConfigurationArrayOutput { return v.Configurations }).(ConnectPeerConfigurationArrayOutput)
 }
 
-// ID of the connection attachment.
 func (o ConnectPeerOutput) ConnectAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.ConnectAttachmentId }).(pulumi.StringOutput)
 }
 
-// ID of the Connect peer.
 func (o ConnectPeerOutput) ConnectPeerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.ConnectPeerId }).(pulumi.StringOutput)
 }
 
-// Connect peer core network address.
 func (o ConnectPeerOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
 }
 
-// ID of a core network.
 func (o ConnectPeerOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// Timestamp when the Connect peer was created.
 func (o ConnectPeerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Region where the peer is located.
 func (o ConnectPeerOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 func (o ConnectPeerOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringArrayOutput { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// Connect peer address.
-//
-// The following arguments are optional:
 func (o ConnectPeerOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.PeerAddress }).(pulumi.StringOutput)
 }
 
-// State of the Connect peer.
 func (o ConnectPeerOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
 func (o ConnectPeerOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.SubnetArn }).(pulumi.StringPtrOutput)
 }
 
-// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectPeerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectPeerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

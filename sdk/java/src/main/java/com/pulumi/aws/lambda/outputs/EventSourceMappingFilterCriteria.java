@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventSourceMappingFilterCriteria {
-    /**
-     * @return Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-     * 
-     */
     private @Nullable List<EventSourceMappingFilterCriteriaFilter> filters;
 
     private EventSourceMappingFilterCriteria() {}
-    /**
-     * @return Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
-     * 
-     */
     public List<EventSourceMappingFilterCriteriaFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }

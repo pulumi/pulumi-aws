@@ -14,13 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterCacheNode struct {
-	Address *string `pulumi:"address"`
-	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+	Address          *string `pulumi:"address"`
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	Id               *string `pulumi:"id"`
 	OutpostArn       *string `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-	Port *int `pulumi:"port"`
+	Port             *int    `pulumi:"port"`
 }
 
 // ClusterCacheNodeInput is an input type that accepts ClusterCacheNodeArgs and ClusterCacheNodeOutput values.
@@ -35,13 +33,11 @@ type ClusterCacheNodeInput interface {
 }
 
 type ClusterCacheNodeArgs struct {
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+	Address          pulumi.StringPtrInput `pulumi:"address"`
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringPtrInput `pulumi:"id"`
 	OutpostArn       pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port             pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (ClusterCacheNodeArgs) ElementType() reflect.Type {
@@ -99,7 +95,6 @@ func (o ClusterCacheNodeOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -112,7 +107,6 @@ func (o ClusterCacheNodeOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -138,14 +132,10 @@ func (o ClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) ClusterCacheNodeOu
 }
 
 type ClusterLogDeliveryConfiguration struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination string `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     string `pulumi:"destination"`
 	DestinationType string `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat string `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType string `pulumi:"logType"`
+	LogFormat       string `pulumi:"logFormat"`
+	LogType         string `pulumi:"logType"`
 }
 
 // ClusterLogDeliveryConfigurationInput is an input type that accepts ClusterLogDeliveryConfigurationArgs and ClusterLogDeliveryConfigurationOutput values.
@@ -160,14 +150,10 @@ type ClusterLogDeliveryConfigurationInput interface {
 }
 
 type ClusterLogDeliveryConfigurationArgs struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     pulumi.StringInput `pulumi:"destination"`
 	DestinationType pulumi.StringInput `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat pulumi.StringInput `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType pulumi.StringInput `pulumi:"logType"`
+	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
+	LogType         pulumi.StringInput `pulumi:"logType"`
 }
 
 func (ClusterLogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -221,22 +207,18 @@ func (o ClusterLogDeliveryConfigurationOutput) ToClusterLogDeliveryConfiguration
 	return o
 }
 
-// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
 func (o ClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
 func (o ClusterLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
 }
 
-// Valid values are `json` or `text`
 func (o ClusterLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
 func (o ClusterLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
 }
@@ -262,10 +244,8 @@ func (o ClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) Clu
 }
 
 type GlobalReplicationGroupGlobalNodeGroup struct {
-	// The ID of the global node group.
 	GlobalNodeGroupId *string `pulumi:"globalNodeGroupId"`
-	// The keyspace for this node group.
-	Slots *string `pulumi:"slots"`
+	Slots             *string `pulumi:"slots"`
 }
 
 // GlobalReplicationGroupGlobalNodeGroupInput is an input type that accepts GlobalReplicationGroupGlobalNodeGroupArgs and GlobalReplicationGroupGlobalNodeGroupOutput values.
@@ -280,10 +260,8 @@ type GlobalReplicationGroupGlobalNodeGroupInput interface {
 }
 
 type GlobalReplicationGroupGlobalNodeGroupArgs struct {
-	// The ID of the global node group.
 	GlobalNodeGroupId pulumi.StringPtrInput `pulumi:"globalNodeGroupId"`
-	// The keyspace for this node group.
-	Slots pulumi.StringPtrInput `pulumi:"slots"`
+	Slots             pulumi.StringPtrInput `pulumi:"slots"`
 }
 
 func (GlobalReplicationGroupGlobalNodeGroupArgs) ElementType() reflect.Type {
@@ -337,12 +315,10 @@ func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToGlobalReplicationGroupGlo
 	return o
 }
 
-// The ID of the global node group.
 func (o GlobalReplicationGroupGlobalNodeGroupOutput) GlobalNodeGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalNodeGroup) *string { return v.GlobalNodeGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The keyspace for this node group.
 func (o GlobalReplicationGroupGlobalNodeGroupOutput) Slots() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalNodeGroup) *string { return v.Slots }).(pulumi.StringPtrOutput)
 }
@@ -368,9 +344,7 @@ func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ParameterGroupParameter struct {
-	// The name of the ElastiCache parameter.
-	Name string `pulumi:"name"`
-	// The value of the ElastiCache parameter.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -386,9 +360,7 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// The name of the ElastiCache parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the ElastiCache parameter.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -443,12 +415,10 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// The name of the ElastiCache parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the ElastiCache parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -474,14 +444,10 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ReplicationGroupLogDeliveryConfiguration struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination string `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     string `pulumi:"destination"`
 	DestinationType string `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat string `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType string `pulumi:"logType"`
+	LogFormat       string `pulumi:"logFormat"`
+	LogType         string `pulumi:"logType"`
 }
 
 // ReplicationGroupLogDeliveryConfigurationInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArgs and ReplicationGroupLogDeliveryConfigurationOutput values.
@@ -496,14 +462,10 @@ type ReplicationGroupLogDeliveryConfigurationInput interface {
 }
 
 type ReplicationGroupLogDeliveryConfigurationArgs struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     pulumi.StringInput `pulumi:"destination"`
 	DestinationType pulumi.StringInput `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat pulumi.StringInput `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType pulumi.StringInput `pulumi:"logType"`
+	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
+	LogType         pulumi.StringInput `pulumi:"logType"`
 }
 
 func (ReplicationGroupLogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -557,22 +519,18 @@ func (o ReplicationGroupLogDeliveryConfigurationOutput) ToReplicationGroupLogDel
 	return o
 }
 
-// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
 func (o ReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
 func (o ReplicationGroupLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
 }
 
-// Valid values are `json` or `text`
 func (o ReplicationGroupLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
 func (o ReplicationGroupLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
 }
@@ -598,20 +556,13 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 }
 
 type ReplicationGroupNodeGroupConfiguration struct {
-	// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-	NodeGroupId *string `pulumi:"nodeGroupId"`
-	// Availability zone for the primary node.
-	PrimaryAvailabilityZone *string `pulumi:"primaryAvailabilityZone"`
-	// ARN of the Outpost for the primary node.
-	PrimaryOutpostArn *string `pulumi:"primaryOutpostArn"`
-	// List of availability zones for the replica nodes.
+	NodeGroupId              *string  `pulumi:"nodeGroupId"`
+	PrimaryAvailabilityZone  *string  `pulumi:"primaryAvailabilityZone"`
+	PrimaryOutpostArn        *string  `pulumi:"primaryOutpostArn"`
 	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
-	// Number of replica nodes in this node group.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// List of ARNs of the Outposts for the replica nodes.
-	ReplicaOutpostArns []string `pulumi:"replicaOutpostArns"`
-	// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-	Slots *string `pulumi:"slots"`
+	ReplicaCount             *int     `pulumi:"replicaCount"`
+	ReplicaOutpostArns       []string `pulumi:"replicaOutpostArns"`
+	Slots                    *string  `pulumi:"slots"`
 }
 
 // ReplicationGroupNodeGroupConfigurationInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArgs and ReplicationGroupNodeGroupConfigurationOutput values.
@@ -626,20 +577,13 @@ type ReplicationGroupNodeGroupConfigurationInput interface {
 }
 
 type ReplicationGroupNodeGroupConfigurationArgs struct {
-	// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-	NodeGroupId pulumi.StringPtrInput `pulumi:"nodeGroupId"`
-	// Availability zone for the primary node.
-	PrimaryAvailabilityZone pulumi.StringPtrInput `pulumi:"primaryAvailabilityZone"`
-	// ARN of the Outpost for the primary node.
-	PrimaryOutpostArn pulumi.StringPtrInput `pulumi:"primaryOutpostArn"`
-	// List of availability zones for the replica nodes.
+	NodeGroupId              pulumi.StringPtrInput   `pulumi:"nodeGroupId"`
+	PrimaryAvailabilityZone  pulumi.StringPtrInput   `pulumi:"primaryAvailabilityZone"`
+	PrimaryOutpostArn        pulumi.StringPtrInput   `pulumi:"primaryOutpostArn"`
 	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
-	// Number of replica nodes in this node group.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
-	// List of ARNs of the Outposts for the replica nodes.
-	ReplicaOutpostArns pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
-	// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-	Slots pulumi.StringPtrInput `pulumi:"slots"`
+	ReplicaCount             pulumi.IntPtrInput      `pulumi:"replicaCount"`
+	ReplicaOutpostArns       pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
+	Slots                    pulumi.StringPtrInput   `pulumi:"slots"`
 }
 
 func (ReplicationGroupNodeGroupConfigurationArgs) ElementType() reflect.Type {
@@ -693,37 +637,30 @@ func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGrou
 	return o
 }
 
-// ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
 func (o ReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Availability zone for the primary node.
 func (o ReplicationGroupNodeGroupConfigurationOutput) PrimaryAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.PrimaryAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Outpost for the primary node.
 func (o ReplicationGroupNodeGroupConfigurationOutput) PrimaryOutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.PrimaryOutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// List of availability zones for the replica nodes.
 func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of replica nodes in this node group.
 func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// List of ARNs of the Outposts for the replica nodes.
 func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaOutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaOutpostArns }).(pulumi.StringArrayOutput)
 }
 
-// Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
 func (o ReplicationGroupNodeGroupConfigurationOutput) Slots() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.Slots }).(pulumi.StringPtrOutput)
 }
@@ -1024,9 +961,7 @@ func (o ReservedCacheNodeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ServerlessCacheCacheUsageLimits struct {
-	// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
-	DataStorage *ServerlessCacheCacheUsageLimitsDataStorage `pulumi:"dataStorage"`
-	// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
+	DataStorage    *ServerlessCacheCacheUsageLimitsDataStorage    `pulumi:"dataStorage"`
 	EcpuPerSeconds []ServerlessCacheCacheUsageLimitsEcpuPerSecond `pulumi:"ecpuPerSeconds"`
 }
 
@@ -1042,9 +977,7 @@ type ServerlessCacheCacheUsageLimitsInput interface {
 }
 
 type ServerlessCacheCacheUsageLimitsArgs struct {
-	// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
-	DataStorage ServerlessCacheCacheUsageLimitsDataStoragePtrInput `pulumi:"dataStorage"`
-	// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
+	DataStorage    ServerlessCacheCacheUsageLimitsDataStoragePtrInput     `pulumi:"dataStorage"`
 	EcpuPerSeconds ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput `pulumi:"ecpuPerSeconds"`
 }
 
@@ -1125,14 +1058,12 @@ func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimits
 	}).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
 
-// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
 func (o ServerlessCacheCacheUsageLimitsOutput) DataStorage() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheCacheUsageLimitsDataStorage {
 		return v.DataStorage
 	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
 }
 
-// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
 func (o ServerlessCacheCacheUsageLimitsOutput) EcpuPerSeconds() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) []ServerlessCacheCacheUsageLimitsEcpuPerSecond {
 		return v.EcpuPerSeconds
@@ -1163,7 +1094,6 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) Elem() ServerlessCacheCacheUsa
 	}).(ServerlessCacheCacheUsageLimitsOutput)
 }
 
-// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheCacheUsageLimitsDataStoragePtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) *ServerlessCacheCacheUsageLimitsDataStorage {
 		if v == nil {
@@ -1173,7 +1103,6 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheC
 	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
 }
 
-// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSeconds() ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) []ServerlessCacheCacheUsageLimitsEcpuPerSecond {
 		if v == nil {
@@ -1184,12 +1113,9 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSeconds() ServerlessCac
 }
 
 type ServerlessCacheCacheUsageLimitsDataStorage struct {
-	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-	Maximum *int `pulumi:"maximum"`
-	// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-	Minimum *int `pulumi:"minimum"`
-	// The unit that the storage is measured in, in GB.
-	Unit string `pulumi:"unit"`
+	Maximum *int   `pulumi:"maximum"`
+	Minimum *int   `pulumi:"minimum"`
+	Unit    string `pulumi:"unit"`
 }
 
 // ServerlessCacheCacheUsageLimitsDataStorageInput is an input type that accepts ServerlessCacheCacheUsageLimitsDataStorageArgs and ServerlessCacheCacheUsageLimitsDataStorageOutput values.
@@ -1204,12 +1130,9 @@ type ServerlessCacheCacheUsageLimitsDataStorageInput interface {
 }
 
 type ServerlessCacheCacheUsageLimitsDataStorageArgs struct {
-	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
-	// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
 	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
-	// The unit that the storage is measured in, in GB.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Unit    pulumi.StringInput `pulumi:"unit"`
 }
 
 func (ServerlessCacheCacheUsageLimitsDataStorageArgs) ElementType() reflect.Type {
@@ -1289,17 +1212,14 @@ func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) ToServerlessCacheCache
 	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
 }
 
-// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsDataStorage) *int { return v.Maximum }).(pulumi.IntPtrOutput)
 }
 
-// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsDataStorage) *int { return v.Minimum }).(pulumi.IntPtrOutput)
 }
 
-// The unit that the storage is measured in, in GB.
 func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsDataStorage) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -1328,7 +1248,6 @@ func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Elem() ServerlessCa
 	}).(ServerlessCacheCacheUsageLimitsDataStorageOutput)
 }
 
-// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) *int {
 		if v == nil {
@@ -1338,7 +1257,6 @@ func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Maximum() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) *int {
 		if v == nil {
@@ -1348,7 +1266,6 @@ func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Minimum() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit that the storage is measured in, in GB.
 func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) *string {
 		if v == nil {
@@ -1359,9 +1276,7 @@ func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Unit() pulumi.Strin
 }
 
 type ServerlessCacheCacheUsageLimitsEcpuPerSecond struct {
-	// The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
 	Maximum *int `pulumi:"maximum"`
-	// The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
 	Minimum *int `pulumi:"minimum"`
 }
 
@@ -1377,9 +1292,7 @@ type ServerlessCacheCacheUsageLimitsEcpuPerSecondInput interface {
 }
 
 type ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs struct {
-	// The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
 	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
-	// The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
 	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
 }
 
@@ -1434,12 +1347,10 @@ func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) ToServerlessCacheCac
 	return o
 }
 
-// The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
 func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsEcpuPerSecond) *int { return v.Maximum }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
 func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsEcpuPerSecond) *int { return v.Minimum }).(pulumi.IntPtrOutput)
 }
@@ -1465,10 +1376,8 @@ func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput) Index(i pulumi.
 }
 
 type ServerlessCacheEndpoint struct {
-	// The DNS hostname of the cache node.
 	Address string `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port int `pulumi:"port"`
+	Port    int    `pulumi:"port"`
 }
 
 // ServerlessCacheEndpointInput is an input type that accepts ServerlessCacheEndpointArgs and ServerlessCacheEndpointOutput values.
@@ -1483,10 +1392,8 @@ type ServerlessCacheEndpointInput interface {
 }
 
 type ServerlessCacheEndpointArgs struct {
-	// The DNS hostname of the cache node.
 	Address pulumi.StringInput `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (ServerlessCacheEndpointArgs) ElementType() reflect.Type {
@@ -1540,12 +1447,10 @@ func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutputWithContex
 	return o
 }
 
-// The DNS hostname of the cache node.
 func (o ServerlessCacheEndpointOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerlessCacheEndpoint) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The port number that the cache engine is listening on. Set as integer.
 func (o ServerlessCacheEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerlessCacheEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1571,10 +1476,8 @@ func (o ServerlessCacheEndpointArrayOutput) Index(i pulumi.IntInput) ServerlessC
 }
 
 type ServerlessCacheReaderEndpoint struct {
-	// The DNS hostname of the cache node.
 	Address string `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port int `pulumi:"port"`
+	Port    int    `pulumi:"port"`
 }
 
 // ServerlessCacheReaderEndpointInput is an input type that accepts ServerlessCacheReaderEndpointArgs and ServerlessCacheReaderEndpointOutput values.
@@ -1589,10 +1492,8 @@ type ServerlessCacheReaderEndpointInput interface {
 }
 
 type ServerlessCacheReaderEndpointArgs struct {
-	// The DNS hostname of the cache node.
 	Address pulumi.StringInput `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (ServerlessCacheReaderEndpointArgs) ElementType() reflect.Type {
@@ -1646,12 +1547,10 @@ func (o ServerlessCacheReaderEndpointOutput) ToServerlessCacheReaderEndpointOutp
 	return o
 }
 
-// The DNS hostname of the cache node.
 func (o ServerlessCacheReaderEndpointOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerlessCacheReaderEndpoint) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The port number that the cache engine is listening on. Set as integer.
 func (o ServerlessCacheReaderEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerlessCacheReaderEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1852,11 +1751,9 @@ func (o ServerlessCacheTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type UserAuthenticationMode struct {
-	PasswordCount *int `pulumi:"passwordCount"`
-	// Specifies the passwords to use for authentication if `type` is set to `password`.
-	Passwords []string `pulumi:"passwords"`
-	// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-	Type string `pulumi:"type"`
+	PasswordCount *int     `pulumi:"passwordCount"`
+	Passwords     []string `pulumi:"passwords"`
+	Type          string   `pulumi:"type"`
 }
 
 // UserAuthenticationModeInput is an input type that accepts UserAuthenticationModeArgs and UserAuthenticationModeOutput values.
@@ -1871,11 +1768,9 @@ type UserAuthenticationModeInput interface {
 }
 
 type UserAuthenticationModeArgs struct {
-	PasswordCount pulumi.IntPtrInput `pulumi:"passwordCount"`
-	// Specifies the passwords to use for authentication if `type` is set to `password`.
-	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
-	// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-	Type pulumi.StringInput `pulumi:"type"`
+	PasswordCount pulumi.IntPtrInput      `pulumi:"passwordCount"`
+	Passwords     pulumi.StringArrayInput `pulumi:"passwords"`
+	Type          pulumi.StringInput      `pulumi:"type"`
 }
 
 func (UserAuthenticationModeArgs) ElementType() reflect.Type {
@@ -1959,12 +1854,10 @@ func (o UserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) *int { return v.PasswordCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the passwords to use for authentication if `type` is set to `password`.
 func (o UserAuthenticationModeOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) []string { return v.Passwords }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
 func (o UserAuthenticationModeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2002,7 +1895,6 @@ func (o UserAuthenticationModePtrOutput) PasswordCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the passwords to use for authentication if `type` is set to `password`.
 func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) []string {
 		if v == nil {
@@ -2012,7 +1904,6 @@ func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
 func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAuthenticationMode) *string {
 		if v == nil {
@@ -2023,14 +1914,11 @@ func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetClusterCacheNode struct {
-	Address string `pulumi:"address"`
-	// Availability Zone for the cache cluster.
+	Address          string `pulumi:"address"`
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	Id               string `pulumi:"id"`
 	OutpostArn       string `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will
-	// accept connections.
-	Port int `pulumi:"port"`
+	Port             int    `pulumi:"port"`
 }
 
 // GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
@@ -2045,14 +1933,11 @@ type GetClusterCacheNodeInput interface {
 }
 
 type GetClusterCacheNodeArgs struct {
-	Address pulumi.StringInput `pulumi:"address"`
-	// Availability Zone for the cache cluster.
+	Address          pulumi.StringInput `pulumi:"address"`
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringInput `pulumi:"id"`
 	OutpostArn       pulumi.StringInput `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will
-	// accept connections.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port             pulumi.IntInput    `pulumi:"port"`
 }
 
 func (GetClusterCacheNodeArgs) ElementType() reflect.Type {
@@ -2110,7 +1995,6 @@ func (o GetClusterCacheNodeOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// Availability Zone for the cache cluster.
 func (o GetClusterCacheNodeOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -2123,8 +2007,6 @@ func (o GetClusterCacheNodeOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-// The port number on which each of the cache nodes will
-// accept connections.
 func (o GetClusterCacheNodeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2374,20 +2256,13 @@ func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.I
 }
 
 type GetReplicationGroupNodeGroupConfiguration struct {
-	// ID of the node group.
-	NodeGroupId string `pulumi:"nodeGroupId"`
-	// Availability Zone for the primary node.
-	PrimaryAvailabilityZone string `pulumi:"primaryAvailabilityZone"`
-	// Outpost ARN of the primary node.
-	PrimaryOutpostArn string `pulumi:"primaryOutpostArn"`
-	// List of Availability Zones for the replica nodes.
+	NodeGroupId              string   `pulumi:"nodeGroupId"`
+	PrimaryAvailabilityZone  string   `pulumi:"primaryAvailabilityZone"`
+	PrimaryOutpostArn        string   `pulumi:"primaryOutpostArn"`
 	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
-	// Number of replica nodes in this node group.
-	ReplicaCount int `pulumi:"replicaCount"`
-	// List of outpost ARNs for the replica nodes.
-	ReplicaOutpostArns []string `pulumi:"replicaOutpostArns"`
-	// Keyspace for this node group (shard).
-	Slots string `pulumi:"slots"`
+	ReplicaCount             int      `pulumi:"replicaCount"`
+	ReplicaOutpostArns       []string `pulumi:"replicaOutpostArns"`
+	Slots                    string   `pulumi:"slots"`
 }
 
 // GetReplicationGroupNodeGroupConfigurationInput is an input type that accepts GetReplicationGroupNodeGroupConfigurationArgs and GetReplicationGroupNodeGroupConfigurationOutput values.
@@ -2402,20 +2277,13 @@ type GetReplicationGroupNodeGroupConfigurationInput interface {
 }
 
 type GetReplicationGroupNodeGroupConfigurationArgs struct {
-	// ID of the node group.
-	NodeGroupId pulumi.StringInput `pulumi:"nodeGroupId"`
-	// Availability Zone for the primary node.
-	PrimaryAvailabilityZone pulumi.StringInput `pulumi:"primaryAvailabilityZone"`
-	// Outpost ARN of the primary node.
-	PrimaryOutpostArn pulumi.StringInput `pulumi:"primaryOutpostArn"`
-	// List of Availability Zones for the replica nodes.
+	NodeGroupId              pulumi.StringInput      `pulumi:"nodeGroupId"`
+	PrimaryAvailabilityZone  pulumi.StringInput      `pulumi:"primaryAvailabilityZone"`
+	PrimaryOutpostArn        pulumi.StringInput      `pulumi:"primaryOutpostArn"`
 	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
-	// Number of replica nodes in this node group.
-	ReplicaCount pulumi.IntInput `pulumi:"replicaCount"`
-	// List of outpost ARNs for the replica nodes.
-	ReplicaOutpostArns pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
-	// Keyspace for this node group (shard).
-	Slots pulumi.StringInput `pulumi:"slots"`
+	ReplicaCount             pulumi.IntInput         `pulumi:"replicaCount"`
+	ReplicaOutpostArns       pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
+	Slots                    pulumi.StringInput      `pulumi:"slots"`
 }
 
 func (GetReplicationGroupNodeGroupConfigurationArgs) ElementType() reflect.Type {
@@ -2469,37 +2337,30 @@ func (o GetReplicationGroupNodeGroupConfigurationOutput) ToGetReplicationGroupNo
 	return o
 }
 
-// ID of the node group.
 func (o GetReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.NodeGroupId }).(pulumi.StringOutput)
 }
 
-// Availability Zone for the primary node.
 func (o GetReplicationGroupNodeGroupConfigurationOutput) PrimaryAvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.PrimaryAvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Outpost ARN of the primary node.
 func (o GetReplicationGroupNodeGroupConfigurationOutput) PrimaryOutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.PrimaryOutpostArn }).(pulumi.StringOutput)
 }
 
-// List of Availability Zones for the replica nodes.
 func (o GetReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of replica nodes in this node group.
 func (o GetReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) int { return v.ReplicaCount }).(pulumi.IntOutput)
 }
 
-// List of outpost ARNs for the replica nodes.
 func (o GetReplicationGroupNodeGroupConfigurationOutput) ReplicaOutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaOutpostArns }).(pulumi.StringArrayOutput)
 }
 
-// Keyspace for this node group (shard).
 func (o GetReplicationGroupNodeGroupConfigurationOutput) Slots() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReplicationGroupNodeGroupConfiguration) string { return v.Slots }).(pulumi.StringOutput)
 }
@@ -2525,9 +2386,7 @@ func (o GetReplicationGroupNodeGroupConfigurationArrayOutput) Index(i pulumi.Int
 }
 
 type GetServerlessCacheCacheUsageLimits struct {
-	// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
-	DataStorage GetServerlessCacheCacheUsageLimitsDataStorage `pulumi:"dataStorage"`
-	// The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
+	DataStorage   GetServerlessCacheCacheUsageLimitsDataStorage   `pulumi:"dataStorage"`
 	EcpuPerSecond GetServerlessCacheCacheUsageLimitsEcpuPerSecond `pulumi:"ecpuPerSecond"`
 }
 
@@ -2543,9 +2402,7 @@ type GetServerlessCacheCacheUsageLimitsInput interface {
 }
 
 type GetServerlessCacheCacheUsageLimitsArgs struct {
-	// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
-	DataStorage GetServerlessCacheCacheUsageLimitsDataStorageInput `pulumi:"dataStorage"`
-	// The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
+	DataStorage   GetServerlessCacheCacheUsageLimitsDataStorageInput   `pulumi:"dataStorage"`
 	EcpuPerSecond GetServerlessCacheCacheUsageLimitsEcpuPerSecondInput `pulumi:"ecpuPerSecond"`
 }
 
@@ -2575,14 +2432,12 @@ func (o GetServerlessCacheCacheUsageLimitsOutput) ToGetServerlessCacheCacheUsage
 	return o
 }
 
-// The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
 func (o GetServerlessCacheCacheUsageLimitsOutput) DataStorage() GetServerlessCacheCacheUsageLimitsDataStorageOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimits) GetServerlessCacheCacheUsageLimitsDataStorage {
 		return v.DataStorage
 	}).(GetServerlessCacheCacheUsageLimitsDataStorageOutput)
 }
 
-// The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
 func (o GetServerlessCacheCacheUsageLimitsOutput) EcpuPerSecond() GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimits) GetServerlessCacheCacheUsageLimitsEcpuPerSecond {
 		return v.EcpuPerSecond
@@ -2590,12 +2445,9 @@ func (o GetServerlessCacheCacheUsageLimitsOutput) EcpuPerSecond() GetServerlessC
 }
 
 type GetServerlessCacheCacheUsageLimitsDataStorage struct {
-	// The maximum number of ECPUs the cache can consume per second.
-	Maximum int `pulumi:"maximum"`
-	// The minimum number of ECPUs the cache can consume per second.
-	Minimum int `pulumi:"minimum"`
-	// The unit that the storage is measured in.
-	Unit string `pulumi:"unit"`
+	Maximum int    `pulumi:"maximum"`
+	Minimum int    `pulumi:"minimum"`
+	Unit    string `pulumi:"unit"`
 }
 
 // GetServerlessCacheCacheUsageLimitsDataStorageInput is an input type that accepts GetServerlessCacheCacheUsageLimitsDataStorageArgs and GetServerlessCacheCacheUsageLimitsDataStorageOutput values.
@@ -2610,12 +2462,9 @@ type GetServerlessCacheCacheUsageLimitsDataStorageInput interface {
 }
 
 type GetServerlessCacheCacheUsageLimitsDataStorageArgs struct {
-	// The maximum number of ECPUs the cache can consume per second.
-	Maximum pulumi.IntInput `pulumi:"maximum"`
-	// The minimum number of ECPUs the cache can consume per second.
-	Minimum pulumi.IntInput `pulumi:"minimum"`
-	// The unit that the storage is measured in.
-	Unit pulumi.StringInput `pulumi:"unit"`
+	Maximum pulumi.IntInput    `pulumi:"maximum"`
+	Minimum pulumi.IntInput    `pulumi:"minimum"`
+	Unit    pulumi.StringInput `pulumi:"unit"`
 }
 
 func (GetServerlessCacheCacheUsageLimitsDataStorageArgs) ElementType() reflect.Type {
@@ -2644,25 +2493,20 @@ func (o GetServerlessCacheCacheUsageLimitsDataStorageOutput) ToGetServerlessCach
 	return o
 }
 
-// The maximum number of ECPUs the cache can consume per second.
 func (o GetServerlessCacheCacheUsageLimitsDataStorageOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimitsDataStorage) int { return v.Maximum }).(pulumi.IntOutput)
 }
 
-// The minimum number of ECPUs the cache can consume per second.
 func (o GetServerlessCacheCacheUsageLimitsDataStorageOutput) Minimum() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimitsDataStorage) int { return v.Minimum }).(pulumi.IntOutput)
 }
 
-// The unit that the storage is measured in.
 func (o GetServerlessCacheCacheUsageLimitsDataStorageOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimitsDataStorage) string { return v.Unit }).(pulumi.StringOutput)
 }
 
 type GetServerlessCacheCacheUsageLimitsEcpuPerSecond struct {
-	// The maximum number of ECPUs the cache can consume per second.
 	Maximum int `pulumi:"maximum"`
-	// The minimum number of ECPUs the cache can consume per second.
 	Minimum int `pulumi:"minimum"`
 }
 
@@ -2678,9 +2522,7 @@ type GetServerlessCacheCacheUsageLimitsEcpuPerSecondInput interface {
 }
 
 type GetServerlessCacheCacheUsageLimitsEcpuPerSecondArgs struct {
-	// The maximum number of ECPUs the cache can consume per second.
 	Maximum pulumi.IntInput `pulumi:"maximum"`
-	// The minimum number of ECPUs the cache can consume per second.
 	Minimum pulumi.IntInput `pulumi:"minimum"`
 }
 
@@ -2710,21 +2552,17 @@ func (o GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) ToGetServerlessCa
 	return o
 }
 
-// The maximum number of ECPUs the cache can consume per second.
 func (o GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimitsEcpuPerSecond) int { return v.Maximum }).(pulumi.IntOutput)
 }
 
-// The minimum number of ECPUs the cache can consume per second.
 func (o GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) Minimum() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheCacheUsageLimitsEcpuPerSecond) int { return v.Minimum }).(pulumi.IntOutput)
 }
 
 type GetServerlessCacheEndpoint struct {
-	// The DNS hostname of the cache node.
 	Address string `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port int `pulumi:"port"`
+	Port    int    `pulumi:"port"`
 }
 
 // GetServerlessCacheEndpointInput is an input type that accepts GetServerlessCacheEndpointArgs and GetServerlessCacheEndpointOutput values.
@@ -2739,10 +2577,8 @@ type GetServerlessCacheEndpointInput interface {
 }
 
 type GetServerlessCacheEndpointArgs struct {
-	// The DNS hostname of the cache node.
 	Address pulumi.StringInput `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (GetServerlessCacheEndpointArgs) ElementType() reflect.Type {
@@ -2771,21 +2607,17 @@ func (o GetServerlessCacheEndpointOutput) ToGetServerlessCacheEndpointOutputWith
 	return o
 }
 
-// The DNS hostname of the cache node.
 func (o GetServerlessCacheEndpointOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerlessCacheEndpoint) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The port number that the cache engine is listening on. Set as integer.
 func (o GetServerlessCacheEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
 
 type GetServerlessCacheReaderEndpoint struct {
-	// The DNS hostname of the cache node.
 	Address string `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port int `pulumi:"port"`
+	Port    int    `pulumi:"port"`
 }
 
 // GetServerlessCacheReaderEndpointInput is an input type that accepts GetServerlessCacheReaderEndpointArgs and GetServerlessCacheReaderEndpointOutput values.
@@ -2800,10 +2632,8 @@ type GetServerlessCacheReaderEndpointInput interface {
 }
 
 type GetServerlessCacheReaderEndpointArgs struct {
-	// The DNS hostname of the cache node.
 	Address pulumi.StringInput `pulumi:"address"`
-	// The port number that the cache engine is listening on. Set as integer.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (GetServerlessCacheReaderEndpointArgs) ElementType() reflect.Type {
@@ -2832,12 +2662,10 @@ func (o GetServerlessCacheReaderEndpointOutput) ToGetServerlessCacheReaderEndpoi
 	return o
 }
 
-// The DNS hostname of the cache node.
 func (o GetServerlessCacheReaderEndpointOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerlessCacheReaderEndpoint) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The port number that the cache engine is listening on. Set as integer.
 func (o GetServerlessCacheReaderEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheReaderEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentAgentCollaboratorAgentDescriptor {
-    /**
-     * @return ARN of the Alias of an Agent to use as the collaborator.
-     * 
-     */
     private String aliasArn;
 
     private AgentAgentCollaboratorAgentDescriptor() {}
-    /**
-     * @return ARN of the Alias of an Agent to use as the collaborator.
-     * 
-     */
     public String aliasArn() {
         return this.aliasArn;
     }

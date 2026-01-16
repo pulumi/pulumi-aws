@@ -16,47 +16,23 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetMapPlainArgs Empty = new GetMapPlainArgs();
 
-    /**
-     * Name of the map resource.
-     * 
-     */
     @Import(name="mapName", required=true)
     private String mapName;
 
-    /**
-     * @return Name of the map resource.
-     * 
-     */
     public String mapName() {
         return this.mapName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags for the map.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags for the map.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,34 +63,16 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetMapPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapName Name of the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(String mapName) {
             $.mapName = mapName;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

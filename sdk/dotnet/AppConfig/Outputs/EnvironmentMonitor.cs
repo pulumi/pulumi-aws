@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppConfig.Outputs
     [OutputType]
     public sealed class EnvironmentMonitor
     {
-        /// <summary>
-        /// ARN of the Amazon CloudWatch alarm.
-        /// </summary>
         public readonly string AlarmArn;
-        /// <summary>
-        /// ARN of an IAM role for AWS AppConfig to monitor `AlarmArn`.
-        /// </summary>
         public readonly string? AlarmRoleArn;
 
         [OutputConstructor]

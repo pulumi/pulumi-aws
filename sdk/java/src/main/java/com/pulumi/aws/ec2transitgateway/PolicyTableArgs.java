@@ -17,47 +17,23 @@ public final class PolicyTableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyTableArgs Empty = new PolicyTableArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * EC2 Transit Gateway identifier.
-     * 
-     */
     @Import(name="transitGatewayId", required=true)
     private Output<String> transitGatewayId;
 
-    /**
-     * @return EC2 Transit Gateway identifier.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
@@ -88,65 +64,29 @@ public final class PolicyTableArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayId EC2 Transit Gateway identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId EC2 Transit Gateway identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }

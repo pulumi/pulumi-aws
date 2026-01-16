@@ -12,140 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Verified Permissions Identity Source.
-//
-// ## Example Usage
-//
-// ### Cognito User Pool Configuration Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := verifiedpermissions.NewPolicyStore(ctx, "example", &verifiedpermissions.PolicyStoreArgs{
-//				ValidationSettings: &verifiedpermissions.PolicyStoreValidationSettingsArgs{
-//					Mode: pulumi.String("STRICT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
-//				Name:       pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID(),
-//				ExplicitAuthFlows: pulumi.StringArray{
-//					pulumi.String("ADMIN_NO_SRP_AUTH"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = verifiedpermissions.NewIdentitySource(ctx, "example", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: example.ID(),
-//				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
-//					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{
-//						UserPoolArn: exampleUserPool.Arn,
-//						ClientIds: pulumi.StringArray{
-//							exampleUserPoolClient.ID(),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### OpenID Connect Configuration Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := verifiedpermissions.NewPolicyStore(ctx, "example", &verifiedpermissions.PolicyStoreArgs{
-//				ValidationSettings: &verifiedpermissions.PolicyStoreValidationSettingsArgs{
-//					Mode: pulumi.String("STRICT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = verifiedpermissions.NewIdentitySource(ctx, "example", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: example.ID(),
-//				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
-//					OpenIdConnectConfiguration: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationArgs{
-//						Issuer: pulumi.String("https://auth.example.com"),
-//						TokenSelection: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs{
-//							AccessTokenOnly: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs{
-//								Audiences: pulumi.StringArray{
-//									pulumi.String("https://myapp.example.com"),
-//								},
-//								PrincipalIdClaim: pulumi.String("sub"),
-//							},
-//						},
-//						EntityIdPrefix: pulumi.String("MyOIDCProvider"),
-//						GroupConfiguration: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs{
-//							GroupClaim:      pulumi.String("groups"),
-//							GroupEntityType: pulumi.String("MyCorp::UserGroup"),
-//						},
-//					},
-//				},
-//				PrincipalEntityType: pulumi.String("MyCorp::User"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Verified Permissions Identity Source using the `policy_store_id:identity_source_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:verifiedpermissions/identitySource:IdentitySource example policy-store-id-12345678:identity-source-id-12345678
-// ```
 type IdentitySource struct {
 	pulumi.CustomResourceState
 
-	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration IdentitySourceConfigurationPtrOutput `pulumi:"configuration"`
-	// Specifies the ID of the policy store in which you want to store this identity source.
-	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-	PrincipalEntityType pulumi.StringOutput `pulumi:"principalEntityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Configuration       IdentitySourceConfigurationPtrOutput `pulumi:"configuration"`
+	PolicyStoreId       pulumi.StringOutput                  `pulumi:"policyStoreId"`
+	PrincipalEntityType pulumi.StringOutput                  `pulumi:"principalEntityType"`
+	Region              pulumi.StringOutput                  `pulumi:"region"`
 }
 
 // NewIdentitySource registers a new resource with the given unique name, arguments, and options.
@@ -181,25 +54,17 @@ func GetIdentitySource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentitySource resources.
 type identitySourceState struct {
-	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration *IdentitySourceConfiguration `pulumi:"configuration"`
-	// Specifies the ID of the policy store in which you want to store this identity source.
-	PolicyStoreId *string `pulumi:"policyStoreId"`
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-	PrincipalEntityType *string `pulumi:"principalEntityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Configuration       *IdentitySourceConfiguration `pulumi:"configuration"`
+	PolicyStoreId       *string                      `pulumi:"policyStoreId"`
+	PrincipalEntityType *string                      `pulumi:"principalEntityType"`
+	Region              *string                      `pulumi:"region"`
 }
 
 type IdentitySourceState struct {
-	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration IdentitySourceConfigurationPtrInput
-	// Specifies the ID of the policy store in which you want to store this identity source.
-	PolicyStoreId pulumi.StringPtrInput
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+	Configuration       IdentitySourceConfigurationPtrInput
+	PolicyStoreId       pulumi.StringPtrInput
 	PrincipalEntityType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (IdentitySourceState) ElementType() reflect.Type {
@@ -207,26 +72,18 @@ func (IdentitySourceState) ElementType() reflect.Type {
 }
 
 type identitySourceArgs struct {
-	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration *IdentitySourceConfiguration `pulumi:"configuration"`
-	// Specifies the ID of the policy store in which you want to store this identity source.
-	PolicyStoreId string `pulumi:"policyStoreId"`
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
-	PrincipalEntityType *string `pulumi:"principalEntityType"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Configuration       *IdentitySourceConfiguration `pulumi:"configuration"`
+	PolicyStoreId       string                       `pulumi:"policyStoreId"`
+	PrincipalEntityType *string                      `pulumi:"principalEntityType"`
+	Region              *string                      `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
-	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration IdentitySourceConfigurationPtrInput
-	// Specifies the ID of the policy store in which you want to store this identity source.
-	PolicyStoreId pulumi.StringInput
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+	Configuration       IdentitySourceConfigurationPtrInput
+	PolicyStoreId       pulumi.StringInput
 	PrincipalEntityType pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region              pulumi.StringPtrInput
 }
 
 func (IdentitySourceArgs) ElementType() reflect.Type {
@@ -316,22 +173,18 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
 func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationPtrOutput { return v.Configuration }).(IdentitySourceConfigurationPtrOutput)
 }
 
-// Specifies the ID of the policy store in which you want to store this identity source.
 func (o IdentitySourceOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
-// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 func (o IdentitySourceOutput) PrincipalEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.PrincipalEntityType }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentitySourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

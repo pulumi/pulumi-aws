@@ -15,67 +15,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryResult {
-    /**
-     * @return Full ARN of the repository.
-     * 
-     */
     private String arn;
-    /**
-     * @return Encryption configuration for the repository. See Encryption Configuration below.
-     * 
-     */
     private List<GetRepositoryEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
-     * 
-     */
     private List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
-    /**
-     * @return The tag mutability setting for the repository.
-     * 
-     */
     private String imageTagMutability;
-    /**
-     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
-     * 
-     */
     private List<GetRepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters;
-    /**
-     * @return List of image tags associated with the most recently pushed image in the repository.
-     * 
-     */
     private List<String> mostRecentImageTags;
     private String name;
     private String region;
     private String registryId;
-    /**
-     * @return URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-     * 
-     */
     private String repositoryUrl;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetRepositoryResult() {}
-    /**
-     * @return Full ARN of the repository.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Encryption configuration for the repository. See Encryption Configuration below.
-     * 
-     */
     public List<GetRepositoryEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
@@ -86,31 +46,15 @@ public final class GetRepositoryResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
-     * 
-     */
     public List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations() {
         return this.imageScanningConfigurations;
     }
-    /**
-     * @return The tag mutability setting for the repository.
-     * 
-     */
     public String imageTagMutability() {
         return this.imageTagMutability;
     }
-    /**
-     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
-     * 
-     */
     public List<GetRepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters() {
         return this.imageTagMutabilityExclusionFilters;
     }
-    /**
-     * @return List of image tags associated with the most recently pushed image in the repository.
-     * 
-     */
     public List<String> mostRecentImageTags() {
         return this.mostRecentImageTags;
     }
@@ -123,17 +67,9 @@ public final class GetRepositoryResult {
     public String registryId() {
         return this.registryId;
     }
-    /**
-     * @return URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-     * 
-     */
     public String repositoryUrl() {
         return this.repositoryUrl;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

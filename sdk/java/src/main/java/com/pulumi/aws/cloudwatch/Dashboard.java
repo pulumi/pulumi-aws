@@ -13,141 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch Dashboard resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.Dashboard;
- * import com.pulumi.aws.cloudwatch.DashboardArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new Dashboard("main", DashboardArgs.builder()
- *             .dashboardName("my-dashboard")
- *             .dashboardBody(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("widgets", jsonArray(
- *                         jsonObject(
- *                             jsonProperty("type", "metric"),
- *                             jsonProperty("x", 0),
- *                             jsonProperty("y", 0),
- *                             jsonProperty("width", 12),
- *                             jsonProperty("height", 6),
- *                             jsonProperty("properties", jsonObject(
- *                                 jsonProperty("metrics", jsonArray(jsonArray(
- *                                     "AWS/EC2", 
- *                                     "CPUUtilization", 
- *                                     "InstanceId", 
- *                                     "i-012345"
- *                                 ))),
- *                                 jsonProperty("period", 300),
- *                                 jsonProperty("stat", "Average"),
- *                                 jsonProperty("region", "us-east-1"),
- *                                 jsonProperty("title", "EC2 Instance CPU")
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty("type", "text"),
- *                             jsonProperty("x", 0),
- *                             jsonProperty("y", 7),
- *                             jsonProperty("width", 3),
- *                             jsonProperty("height", 3),
- *                             jsonProperty("properties", jsonObject(
- *                                 jsonProperty("markdown", "Hello world")
- *                             ))
- *                         )
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/dashboard:Dashboard")
 public class Dashboard extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the dashboard.
-     * 
-     */
     @Export(name="dashboardArn", refs={String.class}, tree="[0]")
     private Output<String> dashboardArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the dashboard.
-     * 
-     */
     public Output<String> dashboardArn() {
         return this.dashboardArn;
     }
-    /**
-     * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-     * 
-     */
     @Export(name="dashboardBody", refs={String.class}, tree="[0]")
     private Output<String> dashboardBody;
 
-    /**
-     * @return The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-     * 
-     */
     public Output<String> dashboardBody() {
         return this.dashboardBody;
     }
-    /**
-     * The name of the dashboard.
-     * 
-     */
     @Export(name="dashboardName", refs={String.class}, tree="[0]")
     private Output<String> dashboardName;
 
-    /**
-     * @return The name of the dashboard.
-     * 
-     */
     public Output<String> dashboardName() {
         return this.dashboardName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

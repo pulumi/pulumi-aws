@@ -14,61 +14,33 @@ namespace Pulumi.Aws.Pipes.Inputs
     {
         [Input("additionalBootstrapServers")]
         private InputList<string>? _additionalBootstrapServers;
-
-        /// <summary>
-        /// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
-        /// </summary>
         public InputList<string> AdditionalBootstrapServers
         {
             get => _additionalBootstrapServers ?? (_additionalBootstrapServers = new InputList<string>());
             set => _additionalBootstrapServers = value;
         }
 
-        /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
-        /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
-        /// <summary>
-        /// The name of the destination queue to consume. Maximum value of 200.
-        /// </summary>
         [Input("consumerGroupId")]
         public Input<string>? ConsumerGroupId { get; set; }
 
-        /// <summary>
-        /// The credentials needed to access the resource. Detailed below.
-        /// </summary>
         [Input("credentials")]
         public Input<Inputs.PipeSourceParametersSelfManagedKafkaParametersCredentialsGetArgs>? Credentials { get; set; }
 
-        /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
-        /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
-        /// <summary>
-        /// The ARN of the Secrets Manager secret used for certification.
-        /// </summary>
         [Input("serverRootCaCertificate")]
         public Input<string>? ServerRootCaCertificate { get; set; }
 
-        /// <summary>
-        /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        /// </summary>
         [Input("startingPosition")]
         public Input<string>? StartingPosition { get; set; }
 
-        /// <summary>
-        /// The name of the topic that the pipe will read from. Maximum length of 249.
-        /// </summary>
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;
 
-        /// <summary>
-        /// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
-        /// </summary>
         [Input("vpc")]
         public Input<Inputs.PipeSourceParametersSelfManagedKafkaParametersVpcGetArgs>? Vpc { get; set; }
 

@@ -61,9 +61,6 @@ class GetRouteTablePropagationsResult:
     @_builtins.property
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of Transit Gateway Route Table Association identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @_builtins.property
@@ -95,26 +92,7 @@ def get_route_table_propagations(filters: Optional[Sequence[Union['GetRouteTable
                                  transit_gateway_route_table_id: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTablePropagationsResult:
     """
-    Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
-
-    ## Example Usage
-
-    ### By Transit Gateway Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
-    ```
-
-
-    :param Sequence[Union['GetRouteTablePropagationsFilterArgs', 'GetRouteTablePropagationsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -134,26 +112,7 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
                                         transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTablePropagationsResult]:
     """
-    Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
-
-    ## Example Usage
-
-    ### By Transit Gateway Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_route_table_propagations(transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
-    ```
-
-
-    :param Sequence[Union['GetRouteTablePropagationsFilterArgs', 'GetRouteTablePropagationsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

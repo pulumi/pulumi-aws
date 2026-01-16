@@ -12,18 +12,11 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
     public sealed class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The API key name for the notification subscription.
-        /// </summary>
         [Input("authorizationApiKeyName")]
         public Input<string>? AuthorizationApiKeyName { get; set; }
 
         [Input("authorizationApiKeyValue")]
         private Input<string>? _authorizationApiKeyValue;
-
-        /// <summary>
-        /// The API key value for the notification subscription.
-        /// </summary>
         public Input<string>? AuthorizationApiKeyValue
         {
             get => _authorizationApiKeyValue;
@@ -34,24 +27,12 @@ namespace Pulumi.Aws.SecurityLake.Inputs
             }
         }
 
-        /// <summary>
-        /// The subscription endpoint in Security Lake.
-        /// If you prefer notification with an HTTPS endpoint, populate this field.
-        /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
-        /// <summary>
-        /// The HTTP method used for the notification subscription.
-        /// Valid values are `POST` and `PUT`.
-        /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-        /// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-        /// </summary>
         [Input("targetRoleArn", required: true)]
         public Input<string> TargetRoleArn { get; set; } = null!;
 

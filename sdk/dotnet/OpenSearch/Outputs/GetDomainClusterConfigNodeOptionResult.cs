@@ -13,13 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainClusterConfigNodeOptionResult
     {
-        /// <summary>
-        /// Sizing of a node type.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainClusterConfigNodeOptionNodeConfigResult> NodeConfigs;
-        /// <summary>
-        /// Type of node this configuration describes.
-        /// </summary>
         public readonly string NodeType;
 
         [OutputConstructor]

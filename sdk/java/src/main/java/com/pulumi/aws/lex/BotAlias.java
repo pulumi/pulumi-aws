@@ -15,194 +15,65 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Lex Bot Alias resource. For more information see
- * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.BotAlias;
- * import com.pulumi.aws.lex.BotAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var orderFlowersProd = new BotAlias("orderFlowersProd", BotAliasArgs.builder()
- *             .botName("OrderFlowers")
- *             .botVersion("1")
- *             .description("Production Version of the OrderFlowers Bot.")
- *             .name("OrderFlowersProd")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
- * ```
- * 
- */
 @ResourceType(type="aws:lex/botAlias:BotAlias")
 public class BotAlias extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the bot alias.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the bot alias.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the bot.
-     * 
-     */
     @Export(name="botName", refs={String.class}, tree="[0]")
     private Output<String> botName;
 
-    /**
-     * @return The name of the bot.
-     * 
-     */
     public Output<String> botName() {
         return this.botName;
     }
-    /**
-     * The version of the bot.
-     * 
-     */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
-    /**
-     * @return The version of the bot.
-     * 
-     */
     public Output<String> botVersion() {
         return this.botVersion;
     }
-    /**
-     * Checksum of the bot alias.
-     * 
-     */
     @Export(name="checksum", refs={String.class}, tree="[0]")
     private Output<String> checksum;
 
-    /**
-     * @return Checksum of the bot alias.
-     * 
-     */
     public Output<String> checksum() {
         return this.checksum;
     }
-    /**
-     * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     * 
-     */
     @Export(name="conversationLogs", refs={BotAliasConversationLogs.class}, tree="[0]")
     private Output</* @Nullable */ BotAliasConversationLogs> conversationLogs;
 
-    /**
-     * @return The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     * 
-     */
     public Output<Optional<BotAliasConversationLogs>> conversationLogs() {
         return Codegen.optional(this.conversationLogs);
     }
-    /**
-     * The date that the bot alias was created.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return The date that the bot alias was created.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * A description of the alias. Must be less than or equal to 200 characters in length.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the alias. Must be less than or equal to 200 characters in length.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-     * 
-     */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
-    /**
-     * @return The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-     * 
-     */
     public Output<String> lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

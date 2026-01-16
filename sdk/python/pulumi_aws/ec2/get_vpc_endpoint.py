@@ -102,33 +102,21 @@ class GetVpcEndpointResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the VPC endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Sequence[_builtins.str]:
-        """
-        List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        """
         return pulumi.get(self, "cidr_blocks")
 
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetVpcEndpointDnsEntryResult']:
-        """
-        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
-        """
         return pulumi.get(self, "dns_entries")
 
     @_builtins.property
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> Sequence['outputs.GetVpcEndpointDnsOptionResult']:
-        """
-        DNS options for the VPC Endpoint. DNS options blocks are documented below.
-        """
         return pulumi.get(self, "dns_options")
 
     @_builtins.property
@@ -149,41 +137,26 @@ class GetVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> Sequence[_builtins.str]:
-        """
-        One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-        """
         return pulumi.get(self, "network_interface_ids")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
-        """
-        ID of the AWS account that owns the VPC endpoint.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> _builtins.str:
-        """
-        Policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> _builtins.str:
-        """
-        Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> _builtins.bool:
-        """
-        Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
-        """
         return pulumi.get(self, "private_dns_enabled")
 
     @_builtins.property
@@ -194,25 +167,16 @@ class GetVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="requesterManaged")
     def requester_managed(self) -> _builtins.bool:
-        """
-        Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
-        """
         return pulumi.get(self, "requester_managed")
 
     @_builtins.property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Sequence[_builtins.str]:
-        """
-        One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
-        """
         return pulumi.get(self, "route_table_ids")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
@@ -233,9 +197,6 @@ class GetVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
-        """
-        One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
@@ -296,37 +257,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointResult:
     """
-    The VPC Endpoint data source provides details about
-    a specific VPC endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=foo["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("private_s3",
-        vpc_endpoint_id=s3.id,
-        route_table_id=private["id"])
-    ```
-
-
-    :param Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPC Endpoint to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param _builtins.str service_region: AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
-    :param _builtins.str state: State of the specific VPC Endpoint to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the specific VPC Endpoint to retrieve.
-    :param _builtins.str vpc_endpoint_type: VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
-    :param _builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
-           
-           The arguments of this data source act as filters for querying the available VPC endpoints.
-           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -376,37 +307,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
-    The VPC Endpoint data source provides details about
-    a specific VPC endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Declare the data source
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=foo["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("private_s3",
-        vpc_endpoint_id=s3.id,
-        route_table_id=private["id"])
-    ```
-
-
-    :param Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str id: ID of the specific VPC Endpoint to retrieve.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param _builtins.str service_region: AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
-    :param _builtins.str state: State of the specific VPC Endpoint to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the specific VPC Endpoint to retrieve.
-    :param _builtins.str vpc_endpoint_type: VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
-    :param _builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
-           
-           The arguments of this data source act as filters for querying the available VPC endpoints.
-           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

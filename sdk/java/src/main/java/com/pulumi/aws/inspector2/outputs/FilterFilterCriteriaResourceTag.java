@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class FilterFilterCriteriaResourceTag {
-    /**
-     * @return (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     private String comparison;
-    /**
-     * @return (Required) The key to filter on.
-     * 
-     */
     private String key;
-    /**
-     * @return (Required) The value to filter on.
-     * 
-     */
     private String value;
 
     private FilterFilterCriteriaResourceTag() {}
-    /**
-     * @return (Required) The comparison operator. Valid values: `EQUALS`.
-     * 
-     */
     public String comparison() {
         return this.comparison;
     }
-    /**
-     * @return (Required) The key to filter on.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return (Required) The value to filter on.
-     * 
-     */
     public String value() {
         return this.value;
     }

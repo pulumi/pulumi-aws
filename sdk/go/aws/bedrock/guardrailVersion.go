@@ -12,61 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Bedrock Guardrail Version.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewGuardrailVersion(ctx, "example", &bedrock.GuardrailVersionArgs{
-//				Description:  pulumi.String("example"),
-//				GuardrailArn: pulumi.Any(test.GuardrailArn),
-//				SkipDestroy:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
-//
-// ```sh
-// $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
-// ```
 type GuardrailVersion struct {
 	pulumi.CustomResourceState
 
-	// Description of the Guardrail version.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Guardrail ARN.
-	//
-	// The following arguments are optional:
-	GuardrailArn pulumi.StringOutput `pulumi:"guardrailArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-	SkipDestroy pulumi.BoolPtrOutput              `pulumi:"skipDestroy"`
-	Timeouts    GuardrailVersionTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Guardrail version.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Description  pulumi.StringPtrOutput            `pulumi:"description"`
+	GuardrailArn pulumi.StringOutput               `pulumi:"guardrailArn"`
+	Region       pulumi.StringOutput               `pulumi:"region"`
+	SkipDestroy  pulumi.BoolPtrOutput              `pulumi:"skipDestroy"`
+	Timeouts     GuardrailVersionTimeoutsPtrOutput `pulumi:"timeouts"`
+	Version      pulumi.StringOutput               `pulumi:"version"`
 }
 
 // NewGuardrailVersion registers a new resource with the given unique name, arguments, and options.
@@ -102,35 +56,21 @@ func GetGuardrailVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GuardrailVersion resources.
 type guardrailVersionState struct {
-	// Description of the Guardrail version.
-	Description *string `pulumi:"description"`
-	// Guardrail ARN.
-	//
-	// The following arguments are optional:
-	GuardrailArn *string `pulumi:"guardrailArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-	SkipDestroy *bool                     `pulumi:"skipDestroy"`
-	Timeouts    *GuardrailVersionTimeouts `pulumi:"timeouts"`
-	// Guardrail version.
-	Version *string `pulumi:"version"`
+	Description  *string                   `pulumi:"description"`
+	GuardrailArn *string                   `pulumi:"guardrailArn"`
+	Region       *string                   `pulumi:"region"`
+	SkipDestroy  *bool                     `pulumi:"skipDestroy"`
+	Timeouts     *GuardrailVersionTimeouts `pulumi:"timeouts"`
+	Version      *string                   `pulumi:"version"`
 }
 
 type GuardrailVersionState struct {
-	// Description of the Guardrail version.
-	Description pulumi.StringPtrInput
-	// Guardrail ARN.
-	//
-	// The following arguments are optional:
+	Description  pulumi.StringPtrInput
 	GuardrailArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-	SkipDestroy pulumi.BoolPtrInput
-	Timeouts    GuardrailVersionTimeoutsPtrInput
-	// Guardrail version.
-	Version pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	SkipDestroy  pulumi.BoolPtrInput
+	Timeouts     GuardrailVersionTimeoutsPtrInput
+	Version      pulumi.StringPtrInput
 }
 
 func (GuardrailVersionState) ElementType() reflect.Type {
@@ -138,32 +78,20 @@ func (GuardrailVersionState) ElementType() reflect.Type {
 }
 
 type guardrailVersionArgs struct {
-	// Description of the Guardrail version.
-	Description *string `pulumi:"description"`
-	// Guardrail ARN.
-	//
-	// The following arguments are optional:
-	GuardrailArn string `pulumi:"guardrailArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-	SkipDestroy *bool                     `pulumi:"skipDestroy"`
-	Timeouts    *GuardrailVersionTimeouts `pulumi:"timeouts"`
+	Description  *string                   `pulumi:"description"`
+	GuardrailArn string                    `pulumi:"guardrailArn"`
+	Region       *string                   `pulumi:"region"`
+	SkipDestroy  *bool                     `pulumi:"skipDestroy"`
+	Timeouts     *GuardrailVersionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a GuardrailVersion resource.
 type GuardrailVersionArgs struct {
-	// Description of the Guardrail version.
-	Description pulumi.StringPtrInput
-	// Guardrail ARN.
-	//
-	// The following arguments are optional:
+	Description  pulumi.StringPtrInput
 	GuardrailArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
-	SkipDestroy pulumi.BoolPtrInput
-	Timeouts    GuardrailVersionTimeoutsPtrInput
+	Region       pulumi.StringPtrInput
+	SkipDestroy  pulumi.BoolPtrInput
+	Timeouts     GuardrailVersionTimeoutsPtrInput
 }
 
 func (GuardrailVersionArgs) ElementType() reflect.Type {
@@ -253,24 +181,18 @@ func (o GuardrailVersionOutput) ToGuardrailVersionOutputWithContext(ctx context.
 	return o
 }
 
-// Description of the Guardrail version.
 func (o GuardrailVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Guardrail ARN.
-//
-// The following arguments are optional:
 func (o GuardrailVersionOutput) GuardrailArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.GuardrailArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GuardrailVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 func (o GuardrailVersionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -279,7 +201,6 @@ func (o GuardrailVersionOutput) Timeouts() GuardrailVersionTimeoutsPtrOutput {
 	return o.ApplyT(func(v *GuardrailVersion) GuardrailVersionTimeoutsPtrOutput { return v.Timeouts }).(GuardrailVersionTimeoutsPtrOutput)
 }
 
-// Guardrail version.
 func (o GuardrailVersionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

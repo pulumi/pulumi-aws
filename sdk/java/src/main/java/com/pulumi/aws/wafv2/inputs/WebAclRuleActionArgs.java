@@ -19,77 +19,37 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
 
     public static final WebAclRuleActionArgs Empty = new WebAclRuleActionArgs();
 
-    /**
-     * Instructs AWS WAF to allow the web request. See `allow` below for details.
-     * 
-     */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleActionAllowArgs> allow;
 
-    /**
-     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleActionAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
-    /**
-     * Instructs AWS WAF to block the web request. See `block` below for details.
-     * 
-     */
     @Import(name="block")
     private @Nullable Output<WebAclRuleActionBlockArgs> block;
 
-    /**
-     * @return Instructs AWS WAF to block the web request. See `block` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleActionBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
 
-    /**
-     * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleActionCaptchaArgs> captcha;
 
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleActionCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
-    /**
-     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleActionChallengeArgs> challenge;
 
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleActionChallengeArgs>> challenge() {
         return Optional.ofNullable(this.challenge);
     }
 
-    /**
-     * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<WebAclRuleActionCountArgs> count;
 
-    /**
-     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleActionCountArgs>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -122,107 +82,47 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
             $ = new WebAclRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(@Nullable Output<WebAclRuleActionAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
-        /**
-         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(WebAclRuleActionAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
-        /**
-         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(@Nullable Output<WebAclRuleActionBlockArgs> block) {
             $.block = block;
             return this;
         }
 
-        /**
-         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(WebAclRuleActionBlockArgs block) {
             return block(Output.of(block));
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(@Nullable Output<WebAclRuleActionCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(WebAclRuleActionCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }
 
-        /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(@Nullable Output<WebAclRuleActionChallengeArgs> challenge) {
             $.challenge = challenge;
             return this;
         }
 
-        /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(WebAclRuleActionChallengeArgs challenge) {
             return challenge(Output.of(challenge));
         }
 
-        /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<WebAclRuleActionCountArgs> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(WebAclRuleActionCountArgs count) {
             return count(Output.of(count));
         }

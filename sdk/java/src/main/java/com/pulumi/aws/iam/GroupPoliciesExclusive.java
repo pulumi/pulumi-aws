@@ -14,43 +14,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * Using `pulumi import`, import exclusive management of inline policy assignments using the `group_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup
- * ```
- * 
- */
 @ResourceType(type="aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive")
 public class GroupPoliciesExclusive extends com.pulumi.resources.CustomResource {
-    /**
-     * IAM group name.
-     * 
-     */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
-    /**
-     * @return IAM group name.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
-    /**
-     * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     @Export(name="policyNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> policyNames;
 
-    /**
-     * @return A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyNames() {
         return this.policyNames;
     }

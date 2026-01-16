@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionTarget {
-    /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return Virtual service gateway route target.
-     * 
-     */
     private GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService;
 
     private GatewayRouteSpecHttp2RouteActionTarget() {}
-    /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return Virtual service gateway route target.
-     * 
-     */
     public GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService() {
         return this.virtualService;
     }

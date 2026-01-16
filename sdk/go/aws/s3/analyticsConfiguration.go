@@ -12,119 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
-//
-// > This resource cannot be used with S3 directory buckets.
-//
-// ## Example Usage
-//
-// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			analytics, err := s3.NewBucket(ctx, "analytics", &s3.BucketArgs{
-//				Bucket: pulumi.String("analytics-destination"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("EntireBucket"),
-//				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
-//					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
-//						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
-//							S3BucketDestination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{
-//								BucketArn: analytics.Arn,
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Add analytics configuration with S3 object filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID(),
-//				Name:   pulumi.String("ImportantBlueDocuments"),
-//				Filter: &s3.AnalyticsConfigurationFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
-//
-// ```sh
-// $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-// ```
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Name of the bucket this analytics configuration is associated with.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter AnalyticsConfigurationFilterPtrOutput `pulumi:"filter"`
-	// Unique identifier of the analytics configuration for the bucket.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration for the analytics data export (documented below).
+	Bucket               pulumi.StringOutput                                 `pulumi:"bucket"`
+	Filter               AnalyticsConfigurationFilterPtrOutput               `pulumi:"filter"`
+	Name                 pulumi.StringOutput                                 `pulumi:"name"`
+	Region               pulumi.StringOutput                                 `pulumi:"region"`
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrOutput `pulumi:"storageClassAnalysis"`
 }
 
@@ -161,28 +55,18 @@ func GetAnalyticsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsConfiguration resources.
 type analyticsConfigurationState struct {
-	// Name of the bucket this analytics configuration is associated with.
-	Bucket *string `pulumi:"bucket"`
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
-	// Unique identifier of the analytics configuration for the bucket.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration for the analytics data export (documented below).
+	Bucket               *string                                     `pulumi:"bucket"`
+	Filter               *AnalyticsConfigurationFilter               `pulumi:"filter"`
+	Name                 *string                                     `pulumi:"name"`
+	Region               *string                                     `pulumi:"region"`
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
 
 type AnalyticsConfigurationState struct {
-	// Name of the bucket this analytics configuration is associated with.
-	Bucket pulumi.StringPtrInput
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter AnalyticsConfigurationFilterPtrInput
-	// Unique identifier of the analytics configuration for the bucket.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration for the analytics data export (documented below).
+	Bucket               pulumi.StringPtrInput
+	Filter               AnalyticsConfigurationFilterPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
 
@@ -191,29 +75,19 @@ func (AnalyticsConfigurationState) ElementType() reflect.Type {
 }
 
 type analyticsConfigurationArgs struct {
-	// Name of the bucket this analytics configuration is associated with.
-	Bucket string `pulumi:"bucket"`
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
-	// Unique identifier of the analytics configuration for the bucket.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration for the analytics data export (documented below).
+	Bucket               string                                      `pulumi:"bucket"`
+	Filter               *AnalyticsConfigurationFilter               `pulumi:"filter"`
+	Name                 *string                                     `pulumi:"name"`
+	Region               *string                                     `pulumi:"region"`
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
 
 // The set of arguments for constructing a AnalyticsConfiguration resource.
 type AnalyticsConfigurationArgs struct {
-	// Name of the bucket this analytics configuration is associated with.
-	Bucket pulumi.StringInput
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter AnalyticsConfigurationFilterPtrInput
-	// Unique identifier of the analytics configuration for the bucket.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration for the analytics data export (documented below).
+	Bucket               pulumi.StringInput
+	Filter               AnalyticsConfigurationFilterPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
 
@@ -304,27 +178,22 @@ func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutputWithContext(
 	return o
 }
 
-// Name of the bucket this analytics configuration is associated with.
 func (o AnalyticsConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 func (o AnalyticsConfigurationOutput) Filter() AnalyticsConfigurationFilterPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) AnalyticsConfigurationFilterPtrOutput { return v.Filter }).(AnalyticsConfigurationFilterPtrOutput)
 }
 
-// Unique identifier of the analytics configuration for the bucket.
 func (o AnalyticsConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AnalyticsConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration for the analytics data export (documented below).
 func (o AnalyticsConfigurationOutput) StorageClassAnalysis() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
 		return v.StorageClassAnalysis

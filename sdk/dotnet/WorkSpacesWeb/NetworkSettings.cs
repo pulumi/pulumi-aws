@@ -9,129 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Network Settings resource. Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleSubnet = new List&lt;Aws.Ec2.Subnet&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
-    ///         {
-    ///             VpcId = example.Id,
-    ///             CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
-    ///             {
-    ///                 Input = cidrBlock,
-    ///                 Newbits = 8,
-    ///                 Netnum = range.Value,
-    ///             })).Apply(invoke =&gt; invoke.Result),
-    ///             AvailabilityZone = available.Names[range.Value],
-    ///         }));
-    ///     }
-    ///     var example1 = new List&lt;Aws.Ec2.SecurityGroup&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         example1.Add(new Aws.Ec2.SecurityGroup($"example1-{range.Value}", new()
-    ///         {
-    ///             VpcId = example.Id,
-    ///             Name = $"example-sg-{range.Value}$",
-    ///         }));
-    ///     }
-    ///     var exampleNetworkSettings = new Aws.WorkSpacesWeb.NetworkSettings("example", new()
-    ///     {
-    ///         VpcId = example.Id,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleSubnet[0].Id,
-    ///             exampleSubnet[1].Id,
-    ///         },
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             exampleAwsSecurityGroup[0].Id,
-    ///             exampleAwsSecurityGroup[1].Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Network Settings using the `network_settings_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/networkSettings:NetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/networkSettings:NetworkSettings")]
     public partial class NetworkSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of web portal ARNs associated with the network settings.
-        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the network settings resource.
-        /// </summary>
         [Output("networkSettingsArn")]
         public Output<string> NetworkSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more security groups used to control access from streaming instances to your VPC.
-        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC that streaming instances will connect to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -185,18 +86,11 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class NetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// One or more security groups used to control access from streaming instances to your VPC.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -205,10 +99,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -217,21 +107,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The VPC that streaming instances will connect to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -245,34 +126,20 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("associatedPortalArns")]
         private InputList<string>? _associatedPortalArns;
-
-        /// <summary>
-        /// List of web portal ARNs associated with the network settings.
-        /// </summary>
         public InputList<string> AssociatedPortalArns
         {
             get => _associatedPortalArns ?? (_associatedPortalArns = new InputList<string>());
             set => _associatedPortalArns = value;
         }
 
-        /// <summary>
-        /// ARN of the network settings resource.
-        /// </summary>
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// One or more security groups used to control access from streaming instances to your VPC.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -281,10 +148,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -293,10 +156,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -305,21 +164,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The VPC that streaming instances will connect to.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

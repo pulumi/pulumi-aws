@@ -15,144 +15,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway Gateway Response for a REST API Gateway.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Response;
- * import com.pulumi.aws.apigateway.ResponseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new RestApi("main", RestApiArgs.builder()
- *             .name("MyDemoAPI")
- *             .build());
- * 
- *         var test = new Response("test", ResponseArgs.builder()
- *             .restApiId(main.id())
- *             .statusCode("401")
- *             .responseType("UNAUTHORIZED")
- *             .responseTemplates(Map.of("application/json", "{\"message\":$context.error.messageString}"))
- *             .responseParameters(Map.of("gatewayresponse.header.Authorization", "'Basic'"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
- * 
- * ```sh
- * $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/response:Response")
 public class Response extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of parameters (paths, query strings and headers) of the Gateway Response.
-     * 
-     */
     @Export(name="responseParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
-    /**
-     * @return Map of parameters (paths, query strings and headers) of the Gateway Response.
-     * 
-     */
     public Output<Optional<Map<String,String>>> responseParameters() {
         return Codegen.optional(this.responseParameters);
     }
-    /**
-     * Map of templates used to transform the response body.
-     * 
-     */
     @Export(name="responseTemplates", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
-    /**
-     * @return Map of templates used to transform the response body.
-     * 
-     */
     public Output<Optional<Map<String,String>>> responseTemplates() {
         return Codegen.optional(this.responseTemplates);
     }
-    /**
-     * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-     * 
-     */
     @Export(name="responseType", refs={String.class}, tree="[0]")
     private Output<String> responseType;
 
-    /**
-     * @return Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
-     * 
-     */
     public Output<String> responseType() {
         return this.responseType;
     }
-    /**
-     * String identifier of the associated REST API.
-     * 
-     */
     @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
-    /**
-     * @return String identifier of the associated REST API.
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
-    /**
-     * HTTP status code of the Gateway Response.
-     * 
-     */
     @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> statusCode;
 
-    /**
-     * @return HTTP status code of the Gateway Response.
-     * 
-     */
     public Output<Optional<String>> statusCode() {
         return Codegen.optional(this.statusCode);
     }

@@ -11,137 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-//				Alias: pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### CloudWatch Logging
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-//				LoggingConfiguration: &amp.WorkspaceLoggingConfigurationArgs{
-//					LogGroupArn: example.Arn.ApplyT(func(arn string) (string, error) {
-//						return fmt.Sprintf("%v:*", arn), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### AWS KMS Customer Managed Keys (CMK)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-//				Alias:     pulumi.String("example"),
-//				KmsKeyArn: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AMP Workspaces using the identifier. For example:
-//
-// ```sh
-// $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-	Alias pulumi.StringPtrOutput `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the workspace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Logging configuration for the workspace. See Logging Configuration below for details.
+	Alias                pulumi.StringPtrOutput                 `pulumi:"alias"`
+	Arn                  pulumi.StringOutput                    `pulumi:"arn"`
+	KmsKeyArn            pulumi.StringPtrOutput                 `pulumi:"kmsKeyArn"`
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
-	// Prometheus endpoint available for this workspace.
-	PrometheusEndpoint pulumi.StringOutput `pulumi:"prometheusEndpoint"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	PrometheusEndpoint   pulumi.StringOutput                    `pulumi:"prometheusEndpoint"`
+	Region               pulumi.StringOutput                    `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -174,41 +54,25 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-	Alias *string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the workspace.
-	Arn *string `pulumi:"arn"`
-	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Logging configuration for the workspace. See Logging Configuration below for details.
+	Alias                *string                        `pulumi:"alias"`
+	Arn                  *string                        `pulumi:"arn"`
+	KmsKeyArn            *string                        `pulumi:"kmsKeyArn"`
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// Prometheus endpoint available for this workspace.
-	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	PrometheusEndpoint   *string                        `pulumi:"prometheusEndpoint"`
+	Region               *string                        `pulumi:"region"`
+	Tags                 map[string]string              `pulumi:"tags"`
+	TagsAll              map[string]string              `pulumi:"tagsAll"`
 }
 
 type WorkspaceState struct {
-	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-	Alias pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the workspace.
-	Arn pulumi.StringPtrInput
-	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-	KmsKeyArn pulumi.StringPtrInput
-	// Logging configuration for the workspace. See Logging Configuration below for details.
+	Alias                pulumi.StringPtrInput
+	Arn                  pulumi.StringPtrInput
+	KmsKeyArn            pulumi.StringPtrInput
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
-	// Prometheus endpoint available for this workspace.
-	PrometheusEndpoint pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	PrometheusEndpoint   pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -216,30 +80,20 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-	Alias *string `pulumi:"alias"`
-	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Logging configuration for the workspace. See Logging Configuration below for details.
+	Alias                *string                        `pulumi:"alias"`
+	KmsKeyArn            *string                        `pulumi:"kmsKeyArn"`
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Region               *string                        `pulumi:"region"`
+	Tags                 map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-	Alias pulumi.StringPtrInput
-	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-	KmsKeyArn pulumi.StringPtrInput
-	// Logging configuration for the workspace. See Logging Configuration below for details.
+	Alias                pulumi.StringPtrInput
+	KmsKeyArn            pulumi.StringPtrInput
 	LoggingConfiguration WorkspaceLoggingConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -329,42 +183,34 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the workspace.
 func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
 func (o WorkspaceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Logging configuration for the workspace. See Logging Configuration below for details.
 func (o WorkspaceOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-// Prometheus endpoint available for this workspace.
 func (o WorkspaceOutput) PrometheusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PrometheusEndpoint }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

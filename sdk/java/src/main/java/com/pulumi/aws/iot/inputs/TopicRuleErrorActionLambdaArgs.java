@@ -14,17 +14,9 @@ public final class TopicRuleErrorActionLambdaArgs extends com.pulumi.resources.R
 
     public static final TopicRuleErrorActionLambdaArgs Empty = new TopicRuleErrorActionLambdaArgs();
 
-    /**
-     * The ARN of the Lambda function.
-     * 
-     */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
-    /**
-     * @return The ARN of the Lambda function.
-     * 
-     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
@@ -53,23 +45,11 @@ public final class TopicRuleErrorActionLambdaArgs extends com.pulumi.resources.R
             $ = new TopicRuleErrorActionLambdaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionArn The ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(Output<String> functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param functionArn The ARN of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             return functionArn(Output.of(functionArn));
         }

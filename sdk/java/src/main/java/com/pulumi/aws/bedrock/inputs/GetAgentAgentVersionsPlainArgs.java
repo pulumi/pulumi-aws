@@ -17,47 +17,23 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
 
     public static final GetAgentAgentVersionsPlainArgs Empty = new GetAgentAgentVersionsPlainArgs();
 
-    /**
-     * Unique identifier of the agent.
-     * 
-     */
     @Import(name="agentId", required=true)
     private String agentId;
 
-    /**
-     * @return Unique identifier of the agent.
-     * 
-     */
     public String agentId() {
         return this.agentId;
     }
 
-    /**
-     * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     * 
-     */
     @Import(name="agentVersionSummaries")
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries;
 
-    /**
-     * @return List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-     * 
-     */
     public Optional<List<GetAgentAgentVersionsAgentVersionSummary>> agentVersionSummaries() {
         return Optional.ofNullable(this.agentVersionSummaries);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -88,44 +64,20 @@ public final class GetAgentAgentVersionsPlainArgs extends com.pulumi.resources.I
             $ = new GetAgentAgentVersionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param agentId Unique identifier of the agent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentId(String agentId) {
             $.agentId = agentId;
             return this;
         }
 
-        /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersionSummaries(@Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries) {
             $.agentVersionSummaries = agentVersionSummaries;
             return this;
         }
 
-        /**
-         * @param agentVersionSummaries List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
-         * 
-         * @return builder
-         * 
-         */
         public Builder agentVersionSummaries(GetAgentAgentVersionsAgentVersionSummary... agentVersionSummaries) {
             return agentVersionSummaries(List.of(agentVersionSummaries));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

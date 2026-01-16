@@ -32,16 +32,6 @@ class ResourceGatewayArgs:
                  timeouts: Optional[pulumi.Input['ResourceGatewayTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceGateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC for the resource gateway.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -63,9 +53,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        IDs of the VPC subnets in which to create the resource gateway.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -75,11 +62,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the VPC for the resource gateway.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -89,9 +71,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -101,9 +80,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="ipv4AddressesPerEni")
     def ipv4_addresses_per_eni(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        """
         return pulumi.get(self, "ipv4_addresses_per_eni")
 
     @ipv4_addresses_per_eni.setter
@@ -113,9 +89,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the resource gateway.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -125,9 +98,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,9 +107,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -149,9 +116,6 @@ class ResourceGatewayArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -185,19 +149,6 @@ class _ResourceGatewayState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceGateway resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        :param pulumi.Input[_builtins.str] status: Status of the resource gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC for the resource gateway.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -227,9 +178,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the resource gateway.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -239,9 +187,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -251,9 +196,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter(name="ipv4AddressesPerEni")
     def ipv4_addresses_per_eni(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        """
         return pulumi.get(self, "ipv4_addresses_per_eni")
 
     @ipv4_addresses_per_eni.setter
@@ -263,9 +205,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the resource gateway.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -275,9 +214,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -287,9 +223,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -299,9 +232,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the resource gateway.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -311,9 +241,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        IDs of the VPC subnets in which to create the resource gateway.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -323,9 +250,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -335,9 +259,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -356,11 +277,6 @@ class _ResourceGatewayState:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the VPC for the resource gateway.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -385,74 +301,9 @@ class ResourceGateway(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC Lattice Resource Gateway.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceGateway("example",
-            name="Example",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### Specifying IP address type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceGateway("example",
-            name="Example",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            ip_address_type="DUALSTACK",
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### With security groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceGateway("example",
-            name="Example",
-            vpc_id=example_aws_vpc["id"],
-            security_group_ids=[test["id"]],
-            subnet_ids=[example_aws_subnet["id"]])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Resource Gateway using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f
-        ```
-
+        Create a ResourceGateway resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC for the resource gateway.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -461,62 +312,7 @@ class ResourceGateway(pulumi.CustomResource):
                  args: ResourceGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC Lattice Resource Gateway.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceGateway("example",
-            name="Example",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### Specifying IP address type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceGateway("example",
-            name="Example",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            ip_address_type="DUALSTACK",
-            tags={
-                "Environment": "Example",
-            })
-        ```
-
-        ### With security groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ResourceGateway("example",
-            name="Example",
-            vpc_id=example_aws_vpc["id"],
-            security_group_ids=[test["id"]],
-            subnet_ids=[example_aws_subnet["id"]])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Lattice Resource Gateway using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f
-        ```
-
+        Create a ResourceGateway resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -595,19 +391,6 @@ class ResourceGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
-        :param pulumi.Input[_builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        :param pulumi.Input[_builtins.str] status: Status of the resource gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC for the resource gateway.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -630,81 +413,51 @@ class ResourceGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the resource gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="ipv4AddressesPerEni")
     def ipv4_addresses_per_eni(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-        """
         return pulumi.get(self, "ipv4_addresses_per_eni")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the resource gateway.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the resource gateway.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        IDs of the VPC subnets in which to create the resource gateway.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -715,10 +468,5 @@ class ResourceGateway(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the VPC for the resource gateway.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "vpc_id")
 

@@ -14,47 +14,23 @@ public final class EventPermissionConditionArgs extends com.pulumi.resources.Res
 
     public static final EventPermissionConditionArgs Empty = new EventPermissionConditionArgs();
 
-    /**
-     * Key for the condition. Valid values: `aws:PrincipalOrgID`.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key for the condition. Valid values: `aws:PrincipalOrgID`.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Type of condition. Value values: `StringEquals`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of condition. Value values: `StringEquals`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Value for the key.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value for the key.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -85,65 +61,29 @@ public final class EventPermissionConditionArgs extends com.pulumi.resources.Res
             $ = new EventPermissionConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key for the condition. Valid values: `aws:PrincipalOrgID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key for the condition. Valid values: `aws:PrincipalOrgID`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param type Type of condition. Value values: `StringEquals`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of condition. Value values: `StringEquals`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value Value for the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value for the key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

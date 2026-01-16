@@ -14,17 +14,9 @@ public final class GetServiceAccountPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetServiceAccountPlainArgs Empty = new GetServiceAccountPlainArgs();
 
-    /**
-     * Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -53,12 +45,6 @@ public final class GetServiceAccountPlainArgs extends com.pulumi.resources.Invok
             $ = new GetServiceAccountPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

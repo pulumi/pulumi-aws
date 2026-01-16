@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolEmailMfaConfiguration {
-    /**
-     * @return The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
-     * 
-     */
     private @Nullable String message;
-    /**
-     * @return The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-     * 
-     */
     private @Nullable String subject;
 
     private UserPoolEmailMfaConfiguration() {}
-    /**
-     * @return The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
-     * 
-     */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }
-    /**
-     * @return The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
-     * 
-     */
     public Optional<String> subject() {
         return Optional.ofNullable(this.subject);
     }

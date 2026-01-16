@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration {
-    /**
-     * @return Lambda Function to deliver results.
-     * 
-     */
     private String insightsTarget;
 
     private MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration() {}
-    /**
-     * @return Lambda Function to deliver results.
-     * 
-     */
     public String insightsTarget() {
         return this.insightsTarget;
     }

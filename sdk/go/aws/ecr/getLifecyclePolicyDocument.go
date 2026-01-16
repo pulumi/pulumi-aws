@@ -11,55 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `ecr.LifecyclePolicy` resource.
-//
-// > For more information about building AWS ECR lifecycle policy documents, see the [AWS ECR Lifecycle Policy Document Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ecr.GetLifecyclePolicyDocument(ctx, &ecr.GetLifecyclePolicyDocumentArgs{
-//				Rules: []ecr.GetLifecyclePolicyDocumentRule{
-//					{
-//						Priority:    1,
-//						Description: pulumi.StringRef("This is a test."),
-//						Selection: {
-//							TagStatus: "tagged",
-//							TagPrefixLists: []string{
-//								"prod",
-//							},
-//							CountType:   "imageCountMoreThan",
-//							CountNumber: 100,
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
-//				Repository: pulumi.Any(exampleAwsEcrRepository.Name),
-//				Policy:     pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLifecyclePolicyDocument(ctx *pulumi.Context, args *GetLifecyclePolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLifecyclePolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLifecyclePolicyDocumentResult
@@ -78,8 +29,7 @@ type GetLifecyclePolicyDocumentArgs struct {
 // A collection of values returned by getLifecyclePolicyDocument.
 type GetLifecyclePolicyDocumentResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The above arguments serialized as a standard JSON policy document.
+	Id    string                           `pulumi:"id"`
 	Json  string                           `pulumi:"json"`
 	Rules []GetLifecyclePolicyDocumentRule `pulumi:"rules"`
 }
@@ -122,7 +72,6 @@ func (o GetLifecyclePolicyDocumentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The above arguments serialized as a standard JSON policy document.
 func (o GetLifecyclePolicyDocumentResultOutput) Json() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
 }

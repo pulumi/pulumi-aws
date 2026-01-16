@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Route53Domains.Outputs
     [OutputType]
     public sealed class DelegationSignerRecordSigningAttributes
     {
-        /// <summary>
-        /// Algorithm which was used to generate the digest from the public key.
-        /// </summary>
         public readonly int Algorithm;
-        /// <summary>
-        /// Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-        /// </summary>
         public readonly int Flags;
-        /// <summary>
-        /// The base64-encoded public key part of the key pair that is passed to the registry.
-        /// </summary>
         public readonly string PublicKey;
 
         [OutputConstructor]

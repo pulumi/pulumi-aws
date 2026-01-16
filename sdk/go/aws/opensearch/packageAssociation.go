@@ -12,67 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Opensearch Package Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDomain, err := opensearch.NewDomain(ctx, "my_domain", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("my-opensearch-domain"),
-//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
-//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.search"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := opensearch.NewPackage(ctx, "example", &opensearch.PackageArgs{
-//				PackageName: pulumi.String("example-txt"),
-//				PackageSource: &opensearch.PackagePackageSourceArgs{
-//					S3BucketName: pulumi.Any(myOpensearchPackages.Bucket),
-//					S3Key:        pulumi.Any(exampleAwsS3Object.Key),
-//				},
-//				PackageType: pulumi.String("TXT-DICTIONARY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewPackageAssociation(ctx, "example", &opensearch.PackageAssociationArgs{
-//				PackageId:  example.ID(),
-//				DomainName: myDomain.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type PackageAssociation struct {
 	pulumi.CustomResourceState
 
-	// Name of the domain to associate the package with.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Internal ID of the package to associate with a domain.
+	DomainName    pulumi.StringOutput `pulumi:"domainName"`
 	PackageId     pulumi.StringOutput `pulumi:"packageId"`
 	ReferencePath pulumi.StringOutput `pulumi:"referencePath"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPackageAssociation registers a new resource with the given unique name, arguments, and options.
@@ -111,23 +57,17 @@ func GetPackageAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PackageAssociation resources.
 type packageAssociationState struct {
-	// Name of the domain to associate the package with.
-	DomainName *string `pulumi:"domainName"`
-	// Internal ID of the package to associate with a domain.
+	DomainName    *string `pulumi:"domainName"`
 	PackageId     *string `pulumi:"packageId"`
 	ReferencePath *string `pulumi:"referencePath"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region        *string `pulumi:"region"`
 }
 
 type PackageAssociationState struct {
-	// Name of the domain to associate the package with.
-	DomainName pulumi.StringPtrInput
-	// Internal ID of the package to associate with a domain.
+	DomainName    pulumi.StringPtrInput
 	PackageId     pulumi.StringPtrInput
 	ReferencePath pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 }
 
 func (PackageAssociationState) ElementType() reflect.Type {
@@ -135,22 +75,16 @@ func (PackageAssociationState) ElementType() reflect.Type {
 }
 
 type packageAssociationArgs struct {
-	// Name of the domain to associate the package with.
-	DomainName string `pulumi:"domainName"`
-	// Internal ID of the package to associate with a domain.
-	PackageId string `pulumi:"packageId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DomainName string  `pulumi:"domainName"`
+	PackageId  string  `pulumi:"packageId"`
+	Region     *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PackageAssociation resource.
 type PackageAssociationArgs struct {
-	// Name of the domain to associate the package with.
 	DomainName pulumi.StringInput
-	// Internal ID of the package to associate with a domain.
-	PackageId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	PackageId  pulumi.StringInput
+	Region     pulumi.StringPtrInput
 }
 
 func (PackageAssociationArgs) ElementType() reflect.Type {
@@ -240,12 +174,10 @@ func (o PackageAssociationOutput) ToPackageAssociationOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the domain to associate the package with.
 func (o PackageAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Internal ID of the package to associate with a domain.
 func (o PackageAssociationOutput) PackageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
 }
@@ -254,7 +186,6 @@ func (o PackageAssociationOutput) ReferencePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.ReferencePath }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PackageAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

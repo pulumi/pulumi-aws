@@ -19,77 +19,37 @@ public final class CapabilityConfigurationArgoCdArgs extends com.pulumi.resource
 
     public static final CapabilityConfigurationArgoCdArgs Empty = new CapabilityConfigurationArgoCdArgs();
 
-    /**
-     * AWS IAM Identity Center configuration. See `awsIdc` below.
-     * 
-     */
     @Import(name="awsIdc")
     private @Nullable Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc;
 
-    /**
-     * @return AWS IAM Identity Center configuration. See `awsIdc` below.
-     * 
-     */
     public Optional<Output<CapabilityConfigurationArgoCdAwsIdcArgs>> awsIdc() {
         return Optional.ofNullable(this.awsIdc);
     }
 
-    /**
-     * Kubernetes namespace for ArgoCD.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Kubernetes namespace for ArgoCD.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Network access configuration. See `networkAccess` below.
-     * 
-     */
     @Import(name="networkAccess")
     private @Nullable Output<CapabilityConfigurationArgoCdNetworkAccessArgs> networkAccess;
 
-    /**
-     * @return Network access configuration. See `networkAccess` below.
-     * 
-     */
     public Optional<Output<CapabilityConfigurationArgoCdNetworkAccessArgs>> networkAccess() {
         return Optional.ofNullable(this.networkAccess);
     }
 
-    /**
-     * RBAC role mappings. See `rbacRoleMapping` below.
-     * 
-     */
     @Import(name="rbacRoleMappings")
     private @Nullable Output<List<CapabilityConfigurationArgoCdRbacRoleMappingArgs>> rbacRoleMappings;
 
-    /**
-     * @return RBAC role mappings. See `rbacRoleMapping` below.
-     * 
-     */
     public Optional<Output<List<CapabilityConfigurationArgoCdRbacRoleMappingArgs>>> rbacRoleMappings() {
         return Optional.ofNullable(this.rbacRoleMappings);
     }
 
-    /**
-     * URL of the Argo CD server.
-     * 
-     */
     @Import(name="serverUrl")
     private @Nullable Output<String> serverUrl;
 
-    /**
-     * @return URL of the Argo CD server.
-     * 
-     */
     public Optional<Output<String>> serverUrl() {
         return Optional.ofNullable(this.serverUrl);
     }
@@ -122,117 +82,51 @@ public final class CapabilityConfigurationArgoCdArgs extends com.pulumi.resource
             $ = new CapabilityConfigurationArgoCdArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsIdc AWS IAM Identity Center configuration. See `awsIdc` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsIdc(@Nullable Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc) {
             $.awsIdc = awsIdc;
             return this;
         }
 
-        /**
-         * @param awsIdc AWS IAM Identity Center configuration. See `awsIdc` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsIdc(CapabilityConfigurationArgoCdAwsIdcArgs awsIdc) {
             return awsIdc(Output.of(awsIdc));
         }
 
-        /**
-         * @param namespace Kubernetes namespace for ArgoCD.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Kubernetes namespace for ArgoCD.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param networkAccess Network access configuration. See `networkAccess` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAccess(@Nullable Output<CapabilityConfigurationArgoCdNetworkAccessArgs> networkAccess) {
             $.networkAccess = networkAccess;
             return this;
         }
 
-        /**
-         * @param networkAccess Network access configuration. See `networkAccess` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAccess(CapabilityConfigurationArgoCdNetworkAccessArgs networkAccess) {
             return networkAccess(Output.of(networkAccess));
         }
 
-        /**
-         * @param rbacRoleMappings RBAC role mappings. See `rbacRoleMapping` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rbacRoleMappings(@Nullable Output<List<CapabilityConfigurationArgoCdRbacRoleMappingArgs>> rbacRoleMappings) {
             $.rbacRoleMappings = rbacRoleMappings;
             return this;
         }
 
-        /**
-         * @param rbacRoleMappings RBAC role mappings. See `rbacRoleMapping` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rbacRoleMappings(List<CapabilityConfigurationArgoCdRbacRoleMappingArgs> rbacRoleMappings) {
             return rbacRoleMappings(Output.of(rbacRoleMappings));
         }
 
-        /**
-         * @param rbacRoleMappings RBAC role mappings. See `rbacRoleMapping` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rbacRoleMappings(CapabilityConfigurationArgoCdRbacRoleMappingArgs... rbacRoleMappings) {
             return rbacRoleMappings(List.of(rbacRoleMappings));
         }
 
-        /**
-         * @param serverUrl URL of the Argo CD server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverUrl(@Nullable Output<String> serverUrl) {
             $.serverUrl = serverUrl;
             return this;
         }
 
-        /**
-         * @param serverUrl URL of the Argo CD server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverUrl(String serverUrl) {
             return serverUrl(Output.of(serverUrl));
         }

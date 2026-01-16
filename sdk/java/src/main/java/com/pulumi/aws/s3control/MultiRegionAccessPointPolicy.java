@@ -14,174 +14,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Multi-Region Access Point access control policy.
- * 
- * ## Example Usage
- * 
- * ### Basic Example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
- * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
- * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
- * import com.pulumi.aws.s3control.MultiRegionAccessPointPolicy;
- * import com.pulumi.aws.s3control.MultiRegionAccessPointPolicyArgs;
- * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointPolicyDetailsArgs;
- * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.SplitArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
- *             .build());
- * 
- *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
- *             .build());
- * 
- *         var fooBucket = new Bucket("fooBucket", BucketArgs.builder()
- *             .bucket("example-bucket-foo")
- *             .build());
- * 
- *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()
- *             .details(MultiRegionAccessPointDetailsArgs.builder()
- *                 .name("example")
- *                 .regions(MultiRegionAccessPointDetailsRegionArgs.builder()
- *                     .bucket(fooBucket.id())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleMultiRegionAccessPointPolicy = new MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", MultiRegionAccessPointPolicyArgs.builder()
- *             .details(MultiRegionAccessPointPolicyDetailsArgs.builder()
- *                 .name(StdFunctions.split(SplitArgs.builder()
- *                     .separator(":")
- *                     .text(example.id())
- *                     .build()).applyValue(_invoke -> _invoke.result())[1])
- *                 .policy(example.alias().applyValue(_alias -> serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Sid", "Example"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", current.accountId())
- *                             )),
- *                             jsonProperty("Action", jsonArray(
- *                                 "s3:GetObject", 
- *                                 "s3:PutObject"
- *                             )),
- *                             jsonProperty("Resource", String.format("arn:%s:s3::%s:accesspoint/%s/object/*", currentGetPartition.partition(),current.accountId(),_alias))
- *                         )))
- *                     ))))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
- * 
- * ```sh
- * $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
- * ```
- * 
- */
 @ResourceType(type="aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")
 public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-     * 
-     */
     @Export(name="details", refs={MultiRegionAccessPointPolicyDetails.class}, tree="[0]")
     private Output<MultiRegionAccessPointPolicyDetails> details;
 
-    /**
-     * @return A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-     * 
-     */
     public Output<MultiRegionAccessPointPolicyDetails> details() {
         return this.details;
     }
-    /**
-     * The last established policy for the Multi-Region Access Point.
-     * 
-     */
     @Export(name="established", refs={String.class}, tree="[0]")
     private Output<String> established;
 
-    /**
-     * @return The last established policy for the Multi-Region Access Point.
-     * 
-     */
     public Output<String> established() {
         return this.established;
     }
-    /**
-     * The proposed policy for the Multi-Region Access Point.
-     * 
-     */
     @Export(name="proposed", refs={String.class}, tree="[0]")
     private Output<String> proposed;
 
-    /**
-     * @return The proposed policy for the Multi-Region Access Point.
-     * 
-     */
     public Output<String> proposed() {
         return this.proposed;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

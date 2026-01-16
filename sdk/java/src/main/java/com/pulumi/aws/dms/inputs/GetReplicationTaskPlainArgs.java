@@ -16,32 +16,16 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetReplicationTaskPlainArgs Empty = new GetReplicationTaskPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The replication task identifier.
-     * 
-     */
     @Import(name="replicationTaskId", required=true)
     private String replicationTaskId;
 
-    /**
-     * @return The replication task identifier.
-     * 
-     */
     public String replicationTaskId() {
         return this.replicationTaskId;
     }
@@ -79,23 +63,11 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
             $ = new GetReplicationTaskPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param replicationTaskId The replication task identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationTaskId(String replicationTaskId) {
             $.replicationTaskId = replicationTaskId;
             return this;

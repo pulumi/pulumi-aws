@@ -9,80 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DataExchange
 {
-    /// <summary>
-    /// Resource for managing AWS Data Exchange Revision Assets.
-    /// 
-    /// &gt; Note: This resource creates a new revision and adds associated assets. Destroying this resource will delete the revision and all associated assets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataExchange.RevisionAssets("example", new()
-    ///     {
-    ///         DataSetId = "example-data-set-id",
-    ///         Assets = new[]
-    ///         {
-    ///             new Aws.DataExchange.Inputs.RevisionAssetsAssetArgs
-    ///             {
-    ///                 CreateS3DataAccessFromS3Bucket = new Aws.DataExchange.Inputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs
-    ///                 {
-    ///                     AssetSource = new Aws.DataExchange.Inputs.RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs
-    ///                     {
-    ///                         Bucket = "example-bucket",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dataexchange/revisionAssets:RevisionAssets")]
     public partial class RevisionAssets : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Data Exchange Revision Assets.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A block to define the asset associated with the revision. See Asset for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("assets")]
         public Output<ImmutableArray<Outputs.RevisionAssetsAsset>> Assets { get; private set; } = null!;
 
-        /// <summary>
-        /// A comment for the revision. Maximum length is 16,348 characters.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// The timestamp when the revision was created, in RFC3339 format.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier for the data set associated with the revision.
-        /// </summary>
         [Output("dataSetId")]
         public Output<string> DataSetId { get; private set; } = null!;
 
@@ -92,30 +33,18 @@ namespace Pulumi.Aws.DataExchange
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.RevisionAssetsTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// The timestamp when the revision was last updated, in RFC3339 format.
-        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -167,27 +96,15 @@ namespace Pulumi.Aws.DataExchange
     {
         [Input("assets")]
         private InputList<Inputs.RevisionAssetsAssetArgs>? _assets;
-
-        /// <summary>
-        /// A block to define the asset associated with the revision. See Asset for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.RevisionAssetsAssetArgs> Assets
         {
             get => _assets ?? (_assets = new InputList<Inputs.RevisionAssetsAssetArgs>());
             set => _assets = value;
         }
 
-        /// <summary>
-        /// A comment for the revision. Maximum length is 16,348 characters.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the data set associated with the revision.
-        /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
@@ -197,18 +114,11 @@ namespace Pulumi.Aws.DataExchange
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -226,41 +136,23 @@ namespace Pulumi.Aws.DataExchange
 
     public sealed class RevisionAssetsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Data Exchange Revision Assets.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("assets")]
         private InputList<Inputs.RevisionAssetsAssetGetArgs>? _assets;
-
-        /// <summary>
-        /// A block to define the asset associated with the revision. See Asset for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public InputList<Inputs.RevisionAssetsAssetGetArgs> Assets
         {
             get => _assets ?? (_assets = new InputList<Inputs.RevisionAssetsAssetGetArgs>());
             set => _assets = value;
         }
 
-        /// <summary>
-        /// A comment for the revision. Maximum length is 16,348 characters.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// The timestamp when the revision was created, in RFC3339 format.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Unique identifier for the data set associated with the revision.
-        /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
@@ -270,18 +162,11 @@ namespace Pulumi.Aws.DataExchange
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -290,10 +175,6 @@ namespace Pulumi.Aws.DataExchange
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -303,9 +184,6 @@ namespace Pulumi.Aws.DataExchange
         [Input("timeouts")]
         public Input<Inputs.RevisionAssetsTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// The timestamp when the revision was last updated, in RFC3339 format.
-        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

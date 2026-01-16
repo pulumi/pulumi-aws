@@ -15,17 +15,9 @@ public final class LogDeliveryConfigurationLogConfigurationFirehoseConfiguration
 
     public static final LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs Empty = new LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs();
 
-    /**
-     * The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-     * 
-     */
     @Import(name="streamArn")
     private @Nullable Output<String> streamArn;
 
-    /**
-     * @return The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-     * 
-     */
     public Optional<Output<String>> streamArn() {
         return Optional.ofNullable(this.streamArn);
     }
@@ -54,23 +46,11 @@ public final class LogDeliveryConfigurationLogConfigurationFirehoseConfiguration
             $ = new LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param streamArn The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(@Nullable Output<String> streamArn) {
             $.streamArn = streamArn;
             return this;
         }
 
-        /**
-         * @param streamArn The ARN of the Kinesis Data Firehose delivery stream to which the logs should be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
         }

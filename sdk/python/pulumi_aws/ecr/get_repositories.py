@@ -40,17 +40,11 @@ class GetRepositoriesResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        AWS Region.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def names(self) -> Sequence[_builtins.str]:
-        """
-        A list if AWS Elastic Container Registries for the region.
-        """
         return pulumi.get(self, "names")
 
     @_builtins.property
@@ -73,21 +67,7 @@ class AwaitableGetRepositoriesResult(GetRepositoriesResult):
 def get_repositories(region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoriesResult:
     """
-    Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecr.get_repositories()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -101,21 +81,7 @@ def get_repositories(region: Optional[_builtins.str] = None,
 def get_repositories_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
-    Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ecr.get_repositories()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerRuleConditionQueryStringValueResult
     {
-        /// <summary>
-        /// Key of query parameter
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Value of query parameter
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

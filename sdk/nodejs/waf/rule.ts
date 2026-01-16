@@ -7,43 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Rule Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ipset = new aws.waf.IpSet("ipset", {
- *     name: "tfIPSet",
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const wafrule = new aws.waf.Rule("wafrule", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * }, {
- *     dependsOn: [ipset],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF rules using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class Rule extends pulumi.CustomResource {
     /**
      * Get an existing Rule resource's state with the given name, ID, and optional extra
@@ -72,29 +35,11 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
-    /**
-     * The ARN of the WAF rule.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-     */
     declare public readonly metricName: pulumi.Output<string>;
-    /**
-     * The name or description of the rule.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The objects to include in a rule (documented below).
-     */
     declare public readonly predicates: pulumi.Output<outputs.waf.RulePredicate[] | undefined>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -137,29 +82,11 @@ export class Rule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Rule resources.
  */
 export interface RuleState {
-    /**
-     * The ARN of the WAF rule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-     */
     metricName?: pulumi.Input<string>;
-    /**
-     * The name or description of the rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The objects to include in a rule (documented below).
-     */
     predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -167,20 +94,8 @@ export interface RuleState {
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-     */
     metricName: pulumi.Input<string>;
-    /**
-     * The name or description of the rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The objects to include in a rule (documented below).
-     */
     predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

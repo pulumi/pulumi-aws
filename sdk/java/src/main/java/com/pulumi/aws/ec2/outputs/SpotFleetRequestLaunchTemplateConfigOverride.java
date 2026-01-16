@@ -13,89 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotFleetRequestLaunchTemplateConfigOverride {
-    /**
-     * @return The availability zone in which to place the request.
-     * 
-     */
     private @Nullable String availabilityZone;
-    /**
-     * @return The instance requirements. See below.
-     * 
-     */
     private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements;
-    /**
-     * @return The type of instance to request.
-     * 
-     */
     private @Nullable String instanceType;
-    /**
-     * @return The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
-     * 
-     */
     private @Nullable Double priority;
-    /**
-     * @return The maximum spot bid for this override request.
-     * 
-     */
     private @Nullable String spotPrice;
-    /**
-     * @return The subnet in which to launch the requested instance.
-     * 
-     */
     private @Nullable String subnetId;
-    /**
-     * @return The capacity added to the fleet by a fulfilled request.
-     * 
-     */
     private @Nullable Double weightedCapacity;
 
     private SpotFleetRequestLaunchTemplateConfigOverride() {}
-    /**
-     * @return The availability zone in which to place the request.
-     * 
-     */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
-    /**
-     * @return The instance requirements. See below.
-     * 
-     */
     public Optional<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements> instanceRequirements() {
         return Optional.ofNullable(this.instanceRequirements);
     }
-    /**
-     * @return The type of instance to request.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
-    /**
-     * @return The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
-     * 
-     */
     public Optional<Double> priority() {
         return Optional.ofNullable(this.priority);
     }
-    /**
-     * @return The maximum spot bid for this override request.
-     * 
-     */
     public Optional<String> spotPrice() {
         return Optional.ofNullable(this.spotPrice);
     }
-    /**
-     * @return The subnet in which to launch the requested instance.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
-    /**
-     * @return The capacity added to the fleet by a fulfilled request.
-     * 
-     */
     public Optional<Double> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }

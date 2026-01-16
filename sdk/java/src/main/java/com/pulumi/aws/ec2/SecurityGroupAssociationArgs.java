@@ -17,62 +17,30 @@ public final class SecurityGroupAssociationArgs extends com.pulumi.resources.Res
 
     public static final SecurityGroupAssociationArgs Empty = new SecurityGroupAssociationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
-     * 
-     */
     @Import(name="replaceDefaultAssociation")
     private @Nullable Output<Boolean> replaceDefaultAssociation;
 
-    /**
-     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
-     * 
-     */
     public Optional<Output<Boolean>> replaceDefaultAssociation() {
         return Optional.ofNullable(this.replaceDefaultAssociation);
     }
 
-    /**
-     * The ID of the security group to be associated with the VPC endpoint.
-     * 
-     */
     @Import(name="securityGroupId", required=true)
     private Output<String> securityGroupId;
 
-    /**
-     * @return The ID of the security group to be associated with the VPC endpoint.
-     * 
-     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
 
-    /**
-     * The ID of the VPC endpoint with which the security group will be associated.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return The ID of the VPC endpoint with which the security group will be associated.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -104,86 +72,38 @@ public final class SecurityGroupAssociationArgs extends com.pulumi.resources.Res
             $ = new SecurityGroupAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param replaceDefaultAssociation Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replaceDefaultAssociation(@Nullable Output<Boolean> replaceDefaultAssociation) {
             $.replaceDefaultAssociation = replaceDefaultAssociation;
             return this;
         }
 
-        /**
-         * @param replaceDefaultAssociation Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replaceDefaultAssociation(Boolean replaceDefaultAssociation) {
             return replaceDefaultAssociation(Output.of(replaceDefaultAssociation));
         }
 
-        /**
-         * @param securityGroupId The ID of the security group to be associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(Output<String> securityGroupId) {
             $.securityGroupId = securityGroupId;
             return this;
         }
 
-        /**
-         * @param securityGroupId The ID of the security group to be associated with the VPC endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(String securityGroupId) {
             return securityGroupId(Output.of(securityGroupId));
         }
 
-        /**
-         * @param vpcEndpointId The ID of the VPC endpoint with which the security group will be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The ID of the VPC endpoint with which the security group will be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

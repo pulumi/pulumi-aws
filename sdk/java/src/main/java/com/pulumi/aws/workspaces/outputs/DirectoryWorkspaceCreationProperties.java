@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryWorkspaceCreationProperties {
-    /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-     * 
-     */
     private @Nullable String customSecurityGroupId;
-    /**
-     * @return The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
-     * 
-     */
     private @Nullable String defaultOu;
-    /**
-     * @return Indicates whether internet access is enabled for your WorkSpaces.
-     * 
-     */
     private @Nullable Boolean enableInternetAccess;
-    /**
-     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     private @Nullable Boolean enableMaintenanceMode;
-    /**
-     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     private @Nullable Boolean userEnabledAsLocalAdministrator;
 
     private DirectoryWorkspaceCreationProperties() {}
-    /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-     * 
-     */
     public Optional<String> customSecurityGroupId() {
         return Optional.ofNullable(this.customSecurityGroupId);
     }
-    /**
-     * @return The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
-     * 
-     */
     public Optional<String> defaultOu() {
         return Optional.ofNullable(this.defaultOu);
     }
-    /**
-     * @return Indicates whether internet access is enabled for your WorkSpaces.
-     * 
-     */
     public Optional<Boolean> enableInternetAccess() {
         return Optional.ofNullable(this.enableInternetAccess);
     }
-    /**
-     * @return Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     public Optional<Boolean> enableMaintenanceMode() {
         return Optional.ofNullable(this.enableMaintenanceMode);
     }
-    /**
-     * @return Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
-     * 
-     */
     public Optional<Boolean> userEnabledAsLocalAdministrator() {
         return Optional.ofNullable(this.userEnabledAsLocalAdministrator);
     }

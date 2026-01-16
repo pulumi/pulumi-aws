@@ -14,32 +14,16 @@ public final class AgentcoreAgentRuntimeLifecycleConfigurationArgs extends com.p
 
     public static final AgentcoreAgentRuntimeLifecycleConfigurationArgs Empty = new AgentcoreAgentRuntimeLifecycleConfigurationArgs();
 
-    /**
-     * Timeout in seconds for idle runtime sessions.
-     * 
-     */
     @Import(name="idleRuntimeSessionTimeout", required=true)
     private Output<Integer> idleRuntimeSessionTimeout;
 
-    /**
-     * @return Timeout in seconds for idle runtime sessions.
-     * 
-     */
     public Output<Integer> idleRuntimeSessionTimeout() {
         return this.idleRuntimeSessionTimeout;
     }
 
-    /**
-     * Maximum lifetime for the instance in seconds.
-     * 
-     */
     @Import(name="maxLifetime", required=true)
     private Output<Integer> maxLifetime;
 
-    /**
-     * @return Maximum lifetime for the instance in seconds.
-     * 
-     */
     public Output<Integer> maxLifetime() {
         return this.maxLifetime;
     }
@@ -69,44 +53,20 @@ public final class AgentcoreAgentRuntimeLifecycleConfigurationArgs extends com.p
             $ = new AgentcoreAgentRuntimeLifecycleConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleRuntimeSessionTimeout Timeout in seconds for idle runtime sessions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleRuntimeSessionTimeout(Output<Integer> idleRuntimeSessionTimeout) {
             $.idleRuntimeSessionTimeout = idleRuntimeSessionTimeout;
             return this;
         }
 
-        /**
-         * @param idleRuntimeSessionTimeout Timeout in seconds for idle runtime sessions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleRuntimeSessionTimeout(Integer idleRuntimeSessionTimeout) {
             return idleRuntimeSessionTimeout(Output.of(idleRuntimeSessionTimeout));
         }
 
-        /**
-         * @param maxLifetime Maximum lifetime for the instance in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLifetime(Output<Integer> maxLifetime) {
             $.maxLifetime = maxLifetime;
             return this;
         }
 
-        /**
-         * @param maxLifetime Maximum lifetime for the instance in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLifetime(Integer maxLifetime) {
             return maxLifetime(Output.of(maxLifetime));
         }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BrokerLogs {
-    /**
-     * @return Whether to enable audit logging. Only possible for `engineType` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean audit;
-    /**
-     * @return Whether to enable general logging via CloudWatch. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean general;
 
     private BrokerLogs() {}
-    /**
-     * @return Whether to enable audit logging. Only possible for `engineType` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> audit() {
         return Optional.ofNullable(this.audit);
     }
-    /**
-     * @return Whether to enable general logging via CloudWatch. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> general() {
         return Optional.ofNullable(this.general);
     }

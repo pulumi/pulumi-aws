@@ -13,60 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
-/**
- * Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
- * 
- * &gt; **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.OrganizationsAccess;
- * import com.pulumi.aws.servicecatalog.OrganizationsAccessArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OrganizationsAccess("example", OrganizationsAccessArgs.builder()
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:servicecatalog/organizationsAccess:OrganizationsAccess")
 public class OrganizationsAccess extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether to enable AWS Organizations access.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable AWS Organizations access.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }

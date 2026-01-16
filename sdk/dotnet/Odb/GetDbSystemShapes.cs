@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Odb
 {
     public static class GetDbSystemShapes
     {
-        /// <summary>
-        /// Data source to retrieve available system shapes Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbSystemShapes.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDbSystemShapesResult> InvokeAsync(GetDbSystemShapesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbSystemShapesResult>("aws:odb/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source to retrieve available system shapes Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbSystemShapes.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("aws:odb/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source to retrieve available system shapes Oracle Database@AWS.
-        /// 
-        /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Odb.GetDbSystemShapes.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("aws:odb/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
     }
@@ -90,15 +24,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetDbSystemShapesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-        /// </summary>
         [Input("availabilityZoneId")]
         public string? AvailabilityZoneId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -110,15 +38,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetDbSystemShapesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
-        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -133,9 +55,6 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbSystemShapesResult
     {
         public readonly string? AvailabilityZoneId;
-        /// <summary>
-        /// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDbSystemShapesDbSystemShapeResult> DbSystemShapes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

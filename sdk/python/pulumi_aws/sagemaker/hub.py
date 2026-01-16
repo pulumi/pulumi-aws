@@ -30,13 +30,6 @@ class HubArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Hub resource.
-        :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
-        :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['HubS3StorageConfigArgs'] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "hub_description", hub_description)
         pulumi.set(__self__, "hub_name", hub_name)
@@ -54,9 +47,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter(name="hubDescription")
     def hub_description(self) -> pulumi.Input[_builtins.str]:
-        """
-        A description of the hub.
-        """
         return pulumi.get(self, "hub_description")
 
     @hub_description.setter
@@ -66,9 +56,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter(name="hubName")
     def hub_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the hub.
-        """
         return pulumi.get(self, "hub_name")
 
     @hub_name.setter
@@ -78,9 +65,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter(name="hubDisplayName")
     def hub_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the hub.
-        """
         return pulumi.get(self, "hub_display_name")
 
     @hub_display_name.setter
@@ -90,9 +74,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter(name="hubSearchKeywords")
     def hub_search_keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The searchable keywords for the hub.
-        """
         return pulumi.get(self, "hub_search_keywords")
 
     @hub_search_keywords.setter
@@ -102,9 +83,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -114,9 +92,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter(name="s3StorageConfig")
     def s3_storage_config(self) -> Optional[pulumi.Input['HubS3StorageConfigArgs']]:
-        """
-        The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        """
         return pulumi.get(self, "s3_storage_config")
 
     @s3_storage_config.setter
@@ -126,9 +101,6 @@ class HubArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,15 +122,6 @@ class _HubState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Hub resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-        :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
-        :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
-        :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['HubS3StorageConfigArgs'] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -182,9 +145,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -194,9 +154,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter(name="hubDescription")
     def hub_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of the hub.
-        """
         return pulumi.get(self, "hub_description")
 
     @hub_description.setter
@@ -206,9 +163,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter(name="hubDisplayName")
     def hub_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The display name of the hub.
-        """
         return pulumi.get(self, "hub_display_name")
 
     @hub_display_name.setter
@@ -218,9 +172,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter(name="hubName")
     def hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the hub.
-        """
         return pulumi.get(self, "hub_name")
 
     @hub_name.setter
@@ -230,9 +181,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter(name="hubSearchKeywords")
     def hub_search_keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The searchable keywords for the hub.
-        """
         return pulumi.get(self, "hub_search_keywords")
 
     @hub_search_keywords.setter
@@ -242,9 +190,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -254,9 +199,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter(name="s3StorageConfig")
     def s3_storage_config(self) -> Optional[pulumi.Input['HubS3StorageConfigArgs']]:
-        """
-        The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        """
         return pulumi.get(self, "s3_storage_config")
 
     @s3_storage_config.setter
@@ -266,9 +208,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -278,9 +217,6 @@ class _HubState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -303,38 +239,9 @@ class Hub(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Hub resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Hub("example",
-            hub_name="example",
-            hub_description="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
-        ```
-
+        Create a Hub resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
-        :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
-        :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -343,29 +250,7 @@ class Hub(pulumi.CustomResource):
                  args: HubArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Hub resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Hub("example",
-            hub_name="example",
-            hub_description="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
-        ```
-
+        Create a Hub resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,15 +321,6 @@ class Hub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-        :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
-        :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
-        :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hub_search_keywords: The searchable keywords for the hub.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['HubS3StorageConfigArgs', 'HubS3StorageConfigArgsDict']] s3_storage_config: The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -464,72 +340,45 @@ class Hub(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="hubDescription")
     def hub_description(self) -> pulumi.Output[_builtins.str]:
-        """
-        A description of the hub.
-        """
         return pulumi.get(self, "hub_description")
 
     @_builtins.property
     @pulumi.getter(name="hubDisplayName")
     def hub_display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The display name of the hub.
-        """
         return pulumi.get(self, "hub_display_name")
 
     @_builtins.property
     @pulumi.getter(name="hubName")
     def hub_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the hub.
-        """
         return pulumi.get(self, "hub_name")
 
     @_builtins.property
     @pulumi.getter(name="hubSearchKeywords")
     def hub_search_keywords(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        The searchable keywords for the hub.
-        """
         return pulumi.get(self, "hub_search_keywords")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3StorageConfig")
     def s3_storage_config(self) -> pulumi.Output[Optional['outputs.HubS3StorageConfig']]:
-        """
-        The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        """
         return pulumi.get(self, "s3_storage_config")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -21,145 +21,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing a QuickSight Dashboard.
- * 
- * ## Example Usage
- * 
- * ### From Source Template
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.Dashboard;
- * import com.pulumi.aws.quicksight.DashboardArgs;
- * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntityArgs;
- * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntitySourceTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Dashboard("example", DashboardArgs.builder()
- *             .dashboardId("example-id")
- *             .name("example-name")
- *             .versionDescription("version")
- *             .sourceEntity(DashboardSourceEntityArgs.builder()
- *                 .sourceTemplate(DashboardSourceEntitySourceTemplateArgs.builder()
- *                     .arn(source.arn())
- *                     .dataSetReferences(DashboardSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(dataset.arn())
- *                         .dataSetPlaceholder("1")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Definition
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.quicksight.Dashboard;
- * import com.pulumi.aws.quicksight.DashboardArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Dashboard("example", DashboardArgs.builder()
- *             .dashboardId("example-id")
- *             .name("example-name")
- *             .versionDescription("version")
- *             .definition(Map.ofEntries(
- *                 Map.entry("dataSetIdentifiersDeclarations", List.of(Map.ofEntries(
- *                     Map.entry("dataSetArn", dataset.arn()),
- *                     Map.entry("identifier", "1")
- *                 ))),
- *                 Map.entry("sheets", List.of(Map.ofEntries(
- *                     Map.entry("title", "Example"),
- *                     Map.entry("sheetId", "Example1"),
- *                     Map.entry("visuals", List.of(Map.of("lineChartVisual", Map.ofEntries(
- *                         Map.entry("visualId", "LineChart"),
- *                         Map.entry("title", Map.of("formatText", Map.of("plainText", "Line Chart Example"))),
- *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("lineChartAggregatedFieldWells", Map.ofEntries(
- *                             Map.entry("categories", List.of(Map.of("categoricalDimensionField", Map.ofEntries(
- *                                 Map.entry("fieldId", "1"),
- *                                 Map.entry("column", Map.ofEntries(
- *                                     Map.entry("dataSetIdentifier", "1"),
- *                                     Map.entry("columnName", "Column1")
- *                                 ))
- *                             )))),
- *                             Map.entry("values", List.of(Map.of("categoricalMeasureField", Map.ofEntries(
- *                                 Map.entry("fieldId", "2"),
- *                                 Map.entry("column", Map.ofEntries(
- *                                     Map.entry("dataSetIdentifier", "1"),
- *                                     Map.entry("columnName", "Column1")
- *                                 )),
- *                                 Map.entry("aggregationFunction", "COUNT")
- *                             ))))
- *                         ))))
- *                     ))))
- *                 )))
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
- * ```
- * 
- */
 @ResourceType(type="aws:quicksight/dashboard:Dashboard")
 public class Dashboard extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the dashboard.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the dashboard.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -169,45 +35,21 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * The time that the dashboard was created.
-     * 
-     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
-    /**
-     * @return The time that the dashboard was created.
-     * 
-     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
-    /**
-     * Identifier for the dashboard.
-     * 
-     */
     @Export(name="dashboardId", refs={String.class}, tree="[0]")
     private Output<String> dashboardId;
 
-    /**
-     * @return Identifier for the dashboard.
-     * 
-     */
     public Output<String> dashboardId() {
         return this.dashboardId;
     }
-    /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
-     * 
-     */
     @Export(name="dashboardPublishOptions", refs={DashboardDashboardPublishOptions.class}, tree="[0]")
     private Output<DashboardDashboardPublishOptions> dashboardPublishOptions;
 
-    /**
-     * @return Options for publishing the dashboard. See dashboard_publish_options.
-     * 
-     */
     public Output<DashboardDashboardPublishOptions> dashboardPublishOptions() {
         return this.dashboardPublishOptions;
     }
@@ -217,189 +59,81 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     public Output<String> lastPublishedTime() {
         return this.lastPublishedTime;
     }
-    /**
-     * The time that the dashboard was last updated.
-     * 
-     */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
-    /**
-     * @return The time that the dashboard was last updated.
-     * 
-     */
     public Output<String> lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * Display name for the dashboard.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-     * 
-     */
     @Export(name="parameters", refs={DashboardParameters.class}, tree="[0]")
     private Output<DashboardParameters> parameters;
 
-    /**
-     * @return The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-     * 
-     */
     public Output<DashboardParameters> parameters() {
         return this.parameters;
     }
-    /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-     * 
-     */
     @Export(name="permissions", refs={List.class,DashboardPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardPermission>> permissions;
 
-    /**
-     * @return A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-     * 
-     */
     public Output<Optional<List<DashboardPermission>>> permissions() {
         return Codegen.optional(this.permissions);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-     * 
-     */
     @Export(name="sourceEntity", refs={DashboardSourceEntity.class}, tree="[0]")
     private Output</* @Nullable */ DashboardSourceEntity> sourceEntity;
 
-    /**
-     * @return The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
-     * 
-     */
     public Output<Optional<DashboardSourceEntity>> sourceEntity() {
         return Codegen.optional(this.sourceEntity);
     }
-    /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-     * 
-     */
     @Export(name="sourceEntityArn", refs={String.class}, tree="[0]")
     private Output<String> sourceEntityArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of a template that was used to create this dashboard.
-     * 
-     */
     public Output<String> sourceEntityArn() {
         return this.sourceEntityArn;
     }
-    /**
-     * The dashboard creation status.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The dashboard creation status.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-     * 
-     */
     @Export(name="themeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> themeArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
-     * 
-     */
     public Output<Optional<String>> themeArn() {
         return Codegen.optional(this.themeArn);
     }
-    /**
-     * A description of the current dashboard version being created/updated.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="versionDescription", refs={String.class}, tree="[0]")
     private Output<String> versionDescription;
 
-    /**
-     * @return A description of the current dashboard version being created/updated.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> versionDescription() {
         return this.versionDescription;
     }
-    /**
-     * The version number of the dashboard version.
-     * 
-     */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
-    /**
-     * @return The version number of the dashboard version.
-     * 
-     */
     public Output<Integer> versionNumber() {
         return this.versionNumber;
     }

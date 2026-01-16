@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContributorManagedInsightRulesManagedRuleRuleState {
-    /**
-     * @return Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
-     * 
-     */
     private String ruleName;
-    /**
-     * @return Indicates whether the rule is enabled or disabled.
-     * 
-     */
     private String state;
 
     private GetContributorManagedInsightRulesManagedRuleRuleState() {}
-    /**
-     * @return Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
-     * 
-     */
     public String ruleName() {
         return this.ruleName;
     }
-    /**
-     * @return Indicates whether the rule is enabled or disabled.
-     * 
-     */
     public String state() {
         return this.state;
     }

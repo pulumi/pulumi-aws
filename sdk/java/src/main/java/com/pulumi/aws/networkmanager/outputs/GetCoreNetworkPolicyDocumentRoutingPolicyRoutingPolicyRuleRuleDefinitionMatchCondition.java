@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition {
-    /**
-     * @return Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-     * 
-     */
     private String type;
-    /**
-     * @return Value to match against, depending on the condition type.
-     * 
-     */
     private String value;
 
     private GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchCondition() {}
-    /**
-     * @return Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Value to match against, depending on the condition type.
-     * 
-     */
     public String value() {
         return this.value;
     }

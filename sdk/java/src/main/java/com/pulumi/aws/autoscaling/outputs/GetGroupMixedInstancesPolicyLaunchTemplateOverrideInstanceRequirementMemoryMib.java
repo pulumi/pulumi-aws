@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib {
-    /**
-     * @return Maximum.
-     * 
-     */
     private Integer max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private Integer min;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Integer max() {
         return this.max;
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Integer min() {
         return this.min;
     }

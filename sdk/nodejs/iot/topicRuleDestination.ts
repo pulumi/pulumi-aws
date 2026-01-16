@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.TopicRuleDestination("example", {vpcConfiguration: {
- *     roleArn: exampleAwsIamRole.arn,
- *     securityGroups: [exampleAwsSecurityGroup.id],
- *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *     vpcId: exampleAwsVpc.id,
- * }});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
- * ```
- */
 export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * Get an existing TopicRuleDestination resource's state with the given name, ID, and optional extra
@@ -58,21 +35,9 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicRuleDestination.__pulumiType;
     }
 
-    /**
-     * The ARN of the topic rule destination
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Whether or not to enable the destination. Default: `true`.
-     */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     */
     declare public readonly vpcConfiguration: pulumi.Output<outputs.iot.TopicRuleDestinationVpcConfiguration>;
 
     /**
@@ -111,21 +76,9 @@ export class TopicRuleDestination extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TopicRuleDestination resources.
  */
 export interface TopicRuleDestinationState {
-    /**
-     * The ARN of the topic rule destination
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether or not to enable the destination. Default: `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     */
     vpcConfiguration?: pulumi.Input<inputs.iot.TopicRuleDestinationVpcConfiguration>;
 }
 
@@ -133,16 +86,7 @@ export interface TopicRuleDestinationState {
  * The set of arguments for constructing a TopicRuleDestination resource.
  */
 export interface TopicRuleDestinationArgs {
-    /**
-     * Whether or not to enable the destination. Default: `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     */
     vpcConfiguration: pulumi.Input<inputs.iot.TopicRuleDestinationVpcConfiguration>;
 }

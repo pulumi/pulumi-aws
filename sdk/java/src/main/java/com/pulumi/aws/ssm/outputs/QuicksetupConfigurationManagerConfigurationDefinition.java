@@ -15,25 +15,9 @@ import javax.annotation.Nullable;
 public final class QuicksetupConfigurationManagerConfigurationDefinition {
     private @Nullable String id;
     private @Nullable String localDeploymentAdministrationRoleArn;
-    /**
-     * @return Name of the IAM role used to deploy local configurations.
-     * 
-     */
     private @Nullable String localDeploymentExecutionRoleName;
-    /**
-     * @return Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-     * 
-     */
     private Map<String,String> parameters;
-    /**
-     * @return Type of the Quick Setup configuration.
-     * 
-     */
     private String type;
-    /**
-     * @return Version of the Quick Setup type to use.
-     * 
-     */
     private @Nullable String typeVersion;
 
     private QuicksetupConfigurationManagerConfigurationDefinition() {}
@@ -43,31 +27,15 @@ public final class QuicksetupConfigurationManagerConfigurationDefinition {
     public Optional<String> localDeploymentAdministrationRoleArn() {
         return Optional.ofNullable(this.localDeploymentAdministrationRoleArn);
     }
-    /**
-     * @return Name of the IAM role used to deploy local configurations.
-     * 
-     */
     public Optional<String> localDeploymentExecutionRoleName() {
         return Optional.ofNullable(this.localDeploymentExecutionRoleName);
     }
-    /**
-     * @return Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-     * 
-     */
     public Map<String,String> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Type of the Quick Setup configuration.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Version of the Quick Setup type to use.
-     * 
-     */
     public Optional<String> typeVersion() {
         return Optional.ofNullable(this.typeVersion);
     }

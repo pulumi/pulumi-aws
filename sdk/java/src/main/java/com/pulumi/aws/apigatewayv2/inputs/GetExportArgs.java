@@ -17,107 +17,51 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetExportArgs Empty = new GetExportArgs();
 
-    /**
-     * API identifier.
-     * 
-     */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
 
-    /**
-     * Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-     * 
-     */
     @Import(name="exportVersion")
     private @Nullable Output<String> exportVersion;
 
-    /**
-     * @return Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-     * 
-     */
     public Optional<Output<String>> exportVersion() {
         return Optional.ofNullable(this.exportVersion);
     }
 
-    /**
-     * Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-     * 
-     */
     @Import(name="includeExtensions")
     private @Nullable Output<Boolean> includeExtensions;
 
-    /**
-     * @return Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-     * 
-     */
     public Optional<Output<Boolean>> includeExtensions() {
         return Optional.ofNullable(this.includeExtensions);
     }
 
-    /**
-     * Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-     * 
-     */
     @Import(name="outputType", required=true)
     private Output<String> outputType;
 
-    /**
-     * @return Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-     * 
-     */
     public Output<String> outputType() {
         return this.outputType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-     * 
-     */
     @Import(name="specification", required=true)
     private Output<String> specification;
 
-    /**
-     * @return Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-     * 
-     */
     public Output<String> specification() {
         return this.specification;
     }
 
-    /**
-     * Name of the API stage to export. If you don&#39;t specify this property, a representation of the latest API configuration is exported.
-     * 
-     */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
-    /**
-     * @return Name of the API stage to export. If you don&#39;t specify this property, a representation of the latest API configuration is exported.
-     * 
-     */
     public Optional<Output<String>> stageName() {
         return Optional.ofNullable(this.stageName);
     }
@@ -152,149 +96,65 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetExportArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(Output<String> apiId) {
             $.apiId = apiId;
             return this;
         }
 
-        /**
-         * @param apiId API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
         }
 
-        /**
-         * @param exportVersion Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportVersion(@Nullable Output<String> exportVersion) {
             $.exportVersion = exportVersion;
             return this;
         }
 
-        /**
-         * @param exportVersion Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportVersion(String exportVersion) {
             return exportVersion(Output.of(exportVersion));
         }
 
-        /**
-         * @param includeExtensions Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeExtensions(@Nullable Output<Boolean> includeExtensions) {
             $.includeExtensions = includeExtensions;
             return this;
         }
 
-        /**
-         * @param includeExtensions Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeExtensions(Boolean includeExtensions) {
             return includeExtensions(Output.of(includeExtensions));
         }
 
-        /**
-         * @param outputType Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputType(Output<String> outputType) {
             $.outputType = outputType;
             return this;
         }
 
-        /**
-         * @param outputType Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputType(String outputType) {
             return outputType(Output.of(outputType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param specification Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder specification(Output<String> specification) {
             $.specification = specification;
             return this;
         }
 
-        /**
-         * @param specification Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder specification(String specification) {
             return specification(Output.of(specification));
         }
 
-        /**
-         * @param stageName Name of the API stage to export. If you don&#39;t specify this property, a representation of the latest API configuration is exported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(@Nullable Output<String> stageName) {
             $.stageName = stageName;
             return this;
         }
 
-        /**
-         * @param stageName Name of the API stage to export. If you don&#39;t specify this property, a representation of the latest API configuration is exported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(String stageName) {
             return stageName(Output.of(stageName));
         }

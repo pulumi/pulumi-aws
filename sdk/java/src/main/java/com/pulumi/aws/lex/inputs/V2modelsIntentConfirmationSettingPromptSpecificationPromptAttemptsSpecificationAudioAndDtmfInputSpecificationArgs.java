@@ -18,47 +18,23 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
 
     public static final V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs Empty = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs();
 
-    /**
-     * Configuration block for the settings on audio input. See `audioSpecification`.
-     * 
-     */
     @Import(name="audioSpecification")
     private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification;
 
-    /**
-     * @return Configuration block for the settings on audio input. See `audioSpecification`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs>> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
 
-    /**
-     * Configuration block for the settings on DTMF input. See `dtmfSpecification`.
-     * 
-     */
     @Import(name="dtmfSpecification")
     private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification;
 
-    /**
-     * @return Configuration block for the settings on DTMF input. See `dtmfSpecification`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs>> dtmfSpecification() {
         return Optional.ofNullable(this.dtmfSpecification);
     }
 
-    /**
-     * Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-     * 
-     */
     @Import(name="startTimeoutMs", required=true)
     private Output<Integer> startTimeoutMs;
 
-    /**
-     * @return Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-     * 
-     */
     public Output<Integer> startTimeoutMs() {
         return this.startTimeoutMs;
     }
@@ -89,65 +65,29 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
             $ = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioSpecification Configuration block for the settings on audio input. See `audioSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSpecification(@Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> audioSpecification) {
             $.audioSpecification = audioSpecification;
             return this;
         }
 
-        /**
-         * @param audioSpecification Configuration block for the settings on audio input. See `audioSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs audioSpecification) {
             return audioSpecification(Output.of(audioSpecification));
         }
 
-        /**
-         * @param dtmfSpecification Configuration block for the settings on DTMF input. See `dtmfSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dtmfSpecification(@Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> dtmfSpecification) {
             $.dtmfSpecification = dtmfSpecification;
             return this;
         }
 
-        /**
-         * @param dtmfSpecification Configuration block for the settings on DTMF input. See `dtmfSpecification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dtmfSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs dtmfSpecification) {
             return dtmfSpecification(Output.of(dtmfSpecification));
         }
 
-        /**
-         * @param startTimeoutMs Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTimeoutMs(Output<Integer> startTimeoutMs) {
             $.startTimeoutMs = startTimeoutMs;
             return this;
         }
 
-        /**
-         * @param startTimeoutMs Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTimeoutMs(Integer startTimeoutMs) {
             return startTimeoutMs(Output.of(startTimeoutMs));
         }

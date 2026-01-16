@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class AllowedImagesSettingsImageCriterionCreationDateCondition
     {
-        /// <summary>
-        /// Maximum number of days since the AMI was created.
-        /// </summary>
         public readonly int? MaximumDaysSinceCreated;
 
         [OutputConstructor]

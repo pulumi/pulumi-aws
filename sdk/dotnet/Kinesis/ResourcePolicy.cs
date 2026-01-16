@@ -9,77 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kinesis
 {
-    /// <summary>
-    /// Provides a resource to manage an Amazon Kinesis Streams resource policy.
-    /// Use a resource policy to manage cross-account access to your data streams or consumers.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kinesis.ResourcePolicy("example", new()
-    ///     {
-    ///         ResourceArn = exampleAwsKinesisStream.Arn,
-    ///         Policy = @$"{{
-    ///   \""Version\"": \""2012-10-17\"",
-    ///   \""Id\"": \""writePolicy\"",
-    ///   \""Statement\"": [{{
-    ///     \""Sid\"": \""writestatement\"",
-    ///     \""Effect\"": \""Allow\"",
-    ///     \""Principal\"": {{
-    ///       \""AWS\"": \""123456789456\""
-    ///     }},
-    ///     \""Action\"": [
-    ///       \""kinesis:DescribeStreamSummary\"",
-    ///       \""kinesis:ListShards\"",
-    ///       \""kinesis:PutRecord\"",
-    ///       \""kinesis:PutRecords\""
-    ///     ],
-    ///     \""Resource\"": \""{exampleAwsKinesisStream.Arn}\""
-    ///   }}]
-    /// }}
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
-    /// 
-    /// Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
-    /// 
-    /// % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
-    /// </summary>
     [AwsResourceType("aws:kinesis/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the data stream or consumer.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -129,21 +67,12 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the data stream or consumer.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -155,21 +84,12 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the data stream or consumer.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

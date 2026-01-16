@@ -29,17 +29,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return this.languageCode;
     }
 
-    /**
-     * Human readable information to indicate captions available for players (eg. English, or Spanish).
-     * 
-     */
     @Import(name="languageDescription", required=true)
     private Output<String> languageDescription;
 
-    /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
-     * 
-     */
     public Output<String> languageDescription() {
         return this.languageDescription;
     }
@@ -88,23 +80,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return languageCode(Output.of(languageCode));
         }
 
-        /**
-         * @param languageDescription Human readable information to indicate captions available for players (eg. English, or Spanish).
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageDescription(Output<String> languageDescription) {
             $.languageDescription = languageDescription;
             return this;
         }
 
-        /**
-         * @param languageDescription Human readable information to indicate captions available for players (eg. English, or Spanish).
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageDescription(String languageDescription) {
             return languageDescription(Output.of(languageDescription));
         }

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
-    /**
-     * @return ARN of the Lambda function to invoke.
-     * 
-     */
     private String lambdaArn;
-    /**
-     * @return Schema definition for the tool. See `toolSchema` below.
-     * 
-     */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambda() {}
-    /**
-     * @return ARN of the Lambda function to invoke.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }
-    /**
-     * @return Schema definition for the tool. See `toolSchema` below.
-     * 
-     */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema> toolSchema() {
         return Optional.ofNullable(this.toolSchema);
     }

@@ -16,10 +16,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrderableDbInstanceResult {
-    /**
-     * @return Availability zones where the instance is available.
-     * 
-     */
     private List<String> availabilityZones;
     private @Nullable String engine;
     private String engineVersion;
@@ -30,85 +26,25 @@ public final class GetOrderableDbInstanceResult {
     private String id;
     private String instanceClass;
     private @Nullable String licenseModel;
-    /**
-     * @return Maximum total provisioned IOPS for a DB instance.
-     * 
-     */
     private Integer maxIopsPerDbInstance;
-    /**
-     * @return Maximum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     private Double maxIopsPerGib;
-    /**
-     * @return Maximum storage size for a DB instance.
-     * 
-     */
     private Integer maxStorageSize;
-    /**
-     * @return Minimum total provisioned IOPS for a DB instance.
-     * 
-     */
     private Integer minIopsPerDbInstance;
-    /**
-     * @return Minimum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     private Double minIopsPerGib;
-    /**
-     * @return Minimum storage size for a DB instance.
-     * 
-     */
     private Integer minStorageSize;
-    /**
-     * @return Whether a DB instance is Multi-AZ capable.
-     * 
-     */
     private Boolean multiAzCapable;
     private @Nullable List<String> preferredInstanceClasses;
-    /**
-     * @return Whether a DB instance can have a read replica.
-     * 
-     */
     private Boolean readReplicaCapable;
     private String region;
-    /**
-     * @return Storage type for a DB instance.
-     * 
-     */
     private String storageType;
-    /**
-     * @return Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-     * 
-     */
     private Boolean supportsEnhancedMonitoring;
-    /**
-     * @return Whether a DB instance supports IAM database authentication.
-     * 
-     */
     private Boolean supportsIamDatabaseAuthentication;
-    /**
-     * @return Whether a DB instance supports provisioned IOPS.
-     * 
-     */
     private Boolean supportsIops;
-    /**
-     * @return Whether a DB instance supports Performance Insights.
-     * 
-     */
     private Boolean supportsPerformanceInsights;
-    /**
-     * @return Whether a DB instance supports encrypted storage.
-     * 
-     */
     private Boolean supportsStorageEncryption;
     private Boolean vpc;
 
     private GetOrderableDbInstanceResult() {}
-    /**
-     * @return Availability zones where the instance is available.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
@@ -131,107 +67,51 @@ public final class GetOrderableDbInstanceResult {
     public Optional<String> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
     }
-    /**
-     * @return Maximum total provisioned IOPS for a DB instance.
-     * 
-     */
     public Integer maxIopsPerDbInstance() {
         return this.maxIopsPerDbInstance;
     }
-    /**
-     * @return Maximum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     public Double maxIopsPerGib() {
         return this.maxIopsPerGib;
     }
-    /**
-     * @return Maximum storage size for a DB instance.
-     * 
-     */
     public Integer maxStorageSize() {
         return this.maxStorageSize;
     }
-    /**
-     * @return Minimum total provisioned IOPS for a DB instance.
-     * 
-     */
     public Integer minIopsPerDbInstance() {
         return this.minIopsPerDbInstance;
     }
-    /**
-     * @return Minimum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     public Double minIopsPerGib() {
         return this.minIopsPerGib;
     }
-    /**
-     * @return Minimum storage size for a DB instance.
-     * 
-     */
     public Integer minStorageSize() {
         return this.minStorageSize;
     }
-    /**
-     * @return Whether a DB instance is Multi-AZ capable.
-     * 
-     */
     public Boolean multiAzCapable() {
         return this.multiAzCapable;
     }
     public List<String> preferredInstanceClasses() {
         return this.preferredInstanceClasses == null ? List.of() : this.preferredInstanceClasses;
     }
-    /**
-     * @return Whether a DB instance can have a read replica.
-     * 
-     */
     public Boolean readReplicaCapable() {
         return this.readReplicaCapable;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Storage type for a DB instance.
-     * 
-     */
     public String storageType() {
         return this.storageType;
     }
-    /**
-     * @return Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-     * 
-     */
     public Boolean supportsEnhancedMonitoring() {
         return this.supportsEnhancedMonitoring;
     }
-    /**
-     * @return Whether a DB instance supports IAM database authentication.
-     * 
-     */
     public Boolean supportsIamDatabaseAuthentication() {
         return this.supportsIamDatabaseAuthentication;
     }
-    /**
-     * @return Whether a DB instance supports provisioned IOPS.
-     * 
-     */
     public Boolean supportsIops() {
         return this.supportsIops;
     }
-    /**
-     * @return Whether a DB instance supports Performance Insights.
-     * 
-     */
     public Boolean supportsPerformanceInsights() {
         return this.supportsPerformanceInsights;
     }
-    /**
-     * @return Whether a DB instance supports encrypted storage.
-     * 
-     */
     public Boolean supportsStorageEncryption() {
         return this.supportsStorageEncryption;
     }

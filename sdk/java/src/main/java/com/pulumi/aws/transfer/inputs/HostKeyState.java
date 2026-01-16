@@ -16,54 +16,29 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
 
     public static final HostKeyState Empty = new HostKeyState();
 
-    /**
-     * Amazon Resource Name (ARN) of host key.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of host key.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Text description.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Text description.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Private key portion of an SSH key pair.
-     * 
-     */
     @Import(name="hostKeyBody")
     private @Nullable Output<String> hostKeyBody;
 
-    /**
-     * @return Private key portion of an SSH key pair.
-     * 
-     */
     public Optional<Output<String>> hostKeyBody() {
         return Optional.ofNullable(this.hostKeyBody);
     }
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      * 
      */
     @Import(name="hostKeyBodyWo")
@@ -71,99 +46,50 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
      * 
      */
     public Optional<Output<String>> hostKeyBodyWo() {
         return Optional.ofNullable(this.hostKeyBodyWo);
     }
 
-    /**
-     * Public key fingerprint.
-     * 
-     */
     @Import(name="hostKeyFingerprint")
     private @Nullable Output<String> hostKeyFingerprint;
 
-    /**
-     * @return Public key fingerprint.
-     * 
-     */
     public Optional<Output<String>> hostKeyFingerprint() {
         return Optional.ofNullable(this.hostKeyFingerprint);
     }
 
-    /**
-     * ID of the host key.
-     * 
-     */
     @Import(name="hostKeyId")
     private @Nullable Output<String> hostKeyId;
 
-    /**
-     * @return ID of the host key.
-     * 
-     */
     public Optional<Output<String>> hostKeyId() {
         return Optional.ofNullable(this.hostKeyId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Server ID.
-     * 
-     */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
-    /**
-     * @return Server ID.
-     * 
-     */
     public Optional<Output<String>> serverId() {
         return Optional.ofNullable(this.serverId);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -201,72 +127,35 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
             $ = new HostKeyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of host key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of host key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Text description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Text description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param hostKeyBody Private key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyBody(@Nullable Output<String> hostKeyBody) {
             $.hostKeyBody = hostKeyBody;
             return this;
         }
 
-        /**
-         * @param hostKeyBody Private key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyBody(String hostKeyBody) {
             return hostKeyBody(Output.of(hostKeyBody));
         }
 
         /**
          * @param hostKeyBodyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
          * 
          * @return builder
          * 
@@ -278,7 +167,6 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hostKeyBodyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
          * 
          * @return builder
          * 
@@ -287,128 +175,56 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
             return hostKeyBodyWo(Output.of(hostKeyBodyWo));
         }
 
-        /**
-         * @param hostKeyFingerprint Public key fingerprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyFingerprint(@Nullable Output<String> hostKeyFingerprint) {
             $.hostKeyFingerprint = hostKeyFingerprint;
             return this;
         }
 
-        /**
-         * @param hostKeyFingerprint Public key fingerprint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyFingerprint(String hostKeyFingerprint) {
             return hostKeyFingerprint(Output.of(hostKeyFingerprint));
         }
 
-        /**
-         * @param hostKeyId ID of the host key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyId(@Nullable Output<String> hostKeyId) {
             $.hostKeyId = hostKeyId;
             return this;
         }
 
-        /**
-         * @param hostKeyId ID of the host key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostKeyId(String hostKeyId) {
             return hostKeyId(Output.of(hostKeyId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverId Server ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(@Nullable Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
-        /**
-         * @param serverId Server ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

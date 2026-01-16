@@ -9,140 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Manages the Security Hub Organization Configuration.
-    /// 
-    /// &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation.
-    /// 
-    /// &gt; **NOTE:** In order to set the `ConfigurationType` to `CENTRAL`, the delegated admin must be a member account of the organization and not the management account. Central configuration also requires an `aws.securityhub.FindingAggregator` to be configured.
-    /// 
-    /// &gt; **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
-    /// 
-    /// &gt; **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Local Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.Organization("example", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "securityhub.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("example", new()
-    ///     {
-    ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Central Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.OrganizationAdminAccount("example", new()
-    ///     {
-    ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsOrganizationsOrganization,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
-    ///     {
-    ///         LinkingMode = "ALL_REGIONS",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = false,
-    ///         AutoEnableStandards = "NONE",
-    ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
-    ///         {
-    ///             ConfigurationType = "CENTRAL",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleFindingAggregator,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to automatically enable Security Hub for new accounts in the organization.
-        /// </summary>
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        /// </summary>
         [Output("autoEnableStandards")]
         public Output<string> AutoEnableStandards { get; private set; } = null!;
 
-        /// <summary>
-        /// Provides information about the way an organization is configured in Security Hub.
-        /// </summary>
         [Output("organizationConfiguration")]
         public Output<Outputs.OrganizationConfigurationOrganizationConfiguration> OrganizationConfigurationDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -192,27 +70,15 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to automatically enable Security Hub for new accounts in the organization.
-        /// </summary>
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        /// </summary>
         [Input("autoEnableStandards")]
         public Input<string>? AutoEnableStandards { get; set; }
 
-        /// <summary>
-        /// Provides information about the way an organization is configured in Security Hub.
-        /// </summary>
         [Input("organizationConfiguration")]
         public Input<Inputs.OrganizationConfigurationOrganizationConfigurationArgs>? OrganizationConfigurationDetails { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -224,27 +90,15 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to automatically enable Security Hub for new accounts in the organization.
-        /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
 
-        /// <summary>
-        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        /// </summary>
         [Input("autoEnableStandards")]
         public Input<string>? AutoEnableStandards { get; set; }
 
-        /// <summary>
-        /// Provides information about the way an organization is configured in Security Hub.
-        /// </summary>
         [Input("organizationConfiguration")]
         public Input<Inputs.OrganizationConfigurationOrganizationConfigurationGetArgs>? OrganizationConfigurationDetails { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

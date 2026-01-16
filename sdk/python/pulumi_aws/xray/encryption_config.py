@@ -24,9 +24,6 @@ class EncryptionConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionConfig resource.
-        :param pulumi.Input[_builtins.str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "type", type)
         if key_id is not None:
@@ -37,9 +34,6 @@ class EncryptionConfigArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -49,9 +43,6 @@ class EncryptionConfigArgs:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An AWS KMS customer master key (CMK) ARN.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -61,9 +52,6 @@ class EncryptionConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,9 +67,6 @@ class _EncryptionConfigState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EncryptionConfig resources.
-        :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         """
         if key_id is not None:
             pulumi.set(__self__, "key_id", key_id)
@@ -93,9 +78,6 @@ class _EncryptionConfigState:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An AWS KMS customer master key (CMK) ARN.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -105,9 +87,6 @@ class _EncryptionConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -117,9 +96,6 @@ class _EncryptionConfigState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -138,58 +114,9 @@ class EncryptionConfig(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Creates and manages an AWS XRay Encryption Config.
-
-        > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.xray.EncryptionConfig("example", type="NONE")
-        ```
-
-        ### With KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
-            }],
-            "actions": ["kms:*"],
-            "resources": ["*"],
-        }])
-        example_key = aws.kms.Key("example",
-            description="Some Key",
-            deletion_window_in_days=7,
-            policy=example.json)
-        example_encryption_config = aws.xray.EncryptionConfig("example",
-            type="KMS",
-            key_id=example_key.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import XRay Encryption Config using the region name. For example:
-
-        ```sh
-        $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
-        ```
-
+        Create a EncryptionConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         """
         ...
     @overload
@@ -198,53 +125,7 @@ class EncryptionConfig(pulumi.CustomResource):
                  args: EncryptionConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates and manages an AWS XRay Encryption Config.
-
-        > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.xray.EncryptionConfig("example", type="NONE")
-        ```
-
-        ### With KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
-            }],
-            "actions": ["kms:*"],
-            "resources": ["*"],
-        }])
-        example_key = aws.kms.Key("example",
-            description="Some Key",
-            deletion_window_in_days=7,
-            policy=example.json)
-        example_encryption_config = aws.xray.EncryptionConfig("example",
-            type="KMS",
-            key_id=example_key.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import XRay Encryption Config using the region name. For example:
-
-        ```sh
-        $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
-        ```
-
+        Create a EncryptionConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EncryptionConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,9 +178,6 @@ class EncryptionConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -313,24 +191,15 @@ class EncryptionConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        An AWS KMS customer master key (CMK) ARN.
-        """
         return pulumi.get(self, "key_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        """
         return pulumi.get(self, "type")
 

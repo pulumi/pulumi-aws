@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ivs.Outputs
     [OutputType]
     public sealed class RecordingConfigurationThumbnailConfiguration
     {
-        /// <summary>
-        /// Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        /// </summary>
         public readonly string? RecordingMode;
-        /// <summary>
-        /// The targeted thumbnail-generation interval in seconds.
-        /// </summary>
         public readonly int? TargetIntervalSeconds;
 
         [OutputConstructor]

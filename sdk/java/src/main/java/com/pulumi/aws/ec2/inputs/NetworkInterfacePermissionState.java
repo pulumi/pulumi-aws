@@ -16,77 +16,37 @@ public final class NetworkInterfacePermissionState extends com.pulumi.resources.
 
     public static final NetworkInterfacePermissionState Empty = new NetworkInterfacePermissionState();
 
-    /**
-     * The Amazon Web Services account ID.
-     * 
-     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
-    /**
-     * @return The Amazon Web Services account ID.
-     * 
-     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * The ID of the network interface.
-     * 
-     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
-    /**
-     * @return The ID of the network interface.
-     * 
-     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
-    /**
-     * ENI permission ID.
-     * 
-     */
     @Import(name="networkInterfacePermissionId")
     private @Nullable Output<String> networkInterfacePermissionId;
 
-    /**
-     * @return ENI permission ID.
-     * 
-     */
     public Optional<Output<String>> networkInterfacePermissionId() {
         return Optional.ofNullable(this.networkInterfacePermissionId);
     }
 
-    /**
-     * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     * 
-     */
     @Import(name="permission")
     private @Nullable Output<String> permission;
 
-    /**
-     * @return The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     * 
-     */
     public Optional<Output<String>> permission() {
         return Optional.ofNullable(this.permission);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -127,107 +87,47 @@ public final class NetworkInterfacePermissionState extends com.pulumi.resources.
             $ = new NetworkInterfacePermissionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsAccountId The Amazon Web Services account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
-        /**
-         * @param awsAccountId The Amazon Web Services account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param networkInterfaceId The ID of the network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
-        /**
-         * @param networkInterfaceId The ID of the network interface.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
-        /**
-         * @param networkInterfacePermissionId ENI permission ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfacePermissionId(@Nullable Output<String> networkInterfacePermissionId) {
             $.networkInterfacePermissionId = networkInterfacePermissionId;
             return this;
         }
 
-        /**
-         * @param networkInterfacePermissionId ENI permission ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfacePermissionId(String networkInterfacePermissionId) {
             return networkInterfacePermissionId(Output.of(networkInterfacePermissionId));
         }
 
-        /**
-         * @param permission The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(@Nullable Output<String> permission) {
             $.permission = permission;
             return this;
         }
 
-        /**
-         * @param permission The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

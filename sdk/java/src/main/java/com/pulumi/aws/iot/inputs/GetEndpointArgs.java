@@ -15,32 +15,16 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEndpointArgs Empty = new GetEndpointArgs();
 
-    /**
-     * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
-     * 
-     */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
-    /**
-     * @return Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
-     * 
-     */
     public Optional<Output<String>> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointType Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(@Nullable Output<String> endpointType) {
             $.endpointType = endpointType;
             return this;
         }
 
-        /**
-         * @param endpointType Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(String endpointType) {
             return endpointType(Output.of(endpointType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -15,19 +15,9 @@ public final class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetti
 
     public static final V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs Empty = new V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs();
 
-    /**
-     * Enables using the slot values as a custom vocabulary for recognizing user utterances.
-     * Valid value is `UseSlotValuesAsCustomVocabulary`.
-     * 
-     */
     @Import(name="audioRecognitionStrategy")
     private @Nullable Output<String> audioRecognitionStrategy;
 
-    /**
-     * @return Enables using the slot values as a custom vocabulary for recognizing user utterances.
-     * Valid value is `UseSlotValuesAsCustomVocabulary`.
-     * 
-     */
     public Optional<Output<String>> audioRecognitionStrategy() {
         return Optional.ofNullable(this.audioRecognitionStrategy);
     }
@@ -56,25 +46,11 @@ public final class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetti
             $ = new V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioRecognitionStrategy Enables using the slot values as a custom vocabulary for recognizing user utterances.
-         * Valid value is `UseSlotValuesAsCustomVocabulary`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioRecognitionStrategy(@Nullable Output<String> audioRecognitionStrategy) {
             $.audioRecognitionStrategy = audioRecognitionStrategy;
             return this;
         }
 
-        /**
-         * @param audioRecognitionStrategy Enables using the slot values as a custom vocabulary for recognizing user utterances.
-         * Valid value is `UseSlotValuesAsCustomVocabulary`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioRecognitionStrategy(String audioRecognitionStrategy) {
             return audioRecognitionStrategy(Output.of(audioRecognitionStrategy));
         }

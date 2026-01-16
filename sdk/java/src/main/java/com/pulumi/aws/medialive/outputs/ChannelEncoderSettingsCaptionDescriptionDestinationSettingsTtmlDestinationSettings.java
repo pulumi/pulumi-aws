@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
-    /**
-     * @return This field is not currently supported and will not affect the output styling. Leave the default value.
-     * 
-     */
     private String styleControl;
 
     private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings() {}
-    /**
-     * @return This field is not currently supported and will not affect the output styling. Leave the default value.
-     * 
-     */
     public String styleControl() {
         return this.styleControl;
     }

@@ -12,35 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Using `pulumi import`, import DB Parameter groups using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
-// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the db parameter group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the DB parameter group. Defaults to "Managed by Pulumi".
-	Description pulumi.StringOutput `pulumi:"description"`
-	// The family of the DB parameter group.
-	Family pulumi.StringOutput `pulumi:"family"`
-	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringOutput  `pulumi:"region"`
-	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput                `pulumi:"arn"`
+	Description pulumi.StringOutput                `pulumi:"description"`
+	Family      pulumi.StringOutput                `pulumi:"family"`
+	Name        pulumi.StringOutput                `pulumi:"name"`
+	NamePrefix  pulumi.StringOutput                `pulumi:"namePrefix"`
+	Parameters  ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	Region      pulumi.StringOutput                `pulumi:"region"`
+	SkipDestroy pulumi.BoolPtrOutput               `pulumi:"skipDestroy"`
+	Tags        pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -79,47 +63,29 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// The ARN of the db parameter group.
-	Arn *string `pulumi:"arn"`
-	// The description of the DB parameter group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// The family of the DB parameter group.
-	Family *string `pulumi:"family"`
-	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
-	SkipDestroy *bool   `pulumi:"skipDestroy"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string                   `pulumi:"arn"`
+	Description *string                   `pulumi:"description"`
+	Family      *string                   `pulumi:"family"`
+	Name        *string                   `pulumi:"name"`
+	NamePrefix  *string                   `pulumi:"namePrefix"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
+	Region      *string                   `pulumi:"region"`
+	SkipDestroy *bool                     `pulumi:"skipDestroy"`
+	Tags        map[string]string         `pulumi:"tags"`
+	TagsAll     map[string]string         `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
-	// The ARN of the db parameter group.
-	Arn pulumi.StringPtrInput
-	// The description of the DB parameter group. Defaults to "Managed by Pulumi".
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The family of the DB parameter group.
-	Family pulumi.StringPtrInput
-	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-	Parameters ParameterGroupParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Family      pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	NamePrefix  pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
 	Region      pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -127,40 +93,26 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	// The description of the DB parameter group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// The family of the DB parameter group.
-	Family string `pulumi:"family"`
-	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
-	SkipDestroy *bool   `pulumi:"skipDestroy"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string                   `pulumi:"description"`
+	Family      string                    `pulumi:"family"`
+	Name        *string                   `pulumi:"name"`
+	NamePrefix  *string                   `pulumi:"namePrefix"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
+	Region      *string                   `pulumi:"region"`
+	SkipDestroy *bool                     `pulumi:"skipDestroy"`
+	Tags        map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// The description of the DB parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The family of the DB parameter group.
-	Family pulumi.StringInput
-	// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-	Parameters ParameterGroupParameterArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Family      pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	NamePrefix  pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
 	Region      pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -250,37 +202,30 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ARN of the db parameter group.
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the DB parameter group. Defaults to "Managed by Pulumi".
 func (o ParameterGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The family of the DB parameter group.
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o ParameterGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -289,12 +234,10 @@ func (o ParameterGroupOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

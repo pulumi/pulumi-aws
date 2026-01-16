@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directoryservice.ConditionalForwarder("example", {
- *     directoryId: ad.id,
- *     remoteDomainName: "example.com",
- *     dnsIps: [
- *         "8.8.8.8",
- *         "8.8.4.4",
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
- *
- * ```sh
- * $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
- * ```
- */
 export class ConditionalForwarder extends pulumi.CustomResource {
     /**
      * Get an existing ConditionalForwarder resource's state with the given name, ID, and optional extra
@@ -59,21 +32,9 @@ export class ConditionalForwarder extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConditionalForwarder.__pulumiType;
     }
 
-    /**
-     * ID of directory.
-     */
     declare public readonly directoryId: pulumi.Output<string>;
-    /**
-     * A list of forwarder IP addresses.
-     */
     declare public readonly dnsIps: pulumi.Output<string[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The fully qualified domain name of the remote domain for which forwarders will be used.
-     */
     declare public readonly remoteDomainName: pulumi.Output<string>;
 
     /**
@@ -120,21 +81,9 @@ export class ConditionalForwarder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConditionalForwarder resources.
  */
 export interface ConditionalForwarderState {
-    /**
-     * ID of directory.
-     */
     directoryId?: pulumi.Input<string>;
-    /**
-     * A list of forwarder IP addresses.
-     */
     dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The fully qualified domain name of the remote domain for which forwarders will be used.
-     */
     remoteDomainName?: pulumi.Input<string>;
 }
 
@@ -142,20 +91,8 @@ export interface ConditionalForwarderState {
  * The set of arguments for constructing a ConditionalForwarder resource.
  */
 export interface ConditionalForwarderArgs {
-    /**
-     * ID of directory.
-     */
     directoryId: pulumi.Input<string>;
-    /**
-     * A list of forwarder IP addresses.
-     */
     dnsIps: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The fully qualified domain name of the remote domain for which forwarders will be used.
-     */
     remoteDomainName: pulumi.Input<string>;
 }

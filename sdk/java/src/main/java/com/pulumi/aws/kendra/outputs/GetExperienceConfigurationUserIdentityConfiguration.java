@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExperienceConfigurationUserIdentityConfiguration {
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
-     * 
-     */
     private String identityAttributeName;
 
     private GetExperienceConfigurationUserIdentityConfiguration() {}
-    /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails.
-     * 
-     */
     public String identityAttributeName() {
         return this.identityAttributeName;
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationPortalOptions {
-    /**
-     * @return Sign-in options for the access portal. See `signInOptions` below.
-     * 
-     */
     private @Nullable ApplicationPortalOptionsSignInOptions signInOptions;
-    /**
-     * @return Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String visibility;
 
     private ApplicationPortalOptions() {}
-    /**
-     * @return Sign-in options for the access portal. See `signInOptions` below.
-     * 
-     */
     public Optional<ApplicationPortalOptionsSignInOptions> signInOptions() {
         return Optional.ofNullable(this.signInOptions);
     }
-    /**
-     * @return Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> visibility() {
         return Optional.ofNullable(this.visibility);
     }

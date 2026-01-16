@@ -12,18 +12,11 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceSourceConfigurationImageRepositoryImageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Port that your application listens to in the container. Defaults to `"8080"`.
-        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         [Input("runtimeEnvironmentSecrets")]
         private InputMap<string>? _runtimeEnvironmentSecrets;
-
-        /// <summary>
-        /// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
-        /// </summary>
         public InputMap<string> RuntimeEnvironmentSecrets
         {
             get => _runtimeEnvironmentSecrets ?? (_runtimeEnvironmentSecrets = new InputMap<string>());
@@ -32,19 +25,12 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
         [Input("runtimeEnvironmentVariables")]
         private InputMap<string>? _runtimeEnvironmentVariables;
-
-        /// <summary>
-        /// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-        /// </summary>
         public InputMap<string> RuntimeEnvironmentVariables
         {
             get => _runtimeEnvironmentVariables ?? (_runtimeEnvironmentVariables = new InputMap<string>());
             set => _runtimeEnvironmentVariables = value;
         }
 
-        /// <summary>
-        /// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
-        /// </summary>
         [Input("startCommand")]
         public Input<string>? StartCommand { get; set; }
 

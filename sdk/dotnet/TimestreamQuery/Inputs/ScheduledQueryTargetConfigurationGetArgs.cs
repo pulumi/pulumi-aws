@@ -12,9 +12,6 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryTargetConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for information needed to write data into the Timestream database and table. See below.
-        /// </summary>
         [Input("timestreamConfiguration")]
         public Input<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationGetArgs>? TimestreamConfiguration { get; set; }
 

@@ -17,204 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
- * 
- * ## Example Usage
- * 
- * ### Configured table with tags
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cleanrooms.ConfiguredTable;
- * import com.pulumi.aws.cleanrooms.ConfiguredTableArgs;
- * import com.pulumi.aws.cleanrooms.inputs.ConfiguredTableTableReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testConfiguredTable = new ConfiguredTable("testConfiguredTable", ConfiguredTableArgs.builder()
- *             .name("pulumi-example-table")
- *             .description("I made this table with Pulumi!")
- *             .analysisMethod("DIRECT_QUERY")
- *             .allowedColumns(            
- *                 "column1",
- *                 "column2",
- *                 "column3")
- *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
- *                 .databaseName("example_database")
- *                 .tableName("example_table")
- *                 .build())
- *             .tags(Map.of("Project", "Pulumi"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `id` - (String) ID of the cleanrooms configured table.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
- * 
- * % pulumi import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
- * 
- */
 @ResourceType(type="aws:cleanrooms/configuredTable:ConfiguredTable")
 public class ConfiguredTable extends com.pulumi.resources.CustomResource {
-    /**
-     * The columns of the references table which will be included in the configured table.
-     * 
-     */
     @Export(name="allowedColumns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedColumns;
 
-    /**
-     * @return The columns of the references table which will be included in the configured table.
-     * 
-     */
     public Output<List<String>> allowedColumns() {
         return this.allowedColumns;
     }
-    /**
-     * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-     * 
-     */
     @Export(name="analysisMethod", refs={String.class}, tree="[0]")
     private Output<String> analysisMethod;
 
-    /**
-     * @return The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-     * 
-     */
     public Output<String> analysisMethod() {
         return this.analysisMethod;
     }
-    /**
-     * The ARN of the configured table.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the configured table.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date and time the configured table was created.
-     * 
-     */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
-    /**
-     * @return The date and time the configured table was created.
-     * 
-     */
     public Output<String> createTime() {
         return this.createTime;
     }
-    /**
-     * A description for the configured table.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description for the configured table.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the configured table.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the configured table.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-     * 
-     */
     @Export(name="tableReference", refs={ConfiguredTableTableReference.class}, tree="[0]")
     private Output<ConfiguredTableTableReference> tableReference;
 
-    /**
-     * @return A reference to the AWS Glue table which will be used to create the configured table.
-     * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-     * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-     * 
-     */
     public Output<ConfiguredTableTableReference> tableReference() {
         return this.tableReference;
     }
-    /**
-     * Key value pairs which tag the configured table.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key value pairs which tag the configured table.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -224,17 +79,9 @@ public class ConfiguredTable extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The date and time the configured table was last updated.
-     * 
-     */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
-    /**
-     * @return The date and time the configured table was last updated.
-     * 
-     */
     public Output<String> updateTime() {
         return this.updateTime;
     }

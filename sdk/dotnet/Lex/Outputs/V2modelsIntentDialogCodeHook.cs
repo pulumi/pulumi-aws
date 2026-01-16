@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentDialogCodeHook
     {
-        /// <summary>
-        /// Enables the dialog code hook so that it processes user requests.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

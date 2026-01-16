@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigDeleteKeyArgs extends com.pulu
 
     public static final LogTransformerTransformerConfigDeleteKeyArgs Empty = new LogTransformerTransformerConfigDeleteKeyArgs();
 
-    /**
-     * Specifies the keys to be deleted.
-     * 
-     */
     @Import(name="withKeys", required=true)
     private Output<List<String>> withKeys;
 
-    /**
-     * @return Specifies the keys to be deleted.
-     * 
-     */
     public Output<List<String>> withKeys() {
         return this.withKeys;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigDeleteKeyArgs extends com.pulu
             $ = new LogTransformerTransformerConfigDeleteKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param withKeys Specifies the keys to be deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withKeys(Output<List<String>> withKeys) {
             $.withKeys = withKeys;
             return this;
         }
 
-        /**
-         * @param withKeys Specifies the keys to be deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withKeys(List<String> withKeys) {
             return withKeys(Output.of(withKeys));
         }
 
-        /**
-         * @param withKeys Specifies the keys to be deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withKeys(String... withKeys) {
             return withKeys(List.of(withKeys));
         }

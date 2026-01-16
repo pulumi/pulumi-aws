@@ -18,62 +18,30 @@ public final class CodeRepositoryArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final CodeRepositoryArgs Empty = new CodeRepositoryArgs();
 
-    /**
-     * The name of the Code Repository (must be unique).
-     * 
-     */
     @Import(name="codeRepositoryName", required=true)
     private Output<String> codeRepositoryName;
 
-    /**
-     * @return The name of the Code Repository (must be unique).
-     * 
-     */
     public Output<String> codeRepositoryName() {
         return this.codeRepositoryName;
     }
 
-    /**
-     * Specifies details about the repository. see Git Config details below.
-     * 
-     */
     @Import(name="gitConfig", required=true)
     private Output<CodeRepositoryGitConfigArgs> gitConfig;
 
-    /**
-     * @return Specifies details about the repository. see Git Config details below.
-     * 
-     */
     public Output<CodeRepositoryGitConfigArgs> gitConfig() {
         return this.gitConfig;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -105,86 +73,38 @@ public final class CodeRepositoryArgs extends com.pulumi.resources.ResourceArgs 
             $ = new CodeRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param codeRepositoryName The name of the Code Repository (must be unique).
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeRepositoryName(Output<String> codeRepositoryName) {
             $.codeRepositoryName = codeRepositoryName;
             return this;
         }
 
-        /**
-         * @param codeRepositoryName The name of the Code Repository (must be unique).
-         * 
-         * @return builder
-         * 
-         */
         public Builder codeRepositoryName(String codeRepositoryName) {
             return codeRepositoryName(Output.of(codeRepositoryName));
         }
 
-        /**
-         * @param gitConfig Specifies details about the repository. see Git Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfig(Output<CodeRepositoryGitConfigArgs> gitConfig) {
             $.gitConfig = gitConfig;
             return this;
         }
 
-        /**
-         * @param gitConfig Specifies details about the repository. see Git Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitConfig(CodeRepositoryGitConfigArgs gitConfig) {
             return gitConfig(Output.of(gitConfig));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

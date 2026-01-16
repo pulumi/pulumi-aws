@@ -12,77 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DMS (Data Migration Service) event subscription resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewEventSubscription(ctx, "example", &dms.EventSubscriptionArgs{
-//				Enabled: pulumi.Bool(true),
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("creation"),
-//					pulumi.String("failure"),
-//				},
-//				Name:        pulumi.String("my-favorite-event-subscription"),
-//				SnsTopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
-//				SourceIds: pulumi.StringArray{
-//					exampleAwsDmsReplicationTask.ReplicationTaskId,
-//				},
-//				SourceType: pulumi.String("replication-task"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import event subscriptions using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
-// ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DMS Event Subscription.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether the event subscription should be enabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+	Arn             pulumi.StringOutput      `pulumi:"arn"`
+	Enabled         pulumi.BoolPtrOutput     `pulumi:"enabled"`
 	EventCategories pulumi.StringArrayOutput `pulumi:"eventCategories"`
-	// Name of event subscription.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// SNS topic arn to send events on.
-	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
-	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringOutput `pulumi:"sourceType"`
-	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name            pulumi.StringOutput      `pulumi:"name"`
+	Region          pulumi.StringOutput      `pulumi:"region"`
+	SnsTopicArn     pulumi.StringOutput      `pulumi:"snsTopicArn"`
+	SourceIds       pulumi.StringArrayOutput `pulumi:"sourceIds"`
+	SourceType      pulumi.StringOutput      `pulumi:"sourceType"`
+	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -124,49 +66,29 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
-	// Amazon Resource Name (ARN) of the DMS Event Subscription.
-	Arn *string `pulumi:"arn"`
-	// Whether the event subscription should be enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-	EventCategories []string `pulumi:"eventCategories"`
-	// Name of event subscription.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// SNS topic arn to send events on.
-	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-	SourceIds []string `pulumi:"sourceIds"`
-	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string `pulumi:"sourceType"`
-	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	Enabled         *bool             `pulumi:"enabled"`
+	EventCategories []string          `pulumi:"eventCategories"`
+	Name            *string           `pulumi:"name"`
+	Region          *string           `pulumi:"region"`
+	SnsTopicArn     *string           `pulumi:"snsTopicArn"`
+	SourceIds       []string          `pulumi:"sourceIds"`
+	SourceType      *string           `pulumi:"sourceType"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type EventSubscriptionState struct {
-	// Amazon Resource Name (ARN) of the DMS Event Subscription.
-	Arn pulumi.StringPtrInput
-	// Whether the event subscription should be enabled.
-	Enabled pulumi.BoolPtrInput
-	// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+	Arn             pulumi.StringPtrInput
+	Enabled         pulumi.BoolPtrInput
 	EventCategories pulumi.StringArrayInput
-	// Name of event subscription.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// SNS topic arn to send events on.
-	SnsTopicArn pulumi.StringPtrInput
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-	SourceIds pulumi.StringArrayInput
-	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringPtrInput
-	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	SnsTopicArn     pulumi.StringPtrInput
+	SourceIds       pulumi.StringArrayInput
+	SourceType      pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (EventSubscriptionState) ElementType() reflect.Type {
@@ -174,42 +96,26 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
-	// Whether the event subscription should be enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
-	EventCategories []string `pulumi:"eventCategories"`
-	// Name of event subscription.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// SNS topic arn to send events on.
-	SnsTopicArn string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-	SourceIds []string `pulumi:"sourceIds"`
-	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType string `pulumi:"sourceType"`
-	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Enabled         *bool             `pulumi:"enabled"`
+	EventCategories []string          `pulumi:"eventCategories"`
+	Name            *string           `pulumi:"name"`
+	Region          *string           `pulumi:"region"`
+	SnsTopicArn     string            `pulumi:"snsTopicArn"`
+	SourceIds       []string          `pulumi:"sourceIds"`
+	SourceType      string            `pulumi:"sourceType"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
-	// Whether the event subscription should be enabled.
-	Enabled pulumi.BoolPtrInput
-	// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+	Enabled         pulumi.BoolPtrInput
 	EventCategories pulumi.StringArrayInput
-	// Name of event subscription.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// SNS topic arn to send events on.
-	SnsTopicArn pulumi.StringInput
-	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
-	SourceIds pulumi.StringArrayInput
-	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType pulumi.StringInput
-	// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	SnsTopicArn     pulumi.StringInput
+	SourceIds       pulumi.StringArrayInput
+	SourceType      pulumi.StringInput
+	Tags            pulumi.StringMapInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
@@ -299,52 +205,42 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DMS Event Subscription.
 func (o EventSubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether the event subscription should be enabled.
 func (o EventSubscriptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
 func (o EventSubscriptionOutput) EventCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.EventCategories }).(pulumi.StringArrayOutput)
 }
 
-// Name of event subscription.
 func (o EventSubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// SNS topic arn to send events on.
 func (o EventSubscriptionOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
 }
 
-// Type of source for events. Valid values: `replication-instance` or `replication-task`
 func (o EventSubscriptionOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
-// Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EventSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

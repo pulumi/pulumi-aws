@@ -10,55 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRuntimeVersionsRuntimeVersion {
-    /**
-     * @return Date of deprecation if the runtme version is deprecated.
-     * 
-     */
     private String deprecationDate;
-    /**
-     * @return Description of the runtime version, created by Amazon.
-     * 
-     */
     private String description;
-    /**
-     * @return Date that the runtime version was released.
-     * 
-     */
     private String releaseDate;
-    /**
-     * @return Name of the runtime version.
-     * For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-     * 
-     */
     private String versionName;
 
     private GetRuntimeVersionsRuntimeVersion() {}
-    /**
-     * @return Date of deprecation if the runtme version is deprecated.
-     * 
-     */
     public String deprecationDate() {
         return this.deprecationDate;
     }
-    /**
-     * @return Description of the runtime version, created by Amazon.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Date that the runtime version was released.
-     * 
-     */
     public String releaseDate() {
         return this.releaseDate;
     }
-    /**
-     * @return Name of the runtime version.
-     * For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
-     * 
-     */
     public String versionName() {
         return this.versionName;
     }

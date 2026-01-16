@@ -15,77 +15,37 @@ public final class GetTrafficPolicyDocumentRuleRegion extends com.pulumi.resourc
 
     public static final GetTrafficPolicyDocumentRuleRegion Empty = new GetTrafficPolicyDocumentRuleRegion();
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable String endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     @Import(name="evaluateTargetHealth")
     private @Nullable Boolean evaluateTargetHealth;
 
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable String healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * Region code for the AWS Region that you created the resource in.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region code for the AWS Region that you created the resource in.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * References to a rule.
-     * 
-     */
     @Import(name="ruleReference")
     private @Nullable String ruleReference;
 
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
@@ -118,56 +78,26 @@ public final class GetTrafficPolicyDocumentRuleRegion extends com.pulumi.resourc
             $ = new GetTrafficPolicyDocumentRuleRegion(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable String endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             $.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable String healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param region Region code for the AWS Region that you created the resource in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(@Nullable String ruleReference) {
             $.ruleReference = ruleReference;
             return this;

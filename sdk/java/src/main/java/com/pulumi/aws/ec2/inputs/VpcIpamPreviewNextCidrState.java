@@ -17,77 +17,37 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
 
     public static final VpcIpamPreviewNextCidrState Empty = new VpcIpamPreviewNextCidrState();
 
-    /**
-     * The previewed CIDR from the pool.
-     * 
-     */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
-    /**
-     * @return The previewed CIDR from the pool.
-     * 
-     */
     public Optional<Output<String>> cidr() {
         return Optional.ofNullable(this.cidr);
     }
 
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     * 
-     */
     @Import(name="disallowedCidrs")
     private @Nullable Output<List<String>> disallowedCidrs;
 
-    /**
-     * @return Exclude a particular CIDR range from being returned by the pool.
-     * 
-     */
     public Optional<Output<List<String>>> disallowedCidrs() {
         return Optional.ofNullable(this.disallowedCidrs);
     }
 
-    /**
-     * The ID of the pool to which you want to assign a CIDR.
-     * 
-     */
     @Import(name="ipamPoolId")
     private @Nullable Output<String> ipamPoolId;
 
-    /**
-     * @return The ID of the pool to which you want to assign a CIDR.
-     * 
-     */
     public Optional<Output<String>> ipamPoolId() {
         return Optional.ofNullable(this.ipamPoolId);
     }
 
-    /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
-     * 
-     */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
-    /**
-     * @return The netmask length of the CIDR you would like to preview from the IPAM pool.
-     * 
-     */
     public Optional<Output<Integer>> netmaskLength() {
         return Optional.ofNullable(this.netmaskLength);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,117 +80,51 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
             $ = new VpcIpamPreviewNextCidrState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr The previewed CIDR from the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(@Nullable Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr The previewed CIDR from the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }
 
-        /**
-         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disallowedCidrs(@Nullable Output<List<String>> disallowedCidrs) {
             $.disallowedCidrs = disallowedCidrs;
             return this;
         }
 
-        /**
-         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disallowedCidrs(List<String> disallowedCidrs) {
             return disallowedCidrs(Output.of(disallowedCidrs));
         }
 
-        /**
-         * @param disallowedCidrs Exclude a particular CIDR range from being returned by the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disallowedCidrs(String... disallowedCidrs) {
             return disallowedCidrs(List.of(disallowedCidrs));
         }
 
-        /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(@Nullable Output<String> ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;
         }
 
-        /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamPoolId(String ipamPoolId) {
             return ipamPoolId(Output.of(ipamPoolId));
         }
 
-        /**
-         * @param netmaskLength The netmask length of the CIDR you would like to preview from the IPAM pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder netmaskLength(@Nullable Output<Integer> netmaskLength) {
             $.netmaskLength = netmaskLength;
             return this;
         }
 
-        /**
-         * @param netmaskLength The netmask length of the CIDR you would like to preview from the IPAM pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder netmaskLength(Integer netmaskLength) {
             return netmaskLength(Output.of(netmaskLength));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -25,7 +25,6 @@ class NotificationHubArgs:
                  timeouts: Optional[pulumi.Input['NotificationHubTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NotificationHub resource.
-        :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
         """
         pulumi.set(__self__, "notification_hub_region", notification_hub_region)
         if timeouts is not None:
@@ -34,9 +33,6 @@ class NotificationHubArgs:
     @_builtins.property
     @pulumi.getter(name="notificationHubRegion")
     def notification_hub_region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Notification Hub region.
-        """
         return pulumi.get(self, "notification_hub_region")
 
     @notification_hub_region.setter
@@ -60,7 +56,6 @@ class _NotificationHubState:
                  timeouts: Optional[pulumi.Input['NotificationHubTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NotificationHub resources.
-        :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
         """
         if notification_hub_region is not None:
             pulumi.set(__self__, "notification_hub_region", notification_hub_region)
@@ -70,9 +65,6 @@ class _NotificationHubState:
     @_builtins.property
     @pulumi.getter(name="notificationHubRegion")
     def notification_hub_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Notification Hub region.
-        """
         return pulumi.get(self, "notification_hub_region")
 
     @notification_hub_region.setter
@@ -99,30 +91,9 @@ class NotificationHub(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['NotificationHubTimeoutsArgs', 'NotificationHubTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS User Notifications Notification Hub.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationHub("example", notification_hub_region="us-west-2")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
-        ```
-
+        Create a NotificationHub resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
         """
         ...
     @overload
@@ -131,27 +102,7 @@ class NotificationHub(pulumi.CustomResource):
                  args: NotificationHubArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS User Notifications Notification Hub.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.notifications.NotificationHub("example", notification_hub_region="us-west-2")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
-
-        ```sh
-        $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
-        ```
-
+        Create a NotificationHub resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NotificationHubArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +152,6 @@ class NotificationHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -214,9 +164,6 @@ class NotificationHub(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="notificationHubRegion")
     def notification_hub_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Notification Hub region.
-        """
         return pulumi.get(self, "notification_hub_region")
 
     @_builtins.property

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Determines whether the query scope is enabled or disabled.
-        /// </summary>
         [Input("authorization", required: true)]
         public Input<string> Authorization { get; set; } = null!;
 

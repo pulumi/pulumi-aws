@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupStickiness {
-    /**
-     * @return Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-     * 
-     */
     private @Nullable Integer cookieDuration;
-    /**
-     * @return Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
-     * 
-     */
     private @Nullable String cookieName;
-    /**
-     * @return Boolean to enable / disable `stickiness`. Default is `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
-     * 
-     */
     private String type;
 
     private TargetGroupStickiness() {}
-    /**
-     * @return Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-     * 
-     */
     public Optional<Integer> cookieDuration() {
         return Optional.ofNullable(this.cookieDuration);
     }
-    /**
-     * @return Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
-     * 
-     */
     public Optional<String> cookieName() {
         return Optional.ofNullable(this.cookieName);
     }
-    /**
-     * @return Boolean to enable / disable `stickiness`. Default is `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, `sourceIp` for NLBs, and `sourceIpDestIp`, `sourceIpDestIpProto` for GWLBs.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -16,32 +16,16 @@ public final class WindowsFileSystemDiskIopsConfigurationArgs extends com.pulumi
 
     public static final WindowsFileSystemDiskIopsConfigurationArgs Empty = new WindowsFileSystemDiskIopsConfigurationArgs();
 
-    /**
-     * The total number of SSD IOPS provisioned for the file system.
-     * 
-     */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
-    /**
-     * @return The total number of SSD IOPS provisioned for the file system.
-     * 
-     */
     public Optional<Output<Integer>> iops() {
         return Optional.ofNullable(this.iops);
     }
 
-    /**
-     * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
-     * 
-     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
-    /**
-     * @return Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
-     * 
-     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
@@ -71,44 +55,20 @@ public final class WindowsFileSystemDiskIopsConfigurationArgs extends com.pulumi
             $ = new WindowsFileSystemDiskIopsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param iops The total number of SSD IOPS provisioned for the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iops(@Nullable Output<Integer> iops) {
             $.iops = iops;
             return this;
         }
 
-        /**
-         * @param iops The total number of SSD IOPS provisioned for the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iops(Integer iops) {
             return iops(Output.of(iops));
         }
 
-        /**
-         * @param mode Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

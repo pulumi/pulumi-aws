@@ -11,75 +11,12 @@ namespace Pulumi.Aws.Ses
 {
     public static class GetEmailIdentity
     {
-        /// <summary>
-        /// Retrieve the active SES email identity
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ses.GetEmailIdentity.Invoke(new()
-        ///     {
-        ///         Email = "awesome@example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEmailIdentityResult> InvokeAsync(GetEmailIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve the active SES email identity
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ses.GetEmailIdentity.Invoke(new()
-        ///     {
-        ///         Email = "awesome@example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEmailIdentityResult> Invoke(GetEmailIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve the active SES email identity
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ses.GetEmailIdentity.Invoke(new()
-        ///     {
-        ///         Email = "awesome@example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEmailIdentityResult> Invoke(GetEmailIdentityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
     }
@@ -87,15 +24,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class GetEmailIdentityArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Email identity.
-        /// </summary>
         [Input("email", required: true)]
         public string Email { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -107,15 +38,9 @@ namespace Pulumi.Aws.Ses
 
     public sealed class GetEmailIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Email identity.
-        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -129,13 +54,7 @@ namespace Pulumi.Aws.Ses
     [OutputType]
     public sealed class GetEmailIdentityResult
     {
-        /// <summary>
-        /// The ARN of the email identity.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Email identity.
-        /// </summary>
         public readonly string Email;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

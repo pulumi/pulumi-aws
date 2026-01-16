@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceParametersS3ManifestFileLocation {
-    /**
-     * @return The name of the bucket that contains the manifest file.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The key of the manifest file within the bucket.
-     * 
-     */
     private String key;
 
     private DataSourceParametersS3ManifestFileLocation() {}
-    /**
-     * @return The name of the bucket that contains the manifest file.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The key of the manifest file within the bucket.
-     * 
-     */
     public String key() {
         return this.key;
     }

@@ -15,77 +15,37 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
 
     public static final CustomDomainAssociationState Empty = new CustomDomainAssociationState();
 
-    /**
-     * ARN of the certificate for the custom domain association.
-     * 
-     */
     @Import(name="customDomainCertificateArn")
     private @Nullable Output<String> customDomainCertificateArn;
 
-    /**
-     * @return ARN of the certificate for the custom domain association.
-     * 
-     */
     public Optional<Output<String>> customDomainCertificateArn() {
         return Optional.ofNullable(this.customDomainCertificateArn);
     }
 
-    /**
-     * Expiration time for the certificate.
-     * 
-     */
     @Import(name="customDomainCertificateExpiryTime")
     private @Nullable Output<String> customDomainCertificateExpiryTime;
 
-    /**
-     * @return Expiration time for the certificate.
-     * 
-     */
     public Optional<Output<String>> customDomainCertificateExpiryTime() {
         return Optional.ofNullable(this.customDomainCertificateExpiryTime);
     }
 
-    /**
-     * Custom domain to associate with the workgroup.
-     * 
-     */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
-    /**
-     * @return Custom domain to associate with the workgroup.
-     * 
-     */
     public Optional<Output<String>> customDomainName() {
         return Optional.ofNullable(this.customDomainName);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the workgroup.
-     * 
-     */
     @Import(name="workgroupName")
     private @Nullable Output<String> workgroupName;
 
-    /**
-     * @return Name of the workgroup.
-     * 
-     */
     public Optional<Output<String>> workgroupName() {
         return Optional.ofNullable(this.workgroupName);
     }
@@ -118,107 +78,47 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
             $ = new CustomDomainAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customDomainCertificateArn ARN of the certificate for the custom domain association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainCertificateArn(@Nullable Output<String> customDomainCertificateArn) {
             $.customDomainCertificateArn = customDomainCertificateArn;
             return this;
         }
 
-        /**
-         * @param customDomainCertificateArn ARN of the certificate for the custom domain association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainCertificateArn(String customDomainCertificateArn) {
             return customDomainCertificateArn(Output.of(customDomainCertificateArn));
         }
 
-        /**
-         * @param customDomainCertificateExpiryTime Expiration time for the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainCertificateExpiryTime(@Nullable Output<String> customDomainCertificateExpiryTime) {
             $.customDomainCertificateExpiryTime = customDomainCertificateExpiryTime;
             return this;
         }
 
-        /**
-         * @param customDomainCertificateExpiryTime Expiration time for the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainCertificateExpiryTime(String customDomainCertificateExpiryTime) {
             return customDomainCertificateExpiryTime(Output.of(customDomainCertificateExpiryTime));
         }
 
-        /**
-         * @param customDomainName Custom domain to associate with the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainName(@Nullable Output<String> customDomainName) {
             $.customDomainName = customDomainName;
             return this;
         }
 
-        /**
-         * @param customDomainName Custom domain to associate with the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customDomainName(String customDomainName) {
             return customDomainName(Output.of(customDomainName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param workgroupName Name of the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(@Nullable Output<String> workgroupName) {
             $.workgroupName = workgroupName;
             return this;
         }
 
-        /**
-         * @param workgroupName Name of the workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroupName(String workgroupName) {
             return workgroupName(Output.of(workgroupName));
         }

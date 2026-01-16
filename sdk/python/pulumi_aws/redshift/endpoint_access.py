@@ -29,12 +29,6 @@ class EndpointAccessArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
-        :param pulumi.Input[_builtins.str] endpoint_name: The Redshift-managed VPC endpoint name.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "endpoint_name", endpoint_name)
@@ -49,9 +43,6 @@ class EndpointAccessArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The cluster identifier of the cluster to access.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -61,9 +52,6 @@ class EndpointAccessArgs:
     @_builtins.property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Redshift-managed VPC endpoint name.
-        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -73,9 +61,6 @@ class EndpointAccessArgs:
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
@@ -85,9 +70,6 @@ class EndpointAccessArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +79,6 @@ class EndpointAccessArgs:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
@@ -109,9 +88,6 @@ class EndpointAccessArgs:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -133,15 +109,6 @@ class _EndpointAccessState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointAccess resources.
-        :param pulumi.Input[_builtins.str] address: The DNS address of the endpoint.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
-        :param pulumi.Input[_builtins.str] endpoint_name: The Redshift-managed VPC endpoint name.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -165,9 +132,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The DNS address of the endpoint.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -177,9 +141,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The cluster identifier of the cluster to access.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -189,9 +150,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Redshift-managed VPC endpoint name.
-        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -201,9 +159,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -213,9 +168,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -225,9 +177,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
@@ -237,9 +186,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
@@ -249,9 +195,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]:
-        """
-        The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-        """
         return pulumi.get(self, "vpc_endpoints")
 
     @vpc_endpoints.setter
@@ -261,9 +204,6 @@ class _EndpointAccessState:
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -285,36 +225,9 @@ class EndpointAccess(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift endpoint access.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.EndpointAccess("example",
-            endpoint_name="example",
-            subnet_group_name=example_aws_redshift_subnet_group["id"],
-            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
-        ```
-
+        Create a EndpointAccess resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
-        :param pulumi.Input[_builtins.str] endpoint_name: The Redshift-managed VPC endpoint name.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         ...
     @overload
@@ -323,28 +236,7 @@ class EndpointAccess(pulumi.CustomResource):
                  args: EndpointAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift endpoint access.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.EndpointAccess("example",
-            endpoint_name="example",
-            subnet_group_name=example_aws_redshift_subnet_group["id"],
-            cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
-
-        ```sh
-        $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
-        ```
-
+        Create a EndpointAccess resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EndpointAccessArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,15 +308,6 @@ class EndpointAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address: The DNS address of the endpoint.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
-        :param pulumi.Input[_builtins.str] endpoint_name: The Redshift-managed VPC endpoint name.
-        :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -444,72 +327,45 @@ class EndpointAccess(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[_builtins.str]:
-        """
-        The DNS address of the endpoint.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        The cluster identifier of the cluster to access.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Redshift-managed VPC endpoint name.
-        """
         return pulumi.get(self, "endpoint_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
-        """
         return pulumi.get(self, "resource_owner")
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        """
         return pulumi.get(self, "subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> pulumi.Output[Sequence['outputs.EndpointAccessVpcEndpoint']]:
-        """
-        The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
-        """
         return pulumi.get(self, "vpc_endpoints")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 

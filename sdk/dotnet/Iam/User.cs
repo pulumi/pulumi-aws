@@ -9,123 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM user.
-    /// 
-    /// &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `Name` or `Path`, the `ForceDestroy` argument must be set to `True` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lb = new Aws.Iam.User("lb", new()
-    ///     {
-    ///         Name = "loadbalancer",
-    ///         Path = "/system/",
-    ///         Tags = 
-    ///         {
-    ///             { "tag-key", "tag-value" },
-    ///         },
-    ///     });
-    /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lb", new()
-    ///     {
-    ///         User = lb.Name,
-    ///     });
-    /// 
-    ///     var lbRo = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ec2:Describe*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lb_ro", new()
-    ///     {
-    ///         Name = "test",
-    ///         User = lb.Name,
-    ///         Policy = lbRo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM Users using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/user:User lb loadbalancer
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN assigned by AWS for this user.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// When destroying this user, destroy even if it
-        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `ForceDestroy`
-        /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-        /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Path in which to create the user.
-        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the policy that is used to set the permissions boundary for the user.
-        /// </summary>
         [Output("permissionsBoundary")]
         public Output<string?> PermissionsBoundary { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of tags for the IAM user. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The [unique ID][1] assigned by AWS.
-        /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
 
@@ -175,38 +82,20 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When destroying this user, destroy even if it
-        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `ForceDestroy`
-        /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Path in which to create the user.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// The ARN of the policy that is used to set the permissions boundary for the user.
-        /// </summary>
         [Input("permissionsBoundary")]
         public Input<string>? PermissionsBoundary { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags for the IAM user. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -221,44 +110,23 @@ namespace Pulumi.Aws.Iam
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN assigned by AWS for this user.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// When destroying this user, destroy even if it
-        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `ForceDestroy`
-        /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Path in which to create the user.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// The ARN of the policy that is used to set the permissions boundary for the user.
-        /// </summary>
         [Input("permissionsBoundary")]
         public Input<string>? PermissionsBoundary { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags for the IAM user. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -267,19 +135,12 @@ namespace Pulumi.Aws.Iam
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The [unique ID][1] assigned by AWS.
-        /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
 

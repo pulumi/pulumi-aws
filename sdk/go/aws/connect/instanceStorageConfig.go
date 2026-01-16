@@ -12,206 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Instance Storage Config resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ### Storage Config Kinesis Firehose Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
-//				ResourceType: pulumi.String("CONTACT_TRACE_RECORDS"),
-//				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
-//					KinesisFirehoseConfig: &connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs{
-//						FirehoseArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
-//					},
-//					StorageType: pulumi.String("KINESIS_FIREHOSE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Storage Config Kinesis Stream Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
-//				ResourceType: pulumi.String("CONTACT_TRACE_RECORDS"),
-//				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
-//					KinesisStreamConfig: &connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs{
-//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-//					},
-//					StorageType: pulumi.String("KINESIS_STREAM"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Storage Config Kinesis Video Stream Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
-//				ResourceType: pulumi.String("MEDIA_STREAMS"),
-//				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
-//					KinesisVideoStreamConfig: &connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs{
-//						Prefix:               pulumi.String("example"),
-//						RetentionPeriodHours: pulumi.Int(3),
-//						EncryptionConfig: &connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs{
-//							EncryptionType: pulumi.String("KMS"),
-//							KeyId:          pulumi.Any(exampleAwsKmsKey.Arn),
-//						},
-//					},
-//					StorageType: pulumi.String("KINESIS_VIDEO_STREAM"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Storage Config S3 Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
-//				ResourceType: pulumi.String("CHAT_TRANSCRIPTS"),
-//				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
-//					S3Config: &connect.InstanceStorageConfigStorageConfigS3ConfigArgs{
-//						BucketName:   pulumi.Any(exampleAwsS3Bucket.Id),
-//						BucketPrefix: pulumi.String("example"),
-//					},
-//					StorageType: pulumi.String("S3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Storage Config S3 Config with Encryption Config
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstanceStorageConfig(ctx, "example", &connect.InstanceStorageConfigArgs{
-//				InstanceId:   pulumi.Any(exampleAwsConnectInstance.Id),
-//				ResourceType: pulumi.String("CHAT_TRANSCRIPTS"),
-//				StorageConfig: &connect.InstanceStorageConfigStorageConfigArgs{
-//					S3Config: &connect.InstanceStorageConfigStorageConfigS3ConfigArgs{
-//						BucketName:   pulumi.Any(exampleAwsS3Bucket.Id),
-//						BucketPrefix: pulumi.String("example"),
-//						EncryptionConfig: &connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs{
-//							EncryptionType: pulumi.String("KMS"),
-//							KeyId:          pulumi.Any(exampleAwsKmsKey.Arn),
-//						},
-//					},
-//					StorageType: pulumi.String("S3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Instance Storage Configs using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
-// ```
 type InstanceStorageConfig struct {
 	pulumi.CustomResourceState
 
-	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Specifies the storage configuration options for the Connect Instance. Documented below.
+	AssociationId pulumi.StringOutput                      `pulumi:"associationId"`
+	InstanceId    pulumi.StringOutput                      `pulumi:"instanceId"`
+	Region        pulumi.StringOutput                      `pulumi:"region"`
+	ResourceType  pulumi.StringOutput                      `pulumi:"resourceType"`
 	StorageConfig InstanceStorageConfigStorageConfigOutput `pulumi:"storageConfig"`
 }
 
@@ -254,28 +61,18 @@ func GetInstanceStorageConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceStorageConfig resources.
 type instanceStorageConfigState struct {
-	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-	AssociationId *string `pulumi:"associationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-	ResourceType *string `pulumi:"resourceType"`
-	// Specifies the storage configuration options for the Connect Instance. Documented below.
+	AssociationId *string                             `pulumi:"associationId"`
+	InstanceId    *string                             `pulumi:"instanceId"`
+	Region        *string                             `pulumi:"region"`
+	ResourceType  *string                             `pulumi:"resourceType"`
 	StorageConfig *InstanceStorageConfigStorageConfig `pulumi:"storageConfig"`
 }
 
 type InstanceStorageConfigState struct {
-	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-	ResourceType pulumi.StringPtrInput
-	// Specifies the storage configuration options for the Connect Instance. Documented below.
+	InstanceId    pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
+	ResourceType  pulumi.StringPtrInput
 	StorageConfig InstanceStorageConfigStorageConfigPtrInput
 }
 
@@ -284,25 +81,17 @@ func (InstanceStorageConfigState) ElementType() reflect.Type {
 }
 
 type instanceStorageConfigArgs struct {
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-	ResourceType string `pulumi:"resourceType"`
-	// Specifies the storage configuration options for the Connect Instance. Documented below.
+	InstanceId    string                             `pulumi:"instanceId"`
+	Region        *string                            `pulumi:"region"`
+	ResourceType  string                             `pulumi:"resourceType"`
 	StorageConfig InstanceStorageConfigStorageConfig `pulumi:"storageConfig"`
 }
 
 // The set of arguments for constructing a InstanceStorageConfig resource.
 type InstanceStorageConfigArgs struct {
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-	ResourceType pulumi.StringInput
-	// Specifies the storage configuration options for the Connect Instance. Documented below.
+	InstanceId    pulumi.StringInput
+	Region        pulumi.StringPtrInput
+	ResourceType  pulumi.StringInput
 	StorageConfig InstanceStorageConfigStorageConfigInput
 }
 
@@ -393,27 +182,22 @@ func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutputWithContext(ct
 	return o
 }
 
-// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 func (o InstanceStorageConfigOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o InstanceStorageConfigOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceStorageConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 func (o InstanceStorageConfigOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Specifies the storage configuration options for the Connect Instance. Documented below.
 func (o InstanceStorageConfigOutput) StorageConfig() InstanceStorageConfigStorageConfigOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigStorageConfigOutput { return v.StorageConfig }).(InstanceStorageConfigStorageConfigOutput)
 }

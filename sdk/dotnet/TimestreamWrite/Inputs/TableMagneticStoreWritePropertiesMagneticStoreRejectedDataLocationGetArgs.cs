@@ -12,9 +12,6 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
 
     public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
-        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationGetArgs>? S3Configuration { get; set; }
 

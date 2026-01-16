@@ -63,9 +63,6 @@ class GetExportResult:
     @_builtins.property
     @pulumi.getter
     def body(self) -> _builtins.str:
-        """
-        ID of the API.
-        """
         return pulumi.get(self, "body")
 
     @_builtins.property
@@ -133,27 +130,7 @@ def get_export(api_id: Optional[_builtins.str] = None,
                stage_name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    Exports a definition of an API in a particular output format and specification.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.apigatewayv2.get_export(api_id=test_aws_apigatewayv2_route["apiId"],
-        specification="OAS30",
-        output_type="JSON")
-    ```
-
-
-    :param _builtins.str api_id: API identifier.
-    :param _builtins.str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-    :param _builtins.bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-    :param _builtins.str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-    :param _builtins.str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -185,27 +162,7 @@ def get_export_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
                       stage_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
-    Exports a definition of an API in a particular output format and specification.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.apigatewayv2.get_export(api_id=test_aws_apigatewayv2_route["apiId"],
-        specification="OAS30",
-        output_type="JSON")
-    ```
-
-
-    :param _builtins.str api_id: API identifier.
-    :param _builtins.str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
-    :param _builtins.bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
-    :param _builtins.str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
-    :param _builtins.str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['apiId'] = api_id

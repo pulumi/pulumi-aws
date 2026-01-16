@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceDeploymentConfigurationLinearConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
-        /// </summary>
         [Input("stepBakeTimeInMinutes")]
         public Input<string>? StepBakeTimeInMinutes { get; set; }
 
-        /// <summary>
-        /// Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
-        /// </summary>
         [Input("stepPercent")]
         public Input<double>? StepPercent { get; set; }
 

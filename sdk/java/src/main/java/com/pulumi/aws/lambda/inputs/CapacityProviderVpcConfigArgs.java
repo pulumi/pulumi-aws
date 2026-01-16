@@ -15,32 +15,16 @@ public final class CapacityProviderVpcConfigArgs extends com.pulumi.resources.Re
 
     public static final CapacityProviderVpcConfigArgs Empty = new CapacityProviderVpcConfigArgs();
 
-    /**
-     * List of security group IDs for the VPC.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return List of security group IDs for the VPC.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * List of subnet IDs for the VPC.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return List of subnet IDs for the VPC.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
@@ -70,64 +54,28 @@ public final class CapacityProviderVpcConfigArgs extends com.pulumi.resources.Re
             $ = new CapacityProviderVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs for the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs for the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds List of security group IDs for the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds List of subnet IDs for the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds List of subnet IDs for the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds List of subnet IDs for the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

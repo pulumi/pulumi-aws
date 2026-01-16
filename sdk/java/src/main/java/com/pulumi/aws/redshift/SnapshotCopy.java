@@ -15,141 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Redshift Snapshot Copy.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.SnapshotCopy;
- * import com.pulumi.aws.redshift.SnapshotCopyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SnapshotCopy("example", SnapshotCopyArgs.builder()
- *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .destinationRegion("us-east-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Redshift Snapshot Copy using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/snapshotCopy:SnapshotCopy")
 public class SnapshotCopy extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the source cluster.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return Identifier of the source cluster.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * AWS Region to copy snapshots to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="destinationRegion", refs={String.class}, tree="[0]")
     private Output<String> destinationRegion;
 
-    /**
-     * @return AWS Region to copy snapshots to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> destinationRegion() {
         return this.destinationRegion;
     }
-    /**
-     * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-     * 
-     */
     @Export(name="manualSnapshotRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> manualSnapshotRetentionPeriod;
 
-    /**
-     * @return Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
-     * 
-     */
     public Output<Integer> manualSnapshotRetentionPeriod() {
         return this.manualSnapshotRetentionPeriod;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-     * 
-     */
     @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionPeriod;
 
-    /**
-     * @return Number of days to retain automated snapshots in the destination region after they are copied from the source region.
-     * 
-     */
     public Output<Integer> retentionPeriod() {
         return this.retentionPeriod;
     }
-    /**
-     * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     @Export(name="snapshotCopyGrantName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotCopyGrantName;
 
-    /**
-     * @return Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     public Output<Optional<String>> snapshotCopyGrantName() {
         return Codegen.optional(this.snapshotCopyGrantName);
     }

@@ -16,47 +16,23 @@ public final class CatalogTableStorageDescriptorSerDeInfoArgs extends com.pulumi
 
     public static final CatalogTableStorageDescriptorSerDeInfoArgs Empty = new CatalogTableStorageDescriptorSerDeInfoArgs();
 
-    /**
-     * Name of the SerDe.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the SerDe.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
-    /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-     * 
-     */
     @Import(name="serializationLibrary")
     private @Nullable Output<String> serializationLibrary;
 
-    /**
-     * @return Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-     * 
-     */
     public Optional<Output<String>> serializationLibrary() {
         return Optional.ofNullable(this.serializationLibrary);
     }
@@ -87,65 +63,29 @@ public final class CatalogTableStorageDescriptorSerDeInfoArgs extends com.pulumi
             $ = new CatalogTableStorageDescriptorSerDeInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the SerDe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the SerDe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param serializationLibrary Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serializationLibrary(@Nullable Output<String> serializationLibrary) {
             $.serializationLibrary = serializationLibrary;
             return this;
         }
 
-        /**
-         * @param serializationLibrary Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serializationLibrary(String serializationLibrary) {
             return serializationLibrary(Output.of(serializationLibrary));
         }

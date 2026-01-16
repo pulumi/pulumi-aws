@@ -17,32 +17,16 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
 
     public static final TargetGroupTargetHealthStateArgs Empty = new TargetGroupTargetHealthStateArgs();
 
-    /**
-     * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-     * 
-     */
     @Import(name="enableUnhealthyConnectionTermination", required=true)
     private Output<Boolean> enableUnhealthyConnectionTermination;
 
-    /**
-     * @return Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-     * 
-     */
     public Output<Boolean> enableUnhealthyConnectionTermination() {
         return this.enableUnhealthyConnectionTermination;
     }
 
-    /**
-     * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
-     * 
-     */
     @Import(name="unhealthyDrainingInterval")
     private @Nullable Output<Integer> unhealthyDrainingInterval;
 
-    /**
-     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
-     * 
-     */
     public Optional<Output<Integer>> unhealthyDrainingInterval() {
         return Optional.ofNullable(this.unhealthyDrainingInterval);
     }
@@ -72,44 +56,20 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
             $ = new TargetGroupTargetHealthStateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableUnhealthyConnectionTermination Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableUnhealthyConnectionTermination(Output<Boolean> enableUnhealthyConnectionTermination) {
             $.enableUnhealthyConnectionTermination = enableUnhealthyConnectionTermination;
             return this;
         }
 
-        /**
-         * @param enableUnhealthyConnectionTermination Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableUnhealthyConnectionTermination(Boolean enableUnhealthyConnectionTermination) {
             return enableUnhealthyConnectionTermination(Output.of(enableUnhealthyConnectionTermination));
         }
 
-        /**
-         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyDrainingInterval(@Nullable Output<Integer> unhealthyDrainingInterval) {
             $.unhealthyDrainingInterval = unhealthyDrainingInterval;
             return this;
         }
 
-        /**
-         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyDrainingInterval(Integer unhealthyDrainingInterval) {
             return unhealthyDrainingInterval(Output.of(unhealthyDrainingInterval));
         }

@@ -11,105 +11,12 @@ namespace Pulumi.Aws.CloudFormation
 {
     public static class GetExport
     {
-        /// <summary>
-        /// The CloudFormation Export data source allows access to stack
-        /// exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
-        /// 
-        ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var subnetId = Aws.CloudFormation.GetExport.Invoke(new()
-        ///     {
-        ///         Name = "mySubnetIdExportName",
-        ///     });
-        /// 
-        ///     var web = new Aws.Ec2.Instance("web", new()
-        ///     {
-        ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-        ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The CloudFormation Export data source allows access to stack
-        /// exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
-        /// 
-        ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var subnetId = Aws.CloudFormation.GetExport.Invoke(new()
-        ///     {
-        ///         Name = "mySubnetIdExportName",
-        ///     });
-        /// 
-        ///     var web = new Aws.Ec2.Instance("web", new()
-        ///     {
-        ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-        ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The CloudFormation Export data source allows access to stack
-        /// exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
-        /// 
-        ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var subnetId = Aws.CloudFormation.GetExport.Invoke(new()
-        ///     {
-        ///         Name = "mySubnetIdExportName",
-        ///     });
-        /// 
-        ///     var web = new Aws.Ec2.Instance("web", new()
-        ///     {
-        ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
-        ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
@@ -117,15 +24,9 @@ namespace Pulumi.Aws.CloudFormation
 
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -137,15 +38,9 @@ namespace Pulumi.Aws.CloudFormation
 
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -159,9 +54,6 @@ namespace Pulumi.Aws.CloudFormation
     [OutputType]
     public sealed class GetExportResult
     {
-        /// <summary>
-        /// ARN of stack that contains the exported output name and value.
-        /// </summary>
         public readonly string ExportingStackId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -169,9 +61,6 @@ namespace Pulumi.Aws.CloudFormation
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

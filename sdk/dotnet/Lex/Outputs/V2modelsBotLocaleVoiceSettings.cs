@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsBotLocaleVoiceSettings
     {
-        /// <summary>
-        /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `Standard` and `Neural`. If not specified, the default is `Standard`.
-        /// </summary>
         public readonly string? Engine;
-        /// <summary>
-        /// Identifier of the Amazon Polly voice to use.
-        /// </summary>
         public readonly string VoiceId;
 
         [OutputConstructor]

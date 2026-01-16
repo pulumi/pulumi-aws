@@ -15,17 +15,9 @@ public final class EventTargetAppsyncTargetArgs extends com.pulumi.resources.Res
 
     public static final EventTargetAppsyncTargetArgs Empty = new EventTargetAppsyncTargetArgs();
 
-    /**
-     * Contains the GraphQL mutation to be parsed and executed.
-     * 
-     */
     @Import(name="graphqlOperation")
     private @Nullable Output<String> graphqlOperation;
 
-    /**
-     * @return Contains the GraphQL mutation to be parsed and executed.
-     * 
-     */
     public Optional<Output<String>> graphqlOperation() {
         return Optional.ofNullable(this.graphqlOperation);
     }
@@ -54,23 +46,11 @@ public final class EventTargetAppsyncTargetArgs extends com.pulumi.resources.Res
             $ = new EventTargetAppsyncTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param graphqlOperation Contains the GraphQL mutation to be parsed and executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphqlOperation(@Nullable Output<String> graphqlOperation) {
             $.graphqlOperation = graphqlOperation;
             return this;
         }
 
-        /**
-         * @param graphqlOperation Contains the GraphQL mutation to be parsed and executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphqlOperation(String graphqlOperation) {
             return graphqlOperation(Output.of(graphqlOperation));
         }

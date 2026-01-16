@@ -14,17 +14,9 @@ public final class AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs
 
     public static final AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs Empty = new AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs();
 
-    /**
-     * ARN of the Lambda function to invoke for the interceptor.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Lambda function to invoke for the interceptor.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -53,23 +45,11 @@ public final class AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs
             $ = new AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Lambda function to invoke for the interceptor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Lambda function to invoke for the interceptor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

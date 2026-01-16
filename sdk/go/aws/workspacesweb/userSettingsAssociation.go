@@ -12,62 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web User Settings Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserSettings, err := workspacesweb.NewUserSettings(ctx, "example", &workspacesweb.UserSettingsArgs{
-//				CopyAllowed:     pulumi.String("Enabled"),
-//				DownloadAllowed: pulumi.String("Enabled"),
-//				PasteAllowed:    pulumi.String("Enabled"),
-//				PrintAllowed:    pulumi.String("Enabled"),
-//				UploadAllowed:   pulumi.String("Enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewUserSettingsAssociation(ctx, "example", &workspacesweb.UserSettingsAssociationArgs{
-//				UserSettingsArn: exampleUserSettings.UserSettingsArn,
-//				PortalArn:       example.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type UserSettingsAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the portal to associate with the user settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the user settings to associate with the portal. Forces replacement if changed.
+	PortalArn       pulumi.StringOutput `pulumi:"portalArn"`
+	Region          pulumi.StringOutput `pulumi:"region"`
 	UserSettingsArn pulumi.StringOutput `pulumi:"userSettingsArn"`
 }
 
@@ -107,24 +56,14 @@ func GetUserSettingsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserSettingsAssociation resources.
 type userSettingsAssociationState struct {
-	// ARN of the portal to associate with the user settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the user settings to associate with the portal. Forces replacement if changed.
+	PortalArn       *string `pulumi:"portalArn"`
+	Region          *string `pulumi:"region"`
 	UserSettingsArn *string `pulumi:"userSettingsArn"`
 }
 
 type UserSettingsAssociationState struct {
-	// ARN of the portal to associate with the user settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the user settings to associate with the portal. Forces replacement if changed.
+	PortalArn       pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
 	UserSettingsArn pulumi.StringPtrInput
 }
 
@@ -133,25 +72,15 @@ func (UserSettingsAssociationState) ElementType() reflect.Type {
 }
 
 type userSettingsAssociationArgs struct {
-	// ARN of the portal to associate with the user settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the user settings to associate with the portal. Forces replacement if changed.
-	UserSettingsArn string `pulumi:"userSettingsArn"`
+	PortalArn       string  `pulumi:"portalArn"`
+	Region          *string `pulumi:"region"`
+	UserSettingsArn string  `pulumi:"userSettingsArn"`
 }
 
 // The set of arguments for constructing a UserSettingsAssociation resource.
 type UserSettingsAssociationArgs struct {
-	// ARN of the portal to associate with the user settings. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the user settings to associate with the portal. Forces replacement if changed.
+	PortalArn       pulumi.StringInput
+	Region          pulumi.StringPtrInput
 	UserSettingsArn pulumi.StringInput
 }
 
@@ -242,19 +171,14 @@ func (o UserSettingsAssociationOutput) ToUserSettingsAssociationOutputWithContex
 	return o
 }
 
-// ARN of the portal to associate with the user settings. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o UserSettingsAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettingsAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserSettingsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettingsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the user settings to associate with the portal. Forces replacement if changed.
 func (o UserSettingsAssociationOutput) UserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettingsAssociation) pulumi.StringOutput { return v.UserSettingsArn }).(pulumi.StringOutput)
 }

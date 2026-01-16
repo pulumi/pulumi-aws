@@ -14,17 +14,9 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
 
     public static final VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs Empty = new VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs();
 
-    /**
-     * The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-     * 
-     */
     @Import(name="endpointId", required=true)
     private Output<String> endpointId;
 
-    /**
-     * @return The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-     * 
-     */
     public Output<String> endpointId() {
         return this.endpointId;
     }
@@ -43,17 +35,9 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
         return this.statusMessage;
     }
 
-    /**
-     * The unique identifier of the subnet that you&#39;ve specified to be used for a VPC Endpoint Association endpoint.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a VPC Endpoint Association endpoint.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -85,23 +69,11 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
             $ = new VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointId The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(Output<String> endpointId) {
             $.endpointId = endpointId;
             return this;
         }
 
-        /**
-         * @param endpointId The identifier of the VPC endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
         }
@@ -124,23 +96,11 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusAssociation
             return statusMessage(Output.of(statusMessage));
         }
 
-        /**
-         * @param subnetId The unique identifier of the subnet that you&#39;ve specified to be used for a VPC Endpoint Association endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The unique identifier of the subnet that you&#39;ve specified to be used for a VPC Endpoint Association endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

@@ -17,92 +17,44 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImageArgs Empty = new GetImageArgs();
 
-    /**
-     * Sha256 digest of the image manifest. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-     * 
-     */
     @Import(name="imageDigest")
     private @Nullable Output<String> imageDigest;
 
-    /**
-     * @return Sha256 digest of the image manifest. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-     * 
-     */
     public Optional<Output<String>> imageDigest() {
         return Optional.ofNullable(this.imageDigest);
     }
 
-    /**
-     * Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-     * 
-     */
     @Import(name="imageTag")
     private @Nullable Output<String> imageTag;
 
-    /**
-     * @return Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-     * 
-     */
     public Optional<Output<String>> imageTag() {
         return Optional.ofNullable(this.imageTag);
     }
 
-    /**
-     * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
-    /**
-     * @return Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-     * 
-     */
     public Optional<Output<Boolean>> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the Registry where the repository resides.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return ID of the Registry where the repository resides.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the ECR Repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return Name of the ECR Repository.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -136,128 +88,56 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageDigest Sha256 digest of the image manifest. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageDigest(@Nullable Output<String> imageDigest) {
             $.imageDigest = imageDigest;
             return this;
         }
 
-        /**
-         * @param imageDigest Sha256 digest of the image manifest. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageDigest(String imageDigest) {
             return imageDigest(Output.of(imageDigest));
         }
 
-        /**
-         * @param imageTag Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageTag(@Nullable Output<String> imageTag) {
             $.imageTag = imageTag;
             return this;
         }
 
-        /**
-         * @param imageTag Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageTag(String imageTag) {
             return imageTag(Output.of(imageTag));
         }
 
-        /**
-         * @param mostRecent Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param mostRecent Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryId ID of the Registry where the repository resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId ID of the Registry where the repository resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }
 
-        /**
-         * @param repositoryName Name of the ECR Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the ECR Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

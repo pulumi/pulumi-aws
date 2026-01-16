@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionRestrictions {
-    /**
-     * @return Geographic restriction configuration. See Geo Restriction below.
-     * 
-     */
     private @Nullable MultitenantDistributionRestrictionsGeoRestriction geoRestriction;
 
     private MultitenantDistributionRestrictions() {}
-    /**
-     * @return Geographic restriction configuration. See Geo Restriction below.
-     * 
-     */
     public Optional<MultitenantDistributionRestrictionsGeoRestriction> geoRestriction() {
         return Optional.ofNullable(this.geoRestriction);
     }

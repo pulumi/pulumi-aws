@@ -14,9 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationDefinition struct {
-	// JSON application definition. Either this or `s3Location` must be specified.
-	Content *string `pulumi:"content"`
-	// Location of the application definition in S3. Either this or `content` must be specified.
+	Content    *string `pulumi:"content"`
 	S3Location *string `pulumi:"s3Location"`
 }
 
@@ -32,9 +30,7 @@ type ApplicationDefinitionInput interface {
 }
 
 type ApplicationDefinitionArgs struct {
-	// JSON application definition. Either this or `s3Location` must be specified.
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// Location of the application definition in S3. Either this or `content` must be specified.
+	Content    pulumi.StringPtrInput `pulumi:"content"`
 	S3Location pulumi.StringPtrInput `pulumi:"s3Location"`
 }
 
@@ -115,12 +111,10 @@ func (o ApplicationDefinitionOutput) ToApplicationDefinitionPtrOutputWithContext
 	}).(ApplicationDefinitionPtrOutput)
 }
 
-// JSON application definition. Either this or `s3Location` must be specified.
 func (o ApplicationDefinitionOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationDefinition) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// Location of the application definition in S3. Either this or `content` must be specified.
 func (o ApplicationDefinitionOutput) S3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationDefinition) *string { return v.S3Location }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o ApplicationDefinitionPtrOutput) Elem() ApplicationDefinitionOutput {
 	}).(ApplicationDefinitionOutput)
 }
 
-// JSON application definition. Either this or `s3Location` must be specified.
 func (o ApplicationDefinitionPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationDefinition) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o ApplicationDefinitionPtrOutput) Content() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the application definition in S3. Either this or `content` must be specified.
 func (o ApplicationDefinitionPtrOutput) S3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationDefinition) *string {
 		if v == nil {
@@ -520,7 +512,6 @@ func (o DeploymentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type EnvironmentHighAvailabilityConfig struct {
-	// Desired number of instances for the Environment.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
 }
 
@@ -536,7 +527,6 @@ type EnvironmentHighAvailabilityConfigInput interface {
 }
 
 type EnvironmentHighAvailabilityConfigArgs struct {
-	// Desired number of instances for the Environment.
 	DesiredCapacity pulumi.IntInput `pulumi:"desiredCapacity"`
 }
 
@@ -617,7 +607,6 @@ func (o EnvironmentHighAvailabilityConfigOutput) ToEnvironmentHighAvailabilityCo
 	}).(EnvironmentHighAvailabilityConfigPtrOutput)
 }
 
-// Desired number of instances for the Environment.
 func (o EnvironmentHighAvailabilityConfigOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v EnvironmentHighAvailabilityConfig) int { return v.DesiredCapacity }).(pulumi.IntOutput)
 }
@@ -646,7 +635,6 @@ func (o EnvironmentHighAvailabilityConfigPtrOutput) Elem() EnvironmentHighAvaila
 	}).(EnvironmentHighAvailabilityConfigOutput)
 }
 
-// Desired number of instances for the Environment.
 func (o EnvironmentHighAvailabilityConfigPtrOutput) DesiredCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnvironmentHighAvailabilityConfig) *int {
 		if v == nil {
@@ -805,10 +793,8 @@ func (o EnvironmentStorageConfigurationPtrOutput) Fsx() EnvironmentStorageConfig
 }
 
 type EnvironmentStorageConfigurationEfs struct {
-	// Id of the EFS filesystem to mount.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// Path to mount the filesystem on, must start with `/m2/mount/`.
-	MountPoint string `pulumi:"mountPoint"`
+	MountPoint   string `pulumi:"mountPoint"`
 }
 
 // EnvironmentStorageConfigurationEfsInput is an input type that accepts EnvironmentStorageConfigurationEfsArgs and EnvironmentStorageConfigurationEfsOutput values.
@@ -823,10 +809,8 @@ type EnvironmentStorageConfigurationEfsInput interface {
 }
 
 type EnvironmentStorageConfigurationEfsArgs struct {
-	// Id of the EFS filesystem to mount.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// Path to mount the filesystem on, must start with `/m2/mount/`.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	MountPoint   pulumi.StringInput `pulumi:"mountPoint"`
 }
 
 func (EnvironmentStorageConfigurationEfsArgs) ElementType() reflect.Type {
@@ -906,12 +890,10 @@ func (o EnvironmentStorageConfigurationEfsOutput) ToEnvironmentStorageConfigurat
 	}).(EnvironmentStorageConfigurationEfsPtrOutput)
 }
 
-// Id of the EFS filesystem to mount.
 func (o EnvironmentStorageConfigurationEfsOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStorageConfigurationEfs) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// Path to mount the filesystem on, must start with `/m2/mount/`.
 func (o EnvironmentStorageConfigurationEfsOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStorageConfigurationEfs) string { return v.MountPoint }).(pulumi.StringOutput)
 }
@@ -940,7 +922,6 @@ func (o EnvironmentStorageConfigurationEfsPtrOutput) Elem() EnvironmentStorageCo
 	}).(EnvironmentStorageConfigurationEfsOutput)
 }
 
-// Id of the EFS filesystem to mount.
 func (o EnvironmentStorageConfigurationEfsPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorageConfigurationEfs) *string {
 		if v == nil {
@@ -950,7 +931,6 @@ func (o EnvironmentStorageConfigurationEfsPtrOutput) FileSystemId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Path to mount the filesystem on, must start with `/m2/mount/`.
 func (o EnvironmentStorageConfigurationEfsPtrOutput) MountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorageConfigurationEfs) *string {
 		if v == nil {
@@ -961,10 +941,8 @@ func (o EnvironmentStorageConfigurationEfsPtrOutput) MountPoint() pulumi.StringP
 }
 
 type EnvironmentStorageConfigurationFsx struct {
-	// Id of the FSX filesystem to mount.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// Path to mount the filesystem on, must start with `/m2/mount/`.
-	MountPoint string `pulumi:"mountPoint"`
+	MountPoint   string `pulumi:"mountPoint"`
 }
 
 // EnvironmentStorageConfigurationFsxInput is an input type that accepts EnvironmentStorageConfigurationFsxArgs and EnvironmentStorageConfigurationFsxOutput values.
@@ -979,10 +957,8 @@ type EnvironmentStorageConfigurationFsxInput interface {
 }
 
 type EnvironmentStorageConfigurationFsxArgs struct {
-	// Id of the FSX filesystem to mount.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// Path to mount the filesystem on, must start with `/m2/mount/`.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	MountPoint   pulumi.StringInput `pulumi:"mountPoint"`
 }
 
 func (EnvironmentStorageConfigurationFsxArgs) ElementType() reflect.Type {
@@ -1062,12 +1038,10 @@ func (o EnvironmentStorageConfigurationFsxOutput) ToEnvironmentStorageConfigurat
 	}).(EnvironmentStorageConfigurationFsxPtrOutput)
 }
 
-// Id of the FSX filesystem to mount.
 func (o EnvironmentStorageConfigurationFsxOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStorageConfigurationFsx) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// Path to mount the filesystem on, must start with `/m2/mount/`.
 func (o EnvironmentStorageConfigurationFsxOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStorageConfigurationFsx) string { return v.MountPoint }).(pulumi.StringOutput)
 }
@@ -1096,7 +1070,6 @@ func (o EnvironmentStorageConfigurationFsxPtrOutput) Elem() EnvironmentStorageCo
 	}).(EnvironmentStorageConfigurationFsxOutput)
 }
 
-// Id of the FSX filesystem to mount.
 func (o EnvironmentStorageConfigurationFsxPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorageConfigurationFsx) *string {
 		if v == nil {
@@ -1106,7 +1079,6 @@ func (o EnvironmentStorageConfigurationFsxPtrOutput) FileSystemId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Path to mount the filesystem on, must start with `/m2/mount/`.
 func (o EnvironmentStorageConfigurationFsxPtrOutput) MountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStorageConfigurationFsx) *string {
 		if v == nil {

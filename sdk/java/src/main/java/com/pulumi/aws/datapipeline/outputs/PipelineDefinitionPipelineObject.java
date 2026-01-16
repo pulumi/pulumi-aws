@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineDefinitionPipelineObject {
-    /**
-     * @return Configuration block for Key-value pairs that define the properties of the object. See below
-     * 
-     */
     private @Nullable List<PipelineDefinitionPipelineObjectField> fields;
-    /**
-     * @return ID of the object.
-     * 
-     */
     private String id;
-    /**
-     * @return ARN of the storage connector.
-     * 
-     */
     private String name;
 
     private PipelineDefinitionPipelineObject() {}
-    /**
-     * @return Configuration block for Key-value pairs that define the properties of the object. See below
-     * 
-     */
     public List<PipelineDefinitionPipelineObjectField> fields() {
         return this.fields == null ? List.of() : this.fields;
     }
-    /**
-     * @return ID of the object.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the storage connector.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Allows you to set a redrive policy of an SQS Queue
- * while referencing ARN of the dead letter queue inside the redrive policy.
- *
- * This is useful when you want to set a dedicated
- * dead letter queue for a standard or FIFO queue, but need
- * the dead letter queue to exist before setting the redrive policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
- * const ddl = new aws.sqs.Queue("ddl", {
- *     name: "examplequeue-ddl",
- *     redriveAllowPolicy: pulumi.jsonStringify({
- *         redrivePermission: "byQueue",
- *         sourceQueueArns: [q.arn],
- *     }),
- * });
- * const qRedrivePolicy = new aws.sqs.RedrivePolicy("q", {
- *     queueUrl: q.id,
- *     redrivePolicy: pulumi.jsonStringify({
- *         deadLetterTargetArn: ddl.arn,
- *         maxReceiveCount: 4,
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
- *
- * ```sh
- * $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
- * ```
- */
 export class RedrivePolicy extends pulumi.CustomResource {
     /**
      * Get an existing RedrivePolicy resource's state with the given name, ID, and optional extra
@@ -71,17 +32,8 @@ export class RedrivePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RedrivePolicy.__pulumiType;
     }
 
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     */
     declare public readonly queueUrl: pulumi.Output<string>;
-    /**
-     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     */
     declare public readonly redrivePolicy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -121,17 +73,8 @@ export class RedrivePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RedrivePolicy resources.
  */
 export interface RedrivePolicyState {
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     */
     queueUrl?: pulumi.Input<string>;
-    /**
-     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     */
     redrivePolicy?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -139,16 +82,7 @@ export interface RedrivePolicyState {
  * The set of arguments for constructing a RedrivePolicy resource.
  */
 export interface RedrivePolicyArgs {
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     */
     queueUrl: pulumi.Input<string>;
-    /**
-     * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     */
     redrivePolicy: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

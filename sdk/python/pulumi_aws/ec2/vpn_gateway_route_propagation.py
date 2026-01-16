@@ -24,9 +24,6 @@ class VpnGatewayRoutePropagationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnGatewayRoutePropagation resource.
-        :param pulumi.Input[_builtins.str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
@@ -36,9 +33,6 @@ class VpnGatewayRoutePropagationArgs:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of the `ec2.RouteTable` to propagate routes into.
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -48,9 +42,6 @@ class VpnGatewayRoutePropagationArgs:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of the `ec2.VpnGateway` to propagate routes from.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -60,9 +51,6 @@ class VpnGatewayRoutePropagationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _VpnGatewayRoutePropagationState:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -92,9 +77,6 @@ class _VpnGatewayRoutePropagationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -104,9 +86,6 @@ class _VpnGatewayRoutePropagationState:
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The id of the `ec2.RouteTable` to propagate routes into.
-        """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
@@ -116,9 +95,6 @@ class _VpnGatewayRoutePropagationState:
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The id of the `ec2.VpnGateway` to propagate routes from.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -137,28 +113,9 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Requests automatic route propagation between a VPN gateway and a route table.
-
-        > **Note:** This resource should not be used with a route table that has
-        the `propagating_vgws` argument set. If that argument is set, any route
-        propagation not explicitly listed in its value will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpnGatewayRoutePropagation("example",
-            vpn_gateway_id=example_aws_vpn_gateway["id"],
-            route_table_id=example_aws_route_table["id"])
-        ```
-
+        Create a VpnGatewayRoutePropagation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
         """
         ...
     @overload
@@ -167,23 +124,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
                  args: VpnGatewayRoutePropagationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Requests automatic route propagation between a VPN gateway and a route table.
-
-        > **Note:** This resource should not be used with a route table that has
-        the `propagating_vgws` argument set. If that argument is set, any route
-        propagation not explicitly listed in its value will be removed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpnGatewayRoutePropagation("example",
-            vpn_gateway_id=example_aws_vpn_gateway["id"],
-            route_table_id=example_aws_route_table["id"])
-        ```
-
+        Create a VpnGatewayRoutePropagation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpnGatewayRoutePropagationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,9 +179,6 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -254,24 +192,15 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The id of the `ec2.RouteTable` to propagate routes into.
-        """
         return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The id of the `ec2.VpnGateway` to propagate routes from.
-        """
         return pulumi.get(self, "vpn_gateway_id")
 

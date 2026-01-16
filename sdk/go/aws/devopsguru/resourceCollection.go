@@ -12,160 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DevOps Guru Resource Collection.
-//
-// > Only one type of resource collection (All Account Resources, CloudFormation, or Tags) can be enabled in an account at a time. To avoid persistent differences, this resource should be defined only once.
-//
-// ## Example Usage
-//
-// ### All Account Resources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_SERVICE"),
-//				Cloudformation: &devopsguru.ResourceCollectionCloudformationArgs{
-//					StackNames: pulumi.StringArray{
-//						pulumi.String("*"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### CloudFormation Stacks
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_CLOUD_FORMATION"),
-//				Cloudformation: &devopsguru.ResourceCollectionCloudformationArgs{
-//					StackNames: pulumi.StringArray{
-//						pulumi.String("ExampleStack"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_TAGS"),
-//				Tags: &devopsguru.ResourceCollectionTagsArgs{
-//					AppBoundaryKey: pulumi.String("DevOps-Guru-Example"),
-//					TagValues: pulumi.StringArray{
-//						pulumi.String("Example-Value"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Tags All Resources
-//
-// To analyze all resources with the `appBoundaryKey` regardless of the corresponding tag value, set `tagValues` to `["*"]`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_TAGS"),
-//				Tags: &devopsguru.ResourceCollectionTagsArgs{
-//					AppBoundaryKey: pulumi.String("DevOps-Guru-Example"),
-//					TagValues: pulumi.StringArray{
-//						pulumi.String("*"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DevOps Guru Resource Collection using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:devopsguru/resourceCollection:ResourceCollection example AWS_CLOUD_FORMATION
-// ```
 type ResourceCollection struct {
 	pulumi.CustomResourceState
 
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrOutput `pulumi:"cloudformation"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags ResourceCollectionTagsPtrOutput `pulumi:"tags"`
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
+	Region         pulumi.StringOutput                       `pulumi:"region"`
+	Tags           ResourceCollectionTagsPtrOutput           `pulumi:"tags"`
+	Type           pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewResourceCollection registers a new resource with the given unique name, arguments, and options.
@@ -201,29 +54,17 @@ func GetResourceCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceCollection resources.
 type resourceCollectionState struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags *ResourceCollectionTags `pulumi:"tags"`
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
+	Region         *string                           `pulumi:"region"`
+	Tags           *ResourceCollectionTags           `pulumi:"tags"`
+	Type           *string                           `pulumi:"type"`
 }
 
 type ResourceCollectionState struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags ResourceCollectionTagsPtrInput
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Tags           ResourceCollectionTagsPtrInput
+	Type           pulumi.StringPtrInput
 }
 
 func (ResourceCollectionState) ElementType() reflect.Type {
@@ -231,30 +72,18 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 }
 
 type resourceCollectionArgs struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags *ResourceCollectionTags `pulumi:"tags"`
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
+	Region         *string                           `pulumi:"region"`
+	Tags           *ResourceCollectionTags           `pulumi:"tags"`
+	Type           string                            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ResourceCollection resource.
 type ResourceCollectionArgs struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags ResourceCollectionTagsPtrInput
-	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
+	Region         pulumi.StringPtrInput
+	Tags           ResourceCollectionTagsPtrInput
+	Type           pulumi.StringInput
 }
 
 func (ResourceCollectionArgs) ElementType() reflect.Type {
@@ -344,24 +173,18 @@ func (o ResourceCollectionOutput) ToResourceCollectionOutputWithContext(ctx cont
 	return o
 }
 
-// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 func (o ResourceCollectionOutput) Cloudformation() ResourceCollectionCloudformationPtrOutput {
 	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionCloudformationPtrOutput { return v.Cloudformation }).(ResourceCollectionCloudformationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceCollectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceCollection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 func (o ResourceCollectionOutput) Tags() ResourceCollectionTagsPtrOutput {
 	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionTagsPtrOutput { return v.Tags }).(ResourceCollectionTagsPtrOutput)
 }
 
-// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
-//
-// The following arguments are optional:
 func (o ResourceCollectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

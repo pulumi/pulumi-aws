@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
-    /**
-     * @return Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
-     * 
-     */
     private String type;
-    /**
-     * @return Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
-     * 
-     */
     private String value;
 
     private ServiceSourceConfigurationCodeRepositorySourceCodeVersion() {}
-    /**
-     * @return Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
-     * 
-     */
     public String value() {
         return this.value;
     }

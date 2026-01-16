@@ -13,157 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowTriggerConfigTriggerPropertiesScheduled {
-    /**
-     * @return Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
-     * 
-     */
     private @Nullable String dataPullMode;
-    /**
-     * @return Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
-     * 
-     */
     private @Nullable String firstExecutionFrom;
-    /**
-     * @return Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
-     * 
-     */
     private @Nullable String scheduleEndTime;
-    /**
-     * @return Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
-     * 
-     */
     private String scheduleExpression;
-    /**
-     * @return Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
-     * 
-     */
     private @Nullable Integer scheduleOffset;
-    /**
-     * @return Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
-     * 
-     */
     private @Nullable String scheduleStartTime;
-    /**
-     * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appflow.Flow;
-     * import com.pulumi.aws.appflow.FlowArgs;
-     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Flow("example", FlowArgs.builder()
-     *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(List.of(Map.of("scheduleExpression", "rate(1minutes)")))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     private @Nullable String timezone;
 
     private FlowTriggerConfigTriggerPropertiesScheduled() {}
-    /**
-     * @return Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
-     * 
-     */
     public Optional<String> dataPullMode() {
         return Optional.ofNullable(this.dataPullMode);
     }
-    /**
-     * @return Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
-     * 
-     */
     public Optional<String> firstExecutionFrom() {
         return Optional.ofNullable(this.firstExecutionFrom);
     }
-    /**
-     * @return Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
-     * 
-     */
     public Optional<String> scheduleEndTime() {
         return Optional.ofNullable(this.scheduleEndTime);
     }
-    /**
-     * @return Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
-     * 
-     */
     public String scheduleExpression() {
         return this.scheduleExpression;
     }
-    /**
-     * @return Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
-     * 
-     */
     public Optional<Integer> scheduleOffset() {
         return Optional.ofNullable(this.scheduleOffset);
     }
-    /**
-     * @return Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
-     * 
-     */
     public Optional<String> scheduleStartTime() {
         return Optional.ofNullable(this.scheduleStartTime);
     }
-    /**
-     * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appflow.Flow;
-     * import com.pulumi.aws.appflow.FlowArgs;
-     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Flow("example", FlowArgs.builder()
-     *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(List.of(Map.of("scheduleExpression", "rate(1minutes)")))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     */
     public Optional<String> timezone() {
         return Optional.ofNullable(this.timezone);
     }

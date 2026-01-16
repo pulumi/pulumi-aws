@@ -15,17 +15,9 @@ public final class AccountVdmAttributesGuardianAttributesArgs extends com.pulumi
 
     public static final AccountVdmAttributesGuardianAttributesArgs Empty = new AccountVdmAttributesGuardianAttributesArgs();
 
-    /**
-     * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="optimizedSharedDelivery")
     private @Nullable Output<String> optimizedSharedDelivery;
 
-    /**
-     * @return Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> optimizedSharedDelivery() {
         return Optional.ofNullable(this.optimizedSharedDelivery);
     }
@@ -54,23 +46,11 @@ public final class AccountVdmAttributesGuardianAttributesArgs extends com.pulumi
             $ = new AccountVdmAttributesGuardianAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param optimizedSharedDelivery Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optimizedSharedDelivery(@Nullable Output<String> optimizedSharedDelivery) {
             $.optimizedSharedDelivery = optimizedSharedDelivery;
             return this;
         }
 
-        /**
-         * @param optimizedSharedDelivery Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optimizedSharedDelivery(String optimizedSharedDelivery) {
             return optimizedSharedDelivery(Output.of(optimizedSharedDelivery));
         }

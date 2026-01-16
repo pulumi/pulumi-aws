@@ -16,191 +16,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web User Access Logging Settings resource. Once associated with a web portal, user access logging settings control how user access events are logged to Amazon Kinesis.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettings;
- * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Stream("example", StreamArgs.builder()
- *             .name("amazon-workspaces-web-example-stream")
- *             .shardCount(1)
- *             .build());
- * 
- *         var exampleUserAccessLoggingSettings = new UserAccessLoggingSettings("exampleUserAccessLoggingSettings", UserAccessLoggingSettingsArgs.builder()
- *             .kinesisStreamArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### With Tags
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettings;
- * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Stream("example", StreamArgs.builder()
- *             .name("example-stream")
- *             .shardCount(1)
- *             .build());
- * 
- *         var exampleUserAccessLoggingSettings = new UserAccessLoggingSettings("exampleUserAccessLoggingSettings", UserAccessLoggingSettingsArgs.builder()
- *             .kinesisStreamArn(example.arn())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "example-user-access-logging-settings"),
- *                 Map.entry("Environment", "Production")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web User Access Logging Settings using the `user_access_logging_settings_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings")
 public class UserAccessLoggingSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * List of web portal ARNs that this user access logging settings resource is associated with.
-     * 
-     */
     @Export(name="associatedPortalArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> associatedPortalArns;
 
-    /**
-     * @return List of web portal ARNs that this user access logging settings resource is associated with.
-     * 
-     */
     public Output<List<String>> associatedPortalArns() {
         return this.associatedPortalArns;
     }
-    /**
-     * ARN of the Kinesis stream.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="kinesisStreamArn", refs={String.class}, tree="[0]")
     private Output<String> kinesisStreamArn;
 
-    /**
-     * @return ARN of the Kinesis stream.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> kinesisStreamArn() {
         return this.kinesisStreamArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the user access logging settings resource.
-     * 
-     */
     @Export(name="userAccessLoggingSettingsArn", refs={String.class}, tree="[0]")
     private Output<String> userAccessLoggingSettingsArn;
 
-    /**
-     * @return ARN of the user access logging settings resource.
-     * 
-     */
     public Output<String> userAccessLoggingSettingsArn() {
         return this.userAccessLoggingSettingsArn;
     }

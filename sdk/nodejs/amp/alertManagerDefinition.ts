@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const demo = new aws.amp.Workspace("demo", {});
- * const demoAlertManagerDefinition = new aws.amp.AlertManagerDefinition("demo", {
- *     workspaceId: demo.id,
- *     definition: `alertmanager_config: |
- *   route:
- *     receiver: 'default'
- *   receivers:
- *     - name: 'default'
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
- *
- * ```sh
- * $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
- * ```
- */
 export class AlertManagerDefinition extends pulumi.CustomResource {
     /**
      * Get an existing AlertManagerDefinition resource's state with the given name, ID, and optional extra
@@ -61,17 +32,8 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertManagerDefinition.__pulumiType;
     }
 
-    /**
-     * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     */
     declare public readonly definition: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the prometheus workspace the alert manager definition should be linked to
-     */
     declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
@@ -111,17 +73,8 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertManagerDefinition resources.
  */
 export interface AlertManagerDefinitionState {
-    /**
-     * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     */
     definition?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the prometheus workspace the alert manager definition should be linked to
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -129,16 +82,7 @@ export interface AlertManagerDefinitionState {
  * The set of arguments for constructing a AlertManagerDefinition resource.
  */
 export interface AlertManagerDefinitionArgs {
-    /**
-     * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     */
     definition: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the prometheus workspace the alert manager definition should be linked to
-     */
     workspaceId: pulumi.Input<string>;
 }

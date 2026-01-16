@@ -18,137 +18,65 @@ public final class GetPolicyDocumentStatement extends com.pulumi.resources.Invok
 
     public static final GetPolicyDocumentStatement Empty = new GetPolicyDocumentStatement();
 
-    /**
-     * List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
-     * 
-     */
     @Import(name="actions")
     private @Nullable List<String> actions;
 
-    /**
-     * @return List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
-     * 
-     */
     public Optional<List<String>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
-    /**
-     * Configuration block for a condition. Detailed below.
-     * 
-     */
     @Import(name="conditions")
     private @Nullable List<GetPolicyDocumentStatementCondition> conditions;
 
-    /**
-     * @return Configuration block for a condition. Detailed below.
-     * 
-     */
     public Optional<List<GetPolicyDocumentStatementCondition>> conditions() {
         return Optional.ofNullable(this.conditions);
     }
 
-    /**
-     * Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-     * 
-     */
     @Import(name="effect")
     private @Nullable String effect;
 
-    /**
-     * @return Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-     * 
-     */
     public Optional<String> effect() {
         return Optional.ofNullable(this.effect);
     }
 
-    /**
-     * List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-     * 
-     */
     @Import(name="notActions")
     private @Nullable List<String> notActions;
 
-    /**
-     * @return List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-     * 
-     */
     public Optional<List<String>> notActions() {
         return Optional.ofNullable(this.notActions);
     }
 
-    /**
-     * Like `principals` except these are principals that the statement does *not* apply to.
-     * 
-     */
     @Import(name="notPrincipals")
     private @Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals;
 
-    /**
-     * @return Like `principals` except these are principals that the statement does *not* apply to.
-     * 
-     */
     public Optional<List<GetPolicyDocumentStatementNotPrincipal>> notPrincipals() {
         return Optional.ofNullable(this.notPrincipals);
     }
 
-    /**
-     * List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-     * 
-     */
     @Import(name="notResources")
     private @Nullable List<String> notResources;
 
-    /**
-     * @return List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-     * 
-     */
     public Optional<List<String>> notResources() {
         return Optional.ofNullable(this.notResources);
     }
 
-    /**
-     * Configuration block for principals. Detailed below.
-     * 
-     */
     @Import(name="principals")
     private @Nullable List<GetPolicyDocumentStatementPrincipal> principals;
 
-    /**
-     * @return Configuration block for principals. Detailed below.
-     * 
-     */
     public Optional<List<GetPolicyDocumentStatementPrincipal>> principals() {
         return Optional.ofNullable(this.principals);
     }
 
-    /**
-     * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-     * 
-     */
     @Import(name="resources")
     private @Nullable List<String> resources;
 
-    /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-     * 
-     */
     public Optional<List<String>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
-    /**
-     * Sid (statement ID) is an identifier for a policy statement.
-     * 
-     */
     @Import(name="sid")
     private @Nullable String sid;
 
-    /**
-     * @return Sid (statement ID) is an identifier for a policy statement.
-     * 
-     */
     public Optional<String> sid() {
         return Optional.ofNullable(this.sid);
     }
@@ -185,170 +113,74 @@ public final class GetPolicyDocumentStatement extends com.pulumi.resources.Invok
             $ = new GetPolicyDocumentStatement(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(@Nullable List<String> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
 
-        /**
-         * @param conditions Configuration block for a condition. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(@Nullable List<GetPolicyDocumentStatementCondition> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions Configuration block for a condition. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(GetPolicyDocumentStatementCondition... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param effect Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder effect(@Nullable String effect) {
             $.effect = effect;
             return this;
         }
 
-        /**
-         * @param notActions List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notActions(@Nullable List<String> notActions) {
             $.notActions = notActions;
             return this;
         }
 
-        /**
-         * @param notActions List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notActions(String... notActions) {
             return notActions(List.of(notActions));
         }
 
-        /**
-         * @param notPrincipals Like `principals` except these are principals that the statement does *not* apply to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notPrincipals(@Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals) {
             $.notPrincipals = notPrincipals;
             return this;
         }
 
-        /**
-         * @param notPrincipals Like `principals` except these are principals that the statement does *not* apply to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notPrincipals(GetPolicyDocumentStatementNotPrincipal... notPrincipals) {
             return notPrincipals(List.of(notPrincipals));
         }
 
-        /**
-         * @param notResources List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notResources(@Nullable List<String> notResources) {
             $.notResources = notResources;
             return this;
         }
 
-        /**
-         * @param notResources List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notResources(String... notResources) {
             return notResources(List.of(notResources));
         }
 
-        /**
-         * @param principals Configuration block for principals. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(@Nullable List<GetPolicyDocumentStatementPrincipal> principals) {
             $.principals = principals;
             return this;
         }
 
-        /**
-         * @param principals Configuration block for principals. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principals(GetPolicyDocumentStatementPrincipal... principals) {
             return principals(List.of(principals));
         }
 
-        /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(@Nullable List<String> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(String... resources) {
             return resources(List.of(resources));
         }
 
-        /**
-         * @param sid Sid (statement ID) is an identifier for a policy statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sid(@Nullable String sid) {
             $.sid = sid;
             return this;

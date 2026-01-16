@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCostCategoryRuleRuleOrOr {
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrOrCostCategory> costCategories;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrOrDimension> dimensions;
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     private List<GetCostCategoryRuleRuleOrOrTag> tags;
 
     private GetCostCategoryRuleRuleOrOr() {}
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrOrCostCategory> costCategories() {
         return this.costCategories;
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrOrDimension> dimensions() {
         return this.dimensions;
     }
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public List<GetCostCategoryRuleRuleOrOrTag> tags() {
         return this.tags;
     }

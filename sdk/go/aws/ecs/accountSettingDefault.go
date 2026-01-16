@@ -12,85 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
-//
-// > **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
-//
-// > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
-//
-// ## Example Usage
-//
-// ### Enable the long task ARN format
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
-//				Name:  pulumi.String("taskLongArnFormat"),
-//				Value: pulumi.String("enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Set the default log driver mode to non-blocking
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
-//				Name:  pulumi.String("defaultLogDriverMode"),
-//				Value: pulumi.String("non-blocking"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-// ```
 type AccountSettingDefault struct {
 	pulumi.CustomResourceState
 
-	// Name of the account setting to set.
 	Name         pulumi.StringOutput `pulumi:"name"`
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// State of the setting.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Region       pulumi.StringOutput `pulumi:"region"`
+	Value        pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewAccountSettingDefault registers a new resource with the given unique name, arguments, and options.
@@ -126,23 +54,17 @@ func GetAccountSettingDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSettingDefault resources.
 type accountSettingDefaultState struct {
-	// Name of the account setting to set.
 	Name         *string `pulumi:"name"`
 	PrincipalArn *string `pulumi:"principalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// State of the setting.
-	Value *string `pulumi:"value"`
+	Region       *string `pulumi:"region"`
+	Value        *string `pulumi:"value"`
 }
 
 type AccountSettingDefaultState struct {
-	// Name of the account setting to set.
 	Name         pulumi.StringPtrInput
 	PrincipalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// State of the setting.
-	Value pulumi.StringPtrInput
+	Region       pulumi.StringPtrInput
+	Value        pulumi.StringPtrInput
 }
 
 func (AccountSettingDefaultState) ElementType() reflect.Type {
@@ -150,22 +72,16 @@ func (AccountSettingDefaultState) ElementType() reflect.Type {
 }
 
 type accountSettingDefaultArgs struct {
-	// Name of the account setting to set.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
-	// State of the setting.
-	Value string `pulumi:"value"`
+	Value  string  `pulumi:"value"`
 }
 
 // The set of arguments for constructing a AccountSettingDefault resource.
 type AccountSettingDefaultArgs struct {
-	// Name of the account setting to set.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// State of the setting.
-	Value pulumi.StringInput
+	Value  pulumi.StringInput
 }
 
 func (AccountSettingDefaultArgs) ElementType() reflect.Type {
@@ -255,7 +171,6 @@ func (o AccountSettingDefaultOutput) ToAccountSettingDefaultOutputWithContext(ct
 	return o
 }
 
-// Name of the account setting to set.
 func (o AccountSettingDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -264,12 +179,10 @@ func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountSettingDefaultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// State of the setting.
 func (o AccountSettingDefaultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

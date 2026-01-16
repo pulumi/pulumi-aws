@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Bedrock Foundation Models.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrockfoundation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by Inference Type
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrockfoundation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{
-//				ByInferenceType: pulumi.StringRef("ON_DEMAND"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetModels(ctx *pulumi.Context, args *GetModelsArgs, opts ...pulumi.InvokeOption) (*GetModelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetModelsResult
@@ -76,29 +23,22 @@ func GetModels(ctx *pulumi.Context, args *GetModelsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getModels.
 type GetModelsArgs struct {
-	// Customization type to filter on. Valid values are `FINE_TUNING`.
-	ByCustomizationType *string `pulumi:"byCustomizationType"`
-	// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-	ByInferenceType *string `pulumi:"byInferenceType"`
-	// Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-	ByOutputModality *string `pulumi:"byOutputModality"`
-	// Model provider to filter on.
-	ByProvider *string `pulumi:"byProvider"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-}
-
-// A collection of values returned by getModels.
-type GetModelsResult struct {
 	ByCustomizationType *string `pulumi:"byCustomizationType"`
 	ByInferenceType     *string `pulumi:"byInferenceType"`
 	ByOutputModality    *string `pulumi:"byOutputModality"`
 	ByProvider          *string `pulumi:"byProvider"`
-	// AWS region.
-	Id string `pulumi:"id"`
-	// List of model summary objects. See `modelSummaries`.
-	ModelSummaries []GetModelsModelSummary `pulumi:"modelSummaries"`
-	Region         string                  `pulumi:"region"`
+	Region              *string `pulumi:"region"`
+}
+
+// A collection of values returned by getModels.
+type GetModelsResult struct {
+	ByCustomizationType *string                 `pulumi:"byCustomizationType"`
+	ByInferenceType     *string                 `pulumi:"byInferenceType"`
+	ByOutputModality    *string                 `pulumi:"byOutputModality"`
+	ByProvider          *string                 `pulumi:"byProvider"`
+	Id                  string                  `pulumi:"id"`
+	ModelSummaries      []GetModelsModelSummary `pulumi:"modelSummaries"`
+	Region              string                  `pulumi:"region"`
 }
 
 func GetModelsOutput(ctx *pulumi.Context, args GetModelsOutputArgs, opts ...pulumi.InvokeOption) GetModelsResultOutput {
@@ -112,16 +52,11 @@ func GetModelsOutput(ctx *pulumi.Context, args GetModelsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getModels.
 type GetModelsOutputArgs struct {
-	// Customization type to filter on. Valid values are `FINE_TUNING`.
 	ByCustomizationType pulumi.StringPtrInput `pulumi:"byCustomizationType"`
-	// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
-	ByInferenceType pulumi.StringPtrInput `pulumi:"byInferenceType"`
-	// Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
-	ByOutputModality pulumi.StringPtrInput `pulumi:"byOutputModality"`
-	// Model provider to filter on.
-	ByProvider pulumi.StringPtrInput `pulumi:"byProvider"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	ByInferenceType     pulumi.StringPtrInput `pulumi:"byInferenceType"`
+	ByOutputModality    pulumi.StringPtrInput `pulumi:"byOutputModality"`
+	ByProvider          pulumi.StringPtrInput `pulumi:"byProvider"`
+	Region              pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelsOutputArgs) ElementType() reflect.Type {
@@ -159,12 +94,10 @@ func (o GetModelsResultOutput) ByProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetModelsResult) *string { return v.ByProvider }).(pulumi.StringPtrOutput)
 }
 
-// AWS region.
 func (o GetModelsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of model summary objects. See `modelSummaries`.
 func (o GetModelsResultOutput) ModelSummaries() GetModelsModelSummaryArrayOutput {
 	return o.ApplyT(func(v GetModelsResult) []GetModelsModelSummary { return v.ModelSummaries }).(GetModelsModelSummaryArrayOutput)
 }

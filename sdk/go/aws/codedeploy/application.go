@@ -11,119 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeDeploy application to be used as a basis for deployments
-//
-// ## Example Usage
-//
-// ### ECS Application
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
-//				ComputePlatform: pulumi.String("ECS"),
-//				Name:            pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Lambda Application
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
-//				ComputePlatform: pulumi.String("Lambda"),
-//				Name:            pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Server Application
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
-//				ComputePlatform: pulumi.String("Server"),
-//				Name:            pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:codedeploy/application:Application example my-application
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The ARN of the CodeDeploy application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
-	// The name for a connection to a GitHub account.
-	GithubAccountName pulumi.StringOutput `pulumi:"githubAccountName"`
-	// Whether the user has authenticated with GitHub for the specified application.
-	LinkedToGithub pulumi.BoolOutput `pulumi:"linkedToGithub"`
-	// The name of the application.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ApplicationId     pulumi.StringOutput    `pulumi:"applicationId"`
+	Arn               pulumi.StringOutput    `pulumi:"arn"`
+	ComputePlatform   pulumi.StringPtrOutput `pulumi:"computePlatform"`
+	GithubAccountName pulumi.StringOutput    `pulumi:"githubAccountName"`
+	LinkedToGithub    pulumi.BoolOutput      `pulumi:"linkedToGithub"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -156,45 +55,27 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// The application ID.
-	ApplicationId *string `pulumi:"applicationId"`
-	// The ARN of the CodeDeploy application.
-	Arn *string `pulumi:"arn"`
-	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-	ComputePlatform *string `pulumi:"computePlatform"`
-	// The name for a connection to a GitHub account.
-	GithubAccountName *string `pulumi:"githubAccountName"`
-	// Whether the user has authenticated with GitHub for the specified application.
-	LinkedToGithub *bool `pulumi:"linkedToGithub"`
-	// The name of the application.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ApplicationId     *string           `pulumi:"applicationId"`
+	Arn               *string           `pulumi:"arn"`
+	ComputePlatform   *string           `pulumi:"computePlatform"`
+	GithubAccountName *string           `pulumi:"githubAccountName"`
+	LinkedToGithub    *bool             `pulumi:"linkedToGithub"`
+	Name              *string           `pulumi:"name"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
-	// The application ID.
-	ApplicationId pulumi.StringPtrInput
-	// The ARN of the CodeDeploy application.
-	Arn pulumi.StringPtrInput
-	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-	ComputePlatform pulumi.StringPtrInput
-	// The name for a connection to a GitHub account.
+	ApplicationId     pulumi.StringPtrInput
+	Arn               pulumi.StringPtrInput
+	ComputePlatform   pulumi.StringPtrInput
 	GithubAccountName pulumi.StringPtrInput
-	// Whether the user has authenticated with GitHub for the specified application.
-	LinkedToGithub pulumi.BoolPtrInput
-	// The name of the application.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	LinkedToGithub    pulumi.BoolPtrInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -202,26 +83,18 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-	ComputePlatform *string `pulumi:"computePlatform"`
-	// The name of the application.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ComputePlatform *string           `pulumi:"computePlatform"`
+	Name            *string           `pulumi:"name"`
+	Region          *string           `pulumi:"region"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
-	// The name of the application.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -311,47 +184,38 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The application ID.
 func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The ARN of the CodeDeploy application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 func (o ApplicationOutput) ComputePlatform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
 }
 
-// The name for a connection to a GitHub account.
 func (o ApplicationOutput) GithubAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.GithubAccountName }).(pulumi.StringOutput)
 }
 
-// Whether the user has authenticated with GitHub for the specified application.
 func (o ApplicationOutput) LinkedToGithub() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolOutput { return v.LinkedToGithub }).(pulumi.BoolOutput)
 }
 
-// The name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

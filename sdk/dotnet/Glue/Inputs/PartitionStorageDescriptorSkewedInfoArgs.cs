@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Glue.Inputs
     {
         [Input("skewedColumnNames")]
         private InputList<string>? _skewedColumnNames;
-
-        /// <summary>
-        /// A list of names of columns that contain skewed values.
-        /// </summary>
         public InputList<string> SkewedColumnNames
         {
             get => _skewedColumnNames ?? (_skewedColumnNames = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
         [Input("skewedColumnValueLocationMaps")]
         private InputMap<string>? _skewedColumnValueLocationMaps;
-
-        /// <summary>
-        /// A list of values that appear so frequently as to be considered skewed.
-        /// </summary>
         public InputMap<string> SkewedColumnValueLocationMaps
         {
             get => _skewedColumnValueLocationMaps ?? (_skewedColumnValueLocationMaps = new InputMap<string>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
         [Input("skewedColumnValues")]
         private InputList<string>? _skewedColumnValues;
-
-        /// <summary>
-        /// A map of skewed values to the columns that contain them.
-        /// </summary>
         public InputList<string> SkewedColumnValues
         {
             get => _skewedColumnValues ?? (_skewedColumnValues = new InputList<string>());

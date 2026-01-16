@@ -48,9 +48,6 @@ class GetEnvironmentsResult:
     @_builtins.property
     @pulumi.getter(name="environmentIds")
     def environment_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of Environment IDs associated with this AppConfig Application.
-        """
         return pulumi.get(self, "environment_ids")
 
     @_builtins.property
@@ -83,23 +80,7 @@ def get_environments(application_id: Optional[_builtins.str] = None,
                      region: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentsResult:
     """
-    Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
-    resource.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_environments(application_id="a1d3rpe")
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig Application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -116,23 +97,7 @@ def get_environments_output(application_id: Optional[pulumi.Input[_builtins.str]
                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
-    Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
-    resource.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_environments(application_id="a1d3rpe")
-    ```
-
-
-    :param _builtins.str application_id: ID of the AppConfig Application.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id

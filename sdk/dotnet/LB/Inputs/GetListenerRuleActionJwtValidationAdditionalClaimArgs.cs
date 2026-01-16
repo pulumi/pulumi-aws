@@ -12,24 +12,14 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleActionJwtValidationAdditionalClaimInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Format of the claim value.
-        /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the claim to validate.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

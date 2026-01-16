@@ -13,11 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class AnalysisParametersDecimalParameter
     {
-        /// <summary>
-        /// Display name for the analysis.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<double> Values;
 

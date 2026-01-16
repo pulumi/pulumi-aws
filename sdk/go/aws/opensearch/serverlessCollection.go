@@ -11,78 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Serverless Collection.
-//
-// > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
-//
-// > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:   pulumi.String("example"),
-//				Type:   pulumi.String("encryption"),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewServerlessCollection(ctx, "example", &opensearch.ServerlessCollectionArgs{
-//				Name: pulumi.String("example"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-// ```
 type ServerlessCollection struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the collection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
@@ -93,17 +24,13 @@ type ServerlessCollection struct {
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Name of the collection.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapOutput                `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
-	Timeouts ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
+	StandbyReplicas pulumi.StringOutput                   `pulumi:"standbyReplicas"`
+	Tags            pulumi.StringMapOutput                `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput                `pulumi:"tagsAll"`
+	Timeouts        ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -138,7 +65,6 @@ func GetServerlessCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCollection resources.
 type serverlessCollectionState struct {
-	// Amazon Resource Name (ARN) of the collection.
 	Arn *string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
@@ -149,23 +75,18 @@ type serverlessCollectionState struct {
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the collection.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-	StandbyReplicas *string `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string             `pulumi:"tags"`
-	TagsAll  map[string]string             `pulumi:"tagsAll"`
-	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
+	StandbyReplicas *string                       `pulumi:"standbyReplicas"`
+	Tags            map[string]string             `pulumi:"tags"`
+	TagsAll         map[string]string             `pulumi:"tagsAll"`
+	Timeouts        *ServerlessCollectionTimeouts `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type *string `pulumi:"type"`
 }
 
 type ServerlessCollectionState struct {
-	// Amazon Resource Name (ARN) of the collection.
 	Arn pulumi.StringPtrInput
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringPtrInput
@@ -176,17 +97,13 @@ type ServerlessCollectionState struct {
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the collection.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringPtrInput
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
-	Timeouts ServerlessCollectionTimeoutsPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Timeouts        ServerlessCollectionTimeoutsPtrInput
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringPtrInput
 }
@@ -199,16 +116,12 @@ type serverlessCollectionArgs struct {
 	// Description of the collection.
 	Description *string `pulumi:"description"`
 	// Name of the collection.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-	StandbyReplicas *string `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string             `pulumi:"tags"`
-	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
+	StandbyReplicas *string                       `pulumi:"standbyReplicas"`
+	Tags            map[string]string             `pulumi:"tags"`
+	Timeouts        *ServerlessCollectionTimeouts `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type *string `pulumi:"type"`
 }
@@ -218,16 +131,12 @@ type ServerlessCollectionArgs struct {
 	// Description of the collection.
 	Description pulumi.StringPtrInput
 	// Name of the collection.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringPtrInput
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
-	Timeouts ServerlessCollectionTimeoutsPtrInput
+	Tags            pulumi.StringMapInput
+	Timeouts        ServerlessCollectionTimeoutsPtrInput
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringPtrInput
 }
@@ -319,7 +228,6 @@ func (o ServerlessCollectionOutput) ToServerlessCollectionOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection.
 func (o ServerlessCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -345,13 +253,10 @@ func (o ServerlessCollectionOutput) KmsKeyArn() pulumi.StringOutput {
 }
 
 // Name of the collection.
-//
-// The following arguments are optional:
 func (o ServerlessCollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessCollectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -361,7 +266,6 @@ func (o ServerlessCollectionOutput) StandbyReplicas() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.StandbyReplicas }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServerlessCollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

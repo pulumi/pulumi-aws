@@ -18,62 +18,30 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplicationArgs ext
 
     public static final ReplicatorReplicationInfoListConsumerGroupReplicationArgs Empty = new ReplicatorReplicationInfoListConsumerGroupReplicationArgs();
 
-    /**
-     * List of regular expression patterns indicating the consumer groups that should not be replicated.
-     * 
-     */
     @Import(name="consumerGroupsToExcludes")
     private @Nullable Output<List<String>> consumerGroupsToExcludes;
 
-    /**
-     * @return List of regular expression patterns indicating the consumer groups that should not be replicated.
-     * 
-     */
     public Optional<Output<List<String>>> consumerGroupsToExcludes() {
         return Optional.ofNullable(this.consumerGroupsToExcludes);
     }
 
-    /**
-     * List of regular expression patterns indicating the consumer groups to copy.
-     * 
-     */
     @Import(name="consumerGroupsToReplicates", required=true)
     private Output<List<String>> consumerGroupsToReplicates;
 
-    /**
-     * @return List of regular expression patterns indicating the consumer groups to copy.
-     * 
-     */
     public Output<List<String>> consumerGroupsToReplicates() {
         return this.consumerGroupsToReplicates;
     }
 
-    /**
-     * Whether to periodically check for new consumer groups.
-     * 
-     */
     @Import(name="detectAndCopyNewConsumerGroups")
     private @Nullable Output<Boolean> detectAndCopyNewConsumerGroups;
 
-    /**
-     * @return Whether to periodically check for new consumer groups.
-     * 
-     */
     public Optional<Output<Boolean>> detectAndCopyNewConsumerGroups() {
         return Optional.ofNullable(this.detectAndCopyNewConsumerGroups);
     }
 
-    /**
-     * Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-     * 
-     */
     @Import(name="synchroniseConsumerGroupOffsets")
     private @Nullable Output<Boolean> synchroniseConsumerGroupOffsets;
 
-    /**
-     * @return Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-     * 
-     */
     public Optional<Output<Boolean>> synchroniseConsumerGroupOffsets() {
         return Optional.ofNullable(this.synchroniseConsumerGroupOffsets);
     }
@@ -105,106 +73,46 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplicationArgs ext
             $ = new ReplicatorReplicationInfoListConsumerGroupReplicationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consumerGroupsToExcludes List of regular expression patterns indicating the consumer groups that should not be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupsToExcludes(@Nullable Output<List<String>> consumerGroupsToExcludes) {
             $.consumerGroupsToExcludes = consumerGroupsToExcludes;
             return this;
         }
 
-        /**
-         * @param consumerGroupsToExcludes List of regular expression patterns indicating the consumer groups that should not be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupsToExcludes(List<String> consumerGroupsToExcludes) {
             return consumerGroupsToExcludes(Output.of(consumerGroupsToExcludes));
         }
 
-        /**
-         * @param consumerGroupsToExcludes List of regular expression patterns indicating the consumer groups that should not be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupsToExcludes(String... consumerGroupsToExcludes) {
             return consumerGroupsToExcludes(List.of(consumerGroupsToExcludes));
         }
 
-        /**
-         * @param consumerGroupsToReplicates List of regular expression patterns indicating the consumer groups to copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupsToReplicates(Output<List<String>> consumerGroupsToReplicates) {
             $.consumerGroupsToReplicates = consumerGroupsToReplicates;
             return this;
         }
 
-        /**
-         * @param consumerGroupsToReplicates List of regular expression patterns indicating the consumer groups to copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupsToReplicates(List<String> consumerGroupsToReplicates) {
             return consumerGroupsToReplicates(Output.of(consumerGroupsToReplicates));
         }
 
-        /**
-         * @param consumerGroupsToReplicates List of regular expression patterns indicating the consumer groups to copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupsToReplicates(String... consumerGroupsToReplicates) {
             return consumerGroupsToReplicates(List.of(consumerGroupsToReplicates));
         }
 
-        /**
-         * @param detectAndCopyNewConsumerGroups Whether to periodically check for new consumer groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectAndCopyNewConsumerGroups(@Nullable Output<Boolean> detectAndCopyNewConsumerGroups) {
             $.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;
             return this;
         }
 
-        /**
-         * @param detectAndCopyNewConsumerGroups Whether to periodically check for new consumer groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectAndCopyNewConsumerGroups(Boolean detectAndCopyNewConsumerGroups) {
             return detectAndCopyNewConsumerGroups(Output.of(detectAndCopyNewConsumerGroups));
         }
 
-        /**
-         * @param synchroniseConsumerGroupOffsets Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synchroniseConsumerGroupOffsets(@Nullable Output<Boolean> synchroniseConsumerGroupOffsets) {
             $.synchroniseConsumerGroupOffsets = synchroniseConsumerGroupOffsets;
             return this;
         }
 
-        /**
-         * @param synchroniseConsumerGroupOffsets Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder synchroniseConsumerGroupOffsets(Boolean synchroniseConsumerGroupOffsets) {
             return synchroniseConsumerGroupOffsets(Output.of(synchroniseConsumerGroupOffsets));
         }

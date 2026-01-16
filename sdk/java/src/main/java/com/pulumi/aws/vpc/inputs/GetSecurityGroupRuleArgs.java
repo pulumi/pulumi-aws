@@ -17,55 +17,23 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
 
     public static final GetSecurityGroupRuleArgs Empty = new GetSecurityGroupRuleArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * security group rules. The given filters must match exactly one security group rule
-     * whose data will be exported as attributes.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetSecurityGroupRuleFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     * The arguments of this data source act as filters for querying the available
-     * security group rules. The given filters must match exactly one security group rule
-     * whose data will be exported as attributes.
-     * 
-     */
     public Optional<Output<List<GetSecurityGroupRuleFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the security group rule to select.
-     * 
-     */
     @Import(name="securityGroupRuleId")
     private @Nullable Output<String> securityGroupRuleId;
 
-    /**
-     * @return ID of the security group rule to select.
-     * 
-     */
     public Optional<Output<String>> securityGroupRuleId() {
         return Optional.ofNullable(this.securityGroupRuleId);
     }
@@ -96,87 +64,33 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
             $ = new GetSecurityGroupRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * security group rules. The given filters must match exactly one security group rule
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetSecurityGroupRuleFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * security group rules. The given filters must match exactly one security group rule
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetSecurityGroupRuleFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * The arguments of this data source act as filters for querying the available
-         * security group rules. The given filters must match exactly one security group rule
-         * whose data will be exported as attributes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSecurityGroupRuleFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityGroupRuleId ID of the security group rule to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupRuleId(@Nullable Output<String> securityGroupRuleId) {
             $.securityGroupRuleId = securityGroupRuleId;
             return this;
         }
 
-        /**
-         * @param securityGroupRuleId ID of the security group rule to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupRuleId(String securityGroupRuleId) {
             return securityGroupRuleId(Output.of(securityGroupRuleId));
         }

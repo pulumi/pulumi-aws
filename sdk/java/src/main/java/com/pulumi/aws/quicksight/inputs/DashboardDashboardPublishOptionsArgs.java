@@ -24,152 +24,72 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
 
     public static final DashboardDashboardPublishOptionsArgs Empty = new DashboardDashboardPublishOptionsArgs();
 
-    /**
-     * Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-     * 
-     */
     @Import(name="adHocFilteringOption")
     private @Nullable Output<DashboardDashboardPublishOptionsAdHocFilteringOptionArgs> adHocFilteringOption;
 
-    /**
-     * @return Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsAdHocFilteringOptionArgs>> adHocFilteringOption() {
         return Optional.ofNullable(this.adHocFilteringOption);
     }
 
-    /**
-     * The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-     * 
-     */
     @Import(name="dataPointDrillUpDownOption")
     private @Nullable Output<DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs> dataPointDrillUpDownOption;
 
-    /**
-     * @return The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs>> dataPointDrillUpDownOption() {
         return Optional.ofNullable(this.dataPointDrillUpDownOption);
     }
 
-    /**
-     * The data point menu label options of a dashboard. See data_point_menu_label_option.
-     * 
-     */
     @Import(name="dataPointMenuLabelOption")
     private @Nullable Output<DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs> dataPointMenuLabelOption;
 
-    /**
-     * @return The data point menu label options of a dashboard. See data_point_menu_label_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs>> dataPointMenuLabelOption() {
         return Optional.ofNullable(this.dataPointMenuLabelOption);
     }
 
-    /**
-     * The data point tool tip options of a dashboard. See data_point_tooltip_option.
-     * 
-     */
     @Import(name="dataPointTooltipOption")
     private @Nullable Output<DashboardDashboardPublishOptionsDataPointTooltipOptionArgs> dataPointTooltipOption;
 
-    /**
-     * @return The data point tool tip options of a dashboard. See data_point_tooltip_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsDataPointTooltipOptionArgs>> dataPointTooltipOption() {
         return Optional.ofNullable(this.dataPointTooltipOption);
     }
 
-    /**
-     * Export to .csv option. See export_to_csv_option.
-     * 
-     */
     @Import(name="exportToCsvOption")
     private @Nullable Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs> exportToCsvOption;
 
-    /**
-     * @return Export to .csv option. See export_to_csv_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs>> exportToCsvOption() {
         return Optional.ofNullable(this.exportToCsvOption);
     }
 
-    /**
-     * Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-     * 
-     */
     @Import(name="exportWithHiddenFieldsOption")
     private @Nullable Output<DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs> exportWithHiddenFieldsOption;
 
-    /**
-     * @return Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs>> exportWithHiddenFieldsOption() {
         return Optional.ofNullable(this.exportWithHiddenFieldsOption);
     }
 
-    /**
-     * Sheet controls option. See sheet_controls_option.
-     * 
-     */
     @Import(name="sheetControlsOption")
     private @Nullable Output<DashboardDashboardPublishOptionsSheetControlsOptionArgs> sheetControlsOption;
 
-    /**
-     * @return Sheet controls option. See sheet_controls_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsSheetControlsOptionArgs>> sheetControlsOption() {
         return Optional.ofNullable(this.sheetControlsOption);
     }
 
-    /**
-     * The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-     * 
-     */
     @Import(name="sheetLayoutElementMaximizationOption")
     private @Nullable Output<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs> sheetLayoutElementMaximizationOption;
 
-    /**
-     * @return The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs>> sheetLayoutElementMaximizationOption() {
         return Optional.ofNullable(this.sheetLayoutElementMaximizationOption);
     }
 
-    /**
-     * The axis sort options of a dashboard. See visual_axis_sort_option.
-     * 
-     */
     @Import(name="visualAxisSortOption")
     private @Nullable Output<DashboardDashboardPublishOptionsVisualAxisSortOptionArgs> visualAxisSortOption;
 
-    /**
-     * @return The axis sort options of a dashboard. See visual_axis_sort_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsVisualAxisSortOptionArgs>> visualAxisSortOption() {
         return Optional.ofNullable(this.visualAxisSortOption);
     }
 
-    /**
-     * The menu options of a visual in a dashboard. See visual_menu_option.
-     * 
-     */
     @Import(name="visualMenuOption")
     private @Nullable Output<DashboardDashboardPublishOptionsVisualMenuOptionArgs> visualMenuOption;
 
-    /**
-     * @return The menu options of a visual in a dashboard. See visual_menu_option.
-     * 
-     */
     public Optional<Output<DashboardDashboardPublishOptionsVisualMenuOptionArgs>> visualMenuOption() {
         return Optional.ofNullable(this.visualMenuOption);
     }
@@ -207,212 +127,92 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
             $ = new DashboardDashboardPublishOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adHocFilteringOption Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adHocFilteringOption(@Nullable Output<DashboardDashboardPublishOptionsAdHocFilteringOptionArgs> adHocFilteringOption) {
             $.adHocFilteringOption = adHocFilteringOption;
             return this;
         }
 
-        /**
-         * @param adHocFilteringOption Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adHocFilteringOption(DashboardDashboardPublishOptionsAdHocFilteringOptionArgs adHocFilteringOption) {
             return adHocFilteringOption(Output.of(adHocFilteringOption));
         }
 
-        /**
-         * @param dataPointDrillUpDownOption The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPointDrillUpDownOption(@Nullable Output<DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs> dataPointDrillUpDownOption) {
             $.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
             return this;
         }
 
-        /**
-         * @param dataPointDrillUpDownOption The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPointDrillUpDownOption(DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs dataPointDrillUpDownOption) {
             return dataPointDrillUpDownOption(Output.of(dataPointDrillUpDownOption));
         }
 
-        /**
-         * @param dataPointMenuLabelOption The data point menu label options of a dashboard. See data_point_menu_label_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPointMenuLabelOption(@Nullable Output<DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs> dataPointMenuLabelOption) {
             $.dataPointMenuLabelOption = dataPointMenuLabelOption;
             return this;
         }
 
-        /**
-         * @param dataPointMenuLabelOption The data point menu label options of a dashboard. See data_point_menu_label_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPointMenuLabelOption(DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs dataPointMenuLabelOption) {
             return dataPointMenuLabelOption(Output.of(dataPointMenuLabelOption));
         }
 
-        /**
-         * @param dataPointTooltipOption The data point tool tip options of a dashboard. See data_point_tooltip_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPointTooltipOption(@Nullable Output<DashboardDashboardPublishOptionsDataPointTooltipOptionArgs> dataPointTooltipOption) {
             $.dataPointTooltipOption = dataPointTooltipOption;
             return this;
         }
 
-        /**
-         * @param dataPointTooltipOption The data point tool tip options of a dashboard. See data_point_tooltip_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataPointTooltipOption(DashboardDashboardPublishOptionsDataPointTooltipOptionArgs dataPointTooltipOption) {
             return dataPointTooltipOption(Output.of(dataPointTooltipOption));
         }
 
-        /**
-         * @param exportToCsvOption Export to .csv option. See export_to_csv_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportToCsvOption(@Nullable Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs> exportToCsvOption) {
             $.exportToCsvOption = exportToCsvOption;
             return this;
         }
 
-        /**
-         * @param exportToCsvOption Export to .csv option. See export_to_csv_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportToCsvOption(DashboardDashboardPublishOptionsExportToCsvOptionArgs exportToCsvOption) {
             return exportToCsvOption(Output.of(exportToCsvOption));
         }
 
-        /**
-         * @param exportWithHiddenFieldsOption Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportWithHiddenFieldsOption(@Nullable Output<DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs> exportWithHiddenFieldsOption) {
             $.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             return this;
         }
 
-        /**
-         * @param exportWithHiddenFieldsOption Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportWithHiddenFieldsOption(DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs exportWithHiddenFieldsOption) {
             return exportWithHiddenFieldsOption(Output.of(exportWithHiddenFieldsOption));
         }
 
-        /**
-         * @param sheetControlsOption Sheet controls option. See sheet_controls_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sheetControlsOption(@Nullable Output<DashboardDashboardPublishOptionsSheetControlsOptionArgs> sheetControlsOption) {
             $.sheetControlsOption = sheetControlsOption;
             return this;
         }
 
-        /**
-         * @param sheetControlsOption Sheet controls option. See sheet_controls_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sheetControlsOption(DashboardDashboardPublishOptionsSheetControlsOptionArgs sheetControlsOption) {
             return sheetControlsOption(Output.of(sheetControlsOption));
         }
 
-        /**
-         * @param sheetLayoutElementMaximizationOption The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sheetLayoutElementMaximizationOption(@Nullable Output<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs> sheetLayoutElementMaximizationOption) {
             $.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
             return this;
         }
 
-        /**
-         * @param sheetLayoutElementMaximizationOption The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sheetLayoutElementMaximizationOption(DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs sheetLayoutElementMaximizationOption) {
             return sheetLayoutElementMaximizationOption(Output.of(sheetLayoutElementMaximizationOption));
         }
 
-        /**
-         * @param visualAxisSortOption The axis sort options of a dashboard. See visual_axis_sort_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visualAxisSortOption(@Nullable Output<DashboardDashboardPublishOptionsVisualAxisSortOptionArgs> visualAxisSortOption) {
             $.visualAxisSortOption = visualAxisSortOption;
             return this;
         }
 
-        /**
-         * @param visualAxisSortOption The axis sort options of a dashboard. See visual_axis_sort_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visualAxisSortOption(DashboardDashboardPublishOptionsVisualAxisSortOptionArgs visualAxisSortOption) {
             return visualAxisSortOption(Output.of(visualAxisSortOption));
         }
 
-        /**
-         * @param visualMenuOption The menu options of a visual in a dashboard. See visual_menu_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visualMenuOption(@Nullable Output<DashboardDashboardPublishOptionsVisualMenuOptionArgs> visualMenuOption) {
             $.visualMenuOption = visualMenuOption;
             return this;
         }
 
-        /**
-         * @param visualMenuOption The menu options of a visual in a dashboard. See visual_menu_option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder visualMenuOption(DashboardDashboardPublishOptionsVisualMenuOptionArgs visualMenuOption) {
             return visualMenuOption(Output.of(visualMenuOption));
         }

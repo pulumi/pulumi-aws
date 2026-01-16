@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output
     {
-        /// <summary>
-        /// The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
-        /// </summary>
         public readonly string? LocalPath;
-        /// <summary>
-        /// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
-        /// </summary>
         public readonly string? S3UploadMode;
-        /// <summary>
-        /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
-        /// </summary>
         public readonly string S3Uri;
 
         [OutputConstructor]

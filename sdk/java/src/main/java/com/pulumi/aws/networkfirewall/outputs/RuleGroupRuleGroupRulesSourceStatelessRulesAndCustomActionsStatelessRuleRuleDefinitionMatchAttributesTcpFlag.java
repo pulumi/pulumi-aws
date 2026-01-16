@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag {
-    /**
-     * @return Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     private List<String> flags;
-    /**
-     * @return Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     private @Nullable List<String> masks;
 
     private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag() {}
-    /**
-     * @return Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     public List<String> flags() {
         return this.flags;
     }
-    /**
-     * @return Set of flags to consider in the inspection. To inspect all flags, leave this empty.
-     * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
-     * 
-     */
     public List<String> masks() {
         return this.masks == null ? List.of() : this.masks;
     }

@@ -13,159 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Storage Gateway upload buffer.
- * 
- * &gt; **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
- * 
- * ## Example Usage
- * 
- * ### Cached and VTL Gateway Type
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
- * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
- * import com.pulumi.aws.storagegateway.UploadBuffer;
- * import com.pulumi.aws.storagegateway.UploadBufferArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(testAwsVolumeAttachment.deviceName())
- *             .gatewayArn(testAwsStoragegatewayGateway.arn())
- *             .build());
- * 
- *         var testUploadBuffer = new UploadBuffer("testUploadBuffer", UploadBufferArgs.builder()
- *             .diskPath(test.diskPath())
- *             .gatewayArn(testAwsStoragegatewayGateway.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Stored Gateway Type
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
- * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
- * import com.pulumi.aws.storagegateway.UploadBuffer;
- * import com.pulumi.aws.storagegateway.UploadBufferArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(testAwsVolumeAttachment.deviceName())
- *             .gatewayArn(testAwsStoragegatewayGateway.arn())
- *             .build());
- * 
- *         var example = new UploadBuffer("example", UploadBufferArgs.builder()
- *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
- *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_storagegateway_upload_buffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
- * 
- * ```sh
- * $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
- * ```
- * 
- */
 @ResourceType(type="aws:storagegateway/uploadBuffer:UploadBuffer")
 public class UploadBuffer extends com.pulumi.resources.CustomResource {
-    /**
-     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-     * 
-     */
     @Export(name="diskId", refs={String.class}, tree="[0]")
     private Output<String> diskId;
 
-    /**
-     * @return Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-     * 
-     */
     public Output<String> diskId() {
         return this.diskId;
     }
-    /**
-     * Local disk path. For example, `/dev/nvme1n1`.
-     * 
-     */
     @Export(name="diskPath", refs={String.class}, tree="[0]")
     private Output<String> diskPath;
 
-    /**
-     * @return Local disk path. For example, `/dev/nvme1n1`.
-     * 
-     */
     public Output<String> diskPath() {
         return this.diskPath;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     public Output<String> gatewayArn() {
         return this.gatewayArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -14,32 +14,16 @@ public final class TransitGatewayRegistrationArgs extends com.pulumi.resources.R
 
     public static final TransitGatewayRegistrationArgs Empty = new TransitGatewayRegistrationArgs();
 
-    /**
-     * ID of the Global Network to register to.
-     * 
-     */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
-    /**
-     * @return ID of the Global Network to register to.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
 
-    /**
-     * ARN of the Transit Gateway to register.
-     * 
-     */
     @Import(name="transitGatewayArn", required=true)
     private Output<String> transitGatewayArn;
 
-    /**
-     * @return ARN of the Transit Gateway to register.
-     * 
-     */
     public Output<String> transitGatewayArn() {
         return this.transitGatewayArn;
     }
@@ -69,44 +53,20 @@ public final class TransitGatewayRegistrationArgs extends com.pulumi.resources.R
             $ = new TransitGatewayRegistrationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network to register to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId ID of the Global Network to register to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param transitGatewayArn ARN of the Transit Gateway to register.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayArn(Output<String> transitGatewayArn) {
             $.transitGatewayArn = transitGatewayArn;
             return this;
         }
 
-        /**
-         * @param transitGatewayArn ARN of the Transit Gateway to register.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayArn(String transitGatewayArn) {
             return transitGatewayArn(Output.of(transitGatewayArn));
         }

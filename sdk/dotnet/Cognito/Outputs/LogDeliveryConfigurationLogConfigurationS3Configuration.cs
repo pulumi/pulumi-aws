@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class LogDeliveryConfigurationLogConfigurationS3Configuration
     {
-        /// <summary>
-        /// The ARN of the S3 bucket to which the logs should be delivered.
-        /// </summary>
         public readonly string? BucketArn;
 
         [OutputConstructor]

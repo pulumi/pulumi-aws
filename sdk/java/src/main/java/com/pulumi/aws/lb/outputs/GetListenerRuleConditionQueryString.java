@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetListenerRuleConditionQueryString {
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     private @Nullable List<GetListenerRuleConditionQueryStringValue> values;
 
     private GetListenerRuleConditionQueryString() {}
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<GetListenerRuleConditionQueryStringValue> values() {
         return this.values == null ? List.of() : this.values;
     }

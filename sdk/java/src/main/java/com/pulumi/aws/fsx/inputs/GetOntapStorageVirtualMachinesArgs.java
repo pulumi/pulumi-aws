@@ -17,32 +17,16 @@ public final class GetOntapStorageVirtualMachinesArgs extends com.pulumi.resourc
 
     public static final GetOntapStorageVirtualMachinesArgs Empty = new GetOntapStorageVirtualMachinesArgs();
 
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetOntapStorageVirtualMachinesFilterArgs>> filters;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetOntapStorageVirtualMachinesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -72,54 +56,24 @@ public final class GetOntapStorageVirtualMachinesArgs extends com.pulumi.resourc
             $ = new GetOntapStorageVirtualMachinesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetOntapStorageVirtualMachinesFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetOntapStorageVirtualMachinesFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetOntapStorageVirtualMachinesFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

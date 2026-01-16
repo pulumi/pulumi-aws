@@ -15,17 +15,9 @@ public final class IngestionDestinationProcessingConfigurationArgs extends com.p
 
     public static final IngestionDestinationProcessingConfigurationArgs Empty = new IngestionDestinationProcessingConfigurationArgs();
 
-    /**
-     * Contains information about an audit log processing configuration.
-     * 
-     */
     @Import(name="auditLog")
     private @Nullable Output<IngestionDestinationProcessingConfigurationAuditLogArgs> auditLog;
 
-    /**
-     * @return Contains information about an audit log processing configuration.
-     * 
-     */
     public Optional<Output<IngestionDestinationProcessingConfigurationAuditLogArgs>> auditLog() {
         return Optional.ofNullable(this.auditLog);
     }
@@ -54,23 +46,11 @@ public final class IngestionDestinationProcessingConfigurationArgs extends com.p
             $ = new IngestionDestinationProcessingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param auditLog Contains information about an audit log processing configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLog(@Nullable Output<IngestionDestinationProcessingConfigurationAuditLogArgs> auditLog) {
             $.auditLog = auditLog;
             return this;
         }
 
-        /**
-         * @param auditLog Contains information about an audit log processing configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditLog(IngestionDestinationProcessingConfigurationAuditLogArgs auditLog) {
             return auditLog(Output.of(auditLog));
         }

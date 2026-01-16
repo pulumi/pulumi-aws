@@ -31,16 +31,6 @@ class RadiusSettingsArgs:
                  use_same_username: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RadiusSettings resource.
-        :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory for which you want to manager RADIUS settings.
-        :param pulumi.Input[_builtins.str] display_label: Display label.
-        :param pulumi.Input[_builtins.int] radius_port: The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        :param pulumi.Input[_builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        :param pulumi.Input[_builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[_builtins.str] shared_secret: Required for enabling RADIUS on the directory.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] use_same_username: Not currently used.
         """
         pulumi.set(__self__, "authentication_protocol", authentication_protocol)
         pulumi.set(__self__, "directory_id", directory_id)
@@ -58,9 +48,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="authenticationProtocol")
     def authentication_protocol(self) -> pulumi.Input[_builtins.str]:
-        """
-        The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        """
         return pulumi.get(self, "authentication_protocol")
 
     @authentication_protocol.setter
@@ -70,9 +57,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the directory for which you want to manager RADIUS settings.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -82,9 +66,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="displayLabel")
     def display_label(self) -> pulumi.Input[_builtins.str]:
-        """
-        Display label.
-        """
         return pulumi.get(self, "display_label")
 
     @display_label.setter
@@ -94,9 +75,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="radiusPort")
     def radius_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        """
         return pulumi.get(self, "radius_port")
 
     @radius_port.setter
@@ -106,9 +84,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="radiusRetries")
     def radius_retries(self) -> pulumi.Input[_builtins.int]:
-        """
-        The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        """
         return pulumi.get(self, "radius_retries")
 
     @radius_retries.setter
@@ -118,9 +93,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="radiusServers")
     def radius_servers(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        """
         return pulumi.get(self, "radius_servers")
 
     @radius_servers.setter
@@ -130,9 +102,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="radiusTimeout")
     def radius_timeout(self) -> pulumi.Input[_builtins.int]:
-        """
-        The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        """
         return pulumi.get(self, "radius_timeout")
 
     @radius_timeout.setter
@@ -142,9 +111,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="sharedSecret")
     def shared_secret(self) -> pulumi.Input[_builtins.str]:
-        """
-        Required for enabling RADIUS on the directory.
-        """
         return pulumi.get(self, "shared_secret")
 
     @shared_secret.setter
@@ -154,9 +120,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -166,9 +129,6 @@ class RadiusSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="useSameUsername")
     def use_same_username(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Not currently used.
-        """
         return pulumi.get(self, "use_same_username")
 
     @use_same_username.setter
@@ -191,16 +151,6 @@ class _RadiusSettingsState:
                  use_same_username: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RadiusSettings resources.
-        :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory for which you want to manager RADIUS settings.
-        :param pulumi.Input[_builtins.str] display_label: Display label.
-        :param pulumi.Input[_builtins.int] radius_port: The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        :param pulumi.Input[_builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        :param pulumi.Input[_builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] shared_secret: Required for enabling RADIUS on the directory.
-        :param pulumi.Input[_builtins.bool] use_same_username: Not currently used.
         """
         if authentication_protocol is not None:
             pulumi.set(__self__, "authentication_protocol", authentication_protocol)
@@ -226,9 +176,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="authenticationProtocol")
     def authentication_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        """
         return pulumi.get(self, "authentication_protocol")
 
     @authentication_protocol.setter
@@ -238,9 +185,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier of the directory for which you want to manager RADIUS settings.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -250,9 +194,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="displayLabel")
     def display_label(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Display label.
-        """
         return pulumi.get(self, "display_label")
 
     @display_label.setter
@@ -262,9 +203,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="radiusPort")
     def radius_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        """
         return pulumi.get(self, "radius_port")
 
     @radius_port.setter
@@ -274,9 +212,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="radiusRetries")
     def radius_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        """
         return pulumi.get(self, "radius_retries")
 
     @radius_retries.setter
@@ -286,9 +221,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="radiusServers")
     def radius_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        """
         return pulumi.get(self, "radius_servers")
 
     @radius_servers.setter
@@ -298,9 +230,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="radiusTimeout")
     def radius_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        """
         return pulumi.get(self, "radius_timeout")
 
     @radius_timeout.setter
@@ -310,9 +239,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -322,9 +248,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="sharedSecret")
     def shared_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Required for enabling RADIUS on the directory.
-        """
         return pulumi.get(self, "shared_secret")
 
     @shared_secret.setter
@@ -334,9 +257,6 @@ class _RadiusSettingsState:
     @_builtins.property
     @pulumi.getter(name="useSameUsername")
     def use_same_username(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Not currently used.
-        """
         return pulumi.get(self, "use_same_username")
 
     @use_same_username.setter
@@ -362,45 +282,9 @@ class RadiusSettings(pulumi.CustomResource):
                  use_same_username: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.RadiusSettings("example",
-            directory_id=example_aws_directory_service_directory["id"],
-            authentication_protocol="PAP",
-            display_label="example",
-            radius_port=1812,
-            radius_retries=4,
-            radius_servers=["10.0.1.5"],
-            radius_timeout=1,
-            shared_secret="12345678")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RADIUS settings using the directory ID. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
-        ```
-
+        Create a RadiusSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory for which you want to manager RADIUS settings.
-        :param pulumi.Input[_builtins.str] display_label: Display label.
-        :param pulumi.Input[_builtins.int] radius_port: The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        :param pulumi.Input[_builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        :param pulumi.Input[_builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] shared_secret: Required for enabling RADIUS on the directory.
-        :param pulumi.Input[_builtins.bool] use_same_username: Not currently used.
         """
         ...
     @overload
@@ -409,33 +293,7 @@ class RadiusSettings(pulumi.CustomResource):
                  args: RadiusSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.RadiusSettings("example",
-            directory_id=example_aws_directory_service_directory["id"],
-            authentication_protocol="PAP",
-            display_label="example",
-            radius_port=1812,
-            radius_retries=4,
-            radius_servers=["10.0.1.5"],
-            radius_timeout=1,
-            shared_secret="12345678")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RADIUS settings using the directory ID. For example:
-
-        ```sh
-        $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
-        ```
-
+        Create a RadiusSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RadiusSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -525,16 +383,6 @@ class RadiusSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory for which you want to manager RADIUS settings.
-        :param pulumi.Input[_builtins.str] display_label: Display label.
-        :param pulumi.Input[_builtins.int] radius_port: The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        :param pulumi.Input[_builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        :param pulumi.Input[_builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] shared_secret: Required for enabling RADIUS on the directory.
-        :param pulumi.Input[_builtins.bool] use_same_username: Not currently used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -555,80 +403,50 @@ class RadiusSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="authenticationProtocol")
     def authentication_protocol(self) -> pulumi.Output[_builtins.str]:
-        """
-        The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        """
         return pulumi.get(self, "authentication_protocol")
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier of the directory for which you want to manager RADIUS settings.
-        """
         return pulumi.get(self, "directory_id")
 
     @_builtins.property
     @pulumi.getter(name="displayLabel")
     def display_label(self) -> pulumi.Output[_builtins.str]:
-        """
-        Display label.
-        """
         return pulumi.get(self, "display_label")
 
     @_builtins.property
     @pulumi.getter(name="radiusPort")
     def radius_port(self) -> pulumi.Output[_builtins.int]:
-        """
-        The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        """
         return pulumi.get(self, "radius_port")
 
     @_builtins.property
     @pulumi.getter(name="radiusRetries")
     def radius_retries(self) -> pulumi.Output[_builtins.int]:
-        """
-        The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        """
         return pulumi.get(self, "radius_retries")
 
     @_builtins.property
     @pulumi.getter(name="radiusServers")
     def radius_servers(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        """
         return pulumi.get(self, "radius_servers")
 
     @_builtins.property
     @pulumi.getter(name="radiusTimeout")
     def radius_timeout(self) -> pulumi.Output[_builtins.int]:
-        """
-        The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        """
         return pulumi.get(self, "radius_timeout")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sharedSecret")
     def shared_secret(self) -> pulumi.Output[_builtins.str]:
-        """
-        Required for enabling RADIUS on the directory.
-        """
         return pulumi.get(self, "shared_secret")
 
     @_builtins.property
     @pulumi.getter(name="useSameUsername")
     def use_same_username(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Not currently used.
-        """
         return pulumi.get(self, "use_same_username")
 

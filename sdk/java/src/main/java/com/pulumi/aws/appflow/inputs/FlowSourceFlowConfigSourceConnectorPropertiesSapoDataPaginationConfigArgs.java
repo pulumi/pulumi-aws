@@ -14,17 +14,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginati
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs();
 
-    /**
-     * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-     * 
-     */
     @Import(name="maxPageSize", required=true)
     private Output<Integer> maxPageSize;
 
-    /**
-     * @return he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-     * 
-     */
     public Output<Integer> maxPageSize() {
         return this.maxPageSize;
     }
@@ -53,23 +45,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginati
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxPageSize he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPageSize(Output<Integer> maxPageSize) {
             $.maxPageSize = maxPageSize;
             return this;
         }
 
-        /**
-         * @param maxPageSize he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPageSize(Integer maxPageSize) {
             return maxPageSize(Output.of(maxPageSize));
         }

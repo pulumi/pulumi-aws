@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("patternObjectFilters")]
         private InputList<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>? _patternObjectFilters;
-
-        /// <summary>
-        /// The configuration of filtering certain objects or content types of the data source. See `PatternObjectFilter` block for details.
-        /// </summary>
         public InputList<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs> PatternObjectFilters
         {
             get => _patternObjectFilters ?? (_patternObjectFilters = new InputList<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs>());
             set => _patternObjectFilters = value;
         }
 
-        /// <summary>
-        /// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

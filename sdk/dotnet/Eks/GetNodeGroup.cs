@@ -11,78 +11,12 @@ namespace Pulumi.Aws.Eks
 {
     public static class GetNodeGroup
     {
-        /// <summary>
-        /// Retrieve information about an EKS Node Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///         NodeGroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetNodeGroupResult> InvokeAsync(GetNodeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about an EKS Node Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///         NodeGroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNodeGroupResult> Invoke(GetNodeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about an EKS Node Group.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///         NodeGroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetNodeGroupResult> Invoke(GetNodeGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupInvokeArgs(), options.WithDefaults());
     }
@@ -90,30 +24,17 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetNodeGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the node group.
-        /// </summary>
         [Input("nodeGroupName", required: true)]
         public string NodeGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -128,30 +49,17 @@ namespace Pulumi.Aws.Eks
 
     public sealed class GetNodeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the node group.
-        /// </summary>
         [Input("nodeGroupName", required: true)]
         public Input<string> NodeGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -168,81 +76,30 @@ namespace Pulumi.Aws.Eks
     [OutputType]
     public sealed class GetNodeGroupResult
     {
-        /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
-        /// </summary>
         public readonly string AmiType;
-        /// <summary>
-        /// ARN of the EKS Node Group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`.
-        /// </summary>
         public readonly string CapacityType;
         public readonly string ClusterName;
-        /// <summary>
-        /// Disk size in GiB for worker nodes.
-        /// </summary>
         public readonly int DiskSize;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of instance types associated with the EKS Node Group.
-        /// </summary>
         public readonly ImmutableArray<string> InstanceTypes;
-        /// <summary>
-        /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
-        /// <summary>
-        /// Nested attribute containing information about the launch template used to create the EKS Node Group.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNodeGroupLaunchTemplateResult> LaunchTemplates;
         public readonly string NodeGroupName;
-        /// <summary>
-        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
-        /// </summary>
         public readonly string NodeRoleArn;
         public readonly string Region;
-        /// <summary>
-        /// AMI version of the EKS Node Group.
-        /// </summary>
         public readonly string ReleaseVersion;
-        /// <summary>
-        /// Configuration block with remote access settings.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNodeGroupRemoteAccessResult> RemoteAccesses;
-        /// <summary>
-        /// List of objects containing information about underlying resources.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNodeGroupResourceResult> Resources;
-        /// <summary>
-        /// Configuration block with scaling settings.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNodeGroupScalingConfigResult> ScalingConfigs;
-        /// <summary>
-        /// Status of the EKS Node Group.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// Key-value map of resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// List of objects containing information about taints applied to the nodes in the EKS Node Group.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetNodeGroupTaintResult> Taints;
         public readonly ImmutableArray<Outputs.GetNodeGroupUpdateConfigResult> UpdateConfigs;
-        /// <summary>
-        /// Kubernetes version.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

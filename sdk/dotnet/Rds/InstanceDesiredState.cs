@@ -9,58 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// Resource for managing an AWS RDS (Relational Database) RDS Instance State.
-    /// 
-    /// &gt; Destruction of this resource is a no-op and **will not** modify the instance state
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Rds.InstanceDesiredState("test", new()
-    ///     {
-    ///         Identifier = testAwsDbInstance.Identifier,
-    ///         State = "available",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/instanceDesiredState:InstanceDesiredState")]
     public partial class InstanceDesiredState : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// DB Instance Identifier
-        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configured state of the DB Instance. Valid values are `Available` and `Stopped`.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -113,21 +70,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class InstanceDesiredStateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DB Instance Identifier
-        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configured state of the DB Instance. Valid values are `Available` and `Stopped`.
-        /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
@@ -142,21 +90,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class InstanceDesiredStateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DB Instance Identifier
-        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configured state of the DB Instance. Valid values are `Available` and `Stopped`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

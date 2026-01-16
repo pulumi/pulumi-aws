@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.VerifiedPermissions
 {
-    /// <summary>
-    /// Resource for managing an AWS Verified Permissions Policy Template.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedPermissions.PolicyTemplate("example", new()
-    ///     {
-    ///         PolicyStoreId = exampleAwsVerifiedpermissionsPolicyStore.Id,
-    ///         Statement = "permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:verifiedpermissions/policyTemplate:PolicyTemplate")]
     public partial class PolicyTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The date the Policy Store was created.
-        /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Provides a description for the policy template.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Output("policyTemplateId")]
         public Output<string> PolicyTemplateId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Defines the content of the statement, written in Cedar policy language.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
 
@@ -128,29 +76,15 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class PolicyTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Provides a description for the policy template.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Defines the content of the statement, written in Cedar policy language.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 
@@ -162,41 +96,21 @@ namespace Pulumi.Aws.VerifiedPermissions
 
     public sealed class PolicyTemplateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The date the Policy Store was created.
-        /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
-        /// <summary>
-        /// Provides a description for the policy template.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
 
-        /// <summary>
-        /// The ID of the Policy Store.
-        /// </summary>
         [Input("policyTemplateId")]
         public Input<string>? PolicyTemplateId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Defines the content of the statement, written in Cedar policy language.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }
 

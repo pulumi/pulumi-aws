@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
-    /**
-     * @return Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
-     * 
-     */
     private @Nullable String registryName;
-    /**
-     * @return ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
-     * 
-     */
     private @Nullable String schemaArn;
-    /**
-     * @return Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
-     * 
-     */
     private @Nullable String schemaName;
 
     private CatalogTableStorageDescriptorSchemaReferenceSchemaId() {}
-    /**
-     * @return Name of the schema registry that contains the schema. Must be provided when `schemaName` is specified and conflicts with `schemaArn`.
-     * 
-     */
     public Optional<String> registryName() {
         return Optional.ofNullable(this.registryName);
     }
-    /**
-     * @return ARN of the schema. One of `schemaArn` or `schemaName` has to be provided.
-     * 
-     */
     public Optional<String> schemaArn() {
         return Optional.ofNullable(this.schemaArn);
     }
-    /**
-     * @return Name of the schema. One of `schemaArn` or `schemaName` has to be provided.
-     * 
-     */
     public Optional<String> schemaName() {
         return Optional.ofNullable(this.schemaName);
     }

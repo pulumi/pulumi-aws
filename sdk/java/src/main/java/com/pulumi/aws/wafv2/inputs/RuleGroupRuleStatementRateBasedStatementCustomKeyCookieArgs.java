@@ -16,32 +16,16 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs e
 
     public static final RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs Empty = new RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs();
 
-    /**
-     * A friendly name of the rule group.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the rule group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-     * 
-     */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs>> textTransformations() {
         return this.textTransformations;
     }
@@ -71,54 +55,24 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs e
             $ = new RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name A friendly name of the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A friendly name of the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }

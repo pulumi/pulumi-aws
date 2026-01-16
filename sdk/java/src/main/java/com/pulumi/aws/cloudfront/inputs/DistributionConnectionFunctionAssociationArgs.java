@@ -14,17 +14,9 @@ public final class DistributionConnectionFunctionAssociationArgs extends com.pul
 
     public static final DistributionConnectionFunctionAssociationArgs Empty = new DistributionConnectionFunctionAssociationArgs();
 
-    /**
-     * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -53,23 +45,11 @@ public final class DistributionConnectionFunctionAssociationArgs extends com.pul
             $ = new DistributionConnectionFunctionAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

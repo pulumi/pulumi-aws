@@ -7,118 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing a DynamoDB zero-ETL integration or S3 event integration with Amazon Redshift. You can refer to the [User Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) for a DynamoDB zero-ETL integration or the [User Guide](https://docs.aws.amazon.com/redshift/latest/dg/loading-data-copy-job.html) for a S3 event integration.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dynamodb.Table("example", {
- *     name: "dynamodb-table-example",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     hashKey: "example",
- *     attributes: [{
- *         name: "example",
- *         type: "S",
- *     }],
- *     pointInTimeRecovery: {
- *         enabled: true,
- *     },
- * });
- * const exampleNamespace = new aws.redshiftserverless.Namespace("example", {namespaceName: "redshift-example"});
- * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("example", {
- *     namespaceName: exampleNamespace.namespaceName,
- *     workgroupName: "example-workgroup",
- *     baseCapacity: 8,
- *     publiclyAccessible: false,
- *     subnetIds: [
- *         example1.id,
- *         example2.id,
- *         example3.id,
- *     ],
- *     configParameters: [{
- *         parameterKey: "enable_case_sensitive_identifier",
- *         parameterValue: "true",
- *     }],
- * });
- * const exampleIntegration = new aws.redshift.Integration("example", {
- *     integrationName: "example",
- *     sourceArn: example.arn,
- *     targetArn: exampleNamespace.arn,
- * });
- * ```
- *
- * ### Use own KMS key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.kms.Key("example", {
- *     description: "example",
- *     deletionWindowInDays: 10,
- * });
- * const exampleKeyPolicy = new aws.kms.KeyPolicy("example", {
- *     keyId: example.id,
- *     policy: JSON.stringify({
- *         Version: "2008-10-17",
- *         Statement: [
- *             {
- *                 Effect: "Allow",
- *                 Principal: {
- *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
- *                 },
- *                 Action: "kms:*",
- *                 Resource: "*",
- *             },
- *             {
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "redshift.amazonaws.com",
- *                 },
- *                 Action: [
- *                     "kms:Decrypt",
- *                     "kms:CreateGrant",
- *                 ],
- *                 Resource: "*",
- *                 Condition: {
- *                     StringEquals: {
- *                         "aws:SourceAccount": current.then(current => current.accountId),
- *                     },
- *                     ArnEquals: {
- *                         "aws:SourceArn": current.then(current => `arn:aws:redshift:*:${current.accountId}:integration:*`),
- *                     },
- *                 },
- *             },
- *         ],
- *     }),
- * });
- * const exampleIntegration = new aws.redshift.Integration("example", {
- *     integrationName: "example",
- *     sourceArn: exampleAwsDynamodbTable.arn,
- *     targetArn: exampleAwsRedshiftserverlessNamespace.arn,
- *     kmsKeyId: example.arn,
- *     additionalEncryptionContext: {
- *         example: "test",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift Integration using the `arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/integration:Integration example arn:aws:redshift:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
- * ```
- */
 export class Integration extends pulumi.CustomResource {
     /**
      * Get an existing Integration resource's state with the given name, ID, and optional extra
@@ -147,53 +35,15 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
-    /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data.
-     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kmsKeyId` parameter.
-     */
     declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * ARN of the Integration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Description of the integration.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * Name of the integration.
-     */
     declare public readonly integrationName: pulumi.Output<string>;
-    /**
-     * KMS key identifier for the key to use to encrypt the integration.
-     * If you don't specify an encryption key, Redshift uses a default AWS owned key.
-     * You can only include this parameter if `sourceArn` references a DynamoDB table.
-     */
     declare public readonly kmsKeyId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-     */
     declare public readonly sourceArn: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ARN of the Redshift data warehouse to use as the target for replication.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly targetArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.redshift.IntegrationTimeouts | undefined>;
 
@@ -253,53 +103,15 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
-    /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data.
-     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kmsKeyId` parameter.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Integration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the integration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the integration.
-     */
     integrationName?: pulumi.Input<string>;
-    /**
-     * KMS key identifier for the key to use to encrypt the integration.
-     * If you don't specify an encryption key, Redshift uses a default AWS owned key.
-     * You can only include this parameter if `sourceArn` references a DynamoDB table.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-     */
     sourceArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Redshift data warehouse to use as the target for replication.
-     *
-     * The following arguments are optional:
-     */
     targetArn?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.redshift.IntegrationTimeouts>;
 }
@@ -308,45 +120,13 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
-    /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data.
-     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kmsKeyId` parameter.
-     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Description of the integration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the integration.
-     */
     integrationName: pulumi.Input<string>;
-    /**
-     * KMS key identifier for the key to use to encrypt the integration.
-     * If you don't specify an encryption key, Redshift uses a default AWS owned key.
-     * You can only include this parameter if `sourceArn` references a DynamoDB table.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
-     */
     sourceArn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ARN of the Redshift data warehouse to use as the target for replication.
-     *
-     * The following arguments are optional:
-     */
     targetArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.redshift.IntegrationTimeouts>;
 }

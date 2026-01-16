@@ -15,170 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route 53 Resolver query logging configuration resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.ResolverQueryLogConfig;
- * import com.pulumi.aws.route53.ResolverQueryLogConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResolverQueryLogConfig("example", ResolverQueryLogConfigArgs.builder()
- *             .name("example")
- *             .destinationArn(exampleAwsS3Bucket.arn())
- *             .tags(Map.of("Environment", "Prod"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
- * ```
- * 
- */
 @ResourceType(type="aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")
 public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the resource that you want Route 53 Resolver to send query logs.
-     * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-     * 
-     */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
-    /**
-     * @return The ARN of the resource that you want Route 53 Resolver to send query logs.
-     * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-     * 
-     */
     public Output<String> destinationArn() {
         return this.destinationArn;
     }
-    /**
-     * The name of the Route 53 Resolver query logging configuration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Route 53 Resolver query logging configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The AWS account ID of the account that created the query logging configuration.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The AWS account ID of the account that created the query logging configuration.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-     * Sharing is configured through AWS Resource Access Manager (AWS RAM).
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-     * 
-     */
     @Export(name="shareStatus", refs={String.class}, tree="[0]")
     private Output<String> shareStatus;
 
-    /**
-     * @return An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
-     * Sharing is configured through AWS Resource Access Manager (AWS RAM).
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-     * 
-     */
     public Output<String> shareStatus() {
         return this.shareStatus;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -13,111 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing AWS Cost Optimization Hub Preferences.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.costoptimizationhub.Preferences;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Preferences("example");
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Usage with all the arguments
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.costoptimizationhub.Preferences;
- * import com.pulumi.aws.costoptimizationhub.PreferencesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Preferences("example", PreferencesArgs.builder()
- *             .memberAccountDiscountVisibility("None")
- *             .savingsEstimationMode("AfterDiscounts")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
- * ```
- * 
- */
 @ResourceType(type="aws:costoptimizationhub/preferences:Preferences")
 public class Preferences extends com.pulumi.resources.CustomResource {
-    /**
-     * Customize whether the member accounts can see the &#34;After Discounts&#34; savings estimates. Valid values are `All` and `None`. Default value is `All`.
-     * 
-     */
     @Export(name="memberAccountDiscountVisibility", refs={String.class}, tree="[0]")
     private Output<String> memberAccountDiscountVisibility;
 
-    /**
-     * @return Customize whether the member accounts can see the &#34;After Discounts&#34; savings estimates. Valid values are `All` and `None`. Default value is `All`.
-     * 
-     */
     public Output<String> memberAccountDiscountVisibility() {
         return this.memberAccountDiscountVisibility;
     }
-    /**
-     * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-     * 
-     */
     @Export(name="savingsEstimationMode", refs={String.class}, tree="[0]")
     private Output<String> savingsEstimationMode;
 
-    /**
-     * @return Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
-     * 
-     */
     public Output<String> savingsEstimationMode() {
         return this.savingsEstimationMode;
     }

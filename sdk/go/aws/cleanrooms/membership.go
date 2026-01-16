@@ -12,90 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a AWS Clean Rooms membership. Memberships are used to join a Clean Rooms collaboration by the invited member.
-//
-// ## Example Usage
-//
-// ### Membership with tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cleanrooms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewMembership(ctx, "test_membership", &cleanrooms.MembershipArgs{
-//				CollaborationId: pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
-//				QueryLogStatus:  pulumi.String("DISABLED"),
-//				DefaultResultConfiguration: &cleanrooms.MembershipDefaultResultConfigurationArgs{
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/role-name"),
-//					OutputConfiguration: &cleanrooms.MembershipDefaultResultConfigurationOutputConfigurationArgs{
-//						S3: &cleanrooms.MembershipDefaultResultConfigurationOutputConfigurationS3Args{
-//							Bucket:       pulumi.String("test-bucket"),
-//							ResultFormat: pulumi.String("PARQUET"),
-//							KeyPrefix:    pulumi.String("test-prefix"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("Terraform"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_cleanrooms_membership` using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:cleanrooms/membership:Membership membership 1234abcd-12ab-34cd-56ef-1234567890ab
-// ```
 type Membership struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the membership.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the joined collaboration.
-	CollaborationArn pulumi.StringOutput `pulumi:"collaborationArn"`
-	// The account ID of the collaboration's creator.
-	CollaborationCreatorAccountId pulumi.StringOutput `pulumi:"collaborationCreatorAccountId"`
-	// The display name of the collaboration's creator.
-	CollaborationCreatorDisplayName pulumi.StringOutput `pulumi:"collaborationCreatorDisplayName"`
-	// The ID of the collaboration to which the member was invited.
-	CollaborationId pulumi.StringOutput `pulumi:"collaborationId"`
-	// The name of the joined collaboration.
-	CollaborationName pulumi.StringOutput `pulumi:"collaborationName"`
-	// The date and time the membership was created.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// The default configuration for a query result.
-	DefaultResultConfiguration MembershipDefaultResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
-	// The list of abilities for the invited member.
-	MemberAbilities      pulumi.StringArrayOutput                `pulumi:"memberAbilities"`
-	PaymentConfiguration MembershipPaymentConfigurationPtrOutput `pulumi:"paymentConfiguration"`
-	// An indicator as to whether query logging has been enabled or disabled for the membership.
-	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the membership.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key value pairs which tag the membership.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The date and time the membership was last updated.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	Arn                             pulumi.StringOutput                           `pulumi:"arn"`
+	CollaborationArn                pulumi.StringOutput                           `pulumi:"collaborationArn"`
+	CollaborationCreatorAccountId   pulumi.StringOutput                           `pulumi:"collaborationCreatorAccountId"`
+	CollaborationCreatorDisplayName pulumi.StringOutput                           `pulumi:"collaborationCreatorDisplayName"`
+	CollaborationId                 pulumi.StringOutput                           `pulumi:"collaborationId"`
+	CollaborationName               pulumi.StringOutput                           `pulumi:"collaborationName"`
+	CreateTime                      pulumi.StringOutput                           `pulumi:"createTime"`
+	DefaultResultConfiguration      MembershipDefaultResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
+	MemberAbilities                 pulumi.StringArrayOutput                      `pulumi:"memberAbilities"`
+	PaymentConfiguration            MembershipPaymentConfigurationPtrOutput       `pulumi:"paymentConfiguration"`
+	QueryLogStatus                  pulumi.StringOutput                           `pulumi:"queryLogStatus"`
+	Region                          pulumi.StringOutput                           `pulumi:"region"`
+	Status                          pulumi.StringOutput                           `pulumi:"status"`
+	Tags                            pulumi.StringMapOutput                        `pulumi:"tags"`
+	TagsAll                         pulumi.StringMapOutput                        `pulumi:"tagsAll"`
+	UpdateTime                      pulumi.StringOutput                           `pulumi:"updateTime"`
 }
 
 // NewMembership registers a new resource with the given unique name, arguments, and options.
@@ -134,69 +69,41 @@ func GetMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Membership resources.
 type membershipState struct {
-	// The ARN of the membership.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the joined collaboration.
-	CollaborationArn *string `pulumi:"collaborationArn"`
-	// The account ID of the collaboration's creator.
-	CollaborationCreatorAccountId *string `pulumi:"collaborationCreatorAccountId"`
-	// The display name of the collaboration's creator.
-	CollaborationCreatorDisplayName *string `pulumi:"collaborationCreatorDisplayName"`
-	// The ID of the collaboration to which the member was invited.
-	CollaborationId *string `pulumi:"collaborationId"`
-	// The name of the joined collaboration.
-	CollaborationName *string `pulumi:"collaborationName"`
-	// The date and time the membership was created.
-	CreateTime *string `pulumi:"createTime"`
-	// The default configuration for a query result.
-	DefaultResultConfiguration *MembershipDefaultResultConfiguration `pulumi:"defaultResultConfiguration"`
-	// The list of abilities for the invited member.
-	MemberAbilities      []string                        `pulumi:"memberAbilities"`
-	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
-	// An indicator as to whether query logging has been enabled or disabled for the membership.
-	QueryLogStatus *string `pulumi:"queryLogStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The status of the membership.
-	Status *string `pulumi:"status"`
-	// Key value pairs which tag the membership.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The date and time the membership was last updated.
-	UpdateTime *string `pulumi:"updateTime"`
+	Arn                             *string                               `pulumi:"arn"`
+	CollaborationArn                *string                               `pulumi:"collaborationArn"`
+	CollaborationCreatorAccountId   *string                               `pulumi:"collaborationCreatorAccountId"`
+	CollaborationCreatorDisplayName *string                               `pulumi:"collaborationCreatorDisplayName"`
+	CollaborationId                 *string                               `pulumi:"collaborationId"`
+	CollaborationName               *string                               `pulumi:"collaborationName"`
+	CreateTime                      *string                               `pulumi:"createTime"`
+	DefaultResultConfiguration      *MembershipDefaultResultConfiguration `pulumi:"defaultResultConfiguration"`
+	MemberAbilities                 []string                              `pulumi:"memberAbilities"`
+	PaymentConfiguration            *MembershipPaymentConfiguration       `pulumi:"paymentConfiguration"`
+	QueryLogStatus                  *string                               `pulumi:"queryLogStatus"`
+	Region                          *string                               `pulumi:"region"`
+	Status                          *string                               `pulumi:"status"`
+	Tags                            map[string]string                     `pulumi:"tags"`
+	TagsAll                         map[string]string                     `pulumi:"tagsAll"`
+	UpdateTime                      *string                               `pulumi:"updateTime"`
 }
 
 type MembershipState struct {
-	// The ARN of the membership.
-	Arn pulumi.StringPtrInput
-	// The ARN of the joined collaboration.
-	CollaborationArn pulumi.StringPtrInput
-	// The account ID of the collaboration's creator.
-	CollaborationCreatorAccountId pulumi.StringPtrInput
-	// The display name of the collaboration's creator.
+	Arn                             pulumi.StringPtrInput
+	CollaborationArn                pulumi.StringPtrInput
+	CollaborationCreatorAccountId   pulumi.StringPtrInput
 	CollaborationCreatorDisplayName pulumi.StringPtrInput
-	// The ID of the collaboration to which the member was invited.
-	CollaborationId pulumi.StringPtrInput
-	// The name of the joined collaboration.
-	CollaborationName pulumi.StringPtrInput
-	// The date and time the membership was created.
-	CreateTime pulumi.StringPtrInput
-	// The default configuration for a query result.
-	DefaultResultConfiguration MembershipDefaultResultConfigurationPtrInput
-	// The list of abilities for the invited member.
-	MemberAbilities      pulumi.StringArrayInput
-	PaymentConfiguration MembershipPaymentConfigurationPtrInput
-	// An indicator as to whether query logging has been enabled or disabled for the membership.
-	QueryLogStatus pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The status of the membership.
-	Status pulumi.StringPtrInput
-	// Key value pairs which tag the membership.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The date and time the membership was last updated.
-	UpdateTime pulumi.StringPtrInput
+	CollaborationId                 pulumi.StringPtrInput
+	CollaborationName               pulumi.StringPtrInput
+	CreateTime                      pulumi.StringPtrInput
+	DefaultResultConfiguration      MembershipDefaultResultConfigurationPtrInput
+	MemberAbilities                 pulumi.StringArrayInput
+	PaymentConfiguration            MembershipPaymentConfigurationPtrInput
+	QueryLogStatus                  pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
+	Status                          pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
+	UpdateTime                      pulumi.StringPtrInput
 }
 
 func (MembershipState) ElementType() reflect.Type {
@@ -204,32 +111,22 @@ func (MembershipState) ElementType() reflect.Type {
 }
 
 type membershipArgs struct {
-	// The ID of the collaboration to which the member was invited.
-	CollaborationId string `pulumi:"collaborationId"`
-	// The default configuration for a query result.
+	CollaborationId            string                                `pulumi:"collaborationId"`
 	DefaultResultConfiguration *MembershipDefaultResultConfiguration `pulumi:"defaultResultConfiguration"`
 	PaymentConfiguration       *MembershipPaymentConfiguration       `pulumi:"paymentConfiguration"`
-	// An indicator as to whether query logging has been enabled or disabled for the membership.
-	QueryLogStatus string `pulumi:"queryLogStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key value pairs which tag the membership.
-	Tags map[string]string `pulumi:"tags"`
+	QueryLogStatus             string                                `pulumi:"queryLogStatus"`
+	Region                     *string                               `pulumi:"region"`
+	Tags                       map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Membership resource.
 type MembershipArgs struct {
-	// The ID of the collaboration to which the member was invited.
-	CollaborationId pulumi.StringInput
-	// The default configuration for a query result.
+	CollaborationId            pulumi.StringInput
 	DefaultResultConfiguration MembershipDefaultResultConfigurationPtrInput
 	PaymentConfiguration       MembershipPaymentConfigurationPtrInput
-	// An indicator as to whether query logging has been enabled or disabled for the membership.
-	QueryLogStatus pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key value pairs which tag the membership.
-	Tags pulumi.StringMapInput
+	QueryLogStatus             pulumi.StringInput
+	Region                     pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (MembershipArgs) ElementType() reflect.Type {
@@ -319,47 +216,38 @@ func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) Mem
 	return o
 }
 
-// The ARN of the membership.
 func (o MembershipOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the joined collaboration.
 func (o MembershipOutput) CollaborationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationArn }).(pulumi.StringOutput)
 }
 
-// The account ID of the collaboration's creator.
 func (o MembershipOutput) CollaborationCreatorAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationCreatorAccountId }).(pulumi.StringOutput)
 }
 
-// The display name of the collaboration's creator.
 func (o MembershipOutput) CollaborationCreatorDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationCreatorDisplayName }).(pulumi.StringOutput)
 }
 
-// The ID of the collaboration to which the member was invited.
 func (o MembershipOutput) CollaborationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationId }).(pulumi.StringOutput)
 }
 
-// The name of the joined collaboration.
 func (o MembershipOutput) CollaborationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationName }).(pulumi.StringOutput)
 }
 
-// The date and time the membership was created.
 func (o MembershipOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The default configuration for a query result.
 func (o MembershipOutput) DefaultResultConfiguration() MembershipDefaultResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *Membership) MembershipDefaultResultConfigurationPtrOutput { return v.DefaultResultConfiguration }).(MembershipDefaultResultConfigurationPtrOutput)
 }
 
-// The list of abilities for the invited member.
 func (o MembershipOutput) MemberAbilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringArrayOutput { return v.MemberAbilities }).(pulumi.StringArrayOutput)
 }
@@ -368,22 +256,18 @@ func (o MembershipOutput) PaymentConfiguration() MembershipPaymentConfigurationP
 	return o.ApplyT(func(v *Membership) MembershipPaymentConfigurationPtrOutput { return v.PaymentConfiguration }).(MembershipPaymentConfigurationPtrOutput)
 }
 
-// An indicator as to whether query logging has been enabled or disabled for the membership.
 func (o MembershipOutput) QueryLogStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.QueryLogStatus }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the membership.
 func (o MembershipOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key value pairs which tag the membership.
 func (o MembershipOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -392,7 +276,6 @@ func (o MembershipOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The date and time the membership was last updated.
 func (o MembershipOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

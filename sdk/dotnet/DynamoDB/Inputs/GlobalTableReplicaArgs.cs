@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class GlobalTableReplicaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS region name of replica DynamoDB TableE.g., `us-east-1`
-        /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 

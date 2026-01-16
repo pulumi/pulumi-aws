@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Synthetics.Outputs
     [OutputType]
     public sealed class CanaryScheduleRetryConfig
     {
-        /// <summary>
-        /// Maximum number of retries. The value must be less than or equal to `2`. If `MaxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
-        /// </summary>
         public readonly int MaxRetries;
 
         [OutputConstructor]

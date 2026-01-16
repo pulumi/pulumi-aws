@@ -14,32 +14,16 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
 
     public static final V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs Empty = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs();
 
-    /**
-     * Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-     * 
-     */
     @Import(name="endTimeoutMs", required=true)
     private Output<Integer> endTimeoutMs;
 
-    /**
-     * @return Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-     * 
-     */
     public Output<Integer> endTimeoutMs() {
         return this.endTimeoutMs;
     }
 
-    /**
-     * Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-     * 
-     */
     @Import(name="maxLengthMs", required=true)
     private Output<Integer> maxLengthMs;
 
-    /**
-     * @return Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-     * 
-     */
     public Output<Integer> maxLengthMs() {
         return this.maxLengthMs;
     }
@@ -69,44 +53,20 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
             $ = new V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endTimeoutMs Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTimeoutMs(Output<Integer> endTimeoutMs) {
             $.endTimeoutMs = endTimeoutMs;
             return this;
         }
 
-        /**
-         * @param endTimeoutMs Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTimeoutMs(Integer endTimeoutMs) {
             return endTimeoutMs(Output.of(endTimeoutMs));
         }
 
-        /**
-         * @param maxLengthMs Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLengthMs(Output<Integer> maxLengthMs) {
             $.maxLengthMs = maxLengthMs;
             return this;
         }
 
-        /**
-         * @param maxLengthMs Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxLengthMs(Integer maxLengthMs) {
             return maxLengthMs(Output.of(maxLengthMs));
         }

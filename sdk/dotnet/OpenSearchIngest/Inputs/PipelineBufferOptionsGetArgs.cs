@@ -12,9 +12,6 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
 
     public sealed class PipelineBufferOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether persistent buffering should be enabled.
-        /// </summary>
         [Input("persistentBufferEnabled", required: true)]
         public Input<bool> PersistentBufferEnabled { get; set; } = null!;
 

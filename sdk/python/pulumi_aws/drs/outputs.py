@@ -46,13 +46,6 @@ class ReplicationConfigurationTemplatePitPolicy(dict):
                  units: _builtins.str,
                  enabled: Optional[_builtins.bool] = None,
                  rule_id: Optional[_builtins.int] = None):
-        """
-        :param _builtins.int interval: How often, in the chosen units, a snapshot should be taken.
-        :param _builtins.int retention_duration: Duration to retain a snapshot for, in the chosen `units`.
-        :param _builtins.str units: Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-        :param _builtins.bool enabled: Whether this rule is enabled or not.
-        :param _builtins.int rule_id: ID of the rule. Valid values are integers.
-        """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "retention_duration", retention_duration)
         pulumi.set(__self__, "units", units)
@@ -64,41 +57,26 @@ class ReplicationConfigurationTemplatePitPolicy(dict):
     @_builtins.property
     @pulumi.getter
     def interval(self) -> _builtins.int:
-        """
-        How often, in the chosen units, a snapshot should be taken.
-        """
         return pulumi.get(self, "interval")
 
     @_builtins.property
     @pulumi.getter(name="retentionDuration")
     def retention_duration(self) -> _builtins.int:
-        """
-        Duration to retain a snapshot for, in the chosen `units`.
-        """
         return pulumi.get(self, "retention_duration")
 
     @_builtins.property
     @pulumi.getter
     def units(self) -> _builtins.str:
-        """
-        Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
-        """
         return pulumi.get(self, "units")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Whether this rule is enabled or not.
-        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[_builtins.int]:
-        """
-        ID of the rule. Valid values are integers.
-        """
         return pulumi.get(self, "rule_id")
 
 

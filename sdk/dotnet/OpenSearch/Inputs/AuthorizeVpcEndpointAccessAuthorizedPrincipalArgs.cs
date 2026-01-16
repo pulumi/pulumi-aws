@@ -12,15 +12,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM principal that is allowed to access to the domain.
-        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
-        /// <summary>
-        /// Type of principal.
-        /// </summary>
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 

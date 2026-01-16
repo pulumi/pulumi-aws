@@ -12,169 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IP address pool resource for IPAM.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   example.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Nested Pools:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-//					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Region),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			parent, err := ec2.NewVpcIpamPool(ctx, "parent", &ec2.VpcIpamPoolArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				IpamScopeId:   example.PrivateDefaultScopeId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "parent_test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: parent.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			child, err := ec2.NewVpcIpamPool(ctx, "child", &ec2.VpcIpamPoolArgs{
-//				AddressFamily:    pulumi.String("ipv4"),
-//				IpamScopeId:      example.PrivateDefaultScopeId,
-//				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: parent.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "child_test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: child.ID(),
-//				Cidr:       pulumi.String("172.20.0.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
-// ```
 type VpcIpamPool struct {
 	pulumi.CustomResourceState
 
-	// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-	AllocationDefaultNetmaskLength pulumi.IntPtrOutput `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength pulumi.IntPtrOutput `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength pulumi.IntPtrOutput `pulumi:"allocationMinNetmaskLength"`
-	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-	AllocationResourceTags pulumi.StringMapOutput `pulumi:"allocationResourceTags"`
-	// Amazon Resource Name (ARN) of IPAM
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-	// within the CIDR range in the pool.
-	AutoImport pulumi.BoolPtrOutput `pulumi:"autoImport"`
-	// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-	AwsService pulumi.StringPtrOutput `pulumi:"awsService"`
-	// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-	Cascade pulumi.BoolPtrOutput `pulumi:"cascade"`
-	// A description for the IPAM pool.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the scope in which you would like to create the IPAM pool.
-	IpamScopeId   pulumi.StringOutput `pulumi:"ipamScopeId"`
-	IpamScopeType pulumi.StringOutput `pulumi:"ipamScopeType"`
-	// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-	Locale    pulumi.StringPtrOutput `pulumi:"locale"`
-	PoolDepth pulumi.IntOutput       `pulumi:"poolDepth"`
-	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-	PublicIpSource pulumi.StringPtrOutput `pulumi:"publicIpSource"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-	PubliclyAdvertisable pulumi.BoolPtrOutput `pulumi:"publiclyAdvertisable"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
-	// The ID of the IPAM
-	State pulumi.StringOutput `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AddressFamily                  pulumi.StringOutput    `pulumi:"addressFamily"`
+	AllocationDefaultNetmaskLength pulumi.IntPtrOutput    `pulumi:"allocationDefaultNetmaskLength"`
+	AllocationMaxNetmaskLength     pulumi.IntPtrOutput    `pulumi:"allocationMaxNetmaskLength"`
+	AllocationMinNetmaskLength     pulumi.IntPtrOutput    `pulumi:"allocationMinNetmaskLength"`
+	AllocationResourceTags         pulumi.StringMapOutput `pulumi:"allocationResourceTags"`
+	Arn                            pulumi.StringOutput    `pulumi:"arn"`
+	AutoImport                     pulumi.BoolPtrOutput   `pulumi:"autoImport"`
+	AwsService                     pulumi.StringPtrOutput `pulumi:"awsService"`
+	Cascade                        pulumi.BoolPtrOutput   `pulumi:"cascade"`
+	Description                    pulumi.StringPtrOutput `pulumi:"description"`
+	IpamScopeId                    pulumi.StringOutput    `pulumi:"ipamScopeId"`
+	IpamScopeType                  pulumi.StringOutput    `pulumi:"ipamScopeType"`
+	Locale                         pulumi.StringPtrOutput `pulumi:"locale"`
+	PoolDepth                      pulumi.IntOutput       `pulumi:"poolDepth"`
+	PublicIpSource                 pulumi.StringPtrOutput `pulumi:"publicIpSource"`
+	PubliclyAdvertisable           pulumi.BoolPtrOutput   `pulumi:"publiclyAdvertisable"`
+	Region                         pulumi.StringOutput    `pulumi:"region"`
+	SourceIpamPoolId               pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
+	State                          pulumi.StringOutput    `pulumi:"state"`
+	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewVpcIpamPool registers a new resource with the given unique name, arguments, and options.
@@ -213,91 +74,51 @@ func GetVpcIpamPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamPool resources.
 type vpcIpamPoolState struct {
-	// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-	AddressFamily *string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-	AllocationDefaultNetmaskLength *int `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength *int `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength *int `pulumi:"allocationMinNetmaskLength"`
-	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
-	// Amazon Resource Name (ARN) of IPAM
-	Arn *string `pulumi:"arn"`
-	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-	// within the CIDR range in the pool.
-	AutoImport *bool `pulumi:"autoImport"`
-	// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-	AwsService *string `pulumi:"awsService"`
-	// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-	Cascade *bool `pulumi:"cascade"`
-	// A description for the IPAM pool.
-	Description *string `pulumi:"description"`
-	// The ID of the scope in which you would like to create the IPAM pool.
-	IpamScopeId   *string `pulumi:"ipamScopeId"`
-	IpamScopeType *string `pulumi:"ipamScopeType"`
-	// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-	Locale    *string `pulumi:"locale"`
-	PoolDepth *int    `pulumi:"poolDepth"`
-	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-	PublicIpSource *string `pulumi:"publicIpSource"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
-	// The ID of the IPAM
-	State *string `pulumi:"state"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AddressFamily                  *string           `pulumi:"addressFamily"`
+	AllocationDefaultNetmaskLength *int              `pulumi:"allocationDefaultNetmaskLength"`
+	AllocationMaxNetmaskLength     *int              `pulumi:"allocationMaxNetmaskLength"`
+	AllocationMinNetmaskLength     *int              `pulumi:"allocationMinNetmaskLength"`
+	AllocationResourceTags         map[string]string `pulumi:"allocationResourceTags"`
+	Arn                            *string           `pulumi:"arn"`
+	AutoImport                     *bool             `pulumi:"autoImport"`
+	AwsService                     *string           `pulumi:"awsService"`
+	Cascade                        *bool             `pulumi:"cascade"`
+	Description                    *string           `pulumi:"description"`
+	IpamScopeId                    *string           `pulumi:"ipamScopeId"`
+	IpamScopeType                  *string           `pulumi:"ipamScopeType"`
+	Locale                         *string           `pulumi:"locale"`
+	PoolDepth                      *int              `pulumi:"poolDepth"`
+	PublicIpSource                 *string           `pulumi:"publicIpSource"`
+	PubliclyAdvertisable           *bool             `pulumi:"publiclyAdvertisable"`
+	Region                         *string           `pulumi:"region"`
+	SourceIpamPoolId               *string           `pulumi:"sourceIpamPoolId"`
+	State                          *string           `pulumi:"state"`
+	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcIpamPoolState struct {
-	// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-	AddressFamily pulumi.StringPtrInput
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+	AddressFamily                  pulumi.StringPtrInput
 	AllocationDefaultNetmaskLength pulumi.IntPtrInput
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength pulumi.IntPtrInput
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength pulumi.IntPtrInput
-	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-	AllocationResourceTags pulumi.StringMapInput
-	// Amazon Resource Name (ARN) of IPAM
-	Arn pulumi.StringPtrInput
-	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-	// within the CIDR range in the pool.
-	AutoImport pulumi.BoolPtrInput
-	// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-	AwsService pulumi.StringPtrInput
-	// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-	Cascade pulumi.BoolPtrInput
-	// A description for the IPAM pool.
-	Description pulumi.StringPtrInput
-	// The ID of the scope in which you would like to create the IPAM pool.
-	IpamScopeId   pulumi.StringPtrInput
-	IpamScopeType pulumi.StringPtrInput
-	// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-	Locale    pulumi.StringPtrInput
-	PoolDepth pulumi.IntPtrInput
-	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-	PublicIpSource pulumi.StringPtrInput
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-	PubliclyAdvertisable pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-	SourceIpamPoolId pulumi.StringPtrInput
-	// The ID of the IPAM
-	State pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	AllocationMaxNetmaskLength     pulumi.IntPtrInput
+	AllocationMinNetmaskLength     pulumi.IntPtrInput
+	AllocationResourceTags         pulumi.StringMapInput
+	Arn                            pulumi.StringPtrInput
+	AutoImport                     pulumi.BoolPtrInput
+	AwsService                     pulumi.StringPtrInput
+	Cascade                        pulumi.BoolPtrInput
+	Description                    pulumi.StringPtrInput
+	IpamScopeId                    pulumi.StringPtrInput
+	IpamScopeType                  pulumi.StringPtrInput
+	Locale                         pulumi.StringPtrInput
+	PoolDepth                      pulumi.IntPtrInput
+	PublicIpSource                 pulumi.StringPtrInput
+	PubliclyAdvertisable           pulumi.BoolPtrInput
+	Region                         pulumi.StringPtrInput
+	SourceIpamPoolId               pulumi.StringPtrInput
+	State                          pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (VpcIpamPoolState) ElementType() reflect.Type {
@@ -305,76 +126,42 @@ func (VpcIpamPoolState) ElementType() reflect.Type {
 }
 
 type vpcIpamPoolArgs struct {
-	// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-	AddressFamily string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
-	AllocationDefaultNetmaskLength *int `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength *int `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength *int `pulumi:"allocationMinNetmaskLength"`
-	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
-	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-	// within the CIDR range in the pool.
-	AutoImport *bool `pulumi:"autoImport"`
-	// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-	AwsService *string `pulumi:"awsService"`
-	// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-	Cascade *bool `pulumi:"cascade"`
-	// A description for the IPAM pool.
-	Description *string `pulumi:"description"`
-	// The ID of the scope in which you would like to create the IPAM pool.
-	IpamScopeId string `pulumi:"ipamScopeId"`
-	// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-	Locale *string `pulumi:"locale"`
-	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-	PublicIpSource *string `pulumi:"publicIpSource"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AddressFamily                  string            `pulumi:"addressFamily"`
+	AllocationDefaultNetmaskLength *int              `pulumi:"allocationDefaultNetmaskLength"`
+	AllocationMaxNetmaskLength     *int              `pulumi:"allocationMaxNetmaskLength"`
+	AllocationMinNetmaskLength     *int              `pulumi:"allocationMinNetmaskLength"`
+	AllocationResourceTags         map[string]string `pulumi:"allocationResourceTags"`
+	AutoImport                     *bool             `pulumi:"autoImport"`
+	AwsService                     *string           `pulumi:"awsService"`
+	Cascade                        *bool             `pulumi:"cascade"`
+	Description                    *string           `pulumi:"description"`
+	IpamScopeId                    string            `pulumi:"ipamScopeId"`
+	Locale                         *string           `pulumi:"locale"`
+	PublicIpSource                 *string           `pulumi:"publicIpSource"`
+	PubliclyAdvertisable           *bool             `pulumi:"publiclyAdvertisable"`
+	Region                         *string           `pulumi:"region"`
+	SourceIpamPoolId               *string           `pulumi:"sourceIpamPoolId"`
+	Tags                           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIpamPool resource.
 type VpcIpamPoolArgs struct {
-	// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
-	AddressFamily pulumi.StringInput
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+	AddressFamily                  pulumi.StringInput
 	AllocationDefaultNetmaskLength pulumi.IntPtrInput
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMaxNetmaskLength pulumi.IntPtrInput
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
-	AllocationMinNetmaskLength pulumi.IntPtrInput
-	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-	AllocationResourceTags pulumi.StringMapInput
-	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-	// within the CIDR range in the pool.
-	AutoImport pulumi.BoolPtrInput
-	// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
-	AwsService pulumi.StringPtrInput
-	// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
-	Cascade pulumi.BoolPtrInput
-	// A description for the IPAM pool.
-	Description pulumi.StringPtrInput
-	// The ID of the scope in which you would like to create the IPAM pool.
-	IpamScopeId pulumi.StringInput
-	// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-	Locale pulumi.StringPtrInput
-	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
-	PublicIpSource pulumi.StringPtrInput
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
-	PubliclyAdvertisable pulumi.BoolPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
-	SourceIpamPoolId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	AllocationMaxNetmaskLength     pulumi.IntPtrInput
+	AllocationMinNetmaskLength     pulumi.IntPtrInput
+	AllocationResourceTags         pulumi.StringMapInput
+	AutoImport                     pulumi.BoolPtrInput
+	AwsService                     pulumi.StringPtrInput
+	Cascade                        pulumi.BoolPtrInput
+	Description                    pulumi.StringPtrInput
+	IpamScopeId                    pulumi.StringInput
+	Locale                         pulumi.StringPtrInput
+	PublicIpSource                 pulumi.StringPtrInput
+	PubliclyAdvertisable           pulumi.BoolPtrInput
+	Region                         pulumi.StringPtrInput
+	SourceIpamPoolId               pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (VpcIpamPoolArgs) ElementType() reflect.Type {
@@ -464,58 +251,46 @@ func (o VpcIpamPoolOutput) ToVpcIpamPoolOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
 func (o VpcIpamPoolOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
 func (o VpcIpamPoolOutput) AllocationDefaultNetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.IntPtrOutput { return v.AllocationDefaultNetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-// The maximum netmask length that will be required for CIDR allocations in this pool.
 func (o VpcIpamPoolOutput) AllocationMaxNetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.IntPtrOutput { return v.AllocationMaxNetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-// The minimum netmask length that will be required for CIDR allocations in this pool.
 func (o VpcIpamPoolOutput) AllocationMinNetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.IntPtrOutput { return v.AllocationMinNetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
 func (o VpcIpamPoolOutput) AllocationResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringMapOutput { return v.AllocationResourceTags }).(pulumi.StringMapOutput)
 }
 
-// Amazon Resource Name (ARN) of IPAM
 func (o VpcIpamPoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-// within the CIDR range in the pool.
 func (o VpcIpamPoolOutput) AutoImport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.BoolPtrOutput { return v.AutoImport }).(pulumi.BoolPtrOutput)
 }
 
-// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
 func (o VpcIpamPoolOutput) AwsService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.AwsService }).(pulumi.StringPtrOutput)
 }
 
-// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
 func (o VpcIpamPoolOutput) Cascade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.BoolPtrOutput { return v.Cascade }).(pulumi.BoolPtrOutput)
 }
 
-// A description for the IPAM pool.
 func (o VpcIpamPoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the scope in which you would like to create the IPAM pool.
 func (o VpcIpamPoolOutput) IpamScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.IpamScopeId }).(pulumi.StringOutput)
 }
@@ -524,7 +299,6 @@ func (o VpcIpamPoolOutput) IpamScopeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.IpamScopeType }).(pulumi.StringOutput)
 }
 
-// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
 func (o VpcIpamPoolOutput) Locale() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.Locale }).(pulumi.StringPtrOutput)
 }
@@ -533,37 +307,30 @@ func (o VpcIpamPoolOutput) PoolDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.IntOutput { return v.PoolDepth }).(pulumi.IntOutput)
 }
 
-// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
 func (o VpcIpamPoolOutput) PublicIpSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.PublicIpSource }).(pulumi.StringPtrOutput)
 }
 
-// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 func (o VpcIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.BoolPtrOutput { return v.PubliclyAdvertisable }).(pulumi.BoolPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpamPoolOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 func (o VpcIpamPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the IPAM
 func (o VpcIpamPoolOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcIpamPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcIpamPoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

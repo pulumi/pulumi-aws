@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceNetworkConfigurationResult
     {
-        /// <summary>
-        /// Whether tasks receive public IP addresses
-        /// </summary>
         public readonly bool AssignPublicIp;
-        /// <summary>
-        /// Security groups associated with tasks
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// Subnets associated with tasks
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

@@ -7,62 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Attaches a policy to an S3 bucket resource.
- *
- * > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.Bucket("example", {bucket: "my-tf-test-bucket"});
- * const allowAccessFromAnotherAccount = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *         actions: [
- *             "s3:GetObject",
- *             "s3:ListBucket",
- *         ],
- *         resources: [
- *             example.arn,
- *             pulumi.interpolate`${example.arn}/*`,
- *         ],
- *     }],
- * });
- * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allow_access_from_another_account", {
- *     bucket: example.id,
- *     policy: allowAccessFromAnotherAccount.apply(allowAccessFromAnotherAccount => allowAccessFromAnotherAccount.json),
- * });
- * ```
- *
- * > Only one `aws.s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `aws.s3.BucketPolicy` resources with different Pulumi names but the same `bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `bucket` (String) Name of the S3 bucket.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
- *
- * % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
- */
 export class BucketPolicy extends pulumi.CustomResource {
     /**
      * Get an existing BucketPolicy resource's state with the given name, ID, and optional extra
@@ -91,17 +35,8 @@ export class BucketPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketPolicy.__pulumiType;
     }
 
-    /**
-     * Name of the bucket to which to apply the policy.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-     */
     declare public readonly policy: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -141,17 +76,8 @@ export class BucketPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketPolicy resources.
  */
 export interface BucketPolicyState {
-    /**
-     * Name of the bucket to which to apply the policy.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-     */
     policy?: pulumi.Input<string | inputs.s3.PolicyDocument>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -159,16 +85,7 @@ export interface BucketPolicyState {
  * The set of arguments for constructing a BucketPolicy resource.
  */
 export interface BucketPolicyArgs {
-    /**
-     * Name of the bucket to which to apply the policy.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
-     */
     policy: pulumi.Input<string | inputs.s3.PolicyDocument>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

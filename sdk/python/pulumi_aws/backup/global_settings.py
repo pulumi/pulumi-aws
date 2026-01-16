@@ -22,16 +22,12 @@ class GlobalSettingsArgs:
                  global_settings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a GlobalSettings resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         """
         pulumi.set(__self__, "global_settings", global_settings)
 
     @_builtins.property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-        """
         return pulumi.get(self, "global_settings")
 
     @global_settings.setter
@@ -45,7 +41,6 @@ class _GlobalSettingsState:
                  global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalSettings resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         """
         if global_settings is not None:
             pulumi.set(__self__, "global_settings", global_settings)
@@ -53,9 +48,6 @@ class _GlobalSettingsState:
     @_builtins.property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-        """
         return pulumi.get(self, "global_settings")
 
     @global_settings.setter
@@ -72,34 +64,9 @@ class GlobalSettings(pulumi.CustomResource):
                  global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS Backup Global Settings resource.
-
-        > **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `global_settings` configuration block. To avoid this, specify all supported options with their default values (typically `"false"`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.backup.GlobalSettings("test", global_settings={
-            "isCrossAccountBackupEnabled": "true",
-            "isMpaEnabled": "false",
-            "isDelegatedAdministratorEnabled": "false",
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Global Settings using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
-        ```
-
+        Create a GlobalSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         """
         ...
     @overload
@@ -108,31 +75,7 @@ class GlobalSettings(pulumi.CustomResource):
                  args: GlobalSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Backup Global Settings resource.
-
-        > **Note:** This resource will show perpetual differences for any supported settings not explicitly configured in the `global_settings` configuration block. To avoid this, specify all supported options with their default values (typically `"false"`, but check the plan diff for the actual value). See [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide for available settings.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.backup.GlobalSettings("test", global_settings={
-            "isCrossAccountBackupEnabled": "true",
-            "isMpaEnabled": "false",
-            "isDelegatedAdministratorEnabled": "false",
-        })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Global Settings using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
-        ```
-
+        Create a GlobalSettings resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GlobalSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +122,6 @@ class GlobalSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -191,8 +133,5 @@ class GlobalSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="globalSettings")
     def global_settings(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
-        """
         return pulumi.get(self, "global_settings")
 

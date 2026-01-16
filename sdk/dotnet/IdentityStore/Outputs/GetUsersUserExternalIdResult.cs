@@ -13,13 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetUsersUserExternalIdResult
     {
-        /// <summary>
-        /// Identifier issued to this resource by an external identity provider.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Issuer for an external identifier.
-        /// </summary>
         public readonly string Issuer;
 
         [OutputConstructor]

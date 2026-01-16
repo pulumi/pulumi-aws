@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

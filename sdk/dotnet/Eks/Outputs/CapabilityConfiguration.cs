@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfiguration
     {
-        /// <summary>
-        /// ArgoCD configuration. See `ArgoCd` below.
-        /// </summary>
         public readonly Outputs.CapabilityConfigurationArgoCd? ArgoCd;
 
         [OutputConstructor]

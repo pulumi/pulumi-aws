@@ -18,111 +18,51 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
 
     public static final TrustedTokenIssuerArgs Empty = new TrustedTokenIssuerArgs();
 
-    /**
-     * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-     * 
-     */
     @Import(name="clientToken")
     private @Nullable Output<String> clientToken;
 
-    /**
-     * @return A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-     * 
-     */
     public Optional<Output<String>> clientToken() {
         return Optional.ofNullable(this.clientToken);
     }
 
-    /**
-     * ARN of the instance of IAM Identity Center.
-     * 
-     */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
-    /**
-     * @return ARN of the instance of IAM Identity Center.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
 
-    /**
-     * Name of the trusted token issuer.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the trusted token issuer.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-     * 
-     */
     @Import(name="trustedTokenIssuerConfiguration")
     private @Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration;
 
-    /**
-     * @return A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-     * 
-     */
     public Optional<Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs>> trustedTokenIssuerConfiguration() {
         return Optional.ofNullable(this.trustedTokenIssuerConfiguration);
     }
 
-    /**
-     * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="trustedTokenIssuerType", required=true)
     private Output<String> trustedTokenIssuerType;
 
-    /**
-     * @return Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> trustedTokenIssuerType() {
         return this.trustedTokenIssuerType;
     }
@@ -157,153 +97,65 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
             $ = new TrustedTokenIssuerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientToken A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientToken(@Nullable Output<String> clientToken) {
             $.clientToken = clientToken;
             return this;
         }
 
-        /**
-         * @param clientToken A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientToken(String clientToken) {
             return clientToken(Output.of(clientToken));
         }
 
-        /**
-         * @param instanceArn ARN of the instance of IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn ARN of the instance of IAM Identity Center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param name Name of the trusted token issuer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the trusted token issuer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param trustedTokenIssuerConfiguration A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedTokenIssuerConfiguration(@Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration) {
             $.trustedTokenIssuerConfiguration = trustedTokenIssuerConfiguration;
             return this;
         }
 
-        /**
-         * @param trustedTokenIssuerConfiguration A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedTokenIssuerConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs trustedTokenIssuerConfiguration) {
             return trustedTokenIssuerConfiguration(Output.of(trustedTokenIssuerConfiguration));
         }
 
-        /**
-         * @param trustedTokenIssuerType Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedTokenIssuerType(Output<String> trustedTokenIssuerType) {
             $.trustedTokenIssuerType = trustedTokenIssuerType;
             return this;
         }
 
-        /**
-         * @param trustedTokenIssuerType Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustedTokenIssuerType(String trustedTokenIssuerType) {
             return trustedTokenIssuerType(Output.of(trustedTokenIssuerType));
         }

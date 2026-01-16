@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetSagemakerPipelineParametersPipelineParameter
     {
-        /// <summary>
-        /// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

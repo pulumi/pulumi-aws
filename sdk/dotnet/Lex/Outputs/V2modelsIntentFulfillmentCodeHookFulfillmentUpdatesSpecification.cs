@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification
     {
-        /// <summary>
-        /// Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `StartResponse`, `UpdateResponse`, and `TimeoutInSeconds` fields are required.
-        /// </summary>
         public readonly bool Active;
-        /// <summary>
-        /// Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse? StartResponse;
-        /// <summary>
-        /// Length of time that the fulfillment Lambda function should run before it times out.
-        /// </summary>
         public readonly int? TimeoutInSeconds;
-        /// <summary>
-        /// Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
-        /// </summary>
         public readonly Outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse? UpdateResponse;
 
         [OutputConstructor]

@@ -9,86 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides a resource for adding an IAM User to IAM Groups. This
-    /// resource can be used multiple times with the same user for non-overlapping
-    /// groups.
-    /// 
-    /// To exclusively manage the users in a group, see the
-    /// `aws.iam.GroupMembership` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var user1 = new Aws.Iam.User("user1", new()
-    ///     {
-    ///         Name = "user1",
-    ///     });
-    /// 
-    ///     var group1 = new Aws.Iam.Group("group1", new()
-    ///     {
-    ///         Name = "group1",
-    ///     });
-    /// 
-    ///     var group2 = new Aws.Iam.Group("group2", new()
-    ///     {
-    ///         Name = "group2",
-    ///     });
-    /// 
-    ///     var example1 = new Aws.Iam.UserGroupMembership("example1", new()
-    ///     {
-    ///         User = user1.Name,
-    ///         Groups = new[]
-    ///         {
-    ///             group1.Name,
-    ///             group2.Name,
-    ///         },
-    ///     });
-    /// 
-    ///     var group3 = new Aws.Iam.Group("group3", new()
-    ///     {
-    ///         Name = "group3",
-    ///     });
-    /// 
-    ///     var example2 = new Aws.Iam.UserGroupMembership("example2", new()
-    ///     {
-    ///         User = user1.Name,
-    ///         Groups = new[]
-    ///         {
-    ///             group3.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/userGroupMembership:UserGroupMembership")]
     public partial class UserGroupMembership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of IAM Groups to add the user to
-        /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM User to add to groups
-        /// </summary>
         [Output("user")]
         public Output<string> User { get; private set; } = null!;
 
@@ -140,19 +66,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("groups", required: true)]
         private InputList<string>? _groups;
-
-        /// <summary>
-        /// A list of IAM Groups to add the user to
-        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
 
-        /// <summary>
-        /// The name of the IAM User to add to groups
-        /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
 
@@ -166,19 +85,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("groups")]
         private InputList<string>? _groups;
-
-        /// <summary>
-        /// A list of IAM Groups to add the user to
-        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
 
-        /// <summary>
-        /// The name of the IAM User to add to groups
-        /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }
 

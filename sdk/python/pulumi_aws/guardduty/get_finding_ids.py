@@ -51,17 +51,11 @@ class GetFindingIdsResult:
     @_builtins.property
     @pulumi.getter(name="findingIds")
     def finding_ids(self) -> Sequence[_builtins.str]:
-        """
-        A list of finding IDs for the specified detector.
-        """
         return pulumi.get(self, "finding_ids")
 
     @_builtins.property
     @pulumi.getter(name="hasFindings")
     def has_findings(self) -> _builtins.bool:
-        """
-        Indicates whether findings are present for the specified detector.
-        """
         return pulumi.get(self, "has_findings")
 
     @_builtins.property
@@ -92,22 +86,7 @@ def get_finding_ids(detector_id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFindingIdsResult:
     """
-    Data source for managing an AWS GuardDuty Finding Ids.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.guardduty.get_finding_ids(detector_id=example_aws_guardduty_detector["id"])
-    ```
-
-
-    :param _builtins.str detector_id: ID of the GuardDuty detector.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
@@ -125,22 +104,7 @@ def get_finding_ids_output(detector_id: Optional[pulumi.Input[_builtins.str]] = 
                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFindingIdsResult]:
     """
-    Data source for managing an AWS GuardDuty Finding Ids.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.guardduty.get_finding_ids(detector_id=example_aws_guardduty_detector["id"])
-    ```
-
-
-    :param _builtins.str detector_id: ID of the GuardDuty detector.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id

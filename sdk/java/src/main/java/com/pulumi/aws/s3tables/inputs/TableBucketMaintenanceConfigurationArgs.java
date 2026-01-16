@@ -14,19 +14,9 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
 
     public static final TableBucketMaintenanceConfigurationArgs Empty = new TableBucketMaintenanceConfigurationArgs();
 
-    /**
-     * A single Iceberg unreferenced file removal settings object.
-     * See `icebergUnreferencedFileRemoval` below.
-     * 
-     */
     @Import(name="icebergUnreferencedFileRemoval", required=true)
     private Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs> icebergUnreferencedFileRemoval;
 
-    /**
-     * @return A single Iceberg unreferenced file removal settings object.
-     * See `icebergUnreferencedFileRemoval` below.
-     * 
-     */
     public Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs> icebergUnreferencedFileRemoval() {
         return this.icebergUnreferencedFileRemoval;
     }
@@ -55,25 +45,11 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
             $ = new TableBucketMaintenanceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param icebergUnreferencedFileRemoval A single Iceberg unreferenced file removal settings object.
-         * See `icebergUnreferencedFileRemoval` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergUnreferencedFileRemoval(Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs> icebergUnreferencedFileRemoval) {
             $.icebergUnreferencedFileRemoval = icebergUnreferencedFileRemoval;
             return this;
         }
 
-        /**
-         * @param icebergUnreferencedFileRemoval A single Iceberg unreferenced file removal settings object.
-         * See `icebergUnreferencedFileRemoval` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder icebergUnreferencedFileRemoval(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs icebergUnreferencedFileRemoval) {
             return icebergUnreferencedFileRemoval(Output.of(icebergUnreferencedFileRemoval));
         }

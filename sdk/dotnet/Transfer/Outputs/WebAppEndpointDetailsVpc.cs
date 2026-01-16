@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WebAppEndpointDetailsVpc
     {
-        /// <summary>
-        /// List of security group IDs that control access to the web app endpoint. If not specified, the VPC's default security group is used.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnet IDs within the VPC where the web app endpoint will be deployed. These subnets must be in the same VPC specified in the `VpcId` parameter.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// ID of the VPC endpoint created for the web app.
-        /// </summary>
         public readonly string? VpcEndpointId;
-        /// <summary>
-        /// ID of the VPC where the web app endpoint will be hosted. The VPC must be dual-stack, meaning it supports both IPv4 and IPv6 addressing.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationSchedulerConfiguration {
-    /**
-     * @return Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-     * 
-     */
     private @Nullable Integer maxConcurrentRuns;
-    /**
-     * @return Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-     * 
-     */
     private @Nullable Integer queueTimeoutMinutes;
 
     private ApplicationSchedulerConfiguration() {}
-    /**
-     * @return Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-     * 
-     */
     public Optional<Integer> maxConcurrentRuns() {
         return Optional.ofNullable(this.maxConcurrentRuns);
     }
-    /**
-     * @return Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-     * 
-     */
     public Optional<Integer> queueTimeoutMinutes() {
         return Optional.ofNullable(this.queueTimeoutMinutes);
     }

@@ -17,101 +17,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketV2ReplicationConfigurationRule {
-    /**
-     * @return Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
-     * 
-     */
     private @Nullable String deleteMarkerReplicationStatus;
-    /**
-     * @return Specifies the destination for the rule (documented below).
-     * 
-     */
     private List<BucketV2ReplicationConfigurationRuleDestination> destinations;
-    /**
-     * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
-     * 
-     */
     private @Nullable List<BucketV2ReplicationConfigurationRuleFilter> filters;
-    /**
-     * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
-     * 
-     */
     private @Nullable Integer priority;
-    /**
-     * @return Specifies special object selection criteria (documented below).
-     * 
-     */
     private @Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
-    /**
-     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-     * 
-     */
     private String status;
 
     private BucketV2ReplicationConfigurationRule() {}
-    /**
-     * @return Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
-     * 
-     */
     public Optional<String> deleteMarkerReplicationStatus() {
         return Optional.ofNullable(this.deleteMarkerReplicationStatus);
     }
-    /**
-     * @return Specifies the destination for the rule (documented below).
-     * 
-     */
     public List<BucketV2ReplicationConfigurationRuleDestination> destinations() {
         return this.destinations;
     }
-    /**
-     * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
-     * 
-     */
     public List<BucketV2ReplicationConfigurationRuleFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
-     * 
-     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
-    /**
-     * @return Specifies special object selection criteria (documented below).
-     * 
-     */
     public List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias() {
         return this.sourceSelectionCriterias == null ? List.of() : this.sourceSelectionCriterias;
     }
-    /**
-     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SSO Admin Application Access Scope.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleApplication = new aws.ssoadmin.Application("example", {
- *     name: "example",
- *     applicationProviderArn: "arn:aws:sso::aws:applicationProvider/custom",
- *     instanceArn: example.then(example => example.arns?.[0]),
- * });
- * const exampleApplicationAccessScope = new aws.ssoadmin.ApplicationAccessScope("example", {
- *     applicationArn: exampleApplication.arn,
- *     authorizedTargets: ["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
- *     scope: "sso:account:access",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
- * ```
- */
 export class ApplicationAccessScope extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationAccessScope resource's state with the given name, ID, and optional extra
@@ -64,23 +32,9 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationAccessScope.__pulumiType;
     }
 
-    /**
-     * Specifies the ARN of the application with the access scope with the targets to add or update.
-     */
     declare public readonly applicationArn: pulumi.Output<string>;
-    /**
-     * Specifies an array list of ARNs that represent the authorized targets for this access scope.
-     */
     declare public readonly authorizedTargets: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the name of the access scope to be associated with the specified targets.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly scope: pulumi.Output<string>;
 
     /**
@@ -122,23 +76,9 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationAccessScope resources.
  */
 export interface ApplicationAccessScopeState {
-    /**
-     * Specifies the ARN of the application with the access scope with the targets to add or update.
-     */
     applicationArn?: pulumi.Input<string>;
-    /**
-     * Specifies an array list of ARNs that represent the authorized targets for this access scope.
-     */
     authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the name of the access scope to be associated with the specified targets.
-     *
-     * The following arguments are optional:
-     */
     scope?: pulumi.Input<string>;
 }
 
@@ -146,22 +86,8 @@ export interface ApplicationAccessScopeState {
  * The set of arguments for constructing a ApplicationAccessScope resource.
  */
 export interface ApplicationAccessScopeArgs {
-    /**
-     * Specifies the ARN of the application with the access scope with the targets to add or update.
-     */
     applicationArn: pulumi.Input<string>;
-    /**
-     * Specifies an array list of ARNs that represent the authorized targets for this access scope.
-     */
     authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the name of the access scope to be associated with the specified targets.
-     *
-     * The following arguments are optional:
-     */
     scope: pulumi.Input<string>;
 }

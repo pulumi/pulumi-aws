@@ -15,101 +15,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCellsFilterTableData {
-    /**
-     * @return A list of column names and/or nested column attributes.
-     * 
-     */
     private @Nullable List<String> columnNames;
-    /**
-     * @return A wildcard with exclusions. See Column Wildcard below for details.
-     * 
-     */
     private @Nullable DataCellsFilterTableDataColumnWildcard columnWildcard;
-    /**
-     * @return The name of the database.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return The name of the data cells filter.
-     * 
-     */
     private String name;
-    /**
-     * @return A PartiQL predicate. See Row Filter below for details.
-     * 
-     */
     private @Nullable DataCellsFilterTableDataRowFilter rowFilter;
-    /**
-     * @return The ID of the Data Catalog.
-     * 
-     */
     private String tableCatalogId;
-    /**
-     * @return The name of the table.
-     * 
-     */
     private String tableName;
-    /**
-     * @return ID of the data cells filter version.
-     * 
-     */
     private @Nullable String versionId;
 
     private DataCellsFilterTableData() {}
-    /**
-     * @return A list of column names and/or nested column attributes.
-     * 
-     */
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
-    /**
-     * @return A wildcard with exclusions. See Column Wildcard below for details.
-     * 
-     */
     public Optional<DataCellsFilterTableDataColumnWildcard> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
-    /**
-     * @return The name of the database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return The name of the data cells filter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return A PartiQL predicate. See Row Filter below for details.
-     * 
-     */
     public Optional<DataCellsFilterTableDataRowFilter> rowFilter() {
         return Optional.ofNullable(this.rowFilter);
     }
-    /**
-     * @return The ID of the Data Catalog.
-     * 
-     */
     public String tableCatalogId() {
         return this.tableCatalogId;
     }
-    /**
-     * @return The name of the table.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }
-    /**
-     * @return ID of the data cells filter version.
-     * 
-     */
     public Optional<String> versionId() {
         return Optional.ofNullable(this.versionId);
     }

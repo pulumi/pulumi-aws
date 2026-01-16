@@ -9,63 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpenSearch.ServerlessLifecyclePolicy("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Type = "retention",
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Rules"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["ResourceType"] = "index",
-    ///                     ["Resource"] = new[]
-    ///                     {
-    ///                         "index/autoparts-inventory/*",
-    ///                     },
-    ///                     ["MinIndexRetention"] = "81d",
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["ResourceType"] = "index",
-    ///                     ["Resource"] = new[]
-    ///                     {
-    ///                         "index/sales/orders*",
-    ///                     },
-    ///                     ["NoMinIndexRetention"] = true,
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy")]
     public partial class ServerlessLifecyclePolicy : global::Pulumi.CustomResource
     {
@@ -93,16 +36,11 @@ namespace Pulumi.Aws.OpenSearch
         [Output("policyVersion")]
         public Output<string> PolicyVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Type of lifecycle policy. Must be `Retention`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -171,16 +109,11 @@ namespace Pulumi.Aws.OpenSearch
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of lifecycle policy. Must be `Retention`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -217,16 +150,11 @@ namespace Pulumi.Aws.OpenSearch
         [Input("policyVersion")]
         public Input<string>? PolicyVersion { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of lifecycle policy. Must be `Retention`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

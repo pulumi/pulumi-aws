@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Amp.Inputs
     {
         [Input("labelSet", required: true)]
         private InputMap<string>? _labelSet;
-
-        /// <summary>
-        /// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        /// </summary>
         public InputMap<string> LabelSet
         {
             get => _labelSet ?? (_labelSet = new InputMap<string>());
             set => _labelSet = value;
         }
 
-        /// <summary>
-        /// Configuration block for the limits to apply to the specified label set. Detailed below.
-        /// </summary>
         [Input("limits")]
         public Input<Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs>? Limits { get; set; }
 

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentConfigTrafficRoutingConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The time based canary configuration information. If `Type` is `TimeBasedLinear`, use `TimeBasedLinear` instead.
-        /// </summary>
         [Input("timeBasedCanary")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanaryGetArgs>? TimeBasedCanary { get; set; }
 
-        /// <summary>
-        /// The time based linear configuration information. If `Type` is `TimeBasedCanary`, use `TimeBasedCanary` instead.
-        /// </summary>
         [Input("timeBasedLinear")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearGetArgs>? TimeBasedLinear { get; set; }
 
-        /// <summary>
-        /// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

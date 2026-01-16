@@ -16,32 +16,16 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs ext
 
     public static final MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs Empty = new MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs();
 
-    /**
-     * Constant bitrate value.
-     * 
-     */
     @Import(name="constantBitrate")
     private @Nullable Output<Integer> constantBitrate;
 
-    /**
-     * @return Constant bitrate value.
-     * 
-     */
     public Optional<Output<Integer>> constantBitrate() {
         return Optional.ofNullable(this.constantBitrate);
     }
 
-    /**
-     * Statmux settings. See Statmux Settings for more details.
-     * 
-     */
     @Import(name="statmuxSettings")
     private @Nullable Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs> statmuxSettings;
 
-    /**
-     * @return Statmux settings. See Statmux Settings for more details.
-     * 
-     */
     public Optional<Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs>> statmuxSettings() {
         return Optional.ofNullable(this.statmuxSettings);
     }
@@ -71,44 +55,20 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs ext
             $ = new MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param constantBitrate Constant bitrate value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder constantBitrate(@Nullable Output<Integer> constantBitrate) {
             $.constantBitrate = constantBitrate;
             return this;
         }
 
-        /**
-         * @param constantBitrate Constant bitrate value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder constantBitrate(Integer constantBitrate) {
             return constantBitrate(Output.of(constantBitrate));
         }
 
-        /**
-         * @param statmuxSettings Statmux settings. See Statmux Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statmuxSettings(@Nullable Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs> statmuxSettings) {
             $.statmuxSettings = statmuxSettings;
             return this;
         }
 
-        /**
-         * @param statmuxSettings Statmux settings. See Statmux Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statmuxSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs statmuxSettings) {
             return statmuxSettings(Output.of(statmuxSettings));
         }

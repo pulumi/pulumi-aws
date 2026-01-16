@@ -19,62 +19,30 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationArgs extends c
 
     public static final DataSourceCustomDocumentEnrichmentConfigurationArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationArgs();
 
-    /**
-     * Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-     * 
-     */
     @Import(name="inlineConfigurations")
     private @Nullable Output<List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs>> inlineConfigurations;
 
-    /**
-     * @return Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-     * 
-     */
     public Optional<Output<List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs>>> inlineConfigurations() {
         return Optional.ofNullable(this.inlineConfigurations);
     }
 
-    /**
-     * A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-     * 
-     */
     @Import(name="postExtractionHookConfiguration")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs> postExtractionHookConfiguration;
 
-    /**
-     * @return A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs>> postExtractionHookConfiguration() {
         return Optional.ofNullable(this.postExtractionHookConfiguration);
     }
 
-    /**
-     * Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-     * 
-     */
     @Import(name="preExtractionHookConfiguration")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs> preExtractionHookConfiguration;
 
-    /**
-     * @return Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs>> preExtractionHookConfiguration() {
         return Optional.ofNullable(this.preExtractionHookConfiguration);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -106,96 +74,42 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationArgs extends c
             $ = new DataSourceCustomDocumentEnrichmentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inlineConfigurations Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlineConfigurations(@Nullable Output<List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs>> inlineConfigurations) {
             $.inlineConfigurations = inlineConfigurations;
             return this;
         }
 
-        /**
-         * @param inlineConfigurations Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlineConfigurations(List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs> inlineConfigurations) {
             return inlineConfigurations(Output.of(inlineConfigurations));
         }
 
-        /**
-         * @param inlineConfigurations Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlineConfigurations(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs... inlineConfigurations) {
             return inlineConfigurations(List.of(inlineConfigurations));
         }
 
-        /**
-         * @param postExtractionHookConfiguration A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postExtractionHookConfiguration(@Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs> postExtractionHookConfiguration) {
             $.postExtractionHookConfiguration = postExtractionHookConfiguration;
             return this;
         }
 
-        /**
-         * @param postExtractionHookConfiguration A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postExtractionHookConfiguration(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs postExtractionHookConfiguration) {
             return postExtractionHookConfiguration(Output.of(postExtractionHookConfiguration));
         }
 
-        /**
-         * @param preExtractionHookConfiguration Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preExtractionHookConfiguration(@Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs> preExtractionHookConfiguration) {
             $.preExtractionHookConfiguration = preExtractionHookConfiguration;
             return this;
         }
 
-        /**
-         * @param preExtractionHookConfiguration Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preExtractionHookConfiguration(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs preExtractionHookConfiguration) {
             return preExtractionHookConfiguration(Output.of(preExtractionHookConfiguration));
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

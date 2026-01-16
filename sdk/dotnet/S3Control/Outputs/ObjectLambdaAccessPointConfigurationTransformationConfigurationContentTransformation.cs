@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation
     {
-        /// <summary>
-        /// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
-        /// </summary>
         public readonly Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda AwsLambda;
 
         [OutputConstructor]

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.CodeArtifact
 {
     public static class GetRepositoryEndpoint
     {
-        /// <summary>
-        /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
-        ///     {
-        ///         Domain = testAwsCodeartifactDomain.Domain,
-        ///         Repository = testAwsCodeartifactRepository.Repository,
-        ///         Format = "npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRepositoryEndpointResult> InvokeAsync(GetRepositoryEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
-        ///     {
-        ///         Domain = testAwsCodeartifactDomain.Domain,
-        ///         Repository = testAwsCodeartifactRepository.Repository,
-        ///         Format = "npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRepositoryEndpointResult> Invoke(GetRepositoryEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CodeArtifact.GetRepositoryEndpoint.Invoke(new()
-        ///     {
-        ///         Domain = testAwsCodeartifactDomain.Domain,
-        ///         Repository = testAwsCodeartifactRepository.Repository,
-        ///         Format = "npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRepositoryEndpointResult> Invoke(GetRepositoryEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointInvokeArgs(), options.WithDefaults());
     }
@@ -93,33 +24,18 @@ namespace Pulumi.Aws.CodeArtifact
 
     public sealed class GetRepositoryEndpointArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the domain that contains the repository.
-        /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Account number of the AWS account that owns the domain.
-        /// </summary>
         [Input("domainOwner")]
         public string? DomainOwner { get; set; }
 
-        /// <summary>
-        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `Npm`, `Pypi`, `Maven`, and `Nuget`.
-        /// </summary>
         [Input("format", required: true)]
         public string Format { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Name of the repository.
-        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -131,33 +47,18 @@ namespace Pulumi.Aws.CodeArtifact
 
     public sealed class GetRepositoryEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the domain that contains the repository.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// Account number of the AWS account that owns the domain.
-        /// </summary>
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
-        /// <summary>
-        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `Npm`, `Pypi`, `Maven`, and `Nuget`.
-        /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the repository.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -180,9 +81,6 @@ namespace Pulumi.Aws.CodeArtifact
         public readonly string Id;
         public readonly string Region;
         public readonly string Repository;
-        /// <summary>
-        /// URL of the returned endpoint.
-        /// </summary>
         public readonly string RepositoryEndpoint;
 
         [OutputConstructor]

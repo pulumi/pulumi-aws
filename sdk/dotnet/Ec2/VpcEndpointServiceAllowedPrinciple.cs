@@ -9,56 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to allow a principal to discover a VPC endpoint service.
-    /// 
-    /// &gt; **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-    /// both a standalone VPC Endpoint Service Allowed Principal resource
-    /// and a VPC Endpoint Service resource with an `AllowedPrincipals` attribute. Do not use the same principal ARN in both
-    /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-    /// and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", new()
-    ///     {
-    ///         VpcEndpointServiceId = foo.Id,
-    ///         PrincipalArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
     public partial class VpcEndpointServiceAllowedPrinciple : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the principal to allow permissions.
-        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC endpoint service to allow permission.
-        /// </summary>
         [Output("vpcEndpointServiceId")]
         public Output<string> VpcEndpointServiceId { get; private set; } = null!;
 
@@ -108,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointServiceAllowedPrincipleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the principal to allow permissions.
-        /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC endpoint service to allow permission.
-        /// </summary>
         [Input("vpcEndpointServiceId", required: true)]
         public Input<string> VpcEndpointServiceId { get; set; } = null!;
 
@@ -134,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointServiceAllowedPrincipleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the principal to allow permissions.
-        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC endpoint service to allow permission.
-        /// </summary>
         [Input("vpcEndpointServiceId")]
         public Input<string>? VpcEndpointServiceId { get; set; }
 

@@ -12,62 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Redshift authentication profile
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AllowDBUserOverride": "1",
-//				"Client_ID":           "ExampleClientID",
-//				"App_ID":              "example",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
-//				AuthenticationProfileName:    pulumi.String("example"),
-//				AuthenticationProfileContent: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-// ```
 type AuthenticationProfile struct {
 	pulumi.CustomResourceState
 
-	// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
 	AuthenticationProfileContent pulumi.StringOutput `pulumi:"authenticationProfileContent"`
-	// The name of the authentication profile.
-	AuthenticationProfileName pulumi.StringOutput `pulumi:"authenticationProfileName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	AuthenticationProfileName    pulumi.StringOutput `pulumi:"authenticationProfileName"`
+	Region                       pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAuthenticationProfile registers a new resource with the given unique name, arguments, and options.
@@ -106,21 +56,15 @@ func GetAuthenticationProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthenticationProfile resources.
 type authenticationProfileState struct {
-	// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
 	AuthenticationProfileContent *string `pulumi:"authenticationProfileContent"`
-	// The name of the authentication profile.
-	AuthenticationProfileName *string `pulumi:"authenticationProfileName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AuthenticationProfileName    *string `pulumi:"authenticationProfileName"`
+	Region                       *string `pulumi:"region"`
 }
 
 type AuthenticationProfileState struct {
-	// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
 	AuthenticationProfileContent pulumi.StringPtrInput
-	// The name of the authentication profile.
-	AuthenticationProfileName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	AuthenticationProfileName    pulumi.StringPtrInput
+	Region                       pulumi.StringPtrInput
 }
 
 func (AuthenticationProfileState) ElementType() reflect.Type {
@@ -128,22 +72,16 @@ func (AuthenticationProfileState) ElementType() reflect.Type {
 }
 
 type authenticationProfileArgs struct {
-	// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-	AuthenticationProfileContent string `pulumi:"authenticationProfileContent"`
-	// The name of the authentication profile.
-	AuthenticationProfileName string `pulumi:"authenticationProfileName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	AuthenticationProfileContent string  `pulumi:"authenticationProfileContent"`
+	AuthenticationProfileName    string  `pulumi:"authenticationProfileName"`
+	Region                       *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AuthenticationProfile resource.
 type AuthenticationProfileArgs struct {
-	// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
 	AuthenticationProfileContent pulumi.StringInput
-	// The name of the authentication profile.
-	AuthenticationProfileName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	AuthenticationProfileName    pulumi.StringInput
+	Region                       pulumi.StringPtrInput
 }
 
 func (AuthenticationProfileArgs) ElementType() reflect.Type {
@@ -233,17 +171,14 @@ func (o AuthenticationProfileOutput) ToAuthenticationProfileOutputWithContext(ct
 	return o
 }
 
-// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
 func (o AuthenticationProfileOutput) AuthenticationProfileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.AuthenticationProfileContent }).(pulumi.StringOutput)
 }
 
-// The name of the authentication profile.
 func (o AuthenticationProfileOutput) AuthenticationProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.AuthenticationProfileName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthenticationProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

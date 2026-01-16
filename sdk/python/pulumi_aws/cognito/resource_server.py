@@ -28,11 +28,6 @@ class ResourceServerArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceServer resource.
-        :param pulumi.Input[_builtins.str] identifier: An identifier for the resource server.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
-        :param pulumi.Input[_builtins.str] name: A name for the resource server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]] scopes: A list of Authorization Scope.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -46,9 +41,6 @@ class ResourceServerArgs:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        An identifier for the resource server.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -58,9 +50,6 @@ class ResourceServerArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        User pool the client belongs to.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -70,9 +59,6 @@ class ResourceServerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the resource server.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -82,9 +68,6 @@ class ResourceServerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -94,9 +77,6 @@ class ResourceServerArgs:
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]]]:
-        """
-        A list of Authorization Scope.
-        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -115,12 +95,6 @@ class _ResourceServerState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceServer resources.
-        :param pulumi.Input[_builtins.str] identifier: An identifier for the resource server.
-        :param pulumi.Input[_builtins.str] name: A name for the resource server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]] scopes: A list of Authorization Scope.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
         """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
@@ -138,9 +112,6 @@ class _ResourceServerState:
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for the resource server.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -150,9 +121,6 @@ class _ResourceServerState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the resource server.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -162,9 +130,6 @@ class _ResourceServerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -174,9 +139,6 @@ class _ResourceServerState:
     @_builtins.property
     @pulumi.getter(name="scopeIdentifiers")
     def scope_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A list of all scopes configured for this resource server in the format identifier/scope_name.
-        """
         return pulumi.get(self, "scope_identifiers")
 
     @scope_identifiers.setter
@@ -186,9 +148,6 @@ class _ResourceServerState:
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]]]:
-        """
-        A list of Authorization Scope.
-        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -198,9 +157,6 @@ class _ResourceServerState:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        User pool the client belongs to.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -221,55 +177,9 @@ class ResourceServer(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Cognito Resource Server.
-
-        ## Example Usage
-
-        ### Create a basic resource server
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pool = aws.cognito.UserPool("pool", name="pool")
-        resource = aws.cognito.ResourceServer("resource",
-            identifier="https://example.com",
-            name="example",
-            user_pool_id=pool.id)
-        ```
-
-        ### Create a resource server with sample-scope
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pool = aws.cognito.UserPool("pool", name="pool")
-        resource = aws.cognito.ResourceServer("resource",
-            identifier="https://example.com",
-            name="example",
-            scopes=[{
-                "scope_name": "sample-scope",
-                "scope_description": "a Sample Scope Description",
-            }],
-            user_pool_id=pool.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-        ```
-
+        Create a ResourceServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identifier: An identifier for the resource server.
-        :param pulumi.Input[_builtins.str] name: A name for the resource server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
         """
         ...
     @overload
@@ -278,48 +188,7 @@ class ResourceServer(pulumi.CustomResource):
                  args: ResourceServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cognito Resource Server.
-
-        ## Example Usage
-
-        ### Create a basic resource server
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pool = aws.cognito.UserPool("pool", name="pool")
-        resource = aws.cognito.ResourceServer("resource",
-            identifier="https://example.com",
-            name="example",
-            user_pool_id=pool.id)
-        ```
-
-        ### Create a resource server with sample-scope
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pool = aws.cognito.UserPool("pool", name="pool")
-        resource = aws.cognito.ResourceServer("resource",
-            identifier="https://example.com",
-            name="example",
-            scopes=[{
-                "scope_name": "sample-scope",
-                "scope_description": "a Sample Scope Description",
-            }],
-            user_pool_id=pool.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-        ```
-
+        Create a ResourceServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -382,12 +251,6 @@ class ResourceServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identifier: An identifier for the resource server.
-        :param pulumi.Input[_builtins.str] name: A name for the resource server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
-        :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -404,48 +267,30 @@ class ResourceServer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[_builtins.str]:
-        """
-        An identifier for the resource server.
-        """
         return pulumi.get(self, "identifier")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the resource server.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="scopeIdentifiers")
     def scope_identifiers(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A list of all scopes configured for this resource server in the format identifier/scope_name.
-        """
         return pulumi.get(self, "scope_identifiers")
 
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceServerScope']]]:
-        """
-        A list of Authorization Scope.
-        """
         return pulumi.get(self, "scopes")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        User pool the client belongs to.
-        """
         return pulumi.get(self, "user_pool_id")
 

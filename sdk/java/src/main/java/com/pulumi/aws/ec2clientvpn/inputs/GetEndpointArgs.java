@@ -18,62 +18,30 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEndpointArgs Empty = new GetEndpointArgs();
 
-    /**
-     * ID of the Client VPN endpoint.
-     * 
-     */
     @Import(name="clientVpnEndpointId")
     private @Nullable Output<String> clientVpnEndpointId;
 
-    /**
-     * @return ID of the Client VPN endpoint.
-     * 
-     */
     public Optional<Output<String>> clientVpnEndpointId() {
         return Optional.ofNullable(this.clientVpnEndpointId);
     }
 
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetEndpointFilterArgs>> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetEndpointFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired endpoint.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired endpoint.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -105,96 +73,42 @@ public final class GetEndpointArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientVpnEndpointId ID of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientVpnEndpointId(@Nullable Output<String> clientVpnEndpointId) {
             $.clientVpnEndpointId = clientVpnEndpointId;
             return this;
         }
 
-        /**
-         * @param clientVpnEndpointId ID of the Client VPN endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetEndpointFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetEndpointFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetEndpointFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionImageConfig {
-    /**
-     * @return Parameters to pass to the container image.
-     * 
-     */
     private @Nullable List<String> commands;
-    /**
-     * @return Entry point to your application.
-     * 
-     */
     private @Nullable List<String> entryPoints;
-    /**
-     * @return Working directory for the container image.
-     * 
-     */
     private @Nullable String workingDirectory;
 
     private FunctionImageConfig() {}
-    /**
-     * @return Parameters to pass to the container image.
-     * 
-     */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
-    /**
-     * @return Entry point to your application.
-     * 
-     */
     public List<String> entryPoints() {
         return this.entryPoints == null ? List.of() : this.entryPoints;
     }
-    /**
-     * @return Working directory for the container image.
-     * 
-     */
     public Optional<String> workingDirectory() {
         return Optional.ofNullable(this.workingDirectory);
     }

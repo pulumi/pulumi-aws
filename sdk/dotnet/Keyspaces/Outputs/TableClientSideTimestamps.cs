@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TableClientSideTimestamps
     {
-        /// <summary>
-        /// Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

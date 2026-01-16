@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CustomRoutingEndpointGroupDestinationConfiguration {
-    /**
-     * @return The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     private Integer fromPort;
-    /**
-     * @return The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-     * 
-     */
     private List<String> protocols;
-    /**
-     * @return The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     private Integer toPort;
 
     private CustomRoutingEndpointGroupDestinationConfiguration() {}
-    /**
-     * @return The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     public Integer fromPort() {
         return this.fromPort;
     }
-    /**
-     * @return The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
-     * 
-     */
     public List<String> protocols() {
         return this.protocols;
     }
-    /**
-     * @return The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     */
     public Integer toPort() {
         return this.toPort;
     }

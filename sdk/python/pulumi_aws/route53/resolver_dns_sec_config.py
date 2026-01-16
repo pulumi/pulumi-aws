@@ -23,8 +23,6 @@ class ResolverDnsSecConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverDnsSecConfig resource.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         if region is not None:
@@ -33,9 +31,6 @@ class ResolverDnsSecConfigArgs:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -45,9 +40,6 @@ class ResolverDnsSecConfigArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -65,11 +57,6 @@ class _ResolverDnsSecConfigState:
                  validation_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverDnsSecConfig resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN for a configuration for DNSSEC validation.
-        :param pulumi.Input[_builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        :param pulumi.Input[_builtins.str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -85,9 +72,6 @@ class _ResolverDnsSecConfigState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for a configuration for DNSSEC validation.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -97,9 +81,6 @@ class _ResolverDnsSecConfigState:
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -109,9 +90,6 @@ class _ResolverDnsSecConfigState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -121,9 +99,6 @@ class _ResolverDnsSecConfigState:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -133,9 +108,6 @@ class _ResolverDnsSecConfigState:
     @_builtins.property
     @pulumi.getter(name="validationStatus")
     def validation_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-        """
         return pulumi.get(self, "validation_status")
 
     @validation_status.setter
@@ -153,33 +125,9 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Route 53 Resolver DNSSEC config resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True)
-        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("example", resource_id=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
-        ```
-
+        Create a ResolverDnsSecConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         """
         ...
     @overload
@@ -188,29 +136,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
                  args: ResolverDnsSecConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route 53 Resolver DNSSEC config resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True)
-        example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("example", resource_id=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import  Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
-
-        ```sh
-        $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
-        ```
-
+        Create a ResolverDnsSecConfig resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverDnsSecConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,11 +192,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN for a configuration for DNSSEC validation.
-        :param pulumi.Input[_builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        :param pulumi.Input[_builtins.str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -286,40 +207,25 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN for a configuration for DNSSEC validation.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-        """
         return pulumi.get(self, "owner_id")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="validationStatus")
     def validation_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-        """
         return pulumi.get(self, "validation_status")
 

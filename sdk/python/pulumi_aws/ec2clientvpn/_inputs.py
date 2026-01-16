@@ -34,25 +34,10 @@ MYPY = False
 if not MYPY:
     class EndpointAuthenticationOptionArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
-        """
         active_directory_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-        """
         root_certificate_chain_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-        """
         saml_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM SAML identity provider if type is `federated-authentication`.
-        """
         self_service_saml_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
-        """
 elif False:
     EndpointAuthenticationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -64,13 +49,6 @@ class EndpointAuthenticationOptionArgs:
                  root_certificate_chain_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  saml_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  self_service_saml_provider_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
-        :param pulumi.Input[_builtins.str] active_directory_id: The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-        :param pulumi.Input[_builtins.str] root_certificate_chain_arn: The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-        :param pulumi.Input[_builtins.str] saml_provider_arn: The ARN of the IAM SAML identity provider if type is `federated-authentication`.
-        :param pulumi.Input[_builtins.str] self_service_saml_provider_arn: The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
-        """
         pulumi.set(__self__, "type", type)
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
@@ -84,9 +62,6 @@ class EndpointAuthenticationOptionArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -96,9 +71,6 @@ class EndpointAuthenticationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
     def active_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-        """
         return pulumi.get(self, "active_directory_id")
 
     @active_directory_id.setter
@@ -108,9 +80,6 @@ class EndpointAuthenticationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="rootCertificateChainArn")
     def root_certificate_chain_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-        """
         return pulumi.get(self, "root_certificate_chain_arn")
 
     @root_certificate_chain_arn.setter
@@ -120,9 +89,6 @@ class EndpointAuthenticationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="samlProviderArn")
     def saml_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM SAML identity provider if type is `federated-authentication`.
-        """
         return pulumi.get(self, "saml_provider_arn")
 
     @saml_provider_arn.setter
@@ -132,9 +98,6 @@ class EndpointAuthenticationOptionArgs:
     @_builtins.property
     @pulumi.getter(name="selfServiceSamlProviderArn")
     def self_service_saml_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
-        """
         return pulumi.get(self, "self_service_saml_provider_arn")
 
     @self_service_saml_provider_arn.setter
@@ -145,13 +108,7 @@ class EndpointAuthenticationOptionArgs:
 if not MYPY:
     class EndpointClientConnectOptionsArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether client connect options are enabled. The default is `false` (not enabled).
-        """
         lambda_function_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-        """
 elif False:
     EndpointClientConnectOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -160,10 +117,6 @@ class EndpointClientConnectOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  lambda_function_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
-        :param pulumi.Input[_builtins.str] lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if lambda_function_arn is not None:
@@ -172,9 +125,6 @@ class EndpointClientConnectOptionsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether client connect options are enabled. The default is `false` (not enabled).
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -184,9 +134,6 @@ class EndpointClientConnectOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-        """
         return pulumi.get(self, "lambda_function_arn")
 
     @lambda_function_arn.setter
@@ -197,13 +144,7 @@ class EndpointClientConnectOptionsArgs:
 if not MYPY:
     class EndpointClientLoginBannerOptionsArgsDict(TypedDict):
         banner_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-        """
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-        """
 elif False:
     EndpointClientLoginBannerOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -212,10 +153,6 @@ class EndpointClientLoginBannerOptionsArgs:
     def __init__(__self__, *,
                  banner_text: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-        :param pulumi.Input[_builtins.bool] enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-        """
         if banner_text is not None:
             pulumi.set(__self__, "banner_text", banner_text)
         if enabled is not None:
@@ -224,9 +161,6 @@ class EndpointClientLoginBannerOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="bannerText")
     def banner_text(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-        """
         return pulumi.get(self, "banner_text")
 
     @banner_text.setter
@@ -236,9 +170,6 @@ class EndpointClientLoginBannerOptionsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -249,9 +180,6 @@ class EndpointClientLoginBannerOptionsArgs:
 if not MYPY:
     class EndpointClientRouteEnforcementOptionsArgsDict(TypedDict):
         enforced: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-        """
 elif False:
     EndpointClientRouteEnforcementOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -259,18 +187,12 @@ elif False:
 class EndpointClientRouteEnforcementOptionsArgs:
     def __init__(__self__, *,
                  enforced: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enforced: Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-        """
         if enforced is not None:
             pulumi.set(__self__, "enforced", enforced)
 
     @_builtins.property
     @pulumi.getter
     def enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable or disable Client Route Enforcement. The default is `false` (not enabled).
-        """
         return pulumi.get(self, "enforced")
 
     @enforced.setter
@@ -281,17 +203,8 @@ class EndpointClientRouteEnforcementOptionsArgs:
 if not MYPY:
     class EndpointConnectionLogOptionsArgsDict(TypedDict):
         enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether connection logging is enabled.
-        """
         cloudwatch_log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the CloudWatch Logs log group.
-        """
         cloudwatch_log_stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the CloudWatch Logs log stream to which the connection data is published.
-        """
 elif False:
     EndpointConnectionLogOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -301,11 +214,6 @@ class EndpointConnectionLogOptionsArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  cloudwatch_log_group: Optional[pulumi.Input[_builtins.str]] = None,
                  cloudwatch_log_stream: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether connection logging is enabled.
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group: The name of the CloudWatch Logs log group.
-        :param pulumi.Input[_builtins.str] cloudwatch_log_stream: The name of the CloudWatch Logs log stream to which the connection data is published.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if cloudwatch_log_group is not None:
             pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
@@ -315,9 +223,6 @@ class EndpointConnectionLogOptionsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Indicates whether connection logging is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -327,9 +232,6 @@ class EndpointConnectionLogOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroup")
     def cloudwatch_log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CloudWatch Logs log group.
-        """
         return pulumi.get(self, "cloudwatch_log_group")
 
     @cloudwatch_log_group.setter
@@ -339,9 +241,6 @@ class EndpointConnectionLogOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogStream")
     def cloudwatch_log_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CloudWatch Logs log stream to which the connection data is published.
-        """
         return pulumi.get(self, "cloudwatch_log_stream")
 
     @cloudwatch_log_stream.setter
@@ -352,13 +251,7 @@ class EndpointConnectionLogOptionsArgs:
 if not MYPY:
     class GetEndpointFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
-        """
 elif False:
     GetEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -367,19 +260,12 @@ class GetEndpointFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -389,9 +275,6 @@ class GetEndpointFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configurations for authentication to a Redshift Serverless. See `AuthConfiguration` block for details.
-        /// </summary>
         [Input("authConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationGetArgs>? AuthConfiguration { get; set; }
 
-        /// <summary>
-        /// ARN of the Amazon Redshift workgroup.
-        /// </summary>
         [Input("workgroupArn", required: true)]
         public Input<string> WorkgroupArn { get; set; } = null!;
 

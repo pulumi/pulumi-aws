@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
-    /**
-     * @return ARN of the OpenSearch Service vector store.
-     * 
-     */
     private String collectionArn;
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping;
-    /**
-     * @return Name of the vector store.
-     * 
-     */
     private String vectorIndexName;
 
     private AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration() {}
-    /**
-     * @return ARN of the OpenSearch Service vector store.
-     * 
-     */
     public String collectionArn() {
         return this.collectionArn;
     }
-    /**
-     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return Name of the vector store.
-     * 
-     */
     public String vectorIndexName() {
         return this.vectorIndexName;
     }

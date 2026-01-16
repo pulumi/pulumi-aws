@@ -9,100 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MediaLive
 {
-    /// <summary>
-    /// Resource for managing an AWS MediaLive MultiplexProgram.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///     });
-    /// 
-    ///     var example = new Aws.MediaLive.Multiplex("example", new()
-    ///     {
-    ///         Name = "example-multiplex-changed",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
-    ///         },
-    ///         MultiplexSettings = new Aws.MediaLive.Inputs.MultiplexMultiplexSettingsArgs
-    ///         {
-    ///             TransportStreamBitrate = 1000000,
-    ///             TransportStreamId = 1,
-    ///             TransportStreamReservedBitrate = 1,
-    ///             MaximumVideoBufferDelayMilliseconds = 1000,
-    ///         },
-    ///         StartMultiplex = true,
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleMultiplexProgram = new Aws.MediaLive.MultiplexProgram("example", new()
-    ///     {
-    ///         ProgramName = "example_program",
-    ///         MultiplexId = example.Id,
-    ///         MultiplexProgramSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsArgs
-    ///         {
-    ///             ProgramNumber = 1,
-    ///             PreferredChannelPipeline = "CURRENTLY_ACTIVE",
-    ///             VideoSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs
-    ///             {
-    ///                 ConstantBitrate = 100000,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:medialive/multiplexProgram:MultiplexProgram")]
     public partial class MultiplexProgram : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Multiplex ID.
-        /// </summary>
         [Output("multiplexId")]
         public Output<string> MultiplexId { get; private set; } = null!;
 
-        /// <summary>
-        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("multiplexProgramSettings")]
         public Output<Outputs.MultiplexProgramMultiplexProgramSettings?> MultiplexProgramSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique program name.
-        /// </summary>
         [Output("programName")]
         public Output<string> ProgramName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -155,29 +73,15 @@ namespace Pulumi.Aws.MediaLive
 
     public sealed class MultiplexProgramArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Multiplex ID.
-        /// </summary>
         [Input("multiplexId", required: true)]
         public Input<string> MultiplexId { get; set; } = null!;
 
-        /// <summary>
-        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("multiplexProgramSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsArgs>? MultiplexProgramSettings { get; set; }
 
-        /// <summary>
-        /// Unique program name.
-        /// </summary>
         [Input("programName", required: true)]
         public Input<string> ProgramName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -192,29 +96,15 @@ namespace Pulumi.Aws.MediaLive
 
     public sealed class MultiplexProgramState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Multiplex ID.
-        /// </summary>
         [Input("multiplexId")]
         public Input<string>? MultiplexId { get; set; }
 
-        /// <summary>
-        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("multiplexProgramSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsGetArgs>? MultiplexProgramSettings { get; set; }
 
-        /// <summary>
-        /// Unique program name.
-        /// </summary>
         [Input("programName")]
         public Input<string>? ProgramName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -15,32 +15,16 @@ public final class MonitoringSubscriptionArgs extends com.pulumi.resources.Resou
 
     public static final MonitoringSubscriptionArgs Empty = new MonitoringSubscriptionArgs();
 
-    /**
-     * The ID of the distribution that you are enabling metrics for.
-     * 
-     */
     @Import(name="distributionId", required=true)
     private Output<String> distributionId;
 
-    /**
-     * @return The ID of the distribution that you are enabling metrics for.
-     * 
-     */
     public Output<String> distributionId() {
         return this.distributionId;
     }
 
-    /**
-     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-     * 
-     */
     @Import(name="monitoringSubscription", required=true)
     private Output<MonitoringSubscriptionMonitoringSubscriptionArgs> monitoringSubscription;
 
-    /**
-     * @return A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-     * 
-     */
     public Output<MonitoringSubscriptionMonitoringSubscriptionArgs> monitoringSubscription() {
         return this.monitoringSubscription;
     }
@@ -70,44 +54,20 @@ public final class MonitoringSubscriptionArgs extends com.pulumi.resources.Resou
             $ = new MonitoringSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param distributionId The ID of the distribution that you are enabling metrics for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distributionId(Output<String> distributionId) {
             $.distributionId = distributionId;
             return this;
         }
 
-        /**
-         * @param distributionId The ID of the distribution that you are enabling metrics for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder distributionId(String distributionId) {
             return distributionId(Output.of(distributionId));
         }
 
-        /**
-         * @param monitoringSubscription A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringSubscription(Output<MonitoringSubscriptionMonitoringSubscriptionArgs> monitoringSubscription) {
             $.monitoringSubscription = monitoringSubscription;
             return this;
         }
 
-        /**
-         * @param monitoringSubscription A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringSubscription(MonitoringSubscriptionMonitoringSubscriptionArgs monitoringSubscription) {
             return monitoringSubscription(Output.of(monitoringSubscription));
         }

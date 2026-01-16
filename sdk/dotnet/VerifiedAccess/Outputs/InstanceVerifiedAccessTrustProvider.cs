@@ -13,25 +13,10 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class InstanceVerifiedAccessTrustProvider
     {
-        /// <summary>
-        /// A description for the AWS Verified Access Instance.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The type of device-based trust provider.
-        /// </summary>
         public readonly string? DeviceTrustProviderType;
-        /// <summary>
-        /// The type of trust provider (user- or device-based).
-        /// </summary>
         public readonly string? TrustProviderType;
-        /// <summary>
-        /// The type of user-based trust provider.
-        /// </summary>
         public readonly string? UserTrustProviderType;
-        /// <summary>
-        /// The ID of the trust provider.
-        /// </summary>
         public readonly string? VerifiedAccessTrustProviderId;
 
         [OutputConstructor]

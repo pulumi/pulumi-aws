@@ -19,259 +19,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogDatabase;
- * import com.pulumi.aws.glue.CatalogDatabaseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
- *             .name("MyCatalogDatabase")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Create Table Default Permissions
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogDatabase;
- * import com.pulumi.aws.glue.CatalogDatabaseArgs;
- * import com.pulumi.aws.glue.inputs.CatalogDatabaseCreateTableDefaultPermissionArgs;
- * import com.pulumi.aws.glue.inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
- *             .name("MyCatalogDatabase")
- *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
- *                 .permissions("SELECT")
- *                 .principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs.builder()
- *                     .dataLakePrincipalIdentifier("IAM_ALLOWED_PRINCIPALS")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
- * 
- * ```sh
- * $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
- * ```
- * 
- */
 @ResourceType(type="aws:glue/catalogDatabase:CatalogDatabase")
 public class CatalogDatabase extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Glue Catalog Database.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Glue Catalog Database.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
-    /**
-     * @return ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
-    /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
-     * 
-     */
     @Export(name="createTableDefaultPermissions", refs={List.class,CatalogDatabaseCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions;
 
-    /**
-     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
-     * 
-     */
     public Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
     }
-    /**
-     * Description of the database.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the database.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
-     * 
-     */
     @Export(name="federatedDatabase", refs={CatalogDatabaseFederatedDatabase.class}, tree="[0]")
     private Output</* @Nullable */ CatalogDatabaseFederatedDatabase> federatedDatabase;
 
-    /**
-     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
-     * 
-     */
     public Output<Optional<CatalogDatabaseFederatedDatabase>> federatedDatabase() {
         return Codegen.optional(this.federatedDatabase);
     }
-    /**
-     * Location of the database (for example, an HDFS path).
-     * 
-     */
     @Export(name="locationUri", refs={String.class}, tree="[0]")
     private Output<String> locationUri;
 
-    /**
-     * @return Location of the database (for example, an HDFS path).
-     * 
-     */
     public Output<String> locationUri() {
         return this.locationUri;
     }
-    /**
-     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * List of key-value pairs that define parameters and properties of the database.
-     * 
-     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
-    /**
-     * @return List of key-value pairs that define parameters and properties of the database.
-     * 
-     */
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
-     * 
-     */
     @Export(name="targetDatabase", refs={CatalogDatabaseTargetDatabase.class}, tree="[0]")
     private Output</* @Nullable */ CatalogDatabaseTargetDatabase> targetDatabase;
 
-    /**
-     * @return Configuration block for a target database for resource linking. See `targetDatabase` below.
-     * 
-     */
     public Output<Optional<CatalogDatabaseTargetDatabase>> targetDatabase() {
         return Codegen.optional(this.targetDatabase);
     }

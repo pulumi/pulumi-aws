@@ -9,97 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Access Point resource policy.
-    /// 
-    /// &gt; **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "example",
-    ///         PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
-    ///         {
-    ///             BlockPublicAcls = true,
-    ///             BlockPublicPolicy = false,
-    ///             IgnorePublicAcls = true,
-    ///             RestrictPublicBuckets = false,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("example", new()
-    ///     {
-    ///         AccessPointArn = exampleAccessPoint.Arn,
-    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "s3:GetObjectTagging",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = "*",
-    ///                     },
-    ///                     ["Resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]
     public partial class AccessPointPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the access point that you want to associate with the specified policy.
-        /// </summary>
         [Output("accessPointArn")]
         public Output<string> AccessPointArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
-        /// </summary>
         [Output("hasPublicAccessPolicy")]
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy that you want to apply to the specified access point.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -149,21 +70,12 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class AccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the access point that you want to associate with the specified policy.
-        /// </summary>
         [Input("accessPointArn", required: true)]
         public Input<string> AccessPointArn { get; set; } = null!;
 
-        /// <summary>
-        /// The policy that you want to apply to the specified access point.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -175,27 +87,15 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class AccessPointPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the access point that you want to associate with the specified policy.
-        /// </summary>
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
-        /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
-        /// </summary>
         [Input("hasPublicAccessPolicy")]
         public Input<bool>? HasPublicAccessPolicy { get; set; }
 
-        /// <summary>
-        /// The policy that you want to apply to the specified access point.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

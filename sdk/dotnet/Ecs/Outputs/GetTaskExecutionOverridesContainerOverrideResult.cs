@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskExecutionOverridesContainerOverrideResult
     {
-        /// <summary>
-        /// The command to send to the container that overrides the default command from the Docker image or the task definition.
-        /// </summary>
         public readonly ImmutableArray<string> Commands;
-        /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition.
-        /// </summary>
         public readonly int? Cpu;
-        /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskExecutionOverridesContainerOverrideEnvironmentResult> Environments;
-        /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-        /// </summary>
         public readonly int? Memory;
-        /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-        /// </summary>
         public readonly int? MemoryReservation;
-        /// <summary>
-        /// The name of the container that receives the override. This parameter is required if any override is specified.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementResult> ResourceRequirements;
 
         [OutputConstructor]

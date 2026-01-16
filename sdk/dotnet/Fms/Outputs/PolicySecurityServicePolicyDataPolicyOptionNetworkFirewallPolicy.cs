@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fms.Outputs
     [OutputType]
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy
     {
-        /// <summary>
-        /// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-        /// </summary>
         public readonly string? FirewallDeploymentModel;
 
         [OutputConstructor]

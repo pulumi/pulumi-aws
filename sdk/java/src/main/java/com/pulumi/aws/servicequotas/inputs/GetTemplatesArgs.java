@@ -15,24 +15,14 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTemplatesArgs Empty = new GetTemplatesArgs();
 
-    /**
-     * AWS Region to which the quota increases apply.
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return AWS Region to which the quota increases apply.
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
     /**
-     * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -42,8 +32,6 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-     * 
      * @deprecated
      * region is deprecated. Use aws.getRegion instead.
      * 
@@ -78,30 +66,16 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTemplatesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion AWS Region to which the quota increases apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion AWS Region to which the quota increases apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
         /**
-         * @param region AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -115,8 +89,6 @@ public final class GetTemplatesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
-         * 
          * @return builder
          * 
          * @deprecated

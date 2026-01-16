@@ -9,108 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Manages an AWS Lambda Capacity Provider.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.CapacityProvider("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
-    ///         {
-    ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 exampleAwsSecurityGroup.Id,
-    ///             },
-    ///         },
-    ///         PermissionsConfig = new Aws.Lambda.Inputs.CapacityProviderPermissionsConfigArgs
-    ///         {
-    ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/capacityProvider:CapacityProvider")]
     public partial class CapacityProvider : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Capacity Provider.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("capacityProviderScalingConfigs")]
         public Output<ImmutableArray<Outputs.CapacityProviderCapacityProviderScalingConfig>> CapacityProviderScalingConfigs { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for instance requirements settings. See Instance Requirements below.
-        /// </summary>
         [Output("instanceRequirements")]
         public Output<ImmutableArray<Outputs.CapacityProviderInstanceRequirement>> InstanceRequirements { get; private set; } = null!;
 
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Capacity Provider.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for permissions settings. See Permissions Config below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("permissionsConfig")]
         public Output<Outputs.CapacityProviderPermissionsConfig?> PermissionsConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.CapacityProviderTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for VPC settings. See VPC Config below.
-        /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.CapacityProviderVpcConfig?> VpcConfig { get; private set; } = null!;
 
@@ -170,10 +101,6 @@ namespace Pulumi.Aws.Lambda
 
         [Input("instanceRequirements")]
         private InputList<Inputs.CapacityProviderInstanceRequirementArgs>? _instanceRequirements;
-
-        /// <summary>
-        /// Configuration block for instance requirements settings. See Instance Requirements below.
-        /// </summary>
         public InputList<Inputs.CapacityProviderInstanceRequirementArgs> InstanceRequirements
         {
             get => _instanceRequirements ?? (_instanceRequirements = new InputList<Inputs.CapacityProviderInstanceRequirementArgs>());
@@ -183,32 +110,17 @@ namespace Pulumi.Aws.Lambda
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// The name of the Capacity Provider.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configuration block for permissions settings. See Permissions Config below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("permissionsConfig")]
         public Input<Inputs.CapacityProviderPermissionsConfigArgs>? PermissionsConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -218,9 +130,6 @@ namespace Pulumi.Aws.Lambda
         [Input("timeouts")]
         public Input<Inputs.CapacityProviderTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Configuration block for VPC settings. See VPC Config below.
-        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CapacityProviderVpcConfigArgs>? VpcConfig { get; set; }
 
@@ -232,9 +141,6 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class CapacityProviderState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Capacity Provider.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -248,10 +154,6 @@ namespace Pulumi.Aws.Lambda
 
         [Input("instanceRequirements")]
         private InputList<Inputs.CapacityProviderInstanceRequirementGetArgs>? _instanceRequirements;
-
-        /// <summary>
-        /// Configuration block for instance requirements settings. See Instance Requirements below.
-        /// </summary>
         public InputList<Inputs.CapacityProviderInstanceRequirementGetArgs> InstanceRequirements
         {
             get => _instanceRequirements ?? (_instanceRequirements = new InputList<Inputs.CapacityProviderInstanceRequirementGetArgs>());
@@ -261,32 +163,17 @@ namespace Pulumi.Aws.Lambda
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// The name of the Capacity Provider.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configuration block for permissions settings. See Permissions Config below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("permissionsConfig")]
         public Input<Inputs.CapacityProviderPermissionsConfigGetArgs>? PermissionsConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -295,10 +182,6 @@ namespace Pulumi.Aws.Lambda
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -308,9 +191,6 @@ namespace Pulumi.Aws.Lambda
         [Input("timeouts")]
         public Input<Inputs.CapacityProviderTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Configuration block for VPC settings. See VPC Config below.
-        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CapacityProviderVpcConfigGetArgs>? VpcConfig { get; set; }
 

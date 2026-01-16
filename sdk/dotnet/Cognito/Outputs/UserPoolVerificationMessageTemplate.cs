@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolVerificationMessageTemplate
     {
-        /// <summary>
-        /// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
-        /// </summary>
         public readonly string? DefaultEmailOption;
-        /// <summary>
-        /// Email message template. Must contain the `{####}` placeholder. Conflicts with `EmailVerificationMessage` argument.
-        /// </summary>
         public readonly string? EmailMessage;
-        /// <summary>
-        /// Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
-        /// </summary>
         public readonly string? EmailMessageByLink;
-        /// <summary>
-        /// Subject line for the email message template. Conflicts with `EmailVerificationSubject` argument.
-        /// </summary>
         public readonly string? EmailSubject;
-        /// <summary>
-        /// Subject line for the email message template for sending a confirmation link to the user.
-        /// </summary>
         public readonly string? EmailSubjectByLink;
-        /// <summary>
-        /// SMS message template. Must contain the `{####}` placeholder. Conflicts with `SmsVerificationMessage` argument.
-        /// </summary>
         public readonly string? SmsMessage;
 
         [OutputConstructor]

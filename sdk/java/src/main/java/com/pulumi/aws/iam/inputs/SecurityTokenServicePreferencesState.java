@@ -15,17 +15,9 @@ public final class SecurityTokenServicePreferencesState extends com.pulumi.resou
 
     public static final SecurityTokenServicePreferencesState Empty = new SecurityTokenServicePreferencesState();
 
-    /**
-     * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     * 
-     */
     @Import(name="globalEndpointTokenVersion")
     private @Nullable Output<String> globalEndpointTokenVersion;
 
-    /**
-     * @return The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-     * 
-     */
     public Optional<Output<String>> globalEndpointTokenVersion() {
         return Optional.ofNullable(this.globalEndpointTokenVersion);
     }
@@ -54,23 +46,11 @@ public final class SecurityTokenServicePreferencesState extends com.pulumi.resou
             $ = new SecurityTokenServicePreferencesState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalEndpointTokenVersion The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalEndpointTokenVersion(@Nullable Output<String> globalEndpointTokenVersion) {
             $.globalEndpointTokenVersion = globalEndpointTokenVersion;
             return this;
         }
 
-        /**
-         * @param globalEndpointTokenVersion The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalEndpointTokenVersion(String globalEndpointTokenVersion) {
             return globalEndpointTokenVersion(Output.of(globalEndpointTokenVersion));
         }

@@ -13,32 +13,16 @@ public final class GetPipelineDefinitionParameterValue extends com.pulumi.resour
 
     public static final GetPipelineDefinitionParameterValue Empty = new GetPipelineDefinitionParameterValue();
 
-    /**
-     * ID of the object.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return ID of the object.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Field value, expressed as a String.
-     * 
-     */
     @Import(name="stringValue", required=true)
     private String stringValue;
 
-    /**
-     * @return Field value, expressed as a String.
-     * 
-     */
     public String stringValue() {
         return this.stringValue;
     }
@@ -68,23 +52,11 @@ public final class GetPipelineDefinitionParameterValue extends com.pulumi.resour
             $ = new GetPipelineDefinitionParameterValue(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param stringValue Field value, expressed as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringValue(String stringValue) {
             $.stringValue = stringValue;
             return this;

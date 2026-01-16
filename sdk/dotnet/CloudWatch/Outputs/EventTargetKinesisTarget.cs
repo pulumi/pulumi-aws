@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetKinesisTarget
     {
-        /// <summary>
-        /// The JSON path to be extracted from the event and used as the partition key.
-        /// </summary>
         public readonly string? PartitionKeyPath;
 
         [OutputConstructor]

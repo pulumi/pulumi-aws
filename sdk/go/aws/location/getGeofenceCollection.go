@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Location Service Geofence Collection.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupGeofenceCollection(ctx, &location.LookupGeofenceCollectionArgs{
-//				CollectionName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupGeofenceCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGeofenceCollectionResult
@@ -52,34 +23,24 @@ func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectio
 
 // A collection of arguments for invoking getGeofenceCollection.
 type LookupGeofenceCollectionArgs struct {
-	// Name of the geofence collection.
-	CollectionName string `pulumi:"collectionName"`
-	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the geofence collection.
-	Tags map[string]string `pulumi:"tags"`
+	CollectionName string            `pulumi:"collectionName"`
+	KmsKeyId       *string           `pulumi:"kmsKeyId"`
+	Region         *string           `pulumi:"region"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getGeofenceCollection.
 type LookupGeofenceCollectionResult struct {
-	// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn  string `pulumi:"collectionArn"`
 	CollectionName string `pulumi:"collectionName"`
-	// Timestamp for when the geofence collection resource was created in ISO 8601 format.
-	CreateTime string `pulumi:"createTime"`
-	// Optional description of the geofence collection resource.
-	Description string `pulumi:"description"`
+	CreateTime     string `pulumi:"createTime"`
+	Description    string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	Region   string `pulumi:"region"`
-	// Key-value map of resource tags for the geofence collection.
-	Tags map[string]string `pulumi:"tags"`
-	// Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
-	UpdateTime string `pulumi:"updateTime"`
+	Id         string            `pulumi:"id"`
+	KmsKeyId   string            `pulumi:"kmsKeyId"`
+	Region     string            `pulumi:"region"`
+	Tags       map[string]string `pulumi:"tags"`
+	UpdateTime string            `pulumi:"updateTime"`
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
@@ -93,14 +54,10 @@ func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceColl
 
 // A collection of arguments for invoking getGeofenceCollection.
 type LookupGeofenceCollectionOutputArgs struct {
-	// Name of the geofence collection.
-	CollectionName pulumi.StringInput `pulumi:"collectionName"`
-	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags for the geofence collection.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	CollectionName pulumi.StringInput    `pulumi:"collectionName"`
+	KmsKeyId       pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupGeofenceCollectionOutputArgs) ElementType() reflect.Type {
@@ -122,7 +79,6 @@ func (o LookupGeofenceCollectionResultOutput) ToLookupGeofenceCollectionResultOu
 	return o
 }
 
-// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
 func (o LookupGeofenceCollectionResultOutput) CollectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.CollectionArn }).(pulumi.StringOutput)
 }
@@ -131,12 +87,10 @@ func (o LookupGeofenceCollectionResultOutput) CollectionName() pulumi.StringOutp
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.CollectionName }).(pulumi.StringOutput)
 }
 
-// Timestamp for when the geofence collection resource was created in ISO 8601 format.
 func (o LookupGeofenceCollectionResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// Optional description of the geofence collection resource.
 func (o LookupGeofenceCollectionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -146,7 +100,6 @@ func (o LookupGeofenceCollectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 func (o LookupGeofenceCollectionResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -155,12 +108,10 @@ func (o LookupGeofenceCollectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the geofence collection.
 func (o LookupGeofenceCollectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
 func (o LookupGeofenceCollectionResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

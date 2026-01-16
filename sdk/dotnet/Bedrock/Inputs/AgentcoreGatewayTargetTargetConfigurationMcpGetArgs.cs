@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Lambda function target configuration. See `Lambda` below.
-        /// </summary>
         [Input("lambda")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaGetArgs>? Lambda { get; set; }
 
-        /// <summary>
-        /// MCP server target configuration. See `McpServer` below.
-        /// </summary>
         [Input("mcpServer")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerGetArgs>? McpServer { get; set; }
 
-        /// <summary>
-        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` below.
-        /// </summary>
         [Input("openApiSchema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaGetArgs>? OpenApiSchema { get; set; }
 
-        /// <summary>
-        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` below.
-        /// </summary>
         [Input("smithyModel")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelGetArgs>? SmithyModel { get; set; }
 

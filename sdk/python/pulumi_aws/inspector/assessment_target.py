@@ -24,9 +24,6 @@ class AssessmentTargetArgs:
                  resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentTarget resource.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -38,9 +35,6 @@ class AssessmentTargetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the assessment target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -50,9 +44,6 @@ class AssessmentTargetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -62,9 +53,6 @@ class AssessmentTargetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-        """
         return pulumi.get(self, "resource_group_arn")
 
     @resource_group_arn.setter
@@ -81,10 +69,6 @@ class _AssessmentTargetState:
                  resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentTarget resources.
-        :param pulumi.Input[_builtins.str] arn: The target assessment ARN.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -98,9 +82,6 @@ class _AssessmentTargetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The target assessment ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -110,9 +91,6 @@ class _AssessmentTargetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the assessment target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -122,9 +100,6 @@ class _AssessmentTargetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -134,9 +109,6 @@ class _AssessmentTargetState:
     @_builtins.property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-        """
         return pulumi.get(self, "resource_group_arn")
 
     @resource_group_arn.setter
@@ -155,40 +127,9 @@ class AssessmentTarget(pulumi.CustomResource):
                  resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an Inspector Classic Assessment Target
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
-        })
-        foo = aws.inspector.AssessmentTarget("foo",
-            name="assessment target",
-            resource_group_arn=bar.arn)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
-
-        Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
-
+        Create a AssessmentTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         ...
     @overload
@@ -197,35 +138,7 @@ class AssessmentTarget(pulumi.CustomResource):
                  args: Optional[AssessmentTargetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Inspector Classic Assessment Target
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
-        })
-        foo = aws.inspector.AssessmentTarget("foo",
-            name="assessment target",
-            resource_group_arn=bar.arn)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
-
-        Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
-
-        % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
-
+        Create a AssessmentTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AssessmentTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,10 +191,6 @@ class AssessmentTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The target assessment ARN.
-        :param pulumi.Input[_builtins.str] name: The name of the assessment target.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -296,32 +205,20 @@ class AssessmentTarget(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The target assessment ARN.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the assessment target.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-        """
         return pulumi.get(self, "resource_group_arn")
 

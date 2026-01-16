@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class OutboundConnectionRemoteDomainInfo {
-    /**
-     * @return The name of the remote domain.
-     * 
-     */
     private String domainName;
-    /**
-     * @return The Account ID of the owner of the remote domain.
-     * 
-     */
     private String ownerId;
-    /**
-     * @return The region of the remote domain.
-     * 
-     */
     private String region;
 
     private OutboundConnectionRemoteDomainInfo() {}
-    /**
-     * @return The name of the remote domain.
-     * 
-     */
     public String domainName() {
         return this.domainName;
     }
-    /**
-     * @return The Account ID of the owner of the remote domain.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
-    /**
-     * @return The region of the remote domain.
-     * 
-     */
     public String region() {
         return this.region;
     }

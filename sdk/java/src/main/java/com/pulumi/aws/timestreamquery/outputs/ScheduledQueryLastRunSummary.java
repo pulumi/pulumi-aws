@@ -15,89 +15,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryLastRunSummary {
-    /**
-     * @return S3 location for error report.
-     * 
-     */
     private @Nullable List<ScheduledQueryLastRunSummaryErrorReportLocation> errorReportLocations;
-    /**
-     * @return Statistics for a single scheduled query run.
-     * 
-     */
     private @Nullable List<ScheduledQueryLastRunSummaryExecutionStat> executionStats;
-    /**
-     * @return Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-     * 
-     */
     private @Nullable String failureReason;
-    /**
-     * @return InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
-     * 
-     */
     private @Nullable String invocationTime;
-    /**
-     * @return Various insights and metrics related to the run summary of the scheduled query.
-     * 
-     */
     private @Nullable List<ScheduledQueryLastRunSummaryQueryInsightsResponse> queryInsightsResponses;
-    /**
-     * @return Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-     * 
-     */
     private @Nullable String runStatus;
-    /**
-     * @return Actual time when the query was run.
-     * 
-     */
     private @Nullable String triggerTime;
 
     private ScheduledQueryLastRunSummary() {}
-    /**
-     * @return S3 location for error report.
-     * 
-     */
     public List<ScheduledQueryLastRunSummaryErrorReportLocation> errorReportLocations() {
         return this.errorReportLocations == null ? List.of() : this.errorReportLocations;
     }
-    /**
-     * @return Statistics for a single scheduled query run.
-     * 
-     */
     public List<ScheduledQueryLastRunSummaryExecutionStat> executionStats() {
         return this.executionStats == null ? List.of() : this.executionStats;
     }
-    /**
-     * @return Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-     * 
-     */
     public Optional<String> failureReason() {
         return Optional.ofNullable(this.failureReason);
     }
-    /**
-     * @return InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
-     * 
-     */
     public Optional<String> invocationTime() {
         return Optional.ofNullable(this.invocationTime);
     }
-    /**
-     * @return Various insights and metrics related to the run summary of the scheduled query.
-     * 
-     */
     public List<ScheduledQueryLastRunSummaryQueryInsightsResponse> queryInsightsResponses() {
         return this.queryInsightsResponses == null ? List.of() : this.queryInsightsResponses;
     }
-    /**
-     * @return Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-     * 
-     */
     public Optional<String> runStatus() {
         return Optional.ofNullable(this.runStatus);
     }
-    /**
-     * @return Actual time when the query was run.
-     * 
-     */
     public Optional<String> triggerTime() {
         return Optional.ofNullable(this.triggerTime);
     }

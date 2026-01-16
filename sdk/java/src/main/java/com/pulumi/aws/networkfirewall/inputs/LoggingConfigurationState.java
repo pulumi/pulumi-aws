@@ -17,62 +17,30 @@ public final class LoggingConfigurationState extends com.pulumi.resources.Resour
 
     public static final LoggingConfigurationState Empty = new LoggingConfigurationState();
 
-    /**
-     * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     * 
-     */
     @Import(name="enableMonitoringDashboard")
     private @Nullable Output<Boolean> enableMonitoringDashboard;
 
-    /**
-     * @return Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enableMonitoringDashboard() {
         return Optional.ofNullable(this.enableMonitoringDashboard);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     * 
-     */
     @Import(name="firewallArn")
     private @Nullable Output<String> firewallArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Network Firewall firewall.
-     * 
-     */
     public Optional<Output<String>> firewallArn() {
         return Optional.ofNullable(this.firewallArn);
     }
 
-    /**
-     * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     * 
-     */
     @Import(name="loggingConfiguration")
     private @Nullable Output<LoggingConfigurationLoggingConfigurationArgs> loggingConfiguration;
 
-    /**
-     * @return A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-     * 
-     */
     public Optional<Output<LoggingConfigurationLoggingConfigurationArgs>> loggingConfiguration() {
         return Optional.ofNullable(this.loggingConfiguration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -104,86 +72,38 @@ public final class LoggingConfigurationState extends com.pulumi.resources.Resour
             $ = new LoggingConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableMonitoringDashboard Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMonitoringDashboard(@Nullable Output<Boolean> enableMonitoringDashboard) {
             $.enableMonitoringDashboard = enableMonitoringDashboard;
             return this;
         }
 
-        /**
-         * @param enableMonitoringDashboard Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMonitoringDashboard(Boolean enableMonitoringDashboard) {
             return enableMonitoringDashboard(Output.of(enableMonitoringDashboard));
         }
 
-        /**
-         * @param firewallArn The Amazon Resource Name (ARN) of the Network Firewall firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallArn(@Nullable Output<String> firewallArn) {
             $.firewallArn = firewallArn;
             return this;
         }
 
-        /**
-         * @param firewallArn The Amazon Resource Name (ARN) of the Network Firewall firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallArn(String firewallArn) {
             return firewallArn(Output.of(firewallArn));
         }
 
-        /**
-         * @param loggingConfiguration A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfiguration(@Nullable Output<LoggingConfigurationLoggingConfigurationArgs> loggingConfiguration) {
             $.loggingConfiguration = loggingConfiguration;
             return this;
         }
 
-        /**
-         * @param loggingConfiguration A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs loggingConfiguration) {
             return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

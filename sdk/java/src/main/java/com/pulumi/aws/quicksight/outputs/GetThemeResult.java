@@ -15,99 +15,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeResult {
-    /**
-     * @return ARN of the theme.
-     * 
-     */
     private String arn;
     private String awsAccountId;
-    /**
-     * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-     * 
-     */
     private String baseThemeId;
-    /**
-     * @return The theme configuration, which contains the theme display properties. See configuration.
-     * 
-     */
     private List<GetThemeConfiguration> configurations;
-    /**
-     * @return The time that the theme was created.
-     * 
-     */
     private String createdTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The time that the theme was last updated.
-     * 
-     */
     private String lastUpdatedTime;
-    /**
-     * @return Display name of the theme.
-     * 
-     */
     private String name;
-    /**
-     * @return A set of resource permissions on the theme. See permissions.
-     * 
-     */
     private List<GetThemePermission> permissions;
     private String region;
-    /**
-     * @return The theme creation status.
-     * 
-     */
     private String status;
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     private Map<String,String> tags;
     private String themeId;
-    /**
-     * @return A description of the current theme version being created/updated.
-     * 
-     */
     private String versionDescription;
-    /**
-     * @return The version number of the theme version.
-     * 
-     */
     private Integer versionNumber;
 
     private GetThemeResult() {}
-    /**
-     * @return ARN of the theme.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String awsAccountId() {
         return this.awsAccountId;
     }
-    /**
-     * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
-     * 
-     */
     public String baseThemeId() {
         return this.baseThemeId;
     }
-    /**
-     * @return The theme configuration, which contains the theme display properties. See configuration.
-     * 
-     */
     public List<GetThemeConfiguration> configurations() {
         return this.configurations;
     }
-    /**
-     * @return The time that the theme was created.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
@@ -118,58 +58,30 @@ public final class GetThemeResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The time that the theme was last updated.
-     * 
-     */
     public String lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * @return Display name of the theme.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return A set of resource permissions on the theme. See permissions.
-     * 
-     */
     public List<GetThemePermission> permissions() {
         return this.permissions;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The theme creation status.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
     public String themeId() {
         return this.themeId;
     }
-    /**
-     * @return A description of the current theme version being created/updated.
-     * 
-     */
     public String versionDescription() {
         return this.versionDescription;
     }
-    /**
-     * @return The version number of the theme version.
-     * 
-     */
     public Integer versionNumber() {
         return this.versionNumber;
     }

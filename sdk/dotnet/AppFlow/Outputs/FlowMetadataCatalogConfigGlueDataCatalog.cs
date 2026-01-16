@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowMetadataCatalogConfigGlueDataCatalog
     {
-        /// <summary>
-        /// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// A naming prefix for each Data Catalog table that Amazon AppFlow creates
-        /// </summary>
         public readonly string TablePrefix;
 
         [OutputConstructor]

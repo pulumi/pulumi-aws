@@ -17,32 +17,16 @@ public final class ScopeTargetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ScopeTargetArgs Empty = new ScopeTargetArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region", required=true)
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
 
-    /**
-     * A target identifier is a pair of identifying information for a scope.
-     * 
-     */
     @Import(name="targetIdentifier")
     private @Nullable Output<ScopeTargetTargetIdentifierArgs> targetIdentifier;
 
-    /**
-     * @return A target identifier is a pair of identifying information for a scope.
-     * 
-     */
     public Optional<Output<ScopeTargetTargetIdentifierArgs>> targetIdentifier() {
         return Optional.ofNullable(this.targetIdentifier);
     }
@@ -72,44 +56,20 @@ public final class ScopeTargetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ScopeTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param targetIdentifier A target identifier is a pair of identifying information for a scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(@Nullable Output<ScopeTargetTargetIdentifierArgs> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
 
-        /**
-         * @param targetIdentifier A target identifier is a pair of identifying information for a scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(ScopeTargetTargetIdentifierArgs targetIdentifier) {
             return targetIdentifier(Output.of(targetIdentifier));
         }

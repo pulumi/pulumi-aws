@@ -15,138 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing AWS User Notifications Contacts Email Contact.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.notifications.ContactsEmailContact;
- * import com.pulumi.aws.notifications.ContactsEmailContactArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new ContactsEmailContact("example", ContactsEmailContactArgs.builder()
- *             .name("example-contact")
- *             .emailAddress("example}{@literal @}{@code example.com")
- *             .tags(Map.of("Environment", "Production"))
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
- * ```
- * 
- */
 @ResourceType(type="aws:notifications/contactsEmailContact:ContactsEmailContact")
 public class ContactsEmailContact extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Email Contact.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Email Contact.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Email address for the contact. Must be between 6 and 254 characters and match an email
-     * pattern.
-     * 
-     */
     @Export(name="emailAddress", refs={String.class}, tree="[0]")
     private Output<String> emailAddress;
 
-    /**
-     * @return Email address for the contact. Must be between 6 and 254 characters and match an email
-     * pattern.
-     * 
-     */
     public Output<String> emailAddress() {
         return this.emailAddress;
     }
-    /**
-     * Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-     * characters, underscores, tildes, periods, and hyphens.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-     * characters, underscores, tildes, periods, and hyphens.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider
-     * `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider
-     * `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

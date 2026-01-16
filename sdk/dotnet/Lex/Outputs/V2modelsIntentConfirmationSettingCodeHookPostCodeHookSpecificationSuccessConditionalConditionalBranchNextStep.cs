@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep
     {
-        /// <summary>
-        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `DialogAction`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogAction? DialogAction;
-        /// <summary>
-        /// Configuration block for override settings to configure the intent state. See `Intent`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntent? Intent;
-        /// <summary>
-        /// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? SessionAttributes;
 
         [OutputConstructor]

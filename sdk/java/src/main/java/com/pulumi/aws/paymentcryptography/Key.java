@@ -20,82 +20,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Payment Cryptography Control Plane Key.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.paymentcryptography.Key;
- * import com.pulumi.aws.paymentcryptography.KeyArgs;
- * import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Key("test", KeyArgs.builder()
- *             .exportable(true)
- *             .keyAttributes(KeyKeyAttributeArgs.builder()
- *                 .keyAlgorithm("TDES_3KEY")
- *                 .keyClass("SYMMETRIC_KEY")
- *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
- *                 .keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs.builder()
- *                     .decrypt(true)
- *                     .encrypt(true)
- *                     .wrap(true)
- *                     .unwrap(true)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
- * 
- * Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
- * 
- * % pulumi import aws_paymentcryptography_key.example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
- * 
- */
 @ResourceType(type="aws:paymentcryptography/key:Key")
 public class Key extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the key.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the key.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -105,147 +34,63 @@ public class Key extends com.pulumi.resources.CustomResource {
     public Output<Integer> deletionWindowInDays() {
         return this.deletionWindowInDays;
     }
-    /**
-     * Whether to enable the key.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable the key.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * Whether the key is exportable from the service.
-     * 
-     */
     @Export(name="exportable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> exportable;
 
-    /**
-     * @return Whether the key is exportable from the service.
-     * 
-     */
     public Output<Boolean> exportable() {
         return this.exportable;
     }
-    /**
-     * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="keyAttributes", refs={List.class,KeyKeyAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KeyKeyAttribute>> keyAttributes;
 
-    /**
-     * @return Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<List<KeyKeyAttribute>>> keyAttributes() {
         return Codegen.optional(this.keyAttributes);
     }
-    /**
-     * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-     * 
-     */
     @Export(name="keyCheckValue", refs={String.class}, tree="[0]")
     private Output<String> keyCheckValue;
 
-    /**
-     * @return Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-     * 
-     */
     public Output<String> keyCheckValue() {
         return this.keyCheckValue;
     }
-    /**
-     * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     * 
-     */
     @Export(name="keyCheckValueAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> keyCheckValueAlgorithm;
 
-    /**
-     * @return Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-     * 
-     */
     public Output<String> keyCheckValueAlgorithm() {
         return this.keyCheckValueAlgorithm;
     }
-    /**
-     * Source of the key material.
-     * 
-     */
     @Export(name="keyOrigin", refs={String.class}, tree="[0]")
     private Output<String> keyOrigin;
 
-    /**
-     * @return Source of the key material.
-     * 
-     */
     public Output<String> keyOrigin() {
         return this.keyOrigin;
     }
-    /**
-     * State of key that is being created or deleted.
-     * 
-     */
     @Export(name="keyState", refs={String.class}, tree="[0]")
     private Output<String> keyState;
 
-    /**
-     * @return State of key that is being created or deleted.
-     * 
-     */
     public Output<String> keyState() {
         return this.keyState;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -14,17 +14,9 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
 
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs();
 
-    /**
-     * The ARN of the lambda to use for custom transformation.
-     * 
-     */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
-    /**
-     * @return The ARN of the lambda to use for custom transformation.
-     * 
-     */
     public Output<String> lambdaArn() {
         return this.lambdaArn;
     }
@@ -53,23 +45,11 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
             $ = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambdaArn The ARN of the lambda to use for custom transformation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(Output<String> lambdaArn) {
             $.lambdaArn = lambdaArn;
             return this;
         }
 
-        /**
-         * @param lambdaArn The ARN of the lambda to use for custom transformation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaArn(String lambdaArn) {
             return lambdaArn(Output.of(lambdaArn));
         }

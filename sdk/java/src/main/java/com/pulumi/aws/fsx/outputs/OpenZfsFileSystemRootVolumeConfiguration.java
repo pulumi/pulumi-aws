@@ -16,77 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OpenZfsFileSystemRootVolumeConfiguration {
-    /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-     * 
-     */
     private @Nullable Boolean copyTagsToSnapshots;
-    /**
-     * @return Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-     * 
-     */
     private @Nullable String dataCompressionType;
-    /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
-     * 
-     */
     private @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports;
-    /**
-     * @return specifies whether the volume is read-only. Default is false.
-     * 
-     */
     private @Nullable Boolean readOnly;
-    /**
-     * @return Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-     * 
-     */
     private @Nullable Integer recordSizeKib;
-    /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
-     * 
-     */
     private @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas;
 
     private OpenZfsFileSystemRootVolumeConfiguration() {}
-    /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-     * 
-     */
     public Optional<Boolean> copyTagsToSnapshots() {
         return Optional.ofNullable(this.copyTagsToSnapshots);
     }
-    /**
-     * @return Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-     * 
-     */
     public Optional<String> dataCompressionType() {
         return Optional.ofNullable(this.dataCompressionType);
     }
-    /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
-     * 
-     */
     public Optional<OpenZfsFileSystemRootVolumeConfigurationNfsExports> nfsExports() {
         return Optional.ofNullable(this.nfsExports);
     }
-    /**
-     * @return specifies whether the volume is read-only. Default is false.
-     * 
-     */
     public Optional<Boolean> readOnly() {
         return Optional.ofNullable(this.readOnly);
     }
-    /**
-     * @return Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-     * 
-     */
     public Optional<Integer> recordSizeKib() {
         return Optional.ofNullable(this.recordSizeKib);
     }
-    /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
-     * 
-     */
     public List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas() {
         return this.userAndGroupQuotas == null ? List.of() : this.userAndGroupQuotas;
     }

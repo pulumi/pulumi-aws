@@ -17,17 +17,9 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
 
     public static final NamespaceState Empty = new NamespaceState();
 
-    /**
-     * ARN of the Namespace.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Namespace.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -39,111 +31,51 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Namespace AWS Region.
-     * 
-     */
     @Import(name="capacityRegion")
     private @Nullable Output<String> capacityRegion;
 
-    /**
-     * @return Namespace AWS Region.
-     * 
-     */
     public Optional<Output<String>> capacityRegion() {
         return Optional.ofNullable(this.capacityRegion);
     }
 
-    /**
-     * Creation status of the namespace.
-     * 
-     */
     @Import(name="creationStatus")
     private @Nullable Output<String> creationStatus;
 
-    /**
-     * @return Creation status of the namespace.
-     * 
-     */
     public Optional<Output<String>> creationStatus() {
         return Optional.ofNullable(this.creationStatus);
     }
 
-    /**
-     * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     * 
-     */
     @Import(name="identityStore")
     private @Nullable Output<String> identityStore;
 
-    /**
-     * @return User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-     * 
-     */
     public Optional<Output<String>> identityStore() {
         return Optional.ofNullable(this.identityStore);
     }
 
-    /**
-     * Name of the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Name of the namespace.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -188,23 +120,11 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
             $ = new NamespaceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -218,153 +138,65 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param capacityRegion Namespace AWS Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityRegion(@Nullable Output<String> capacityRegion) {
             $.capacityRegion = capacityRegion;
             return this;
         }
 
-        /**
-         * @param capacityRegion Namespace AWS Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityRegion(String capacityRegion) {
             return capacityRegion(Output.of(capacityRegion));
         }
 
-        /**
-         * @param creationStatus Creation status of the namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationStatus(@Nullable Output<String> creationStatus) {
             $.creationStatus = creationStatus;
             return this;
         }
 
-        /**
-         * @param creationStatus Creation status of the namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationStatus(String creationStatus) {
             return creationStatus(Output.of(creationStatus));
         }
 
-        /**
-         * @param identityStore User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStore(@Nullable Output<String> identityStore) {
             $.identityStore = identityStore;
             return this;
         }
 
-        /**
-         * @param identityStore User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStore(String identityStore) {
             return identityStore(Output.of(identityStore));
         }
 
-        /**
-         * @param namespace Name of the namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Name of the namespace.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

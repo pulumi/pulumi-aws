@@ -12,141 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
-//
-// !> This resource takes exclusive ownership over SCRAM secrets associated with a cluster. This includes removal of SCRAM secrets which are not explicitly configured. To prevent persistent drift, ensure any `msk.SingleScramSecretAssociation` resources managed alongside this resource are included in the `secretArnList` argument.
-//
-// > **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
-//
-// To set up username and password authentication for a cluster, create an `secretsmanager.Secret` resource and associate
-// a username and password with the secret with an `secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
-// the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
-// custom AWS KMS key for your secret with the `kms.Key` resource. It is important to note that a policy is required for the `secretsmanager.Secret`
-// resource in order for Kafka to be able to read it. This policy is attached automatically when the `msk.ScramSecretAssociation` is used,
-// however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
-// resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-//				ClusterName: pulumi.String("example"),
-//				ClientAuthentication: &msk.ClusterClientAuthenticationArgs{
-//					Sasl: &msk.ClusterClientAuthenticationSaslArgs{
-//						Scram: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("Example Key for MSK Cluster Scram Secret Association"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
-//				Name:     pulumi.String("AmazonMSK_example"),
-//				KmsKeyId: exampleKey.KeyId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"username": "user",
-//				"password": "pass",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     exampleSecret.ID(),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = msk.NewScramSecretAssociation(ctx, "example", &msk.ScramSecretAssociationArgs{
-//				ClusterArn: exampleCluster.Arn,
-//				SecretArnLists: pulumi.StringArray{
-//					exampleSecret.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSKafkaResourcePolicy"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("kafka.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("secretsmanager:getSecretValue"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleSecret.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
-//				SecretArn: exampleSecret.Arn,
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-// ```
 type ScramSecretAssociation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the MSK cluster.
-	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// List of AWS Secrets Manager secret ARNs.
+	ClusterArn     pulumi.StringOutput      `pulumi:"clusterArn"`
+	Region         pulumi.StringOutput      `pulumi:"region"`
 	SecretArnLists pulumi.StringArrayOutput `pulumi:"secretArnLists"`
 }
 
@@ -186,20 +56,14 @@ func GetScramSecretAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScramSecretAssociation resources.
 type scramSecretAssociationState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
-	ClusterArn *string `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of AWS Secrets Manager secret ARNs.
+	ClusterArn     *string  `pulumi:"clusterArn"`
+	Region         *string  `pulumi:"region"`
 	SecretArnLists []string `pulumi:"secretArnLists"`
 }
 
 type ScramSecretAssociationState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
-	ClusterArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of AWS Secrets Manager secret ARNs.
+	ClusterArn     pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
 	SecretArnLists pulumi.StringArrayInput
 }
 
@@ -208,21 +72,15 @@ func (ScramSecretAssociationState) ElementType() reflect.Type {
 }
 
 type scramSecretAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
-	ClusterArn string `pulumi:"clusterArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of AWS Secrets Manager secret ARNs.
+	ClusterArn     string   `pulumi:"clusterArn"`
+	Region         *string  `pulumi:"region"`
 	SecretArnLists []string `pulumi:"secretArnLists"`
 }
 
 // The set of arguments for constructing a ScramSecretAssociation resource.
 type ScramSecretAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
-	ClusterArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// List of AWS Secrets Manager secret ARNs.
+	ClusterArn     pulumi.StringInput
+	Region         pulumi.StringPtrInput
 	SecretArnLists pulumi.StringArrayInput
 }
 
@@ -313,17 +171,14 @@ func (o ScramSecretAssociationOutput) ToScramSecretAssociationOutputWithContext(
 	return o
 }
 
-// Amazon Resource Name (ARN) of the MSK cluster.
 func (o ScramSecretAssociationOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScramSecretAssociation) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScramSecretAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScramSecretAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of AWS Secrets Manager secret ARNs.
 func (o ScramSecretAssociationOutput) SecretArnLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScramSecretAssociation) pulumi.StringArrayOutput { return v.SecretArnLists }).(pulumi.StringArrayOutput)
 }

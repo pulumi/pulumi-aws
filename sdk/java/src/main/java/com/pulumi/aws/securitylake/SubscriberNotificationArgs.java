@@ -17,47 +17,23 @@ public final class SubscriberNotificationArgs extends com.pulumi.resources.Resou
 
     public static final SubscriberNotificationArgs Empty = new SubscriberNotificationArgs();
 
-    /**
-     * Specify the configuration using which you want to create the subscriber notification..
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<SubscriberNotificationConfigurationArgs> configuration;
 
-    /**
-     * @return Specify the configuration using which you want to create the subscriber notification..
-     * 
-     */
     public Optional<Output<SubscriberNotificationConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The subscriber ID for the notification subscription.
-     * 
-     */
     @Import(name="subscriberId", required=true)
     private Output<String> subscriberId;
 
-    /**
-     * @return The subscriber ID for the notification subscription.
-     * 
-     */
     public Output<String> subscriberId() {
         return this.subscriberId;
     }
@@ -88,65 +64,29 @@ public final class SubscriberNotificationArgs extends com.pulumi.resources.Resou
             $ = new SubscriberNotificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configuration Specify the configuration using which you want to create the subscriber notification..
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<SubscriberNotificationConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration Specify the configuration using which you want to create the subscriber notification..
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(SubscriberNotificationConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subscriberId The subscriber ID for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberId(Output<String> subscriberId) {
             $.subscriberId = subscriberId;
             return this;
         }
 
-        /**
-         * @param subscriberId The subscriber ID for the notification subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscriberId(String subscriberId) {
             return subscriberId(Output.of(subscriberId));
         }

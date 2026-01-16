@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInstanceStorageConfigStorageConfigS3Config {
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The S3 bucket prefix.
-     * 
-     */
     private String bucketPrefix;
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     private List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs;
 
     private GetInstanceStorageConfigStorageConfigS3Config() {}
-    /**
-     * @return The S3 bucket name.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The S3 bucket prefix.
-     * 
-     */
     public String bucketPrefix() {
         return this.bucketPrefix;
     }
-    /**
-     * @return The encryption configuration. Documented below.
-     * 
-     */
     public List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs() {
         return this.encryptionConfigs;
     }

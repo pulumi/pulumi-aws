@@ -17,62 +17,30 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
 
     public static final ExtensionAssociationArgs Empty = new ExtensionAssociationArgs();
 
-    /**
-     * The ARN of the extension defined in the association.
-     * 
-     */
     @Import(name="extensionArn", required=true)
     private Output<String> extensionArn;
 
-    /**
-     * @return The ARN of the extension defined in the association.
-     * 
-     */
     public Output<String> extensionArn() {
         return this.extensionArn;
     }
 
-    /**
-     * The parameter names and values defined for the association.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
-    /**
-     * @return The parameter names and values defined for the association.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the application, configuration profile, or environment to associate with the extension.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -104,86 +72,38 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
             $ = new ExtensionAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param extensionArn The ARN of the extension defined in the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionArn(Output<String> extensionArn) {
             $.extensionArn = extensionArn;
             return this;
         }
 
-        /**
-         * @param extensionArn The ARN of the extension defined in the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionArn(String extensionArn) {
             return extensionArn(Output.of(extensionArn));
         }
 
-        /**
-         * @param parameters The parameter names and values defined for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters The parameter names and values defined for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

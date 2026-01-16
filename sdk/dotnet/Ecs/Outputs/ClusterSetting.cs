@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ClusterSetting
     {
-        /// <summary>
-        /// Name of the setting to manage. Valid values: `containerInsights`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value to assign to the setting. Valid values: `Enhanced`, `Enabled`, `Disabled`.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

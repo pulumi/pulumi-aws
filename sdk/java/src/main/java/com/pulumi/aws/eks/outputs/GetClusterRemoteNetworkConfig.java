@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterRemoteNetworkConfig {
-    /**
-     * @return The networks that can contain hybrid nodes.
-     * 
-     */
     private List<GetClusterRemoteNetworkConfigRemoteNodeNetwork> remoteNodeNetworks;
-    /**
-     * @return The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     private List<GetClusterRemoteNetworkConfigRemotePodNetwork> remotePodNetworks;
 
     private GetClusterRemoteNetworkConfig() {}
-    /**
-     * @return The networks that can contain hybrid nodes.
-     * 
-     */
     public List<GetClusterRemoteNetworkConfigRemoteNodeNetwork> remoteNodeNetworks() {
         return this.remoteNodeNetworks;
     }
-    /**
-     * @return The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
-     * 
-     */
     public List<GetClusterRemoteNetworkConfigRemotePodNetwork> remotePodNetworks() {
         return this.remotePodNetworks;
     }

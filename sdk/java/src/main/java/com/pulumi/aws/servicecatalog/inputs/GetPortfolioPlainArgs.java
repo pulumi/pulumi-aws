@@ -16,66 +16,30 @@ public final class GetPortfolioPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetPortfolioPlainArgs Empty = new GetPortfolioPlainArgs();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable String acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Portfolio identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Tags applied to the portfolio.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags applied to the portfolio.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -107,47 +71,21 @@ public final class GetPortfolioPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetPortfolioPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param id Portfolio identifier.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Tags applied to the portfolio.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

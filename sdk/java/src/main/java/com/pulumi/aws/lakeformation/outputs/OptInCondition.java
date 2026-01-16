@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInCondition {
-    /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     private @Nullable String expression;
 
     private OptInCondition() {}
-    /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }

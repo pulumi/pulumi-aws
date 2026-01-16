@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceEncryptionConfiguration {
-    /**
-     * @return ARN of the KMS key used for encryption.
-     * 
-     */
     private String kmsKey;
 
     private ServiceEncryptionConfiguration() {}
-    /**
-     * @return ARN of the KMS key used for encryption.
-     * 
-     */
     public String kmsKey() {
         return this.kmsKey;
     }

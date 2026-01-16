@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserPoolLambdaConfigCustomSmsSender {
-    /**
-     * @return - ARN of the Lambda function.
-     * 
-     */
     private String lambdaArn;
-    /**
-     * @return - Version of the Lambda function.
-     * 
-     */
     private String lambdaVersion;
 
     private GetUserPoolLambdaConfigCustomSmsSender() {}
-    /**
-     * @return - ARN of the Lambda function.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }
-    /**
-     * @return - Version of the Lambda function.
-     * 
-     */
     public String lambdaVersion() {
         return this.lambdaVersion;
     }

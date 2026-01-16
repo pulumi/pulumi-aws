@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupCapacityReservationSpecification
     {
-        /// <summary>
-        /// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `Default`, `capacity-reservations-only`, `capacity-reservations-first` and `None`. Default is `Default`.
-        /// </summary>
         public readonly string? CapacityReservationPreference;
-        /// <summary>
-        /// Describes a target Capacity Reservation or Capacity Reservation resource group.
-        /// </summary>
         public readonly Outputs.GroupCapacityReservationSpecificationCapacityReservationTarget? CapacityReservationTarget;
 
         [OutputConstructor]

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform {
-    /**
-     * @return The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
-     * 
-     */
     private String cpuArchitecture;
-    /**
-     * @return The operating system for the compute environment. V
-     * 
-     */
     private String operatingSystemFamily;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform() {}
-    /**
-     * @return The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
-     * 
-     */
     public String cpuArchitecture() {
         return this.cpuArchitecture;
     }
-    /**
-     * @return The operating system for the compute environment. V
-     * 
-     */
     public String operatingSystemFamily() {
         return this.operatingSystemFamily;
     }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Waf.Outputs
     [OutputType]
     public sealed class WebAclRuleOverrideAction
     {
-        /// <summary>
-        /// valid values are: `NONE` or `COUNT`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

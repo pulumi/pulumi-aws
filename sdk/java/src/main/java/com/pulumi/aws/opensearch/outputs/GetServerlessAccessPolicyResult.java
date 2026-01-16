@@ -10,31 +10,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessAccessPolicyResult {
-    /**
-     * @return Description of the policy. Typically used to store information about the permissions defined in the policy.
-     * 
-     */
     private String description;
     private String id;
     private String name;
-    /**
-     * @return JSON policy document to use as the content for the new policy.
-     * 
-     */
     private String policy;
-    /**
-     * @return Version of the policy.
-     * 
-     */
     private String policyVersion;
     private String region;
     private String type;
 
     private GetServerlessAccessPolicyResult() {}
-    /**
-     * @return Description of the policy. Typically used to store information about the permissions defined in the policy.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -44,17 +28,9 @@ public final class GetServerlessAccessPolicyResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return JSON policy document to use as the content for the new policy.
-     * 
-     */
     public String policy() {
         return this.policy;
     }
-    /**
-     * @return Version of the policy.
-     * 
-     */
     public String policyVersion() {
         return this.policyVersion;
     }

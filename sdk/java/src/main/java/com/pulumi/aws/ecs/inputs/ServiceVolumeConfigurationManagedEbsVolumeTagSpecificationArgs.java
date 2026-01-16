@@ -17,47 +17,23 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
 
     public static final ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs Empty = new ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs();
 
-    /**
-     * Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-     * 
-     */
     @Import(name="propagateTags")
     private @Nullable Output<String> propagateTags;
 
-    /**
-     * @return Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-     * 
-     */
     public Optional<Output<String>> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
 
-    /**
-     * The type of volume resource. Valid values, `volume`.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
-    /**
-     * @return The type of volume resource. Valid values, `volume`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
 
-    /**
-     * The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
             $ = new ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param propagateTags Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateTags(@Nullable Output<String> propagateTags) {
             $.propagateTags = propagateTags;
             return this;
         }
 
-        /**
-         * @param propagateTags Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateTags(String propagateTags) {
             return propagateTags(Output.of(propagateTags));
         }
 
-        /**
-         * @param resourceType The type of volume resource. Valid values, `volume`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType The type of volume resource. Valid values, `volume`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param tags The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

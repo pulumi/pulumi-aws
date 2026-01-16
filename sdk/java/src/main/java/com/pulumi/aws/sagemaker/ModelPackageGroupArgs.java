@@ -17,62 +17,30 @@ public final class ModelPackageGroupArgs extends com.pulumi.resources.ResourceAr
 
     public static final ModelPackageGroupArgs Empty = new ModelPackageGroupArgs();
 
-    /**
-     * A description for the model group.
-     * 
-     */
     @Import(name="modelPackageGroupDescription")
     private @Nullable Output<String> modelPackageGroupDescription;
 
-    /**
-     * @return A description for the model group.
-     * 
-     */
     public Optional<Output<String>> modelPackageGroupDescription() {
         return Optional.ofNullable(this.modelPackageGroupDescription);
     }
 
-    /**
-     * The name of the model group.
-     * 
-     */
     @Import(name="modelPackageGroupName", required=true)
     private Output<String> modelPackageGroupName;
 
-    /**
-     * @return The name of the model group.
-     * 
-     */
     public Output<String> modelPackageGroupName() {
         return this.modelPackageGroupName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class ModelPackageGroupArgs extends com.pulumi.resources.ResourceAr
             $ = new ModelPackageGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param modelPackageGroupDescription A description for the model group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelPackageGroupDescription(@Nullable Output<String> modelPackageGroupDescription) {
             $.modelPackageGroupDescription = modelPackageGroupDescription;
             return this;
         }
 
-        /**
-         * @param modelPackageGroupDescription A description for the model group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelPackageGroupDescription(String modelPackageGroupDescription) {
             return modelPackageGroupDescription(Output.of(modelPackageGroupDescription));
         }
 
-        /**
-         * @param modelPackageGroupName The name of the model group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelPackageGroupName(Output<String> modelPackageGroupName) {
             $.modelPackageGroupName = modelPackageGroupName;
             return this;
         }
 
-        /**
-         * @param modelPackageGroupName The name of the model group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelPackageGroupName(String modelPackageGroupName) {
             return modelPackageGroupName(Output.of(modelPackageGroupName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

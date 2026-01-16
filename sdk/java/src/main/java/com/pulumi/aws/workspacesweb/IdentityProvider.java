@@ -15,227 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS WorkSpaces Web Identity Provider.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage with SAML
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.IdentityProvider;
- * import com.pulumi.aws.workspacesweb.IdentityProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Portal("example", PortalArgs.builder()
- *             .displayName("example")
- *             .build());
- * 
- *         var exampleIdentityProvider = new IdentityProvider("exampleIdentityProvider", IdentityProviderArgs.builder()
- *             .identityProviderName("example-saml")
- *             .identityProviderType("SAML")
- *             .portalArn(example.portalArn())
- *             .identityProviderDetails(Map.of("MetadataURL", "https://example.com/metadata"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### OIDC Identity Provider
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspacesweb.Portal;
- * import com.pulumi.aws.workspacesweb.PortalArgs;
- * import com.pulumi.aws.workspacesweb.IdentityProvider;
- * import com.pulumi.aws.workspacesweb.IdentityProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Portal("test", PortalArgs.builder()
- *             .displayName("test")
- *             .build());
- * 
- *         var testIdentityProvider = new IdentityProvider("testIdentityProvider", IdentityProviderArgs.builder()
- *             .identityProviderName("test-updated")
- *             .identityProviderType("OIDC")
- *             .portalArn(test.portalArn())
- *             .identityProviderDetails(Map.ofEntries(
- *                 Map.entry("client_id", "test-client-id"),
- *                 Map.entry("client_secret", "test-client-secret"),
- *                 Map.entry("oidc_issuer", "https://accounts.google.com"),
- *                 Map.entry("attributes_request_method", "POST"),
- *                 Map.entry("authorize_scopes", "openid, email")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WorkSpaces Web Identity Provider using the `identity_provider_arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:workspacesweb/identityProvider:IdentityProvider")
 public class IdentityProvider extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the identity provider.
-     * 
-     */
     @Export(name="identityProviderArn", refs={String.class}, tree="[0]")
     private Output<String> identityProviderArn;
 
-    /**
-     * @return ARN of the identity provider.
-     * 
-     */
     public Output<String> identityProviderArn() {
         return this.identityProviderArn;
     }
-    /**
-     * Identity provider details. The following list describes the provider detail keys for each identity provider type:
-     * * For Google and Login with Amazon:
-     * 
-     */
     @Export(name="identityProviderDetails", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> identityProviderDetails;
 
-    /**
-     * @return Identity provider details. The following list describes the provider detail keys for each identity provider type:
-     * * For Google and Login with Amazon:
-     * 
-     */
     public Output<Map<String,String>> identityProviderDetails() {
         return this.identityProviderDetails;
     }
-    /**
-     * Identity provider name.
-     * 
-     */
     @Export(name="identityProviderName", refs={String.class}, tree="[0]")
     private Output<String> identityProviderName;
 
-    /**
-     * @return Identity provider name.
-     * 
-     */
     public Output<String> identityProviderName() {
         return this.identityProviderName;
     }
-    /**
-     * Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-     * 
-     */
     @Export(name="identityProviderType", refs={String.class}, tree="[0]")
     private Output<String> identityProviderType;
 
-    /**
-     * @return Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
-     * 
-     */
     public Output<String> identityProviderType() {
         return this.identityProviderType;
     }
-    /**
-     * ARN of the web portal. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="portalArn", refs={String.class}, tree="[0]")
     private Output<String> portalArn;
 
-    /**
-     * @return ARN of the web portal. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> portalArn() {
         return this.portalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

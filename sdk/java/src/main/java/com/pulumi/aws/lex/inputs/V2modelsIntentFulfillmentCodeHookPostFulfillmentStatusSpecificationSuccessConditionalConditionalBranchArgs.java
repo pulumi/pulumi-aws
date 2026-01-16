@@ -19,62 +19,30 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
 
     public static final V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchArgs Empty = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchArgs();
 
-    /**
-     * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-     * 
-     */
     @Import(name="condition", required=true)
     private Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs> condition;
 
-    /**
-     * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-     * 
-     */
     public Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs> condition() {
         return this.condition;
     }
 
-    /**
-     * Name of the branch.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the branch.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     @Import(name="nextStep", required=true)
     private Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgs> nextStep;
 
-    /**
-     * @return Configuration block for the next step in the conversation. See `nextStep`.
-     * 
-     */
     public Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgs> nextStep() {
         return this.nextStep;
     }
 
-    /**
-     * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     @Import(name="response")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgs> response;
 
-    /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-     * 
-     */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgs>> response() {
         return Optional.ofNullable(this.response);
     }
@@ -106,86 +74,38 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
             $ = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs condition) {
             return condition(Output.of(condition));
         }
 
-        /**
-         * @param name Name of the branch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the branch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgs> nextStep) {
             $.nextStep = nextStep;
             return this;
         }
 
-        /**
-         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nextStep(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgs nextStep) {
             return nextStep(Output.of(nextStep));
         }
 
-        /**
-         * @param response Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder response(@Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgs> response) {
             $.response = response;
             return this;
         }
 
-        /**
-         * @param response Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder response(V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgs response) {
             return response(Output.of(response));
         }

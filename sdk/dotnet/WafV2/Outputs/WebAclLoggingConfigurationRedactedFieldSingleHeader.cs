@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclLoggingConfigurationRedactedFieldSingleHeader
     {
-        /// <summary>
-        /// Name of the query header to redact. This setting must be provided in lowercase characters.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

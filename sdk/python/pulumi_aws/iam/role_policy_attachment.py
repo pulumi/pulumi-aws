@@ -23,8 +23,6 @@ class RolePolicyAttachmentArgs:
                  role: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RolePolicyAttachment resource.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] role: The name of the IAM role to which the policy should be applied
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         pulumi.set(__self__, "role", role)
@@ -32,9 +30,6 @@ class RolePolicyAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -44,9 +39,6 @@ class RolePolicyAttachmentArgs:
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the IAM role to which the policy should be applied
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -61,8 +53,6 @@ class _RolePolicyAttachmentState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RolePolicyAttachment resources.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] role: The name of the IAM role to which the policy should be applied
         """
         if policy_arn is not None:
             pulumi.set(__self__, "policy_arn", policy_arn)
@@ -72,9 +62,6 @@ class _RolePolicyAttachmentState:
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -84,9 +71,6 @@ class _RolePolicyAttachmentState:
     @_builtins.property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the IAM role to which the policy should be applied
-        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -104,65 +88,9 @@ class RolePolicyAttachment(pulumi.CustomResource):
                  role: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a Managed IAM Policy to an IAM role
-
-        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-
-        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["ec2.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        role = aws.iam.Role("role",
-            name="test-role",
-            assume_role_policy=assume_role.json)
-        policy = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["ec2:Describe*"],
-            "resources": ["*"],
-        }])
-        policy_policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
-            policy=policy.json)
-        test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            role=role.name,
-            policy_arn=policy_policy.arn)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `role` (String) Name of the IAM role.
-
-        * `policy_arn` (String) ARN of the IAM policy.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
-
-        % pulumi import aws_iam_role_policy_attachment.example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-
+        Create a RolePolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] role: The name of the IAM role to which the policy should be applied
         """
         ...
     @overload
@@ -171,61 +99,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
                  args: RolePolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a Managed IAM Policy to an IAM role
-
-        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-
-        > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["ec2.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        role = aws.iam.Role("role",
-            name="test-role",
-            assume_role_policy=assume_role.json)
-        policy = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["ec2:Describe*"],
-            "resources": ["*"],
-        }])
-        policy_policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
-            policy=policy.json)
-        test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            role=role.name,
-            policy_arn=policy_policy.arn)
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `role` (String) Name of the IAM role.
-
-        * `policy_arn` (String) ARN of the IAM policy.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
-
-        % pulumi import aws_iam_role_policy_attachment.example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-
+        Create a RolePolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RolePolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,8 +151,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[_builtins.str] role: The name of the IAM role to which the policy should be applied
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,16 +163,10 @@ class RolePolicyAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the policy you want to apply
-        """
         return pulumi.get(self, "policy_arn")
 
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the IAM role to which the policy should be applied
-        """
         return pulumi.get(self, "role")
 

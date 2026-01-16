@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.odb.NetworkPeeringConnection("example", {
- *     displayName: "example",
- *     odbNetworkId: "my-odb-network-id",
- *     peerNetworkId: "my-vpc-id",
- *     tags: {
- *         env: "dev",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import odb network peering using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
- * ```
- */
 export class NetworkPeeringConnection extends pulumi.CustomResource {
     /**
      * Get an existing NetworkPeeringConnection resource's state with the given name, ID, and optional extra
@@ -64,7 +37,7 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Created time of the ODB network peering connection.
+     * Created time of the odb network peering connection.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly displayName: pulumi.Output<string>;
@@ -74,7 +47,7 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
     declare public readonly odbNetworkArn: pulumi.Output<string>;
     declare public readonly odbNetworkId: pulumi.Output<string>;
     /**
-     * Type of the ODB peering connection.
+     * Type of the odb peering connection.
      */
     declare public /*out*/ readonly odbPeeringConnectionType: pulumi.Output<string>;
     /**
@@ -83,28 +56,19 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
     declare public /*out*/ readonly peerNetworkArn: pulumi.Output<string>;
     declare public readonly peerNetworkId: pulumi.Output<string>;
     /**
-     * Progress of the ODB network peering connection.
+     * Progress of the odb network peering connection.
      */
     declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Status of the ODB network peering connection.
+     * Status of the odb network peering connection.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * The reason for the current status of the ODB peering connection.
+     * The reason for the current status of the ODB peering connection..
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including inherited tags.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.odb.NetworkPeeringConnectionTimeouts | undefined>;
 
@@ -171,7 +135,7 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
 export interface NetworkPeeringConnectionState {
     arn?: pulumi.Input<string>;
     /**
-     * Created time of the ODB network peering connection.
+     * Created time of the odb network peering connection.
      */
     createdAt?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;
@@ -181,7 +145,7 @@ export interface NetworkPeeringConnectionState {
     odbNetworkArn?: pulumi.Input<string>;
     odbNetworkId?: pulumi.Input<string>;
     /**
-     * Type of the ODB peering connection.
+     * Type of the odb peering connection.
      */
     odbPeeringConnectionType?: pulumi.Input<string>;
     /**
@@ -190,28 +154,19 @@ export interface NetworkPeeringConnectionState {
     peerNetworkArn?: pulumi.Input<string>;
     peerNetworkId?: pulumi.Input<string>;
     /**
-     * Progress of the ODB network peering connection.
+     * Progress of the odb network peering connection.
      */
     percentProgress?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
-     * Status of the ODB network peering connection.
+     * Status of the odb network peering connection.
      */
     status?: pulumi.Input<string>;
     /**
-     * The reason for the current status of the ODB peering connection.
+     * The reason for the current status of the ODB peering connection..
      */
     statusReason?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including inherited tags.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.odb.NetworkPeeringConnectionTimeouts>;
 }
@@ -227,13 +182,7 @@ export interface NetworkPeeringConnectionArgs {
     odbNetworkArn?: pulumi.Input<string>;
     odbNetworkId?: pulumi.Input<string>;
     peerNetworkId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.odb.NetworkPeeringConnectionTimeouts>;
 }

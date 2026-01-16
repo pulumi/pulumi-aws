@@ -17,47 +17,23 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
 
     public static final PolicySecurityServicePolicyDataArgs Empty = new PolicySecurityServicePolicyDataArgs();
 
-    /**
-     * Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-     * 
-     */
     @Import(name="managedServiceData")
     private @Nullable Output<String> managedServiceData;
 
-    /**
-     * @return Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-     * 
-     */
     public Optional<Output<String>> managedServiceData() {
         return Optional.ofNullable(this.managedServiceData);
     }
 
-    /**
-     * Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
-     * 
-     */
     @Import(name="policyOption")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption;
 
-    /**
-     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
-     * 
-     */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionArgs>> policyOption() {
         return Optional.ofNullable(this.policyOption);
     }
 
-    /**
-     * An integer value containing ICMP type.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return An integer value containing ICMP type.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -88,65 +64,29 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
             $ = new PolicySecurityServicePolicyDataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param managedServiceData Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedServiceData(@Nullable Output<String> managedServiceData) {
             $.managedServiceData = managedServiceData;
             return this;
         }
 
-        /**
-         * @param managedServiceData Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedServiceData(String managedServiceData) {
             return managedServiceData(Output.of(managedServiceData));
         }
 
-        /**
-         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyOption(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption) {
             $.policyOption = policyOption;
             return this;
         }
 
-        /**
-         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyOption(PolicySecurityServicePolicyDataPolicyOptionArgs policyOption) {
             return policyOption(Output.of(policyOption));
         }
 
-        /**
-         * @param type An integer value containing ICMP type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type An integer value containing ICMP type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

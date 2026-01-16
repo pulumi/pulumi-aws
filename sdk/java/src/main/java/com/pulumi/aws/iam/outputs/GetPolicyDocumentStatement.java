@@ -15,113 +15,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPolicyDocumentStatement {
-    /**
-     * @return List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
-     * 
-     */
     private @Nullable List<String> actions;
-    /**
-     * @return Configuration block for a condition. Detailed below.
-     * 
-     */
     private @Nullable List<GetPolicyDocumentStatementCondition> conditions;
-    /**
-     * @return Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-     * 
-     */
     private @Nullable String effect;
-    /**
-     * @return List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-     * 
-     */
     private @Nullable List<String> notActions;
-    /**
-     * @return Like `principals` except these are principals that the statement does *not* apply to.
-     * 
-     */
     private @Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals;
-    /**
-     * @return List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-     * 
-     */
     private @Nullable List<String> notResources;
-    /**
-     * @return Configuration block for principals. Detailed below.
-     * 
-     */
     private @Nullable List<GetPolicyDocumentStatementPrincipal> principals;
-    /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-     * 
-     */
     private @Nullable List<String> resources;
-    /**
-     * @return Sid (statement ID) is an identifier for a policy statement.
-     * 
-     */
     private @Nullable String sid;
 
     private GetPolicyDocumentStatement() {}
-    /**
-     * @return List of actions that this statement either allows or denies. For example, `[&#34;ec2:RunInstances&#34;, &#34;s3:*&#34;]`.
-     * 
-     */
     public List<String> actions() {
         return this.actions == null ? List.of() : this.actions;
     }
-    /**
-     * @return Configuration block for a condition. Detailed below.
-     * 
-     */
     public List<GetPolicyDocumentStatementCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
-    /**
-     * @return Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-     * 
-     */
     public Optional<String> effect() {
         return Optional.ofNullable(this.effect);
     }
-    /**
-     * @return List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-     * 
-     */
     public List<String> notActions() {
         return this.notActions == null ? List.of() : this.notActions;
     }
-    /**
-     * @return Like `principals` except these are principals that the statement does *not* apply to.
-     * 
-     */
     public List<GetPolicyDocumentStatementNotPrincipal> notPrincipals() {
         return this.notPrincipals == null ? List.of() : this.notPrincipals;
     }
-    /**
-     * @return List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-     * 
-     */
     public List<String> notResources() {
         return this.notResources == null ? List.of() : this.notResources;
     }
-    /**
-     * @return Configuration block for principals. Detailed below.
-     * 
-     */
     public List<GetPolicyDocumentStatementPrincipal> principals() {
         return this.principals == null ? List.of() : this.principals;
     }
-    /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
-     * 
-     */
     public List<String> resources() {
         return this.resources == null ? List.of() : this.resources;
     }
-    /**
-     * @return Sid (statement ID) is an identifier for a policy statement.
-     * 
-     */
     public Optional<String> sid() {
         return Optional.ofNullable(this.sid);
     }

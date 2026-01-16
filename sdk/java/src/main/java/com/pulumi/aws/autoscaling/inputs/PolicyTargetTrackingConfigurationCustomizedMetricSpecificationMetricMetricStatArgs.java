@@ -18,62 +18,30 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
 
     public static final PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs Empty = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs();
 
-    /**
-     * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     @Import(name="metric", required=true)
     private Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric;
 
-    /**
-     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     public Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric() {
         return this.metric;
     }
 
-    /**
-     * The period of the metric in seconds.
-     * 
-     */
     @Import(name="period")
     private @Nullable Output<Integer> period;
 
-    /**
-     * @return The period of the metric in seconds.
-     * 
-     */
     public Optional<Output<Integer>> period() {
         return Optional.ofNullable(this.period);
     }
 
-    /**
-     * Statistic of the metrics to return.
-     * 
-     */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
-    /**
-     * @return Statistic of the metrics to return.
-     * 
-     */
     public Output<String> stat() {
         return this.stat;
     }
 
-    /**
-     * Unit of the metrics to return.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
@@ -105,86 +73,38 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             $ = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metric Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric) {
             $.metric = metric;
             return this;
         }
 
-        /**
-         * @param metric Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs metric) {
             return metric(Output.of(metric));
         }
 
-        /**
-         * @param period The period of the metric in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder period(@Nullable Output<Integer> period) {
             $.period = period;
             return this;
         }
 
-        /**
-         * @param period The period of the metric in seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder period(Integer period) {
             return period(Output.of(period));
         }
 
-        /**
-         * @param stat Statistic of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stat(Output<String> stat) {
             $.stat = stat;
             return this;
         }
 
-        /**
-         * @param stat Statistic of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stat(String stat) {
             return stat(Output.of(stat));
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

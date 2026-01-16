@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
-    /**
-     * @return Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
-     * 
-     */
     private Boolean acceptEula;
 
     private ModelContainerModelDataSourceS3DataSourceModelAccessConfig() {}
-    /**
-     * @return Specifies agreement to the model end-user license agreement (EULA). The value must be set to `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
-     * 
-     */
     public Boolean acceptEula() {
         return this.acceptEula;
     }

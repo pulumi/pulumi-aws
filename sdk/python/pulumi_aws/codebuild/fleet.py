@@ -35,20 +35,6 @@ class FleetArgs:
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
-        :param pulumi.Input[_builtins.str] name: Fleet name.
-        :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['FleetScalingConfigurationArgs'] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]] vpc_configs: Configuration block. See `vpc_config` below.
         """
         pulumi.set(__self__, "base_capacity", base_capacity)
         pulumi.set(__self__, "compute_type", compute_type)
@@ -75,9 +61,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> pulumi.Input[_builtins.int]:
-        """
-        Number of machines allocated to the ﬂeet.
-        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -87,9 +70,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
@@ -99,11 +79,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
@@ -113,9 +88,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
-        """
-        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        """
         return pulumi.get(self, "compute_configuration")
 
     @compute_configuration.setter
@@ -125,9 +97,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The service role associated with the compute fleet.
-        """
         return pulumi.get(self, "fleet_service_role")
 
     @fleet_service_role.setter
@@ -137,9 +106,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Machine Image (AMI) of the compute fleet.
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -149,9 +115,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fleet name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -161,9 +124,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        """
         return pulumi.get(self, "overflow_behavior")
 
     @overflow_behavior.setter
@@ -173,9 +133,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -185,9 +142,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationArgs']]:
-        """
-        Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
@@ -197,9 +151,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -209,9 +160,6 @@ class FleetArgs:
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]:
-        """
-        Configuration block. See `vpc_config` below.
-        """
         return pulumi.get(self, "vpc_configs")
 
     @vpc_configs.setter
@@ -241,24 +189,6 @@ class _FleetState:
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Fleet.
-        :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        :param pulumi.Input[_builtins.str] created: Creation time of the fleet.
-        :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
-        :param pulumi.Input[_builtins.str] last_modified: Last modification time of the fleet.
-        :param pulumi.Input[_builtins.str] name: Fleet name.
-        :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['FleetScalingConfigurationArgs'] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]] statuses: Nested attribute containing information about the current status of the fleet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]] vpc_configs: Configuration block. See `vpc_config` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -298,9 +228,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Fleet.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -310,9 +237,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of machines allocated to the ﬂeet.
-        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -322,9 +246,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
-        """
-        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        """
         return pulumi.get(self, "compute_configuration")
 
     @compute_configuration.setter
@@ -334,9 +255,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
@@ -346,9 +264,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def created(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Creation time of the fleet.
-        """
         return pulumi.get(self, "created")
 
     @created.setter
@@ -358,11 +273,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
@@ -372,9 +282,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The service role associated with the compute fleet.
-        """
         return pulumi.get(self, "fleet_service_role")
 
     @fleet_service_role.setter
@@ -384,9 +291,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Machine Image (AMI) of the compute fleet.
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -396,9 +300,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last modification time of the fleet.
-        """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
@@ -408,9 +309,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Fleet name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -420,9 +318,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        """
         return pulumi.get(self, "overflow_behavior")
 
     @overflow_behavior.setter
@@ -432,9 +327,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -444,9 +336,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationArgs']]:
-        """
-        Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
@@ -456,9 +345,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]]]:
-        """
-        Nested attribute containing information about the current status of the fleet.
-        """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
@@ -468,9 +354,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -489,9 +372,6 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]:
-        """
-        Configuration block. See `vpc_config` below.
-        """
         return pulumi.get(self, "vpc_configs")
 
     @vpc_configs.setter
@@ -519,67 +399,9 @@ class Fleet(pulumi.CustomResource):
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         """
-        Provides a CodeBuild Fleet Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codebuild.Fleet("test",
-            base_capacity=2,
-            compute_type="BUILD_GENERAL1_SMALL",
-            environment_type="LINUX_CONTAINER",
-            name="full-example-codebuild-fleet",
-            overflow_behavior="QUEUE",
-            scaling_configuration={
-                "max_capacity": 5,
-                "scaling_type": "TARGET_TRACKING_SCALING",
-                "target_tracking_scaling_configs": [{
-                    "metric_type": "FLEET_UTILIZATION_RATE",
-                    "target_value": 97.5,
-                }],
-            })
-        ```
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.Fleet("example", name="example-codebuild-fleet")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
-
-        Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
-
-        % pulumi import aws_codebuild_fleet.name fleet-name
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
-        :param pulumi.Input[_builtins.str] name: Fleet name.
-        :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]] vpc_configs: Configuration block. See `vpc_config` below.
         """
         ...
     @overload
@@ -588,51 +410,7 @@ class Fleet(pulumi.CustomResource):
                  args: FleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeBuild Fleet Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codebuild.Fleet("test",
-            base_capacity=2,
-            compute_type="BUILD_GENERAL1_SMALL",
-            environment_type="LINUX_CONTAINER",
-            name="full-example-codebuild-fleet",
-            overflow_behavior="QUEUE",
-            scaling_configuration={
-                "max_capacity": 5,
-                "scaling_type": "TARGET_TRACKING_SCALING",
-                "target_tracking_scaling_configs": [{
-                    "metric_type": "FLEET_UTILIZATION_RATE",
-                    "target_value": 97.5,
-                }],
-            })
-        ```
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.Fleet("example", name="example-codebuild-fleet")
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
-
-        Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
-
-        % pulumi import aws_codebuild_fleet.name fleet-name
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -726,24 +504,6 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Fleet.
-        :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        :param pulumi.Input[_builtins.str] created: Creation time of the fleet.
-        :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
-        :param pulumi.Input[_builtins.str] last_modified: Last modification time of the fleet.
-        :param pulumi.Input[_builtins.str] name: Fleet name.
-        :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]] statuses: Nested attribute containing information about the current status of the fleet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]] vpc_configs: Configuration block. See `vpc_config` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -771,123 +531,76 @@ class Fleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Fleet.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of machines allocated to the ﬂeet.
-        """
         return pulumi.get(self, "base_capacity")
 
     @_builtins.property
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> pulumi.Output[Optional['outputs.FleetComputeConfiguration']]:
-        """
-        The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
-        """
         return pulumi.get(self, "compute_configuration")
 
     @_builtins.property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-        """
         return pulumi.get(self, "compute_type")
 
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:
-        """
-        Creation time of the fleet.
-        """
         return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "environment_type")
 
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The service role associated with the compute fleet.
-        """
         return pulumi.get(self, "fleet_service_role")
 
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The Amazon Machine Image (AMI) of the compute fleet.
-        """
         return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last modification time of the fleet.
-        """
         return pulumi.get(self, "last_modified")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Fleet name.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> pulumi.Output[_builtins.str]:
-        """
-        Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        """
         return pulumi.get(self, "overflow_behavior")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> pulumi.Output[Optional['outputs.FleetScalingConfiguration']]:
-        """
-        Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
-        """
         return pulumi.get(self, "scaling_configuration")
 
     @_builtins.property
     @pulumi.getter
     def statuses(self) -> pulumi.Output[Sequence['outputs.FleetStatus']]:
-        """
-        Nested attribute containing information about the current status of the fleet.
-        """
         return pulumi.get(self, "statuses")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -898,8 +611,5 @@ class Fleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> pulumi.Output[Optional[Sequence['outputs.FleetVpcConfig']]]:
-        """
-        Configuration block. See `vpc_config` below.
-        """
         return pulumi.get(self, "vpc_configs")
 

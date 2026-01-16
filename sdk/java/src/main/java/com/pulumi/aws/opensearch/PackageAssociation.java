@@ -13,96 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Opensearch Package Association.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.Domain;
- * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.Package;
- * import com.pulumi.aws.opensearch.PackageArgs;
- * import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;
- * import com.pulumi.aws.opensearch.PackageAssociation;
- * import com.pulumi.aws.opensearch.PackageAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDomain = new Domain("myDomain", DomainArgs.builder()
- *             .domainName("my-opensearch-domain")
- *             .engineVersion("Elasticsearch_7.10")
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType("r4.large.search")
- *                 .build())
- *             .build());
- * 
- *         var example = new Package("example", PackageArgs.builder()
- *             .packageName("example-txt")
- *             .packageSource(PackagePackageSourceArgs.builder()
- *                 .s3BucketName(myOpensearchPackages.bucket())
- *                 .s3Key(exampleAwsS3Object.key())
- *                 .build())
- *             .packageType("TXT-DICTIONARY")
- *             .build());
- * 
- *         var examplePackageAssociation = new PackageAssociation("examplePackageAssociation", PackageAssociationArgs.builder()
- *             .packageId(example.id())
- *             .domainName(myDomain.domainName())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:opensearch/packageAssociation:PackageAssociation")
 public class PackageAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the domain to associate the package with.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Name of the domain to associate the package with.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Internal ID of the package to associate with a domain.
-     * 
-     */
     @Export(name="packageId", refs={String.class}, tree="[0]")
     private Output<String> packageId;
 
-    /**
-     * @return Internal ID of the package to associate with a domain.
-     * 
-     */
     public Output<String> packageId() {
         return this.packageId;
     }
@@ -112,17 +33,9 @@ public class PackageAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> referencePath() {
         return this.referencePath;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

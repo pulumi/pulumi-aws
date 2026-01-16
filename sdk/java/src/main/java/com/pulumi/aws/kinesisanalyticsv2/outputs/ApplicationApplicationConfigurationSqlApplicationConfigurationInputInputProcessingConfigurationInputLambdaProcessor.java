@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
-    /**
-     * @return The ARN of the Lambda function that operates on records in the stream.
-     * 
-     */
     private String resourceArn;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor() {}
-    /**
-     * @return The ARN of the Lambda function that operates on records in the stream.
-     * 
-     */
     public String resourceArn() {
         return this.resourceArn;
     }

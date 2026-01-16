@@ -17,23 +17,9 @@ public final class GameServerGroupAutoScalingPolicyArgs extends com.pulumi.resou
 
     public static final GameServerGroupAutoScalingPolicyArgs Empty = new GameServerGroupAutoScalingPolicyArgs();
 
-    /**
-     * Length of time, in seconds, it takes for a new instance to start
-     * new game server processes and register with GameLift FleetIQ.
-     * Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-     * because it avoids prematurely starting new instances. Defaults to `60`.
-     * 
-     */
     @Import(name="estimatedInstanceWarmup")
     private @Nullable Output<Integer> estimatedInstanceWarmup;
 
-    /**
-     * @return Length of time, in seconds, it takes for a new instance to start
-     * new game server processes and register with GameLift FleetIQ.
-     * Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-     * because it avoids prematurely starting new instances. Defaults to `60`.
-     * 
-     */
     public Optional<Output<Integer>> estimatedInstanceWarmup() {
         return Optional.ofNullable(this.estimatedInstanceWarmup);
     }
@@ -70,29 +56,11 @@ public final class GameServerGroupAutoScalingPolicyArgs extends com.pulumi.resou
             $ = new GameServerGroupAutoScalingPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param estimatedInstanceWarmup Length of time, in seconds, it takes for a new instance to start
-         * new game server processes and register with GameLift FleetIQ.
-         * Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-         * because it avoids prematurely starting new instances. Defaults to `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder estimatedInstanceWarmup(@Nullable Output<Integer> estimatedInstanceWarmup) {
             $.estimatedInstanceWarmup = estimatedInstanceWarmup;
             return this;
         }
 
-        /**
-         * @param estimatedInstanceWarmup Length of time, in seconds, it takes for a new instance to start
-         * new game server processes and register with GameLift FleetIQ.
-         * Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
-         * because it avoids prematurely starting new instances. Defaults to `60`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder estimatedInstanceWarmup(Integer estimatedInstanceWarmup) {
             return estimatedInstanceWarmup(Output.of(estimatedInstanceWarmup));
         }

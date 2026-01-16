@@ -12,105 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSM Contact.
-//
-// > **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `dependsOn` argument for the Contact Resource.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewContact(ctx, "example", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage With All Fields
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewContact(ctx, "example", &ssmcontacts.ContactArgs{
-//				Alias:       pulumi.String("alias"),
-//				DisplayName: pulumi.String("displayName"),
-//				Type:        pulumi.String("ESCALATION"),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the contact.
-//
-// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
-//
-// % pulumi import aws_ssmcontacts_contact.example {ARNValue}
 type Contact struct {
 	pulumi.CustomResourceState
 
-	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
-	Alias pulumi.StringOutput `pulumi:"alias"`
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+	Alias       pulumi.StringOutput    `pulumi:"alias"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of contact engaged. A single contact is type PERSONAL and an escalation
-	// plan is type ESCALATION.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringOutput `pulumi:"type"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewContact registers a new resource with the given unique name, arguments, and options.
@@ -149,43 +60,23 @@ func GetContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Contact resources.
 type contactState struct {
-	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
-	Alias *string `pulumi:"alias"`
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn *string `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	DisplayName *string `pulumi:"displayName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of contact engaged. A single contact is type PERSONAL and an escalation
-	// plan is type ESCALATION.
-	//
-	// The following arguments are optional:
-	Type *string `pulumi:"type"`
+	Alias       *string           `pulumi:"alias"`
+	Arn         *string           `pulumi:"arn"`
+	DisplayName *string           `pulumi:"displayName"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
+	Type        *string           `pulumi:"type"`
 }
 
 type ContactState struct {
-	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
-	Alias pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn pulumi.StringPtrInput
-	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+	Alias       pulumi.StringPtrInput
+	Arn         pulumi.StringPtrInput
 	DisplayName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of contact engaged. A single contact is type PERSONAL and an escalation
-	// plan is type ESCALATION.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	Type        pulumi.StringPtrInput
 }
 
 func (ContactState) ElementType() reflect.Type {
@@ -193,36 +84,20 @@ func (ContactState) ElementType() reflect.Type {
 }
 
 type contactArgs struct {
-	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
-	Alias string `pulumi:"alias"`
-	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
-	DisplayName *string `pulumi:"displayName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of contact engaged. A single contact is type PERSONAL and an escalation
-	// plan is type ESCALATION.
-	//
-	// The following arguments are optional:
-	Type string `pulumi:"type"`
+	Alias       string            `pulumi:"alias"`
+	DisplayName *string           `pulumi:"displayName"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
+	Type        string            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Contact resource.
 type ContactArgs struct {
-	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
-	Alias pulumi.StringInput
-	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+	Alias       pulumi.StringInput
 	DisplayName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of contact engaged. A single contact is type PERSONAL and an escalation
-	// plan is type ESCALATION.
-	//
-	// The following arguments are optional:
-	Type pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	Type        pulumi.StringInput
 }
 
 func (ContactArgs) ElementType() reflect.Type {
@@ -312,40 +187,30 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
-// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 func (o ContactOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
 func (o ContactOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 func (o ContactOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContactOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ContactOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of contact engaged. A single contact is type PERSONAL and an escalation
-// plan is type ESCALATION.
-//
-// The following arguments are optional:
 func (o ContactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

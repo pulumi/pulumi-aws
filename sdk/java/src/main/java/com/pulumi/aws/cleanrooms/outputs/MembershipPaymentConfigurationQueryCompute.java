@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MembershipPaymentConfigurationQueryCompute {
-    /**
-     * @return Indicates whether the collaboration member has accepted to pay for query compute costs.
-     * 
-     */
     private Boolean isResponsible;
 
     private MembershipPaymentConfigurationQueryCompute() {}
-    /**
-     * @return Indicates whether the collaboration member has accepted to pay for query compute costs.
-     * 
-     */
     public Boolean isResponsible() {
         return this.isResponsible;
     }

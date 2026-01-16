@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Workspaces.Inputs
 
     public sealed class DirectorySamlPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
-        /// </summary>
         [Input("relayStateParameterName")]
         public Input<string>? RelayStateParameterName { get; set; }
 
-        /// <summary>
-        /// Status of SAML 2.0 authentication. Default `DISABLED`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The SAML 2.0 identity provider (IdP) user access URL.
-        /// </summary>
         [Input("userAccessUrl")]
         public Input<string>? UserAccessUrl { get; set; }
 

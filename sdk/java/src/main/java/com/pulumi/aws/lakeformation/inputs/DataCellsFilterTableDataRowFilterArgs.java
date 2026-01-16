@@ -16,32 +16,16 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
 
     public static final DataCellsFilterTableDataRowFilterArgs Empty = new DataCellsFilterTableDataRowFilterArgs();
 
-    /**
-     * (Optional) A wildcard that matches all rows.
-     * 
-     */
     @Import(name="allRowsWildcard")
     private @Nullable Output<DataCellsFilterTableDataRowFilterAllRowsWildcardArgs> allRowsWildcard;
 
-    /**
-     * @return (Optional) A wildcard that matches all rows.
-     * 
-     */
     public Optional<Output<DataCellsFilterTableDataRowFilterAllRowsWildcardArgs>> allRowsWildcard() {
         return Optional.ofNullable(this.allRowsWildcard);
     }
 
-    /**
-     * (Optional) A filter expression.
-     * 
-     */
     @Import(name="filterExpression")
     private @Nullable Output<String> filterExpression;
 
-    /**
-     * @return (Optional) A filter expression.
-     * 
-     */
     public Optional<Output<String>> filterExpression() {
         return Optional.ofNullable(this.filterExpression);
     }
@@ -71,44 +55,20 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
             $ = new DataCellsFilterTableDataRowFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allRowsWildcard (Optional) A wildcard that matches all rows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRowsWildcard(@Nullable Output<DataCellsFilterTableDataRowFilterAllRowsWildcardArgs> allRowsWildcard) {
             $.allRowsWildcard = allRowsWildcard;
             return this;
         }
 
-        /**
-         * @param allRowsWildcard (Optional) A wildcard that matches all rows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allRowsWildcard(DataCellsFilterTableDataRowFilterAllRowsWildcardArgs allRowsWildcard) {
             return allRowsWildcard(Output.of(allRowsWildcard));
         }
 
-        /**
-         * @param filterExpression (Optional) A filter expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterExpression(@Nullable Output<String> filterExpression) {
             $.filterExpression = filterExpression;
             return this;
         }
 
-        /**
-         * @param filterExpression (Optional) A filter expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterExpression(String filterExpression) {
             return filterExpression(Output.of(filterExpression));
         }

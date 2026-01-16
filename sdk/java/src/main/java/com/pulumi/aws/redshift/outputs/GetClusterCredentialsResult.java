@@ -19,17 +19,9 @@ public final class GetClusterCredentialsResult {
     private String clusterIdentifier;
     private @Nullable List<String> dbGroups;
     private @Nullable String dbName;
-    /**
-     * @return Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-     * 
-     */
     private String dbPassword;
     private String dbUser;
     private @Nullable Integer durationSeconds;
-    /**
-     * @return Date and time the password in `dbPassword` expires.
-     * 
-     */
     private String expiration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -51,10 +43,6 @@ public final class GetClusterCredentialsResult {
     public Optional<String> dbName() {
         return Optional.ofNullable(this.dbName);
     }
-    /**
-     * @return Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-     * 
-     */
     public String dbPassword() {
         return this.dbPassword;
     }
@@ -64,10 +52,6 @@ public final class GetClusterCredentialsResult {
     public Optional<Integer> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
     }
-    /**
-     * @return Date and time the password in `dbPassword` expires.
-     * 
-     */
     public String expiration() {
         return this.expiration;
     }

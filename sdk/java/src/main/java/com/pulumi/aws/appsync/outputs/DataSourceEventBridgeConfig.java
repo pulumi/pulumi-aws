@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceEventBridgeConfig {
-    /**
-     * @return ARN for the EventBridge bus.
-     * 
-     */
     private String eventBusArn;
 
     private DataSourceEventBridgeConfig() {}
-    /**
-     * @return ARN for the EventBridge bus.
-     * 
-     */
     public String eventBusArn() {
         return this.eventBusArn;
     }

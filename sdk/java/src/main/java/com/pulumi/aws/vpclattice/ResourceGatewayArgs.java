@@ -20,107 +20,51 @@ public final class ResourceGatewayArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ResourceGatewayArgs Empty = new ResourceGatewayArgs();
 
-    /**
-     * IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-     * 
-     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
-    /**
-     * @return IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-     * 
-     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-     * 
-     */
     @Import(name="ipv4AddressesPerEni")
     private @Nullable Output<Integer> ipv4AddressesPerEni;
 
-    /**
-     * @return The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-     * 
-     */
     public Optional<Output<Integer>> ipv4AddressesPerEni() {
         return Optional.ofNullable(this.ipv4AddressesPerEni);
     }
 
-    /**
-     * Name of the resource gateway.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the resource gateway.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * IDs of the VPC subnets in which to create the resource gateway.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return IDs of the VPC subnets in which to create the resource gateway.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -132,21 +76,9 @@ public final class ResourceGatewayArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * ID of the VPC for the resource gateway.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return ID of the VPC for the resource gateway.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -183,169 +115,73 @@ public final class ResourceGatewayArgs extends com.pulumi.resources.ResourceArgs
             $ = new ResourceGatewayArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ipAddressType IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
-        /**
-         * @param ipAddressType IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param ipv4AddressesPerEni The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4AddressesPerEni(@Nullable Output<Integer> ipv4AddressesPerEni) {
             $.ipv4AddressesPerEni = ipv4AddressesPerEni;
             return this;
         }
 
-        /**
-         * @param ipv4AddressesPerEni The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipv4AddressesPerEni(Integer ipv4AddressesPerEni) {
             return ipv4AddressesPerEni(Output.of(ipv4AddressesPerEni));
         }
 
-        /**
-         * @param name Name of the resource gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the resource gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityGroupIds Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds IDs of the VPC subnets in which to create the resource gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds IDs of the VPC subnets in which to create the resource gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds IDs of the VPC subnets in which to create the resource gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -359,27 +195,11 @@ public final class ResourceGatewayArgs extends com.pulumi.resources.ResourceArgs
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId ID of the VPC for the resource gateway.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId ID of the VPC for the resource gateway.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

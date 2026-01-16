@@ -28,11 +28,6 @@ class ThingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
-        :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
-        :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -48,9 +43,6 @@ class ThingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Thing Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60,9 +52,6 @@ class ThingGroupArgs:
     @_builtins.property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the parent Thing Group.
-        """
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
@@ -72,9 +61,6 @@ class ThingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['ThingGroupPropertiesArgs']]:
-        """
-        The Thing Group properties. Defined below.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -84,9 +70,6 @@ class ThingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -96,9 +79,6 @@ class ThingGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -120,13 +100,6 @@ class _ThingGroupState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ThingGroup resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Thing Group.
-        :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
-        :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
-        :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
-        :param pulumi.Input[_builtins.int] version: The current version of the Thing Group record in the registry.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -150,9 +123,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the Thing Group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -171,9 +141,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Thing Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -183,9 +150,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the parent Thing Group.
-        """
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
@@ -195,9 +159,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['ThingGroupPropertiesArgs']]:
-        """
-        The Thing Group properties. Defined below.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -207,9 +168,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -219,9 +177,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value mapping of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -240,9 +195,6 @@ class _ThingGroupState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The current version of the Thing Group record in the registry.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -263,47 +215,9 @@ class ThingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an AWS IoT Thing Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.iot.ThingGroup("parent", name="parent")
-        example = aws.iot.ThingGroup("example",
-            name="example",
-            parent_group_name=parent.name,
-            properties={
-                "attribute_payload": {
-                    "attributes": {
-                        "One": "11111",
-                        "Two": "TwoTwo",
-                    },
-                },
-                "description": "This is my thing group",
-            },
-            tags={
-                "managed": "true",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Things Groups using the name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/thingGroup:ThingGroup example example
-        ```
-
+        Create a ThingGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
-        :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
-        :param pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
         """
         ...
     @overload
@@ -312,40 +226,7 @@ class ThingGroup(pulumi.CustomResource):
                  args: Optional[ThingGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS IoT Thing Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.iot.ThingGroup("parent", name="parent")
-        example = aws.iot.ThingGroup("example",
-            name="example",
-            parent_group_name=parent.name,
-            properties={
-                "attribute_payload": {
-                    "attributes": {
-                        "One": "11111",
-                        "Two": "TwoTwo",
-                    },
-                },
-                "description": "This is my thing group",
-            },
-            tags={
-                "managed": "true",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import IoT Things Groups using the name. For example:
-
-        ```sh
-        $ pulumi import aws:iot/thingGroup:ThingGroup example example
-        ```
-
+        Create a ThingGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ThingGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -410,13 +291,6 @@ class ThingGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Thing Group.
-        :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
-        :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
-        :param pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags
-        :param pulumi.Input[_builtins.int] version: The current version of the Thing Group record in the registry.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -436,9 +310,6 @@ class ThingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the Thing Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -449,41 +320,26 @@ class ThingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Thing Group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="parentGroupName")
     def parent_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the parent Thing Group.
-        """
         return pulumi.get(self, "parent_group_name")
 
     @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Output[Optional['outputs.ThingGroupProperties']]:
-        """
-        The Thing Group properties. Defined below.
-        """
         return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value mapping of resource tags
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -494,8 +350,5 @@ class ThingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The current version of the Thing Group record in the registry.
-        """
         return pulumi.get(self, "version")
 

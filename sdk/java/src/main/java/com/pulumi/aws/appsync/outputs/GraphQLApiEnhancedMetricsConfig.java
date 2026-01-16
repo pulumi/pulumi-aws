@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GraphQLApiEnhancedMetricsConfig {
-    /**
-     * @return How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-     * 
-     */
     private String dataSourceLevelMetricsBehavior;
-    /**
-     * @return How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-     * 
-     */
     private String operationLevelMetricsConfig;
-    /**
-     * @return How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-     * 
-     */
     private String resolverLevelMetricsBehavior;
 
     private GraphQLApiEnhancedMetricsConfig() {}
-    /**
-     * @return How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-     * 
-     */
     public String dataSourceLevelMetricsBehavior() {
         return this.dataSourceLevelMetricsBehavior;
     }
-    /**
-     * @return How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-     * 
-     */
     public String operationLevelMetricsConfig() {
         return this.operationLevelMetricsConfig;
     }
-    /**
-     * @return How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-     * 
-     */
     public String resolverLevelMetricsBehavior() {
         return this.resolverLevelMetricsBehavior;
     }

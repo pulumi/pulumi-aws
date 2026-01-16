@@ -16,89 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTaskExecutionOverridesContainerOverride {
-    /**
-     * @return The command to send to the container that overrides the default command from the Docker image or the task definition.
-     * 
-     */
     private @Nullable List<String> commands;
-    /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition.
-     * 
-     */
     private @Nullable Integer cpu;
-    /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-     * 
-     */
     private @Nullable List<GetTaskExecutionOverridesContainerOverrideEnvironment> environments;
-    /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-     * 
-     */
     private @Nullable Integer memory;
-    /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-     * 
-     */
     private @Nullable Integer memoryReservation;
-    /**
-     * @return The name of the container that receives the override. This parameter is required if any override is specified.
-     * 
-     */
     private String name;
-    /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-     * 
-     */
     private @Nullable List<GetTaskExecutionOverridesContainerOverrideResourceRequirement> resourceRequirements;
 
     private GetTaskExecutionOverridesContainerOverride() {}
-    /**
-     * @return The command to send to the container that overrides the default command from the Docker image or the task definition.
-     * 
-     */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
-    /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition.
-     * 
-     */
     public Optional<Integer> cpu() {
         return Optional.ofNullable(this.cpu);
     }
-    /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
-     * 
-     */
     public List<GetTaskExecutionOverridesContainerOverrideEnvironment> environments() {
         return this.environments == null ? List.of() : this.environments;
     }
-    /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
-     * 
-     */
     public Optional<Integer> memory() {
         return Optional.ofNullable(this.memory);
     }
-    /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-     * 
-     */
     public Optional<Integer> memoryReservation() {
         return Optional.ofNullable(this.memoryReservation);
     }
-    /**
-     * @return The name of the container that receives the override. This parameter is required if any override is specified.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
-     * 
-     */
     public List<GetTaskExecutionOverridesContainerOverrideResourceRequirement> resourceRequirements() {
         return this.resourceRequirements == null ? List.of() : this.resourceRequirements;
     }

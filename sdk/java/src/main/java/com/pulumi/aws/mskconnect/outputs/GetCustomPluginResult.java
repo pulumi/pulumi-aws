@@ -12,51 +12,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomPluginResult {
-    /**
-     * @return the ARN of the custom plugin.
-     * 
-     */
     private String arn;
-    /**
-     * @return a summary description of the custom plugin.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return an ID of the latest successfully created revision of the custom plugin.
-     * 
-     */
     private Integer latestRevision;
     private String name;
     private String region;
-    /**
-     * @return the state of the custom plugin.
-     * 
-     */
     private String state;
-    /**
-     * @return A map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetCustomPluginResult() {}
-    /**
-     * @return the ARN of the custom plugin.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return a summary description of the custom plugin.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -67,10 +39,6 @@ public final class GetCustomPluginResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return an ID of the latest successfully created revision of the custom plugin.
-     * 
-     */
     public Integer latestRevision() {
         return this.latestRevision;
     }
@@ -80,17 +48,9 @@ public final class GetCustomPluginResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return the state of the custom plugin.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return A map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

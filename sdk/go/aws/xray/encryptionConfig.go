@@ -12,121 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates and manages an AWS XRay Encryption Config.
-//
-// > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewEncryptionConfig(ctx, "example", &xray.EncryptionConfigArgs{
-//				Type: pulumi.String("NONE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With KMS Key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"kms:*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description:          pulumi.String("Some Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = xray.NewEncryptionConfig(ctx, "example", &xray.EncryptionConfigArgs{
-//				Type:  pulumi.String("KMS"),
-//				KeyId: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import XRay Encryption Config using the region name. For example:
-//
-// ```sh
-// $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
-// ```
 type EncryptionConfig struct {
 	pulumi.CustomResourceState
 
-	// An AWS KMS customer master key (CMK) ARN.
-	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-	Type pulumi.StringOutput `pulumi:"type"`
+	KeyId  pulumi.StringPtrOutput `pulumi:"keyId"`
+	Region pulumi.StringOutput    `pulumi:"region"`
+	Type   pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewEncryptionConfig registers a new resource with the given unique name, arguments, and options.
@@ -162,21 +53,15 @@ func GetEncryptionConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EncryptionConfig resources.
 type encryptionConfigState struct {
-	// An AWS KMS customer master key (CMK) ARN.
-	KeyId *string `pulumi:"keyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	KeyId  *string `pulumi:"keyId"`
 	Region *string `pulumi:"region"`
-	// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-	Type *string `pulumi:"type"`
+	Type   *string `pulumi:"type"`
 }
 
 type EncryptionConfigState struct {
-	// An AWS KMS customer master key (CMK) ARN.
-	KeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	KeyId  pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-	Type pulumi.StringPtrInput
+	Type   pulumi.StringPtrInput
 }
 
 func (EncryptionConfigState) ElementType() reflect.Type {
@@ -184,22 +69,16 @@ func (EncryptionConfigState) ElementType() reflect.Type {
 }
 
 type encryptionConfigArgs struct {
-	// An AWS KMS customer master key (CMK) ARN.
-	KeyId *string `pulumi:"keyId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	KeyId  *string `pulumi:"keyId"`
 	Region *string `pulumi:"region"`
-	// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a EncryptionConfig resource.
 type EncryptionConfigArgs struct {
-	// An AWS KMS customer master key (CMK) ARN.
-	KeyId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	KeyId  pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
-	// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-	Type pulumi.StringInput
+	Type   pulumi.StringInput
 }
 
 func (EncryptionConfigArgs) ElementType() reflect.Type {
@@ -289,17 +168,14 @@ func (o EncryptionConfigOutput) ToEncryptionConfigOutputWithContext(ctx context.
 	return o
 }
 
-// An AWS KMS customer master key (CMK) ARN.
 func (o EncryptionConfigOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionConfig) pulumi.StringPtrOutput { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EncryptionConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EncryptionConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
 func (o EncryptionConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *EncryptionConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

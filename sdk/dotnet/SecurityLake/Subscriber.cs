@@ -9,201 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityLake
 {
-    /// <summary>
-    /// Resource for managing an AWS Security Lake Subscriber.
-    /// 
-    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `DependsOn` statement.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityLake.Subscriber("example", new()
-    ///     {
-    ///         SubscriberName = "example-name",
-    ///         AccessType = "S3",
-    ///         Sources = new[]
-    ///         {
-    ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
-    ///             {
-    ///                 AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
-    ///                 {
-    ///                     SourceName = "ROUTE53",
-    ///                     SourceVersion = "1.0",
-    ///                 },
-    ///             },
-    ///         },
-    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
-    ///         {
-    ///             ExternalId = "example",
-    ///             Principal = "1234567890",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSecuritylakeDataLake,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Multiple Log Sources
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityLake.Subscriber("example", new()
-    ///     {
-    ///         SubscriberName = "example-name",
-    ///         AccessType = "S3",
-    ///         Sources = new[]
-    ///         {
-    ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
-    ///             {
-    ///                 AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
-    ///                 {
-    ///                     SourceName = "SH_FINDINGS",
-    ///                     SourceVersion = "2.0",
-    ///                 },
-    ///             },
-    ///             new Aws.SecurityLake.Inputs.SubscriberSourceArgs
-    ///             {
-    ///                 AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
-    ///                 {
-    ///                     SourceName = "ROUTE53",
-    ///                     SourceVersion = "2.0",
-    ///                 },
-    ///             },
-    ///         },
-    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
-    ///         {
-    ///             ExternalId = "example",
-    ///             Principal = "1234567890",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSecuritylakeDataLake,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:securitylake/subscriber:Subscriber example 9f3bfe79-d543-474d-a93c-f3846805d208
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securitylake/subscriber:Subscriber")]
     public partial class Subscriber : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon S3 or Lake Formation access type.
-        /// </summary>
         [Output("accessType")]
         public Output<string> AccessType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Data Lake.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-        /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource share.
-        /// </summary>
         [Output("resourceShareName")]
         public Output<string> ResourceShareName { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN for the Amazon Security Lake Amazon S3 bucket.
-        /// </summary>
         [Output("s3BucketArn")]
         public Output<string> S3BucketArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `Source` Blocks below.
-        /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.SubscriberSource>> Sources { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for your subscriber account in Security Lake.
-        /// </summary>
         [Output("subscriberDescription")]
         public Output<string?> SubscriberDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// The subscriber endpoint to which exception messages are posted.
-        /// </summary>
         [Output("subscriberEndpoint")]
         public Output<string> SubscriberEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// The AWS identity used to access your data. See `SubscriberIdentity` Block below.
-        /// </summary>
         [Output("subscriberIdentity")]
         public Output<Outputs.SubscriberSubscriberIdentity?> SubscriberIdentity { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of your Security Lake subscriber account.
-        /// </summary>
         [Output("subscriberName")]
         public Output<string?> SubscriberName { get; private set; } = null!;
 
-        /// <summary>
-        /// The subscriber status of the Amazon Security Lake subscriber account.
-        /// </summary>
         [Output("subscriberStatus")]
         public Output<string> SubscriberStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -256,54 +106,31 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class SubscriberArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 or Lake Formation access type.
-        /// </summary>
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("sources")]
         private InputList<Inputs.SubscriberSourceArgs>? _sources;
-
-        /// <summary>
-        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `Source` Blocks below.
-        /// </summary>
         public InputList<Inputs.SubscriberSourceArgs> Sources
         {
             get => _sources ?? (_sources = new InputList<Inputs.SubscriberSourceArgs>());
             set => _sources = value;
         }
 
-        /// <summary>
-        /// The description for your subscriber account in Security Lake.
-        /// </summary>
         [Input("subscriberDescription")]
         public Input<string>? SubscriberDescription { get; set; }
 
-        /// <summary>
-        /// The AWS identity used to access your data. See `SubscriberIdentity` Block below.
-        /// </summary>
         [Input("subscriberIdentity")]
         public Input<Inputs.SubscriberSubscriberIdentityArgs>? SubscriberIdentity { get; set; }
 
-        /// <summary>
-        /// The name of your Security Lake subscriber account.
-        /// </summary>
         [Input("subscriberName")]
         public Input<string>? SubscriberName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -321,96 +148,52 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class SubscriberState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 or Lake Formation access type.
-        /// </summary>
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
-        /// <summary>
-        /// ARN of the Data Lake.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
-        /// </summary>
         [Input("resourceShareArn")]
         public Input<string>? ResourceShareArn { get; set; }
 
-        /// <summary>
-        /// The name of the resource share.
-        /// </summary>
         [Input("resourceShareName")]
         public Input<string>? ResourceShareName { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// The ARN for the Amazon Security Lake Amazon S3 bucket.
-        /// </summary>
         [Input("s3BucketArn")]
         public Input<string>? S3BucketArn { get; set; }
 
         [Input("sources")]
         private InputList<Inputs.SubscriberSourceGetArgs>? _sources;
-
-        /// <summary>
-        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `Source` Blocks below.
-        /// </summary>
         public InputList<Inputs.SubscriberSourceGetArgs> Sources
         {
             get => _sources ?? (_sources = new InputList<Inputs.SubscriberSourceGetArgs>());
             set => _sources = value;
         }
 
-        /// <summary>
-        /// The description for your subscriber account in Security Lake.
-        /// </summary>
         [Input("subscriberDescription")]
         public Input<string>? SubscriberDescription { get; set; }
 
-        /// <summary>
-        /// The subscriber endpoint to which exception messages are posted.
-        /// </summary>
         [Input("subscriberEndpoint")]
         public Input<string>? SubscriberEndpoint { get; set; }
 
-        /// <summary>
-        /// The AWS identity used to access your data. See `SubscriberIdentity` Block below.
-        /// </summary>
         [Input("subscriberIdentity")]
         public Input<Inputs.SubscriberSubscriberIdentityGetArgs>? SubscriberIdentity { get; set; }
 
-        /// <summary>
-        /// The name of your Security Lake subscriber account.
-        /// </summary>
         [Input("subscriberName")]
         public Input<string>? SubscriberName { get; set; }
 
-        /// <summary>
-        /// The subscriber status of the Amazon Security Lake subscriber account.
-        /// </summary>
         [Input("subscriberStatus")]
         public Input<string>? SubscriberStatus { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -419,10 +202,6 @@ namespace Pulumi.Aws.SecurityLake
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

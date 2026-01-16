@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentOutputContext {
-    /**
-     * @return Name of the output context.
-     * 
-     */
     private String name;
-    /**
-     * @return Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-     * 
-     */
     private Integer timeToLiveInSeconds;
-    /**
-     * @return Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-     * 
-     */
     private Integer turnsToLive;
 
     private V2modelsIntentOutputContext() {}
-    /**
-     * @return Name of the output context.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
-     * 
-     */
     public Integer timeToLiveInSeconds() {
         return this.timeToLiveInSeconds;
     }
-    /**
-     * @return Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
-     * 
-     */
     public Integer turnsToLive() {
         return this.turnsToLive;
     }

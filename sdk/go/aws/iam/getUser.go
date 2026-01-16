@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about a specific
-// IAM user. By using this data source, you can reference IAM user
-// properties without having to hard code ARNs or unique IDs as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupUser(ctx, &iam.LookupUserArgs{
-//				UserName: "an_example_user_name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
@@ -52,28 +23,20 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// Map of key-value pairs associated with the user.
-	Tags map[string]string `pulumi:"tags"`
-	// Friendly IAM user name to match.
-	UserName string `pulumi:"userName"`
+	Tags     map[string]string `pulumi:"tags"`
+	UserName string            `pulumi:"userName"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// ARN assigned by AWS for this user.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Path in which this user was created.
-	Path string `pulumi:"path"`
-	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary string `pulumi:"permissionsBoundary"`
-	// Map of key-value pairs associated with the user.
-	Tags map[string]string `pulumi:"tags"`
-	// Unique ID assigned by AWS for this user.
-	UserId string `pulumi:"userId"`
-	// Name associated to this User
-	UserName string `pulumi:"userName"`
+	Id                  string            `pulumi:"id"`
+	Path                string            `pulumi:"path"`
+	PermissionsBoundary string            `pulumi:"permissionsBoundary"`
+	Tags                map[string]string `pulumi:"tags"`
+	UserId              string            `pulumi:"userId"`
+	UserName            string            `pulumi:"userName"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -87,10 +50,8 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// Map of key-value pairs associated with the user.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Friendly IAM user name to match.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	UserName pulumi.StringInput    `pulumi:"userName"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {
@@ -112,7 +73,6 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// ARN assigned by AWS for this user.
 func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -122,27 +82,22 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Path in which this user was created.
 func (o LookupUserResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The ARN of the policy that is used to set the permissions boundary for the user.
 func (o LookupUserResultOutput) PermissionsBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.PermissionsBoundary }).(pulumi.StringOutput)
 }
 
-// Map of key-value pairs associated with the user.
 func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Unique ID assigned by AWS for this user.
 func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// Name associated to this User
 func (o LookupUserResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserName }).(pulumi.StringOutput)
 }

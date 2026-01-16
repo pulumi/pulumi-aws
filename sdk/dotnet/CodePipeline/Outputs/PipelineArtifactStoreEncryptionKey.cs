@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineArtifactStoreEncryptionKey
     {
-        /// <summary>
-        /// The KMS key ARN or ID
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The type of key; currently only `KMS` is supported
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

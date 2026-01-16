@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetHoursOfOperationConfigResult
     {
-        /// <summary>
-        /// Day that the hours of operation applies to.
-        /// </summary>
         public readonly string Day;
-        /// <summary>
-        /// End time block specifies the time that your contact center closes. The `EndTime` is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHoursOfOperationConfigEndTimeResult> EndTimes;
-        /// <summary>
-        /// Start time block specifies the time that your contact center opens. The `StartTime` is documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHoursOfOperationConfigStartTimeResult> StartTimes;
 
         [OutputConstructor]

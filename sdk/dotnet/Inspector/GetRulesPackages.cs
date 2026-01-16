@@ -11,144 +11,12 @@ namespace Pulumi.Aws.Inspector
 {
     public static class GetRulesPackages
     {
-        /// <summary>
-        /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
-        /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
-        /// configured in the provider.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
-        /// 
-        ///     // e.g., Use in aws_inspector_assessment_template
-        ///     var @group = new Aws.Inspector.ResourceGroup("group", new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "test", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
-        ///     {
-        ///         Name = "test",
-        ///         ResourceGroupArn = @group.Arn,
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
-        ///     {
-        ///         Name = "Test",
-        ///         TargetArn = assessment.Arn,
-        ///         Duration = 60,
-        ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(GetRulesPackagesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", args ?? new GetRulesPackagesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
-        /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
-        /// configured in the provider.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
-        /// 
-        ///     // e.g., Use in aws_inspector_assessment_template
-        ///     var @group = new Aws.Inspector.ResourceGroup("group", new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "test", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
-        ///     {
-        ///         Name = "test",
-        ///         ResourceGroupArn = @group.Arn,
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
-        ///     {
-        ///         Name = "Test",
-        ///         TargetArn = assessment.Arn,
-        ///         Duration = 60,
-        ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRulesPackagesResult> Invoke(GetRulesPackagesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", args ?? new GetRulesPackagesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
-        /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
-        /// configured in the provider.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Declare the data source
-        ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
-        /// 
-        ///     // e.g., Use in aws_inspector_assessment_template
-        ///     var @group = new Aws.Inspector.ResourceGroup("group", new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "test", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var assessment = new Aws.Inspector.AssessmentTarget("assessment", new()
-        ///     {
-        ///         Name = "test",
-        ///         ResourceGroupArn = @group.Arn,
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessment", new()
-        ///     {
-        ///         Name = "Test",
-        ///         TargetArn = assessment.Arn,
-        ///         Duration = 60,
-        ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRulesPackagesResult> Invoke(GetRulesPackagesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", args ?? new GetRulesPackagesInvokeArgs(), options.WithDefaults());
     }
@@ -156,9 +24,6 @@ namespace Pulumi.Aws.Inspector
 
     public sealed class GetRulesPackagesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -170,9 +35,6 @@ namespace Pulumi.Aws.Inspector
 
     public sealed class GetRulesPackagesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -186,9 +48,6 @@ namespace Pulumi.Aws.Inspector
     [OutputType]
     public sealed class GetRulesPackagesResult
     {
-        /// <summary>
-        /// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

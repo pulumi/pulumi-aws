@@ -16,102 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional Geo Match Set Resource
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.GeoMatchSet;
- * import com.pulumi.aws.wafregional.GeoMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.GeoMatchSetGeoMatchConstraintArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var geoMatchSet = new GeoMatchSet("geoMatchSet", GeoMatchSetArgs.builder()
- *             .name("geo_match_set")
- *             .geoMatchConstraints(            
- *                 GeoMatchSetGeoMatchConstraintArgs.builder()
- *                     .type("Country")
- *                     .value("US")
- *                     .build(),
- *                 GeoMatchSetGeoMatchConstraintArgs.builder()
- *                     .type("Country")
- *                     .value("CA")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import WAF Regional Geo Match Set using the id. For example:
- * 
- * ```sh
- * $ pulumi import aws:wafregional/geoMatchSet:GeoMatchSet geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/geoMatchSet:GeoMatchSet")
 public class GeoMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-     * 
-     */
     @Export(name="geoMatchConstraints", refs={List.class,GeoMatchSetGeoMatchConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GeoMatchSetGeoMatchConstraint>> geoMatchConstraints;
 
-    /**
-     * @return The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-     * 
-     */
     public Output<Optional<List<GeoMatchSetGeoMatchConstraint>>> geoMatchConstraints() {
         return Codegen.optional(this.geoMatchConstraints);
     }
-    /**
-     * The name or description of the Geo Match Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the Geo Match Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

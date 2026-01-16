@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeTargetParametersBatchJobParametersArrayProperties
     {
-        /// <summary>
-        /// The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
-        /// </summary>
         public readonly int? Size;
 
         [OutputConstructor]

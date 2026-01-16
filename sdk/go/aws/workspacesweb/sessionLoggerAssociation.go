@@ -12,121 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Session Logger Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePortal, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example-session-logs"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("workspaces-web.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSessionLogger, err := workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
-//				DisplayName: pulumi.String("example"),
-//				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
-//					All: map[string]interface{}{}[0],
-//				},
-//				LogConfiguration: &workspacesweb.SessionLoggerLogConfigurationArgs{
-//					S3: &workspacesweb.SessionLoggerLogConfigurationS3Args{
-//						Bucket:          exampleBucket.ID(),
-//						FolderStructure: pulumi.String("Flat"),
-//						LogFileFormat:   pulumi.String("Json"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewSessionLoggerAssociation(ctx, "example", &workspacesweb.SessionLoggerAssociationArgs{
-//				PortalArn:        examplePortal.PortalArn,
-//				SessionLoggerArn: exampleSessionLogger.SessionLoggerArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
-// ```
 type SessionLoggerAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the web portal.
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the session logger.
-	//
-	// The following arguments are optional:
+	PortalArn        pulumi.StringOutput `pulumi:"portalArn"`
+	Region           pulumi.StringOutput `pulumi:"region"`
 	SessionLoggerArn pulumi.StringOutput `pulumi:"sessionLoggerArn"`
 }
 
@@ -166,24 +56,14 @@ func GetSessionLoggerAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SessionLoggerAssociation resources.
 type sessionLoggerAssociationState struct {
-	// ARN of the web portal.
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the session logger.
-	//
-	// The following arguments are optional:
+	PortalArn        *string `pulumi:"portalArn"`
+	Region           *string `pulumi:"region"`
 	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
 }
 
 type SessionLoggerAssociationState struct {
-	// ARN of the web portal.
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the session logger.
-	//
-	// The following arguments are optional:
+	PortalArn        pulumi.StringPtrInput
+	Region           pulumi.StringPtrInput
 	SessionLoggerArn pulumi.StringPtrInput
 }
 
@@ -192,25 +72,15 @@ func (SessionLoggerAssociationState) ElementType() reflect.Type {
 }
 
 type sessionLoggerAssociationArgs struct {
-	// ARN of the web portal.
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the session logger.
-	//
-	// The following arguments are optional:
-	SessionLoggerArn string `pulumi:"sessionLoggerArn"`
+	PortalArn        string  `pulumi:"portalArn"`
+	Region           *string `pulumi:"region"`
+	SessionLoggerArn string  `pulumi:"sessionLoggerArn"`
 }
 
 // The set of arguments for constructing a SessionLoggerAssociation resource.
 type SessionLoggerAssociationArgs struct {
-	// ARN of the web portal.
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the session logger.
-	//
-	// The following arguments are optional:
+	PortalArn        pulumi.StringInput
+	Region           pulumi.StringPtrInput
 	SessionLoggerArn pulumi.StringInput
 }
 
@@ -301,19 +171,14 @@ func (o SessionLoggerAssociationOutput) ToSessionLoggerAssociationOutputWithCont
 	return o
 }
 
-// ARN of the web portal.
 func (o SessionLoggerAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLoggerAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SessionLoggerAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLoggerAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the session logger.
-//
-// The following arguments are optional:
 func (o SessionLoggerAssociationOutput) SessionLoggerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLoggerAssociation) pulumi.StringOutput { return v.SessionLoggerArn }).(pulumi.StringOutput)
 }

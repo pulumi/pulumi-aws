@@ -15,17 +15,9 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
 
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs();
 
-    /**
-     * Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
-     * 
-     */
     @Import(name="networkAclEntrySet")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs> networkAclEntrySet;
 
-    /**
-     * @return Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
-     * 
-     */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs>> networkAclEntrySet() {
         return Optional.ofNullable(this.networkAclEntrySet);
     }
@@ -54,23 +46,11 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
             $ = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkAclEntrySet Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclEntrySet(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs> networkAclEntrySet) {
             $.networkAclEntrySet = networkAclEntrySet;
             return this;
         }
 
-        /**
-         * @param networkAclEntrySet Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclEntrySet(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs networkAclEntrySet) {
             return networkAclEntrySet(Output.of(networkAclEntrySet));
         }

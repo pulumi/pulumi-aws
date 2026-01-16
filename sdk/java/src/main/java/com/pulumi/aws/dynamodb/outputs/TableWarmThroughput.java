@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableWarmThroughput {
-    /**
-     * @return Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-     * 
-     */
     private @Nullable Integer readUnitsPerSecond;
-    /**
-     * @return Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-     * 
-     */
     private @Nullable Integer writeUnitsPerSecond;
 
     private TableWarmThroughput() {}
-    /**
-     * @return Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-     * 
-     */
     public Optional<Integer> readUnitsPerSecond() {
         return Optional.ofNullable(this.readUnitsPerSecond);
     }
-    /**
-     * @return Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-     * 
-     */
     public Optional<Integer> writeUnitsPerSecond() {
         return Optional.ofNullable(this.writeUnitsPerSecond);
     }

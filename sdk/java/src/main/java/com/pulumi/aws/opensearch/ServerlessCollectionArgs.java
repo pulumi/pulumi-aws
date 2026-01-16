@@ -35,8 +35,6 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
     /**
      * Name of the collection.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -44,24 +42,14 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
     /**
      * @return Name of the collection.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -81,17 +69,9 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.standbyReplicas);
     }
 
-    /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -172,8 +152,6 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
         /**
          * @param name Name of the collection.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -185,8 +163,6 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
         /**
          * @param name Name of the collection.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -194,23 +170,11 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -236,23 +200,11 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
             return standbyReplicas(Output.of(standbyReplicas));
         }
 
-        /**
-         * @param tags A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationSchedulerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
-        /// </summary>
         [Input("maxConcurrentRuns")]
         public Input<int>? MaxConcurrentRuns { get; set; }
 
-        /// <summary>
-        /// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
-        /// </summary>
         [Input("queueTimeoutMinutes")]
         public Input<int>? QueueTimeoutMinutes { get; set; }
 

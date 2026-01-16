@@ -12,113 +12,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchConfigurationEbsBlockDevice {
-    /**
-     * @return Whether the EBS Volume will be deleted on instance termination.
-     * 
-     */
     private Boolean deleteOnTermination;
-    /**
-     * @return Name of the device.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Whether the volume is Encrypted.
-     * 
-     */
     private Boolean encrypted;
-    /**
-     * @return Provisioned IOPs of the volume.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return Whether the device in the block device mapping of the AMI is suppressed.
-     * 
-     */
     private Boolean noDevice;
-    /**
-     * @return Snapshot ID of the mount.
-     * 
-     */
     private String snapshotId;
-    /**
-     * @return Throughput of the volume.
-     * 
-     */
     private Integer throughput;
-    /**
-     * @return Size of the volume.
-     * 
-     */
     private Integer volumeSize;
-    /**
-     * @return Type of the volume.
-     * 
-     */
     private String volumeType;
 
     private GetLaunchConfigurationEbsBlockDevice() {}
-    /**
-     * @return Whether the EBS Volume will be deleted on instance termination.
-     * 
-     */
     public Boolean deleteOnTermination() {
         return this.deleteOnTermination;
     }
-    /**
-     * @return Name of the device.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Whether the volume is Encrypted.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
-    /**
-     * @return Provisioned IOPs of the volume.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return Whether the device in the block device mapping of the AMI is suppressed.
-     * 
-     */
     public Boolean noDevice() {
         return this.noDevice;
     }
-    /**
-     * @return Snapshot ID of the mount.
-     * 
-     */
     public String snapshotId() {
         return this.snapshotId;
     }
-    /**
-     * @return Throughput of the volume.
-     * 
-     */
     public Integer throughput() {
         return this.throughput;
     }
-    /**
-     * @return Size of the volume.
-     * 
-     */
     public Integer volumeSize() {
         return this.volumeSize;
     }
-    /**
-     * @return Type of the volume.
-     * 
-     */
     public String volumeType() {
         return this.volumeType;
     }

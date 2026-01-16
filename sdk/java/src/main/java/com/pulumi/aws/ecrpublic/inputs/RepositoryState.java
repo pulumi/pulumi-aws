@@ -18,32 +18,16 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryState Empty = new RepositoryState();
 
-    /**
-     * Full ARN of the repository.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Full ARN of the repository.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Catalog data configuration for the repository. See below for schema.
-     * 
-     */
     @Import(name="catalogData")
     private @Nullable Output<RepositoryCatalogDataArgs> catalogData;
 
-    /**
-     * @return Catalog data configuration for the repository. See below for schema.
-     * 
-     */
     public Optional<Output<RepositoryCatalogDataArgs>> catalogData() {
         return Optional.ofNullable(this.catalogData);
     }
@@ -55,92 +39,44 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.forceDestroy);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the repository.
-     * 
-     */
     @Import(name="repositoryName")
     private @Nullable Output<String> repositoryName;
 
-    /**
-     * @return Name of the repository.
-     * 
-     */
     public Optional<Output<String>> repositoryName() {
         return Optional.ofNullable(this.repositoryName);
     }
 
-    /**
-     * The URI of the repository.
-     * 
-     */
     @Import(name="repositoryUri")
     private @Nullable Output<String> repositoryUri;
 
-    /**
-     * @return The URI of the repository.
-     * 
-     */
     public Optional<Output<String>> repositoryUri() {
         return Optional.ofNullable(this.repositoryUri);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -177,44 +113,20 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
             $ = new RepositoryState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Full ARN of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Full ARN of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param catalogData Catalog data configuration for the repository. See below for schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogData(@Nullable Output<RepositoryCatalogDataArgs> catalogData) {
             $.catalogData = catalogData;
             return this;
         }
 
-        /**
-         * @param catalogData Catalog data configuration for the repository. See below for schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogData(RepositoryCatalogDataArgs catalogData) {
             return catalogData(Output.of(catalogData));
         }
@@ -228,128 +140,56 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
             return forceDestroy(Output.of(forceDestroy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param registryId The registry ID where the repository was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId The registry ID where the repository was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }
 
-        /**
-         * @param repositoryName Name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(@Nullable Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }
 
-        /**
-         * @param repositoryUri The URI of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryUri(@Nullable Output<String> repositoryUri) {
             $.repositoryUri = repositoryUri;
             return this;
         }
 
-        /**
-         * @param repositoryUri The URI of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryUri(String repositoryUri) {
             return repositoryUri(Output.of(repositoryUri));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

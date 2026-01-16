@@ -15,32 +15,16 @@ public final class GetServerlessVpcEndpointPlainArgs extends com.pulumi.resource
 
     public static final GetServerlessVpcEndpointPlainArgs Empty = new GetServerlessVpcEndpointPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifier of the endpoint.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private String vpcEndpointId;
 
-    /**
-     * @return The unique identifier of the endpoint.
-     * 
-     */
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -70,23 +54,11 @@ public final class GetServerlessVpcEndpointPlainArgs extends com.pulumi.resource
             $ = new GetServerlessVpcEndpointPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The unique identifier of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;

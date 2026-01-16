@@ -14,47 +14,23 @@ public final class BucketMetadataConfigurationMetadataConfigurationDestinationAr
 
     public static final BucketMetadataConfigurationMetadataConfigurationDestinationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationDestinationArgs();
 
-    /**
-     * ARN of the table bucket where the metadata configuration is stored.
-     * 
-     */
     @Import(name="tableBucketArn", required=true)
     private Output<String> tableBucketArn;
 
-    /**
-     * @return ARN of the table bucket where the metadata configuration is stored.
-     * 
-     */
     public Output<String> tableBucketArn() {
         return this.tableBucketArn;
     }
 
-    /**
-     * Type of the table bucket where the metadata configuration is stored.
-     * 
-     */
     @Import(name="tableBucketType", required=true)
     private Output<String> tableBucketType;
 
-    /**
-     * @return Type of the table bucket where the metadata configuration is stored.
-     * 
-     */
     public Output<String> tableBucketType() {
         return this.tableBucketType;
     }
 
-    /**
-     * Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-     * 
-     */
     @Import(name="tableNamespace", required=true)
     private Output<String> tableNamespace;
 
-    /**
-     * @return Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-     * 
-     */
     public Output<String> tableNamespace() {
         return this.tableNamespace;
     }
@@ -85,65 +61,29 @@ public final class BucketMetadataConfigurationMetadataConfigurationDestinationAr
             $ = new BucketMetadataConfigurationMetadataConfigurationDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tableBucketArn ARN of the table bucket where the metadata configuration is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(Output<String> tableBucketArn) {
             $.tableBucketArn = tableBucketArn;
             return this;
         }
 
-        /**
-         * @param tableBucketArn ARN of the table bucket where the metadata configuration is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketArn(String tableBucketArn) {
             return tableBucketArn(Output.of(tableBucketArn));
         }
 
-        /**
-         * @param tableBucketType Type of the table bucket where the metadata configuration is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketType(Output<String> tableBucketType) {
             $.tableBucketType = tableBucketType;
             return this;
         }
 
-        /**
-         * @param tableBucketType Type of the table bucket where the metadata configuration is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableBucketType(String tableBucketType) {
             return tableBucketType(Output.of(tableBucketType));
         }
 
-        /**
-         * @param tableNamespace Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableNamespace(Output<String> tableNamespace) {
             $.tableNamespace = tableNamespace;
             return this;
         }
 
-        /**
-         * @param tableNamespace Namespace in the table bucket where the metadata tables for the metadata configuration are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableNamespace(String tableNamespace) {
             return tableNamespace(Output.of(tableNamespace));
         }

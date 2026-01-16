@@ -13,17 +13,8 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class TableSchemaCompositePartitionKey
     {
-        /// <summary>
-        /// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-        /// </summary>
         public readonly string? EnforcementInRecord;
-        /// <summary>
-        /// The name of the attribute used for a dimension key.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

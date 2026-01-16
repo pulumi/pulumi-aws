@@ -9,96 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail certificate. Use this resource to create and manage SSL/TLS certificates for securing custom domains with your Lightsail resources.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.Certificate("example", new()
-    ///     {
-    ///         Name = "example-certificate",
-    ///         DomainName = "example.com",
-    ///         SubjectAlternativeNames = new[]
-    ///         {
-    ///             "www.example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/certificate:Certificate example example-certificate
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the certificate.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time when the certificate was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain name for which the certificate should be issued.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
-        /// </summary>
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the certificate.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. `DomainName` attribute is automatically added as a Subject Alternative Name.
-        /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -148,32 +85,17 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Domain name for which the certificate should be issued.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Name of the certificate.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
-
-        /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. `DomainName` attribute is automatically added as a Subject Alternative Name.
-        /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
@@ -182,10 +104,6 @@ namespace Pulumi.Aws.LightSail
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -200,56 +118,31 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Date and time when the certificate was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Domain name for which the certificate should be issued.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         [Input("domainValidationOptions")]
         private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
-
-        /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
-        /// </summary>
         public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
             get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionGetArgs>());
             set => _domainValidationOptions = value;
         }
 
-        /// <summary>
-        /// Name of the certificate.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
-
-        /// <summary>
-        /// Set of domains that should be SANs in the issued certificate. `DomainName` attribute is automatically added as a Subject Alternative Name.
-        /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
@@ -258,10 +151,6 @@ namespace Pulumi.Aws.LightSail
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -270,10 +159,6 @@ namespace Pulumi.Aws.LightSail
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

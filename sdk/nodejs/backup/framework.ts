@@ -7,104 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Backup Framework resource.
- *
- * > **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.Framework("Example", {
- *     name: "exampleFramework",
- *     description: "this is an example framework",
- *     controls: [
- *         {
- *             name: "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
- *             inputParameters: [{
- *                 name: "requiredRetentionDays",
- *                 value: "35",
- *             }],
- *         },
- *         {
- *             name: "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
- *             inputParameters: [
- *                 {
- *                     name: "requiredFrequencyUnit",
- *                     value: "hours",
- *                 },
- *                 {
- *                     name: "requiredRetentionDays",
- *                     value: "35",
- *                 },
- *                 {
- *                     name: "requiredFrequencyValue",
- *                     value: "1",
- *                 },
- *             ],
- *         },
- *         {
- *             name: "BACKUP_RECOVERY_POINT_ENCRYPTED",
- *         },
- *         {
- *             name: "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
- *             scope: {
- *                 complianceResourceTypes: ["EBS"],
- *             },
- *         },
- *         {
- *             name: "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
- *         },
- *         {
- *             name: "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
- *             inputParameters: [
- *                 {
- *                     name: "maxRetentionDays",
- *                     value: "100",
- *                 },
- *                 {
- *                     name: "minRetentionDays",
- *                     value: "1",
- *                 },
- *             ],
- *             scope: {
- *                 complianceResourceTypes: ["EBS"],
- *             },
- *         },
- *         {
- *             name: "BACKUP_LAST_RECOVERY_POINT_CREATED",
- *             inputParameters: [
- *                 {
- *                     name: "recoveryPointAgeUnit",
- *                     value: "days",
- *                 },
- *                 {
- *                     name: "recoveryPointAgeValue",
- *                     value: "1",
- *                 },
- *             ],
- *             scope: {
- *                 complianceResourceTypes: ["EBS"],
- *             },
- *         },
- *     ],
- *     tags: {
- *         Name: "Example Framework",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/framework:Framework test <id>
- * ```
- */
 export class Framework extends pulumi.CustomResource {
     /**
      * Get an existing Framework resource's state with the given name, ID, and optional extra
@@ -133,45 +35,15 @@ export class Framework extends pulumi.CustomResource {
         return obj['__pulumiType'] === Framework.__pulumiType;
     }
 
-    /**
-     * The ARN of the backup framework.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     */
     declare public readonly controls: pulumi.Output<outputs.backup.FrameworkControl[]>;
-    /**
-     * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
-    /**
-     * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-     */
     declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
-    /**
-     * The description of the framework with a maximum of 1,024 characters
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -222,45 +94,15 @@ export class Framework extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Framework resources.
  */
 export interface FrameworkState {
-    /**
-     * The ARN of the backup framework.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     */
     controls?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControl>[]>;
-    /**
-     * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-     */
     creationTime?: pulumi.Input<string>;
-    /**
-     * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-     */
     deploymentStatus?: pulumi.Input<string>;
-    /**
-     * The description of the framework with a maximum of 1,024 characters
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -268,24 +110,9 @@ export interface FrameworkState {
  * The set of arguments for constructing a Framework resource.
  */
 export interface FrameworkArgs {
-    /**
-     * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     */
     controls: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControl>[]>;
-    /**
-     * The description of the framework with a maximum of 1,024 characters
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -46,9 +46,6 @@ MYPY = False
 if not MYPY:
     class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
         tls_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-        """
 elif False:
     ConfigurationSetDeliveryOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56,18 +53,12 @@ elif False:
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
                  tls_policy: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] tls_policy: Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-        """
         if tls_policy is not None:
             pulumi.set(__self__, "tls_policy", tls_policy)
 
     @_builtins.property
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
-        """
         return pulumi.get(self, "tls_policy")
 
     @tls_policy.setter
@@ -78,9 +69,6 @@ class ConfigurationSetDeliveryOptionsArgs:
 if not MYPY:
     class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
         custom_redirect_domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-        """
 elif False:
     ConfigurationSetTrackingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -88,18 +76,12 @@ elif False:
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
                  custom_redirect_domain: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] custom_redirect_domain: Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-        """
         if custom_redirect_domain is not None:
             pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @_builtins.property
     @pulumi.getter(name="customRedirectDomain")
     def custom_redirect_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
-        """
         return pulumi.get(self, "custom_redirect_domain")
 
     @custom_redirect_domain.setter
@@ -110,17 +92,8 @@ class ConfigurationSetTrackingOptionsArgs:
 if not MYPY:
     class EventDestinationCloudwatchDestinationArgsDict(TypedDict):
         default_value: pulumi.Input[_builtins.str]
-        """
-        The default value for the event
-        """
         dimension_name: pulumi.Input[_builtins.str]
-        """
-        The name for the dimension
-        """
         value_source: pulumi.Input[_builtins.str]
-        """
-        The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
-        """
 elif False:
     EventDestinationCloudwatchDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -130,11 +103,6 @@ class EventDestinationCloudwatchDestinationArgs:
                  default_value: pulumi.Input[_builtins.str],
                  dimension_name: pulumi.Input[_builtins.str],
                  value_source: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] default_value: The default value for the event
-        :param pulumi.Input[_builtins.str] dimension_name: The name for the dimension
-        :param pulumi.Input[_builtins.str] value_source: The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
-        """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "value_source", value_source)
@@ -142,9 +110,6 @@ class EventDestinationCloudwatchDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The default value for the event
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -154,9 +119,6 @@ class EventDestinationCloudwatchDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name for the dimension
-        """
         return pulumi.get(self, "dimension_name")
 
     @dimension_name.setter
@@ -166,9 +128,6 @@ class EventDestinationCloudwatchDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="valueSource")
     def value_source(self) -> pulumi.Input[_builtins.str]:
-        """
-        The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
-        """
         return pulumi.get(self, "value_source")
 
     @value_source.setter
@@ -179,13 +138,7 @@ class EventDestinationCloudwatchDestinationArgs:
 if not MYPY:
     class EventDestinationKinesisDestinationArgsDict(TypedDict):
         role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that has permissions to access the Kinesis Stream
-        """
         stream_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Kinesis Stream
-        """
 elif False:
     EventDestinationKinesisDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -194,19 +147,12 @@ class EventDestinationKinesisDestinationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  stream_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that has permissions to access the Kinesis Stream
-        :param pulumi.Input[_builtins.str] stream_arn: The ARN of the Kinesis Stream
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the role that has permissions to access the Kinesis Stream
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -216,9 +162,6 @@ class EventDestinationKinesisDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the Kinesis Stream
-        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
@@ -229,9 +172,6 @@ class EventDestinationKinesisDestinationArgs:
 if not MYPY:
     class EventDestinationSnsDestinationArgsDict(TypedDict):
         topic_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic
-        """
 elif False:
     EventDestinationSnsDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -239,17 +179,11 @@ elif False:
 class EventDestinationSnsDestinationArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of the SNS topic
-        """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the SNS topic
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -260,17 +194,8 @@ class EventDestinationSnsDestinationArgs:
 if not MYPY:
     class ReceiptRuleAddHeaderActionArgsDict(TypedDict):
         header_name: pulumi.Input[_builtins.str]
-        """
-        The name of the header to add
-        """
         header_value: pulumi.Input[_builtins.str]
-        """
-        The value of the header to add
-        """
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
 elif False:
     ReceiptRuleAddHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -280,11 +205,6 @@ class ReceiptRuleAddHeaderActionArgs:
                  header_name: pulumi.Input[_builtins.str],
                  header_value: pulumi.Input[_builtins.str],
                  position: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.str] header_name: The name of the header to add
-        :param pulumi.Input[_builtins.str] header_value: The value of the header to add
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        """
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "header_value", header_value)
         pulumi.set(__self__, "position", position)
@@ -292,9 +212,6 @@ class ReceiptRuleAddHeaderActionArgs:
     @_builtins.property
     @pulumi.getter(name="headerName")
     def header_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the header to add
-        """
         return pulumi.get(self, "header_name")
 
     @header_name.setter
@@ -304,9 +221,6 @@ class ReceiptRuleAddHeaderActionArgs:
     @_builtins.property
     @pulumi.getter(name="headerValue")
     def header_value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the header to add
-        """
         return pulumi.get(self, "header_value")
 
     @header_value.setter
@@ -316,9 +230,6 @@ class ReceiptRuleAddHeaderActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -329,29 +240,11 @@ class ReceiptRuleAddHeaderActionArgs:
 if not MYPY:
     class ReceiptRuleBounceActionArgsDict(TypedDict):
         message: pulumi.Input[_builtins.str]
-        """
-        The message to send
-        """
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
         sender: pulumi.Input[_builtins.str]
-        """
-        The email address of the sender
-        """
         smtp_reply_code: pulumi.Input[_builtins.str]
-        """
-        The RFC 5321 SMTP reply code
-        """
         status_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The RFC 3463 SMTP enhanced status code
-        """
         topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an SNS topic to notify
-        """
 elif False:
     ReceiptRuleBounceActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -364,14 +257,6 @@ class ReceiptRuleBounceActionArgs:
                  smtp_reply_code: pulumi.Input[_builtins.str],
                  status_code: Optional[pulumi.Input[_builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] message: The message to send
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        :param pulumi.Input[_builtins.str] sender: The email address of the sender
-        :param pulumi.Input[_builtins.str] smtp_reply_code: The RFC 5321 SMTP reply code
-        :param pulumi.Input[_builtins.str] status_code: The RFC 3463 SMTP enhanced status code
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
-        """
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "position", position)
         pulumi.set(__self__, "sender", sender)
@@ -384,9 +269,6 @@ class ReceiptRuleBounceActionArgs:
     @_builtins.property
     @pulumi.getter
     def message(self) -> pulumi.Input[_builtins.str]:
-        """
-        The message to send
-        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -396,9 +278,6 @@ class ReceiptRuleBounceActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -408,9 +287,6 @@ class ReceiptRuleBounceActionArgs:
     @_builtins.property
     @pulumi.getter
     def sender(self) -> pulumi.Input[_builtins.str]:
-        """
-        The email address of the sender
-        """
         return pulumi.get(self, "sender")
 
     @sender.setter
@@ -420,9 +296,6 @@ class ReceiptRuleBounceActionArgs:
     @_builtins.property
     @pulumi.getter(name="smtpReplyCode")
     def smtp_reply_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The RFC 5321 SMTP reply code
-        """
         return pulumi.get(self, "smtp_reply_code")
 
     @smtp_reply_code.setter
@@ -432,9 +305,6 @@ class ReceiptRuleBounceActionArgs:
     @_builtins.property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The RFC 3463 SMTP enhanced status code
-        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -444,9 +314,6 @@ class ReceiptRuleBounceActionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an SNS topic to notify
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -457,21 +324,9 @@ class ReceiptRuleBounceActionArgs:
 if not MYPY:
     class ReceiptRuleLambdaActionArgsDict(TypedDict):
         function_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Lambda function to invoke
-        """
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
         invocation_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        `Event` or `RequestResponse`
-        """
         topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an SNS topic to notify
-        """
 elif False:
     ReceiptRuleLambdaActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -482,12 +337,6 @@ class ReceiptRuleLambdaActionArgs:
                  position: pulumi.Input[_builtins.int],
                  invocation_type: Optional[pulumi.Input[_builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] function_arn: The ARN of the Lambda function to invoke
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        :param pulumi.Input[_builtins.str] invocation_type: `Event` or `RequestResponse`
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
-        """
         pulumi.set(__self__, "function_arn", function_arn)
         pulumi.set(__self__, "position", position)
         if invocation_type is not None:
@@ -498,9 +347,6 @@ class ReceiptRuleLambdaActionArgs:
     @_builtins.property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the Lambda function to invoke
-        """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
@@ -510,9 +356,6 @@ class ReceiptRuleLambdaActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -522,9 +365,6 @@ class ReceiptRuleLambdaActionArgs:
     @_builtins.property
     @pulumi.getter(name="invocationType")
     def invocation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        `Event` or `RequestResponse`
-        """
         return pulumi.get(self, "invocation_type")
 
     @invocation_type.setter
@@ -534,9 +374,6 @@ class ReceiptRuleLambdaActionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an SNS topic to notify
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -547,29 +384,11 @@ class ReceiptRuleLambdaActionArgs:
 if not MYPY:
     class ReceiptRuleS3ActionArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket
-        """
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
         iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
-        """
         kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key
-        """
         object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key prefix of the S3 bucket
-        """
         topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an SNS topic to notify
-        """
 elif False:
     ReceiptRuleS3ActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -582,14 +401,6 @@ class ReceiptRuleS3ActionArgs:
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key
-        :param pulumi.Input[_builtins.str] object_key_prefix: The key prefix of the S3 bucket
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "position", position)
         if iam_role_arn is not None:
@@ -604,9 +415,6 @@ class ReceiptRuleS3ActionArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the S3 bucket
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -616,9 +424,6 @@ class ReceiptRuleS3ActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -628,9 +433,6 @@ class ReceiptRuleS3ActionArgs:
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -640,9 +442,6 @@ class ReceiptRuleS3ActionArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the KMS key
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -652,9 +451,6 @@ class ReceiptRuleS3ActionArgs:
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
     def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The key prefix of the S3 bucket
-        """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
@@ -664,9 +460,6 @@ class ReceiptRuleS3ActionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an SNS topic to notify
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -677,17 +470,8 @@ class ReceiptRuleS3ActionArgs:
 if not MYPY:
     class ReceiptRuleSnsActionArgsDict(TypedDict):
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
         topic_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of an SNS topic to notify
-        """
         encoding: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-        """
 elif False:
     ReceiptRuleSnsActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -697,11 +481,6 @@ class ReceiptRuleSnsActionArgs:
                  position: pulumi.Input[_builtins.int],
                  topic_arn: pulumi.Input[_builtins.str],
                  encoding: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
-        :param pulumi.Input[_builtins.str] encoding: The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-        """
         pulumi.set(__self__, "position", position)
         pulumi.set(__self__, "topic_arn", topic_arn)
         if encoding is not None:
@@ -710,9 +489,6 @@ class ReceiptRuleSnsActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -722,9 +498,6 @@ class ReceiptRuleSnsActionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of an SNS topic to notify
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -734,9 +507,6 @@ class ReceiptRuleSnsActionArgs:
     @_builtins.property
     @pulumi.getter
     def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-        """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
@@ -747,17 +517,8 @@ class ReceiptRuleSnsActionArgs:
 if not MYPY:
     class ReceiptRuleStopActionArgsDict(TypedDict):
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
         scope: pulumi.Input[_builtins.str]
-        """
-        The scope to apply. The only acceptable value is `RuleSet`.
-        """
         topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an SNS topic to notify
-        """
 elif False:
     ReceiptRuleStopActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -767,11 +528,6 @@ class ReceiptRuleStopActionArgs:
                  position: pulumi.Input[_builtins.int],
                  scope: pulumi.Input[_builtins.str],
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        :param pulumi.Input[_builtins.str] scope: The scope to apply. The only acceptable value is `RuleSet`.
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
-        """
         pulumi.set(__self__, "position", position)
         pulumi.set(__self__, "scope", scope)
         if topic_arn is not None:
@@ -780,9 +536,6 @@ class ReceiptRuleStopActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -792,9 +545,6 @@ class ReceiptRuleStopActionArgs:
     @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
-        """
-        The scope to apply. The only acceptable value is `RuleSet`.
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -804,9 +554,6 @@ class ReceiptRuleStopActionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an SNS topic to notify
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -817,17 +564,8 @@ class ReceiptRuleStopActionArgs:
 if not MYPY:
     class ReceiptRuleWorkmailActionArgsDict(TypedDict):
         organization_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the WorkMail organization
-        """
         position: pulumi.Input[_builtins.int]
-        """
-        The position of the action in the receipt rule
-        """
         topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an SNS topic to notify
-        """
 elif False:
     ReceiptRuleWorkmailActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -837,11 +575,6 @@ class ReceiptRuleWorkmailActionArgs:
                  organization_arn: pulumi.Input[_builtins.str],
                  position: pulumi.Input[_builtins.int],
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] organization_arn: The ARN of the WorkMail organization
-        :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
-        :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
-        """
         pulumi.set(__self__, "organization_arn", organization_arn)
         pulumi.set(__self__, "position", position)
         if topic_arn is not None:
@@ -850,9 +583,6 @@ class ReceiptRuleWorkmailActionArgs:
     @_builtins.property
     @pulumi.getter(name="organizationArn")
     def organization_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the WorkMail organization
-        """
         return pulumi.get(self, "organization_arn")
 
     @organization_arn.setter
@@ -862,9 +592,6 @@ class ReceiptRuleWorkmailActionArgs:
     @_builtins.property
     @pulumi.getter
     def position(self) -> pulumi.Input[_builtins.int]:
-        """
-        The position of the action in the receipt rule
-        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -874,9 +601,6 @@ class ReceiptRuleWorkmailActionArgs:
     @_builtins.property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of an SNS topic to notify
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter

@@ -11,105 +11,12 @@ namespace Pulumi.Aws.DataZone
 {
     public static class GetEnvironmentBlueprint
     {
-        /// <summary>
-        /// Data source for managing an AWS DataZone Environment Blueprint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleDomain = new Aws.DataZone.Domain("example", new()
-        ///     {
-        ///         Name = "example_domain",
-        ///         DomainExecutionRole = domainExecutionRole.Arn,
-        ///     });
-        /// 
-        ///     var example = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
-        ///     {
-        ///         DomainId = exampleDomain.Id,
-        ///         Name = "DefaultDataLake",
-        ///         Managed = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEnvironmentBlueprintResult> InvokeAsync(GetEnvironmentBlueprintArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentBlueprintResult>("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args ?? new GetEnvironmentBlueprintArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DataZone Environment Blueprint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleDomain = new Aws.DataZone.Domain("example", new()
-        ///     {
-        ///         Name = "example_domain",
-        ///         DomainExecutionRole = domainExecutionRole.Arn,
-        ///     });
-        /// 
-        ///     var example = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
-        ///     {
-        ///         DomainId = exampleDomain.Id,
-        ///         Name = "DefaultDataLake",
-        ///         Managed = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEnvironmentBlueprintResult> Invoke(GetEnvironmentBlueprintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentBlueprintResult>("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args ?? new GetEnvironmentBlueprintInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS DataZone Environment Blueprint.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleDomain = new Aws.DataZone.Domain("example", new()
-        ///     {
-        ///         Name = "example_domain",
-        ///         DomainExecutionRole = domainExecutionRole.Arn,
-        ///     });
-        /// 
-        ///     var example = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
-        ///     {
-        ///         DomainId = exampleDomain.Id,
-        ///         Name = "DefaultDataLake",
-        ///         Managed = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEnvironmentBlueprintResult> Invoke(GetEnvironmentBlueprintInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentBlueprintResult>("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args ?? new GetEnvironmentBlueprintInvokeArgs(), options.WithDefaults());
     }
@@ -117,27 +24,15 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class GetEnvironmentBlueprintArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the domain.
-        /// </summary>
         [Input("domainId", required: true)]
         public string DomainId { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the blueprint is managed by Amazon DataZone.
-        /// </summary>
         [Input("managed", required: true)]
         public bool Managed { get; set; }
 
-        /// <summary>
-        /// Name of the blueprint.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -149,27 +44,15 @@ namespace Pulumi.Aws.DataZone
 
     public sealed class GetEnvironmentBlueprintInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the domain.
-        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the blueprint is managed by Amazon DataZone.
-        /// </summary>
         [Input("managed", required: true)]
         public Input<bool> Managed { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the blueprint.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -183,18 +66,9 @@ namespace Pulumi.Aws.DataZone
     [OutputType]
     public sealed class GetEnvironmentBlueprintResult
     {
-        /// <summary>
-        /// Provider of the blueprint
-        /// </summary>
         public readonly string BlueprintProvider;
-        /// <summary>
-        /// Description of the blueprint
-        /// </summary>
         public readonly string Description;
         public readonly string DomainId;
-        /// <summary>
-        /// ID of the environment blueprint
-        /// </summary>
         public readonly string Id;
         public readonly bool Managed;
         public readonly string Name;

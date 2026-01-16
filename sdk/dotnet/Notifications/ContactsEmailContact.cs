@@ -9,79 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Notifications
 {
-    /// <summary>
-    /// Resource for managing AWS User Notifications Contacts Email Contact.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Notifications.ContactsEmailContact("example", new()
-    ///     {
-    ///         Name = "example-contact",
-    ///         EmailAddress = "example@example.com",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:notifications/contactsEmailContact:ContactsEmailContact")]
     public partial class ContactsEmailContact : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Email Contact.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Email address for the contact. Must be between 6 and 254 characters and match an email
-        /// pattern.
-        /// </summary>
         [Output("emailAddress")]
         public Output<string> EmailAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-        /// characters, underscores, tildes, periods, and hyphens.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider 
-        /// `DefaultTags` configuration block
-        /// present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider 
-        /// `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -131,30 +73,14 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class ContactsEmailContactArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Email address for the contact. Must be between 6 and 254 characters and match an email
-        /// pattern.
-        /// </summary>
         [Input("emailAddress", required: true)]
         public Input<string> EmailAddress { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-        /// characters, underscores, tildes, periods, and hyphens.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider 
-        /// `DefaultTags` configuration block
-        /// present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -169,36 +95,17 @@ namespace Pulumi.Aws.Notifications
 
     public sealed class ContactsEmailContactState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Email Contact.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Email address for the contact. Must be between 6 and 254 characters and match an email
-        /// pattern.
-        /// </summary>
         [Input("emailAddress")]
         public Input<string>? EmailAddress { get; set; }
 
-        /// <summary>
-        /// Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
-        /// characters, underscores, tildes, periods, and hyphens.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider 
-        /// `DefaultTags` configuration block
-        /// present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -207,11 +114,6 @@ namespace Pulumi.Aws.Notifications
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider 
-        /// `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

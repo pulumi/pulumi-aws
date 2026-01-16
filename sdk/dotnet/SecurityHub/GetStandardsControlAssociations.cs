@@ -11,87 +11,12 @@ namespace Pulumi.Aws.SecurityHub
 {
     public static class GetStandardsControlAssociations
     {
-        /// <summary>
-        /// Data source for managing an AWS Security Hub Standards Control Associations.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testAccount = new Aws.SecurityHub.Account("test");
-        /// 
-        ///     var test = Aws.SecurityHub.GetStandardsControlAssociations.Invoke(new()
-        ///     {
-        ///         SecurityControlId = "IAM.1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetStandardsControlAssociationsResult> InvokeAsync(GetStandardsControlAssociationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandardsControlAssociationsResult>("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args ?? new GetStandardsControlAssociationsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Security Hub Standards Control Associations.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testAccount = new Aws.SecurityHub.Account("test");
-        /// 
-        ///     var test = Aws.SecurityHub.GetStandardsControlAssociations.Invoke(new()
-        ///     {
-        ///         SecurityControlId = "IAM.1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetStandardsControlAssociationsResult> Invoke(GetStandardsControlAssociationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardsControlAssociationsResult>("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args ?? new GetStandardsControlAssociationsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS Security Hub Standards Control Associations.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testAccount = new Aws.SecurityHub.Account("test");
-        /// 
-        ///     var test = Aws.SecurityHub.GetStandardsControlAssociations.Invoke(new()
-        ///     {
-        ///         SecurityControlId = "IAM.1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetStandardsControlAssociationsResult> Invoke(GetStandardsControlAssociationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardsControlAssociationsResult>("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args ?? new GetStandardsControlAssociationsInvokeArgs(), options.WithDefaults());
     }
@@ -99,15 +24,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class GetStandardsControlAssociationsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-        /// </summary>
         [Input("securityControlId", required: true)]
         public string SecurityControlId { get; set; } = null!;
 
@@ -119,15 +38,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class GetStandardsControlAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-        /// </summary>
         [Input("securityControlId", required: true)]
         public Input<string> SecurityControlId { get; set; } = null!;
 
@@ -143,14 +56,7 @@ namespace Pulumi.Aws.SecurityHub
     {
         public readonly string Id;
         public readonly string Region;
-        /// <summary>
-        /// ID of the security control.
-        /// </summary>
         public readonly string SecurityControlId;
-        /// <summary>
-        /// A list that provides the status and other details for each security control that applies to each enabled standard.
-        /// See `StandardsControlAssociations` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardsControlAssociationsStandardsControlAssociationResult> StandardsControlAssociations;
 
         [OutputConstructor]

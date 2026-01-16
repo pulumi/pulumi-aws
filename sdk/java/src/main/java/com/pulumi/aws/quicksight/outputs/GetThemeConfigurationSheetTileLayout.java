@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetThemeConfigurationSheetTileLayout {
-    /**
-     * @return The gutter settings that apply between tiles. See gutter.
-     * 
-     */
     private List<GetThemeConfigurationSheetTileLayoutGutter> gutters;
-    /**
-     * @return The margin settings that apply around the outside edge of sheets. See margin.
-     * 
-     */
     private List<GetThemeConfigurationSheetTileLayoutMargin> margins;
 
     private GetThemeConfigurationSheetTileLayout() {}
-    /**
-     * @return The gutter settings that apply between tiles. See gutter.
-     * 
-     */
     public List<GetThemeConfigurationSheetTileLayoutGutter> gutters() {
         return this.gutters;
     }
-    /**
-     * @return The margin settings that apply around the outside edge of sheets. See margin.
-     * 
-     */
     public List<GetThemeConfigurationSheetTileLayoutMargin> margins() {
         return this.margins;
     }

@@ -9,91 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.LightSail.Lb("example", new()
-    ///     {
-    ///         Name = "example-load-balancer",
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.LightSail.Instance("example", new()
-    ///     {
-    ///         Name = "example-instance",
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_3_0",
-    ///     });
-    /// 
-    ///     var exampleLbAttachment = new Aws.LightSail.LbAttachment("example", new()
-    ///     {
-    ///         LbName = example.Name,
-    ///         InstanceName = exampleInstance.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/lbAttachment:LbAttachment")]
     public partial class LbAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the instance to attach to the load balancer.
-        /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Lightsail load balancer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -143,23 +67,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the instance to attach to the load balancer.
-        /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Lightsail load balancer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -171,23 +84,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the instance to attach to the load balancer.
-        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
-        /// <summary>
-        /// Name of the Lightsail load balancer.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -14,17 +14,9 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs ex
 
     public static final InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs Empty = new InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs();
 
-    /**
-     * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-     * 
-     */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
-    /**
-     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-     * 
-     */
     public Output<String> allocationStrategy() {
         return this.allocationStrategy;
     }
@@ -53,23 +45,11 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs ex
             $ = new InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }

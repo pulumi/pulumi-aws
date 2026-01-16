@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionJobResourcesClusterConfig {
-    /**
-     * @return The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
-     * 
-     */
     private Integer instanceCount;
-    /**
-     * @return The ML compute instance type for the processing job.
-     * 
-     */
     private String instanceType;
-    /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-     * 
-     */
     private @Nullable String volumeKmsKeyId;
-    /**
-     * @return The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-     * 
-     */
     private Integer volumeSizeInGb;
 
     private DataQualityJobDefinitionJobResourcesClusterConfig() {}
-    /**
-     * @return The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
-     * 
-     */
     public Integer instanceCount() {
         return this.instanceCount;
     }
-    /**
-     * @return The ML compute instance type for the processing job.
-     * 
-     */
     public String instanceType() {
         return this.instanceType;
     }
-    /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-     * 
-     */
     public Optional<String> volumeKmsKeyId() {
         return Optional.ofNullable(this.volumeKmsKeyId);
     }
-    /**
-     * @return The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-     * 
-     */
     public Integer volumeSizeInGb() {
         return this.volumeSizeInGb;
     }

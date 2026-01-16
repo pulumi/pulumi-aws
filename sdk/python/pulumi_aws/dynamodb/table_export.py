@@ -34,19 +34,6 @@ class TableExportArgs:
                  s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableExport resource.
-        :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        :param pulumi.Input[_builtins.str] table_arn: ARN associated with the table to export.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        :param pulumi.Input[_builtins.str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        :param pulumi.Input[_builtins.str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] s3_sse_algorithm: Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        :param pulumi.Input[_builtins.str] s3_sse_kms_key_id: ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "table_arn", table_arn)
@@ -72,9 +59,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -84,11 +68,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN associated with the table to export.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
@@ -98,9 +77,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="exportFormat")
     def export_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        """
         return pulumi.get(self, "export_format")
 
     @export_format.setter
@@ -110,9 +86,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="exportTime")
     def export_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        """
         return pulumi.get(self, "export_time")
 
     @export_time.setter
@@ -122,10 +95,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="exportType")
     def export_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-        `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        """
         return pulumi.get(self, "export_type")
 
     @export_type.setter
@@ -144,9 +113,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -156,9 +122,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
     def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the AWS account that owns the bucket the export will be stored in.
-        """
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
@@ -168,9 +131,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
@@ -180,9 +140,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="s3SseAlgorithm")
     def s3_sse_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        """
         return pulumi.get(self, "s3_sse_algorithm")
 
     @s3_sse_algorithm.setter
@@ -192,9 +149,6 @@ class TableExportArgs:
     @_builtins.property
     @pulumi.getter(name="s3SseKmsKeyId")
     def s3_sse_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-        """
         return pulumi.get(self, "s3_sse_kms_key_id")
 
     @s3_sse_kms_key_id.setter
@@ -225,26 +179,6 @@ class _TableExportState:
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableExport resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Table Export.
-        :param pulumi.Input[_builtins.int] billed_size_in_bytes: Billable size of the table export.
-        :param pulumi.Input[_builtins.str] end_time: Time at which the export task completed.
-        :param pulumi.Input[_builtins.str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        :param pulumi.Input[_builtins.str] export_status: Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
-        :param pulumi.Input[_builtins.str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        :param pulumi.Input[_builtins.str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        :param pulumi.Input[_builtins.int] item_count: Number of items exported.
-        :param pulumi.Input[_builtins.str] manifest_files_s3_key: Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        :param pulumi.Input[_builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] s3_sse_algorithm: Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        :param pulumi.Input[_builtins.str] s3_sse_kms_key_id: ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-        :param pulumi.Input[_builtins.str] start_time: Time at which the export task began.
-        :param pulumi.Input[_builtins.str] table_arn: ARN associated with the table to export.
-               
-               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -286,9 +220,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Table Export.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -298,9 +229,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="billedSizeInBytes")
     def billed_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Billable size of the table export.
-        """
         return pulumi.get(self, "billed_size_in_bytes")
 
     @billed_size_in_bytes.setter
@@ -310,9 +238,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time at which the export task completed.
-        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -322,9 +247,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="exportFormat")
     def export_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        """
         return pulumi.get(self, "export_format")
 
     @export_format.setter
@@ -334,9 +256,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="exportStatus")
     def export_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
-        """
         return pulumi.get(self, "export_status")
 
     @export_status.setter
@@ -346,9 +265,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="exportTime")
     def export_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        """
         return pulumi.get(self, "export_time")
 
     @export_time.setter
@@ -358,10 +274,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="exportType")
     def export_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-        `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        """
         return pulumi.get(self, "export_type")
 
     @export_type.setter
@@ -380,9 +292,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="itemCount")
     def item_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of items exported.
-        """
         return pulumi.get(self, "item_count")
 
     @item_count.setter
@@ -392,9 +301,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="manifestFilesS3Key")
     def manifest_files_s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
-        """
         return pulumi.get(self, "manifest_files_s3_key")
 
     @manifest_files_s3_key.setter
@@ -404,9 +310,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -416,9 +319,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -428,9 +328,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
     def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the AWS account that owns the bucket the export will be stored in.
-        """
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
@@ -440,9 +337,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
@@ -452,9 +346,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="s3SseAlgorithm")
     def s3_sse_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        """
         return pulumi.get(self, "s3_sse_algorithm")
 
     @s3_sse_algorithm.setter
@@ -464,9 +355,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="s3SseKmsKeyId")
     def s3_sse_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-        """
         return pulumi.get(self, "s3_sse_kms_key_id")
 
     @s3_sse_kms_key_id.setter
@@ -476,9 +364,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time at which the export task began.
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -488,11 +373,6 @@ class _TableExportState:
     @_builtins.property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN associated with the table to export.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
@@ -519,88 +399,9 @@ class TableExport(pulumi.CustomResource):
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example",
-            bucket_prefix="example",
-            force_destroy=True)
-        example_table = aws.dynamodb.Table("example",
-            name="example-table-1",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="user_id",
-            attributes=[{
-                "name": "user_id",
-                "type": "S",
-            }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
-        example_table_export = aws.dynamodb.TableExport("example",
-            table_arn=example_table.arn,
-            s3_bucket=example.id)
-        ```
-
-        ### Example with export time
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.TableExport("example",
-            export_time="2023-04-02T11:30:13+01:00",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"])
-        ```
-
-        ### Incremental export
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.TableExport("example",
-            export_type="INCREMENTAL_EXPORT",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"],
-            incremental_export_specification={
-                "export_from_time": "2025-02-09T12:00:00+01:00",
-                "export_to_time": "2025-02-09T13:00:00+01:00",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
-
-        Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
-
-        % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
-
+        Create a TableExport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        :param pulumi.Input[_builtins.str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        :param pulumi.Input[_builtins.str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        :param pulumi.Input[_builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] s3_sse_algorithm: Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        :param pulumi.Input[_builtins.str] s3_sse_kms_key_id: ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-        :param pulumi.Input[_builtins.str] table_arn: ARN associated with the table to export.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -609,73 +410,7 @@ class TableExport(pulumi.CustomResource):
                  args: TableExportArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example",
-            bucket_prefix="example",
-            force_destroy=True)
-        example_table = aws.dynamodb.Table("example",
-            name="example-table-1",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="user_id",
-            attributes=[{
-                "name": "user_id",
-                "type": "S",
-            }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
-        example_table_export = aws.dynamodb.TableExport("example",
-            table_arn=example_table.arn,
-            s3_bucket=example.id)
-        ```
-
-        ### Example with export time
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.TableExport("example",
-            export_time="2023-04-02T11:30:13+01:00",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"])
-        ```
-
-        ### Incremental export
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.TableExport("example",
-            export_type="INCREMENTAL_EXPORT",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"],
-            incremental_export_specification={
-                "export_from_time": "2025-02-09T12:00:00+01:00",
-                "export_to_time": "2025-02-09T13:00:00+01:00",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
-
-        Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
-
-        % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
-
+        Create a TableExport resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TableExportArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -768,26 +503,6 @@ class TableExport(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Table Export.
-        :param pulumi.Input[_builtins.int] billed_size_in_bytes: Billable size of the table export.
-        :param pulumi.Input[_builtins.str] end_time: Time at which the export task completed.
-        :param pulumi.Input[_builtins.str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        :param pulumi.Input[_builtins.str] export_status: Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
-        :param pulumi.Input[_builtins.str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        :param pulumi.Input[_builtins.str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        :param pulumi.Input[_builtins.int] item_count: Number of items exported.
-        :param pulumi.Input[_builtins.str] manifest_files_s3_key: Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        :param pulumi.Input[_builtins.str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
-        :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] s3_sse_algorithm: Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        :param pulumi.Input[_builtins.str] s3_sse_kms_key_id: ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-        :param pulumi.Input[_builtins.str] start_time: Time at which the export task began.
-        :param pulumi.Input[_builtins.str] table_arn: ARN associated with the table to export.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -816,58 +531,36 @@ class TableExport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Table Export.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="billedSizeInBytes")
     def billed_size_in_bytes(self) -> pulumi.Output[_builtins.int]:
-        """
-        Billable size of the table export.
-        """
         return pulumi.get(self, "billed_size_in_bytes")
 
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time at which the export task completed.
-        """
         return pulumi.get(self, "end_time")
 
     @_builtins.property
     @pulumi.getter(name="exportFormat")
     def export_format(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
-        """
         return pulumi.get(self, "export_format")
 
     @_builtins.property
     @pulumi.getter(name="exportStatus")
     def export_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
-        """
         return pulumi.get(self, "export_status")
 
     @_builtins.property
     @pulumi.getter(name="exportTime")
     def export_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
-        """
         return pulumi.get(self, "export_time")
 
     @_builtins.property
     @pulumi.getter(name="exportType")
     def export_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-        `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
-        """
         return pulumi.get(self, "export_type")
 
     @_builtins.property
@@ -878,82 +571,50 @@ class TableExport(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="itemCount")
     def item_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        Number of items exported.
-        """
         return pulumi.get(self, "item_count")
 
     @_builtins.property
     @pulumi.getter(name="manifestFilesS3Key")
     def manifest_files_s3_key(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
-        """
         return pulumi.get(self, "manifest_files_s3_key")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
-        """
         return pulumi.get(self, "s3_bucket")
 
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
     def s3_bucket_owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the AWS account that owns the bucket the export will be stored in.
-        """
         return pulumi.get(self, "s3_bucket_owner")
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> pulumi.Output[_builtins.str]:
-        """
-        Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        """
         return pulumi.get(self, "s3_prefix")
 
     @_builtins.property
     @pulumi.getter(name="s3SseAlgorithm")
     def s3_sse_algorithm(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
-        """
         return pulumi.get(self, "s3_sse_algorithm")
 
     @_builtins.property
     @pulumi.getter(name="s3SseKmsKeyId")
     def s3_sse_kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-        """
         return pulumi.get(self, "s3_sse_kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time at which the export task began.
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN associated with the table to export.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "table_arn")
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration
     {
-        /// <summary>
-        /// Monitoring configurations for CloudWatch.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration? CloudWatchMonitoringConfiguration;
-        /// <summary>
-        /// Monitoring configurations for the persistent application UI.
-        /// </summary>
         public readonly string? PersistentAppUi;
-        /// <summary>
-        /// Amazon S3 configuration for monitoring log publishing.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration? S3MonitoringConfiguration;
 
         [OutputConstructor]

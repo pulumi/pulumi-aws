@@ -16,47 +16,23 @@ public final class DistributionConfigurationDistributionSsmParameterConfiguratio
 
     public static final DistributionConfigurationDistributionSsmParameterConfigurationArgs Empty = new DistributionConfigurationDistributionSsmParameterConfigurationArgs();
 
-    /**
-     * AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-     * 
-     */
     @Import(name="amiAccountId")
     private @Nullable Output<String> amiAccountId;
 
-    /**
-     * @return AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-     * 
-     */
     public Optional<Output<String>> amiAccountId() {
         return Optional.ofNullable(this.amiAccountId);
     }
 
-    /**
-     * Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-     * 
-     */
     @Import(name="dataType")
     private @Nullable Output<String> dataType;
 
-    /**
-     * @return Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-     * 
-     */
     public Optional<Output<String>> dataType() {
         return Optional.ofNullable(this.dataType);
     }
 
-    /**
-     * Name of the SSM parameter that will store the AMI ID after distribution.
-     * 
-     */
     @Import(name="parameterName", required=true)
     private Output<String> parameterName;
 
-    /**
-     * @return Name of the SSM parameter that will store the AMI ID after distribution.
-     * 
-     */
     public Output<String> parameterName() {
         return this.parameterName;
     }
@@ -87,65 +63,29 @@ public final class DistributionConfigurationDistributionSsmParameterConfiguratio
             $ = new DistributionConfigurationDistributionSsmParameterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amiAccountId AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amiAccountId(@Nullable Output<String> amiAccountId) {
             $.amiAccountId = amiAccountId;
             return this;
         }
 
-        /**
-         * @param amiAccountId AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amiAccountId(String amiAccountId) {
             return amiAccountId(Output.of(amiAccountId));
         }
 
-        /**
-         * @param dataType Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataType(@Nullable Output<String> dataType) {
             $.dataType = dataType;
             return this;
         }
 
-        /**
-         * @param dataType Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataType(String dataType) {
             return dataType(Output.of(dataType));
         }
 
-        /**
-         * @param parameterName Name of the SSM parameter that will store the AMI ID after distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterName(Output<String> parameterName) {
             $.parameterName = parameterName;
             return this;
         }
 
-        /**
-         * @param parameterName Name of the SSM parameter that will store the AMI ID after distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterName(String parameterName) {
             return parameterName(Output.of(parameterName));
         }

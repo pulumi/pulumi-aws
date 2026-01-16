@@ -15,32 +15,16 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
 
     public static final CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs Empty = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs();
 
-    /**
-     * ARN of the KMS key to use for backup encryption.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return ARN of the KMS key to use for backup encryption.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * AWS region for backup storage.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return AWS region for backup storage.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
             $ = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key to use for backup encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn ARN of the KMS key to use for backup encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param region AWS region for backup storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS region for backup storage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -11,60 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an API Gateway Client Certificate.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
-//				Description: pulumi.String("My client certificate"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
-//
-// ```sh
-// $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
-// ```
 type ClientCertificate struct {
 	pulumi.CustomResourceState
 
-	// ARN
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date when the client certificate was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Description of the client certificate.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Date when the client certificate will expire.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// The PEM-encoded public key of the client certificate.
-	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	CreatedDate           pulumi.StringOutput    `pulumi:"createdDate"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	ExpirationDate        pulumi.StringOutput    `pulumi:"expirationDate"`
+	PemEncodedCertificate pulumi.StringOutput    `pulumi:"pemEncodedCertificate"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewClientCertificate registers a new resource with the given unique name, arguments, and options.
@@ -97,41 +54,25 @@ func GetClientCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClientCertificate resources.
 type clientCertificateState struct {
-	// ARN
-	Arn *string `pulumi:"arn"`
-	// Date when the client certificate was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Description of the client certificate.
-	Description *string `pulumi:"description"`
-	// Date when the client certificate will expire.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The PEM-encoded public key of the client certificate.
-	PemEncodedCertificate *string `pulumi:"pemEncodedCertificate"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                   *string           `pulumi:"arn"`
+	CreatedDate           *string           `pulumi:"createdDate"`
+	Description           *string           `pulumi:"description"`
+	ExpirationDate        *string           `pulumi:"expirationDate"`
+	PemEncodedCertificate *string           `pulumi:"pemEncodedCertificate"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type ClientCertificateState struct {
-	// ARN
-	Arn pulumi.StringPtrInput
-	// Date when the client certificate was created.
-	CreatedDate pulumi.StringPtrInput
-	// Description of the client certificate.
-	Description pulumi.StringPtrInput
-	// Date when the client certificate will expire.
-	ExpirationDate pulumi.StringPtrInput
-	// The PEM-encoded public key of the client certificate.
+	Arn                   pulumi.StringPtrInput
+	CreatedDate           pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	ExpirationDate        pulumi.StringPtrInput
 	PemEncodedCertificate pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (ClientCertificateState) ElementType() reflect.Type {
@@ -139,22 +80,16 @@ func (ClientCertificateState) ElementType() reflect.Type {
 }
 
 type clientCertificateArgs struct {
-	// Description of the client certificate.
-	Description *string `pulumi:"description"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Region      *string           `pulumi:"region"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClientCertificate resource.
 type ClientCertificateArgs struct {
-	// Description of the client certificate.
 	Description pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ClientCertificateArgs) ElementType() reflect.Type {
@@ -244,42 +179,34 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// ARN
 func (o ClientCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date when the client certificate was created.
 func (o ClientCertificateOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the client certificate.
 func (o ClientCertificateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Date when the client certificate will expire.
 func (o ClientCertificateOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded public key of the client certificate.
 func (o ClientCertificateOutput) PemEncodedCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.PemEncodedCertificate }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClientCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClientCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClientCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

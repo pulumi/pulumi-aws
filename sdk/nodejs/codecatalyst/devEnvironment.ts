@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS CodeCatalyst Dev Environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecatalyst.DevEnvironment("test", {
- *     alias: "devenv",
- *     spaceName: "myspace",
- *     projectName: "myproject",
- *     instanceType: "dev.standard1.small",
- *     persistentStorage: {
- *         size: 16,
- *     },
- *     ides: {
- *         name: "PyCharm",
- *         runtime: "public.ecr.aws/jetbrains/py",
- *     },
- *     inactivityTimeoutMinutes: 40,
- *     repositories: [{
- *         repositoryName: "pulumi-provider-aws",
- *         branchName: "main",
- *     }],
- * });
- * ```
- */
 export class DevEnvironment extends pulumi.CustomResource {
     /**
      * Get an existing DevEnvironment resource's state with the given name, ID, and optional extra
@@ -65,39 +36,13 @@ export class DevEnvironment extends pulumi.CustomResource {
     }
 
     declare public readonly alias: pulumi.Output<string | undefined>;
-    /**
-     * Information about the integrated development environment (IDE) configured for a Dev Environment.
-     */
     declare public readonly ides: pulumi.Output<outputs.codecatalyst.DevEnvironmentIdes>;
-    /**
-     * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-     */
     declare public readonly inactivityTimeoutMinutes: pulumi.Output<number | undefined>;
-    /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-     *
-     * The following arguments are optional:
-     */
     declare public readonly instanceType: pulumi.Output<string>;
-    /**
-     * Information about the amount of storage allocated to the Dev Environment.
-     */
     declare public readonly persistentStorage: pulumi.Output<outputs.codecatalyst.DevEnvironmentPersistentStorage>;
-    /**
-     * The name of the project in the space.
-     */
     declare public readonly projectName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The source repository that contains the branch to clone into the Dev Environment.
-     */
     declare public readonly repositories: pulumi.Output<outputs.codecatalyst.DevEnvironmentRepository[] | undefined>;
-    /**
-     * The name of the space.
-     */
     declare public readonly spaceName: pulumi.Output<string>;
 
     /**
@@ -159,39 +104,13 @@ export class DevEnvironment extends pulumi.CustomResource {
  */
 export interface DevEnvironmentState {
     alias?: pulumi.Input<string>;
-    /**
-     * Information about the integrated development environment (IDE) configured for a Dev Environment.
-     */
     ides?: pulumi.Input<inputs.codecatalyst.DevEnvironmentIdes>;
-    /**
-     * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-     */
     inactivityTimeoutMinutes?: pulumi.Input<number>;
-    /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-     *
-     * The following arguments are optional:
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * Information about the amount of storage allocated to the Dev Environment.
-     */
     persistentStorage?: pulumi.Input<inputs.codecatalyst.DevEnvironmentPersistentStorage>;
-    /**
-     * The name of the project in the space.
-     */
     projectName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The source repository that contains the branch to clone into the Dev Environment.
-     */
     repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.DevEnvironmentRepository>[]>;
-    /**
-     * The name of the space.
-     */
     spaceName?: pulumi.Input<string>;
 }
 
@@ -200,38 +119,12 @@ export interface DevEnvironmentState {
  */
 export interface DevEnvironmentArgs {
     alias?: pulumi.Input<string>;
-    /**
-     * Information about the integrated development environment (IDE) configured for a Dev Environment.
-     */
     ides: pulumi.Input<inputs.codecatalyst.DevEnvironmentIdes>;
-    /**
-     * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-     */
     inactivityTimeoutMinutes?: pulumi.Input<number>;
-    /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
-     *
-     * The following arguments are optional:
-     */
     instanceType: pulumi.Input<string>;
-    /**
-     * Information about the amount of storage allocated to the Dev Environment.
-     */
     persistentStorage: pulumi.Input<inputs.codecatalyst.DevEnvironmentPersistentStorage>;
-    /**
-     * The name of the project in the space.
-     */
     projectName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The source repository that contains the branch to clone into the Dev Environment.
-     */
     repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.DevEnvironmentRepository>[]>;
-    /**
-     * The name of the space.
-     */
     spaceName: pulumi.Input<string>;
 }

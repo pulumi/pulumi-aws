@@ -13,63 +13,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMapResult {
-    /**
-     * @return List of configurations that specify the map tile style selected from a partner data provider.
-     * 
-     */
     private List<GetMapConfiguration> configurations;
-    /**
-     * @return Timestamp for when the map resource was created in ISO 8601 format.
-     * 
-     */
     private String createTime;
-    /**
-     * @return Optional description for the map resource.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN for the map resource.
-     * 
-     */
     private String mapArn;
     private String mapName;
     private String region;
-    /**
-     * @return Key-value map of resource tags for the map.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Timestamp for when the map resource was last updated in ISO 8601 format.
-     * 
-     */
     private String updateTime;
 
     private GetMapResult() {}
-    /**
-     * @return List of configurations that specify the map tile style selected from a partner data provider.
-     * 
-     */
     public List<GetMapConfiguration> configurations() {
         return this.configurations;
     }
-    /**
-     * @return Timestamp for when the map resource was created in ISO 8601 format.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return Optional description for the map resource.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -80,10 +44,6 @@ public final class GetMapResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN for the map resource.
-     * 
-     */
     public String mapArn() {
         return this.mapArn;
     }
@@ -93,17 +53,9 @@ public final class GetMapResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Key-value map of resource tags for the map.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Timestamp for when the map resource was last updated in ISO 8601 format.
-     * 
-     */
     public String updateTime() {
         return this.updateTime;
     }

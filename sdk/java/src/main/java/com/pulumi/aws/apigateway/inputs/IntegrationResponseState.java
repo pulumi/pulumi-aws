@@ -16,141 +16,65 @@ public final class IntegrationResponseState extends com.pulumi.resources.Resourc
 
     public static final IntegrationResponseState Empty = new IntegrationResponseState();
 
-    /**
-     * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-     * 
-     */
     @Import(name="contentHandling")
     private @Nullable Output<String> contentHandling;
 
-    /**
-     * @return How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-     * 
-     */
     public Optional<Output<String>> contentHandling() {
         return Optional.ofNullable(this.contentHandling);
     }
 
-    /**
-     * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-     * 
-     */
     @Import(name="httpMethod")
     private @Nullable Output<String> httpMethod;
 
-    /**
-     * @return HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-     * 
-     */
     public Optional<Output<String>> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * API resource ID.
-     * 
-     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
-    /**
-     * @return API resource ID.
-     * 
-     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
 
-    /**
-     * Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
-     * 
-     */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,String>> responseParameters;
 
-    /**
-     * @return Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
-     * 
-     */
     public Optional<Output<Map<String,String>>> responseParameters() {
         return Optional.ofNullable(this.responseParameters);
     }
 
-    /**
-     * Map of templates used to transform the integration response body.
-     * 
-     */
     @Import(name="responseTemplates")
     private @Nullable Output<Map<String,String>> responseTemplates;
 
-    /**
-     * @return Map of templates used to transform the integration response body.
-     * 
-     */
     public Optional<Output<Map<String,String>>> responseTemplates() {
         return Optional.ofNullable(this.responseTemplates);
     }
 
-    /**
-     * ID of the associated REST API.
-     * 
-     */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
-    /**
-     * @return ID of the associated REST API.
-     * 
-     */
     public Optional<Output<String>> restApi() {
         return Optional.ofNullable(this.restApi);
     }
 
-    /**
-     * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-     * 
-     */
     @Import(name="selectionPattern")
     private @Nullable Output<String> selectionPattern;
 
-    /**
-     * @return Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-     * 
-     */
     public Optional<Output<String>> selectionPattern() {
         return Optional.ofNullable(this.selectionPattern);
     }
 
-    /**
-     * HTTP status code.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
-    /**
-     * @return HTTP status code.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
@@ -187,195 +111,83 @@ public final class IntegrationResponseState extends com.pulumi.resources.Resourc
             $ = new IntegrationResponseState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentHandling How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentHandling(@Nullable Output<String> contentHandling) {
             $.contentHandling = contentHandling;
             return this;
         }
 
-        /**
-         * @param contentHandling How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentHandling(String contentHandling) {
             return contentHandling(Output.of(contentHandling));
         }
 
-        /**
-         * @param httpMethod HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpMethod(@Nullable Output<String> httpMethod) {
             $.httpMethod = httpMethod;
             return this;
         }
 
-        /**
-         * @param httpMethod HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpMethod(String httpMethod) {
             return httpMethod(Output.of(httpMethod));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceId API resource ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId API resource ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
-        /**
-         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseParameters(@Nullable Output<Map<String,String>> responseParameters) {
             $.responseParameters = responseParameters;
             return this;
         }
 
-        /**
-         * @param responseParameters Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseParameters(Map<String,String> responseParameters) {
             return responseParameters(Output.of(responseParameters));
         }
 
-        /**
-         * @param responseTemplates Map of templates used to transform the integration response body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseTemplates(@Nullable Output<Map<String,String>> responseTemplates) {
             $.responseTemplates = responseTemplates;
             return this;
         }
 
-        /**
-         * @param responseTemplates Map of templates used to transform the integration response body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseTemplates(Map<String,String> responseTemplates) {
             return responseTemplates(Output.of(responseTemplates));
         }
 
-        /**
-         * @param restApi ID of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(@Nullable Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
-        /**
-         * @param restApi ID of the associated REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }
 
-        /**
-         * @param selectionPattern Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionPattern(@Nullable Output<String> selectionPattern) {
             $.selectionPattern = selectionPattern;
             return this;
         }
 
-        /**
-         * @param selectionPattern Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionPattern(String selectionPattern) {
             return selectionPattern(Output.of(selectionPattern));
         }
 
-        /**
-         * @param statusCode HTTP status code.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(@Nullable Output<String> statusCode) {
             $.statusCode = statusCode;
             return this;
         }
 
-        /**
-         * @param statusCode HTTP status code.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder statusCode(String statusCode) {
             return statusCode(Output.of(statusCode));
         }

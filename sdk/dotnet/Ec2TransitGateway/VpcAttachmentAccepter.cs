@@ -9,129 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.
-    /// 
-    /// When a cross-account (requester's AWS account differs from the accepter's AWS account) EC2 Transit Gateway VPC Attachment
-    /// is created, an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
-    /// The requester can use the `aws.ec2transitgateway.VpcAttachment` resource to manage its side of the connection
-    /// and the accepter can use the `aws.ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
-    /// connection into management.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example cross-account attachment" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter")]
     public partial class VpcAttachmentAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether Appliance Mode support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Output("applianceModeSupport")]
         public Output<string> ApplianceModeSupport { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether DNS support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Output("dnsSupport")]
         public Output<string> DnsSupport { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether IPv6 support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Output("ipv6Support")]
         public Output<string> Ipv6Support { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether Security Group Referencing Support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Output("securityGroupReferencingSupport")]
         public Output<string> SecurityGroupReferencingSupport { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifiers of EC2 Subnets.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the EC2 Transit Gateway Attachment to manage.
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `True`.
-        /// </summary>
         [Output("transitGatewayDefaultRouteTableAssociation")]
         public Output<bool?> TransitGatewayDefaultRouteTableAssociation { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `True`.
-        /// </summary>
         [Output("transitGatewayDefaultRouteTablePropagation")]
         public Output<bool?> TransitGatewayDefaultRouteTablePropagation { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway.
-        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 VPC.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the AWS account that owns the EC2 VPC.
-        /// </summary>
         [Output("vpcOwnerId")]
         public Output<string> VpcOwnerId { get; private set; } = null!;
 
@@ -181,39 +100,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class VpcAttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The ID of the EC2 Transit Gateway Attachment to manage.
-        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
 
@@ -225,42 +128,23 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class VpcAttachmentAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Appliance Mode support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Input("applianceModeSupport")]
         public Input<string>? ApplianceModeSupport { get; set; }
 
-        /// <summary>
-        /// Whether DNS support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
-        /// <summary>
-        /// Whether IPv6 support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Input("ipv6Support")]
         public Input<string>? Ipv6Support { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Whether Security Group Referencing Support is enabled. Valid values: `Disable`, `Enable`.
-        /// </summary>
         [Input("securityGroupReferencingSupport")]
         public Input<string>? SecurityGroupReferencingSupport { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// Identifiers of EC2 Subnets.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -269,10 +153,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -281,49 +161,27 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The ID of the EC2 Transit Gateway Attachment to manage.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway.
-        /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
-        /// <summary>
-        /// Identifier of the AWS account that owns the EC2 VPC.
-        /// </summary>
         [Input("vpcOwnerId")]
         public Input<string>? VpcOwnerId { get; set; }
 

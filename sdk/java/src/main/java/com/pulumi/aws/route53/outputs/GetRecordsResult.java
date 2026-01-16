@@ -20,10 +20,6 @@ public final class GetRecordsResult {
      */
     private String id;
     private @Nullable String nameRegex;
-    /**
-     * @return The resource records sets.
-     * 
-     */
     private List<GetRecordsResourceRecordSet> resourceRecordSets;
     private String zoneId;
 
@@ -38,10 +34,6 @@ public final class GetRecordsResult {
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
-    /**
-     * @return The resource records sets.
-     * 
-     */
     public List<GetRecordsResourceRecordSet> resourceRecordSets() {
         return this.resourceRecordSets;
     }

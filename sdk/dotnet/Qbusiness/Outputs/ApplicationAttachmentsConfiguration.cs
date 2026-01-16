@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Qbusiness.Outputs
     public sealed class ApplicationAttachmentsConfiguration
     {
         /// <summary>
-        /// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+        /// Status information about whether file upload functionality is activated or deactivated for your end user.
         /// </summary>
         public readonly string AttachmentsControlMode;
 

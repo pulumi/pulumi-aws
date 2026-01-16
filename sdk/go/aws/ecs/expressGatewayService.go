@@ -12,100 +12,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-//
-// Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewExpressGatewayService(ctx, "example", &ecs.ExpressGatewayServiceArgs{
-//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
-//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
-//				PrimaryContainer: &ecs.ExpressGatewayServicePrimaryContainerArgs{
-//					Image: pulumi.String("nginx:latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Service Updates and Deletion
-//
-// ### Updates
-//
-// When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
-//
-// ### Deletion
-//
-// When an Express service is deleted, it enters a `DRAINING` state where existing tasks are allowed to complete gracefully before termination. The deletion process is irreversible - once initiated, the service and all its associated AWS infrastructure (load balancers, target groups, etc.) will be permanently removed. During the draining process, no new tasks are started, and the service becomes unavailable once all tasks have completed.
-//
-// ## Import
-//
-// Using `pulumi import`, import ECS Express Gateway Services using the service ARN. For example:
-//
-// ```sh
-// $ pulumi import aws:ecs/expressGatewayService:ExpressGatewayService example arn:aws:ecs:us-west-2:123456789012:service/my-cluster/my-express-gateway-service
-// ```
 type ExpressGatewayService struct {
 	pulumi.CustomResourceState
 
-	// Name or ARN of the ECS cluster. Defaults to `default`.
-	Cluster pulumi.StringOutput `pulumi:"cluster"`
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-	Cpu pulumi.StringOutput `pulumi:"cpu"`
-	// ARN of the current deployment.
-	CurrentDeployment pulumi.StringOutput `pulumi:"currentDeployment"`
-	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// Path for health check requests. Defaults to `/ping`.
-	HealthCheckPath pulumi.StringOutput `pulumi:"healthCheckPath"`
-	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	InfrastructureRoleArn pulumi.StringOutput `pulumi:"infrastructureRoleArn"`
-	// List of ingress paths with access type and endpoint information.
-	IngressPaths ExpressGatewayServiceIngressPathArrayOutput `pulumi:"ingressPaths"`
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	Cluster               pulumi.StringOutput                                  `pulumi:"cluster"`
+	Cpu                   pulumi.StringOutput                                  `pulumi:"cpu"`
+	CurrentDeployment     pulumi.StringOutput                                  `pulumi:"currentDeployment"`
+	ExecutionRoleArn      pulumi.StringOutput                                  `pulumi:"executionRoleArn"`
+	HealthCheckPath       pulumi.StringOutput                                  `pulumi:"healthCheckPath"`
+	InfrastructureRoleArn pulumi.StringOutput                                  `pulumi:"infrastructureRoleArn"`
+	IngressPaths          ExpressGatewayServiceIngressPathArrayOutput          `pulumi:"ingressPaths"`
 	Memory                pulumi.StringOutput                                  `pulumi:"memory"`
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayOutput `pulumi:"networkConfigurations"`
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrOutput       `pulumi:"primaryContainer"`
-	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         pulumi.StringOutput                           `pulumi:"region"`
-	ScalingTargets ExpressGatewayServiceScalingTargetArrayOutput `pulumi:"scalingTargets"`
-	// ARN of the Express Gateway Service.
-	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
-	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// ARN of the service revision.
-	ServiceRevisionArn pulumi.StringOutput `pulumi:"serviceRevisionArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn pulumi.StringPtrOutput                 `pulumi:"taskRoleArn"`
-	Timeouts    ExpressGatewayServiceTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-	WaitForSteadyState pulumi.BoolOutput `pulumi:"waitForSteadyState"`
+	Region                pulumi.StringOutput                                  `pulumi:"region"`
+	ScalingTargets        ExpressGatewayServiceScalingTargetArrayOutput        `pulumi:"scalingTargets"`
+	ServiceArn            pulumi.StringOutput                                  `pulumi:"serviceArn"`
+	ServiceName           pulumi.StringOutput                                  `pulumi:"serviceName"`
+	ServiceRevisionArn    pulumi.StringOutput                                  `pulumi:"serviceRevisionArn"`
+	Tags                  pulumi.StringMapOutput                               `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput                               `pulumi:"tagsAll"`
+	TaskRoleArn           pulumi.StringPtrOutput                               `pulumi:"taskRoleArn"`
+	Timeouts              ExpressGatewayServiceTimeoutsPtrOutput               `pulumi:"timeouts"`
+	WaitForSteadyState    pulumi.BoolOutput                                    `pulumi:"waitForSteadyState"`
 }
 
 // NewExpressGatewayService registers a new resource with the given unique name, arguments, and options.
@@ -144,85 +73,49 @@ func GetExpressGatewayService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressGatewayService resources.
 type expressGatewayServiceState struct {
-	// Name or ARN of the ECS cluster. Defaults to `default`.
-	Cluster *string `pulumi:"cluster"`
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-	Cpu *string `pulumi:"cpu"`
-	// ARN of the current deployment.
-	CurrentDeployment *string `pulumi:"currentDeployment"`
-	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Path for health check requests. Defaults to `/ping`.
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	InfrastructureRoleArn *string `pulumi:"infrastructureRoleArn"`
-	// List of ingress paths with access type and endpoint information.
-	IngressPaths []ExpressGatewayServiceIngressPath `pulumi:"ingressPaths"`
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	Cluster               *string                                     `pulumi:"cluster"`
+	Cpu                   *string                                     `pulumi:"cpu"`
+	CurrentDeployment     *string                                     `pulumi:"currentDeployment"`
+	ExecutionRoleArn      *string                                     `pulumi:"executionRoleArn"`
+	HealthCheckPath       *string                                     `pulumi:"healthCheckPath"`
+	InfrastructureRoleArn *string                                     `pulumi:"infrastructureRoleArn"`
+	IngressPaths          []ExpressGatewayServiceIngressPath          `pulumi:"ingressPaths"`
 	Memory                *string                                     `pulumi:"memory"`
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
 	PrimaryContainer      *ExpressGatewayServicePrimaryContainer      `pulumi:"primaryContainer"`
-	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         *string                              `pulumi:"region"`
-	ScalingTargets []ExpressGatewayServiceScalingTarget `pulumi:"scalingTargets"`
-	// ARN of the Express Gateway Service.
-	ServiceArn *string `pulumi:"serviceArn"`
-	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-	ServiceName *string `pulumi:"serviceName"`
-	// ARN of the service revision.
-	ServiceRevisionArn *string `pulumi:"serviceRevisionArn"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn *string                        `pulumi:"taskRoleArn"`
-	Timeouts    *ExpressGatewayServiceTimeouts `pulumi:"timeouts"`
-	// Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
+	Region                *string                                     `pulumi:"region"`
+	ScalingTargets        []ExpressGatewayServiceScalingTarget        `pulumi:"scalingTargets"`
+	ServiceArn            *string                                     `pulumi:"serviceArn"`
+	ServiceName           *string                                     `pulumi:"serviceName"`
+	ServiceRevisionArn    *string                                     `pulumi:"serviceRevisionArn"`
+	Tags                  map[string]string                           `pulumi:"tags"`
+	TagsAll               map[string]string                           `pulumi:"tagsAll"`
+	TaskRoleArn           *string                                     `pulumi:"taskRoleArn"`
+	Timeouts              *ExpressGatewayServiceTimeouts              `pulumi:"timeouts"`
+	WaitForSteadyState    *bool                                       `pulumi:"waitForSteadyState"`
 }
 
 type ExpressGatewayServiceState struct {
-	// Name or ARN of the ECS cluster. Defaults to `default`.
-	Cluster pulumi.StringPtrInput
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-	Cpu pulumi.StringPtrInput
-	// ARN of the current deployment.
-	CurrentDeployment pulumi.StringPtrInput
-	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// Path for health check requests. Defaults to `/ping`.
-	HealthCheckPath pulumi.StringPtrInput
-	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
+	Cluster               pulumi.StringPtrInput
+	Cpu                   pulumi.StringPtrInput
+	CurrentDeployment     pulumi.StringPtrInput
+	ExecutionRoleArn      pulumi.StringPtrInput
+	HealthCheckPath       pulumi.StringPtrInput
 	InfrastructureRoleArn pulumi.StringPtrInput
-	// List of ingress paths with access type and endpoint information.
-	IngressPaths ExpressGatewayServiceIngressPathArrayInput
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	IngressPaths          ExpressGatewayServiceIngressPathArrayInput
 	Memory                pulumi.StringPtrInput
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrInput
-	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         pulumi.StringPtrInput
-	ScalingTargets ExpressGatewayServiceScalingTargetArrayInput
-	// ARN of the Express Gateway Service.
-	ServiceArn pulumi.StringPtrInput
-	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-	ServiceName pulumi.StringPtrInput
-	// ARN of the service revision.
-	ServiceRevisionArn pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn pulumi.StringPtrInput
-	Timeouts    ExpressGatewayServiceTimeoutsPtrInput
-	// Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-	WaitForSteadyState pulumi.BoolPtrInput
+	Region                pulumi.StringPtrInput
+	ScalingTargets        ExpressGatewayServiceScalingTargetArrayInput
+	ServiceArn            pulumi.StringPtrInput
+	ServiceName           pulumi.StringPtrInput
+	ServiceRevisionArn    pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	TaskRoleArn           pulumi.StringPtrInput
+	Timeouts              ExpressGatewayServiceTimeoutsPtrInput
+	WaitForSteadyState    pulumi.BoolPtrInput
 }
 
 func (ExpressGatewayServiceState) ElementType() reflect.Type {
@@ -230,66 +123,40 @@ func (ExpressGatewayServiceState) ElementType() reflect.Type {
 }
 
 type expressGatewayServiceArgs struct {
-	// Name or ARN of the ECS cluster. Defaults to `default`.
-	Cluster *string `pulumi:"cluster"`
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-	Cpu *string `pulumi:"cpu"`
-	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// Path for health check requests. Defaults to `/ping`.
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
-	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	Cluster               *string                                     `pulumi:"cluster"`
+	Cpu                   *string                                     `pulumi:"cpu"`
+	ExecutionRoleArn      string                                      `pulumi:"executionRoleArn"`
+	HealthCheckPath       *string                                     `pulumi:"healthCheckPath"`
+	InfrastructureRoleArn string                                      `pulumi:"infrastructureRoleArn"`
 	Memory                *string                                     `pulumi:"memory"`
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
 	PrimaryContainer      *ExpressGatewayServicePrimaryContainer      `pulumi:"primaryContainer"`
-	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         *string                              `pulumi:"region"`
-	ScalingTargets []ExpressGatewayServiceScalingTarget `pulumi:"scalingTargets"`
-	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-	ServiceName *string `pulumi:"serviceName"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn *string                        `pulumi:"taskRoleArn"`
-	Timeouts    *ExpressGatewayServiceTimeouts `pulumi:"timeouts"`
-	// Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
+	Region                *string                                     `pulumi:"region"`
+	ScalingTargets        []ExpressGatewayServiceScalingTarget        `pulumi:"scalingTargets"`
+	ServiceName           *string                                     `pulumi:"serviceName"`
+	Tags                  map[string]string                           `pulumi:"tags"`
+	TaskRoleArn           *string                                     `pulumi:"taskRoleArn"`
+	Timeouts              *ExpressGatewayServiceTimeouts              `pulumi:"timeouts"`
+	WaitForSteadyState    *bool                                       `pulumi:"waitForSteadyState"`
 }
 
 // The set of arguments for constructing a ExpressGatewayService resource.
 type ExpressGatewayServiceArgs struct {
-	// Name or ARN of the ECS cluster. Defaults to `default`.
-	Cluster pulumi.StringPtrInput
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-	Cpu pulumi.StringPtrInput
-	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-	ExecutionRoleArn pulumi.StringInput
-	// Path for health check requests. Defaults to `/ping`.
-	HealthCheckPath pulumi.StringPtrInput
-	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-	//
-	// The following arguments are optional:
+	Cluster               pulumi.StringPtrInput
+	Cpu                   pulumi.StringPtrInput
+	ExecutionRoleArn      pulumi.StringInput
+	HealthCheckPath       pulumi.StringPtrInput
 	InfrastructureRoleArn pulumi.StringInput
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
 	Memory                pulumi.StringPtrInput
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrInput
-	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         pulumi.StringPtrInput
-	ScalingTargets ExpressGatewayServiceScalingTargetArrayInput
-	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-	ServiceName pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn pulumi.StringPtrInput
-	Timeouts    ExpressGatewayServiceTimeoutsPtrInput
-	// Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-	WaitForSteadyState pulumi.BoolPtrInput
+	Region                pulumi.StringPtrInput
+	ScalingTargets        ExpressGatewayServiceScalingTargetArrayInput
+	ServiceName           pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TaskRoleArn           pulumi.StringPtrInput
+	Timeouts              ExpressGatewayServiceTimeoutsPtrInput
+	WaitForSteadyState    pulumi.BoolPtrInput
 }
 
 func (ExpressGatewayServiceArgs) ElementType() reflect.Type {
@@ -379,44 +246,34 @@ func (o ExpressGatewayServiceOutput) ToExpressGatewayServiceOutputWithContext(ct
 	return o
 }
 
-// Name or ARN of the ECS cluster. Defaults to `default`.
 func (o ExpressGatewayServiceOutput) Cluster() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
 }
 
-// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
 func (o ExpressGatewayServiceOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// ARN of the current deployment.
 func (o ExpressGatewayServiceOutput) CurrentDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.CurrentDeployment }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 func (o ExpressGatewayServiceOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// Path for health check requests. Defaults to `/ping`.
 func (o ExpressGatewayServiceOutput) HealthCheckPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.HealthCheckPath }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-//
-// The following arguments are optional:
 func (o ExpressGatewayServiceOutput) InfrastructureRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
 }
 
-// List of ingress paths with access type and endpoint information.
 func (o ExpressGatewayServiceOutput) IngressPaths() ExpressGatewayServiceIngressPathArrayOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceIngressPathArrayOutput { return v.IngressPaths }).(ExpressGatewayServiceIngressPathArrayOutput)
 }
 
-// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
 func (o ExpressGatewayServiceOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Memory }).(pulumi.StringOutput)
 }
@@ -433,7 +290,6 @@ func (o ExpressGatewayServiceOutput) PrimaryContainer() ExpressGatewayServicePri
 	}).(ExpressGatewayServicePrimaryContainerPtrOutput)
 }
 
-// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
 func (o ExpressGatewayServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -442,32 +298,26 @@ func (o ExpressGatewayServiceOutput) ScalingTargets() ExpressGatewayServiceScali
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceScalingTargetArrayOutput { return v.ScalingTargets }).(ExpressGatewayServiceScalingTargetArrayOutput)
 }
 
-// ARN of the Express Gateway Service.
 func (o ExpressGatewayServiceOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }
 
-// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
 func (o ExpressGatewayServiceOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// ARN of the service revision.
 func (o ExpressGatewayServiceOutput) ServiceRevisionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.ServiceRevisionArn }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExpressGatewayServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ExpressGatewayServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 func (o ExpressGatewayServiceOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -476,7 +326,6 @@ func (o ExpressGatewayServiceOutput) Timeouts() ExpressGatewayServiceTimeoutsPtr
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceTimeoutsPtrOutput { return v.Timeouts }).(ExpressGatewayServiceTimeoutsPtrOutput)
 }
 
-// Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
 func (o ExpressGatewayServiceOutput) WaitForSteadyState() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.BoolOutput { return v.WaitForSteadyState }).(pulumi.BoolOutput)
 }

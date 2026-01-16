@@ -15,152 +15,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
- * 
- * &gt; **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `aws.dynamodb.Table` resource `replica` configuration block.
- * 
- * &gt; Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dynamodb.Table;
- * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.dynamodb.GlobalTable;
- * import com.pulumi.aws.dynamodb.GlobalTableArgs;
- * import com.pulumi.aws.dynamodb.inputs.GlobalTableReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var us_east_1 = new Table("us-east-1", TableArgs.builder()
- *             .hashKey("myAttribute")
- *             .name("myTable")
- *             .streamEnabled(true)
- *             .streamViewType("NEW_AND_OLD_IMAGES")
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("myAttribute")
- *                 .type("S")
- *                 .build())
- *             .build());
- * 
- *         var us_west_2 = new Table("us-west-2", TableArgs.builder()
- *             .hashKey("myAttribute")
- *             .name("myTable")
- *             .streamEnabled(true)
- *             .streamViewType("NEW_AND_OLD_IMAGES")
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name("myAttribute")
- *                 .type("S")
- *                 .build())
- *             .build());
- * 
- *         var myTable = new GlobalTable("myTable", GlobalTableArgs.builder()
- *             .name("myTable")
- *             .replicas(            
- *                 GlobalTableReplicaArgs.builder()
- *                     .regionName("us-east-1")
- *                     .build(),
- *                 GlobalTableReplicaArgs.builder()
- *                     .regionName("us-west-2")
- *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     us_east_1,
- *                     us_west_2)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
- * 
- * ```sh
- * $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
- * ```
- * 
- */
 @ResourceType(type="aws:dynamodb/globalTable:GlobalTable")
 public class GlobalTable extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the DynamoDB Global Table
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the DynamoDB Global Table
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     * 
-     */
     @Export(name="replicas", refs={List.class,GlobalTableReplica.class}, tree="[0,1]")
     private Output<List<GlobalTableReplica>> replicas;
 
-    /**
-     * @return Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     * 
-     */
     public Output<List<GlobalTableReplica>> replicas() {
         return this.replicas;
     }

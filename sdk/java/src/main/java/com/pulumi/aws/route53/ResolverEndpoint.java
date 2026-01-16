@@ -18,258 +18,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route 53 Resolver endpoint resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.ResolverEndpoint;
- * import com.pulumi.aws.route53.ResolverEndpointArgs;
- * import com.pulumi.aws.route53.inputs.ResolverEndpointIpAddressArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()
- *             .name("foo")
- *             .direction("INBOUND")
- *             .resolverEndpointType("IPV4")
- *             .securityGroupIds(            
- *                 sg1.id(),
- *                 sg2.id())
- *             .ipAddresses(            
- *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(sn1.id())
- *                     .build(),
- *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(sn2.id())
- *                     .ip("10.0.64.4")
- *                     .build())
- *             .protocols(            
- *                 "Do53",
- *                 "DoH")
- *             .tags(Map.of("Environment", "Prod"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
- * ```
- * 
- */
 @ResourceType(type="aws:route53/resolverEndpoint:ResolverEndpoint")
 public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Route 53 Resolver endpoint.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Route 53 Resolver endpoint.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Direction of DNS queries to or from the Route 53 Resolver endpoint.
-     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-     * 
-     */
     @Export(name="direction", refs={String.class}, tree="[0]")
     private Output<String> direction;
 
-    /**
-     * @return Direction of DNS queries to or from the Route 53 Resolver endpoint.
-     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
-     * 
-     */
     public Output<String> direction() {
         return this.direction;
     }
-    /**
-     * ID of the VPC that you want to create the resolver endpoint in.
-     * 
-     */
     @Export(name="hostVpcId", refs={String.class}, tree="[0]")
     private Output<String> hostVpcId;
 
-    /**
-     * @return ID of the VPC that you want to create the resolver endpoint in.
-     * 
-     */
     public Output<String> hostVpcId() {
         return this.hostVpcId;
     }
-    /**
-     * Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-     * 
-     */
     @Export(name="ipAddresses", refs={List.class,ResolverEndpointIpAddress.class}, tree="[0,1]")
     private Output<List<ResolverEndpointIpAddress>> ipAddresses;
 
-    /**
-     * @return Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-     * 
-     */
     public Output<List<ResolverEndpointIpAddress>> ipAddresses() {
         return this.ipAddresses;
     }
-    /**
-     * Friendly name of the Route 53 Resolver endpoint.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Friendly name of the Route 53 Resolver endpoint.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Protocols you want to use for the Route 53 Resolver endpoint.
-     * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-     * 
-     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protocols;
 
-    /**
-     * @return Protocols you want to use for the Route 53 Resolver endpoint.
-     * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
-     * 
-     */
     public Output<List<String>> protocols() {
         return this.protocols;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Endpoint IP type. This endpoint type is applied to all IP addresses.
-     * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-     * 
-     */
     @Export(name="resolverEndpointType", refs={String.class}, tree="[0]")
     private Output<String> resolverEndpointType;
 
-    /**
-     * @return Endpoint IP type. This endpoint type is applied to all IP addresses.
-     * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
-     * 
-     */
     public Output<String> resolverEndpointType() {
         return this.resolverEndpointType;
     }
-    /**
-     * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-     * 
-     */
     @Export(name="rniEnhancedMetricsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> rniEnhancedMetricsEnabled;
 
-    /**
-     * @return Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-     * 
-     */
     public Output<Boolean> rniEnhancedMetricsEnabled() {
         return this.rniEnhancedMetricsEnabled;
     }
-    /**
-     * ID of one or more security groups that you want to use to control access to this VPC.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return ID of one or more security groups that you want to use to control access to this VPC.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-     * 
-     */
     @Export(name="targetNameServerMetricsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> targetNameServerMetricsEnabled;
 
-    /**
-     * @return Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
-     * 
-     */
     public Output<Boolean> targetNameServerMetricsEnabled() {
         return this.targetNameServerMetricsEnabled;
     }

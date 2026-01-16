@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionLoggingConfig {
-    /**
-     * @return Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
-     * 
-     */
     private @Nullable String bucket;
-    /**
-     * @return Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-     * 
-     */
     private @Nullable Boolean includeCookies;
-    /**
-     * @return Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-     * 
-     */
     private @Nullable String prefix;
 
     private DistributionLoggingConfig() {}
-    /**
-     * @return Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
-     * 
-     */
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
-    /**
-     * @return Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
-     * 
-     */
     public Optional<Boolean> includeCookies() {
         return Optional.ofNullable(this.includeCookies);
     }
-    /**
-     * @return Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

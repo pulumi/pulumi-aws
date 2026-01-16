@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about Outposts Instance Types.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetOutpostInstanceTypes(ctx, &outposts.GetOutpostInstanceTypesArgs{
-//				Arn: exampleAwsOutpostsOutpost.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOutpostInstanceTypes(ctx *pulumi.Context, args *GetOutpostInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetOutpostInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostInstanceTypesResult
@@ -50,9 +23,7 @@ func GetOutpostInstanceTypes(ctx *pulumi.Context, args *GetOutpostInstanceTypesA
 
 // A collection of arguments for invoking getOutpostInstanceTypes.
 type GetOutpostInstanceTypesArgs struct {
-	// Outpost ARN.
-	Arn string `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    string  `pulumi:"arn"`
 	Region *string `pulumi:"region"`
 }
 
@@ -60,8 +31,7 @@ type GetOutpostInstanceTypesArgs struct {
 type GetOutpostInstanceTypesResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of instance types.
+	Id            string   `pulumi:"id"`
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	Region        string   `pulumi:"region"`
 }
@@ -77,9 +47,7 @@ func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceT
 
 // A collection of arguments for invoking getOutpostInstanceTypes.
 type GetOutpostInstanceTypesOutputArgs struct {
-	// Outpost ARN.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Arn    pulumi.StringInput    `pulumi:"arn"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -111,7 +79,6 @@ func (o GetOutpostInstanceTypesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostInstanceTypesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of instance types.
 func (o GetOutpostInstanceTypesResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostInstanceTypesResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }

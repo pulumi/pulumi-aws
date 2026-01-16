@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Billing.Outputs
     [OutputType]
     public sealed class ViewDataFilterExpressionTimeRange
     {
-        /// <summary>
-        /// Inclusive end date of the time range.
-        /// </summary>
         public readonly string BeginDateInclusive;
         public readonly string EndDateInclusive;
 

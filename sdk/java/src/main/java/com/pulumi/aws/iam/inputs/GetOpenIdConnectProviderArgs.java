@@ -16,47 +16,23 @@ public final class GetOpenIdConnectProviderArgs extends com.pulumi.resources.Inv
 
     public static final GetOpenIdConnectProviderArgs Empty = new GetOpenIdConnectProviderArgs();
 
-    /**
-     * ARN of the OpenID Connect provider.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the OpenID Connect provider.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Map of resource tags for the IAM OIDC provider.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the IAM OIDC provider.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * URL of the OpenID Connect provider.
-     * 
-     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
-    /**
-     * @return URL of the OpenID Connect provider.
-     * 
-     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -87,65 +63,29 @@ public final class GetOpenIdConnectProviderArgs extends com.pulumi.resources.Inv
             $ = new GetOpenIdConnectProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param tags Map of resource tags for the IAM OIDC provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags for the IAM OIDC provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param url URL of the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url URL of the OpenID Connect provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

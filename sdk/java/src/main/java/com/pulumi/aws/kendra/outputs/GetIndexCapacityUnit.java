@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIndexCapacityUnit {
-    /**
-     * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-     * 
-     */
     private Integer queryCapacityUnits;
-    /**
-     * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-     * 
-     */
     private Integer storageCapacityUnits;
 
     private GetIndexCapacityUnit() {}
-    /**
-     * @return The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
-     * 
-     */
     public Integer queryCapacityUnits() {
         return this.queryCapacityUnits;
     }
-    /**
-     * @return The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
-     * 
-     */
     public Integer storageCapacityUnits() {
         return this.storageCapacityUnits;
     }

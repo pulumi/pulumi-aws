@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class UserPoolAccountRecoverySettingRecoveryMechanism {
-    /**
-     * @return Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
-     * 
-     */
     private String name;
-    /**
-     * @return Positive integer specifying priority of a method with 1 being the highest priority.
-     * 
-     */
     private Integer priority;
 
     private UserPoolAccountRecoverySettingRecoveryMechanism() {}
-    /**
-     * @return Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Positive integer specifying priority of a method with 1 being the highest priority.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }

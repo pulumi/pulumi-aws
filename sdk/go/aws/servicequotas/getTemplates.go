@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Service Quotas Templates.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.GetTemplates(ctx, &servicequotas.GetTemplatesArgs{
-//				AwsRegion: pulumi.StringRef("us-east-1"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTemplates(ctx *pulumi.Context, args *GetTemplatesArgs, opts ...pulumi.InvokeOption) (*GetTemplatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplatesResult
@@ -52,10 +23,7 @@ func GetTemplates(ctx *pulumi.Context, args *GetTemplatesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getTemplates.
 type GetTemplatesArgs struct {
-	// AWS Region to which the quota increases apply.
 	AwsRegion *string `pulumi:"awsRegion"`
-	// AWS Region to which the quota increases apply. Use `getRegion` instead.
-	//
 	// Deprecated: region is deprecated. Use getRegion instead.
 	Region *string `pulumi:"region"`
 }
@@ -64,11 +32,8 @@ type GetTemplatesArgs struct {
 type GetTemplatesResult struct {
 	AwsRegion *string `pulumi:"awsRegion"`
 	Id        string  `pulumi:"id"`
-	// AWS Region to which the template applies.
-	//
 	// Deprecated: region is deprecated. Use getRegion instead.
-	Region *string `pulumi:"region"`
-	// A list of quota increase templates for specified region. See `templates`.
+	Region    *string                `pulumi:"region"`
 	Templates []GetTemplatesTemplate `pulumi:"templates"`
 }
 
@@ -83,10 +48,7 @@ func GetTemplatesOutput(ctx *pulumi.Context, args GetTemplatesOutputArgs, opts .
 
 // A collection of arguments for invoking getTemplates.
 type GetTemplatesOutputArgs struct {
-	// AWS Region to which the quota increases apply.
 	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
-	// AWS Region to which the quota increases apply. Use `getRegion` instead.
-	//
 	// Deprecated: region is deprecated. Use getRegion instead.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
@@ -118,14 +80,11 @@ func (o GetTemplatesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// AWS Region to which the template applies.
-//
 // Deprecated: region is deprecated. Use getRegion instead.
 func (o GetTemplatesResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTemplatesResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// A list of quota increase templates for specified region. See `templates`.
 func (o GetTemplatesResultOutput) Templates() GetTemplatesTemplateArrayOutput {
 	return o.ApplyT(func(v GetTemplatesResult) []GetTemplatesTemplate { return v.Templates }).(GetTemplatesTemplateArrayOutput)
 }

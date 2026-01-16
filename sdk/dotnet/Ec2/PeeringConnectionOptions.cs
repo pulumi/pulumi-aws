@@ -9,162 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage VPC peering connection options.
-    /// 
-    /// &gt; **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
-    /// both a standalone VPC Peering Connection Options and a VPC Peering Connection
-    /// resource with `Accepter` and `Requester` attributes. Do not manage options for the same VPC peering
-    /// connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
-    /// Doing so will cause a conflict of options and will overwrite the options.
-    /// Using a VPC Peering Connection Options resource decouples management of the connection options from
-    /// management of the VPC Peering Connection and allows options to be set correctly in cross-region and
-    /// cross-account scenarios.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ec2.Vpc("foo", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var bar = new Aws.Ec2.Vpc("bar", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("foo", new()
-    ///     {
-    ///         VpcId = foo.Id,
-    ///         PeerVpcId = bar.Id,
-    ///         AutoAccept = true,
-    ///     });
-    /// 
-    ///     var fooPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("foo", new()
-    ///     {
-    ///         VpcPeeringConnectionId = fooVpcPeeringConnection.Id,
-    ///         Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
-    ///         {
-    ///             AllowRemoteVpcDnsResolution = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Cross-Account Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         EnableDnsSupport = true,
-    ///         EnableDnsHostnames = true,
-    ///     });
-    /// 
-    ///     var peerVpc = new Aws.Ec2.Vpc("peer", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///         EnableDnsSupport = true,
-    ///         EnableDnsHostnames = true,
-    ///     });
-    /// 
-    ///     var peer = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Requester's side of the connection.
-    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peer", new()
-    ///     {
-    ///         VpcId = main.Id,
-    ///         PeerVpcId = peerVpc.Id,
-    ///         PeerOwnerId = peer.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         AutoAccept = false,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Requester" },
-    ///         },
-    ///     });
-    /// 
-    ///     // Accepter's side of the connection.
-    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peer", new()
-    ///     {
-    ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
-    ///         AutoAccept = true,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Accepter" },
-    ///         },
-    ///     });
-    /// 
-    ///     var requester = new Aws.Ec2.PeeringConnectionOptions("requester", new()
-    ///     {
-    ///         VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
-    ///         Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
-    ///         {
-    ///             AllowRemoteVpcDnsResolution = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var accepter = new Aws.Ec2.PeeringConnectionOptions("accepter", new()
-    ///     {
-    ///         VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
-    ///         Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
-    ///         {
-    ///             AllowRemoteVpcDnsResolution = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")]
     public partial class PeeringConnectionOptions : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-        /// </summary>
         [Output("accepter")]
         public Output<Outputs.PeeringConnectionOptionsAccepter> Accepter { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-        /// </summary>
         [Output("requester")]
         public Output<Outputs.PeeringConnectionOptionsRequester> Requester { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the requester VPC peering connection.
-        /// </summary>
         [Output("vpcPeeringConnectionId")]
         public Output<string> VpcPeeringConnectionId { get; private set; } = null!;
 
@@ -214,27 +70,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class PeeringConnectionOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-        /// </summary>
         [Input("accepter")]
         public Input<Inputs.PeeringConnectionOptionsAccepterArgs>? Accepter { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-        /// </summary>
         [Input("requester")]
         public Input<Inputs.PeeringConnectionOptionsRequesterArgs>? Requester { get; set; }
 
-        /// <summary>
-        /// The ID of the requester VPC peering connection.
-        /// </summary>
         [Input("vpcPeeringConnectionId", required: true)]
         public Input<string> VpcPeeringConnectionId { get; set; } = null!;
 
@@ -246,27 +90,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class PeeringConnectionOptionsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
-        /// </summary>
         [Input("accepter")]
         public Input<Inputs.PeeringConnectionOptionsAccepterGetArgs>? Accepter { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
-        /// </summary>
         [Input("requester")]
         public Input<Inputs.PeeringConnectionOptionsRequesterGetArgs>? Requester { get; set; }
 
-        /// <summary>
-        /// The ID of the requester VPC peering connection.
-        /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }
 

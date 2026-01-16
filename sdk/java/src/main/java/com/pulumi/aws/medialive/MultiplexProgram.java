@@ -16,146 +16,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS MediaLive MultiplexProgram.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.medialive.Multiplex;
- * import com.pulumi.aws.medialive.MultiplexArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexMultiplexSettingsArgs;
- * import com.pulumi.aws.medialive.MultiplexProgram;
- * import com.pulumi.aws.medialive.MultiplexProgramArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
- *             .build());
- * 
- *         var example = new Multiplex("example", MultiplexArgs.builder()
- *             .name("example-multiplex-changed")
- *             .availabilityZones(            
- *                 available.names()[0],
- *                 available.names()[1])
- *             .multiplexSettings(MultiplexMultiplexSettingsArgs.builder()
- *                 .transportStreamBitrate(1000000)
- *                 .transportStreamId(1)
- *                 .transportStreamReservedBitrate(1)
- *                 .maximumVideoBufferDelayMilliseconds(1000)
- *                 .build())
- *             .startMultiplex(true)
- *             .tags(Map.of("tag1", "value1"))
- *             .build());
- * 
- *         var exampleMultiplexProgram = new MultiplexProgram("exampleMultiplexProgram", MultiplexProgramArgs.builder()
- *             .programName("example_program")
- *             .multiplexId(example.id())
- *             .multiplexProgramSettings(MultiplexProgramMultiplexProgramSettingsArgs.builder()
- *                 .programNumber(1)
- *                 .preferredChannelPipeline("CURRENTLY_ACTIVE")
- *                 .videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.builder()
- *                     .constantBitrate(100000)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of &#34;`program_name`/`multiplex_id`&#34;. For example:
- * 
- * ```sh
- * $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
- * ```
- * 
- */
 @ResourceType(type="aws:medialive/multiplexProgram:MultiplexProgram")
 public class MultiplexProgram extends com.pulumi.resources.CustomResource {
-    /**
-     * Multiplex ID.
-     * 
-     */
     @Export(name="multiplexId", refs={String.class}, tree="[0]")
     private Output<String> multiplexId;
 
-    /**
-     * @return Multiplex ID.
-     * 
-     */
     public Output<String> multiplexId() {
         return this.multiplexId;
     }
-    /**
-     * MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="multiplexProgramSettings", refs={MultiplexProgramMultiplexProgramSettings.class}, tree="[0]")
     private Output</* @Nullable */ MultiplexProgramMultiplexProgramSettings> multiplexProgramSettings;
 
-    /**
-     * @return MultiplexProgram settings. See Multiplex Program Settings for more details.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<MultiplexProgramMultiplexProgramSettings>> multiplexProgramSettings() {
         return Codegen.optional(this.multiplexProgramSettings);
     }
-    /**
-     * Unique program name.
-     * 
-     */
     @Export(name="programName", refs={String.class}, tree="[0]")
     private Output<String> programName;
 
-    /**
-     * @return Unique program name.
-     * 
-     */
     public Output<String> programName() {
         return this.programName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

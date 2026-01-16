@@ -15,47 +15,23 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
 
     public static final AttachmentState Empty = new AttachmentState();
 
-    /**
-     * The name of the ELB.
-     * 
-     */
     @Import(name="elb")
     private @Nullable Output<String> elb;
 
-    /**
-     * @return The name of the ELB.
-     * 
-     */
     public Optional<Output<String>> elb() {
         return Optional.ofNullable(this.elb);
     }
 
-    /**
-     * Instance ID to place in the ELB pool.
-     * 
-     */
     @Import(name="instance")
     private @Nullable Output<String> instance;
 
-    /**
-     * @return Instance ID to place in the ELB pool.
-     * 
-     */
     public Optional<Output<String>> instance() {
         return Optional.ofNullable(this.instance);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,65 +62,29 @@ public final class AttachmentState extends com.pulumi.resources.ResourceArgs {
             $ = new AttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param elb The name of the ELB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elb(@Nullable Output<String> elb) {
             $.elb = elb;
             return this;
         }
 
-        /**
-         * @param elb The name of the ELB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elb(String elb) {
             return elb(Output.of(elb));
         }
 
-        /**
-         * @param instance Instance ID to place in the ELB pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instance(@Nullable Output<String> instance) {
             $.instance = instance;
             return this;
         }
 
-        /**
-         * @param instance Instance ID to place in the ELB pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instance(String instance) {
             return instance(Output.of(instance));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

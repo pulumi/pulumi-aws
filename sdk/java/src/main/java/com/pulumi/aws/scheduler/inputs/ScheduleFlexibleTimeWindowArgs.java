@@ -17,32 +17,16 @@ public final class ScheduleFlexibleTimeWindowArgs extends com.pulumi.resources.R
 
     public static final ScheduleFlexibleTimeWindowArgs Empty = new ScheduleFlexibleTimeWindowArgs();
 
-    /**
-     * Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-     * 
-     */
     @Import(name="maximumWindowInMinutes")
     private @Nullable Output<Integer> maximumWindowInMinutes;
 
-    /**
-     * @return Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-     * 
-     */
     public Optional<Output<Integer>> maximumWindowInMinutes() {
         return Optional.ofNullable(this.maximumWindowInMinutes);
     }
 
-    /**
-     * Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-     * 
-     */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
-    /**
-     * @return Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-     * 
-     */
     public Output<String> mode() {
         return this.mode;
     }
@@ -72,44 +56,20 @@ public final class ScheduleFlexibleTimeWindowArgs extends com.pulumi.resources.R
             $ = new ScheduleFlexibleTimeWindowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumWindowInMinutes Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumWindowInMinutes(@Nullable Output<Integer> maximumWindowInMinutes) {
             $.maximumWindowInMinutes = maximumWindowInMinutes;
             return this;
         }
 
-        /**
-         * @param maximumWindowInMinutes Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumWindowInMinutes(Integer maximumWindowInMinutes) {
             return maximumWindowInMinutes(Output.of(maximumWindowInMinutes));
         }
 
-        /**
-         * @param mode Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction
     {
-        /// <summary>
-        /// Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension> Dimensions;
 
         [OutputConstructor]

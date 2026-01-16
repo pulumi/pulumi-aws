@@ -16,32 +16,16 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs();
 
-    /**
-     * Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
-     * 
-     */
     @Import(name="outputRectangle")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs> outputRectangle;
 
-    /**
-     * @return Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
-     * 
-     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs>> outputRectangle() {
         return Optional.ofNullable(this.outputRectangle);
     }
 
-    /**
-     * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
-     * 
-     */
     @Import(name="pageNumber")
     private @Nullable Output<String> pageNumber;
 
-    /**
-     * @return Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
-     * 
-     */
     public Optional<Output<String>> pageNumber() {
         return Optional.ofNullable(this.pageNumber);
     }
@@ -71,44 +55,20 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param outputRectangle Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputRectangle(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs> outputRectangle) {
             $.outputRectangle = outputRectangle;
             return this;
         }
 
-        /**
-         * @param outputRectangle Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputRectangle(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs outputRectangle) {
             return outputRectangle(Output.of(outputRectangle));
         }
 
-        /**
-         * @param pageNumber Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pageNumber(@Nullable Output<String> pageNumber) {
             $.pageNumber = pageNumber;
             return this;
         }
 
-        /**
-         * @param pageNumber Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pageNumber(String pageNumber) {
             return pageNumber(Output.of(pageNumber));
         }

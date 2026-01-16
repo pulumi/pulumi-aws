@@ -16,32 +16,16 @@ public final class GrantConstraintArgs extends com.pulumi.resources.ResourceArgs
 
     public static final GrantConstraintArgs Empty = new GrantConstraintArgs();
 
-    /**
-     * A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
-     * 
-     */
     @Import(name="encryptionContextEquals")
     private @Nullable Output<Map<String,String>> encryptionContextEquals;
 
-    /**
-     * @return A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
-     * 
-     */
     public Optional<Output<Map<String,String>>> encryptionContextEquals() {
         return Optional.ofNullable(this.encryptionContextEquals);
     }
 
-    /**
-     * A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
-     * 
-     */
     @Import(name="encryptionContextSubset")
     private @Nullable Output<Map<String,String>> encryptionContextSubset;
 
-    /**
-     * @return A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
-     * 
-     */
     public Optional<Output<Map<String,String>>> encryptionContextSubset() {
         return Optional.ofNullable(this.encryptionContextSubset);
     }
@@ -71,44 +55,20 @@ public final class GrantConstraintArgs extends com.pulumi.resources.ResourceArgs
             $ = new GrantConstraintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionContextEquals A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionContextEquals(@Nullable Output<Map<String,String>> encryptionContextEquals) {
             $.encryptionContextEquals = encryptionContextEquals;
             return this;
         }
 
-        /**
-         * @param encryptionContextEquals A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionContextEquals(Map<String,String> encryptionContextEquals) {
             return encryptionContextEquals(Output.of(encryptionContextEquals));
         }
 
-        /**
-         * @param encryptionContextSubset A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionContextSubset(@Nullable Output<Map<String,String>> encryptionContextSubset) {
             $.encryptionContextSubset = encryptionContextSubset;
             return this;
         }
 
-        /**
-         * @param encryptionContextSubset A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionContextSubset(Map<String,String> encryptionContextSubset) {
             return encryptionContextSubset(Output.of(encryptionContextSubset));
         }

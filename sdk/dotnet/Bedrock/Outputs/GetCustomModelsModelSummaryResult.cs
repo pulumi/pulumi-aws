@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class GetCustomModelsModelSummaryResult
     {
-        /// <summary>
-        /// Creation time of the model.
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// The ARN of the custom model.
-        /// </summary>
         public readonly string ModelArn;
-        /// <summary>
-        /// The name of the custom model.
-        /// </summary>
         public readonly string ModelName;
 
         [OutputConstructor]

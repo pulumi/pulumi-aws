@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource {
-    /**
-     * @return The Amazon S3 URI for the constraints resource.
-     * 
-     */
     private @Nullable String s3Uri;
 
     private DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource() {}
-    /**
-     * @return The Amazon S3 URI for the constraints resource.
-     * 
-     */
     public Optional<String> s3Uri() {
         return Optional.ofNullable(this.s3Uri);
     }

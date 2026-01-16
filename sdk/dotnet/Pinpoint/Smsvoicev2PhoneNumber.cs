@@ -9,143 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Manages an AWS End User Messaging SMS phone number.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Pinpoint.Smsvoicev2PhoneNumber("example", new()
-    ///     {
-    ///         IsoCountryCode = "US",
-    ///         MessageType = "TRANSACTIONAL",
-    ///         NumberType = "TOLL_FREE",
-    ///         NumberCapabilities = new[]
-    ///         {
-    ///             "SMS",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import phone numbers using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber example phone-abcdef0123456789abcdef0123456789
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")]
     public partial class Smsvoicev2PhoneNumber : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the phone number.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
-        /// </summary>
         [Output("deletionProtectionEnabled")]
         public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-        /// </summary>
         [Output("isoCountryCode")]
         public Output<string> IsoCountryCode { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-        /// </summary>
         [Output("messageType")]
         public Output<string> MessageType { get; private set; } = null!;
 
-        /// <summary>
-        /// The monthly price, in US dollars, to lease the phone number.
-        /// </summary>
         [Output("monthlyLeasingPrice")]
         public Output<string> MonthlyLeasingPrice { get; private set; } = null!;
 
-        /// <summary>
-        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-        /// </summary>
         [Output("numberCapabilities")]
         public Output<ImmutableArray<string>> NumberCapabilities { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-        /// </summary>
         [Output("numberType")]
         public Output<string> NumberType { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the opt-out list to associate with the phone number.
-        /// </summary>
         [Output("optOutListName")]
         public Output<string> OptOutListName { get; private set; } = null!;
 
-        /// <summary>
-        /// The new phone number that was requested.
-        /// </summary>
         [Output("phoneNumber")]
         public Output<string> PhoneNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Use this field to attach your phone number for an external registration process.
-        /// </summary>
         [Output("registrationId")]
         public Output<string?> RegistrationId { get; private set; } = null!;
 
-        /// <summary>
-        /// When set to `False` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
-        /// </summary>
         [Output("selfManagedOptOutsEnabled")]
         public Output<bool> SelfManagedOptOutsEnabled { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.Smsvoicev2PhoneNumberTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-        /// </summary>
         [Output("twoWayChannelArn")]
         public Output<string?> TwoWayChannelArn { get; private set; } = null!;
 
-        /// <summary>
-        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
-        /// </summary>
         [Output("twoWayChannelEnabled")]
         public Output<bool> TwoWayChannelEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-        /// </summary>
         [Output("twoWayChannelRole")]
         public Output<string?> TwoWayChannelRole { get; private set; } = null!;
 
@@ -195,63 +112,35 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class Smsvoicev2PhoneNumberArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
-        /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
-        /// <summary>
-        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-        /// </summary>
         [Input("isoCountryCode", required: true)]
         public Input<string> IsoCountryCode { get; set; } = null!;
 
-        /// <summary>
-        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-        /// </summary>
         [Input("messageType", required: true)]
         public Input<string> MessageType { get; set; } = null!;
 
         [Input("numberCapabilities", required: true)]
         private InputList<string>? _numberCapabilities;
-
-        /// <summary>
-        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-        /// </summary>
         public InputList<string> NumberCapabilities
         {
             get => _numberCapabilities ?? (_numberCapabilities = new InputList<string>());
             set => _numberCapabilities = value;
         }
 
-        /// <summary>
-        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-        /// </summary>
         [Input("numberType", required: true)]
         public Input<string> NumberType { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the opt-out list to associate with the phone number.
-        /// </summary>
         [Input("optOutListName")]
         public Input<string>? OptOutListName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Use this field to attach your phone number for an external registration process.
-        /// </summary>
         [Input("registrationId")]
         public Input<string>? RegistrationId { get; set; }
 
-        /// <summary>
-        /// When set to `False` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
-        /// </summary>
         [Input("selfManagedOptOutsEnabled")]
         public Input<bool>? SelfManagedOptOutsEnabled { get; set; }
 
@@ -266,21 +155,12 @@ namespace Pulumi.Aws.Pinpoint
         [Input("timeouts")]
         public Input<Inputs.Smsvoicev2PhoneNumberTimeoutsArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-        /// </summary>
         [Input("twoWayChannelArn")]
         public Input<string>? TwoWayChannelArn { get; set; }
 
-        /// <summary>
-        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
-        /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }
 
-        /// <summary>
-        /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-        /// </summary>
         [Input("twoWayChannelRole")]
         public Input<string>? TwoWayChannelRole { get; set; }
 
@@ -292,81 +172,44 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class Smsvoicev2PhoneNumberState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the phone number.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
-        /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
-        /// <summary>
-        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-        /// </summary>
         [Input("isoCountryCode")]
         public Input<string>? IsoCountryCode { get; set; }
 
-        /// <summary>
-        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
-        /// </summary>
         [Input("messageType")]
         public Input<string>? MessageType { get; set; }
 
-        /// <summary>
-        /// The monthly price, in US dollars, to lease the phone number.
-        /// </summary>
         [Input("monthlyLeasingPrice")]
         public Input<string>? MonthlyLeasingPrice { get; set; }
 
         [Input("numberCapabilities")]
         private InputList<string>? _numberCapabilities;
-
-        /// <summary>
-        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
-        /// </summary>
         public InputList<string> NumberCapabilities
         {
             get => _numberCapabilities ?? (_numberCapabilities = new InputList<string>());
             set => _numberCapabilities = value;
         }
 
-        /// <summary>
-        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
-        /// </summary>
         [Input("numberType")]
         public Input<string>? NumberType { get; set; }
 
-        /// <summary>
-        /// The name of the opt-out list to associate with the phone number.
-        /// </summary>
         [Input("optOutListName")]
         public Input<string>? OptOutListName { get; set; }
 
-        /// <summary>
-        /// The new phone number that was requested.
-        /// </summary>
         [Input("phoneNumber")]
         public Input<string>? PhoneNumber { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Use this field to attach your phone number for an external registration process.
-        /// </summary>
         [Input("registrationId")]
         public Input<string>? RegistrationId { get; set; }
 
-        /// <summary>
-        /// When set to `False` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
-        /// </summary>
         [Input("selfManagedOptOutsEnabled")]
         public Input<bool>? SelfManagedOptOutsEnabled { get; set; }
 
@@ -380,10 +223,6 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -393,21 +232,12 @@ namespace Pulumi.Aws.Pinpoint
         [Input("timeouts")]
         public Input<Inputs.Smsvoicev2PhoneNumberTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
-        /// </summary>
         [Input("twoWayChannelArn")]
         public Input<string>? TwoWayChannelArn { get; set; }
 
-        /// <summary>
-        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
-        /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }
 
-        /// <summary>
-        /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
-        /// </summary>
         [Input("twoWayChannelRole")]
         public Input<string>? TwoWayChannelRole { get; set; }
 

@@ -15,32 +15,16 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
 
     public static final JobQueueComputeEnvironmentOrderArgs Empty = new JobQueueComputeEnvironmentOrderArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the compute environment.
-     * 
-     */
     @Import(name="computeEnvironment", required=true)
     private Output<String> computeEnvironment;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
-     * 
-     */
     public Output<String> computeEnvironment() {
         return this.computeEnvironment;
     }
 
-    /**
-     * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-     * 
-     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
-    /**
-     * @return The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-     * 
-     */
     public Output<Integer> order() {
         return this.order;
     }
@@ -70,44 +54,20 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
             $ = new JobQueueComputeEnvironmentOrderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param computeEnvironment The Amazon Resource Name (ARN) of the compute environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeEnvironment(Output<String> computeEnvironment) {
             $.computeEnvironment = computeEnvironment;
             return this;
         }
 
-        /**
-         * @param computeEnvironment The Amazon Resource Name (ARN) of the compute environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeEnvironment(String computeEnvironment) {
             return computeEnvironment(Output.of(computeEnvironment));
         }
 
-        /**
-         * @param order The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
-        /**
-         * @param order The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
-         * 
-         * @return builder
-         * 
-         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }

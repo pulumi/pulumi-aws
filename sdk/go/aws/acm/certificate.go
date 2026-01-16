@@ -11,191 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ACM certificate resource allows requesting and management of certificates
-// from the Amazon Certificate Manager.
-//
-// ACM certificates can be created in three ways:
-// Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
-// imported certificates, issued by another certificate authority;
-// and private certificates, issued using an ACM Private Certificate Authority.
-//
-// ## Amazon-Issued Certificates
-//
-// For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
-// This resource does not deal with validation of a certificate but can provide inputs
-// for other resources implementing the validation.
-// It does not wait for a certificate to be issued.
-// Use a `acm.CertificateValidation` resource for this.
-//
-// Most commonly, this resource is used together with `route53.Record` and
-// `acm.CertificateValidation` to request a DNS validated certificate,
-// deploy the required validation records and wait for validation to complete.
-//
-// Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
-//
-// ## Certificates Imported from Other Certificate Authority
-//
-// Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
-//
-// As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
-// New certificate materials can be supplied to an existing imported certificate to update it in place.
-//
-// ## Private Certificates
-//
-// Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
-//
-// Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
-// See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
-// By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
-// To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
-//
-// ## Example Usage
-//
-// ### Custom Domain Validation Options
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				DomainName:       pulumi.String("testing.example.com"),
-//				ValidationMethod: pulumi.String("EMAIL"),
-//				ValidationOptions: acm.CertificateValidationOptionArray{
-//					&acm.CertificateValidationOptionArgs{
-//						DomainName:       pulumi.String("testing.example.com"),
-//						ValidationDomain: pulumi.String("example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Existing Certificate Body Import
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
-//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: example.PrivateKeyPem,
-//				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
-//						"commonName":   "example.com",
-//						"organization": "ACME Examples, Inc",
-//					},
-//				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				PrivateKey:      example.PrivateKeyPem,
-//				CertificateBody: exampleSelfSignedCert.CertPem,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Referencing domainValidationOptions With forEach Based Resources
-//
-// See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) ARN of the certificate.
-//
-// Using `pulumi import`, import certificates using their ARN. For example:
-//
-// % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// ARN of the certificate
-	Arn                     pulumi.StringOutput    `pulumi:"arn"`
-	CertificateAuthorityArn pulumi.StringPtrOutput `pulumi:"certificateAuthorityArn"`
-	CertificateBody         pulumi.StringPtrOutput `pulumi:"certificateBody"`
-	CertificateChain        pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	// Fully qualified domain name (FQDN) in the certificate.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation.
-	// Can have more than one element, e.g., if SANs are defined.
-	// Only set if `DNS`-validation was used.
+	Arn                     pulumi.StringOutput                          `pulumi:"arn"`
+	CertificateAuthorityArn pulumi.StringPtrOutput                       `pulumi:"certificateAuthorityArn"`
+	CertificateBody         pulumi.StringPtrOutput                       `pulumi:"certificateBody"`
+	CertificateChain        pulumi.StringPtrOutput                       `pulumi:"certificateChain"`
+	DomainName              pulumi.StringOutput                          `pulumi:"domainName"`
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
 	EarlyRenewalDuration    pulumi.StringPtrOutput                       `pulumi:"earlyRenewalDuration"`
 	KeyAlgorithm            pulumi.StringOutput                          `pulumi:"keyAlgorithm"`
-	// Expiration date and time of the certificate.
-	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
-	// Start of the validity period of the certificate.
-	NotBefore pulumi.StringOutput      `pulumi:"notBefore"`
-	Options   CertificateOptionsOutput `pulumi:"options"`
-	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
-	PendingRenewal pulumi.BoolOutput      `pulumi:"pendingRenewal"`
-	PrivateKey     pulumi.StringPtrOutput `pulumi:"privateKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * Creating an Amazon issued certificate
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether the certificate is eligible for managed renewal.
-	RenewalEligibility pulumi.StringOutput `pulumi:"renewalEligibility"`
-	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
-	RenewalSummaries CertificateRenewalSummaryArrayOutput `pulumi:"renewalSummaries"`
-	// Status of the certificate.
-	Status                  pulumi.StringOutput      `pulumi:"status"`
-	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Source of the certificate.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-	ValidationEmails  pulumi.StringArrayOutput               `pulumi:"validationEmails"`
-	ValidationMethod  pulumi.StringOutput                    `pulumi:"validationMethod"`
-	ValidationOptions CertificateValidationOptionArrayOutput `pulumi:"validationOptions"`
+	NotAfter                pulumi.StringOutput                          `pulumi:"notAfter"`
+	NotBefore               pulumi.StringOutput                          `pulumi:"notBefore"`
+	Options                 CertificateOptionsOutput                     `pulumi:"options"`
+	PendingRenewal          pulumi.BoolOutput                            `pulumi:"pendingRenewal"`
+	PrivateKey              pulumi.StringPtrOutput                       `pulumi:"privateKey"`
+	Region                  pulumi.StringOutput                          `pulumi:"region"`
+	RenewalEligibility      pulumi.StringOutput                          `pulumi:"renewalEligibility"`
+	RenewalSummaries        CertificateRenewalSummaryArrayOutput         `pulumi:"renewalSummaries"`
+	Status                  pulumi.StringOutput                          `pulumi:"status"`
+	SubjectAlternativeNames pulumi.StringArrayOutput                     `pulumi:"subjectAlternativeNames"`
+	Tags                    pulumi.StringMapOutput                       `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                       `pulumi:"tagsAll"`
+	Type                    pulumi.StringOutput                          `pulumi:"type"`
+	ValidationEmails        pulumi.StringArrayOutput                     `pulumi:"validationEmails"`
+	ValidationMethod        pulumi.StringOutput                          `pulumi:"validationMethod"`
+	ValidationOptions       CertificateValidationOptionArrayOutput       `pulumi:"validationOptions"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -235,91 +77,57 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// ARN of the certificate
-	Arn                     *string `pulumi:"arn"`
-	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	CertificateBody         *string `pulumi:"certificateBody"`
-	CertificateChain        *string `pulumi:"certificateChain"`
-	// Fully qualified domain name (FQDN) in the certificate.
-	DomainName *string `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation.
-	// Can have more than one element, e.g., if SANs are defined.
-	// Only set if `DNS`-validation was used.
+	Arn                     *string                             `pulumi:"arn"`
+	CertificateAuthorityArn *string                             `pulumi:"certificateAuthorityArn"`
+	CertificateBody         *string                             `pulumi:"certificateBody"`
+	CertificateChain        *string                             `pulumi:"certificateChain"`
+	DomainName              *string                             `pulumi:"domainName"`
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
 	EarlyRenewalDuration    *string                             `pulumi:"earlyRenewalDuration"`
 	KeyAlgorithm            *string                             `pulumi:"keyAlgorithm"`
-	// Expiration date and time of the certificate.
-	NotAfter *string `pulumi:"notAfter"`
-	// Start of the validity period of the certificate.
-	NotBefore *string             `pulumi:"notBefore"`
-	Options   *CertificateOptions `pulumi:"options"`
-	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
-	PendingRenewal *bool   `pulumi:"pendingRenewal"`
-	PrivateKey     *string `pulumi:"privateKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * Creating an Amazon issued certificate
-	Region *string `pulumi:"region"`
-	// Whether the certificate is eligible for managed renewal.
-	RenewalEligibility *string `pulumi:"renewalEligibility"`
-	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
-	RenewalSummaries []CertificateRenewalSummary `pulumi:"renewalSummaries"`
-	// Status of the certificate.
-	Status                  *string  `pulumi:"status"`
-	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Source of the certificate.
-	Type *string `pulumi:"type"`
-	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-	ValidationEmails  []string                      `pulumi:"validationEmails"`
-	ValidationMethod  *string                       `pulumi:"validationMethod"`
-	ValidationOptions []CertificateValidationOption `pulumi:"validationOptions"`
+	NotAfter                *string                             `pulumi:"notAfter"`
+	NotBefore               *string                             `pulumi:"notBefore"`
+	Options                 *CertificateOptions                 `pulumi:"options"`
+	PendingRenewal          *bool                               `pulumi:"pendingRenewal"`
+	PrivateKey              *string                             `pulumi:"privateKey"`
+	Region                  *string                             `pulumi:"region"`
+	RenewalEligibility      *string                             `pulumi:"renewalEligibility"`
+	RenewalSummaries        []CertificateRenewalSummary         `pulumi:"renewalSummaries"`
+	Status                  *string                             `pulumi:"status"`
+	SubjectAlternativeNames []string                            `pulumi:"subjectAlternativeNames"`
+	Tags                    map[string]string                   `pulumi:"tags"`
+	TagsAll                 map[string]string                   `pulumi:"tagsAll"`
+	Type                    *string                             `pulumi:"type"`
+	ValidationEmails        []string                            `pulumi:"validationEmails"`
+	ValidationMethod        *string                             `pulumi:"validationMethod"`
+	ValidationOptions       []CertificateValidationOption       `pulumi:"validationOptions"`
 }
 
 type CertificateState struct {
-	// ARN of the certificate
 	Arn                     pulumi.StringPtrInput
 	CertificateAuthorityArn pulumi.StringPtrInput
 	CertificateBody         pulumi.StringPtrInput
 	CertificateChain        pulumi.StringPtrInput
-	// Fully qualified domain name (FQDN) in the certificate.
-	DomainName pulumi.StringPtrInput
-	// Set of domain validation objects which can be used to complete certificate validation.
-	// Can have more than one element, e.g., if SANs are defined.
-	// Only set if `DNS`-validation was used.
+	DomainName              pulumi.StringPtrInput
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
 	EarlyRenewalDuration    pulumi.StringPtrInput
 	KeyAlgorithm            pulumi.StringPtrInput
-	// Expiration date and time of the certificate.
-	NotAfter pulumi.StringPtrInput
-	// Start of the validity period of the certificate.
-	NotBefore pulumi.StringPtrInput
-	Options   CertificateOptionsPtrInput
-	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
-	PendingRenewal pulumi.BoolPtrInput
-	PrivateKey     pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * Creating an Amazon issued certificate
-	Region pulumi.StringPtrInput
-	// Whether the certificate is eligible for managed renewal.
-	RenewalEligibility pulumi.StringPtrInput
-	// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
-	RenewalSummaries CertificateRenewalSummaryArrayInput
-	// Status of the certificate.
+	NotAfter                pulumi.StringPtrInput
+	NotBefore               pulumi.StringPtrInput
+	Options                 CertificateOptionsPtrInput
+	PendingRenewal          pulumi.BoolPtrInput
+	PrivateKey              pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	RenewalEligibility      pulumi.StringPtrInput
+	RenewalSummaries        CertificateRenewalSummaryArrayInput
 	Status                  pulumi.StringPtrInput
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Source of the certificate.
-	Type pulumi.StringPtrInput
-	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-	ValidationEmails  pulumi.StringArrayInput
-	ValidationMethod  pulumi.StringPtrInput
-	ValidationOptions CertificateValidationOptionArrayInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	Type                    pulumi.StringPtrInput
+	ValidationEmails        pulumi.StringArrayInput
+	ValidationMethod        pulumi.StringPtrInput
+	ValidationOptions       CertificateValidationOptionArrayInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -327,23 +135,19 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	CertificateBody         *string `pulumi:"certificateBody"`
-	CertificateChain        *string `pulumi:"certificateChain"`
-	// Fully qualified domain name (FQDN) in the certificate.
-	DomainName           *string             `pulumi:"domainName"`
-	EarlyRenewalDuration *string             `pulumi:"earlyRenewalDuration"`
-	KeyAlgorithm         *string             `pulumi:"keyAlgorithm"`
-	Options              *CertificateOptions `pulumi:"options"`
-	PrivateKey           *string             `pulumi:"privateKey"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * Creating an Amazon issued certificate
-	Region                  *string  `pulumi:"region"`
-	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags              map[string]string             `pulumi:"tags"`
-	ValidationMethod  *string                       `pulumi:"validationMethod"`
-	ValidationOptions []CertificateValidationOption `pulumi:"validationOptions"`
+	CertificateAuthorityArn *string                       `pulumi:"certificateAuthorityArn"`
+	CertificateBody         *string                       `pulumi:"certificateBody"`
+	CertificateChain        *string                       `pulumi:"certificateChain"`
+	DomainName              *string                       `pulumi:"domainName"`
+	EarlyRenewalDuration    *string                       `pulumi:"earlyRenewalDuration"`
+	KeyAlgorithm            *string                       `pulumi:"keyAlgorithm"`
+	Options                 *CertificateOptions           `pulumi:"options"`
+	PrivateKey              *string                       `pulumi:"privateKey"`
+	Region                  *string                       `pulumi:"region"`
+	SubjectAlternativeNames []string                      `pulumi:"subjectAlternativeNames"`
+	Tags                    map[string]string             `pulumi:"tags"`
+	ValidationMethod        *string                       `pulumi:"validationMethod"`
+	ValidationOptions       []CertificateValidationOption `pulumi:"validationOptions"`
 }
 
 // The set of arguments for constructing a Certificate resource.
@@ -351,20 +155,16 @@ type CertificateArgs struct {
 	CertificateAuthorityArn pulumi.StringPtrInput
 	CertificateBody         pulumi.StringPtrInput
 	CertificateChain        pulumi.StringPtrInput
-	// Fully qualified domain name (FQDN) in the certificate.
-	DomainName           pulumi.StringPtrInput
-	EarlyRenewalDuration pulumi.StringPtrInput
-	KeyAlgorithm         pulumi.StringPtrInput
-	Options              CertificateOptionsPtrInput
-	PrivateKey           pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// * Creating an Amazon issued certificate
+	DomainName              pulumi.StringPtrInput
+	EarlyRenewalDuration    pulumi.StringPtrInput
+	KeyAlgorithm            pulumi.StringPtrInput
+	Options                 CertificateOptionsPtrInput
+	PrivateKey              pulumi.StringPtrInput
 	Region                  pulumi.StringPtrInput
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags              pulumi.StringMapInput
-	ValidationMethod  pulumi.StringPtrInput
-	ValidationOptions CertificateValidationOptionArrayInput
+	Tags                    pulumi.StringMapInput
+	ValidationMethod        pulumi.StringPtrInput
+	ValidationOptions       CertificateValidationOptionArrayInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -454,7 +254,6 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// ARN of the certificate
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -471,14 +270,10 @@ func (o CertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified domain name (FQDN) in the certificate.
 func (o CertificateOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Set of domain validation objects which can be used to complete certificate validation.
-// Can have more than one element, e.g., if SANs are defined.
-// Only set if `DNS`-validation was used.
 func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidationOptionArrayOutput {
 	return o.ApplyT(func(v *Certificate) CertificateDomainValidationOptionArrayOutput { return v.DomainValidationOptions }).(CertificateDomainValidationOptionArrayOutput)
 }
@@ -491,12 +286,10 @@ func (o CertificateOutput) KeyAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
-// Expiration date and time of the certificate.
 func (o CertificateOutput) NotAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotAfter }).(pulumi.StringOutput)
 }
 
-// Start of the validity period of the certificate.
 func (o CertificateOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
 }
@@ -505,7 +298,6 @@ func (o CertificateOutput) Options() CertificateOptionsOutput {
 	return o.ApplyT(func(v *Certificate) CertificateOptionsOutput { return v.Options }).(CertificateOptionsOutput)
 }
 
-// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
 func (o CertificateOutput) PendingRenewal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.BoolOutput { return v.PendingRenewal }).(pulumi.BoolOutput)
 }
@@ -514,23 +306,18 @@ func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// * Creating an Amazon issued certificate
 func (o CertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether the certificate is eligible for managed renewal.
 func (o CertificateOutput) RenewalEligibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.RenewalEligibility }).(pulumi.StringOutput)
 }
 
-// Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
 func (o CertificateOutput) RenewalSummaries() CertificateRenewalSummaryArrayOutput {
 	return o.ApplyT(func(v *Certificate) CertificateRenewalSummaryArrayOutput { return v.RenewalSummaries }).(CertificateRenewalSummaryArrayOutput)
 }
 
-// Status of the certificate.
 func (o CertificateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -539,22 +326,18 @@ func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Source of the certificate.
 func (o CertificateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 func (o CertificateOutput) ValidationEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.ValidationEmails }).(pulumi.StringArrayOutput)
 }

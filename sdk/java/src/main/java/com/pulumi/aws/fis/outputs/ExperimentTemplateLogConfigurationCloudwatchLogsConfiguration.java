@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
-    /**
-     * @return The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
-     * 
-     */
     private String logGroupArn;
 
     private ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
-     * 
-     */
     public String logGroupArn() {
         return this.logGroupArn;
     }

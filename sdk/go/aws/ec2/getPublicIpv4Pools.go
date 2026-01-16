@@ -11,67 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for getting information about AWS EC2 Public IPv4 Pools.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Returns all public IPv4 pools.
-//			_, err := ec2.GetPublicIpv4Pools(ctx, &ec2.GetPublicIpv4PoolsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Usage with Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetPublicIpv4Pools(ctx, &ec2.GetPublicIpv4PoolsArgs{
-//				Filters: []ec2.GetPublicIpv4PoolsFilter{
-//					{
-//						Name: "tag-key",
-//						Values: []string{
-//							"ExampleTagKey",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPublicIpv4Pools(ctx *pulumi.Context, args *GetPublicIpv4PoolsArgs, opts ...pulumi.InvokeOption) (*GetPublicIpv4PoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIpv4PoolsResult
@@ -84,23 +23,16 @@ func GetPublicIpv4Pools(ctx *pulumi.Context, args *GetPublicIpv4PoolsArgs, opts 
 
 // A collection of arguments for invoking getPublicIpv4Pools.
 type GetPublicIpv4PoolsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetPublicIpv4PoolsFilter `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired pools.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags map[string]string `pulumi:"tags"`
+	Region  *string                    `pulumi:"region"`
+	Tags    map[string]string          `pulumi:"tags"`
 }
 
 // A collection of values returned by getPublicIpv4Pools.
 type GetPublicIpv4PoolsResult struct {
 	Filters []GetPublicIpv4PoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the pool IDs found.
+	Id      string            `pulumi:"id"`
 	PoolIds []string          `pulumi:"poolIds"`
 	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -117,15 +49,9 @@ func GetPublicIpv4PoolsOutput(ctx *pulumi.Context, args GetPublicIpv4PoolsOutput
 
 // A collection of arguments for invoking getPublicIpv4Pools.
 type GetPublicIpv4PoolsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetPublicIpv4PoolsFilterArrayInput `pulumi:"filters"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match a pair on the desired pools.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Region  pulumi.StringPtrInput              `pulumi:"region"`
+	Tags    pulumi.StringMapInput              `pulumi:"tags"`
 }
 
 func (GetPublicIpv4PoolsOutputArgs) ElementType() reflect.Type {
@@ -156,7 +82,6 @@ func (o GetPublicIpv4PoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIpv4PoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the pool IDs found.
 func (o GetPublicIpv4PoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPublicIpv4PoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
 }

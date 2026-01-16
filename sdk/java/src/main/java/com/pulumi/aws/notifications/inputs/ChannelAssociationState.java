@@ -15,32 +15,16 @@ public final class ChannelAssociationState extends com.pulumi.resources.Resource
 
     public static final ChannelAssociationState Empty = new ChannelAssociationState();
 
-    /**
-     * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ARN of the notification configuration to associate the channel with.
-     * 
-     */
     @Import(name="notificationConfigurationArn")
     private @Nullable Output<String> notificationConfigurationArn;
 
-    /**
-     * @return ARN of the notification configuration to associate the channel with.
-     * 
-     */
     public Optional<Output<String>> notificationConfigurationArn() {
         return Optional.ofNullable(this.notificationConfigurationArn);
     }
@@ -70,44 +54,20 @@ public final class ChannelAssociationState extends com.pulumi.resources.Resource
             $ = new ChannelAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.{@literal @}]+/[a-zA-Z0-9/_.{@literal @}:-]+$`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param notificationConfigurationArn ARN of the notification configuration to associate the channel with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationConfigurationArn(@Nullable Output<String> notificationConfigurationArn) {
             $.notificationConfigurationArn = notificationConfigurationArn;
             return this;
         }
 
-        /**
-         * @param notificationConfigurationArn ARN of the notification configuration to associate the channel with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationConfigurationArn(String notificationConfigurationArn) {
             return notificationConfigurationArn(Output.of(notificationConfigurationArn));
         }

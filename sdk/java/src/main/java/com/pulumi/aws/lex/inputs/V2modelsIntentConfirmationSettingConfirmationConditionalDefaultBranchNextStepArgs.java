@@ -18,47 +18,23 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
 
     public static final V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgs Empty = new V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgs();
 
-    /**
-     * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-     * 
-     */
     @Import(name="dialogAction")
     private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogActionArgs> dialogAction;
 
-    /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogActionArgs>> dialogAction() {
         return Optional.ofNullable(this.dialogAction);
     }
 
-    /**
-     * Configuration block for override settings to configure the intent state. See `intent`.
-     * 
-     */
     @Import(name="intent")
     private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentArgs> intent;
 
-    /**
-     * @return Configuration block for override settings to configure the intent state. See `intent`.
-     * 
-     */
     public Optional<Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentArgs>> intent() {
         return Optional.ofNullable(this.intent);
     }
 
-    /**
-     * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-     * 
-     */
     @Import(name="sessionAttributes")
     private @Nullable Output<Map<String,String>> sessionAttributes;
 
-    /**
-     * @return Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-     * 
-     */
     public Optional<Output<Map<String,String>>> sessionAttributes() {
         return Optional.ofNullable(this.sessionAttributes);
     }
@@ -89,65 +65,29 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalDefau
             $ = new V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dialogAction(@Nullable Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogActionArgs> dialogAction) {
             $.dialogAction = dialogAction;
             return this;
         }
 
-        /**
-         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dialogAction(V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogActionArgs dialogAction) {
             return dialogAction(Output.of(dialogAction));
         }
 
-        /**
-         * @param intent Configuration block for override settings to configure the intent state. See `intent`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intent(@Nullable Output<V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentArgs> intent) {
             $.intent = intent;
             return this;
         }
 
-        /**
-         * @param intent Configuration block for override settings to configure the intent state. See `intent`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intent(V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentArgs intent) {
             return intent(Output.of(intent));
         }
 
-        /**
-         * @param sessionAttributes Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionAttributes(@Nullable Output<Map<String,String>> sessionAttributes) {
             $.sessionAttributes = sessionAttributes;
             return this;
         }
 
-        /**
-         * @param sessionAttributes Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sessionAttributes(Map<String,String> sessionAttributes) {
             return sessionAttributes(Output.of(sessionAttributes));
         }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableSchemaCompositePartitionKey {
-    /**
-     * @return The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-     * 
-     */
     private @Nullable String enforcementInRecord;
-    /**
-     * @return The name of the attribute used for a dimension key.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-     * 
-     */
     private String type;
 
     private TableSchemaCompositePartitionKey() {}
-    /**
-     * @return The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-     * 
-     */
     public Optional<String> enforcementInRecord() {
         return Optional.ofNullable(this.enforcementInRecord);
     }
-    /**
-     * @return The name of the attribute used for a dimension key.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

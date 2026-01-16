@@ -28,11 +28,6 @@ class FrameworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "controls", controls)
         if description is not None:
@@ -47,9 +42,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def controls(self) -> pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]:
-        """
-        One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        """
         return pulumi.get(self, "controls")
 
     @controls.setter
@@ -59,9 +51,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the framework with a maximum of 1,024 characters
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -71,9 +60,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,9 +69,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,9 +78,6 @@ class FrameworkArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -120,16 +100,6 @@ class _FrameworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Framework resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the backup framework.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        :param pulumi.Input[_builtins.str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        :param pulumi.Input[_builtins.str] deployment_status: The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -155,9 +125,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the backup framework.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -167,9 +134,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]]:
-        """
-        One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        """
         return pulumi.get(self, "controls")
 
     @controls.setter
@@ -179,9 +143,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
@@ -191,9 +152,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        """
         return pulumi.get(self, "deployment_status")
 
     @deployment_status.setter
@@ -203,9 +161,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the framework with a maximum of 1,024 characters
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -215,9 +170,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -227,9 +179,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -239,9 +188,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -251,9 +197,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -263,9 +206,6 @@ class _FrameworkState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -286,109 +226,9 @@ class Framework(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS Backup Framework resource.
-
-        > **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.Framework("Example",
-            name="exampleFramework",
-            description="this is an example framework",
-            controls=[
-                {
-                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                    "input_parameters": [{
-                        "name": "requiredRetentionDays",
-                        "value": "35",
-                    }],
-                },
-                {
-                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                    "input_parameters": [
-                        {
-                            "name": "requiredFrequencyUnit",
-                            "value": "hours",
-                        },
-                        {
-                            "name": "requiredRetentionDays",
-                            "value": "35",
-                        },
-                        {
-                            "name": "requiredFrequencyValue",
-                            "value": "1",
-                        },
-                    ],
-                },
-                {
-                    "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
-                },
-                {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
-                },
-                {
-                    "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-                },
-                {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    "input_parameters": [
-                        {
-                            "name": "maxRetentionDays",
-                            "value": "100",
-                        },
-                        {
-                            "name": "minRetentionDays",
-                            "value": "1",
-                        },
-                    ],
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
-                },
-                {
-                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    "input_parameters": [
-                        {
-                            "name": "recoveryPointAgeUnit",
-                            "value": "days",
-                        },
-                        {
-                            "name": "recoveryPointAgeValue",
-                            "value": "1",
-                        },
-                    ],
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
-                },
-            ],
-            tags={
-                "Name": "Example Framework",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
-
-        ```sh
-        $ pulumi import aws:backup/framework:Framework test <id>
-        ```
-
+        Create a Framework resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -397,102 +237,7 @@ class Framework(pulumi.CustomResource):
                  args: FrameworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Backup Framework resource.
-
-        > **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.Framework("Example",
-            name="exampleFramework",
-            description="this is an example framework",
-            controls=[
-                {
-                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                    "input_parameters": [{
-                        "name": "requiredRetentionDays",
-                        "value": "35",
-                    }],
-                },
-                {
-                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                    "input_parameters": [
-                        {
-                            "name": "requiredFrequencyUnit",
-                            "value": "hours",
-                        },
-                        {
-                            "name": "requiredRetentionDays",
-                            "value": "35",
-                        },
-                        {
-                            "name": "requiredFrequencyValue",
-                            "value": "1",
-                        },
-                    ],
-                },
-                {
-                    "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
-                },
-                {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
-                },
-                {
-                    "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-                },
-                {
-                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    "input_parameters": [
-                        {
-                            "name": "maxRetentionDays",
-                            "value": "100",
-                        },
-                        {
-                            "name": "minRetentionDays",
-                            "value": "1",
-                        },
-                    ],
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
-                },
-                {
-                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    "input_parameters": [
-                        {
-                            "name": "recoveryPointAgeUnit",
-                            "value": "days",
-                        },
-                        {
-                            "name": "recoveryPointAgeValue",
-                            "value": "1",
-                        },
-                    ],
-                    "scope": {
-                        "compliance_resource_types": ["EBS"],
-                    },
-                },
-            ],
-            tags={
-                "Name": "Example Framework",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
-
-        ```sh
-        $ pulumi import aws:backup/framework:Framework test <id>
-        ```
-
+        Create a Framework resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FrameworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -561,16 +306,6 @@ class Framework(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the backup framework.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        :param pulumi.Input[_builtins.str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        :param pulumi.Input[_builtins.str] deployment_status: The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters
-        :param pulumi.Input[_builtins.str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -591,80 +326,50 @@ class Framework(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the backup framework.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def controls(self) -> pulumi.Output[Sequence['outputs.FrameworkControl']]:
-        """
-        One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        """
         return pulumi.get(self, "controls")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        """
         return pulumi.get(self, "deployment_status")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the framework with a maximum of 1,024 characters
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

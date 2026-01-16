@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetVpcIpamPoolFilterInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the filter. Filter names are case-sensitive.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The filter values. Filter values are case-sensitive.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

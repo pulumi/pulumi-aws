@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `All`, `None` or `Whitelist`. If `Whitelist`, you must include the subsequent `WhitelistedNames`.
-        /// </summary>
         [Input("forward", required: true)]
         public Input<string> Forward { get; set; } = null!;
 
         [Input("whitelistedNames")]
         private InputList<string>? _whitelistedNames;
-
-        /// <summary>
-        /// If you have specified `Whitelist` to `Forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
-        /// </summary>
         public InputList<string> WhitelistedNames
         {
             get => _whitelistedNames ?? (_whitelistedNames = new InputList<string>());

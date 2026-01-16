@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get an Identity Store User.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetUser, err := identitystore.LookupUser(ctx, &identitystore.LookupUserArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
-//				AlternateIdentifier: identitystore.GetUserAlternateIdentifier{
-//					UniqueAttribute: identitystore.GetUserAlternateIdentifierUniqueAttribute{
-//						AttributePath:  "UserName",
-//						AttributeValue: "ExampleUser",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("userId", exampleGetUser.UserId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
@@ -62,57 +23,34 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
 	AlternateIdentifier *GetUserAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	//
-	// The following arguments are optional:
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The identifier for a user in the Identity Store.
-	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
-	UserId *string `pulumi:"userId"`
+	IdentityStoreId     string                      `pulumi:"identityStoreId"`
+	Region              *string                     `pulumi:"region"`
+	UserId              *string                     `pulumi:"userId"`
 }
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// List of details about the user's address.
 	Addresses           []GetUserAddress            `pulumi:"addresses"`
 	AlternateIdentifier *GetUserAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// The name that is typically displayed when the user is referenced.
-	DisplayName string `pulumi:"displayName"`
-	// List of details about the user's email.
-	Emails []GetUserEmail `pulumi:"emails"`
-	// List of identifiers issued to this resource by an external identity provider.
-	ExternalIds []GetUserExternalId `pulumi:"externalIds"`
+	DisplayName         string                      `pulumi:"displayName"`
+	Emails              []GetUserEmail              `pulumi:"emails"`
+	ExternalIds         []GetUserExternalId         `pulumi:"externalIds"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	// The user's geographical region or location.
-	Locale string `pulumi:"locale"`
-	// Details about the user's full name.
-	Names []GetUserName `pulumi:"names"`
-	// An alternate name for the user.
-	Nickname string `pulumi:"nickname"`
-	// List of details about the user's phone number.
-	PhoneNumbers []GetUserPhoneNumber `pulumi:"phoneNumbers"`
-	// The preferred language of the user.
-	PreferredLanguage string `pulumi:"preferredLanguage"`
-	// An URL that may be associated with the user.
-	ProfileUrl string `pulumi:"profileUrl"`
-	// The region of the address.
-	Region string `pulumi:"region"`
-	// The user's time zone.
-	Timezone string `pulumi:"timezone"`
-	// The user's title.
-	Title  string `pulumi:"title"`
-	UserId string `pulumi:"userId"`
-	// User's user name value.
-	UserName string `pulumi:"userName"`
-	// The user type.
-	UserType string `pulumi:"userType"`
+	Id                string               `pulumi:"id"`
+	IdentityStoreId   string               `pulumi:"identityStoreId"`
+	Locale            string               `pulumi:"locale"`
+	Names             []GetUserName        `pulumi:"names"`
+	Nickname          string               `pulumi:"nickname"`
+	PhoneNumbers      []GetUserPhoneNumber `pulumi:"phoneNumbers"`
+	PreferredLanguage string               `pulumi:"preferredLanguage"`
+	ProfileUrl        string               `pulumi:"profileUrl"`
+	Region            string               `pulumi:"region"`
+	Timezone          string               `pulumi:"timezone"`
+	Title             string               `pulumi:"title"`
+	UserId            string               `pulumi:"userId"`
+	UserName          string               `pulumi:"userName"`
+	UserType          string               `pulumi:"userType"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -126,18 +64,10 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
 	AlternateIdentifier GetUserAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
-	// Identity Store ID associated with the Single Sign-On Instance.
-	//
-	// The following arguments are optional:
-	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The identifier for a user in the Identity Store.
-	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
-	UserId pulumi.StringPtrInput `pulumi:"userId"`
+	IdentityStoreId     pulumi.StringInput                 `pulumi:"identityStoreId"`
+	Region              pulumi.StringPtrInput              `pulumi:"region"`
+	UserId              pulumi.StringPtrInput              `pulumi:"userId"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {
@@ -159,7 +89,6 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// List of details about the user's address.
 func (o LookupUserResultOutput) Addresses() GetUserAddressArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserAddress { return v.Addresses }).(GetUserAddressArrayOutput)
 }
@@ -168,17 +97,14 @@ func (o LookupUserResultOutput) AlternateIdentifier() GetUserAlternateIdentifier
 	return o.ApplyT(func(v LookupUserResult) *GetUserAlternateIdentifier { return v.AlternateIdentifier }).(GetUserAlternateIdentifierPtrOutput)
 }
 
-// The name that is typically displayed when the user is referenced.
 func (o LookupUserResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// List of details about the user's email.
 func (o LookupUserResultOutput) Emails() GetUserEmailArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserEmail { return v.Emails }).(GetUserEmailArrayOutput)
 }
 
-// List of identifiers issued to this resource by an external identity provider.
 func (o LookupUserResultOutput) ExternalIds() GetUserExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserExternalId { return v.ExternalIds }).(GetUserExternalIdArrayOutput)
 }
@@ -192,47 +118,38 @@ func (o LookupUserResultOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.IdentityStoreId }).(pulumi.StringOutput)
 }
 
-// The user's geographical region or location.
 func (o LookupUserResultOutput) Locale() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Locale }).(pulumi.StringOutput)
 }
 
-// Details about the user's full name.
 func (o LookupUserResultOutput) Names() GetUserNameArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserName { return v.Names }).(GetUserNameArrayOutput)
 }
 
-// An alternate name for the user.
 func (o LookupUserResultOutput) Nickname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Nickname }).(pulumi.StringOutput)
 }
 
-// List of details about the user's phone number.
 func (o LookupUserResultOutput) PhoneNumbers() GetUserPhoneNumberArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserPhoneNumber { return v.PhoneNumbers }).(GetUserPhoneNumberArrayOutput)
 }
 
-// The preferred language of the user.
 func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.PreferredLanguage }).(pulumi.StringOutput)
 }
 
-// An URL that may be associated with the user.
 func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
 }
 
-// The region of the address.
 func (o LookupUserResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The user's time zone.
 func (o LookupUserResultOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Timezone }).(pulumi.StringOutput)
 }
 
-// The user's title.
 func (o LookupUserResultOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -241,12 +158,10 @@ func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-// User's user name value.
 func (o LookupUserResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-// The user type.
 func (o LookupUserResultOutput) UserType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserType }).(pulumi.StringOutput)
 }

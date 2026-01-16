@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class LaunchScheduledSplitsConfig
     {
-        /// <summary>
-        /// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchScheduledSplitsConfigStep> Steps;
 
         [OutputConstructor]

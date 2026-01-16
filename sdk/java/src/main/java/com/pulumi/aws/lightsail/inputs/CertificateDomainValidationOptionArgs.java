@@ -15,62 +15,30 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
 
     public static final CertificateDomainValidationOptionArgs Empty = new CertificateDomainValidationOptionArgs();
 
-    /**
-     * Domain name for which the certificate should be issued.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return Domain name for which the certificate should be issued.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Name of the DNS record to create to validate the certificate.
-     * 
-     */
     @Import(name="resourceRecordName")
     private @Nullable Output<String> resourceRecordName;
 
-    /**
-     * @return Name of the DNS record to create to validate the certificate.
-     * 
-     */
     public Optional<Output<String>> resourceRecordName() {
         return Optional.ofNullable(this.resourceRecordName);
     }
 
-    /**
-     * Type of DNS record to create to validate the certificate.
-     * 
-     */
     @Import(name="resourceRecordType")
     private @Nullable Output<String> resourceRecordType;
 
-    /**
-     * @return Type of DNS record to create to validate the certificate.
-     * 
-     */
     public Optional<Output<String>> resourceRecordType() {
         return Optional.ofNullable(this.resourceRecordType);
     }
 
-    /**
-     * Value of the DNS record to create to validate the certificate.
-     * 
-     */
     @Import(name="resourceRecordValue")
     private @Nullable Output<String> resourceRecordValue;
 
-    /**
-     * @return Value of the DNS record to create to validate the certificate.
-     * 
-     */
     public Optional<Output<String>> resourceRecordValue() {
         return Optional.ofNullable(this.resourceRecordValue);
     }
@@ -102,86 +70,38 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
             $ = new CertificateDomainValidationOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Domain name for which the certificate should be issued.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Domain name for which the certificate should be issued.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param resourceRecordName Name of the DNS record to create to validate the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordName(@Nullable Output<String> resourceRecordName) {
             $.resourceRecordName = resourceRecordName;
             return this;
         }
 
-        /**
-         * @param resourceRecordName Name of the DNS record to create to validate the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordName(String resourceRecordName) {
             return resourceRecordName(Output.of(resourceRecordName));
         }
 
-        /**
-         * @param resourceRecordType Type of DNS record to create to validate the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordType(@Nullable Output<String> resourceRecordType) {
             $.resourceRecordType = resourceRecordType;
             return this;
         }
 
-        /**
-         * @param resourceRecordType Type of DNS record to create to validate the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordType(String resourceRecordType) {
             return resourceRecordType(Output.of(resourceRecordType));
         }
 
-        /**
-         * @param resourceRecordValue Value of the DNS record to create to validate the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordValue(@Nullable Output<String> resourceRecordValue) {
             $.resourceRecordValue = resourceRecordValue;
             return this;
         }
 
-        /**
-         * @param resourceRecordValue Value of the DNS record to create to validate the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceRecordValue(String resourceRecordValue) {
             return resourceRecordValue(Output.of(resourceRecordValue));
         }

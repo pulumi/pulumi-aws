@@ -18,85 +18,37 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BrokerUserArgs Empty = new BrokerUserArgs();
 
-    /**
-     * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
-     * 
-     */
     @Import(name="consoleAccess")
     private @Nullable Output<Boolean> consoleAccess;
 
-    /**
-     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
-     * 
-     */
     public Optional<Output<Boolean>> consoleAccess() {
         return Optional.ofNullable(this.consoleAccess);
     }
 
-    /**
-     * List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
-     * 
-     */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
-    /**
-     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
-     * 
-     */
     public Optional<Output<List<String>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
-    /**
-     * Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * Whether to set replication user. Defaults to `false`.
-     * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-     * 
-     */
     @Import(name="replicationUser")
     private @Nullable Output<Boolean> replicationUser;
 
-    /**
-     * @return Whether to set replication user. Defaults to `false`.
-     * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-     * 
-     */
     public Optional<Output<Boolean>> replicationUser() {
         return Optional.ofNullable(this.replicationUser);
     }
 
-    /**
-     * Username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return Username of the user.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -129,125 +81,51 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
             $ = new BrokerUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consoleAccess Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consoleAccess(@Nullable Output<Boolean> consoleAccess) {
             $.consoleAccess = consoleAccess;
             return this;
         }
 
-        /**
-         * @param consoleAccess Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder consoleAccess(Boolean consoleAccess) {
             return consoleAccess(Output.of(consoleAccess));
         }
 
-        /**
-         * @param groups List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(@Nullable Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
-        /**
-         * @param groups List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
-        /**
-         * @param groups List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
-        /**
-         * @param password Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param replicationUser Whether to set replication user. Defaults to `false`.
-         * 
-         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationUser(@Nullable Output<Boolean> replicationUser) {
             $.replicationUser = replicationUser;
             return this;
         }
 
-        /**
-         * @param replicationUser Whether to set replication user. Defaults to `false`.
-         * 
-         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationUser(Boolean replicationUser) {
             return replicationUser(Output.of(replicationUser));
         }
 
-        /**
-         * @param username Username of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username Username of the user.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

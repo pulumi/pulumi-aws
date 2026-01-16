@@ -16,24 +16,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
 
     public static final GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs Empty = new GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs();
 
-    /**
-     * A list of a list of strings. The list of edges associated with the network function group.
-     * 
-     */
     @Import(name="edgeSets")
     private @Nullable Output<List<List<String>>> edgeSets;
 
-    /**
-     * @return A list of a list of strings. The list of edges associated with the network function group.
-     * 
-     */
     public Optional<Output<List<List<String>>>> edgeSets() {
         return Optional.ofNullable(this.edgeSets);
     }
 
     /**
-     * The preferred edge to use.
-     * 
      * @deprecated
      * use_edge is deprecated. Use useEdgeLocation instead.
      * 
@@ -43,8 +33,6 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
     private @Nullable Output<String> useEdge;
 
     /**
-     * @return The preferred edge to use.
-     * 
      * @deprecated
      * use_edge is deprecated. Use useEdgeLocation instead.
      * 
@@ -54,17 +42,9 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
         return Optional.ofNullable(this.useEdge);
     }
 
-    /**
-     * The preferred edge to use.
-     * 
-     */
     @Import(name="useEdgeLocation")
     private @Nullable Output<String> useEdgeLocation;
 
-    /**
-     * @return The preferred edge to use.
-     * 
-     */
     public Optional<Output<String>> useEdgeLocation() {
         return Optional.ofNullable(this.useEdgeLocation);
     }
@@ -95,40 +75,20 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
             $ = new GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeSets(@Nullable Output<List<List<String>>> edgeSets) {
             $.edgeSets = edgeSets;
             return this;
         }
 
-        /**
-         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeSets(List<List<String>> edgeSets) {
             return edgeSets(Output.of(edgeSets));
         }
 
-        /**
-         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeSets(List<String>... edgeSets) {
             return edgeSets(List.of(edgeSets));
         }
 
         /**
-         * @param useEdge The preferred edge to use.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -142,8 +102,6 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
         }
 
         /**
-         * @param useEdge The preferred edge to use.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -155,23 +113,11 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
             return useEdge(Output.of(useEdge));
         }
 
-        /**
-         * @param useEdgeLocation The preferred edge to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useEdgeLocation(@Nullable Output<String> useEdgeLocation) {
             $.useEdgeLocation = useEdgeLocation;
             return this;
         }
 
-        /**
-         * @param useEdgeLocation The preferred edge to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useEdgeLocation(String useEdgeLocation) {
             return useEdgeLocation(Output.of(useEdgeLocation));
         }

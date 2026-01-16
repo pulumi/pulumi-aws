@@ -16,32 +16,16 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
 
     public static final RegistryScanningConfigurationRuleArgs Empty = new RegistryScanningConfigurationRuleArgs();
 
-    /**
-     * One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-     * 
-     */
     @Import(name="repositoryFilters", required=true)
     private Output<List<RegistryScanningConfigurationRuleRepositoryFilterArgs>> repositoryFilters;
 
-    /**
-     * @return One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-     * 
-     */
     public Output<List<RegistryScanningConfigurationRuleRepositoryFilterArgs>> repositoryFilters() {
         return this.repositoryFilters;
     }
 
-    /**
-     * The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-     * 
-     */
     @Import(name="scanFrequency", required=true)
     private Output<String> scanFrequency;
 
-    /**
-     * @return The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-     * 
-     */
     public Output<String> scanFrequency() {
         return this.scanFrequency;
     }
@@ -71,54 +55,24 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
             $ = new RegistryScanningConfigurationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryFilters(Output<List<RegistryScanningConfigurationRuleRepositoryFilterArgs>> repositoryFilters) {
             $.repositoryFilters = repositoryFilters;
             return this;
         }
 
-        /**
-         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryFilters(List<RegistryScanningConfigurationRuleRepositoryFilterArgs> repositoryFilters) {
             return repositoryFilters(Output.of(repositoryFilters));
         }
 
-        /**
-         * @param repositoryFilters One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs... repositoryFilters) {
             return repositoryFilters(List.of(repositoryFilters));
         }
 
-        /**
-         * @param scanFrequency The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanFrequency(Output<String> scanFrequency) {
             $.scanFrequency = scanFrequency;
             return this;
         }
 
-        /**
-         * @param scanFrequency The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanFrequency(String scanFrequency) {
             return scanFrequency(Output.of(scanFrequency));
         }

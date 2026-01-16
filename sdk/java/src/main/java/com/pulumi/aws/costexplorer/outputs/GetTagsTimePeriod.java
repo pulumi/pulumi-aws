@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTagsTimePeriod {
-    /**
-     * @return Beginning of the time period.
-     * 
-     */
     private String end;
-    /**
-     * @return End of the time period.
-     * 
-     */
     private String start;
 
     private GetTagsTimePeriod() {}
-    /**
-     * @return Beginning of the time period.
-     * 
-     */
     public String end() {
         return this.end;
     }
-    /**
-     * @return End of the time period.
-     * 
-     */
     public String start() {
         return this.start;
     }

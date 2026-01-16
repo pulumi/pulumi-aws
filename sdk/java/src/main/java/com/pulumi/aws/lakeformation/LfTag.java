@@ -14,110 +14,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.LfTag;
- * import com.pulumi.aws.lakeformation.LfTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()
- *             .key("module")
- *             .values(            
- *                 "Orders",
- *                 "Sales",
- *                 "Customers")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
- * 
- * ```sh
- * $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
- * ```
- * 
- */
 @ResourceType(type="aws:lakeformation/lfTag:LfTag")
 public class LfTag extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
-    /**
-     * @return ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
-    /**
-     * Key-name for the tag.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Key-name for the tag.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * List of possible values an attribute can take.
-     * 
-     */
     @Export(name="values", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> values;
 
-    /**
-     * @return List of possible values an attribute can take.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }

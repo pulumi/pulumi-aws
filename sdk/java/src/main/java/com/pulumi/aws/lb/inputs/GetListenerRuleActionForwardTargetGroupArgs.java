@@ -15,34 +15,16 @@ public final class GetListenerRuleActionForwardTargetGroupArgs extends com.pulum
 
     public static final GetListenerRuleActionForwardTargetGroupArgs Empty = new GetListenerRuleActionForwardTargetGroupArgs();
 
-    /**
-     * ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Listener Rule.
-     * Either `arn` or `listenerArn` must be set.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Weight of the target group.
-     * 
-     */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
-    /**
-     * @return Weight of the target group.
-     * 
-     */
     public Output<Integer> weight() {
         return this.weight;
     }
@@ -72,46 +54,20 @@ public final class GetListenerRuleActionForwardTargetGroupArgs extends com.pulum
             $ = new GetListenerRuleActionForwardTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listenerArn` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listenerArn` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param weight Weight of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
-        /**
-         * @param weight Weight of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

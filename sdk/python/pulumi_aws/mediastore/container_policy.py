@@ -24,9 +24,6 @@ class ContainerPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerPolicy resource.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "policy", policy)
@@ -36,9 +33,6 @@ class ContainerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the container.
-        """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
@@ -48,9 +42,6 @@ class ContainerPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The contents of the policy.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -60,9 +51,6 @@ class ContainerPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _ContainerPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerPolicy resources.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -92,9 +77,6 @@ class _ContainerPolicyState:
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the container.
-        """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
@@ -104,9 +86,6 @@ class _ContainerPolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The contents of the policy.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -116,9 +95,6 @@ class _ContainerPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,48 +113,9 @@ class ContainerPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example_container = aws.mediastore.Container("example", name="example")
-        example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "MediaStoreFullAccess",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
-            }],
-            "actions": ["mediastore:*"],
-            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
-            "conditions": [{
-                "test": "Bool",
-                "variable": "aws:SecureTransport",
-                "values": ["true"],
-            }],
-        }])
-        example_container_policy = aws.mediastore.ContainerPolicy("example",
-            container_name=example_container.name,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
-
-        ```sh
-        $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-        ```
-
+        Create a ContainerPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -187,43 +124,7 @@ class ContainerPolicy(pulumi.CustomResource):
                  args: ContainerPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example_container = aws.mediastore.Container("example", name="example")
-        example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "MediaStoreFullAccess",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
-            }],
-            "actions": ["mediastore:*"],
-            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
-            "conditions": [{
-                "test": "Bool",
-                "variable": "aws:SecureTransport",
-                "values": ["true"],
-            }],
-        }])
-        example_container_policy = aws.mediastore.ContainerPolicy("example",
-            container_name=example_container.name,
-            policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
-
-        ```sh
-        $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-        ```
-
+        Create a ContainerPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContainerPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,9 +179,6 @@ class ContainerPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -294,24 +192,15 @@ class ContainerPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the container.
-        """
         return pulumi.get(self, "container_name")
 
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The contents of the policy.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

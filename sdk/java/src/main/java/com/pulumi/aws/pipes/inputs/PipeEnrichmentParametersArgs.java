@@ -16,32 +16,16 @@ public final class PipeEnrichmentParametersArgs extends com.pulumi.resources.Res
 
     public static final PipeEnrichmentParametersArgs Empty = new PipeEnrichmentParametersArgs();
 
-    /**
-     * Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
-     * 
-     */
     @Import(name="httpParameters")
     private @Nullable Output<PipeEnrichmentParametersHttpParametersArgs> httpParameters;
 
-    /**
-     * @return Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
-     * 
-     */
     public Optional<Output<PipeEnrichmentParametersHttpParametersArgs>> httpParameters() {
         return Optional.ofNullable(this.httpParameters);
     }
 
-    /**
-     * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-     * 
-     */
     @Import(name="inputTemplate")
     private @Nullable Output<String> inputTemplate;
 
-    /**
-     * @return Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-     * 
-     */
     public Optional<Output<String>> inputTemplate() {
         return Optional.ofNullable(this.inputTemplate);
     }
@@ -71,44 +55,20 @@ public final class PipeEnrichmentParametersArgs extends com.pulumi.resources.Res
             $ = new PipeEnrichmentParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpParameters Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpParameters(@Nullable Output<PipeEnrichmentParametersHttpParametersArgs> httpParameters) {
             $.httpParameters = httpParameters;
             return this;
         }
 
-        /**
-         * @param httpParameters Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpParameters(PipeEnrichmentParametersHttpParametersArgs httpParameters) {
             return httpParameters(Output.of(httpParameters));
         }
 
-        /**
-         * @param inputTemplate Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputTemplate(@Nullable Output<String> inputTemplate) {
             $.inputTemplate = inputTemplate;
             return this;
         }
 
-        /**
-         * @param inputTemplate Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputTemplate(String inputTemplate) {
             return inputTemplate(Output.of(inputTemplate));
         }

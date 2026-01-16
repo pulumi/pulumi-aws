@@ -9,151 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Alb
 {
-    /// <summary>
-    /// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `aws.elb.Attachment` resource.
-    /// 
-    /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testTargetGroup = new Aws.LB.TargetGroup("test");
-    /// 
-    ///     var testInstance = new Aws.Ec2.Instance("test");
-    /// 
-    ///     var test = new Aws.LB.TargetGroupAttachment("test", new()
-    ///     {
-    ///         TargetGroupArn = testTargetGroup.Arn,
-    ///         TargetId = testInstance.Id,
-    ///         Port = 80,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Lambda Target
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LB.TargetGroup("test", new()
-    ///     {
-    ///         Name = "test",
-    ///         TargetType = "lambda",
-    ///     });
-    /// 
-    ///     var testFunction = new Aws.Lambda.Function("test");
-    /// 
-    ///     var withLb = new Aws.Lambda.Permission("with_lb", new()
-    ///     {
-    ///         StatementId = "AllowExecutionFromlb",
-    ///         Action = "lambda:InvokeFunction",
-    ///         Function = testFunction.Name,
-    ///         Principal = "elasticloadbalancing.amazonaws.com",
-    ///         SourceArn = test.Arn,
-    ///     });
-    /// 
-    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("test", new()
-    ///     {
-    ///         TargetGroupArn = test.Arn,
-    ///         TargetId = testFunction.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             withLb,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Target using QUIC
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LB.TargetGroup("test", new()
-    ///     {
-    ///         Name = "test",
-    ///         Port = 443,
-    ///         Protocol = "QUIC",
-    ///     });
-    /// 
-    ///     var testInstance = new Aws.Ec2.Instance("test");
-    /// 
-    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("test", new()
-    ///     {
-    ///         TargetGroupArn = test.Arn,
-    ///         TargetId = testInstance.Id,
-    ///         Port = 443,
-    ///         QuicServerId = "0x1a2b3c4d5e6f7a8b",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import Target Group Attachments.
-    /// </summary>
     [AwsResourceType("aws:alb/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `All`.
-        /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
-        /// <summary>
-        /// The port on which targets receive traffic.
-        /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
-        /// <summary>
-        /// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-        /// </summary>
         [Output("quicServerId")]
         public Output<string?> QuicServerId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the target group with which to register targets.
-        /// </summary>
         [Output("targetGroupArn")]
         public Output<string> TargetGroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `Ip`, specify an IP address. If the target type is `Lambda`, specify the Lambda function ARN. If the target type is `Alb`, specify the ALB ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
@@ -207,41 +80,21 @@ namespace Pulumi.Aws.Alb
 
     public sealed class TargetGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `All`.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// The port on which targets receive traffic.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-        /// </summary>
         [Input("quicServerId")]
         public Input<string>? QuicServerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the target group with which to register targets.
-        /// </summary>
         [Input("targetGroupArn", required: true)]
         public Input<string> TargetGroupArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `Ip`, specify an IP address. If the target type is `Lambda`, specify the Lambda function ARN. If the target type is `Alb`, specify the ALB ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
@@ -253,41 +106,21 @@ namespace Pulumi.Aws.Alb
 
     public sealed class TargetGroupAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `All`.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// The port on which targets receive traffic.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `aws.lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
-        /// </summary>
         [Input("quicServerId")]
         public Input<string>? QuicServerId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the target group with which to register targets.
-        /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
-        /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `Ip`, specify an IP address. If the target type is `Lambda`, specify the Lambda function ARN. If the target type is `Alb`, specify the ALB ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 

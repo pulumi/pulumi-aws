@@ -7,216 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     knowledgeBaseConfiguration: {
- *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
- *         },
- *         type: "VECTOR",
- *     },
- *     storageConfiguration: {
- *         type: "OPENSEARCH_SERVERLESS",
- *         opensearchServerlessConfiguration: {
- *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
- *             vectorIndexName: "bedrock-knowledge-base-default-index",
- *             fieldMapping: {
- *                 vectorField: "bedrock-knowledge-base-default-vector",
- *                 textField: "AMAZON_BEDROCK_TEXT_CHUNK",
- *                 metadataField: "AMAZON_BEDROCK_METADATA",
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### Kendra Knowledge Base
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const kendraExample = new aws.bedrock.AgentKnowledgeBase("kendra_example", {
- *     name: "example-kendra-kb",
- *     roleArn: example.arn,
- *     knowledgeBaseConfiguration: {
- *         type: "KENDRA",
- *         kendraKnowledgeBaseConfiguration: {
- *             kendraIndexArn: "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
- *         },
- *     },
- * });
- * ```
- *
- * ### Structured Data Store
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example-kb",
- *     roleArn: exampleAwsIamRole.arn,
- *     knowledgeBaseConfiguration: {
- *         type: "SQL",
- *         sqlKnowledgeBaseConfiguration: {
- *             type: "REDSHIFT",
- *             redshiftConfiguration: {
- *                 queryEngineConfiguration: {
- *                     type: "PROVISIONED",
- *                     provisionedConfiguration: {
- *                         clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
- *                         authConfiguration: {
- *                             type: "USERNAME",
- *                             databaseUser: exampleAwsRedshiftCluster.masterUsername,
- *                         },
- *                     },
- *                 },
- *                 storageConfiguration: {
- *                     type: "REDSHIFT",
- *                     redshiftConfiguration: {
- *                         databaseName: exampleAwsRedshiftCluster.databaseName,
- *                     },
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### OpenSearch Managed Cluster Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     knowledgeBaseConfiguration: {
- *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
- *         },
- *         type: "VECTOR",
- *     },
- *     storageConfiguration: {
- *         type: "OPENSEARCH_MANAGED_CLUSTER",
- *         opensearchManagedClusterConfiguration: {
- *             domainArn: "arn:aws:es:us-west-2:123456789012:domain/example-domain",
- *             domainEndpoint: "https://search-example-domain.us-west-2.es.amazonaws.com",
- *             vectorIndexName: "example_index",
- *             fieldMapping: {
- *                 metadataField: "metadata",
- *                 textField: "chunks",
- *                 vectorField: "embedding",
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### With Supplemental Data Storage Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
- *     knowledgeBaseConfiguration: {
- *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
- *             embeddingModelConfiguration: {
- *                 bedrockEmbeddingModelConfiguration: {
- *                     dimensions: 1024,
- *                     embeddingDataType: "FLOAT32",
- *                 },
- *             },
- *             supplementalDataStorageConfiguration: {
- *                 storageLocation: {
- *                     type: "S3",
- *                     s3Location: {
- *                         uri: "s3://my-bucket/chunk-processor/",
- *                     },
- *                 },
- *             },
- *         },
- *         type: "VECTOR",
- *     },
- *     storageConfiguration: {
- *         type: "OPENSEARCH_SERVERLESS",
- *         opensearchServerlessConfiguration: {
- *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
- *             vectorIndexName: "bedrock-knowledge-base-default-index",
- *             fieldMapping: {
- *                 vectorField: "bedrock-knowledge-base-default-vector",
- *                 textField: "AMAZON_BEDROCK_TEXT_CHUNK",
- *                 metadataField: "AMAZON_BEDROCK_METADATA",
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ### S3 Vectors Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.VectorsVectorBucket("example", {vectorBucketName: "example-bucket"});
- * const exampleVectorsIndex = new aws.s3.VectorsIndex("example", {
- *     indexName: "example-index",
- *     vectorBucketName: example.vectorBucketName,
- *     dataType: "float32",
- *     dimension: 256,
- *     distanceMetric: "euclidean",
- * });
- * const exampleAgentKnowledgeBase = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example-s3vectors-kb",
- *     roleArn: exampleAwsIamRole.arn,
- *     knowledgeBaseConfiguration: {
- *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
- *             embeddingModelConfiguration: {
- *                 bedrockEmbeddingModelConfiguration: {
- *                     dimensions: 256,
- *                     embeddingDataType: "FLOAT32",
- *                 },
- *             },
- *         },
- *         type: "VECTOR",
- *     },
- *     storageConfiguration: {
- *         type: "S3_VECTORS",
- *         s3VectorsConfiguration: {
- *             indexArn: exampleVectorsIndex.indexArn,
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the knowledge base ID. For example:
- *
- * ```sh
- * $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
- * ```
- */
 export class AgentKnowledgeBase extends pulumi.CustomResource {
     /**
      * Get an existing AgentKnowledgeBase resource's state with the given name, ID, and optional extra
@@ -245,53 +35,18 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentKnowledgeBase.__pulumiType;
     }
 
-    /**
-     * ARN of the knowledge base.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Time at which the knowledge base was created.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * Description of the knowledge base.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly failureReasons: pulumi.Output<string[]>;
-    /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-     */
     declare public readonly knowledgeBaseConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
-    /**
-     * Name of the knowledge base.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly roleArn: pulumi.Output<string>;
-    /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     */
     declare public readonly storageConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseTimeouts | undefined>;
-    /**
-     * Time at which the knowledge base was last updated.
-     */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
@@ -348,53 +103,18 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentKnowledgeBase resources.
  */
 export interface AgentKnowledgeBaseState {
-    /**
-     * ARN of the knowledge base.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Time at which the knowledge base was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Description of the knowledge base.
-     */
     description?: pulumi.Input<string>;
     failureReasons?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-     */
     knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
-    /**
-     * Name of the knowledge base.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-     *
-     * The following arguments are optional:
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;
-    /**
-     * Time at which the knowledge base was last updated.
-     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -402,35 +122,12 @@ export interface AgentKnowledgeBaseState {
  * The set of arguments for constructing a AgentKnowledgeBase resource.
  */
 export interface AgentKnowledgeBaseArgs {
-    /**
-     * Description of the knowledge base.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
-     */
     knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
-    /**
-     * Name of the knowledge base.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
-     *
-     * The following arguments are optional:
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
-     */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;
 }

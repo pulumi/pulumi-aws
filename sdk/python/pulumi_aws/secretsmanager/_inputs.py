@@ -28,25 +28,10 @@ MYPY = False
 if not MYPY:
     class SecretReplicaArgsDict(TypedDict):
         region: pulumi.Input[_builtins.str]
-        """
-        Region for replicating the secret.
-        """
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-        """
         last_accessed_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date that you last accessed the secret in the Region.
-        """
         status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status can be `InProgress`, `Failed`, or `InSync`.
-        """
         status_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-        """
 elif False:
     SecretReplicaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -58,13 +43,6 @@ class SecretReplicaArgs:
                  last_accessed_date: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  status_message: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] region: Region for replicating the secret.
-        :param pulumi.Input[_builtins.str] kms_key_id: ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-        :param pulumi.Input[_builtins.str] last_accessed_date: Date that you last accessed the secret in the Region.
-        :param pulumi.Input[_builtins.str] status: Status can be `InProgress`, `Failed`, or `InSync`.
-        :param pulumi.Input[_builtins.str] status_message: Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-        """
         pulumi.set(__self__, "region", region)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -78,9 +56,6 @@ class SecretReplicaArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Region for replicating the secret.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -90,9 +65,6 @@ class SecretReplicaArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -102,9 +74,6 @@ class SecretReplicaArgs:
     @_builtins.property
     @pulumi.getter(name="lastAccessedDate")
     def last_accessed_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Date that you last accessed the secret in the Region.
-        """
         return pulumi.get(self, "last_accessed_date")
 
     @last_accessed_date.setter
@@ -114,9 +83,6 @@ class SecretReplicaArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Status can be `InProgress`, `Failed`, or `InSync`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -126,9 +92,6 @@ class SecretReplicaArgs:
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -139,17 +102,8 @@ class SecretReplicaArgs:
 if not MYPY:
     class SecretRotationRotationRulesArgsDict(TypedDict):
         automatically_after_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
-        """
         duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The length of the rotation window in hours. For example, `3h` for a three hour window.
-        """
         schedule_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
-        """
 elif False:
     SecretRotationRotationRulesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -159,11 +113,6 @@ class SecretRotationRotationRulesArgs:
                  automatically_after_days: Optional[pulumi.Input[_builtins.int]] = None,
                  duration: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.int] automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
-        :param pulumi.Input[_builtins.str] duration: The length of the rotation window in hours. For example, `3h` for a three hour window.
-        :param pulumi.Input[_builtins.str] schedule_expression: A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
-        """
         if automatically_after_days is not None:
             pulumi.set(__self__, "automatically_after_days", automatically_after_days)
         if duration is not None:
@@ -174,9 +123,6 @@ class SecretRotationRotationRulesArgs:
     @_builtins.property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
-        """
         return pulumi.get(self, "automatically_after_days")
 
     @automatically_after_days.setter
@@ -186,9 +132,6 @@ class SecretRotationRotationRulesArgs:
     @_builtins.property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The length of the rotation window in hours. For example, `3h` for a three hour window.
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -198,9 +141,6 @@ class SecretRotationRotationRulesArgs:
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -211,13 +151,7 @@ class SecretRotationRotationRulesArgs:
 if not MYPY:
     class GetSecretsFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
 elif False:
     GetSecretsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -226,19 +160,12 @@ class GetSecretsFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -248,9 +175,6 @@ class GetSecretsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

@@ -12,35 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationPortalOptionsSignInOptions {
-    /**
-     * @return URL that accepts authentication requests for an application.
-     * 
-     */
     private @Nullable String applicationUrl;
-    /**
-     * @return Determines how IAM Identity Center navigates the user to the target application.
-     * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-     * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-     * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-     * 
-     */
     private String origin;
 
     private ApplicationPortalOptionsSignInOptions() {}
-    /**
-     * @return URL that accepts authentication requests for an application.
-     * 
-     */
     public Optional<String> applicationUrl() {
         return Optional.ofNullable(this.applicationUrl);
     }
-    /**
-     * @return Determines how IAM Identity Center navigates the user to the target application.
-     * Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-     * If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `applicationUrl`.
-     * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-     * 
-     */
     public String origin() {
         return this.origin;
     }

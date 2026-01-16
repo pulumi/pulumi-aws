@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleConditionQueryStringValueArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Key of query parameter
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
-        /// <summary>
-        /// Value of query parameter
-        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

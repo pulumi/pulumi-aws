@@ -9,68 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Eip("example", new()
-    ///     {
-    ///         Domain = "vpc",
-    ///     });
-    /// 
-    ///     var exampleRecord = new Aws.Route53.Record("example", new()
-    ///     {
-    ///         ZoneId = main.ZoneId,
-    ///         Name = "reverse",
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         Records = new[]
-    ///         {
-    ///             example.PublicIp,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleEipDomainName = new Aws.Ec2.EipDomainName("example", new()
-    ///     {
-    ///         AllocationId = example.AllocationId,
-    ///         DomainName = exampleRecord.Fqdn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/eipDomainName:EipDomainName")]
     public partial class EipDomainName : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The allocation ID.
-        /// </summary>
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The domain name to modify for the IP address.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// The DNS pointer (PTR) record for the IP address.
-        /// </summary>
         [Output("ptrRecord")]
         public Output<string> PtrRecord { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -123,21 +73,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EipDomainNameArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The allocation ID.
-        /// </summary>
         [Input("allocationId", required: true)]
         public Input<string> AllocationId { get; set; } = null!;
 
-        /// <summary>
-        /// The domain name to modify for the IP address.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -152,27 +93,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EipDomainNameState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The allocation ID.
-        /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
-        /// <summary>
-        /// The domain name to modify for the IP address.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// The DNS pointer (PTR) record for the IP address.
-        /// </summary>
         [Input("ptrRecord")]
         public Input<string>? PtrRecord { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

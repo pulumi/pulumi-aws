@@ -12,59 +12,29 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationInputsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `KinesisStream`.
-        /// See Kinesis Firehose below for more details.
-        /// </summary>
         [Input("kinesisFirehose")]
         public Input<Inputs.AnalyticsApplicationInputsKinesisFirehoseGetArgs>? KinesisFirehose { get; set; }
 
-        /// <summary>
-        /// The Kinesis Stream configuration for the streaming source. Conflicts with `KinesisFirehose`.
-        /// See Kinesis Stream below for more details.
-        /// </summary>
         [Input("kinesisStream")]
         public Input<Inputs.AnalyticsApplicationInputsKinesisStreamGetArgs>? KinesisStream { get; set; }
 
-        /// <summary>
-        /// The Name Prefix to use when creating an in-application stream.
-        /// </summary>
         [Input("namePrefix", required: true)]
         public Input<string> NamePrefix { get; set; } = null!;
 
-        /// <summary>
-        /// The number of Parallel in-application streams to create.
-        /// See Parallelism below for more details.
-        /// </summary>
         [Input("parallelism")]
         public Input<Inputs.AnalyticsApplicationInputsParallelismGetArgs>? Parallelism { get; set; }
 
-        /// <summary>
-        /// The Processing Configuration to transform records as they are received from the stream.
-        /// See Processing Configuration below for more details.
-        /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.AnalyticsApplicationInputsProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
-        /// <summary>
-        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
-        /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.AnalyticsApplicationInputsSchemaGetArgs> Schema { get; set; } = null!;
 
         [Input("startingPositionConfigurations")]
         private InputList<Inputs.AnalyticsApplicationInputsStartingPositionConfigurationGetArgs>? _startingPositionConfigurations;
-
-        /// <summary>
-        /// The point at which the application starts processing records from the streaming source.
-        /// See Starting Position Configuration below for more details.
-        /// </summary>
         public InputList<Inputs.AnalyticsApplicationInputsStartingPositionConfigurationGetArgs> StartingPositionConfigurations
         {
             get => _startingPositionConfigurations ?? (_startingPositionConfigurations = new InputList<Inputs.AnalyticsApplicationInputsStartingPositionConfigurationGetArgs>());

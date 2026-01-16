@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskDefinitionProxyConfiguration {
-    /**
-     * @return Name of the container that will serve as the App Mesh proxy.
-     * 
-     */
     private String containerName;
-    /**
-     * @return Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-     * 
-     */
     private @Nullable Map<String,String> properties;
-    /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-     * 
-     */
     private @Nullable String type;
 
     private TaskDefinitionProxyConfiguration() {}
-    /**
-     * @return Name of the container that will serve as the App Mesh proxy.
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-     * 
-     */
     public Map<String,String> properties() {
         return this.properties == null ? Map.of() : this.properties;
     }
-    /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

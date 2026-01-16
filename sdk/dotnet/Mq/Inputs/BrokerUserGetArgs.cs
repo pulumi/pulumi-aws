@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Mq.Inputs
 
     public sealed class BrokerUserGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `EngineType` of `ActiveMQ` only.
-        /// </summary>
         [Input("consoleAccess")]
         public Input<bool>? ConsoleAccess { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
-
-        /// <summary>
-        /// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `EngineType` of `ActiveMQ` only.
-        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.Mq.Inputs
 
         [Input("password", required: true)]
         private Input<string>? _password;
-
-        /// <summary>
-        /// Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -46,19 +35,9 @@ namespace Pulumi.Aws.Mq.Inputs
             }
         }
 
-        /// <summary>
-        /// Whether to set replication user. Defaults to `False`.
-        /// 
-        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-        /// </summary>
         [Input("replicationUser")]
         public Input<bool>? ReplicationUser { get; set; }
 
-        /// <summary>
-        /// Username of the user.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

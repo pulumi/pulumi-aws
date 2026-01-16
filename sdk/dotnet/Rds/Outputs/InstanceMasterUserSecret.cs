@@ -13,18 +13,8 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class InstanceMasterUserSecret
     {
-        /// <summary>
-        /// The ARN for the KMS encryption key. If creating an
-        /// encrypted replica, set this to the destination KMS ARN.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
-        /// </summary>
         public readonly string? SecretArn;
-        /// <summary>
-        /// The status of the secret. Valid Values: `Creating` | `Active` | `Rotating` | `Impaired`.
-        /// </summary>
         public readonly string? SecretStatus;
 
         [OutputConstructor]

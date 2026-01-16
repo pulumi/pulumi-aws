@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create a VPN Concentrator that aggregates multiple VPN connections to a transit gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.TransitGateway("example", {
- *     description: "example",
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * const exampleVpnConcentrator = new aws.ec2.VpnConcentrator("example", {
- *     type: "ipsec.1",
- *     transitGatewayId: example.id,
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import VPN Concentrators using the VPN concentrator ID. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpnConcentrator:VpnConcentrator example vcn-12345678
- * ```
- */
 export class VpnConcentrator extends pulumi.CustomResource {
     /**
      * Get an existing VpnConcentrator resource's state with the given name, ID, and optional extra
@@ -64,35 +32,12 @@ export class VpnConcentrator extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnConcentrator.__pulumiType;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * ID of the transit gateway attachment created for the VPN concentrator.
-     */
     declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
-    /**
-     * ID of the transit gateway to attach the VPN concentrator to.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly transitGatewayId: pulumi.Output<string>;
-    /**
-     * Type of VPN concentrator. Valid value: `ipsec.1`.
-     */
     declare public readonly type: pulumi.Output<string>;
-    /**
-     * ID of the VPN Concentrator.
-     */
     declare public /*out*/ readonly vpnConcentratorId: pulumi.Output<string>;
 
     /**
@@ -140,35 +85,12 @@ export class VpnConcentrator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnConcentrator resources.
  */
 export interface VpnConcentratorState {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ID of the transit gateway attachment created for the VPN concentrator.
-     */
     transitGatewayAttachmentId?: pulumi.Input<string>;
-    /**
-     * ID of the transit gateway to attach the VPN concentrator to.
-     *
-     * The following arguments are optional:
-     */
     transitGatewayId?: pulumi.Input<string>;
-    /**
-     * Type of VPN concentrator. Valid value: `ipsec.1`.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * ID of the VPN Concentrator.
-     */
     vpnConcentratorId?: pulumi.Input<string>;
 }
 
@@ -176,22 +98,8 @@ export interface VpnConcentratorState {
  * The set of arguments for constructing a VpnConcentrator resource.
  */
 export interface VpnConcentratorArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * ID of the transit gateway to attach the VPN concentrator to.
-     *
-     * The following arguments are optional:
-     */
     transitGatewayId: pulumi.Input<string>;
-    /**
-     * Type of VPN concentrator. Valid value: `ipsec.1`.
-     */
     type: pulumi.Input<string>;
 }

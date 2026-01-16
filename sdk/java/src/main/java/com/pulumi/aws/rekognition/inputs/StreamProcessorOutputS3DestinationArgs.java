@@ -16,14 +16,14 @@ public final class StreamProcessorOutputS3DestinationArgs extends com.pulumi.res
     public static final StreamProcessorOutputS3DestinationArgs Empty = new StreamProcessorOutputS3DestinationArgs();
 
     /**
-     * Name of the Amazon S3 bucket you want to associate with the streaming video project.
+     * The name of the Amazon S3 bucket you want to associate with the streaming video project.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of the Amazon S3 bucket you want to associate with the streaming video project.
+     * @return The name of the Amazon S3 bucket you want to associate with the streaming video project.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -71,7 +71,7 @@ public final class StreamProcessorOutputS3DestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param bucket Name of the Amazon S3 bucket you want to associate with the streaming video project.
+         * @param bucket The name of the Amazon S3 bucket you want to associate with the streaming video project.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class StreamProcessorOutputS3DestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param bucket Name of the Amazon S3 bucket you want to associate with the streaming video project.
+         * @param bucket The name of the Amazon S3 bucket you want to associate with the streaming video project.
          * 
          * @return builder
          * 

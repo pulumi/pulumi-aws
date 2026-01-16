@@ -158,121 +158,76 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> _builtins.bool:
-        """
-        Whether major version upgrades can be applied during maintenance period
-        """
         return pulumi.get(self, "allow_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="aquaConfigurationStatus")
     def aqua_configuration_status(self) -> _builtins.str:
-        """
-        The value represents how the cluster is configured to use AQUA.
-        """
         return pulumi.get(self, "aqua_configuration_status")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of cluster.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> _builtins.int:
-        """
-        The backup retention period
-        """
         return pulumi.get(self, "automated_snapshot_retention_period")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Availability zone of the cluster
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRelocationEnabled")
     def availability_zone_relocation_enabled(self) -> _builtins.bool:
-        """
-        Indicates whether the cluster is able to be relocated to another availability zone.
-        """
         return pulumi.get(self, "availability_zone_relocation_enabled")
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
-        """
-        Name of the S3 bucket where the log files are to be stored
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> _builtins.str:
-        """
-        Cluster identifier
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="clusterNamespaceArn")
     def cluster_namespace_arn(self) -> _builtins.str:
-        """
-        The namespace Amazon Resource Name (ARN) of the cluster
-        """
         return pulumi.get(self, "cluster_namespace_arn")
 
     @_builtins.property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> Sequence['outputs.GetClusterClusterNodeResult']:
-        """
-        Nodes in the cluster. Cluster node blocks are documented below
-        """
         return pulumi.get(self, "cluster_nodes")
 
     @_builtins.property
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> _builtins.str:
-        """
-        The name of the parameter group to be associated with this cluster
-        """
         return pulumi.get(self, "cluster_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterPublicKey")
     def cluster_public_key(self) -> _builtins.str:
-        """
-        Public key for the cluster
-        """
         return pulumi.get(self, "cluster_public_key")
 
     @_builtins.property
     @pulumi.getter(name="clusterRevisionNumber")
     def cluster_revision_number(self) -> _builtins.str:
-        """
-        The cluster revision number
-        """
         return pulumi.get(self, "cluster_revision_number")
 
     @_builtins.property
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> _builtins.str:
-        """
-        The name of a cluster subnet group to be associated with this cluster
-        """
         return pulumi.get(self, "cluster_subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> _builtins.str:
-        """
-        Cluster type
-        """
         return pulumi.get(self, "cluster_type")
 
     @_builtins.property
@@ -283,65 +238,41 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
-        """
-        Name of the default database in the cluster
-        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> _builtins.str:
-        """
-        The ARN for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> _builtins.str:
-        """
-        Elastic IP of the cluster
-        """
         return pulumi.get(self, "elastic_ip")
 
     @_builtins.property
     @pulumi.getter(name="enableLogging")
     def enable_logging(self) -> _builtins.bool:
-        """
-        Whether cluster logging is enabled
-        """
         return pulumi.get(self, "enable_logging")
 
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> _builtins.bool:
-        """
-        Whether the cluster data is encrypted
-        """
         return pulumi.get(self, "encrypted")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Cluster endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> _builtins.bool:
-        """
-        Whether enhanced VPC routing is enabled
-        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Sequence[_builtins.str]:
-        """
-        IAM roles associated to the cluster
-        """
         return pulumi.get(self, "iam_roles")
 
     @_builtins.property
@@ -355,97 +286,61 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        KMS encryption key associated to the cluster
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
     def log_destination_type(self) -> _builtins.str:
-        """
-        The log destination type.
-        """
         return pulumi.get(self, "log_destination_type")
 
     @_builtins.property
     @pulumi.getter(name="logExports")
     def log_exports(self) -> Sequence[_builtins.str]:
-        """
-        Collection of exported log types. Log types include the connection log, user log and user activity log.
-        """
         return pulumi.get(self, "log_exports")
 
     @_builtins.property
     @pulumi.getter(name="maintenanceTrackName")
     def maintenance_track_name(self) -> _builtins.str:
-        """
-        The name of the maintenance track for the restored cluster.
-        """
         return pulumi.get(self, "maintenance_track_name")
 
     @_builtins.property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> _builtins.int:
-        """
-        (Optional)  The default number of days to retain a manual snapshot.
-        """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> _builtins.str:
-        """
-        Username for the master DB user
-        """
         return pulumi.get(self, "master_username")
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> _builtins.bool:
-        """
-        If the cluster is a Multi-AZ deployment
-        """
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> _builtins.str:
-        """
-        Cluster node type
-        """
         return pulumi.get(self, "node_type")
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> _builtins.int:
-        """
-        Number of nodes in the cluster
-        """
         return pulumi.get(self, "number_of_nodes")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Port the cluster responds on
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> _builtins.str:
-        """
-        The maintenance window
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> _builtins.bool:
-        """
-        Whether the cluster is publicly accessible
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
@@ -456,33 +351,21 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> _builtins.str:
-        """
-        Folder inside the S3 bucket where the log files are stored
-        """
         return pulumi.get(self, "s3_key_prefix")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags associated to the cluster
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
-        """
-        VPC Id associated with the cluster
-        """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
-        """
-        The VPC security group Ids associated with the cluster
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -541,40 +424,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Provides details about a specific redshift cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
-    example_stream = aws.kinesis.FirehoseDeliveryStream("example_stream",
-        name="kinesis-firehose-example-stream",
-        destination="redshift",
-        redshift_configuration={
-            "role_arn": firehose_role["arn"],
-            "cluster_jdbcurl": f"jdbc:redshift://{example.endpoint}/{example.database_name}",
-            "username": "exampleuser",
-            "password": "Exampl3Pass",
-            "data_table_name": "example-table",
-            "copy_options": "delimiter '|'",
-            "data_table_columns": "example-col",
-            "s3_configuration": {
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffer_size": 10,
-                "buffer_interval": 400,
-                "compression_format": "GZIP",
-            },
-        })
-    ```
-
-
-    :param _builtins.str cluster_identifier: Cluster identifier
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags associated to the cluster
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -631,40 +481,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]]
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Provides details about a specific redshift cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
-    example_stream = aws.kinesis.FirehoseDeliveryStream("example_stream",
-        name="kinesis-firehose-example-stream",
-        destination="redshift",
-        redshift_configuration={
-            "role_arn": firehose_role["arn"],
-            "cluster_jdbcurl": f"jdbc:redshift://{example.endpoint}/{example.database_name}",
-            "username": "exampleuser",
-            "password": "Exampl3Pass",
-            "data_table_name": "example-table",
-            "copy_options": "delimiter '|'",
-            "data_table_columns": "example-col",
-            "s3_configuration": {
-                "role_arn": firehose_role["arn"],
-                "bucket_arn": bucket["arn"],
-                "buffer_size": 10,
-                "buffer_interval": 400,
-                "compression_format": "GZIP",
-            },
-        })
-    ```
-
-
-    :param _builtins.str cluster_identifier: Cluster identifier
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags associated to the cluster
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier

@@ -26,11 +26,6 @@ class LogDeliveryConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
-        :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
-               
-               The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        :param pulumi.Input[_builtins.str] region: The AWS region.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if log_configurations is not None:
@@ -41,11 +36,6 @@ class LogDeliveryConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the user pool for which to configure log delivery.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -55,9 +45,6 @@ class LogDeliveryConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]:
-        """
-        Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        """
         return pulumi.get(self, "log_configurations")
 
     @log_configurations.setter
@@ -67,9 +54,6 @@ class LogDeliveryConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS region.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -85,11 +69,6 @@ class _LogDeliveryConfigurationState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDeliveryConfiguration resources.
-        :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        :param pulumi.Input[_builtins.str] region: The AWS region.
-        :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
-               
-               The following arguments are optional:
         """
         if log_configurations is not None:
             pulumi.set(__self__, "log_configurations", log_configurations)
@@ -101,9 +80,6 @@ class _LogDeliveryConfigurationState:
     @_builtins.property
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]:
-        """
-        Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        """
         return pulumi.get(self, "log_configurations")
 
     @log_configurations.setter
@@ -113,9 +89,6 @@ class _LogDeliveryConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS region.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -125,11 +98,6 @@ class _LogDeliveryConfigurationState:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the user pool for which to configure log delivery.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -148,147 +116,9 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Cognito IDP (Identity Provider) Log Delivery Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage with CloudWatch Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
-            log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
-                "cloud_watch_logs_configuration": {
-                    "log_group_arn": example_log_group.arn,
-                },
-            }])
-        ```
-
-        ### Multiple Log Configurations with Different Destinations
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-bucket",
-            force_destroy=True)
-        firehose = aws.iam.Role("firehose",
-            name="firehose-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "firehose.amazonaws.com",
-                    },
-                }],
-            }))
-        firehose_role_policy = aws.iam.RolePolicy("firehose",
-            name="firehose-policy",
-            role=firehose.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:AbortMultipartUpload",
-                        "s3:GetBucketLocation",
-                        "s3:GetObject",
-                        "s3:ListBucket",
-                        "s3:ListBucketMultipartUploads",
-                        "s3:PutObject",
-                    ],
-                    "Resource": [
-                        example_bucket.arn,
-                        example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-                    ],
-                }],
-            }))
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
-            name="example-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose.arn,
-                "bucket_arn": example_bucket.arn,
-            })
-        example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
-            log_configurations=[
-                {
-                    "event_source": "userNotification",
-                    "log_level": "INFO",
-                    "cloud_watch_logs_configuration": {
-                        "log_group_arn": example_log_group.arn,
-                    },
-                },
-                {
-                    "event_source": "userAuthEvents",
-                    "log_level": "ERROR",
-                    "firehose_configuration": {
-                        "stream_arn": example_firehose_delivery_stream.arn,
-                    },
-                },
-            ])
-        ```
-
-        ### S3 Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-bucket",
-            force_destroy=True)
-        example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
-            log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
-                "s3_configuration": {
-                    "bucket_arn": example_bucket.arn,
-                },
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `user_pool_id` (String) ID of the Cognito User Pool.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
-
-        % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
-
+        Create a LogDeliveryConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        :param pulumi.Input[_builtins.str] region: The AWS region.
-        :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -297,140 +127,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                  args: LogDeliveryConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Cognito IDP (Identity Provider) Log Delivery Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage with CloudWatch Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
-            log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
-                "cloud_watch_logs_configuration": {
-                    "log_group_arn": example_log_group.arn,
-                },
-            }])
-        ```
-
-        ### Multiple Log Configurations with Different Destinations
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-bucket",
-            force_destroy=True)
-        firehose = aws.iam.Role("firehose",
-            name="firehose-role",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "firehose.amazonaws.com",
-                    },
-                }],
-            }))
-        firehose_role_policy = aws.iam.RolePolicy("firehose",
-            name="firehose-policy",
-            role=firehose.id,
-            policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:AbortMultipartUpload",
-                        "s3:GetBucketLocation",
-                        "s3:GetObject",
-                        "s3:ListBucket",
-                        "s3:ListBucketMultipartUploads",
-                        "s3:PutObject",
-                    ],
-                    "Resource": [
-                        example_bucket.arn,
-                        example_bucket.arn.apply(lambda arn: f"{arn}/*"),
-                    ],
-                }],
-            }))
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
-            name="example-stream",
-            destination="extended_s3",
-            extended_s3_configuration={
-                "role_arn": firehose.arn,
-                "bucket_arn": example_bucket.arn,
-            })
-        example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
-            log_configurations=[
-                {
-                    "event_source": "userNotification",
-                    "log_level": "INFO",
-                    "cloud_watch_logs_configuration": {
-                        "log_group_arn": example_log_group.arn,
-                    },
-                },
-                {
-                    "event_source": "userAuthEvents",
-                    "log_level": "ERROR",
-                    "firehose_configuration": {
-                        "stream_arn": example_firehose_delivery_stream.arn,
-                    },
-                },
-            ])
-        ```
-
-        ### S3 Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_bucket = aws.s3.Bucket("example",
-            bucket="example-bucket",
-            force_destroy=True)
-        example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
-            log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
-                "s3_configuration": {
-                    "bucket_arn": example_bucket.arn,
-                },
-            }])
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `user_pool_id` (String) ID of the Cognito User Pool.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
-
-        % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
-
+        Create a LogDeliveryConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LogDeliveryConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -483,11 +180,6 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        :param pulumi.Input[_builtins.str] region: The AWS region.
-        :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -501,26 +193,15 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.LogDeliveryConfigurationLogConfiguration']]]:
-        """
-        Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        """
         return pulumi.get(self, "log_configurations")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        The AWS region.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the user pool for which to configure log delivery.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "user_pool_id")
 

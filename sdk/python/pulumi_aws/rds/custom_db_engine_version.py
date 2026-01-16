@@ -34,19 +34,6 @@ class CustomDbEngineVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomDbEngineVersion resource.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the database engine.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_prefix: The prefix for the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] description: The description of the CEV.
-        :param pulumi.Input[_builtins.str] filename: The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        :param pulumi.Input[_builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        :param pulumi.Input[_builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        :param pulumi.Input[_builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "engine_version", engine_version)
@@ -76,9 +63,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -88,9 +72,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The version of the database engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -100,9 +81,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
     def database_installation_files_s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Amazon S3 bucket that contains the database installation files.
-        """
         return pulumi.get(self, "database_installation_files_s3_bucket_name")
 
     @database_installation_files_s3_bucket_name.setter
@@ -112,9 +90,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3Prefix")
     def database_installation_files_s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix for the Amazon S3 bucket that contains the database installation files.
-        """
         return pulumi.get(self, "database_installation_files_s3_prefix")
 
     @database_installation_files_s3_prefix.setter
@@ -124,9 +99,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the CEV.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -136,9 +108,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -148,9 +117,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -160,9 +126,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def manifest(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        """
         return pulumi.get(self, "manifest")
 
     @manifest.setter
@@ -172,9 +135,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter(name="manifestHash")
     def manifest_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        """
         return pulumi.get(self, "manifest_hash")
 
     @manifest_hash.setter
@@ -184,9 +144,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -196,9 +153,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        """
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
@@ -208,9 +162,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -220,9 +171,6 @@ class CustomDbEngineVersionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -255,26 +203,6 @@ class _CustomDbEngineVersionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomDbEngineVersion resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the custom engine version.
-        :param pulumi.Input[_builtins.str] create_time: The date and time that the CEV was created.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_prefix: The prefix for the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] db_parameter_group_family: The name of the DB parameter group family for the CEV.
-        :param pulumi.Input[_builtins.str] description: The description of the CEV.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the database engine.
-        :param pulumi.Input[_builtins.str] filename: The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        :param pulumi.Input[_builtins.str] image_id: The ID of the AMI that was created with the CEV.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        :param pulumi.Input[_builtins.str] major_engine_version: The major version of the database engine.
-        :param pulumi.Input[_builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        :param pulumi.Input[_builtins.str] manifest_computed: The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-        :param pulumi.Input[_builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        :param pulumi.Input[_builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -320,9 +248,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the custom engine version.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -332,9 +257,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that the CEV was created.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -344,9 +266,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
     def database_installation_files_s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Amazon S3 bucket that contains the database installation files.
-        """
         return pulumi.get(self, "database_installation_files_s3_bucket_name")
 
     @database_installation_files_s3_bucket_name.setter
@@ -356,9 +275,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3Prefix")
     def database_installation_files_s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The prefix for the Amazon S3 bucket that contains the database installation files.
-        """
         return pulumi.get(self, "database_installation_files_s3_prefix")
 
     @database_installation_files_s3_prefix.setter
@@ -368,9 +284,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupFamily")
     def db_parameter_group_family(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the DB parameter group family for the CEV.
-        """
         return pulumi.get(self, "db_parameter_group_family")
 
     @db_parameter_group_family.setter
@@ -380,9 +293,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the CEV.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -392,9 +302,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -404,9 +311,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of the database engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -416,9 +320,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -428,9 +329,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AMI that was created with the CEV.
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -440,9 +338,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -452,9 +347,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The major version of the database engine.
-        """
         return pulumi.get(self, "major_engine_version")
 
     @major_engine_version.setter
@@ -464,9 +356,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def manifest(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        """
         return pulumi.get(self, "manifest")
 
     @manifest.setter
@@ -476,9 +365,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="manifestComputed")
     def manifest_computed(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-        """
         return pulumi.get(self, "manifest_computed")
 
     @manifest_computed.setter
@@ -488,9 +374,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="manifestHash")
     def manifest_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        """
         return pulumi.get(self, "manifest_hash")
 
     @manifest_hash.setter
@@ -500,9 +383,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -512,9 +392,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        """
         return pulumi.get(self, "source_image_id")
 
     @source_image_id.setter
@@ -524,9 +401,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -536,9 +410,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -548,9 +419,6 @@ class _CustomDbEngineVersionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -579,109 +447,9 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
-
-        ## Example Usage
-
-        ### RDS Custom for Oracle Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
-            database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
-            database_installation_files_s3_prefix="1915_GI/",
-            engine="custom-oracle-ee-cdb",
-            engine_version="19.cdb_cev1",
-            kms_key_id=example.arn,
-            manifest=\"\"\"  {
-        \\t\\"databaseInstallationFileNames\\":[\\"V982063-01.zip\\"]
-          }
-        \"\"\",
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
-        ### RDS Custom for Oracle External Manifest Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
-            database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
-            database_installation_files_s3_prefix="1915_GI/",
-            engine="custom-oracle-ee-cdb",
-            engine_version="19.cdb_cev1",
-            kms_key_id=example.arn,
-            filename="manifest_1915_GI.json",
-            manifest_hash=std.filebase64sha256(input=json).result,
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
-        ### RDS Custom for SQL Server Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # CEV creation requires an AMI owned by the operator
-        test = aws.rds.CustomDbEngineVersion("test",
-            engine="custom-sqlserver-se",
-            engine_version="15.00.4249.2.cev-1",
-            source_image_id="ami-0aa12345678a12ab1")
-        ```
-
-        ### RDS Custom for SQL Server Usage with AMI from another region
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiCopy("example",
-            name="sqlserver-se-2019-15.00.4249.2",
-            description="A copy of ami-xxxxxxxx",
-            source_ami_id="ami-xxxxxxxx",
-            source_ami_region="us-east-1")
-        # CEV creation requires an AMI owned by the operator
-        test = aws.rds.CustomDbEngineVersion("test",
-            engine="custom-sqlserver-se",
-            engine_version="15.00.4249.2.cev-1",
-            source_image_id=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
-        ```
-
+        Create a CustomDbEngineVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_prefix: The prefix for the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] description: The description of the CEV.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the database engine.
-        :param pulumi.Input[_builtins.str] filename: The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        :param pulumi.Input[_builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        :param pulumi.Input[_builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        :param pulumi.Input[_builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -690,94 +458,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  args: CustomDbEngineVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
-
-        ## Example Usage
-
-        ### RDS Custom for Oracle Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
-            database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
-            database_installation_files_s3_prefix="1915_GI/",
-            engine="custom-oracle-ee-cdb",
-            engine_version="19.cdb_cev1",
-            kms_key_id=example.arn,
-            manifest=\"\"\"  {
-        \\t\\"databaseInstallationFileNames\\":[\\"V982063-01.zip\\"]
-          }
-        \"\"\",
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
-        ### RDS Custom for Oracle External Manifest Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
-            database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
-            database_installation_files_s3_prefix="1915_GI/",
-            engine="custom-oracle-ee-cdb",
-            engine_version="19.cdb_cev1",
-            kms_key_id=example.arn,
-            filename="manifest_1915_GI.json",
-            manifest_hash=std.filebase64sha256(input=json).result,
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
-        ### RDS Custom for SQL Server Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # CEV creation requires an AMI owned by the operator
-        test = aws.rds.CustomDbEngineVersion("test",
-            engine="custom-sqlserver-se",
-            engine_version="15.00.4249.2.cev-1",
-            source_image_id="ami-0aa12345678a12ab1")
-        ```
-
-        ### RDS Custom for SQL Server Usage with AMI from another region
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiCopy("example",
-            name="sqlserver-se-2019-15.00.4249.2",
-            description="A copy of ami-xxxxxxxx",
-            source_ami_id="ami-xxxxxxxx",
-            source_ami_region="us-east-1")
-        # CEV creation requires an AMI owned by the operator
-        test = aws.rds.CustomDbEngineVersion("test",
-            engine="custom-sqlserver-se",
-            engine_version="15.00.4249.2.cev-1",
-            source_image_id=example.id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
-        ```
-
+        Create a CustomDbEngineVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomDbEngineVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -876,26 +557,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the custom engine version.
-        :param pulumi.Input[_builtins.str] create_time: The date and time that the CEV was created.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] database_installation_files_s3_prefix: The prefix for the Amazon S3 bucket that contains the database installation files.
-        :param pulumi.Input[_builtins.str] db_parameter_group_family: The name of the DB parameter group family for the CEV.
-        :param pulumi.Input[_builtins.str] description: The description of the CEV.
-        :param pulumi.Input[_builtins.str] engine: The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        :param pulumi.Input[_builtins.str] engine_version: The version of the database engine.
-        :param pulumi.Input[_builtins.str] filename: The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        :param pulumi.Input[_builtins.str] image_id: The ID of the AMI that was created with the CEV.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        :param pulumi.Input[_builtins.str] major_engine_version: The major version of the database engine.
-        :param pulumi.Input[_builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        :param pulumi.Input[_builtins.str] manifest_computed: The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-        :param pulumi.Input[_builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        :param pulumi.Input[_builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -926,160 +587,100 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the custom engine version.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that the CEV was created.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
     def database_installation_files_s3_bucket_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the Amazon S3 bucket that contains the database installation files.
-        """
         return pulumi.get(self, "database_installation_files_s3_bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="databaseInstallationFilesS3Prefix")
     def database_installation_files_s3_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The prefix for the Amazon S3 bucket that contains the database installation files.
-        """
         return pulumi.get(self, "database_installation_files_s3_prefix")
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupFamily")
     def db_parameter_group_family(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the DB parameter group family for the CEV.
-        """
         return pulumi.get(self, "db_parameter_group_family")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the CEV.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The version of the database engine.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter
     def filename(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the manifest file within the local filesystem. Conflicts with `manifest`.
-        """
         return pulumi.get(self, "filename")
 
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the AMI that was created with the CEV.
-        """
         return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The major version of the database engine.
-        """
         return pulumi.get(self, "major_engine_version")
 
     @_builtins.property
     @pulumi.getter
     def manifest(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
-        """
         return pulumi.get(self, "manifest")
 
     @_builtins.property
     @pulumi.getter(name="manifestComputed")
     def manifest_computed(self) -> pulumi.Output[_builtins.str]:
-        """
-        The returned manifest file, in JSON format, service generated and often different from input `manifest`.
-        """
         return pulumi.get(self, "manifest_computed")
 
     @_builtins.property
     @pulumi.getter(name="manifestHash")
     def manifest_hash(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        """
         return pulumi.get(self, "manifest_hash")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
-        """
         return pulumi.get(self, "source_image_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

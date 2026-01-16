@@ -9,89 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    /// <summary>
-    /// Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.ResourcePolicy("example", new()
-    ///     {
-    ///         Content = @"{
-    ///   \""Version\"": \""2012-10-17\"",
-    ///   \""Statement\"": [
-    ///     {
-    ///       \""Sid\"": \""DelegatingNecessaryDescribeListActions\"",
-    ///       \""Effect\"": \""Allow\"",
-    ///       \""Principal\"": {
-    ///         \""AWS\"": \""arn:aws:iam::123456789012:root\""
-    ///       },
-    ///       \""Action\"": [
-    ///         \""organizations:DescribeOrganization\"",
-    ///         \""organizations:DescribeOrganizationalUnit\"",
-    ///         \""organizations:DescribeAccount\"",
-    ///         \""organizations:DescribePolicy\"",
-    ///         \""organizations:DescribeEffectivePolicy\"",
-    ///         \""organizations:ListRoots\"",
-    ///         \""organizations:ListOrganizationalUnitsForParent\"",
-    ///         \""organizations:ListParents\"",
-    ///         \""organizations:ListChildren\"",
-    ///         \""organizations:ListAccounts\"",
-    ///         \""organizations:ListAccountsForParent\"",
-    ///         \""organizations:ListPolicies\"",
-    ///         \""organizations:ListPoliciesForTarget\"",
-    ///         \""organizations:ListTargetsForPolicy\"",
-    ///         \""organizations:ListTagsForResource\""
-    ///       ],
-    ///       \""Resource\"": \""*\""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:organizations/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource policy.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -141,18 +70,11 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -167,24 +89,14 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource policy.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
-        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -193,10 +105,6 @@ namespace Pulumi.Aws.Organizations
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

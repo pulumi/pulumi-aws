@@ -13,20 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationConditionCondition {
     private @Nullable String expression;
-    /**
-     * @return A name for the flow.
-     * 
-     */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationConditionCondition() {}
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return A name for the flow.
-     * 
-     */
     public String name() {
         return this.name;
     }

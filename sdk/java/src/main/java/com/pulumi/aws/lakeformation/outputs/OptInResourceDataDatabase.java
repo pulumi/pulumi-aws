@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataDatabase {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private String name;
 
     private OptInResourceDataDatabase() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }

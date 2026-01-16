@@ -9,112 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Resource for managing an AWS Route 53 Profiles Resource Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.ProfilesProfile("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
-    ///     {
-    ///         Cidr = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleZone = new Aws.Route53.Zone("example", new()
-    ///     {
-    ///         Name = "example.com",
-    ///         Vpcs = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProfilesResourceAssociation = new Aws.Route53.ProfilesResourceAssociation("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ProfileId = example.Id,
-    ///         ResourceArn = exampleZone.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/profilesResourceAssociation:ProfilesResourceAssociation")]
     public partial class ProfilesResourceAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the Profile Resource Association.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the profile associated with the VPC.
-        /// </summary>
         [Output("profileId")]
         public Output<string> ProfileId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource ID of the resource to be associated with the profile.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource properties for the resource to be associated with the profile.
-        /// </summary>
         [Output("resourceProperties")]
         public Output<string> ResourceProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of resource associated with the profile.
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Status message of the Profile Resource Association.
-        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
@@ -167,33 +88,18 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ProfilesResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Profile Resource Association.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the profile associated with the VPC.
-        /// </summary>
         [Input("profileId", required: true)]
         public Input<string> ProfileId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Resource ID of the resource to be associated with the profile.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// Resource properties for the resource to be associated with the profile.
-        /// </summary>
         [Input("resourceProperties")]
         public Input<string>? ResourceProperties { get; set; }
 
@@ -208,54 +114,30 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ProfilesResourceAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Profile Resource Association.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
-        /// <summary>
-        /// ID of the profile associated with the VPC.
-        /// </summary>
         [Input("profileId")]
         public Input<string>? ProfileId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Resource ID of the resource to be associated with the profile.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Resource properties for the resource to be associated with the profile.
-        /// </summary>
         [Input("resourceProperties")]
         public Input<string>? ResourceProperties { get; set; }
 
-        /// <summary>
-        /// Type of resource associated with the profile.
-        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
-        /// <summary>
-        /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// Status message of the Profile Resource Association.
-        /// </summary>
         [Input("statusMessage")]
         public Input<string>? StatusMessage { get; set; }
 

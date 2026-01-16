@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
-    /**
-     * @return Configuration block for the settings on audio input. See `audioSpecification`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification;
-    /**
-     * @return Configuration block for the settings on DTMF input. See `dtmfSpecification`.
-     * 
-     */
     private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification;
-    /**
-     * @return Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-     * 
-     */
     private Integer startTimeoutMs;
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification() {}
-    /**
-     * @return Configuration block for the settings on audio input. See `audioSpecification`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
-    /**
-     * @return Configuration block for the settings on DTMF input. See `dtmfSpecification`.
-     * 
-     */
     public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> dtmfSpecification() {
         return Optional.ofNullable(this.dtmfSpecification);
     }
-    /**
-     * @return Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
-     * 
-     */
     public Integer startTimeoutMs() {
         return this.startTimeoutMs;
     }

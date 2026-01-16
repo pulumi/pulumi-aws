@@ -17,73 +17,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Cognito Identity Pool Roles Attachment.
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")
 public class IdentityPoolRoleAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * An identity pool ID in the format `REGION_GUID`.
-     * 
-     */
     @Export(name="identityPoolId", refs={String.class}, tree="[0]")
     private Output<String> identityPoolId;
 
-    /**
-     * @return An identity pool ID in the format `REGION_GUID`.
-     * 
-     */
     public Output<String> identityPoolId() {
         return this.identityPoolId;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * A List of Role Mapping.
-     * 
-     */
     @Export(name="roleMappings", refs={List.class,IdentityPoolRoleAttachmentRoleMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IdentityPoolRoleAttachmentRoleMapping>> roleMappings;
 
-    /**
-     * @return A List of Role Mapping.
-     * 
-     */
     public Output<Optional<List<IdentityPoolRoleAttachmentRoleMapping>>> roleMappings() {
         return Codegen.optional(this.roleMappings);
     }
-    /**
-     * The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
-     * 
-     */
     @Export(name="roles", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> roles;
 
-    /**
-     * @return The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
-     * 
-     */
     public Output<Map<String,String>> roles() {
         return this.roles;
     }

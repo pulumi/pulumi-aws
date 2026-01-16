@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Byte Match Set Resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byteSet = new aws.waf.ByteMatchSet("byte_set", {
- *     name: "my_waf_byte_match_set",
- *     byteMatchTuples: [{
- *         textTransformation: "NONE",
- *         targetString: "badrefer1",
- *         positionalConstraint: "CONTAINS",
- *         fieldToMatch: {
- *             type: "HEADER",
- *             data: "referer",
- *         },
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Byte Match Set using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class ByteMatchSet extends pulumi.CustomResource {
     /**
      * Get an existing ByteMatchSet resource's state with the given name, ID, and optional extra
@@ -66,19 +35,8 @@ export class ByteMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ByteMatchSet.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the byte match set.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     */
     declare public readonly byteMatchTuples: pulumi.Output<outputs.waf.ByteMatchSetByteMatchTuple[] | undefined>;
-    /**
-     * The name or description of the Byte Match Set.
-     */
     declare public readonly name: pulumi.Output<string>;
 
     /**
@@ -112,19 +70,8 @@ export class ByteMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ByteMatchSet resources.
  */
 export interface ByteMatchSetState {
-    /**
-     * Amazon Resource Name (ARN) of the byte match set.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     */
     byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
-    /**
-     * The name or description of the Byte Match Set.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -132,14 +79,6 @@ export interface ByteMatchSetState {
  * The set of arguments for constructing a ByteMatchSet resource.
  */
 export interface ByteMatchSetArgs {
-    /**
-     * Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     */
     byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
-    /**
-     * The name or description of the Byte Match Set.
-     */
     name?: pulumi.Input<string>;
 }

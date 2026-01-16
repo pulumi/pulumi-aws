@@ -16,32 +16,16 @@ public final class FleetVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final FleetVpcConfigArgs Empty = new FleetVpcConfigArgs();
 
-    /**
-     * Identifiers of the security groups for the fleet or image builder.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return Identifiers of the security groups for the fleet or image builder.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
@@ -71,64 +55,28 @@ public final class FleetVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
             $ = new FleetVpcConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds Identifiers of the security groups for the fleet or image builder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds Identifiers of the security groups for the fleet or image builder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds Identifiers of the security groups for the fleet or image builder.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationApplicationEncryptionConfiguration
     {
-        /// <summary>
-        /// The ARN of the KMS key to use for encryption. Required when `KeyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-        /// </summary>
         public readonly string? KeyId;
-        /// <summary>
-        /// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-        /// </summary>
         public readonly string KeyType;
 
         [OutputConstructor]

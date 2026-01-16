@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("storageLocations")]
         private InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationGetArgs>? _storageLocations;
-
-        /// <summary>
-        /// A storage location specification for images extracted from multimodal documents in your data source.  See `StorageLocation` block for details.
-        /// </summary>
         public InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationGetArgs> StorageLocations
         {
             get => _storageLocations ?? (_storageLocations = new InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationGetArgs>());

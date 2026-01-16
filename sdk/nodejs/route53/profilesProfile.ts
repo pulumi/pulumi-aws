@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Route 53 Profile.
- *
- * ## Example Usage
- *
- * ### Empty Profile
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ProfilesProfile("example", {
- *     name: "example",
- *     tags: {
- *         Environment: "dev",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Route 53 Profiles Profile using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
- * ```
- */
 export class ProfilesProfile extends pulumi.CustomResource {
     /**
      * Get an existing ProfilesProfile resource's state with the given name, ID, and optional extra
@@ -62,38 +35,14 @@ export class ProfilesProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProfilesProfile.__pulumiType;
     }
 
-    /**
-     * ARN of the Profile.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Name of the Profile.
-     */
     declare public readonly name: pulumi.Output<string>;
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Share status of the Profile.
-     */
     declare public /*out*/ readonly shareStatus: pulumi.Output<string>;
-    /**
-     * Status of the Profile.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Status message of the Profile.
-     */
     declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.route53.ProfilesProfileTimeouts | undefined>;
 
@@ -142,38 +91,14 @@ export class ProfilesProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProfilesProfile resources.
  */
 export interface ProfilesProfileState {
-    /**
-     * ARN of the Profile.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the Profile.
-     */
     name?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Share status of the Profile.
-     */
     shareStatus?: pulumi.Input<string>;
-    /**
-     * Status of the Profile.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Status message of the Profile.
-     */
     statusMessage?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.route53.ProfilesProfileTimeouts>;
 }
@@ -182,17 +107,8 @@ export interface ProfilesProfileState {
  * The set of arguments for constructing a ProfilesProfile resource.
  */
 export interface ProfilesProfileArgs {
-    /**
-     * Name of the Profile.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.route53.ProfilesProfileTimeouts>;
 }

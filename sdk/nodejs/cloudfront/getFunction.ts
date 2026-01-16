@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a CloudFront Function.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.cloudfront.getFunction({
- *     name: functionName,
- *     stage: "LIVE",
- * });
- * ```
- */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getFunction:getFunction", {
@@ -33,13 +16,7 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getFunction.
  */
 export interface GetFunctionArgs {
-    /**
-     * Name of the CloudFront function.
-     */
     name: string;
-    /**
-     * Function’s stage, either `DEVELOPMENT` or `LIVE`.
-     */
     stage: string;
 }
 
@@ -47,62 +24,21 @@ export interface GetFunctionArgs {
  * A collection of values returned by getFunction.
  */
 export interface GetFunctionResult {
-    /**
-     * ARN identifying your CloudFront Function.
-     */
     readonly arn: string;
-    /**
-     * Source code of the function
-     */
     readonly code: string;
-    /**
-     * Comment.
-     */
     readonly comment: string;
-    /**
-     * ETag hash of the function
-     */
     readonly etag: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
-     */
     readonly keyValueStoreAssociations: string[];
-    /**
-     * When this resource was last modified.
-     */
     readonly lastModifiedTime: string;
     readonly name: string;
-    /**
-     * Identifier of the function's runtime.
-     */
     readonly runtime: string;
     readonly stage: string;
-    /**
-     * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-     */
     readonly status: string;
 }
-/**
- * Provides information about a CloudFront Function.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.cloudfront.getFunction({
- *     name: functionName,
- *     stage: "LIVE",
- * });
- * ```
- */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getFunction:getFunction", {
@@ -115,12 +51,6 @@ export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getFunction.
  */
 export interface GetFunctionOutputArgs {
-    /**
-     * Name of the CloudFront function.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Function’s stage, either `DEVELOPMENT` or `LIVE`.
-     */
     stage: pulumi.Input<string>;
 }

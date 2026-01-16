@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
-    /**
-     * @return A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-     * 
-     */
     private String columnId;
-    /**
-     * @return Column name.
-     * 
-     */
     private String columnName;
-    /**
-     * @return An expression that defines the calculated column.
-     * 
-     */
     private String expression;
 
     private DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn() {}
-    /**
-     * @return A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-     * 
-     */
     public String columnId() {
         return this.columnId;
     }
-    /**
-     * @return Column name.
-     * 
-     */
     public String columnName() {
         return this.columnName;
     }
-    /**
-     * @return An expression that defines the calculated column.
-     * 
-     */
     public String expression() {
         return this.expression;
     }

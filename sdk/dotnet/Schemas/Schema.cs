@@ -9,147 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Schemas
 {
-    /// <summary>
-    /// Provides an EventBridge Schema resource.
-    /// 
-    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Schemas.Registry("test", new()
-    ///     {
-    ///         Name = "my_own_registry",
-    ///     });
-    /// 
-    ///     var testSchema = new Aws.Schemas.Schema("test", new()
-    ///     {
-    ///         Name = "my_schema",
-    ///         RegistryName = test.Name,
-    ///         Type = "OpenApi3",
-    ///         Description = "The schema definition for my event",
-    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["openapi"] = "3.0.0",
-    ///             ["info"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["version"] = "1.0.0",
-    ///                 ["title"] = "Event",
-    ///             },
-    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///             },
-    ///             ["components"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["schemas"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Event"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["type"] = "object",
-    ///                         ["properties"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["name"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["type"] = "string",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:schemas/schema:Schema test name/registry
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:schemas/schema:Schema")]
     public partial class Schema : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the discoverer.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The schema specification. Must be a valid Open API 3.0 spec.
-        /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the schema. Maximum of 256 characters.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The last modified date of the schema.
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the registry in which this schema belongs.
-        /// </summary>
         [Output("registryName")]
         public Output<string> RegistryName { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// The version of the schema.
-        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
-        /// <summary>
-        /// The created date of the version of the schema.
-        /// </summary>
         [Output("versionCreatedDate")]
         public Output<string> VersionCreatedDate { get; private set; } = null!;
 
@@ -199,51 +94,29 @@ namespace Pulumi.Aws.Schemas
 
     public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The schema specification. Must be a valid Open API 3.0 spec.
-        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
-        /// <summary>
-        /// The description of the schema. Maximum of 256 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the registry in which this schema belongs.
-        /// </summary>
         [Input("registryName", required: true)]
         public Input<string> RegistryName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -255,54 +128,29 @@ namespace Pulumi.Aws.Schemas
 
     public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the discoverer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The schema specification. Must be a valid Open API 3.0 spec.
-        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
-        /// <summary>
-        /// The description of the schema. Maximum of 256 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The last modified date of the schema.
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
-        /// <summary>
-        /// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the registry in which this schema belongs.
-        /// </summary>
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -311,31 +159,18 @@ namespace Pulumi.Aws.Schemas
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The version of the schema.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
-        /// <summary>
-        /// The created date of the version of the schema.
-        /// </summary>
         [Input("versionCreatedDate")]
         public Input<string>? VersionCreatedDate { get; set; }
 

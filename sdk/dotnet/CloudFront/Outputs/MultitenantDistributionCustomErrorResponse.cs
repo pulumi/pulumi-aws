@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionCustomErrorResponse
     {
-        /// <summary>
-        /// Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-        /// </summary>
         public readonly int? ErrorCachingMinTtl;
-        /// <summary>
-        /// HTTP status code for which you want to specify a custom error page and/or a caching duration.
-        /// </summary>
         public readonly int ErrorCode;
-        /// <summary>
-        /// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-        /// </summary>
         public readonly string? ResponseCode;
-        /// <summary>
-        /// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
-        /// </summary>
         public readonly string? ResponsePagePath;
 
         [OutputConstructor]

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsNetworkInputSettings {
-    /**
-     * @return Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-     * 
-     */
     private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings hlsInputSettings;
-    /**
-     * @return Check HTTPS server certificates.
-     * 
-     */
     private @Nullable String serverValidation;
 
     private ChannelInputAttachmentInputSettingsNetworkInputSettings() {}
-    /**
-     * @return Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-     * 
-     */
     public Optional<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings> hlsInputSettings() {
         return Optional.ofNullable(this.hlsInputSettings);
     }
-    /**
-     * @return Check HTTPS server certificates.
-     * 
-     */
     public Optional<String> serverValidation() {
         return Optional.ofNullable(this.serverValidation);
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics {
-    /**
-     * @return Whether detailed status code metrics are enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics() {}
-    /**
-     * @return Whether detailed status code metrics are enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

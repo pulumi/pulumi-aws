@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Fms.Inputs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
-
-        /// <summary>
-        /// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        /// </summary>
         public InputList<string> Accounts
         {
             get => _accounts ?? (_accounts = new InputList<string>());
@@ -26,12 +22,6 @@ namespace Pulumi.Aws.Fms.Inputs
 
         [Input("orgunits")]
         private InputList<string>? _orgunits;
-
-        /// <summary>
-        /// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-        /// 
-        /// You can specify inclusions or exclusions, but not both. If you specify an `IncludeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `IncludeMap`, and does not evaluate any `ExcludeMap` specifications. If you do not specify an `IncludeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `ExcludeMap`.
-        /// </summary>
         public InputList<string> Orgunits
         {
             get => _orgunits ?? (_orgunits = new InputList<string>());

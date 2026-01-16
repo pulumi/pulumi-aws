@@ -9,112 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Log Data Protection Policy resource.
-    /// 
-    /// Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
-    ///     {
-    ///         LogGroupName = example.Name,
-    ///         PolicyDocument = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Name"] = "Example",
-    ///             ["Version"] = "2021-06-01",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Audit",
-    ///                     ["DataIdentifier"] = new[]
-    ///                     {
-    ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Audit"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["FindingsDestination"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["S3"] = new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     ["Bucket"] = exampleBucket.BucketName,
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Redact",
-    ///                     ["DataIdentifier"] = new[]
-    ///                     {
-    ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Deidentify"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["MaskConfig"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import this resource using the `log_group_name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")]
     public partial class LogDataProtectionPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the log group under which the log stream is to be created.
-        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-        /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -164,21 +67,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDataProtectionPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the log group under which the log stream is to be created.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -190,21 +84,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDataProtectionPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the log group under which the log stream is to be created.
-        /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
-        /// <summary>
-        /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

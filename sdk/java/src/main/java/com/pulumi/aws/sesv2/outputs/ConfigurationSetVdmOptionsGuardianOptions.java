@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetVdmOptionsGuardianOptions {
-    /**
-     * @return Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     private @Nullable String optimizedSharedDelivery;
 
     private ConfigurationSetVdmOptionsGuardianOptions() {}
-    /**
-     * @return Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Optional<String> optimizedSharedDelivery() {
         return Optional.ofNullable(this.optimizedSharedDelivery);
     }

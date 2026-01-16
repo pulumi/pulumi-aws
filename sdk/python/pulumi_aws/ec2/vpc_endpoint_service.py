@@ -32,15 +32,6 @@ class VpcEndpointServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
-        :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        :param pulumi.Input[_builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "acceptance_required", acceptance_required)
         if allowed_principals is not None:
@@ -63,9 +54,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        """
         return pulumi.get(self, "acceptance_required")
 
     @acceptance_required.setter
@@ -75,9 +63,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="allowedPrincipals")
     def allowed_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The ARNs of one or more principals allowed to discover the endpoint service.
-        """
         return pulumi.get(self, "allowed_principals")
 
     @allowed_principals.setter
@@ -87,9 +72,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="gatewayLoadBalancerArns")
     def gateway_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        """
         return pulumi.get(self, "gateway_load_balancer_arns")
 
     @gateway_load_balancer_arns.setter
@@ -99,9 +81,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="networkLoadBalancerArns")
     def network_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        """
         return pulumi.get(self, "network_load_balancer_arns")
 
     @network_load_balancer_arns.setter
@@ -111,9 +90,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The private DNS name for the service.
-        """
         return pulumi.get(self, "private_dns_name")
 
     @private_dns_name.setter
@@ -123,9 +99,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -135,9 +108,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        """
         return pulumi.get(self, "supported_ip_address_types")
 
     @supported_ip_address_types.setter
@@ -147,9 +117,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter(name="supportedRegions")
     def supported_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of regions from which service consumers can access the service.
-        """
         return pulumi.get(self, "supported_regions")
 
     @supported_regions.setter
@@ -159,9 +126,6 @@ class VpcEndpointServiceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -192,24 +156,6 @@ class _VpcEndpointServiceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointService resources.
-        :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the VPC endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A set of Availability Zones in which the service is available.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] base_endpoint_dns_names: A set of DNS names for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        :param pulumi.Input[_builtins.bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        :param pulumi.Input[_builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_name: The service name.
-        :param pulumi.Input[_builtins.str] service_type: The service type, `Gateway` or `Interface`.
-        :param pulumi.Input[_builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if acceptance_required is not None:
             pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -251,9 +197,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        """
         return pulumi.get(self, "acceptance_required")
 
     @acceptance_required.setter
@@ -263,9 +206,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="allowedPrincipals")
     def allowed_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The ARNs of one or more principals allowed to discover the endpoint service.
-        """
         return pulumi.get(self, "allowed_principals")
 
     @allowed_principals.setter
@@ -275,9 +215,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the VPC endpoint service.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -287,9 +224,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A set of Availability Zones in which the service is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -299,9 +233,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="baseEndpointDnsNames")
     def base_endpoint_dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        A set of DNS names for the service.
-        """
         return pulumi.get(self, "base_endpoint_dns_names")
 
     @base_endpoint_dns_names.setter
@@ -311,9 +242,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="gatewayLoadBalancerArns")
     def gateway_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        """
         return pulumi.get(self, "gateway_load_balancer_arns")
 
     @gateway_load_balancer_arns.setter
@@ -323,9 +251,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="managesVpcEndpoints")
     def manages_vpc_endpoints(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether or not the service manages its VPC endpoints - `true` or `false`.
-        """
         return pulumi.get(self, "manages_vpc_endpoints")
 
     @manages_vpc_endpoints.setter
@@ -335,9 +260,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="networkLoadBalancerArns")
     def network_load_balancer_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        """
         return pulumi.get(self, "network_load_balancer_arns")
 
     @network_load_balancer_arns.setter
@@ -347,9 +269,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The private DNS name for the service.
-        """
         return pulumi.get(self, "private_dns_name")
 
     @private_dns_name.setter
@@ -359,9 +278,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="privateDnsNameConfigurations")
     def private_dns_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]]:
-        """
-        List of objects containing information about the endpoint service private DNS name configuration.
-        """
         return pulumi.get(self, "private_dns_name_configurations")
 
     @private_dns_name_configurations.setter
@@ -371,9 +287,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -383,9 +296,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The service name.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -395,9 +305,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The service type, `Gateway` or `Interface`.
-        """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
@@ -407,9 +314,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -419,9 +323,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        """
         return pulumi.get(self, "supported_ip_address_types")
 
     @supported_ip_address_types.setter
@@ -431,9 +332,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="supportedRegions")
     def supported_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The set of regions from which service consumers can access the service.
-        """
         return pulumi.get(self, "supported_regions")
 
     @supported_regions.setter
@@ -443,9 +341,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -455,9 +350,6 @@ class _VpcEndpointServiceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -482,58 +374,9 @@ class VpcEndpointService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a VPC Endpoint Service resource.
-        Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
-
-        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-        both a standalone VPC Endpoint Service Allowed Principal resource
-        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-        and will overwrite the association.
-
-        ## Example Usage
-
-        ### Network Load Balancers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpcEndpointService("example",
-            acceptance_required=False,
-            network_load_balancer_arns=[example_aws_lb["arn"]])
-        ```
-
-        ### Gateway Load Balancers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpcEndpointService("example",
-            acceptance_required=False,
-            gateway_load_balancer_arns=[example_aws_lb["arn"]])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
-        ```
-
+        Create a VpcEndpointService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        :param pulumi.Input[_builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -542,47 +385,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  args: VpcEndpointServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a VPC Endpoint Service resource.
-        Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
-
-        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-        both a standalone VPC Endpoint Service Allowed Principal resource
-        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-        and will overwrite the association.
-
-        ## Example Usage
-
-        ### Network Load Balancers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpcEndpointService("example",
-            acceptance_required=False,
-            network_load_balancer_arns=[example_aws_lb["arn"]])
-        ```
-
-        ### Gateway Load Balancers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpcEndpointService("example",
-            acceptance_required=False,
-            gateway_load_balancer_arns=[example_aws_lb["arn"]])
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
-
-        ```sh
-        $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
-        ```
-
+        Create a VpcEndpointService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -671,24 +474,6 @@ class VpcEndpointService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the VPC endpoint service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A set of Availability Zones in which the service is available.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] base_endpoint_dns_names: A set of DNS names for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        :param pulumi.Input[_builtins.bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        :param pulumi.Input[_builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_name: The service name.
-        :param pulumi.Input[_builtins.str] service_type: The service type, `Gateway` or `Interface`.
-        :param pulumi.Input[_builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -717,144 +502,90 @@ class VpcEndpointService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        """
         return pulumi.get(self, "acceptance_required")
 
     @_builtins.property
     @pulumi.getter(name="allowedPrincipals")
     def allowed_principals(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The ARNs of one or more principals allowed to discover the endpoint service.
-        """
         return pulumi.get(self, "allowed_principals")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the VPC endpoint service.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A set of Availability Zones in which the service is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="baseEndpointDnsNames")
     def base_endpoint_dns_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        A set of DNS names for the service.
-        """
         return pulumi.get(self, "base_endpoint_dns_names")
 
     @_builtins.property
     @pulumi.getter(name="gatewayLoadBalancerArns")
     def gateway_load_balancer_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        """
         return pulumi.get(self, "gateway_load_balancer_arns")
 
     @_builtins.property
     @pulumi.getter(name="managesVpcEndpoints")
     def manages_vpc_endpoints(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether or not the service manages its VPC endpoints - `true` or `false`.
-        """
         return pulumi.get(self, "manages_vpc_endpoints")
 
     @_builtins.property
     @pulumi.getter(name="networkLoadBalancerArns")
     def network_load_balancer_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        """
         return pulumi.get(self, "network_load_balancer_arns")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The private DNS name for the service.
-        """
         return pulumi.get(self, "private_dns_name")
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameConfigurations")
     def private_dns_name_configurations(self) -> pulumi.Output[Sequence['outputs.VpcEndpointServicePrivateDnsNameConfiguration']]:
-        """
-        List of objects containing information about the endpoint service private DNS name configuration.
-        """
         return pulumi.get(self, "private_dns_name_configurations")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The service name.
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
     def service_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The service type, `Gateway` or `Interface`.
-        """
         return pulumi.get(self, "service_type")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        """
         return pulumi.get(self, "supported_ip_address_types")
 
     @_builtins.property
     @pulumi.getter(name="supportedRegions")
     def supported_regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The set of regions from which service consumers can access the service.
-        """
         return pulumi.get(self, "supported_regions")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -31,24 +31,6 @@ class EnvironmentEC2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentEC2 resource.
-        :param pulumi.Input[_builtins.str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-2-x86_64`
-               * `amazonlinux-2023-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        :param pulumi.Input[_builtins.str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
-        :param pulumi.Input[_builtins.int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
-        :param pulumi.Input[_builtins.str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -72,17 +54,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-2-x86_64`
-        * `amazonlinux-2023-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -92,9 +63,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of instance to connect to the environment, e.g., `t2.micro`.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -104,9 +72,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter(name="automaticStopTimeMinutes")
     def automatic_stop_time_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of minutes until the running instance is shut down after the environment has last been used.
-        """
         return pulumi.get(self, "automatic_stop_time_minutes")
 
     @automatic_stop_time_minutes.setter
@@ -116,9 +81,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
@@ -128,9 +90,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the environment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -140,9 +99,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -152,9 +108,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter(name="ownerArn")
     def owner_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        """
         return pulumi.get(self, "owner_arn")
 
     @owner_arn.setter
@@ -164,9 +117,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -176,9 +126,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -188,9 +135,6 @@ class EnvironmentEC2Args:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -216,27 +160,6 @@ class _EnvironmentEC2State:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentEC2 resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the environment.
-        :param pulumi.Input[_builtins.int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
-        :param pulumi.Input[_builtins.str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-2-x86_64`
-               * `amazonlinux-2023-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        :param pulumi.Input[_builtins.str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the environment (e.g., `ssh` or `ec2`).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -268,9 +191,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the environment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -280,9 +200,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="automaticStopTimeMinutes")
     def automatic_stop_time_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of minutes until the running instance is shut down after the environment has last been used.
-        """
         return pulumi.get(self, "automatic_stop_time_minutes")
 
     @automatic_stop_time_minutes.setter
@@ -292,9 +209,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
@@ -304,9 +218,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description of the environment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -316,17 +227,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-2-x86_64`
-        * `amazonlinux-2023-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -336,9 +236,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of instance to connect to the environment, e.g., `t2.micro`.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -348,9 +245,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -360,9 +254,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="ownerArn")
     def owner_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        """
         return pulumi.get(self, "owner_arn")
 
     @owner_arn.setter
@@ -372,9 +263,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -384,9 +272,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -396,9 +281,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -408,9 +290,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -420,9 +299,6 @@ class _EnvironmentEC2State:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the environment (e.g., `ssh` or `ec2`).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -448,73 +324,9 @@ class EnvironmentEC2(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Cloud9 EC2 Development Environment.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example",
-            instance_type="t2.micro",
-            name="example-env",
-            image_id="amazonlinux-2023-x86_64")
-        ```
-
-        Get the URL of the Cloud9 environment after creation:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[{
-            "name": "tag:aws:cloud9:environment",
-            "values": [example.id],
-        }])
-        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
-        ```
-
-        Allocate a static IP to the Cloud9 environment:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[{
-            "name": "tag:aws:cloud9:environment",
-            "values": [example.id],
-        }])
-        cloud9_eip = aws.ec2.Eip("cloud9_eip",
-            instance=cloud9_instance.id,
-            domain="vpc")
-        pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
-        ```
-
+        Create a EnvironmentEC2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
-        :param pulumi.Input[_builtins.str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-2-x86_64`
-               * `amazonlinux-2023-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        :param pulumi.Input[_builtins.str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -523,53 +335,7 @@ class EnvironmentEC2(pulumi.CustomResource):
                  args: EnvironmentEC2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cloud9 EC2 Development Environment.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example",
-            instance_type="t2.micro",
-            name="example-env",
-            image_id="amazonlinux-2023-x86_64")
-        ```
-
-        Get the URL of the Cloud9 environment after creation:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[{
-            "name": "tag:aws:cloud9:environment",
-            "values": [example.id],
-        }])
-        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
-        ```
-
-        Allocate a static IP to the Cloud9 environment:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[{
-            "name": "tag:aws:cloud9:environment",
-            "values": [example.id],
-        }])
-        cloud9_eip = aws.ec2.Eip("cloud9_eip",
-            instance=cloud9_instance.id,
-            domain="vpc")
-        pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
-        ```
-
+        Create a EnvironmentEC2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -651,27 +417,6 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the environment.
-        :param pulumi.Input[_builtins.int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
-        :param pulumi.Input[_builtins.str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        :param pulumi.Input[_builtins.str] description: The description of the environment.
-        :param pulumi.Input[_builtins.str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-2-x86_64`
-               * `amazonlinux-2023-x86_64`
-               * `ubuntu-18.04-x86_64`
-               * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        :param pulumi.Input[_builtins.str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
-        :param pulumi.Input[_builtins.str] name: The name of the environment.
-        :param pulumi.Input[_builtins.str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of the environment (e.g., `ssh` or `ec2`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -695,112 +440,65 @@ class EnvironmentEC2(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the environment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="automaticStopTimeMinutes")
     def automatic_stop_time_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        The number of minutes until the running instance is shut down after the environment has last been used.
-        """
         return pulumi.get(self, "automatic_stop_time_minutes")
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
-        """
         return pulumi.get(self, "connection_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The description of the environment.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-2-x86_64`
-        * `amazonlinux-2023-x86_64`
-        * `ubuntu-18.04-x86_64`
-        * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
-        """
         return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of instance to connect to the environment, e.g., `t2.micro`.
-        """
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ownerArn")
     def owner_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-        """
         return pulumi.get(self, "owner_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        """
         return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the environment (e.g., `ssh` or `ec2`).
-        """
         return pulumi.get(self, "type")
 

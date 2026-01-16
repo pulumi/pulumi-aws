@@ -16,180 +16,35 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudFront real-time log configuration resource.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.cloudfront.RealtimeLogConfig;
- * import com.pulumi.aws.cloudfront.RealtimeLogConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointArgs;
- * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("cloudfront.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("cloudfront-realtime-log-config-example")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions(                
- *                     "kinesis:DescribeStreamSummary",
- *                     "kinesis:DescribeStream",
- *                     "kinesis:PutRecord",
- *                     "kinesis:PutRecords")
- *                 .resources(exampleAwsKinesisStream.arn())
- *                 .build())
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
- *             .name("cloudfront-realtime-log-config-example")
- *             .role(exampleRole.id())
- *             .policy(example.json())
- *             .build());
- * 
- *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()
- *             .name("example")
- *             .samplingRate(75)
- *             .fields(            
- *                 "timestamp",
- *                 "c-ip")
- *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
- *                 .streamType("Kinesis")
- *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
- *                     .roleArn(exampleRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleRolePolicy)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
- * 
- * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
- * 
- * % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
- * 
- */
 @ResourceType(type="aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")
 public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The Amazon Kinesis data streams where real-time log data is sent.
-     * 
-     */
     @Export(name="endpoint", refs={RealtimeLogConfigEndpoint.class}, tree="[0]")
     private Output<RealtimeLogConfigEndpoint> endpoint;
 
-    /**
-     * @return The Amazon Kinesis data streams where real-time log data is sent.
-     * 
-     */
     public Output<RealtimeLogConfigEndpoint> endpoint() {
         return this.endpoint;
     }
-    /**
-     * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     * 
-     */
     @Export(name="fields", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> fields;
 
-    /**
-     * @return The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     * 
-     */
     public Output<List<String>> fields() {
         return this.fields;
     }
-    /**
-     * The unique name to identify this real-time log configuration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The unique name to identify this real-time log configuration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     * 
-     */
     @Export(name="samplingRate", refs={Integer.class}, tree="[0]")
     private Output<Integer> samplingRate;
 
-    /**
-     * @return The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     * 
-     */
     public Output<Integer> samplingRate() {
         return this.samplingRate;
     }

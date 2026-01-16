@@ -16,77 +16,37 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyState Empty = new PolicyState();
 
-    /**
-     * The date the policy was created.
-     * 
-     */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
-    /**
-     * @return The date the policy was created.
-     * 
-     */
     public Optional<Output<String>> createdDate() {
         return Optional.ofNullable(this.createdDate);
     }
 
-    /**
-     * The definition of the policy. See Definition below.
-     * 
-     */
     @Import(name="definition")
     private @Nullable Output<PolicyDefinitionArgs> definition;
 
-    /**
-     * @return The definition of the policy. See Definition below.
-     * 
-     */
     public Optional<Output<PolicyDefinitionArgs>> definition() {
         return Optional.ofNullable(this.definition);
     }
 
-    /**
-     * The Policy ID of the policy.
-     * 
-     */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
-    /**
-     * @return The Policy ID of the policy.
-     * 
-     */
     public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
     }
 
-    /**
-     * The Policy Store ID of the policy store.
-     * 
-     */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
-    /**
-     * @return The Policy Store ID of the policy store.
-     * 
-     */
     public Optional<Output<String>> policyStoreId() {
         return Optional.ofNullable(this.policyStoreId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -119,107 +79,47 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdDate The date the policy was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdDate(@Nullable Output<String> createdDate) {
             $.createdDate = createdDate;
             return this;
         }
 
-        /**
-         * @param createdDate The date the policy was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdDate(String createdDate) {
             return createdDate(Output.of(createdDate));
         }
 
-        /**
-         * @param definition The definition of the policy. See Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(@Nullable Output<PolicyDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
 
-        /**
-         * @param definition The definition of the policy. See Definition below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(PolicyDefinitionArgs definition) {
             return definition(Output.of(definition));
         }
 
-        /**
-         * @param policyId The Policy ID of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
             return this;
         }
 
-        /**
-         * @param policyId The Policy ID of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
         }
 
-        /**
-         * @param policyStoreId The Policy Store ID of the policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(@Nullable Output<String> policyStoreId) {
             $.policyStoreId = policyStoreId;
             return this;
         }
 
-        /**
-         * @param policyStoreId The Policy Store ID of the policy store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -14,34 +14,20 @@ namespace Pulumi.Aws.Lambda.Inputs
     {
         [Input("accessConfigs")]
         private InputList<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigGetArgs>? _accessConfigs;
-
-        /// <summary>
-        /// Configuration block for authentication Lambda uses to access the schema registry.
-        /// </summary>
         public InputList<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigGetArgs> AccessConfigs
         {
             get => _accessConfigs ?? (_accessConfigs = new InputList<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigGetArgs>());
             set => _accessConfigs = value;
         }
 
-        /// <summary>
-        /// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
-        /// </summary>
         [Input("eventRecordFormat")]
         public Input<string>? EventRecordFormat { get; set; }
 
-        /// <summary>
-        /// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        /// </summary>
         [Input("schemaRegistryUri")]
         public Input<string>? SchemaRegistryUri { get; set; }
 
         [Input("schemaValidationConfigs")]
         private InputList<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigGetArgs>? _schemaValidationConfigs;
-
-        /// <summary>
-        /// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
-        /// </summary>
         public InputList<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigGetArgs> SchemaValidationConfigs
         {
             get => _schemaValidationConfigs ?? (_schemaValidationConfigs = new InputList<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigGetArgs>());

@@ -16,18 +16,14 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
     public static final GetPrincipalPolicySimulationContextArgs Empty = new GetPrincipalPolicySimulationContextArgs();
 
     /**
-     * The context _condition key_ to set.
-     * 
-     * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+     * The key name of the context entry, such as &#34;aws:CurrentTime&#34;.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The context _condition key_ to set.
-     * 
-     * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+     * @return The key name of the context entry, such as &#34;aws:CurrentTime&#34;.
      * 
      */
     public Output<String> key() {
@@ -35,18 +31,14 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
     }
 
     /**
-     * An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-     * 
-     * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+     * The type that the simulator should use to interpret the strings given in argument &#34;values&#34;.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-     * 
-     * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+     * @return The type that the simulator should use to interpret the strings given in argument &#34;values&#34;.
      * 
      */
     public Output<String> type() {
@@ -54,14 +46,14 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
     }
 
     /**
-     * A set of one or more values for this context entry.
+     * One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return A set of one or more values for this context entry.
+     * @return One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
      * 
      */
     public Output<List<String>> values() {
@@ -95,9 +87,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param key The context _condition key_ to set.
-         * 
-         * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+         * @param key The key name of the context entry, such as &#34;aws:CurrentTime&#34;.
          * 
          * @return builder
          * 
@@ -108,9 +98,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param key The context _condition key_ to set.
-         * 
-         * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+         * @param key The key name of the context entry, such as &#34;aws:CurrentTime&#34;.
          * 
          * @return builder
          * 
@@ -120,9 +108,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param type An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-         * 
-         * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+         * @param type The type that the simulator should use to interpret the strings given in argument &#34;values&#34;.
          * 
          * @return builder
          * 
@@ -133,9 +119,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param type An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
-         * 
-         * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+         * @param type The type that the simulator should use to interpret the strings given in argument &#34;values&#34;.
          * 
          * @return builder
          * 
@@ -145,7 +129,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param values A set of one or more values for this context entry.
+         * @param values One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
          * 
          * @return builder
          * 
@@ -156,7 +140,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param values A set of one or more values for this context entry.
+         * @param values One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
          * 
          * @return builder
          * 
@@ -166,7 +150,7 @@ public final class GetPrincipalPolicySimulationContextArgs extends com.pulumi.re
         }
 
         /**
-         * @param values A set of one or more values for this context entry.
+         * @param values One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
          * 
          * @return builder
          * 

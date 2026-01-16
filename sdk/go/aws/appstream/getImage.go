@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS AppStream 2.0 Image.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.GetImage(ctx, &appstream.GetImageArgs{
-//				Name:       pulumi.StringRef("AppStream-WinServer2019-06-17-2024"),
-//				Type:       pulumi.StringRef("PUBLIC"),
-//				MostRecent: pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult
@@ -52,55 +23,37 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
-	Arn *string `pulumi:"arn"`
-	// Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
-	MostRecent *bool `pulumi:"mostRecent"`
-	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
-	Name *string `pulumi:"name"`
-	// Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
-	NameRegex *string `pulumi:"nameRegex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
-	Type *string `pulumi:"type"`
+	Arn        *string `pulumi:"arn"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	Name       *string `pulumi:"name"`
+	NameRegex  *string `pulumi:"nameRegex"`
+	Region     *string `pulumi:"region"`
+	Type       *string `pulumi:"type"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	Applications []GetImageApplication `pulumi:"applications"`
-	// Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
-	AppstreamAgentVersion string `pulumi:"appstreamAgentVersion"`
-	// ARN of the image.
-	Arn string `pulumi:"arn"`
-	// ARN of the image from which the image was created.
-	BaseImageArn string `pulumi:"baseImageArn"`
-	// Time at which this image was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// Description of image.
-	Description string `pulumi:"description"`
-	// Image name to display.
-	DisplayName string `pulumi:"displayName"`
+	Applications          []GetImageApplication `pulumi:"applications"`
+	AppstreamAgentVersion string                `pulumi:"appstreamAgentVersion"`
+	Arn                   string                `pulumi:"arn"`
+	BaseImageArn          string                `pulumi:"baseImageArn"`
+	CreatedTime           string                `pulumi:"createdTime"`
+	Description           string                `pulumi:"description"`
+	DisplayName           string                `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
-	ImageBuilderName string `pulumi:"imageBuilderName"`
-	// Boolean to indicate whether an image builder can be launched from this image.
-	// * `image error` - Resource error object that describes the error containing the following:
-	ImageBuilderSupported bool `pulumi:"imageBuilderSupported"`
-	// List of strings describing the image permissions containing the following:
-	ImagePermissions []GetImageImagePermission `pulumi:"imagePermissions"`
-	MostRecent       *bool                     `pulumi:"mostRecent"`
-	Name             string                    `pulumi:"name"`
-	NameRegex        *string                   `pulumi:"nameRegex"`
-	// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-	Platform                    string `pulumi:"platform"`
-	PublicBaseImageReleasedDate string `pulumi:"publicBaseImageReleasedDate"`
-	Region                      string `pulumi:"region"`
-	// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
-	State              string                      `pulumi:"state"`
-	StateChangeReasons []GetImageStateChangeReason `pulumi:"stateChangeReasons"`
-	Type               *string                     `pulumi:"type"`
+	Id                          string                      `pulumi:"id"`
+	ImageBuilderName            string                      `pulumi:"imageBuilderName"`
+	ImageBuilderSupported       bool                        `pulumi:"imageBuilderSupported"`
+	ImagePermissions            []GetImageImagePermission   `pulumi:"imagePermissions"`
+	MostRecent                  *bool                       `pulumi:"mostRecent"`
+	Name                        string                      `pulumi:"name"`
+	NameRegex                   *string                     `pulumi:"nameRegex"`
+	Platform                    string                      `pulumi:"platform"`
+	PublicBaseImageReleasedDate string                      `pulumi:"publicBaseImageReleasedDate"`
+	Region                      string                      `pulumi:"region"`
+	State                       string                      `pulumi:"state"`
+	StateChangeReasons          []GetImageStateChangeReason `pulumi:"stateChangeReasons"`
+	Type                        *string                     `pulumi:"type"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -114,18 +67,12 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
-	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
-	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Arn        pulumi.StringPtrInput `pulumi:"arn"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	NameRegex  pulumi.StringPtrInput `pulumi:"nameRegex"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetImageOutputArgs) ElementType() reflect.Type {
@@ -151,32 +98,26 @@ func (o GetImageResultOutput) Applications() GetImageApplicationArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []GetImageApplication { return v.Applications }).(GetImageApplicationArrayOutput)
 }
 
-// Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
 func (o GetImageResultOutput) AppstreamAgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.AppstreamAgentVersion }).(pulumi.StringOutput)
 }
 
-// ARN of the image.
 func (o GetImageResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN of the image from which the image was created.
 func (o GetImageResultOutput) BaseImageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.BaseImageArn }).(pulumi.StringOutput)
 }
 
-// Time at which this image was created.
 func (o GetImageResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of image.
 func (o GetImageResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Image name to display.
 func (o GetImageResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -186,18 +127,14 @@ func (o GetImageResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
 func (o GetImageResultOutput) ImageBuilderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.ImageBuilderName }).(pulumi.StringOutput)
 }
 
-// Boolean to indicate whether an image builder can be launched from this image.
-// * `image error` - Resource error object that describes the error containing the following:
 func (o GetImageResultOutput) ImageBuilderSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageResult) bool { return v.ImageBuilderSupported }).(pulumi.BoolOutput)
 }
 
-// List of strings describing the image permissions containing the following:
 func (o GetImageResultOutput) ImagePermissions() GetImageImagePermissionArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []GetImageImagePermission { return v.ImagePermissions }).(GetImageImagePermissionArrayOutput)
 }
@@ -214,7 +151,6 @@ func (o GetImageResultOutput) NameRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
 }
 
-// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 func (o GetImageResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Platform }).(pulumi.StringOutput)
 }
@@ -227,7 +163,6 @@ func (o GetImageResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
 func (o GetImageResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.State }).(pulumi.StringOutput)
 }

@@ -9,72 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafRegional
 {
-    /// <summary>
-    /// Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
-    ///     {
-    ///         Name = "tfIPSet",
-    ///         IpSetDescriptors = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
-    ///             },
-    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "10.16.16.0/16",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WAF Regional IPSets using their ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:wafregional/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafregional/ipSet:IpSet")]
     public partial class IpSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the WAF IPSet.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-        /// </summary>
         [Output("ipSetDescriptors")]
         public Output<ImmutableArray<Outputs.IpSetIpSetDescriptor>> IpSetDescriptors { get; private set; } = null!;
 
-        /// <summary>
-        /// The name or description of the IPSet.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -126,25 +72,15 @@ namespace Pulumi.Aws.WafRegional
     {
         [Input("ipSetDescriptors")]
         private InputList<Inputs.IpSetIpSetDescriptorArgs>? _ipSetDescriptors;
-
-        /// <summary>
-        /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-        /// </summary>
         public InputList<Inputs.IpSetIpSetDescriptorArgs> IpSetDescriptors
         {
             get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IpSetIpSetDescriptorArgs>());
             set => _ipSetDescriptors = value;
         }
 
-        /// <summary>
-        /// The name or description of the IPSet.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -156,33 +92,20 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class IpSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the WAF IPSet.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("ipSetDescriptors")]
         private InputList<Inputs.IpSetIpSetDescriptorGetArgs>? _ipSetDescriptors;
-
-        /// <summary>
-        /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-        /// </summary>
         public InputList<Inputs.IpSetIpSetDescriptorGetArgs> IpSetDescriptors
         {
             get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IpSetIpSetDescriptorGetArgs>());
             set => _ipSetDescriptors = value;
         }
 
-        /// <summary>
-        /// The name or description of the IPSet.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

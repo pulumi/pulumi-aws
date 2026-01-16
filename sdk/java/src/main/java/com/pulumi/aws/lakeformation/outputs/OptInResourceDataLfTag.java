@@ -12,19 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataLfTag {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
     private String key;
     private String value;
 
     private OptInResourceDataLfTag() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }

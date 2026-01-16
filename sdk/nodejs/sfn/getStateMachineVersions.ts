@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.sfn.getStateMachineVersions({
- *     statemachineArn: testAwsSfnStateMachine.arn,
- * });
- * ```
- */
 export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
@@ -32,13 +16,7 @@ export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?
  * A collection of arguments for invoking getStateMachineVersions.
  */
 export interface GetStateMachineVersionsArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * ARN of the State Machine.
-     */
     statemachineArn: string;
 }
 
@@ -52,27 +30,8 @@ export interface GetStateMachineVersionsResult {
     readonly id: string;
     readonly region: string;
     readonly statemachineArn: string;
-    /**
-     * ARN List identifying the statemachine versions.
-     */
     readonly statemachineVersions: string[];
 }
-/**
- * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.sfn.getStateMachineVersions({
- *     statemachineArn: testAwsSfnStateMachine.arn,
- * });
- * ```
- */
 export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
@@ -85,12 +44,6 @@ export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutpu
  * A collection of arguments for invoking getStateMachineVersions.
  */
 export interface GetStateMachineVersionsOutputArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ARN of the State Machine.
-     */
     statemachineArn: pulumi.Input<string>;
 }

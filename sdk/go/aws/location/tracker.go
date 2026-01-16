@@ -12,66 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Location Service Tracker.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewTracker(ctx, "example", &location.TrackerArgs{
-//				TrackerName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
-//
-// ```sh
-// $ pulumi import aws:location/tracker:Tracker example example
-// ```
 type Tracker struct {
 	pulumi.CustomResourceState
 
-	// The timestamp for when the tracker resource was created in ISO 8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// The optional description for the tracker resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+	CreateTime        pulumi.StringOutput    `pulumi:"createTime"`
+	Description       pulumi.StringPtrOutput `pulumi:"description"`
+	KmsKeyId          pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	PositionFiltering pulumi.StringPtrOutput `pulumi:"positionFiltering"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-	TrackerArn pulumi.StringOutput `pulumi:"trackerArn"`
-	// The name of the tracker resource.
-	//
-	// The following arguments are optional:
-	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
-	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TrackerArn        pulumi.StringOutput    `pulumi:"trackerArn"`
+	TrackerName       pulumi.StringOutput    `pulumi:"trackerName"`
+	UpdateTime        pulumi.StringOutput    `pulumi:"updateTime"`
 }
 
 // NewTracker registers a new resource with the given unique name, arguments, and options.
@@ -107,53 +60,29 @@ func GetTracker(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tracker resources.
 type trackerState struct {
-	// The timestamp for when the tracker resource was created in ISO 8601 format.
-	CreateTime *string `pulumi:"createTime"`
-	// The optional description for the tracker resource.
-	Description *string `pulumi:"description"`
-	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-	PositionFiltering *string `pulumi:"positionFiltering"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-	TrackerArn *string `pulumi:"trackerArn"`
-	// The name of the tracker resource.
-	//
-	// The following arguments are optional:
-	TrackerName *string `pulumi:"trackerName"`
-	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
-	UpdateTime *string `pulumi:"updateTime"`
+	CreateTime        *string           `pulumi:"createTime"`
+	Description       *string           `pulumi:"description"`
+	KmsKeyId          *string           `pulumi:"kmsKeyId"`
+	PositionFiltering *string           `pulumi:"positionFiltering"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
+	TrackerArn        *string           `pulumi:"trackerArn"`
+	TrackerName       *string           `pulumi:"trackerName"`
+	UpdateTime        *string           `pulumi:"updateTime"`
 }
 
 type TrackerState struct {
-	// The timestamp for when the tracker resource was created in ISO 8601 format.
-	CreateTime pulumi.StringPtrInput
-	// The optional description for the tracker resource.
-	Description pulumi.StringPtrInput
-	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId pulumi.StringPtrInput
-	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+	CreateTime        pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	KmsKeyId          pulumi.StringPtrInput
 	PositionFiltering pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-	TrackerArn pulumi.StringPtrInput
-	// The name of the tracker resource.
-	//
-	// The following arguments are optional:
-	TrackerName pulumi.StringPtrInput
-	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
-	UpdateTime pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
+	TrackerArn        pulumi.StringPtrInput
+	TrackerName       pulumi.StringPtrInput
+	UpdateTime        pulumi.StringPtrInput
 }
 
 func (TrackerState) ElementType() reflect.Type {
@@ -161,38 +90,22 @@ func (TrackerState) ElementType() reflect.Type {
 }
 
 type trackerArgs struct {
-	// The optional description for the tracker resource.
-	Description *string `pulumi:"description"`
-	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-	PositionFiltering *string `pulumi:"positionFiltering"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the tracker resource.
-	//
-	// The following arguments are optional:
-	TrackerName string `pulumi:"trackerName"`
+	Description       *string           `pulumi:"description"`
+	KmsKeyId          *string           `pulumi:"kmsKeyId"`
+	PositionFiltering *string           `pulumi:"positionFiltering"`
+	Region            *string           `pulumi:"region"`
+	Tags              map[string]string `pulumi:"tags"`
+	TrackerName       string            `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a Tracker resource.
 type TrackerArgs struct {
-	// The optional description for the tracker resource.
-	Description pulumi.StringPtrInput
-	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId pulumi.StringPtrInput
-	// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+	Description       pulumi.StringPtrInput
+	KmsKeyId          pulumi.StringPtrInput
 	PositionFiltering pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name of the tracker resource.
-	//
-	// The following arguments are optional:
-	TrackerName pulumi.StringInput
+	Region            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TrackerName       pulumi.StringInput
 }
 
 func (TrackerArgs) ElementType() reflect.Type {
@@ -282,54 +195,42 @@ func (o TrackerOutput) ToTrackerOutputWithContext(ctx context.Context) TrackerOu
 	return o
 }
 
-// The timestamp for when the tracker resource was created in ISO 8601 format.
 func (o TrackerOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The optional description for the tracker resource.
 func (o TrackerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 func (o TrackerOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
 func (o TrackerOutput) PositionFiltering() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.PositionFiltering }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrackerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrackerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TrackerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 func (o TrackerOutput) TrackerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerArn }).(pulumi.StringOutput)
 }
 
-// The name of the tracker resource.
-//
-// The following arguments are optional:
 func (o TrackerOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
 }
 
-// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 func (o TrackerOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

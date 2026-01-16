@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessKeysAccessKey {
-    /**
-     * @return Access key ID.
-     * 
-     */
     private String accessKeyId;
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-     * 
-     */
     private String createDate;
-    /**
-     * @return Access key status. Possible values are `Active` and `Inactive`.
-     * 
-     */
     private String status;
 
     private GetAccessKeysAccessKey() {}
-    /**
-     * @return Access key ID.
-     * 
-     */
     public String accessKeyId() {
         return this.accessKeyId;
     }
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-     * 
-     */
     public String createDate() {
         return this.createDate;
     }
-    /**
-     * @return Access key status. Possible values are `Active` and `Inactive`.
-     * 
-     */
     public String status() {
         return this.status;
     }

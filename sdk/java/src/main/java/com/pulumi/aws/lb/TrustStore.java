@@ -15,214 +15,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
- * 
- * ## Example Usage
- * 
- * ### Trust Store Load Balancer Listener
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TrustStore;
- * import com.pulumi.aws.lb.TrustStoreArgs;
- * import com.pulumi.aws.lb.Listener;
- * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new TrustStore("test", TrustStoreArgs.builder()
- *             .name("tf-example-lb-ts")
- *             .caCertificatesBundleS3Bucket("...")
- *             .caCertificatesBundleS3Key("...")
- *             .build());
- * 
- *         var example = new Listener("example", ListenerArgs.builder()
- *             .loadBalancerArn(exampleAwsLb.id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(exampleAwsLbTargetGroup.id())
- *                 .type("forward")
- *                 .build())
- *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
- *                 .mode("verify")
- *                 .trustStoreArn(test.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * - `arn` (String) Amazon Resource Name (ARN) of the trust store.
- * 
- * Using `pulumi import`, import Target Groups using their ARN. For example:
- * 
- * % pulumi import aws_lb_trust_store.example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
- * 
- */
 @ResourceType(type="aws:lb/trustStore:TrustStore")
 public class TrustStore extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Trust Store (matches `id`).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Trust Store (matches `id`).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN suffix for use with CloudWatch Metrics.
-     * 
-     */
     @Export(name="arnSuffix", refs={String.class}, tree="[0]")
     private Output<String> arnSuffix;
 
-    /**
-     * @return ARN suffix for use with CloudWatch Metrics.
-     * 
-     */
     public Output<String> arnSuffix() {
         return this.arnSuffix;
     }
-    /**
-     * S3 Bucket name holding the client certificate CA bundle.
-     * 
-     */
     @Export(name="caCertificatesBundleS3Bucket", refs={String.class}, tree="[0]")
     private Output<String> caCertificatesBundleS3Bucket;
 
-    /**
-     * @return S3 Bucket name holding the client certificate CA bundle.
-     * 
-     */
     public Output<String> caCertificatesBundleS3Bucket() {
         return this.caCertificatesBundleS3Bucket;
     }
-    /**
-     * S3 object key holding the client certificate CA bundle.
-     * 
-     */
     @Export(name="caCertificatesBundleS3Key", refs={String.class}, tree="[0]")
     private Output<String> caCertificatesBundleS3Key;
 
-    /**
-     * @return S3 object key holding the client certificate CA bundle.
-     * 
-     */
     public Output<String> caCertificatesBundleS3Key() {
         return this.caCertificatesBundleS3Key;
     }
-    /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     * 
-     */
     @Export(name="caCertificatesBundleS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> caCertificatesBundleS3ObjectVersion;
 
-    /**
-     * @return Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
-     * 
-     */
     public Output<Optional<String>> caCertificatesBundleS3ObjectVersion() {
         return Codegen.optional(this.caCertificatesBundleS3ObjectVersion);
     }
-    /**
-     * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

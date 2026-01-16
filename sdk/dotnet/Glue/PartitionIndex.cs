@@ -9,172 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DatabaseName = example.Name,
-    ///         Owner = "my_owner",
-    ///         Retention = 1,
-    ///         TableType = "VIRTUAL_VIEW",
-    ///         ViewExpandedText = "view_expanded_text_1",
-    ///         ViewOriginalText = "view_original_text_1",
-    ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
-    ///         {
-    ///             BucketColumns = new[]
-    ///             {
-    ///                 "bucket_column_1",
-    ///             },
-    ///             Compressed = false,
-    ///             InputFormat = "SequenceFileInputFormat",
-    ///             Location = "my_location",
-    ///             NumberOfBuckets = 1,
-    ///             OutputFormat = "SequenceFileInputFormat",
-    ///             StoredAsSubDirectories = false,
-    ///             Parameters = 
-    ///             {
-    ///                 { "param1", "param1_val" },
-    ///             },
-    ///             Columns = new[]
-    ///             {
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
-    ///                 {
-    ///                     Name = "my_column_1",
-    ///                     Type = "int",
-    ///                     Comment = "my_column1_comment",
-    ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
-    ///                 {
-    ///                     Name = "my_column_2",
-    ///                     Type = "string",
-    ///                     Comment = "my_column2_comment",
-    ///                 },
-    ///             },
-    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
-    ///             {
-    ///                 Name = "ser_de_name",
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "param1", "param_val_1" },
-    ///                 },
-    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-    ///             },
-    ///             SortColumns = new[]
-    ///             {
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
-    ///                 {
-    ///                     Column = "my_column_1",
-    ///                     SortOrder = 1,
-    ///                 },
-    ///             },
-    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
-    ///             {
-    ///                 SkewedColumnNames = new[]
-    ///                 {
-    ///                     "my_column_1",
-    ///                 },
-    ///                 SkewedColumnValueLocationMaps = 
-    ///                 {
-    ///                     { "my_column_1", "my_column_1_val_loc_map" },
-    ///                 },
-    ///                 SkewedColumnValues = new[]
-    ///                 {
-    ///                     "skewed_val_1",
-    ///                 },
-    ///             },
-    ///         },
-    ///         PartitionKeys = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
-    ///             {
-    ///                 Name = "my_column_1",
-    ///                 Type = "int",
-    ///                 Comment = "my_column_1_comment",
-    ///             },
-    ///             new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
-    ///             {
-    ///                 Name = "my_column_2",
-    ///                 Type = "string",
-    ///                 Comment = "my_column_2_comment",
-    ///             },
-    ///         },
-    ///         Parameters = 
-    ///         {
-    ///             { "param1", "param1_val" },
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePartitionIndex = new Aws.Glue.PartitionIndex("example", new()
-    ///     {
-    ///         DatabaseName = example.Name,
-    ///         TableName = exampleCatalogTable.Name,
-    ///         PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
-    ///         {
-    ///             IndexName = "example",
-    ///             Keys = new[]
-    ///             {
-    ///                 "my_column_1",
-    ///                 "my_column_2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:glue/partitionIndex:PartitionIndex")]
     public partial class PartitionIndex : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The catalog ID where the table resides.
-        /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a partition index. See `PartitionIndex` below.
-        /// </summary>
         [Output("partitionIndex")]
         public Output<Outputs.PartitionIndexPartitionIndex> PartitionIndexConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
-        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -224,33 +73,18 @@ namespace Pulumi.Aws.Glue
 
     public sealed class PartitionIndexArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The catalog ID where the table resides.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for a partition index. See `PartitionIndex` below.
-        /// </summary>
         [Input("partitionIndex", required: true)]
         public Input<Inputs.PartitionIndexPartitionIndexArgs> PartitionIndexConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -262,33 +96,18 @@ namespace Pulumi.Aws.Glue
 
     public sealed class PartitionIndexState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The catalog ID where the table resides.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// Configuration block for a partition index. See `PartitionIndex` below.
-        /// </summary>
         [Input("partitionIndex")]
         public Input<Inputs.PartitionIndexPartitionIndexGetArgs>? PartitionIndexConfig { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
-        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 

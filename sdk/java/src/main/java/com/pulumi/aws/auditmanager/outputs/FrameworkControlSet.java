@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FrameworkControlSet {
-    /**
-     * @return Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-     * 
-     */
     private @Nullable List<FrameworkControlSetControl> controls;
-    /**
-     * @return Unique identifier for the framework.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return Name of the control set.
-     * 
-     */
     private String name;
 
     private FrameworkControlSet() {}
-    /**
-     * @return Configuration block(s) for the controls within the control set. See `controls` Block below for details.
-     * 
-     */
     public List<FrameworkControlSetControl> controls() {
         return this.controls == null ? List.of() : this.controls;
     }
-    /**
-     * @return Unique identifier for the framework.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return Name of the control set.
-     * 
-     */
     public String name() {
         return this.name;
     }

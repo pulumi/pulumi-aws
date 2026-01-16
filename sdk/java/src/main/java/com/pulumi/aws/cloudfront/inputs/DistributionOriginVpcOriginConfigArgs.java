@@ -31,32 +31,16 @@ public final class DistributionOriginVpcOriginConfigArgs extends com.pulumi.reso
         return Optional.ofNullable(this.originReadTimeout);
     }
 
-    /**
-     * The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-     * 
-     */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
-    /**
-     * @return The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-     * 
-     */
     public Optional<Output<String>> ownerAccountId() {
         return Optional.ofNullable(this.ownerAccountId);
     }
 
-    /**
-     * The VPC origin ID.
-     * 
-     */
     @Import(name="vpcOriginId", required=true)
     private Output<String> vpcOriginId;
 
-    /**
-     * @return The VPC origin ID.
-     * 
-     */
     public Output<String> vpcOriginId() {
         return this.vpcOriginId;
     }
@@ -106,44 +90,20 @@ public final class DistributionOriginVpcOriginConfigArgs extends com.pulumi.reso
             return originReadTimeout(Output.of(originReadTimeout));
         }
 
-        /**
-         * @param ownerAccountId The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(@Nullable Output<String> ownerAccountId) {
             $.ownerAccountId = ownerAccountId;
             return this;
         }
 
-        /**
-         * @param ownerAccountId The AWS account ID that owns the VPC origin. Required when referencing a VPC origin from a different AWS account for cross-account VPC origin access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
         }
 
-        /**
-         * @param vpcOriginId The VPC origin ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOriginId(Output<String> vpcOriginId) {
             $.vpcOriginId = vpcOriginId;
             return this;
         }
 
-        /**
-         * @param vpcOriginId The VPC origin ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcOriginId(String vpcOriginId) {
             return vpcOriginId(Output.of(vpcOriginId));
         }

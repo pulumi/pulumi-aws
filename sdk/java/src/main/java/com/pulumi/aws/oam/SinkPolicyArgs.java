@@ -16,47 +16,23 @@ public final class SinkPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SinkPolicyArgs Empty = new SinkPolicyArgs();
 
-    /**
-     * JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the sink to attach this policy to.
-     * 
-     */
     @Import(name="sinkIdentifier", required=true)
     private Output<String> sinkIdentifier;
 
-    /**
-     * @return ARN of the sink to attach this policy to.
-     * 
-     */
     public Output<String> sinkIdentifier() {
         return this.sinkIdentifier;
     }
@@ -87,65 +63,29 @@ public final class SinkPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SinkPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sinkIdentifier ARN of the sink to attach this policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(Output<String> sinkIdentifier) {
             $.sinkIdentifier = sinkIdentifier;
             return this;
         }
 
-        /**
-         * @param sinkIdentifier ARN of the sink to attach this policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sinkIdentifier(String sinkIdentifier) {
             return sinkIdentifier(Output.of(sinkIdentifier));
         }

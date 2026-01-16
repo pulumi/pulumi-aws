@@ -19,242 +19,53 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SES configuration set resource.
- * 
- * ## Example Usage
- * 
- * ### Basic Example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ConfigurationSet;
- * import com.pulumi.aws.ses.ConfigurationSetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()
- *             .name("some-configuration-set-test")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Require TLS Connections
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ConfigurationSet;
- * import com.pulumi.aws.ses.ConfigurationSetArgs;
- * import com.pulumi.aws.ses.inputs.ConfigurationSetDeliveryOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()
- *             .name("some-configuration-set-test")
- *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
- *                 .tlsPolicy("Require")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Tracking Options
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ConfigurationSet;
- * import com.pulumi.aws.ses.ConfigurationSetArgs;
- * import com.pulumi.aws.ses.inputs.ConfigurationSetTrackingOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()
- *             .name("some-configuration-set-test")
- *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
- *                 .customRedirectDomain("sub.example.com")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
- * ```
- * 
- */
 @ResourceType(type="aws:ses/configurationSet:ConfigurationSet")
 public class ConfigurationSet extends com.pulumi.resources.CustomResource {
-    /**
-     * SES configuration set ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return SES configuration set ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether messages that use the configuration set are required to use TLS. See below.
-     * 
-     */
     @Export(name="deliveryOptions", refs={ConfigurationSetDeliveryOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetDeliveryOptions> deliveryOptions;
 
-    /**
-     * @return Whether messages that use the configuration set are required to use TLS. See below.
-     * 
-     */
     public Output<Optional<ConfigurationSetDeliveryOptions>> deliveryOptions() {
         return Codegen.optional(this.deliveryOptions);
     }
-    /**
-     * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-     * 
-     */
     @Export(name="lastFreshStart", refs={String.class}, tree="[0]")
     private Output<String> lastFreshStart;
 
-    /**
-     * @return Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
-     * 
-     */
     public Output<String> lastFreshStart() {
         return this.lastFreshStart;
     }
-    /**
-     * Name of the configuration set.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the configuration set.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
-     * 
-     */
     @Export(name="reputationMetricsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> reputationMetricsEnabled;
 
-    /**
-     * @return Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> reputationMetricsEnabled() {
         return Codegen.optional(this.reputationMetricsEnabled);
     }
-    /**
-     * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-     * 
-     */
     @Export(name="sendingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendingEnabled;
 
-    /**
-     * @return Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
-     * 
-     */
     public Output<Optional<Boolean>> sendingEnabled() {
         return Codegen.optional(this.sendingEnabled);
     }
-    /**
-     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-     * 
-     */
     @Export(name="trackingOptions", refs={ConfigurationSetTrackingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetTrackingOptions> trackingOptions;
 
-    /**
-     * @return Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
-     * 
-     */
     public Output<Optional<ConfigurationSetTrackingOptions>> trackingOptions() {
         return Codegen.optional(this.trackingOptions);
     }

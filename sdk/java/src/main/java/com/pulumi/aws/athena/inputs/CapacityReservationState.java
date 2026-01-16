@@ -18,126 +18,58 @@ public final class CapacityReservationState extends com.pulumi.resources.Resourc
 
     public static final CapacityReservationState Empty = new CapacityReservationState();
 
-    /**
-     * Number of data processing units currently allocated.
-     * 
-     */
     @Import(name="allocatedDpus")
     private @Nullable Output<Integer> allocatedDpus;
 
-    /**
-     * @return Number of data processing units currently allocated.
-     * 
-     */
     public Optional<Output<Integer>> allocatedDpus() {
         return Optional.ofNullable(this.allocatedDpus);
     }
 
-    /**
-     * ARN of the Capacity Reservation.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Capacity Reservation.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name of the capacity reservation.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the capacity reservation.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of the capacity reservation.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the capacity reservation.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Number of data processing units requested. Must be at least `24` units.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="targetDpus")
     private @Nullable Output<Integer> targetDpus;
 
-    /**
-     * @return Number of data processing units requested. Must be at least `24` units.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<Integer>> targetDpus() {
         return Optional.ofNullable(this.targetDpus);
     }
@@ -181,174 +113,74 @@ public final class CapacityReservationState extends com.pulumi.resources.Resourc
             $ = new CapacityReservationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocatedDpus Number of data processing units currently allocated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocatedDpus(@Nullable Output<Integer> allocatedDpus) {
             $.allocatedDpus = allocatedDpus;
             return this;
         }
 
-        /**
-         * @param allocatedDpus Number of data processing units currently allocated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocatedDpus(Integer allocatedDpus) {
             return allocatedDpus(Output.of(allocatedDpus));
         }
 
-        /**
-         * @param arn ARN of the Capacity Reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Capacity Reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name Name of the capacity reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the capacity reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Status of the capacity reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the capacity reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param targetDpus Number of data processing units requested. Must be at least `24` units.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetDpus(@Nullable Output<Integer> targetDpus) {
             $.targetDpus = targetDpus;
             return this;
         }
 
-        /**
-         * @param targetDpus Number of data processing units requested. Must be at least `24` units.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetDpus(Integer targetDpus) {
             return targetDpus(Output.of(targetDpus));
         }

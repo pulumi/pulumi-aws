@@ -16,32 +16,16 @@ public final class AgentcoreBrowserRecordingArgs extends com.pulumi.resources.Re
 
     public static final AgentcoreBrowserRecordingArgs Empty = new AgentcoreBrowserRecordingArgs();
 
-    /**
-     * Whether to enable recording for browser sessions. Defaults to `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable recording for browser sessions. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * S3 location where browser session recordings are stored. See `s3Location` below.
-     * 
-     */
     @Import(name="s3Location")
     private @Nullable Output<AgentcoreBrowserRecordingS3LocationArgs> s3Location;
 
-    /**
-     * @return S3 location where browser session recordings are stored. See `s3Location` below.
-     * 
-     */
     public Optional<Output<AgentcoreBrowserRecordingS3LocationArgs>> s3Location() {
         return Optional.ofNullable(this.s3Location);
     }
@@ -71,44 +55,20 @@ public final class AgentcoreBrowserRecordingArgs extends com.pulumi.resources.Re
             $ = new AgentcoreBrowserRecordingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to enable recording for browser sessions. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable recording for browser sessions. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param s3Location S3 location where browser session recordings are stored. See `s3Location` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(@Nullable Output<AgentcoreBrowserRecordingS3LocationArgs> s3Location) {
             $.s3Location = s3Location;
             return this;
         }
 
-        /**
-         * @param s3Location S3 location where browser session recordings are stored. See `s3Location` below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Location(AgentcoreBrowserRecordingS3LocationArgs s3Location) {
             return s3Location(Output.of(s3Location));
         }

@@ -12,100 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an RDS DB Reserved Instance.
-//
-// > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offeringId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
-//
-// > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
-//				DbInstanceClass:    "db.t2.micro",
-//				Duration:           31536000,
-//				MultiAz:            false,
-//				OfferingType:       "All Upfront",
-//				ProductDescription: "mysql",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewReservedInstance(ctx, "example", &rds.ReservedInstanceArgs{
-//				OfferingId:    pulumi.String(test.OfferingId),
-//				ReservationId: pulumi.String("optionalCustomReservationID"),
-//				InstanceCount: pulumi.Int(3),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-// ```
 type ReservedInstance struct {
 	pulumi.CustomResourceState
 
-	// ARN for the reserved DB instance.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Currency code for the reserved DB instance.
-	CurrencyCode pulumi.StringOutput `pulumi:"currencyCode"`
-	// DB instance class for the reserved DB instance.
-	DbInstanceClass pulumi.StringOutput `pulumi:"dbInstanceClass"`
-	// Duration of the reservation in seconds.
-	Duration pulumi.IntOutput `pulumi:"duration"`
-	// Fixed price charged for this reserved DB instance.
-	FixedPrice pulumi.Float64Output `pulumi:"fixedPrice"`
-	// Number of instances to reserve. Default value is `1`.
-	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
-	// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-	LeaseId pulumi.StringOutput `pulumi:"leaseId"`
-	// Whether the reservation applies to Multi-AZ deployments.
-	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	//
-	// The following arguments are optional:
-	OfferingId pulumi.StringOutput `pulumi:"offeringId"`
-	// Offering type of this reserved DB instance.
-	OfferingType pulumi.StringOutput `pulumi:"offeringType"`
-	// Description of the reserved DB instance.
-	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
-	// Recurring price charged to run this reserved DB instance.
-	RecurringCharges ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Customer-specified identifier to track this reservation.
-	ReservationId pulumi.StringPtrOutput `pulumi:"reservationId"`
-	// Time the reservation started.
-	StartTime pulumi.StringOutput `pulumi:"startTime"`
-	// State of the reserved DB instance.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Hourly price charged for this reserved DB instance.
-	UsagePrice pulumi.Float64Output `pulumi:"usagePrice"`
+	Arn                pulumi.StringOutput                        `pulumi:"arn"`
+	CurrencyCode       pulumi.StringOutput                        `pulumi:"currencyCode"`
+	DbInstanceClass    pulumi.StringOutput                        `pulumi:"dbInstanceClass"`
+	Duration           pulumi.IntOutput                           `pulumi:"duration"`
+	FixedPrice         pulumi.Float64Output                       `pulumi:"fixedPrice"`
+	InstanceCount      pulumi.IntPtrOutput                        `pulumi:"instanceCount"`
+	LeaseId            pulumi.StringOutput                        `pulumi:"leaseId"`
+	MultiAz            pulumi.BoolOutput                          `pulumi:"multiAz"`
+	OfferingId         pulumi.StringOutput                        `pulumi:"offeringId"`
+	OfferingType       pulumi.StringOutput                        `pulumi:"offeringType"`
+	ProductDescription pulumi.StringOutput                        `pulumi:"productDescription"`
+	RecurringCharges   ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
+	Region             pulumi.StringOutput                        `pulumi:"region"`
+	ReservationId      pulumi.StringPtrOutput                     `pulumi:"reservationId"`
+	StartTime          pulumi.StringOutput                        `pulumi:"startTime"`
+	State              pulumi.StringOutput                        `pulumi:"state"`
+	Tags               pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	UsagePrice         pulumi.Float64Output                       `pulumi:"usagePrice"`
 }
 
 // NewReservedInstance registers a new resource with the given unique name, arguments, and options.
@@ -141,89 +69,47 @@ func GetReservedInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReservedInstance resources.
 type reservedInstanceState struct {
-	// ARN for the reserved DB instance.
-	Arn *string `pulumi:"arn"`
-	// Currency code for the reserved DB instance.
-	CurrencyCode *string `pulumi:"currencyCode"`
-	// DB instance class for the reserved DB instance.
-	DbInstanceClass *string `pulumi:"dbInstanceClass"`
-	// Duration of the reservation in seconds.
-	Duration *int `pulumi:"duration"`
-	// Fixed price charged for this reserved DB instance.
-	FixedPrice *float64 `pulumi:"fixedPrice"`
-	// Number of instances to reserve. Default value is `1`.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-	LeaseId *string `pulumi:"leaseId"`
-	// Whether the reservation applies to Multi-AZ deployments.
-	MultiAz *bool `pulumi:"multiAz"`
-	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	//
-	// The following arguments are optional:
-	OfferingId *string `pulumi:"offeringId"`
-	// Offering type of this reserved DB instance.
-	OfferingType *string `pulumi:"offeringType"`
-	// Description of the reserved DB instance.
-	ProductDescription *string `pulumi:"productDescription"`
-	// Recurring price charged to run this reserved DB instance.
-	RecurringCharges []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Customer-specified identifier to track this reservation.
-	ReservationId *string `pulumi:"reservationId"`
-	// Time the reservation started.
-	StartTime *string `pulumi:"startTime"`
-	// State of the reserved DB instance.
-	State *string `pulumi:"state"`
-	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Hourly price charged for this reserved DB instance.
-	UsagePrice *float64 `pulumi:"usagePrice"`
+	Arn                *string                           `pulumi:"arn"`
+	CurrencyCode       *string                           `pulumi:"currencyCode"`
+	DbInstanceClass    *string                           `pulumi:"dbInstanceClass"`
+	Duration           *int                              `pulumi:"duration"`
+	FixedPrice         *float64                          `pulumi:"fixedPrice"`
+	InstanceCount      *int                              `pulumi:"instanceCount"`
+	LeaseId            *string                           `pulumi:"leaseId"`
+	MultiAz            *bool                             `pulumi:"multiAz"`
+	OfferingId         *string                           `pulumi:"offeringId"`
+	OfferingType       *string                           `pulumi:"offeringType"`
+	ProductDescription *string                           `pulumi:"productDescription"`
+	RecurringCharges   []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
+	Region             *string                           `pulumi:"region"`
+	ReservationId      *string                           `pulumi:"reservationId"`
+	StartTime          *string                           `pulumi:"startTime"`
+	State              *string                           `pulumi:"state"`
+	Tags               map[string]string                 `pulumi:"tags"`
+	TagsAll            map[string]string                 `pulumi:"tagsAll"`
+	UsagePrice         *float64                          `pulumi:"usagePrice"`
 }
 
 type ReservedInstanceState struct {
-	// ARN for the reserved DB instance.
-	Arn pulumi.StringPtrInput
-	// Currency code for the reserved DB instance.
-	CurrencyCode pulumi.StringPtrInput
-	// DB instance class for the reserved DB instance.
-	DbInstanceClass pulumi.StringPtrInput
-	// Duration of the reservation in seconds.
-	Duration pulumi.IntPtrInput
-	// Fixed price charged for this reserved DB instance.
-	FixedPrice pulumi.Float64PtrInput
-	// Number of instances to reserve. Default value is `1`.
-	InstanceCount pulumi.IntPtrInput
-	// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-	LeaseId pulumi.StringPtrInput
-	// Whether the reservation applies to Multi-AZ deployments.
-	MultiAz pulumi.BoolPtrInput
-	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	//
-	// The following arguments are optional:
-	OfferingId pulumi.StringPtrInput
-	// Offering type of this reserved DB instance.
-	OfferingType pulumi.StringPtrInput
-	// Description of the reserved DB instance.
+	Arn                pulumi.StringPtrInput
+	CurrencyCode       pulumi.StringPtrInput
+	DbInstanceClass    pulumi.StringPtrInput
+	Duration           pulumi.IntPtrInput
+	FixedPrice         pulumi.Float64PtrInput
+	InstanceCount      pulumi.IntPtrInput
+	LeaseId            pulumi.StringPtrInput
+	MultiAz            pulumi.BoolPtrInput
+	OfferingId         pulumi.StringPtrInput
+	OfferingType       pulumi.StringPtrInput
 	ProductDescription pulumi.StringPtrInput
-	// Recurring price charged to run this reserved DB instance.
-	RecurringCharges ReservedInstanceRecurringChargeArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Customer-specified identifier to track this reservation.
-	ReservationId pulumi.StringPtrInput
-	// Time the reservation started.
-	StartTime pulumi.StringPtrInput
-	// State of the reserved DB instance.
-	State pulumi.StringPtrInput
-	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Hourly price charged for this reserved DB instance.
-	UsagePrice pulumi.Float64PtrInput
+	RecurringCharges   ReservedInstanceRecurringChargeArrayInput
+	Region             pulumi.StringPtrInput
+	ReservationId      pulumi.StringPtrInput
+	StartTime          pulumi.StringPtrInput
+	State              pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	UsagePrice         pulumi.Float64PtrInput
 }
 
 func (ReservedInstanceState) ElementType() reflect.Type {
@@ -231,34 +117,20 @@ func (ReservedInstanceState) ElementType() reflect.Type {
 }
 
 type reservedInstanceArgs struct {
-	// Number of instances to reserve. Default value is `1`.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	//
-	// The following arguments are optional:
-	OfferingId string `pulumi:"offeringId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Customer-specified identifier to track this reservation.
-	ReservationId *string `pulumi:"reservationId"`
-	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	InstanceCount *int              `pulumi:"instanceCount"`
+	OfferingId    string            `pulumi:"offeringId"`
+	Region        *string           `pulumi:"region"`
+	ReservationId *string           `pulumi:"reservationId"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReservedInstance resource.
 type ReservedInstanceArgs struct {
-	// Number of instances to reserve. Default value is `1`.
 	InstanceCount pulumi.IntPtrInput
-	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	//
-	// The following arguments are optional:
-	OfferingId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Customer-specified identifier to track this reservation.
+	OfferingId    pulumi.StringInput
+	Region        pulumi.StringPtrInput
 	ReservationId pulumi.StringPtrInput
-	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags          pulumi.StringMapInput
 }
 
 func (ReservedInstanceArgs) ElementType() reflect.Type {
@@ -348,99 +220,78 @@ func (o ReservedInstanceOutput) ToReservedInstanceOutputWithContext(ctx context.
 	return o
 }
 
-// ARN for the reserved DB instance.
 func (o ReservedInstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Currency code for the reserved DB instance.
 func (o ReservedInstanceOutput) CurrencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.CurrencyCode }).(pulumi.StringOutput)
 }
 
-// DB instance class for the reserved DB instance.
 func (o ReservedInstanceOutput) DbInstanceClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.DbInstanceClass }).(pulumi.StringOutput)
 }
 
-// Duration of the reservation in seconds.
 func (o ReservedInstanceOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.IntOutput { return v.Duration }).(pulumi.IntOutput)
 }
 
-// Fixed price charged for this reserved DB instance.
 func (o ReservedInstanceOutput) FixedPrice() pulumi.Float64Output {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.Float64Output { return v.FixedPrice }).(pulumi.Float64Output)
 }
 
-// Number of instances to reserve. Default value is `1`.
 func (o ReservedInstanceOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
 func (o ReservedInstanceOutput) LeaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.LeaseId }).(pulumi.StringOutput)
 }
 
-// Whether the reservation applies to Multi-AZ deployments.
 func (o ReservedInstanceOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
-// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-//
-// The following arguments are optional:
 func (o ReservedInstanceOutput) OfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.OfferingId }).(pulumi.StringOutput)
 }
 
-// Offering type of this reserved DB instance.
 func (o ReservedInstanceOutput) OfferingType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.OfferingType }).(pulumi.StringOutput)
 }
 
-// Description of the reserved DB instance.
 func (o ReservedInstanceOutput) ProductDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.ProductDescription }).(pulumi.StringOutput)
 }
 
-// Recurring price charged to run this reserved DB instance.
 func (o ReservedInstanceOutput) RecurringCharges() ReservedInstanceRecurringChargeArrayOutput {
 	return o.ApplyT(func(v *ReservedInstance) ReservedInstanceRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedInstanceRecurringChargeArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReservedInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Customer-specified identifier to track this reservation.
 func (o ReservedInstanceOutput) ReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringPtrOutput { return v.ReservationId }).(pulumi.StringPtrOutput)
 }
 
-// Time the reservation started.
 func (o ReservedInstanceOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// State of the reserved DB instance.
 func (o ReservedInstanceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ReservedInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReservedInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Hourly price charged for this reserved DB instance.
 func (o ReservedInstanceOutput) UsagePrice() pulumi.Float64Output {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.Float64Output { return v.UsagePrice }).(pulumi.Float64Output)
 }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetResolverRuleTargetIpResult
     {
-        /// <summary>
-        /// IPv4 address that you want to forward DNS queries to.
-        /// </summary>
         public readonly string Ip;
-        /// <summary>
-        /// IPv6 address that you want to forward DNS queries to.
-        /// </summary>
         public readonly string Ipv6;
-        /// <summary>
-        /// Port at the IP address that you want to forward DNS queries to.
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// Protocol for the target IP address. Valid values are `Do53` (DNS over port 53), `DoH` (DNS over HTTPS), and `DoH-FIPS` (DNS over HTTPS with FIPS).
-        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

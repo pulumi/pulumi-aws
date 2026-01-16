@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ScheduledQueryErrorReportConfiguration struct {
-	// Configuration block for the S3 configuration for the error reports. See below.
 	S3Configuration ScheduledQueryErrorReportConfigurationS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -30,7 +29,6 @@ type ScheduledQueryErrorReportConfigurationInput interface {
 }
 
 type ScheduledQueryErrorReportConfigurationArgs struct {
-	// Configuration block for the S3 configuration for the error reports. See below.
 	S3Configuration ScheduledQueryErrorReportConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
 }
 
@@ -111,7 +109,6 @@ func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorRepor
 	}).(ScheduledQueryErrorReportConfigurationPtrOutput)
 }
 
-// Configuration block for the S3 configuration for the error reports. See below.
 func (o ScheduledQueryErrorReportConfigurationOutput) S3Configuration() ScheduledQueryErrorReportConfigurationS3ConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryErrorReportConfiguration) ScheduledQueryErrorReportConfigurationS3Configuration {
 		return v.S3Configuration
@@ -142,7 +139,6 @@ func (o ScheduledQueryErrorReportConfigurationPtrOutput) Elem() ScheduledQueryEr
 	}).(ScheduledQueryErrorReportConfigurationOutput)
 }
 
-// Configuration block for the S3 configuration for the error reports. See below.
 func (o ScheduledQueryErrorReportConfigurationPtrOutput) S3Configuration() ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryErrorReportConfiguration) *ScheduledQueryErrorReportConfigurationS3Configuration {
 		if v == nil {
@@ -153,12 +149,9 @@ func (o ScheduledQueryErrorReportConfigurationPtrOutput) S3Configuration() Sched
 }
 
 type ScheduledQueryErrorReportConfigurationS3Configuration struct {
-	// Name of the S3 bucket under which error reports will be created.
-	BucketName string `pulumi:"bucketName"`
-	// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
+	BucketName       string  `pulumi:"bucketName"`
 	EncryptionOption *string `pulumi:"encryptionOption"`
-	// Prefix for the error report key.
-	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
+	ObjectKeyPrefix  *string `pulumi:"objectKeyPrefix"`
 }
 
 // ScheduledQueryErrorReportConfigurationS3ConfigurationInput is an input type that accepts ScheduledQueryErrorReportConfigurationS3ConfigurationArgs and ScheduledQueryErrorReportConfigurationS3ConfigurationOutput values.
@@ -173,12 +166,9 @@ type ScheduledQueryErrorReportConfigurationS3ConfigurationInput interface {
 }
 
 type ScheduledQueryErrorReportConfigurationS3ConfigurationArgs struct {
-	// Name of the S3 bucket under which error reports will be created.
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
+	BucketName       pulumi.StringInput    `pulumi:"bucketName"`
 	EncryptionOption pulumi.StringPtrInput `pulumi:"encryptionOption"`
-	// Prefix for the error report key.
-	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
+	ObjectKeyPrefix  pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
 }
 
 func (ScheduledQueryErrorReportConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
@@ -258,17 +248,14 @@ func (o ScheduledQueryErrorReportConfigurationS3ConfigurationOutput) ToScheduled
 	}).(ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput)
 }
 
-// Name of the S3 bucket under which error reports will be created.
 func (o ScheduledQueryErrorReportConfigurationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryErrorReportConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
 func (o ScheduledQueryErrorReportConfigurationS3ConfigurationOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryErrorReportConfigurationS3Configuration) *string { return v.EncryptionOption }).(pulumi.StringPtrOutput)
 }
 
-// Prefix for the error report key.
 func (o ScheduledQueryErrorReportConfigurationS3ConfigurationOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryErrorReportConfigurationS3Configuration) *string { return v.ObjectKeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -297,7 +284,6 @@ func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) Elem() S
 	}).(ScheduledQueryErrorReportConfigurationS3ConfigurationOutput)
 }
 
-// Name of the S3 bucket under which error reports will be created.
 func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryErrorReportConfigurationS3Configuration) *string {
 		if v == nil {
@@ -307,7 +293,6 @@ func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) BucketNa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
 func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryErrorReportConfigurationS3Configuration) *string {
 		if v == nil {
@@ -317,7 +302,6 @@ func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) Encrypti
 	}).(pulumi.StringPtrOutput)
 }
 
-// Prefix for the error report key.
 func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryErrorReportConfigurationS3Configuration) *string {
 		if v == nil {
@@ -328,20 +312,13 @@ func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) ObjectKe
 }
 
 type ScheduledQueryLastRunSummary struct {
-	// S3 location for error report.
-	ErrorReportLocations []ScheduledQueryLastRunSummaryErrorReportLocation `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
-	ExecutionStats []ScheduledQueryLastRunSummaryExecutionStat `pulumi:"executionStats"`
-	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-	FailureReason *string `pulumi:"failureReason"`
-	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
-	InvocationTime *string `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	ErrorReportLocations   []ScheduledQueryLastRunSummaryErrorReportLocation   `pulumi:"errorReportLocations"`
+	ExecutionStats         []ScheduledQueryLastRunSummaryExecutionStat         `pulumi:"executionStats"`
+	FailureReason          *string                                             `pulumi:"failureReason"`
+	InvocationTime         *string                                             `pulumi:"invocationTime"`
 	QueryInsightsResponses []ScheduledQueryLastRunSummaryQueryInsightsResponse `pulumi:"queryInsightsResponses"`
-	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-	RunStatus *string `pulumi:"runStatus"`
-	// Actual time when the query was run.
-	TriggerTime *string `pulumi:"triggerTime"`
+	RunStatus              *string                                             `pulumi:"runStatus"`
+	TriggerTime            *string                                             `pulumi:"triggerTime"`
 }
 
 // ScheduledQueryLastRunSummaryInput is an input type that accepts ScheduledQueryLastRunSummaryArgs and ScheduledQueryLastRunSummaryOutput values.
@@ -356,20 +333,13 @@ type ScheduledQueryLastRunSummaryInput interface {
 }
 
 type ScheduledQueryLastRunSummaryArgs struct {
-	// S3 location for error report.
-	ErrorReportLocations ScheduledQueryLastRunSummaryErrorReportLocationArrayInput `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
-	ExecutionStats ScheduledQueryLastRunSummaryExecutionStatArrayInput `pulumi:"executionStats"`
-	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-	FailureReason pulumi.StringPtrInput `pulumi:"failureReason"`
-	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
-	InvocationTime pulumi.StringPtrInput `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	ErrorReportLocations   ScheduledQueryLastRunSummaryErrorReportLocationArrayInput   `pulumi:"errorReportLocations"`
+	ExecutionStats         ScheduledQueryLastRunSummaryExecutionStatArrayInput         `pulumi:"executionStats"`
+	FailureReason          pulumi.StringPtrInput                                       `pulumi:"failureReason"`
+	InvocationTime         pulumi.StringPtrInput                                       `pulumi:"invocationTime"`
 	QueryInsightsResponses ScheduledQueryLastRunSummaryQueryInsightsResponseArrayInput `pulumi:"queryInsightsResponses"`
-	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-	RunStatus pulumi.StringPtrInput `pulumi:"runStatus"`
-	// Actual time when the query was run.
-	TriggerTime pulumi.StringPtrInput `pulumi:"triggerTime"`
+	RunStatus              pulumi.StringPtrInput                                       `pulumi:"runStatus"`
+	TriggerTime            pulumi.StringPtrInput                                       `pulumi:"triggerTime"`
 }
 
 func (ScheduledQueryLastRunSummaryArgs) ElementType() reflect.Type {
@@ -423,43 +393,36 @@ func (o ScheduledQueryLastRunSummaryOutput) ToScheduledQueryLastRunSummaryOutput
 	return o
 }
 
-// S3 location for error report.
 func (o ScheduledQueryLastRunSummaryOutput) ErrorReportLocations() ScheduledQueryLastRunSummaryErrorReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) []ScheduledQueryLastRunSummaryErrorReportLocation {
 		return v.ErrorReportLocations
 	}).(ScheduledQueryLastRunSummaryErrorReportLocationArrayOutput)
 }
 
-// Statistics for a single scheduled query run.
 func (o ScheduledQueryLastRunSummaryOutput) ExecutionStats() ScheduledQueryLastRunSummaryExecutionStatArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) []ScheduledQueryLastRunSummaryExecutionStat {
 		return v.ExecutionStats
 	}).(ScheduledQueryLastRunSummaryExecutionStatArrayOutput)
 }
 
-// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
 func (o ScheduledQueryLastRunSummaryOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
-// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
 func (o ScheduledQueryLastRunSummaryOutput) InvocationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) *string { return v.InvocationTime }).(pulumi.StringPtrOutput)
 }
 
-// Various insights and metrics related to the run summary of the scheduled query.
 func (o ScheduledQueryLastRunSummaryOutput) QueryInsightsResponses() ScheduledQueryLastRunSummaryQueryInsightsResponseArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) []ScheduledQueryLastRunSummaryQueryInsightsResponse {
 		return v.QueryInsightsResponses
 	}).(ScheduledQueryLastRunSummaryQueryInsightsResponseArrayOutput)
 }
 
-// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
 func (o ScheduledQueryLastRunSummaryOutput) RunStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) *string { return v.RunStatus }).(pulumi.StringPtrOutput)
 }
 
-// Actual time when the query was run.
 func (o ScheduledQueryLastRunSummaryOutput) TriggerTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) *string { return v.TriggerTime }).(pulumi.StringPtrOutput)
 }
@@ -485,7 +448,6 @@ func (o ScheduledQueryLastRunSummaryArrayOutput) Index(i pulumi.IntInput) Schedu
 }
 
 type ScheduledQueryLastRunSummaryErrorReportLocation struct {
-	// S3 location where error reports are written.
 	S3ReportLocations []ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation `pulumi:"s3ReportLocations"`
 }
 
@@ -501,7 +463,6 @@ type ScheduledQueryLastRunSummaryErrorReportLocationInput interface {
 }
 
 type ScheduledQueryLastRunSummaryErrorReportLocationArgs struct {
-	// S3 location where error reports are written.
 	S3ReportLocations ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArrayInput `pulumi:"s3ReportLocations"`
 }
 
@@ -556,7 +517,6 @@ func (o ScheduledQueryLastRunSummaryErrorReportLocationOutput) ToScheduledQueryL
 	return o
 }
 
-// S3 location where error reports are written.
 func (o ScheduledQueryLastRunSummaryErrorReportLocationOutput) S3ReportLocations() ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryErrorReportLocation) []ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation {
 		return v.S3ReportLocations
@@ -584,10 +544,8 @@ func (o ScheduledQueryLastRunSummaryErrorReportLocationArrayOutput) Index(i pulu
 }
 
 type ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation struct {
-	// S3 bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	// S3 key.
-	ObjectKey *string `pulumi:"objectKey"`
+	ObjectKey  *string `pulumi:"objectKey"`
 }
 
 // ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationInput is an input type that accepts ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs and ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationOutput values.
@@ -602,10 +560,8 @@ type ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationInput interf
 }
 
 type ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs struct {
-	// S3 bucket name.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// S3 key.
-	ObjectKey pulumi.StringPtrInput `pulumi:"objectKey"`
+	ObjectKey  pulumi.StringPtrInput `pulumi:"objectKey"`
 }
 
 func (ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs) ElementType() reflect.Type {
@@ -659,12 +615,10 @@ func (o ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationOutput) T
 	return o
 }
 
-// S3 bucket name.
 func (o ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// S3 key.
 func (o ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationOutput) ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation) *string { return v.ObjectKey }).(pulumi.StringPtrOutput)
 }
@@ -690,18 +644,12 @@ func (o ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArrayOutp
 }
 
 type ScheduledQueryLastRunSummaryExecutionStat struct {
-	// Bytes metered for a single scheduled query run.
-	BytesMetered *int `pulumi:"bytesMetered"`
-	// Bytes scanned for a single scheduled query run.
+	BytesMetered           *int `pulumi:"bytesMetered"`
 	CumulativeBytesScanned *int `pulumi:"cumulativeBytesScanned"`
-	// Data writes metered for records ingested in a single scheduled query run.
-	DataWrites *int `pulumi:"dataWrites"`
-	// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-	ExecutionTimeInMillis *int `pulumi:"executionTimeInMillis"`
-	// Number of rows present in the output from running a query before ingestion to destination data source.
-	QueryResultRows *int `pulumi:"queryResultRows"`
-	// Number of records ingested for a single scheduled query run.
-	RecordsIngested *int `pulumi:"recordsIngested"`
+	DataWrites             *int `pulumi:"dataWrites"`
+	ExecutionTimeInMillis  *int `pulumi:"executionTimeInMillis"`
+	QueryResultRows        *int `pulumi:"queryResultRows"`
+	RecordsIngested        *int `pulumi:"recordsIngested"`
 }
 
 // ScheduledQueryLastRunSummaryExecutionStatInput is an input type that accepts ScheduledQueryLastRunSummaryExecutionStatArgs and ScheduledQueryLastRunSummaryExecutionStatOutput values.
@@ -716,18 +664,12 @@ type ScheduledQueryLastRunSummaryExecutionStatInput interface {
 }
 
 type ScheduledQueryLastRunSummaryExecutionStatArgs struct {
-	// Bytes metered for a single scheduled query run.
-	BytesMetered pulumi.IntPtrInput `pulumi:"bytesMetered"`
-	// Bytes scanned for a single scheduled query run.
+	BytesMetered           pulumi.IntPtrInput `pulumi:"bytesMetered"`
 	CumulativeBytesScanned pulumi.IntPtrInput `pulumi:"cumulativeBytesScanned"`
-	// Data writes metered for records ingested in a single scheduled query run.
-	DataWrites pulumi.IntPtrInput `pulumi:"dataWrites"`
-	// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-	ExecutionTimeInMillis pulumi.IntPtrInput `pulumi:"executionTimeInMillis"`
-	// Number of rows present in the output from running a query before ingestion to destination data source.
-	QueryResultRows pulumi.IntPtrInput `pulumi:"queryResultRows"`
-	// Number of records ingested for a single scheduled query run.
-	RecordsIngested pulumi.IntPtrInput `pulumi:"recordsIngested"`
+	DataWrites             pulumi.IntPtrInput `pulumi:"dataWrites"`
+	ExecutionTimeInMillis  pulumi.IntPtrInput `pulumi:"executionTimeInMillis"`
+	QueryResultRows        pulumi.IntPtrInput `pulumi:"queryResultRows"`
+	RecordsIngested        pulumi.IntPtrInput `pulumi:"recordsIngested"`
 }
 
 func (ScheduledQueryLastRunSummaryExecutionStatArgs) ElementType() reflect.Type {
@@ -781,32 +723,26 @@ func (o ScheduledQueryLastRunSummaryExecutionStatOutput) ToScheduledQueryLastRun
 	return o
 }
 
-// Bytes metered for a single scheduled query run.
 func (o ScheduledQueryLastRunSummaryExecutionStatOutput) BytesMetered() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryExecutionStat) *int { return v.BytesMetered }).(pulumi.IntPtrOutput)
 }
 
-// Bytes scanned for a single scheduled query run.
 func (o ScheduledQueryLastRunSummaryExecutionStatOutput) CumulativeBytesScanned() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryExecutionStat) *int { return v.CumulativeBytesScanned }).(pulumi.IntPtrOutput)
 }
 
-// Data writes metered for records ingested in a single scheduled query run.
 func (o ScheduledQueryLastRunSummaryExecutionStatOutput) DataWrites() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryExecutionStat) *int { return v.DataWrites }).(pulumi.IntPtrOutput)
 }
 
-// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
 func (o ScheduledQueryLastRunSummaryExecutionStatOutput) ExecutionTimeInMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryExecutionStat) *int { return v.ExecutionTimeInMillis }).(pulumi.IntPtrOutput)
 }
 
-// Number of rows present in the output from running a query before ingestion to destination data source.
 func (o ScheduledQueryLastRunSummaryExecutionStatOutput) QueryResultRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryExecutionStat) *int { return v.QueryResultRows }).(pulumi.IntPtrOutput)
 }
 
-// Number of records ingested for a single scheduled query run.
 func (o ScheduledQueryLastRunSummaryExecutionStatOutput) RecordsIngested() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryExecutionStat) *int { return v.RecordsIngested }).(pulumi.IntPtrOutput)
 }
@@ -832,16 +768,11 @@ func (o ScheduledQueryLastRunSummaryExecutionStatArrayOutput) Index(i pulumi.Int
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponse struct {
-	// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
-	OutputBytes *int `pulumi:"outputBytes"`
-	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-	OutputRows *int `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	OutputBytes           *int                                                                    `pulumi:"outputBytes"`
+	OutputRows            *int                                                                    `pulumi:"outputRows"`
 	QuerySpatialCoverages []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage `pulumi:"querySpatialCoverages"`
-	// Number of tables in the query.
-	QueryTableCount *int `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
-	QueryTemporalRanges []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange `pulumi:"queryTemporalRanges"`
+	QueryTableCount       *int                                                                    `pulumi:"queryTableCount"`
+	QueryTemporalRanges   []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange   `pulumi:"queryTemporalRanges"`
 }
 
 // ScheduledQueryLastRunSummaryQueryInsightsResponseInput is an input type that accepts ScheduledQueryLastRunSummaryQueryInsightsResponseArgs and ScheduledQueryLastRunSummaryQueryInsightsResponseOutput values.
@@ -856,16 +787,11 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseInput interface {
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseArgs struct {
-	// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
-	OutputBytes pulumi.IntPtrInput `pulumi:"outputBytes"`
-	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-	OutputRows pulumi.IntPtrInput `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	OutputBytes           pulumi.IntPtrInput                                                              `pulumi:"outputBytes"`
+	OutputRows            pulumi.IntPtrInput                                                              `pulumi:"outputRows"`
 	QuerySpatialCoverages ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArrayInput `pulumi:"querySpatialCoverages"`
-	// Number of tables in the query.
-	QueryTableCount pulumi.IntPtrInput `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
-	QueryTemporalRanges ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArrayInput `pulumi:"queryTemporalRanges"`
+	QueryTableCount       pulumi.IntPtrInput                                                              `pulumi:"queryTableCount"`
+	QueryTemporalRanges   ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArrayInput   `pulumi:"queryTemporalRanges"`
 }
 
 func (ScheduledQueryLastRunSummaryQueryInsightsResponseArgs) ElementType() reflect.Type {
@@ -919,29 +845,24 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) ToScheduledQuer
 	return o
 }
 
-// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) OutputBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) *int { return v.OutputBytes }).(pulumi.IntPtrOutput)
 }
 
-// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) OutputRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) *int { return v.OutputRows }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) QuerySpatialCoverages() ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage {
 		return v.QuerySpatialCoverages
 	}).(ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArrayOutput)
 }
 
-// Number of tables in the query.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) QueryTableCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) *int { return v.QueryTableCount }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) QueryTemporalRanges() ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange {
 		return v.QueryTemporalRanges
@@ -969,7 +890,6 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseArrayOutput) Index(i pu
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis `pulumi:"maxes"`
 }
 
@@ -985,7 +905,6 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageInput 
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -1040,7 +959,6 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageOut
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageOutput) Maxes() ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage) []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis {
 		return v.Maxes
@@ -1068,12 +986,9 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArr
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis struct {
-	// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
 	PartitionKeys []string `pulumi:"partitionKeys"`
-	// ARN of the table which is queried with the largest time range.
-	TableArn *string `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value *float64 `pulumi:"value"`
+	TableArn      *string  `pulumi:"tableArn"`
+	Value         *float64 `pulumi:"value"`
 }
 
 // ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisInput is an input type that accepts ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs and ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisOutput values.
@@ -1088,12 +1003,9 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisI
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs struct {
-	// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
 	PartitionKeys pulumi.StringArrayInput `pulumi:"partitionKeys"`
-	// ARN of the table which is queried with the largest time range.
-	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	TableArn      pulumi.StringPtrInput   `pulumi:"tableArn"`
+	Value         pulumi.Float64PtrInput  `pulumi:"value"`
 }
 
 func (ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs) ElementType() reflect.Type {
@@ -1147,21 +1059,18 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMax
 	return o
 }
 
-// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisOutput) PartitionKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis) []string {
 		return v.PartitionKeys
 	}).(pulumi.StringArrayOutput)
 }
 
-// ARN of the table which is queried with the largest time range.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis) *string {
 		return v.TableArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum duration in nanoseconds between the start and end of the query.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis) *float64 {
 		return v.Value
@@ -1189,7 +1098,6 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMax
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis `pulumi:"maxes"`
 }
 
@@ -1205,7 +1113,6 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeInput in
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -1260,7 +1167,6 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeOutpu
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeOutput) Maxes() ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange) []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis {
 		return v.Maxes
@@ -1288,10 +1194,8 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArray
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis struct {
-	// ARN of the table which is queried with the largest time range.
 	TableArn *string `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value *int `pulumi:"value"`
+	Value    *int    `pulumi:"value"`
 }
 
 // ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisInput is an input type that accepts ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs and ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisOutput values.
@@ -1306,10 +1210,8 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisInp
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs struct {
-	// ARN of the table which is queried with the largest time range.
 	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value pulumi.IntPtrInput `pulumi:"value"`
+	Value    pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs) ElementType() reflect.Type {
@@ -1363,14 +1265,12 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis
 	return o
 }
 
-// ARN of the table which is queried with the largest time range.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis) *string {
 		return v.TableArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum duration in nanoseconds between the start and end of the query.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -1396,7 +1296,6 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis
 }
 
 type ScheduledQueryNotificationConfiguration struct {
-	// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
 	SnsConfiguration ScheduledQueryNotificationConfigurationSnsConfiguration `pulumi:"snsConfiguration"`
 }
 
@@ -1412,7 +1311,6 @@ type ScheduledQueryNotificationConfigurationInput interface {
 }
 
 type ScheduledQueryNotificationConfigurationArgs struct {
-	// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
 	SnsConfiguration ScheduledQueryNotificationConfigurationSnsConfigurationInput `pulumi:"snsConfiguration"`
 }
 
@@ -1493,7 +1391,6 @@ func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificat
 	}).(ScheduledQueryNotificationConfigurationPtrOutput)
 }
 
-// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
 func (o ScheduledQueryNotificationConfigurationOutput) SnsConfiguration() ScheduledQueryNotificationConfigurationSnsConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryNotificationConfiguration) ScheduledQueryNotificationConfigurationSnsConfiguration {
 		return v.SnsConfiguration
@@ -1524,7 +1421,6 @@ func (o ScheduledQueryNotificationConfigurationPtrOutput) Elem() ScheduledQueryN
 	}).(ScheduledQueryNotificationConfigurationOutput)
 }
 
-// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
 func (o ScheduledQueryNotificationConfigurationPtrOutput) SnsConfiguration() ScheduledQueryNotificationConfigurationSnsConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryNotificationConfiguration) *ScheduledQueryNotificationConfigurationSnsConfiguration {
 		if v == nil {
@@ -1535,7 +1431,6 @@ func (o ScheduledQueryNotificationConfigurationPtrOutput) SnsConfiguration() Sch
 }
 
 type ScheduledQueryNotificationConfigurationSnsConfiguration struct {
-	// SNS topic ARN that the scheduled query status notifications will be sent to.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -1551,7 +1446,6 @@ type ScheduledQueryNotificationConfigurationSnsConfigurationInput interface {
 }
 
 type ScheduledQueryNotificationConfigurationSnsConfigurationArgs struct {
-	// SNS topic ARN that the scheduled query status notifications will be sent to.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1632,7 +1526,6 @@ func (o ScheduledQueryNotificationConfigurationSnsConfigurationOutput) ToSchedul
 	}).(ScheduledQueryNotificationConfigurationSnsConfigurationPtrOutput)
 }
 
-// SNS topic ARN that the scheduled query status notifications will be sent to.
 func (o ScheduledQueryNotificationConfigurationSnsConfigurationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryNotificationConfigurationSnsConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1661,7 +1554,6 @@ func (o ScheduledQueryNotificationConfigurationSnsConfigurationPtrOutput) Elem()
 	}).(ScheduledQueryNotificationConfigurationSnsConfigurationOutput)
 }
 
-// SNS topic ARN that the scheduled query status notifications will be sent to.
 func (o ScheduledQueryNotificationConfigurationSnsConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryNotificationConfigurationSnsConfiguration) *string {
 		if v == nil {
@@ -1672,20 +1564,13 @@ func (o ScheduledQueryNotificationConfigurationSnsConfigurationPtrOutput) TopicA
 }
 
 type ScheduledQueryRecentlyFailedRun struct {
-	// S3 location for error report.
-	ErrorReportLocations []ScheduledQueryRecentlyFailedRunErrorReportLocation `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
-	ExecutionStats []ScheduledQueryRecentlyFailedRunExecutionStat `pulumi:"executionStats"`
-	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-	FailureReason *string `pulumi:"failureReason"`
-	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
-	InvocationTime *string `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	ErrorReportLocations   []ScheduledQueryRecentlyFailedRunErrorReportLocation   `pulumi:"errorReportLocations"`
+	ExecutionStats         []ScheduledQueryRecentlyFailedRunExecutionStat         `pulumi:"executionStats"`
+	FailureReason          *string                                                `pulumi:"failureReason"`
+	InvocationTime         *string                                                `pulumi:"invocationTime"`
 	QueryInsightsResponses []ScheduledQueryRecentlyFailedRunQueryInsightsResponse `pulumi:"queryInsightsResponses"`
-	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-	RunStatus *string `pulumi:"runStatus"`
-	// Actual time when the query was run.
-	TriggerTime *string `pulumi:"triggerTime"`
+	RunStatus              *string                                                `pulumi:"runStatus"`
+	TriggerTime            *string                                                `pulumi:"triggerTime"`
 }
 
 // ScheduledQueryRecentlyFailedRunInput is an input type that accepts ScheduledQueryRecentlyFailedRunArgs and ScheduledQueryRecentlyFailedRunOutput values.
@@ -1700,20 +1585,13 @@ type ScheduledQueryRecentlyFailedRunInput interface {
 }
 
 type ScheduledQueryRecentlyFailedRunArgs struct {
-	// S3 location for error report.
-	ErrorReportLocations ScheduledQueryRecentlyFailedRunErrorReportLocationArrayInput `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
-	ExecutionStats ScheduledQueryRecentlyFailedRunExecutionStatArrayInput `pulumi:"executionStats"`
-	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
-	FailureReason pulumi.StringPtrInput `pulumi:"failureReason"`
-	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
-	InvocationTime pulumi.StringPtrInput `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	ErrorReportLocations   ScheduledQueryRecentlyFailedRunErrorReportLocationArrayInput   `pulumi:"errorReportLocations"`
+	ExecutionStats         ScheduledQueryRecentlyFailedRunExecutionStatArrayInput         `pulumi:"executionStats"`
+	FailureReason          pulumi.StringPtrInput                                          `pulumi:"failureReason"`
+	InvocationTime         pulumi.StringPtrInput                                          `pulumi:"invocationTime"`
 	QueryInsightsResponses ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayInput `pulumi:"queryInsightsResponses"`
-	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
-	RunStatus pulumi.StringPtrInput `pulumi:"runStatus"`
-	// Actual time when the query was run.
-	TriggerTime pulumi.StringPtrInput `pulumi:"triggerTime"`
+	RunStatus              pulumi.StringPtrInput                                          `pulumi:"runStatus"`
+	TriggerTime            pulumi.StringPtrInput                                          `pulumi:"triggerTime"`
 }
 
 func (ScheduledQueryRecentlyFailedRunArgs) ElementType() reflect.Type {
@@ -1767,43 +1645,36 @@ func (o ScheduledQueryRecentlyFailedRunOutput) ToScheduledQueryRecentlyFailedRun
 	return o
 }
 
-// S3 location for error report.
 func (o ScheduledQueryRecentlyFailedRunOutput) ErrorReportLocations() ScheduledQueryRecentlyFailedRunErrorReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) []ScheduledQueryRecentlyFailedRunErrorReportLocation {
 		return v.ErrorReportLocations
 	}).(ScheduledQueryRecentlyFailedRunErrorReportLocationArrayOutput)
 }
 
-// Statistics for a single scheduled query run.
 func (o ScheduledQueryRecentlyFailedRunOutput) ExecutionStats() ScheduledQueryRecentlyFailedRunExecutionStatArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) []ScheduledQueryRecentlyFailedRunExecutionStat {
 		return v.ExecutionStats
 	}).(ScheduledQueryRecentlyFailedRunExecutionStatArrayOutput)
 }
 
-// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
 func (o ScheduledQueryRecentlyFailedRunOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
-// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
 func (o ScheduledQueryRecentlyFailedRunOutput) InvocationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) *string { return v.InvocationTime }).(pulumi.StringPtrOutput)
 }
 
-// Various insights and metrics related to the run summary of the scheduled query.
 func (o ScheduledQueryRecentlyFailedRunOutput) QueryInsightsResponses() ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) []ScheduledQueryRecentlyFailedRunQueryInsightsResponse {
 		return v.QueryInsightsResponses
 	}).(ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayOutput)
 }
 
-// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
 func (o ScheduledQueryRecentlyFailedRunOutput) RunStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) *string { return v.RunStatus }).(pulumi.StringPtrOutput)
 }
 
-// Actual time when the query was run.
 func (o ScheduledQueryRecentlyFailedRunOutput) TriggerTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) *string { return v.TriggerTime }).(pulumi.StringPtrOutput)
 }
@@ -1829,7 +1700,6 @@ func (o ScheduledQueryRecentlyFailedRunArrayOutput) Index(i pulumi.IntInput) Sch
 }
 
 type ScheduledQueryRecentlyFailedRunErrorReportLocation struct {
-	// S3 location where error reports are written.
 	S3ReportLocations []ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation `pulumi:"s3ReportLocations"`
 }
 
@@ -1845,7 +1715,6 @@ type ScheduledQueryRecentlyFailedRunErrorReportLocationInput interface {
 }
 
 type ScheduledQueryRecentlyFailedRunErrorReportLocationArgs struct {
-	// S3 location where error reports are written.
 	S3ReportLocations ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArrayInput `pulumi:"s3ReportLocations"`
 }
 
@@ -1900,7 +1769,6 @@ func (o ScheduledQueryRecentlyFailedRunErrorReportLocationOutput) ToScheduledQue
 	return o
 }
 
-// S3 location where error reports are written.
 func (o ScheduledQueryRecentlyFailedRunErrorReportLocationOutput) S3ReportLocations() ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunErrorReportLocation) []ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation {
 		return v.S3ReportLocations
@@ -1928,10 +1796,8 @@ func (o ScheduledQueryRecentlyFailedRunErrorReportLocationArrayOutput) Index(i p
 }
 
 type ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation struct {
-	// S3 bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	// S3 key.
-	ObjectKey *string `pulumi:"objectKey"`
+	ObjectKey  *string `pulumi:"objectKey"`
 }
 
 // ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationInput is an input type that accepts ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs and ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationOutput values.
@@ -1946,10 +1812,8 @@ type ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationInput int
 }
 
 type ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs struct {
-	// S3 bucket name.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// S3 key.
-	ObjectKey pulumi.StringPtrInput `pulumi:"objectKey"`
+	ObjectKey  pulumi.StringPtrInput `pulumi:"objectKey"`
 }
 
 func (ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs) ElementType() reflect.Type {
@@ -2003,14 +1867,12 @@ func (o ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationOutput
 	return o
 }
 
-// S3 bucket name.
 func (o ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3 key.
 func (o ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationOutput) ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation) *string { return v.ObjectKey }).(pulumi.StringPtrOutput)
 }
@@ -2036,18 +1898,12 @@ func (o ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArrayO
 }
 
 type ScheduledQueryRecentlyFailedRunExecutionStat struct {
-	// Bytes metered for a single scheduled query run.
-	BytesMetered *int `pulumi:"bytesMetered"`
-	// Bytes scanned for a single scheduled query run.
+	BytesMetered           *int `pulumi:"bytesMetered"`
 	CumulativeBytesScanned *int `pulumi:"cumulativeBytesScanned"`
-	// Data writes metered for records ingested in a single scheduled query run.
-	DataWrites *int `pulumi:"dataWrites"`
-	// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-	ExecutionTimeInMillis *int `pulumi:"executionTimeInMillis"`
-	// Number of rows present in the output from running a query before ingestion to destination data source.
-	QueryResultRows *int `pulumi:"queryResultRows"`
-	// Number of records ingested for a single scheduled query run.
-	RecordsIngested *int `pulumi:"recordsIngested"`
+	DataWrites             *int `pulumi:"dataWrites"`
+	ExecutionTimeInMillis  *int `pulumi:"executionTimeInMillis"`
+	QueryResultRows        *int `pulumi:"queryResultRows"`
+	RecordsIngested        *int `pulumi:"recordsIngested"`
 }
 
 // ScheduledQueryRecentlyFailedRunExecutionStatInput is an input type that accepts ScheduledQueryRecentlyFailedRunExecutionStatArgs and ScheduledQueryRecentlyFailedRunExecutionStatOutput values.
@@ -2062,18 +1918,12 @@ type ScheduledQueryRecentlyFailedRunExecutionStatInput interface {
 }
 
 type ScheduledQueryRecentlyFailedRunExecutionStatArgs struct {
-	// Bytes metered for a single scheduled query run.
-	BytesMetered pulumi.IntPtrInput `pulumi:"bytesMetered"`
-	// Bytes scanned for a single scheduled query run.
+	BytesMetered           pulumi.IntPtrInput `pulumi:"bytesMetered"`
 	CumulativeBytesScanned pulumi.IntPtrInput `pulumi:"cumulativeBytesScanned"`
-	// Data writes metered for records ingested in a single scheduled query run.
-	DataWrites pulumi.IntPtrInput `pulumi:"dataWrites"`
-	// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
-	ExecutionTimeInMillis pulumi.IntPtrInput `pulumi:"executionTimeInMillis"`
-	// Number of rows present in the output from running a query before ingestion to destination data source.
-	QueryResultRows pulumi.IntPtrInput `pulumi:"queryResultRows"`
-	// Number of records ingested for a single scheduled query run.
-	RecordsIngested pulumi.IntPtrInput `pulumi:"recordsIngested"`
+	DataWrites             pulumi.IntPtrInput `pulumi:"dataWrites"`
+	ExecutionTimeInMillis  pulumi.IntPtrInput `pulumi:"executionTimeInMillis"`
+	QueryResultRows        pulumi.IntPtrInput `pulumi:"queryResultRows"`
+	RecordsIngested        pulumi.IntPtrInput `pulumi:"recordsIngested"`
 }
 
 func (ScheduledQueryRecentlyFailedRunExecutionStatArgs) ElementType() reflect.Type {
@@ -2127,32 +1977,26 @@ func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) ToScheduledQueryRece
 	return o
 }
 
-// Bytes metered for a single scheduled query run.
 func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) BytesMetered() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunExecutionStat) *int { return v.BytesMetered }).(pulumi.IntPtrOutput)
 }
 
-// Bytes scanned for a single scheduled query run.
 func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) CumulativeBytesScanned() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunExecutionStat) *int { return v.CumulativeBytesScanned }).(pulumi.IntPtrOutput)
 }
 
-// Data writes metered for records ingested in a single scheduled query run.
 func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) DataWrites() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunExecutionStat) *int { return v.DataWrites }).(pulumi.IntPtrOutput)
 }
 
-// Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
 func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) ExecutionTimeInMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunExecutionStat) *int { return v.ExecutionTimeInMillis }).(pulumi.IntPtrOutput)
 }
 
-// Number of rows present in the output from running a query before ingestion to destination data source.
 func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) QueryResultRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunExecutionStat) *int { return v.QueryResultRows }).(pulumi.IntPtrOutput)
 }
 
-// Number of records ingested for a single scheduled query run.
 func (o ScheduledQueryRecentlyFailedRunExecutionStatOutput) RecordsIngested() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunExecutionStat) *int { return v.RecordsIngested }).(pulumi.IntPtrOutput)
 }
@@ -2178,16 +2022,11 @@ func (o ScheduledQueryRecentlyFailedRunExecutionStatArrayOutput) Index(i pulumi.
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponse struct {
-	// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
-	OutputBytes *int `pulumi:"outputBytes"`
-	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-	OutputRows *int `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	OutputBytes           *int                                                                       `pulumi:"outputBytes"`
+	OutputRows            *int                                                                       `pulumi:"outputRows"`
 	QuerySpatialCoverages []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage `pulumi:"querySpatialCoverages"`
-	// Number of tables in the query.
-	QueryTableCount *int `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
-	QueryTemporalRanges []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange `pulumi:"queryTemporalRanges"`
+	QueryTableCount       *int                                                                       `pulumi:"queryTableCount"`
+	QueryTemporalRanges   []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange   `pulumi:"queryTemporalRanges"`
 }
 
 // ScheduledQueryRecentlyFailedRunQueryInsightsResponseInput is an input type that accepts ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs and ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput values.
@@ -2202,16 +2041,11 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseInput interface {
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs struct {
-	// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
-	OutputBytes pulumi.IntPtrInput `pulumi:"outputBytes"`
-	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-	OutputRows pulumi.IntPtrInput `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	OutputBytes           pulumi.IntPtrInput                                                                 `pulumi:"outputBytes"`
+	OutputRows            pulumi.IntPtrInput                                                                 `pulumi:"outputRows"`
 	QuerySpatialCoverages ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArrayInput `pulumi:"querySpatialCoverages"`
-	// Number of tables in the query.
-	QueryTableCount pulumi.IntPtrInput `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
-	QueryTemporalRanges ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArrayInput `pulumi:"queryTemporalRanges"`
+	QueryTableCount       pulumi.IntPtrInput                                                                 `pulumi:"queryTableCount"`
+	QueryTemporalRanges   ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArrayInput   `pulumi:"queryTemporalRanges"`
 }
 
 func (ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs) ElementType() reflect.Type {
@@ -2265,29 +2099,24 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) ToScheduledQ
 	return o
 }
 
-// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) OutputBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) *int { return v.OutputBytes }).(pulumi.IntPtrOutput)
 }
 
-// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) OutputRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) *int { return v.OutputRows }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) QuerySpatialCoverages() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage {
 		return v.QuerySpatialCoverages
 	}).(ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArrayOutput)
 }
 
-// Number of tables in the query.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) QueryTableCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) *int { return v.QueryTableCount }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) QueryTemporalRanges() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange {
 		return v.QueryTemporalRanges
@@ -2315,7 +2144,6 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayOutput) Index(i
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis `pulumi:"maxes"`
 }
 
@@ -2331,7 +2159,6 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageInp
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -2386,7 +2213,6 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageOutput) Maxes() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis {
 		return v.Maxes
@@ -2414,12 +2240,9 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis struct {
-	// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
 	PartitionKeys []string `pulumi:"partitionKeys"`
-	// ARN of the table which is queried with the largest time range.
-	TableArn *string `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value *float64 `pulumi:"value"`
+	TableArn      *string  `pulumi:"tableArn"`
+	Value         *float64 `pulumi:"value"`
 }
 
 // ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisInput is an input type that accepts ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs and ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisOutput values.
@@ -2434,12 +2257,9 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMax
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs struct {
-	// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
 	PartitionKeys pulumi.StringArrayInput `pulumi:"partitionKeys"`
-	// ARN of the table which is queried with the largest time range.
-	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	TableArn      pulumi.StringPtrInput   `pulumi:"tableArn"`
+	Value         pulumi.Float64PtrInput  `pulumi:"value"`
 }
 
 func (ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs) ElementType() reflect.Type {
@@ -2493,21 +2313,18 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage
 	return o
 }
 
-// Partition key used for partitioning, which can be a default measureName or a customer defined partition key.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisOutput) PartitionKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis) []string {
 		return v.PartitionKeys
 	}).(pulumi.StringArrayOutput)
 }
 
-// ARN of the table which is queried with the largest time range.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis) *string {
 		return v.TableArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum duration in nanoseconds between the start and end of the query.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis) *float64 {
 		return v.Value
@@ -2535,7 +2352,6 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis `pulumi:"maxes"`
 }
 
@@ -2551,7 +2367,6 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeInput
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
 	Maxes ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -2606,7 +2421,6 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeOu
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeOutput) Maxes() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis {
 		return v.Maxes
@@ -2634,10 +2448,8 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeAr
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis struct {
-	// ARN of the table which is queried with the largest time range.
 	TableArn *string `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value *int `pulumi:"value"`
+	Value    *int    `pulumi:"value"`
 }
 
 // ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisInput is an input type that accepts ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs and ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisOutput values.
@@ -2652,10 +2464,8 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs struct {
-	// ARN of the table which is queried with the largest time range.
 	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
-	// Maximum duration in nanoseconds between the start and end of the query.
-	Value pulumi.IntPtrInput `pulumi:"value"`
+	Value    pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs) ElementType() reflect.Type {
@@ -2709,14 +2519,12 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMa
 	return o
 }
 
-// ARN of the table which is queried with the largest time range.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis) *string {
 		return v.TableArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum duration in nanoseconds between the start and end of the query.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis) *int {
 		return v.Value
@@ -2744,7 +2552,6 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMa
 }
 
 type ScheduledQueryScheduleConfiguration struct {
-	// When to trigger the scheduled query run. This can be a cron expression or a rate expression.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -2760,7 +2567,6 @@ type ScheduledQueryScheduleConfigurationInput interface {
 }
 
 type ScheduledQueryScheduleConfigurationArgs struct {
-	// When to trigger the scheduled query run. This can be a cron expression or a rate expression.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -2841,7 +2647,6 @@ func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfi
 	}).(ScheduledQueryScheduleConfigurationPtrOutput)
 }
 
-// When to trigger the scheduled query run. This can be a cron expression or a rate expression.
 func (o ScheduledQueryScheduleConfigurationOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryScheduleConfiguration) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -2870,7 +2675,6 @@ func (o ScheduledQueryScheduleConfigurationPtrOutput) Elem() ScheduledQuerySched
 	}).(ScheduledQueryScheduleConfigurationOutput)
 }
 
-// When to trigger the scheduled query run. This can be a cron expression or a rate expression.
 func (o ScheduledQueryScheduleConfigurationPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryScheduleConfiguration) *string {
 		if v == nil {
@@ -2881,7 +2685,6 @@ func (o ScheduledQueryScheduleConfigurationPtrOutput) ScheduleExpression() pulum
 }
 
 type ScheduledQueryTargetConfiguration struct {
-	// Configuration block for information needed to write data into the Timestream database and table. See below.
 	TimestreamConfiguration *ScheduledQueryTargetConfigurationTimestreamConfiguration `pulumi:"timestreamConfiguration"`
 }
 
@@ -2897,7 +2700,6 @@ type ScheduledQueryTargetConfigurationInput interface {
 }
 
 type ScheduledQueryTargetConfigurationArgs struct {
-	// Configuration block for information needed to write data into the Timestream database and table. See below.
 	TimestreamConfiguration ScheduledQueryTargetConfigurationTimestreamConfigurationPtrInput `pulumi:"timestreamConfiguration"`
 }
 
@@ -2978,7 +2780,6 @@ func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigura
 	}).(ScheduledQueryTargetConfigurationPtrOutput)
 }
 
-// Configuration block for information needed to write data into the Timestream database and table. See below.
 func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) *ScheduledQueryTargetConfigurationTimestreamConfiguration {
 		return v.TimestreamConfiguration
@@ -3009,7 +2810,6 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) Elem() ScheduledQueryTargetC
 	}).(ScheduledQueryTargetConfigurationOutput)
 }
 
-// Configuration block for information needed to write data into the Timestream database and table. See below.
 func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfiguration) *ScheduledQueryTargetConfigurationTimestreamConfiguration {
 		if v == nil {
@@ -3020,20 +2820,13 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() Sc
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfiguration struct {
-	// Name of Timestream database to which the query result will be written.
-	DatabaseName string `pulumi:"databaseName"`
-	// Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
-	DimensionMappings []ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping `pulumi:"dimensionMappings"`
-	// Name of the measure column.
-	MeasureNameColumn *string `pulumi:"measureNameColumn"`
-	// Configuration block for how to map measures to multi-measure records. See below.
+	DatabaseName         string                                                                        `pulumi:"databaseName"`
+	DimensionMappings    []ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping    `pulumi:"dimensionMappings"`
+	MeasureNameColumn    *string                                                                       `pulumi:"measureNameColumn"`
 	MixedMeasureMappings []ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping `pulumi:"mixedMeasureMappings"`
-	// Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
 	MultiMeasureMappings *ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings `pulumi:"multiMeasureMappings"`
-	// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
-	TableName string `pulumi:"tableName"`
-	// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
-	TimeColumn string `pulumi:"timeColumn"`
+	TableName            string                                                                        `pulumi:"tableName"`
+	TimeColumn           string                                                                        `pulumi:"timeColumn"`
 }
 
 // ScheduledQueryTargetConfigurationTimestreamConfigurationInput is an input type that accepts ScheduledQueryTargetConfigurationTimestreamConfigurationArgs and ScheduledQueryTargetConfigurationTimestreamConfigurationOutput values.
@@ -3048,20 +2841,13 @@ type ScheduledQueryTargetConfigurationTimestreamConfigurationInput interface {
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationArgs struct {
-	// Name of Timestream database to which the query result will be written.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
-	DimensionMappings ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArrayInput `pulumi:"dimensionMappings"`
-	// Name of the measure column.
-	MeasureNameColumn pulumi.StringPtrInput `pulumi:"measureNameColumn"`
-	// Configuration block for how to map measures to multi-measure records. See below.
+	DatabaseName         pulumi.StringInput                                                                    `pulumi:"databaseName"`
+	DimensionMappings    ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArrayInput    `pulumi:"dimensionMappings"`
+	MeasureNameColumn    pulumi.StringPtrInput                                                                 `pulumi:"measureNameColumn"`
 	MixedMeasureMappings ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArrayInput `pulumi:"mixedMeasureMappings"`
-	// Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
-	MultiMeasureMappings ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrInput `pulumi:"multiMeasureMappings"`
-	// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
-	TimeColumn pulumi.StringInput `pulumi:"timeColumn"`
+	MultiMeasureMappings ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrInput  `pulumi:"multiMeasureMappings"`
+	TableName            pulumi.StringInput                                                                    `pulumi:"tableName"`
+	TimeColumn           pulumi.StringInput                                                                    `pulumi:"timeColumn"`
 }
 
 func (ScheduledQueryTargetConfigurationTimestreamConfigurationArgs) ElementType() reflect.Type {
@@ -3141,43 +2927,36 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) ToSchedu
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput)
 }
 
-// Name of Timestream database to which the query result will be written.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) DimensionMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) []ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping {
 		return v.DimensionMappings
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArrayOutput)
 }
 
-// Name of the measure column.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) MeasureNameColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) *string { return v.MeasureNameColumn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for how to map measures to multi-measure records. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) MixedMeasureMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) []ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping {
 		return v.MixedMeasureMappings
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArrayOutput)
 }
 
-// Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) MultiMeasureMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) *ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings {
 		return v.MultiMeasureMappings
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput)
 }
 
-// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationOutput) TimeColumn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfiguration) string { return v.TimeColumn }).(pulumi.StringOutput)
 }
@@ -3206,7 +2985,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Elem(
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationOutput)
 }
 
-// Name of Timestream database to which the query result will be written.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) *string {
 		if v == nil {
@@ -3216,7 +2994,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Datab
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) DimensionMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) []ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping {
 		if v == nil {
@@ -3226,7 +3003,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Dimen
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArrayOutput)
 }
 
-// Name of the measure column.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) MeasureNameColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) *string {
 		if v == nil {
@@ -3236,7 +3012,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Measu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for how to map measures to multi-measure records. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) MixedMeasureMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) []ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping {
 		if v == nil {
@@ -3246,7 +3021,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Mixed
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArrayOutput)
 }
 
-// Configuration block for multi-measure mappings. Only one of `mixedMeasureMappings` or `multiMeasureMappings` can be provided. `multiMeasureMappings` can be used to ingest data as multi measures in the derived table. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) MultiMeasureMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) *ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings {
 		if v == nil {
@@ -3256,7 +3030,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Multi
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput)
 }
 
-// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) *string {
 		if v == nil {
@@ -3266,7 +3039,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) Table
 	}).(pulumi.StringPtrOutput)
 }
 
-// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) TimeColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfiguration) *string {
 		if v == nil {
@@ -3277,10 +3049,8 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput) TimeC
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping struct {
-	// Type for the dimension. Valid value: `VARCHAR`.
 	DimensionValueType string `pulumi:"dimensionValueType"`
-	// Column name from query result.
-	Name string `pulumi:"name"`
+	Name               string `pulumi:"name"`
 }
 
 // ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingInput is an input type that accepts ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs and ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingOutput values.
@@ -3295,10 +3065,8 @@ type ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingInp
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs struct {
-	// Type for the dimension. Valid value: `VARCHAR`.
 	DimensionValueType pulumi.StringInput `pulumi:"dimensionValueType"`
-	// Column name from query result.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name               pulumi.StringInput `pulumi:"name"`
 }
 
 func (ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs) ElementType() reflect.Type {
@@ -3352,14 +3120,12 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping
 	return o
 }
 
-// Type for the dimension. Valid value: `VARCHAR`.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingOutput) DimensionValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping) string {
 		return v.DimensionValueType
 	}).(pulumi.StringOutput)
 }
 
-// Column name from query result.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3385,16 +3151,11 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping struct {
-	// Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-	MeasureName *string `pulumi:"measureName"`
-	// Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-	MeasureValueType string `pulumi:"measureValueType"`
-	// Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
+	MeasureName                   *string                                                                                                   `pulumi:"measureName"`
+	MeasureValueType              string                                                                                                    `pulumi:"measureValueType"`
 	MultiMeasureAttributeMappings []ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
-	// Source column from which measure-value is to be read for result materialization.
-	SourceColumn *string `pulumi:"sourceColumn"`
-	// Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-	TargetMeasureName *string `pulumi:"targetMeasureName"`
+	SourceColumn                  *string                                                                                                   `pulumi:"sourceColumn"`
+	TargetMeasureName             *string                                                                                                   `pulumi:"targetMeasureName"`
 }
 
 // ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingInput is an input type that accepts ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs and ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingOutput values.
@@ -3409,16 +3170,11 @@ type ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs struct {
-	// Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
-	MeasureName pulumi.StringPtrInput `pulumi:"measureName"`
-	// Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
-	MeasureValueType pulumi.StringInput `pulumi:"measureValueType"`
-	// Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
+	MeasureName                   pulumi.StringPtrInput                                                                                             `pulumi:"measureName"`
+	MeasureValueType              pulumi.StringInput                                                                                                `pulumi:"measureValueType"`
 	MultiMeasureAttributeMappings ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
-	// Source column from which measure-value is to be read for result materialization.
-	SourceColumn pulumi.StringPtrInput `pulumi:"sourceColumn"`
-	// Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
-	TargetMeasureName pulumi.StringPtrInput `pulumi:"targetMeasureName"`
+	SourceColumn                  pulumi.StringPtrInput                                                                                             `pulumi:"sourceColumn"`
+	TargetMeasureName             pulumi.StringPtrInput                                                                                             `pulumi:"targetMeasureName"`
 }
 
 func (ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs) ElementType() reflect.Type {
@@ -3472,35 +3228,30 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapp
 	return o
 }
 
-// Refers to the value of measureName in a result row. This field is required if `measureNameColumn` is provided.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingOutput) MeasureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping) *string {
 		return v.MeasureName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the value that is to be read from `sourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingOutput) MeasureValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping) string {
 		return v.MeasureValueType
 	}).(pulumi.StringOutput)
 }
 
-// Configuration block for attribute mappings for `MULTI` value measures. Required when `measureValueType` is `MULTI`. See below.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingOutput) MultiMeasureAttributeMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping) []ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping {
 		return v.MultiMeasureAttributeMappings
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArrayOutput)
 }
 
-// Source column from which measure-value is to be read for result materialization.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingOutput) SourceColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping) *string {
 		return v.SourceColumn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target measure name to be used. If not provided, the target measure name by default is `measureName`, if provided, or `sourceColumn` otherwise.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingOutput) TargetMeasureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping) *string {
 		return v.TargetMeasureName
@@ -3528,11 +3279,8 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapp
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping struct {
-	// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-	MeasureValueType string `pulumi:"measureValueType"`
-	// Source column from where the attribute value is to be read.
-	SourceColumn string `pulumi:"sourceColumn"`
-	// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
+	MeasureValueType                string  `pulumi:"measureValueType"`
+	SourceColumn                    string  `pulumi:"sourceColumn"`
 	TargetMultiMeasureAttributeName *string `pulumi:"targetMultiMeasureAttributeName"`
 }
 
@@ -3548,11 +3296,8 @@ type ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs struct {
-	// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-	MeasureValueType pulumi.StringInput `pulumi:"measureValueType"`
-	// Source column from where the attribute value is to be read.
-	SourceColumn pulumi.StringInput `pulumi:"sourceColumn"`
-	// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
+	MeasureValueType                pulumi.StringInput    `pulumi:"measureValueType"`
+	SourceColumn                    pulumi.StringInput    `pulumi:"sourceColumn"`
 	TargetMultiMeasureAttributeName pulumi.StringPtrInput `pulumi:"targetMultiMeasureAttributeName"`
 }
 
@@ -3607,21 +3352,18 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapp
 	return o
 }
 
-// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingOutput) MeasureValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping) string {
 		return v.MeasureValueType
 	}).(pulumi.StringOutput)
 }
 
-// Source column from where the attribute value is to be read.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingOutput) SourceColumn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping) string {
 		return v.SourceColumn
 	}).(pulumi.StringOutput)
 }
 
-// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingOutput) TargetMultiMeasureAttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping) *string {
 		return v.TargetMultiMeasureAttributeName
@@ -3649,10 +3391,8 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapp
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings struct {
-	// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
 	MultiMeasureAttributeMappings []ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
-	// Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-	TargetMultiMeasureName *string `pulumi:"targetMultiMeasureName"`
+	TargetMultiMeasureName        *string                                                                                                    `pulumi:"targetMultiMeasureName"`
 }
 
 // ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsInput is an input type that accepts ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs and ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsOutput values.
@@ -3667,10 +3407,8 @@ type ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapping
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs struct {
-	// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
 	MultiMeasureAttributeMappings ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
-	// Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-	TargetMultiMeasureName pulumi.StringPtrInput `pulumi:"targetMultiMeasureName"`
+	TargetMultiMeasureName        pulumi.StringPtrInput                                                                                              `pulumi:"targetMultiMeasureName"`
 }
 
 func (ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs) ElementType() reflect.Type {
@@ -3750,14 +3488,12 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapp
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput)
 }
 
-// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsOutput) MultiMeasureAttributeMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings) []ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping {
 		return v.MultiMeasureAttributeMappings
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArrayOutput)
 }
 
-// Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsOutput) TargetMultiMeasureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings) *string {
 		return v.TargetMultiMeasureName
@@ -3788,7 +3524,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapp
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsOutput)
 }
 
-// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput) MultiMeasureAttributeMappings() ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings) []ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping {
 		if v == nil {
@@ -3798,7 +3533,6 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapp
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArrayOutput)
 }
 
-// Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsPtrOutput) TargetMultiMeasureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings) *string {
 		if v == nil {
@@ -3809,11 +3543,8 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapp
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping struct {
-	// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-	MeasureValueType string `pulumi:"measureValueType"`
-	// Source column from where the attribute value is to be read.
-	SourceColumn string `pulumi:"sourceColumn"`
-	// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
+	MeasureValueType                string  `pulumi:"measureValueType"`
+	SourceColumn                    string  `pulumi:"sourceColumn"`
 	TargetMultiMeasureAttributeName *string `pulumi:"targetMultiMeasureAttributeName"`
 }
 
@@ -3829,11 +3560,8 @@ type ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapping
 }
 
 type ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs struct {
-	// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-	MeasureValueType pulumi.StringInput `pulumi:"measureValueType"`
-	// Source column from where the attribute value is to be read.
-	SourceColumn pulumi.StringInput `pulumi:"sourceColumn"`
-	// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
+	MeasureValueType                pulumi.StringInput    `pulumi:"measureValueType"`
+	SourceColumn                    pulumi.StringInput    `pulumi:"sourceColumn"`
 	TargetMultiMeasureAttributeName pulumi.StringPtrInput `pulumi:"targetMultiMeasureAttributeName"`
 }
 
@@ -3888,21 +3616,18 @@ func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMapp
 	return o
 }
 
-// Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingOutput) MeasureValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping) string {
 		return v.MeasureValueType
 	}).(pulumi.StringOutput)
 }
 
-// Source column from where the attribute value is to be read.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingOutput) SourceColumn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping) string {
 		return v.SourceColumn
 	}).(pulumi.StringOutput)
 }
 
-// Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
 func (o ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingOutput) TargetMultiMeasureAttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping) *string {
 		return v.TargetMultiMeasureAttributeName

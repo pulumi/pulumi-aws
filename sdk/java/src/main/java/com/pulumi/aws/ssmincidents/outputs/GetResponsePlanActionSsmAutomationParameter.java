@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponsePlanActionSsmAutomationParameter {
-    /**
-     * @return The name of the PagerDuty configuration.
-     * 
-     */
     private String name;
-    /**
-     * @return The values for the associated parameter name.
-     * 
-     */
     private List<String> values;
 
     private GetResponsePlanActionSsmAutomationParameter() {}
-    /**
-     * @return The name of the PagerDuty configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The values for the associated parameter name.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

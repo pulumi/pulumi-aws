@@ -11,75 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
-//
-// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
-//				Name:                 pulumi.String("kinesis-video-stream"),
-//				DataRetentionInHours: pulumi.Int(1),
-//				DeviceName:           pulumi.String("kinesis-video-device-name"),
-//				MediaType:            pulumi.String("video/h264"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("kinesis-video-stream"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
-// ```
 type VideoStream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A time stamp that indicates when the stream was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-	DataRetentionInHours pulumi.IntPtrOutput `pulumi:"dataRetentionInHours"`
-	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The version of the stream.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	CreationTime         pulumi.StringOutput    `pulumi:"creationTime"`
+	DataRetentionInHours pulumi.IntPtrOutput    `pulumi:"dataRetentionInHours"`
+	DeviceName           pulumi.StringPtrOutput `pulumi:"deviceName"`
+	KmsKeyId             pulumi.StringOutput    `pulumi:"kmsKeyId"`
+	MediaType            pulumi.StringPtrOutput `pulumi:"mediaType"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	Region               pulumi.StringOutput    `pulumi:"region"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Version              pulumi.StringOutput    `pulumi:"version"`
 }
 
 // NewVideoStream registers a new resource with the given unique name, arguments, and options.
@@ -112,55 +57,31 @@ func GetVideoStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VideoStream resources.
 type videoStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn *string `pulumi:"arn"`
-	// A time stamp that indicates when the stream was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-	DataRetentionInHours *int `pulumi:"dataRetentionInHours"`
-	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-	DeviceName *string `pulumi:"deviceName"`
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-	MediaType *string `pulumi:"mediaType"`
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The version of the stream.
-	Version *string `pulumi:"version"`
+	Arn                  *string           `pulumi:"arn"`
+	CreationTime         *string           `pulumi:"creationTime"`
+	DataRetentionInHours *int              `pulumi:"dataRetentionInHours"`
+	DeviceName           *string           `pulumi:"deviceName"`
+	KmsKeyId             *string           `pulumi:"kmsKeyId"`
+	MediaType            *string           `pulumi:"mediaType"`
+	Name                 *string           `pulumi:"name"`
+	Region               *string           `pulumi:"region"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
+	Version              *string           `pulumi:"version"`
 }
 
 type VideoStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn pulumi.StringPtrInput
-	// A time stamp that indicates when the stream was created.
-	CreationTime pulumi.StringPtrInput
-	// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+	Arn                  pulumi.StringPtrInput
+	CreationTime         pulumi.StringPtrInput
 	DataRetentionInHours pulumi.IntPtrInput
-	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-	DeviceName pulumi.StringPtrInput
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-	KmsKeyId pulumi.StringPtrInput
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-	MediaType pulumi.StringPtrInput
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The version of the stream.
-	Version pulumi.StringPtrInput
+	DeviceName           pulumi.StringPtrInput
+	KmsKeyId             pulumi.StringPtrInput
+	MediaType            pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	Version              pulumi.StringPtrInput
 }
 
 func (VideoStreamState) ElementType() reflect.Type {
@@ -168,40 +89,24 @@ func (VideoStreamState) ElementType() reflect.Type {
 }
 
 type videoStreamArgs struct {
-	// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
-	DataRetentionInHours *int `pulumi:"dataRetentionInHours"`
-	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-	DeviceName *string `pulumi:"deviceName"`
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-	MediaType *string `pulumi:"mediaType"`
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DataRetentionInHours *int              `pulumi:"dataRetentionInHours"`
+	DeviceName           *string           `pulumi:"deviceName"`
+	KmsKeyId             *string           `pulumi:"kmsKeyId"`
+	MediaType            *string           `pulumi:"mediaType"`
+	Name                 *string           `pulumi:"name"`
+	Region               *string           `pulumi:"region"`
+	Tags                 map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VideoStream resource.
 type VideoStreamArgs struct {
-	// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
 	DataRetentionInHours pulumi.IntPtrInput
-	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
-	DeviceName pulumi.StringPtrInput
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-	KmsKeyId pulumi.StringPtrInput
-	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
-	MediaType pulumi.StringPtrInput
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DeviceName           pulumi.StringPtrInput
+	KmsKeyId             pulumi.StringPtrInput
+	MediaType            pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (VideoStreamArgs) ElementType() reflect.Type {
@@ -291,58 +196,46 @@ func (o VideoStreamOutput) ToVideoStreamOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
 func (o VideoStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A time stamp that indicates when the stream was created.
 func (o VideoStreamOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
 func (o VideoStreamOutput) DataRetentionInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.IntPtrOutput { return v.DataRetentionInHours }).(pulumi.IntPtrOutput)
 }
 
-// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 func (o VideoStreamOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 func (o VideoStreamOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 func (o VideoStreamOutput) MediaType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.MediaType }).(pulumi.StringPtrOutput)
 }
 
-// A name to identify the stream. This is unique to the
-// AWS account and region the Stream is created in.
 func (o VideoStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VideoStreamOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VideoStreamOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VideoStreamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The version of the stream.
 func (o VideoStreamOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

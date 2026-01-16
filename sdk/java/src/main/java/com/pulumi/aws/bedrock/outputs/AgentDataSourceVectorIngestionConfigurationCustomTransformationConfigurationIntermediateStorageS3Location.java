@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
-    /**
-     * @return S3 URI for intermediate storage.
-     * 
-     */
     private String uri;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location() {}
-    /**
-     * @return S3 URI for intermediate storage.
-     * 
-     */
     public String uri() {
         return this.uri;
     }

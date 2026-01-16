@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolWebAuthnConfiguration
     {
-        /// <summary>
-        /// The authentication domain that passkeys providers use as a relying party.
-        /// </summary>
         public readonly string? RelyingPartyId;
-        /// <summary>
-        /// If your user pool should require a passkey. Must be one of `Required` or `Preferred`.
-        /// </summary>
         public readonly string? UserVerification;
 
         [OutputConstructor]

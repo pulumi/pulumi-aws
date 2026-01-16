@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification {
-    /**
-     * @return Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-     * 
-     */
     private Integer endTimeoutMs;
-    /**
-     * @return Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-     * 
-     */
     private Integer maxLengthMs;
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification() {}
-    /**
-     * @return Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
-     * 
-     */
     public Integer endTimeoutMs() {
         return this.endTimeoutMs;
     }
-    /**
-     * @return Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
-     * 
-     */
     public Integer maxLengthMs() {
         return this.maxLengthMs;
     }

@@ -88,17 +88,11 @@ class GetAvailabilityZoneResult:
     @_builtins.property
     @pulumi.getter(name="groupLongName")
     def group_long_name(self) -> _builtins.str:
-        """
-        The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
-        """
         return pulumi.get(self, "group_long_name")
 
     @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> _builtins.str:
-        """
-        The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
-        """
         return pulumi.get(self, "group_name")
 
     @_builtins.property
@@ -117,43 +111,26 @@ class GetAvailabilityZoneResult:
     @_builtins.property
     @pulumi.getter(name="nameSuffix")
     def name_suffix(self) -> _builtins.str:
-        """
-        Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-        For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-        For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
-        """
         return pulumi.get(self, "name_suffix")
 
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> _builtins.str:
-        """
-        The name of the location from which the address is advertised.
-        """
         return pulumi.get(self, "network_border_group")
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> _builtins.str:
-        """
-        For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @_builtins.property
     @pulumi.getter(name="parentZoneId")
     def parent_zone_id(self) -> _builtins.str:
-        """
-        ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-        """
         return pulumi.get(self, "parent_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="parentZoneName")
     def parent_zone_name(self) -> _builtins.str:
-        """
-        Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-        """
         return pulumi.get(self, "parent_zone_name")
 
     @_builtins.property
@@ -174,9 +151,6 @@ class GetAvailabilityZoneResult:
     @_builtins.property
     @pulumi.getter(name="zoneType")
     def zone_type(self) -> _builtins.str:
-        """
-        Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
-        """
         return pulumi.get(self, "zone_type")
 
 
@@ -211,74 +185,7 @@ def get_availability_zone(all_availability_zones: Optional[_builtins.bool] = Non
                           zone_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZoneResult:
     """
-    `get_availability_zone` provides details about a specific availability zone (AZ)
-    in the current Region.
-
-    This can be used both to validate an availability zone given in a variable
-    and to split the AZ name into its component parts of an AWS Region and an
-    AZ identifier letter. The latter may be useful e.g., for implementing a
-    consistent subnet numbering scheme across several regions by mapping both
-    the region and the subnet letter to network numbers.
-
-    This is different from the `get_availability_zones` (plural) data source,
-    which provides a list of the available zones.
-
-    ## Example Usage
-
-    The following example shows how this data source might be used to derive
-    VPC and subnet CIDR prefixes systematically for an availability zone.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    config = pulumi.Config()
-    region_number = config.get_object("regionNumber")
-    if region_number is None:
-        region_number = {
-            "ap-northeast-1": 5,
-            "eu-central-1": 4,
-            "us-east-1": 1,
-            "us-west-1": 2,
-            "us-west-2": 3,
-        }
-    az_number = config.get_object("azNumber")
-    if az_number is None:
-        az_number = {
-            "a": 1,
-            "b": 2,
-            "c": 3,
-            "d": 4,
-            "e": 5,
-            "f": 6,
-        }
-    # Retrieve the AZ where we want to create network resources
-    # This must be in the region selected on the AWS provider.
-    example = aws.get_availability_zone(name="eu-central-1a")
-    # Create a VPC for the region associated with the AZ
-    example_vpc = aws.ec2.Vpc("example", cidr_block=std.cidrsubnet(input="10.0.0.0/8",
-        newbits=4,
-        netnum=region_number[example.region]).result)
-    # Create a subnet for the AZ within the regional VPC
-    example_subnet = aws.ec2.Subnet("example",
-        vpc_id=example_vpc.id,
-        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
-            newbits=4,
-            netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
-    ```
-
-
-    :param _builtins.bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str name: Full name of the availability zone to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
-    :param _builtins.str zone_id: Zone ID of the availability zone to select.
-           
-           The arguments of this data source act as filters for querying the available
-           availability zones. The given filters must match exactly one availability
-           zone whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
@@ -314,74 +221,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
                                  zone_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
     """
-    `get_availability_zone` provides details about a specific availability zone (AZ)
-    in the current Region.
-
-    This can be used both to validate an availability zone given in a variable
-    and to split the AZ name into its component parts of an AWS Region and an
-    AZ identifier letter. The latter may be useful e.g., for implementing a
-    consistent subnet numbering scheme across several regions by mapping both
-    the region and the subnet letter to network numbers.
-
-    This is different from the `get_availability_zones` (plural) data source,
-    which provides a list of the available zones.
-
-    ## Example Usage
-
-    The following example shows how this data source might be used to derive
-    VPC and subnet CIDR prefixes systematically for an availability zone.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_std as std
-
-    config = pulumi.Config()
-    region_number = config.get_object("regionNumber")
-    if region_number is None:
-        region_number = {
-            "ap-northeast-1": 5,
-            "eu-central-1": 4,
-            "us-east-1": 1,
-            "us-west-1": 2,
-            "us-west-2": 3,
-        }
-    az_number = config.get_object("azNumber")
-    if az_number is None:
-        az_number = {
-            "a": 1,
-            "b": 2,
-            "c": 3,
-            "d": 4,
-            "e": 5,
-            "f": 6,
-        }
-    # Retrieve the AZ where we want to create network resources
-    # This must be in the region selected on the AWS provider.
-    example = aws.get_availability_zone(name="eu-central-1a")
-    # Create a VPC for the region associated with the AZ
-    example_vpc = aws.ec2.Vpc("example", cidr_block=std.cidrsubnet(input="10.0.0.0/8",
-        newbits=4,
-        netnum=region_number[example.region]).result)
-    # Create a subnet for the AZ within the regional VPC
-    example_subnet = aws.ec2.Subnet("example",
-        vpc_id=example_vpc.id,
-        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
-            newbits=4,
-            netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
-    ```
-
-
-    :param _builtins.bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
-    :param _builtins.str name: Full name of the availability zone to select.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
-    :param _builtins.str zone_id: Zone ID of the availability zone to select.
-           
-           The arguments of this data source act as filters for querying the available
-           availability zones. The given filters must match exactly one availability
-           zone whose data will be exported as attributes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones

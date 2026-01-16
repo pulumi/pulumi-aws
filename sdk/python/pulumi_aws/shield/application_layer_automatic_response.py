@@ -26,8 +26,6 @@ class ApplicationLayerAutomaticResponseArgs:
                  timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ApplicationLayerAutomaticResponse resource.
-        :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -37,9 +35,6 @@ class ApplicationLayerAutomaticResponseArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
-        """
-        One of `COUNT` or `BLOCK`
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -49,9 +44,6 @@ class ApplicationLayerAutomaticResponseArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -76,8 +68,6 @@ class _ApplicationLayerAutomaticResponseState:
                  timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ApplicationLayerAutomaticResponse resources.
-        :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -89,9 +79,6 @@ class _ApplicationLayerAutomaticResponseState:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        One of `COUNT` or `BLOCK`
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -101,9 +88,6 @@ class _ApplicationLayerAutomaticResponseState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -131,31 +115,9 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ApplicationLayerAutomaticResponseTimeoutsArgs', 'ApplicationLayerAutomaticResponseTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        config = pulumi.Config()
-        # The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
-        distribution_id = config.require("distributionId")
-        example = aws.shield.ApplicationLayerAutomaticResponse("example",
-            resource_arn=f"arn:{current_get_partition.partition}:cloudfront:{current_get_caller_identity.account_id}:distribution/{distribution_id}",
-            action="COUNT")
-        ```
-
+        Create a ApplicationLayerAutomaticResponse resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
         ...
     @overload
@@ -164,27 +126,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
                  args: ApplicationLayerAutomaticResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        config = pulumi.Config()
-        # The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
-        distribution_id = config.require("distributionId")
-        example = aws.shield.ApplicationLayerAutomaticResponse("example",
-            resource_arn=f"arn:{current_get_partition.partition}:cloudfront:{current_get_caller_identity.account_id}:distribution/{distribution_id}",
-            action="COUNT")
-        ```
-
+        Create a ApplicationLayerAutomaticResponse resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationLayerAutomaticResponseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,8 +181,6 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -254,17 +194,11 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[_builtins.str]:
-        """
-        One of `COUNT` or `BLOCK`
-        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MemoryDb.Inputs
 
     public sealed class ClusterShardNodeEndpointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DNS hostname of the node.
-        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
-        /// <summary>
-        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

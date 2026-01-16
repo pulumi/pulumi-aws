@@ -14,17 +14,9 @@ public final class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs extend
 
     public static final RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs Empty = new RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs();
 
-    /**
-     * Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-     * 
-     */
     @Import(name="behaviorType", required=true)
     private Output<String> behaviorType;
 
-    /**
-     * @return Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-     * 
-     */
     public Output<String> behaviorType() {
         return this.behaviorType;
     }
@@ -53,23 +45,11 @@ public final class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs extend
             $ = new RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param behaviorType Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behaviorType(Output<String> behaviorType) {
             $.behaviorType = behaviorType;
             return this;
         }
 
-        /**
-         * @param behaviorType Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behaviorType(String behaviorType) {
             return behaviorType(Output.of(behaviorType));
         }

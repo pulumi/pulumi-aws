@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an ElastiCache Reserved Cache Node.
- *
- * > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offeringId` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [ElastiCache Reserved Nodes Documentation](https://aws.amazon.com/elasticache/reserved-cache-nodes/) and [PurchaseReservedCacheNodesOffering](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html).
- *
- * > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.elasticache.getReservedCacheNodeOffering({
- *     cacheNodeType: "cache.t4g.small",
- *     duration: "P1Y",
- *     offeringType: "No Upfront",
- *     productDescription: "redis",
- * });
- * const exampleReservedCacheNode = new aws.elasticache.ReservedCacheNode("example", {
- *     reservedCacheNodesOfferingId: example.then(example => example.offeringId),
- *     id: "optionalCustomReservationID",
- *     cacheNodeCount: 3,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
- * ```
- */
 export class ReservedCacheNode extends pulumi.CustomResource {
     /**
      * Get an existing ReservedCacheNode resource's state with the given name, ID, and optional extra
@@ -69,70 +35,21 @@ export class ReservedCacheNode extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReservedCacheNode.__pulumiType;
     }
 
-    /**
-     * ARN for the reserved cache node.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Number of cache node instances to reserve.
-     * Default value is `1`.
-     */
     declare public readonly cacheNodeCount: pulumi.Output<number>;
-    /**
-     * Node type for the reserved cache nodes.
-     */
     declare public /*out*/ readonly cacheNodeType: pulumi.Output<string>;
-    /**
-     * Duration of the reservation as an RFC3339 duration.
-     */
     declare public /*out*/ readonly duration: pulumi.Output<string>;
-    /**
-     * Fixed price charged for this reserved cache node.
-     */
     declare public /*out*/ readonly fixedPrice: pulumi.Output<number>;
-    /**
-     * Offering type of this reserved cache node.
-     */
     declare public /*out*/ readonly offeringType: pulumi.Output<string>;
-    /**
-     * Engine type for the reserved cache node.
-     */
     declare public /*out*/ readonly productDescription: pulumi.Output<string>;
-    /**
-     * Recurring price charged to run this reserved cache node.
-     */
     declare public /*out*/ readonly recurringCharges: pulumi.Output<outputs.elasticache.ReservedCacheNodeRecurringCharge[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * ID of the reserved cache node offering to purchase.
-     * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly reservedCacheNodesOfferingId: pulumi.Output<string>;
-    /**
-     * Time the reservation started.
-     */
     declare public /*out*/ readonly startTime: pulumi.Output<string>;
-    /**
-     * State of the reserved cache node.
-     */
     declare public /*out*/ readonly state: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.elasticache.ReservedCacheNodeTimeouts | undefined>;
-    /**
-     * Hourly price charged for this reserved cache node.
-     */
     declare public /*out*/ readonly usagePrice: pulumi.Output<number>;
 
     /**
@@ -195,70 +112,21 @@ export class ReservedCacheNode extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReservedCacheNode resources.
  */
 export interface ReservedCacheNodeState {
-    /**
-     * ARN for the reserved cache node.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Number of cache node instances to reserve.
-     * Default value is `1`.
-     */
     cacheNodeCount?: pulumi.Input<number>;
-    /**
-     * Node type for the reserved cache nodes.
-     */
     cacheNodeType?: pulumi.Input<string>;
-    /**
-     * Duration of the reservation as an RFC3339 duration.
-     */
     duration?: pulumi.Input<string>;
-    /**
-     * Fixed price charged for this reserved cache node.
-     */
     fixedPrice?: pulumi.Input<number>;
-    /**
-     * Offering type of this reserved cache node.
-     */
     offeringType?: pulumi.Input<string>;
-    /**
-     * Engine type for the reserved cache node.
-     */
     productDescription?: pulumi.Input<string>;
-    /**
-     * Recurring price charged to run this reserved cache node.
-     */
     recurringCharges?: pulumi.Input<pulumi.Input<inputs.elasticache.ReservedCacheNodeRecurringCharge>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the reserved cache node offering to purchase.
-     * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
-     *
-     * The following arguments are optional:
-     */
     reservedCacheNodesOfferingId?: pulumi.Input<string>;
-    /**
-     * Time the reservation started.
-     */
     startTime?: pulumi.Input<string>;
-    /**
-     * State of the reserved cache node.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts>;
-    /**
-     * Hourly price charged for this reserved cache node.
-     */
     usagePrice?: pulumi.Input<number>;
 }
 
@@ -266,25 +134,9 @@ export interface ReservedCacheNodeState {
  * The set of arguments for constructing a ReservedCacheNode resource.
  */
 export interface ReservedCacheNodeArgs {
-    /**
-     * Number of cache node instances to reserve.
-     * Default value is `1`.
-     */
     cacheNodeCount?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * ID of the reserved cache node offering to purchase.
-     * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
-     *
-     * The following arguments are optional:
-     */
     reservedCacheNodesOfferingId: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts>;
 }

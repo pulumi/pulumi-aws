@@ -16,137 +16,65 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
 
     public static final ResourceShareAccepterState Empty = new ResourceShareAccepterState();
 
-    /**
-     * The ARN of the resource share invitation.
-     * 
-     */
     @Import(name="invitationArn")
     private @Nullable Output<String> invitationArn;
 
-    /**
-     * @return The ARN of the resource share invitation.
-     * 
-     */
     public Optional<Output<String>> invitationArn() {
         return Optional.ofNullable(this.invitationArn);
     }
 
-    /**
-     * The account ID of the receiver account which accepts the invitation.
-     * 
-     */
     @Import(name="receiverAccountId")
     private @Nullable Output<String> receiverAccountId;
 
-    /**
-     * @return The account ID of the receiver account which accepts the invitation.
-     * 
-     */
     public Optional<Output<String>> receiverAccountId() {
         return Optional.ofNullable(this.receiverAccountId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A list of the resource ARNs shared via the resource share.
-     * 
-     */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
-    /**
-     * @return A list of the resource ARNs shared via the resource share.
-     * 
-     */
     public Optional<Output<List<String>>> resources() {
         return Optional.ofNullable(this.resources);
     }
 
-    /**
-     * The account ID of the sender account which submits the invitation.
-     * 
-     */
     @Import(name="senderAccountId")
     private @Nullable Output<String> senderAccountId;
 
-    /**
-     * @return The account ID of the sender account which submits the invitation.
-     * 
-     */
     public Optional<Output<String>> senderAccountId() {
         return Optional.ofNullable(this.senderAccountId);
     }
 
-    /**
-     * The ARN of the resource share.
-     * 
-     */
     @Import(name="shareArn")
     private @Nullable Output<String> shareArn;
 
-    /**
-     * @return The ARN of the resource share.
-     * 
-     */
     public Optional<Output<String>> shareArn() {
         return Optional.ofNullable(this.shareArn);
     }
 
-    /**
-     * The ID of the resource share as displayed in the console.
-     * 
-     */
     @Import(name="shareId")
     private @Nullable Output<String> shareId;
 
-    /**
-     * @return The ID of the resource share as displayed in the console.
-     * 
-     */
     public Optional<Output<String>> shareId() {
         return Optional.ofNullable(this.shareId);
     }
 
-    /**
-     * The name of the resource share.
-     * 
-     */
     @Import(name="shareName")
     private @Nullable Output<String> shareName;
 
-    /**
-     * @return The name of the resource share.
-     * 
-     */
     public Optional<Output<String>> shareName() {
         return Optional.ofNullable(this.shareName);
     }
 
-    /**
-     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -183,201 +111,87 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
             $ = new ResourceShareAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invitationArn The ARN of the resource share invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationArn(@Nullable Output<String> invitationArn) {
             $.invitationArn = invitationArn;
             return this;
         }
 
-        /**
-         * @param invitationArn The ARN of the resource share invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invitationArn(String invitationArn) {
             return invitationArn(Output.of(invitationArn));
         }
 
-        /**
-         * @param receiverAccountId The account ID of the receiver account which accepts the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder receiverAccountId(@Nullable Output<String> receiverAccountId) {
             $.receiverAccountId = receiverAccountId;
             return this;
         }
 
-        /**
-         * @param receiverAccountId The account ID of the receiver account which accepts the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder receiverAccountId(String receiverAccountId) {
             return receiverAccountId(Output.of(receiverAccountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resources A list of the resource ARNs shared via the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(@Nullable Output<List<String>> resources) {
             $.resources = resources;
             return this;
         }
 
-        /**
-         * @param resources A list of the resource ARNs shared via the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(List<String> resources) {
             return resources(Output.of(resources));
         }
 
-        /**
-         * @param resources A list of the resource ARNs shared via the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resources(String... resources) {
             return resources(List.of(resources));
         }
 
-        /**
-         * @param senderAccountId The account ID of the sender account which submits the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder senderAccountId(@Nullable Output<String> senderAccountId) {
             $.senderAccountId = senderAccountId;
             return this;
         }
 
-        /**
-         * @param senderAccountId The account ID of the sender account which submits the invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder senderAccountId(String senderAccountId) {
             return senderAccountId(Output.of(senderAccountId));
         }
 
-        /**
-         * @param shareArn The ARN of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareArn(@Nullable Output<String> shareArn) {
             $.shareArn = shareArn;
             return this;
         }
 
-        /**
-         * @param shareArn The ARN of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareArn(String shareArn) {
             return shareArn(Output.of(shareArn));
         }
 
-        /**
-         * @param shareId The ID of the resource share as displayed in the console.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareId(@Nullable Output<String> shareId) {
             $.shareId = shareId;
             return this;
         }
 
-        /**
-         * @param shareId The ID of the resource share as displayed in the console.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareId(String shareId) {
             return shareId(Output.of(shareId));
         }
 
-        /**
-         * @param shareName The name of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareName(@Nullable Output<String> shareName) {
             $.shareName = shareName;
             return this;
         }
 
-        /**
-         * @param shareName The name of the resource share.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shareName(String shareName) {
             return shareName(Output.of(shareName));
         }
 
-        /**
-         * @param status The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

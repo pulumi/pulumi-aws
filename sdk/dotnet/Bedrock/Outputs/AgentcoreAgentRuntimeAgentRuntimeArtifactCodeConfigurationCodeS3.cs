@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3
     {
-        /// <summary>
-        /// Name of the Amazon S3 bucket.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Key of the object containing the ZIP file of the source code for the agent runtime in the Amazon S3 bucket.
-        /// </summary>
         public readonly string Prefix;
-        /// <summary>
-        /// Version ID of the Amazon S3 object. If not specified, the latest version of the object is used.
-        /// </summary>
         public readonly string? VersionId;
 
         [OutputConstructor]

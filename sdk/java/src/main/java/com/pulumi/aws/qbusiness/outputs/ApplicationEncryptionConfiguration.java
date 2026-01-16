@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationEncryptionConfiguration {
     /**
-     * @return Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
+     * @return The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
      * 
      */
     private String kmsKeyId;
 
     private ApplicationEncryptionConfiguration() {}
     /**
-     * @return Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
+     * @return The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
      * 
      */
     public String kmsKeyId() {

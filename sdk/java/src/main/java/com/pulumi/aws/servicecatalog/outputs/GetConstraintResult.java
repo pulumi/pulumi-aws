@@ -13,100 +13,44 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetConstraintResult {
     private @Nullable String acceptLanguage;
-    /**
-     * @return Description of the constraint.
-     * 
-     */
     private String description;
     private String id;
-    /**
-     * @return Owner of the constraint.
-     * 
-     */
     private String owner;
-    /**
-     * @return Constraint parameters in JSON format.
-     * 
-     */
     private String parameters;
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     private String portfolioId;
-    /**
-     * @return Product identifier.
-     * 
-     */
     private String productId;
     private String region;
-    /**
-     * @return Constraint status.
-     * 
-     */
     private String status;
-    /**
-     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-     * 
-     */
     private String type;
 
     private GetConstraintResult() {}
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
-    /**
-     * @return Description of the constraint.
-     * 
-     */
     public String description() {
         return this.description;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Owner of the constraint.
-     * 
-     */
     public String owner() {
         return this.owner;
     }
-    /**
-     * @return Constraint parameters in JSON format.
-     * 
-     */
     public String parameters() {
         return this.parameters;
     }
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public String portfolioId() {
         return this.portfolioId;
     }
-    /**
-     * @return Product identifier.
-     * 
-     */
     public String productId() {
         return this.productId;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Constraint status.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-     * 
-     */
     public String type() {
         return this.type;
     }

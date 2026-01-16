@@ -21,171 +21,79 @@ public final class RemediationConfigurationArgs extends com.pulumi.resources.Res
 
     public static final RemediationConfigurationArgs Empty = new RemediationConfigurationArgs();
 
-    /**
-     * Remediation is triggered automatically if `true`.
-     * 
-     */
     @Import(name="automatic")
     private @Nullable Output<Boolean> automatic;
 
-    /**
-     * @return Remediation is triggered automatically if `true`.
-     * 
-     */
     public Optional<Output<Boolean>> automatic() {
         return Optional.ofNullable(this.automatic);
     }
 
-    /**
-     * Name of the AWS Config rule.
-     * 
-     */
     @Import(name="configRuleName", required=true)
     private Output<String> configRuleName;
 
-    /**
-     * @return Name of the AWS Config rule.
-     * 
-     */
     public Output<String> configRuleName() {
         return this.configRuleName;
     }
 
-    /**
-     * Configuration block for execution controls. See below.
-     * 
-     */
     @Import(name="executionControls")
     private @Nullable Output<RemediationConfigurationExecutionControlsArgs> executionControls;
 
-    /**
-     * @return Configuration block for execution controls. See below.
-     * 
-     */
     public Optional<Output<RemediationConfigurationExecutionControlsArgs>> executionControls() {
         return Optional.ofNullable(this.executionControls);
     }
 
-    /**
-     * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-     * 
-     */
     @Import(name="maximumAutomaticAttempts")
     private @Nullable Output<Integer> maximumAutomaticAttempts;
 
-    /**
-     * @return Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-     * 
-     */
     public Optional<Output<Integer>> maximumAutomaticAttempts() {
         return Optional.ofNullable(this.maximumAutomaticAttempts);
     }
 
-    /**
-     * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<RemediationConfigurationParameterArgs>> parameters;
 
-    /**
-     * @return Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-     * 
-     */
     public Optional<Output<List<RemediationConfigurationParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Type of resource.
-     * 
-     */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
-    /**
-     * @return Type of resource.
-     * 
-     */
     public Optional<Output<String>> resourceType() {
         return Optional.ofNullable(this.resourceType);
     }
 
-    /**
-     * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-     * 
-     */
     @Import(name="retryAttemptSeconds")
     private @Nullable Output<Integer> retryAttemptSeconds;
 
-    /**
-     * @return Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-     * 
-     */
     public Optional<Output<Integer>> retryAttemptSeconds() {
         return Optional.ofNullable(this.retryAttemptSeconds);
     }
 
-    /**
-     * Target ID is the name of the public document.
-     * 
-     */
     @Import(name="targetId", required=true)
     private Output<String> targetId;
 
-    /**
-     * @return Target ID is the name of the public document.
-     * 
-     */
     public Output<String> targetId() {
         return this.targetId;
     }
 
-    /**
-     * Type of the target. Target executes remediation. For example, SSM document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="targetType", required=true)
     private Output<String> targetType;
 
-    /**
-     * @return Type of the target. Target executes remediation. For example, SSM document.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> targetType() {
         return this.targetType;
     }
 
-    /**
-     * Version of the target. For example, version of the SSM document
-     * 
-     */
     @Import(name="targetVersion")
     private @Nullable Output<String> targetVersion;
 
-    /**
-     * @return Version of the target. For example, version of the SSM document
-     * 
-     */
     public Optional<Output<String>> targetVersion() {
         return Optional.ofNullable(this.targetVersion);
     }
@@ -224,247 +132,105 @@ public final class RemediationConfigurationArgs extends com.pulumi.resources.Res
             $ = new RemediationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param automatic Remediation is triggered automatically if `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automatic(@Nullable Output<Boolean> automatic) {
             $.automatic = automatic;
             return this;
         }
 
-        /**
-         * @param automatic Remediation is triggered automatically if `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automatic(Boolean automatic) {
             return automatic(Output.of(automatic));
         }
 
-        /**
-         * @param configRuleName Name of the AWS Config rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configRuleName(Output<String> configRuleName) {
             $.configRuleName = configRuleName;
             return this;
         }
 
-        /**
-         * @param configRuleName Name of the AWS Config rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configRuleName(String configRuleName) {
             return configRuleName(Output.of(configRuleName));
         }
 
-        /**
-         * @param executionControls Configuration block for execution controls. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionControls(@Nullable Output<RemediationConfigurationExecutionControlsArgs> executionControls) {
             $.executionControls = executionControls;
             return this;
         }
 
-        /**
-         * @param executionControls Configuration block for execution controls. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionControls(RemediationConfigurationExecutionControlsArgs executionControls) {
             return executionControls(Output.of(executionControls));
         }
 
-        /**
-         * @param maximumAutomaticAttempts Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumAutomaticAttempts(@Nullable Output<Integer> maximumAutomaticAttempts) {
             $.maximumAutomaticAttempts = maximumAutomaticAttempts;
             return this;
         }
 
-        /**
-         * @param maximumAutomaticAttempts Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumAutomaticAttempts(Integer maximumAutomaticAttempts) {
             return maximumAutomaticAttempts(Output.of(maximumAutomaticAttempts));
         }
 
-        /**
-         * @param parameters Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<RemediationConfigurationParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<RemediationConfigurationParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(RemediationConfigurationParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceType Type of resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(@Nullable Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType Type of resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param retryAttemptSeconds Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryAttemptSeconds(@Nullable Output<Integer> retryAttemptSeconds) {
             $.retryAttemptSeconds = retryAttemptSeconds;
             return this;
         }
 
-        /**
-         * @param retryAttemptSeconds Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryAttemptSeconds(Integer retryAttemptSeconds) {
             return retryAttemptSeconds(Output.of(retryAttemptSeconds));
         }
 
-        /**
-         * @param targetId Target ID is the name of the public document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetId(Output<String> targetId) {
             $.targetId = targetId;
             return this;
         }
 
-        /**
-         * @param targetId Target ID is the name of the public document.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetId(String targetId) {
             return targetId(Output.of(targetId));
         }
 
-        /**
-         * @param targetType Type of the target. Target executes remediation. For example, SSM document.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetType(Output<String> targetType) {
             $.targetType = targetType;
             return this;
         }
 
-        /**
-         * @param targetType Type of the target. Target executes remediation. For example, SSM document.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetType(String targetType) {
             return targetType(Output.of(targetType));
         }
 
-        /**
-         * @param targetVersion Version of the target. For example, version of the SSM document
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetVersion(@Nullable Output<String> targetVersion) {
             $.targetVersion = targetVersion;
             return this;
         }
 
-        /**
-         * @param targetVersion Version of the target. For example, version of the SSM document
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetVersion(String targetVersion) {
             return targetVersion(Output.of(targetVersion));
         }

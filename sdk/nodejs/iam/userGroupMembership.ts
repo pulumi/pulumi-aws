@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource for adding an IAM User to IAM Groups. This
- * resource can be used multiple times with the same user for non-overlapping
- * groups.
- *
- * To exclusively manage the users in a group, see the
- * `aws.iam.GroupMembership` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const user1 = new aws.iam.User("user1", {name: "user1"});
- * const group1 = new aws.iam.Group("group1", {name: "group1"});
- * const group2 = new aws.iam.Group("group2", {name: "group2"});
- * const example1 = new aws.iam.UserGroupMembership("example1", {
- *     user: user1.name,
- *     groups: [
- *         group1.name,
- *         group2.name,
- *     ],
- * });
- * const group3 = new aws.iam.Group("group3", {name: "group3"});
- * const example2 = new aws.iam.UserGroupMembership("example2", {
- *     user: user1.name,
- *     groups: [group3.name],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
- * ```
- */
 export class UserGroupMembership extends pulumi.CustomResource {
     /**
      * Get an existing UserGroupMembership resource's state with the given name, ID, and optional extra
@@ -71,13 +32,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroupMembership.__pulumiType;
     }
 
-    /**
-     * A list of IAM Groups to add the user to
-     */
     declare public readonly groups: pulumi.Output<string[]>;
-    /**
-     * The name of the IAM User to add to groups
-     */
     declare public readonly user: pulumi.Output<string>;
 
     /**
@@ -115,13 +70,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGroupMembership resources.
  */
 export interface UserGroupMembershipState {
-    /**
-     * A list of IAM Groups to add the user to
-     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the IAM User to add to groups
-     */
     user?: pulumi.Input<string>;
 }
 
@@ -129,12 +78,6 @@ export interface UserGroupMembershipState {
  * The set of arguments for constructing a UserGroupMembership resource.
  */
 export interface UserGroupMembershipArgs {
-    /**
-     * A list of IAM Groups to add the user to
-     */
     groups: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the IAM User to add to groups
-     */
     user: pulumi.Input<string>;
 }

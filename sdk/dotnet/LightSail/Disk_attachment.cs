@@ -9,92 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.LightSail.Disk("example", new()
-    ///     {
-    ///         Name = "example-disk",
-    ///         SizeInGb = 8,
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.LightSail.Instance("example", new()
-    ///     {
-    ///         Name = "example-instance",
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_3_0",
-    ///     });
-    /// 
-    ///     var exampleDisk_attachment = new Aws.LightSail.Disk_attachment("example", new()
-    ///     {
-    ///         DiskName = example.Name,
-    ///         InstanceName = exampleInstance.Name,
-    ///         DiskPath = "/dev/xvdf",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/disk_attachment:Disk_attachment")]
     public partial class Disk_attachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the Lightsail disk.
-        /// </summary>
         [Output("diskName")]
         public Output<string> DiskName { get; private set; } = null!;
 
-        /// <summary>
-        /// Disk path to expose to the instance.
-        /// </summary>
         [Output("diskPath")]
         public Output<string> DiskPath { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Lightsail instance to attach to.
-        /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -144,27 +70,15 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class Disk_attachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail disk.
-        /// </summary>
         [Input("diskName", required: true)]
         public Input<string> DiskName { get; set; } = null!;
 
-        /// <summary>
-        /// Disk path to expose to the instance.
-        /// </summary>
         [Input("diskPath", required: true)]
         public Input<string> DiskPath { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Lightsail instance to attach to.
-        /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -176,27 +90,15 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class Disk_attachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail disk.
-        /// </summary>
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
 
-        /// <summary>
-        /// Disk path to expose to the instance.
-        /// </summary>
         [Input("diskPath")]
         public Input<string>? DiskPath { get; set; }
 
-        /// <summary>
-        /// Name of the Lightsail instance to attach to.
-        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

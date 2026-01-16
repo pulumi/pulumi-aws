@@ -12,15 +12,9 @@ namespace Pulumi.Aws.M2.Inputs
 
     public sealed class EnvironmentStorageConfigurationFsxArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Id of the FSX filesystem to mount.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
-        /// <summary>
-        /// Path to mount the filesystem on, must start with `/m2/mount/`.
-        /// </summary>
         [Input("mountPoint", required: true)]
         public Input<string> MountPoint { get; set; } = null!;
 

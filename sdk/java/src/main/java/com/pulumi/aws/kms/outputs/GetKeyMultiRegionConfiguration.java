@@ -13,41 +13,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyMultiRegionConfiguration {
-    /**
-     * @return Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-     * 
-     */
     private String multiRegionKeyType;
-    /**
-     * @return The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
-     * 
-     */
     private List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
-    /**
-     * @return The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
-     * 
-     */
     private List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
 
     private GetKeyMultiRegionConfiguration() {}
-    /**
-     * @return Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-     * 
-     */
     public String multiRegionKeyType() {
         return this.multiRegionKeyType;
     }
-    /**
-     * @return The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
-     * 
-     */
     public List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys() {
         return this.primaryKeys;
     }
-    /**
-     * @return The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
-     * 
-     */
     public List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys() {
         return this.replicaKeys;
     }

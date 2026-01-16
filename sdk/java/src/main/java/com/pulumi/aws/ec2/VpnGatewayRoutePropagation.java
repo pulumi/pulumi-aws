@@ -13,89 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Requests automatic route propagation between a VPN gateway and a route table.
- * 
- * &gt; **Note:** This resource should not be used with a route table that has
- * the `propagatingVgws` argument set. If that argument is set, any route
- * propagation not explicitly listed in its value will be removed.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpnGatewayRoutePropagation;
- * import com.pulumi.aws.ec2.VpnGatewayRoutePropagationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpnGatewayRoutePropagation("example", VpnGatewayRoutePropagationArgs.builder()
- *             .vpnGatewayId(exampleAwsVpnGateway.id())
- *             .routeTableId(exampleAwsRouteTable.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")
 public class VpnGatewayRoutePropagation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
-     * 
-     */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
-    /**
-     * @return The id of the `aws.ec2.RouteTable` to propagate routes into.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
-    /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
-     * 
-     */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
-    /**
-     * @return The id of the `aws.ec2.VpnGateway` to propagate routes from.
-     * 
-     */
     public Output<String> vpnGatewayId() {
         return this.vpnGatewayId;
     }

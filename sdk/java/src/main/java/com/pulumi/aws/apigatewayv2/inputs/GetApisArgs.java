@@ -16,64 +16,30 @@ public final class GetApisArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApisArgs Empty = new GetApisArgs();
 
-    /**
-     * API name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return API name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * API protocol.
-     * 
-     */
     @Import(name="protocolType")
     private @Nullable Output<String> protocolType;
 
-    /**
-     * @return API protocol.
-     * 
-     */
     public Optional<Output<String>> protocolType() {
         return Optional.ofNullable(this.protocolType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired APIs.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired APIs.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -105,88 +71,38 @@ public final class GetApisArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetApisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name API name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name API name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param protocolType API protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocolType(@Nullable Output<String> protocolType) {
             $.protocolType = protocolType;
             return this;
         }
 
-        /**
-         * @param protocolType API protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocolType(String protocolType) {
             return protocolType(Output.of(protocolType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired APIs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

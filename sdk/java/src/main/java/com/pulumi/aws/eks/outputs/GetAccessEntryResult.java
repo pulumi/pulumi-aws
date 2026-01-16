@@ -13,66 +13,30 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessEntryResult {
-    /**
-     * @return Amazon Resource Name (ARN) of the Access Entry.
-     * 
-     */
     private String accessEntryArn;
     private String clusterName;
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-     * 
-     */
     private String createdAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-     * 
-     */
     private List<String> kubernetesGroups;
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-     * 
-     */
     private String modifiedAt;
     private String principalArn;
     private String region;
     private @Nullable Map<String,String> tags;
-    /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     private Map<String,String> tagsAll;
-    /**
-     * @return Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-     * 
-     */
     private String type;
-    /**
-     * @return Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-     * 
-     */
     private String userName;
 
     private GetAccessEntryResult() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the Access Entry.
-     * 
-     */
     public String accessEntryArn() {
         return this.accessEntryArn;
     }
     public String clusterName() {
         return this.clusterName;
     }
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
@@ -83,17 +47,9 @@ public final class GetAccessEntryResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-     * 
-     */
     public List<String> kubernetesGroups() {
         return this.kubernetesGroups;
     }
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-     * 
-     */
     public String modifiedAt() {
         return this.modifiedAt;
     }
@@ -106,24 +62,12 @@ public final class GetAccessEntryResult {
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Map<String,String> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * @return Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
-     * 
-     */
     public String userName() {
         return this.userName;
     }

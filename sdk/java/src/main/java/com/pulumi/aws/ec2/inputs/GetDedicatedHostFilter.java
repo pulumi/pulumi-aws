@@ -14,32 +14,16 @@ public final class GetDedicatedHostFilter extends com.pulumi.resources.InvokeArg
 
     public static final GetDedicatedHostFilter Empty = new GetDedicatedHostFilter();
 
-    /**
-     * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetDedicatedHostFilter extends com.pulumi.resources.InvokeArg
             $ = new GetDedicatedHostFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

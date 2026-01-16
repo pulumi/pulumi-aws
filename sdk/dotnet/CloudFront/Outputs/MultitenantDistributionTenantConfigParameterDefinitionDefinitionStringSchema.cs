@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchema
     {
-        /// <summary>
-        /// Comment describing the parameter.
-        /// </summary>
         public readonly string? Comment;
-        /// <summary>
-        /// Default value for the parameter.
-        /// </summary>
         public readonly string? DefaultValue;
-        /// <summary>
-        /// Whether the parameter is required.
-        /// </summary>
         public readonly bool Required;
 
         [OutputConstructor]

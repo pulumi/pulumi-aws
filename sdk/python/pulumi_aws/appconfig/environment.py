@@ -29,12 +29,6 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[_builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
         if description is not None:
@@ -51,9 +45,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        AppConfig application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -63,9 +54,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the environment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -75,9 +63,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
@@ -87,9 +72,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the environment. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -99,9 +81,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -111,9 +90,6 @@ class EnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -136,17 +112,6 @@ class _EnvironmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
-        :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Environment.
-        :param pulumi.Input[_builtins.str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] environment_id: AppConfig environment ID.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[_builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-               or `ROLLED_BACK`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -172,9 +137,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AppConfig application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -184,9 +146,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AppConfig Environment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -196,9 +155,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the environment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -208,9 +164,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AppConfig environment ID.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -220,9 +173,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
@@ -232,9 +182,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name for the environment. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -244,9 +191,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -256,10 +200,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -269,9 +209,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -281,9 +218,6 @@ class _EnvironmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -305,49 +239,9 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an AppConfig Environment resource for an `appconfig.Application` resource. One or more environments can be defined for an application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_application = aws.appconfig.Application("example",
-            name="example-application-tf",
-            description="Example AppConfig Application",
-            tags={
-                "Type": "AppConfig Application",
-            })
-        example = aws.appconfig.Environment("example",
-            name="example-environment-tf",
-            description="Example AppConfig Environment",
-            application_id=example_application.id,
-            monitors=[{
-                "alarm_arn": example_aws_cloudwatch_metric_alarm["arn"],
-                "alarm_role_arn": example_aws_iam_role["arn"],
-            }],
-            tags={
-                "Type": "AppConfig Environment",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[_builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -356,41 +250,7 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppConfig Environment resource for an `appconfig.Application` resource. One or more environments can be defined for an application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_application = aws.appconfig.Application("example",
-            name="example-application-tf",
-            description="Example AppConfig Application",
-            tags={
-                "Type": "AppConfig Application",
-            })
-        example = aws.appconfig.Environment("example",
-            name="example-environment-tf",
-            description="Example AppConfig Environment",
-            application_id=example_application.id,
-            monitors=[{
-                "alarm_arn": example_aws_cloudwatch_metric_alarm["arn"],
-                "alarm_role_arn": example_aws_iam_role["arn"],
-            }],
-            tags={
-                "Type": "AppConfig Environment",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -460,17 +320,6 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Environment.
-        :param pulumi.Input[_builtins.str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] environment_id: AppConfig environment ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[_builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-               or `ROLLED_BACK`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -491,81 +340,50 @@ class Environment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AppConfig application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the AppConfig Environment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the environment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        AppConfig environment ID.
-        """
         return pulumi.get(self, "environment_id")
 
     @_builtins.property
     @pulumi.getter
     def monitors(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentMonitor']]]:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        """
         return pulumi.get(self, "monitors")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name for the environment. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

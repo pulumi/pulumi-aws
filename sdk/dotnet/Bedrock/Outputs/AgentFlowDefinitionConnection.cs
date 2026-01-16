@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionConnection
     {
-        /// <summary>
-        /// Configuration of the connection. See Connection Configuration for more information.
-        /// </summary>
         public readonly Outputs.AgentFlowDefinitionConnectionConfiguration? Configuration;
-        /// <summary>
-        /// A name for the connection that you can reference.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The node that the connection starts at.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// The node that the connection ends at.
-        /// </summary>
         public readonly string Target;
-        /// <summary>
-        /// Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

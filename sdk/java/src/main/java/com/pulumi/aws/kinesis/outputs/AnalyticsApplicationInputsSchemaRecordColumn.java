@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsApplicationInputsSchemaRecordColumn {
-    /**
-     * @return The Mapping reference to the data element.
-     * 
-     */
     private @Nullable String mapping;
-    /**
-     * @return Name of the column.
-     * 
-     */
     private String name;
-    /**
-     * @return The SQL Type of the column.
-     * 
-     */
     private String sqlType;
 
     private AnalyticsApplicationInputsSchemaRecordColumn() {}
-    /**
-     * @return The Mapping reference to the data element.
-     * 
-     */
     public Optional<String> mapping() {
         return Optional.ofNullable(this.mapping);
     }
-    /**
-     * @return Name of the column.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The SQL Type of the column.
-     * 
-     */
     public String sqlType() {
         return this.sqlType;
     }

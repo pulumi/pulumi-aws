@@ -15,93 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.DefaultCreditSpecification;
- * import com.pulumi.aws.ec2.DefaultCreditSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DefaultCreditSpecification("example", DefaultCreditSpecificationArgs.builder()
- *             .instanceFamily("t2")
- *             .cpuCredits("standard")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
- * 
- * % pulumi import aws_ec2_default_credit_specification.example t2
- * 
- */
 @ResourceType(type="aws:ec2/defaultCreditSpecification:DefaultCreditSpecification")
 public class DefaultCreditSpecification extends com.pulumi.resources.CustomResource {
-    /**
-     * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     * 
-     */
     @Export(name="cpuCredits", refs={String.class}, tree="[0]")
     private Output<String> cpuCredits;
 
-    /**
-     * @return Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     * 
-     */
     public Output<String> cpuCredits() {
         return this.cpuCredits;
     }
-    /**
-     * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     * 
-     */
     @Export(name="instanceFamily", refs={String.class}, tree="[0]")
     private Output<String> instanceFamily;
 
-    /**
-     * @return Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     * 
-     */
     public Output<String> instanceFamily() {
         return this.instanceFamily;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

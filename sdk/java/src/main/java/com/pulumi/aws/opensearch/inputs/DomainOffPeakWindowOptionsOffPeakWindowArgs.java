@@ -15,17 +15,9 @@ public final class DomainOffPeakWindowOptionsOffPeakWindowArgs extends com.pulum
 
     public static final DomainOffPeakWindowOptionsOffPeakWindowArgs Empty = new DomainOffPeakWindowOptionsOffPeakWindowArgs();
 
-    /**
-     * 10h window for updates
-     * 
-     */
     @Import(name="windowStartTime")
     private @Nullable Output<DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs> windowStartTime;
 
-    /**
-     * @return 10h window for updates
-     * 
-     */
     public Optional<Output<DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs>> windowStartTime() {
         return Optional.ofNullable(this.windowStartTime);
     }
@@ -54,23 +46,11 @@ public final class DomainOffPeakWindowOptionsOffPeakWindowArgs extends com.pulum
             $ = new DomainOffPeakWindowOptionsOffPeakWindowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param windowStartTime 10h window for updates
-         * 
-         * @return builder
-         * 
-         */
         public Builder windowStartTime(@Nullable Output<DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs> windowStartTime) {
             $.windowStartTime = windowStartTime;
             return this;
         }
 
-        /**
-         * @param windowStartTime 10h window for updates
-         * 
-         * @return builder
-         * 
-         */
         public Builder windowStartTime(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs windowStartTime) {
             return windowStartTime(Output.of(windowStartTime));
         }

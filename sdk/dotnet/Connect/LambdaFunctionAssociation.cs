@@ -9,55 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Provides an Amazon Connect Lambda Function Association. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.LambdaFunctionAssociation("example", new()
-    ///     {
-    ///         FunctionArn = exampleAwsLambdaFunction.Arn,
-    ///         InstanceId = exampleAwsConnectInstance.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")]
     public partial class LambdaFunctionAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-        /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -107,21 +67,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class LambdaFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
-        /// <summary>
-        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -133,21 +84,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class LambdaFunctionAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
-        /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 
-        /// <summary>
-        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

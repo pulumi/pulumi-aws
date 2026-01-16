@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExperienceEndpoint {
-    /**
-     * @return Endpoint of your Amazon Kendra Experience.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return Type of endpoint for your Amazon Kendra Experience.
-     * 
-     */
     private String endpointType;
 
     private GetExperienceEndpoint() {}
-    /**
-     * @return Endpoint of your Amazon Kendra Experience.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return Type of endpoint for your Amazon Kendra Experience.
-     * 
-     */
     public String endpointType() {
         return this.endpointType;
     }

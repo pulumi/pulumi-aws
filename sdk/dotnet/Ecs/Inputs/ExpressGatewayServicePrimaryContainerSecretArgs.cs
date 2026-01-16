@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
-        /// </summary>
         [Input("valueFrom", required: true)]
         public Input<string> ValueFrom { get; set; } = null!;
 

@@ -24,12 +24,8 @@ class IdentityCenterConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityCenterConfiguration resource.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center Instance to associate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog.
-               By default, the account ID.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] instance_arn: The ARN of the Identity Center instance.
+        :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if catalog_id is not None:
@@ -41,9 +37,7 @@ class IdentityCenterConfigurationArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the IAM Identity Center Instance to associate.
-
-        The following arguments are optional:
+        The ARN of the Identity Center instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -55,8 +49,7 @@ class IdentityCenterConfigurationArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier for the Data Catalog.
-        By default, the account ID.
+        The ID of the Data Catalog.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -67,9 +60,6 @@ class IdentityCenterConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -87,14 +77,8 @@ class _IdentityCenterConfigurationState:
                  resource_share: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityCenterConfiguration resources.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the Lake Formation applicated integrated with IAM Identity Center.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog.
-               By default, the account ID.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center Instance to associate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share: ARN of the Resource Access Manager (RAM) resource share.
+        :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog.
+        :param pulumi.Input[_builtins.str] instance_arn: The ARN of the Identity Center instance.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -110,9 +94,6 @@ class _IdentityCenterConfigurationState:
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Lake Formation applicated integrated with IAM Identity Center.
-        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -123,8 +104,7 @@ class _IdentityCenterConfigurationState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier for the Data Catalog.
-        By default, the account ID.
+        The ID of the Data Catalog.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -136,9 +116,7 @@ class _IdentityCenterConfigurationState:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the IAM Identity Center Instance to associate.
-
-        The following arguments are optional:
+        The ARN of the Identity Center instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -149,9 +127,6 @@ class _IdentityCenterConfigurationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -161,9 +136,6 @@ class _IdentityCenterConfigurationState:
     @_builtins.property
     @pulumi.getter(name="resourceShare")
     def resource_share(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Resource Access Manager (RAM) resource share.
-        """
         return pulumi.get(self, "resource_share")
 
     @resource_share.setter
@@ -182,37 +154,11 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an AWS Lake Formation Identity Center Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        identity_center_instance_arn = example.arns[0]
-        example_identity_center_configuration = aws.lakeformation.IdentityCenterConfiguration("example", instance_arn=identity_center_instance_arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
-        ```
-
+        Create a IdentityCenterConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog.
-               By default, the account ID.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center Instance to associate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog.
+        :param pulumi.Input[_builtins.str] instance_arn: The ARN of the Identity Center instance.
         """
         ...
     @overload
@@ -221,29 +167,7 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
                  args: IdentityCenterConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Lake Formation Identity Center Configuration.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssoadmin.get_instances()
-        identity_center_instance_arn = example.arns[0]
-        example_identity_center_configuration = aws.lakeformation.IdentityCenterConfiguration("example", instance_arn=identity_center_instance_arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
-
-        ```sh
-        $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
-        ```
-
+        Create a IdentityCenterConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IdentityCenterConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,14 +224,8 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_arn: ARN of the Lake Formation applicated integrated with IAM Identity Center.
-        :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog.
-               By default, the account ID.
-        :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center Instance to associate.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share: ARN of the Resource Access Manager (RAM) resource share.
+        :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog.
+        :param pulumi.Input[_builtins.str] instance_arn: The ARN of the Identity Center instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -323,17 +241,13 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Lake Formation applicated integrated with IAM Identity Center.
-        """
         return pulumi.get(self, "application_arn")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Identifier for the Data Catalog.
-        By default, the account ID.
+        The ID of the Data Catalog.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -341,25 +255,17 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the IAM Identity Center Instance to associate.
-
-        The following arguments are optional:
+        The ARN of the Identity Center instance.
         """
         return pulumi.get(self, "instance_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceShare")
     def resource_share(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Resource Access Manager (RAM) resource share.
-        """
         return pulumi.get(self, "resource_share")
 

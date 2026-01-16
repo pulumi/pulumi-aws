@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     [OutputType]
     public sealed class CentralizationRuleForOrganizationRuleSource
     {
-        /// <summary>
-        /// Set of AWS regions from which to centralize logs. Must contain at least one region.
-        /// </summary>
         public readonly ImmutableArray<string> Regions;
-        /// <summary>
-        /// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-        /// </summary>
         public readonly string Scope;
-        /// <summary>
-        /// Configuration block for source logs settings. See `SourceLogsConfiguration` below.
-        /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration? SourceLogsConfiguration;
 
         [OutputConstructor]

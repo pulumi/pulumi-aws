@@ -12,257 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EMR Serverless Application.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Initial Capacity Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
-//					&emrserverless.ApplicationInitialCapacityArgs{
-//						InitialCapacityType: pulumi.String("HiveDriver"),
-//						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
-//							WorkerCount: pulumi.Int(1),
-//							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
-//								Cpu:    pulumi.String("2 vCPU"),
-//								Memory: pulumi.String("10 GB"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Maximum Capacity Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
-//					Cpu:    pulumi.String("2 vCPU"),
-//					Memory: pulumi.String("10 GB"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Monitoring Configuration Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-7.1.0"),
-//				Type:         pulumi.String("spark"),
-//				MonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationArgs{
-//					CloudwatchLoggingConfiguration: &emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{
-//						Enabled:             pulumi.Bool(true),
-//						LogGroupName:        pulumi.String("/aws/emr-serverless/example"),
-//						LogStreamNamePrefix: pulumi.String("spark-logs"),
-//						LogTypes: emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray{
-//							&emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{
-//								Name: pulumi.String("SPARK_DRIVER"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("STDOUT"),
-//									pulumi.String("STDERR"),
-//								},
-//							},
-//							&emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{
-//								Name: pulumi.String("SPARK_EXECUTOR"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("STDOUT"),
-//								},
-//							},
-//						},
-//					},
-//					ManagedPersistenceMonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{
-//						Enabled: pulumi.Bool(true),
-//					},
-//					PrometheusMonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs{
-//						RemoteWriteUrl: pulumi.String("https://prometheus-remote-write-endpoint.example.com/api/v1/write"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Runtime Configuration Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				Name:         pulumi.String("example"),
-//				ReleaseLabel: pulumi.String("emr-6.8.0"),
-//				Type:         pulumi.String("spark"),
-//				RuntimeConfigurations: emrserverless.ApplicationRuntimeConfigurationArray{
-//					&emrserverless.ApplicationRuntimeConfigurationArgs{
-//						Classification: pulumi.String("spark-executor-log4j2"),
-//						Properties: pulumi.StringMap{
-//							"rootLogger.level":                pulumi.String("error"),
-//							"logger.IdentifierForClass.name":  pulumi.String("classpathForSettingLogger"),
-//							"logger.IdentifierForClass.level": pulumi.String("info"),
-//						},
-//					},
-//					&emrserverless.ApplicationRuntimeConfigurationArgs{
-//						Classification: pulumi.String("spark-defaults"),
-//						Properties: pulumi.StringMap{
-//							"spark.executor.memory": pulumi.String("1g"),
-//							"spark.executor.cores":  pulumi.String("1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR Serverless applications using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:emrserverless/application:Application example id
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
-	// ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration ApplicationAutoStartConfigurationOutput `pulumi:"autoStartConfiguration"`
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationOutput `pulumi:"autoStopConfiguration"`
-	// The image configuration applied to all worker types.
-	ImageConfiguration ApplicationImageConfigurationOutput `pulumi:"imageConfiguration"`
-	// The capacity to initialize when the application is created.
-	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
-	// Enables the interactive use cases to use when running an application.
-	InteractiveConfiguration ApplicationInteractiveConfigurationOutput `pulumi:"interactiveConfiguration"`
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
-	// The configuration setting for monitoring.
-	MonitoringConfiguration ApplicationMonitoringConfigurationPtrOutput `pulumi:"monitoringConfiguration"`
-	// The name of the application.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The EMR release version associated with the application.
-	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
-	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
-	RuntimeConfigurations ApplicationRuntimeConfigurationArrayOutput `pulumi:"runtimeConfigurations"`
-	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
-	SchedulerConfiguration ApplicationSchedulerConfigurationPtrOutput `pulumi:"schedulerConfiguration"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Architecture             pulumi.StringPtrOutput                      `pulumi:"architecture"`
+	Arn                      pulumi.StringOutput                         `pulumi:"arn"`
+	AutoStartConfiguration   ApplicationAutoStartConfigurationOutput     `pulumi:"autoStartConfiguration"`
+	AutoStopConfiguration    ApplicationAutoStopConfigurationOutput      `pulumi:"autoStopConfiguration"`
+	ImageConfiguration       ApplicationImageConfigurationOutput         `pulumi:"imageConfiguration"`
+	InitialCapacities        ApplicationInitialCapacityArrayOutput       `pulumi:"initialCapacities"`
+	InteractiveConfiguration ApplicationInteractiveConfigurationOutput   `pulumi:"interactiveConfiguration"`
+	MaximumCapacity          ApplicationMaximumCapacityOutput            `pulumi:"maximumCapacity"`
+	MonitoringConfiguration  ApplicationMonitoringConfigurationPtrOutput `pulumi:"monitoringConfiguration"`
+	Name                     pulumi.StringOutput                         `pulumi:"name"`
+	NetworkConfiguration     ApplicationNetworkConfigurationPtrOutput    `pulumi:"networkConfiguration"`
+	Region                   pulumi.StringOutput                         `pulumi:"region"`
+	ReleaseLabel             pulumi.StringOutput                         `pulumi:"releaseLabel"`
+	RuntimeConfigurations    ApplicationRuntimeConfigurationArrayOutput  `pulumi:"runtimeConfigurations"`
+	SchedulerConfiguration   ApplicationSchedulerConfigurationPtrOutput  `pulumi:"schedulerConfiguration"`
+	Tags                     pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Type                     pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -301,81 +71,45 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture *string `pulumi:"architecture"`
-	// ARN of the cluster.
-	Arn *string `pulumi:"arn"`
-	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
-	// The image configuration applied to all worker types.
-	ImageConfiguration *ApplicationImageConfiguration `pulumi:"imageConfiguration"`
-	// The capacity to initialize when the application is created.
-	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
-	// Enables the interactive use cases to use when running an application.
+	Architecture             *string                              `pulumi:"architecture"`
+	Arn                      *string                              `pulumi:"arn"`
+	AutoStartConfiguration   *ApplicationAutoStartConfiguration   `pulumi:"autoStartConfiguration"`
+	AutoStopConfiguration    *ApplicationAutoStopConfiguration    `pulumi:"autoStopConfiguration"`
+	ImageConfiguration       *ApplicationImageConfiguration       `pulumi:"imageConfiguration"`
+	InitialCapacities        []ApplicationInitialCapacity         `pulumi:"initialCapacities"`
 	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
-	// The configuration setting for monitoring.
-	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
-	// The name of the application.
-	Name *string `pulumi:"name"`
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The EMR release version associated with the application.
-	ReleaseLabel *string `pulumi:"releaseLabel"`
-	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
-	RuntimeConfigurations []ApplicationRuntimeConfiguration `pulumi:"runtimeConfigurations"`
-	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
-	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type *string `pulumi:"type"`
+	MaximumCapacity          *ApplicationMaximumCapacity          `pulumi:"maximumCapacity"`
+	MonitoringConfiguration  *ApplicationMonitoringConfiguration  `pulumi:"monitoringConfiguration"`
+	Name                     *string                              `pulumi:"name"`
+	NetworkConfiguration     *ApplicationNetworkConfiguration     `pulumi:"networkConfiguration"`
+	Region                   *string                              `pulumi:"region"`
+	ReleaseLabel             *string                              `pulumi:"releaseLabel"`
+	RuntimeConfigurations    []ApplicationRuntimeConfiguration    `pulumi:"runtimeConfigurations"`
+	SchedulerConfiguration   *ApplicationSchedulerConfiguration   `pulumi:"schedulerConfiguration"`
+	Tags                     map[string]string                    `pulumi:"tags"`
+	TagsAll                  map[string]string                    `pulumi:"tagsAll"`
+	Type                     *string                              `pulumi:"type"`
 }
 
 type ApplicationState struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture pulumi.StringPtrInput
-	// ARN of the cluster.
-	Arn pulumi.StringPtrInput
-	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
-	// The image configuration applied to all worker types.
-	ImageConfiguration ApplicationImageConfigurationPtrInput
-	// The capacity to initialize when the application is created.
-	InitialCapacities ApplicationInitialCapacityArrayInput
-	// Enables the interactive use cases to use when running an application.
+	Architecture             pulumi.StringPtrInput
+	Arn                      pulumi.StringPtrInput
+	AutoStartConfiguration   ApplicationAutoStartConfigurationPtrInput
+	AutoStopConfiguration    ApplicationAutoStopConfigurationPtrInput
+	ImageConfiguration       ApplicationImageConfigurationPtrInput
+	InitialCapacities        ApplicationInitialCapacityArrayInput
 	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityPtrInput
-	// The configuration setting for monitoring.
-	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput
-	// The name of the application.
-	Name pulumi.StringPtrInput
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The EMR release version associated with the application.
-	ReleaseLabel pulumi.StringPtrInput
-	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
-	RuntimeConfigurations ApplicationRuntimeConfigurationArrayInput
-	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
-	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type pulumi.StringPtrInput
+	MaximumCapacity          ApplicationMaximumCapacityPtrInput
+	MonitoringConfiguration  ApplicationMonitoringConfigurationPtrInput
+	Name                     pulumi.StringPtrInput
+	NetworkConfiguration     ApplicationNetworkConfigurationPtrInput
+	Region                   pulumi.StringPtrInput
+	ReleaseLabel             pulumi.StringPtrInput
+	RuntimeConfigurations    ApplicationRuntimeConfigurationArrayInput
+	SchedulerConfiguration   ApplicationSchedulerConfigurationPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	Type                     pulumi.StringPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -383,74 +117,42 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture *string `pulumi:"architecture"`
-	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
-	// The image configuration applied to all worker types.
-	ImageConfiguration *ApplicationImageConfiguration `pulumi:"imageConfiguration"`
-	// The capacity to initialize when the application is created.
-	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
-	// Enables the interactive use cases to use when running an application.
+	Architecture             *string                              `pulumi:"architecture"`
+	AutoStartConfiguration   *ApplicationAutoStartConfiguration   `pulumi:"autoStartConfiguration"`
+	AutoStopConfiguration    *ApplicationAutoStopConfiguration    `pulumi:"autoStopConfiguration"`
+	ImageConfiguration       *ApplicationImageConfiguration       `pulumi:"imageConfiguration"`
+	InitialCapacities        []ApplicationInitialCapacity         `pulumi:"initialCapacities"`
 	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
-	// The configuration setting for monitoring.
-	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
-	// The name of the application.
-	Name *string `pulumi:"name"`
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The EMR release version associated with the application.
-	ReleaseLabel string `pulumi:"releaseLabel"`
-	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
-	RuntimeConfigurations []ApplicationRuntimeConfiguration `pulumi:"runtimeConfigurations"`
-	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
-	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type string `pulumi:"type"`
+	MaximumCapacity          *ApplicationMaximumCapacity          `pulumi:"maximumCapacity"`
+	MonitoringConfiguration  *ApplicationMonitoringConfiguration  `pulumi:"monitoringConfiguration"`
+	Name                     *string                              `pulumi:"name"`
+	NetworkConfiguration     *ApplicationNetworkConfiguration     `pulumi:"networkConfiguration"`
+	Region                   *string                              `pulumi:"region"`
+	ReleaseLabel             string                               `pulumi:"releaseLabel"`
+	RuntimeConfigurations    []ApplicationRuntimeConfiguration    `pulumi:"runtimeConfigurations"`
+	SchedulerConfiguration   *ApplicationSchedulerConfiguration   `pulumi:"schedulerConfiguration"`
+	Tags                     map[string]string                    `pulumi:"tags"`
+	Type                     string                               `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture pulumi.StringPtrInput
-	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
-	// The image configuration applied to all worker types.
-	ImageConfiguration ApplicationImageConfigurationPtrInput
-	// The capacity to initialize when the application is created.
-	InitialCapacities ApplicationInitialCapacityArrayInput
-	// Enables the interactive use cases to use when running an application.
+	Architecture             pulumi.StringPtrInput
+	AutoStartConfiguration   ApplicationAutoStartConfigurationPtrInput
+	AutoStopConfiguration    ApplicationAutoStopConfigurationPtrInput
+	ImageConfiguration       ApplicationImageConfigurationPtrInput
+	InitialCapacities        ApplicationInitialCapacityArrayInput
 	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityPtrInput
-	// The configuration setting for monitoring.
-	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput
-	// The name of the application.
-	Name pulumi.StringPtrInput
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The EMR release version associated with the application.
-	ReleaseLabel pulumi.StringInput
-	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
-	RuntimeConfigurations ApplicationRuntimeConfigurationArrayInput
-	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
-	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type pulumi.StringInput
+	MaximumCapacity          ApplicationMaximumCapacityPtrInput
+	MonitoringConfiguration  ApplicationMonitoringConfigurationPtrInput
+	Name                     pulumi.StringPtrInput
+	NetworkConfiguration     ApplicationNetworkConfigurationPtrInput
+	Region                   pulumi.StringPtrInput
+	ReleaseLabel             pulumi.StringInput
+	RuntimeConfigurations    ApplicationRuntimeConfigurationArrayInput
+	SchedulerConfiguration   ApplicationSchedulerConfigurationPtrInput
+	Tags                     pulumi.StringMapInput
+	Type                     pulumi.StringInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -540,92 +242,74 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
 func (o ApplicationOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the cluster.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration for an application to automatically start on job submission.
 func (o ApplicationOutput) AutoStartConfiguration() ApplicationAutoStartConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoStartConfigurationOutput { return v.AutoStartConfiguration }).(ApplicationAutoStartConfigurationOutput)
 }
 
-// The configuration for an application to automatically stop after a certain amount of time being idle.
 func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationOutput)
 }
 
-// The image configuration applied to all worker types.
 func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationImageConfigurationOutput { return v.ImageConfiguration }).(ApplicationImageConfigurationOutput)
 }
 
-// The capacity to initialize when the application is created.
 func (o ApplicationOutput) InitialCapacities() ApplicationInitialCapacityArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationInitialCapacityArrayOutput { return v.InitialCapacities }).(ApplicationInitialCapacityArrayOutput)
 }
 
-// Enables the interactive use cases to use when running an application.
 func (o ApplicationOutput) InteractiveConfiguration() ApplicationInteractiveConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationInteractiveConfigurationOutput { return v.InteractiveConfiguration }).(ApplicationInteractiveConfigurationOutput)
 }
 
-// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityOutput {
 	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityOutput)
 }
 
-// The configuration setting for monitoring.
 func (o ApplicationOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationMonitoringConfigurationPtrOutput { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
 }
 
-// The name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The network configuration for customer VPC connectivity.
 func (o ApplicationOutput) NetworkConfiguration() ApplicationNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(ApplicationNetworkConfigurationPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The EMR release version associated with the application.
 func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
 
-// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 func (o ApplicationOutput) RuntimeConfigurations() ApplicationRuntimeConfigurationArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationRuntimeConfigurationArrayOutput { return v.RuntimeConfigurations }).(ApplicationRuntimeConfigurationArrayOutput)
 }
 
-// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
 func (o ApplicationOutput) SchedulerConfiguration() ApplicationSchedulerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationSchedulerConfigurationPtrOutput { return v.SchedulerConfiguration }).(ApplicationSchedulerConfigurationPtrOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of application you want to start, such as `spark` or `hive`.
 func (o ApplicationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

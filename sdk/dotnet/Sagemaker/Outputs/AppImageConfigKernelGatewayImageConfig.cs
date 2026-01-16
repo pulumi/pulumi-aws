@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class AppImageConfigKernelGatewayImageConfig
     {
-        /// <summary>
-        /// The URL where the Git repository is located. See File System Config details below.
-        /// </summary>
         public readonly Outputs.AppImageConfigKernelGatewayImageConfigFileSystemConfig? FileSystemConfig;
-        /// <summary>
-        /// The default branch for the Git repository. See Kernel Spec details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AppImageConfigKernelGatewayImageConfigKernelSpec> KernelSpecs;
 
         [OutputConstructor]

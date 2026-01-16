@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterLoggingInfoArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for Broker Logs settings for logging info. See LoggingInfo broker_logs Argument Reference below.
-        /// </summary>
         [Input("brokerLogs", required: true)]
         public Input<Inputs.ClusterLoggingInfoBrokerLogsArgs> BrokerLogs { get; set; } = null!;
 

@@ -17,152 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Route 53 Recovery Control Config Cluster.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoverycontrol.Cluster;
- * import com.pulumi.aws.route53recoverycontrol.ClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()
- *             .name("georgefitzgerald")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
- * 
- * ```sh
- * $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
- * ```
- * 
- */
 @ResourceType(type="aws:route53recoverycontrol/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the cluster
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the cluster
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     @Export(name="clusterEndpoints", refs={List.class,ClusterClusterEndpoint.class}, tree="[0,1]")
     private Output<List<ClusterClusterEndpoint>> clusterEndpoints;
 
-    /**
-     * @return List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     public Output<List<ClusterClusterEndpoint>> clusterEndpoints() {
         return this.clusterEndpoints;
     }
-    /**
-     * Unique name describing the cluster.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name describing the cluster.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
-    /**
-     * @return Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> networkType() {
         return this.networkType;
     }
-    /**
-     * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

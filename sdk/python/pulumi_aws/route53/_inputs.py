@@ -303,17 +303,8 @@ class ProfilesResourceAssociationTimeoutsArgs:
 if not MYPY:
     class RecordAliasArgsDict(TypedDict):
         evaluate_target_health: pulumi.Input[_builtins.bool]
-        """
-        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
-        """
         zone_id: pulumi.Input[_builtins.str]
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
 elif False:
     RecordAliasArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -323,11 +314,6 @@ class RecordAliasArgs:
                  evaluate_target_health: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
                  zone_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.bool] evaluate_target_health: Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        :param pulumi.Input[_builtins.str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
-        :param pulumi.Input[_builtins.str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "zone_id", zone_id)
@@ -335,9 +321,6 @@ class RecordAliasArgs:
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @evaluate_target_health.setter
@@ -347,9 +330,6 @@ class RecordAliasArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -359,9 +339,6 @@ class RecordAliasArgs:
     @_builtins.property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
@@ -372,13 +349,7 @@ class RecordAliasArgs:
 if not MYPY:
     class RecordCidrRoutingPolicyArgsDict(TypedDict):
         collection_id: pulumi.Input[_builtins.str]
-        """
-        The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
-        """
         location_name: pulumi.Input[_builtins.str]
-        """
-        The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
-        """
 elif False:
     RecordCidrRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -387,19 +358,12 @@ class RecordCidrRoutingPolicyArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[_builtins.str],
                  location_name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] collection_id: The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
-        :param pulumi.Input[_builtins.str] location_name: The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
-        """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
-        """
         return pulumi.get(self, "collection_id")
 
     @collection_id.setter
@@ -409,9 +373,6 @@ class RecordCidrRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
-        """
         return pulumi.get(self, "location_name")
 
     @location_name.setter
@@ -422,9 +383,6 @@ class RecordCidrRoutingPolicyArgs:
 if not MYPY:
     class RecordFailoverRoutingPolicyArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
-        """
-        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
 elif False:
     RecordFailoverRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -432,17 +390,11 @@ elif False:
 class RecordFailoverRoutingPolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -453,17 +405,8 @@ class RecordFailoverRoutingPolicyArgs:
 if not MYPY:
     class RecordGeolocationRoutingPolicyArgsDict(TypedDict):
         continent: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        """
         country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A two-character country code or `*` to indicate a default resource record set.
-        """
         subdivision: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A subdivision code for a country.
-        """
 elif False:
     RecordGeolocationRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -473,11 +416,6 @@ class RecordGeolocationRoutingPolicyArgs:
                  continent: Optional[pulumi.Input[_builtins.str]] = None,
                  country: Optional[pulumi.Input[_builtins.str]] = None,
                  subdivision: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] continent: A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        :param pulumi.Input[_builtins.str] country: A two-character country code or `*` to indicate a default resource record set.
-        :param pulumi.Input[_builtins.str] subdivision: A subdivision code for a country.
-        """
         if continent is not None:
             pulumi.set(__self__, "continent", continent)
         if country is not None:
@@ -488,9 +426,6 @@ class RecordGeolocationRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def continent(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        """
         return pulumi.get(self, "continent")
 
     @continent.setter
@@ -500,9 +435,6 @@ class RecordGeolocationRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A two-character country code or `*` to indicate a default resource record set.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -512,9 +444,6 @@ class RecordGeolocationRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def subdivision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A subdivision code for a country.
-        """
         return pulumi.get(self, "subdivision")
 
     @subdivision.setter
@@ -525,21 +454,9 @@ class RecordGeolocationRoutingPolicyArgs:
 if not MYPY:
     class RecordGeoproximityRoutingPolicyArgsDict(TypedDict):
         aws_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A AWS region where the resource is present.
-        """
         bias: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        """
         coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgsDict']]]]
-        """
-        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        """
         local_zone_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
 elif False:
     RecordGeoproximityRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -550,12 +467,6 @@ class RecordGeoproximityRoutingPolicyArgs:
                  bias: Optional[pulumi.Input[_builtins.int]] = None,
                  coordinates: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]] = None,
                  local_zone_group: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] aws_region: A AWS region where the resource is present.
-        :param pulumi.Input[_builtins.int] bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]] coordinates: Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        :param pulumi.Input[_builtins.str] local_zone_group: A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if bias is not None:
@@ -568,9 +479,6 @@ class RecordGeoproximityRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A AWS region where the resource is present.
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -580,9 +488,6 @@ class RecordGeoproximityRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def bias(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
-        """
         return pulumi.get(self, "bias")
 
     @bias.setter
@@ -592,9 +497,6 @@ class RecordGeoproximityRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def coordinates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]:
-        """
-        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
-        """
         return pulumi.get(self, "coordinates")
 
     @coordinates.setter
@@ -604,9 +506,6 @@ class RecordGeoproximityRoutingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
-        """
         return pulumi.get(self, "local_zone_group")
 
     @local_zone_group.setter
@@ -651,9 +550,6 @@ class RecordGeoproximityRoutingPolicyCoordinateArgs:
 if not MYPY:
     class RecordLatencyRoutingPolicyArgsDict(TypedDict):
         region: pulumi.Input[_builtins.str]
-        """
-        An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        """
 elif False:
     RecordLatencyRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -661,17 +557,11 @@ elif False:
 class RecordLatencyRoutingPolicyArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] region: An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        """
         pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -682,9 +572,6 @@ class RecordLatencyRoutingPolicyArgs:
 if not MYPY:
     class RecordWeightedRoutingPolicyArgsDict(TypedDict):
         weight: pulumi.Input[_builtins.int]
-        """
-        A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        """
 elif False:
     RecordWeightedRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -692,17 +579,11 @@ elif False:
 class RecordWeightedRoutingPolicyArgs:
     def __init__(__self__, *,
                  weight: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        """
         pulumi.set(__self__, "weight", weight)
 
     @_builtins.property
     @pulumi.getter
     def weight(self) -> pulumi.Input[_builtins.int]:
-        """
-        A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        """
         return pulumi.get(self, "weight")
 
     @weight.setter
@@ -713,70 +594,20 @@ class RecordWeightedRoutingPolicyArgs:
 if not MYPY:
     class RecordsExclusiveResourceRecordSetArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        Name of the record.
-        """
         alias_target: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgsDict']]
-        """
-        Alias target block.
-        See `alias_target` below.
-        """
         cidr_routing_config: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgsDict']]
         failover: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of failover resource record.
-        Valid values are `PRIMARY` and `SECONDARY`.
-        See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
-        """
         geolocation: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgsDict']]
-        """
-        Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        See `geolocation` below.
-        """
         geoproximity_location: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict']]
-        """
-        Geoproximity location block.
-        See `geoproximity_location` below.
-        """
         health_check_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Health check the record should be associated with.
-        """
         multi_value_answer: NotRequired[pulumi.Input[_builtins.bool]]
         region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region of the resource this record set refers to.
-        Must be a valid AWS region name.
-        See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
-        """
         resource_records: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgsDict']]]]
-        """
-        Information about the resource records to act upon.
-        See `resource_records` below.
-        """
         set_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
-        """
         traffic_policy_instance_id: NotRequired[pulumi.Input[_builtins.str]]
         ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Resource record cache time to live (TTL), in seconds.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Record type.
-        Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
-
-        The following arguments are optional:
-
-        > Exactly one of `resource_records` or `alias_target` must be specified.
-        """
         weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
 elif False:
     RecordsExclusiveResourceRecordSetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -798,34 +629,6 @@ class RecordsExclusiveResourceRecordSetArgs:
                  ttl: Optional[pulumi.Input[_builtins.int]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the record.
-        :param pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgs'] alias_target: Alias target block.
-               See `alias_target` below.
-        :param pulumi.Input[_builtins.str] failover: Type of failover resource record.
-               Valid values are `PRIMARY` and `SECONDARY`.
-               See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
-        :param pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgs'] geolocation: Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-               See `geolocation` below.
-        :param pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs'] geoproximity_location: Geoproximity location block.
-               See `geoproximity_location` below.
-        :param pulumi.Input[_builtins.str] health_check_id: Health check the record should be associated with.
-        :param pulumi.Input[_builtins.str] region: AWS region of the resource this record set refers to.
-               Must be a valid AWS region name.
-               See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]] resource_records: Information about the resource records to act upon.
-               See `resource_records` below.
-        :param pulumi.Input[_builtins.str] set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-               Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
-        :param pulumi.Input[_builtins.int] ttl: Resource record cache time to live (TTL), in seconds.
-        :param pulumi.Input[_builtins.str] type: Record type.
-               Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
-               
-               The following arguments are optional:
-               
-               > Exactly one of `resource_records` or `alias_target` must be specified.
-        :param pulumi.Input[_builtins.int] weight: Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
         pulumi.set(__self__, "name", name)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
@@ -859,9 +662,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the record.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -871,10 +671,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgs']]:
-        """
-        Alias target block.
-        See `alias_target` below.
-        """
         return pulumi.get(self, "alias_target")
 
     @alias_target.setter
@@ -893,11 +689,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def failover(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of failover resource record.
-        Valid values are `PRIMARY` and `SECONDARY`.
-        See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
-        """
         return pulumi.get(self, "failover")
 
     @failover.setter
@@ -907,10 +698,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def geolocation(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgs']]:
-        """
-        Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        See `geolocation` below.
-        """
         return pulumi.get(self, "geolocation")
 
     @geolocation.setter
@@ -920,10 +707,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter(name="geoproximityLocation")
     def geoproximity_location(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]:
-        """
-        Geoproximity location block.
-        See `geoproximity_location` below.
-        """
         return pulumi.get(self, "geoproximity_location")
 
     @geoproximity_location.setter
@@ -933,9 +716,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Health check the record should be associated with.
-        """
         return pulumi.get(self, "health_check_id")
 
     @health_check_id.setter
@@ -954,11 +734,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS region of the resource this record set refers to.
-        Must be a valid AWS region name.
-        See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -968,10 +743,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter(name="resourceRecords")
     def resource_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]:
-        """
-        Information about the resource records to act upon.
-        See `resource_records` below.
-        """
         return pulumi.get(self, "resource_records")
 
     @resource_records.setter
@@ -981,10 +752,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter(name="setIdentifier")
     def set_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
-        """
         return pulumi.get(self, "set_identifier")
 
     @set_identifier.setter
@@ -1003,9 +770,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Resource record cache time to live (TTL), in seconds.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -1015,14 +779,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Record type.
-        Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
-
-        The following arguments are optional:
-
-        > Exactly one of `resource_records` or `alias_target` must be specified.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1032,9 +788,6 @@ class RecordsExclusiveResourceRecordSetArgs:
     @_builtins.property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
-        """
         return pulumi.get(self, "weight")
 
     @weight.setter
@@ -1045,17 +798,8 @@ class RecordsExclusiveResourceRecordSetArgs:
 if not MYPY:
     class RecordsExclusiveResourceRecordSetAliasTargetArgsDict(TypedDict):
         dns_name: pulumi.Input[_builtins.str]
-        """
-        DNS domain name for another resource record set in this hosted zone.
-        """
         evaluate_target_health: pulumi.Input[_builtins.bool]
-        """
-        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
-        """
         hosted_zone_id: pulumi.Input[_builtins.str]
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
-        """
 elif False:
     RecordsExclusiveResourceRecordSetAliasTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1065,11 +809,6 @@ class RecordsExclusiveResourceRecordSetAliasTargetArgs:
                  dns_name: pulumi.Input[_builtins.str],
                  evaluate_target_health: pulumi.Input[_builtins.bool],
                  hosted_zone_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] dns_name: DNS domain name for another resource record set in this hosted zone.
-        :param pulumi.Input[_builtins.bool] evaluate_target_health: Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
-        """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -1077,9 +816,6 @@ class RecordsExclusiveResourceRecordSetAliasTargetArgs:
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        DNS domain name for another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -1089,9 +825,6 @@ class RecordsExclusiveResourceRecordSetAliasTargetArgs:
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @evaluate_target_health.setter
@@ -1101,9 +834,6 @@ class RecordsExclusiveResourceRecordSetAliasTargetArgs:
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -1114,17 +844,7 @@ class RecordsExclusiveResourceRecordSetAliasTargetArgs:
 if not MYPY:
     class RecordsExclusiveResourceRecordSetCidrRoutingConfigArgsDict(TypedDict):
         collection_id: pulumi.Input[_builtins.str]
-        """
-        CIDR collection ID.
-        See the `route53.CidrCollection` resource for more details.
-        """
         location_name: pulumi.Input[_builtins.str]
-        """
-        CIDR collection location name.
-        See the `route53.CidrLocation` resource for more details.
-        A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
-        `collection_id` is still required for a default record.
-        """
 elif False:
     RecordsExclusiveResourceRecordSetCidrRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1133,24 +853,12 @@ class RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[_builtins.str],
                  location_name: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] collection_id: CIDR collection ID.
-               See the `route53.CidrCollection` resource for more details.
-        :param pulumi.Input[_builtins.str] location_name: CIDR collection location name.
-               See the `route53.CidrLocation` resource for more details.
-               A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
-               `collection_id` is still required for a default record.
-        """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
 
     @_builtins.property
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        CIDR collection ID.
-        See the `route53.CidrCollection` resource for more details.
-        """
         return pulumi.get(self, "collection_id")
 
     @collection_id.setter
@@ -1160,12 +868,6 @@ class RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        CIDR collection location name.
-        See the `route53.CidrLocation` resource for more details.
-        A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
-        `collection_id` is still required for a default record.
-        """
         return pulumi.get(self, "location_name")
 
     @location_name.setter
@@ -1225,26 +927,9 @@ class RecordsExclusiveResourceRecordSetGeolocationArgs:
 if not MYPY:
     class RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict(TypedDict):
         aws_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region of the resource where DNS traffic is directed to.
-        """
         bias: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-        To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-        To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-        See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-        """
         coordinates: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict']]
-        """
-        Coordinates for a geoproximity resource record.
-        See `coordinates` below.
-        """
         local_zone_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS local zone group.
-        Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-        """
 elif False:
     RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1255,17 +940,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
                  bias: Optional[pulumi.Input[_builtins.int]] = None,
                  coordinates: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']] = None,
                  local_zone_group: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] aws_region: AWS region of the resource where DNS traffic is directed to.
-        :param pulumi.Input[_builtins.int] bias: Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-               To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-               To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-               See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-        :param pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs'] coordinates: Coordinates for a geoproximity resource record.
-               See `coordinates` below.
-        :param pulumi.Input[_builtins.str] local_zone_group: AWS local zone group.
-               Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-        """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if bias is not None:
@@ -1278,9 +952,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS region of the resource where DNS traffic is directed to.
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -1290,12 +961,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
     @_builtins.property
     @pulumi.getter
     def bias(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
-        To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
-        To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
-        See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
-        """
         return pulumi.get(self, "bias")
 
     @bias.setter
@@ -1305,10 +970,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
     @_builtins.property
     @pulumi.getter
     def coordinates(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]:
-        """
-        Coordinates for a geoproximity resource record.
-        See `coordinates` below.
-        """
         return pulumi.get(self, "coordinates")
 
     @coordinates.setter
@@ -1318,10 +979,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
     def local_zone_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS local zone group.
-        Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
-        """
         return pulumi.get(self, "local_zone_group")
 
     @local_zone_group.setter
@@ -1332,13 +989,7 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
 if not MYPY:
     class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict(TypedDict):
         latitude: pulumi.Input[_builtins.str]
-        """
-        A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
-        """
         longitude: pulumi.Input[_builtins.str]
-        """
-        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-        """
 elif False:
     RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1347,19 +998,12 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs:
     def __init__(__self__, *,
                  latitude: pulumi.Input[_builtins.str],
                  longitude: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] latitude: A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
-        :param pulumi.Input[_builtins.str] longitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-        """
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
 
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> pulumi.Input[_builtins.str]:
-        """
-        A coordinate of the north–south position of a geographic point on the surface of the Earth (`-90` - `90`).
-        """
         return pulumi.get(self, "latitude")
 
     @latitude.setter
@@ -1369,9 +1013,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs:
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> pulumi.Input[_builtins.str]:
-        """
-        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
-        """
         return pulumi.get(self, "longitude")
 
     @longitude.setter
@@ -1382,9 +1023,6 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs:
 if not MYPY:
     class RecordsExclusiveResourceRecordSetResourceRecordArgsDict(TypedDict):
         value: pulumi.Input[_builtins.str]
-        """
-        DNS record value.
-        """
 elif False:
     RecordsExclusiveResourceRecordSetResourceRecordArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1392,17 +1030,11 @@ elif False:
 class RecordsExclusiveResourceRecordSetResourceRecordArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] value: DNS record value.
-        """
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        DNS record value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1465,18 +1097,9 @@ class RecordsExclusiveTimeoutsArgs:
 if not MYPY:
     class ResolverEndpointIpAddressArgsDict(TypedDict):
         subnet_id: pulumi.Input[_builtins.str]
-        """
-        ID of the subnet that contains the IP address.
-        """
         ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv4 address in the subnet that you want to use for DNS queries.
-        """
         ip_id: NotRequired[pulumi.Input[_builtins.str]]
         ipv6: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv6 address in the subnet that you want to use for DNS queries.
-        """
 elif False:
     ResolverEndpointIpAddressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1487,11 +1110,6 @@ class ResolverEndpointIpAddressArgs:
                  ip: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet that contains the IP address.
-        :param pulumi.Input[_builtins.str] ip: IPv4 address in the subnet that you want to use for DNS queries.
-        :param pulumi.Input[_builtins.str] ipv6: IPv6 address in the subnet that you want to use for DNS queries.
-        """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -1503,9 +1121,6 @@ class ResolverEndpointIpAddressArgs:
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the subnet that contains the IP address.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -1515,9 +1130,6 @@ class ResolverEndpointIpAddressArgs:
     @_builtins.property
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IPv4 address in the subnet that you want to use for DNS queries.
-        """
         return pulumi.get(self, "ip")
 
     @ip.setter
@@ -1536,9 +1148,6 @@ class ResolverEndpointIpAddressArgs:
     @_builtins.property
     @pulumi.getter
     def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IPv6 address in the subnet that you want to use for DNS queries.
-        """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
@@ -1549,21 +1158,9 @@ class ResolverEndpointIpAddressArgs:
 if not MYPY:
     class ResolverRuleTargetIpArgsDict(TypedDict):
         ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        One IPv4 address that you want to forward DNS queries to.
-        """
         ipv6: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        One IPv6 address that you want to forward DNS queries to.
-        """
         port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port at `ip` that you want to forward DNS queries to. Default value is `53`.
-        """
         protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
-        """
 elif False:
     ResolverRuleTargetIpArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1574,12 +1171,6 @@ class ResolverRuleTargetIpArgs:
                  ipv6: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] ip: One IPv4 address that you want to forward DNS queries to.
-        :param pulumi.Input[_builtins.str] ipv6: One IPv6 address that you want to forward DNS queries to.
-        :param pulumi.Input[_builtins.int] port: Port at `ip` that you want to forward DNS queries to. Default value is `53`.
-        :param pulumi.Input[_builtins.str] protocol: Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
-        """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
         if ipv6 is not None:
@@ -1592,9 +1183,6 @@ class ResolverRuleTargetIpArgs:
     @_builtins.property
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        One IPv4 address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "ip")
 
     @ip.setter
@@ -1604,9 +1192,6 @@ class ResolverRuleTargetIpArgs:
     @_builtins.property
     @pulumi.getter
     def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        One IPv6 address that you want to forward DNS queries to.
-        """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
@@ -1616,9 +1201,6 @@ class ResolverRuleTargetIpArgs:
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Port at `ip` that you want to forward DNS queries to. Default value is `53`.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1628,9 +1210,6 @@ class ResolverRuleTargetIpArgs:
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -1641,13 +1220,7 @@ class ResolverRuleTargetIpArgs:
 if not MYPY:
     class ZoneVpcArgsDict(TypedDict):
         vpc_id: pulumi.Input[_builtins.str]
-        """
-        ID of the VPC to associate.
-        """
         vpc_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region of the VPC to associate. Defaults to AWS provider region.
-        """
 elif False:
     ZoneVpcArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1656,10 +1229,6 @@ class ZoneVpcArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
                  vpc_region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to associate.
-        :param pulumi.Input[_builtins.str] vpc_region: Region of the VPC to associate. Defaults to AWS provider region.
-        """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if vpc_region is not None:
             pulumi.set(__self__, "vpc_region", vpc_region)
@@ -1667,9 +1236,6 @@ class ZoneVpcArgs:
     @_builtins.property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the VPC to associate.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -1679,9 +1245,6 @@ class ZoneVpcArgs:
     @_builtins.property
     @pulumi.getter(name="vpcRegion")
     def vpc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region of the VPC to associate. Defaults to AWS provider region.
-        """
         return pulumi.get(self, "vpc_region")
 
     @vpc_region.setter
@@ -1692,9 +1255,6 @@ class ZoneVpcArgs:
 if not MYPY:
     class GetQueryLogConfigFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        The name of the query logging configuration.
-        """
         values: Sequence[_builtins.str]
 elif False:
     GetQueryLogConfigFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -1704,18 +1264,12 @@ class GetQueryLogConfigFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: The name of the query logging configuration.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the query logging configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1769,21 +1323,9 @@ class GetResolverEndpointFilterArgs:
 if not MYPY:
     class GetTrafficPolicyDocumentEndpointArgsDict(TypedDict):
         id: _builtins.str
-        """
-        ID of an endpoint you want to assign.
-        """
         region: NotRequired[_builtins.str]
-        """
-        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        """
         type: NotRequired[_builtins.str]
-        """
-        Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-        """
         value: NotRequired[_builtins.str]
-        """
-        Value of the `type`.
-        """
 elif False:
     GetTrafficPolicyDocumentEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1794,12 +1336,6 @@ class GetTrafficPolicyDocumentEndpointArgs:
                  region: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: ID of an endpoint you want to assign.
-        :param _builtins.str region: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        :param _builtins.str type: Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-        :param _builtins.str value: Value of the `type`.
-        """
         pulumi.set(__self__, "id", id)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -1811,9 +1347,6 @@ class GetTrafficPolicyDocumentEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of an endpoint you want to assign.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1823,9 +1356,6 @@ class GetTrafficPolicyDocumentEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -1835,9 +1365,6 @@ class GetTrafficPolicyDocumentEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1847,9 +1374,6 @@ class GetTrafficPolicyDocumentEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
-        """
-        Value of the `type`.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1860,34 +1384,13 @@ class GetTrafficPolicyDocumentEndpointArgs:
 if not MYPY:
     class GetTrafficPolicyDocumentRuleArgsDict(TypedDict):
         id: _builtins.str
-        """
-        ID of a rule you want to assign.
-        """
         geo_proximity_locations: NotRequired[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict']]
-        """
-        Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        """
         items: NotRequired[Sequence['GetTrafficPolicyDocumentRuleItemArgsDict']]
-        """
-        Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        """
         locations: NotRequired[Sequence['GetTrafficPolicyDocumentRuleLocationArgsDict']]
-        """
-        Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        """
         primary: NotRequired['GetTrafficPolicyDocumentRulePrimaryArgsDict']
-        """
-        Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        """
         regions: NotRequired[Sequence['GetTrafficPolicyDocumentRuleRegionArgsDict']]
         secondary: NotRequired['GetTrafficPolicyDocumentRuleSecondaryArgsDict']
-        """
-        Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-        """
         type: NotRequired[_builtins.str]
-        """
-        Type of the rule.
-        """
 elif False:
     GetTrafficPolicyDocumentRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1902,15 +1405,6 @@ class GetTrafficPolicyDocumentRuleArgs:
                  regions: Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArgs']] = None,
                  secondary: Optional['GetTrafficPolicyDocumentRuleSecondaryArgs'] = None,
                  type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str id: ID of a rule you want to assign.
-        :param Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs'] geo_proximity_locations: Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleItemArgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleLocationArgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        :param 'GetTrafficPolicyDocumentRulePrimaryArgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-        :param _builtins.str type: Type of the rule.
-        """
         pulumi.set(__self__, "id", id)
         if geo_proximity_locations is not None:
             pulumi.set(__self__, "geo_proximity_locations", geo_proximity_locations)
@@ -1930,9 +1424,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of a rule you want to assign.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1942,9 +1433,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter(name="geoProximityLocations")
     def geo_proximity_locations(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs']]:
-        """
-        Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        """
         return pulumi.get(self, "geo_proximity_locations")
 
     @geo_proximity_locations.setter
@@ -1954,9 +1442,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleItemArgs']]:
-        """
-        Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -1966,9 +1451,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArgs']]:
-        """
-        Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -1978,9 +1460,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional['GetTrafficPolicyDocumentRulePrimaryArgs']:
-        """
-        Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -1999,9 +1478,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def secondary(self) -> Optional['GetTrafficPolicyDocumentRuleSecondaryArgs']:
-        """
-        Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-        """
         return pulumi.get(self, "secondary")
 
     @secondary.setter
@@ -2011,9 +1487,6 @@ class GetTrafficPolicyDocumentRuleArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
-        """
-        Type of the rule.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2024,37 +1497,13 @@ class GetTrafficPolicyDocumentRuleArgs:
 if not MYPY:
     class GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict(TypedDict):
         bias: NotRequired[_builtins.str]
-        """
-        Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-        """
         endpoint_reference: NotRequired[_builtins.str]
-        """
-        References to an endpoint.
-        """
         evaluate_target_health: NotRequired[_builtins.bool]
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         health_check: NotRequired[_builtins.str]
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         latitude: NotRequired[_builtins.str]
-        """
-        Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-        """
         longitude: NotRequired[_builtins.str]
-        """
-        Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-        """
         region: NotRequired[_builtins.str]
-        """
-        If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-        """
         rule_reference: NotRequired[_builtins.str]
-        """
-        References to a rule.
-        """
 elif False:
     GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2069,16 +1518,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
                  longitude: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  rule_reference: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bias: Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.str latitude: Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-        :param _builtins.str longitude: Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-        :param _builtins.str region: If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-        :param _builtins.str rule_reference: References to a rule.
-        """
         if bias is not None:
             pulumi.set(__self__, "bias", bias)
         if endpoint_reference is not None:
@@ -2099,9 +1538,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter
     def bias(self) -> Optional[_builtins.str]:
-        """
-        Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
-        """
         return pulumi.get(self, "bias")
 
     @bias.setter
@@ -2111,9 +1547,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @endpoint_reference.setter
@@ -2123,9 +1556,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @evaluate_target_health.setter
@@ -2135,9 +1565,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -2147,9 +1574,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> Optional[_builtins.str]:
-        """
-        Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
-        """
         return pulumi.get(self, "latitude")
 
     @latitude.setter
@@ -2159,9 +1583,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> Optional[_builtins.str]:
-        """
-        Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-        """
         return pulumi.get(self, "longitude")
 
     @longitude.setter
@@ -2171,9 +1592,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -2183,9 +1601,6 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
     @rule_reference.setter
@@ -2232,37 +1647,13 @@ class GetTrafficPolicyDocumentRuleItemArgs:
 if not MYPY:
     class GetTrafficPolicyDocumentRuleLocationArgsDict(TypedDict):
         continent: NotRequired[_builtins.str]
-        """
-        Value of a continent.
-        """
         country: NotRequired[_builtins.str]
-        """
-        Value of a country.
-        """
         endpoint_reference: NotRequired[_builtins.str]
-        """
-        References to an endpoint.
-        """
         evaluate_target_health: NotRequired[_builtins.bool]
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         health_check: NotRequired[_builtins.str]
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         is_default: NotRequired[_builtins.bool]
-        """
-        Indicates whether this set of values represents the default location.
-        """
         rule_reference: NotRequired[_builtins.str]
-        """
-        References to a rule.
-        """
         subdivision: NotRequired[_builtins.str]
-        """
-        Value of a subdivision.
-        """
 elif False:
     GetTrafficPolicyDocumentRuleLocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2277,16 +1668,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
                  is_default: Optional[_builtins.bool] = None,
                  rule_reference: Optional[_builtins.str] = None,
                  subdivision: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str continent: Value of a continent.
-        :param _builtins.str country: Value of a country.
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.bool is_default: Indicates whether this set of values represents the default location.
-        :param _builtins.str rule_reference: References to a rule.
-        :param _builtins.str subdivision: Value of a subdivision.
-        """
         if continent is not None:
             pulumi.set(__self__, "continent", continent)
         if country is not None:
@@ -2307,9 +1688,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter
     def continent(self) -> Optional[_builtins.str]:
-        """
-        Value of a continent.
-        """
         return pulumi.get(self, "continent")
 
     @continent.setter
@@ -2319,9 +1697,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter
     def country(self) -> Optional[_builtins.str]:
-        """
-        Value of a country.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -2331,9 +1706,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @endpoint_reference.setter
@@ -2343,9 +1715,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @evaluate_target_health.setter
@@ -2355,9 +1724,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -2367,9 +1733,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether this set of values represents the default location.
-        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -2379,9 +1742,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
     @rule_reference.setter
@@ -2391,9 +1751,6 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
     @_builtins.property
     @pulumi.getter
     def subdivision(self) -> Optional[_builtins.str]:
-        """
-        Value of a subdivision.
-        """
         return pulumi.get(self, "subdivision")
 
     @subdivision.setter
@@ -2404,21 +1761,9 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
 if not MYPY:
     class GetTrafficPolicyDocumentRulePrimaryArgsDict(TypedDict):
         endpoint_reference: NotRequired[_builtins.str]
-        """
-        References to an endpoint.
-        """
         evaluate_target_health: NotRequired[_builtins.bool]
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         health_check: NotRequired[_builtins.str]
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         rule_reference: NotRequired[_builtins.str]
-        """
-        References to a rule.
-        """
 elif False:
     GetTrafficPolicyDocumentRulePrimaryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2429,12 +1774,6 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
                  evaluate_target_health: Optional[_builtins.bool] = None,
                  health_check: Optional[_builtins.str] = None,
                  rule_reference: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.str rule_reference: References to a rule.
-        """
         if endpoint_reference is not None:
             pulumi.set(__self__, "endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
@@ -2447,9 +1786,6 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @endpoint_reference.setter
@@ -2459,9 +1795,6 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @evaluate_target_health.setter
@@ -2471,9 +1804,6 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -2483,9 +1813,6 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
     @rule_reference.setter
@@ -2496,25 +1823,10 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
 if not MYPY:
     class GetTrafficPolicyDocumentRuleRegionArgsDict(TypedDict):
         endpoint_reference: NotRequired[_builtins.str]
-        """
-        References to an endpoint.
-        """
         evaluate_target_health: NotRequired[_builtins.bool]
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         health_check: NotRequired[_builtins.str]
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         region: NotRequired[_builtins.str]
-        """
-        Region code for the AWS Region that you created the resource in.
-        """
         rule_reference: NotRequired[_builtins.str]
-        """
-        References to a rule.
-        """
 elif False:
     GetTrafficPolicyDocumentRuleRegionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2526,13 +1838,6 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
                  health_check: Optional[_builtins.str] = None,
                  region: Optional[_builtins.str] = None,
                  rule_reference: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str endpoint_reference: References to an endpoint.
-        :param _builtins.bool evaluate_target_health: Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        :param _builtins.str health_check: If you want to associate a health check with the endpoint or rule.
-        :param _builtins.str region: Region code for the AWS Region that you created the resource in.
-        :param _builtins.str rule_reference: References to a rule.
-        """
         if endpoint_reference is not None:
             pulumi.set(__self__, "endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
@@ -2547,9 +1852,6 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
     @_builtins.property
     @pulumi.getter(name="endpointReference")
     def endpoint_reference(self) -> Optional[_builtins.str]:
-        """
-        References to an endpoint.
-        """
         return pulumi.get(self, "endpoint_reference")
 
     @endpoint_reference.setter
@@ -2559,9 +1861,6 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
     @_builtins.property
     @pulumi.getter(name="evaluateTargetHealth")
     def evaluate_target_health(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        """
         return pulumi.get(self, "evaluate_target_health")
 
     @evaluate_target_health.setter
@@ -2571,9 +1870,6 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[_builtins.str]:
-        """
-        If you want to associate a health check with the endpoint or rule.
-        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -2583,9 +1879,6 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
-        """
-        Region code for the AWS Region that you created the resource in.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -2595,9 +1888,6 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
     @_builtins.property
     @pulumi.getter(name="ruleReference")
     def rule_reference(self) -> Optional[_builtins.str]:
-        """
-        References to a rule.
-        """
         return pulumi.get(self, "rule_reference")
 
     @rule_reference.setter

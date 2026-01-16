@@ -16,62 +16,30 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleS3Args Empty = new TopicRuleS3Args();
 
-    /**
-     * The Amazon S3 bucket name.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return The Amazon S3 bucket name.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-     * 
-     */
     @Import(name="cannedAcl")
     private @Nullable Output<String> cannedAcl;
 
-    /**
-     * @return The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-     * 
-     */
     public Optional<Output<String>> cannedAcl() {
         return Optional.ofNullable(this.cannedAcl);
     }
 
-    /**
-     * The object key.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The object key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The ARN of the IAM role that grants access.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role that grants access.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -103,86 +71,38 @@ public final class TopicRuleS3Args extends com.pulumi.resources.ResourceArgs {
             $ = new TopicRuleS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName The Amazon S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The Amazon S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param cannedAcl The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cannedAcl(@Nullable Output<String> cannedAcl) {
             $.cannedAcl = cannedAcl;
             return this;
         }
 
-        /**
-         * @param cannedAcl The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cannedAcl(String cannedAcl) {
             return cannedAcl(Output.of(cannedAcl));
         }
 
-        /**
-         * @param key The object key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The object key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role that grants access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

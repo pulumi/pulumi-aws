@@ -14,32 +14,16 @@ public final class RepositoryCreationTemplateImageTagMutabilityExclusionFilterAr
 
     public static final RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs Empty = new RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs();
 
-    /**
-     * The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-     * 
-     */
     @Import(name="filter", required=true)
     private Output<String> filter;
 
-    /**
-     * @return The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-     * 
-     */
     public Output<String> filter() {
         return this.filter;
     }
 
-    /**
-     * The type of filter to use. Must be `WILDCARD`.
-     * 
-     */
     @Import(name="filterType", required=true)
     private Output<String> filterType;
 
-    /**
-     * @return The type of filter to use. Must be `WILDCARD`.
-     * 
-     */
     public Output<String> filterType() {
         return this.filterType;
     }
@@ -69,44 +53,20 @@ public final class RepositoryCreationTemplateImageTagMutabilityExclusionFilterAr
             $ = new RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filter The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(Output<String> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter The filter pattern to use for excluding image tags from the mutability setting. Must contain only letters, numbers, and special characters (._*-). Each filter can be up to 128 characters long and can contain a maximum of 2 wildcards (*).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(String filter) {
             return filter(Output.of(filter));
         }
 
-        /**
-         * @param filterType The type of filter to use. Must be `WILDCARD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterType(Output<String> filterType) {
             $.filterType = filterType;
             return this;
         }
 
-        /**
-         * @param filterType The type of filter to use. Must be `WILDCARD`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterType(String filterType) {
             return filterType(Output.of(filterType));
         }

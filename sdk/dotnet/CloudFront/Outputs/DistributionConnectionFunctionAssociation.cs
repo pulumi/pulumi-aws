@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionConnectionFunctionAssociation
     {
-        /// <summary>
-        /// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

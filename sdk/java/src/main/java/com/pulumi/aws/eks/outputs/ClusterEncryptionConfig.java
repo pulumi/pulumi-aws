@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterEncryptionConfig {
-    /**
-     * @return Configuration block with provider for encryption. Detailed below.
-     * 
-     */
     private ClusterEncryptionConfigProvider provider;
-    /**
-     * @return List of strings with resources to be encrypted. Valid values: `secrets`.
-     * 
-     */
     private List<String> resources;
 
     private ClusterEncryptionConfig() {}
-    /**
-     * @return Configuration block with provider for encryption. Detailed below.
-     * 
-     */
     public ClusterEncryptionConfigProvider provider() {
         return this.provider;
     }
-    /**
-     * @return List of strings with resources to be encrypted. Valid values: `secrets`.
-     * 
-     */
     public List<String> resources() {
         return this.resources;
     }

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelContainerModelDataSourceS3DataSource
     {
-        /// <summary>
-        /// How the model data is prepared. Allowed values are: `None` and `Gzip`.
-        /// </summary>
         public readonly string CompressionType;
-        /// <summary>
-        /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`ModelAccessConfig` configuration block]. See Model Access Config.
-        /// </summary>
         public readonly Outputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfig? ModelAccessConfig;
-        /// <summary>
-        /// Type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
-        /// </summary>
         public readonly string S3DataType;
-        /// <summary>
-        /// The S3 path of model data to deploy.
-        /// </summary>
         public readonly string S3Uri;
 
         [OutputConstructor]

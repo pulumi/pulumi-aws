@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LustreFileSystemDataReadCacheConfiguration {
-    /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
-     * 
-     */
     private @Nullable Integer size;
-    /**
-     * @return Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-     * 
-     */
     private String sizingMode;
 
     private LustreFileSystemDataReadCacheConfiguration() {}
-    /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
-     * 
-     */
     public Optional<Integer> size() {
         return Optional.ofNullable(this.size);
     }
-    /**
-     * @return Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
-     * 
-     */
     public String sizingMode() {
         return this.sizingMode;
     }

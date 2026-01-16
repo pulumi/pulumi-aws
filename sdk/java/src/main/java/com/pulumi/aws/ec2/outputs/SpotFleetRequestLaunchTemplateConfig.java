@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotFleetRequestLaunchTemplateConfig {
-    /**
-     * @return Launch template specification. See Launch Template Specification below for more details.
-     * 
-     */
     private SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
-    /**
-     * @return One or more override configurations. See Overrides below for more details.
-     * 
-     */
     private @Nullable List<SpotFleetRequestLaunchTemplateConfigOverride> overrides;
 
     private SpotFleetRequestLaunchTemplateConfig() {}
-    /**
-     * @return Launch template specification. See Launch Template Specification below for more details.
-     * 
-     */
     public SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification() {
         return this.launchTemplateSpecification;
     }
-    /**
-     * @return One or more override configurations. See Overrides below for more details.
-     * 
-     */
     public List<SpotFleetRequestLaunchTemplateConfigOverride> overrides() {
         return this.overrides == null ? List.of() : this.overrides;
     }

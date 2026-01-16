@@ -13,30 +13,11 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSetting
     {
-        /// <summary>
-        /// List of default values for a slot.
-        /// See the `DefaultValueSpecification` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecification> DefaultValueSpecifications;
-        /// <summary>
-        /// Prompt that Amazon Lex uses to elicit the slot value from the user.
-        /// See the `aws.lex.V2modelsIntent` resource for details on the `PromptSpecification` argument reference - they are identical.
-        /// </summary>
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecification PromptSpecification;
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingSampleUtterance> SampleUtterances;
-        /// <summary>
-        /// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
-        /// </summary>
         public readonly string SlotConstraint;
-        /// <summary>
-        /// Information about whether assisted slot resolution is turned on for the slot or not.
-        /// See the `SlotResolutionSetting` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingSlotResolutionSetting> SlotResolutionSettings;
-        /// <summary>
-        /// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-        /// See the `WaitAndContinueSpecification` argument reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification> WaitAndContinueSpecifications;
 
         [OutputConstructor]

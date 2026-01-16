@@ -16,107 +16,51 @@ public final class AccessPolicyAssociationState extends com.pulumi.resources.Res
 
     public static final AccessPolicyAssociationState Empty = new AccessPolicyAssociationState();
 
-    /**
-     * The configuration block to determine the scope of the access. See `accessScope` Block below.
-     * 
-     */
     @Import(name="accessScope")
     private @Nullable Output<AccessPolicyAssociationAccessScopeArgs> accessScope;
 
-    /**
-     * @return The configuration block to determine the scope of the access. See `accessScope` Block below.
-     * 
-     */
     public Optional<Output<AccessPolicyAssociationAccessScopeArgs>> accessScope() {
         return Optional.ofNullable(this.accessScope);
     }
 
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-     * 
-     */
     @Import(name="associatedAt")
     private @Nullable Output<String> associatedAt;
 
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-     * 
-     */
     public Optional<Output<String>> associatedAt() {
         return Optional.ofNullable(this.associatedAt);
     }
 
-    /**
-     * Name of the EKS Cluster.
-     * 
-     */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
-    /**
-     * @return Name of the EKS Cluster.
-     * 
-     */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
     }
 
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-     * 
-     */
     @Import(name="modifiedAt")
     private @Nullable Output<String> modifiedAt;
 
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-     * 
-     */
     public Optional<Output<String>> modifiedAt() {
         return Optional.ofNullable(this.modifiedAt);
     }
 
-    /**
-     * The ARN of the access policy that you&#39;re associating.
-     * 
-     */
     @Import(name="policyArn")
     private @Nullable Output<String> policyArn;
 
-    /**
-     * @return The ARN of the access policy that you&#39;re associating.
-     * 
-     */
     public Optional<Output<String>> policyArn() {
         return Optional.ofNullable(this.policyArn);
     }
 
-    /**
-     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
-    /**
-     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -151,149 +95,65 @@ public final class AccessPolicyAssociationState extends com.pulumi.resources.Res
             $ = new AccessPolicyAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessScope The configuration block to determine the scope of the access. See `accessScope` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessScope(@Nullable Output<AccessPolicyAssociationAccessScopeArgs> accessScope) {
             $.accessScope = accessScope;
             return this;
         }
 
-        /**
-         * @param accessScope The configuration block to determine the scope of the access. See `accessScope` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessScope(AccessPolicyAssociationAccessScopeArgs accessScope) {
             return accessScope(Output.of(accessScope));
         }
 
-        /**
-         * @param associatedAt Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedAt(@Nullable Output<String> associatedAt) {
             $.associatedAt = associatedAt;
             return this;
         }
 
-        /**
-         * @param associatedAt Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associatedAt(String associatedAt) {
             return associatedAt(Output.of(associatedAt));
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the EKS Cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param modifiedAt Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modifiedAt(@Nullable Output<String> modifiedAt) {
             $.modifiedAt = modifiedAt;
             return this;
         }
 
-        /**
-         * @param modifiedAt Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modifiedAt(String modifiedAt) {
             return modifiedAt(Output.of(modifiedAt));
         }
 
-        /**
-         * @param policyArn The ARN of the access policy that you&#39;re associating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(@Nullable Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
-        /**
-         * @param policyArn The ARN of the access policy that you&#39;re associating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }
 
-        /**
-         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

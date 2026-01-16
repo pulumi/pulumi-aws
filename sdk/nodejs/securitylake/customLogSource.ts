@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Security Lake Custom Log Source.
- *
- * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `dependsOn` statement.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securitylake.CustomLogSource("example", {
- *     sourceName: "example-name",
- *     sourceVersion: "1.0",
- *     eventClasses: ["FILE_ACTIVITY"],
- *     configuration: {
- *         crawlerConfiguration: {
- *             roleArn: customLog.arn,
- *         },
- *         providerIdentity: {
- *             externalId: "example-id",
- *             principal: "123456789012",
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleAwsSecuritylakeDataLake],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Custom log sources using the source name. For example:
- *
- * ```sh
- * $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
- * ```
- */
 export class CustomLogSource extends pulumi.CustomResource {
     /**
      * Get an existing CustomLogSource resource's state with the given name, ID, and optional extra
@@ -74,35 +35,12 @@ export class CustomLogSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomLogSource.__pulumiType;
     }
 
-    /**
-     * The attributes of a third-party custom source.
-     */
     declare public /*out*/ readonly attributes: pulumi.Output<outputs.securitylake.CustomLogSourceAttribute[]>;
-    /**
-     * The configuration for the third-party custom source.
-     */
     declare public readonly configuration: pulumi.Output<outputs.securitylake.CustomLogSourceConfiguration | undefined>;
-    /**
-     * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     */
     declare public readonly eventClasses: pulumi.Output<string[] | undefined>;
-    /**
-     * The details of the log provider for a third-party custom source.
-     */
     declare public /*out*/ readonly providerDetails: pulumi.Output<outputs.securitylake.CustomLogSourceProviderDetail[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     */
     declare public readonly sourceName: pulumi.Output<string>;
-    /**
-     * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     */
     declare public readonly sourceVersion: pulumi.Output<string>;
 
     /**
@@ -147,35 +85,12 @@ export class CustomLogSource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomLogSource resources.
  */
 export interface CustomLogSourceState {
-    /**
-     * The attributes of a third-party custom source.
-     */
     attributes?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceAttribute>[]>;
-    /**
-     * The configuration for the third-party custom source.
-     */
     configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
-    /**
-     * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     */
     eventClasses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The details of the log provider for a third-party custom source.
-     */
     providerDetails?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceProviderDetail>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     */
     sourceName?: pulumi.Input<string>;
-    /**
-     * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     */
     sourceVersion?: pulumi.Input<string>;
 }
 
@@ -183,26 +98,9 @@ export interface CustomLogSourceState {
  * The set of arguments for constructing a CustomLogSource resource.
  */
 export interface CustomLogSourceArgs {
-    /**
-     * The configuration for the third-party custom source.
-     */
     configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
-    /**
-     * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-     */
     eventClasses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specify the name for a third-party custom source.
-     * This must be a Regionally unique value.
-     * Has a maximum length of 20.
-     */
     sourceName: pulumi.Input<string>;
-    /**
-     * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
-     */
     sourceVersion?: pulumi.Input<string>;
 }

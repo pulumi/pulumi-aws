@@ -16,17 +16,9 @@ public final class GetViewsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetViewsArgs Empty = new GetViewsArgs();
 
-    /**
-     * List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
-     * 
-     */
     @Import(name="billingViewTypes")
     private @Nullable Output<List<String>> billingViewTypes;
 
-    /**
-     * @return List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
-     * 
-     */
     public Optional<Output<List<String>>> billingViewTypes() {
         return Optional.ofNullable(this.billingViewTypes);
     }
@@ -55,33 +47,15 @@ public final class GetViewsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetViewsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param billingViewTypes List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder billingViewTypes(@Nullable Output<List<String>> billingViewTypes) {
             $.billingViewTypes = billingViewTypes;
             return this;
         }
 
-        /**
-         * @param billingViewTypes List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder billingViewTypes(List<String> billingViewTypes) {
             return billingViewTypes(Output.of(billingViewTypes));
         }
 
-        /**
-         * @param billingViewTypes List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder billingViewTypes(String... billingViewTypes) {
             return billingViewTypes(List.of(billingViewTypes));
         }

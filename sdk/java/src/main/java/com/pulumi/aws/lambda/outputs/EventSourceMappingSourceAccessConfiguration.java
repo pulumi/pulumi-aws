@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSourceMappingSourceAccessConfiguration {
-    /**
-     * @return Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-     * 
-     */
     private String type;
-    /**
-     * @return URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
-     * 
-     */
     private String uri;
 
     private EventSourceMappingSourceAccessConfiguration() {}
-    /**
-     * @return Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
-     * 
-     */
     public String uri() {
         return this.uri;
     }

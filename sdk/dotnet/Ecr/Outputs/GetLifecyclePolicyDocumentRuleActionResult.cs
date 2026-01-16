@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Ecr.Outputs
     public sealed class GetLifecyclePolicyDocumentRuleActionResult
     {
         public readonly string? TargetStorageClass;
-        /// <summary>
-        /// Specify an action type. The supported values are `Expire` (to delete images) and `Transition` (to move images to archive storage).
-        /// * `targetStorageClass` (Required if `Type` is `Transition`) - The storage class you want the lifecycle policy to transition the image to. `Archive` is the only supported value.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

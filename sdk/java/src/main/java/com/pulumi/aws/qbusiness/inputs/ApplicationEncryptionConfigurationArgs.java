@@ -15,14 +15,14 @@ public final class ApplicationEncryptionConfigurationArgs extends com.pulumi.res
     public static final ApplicationEncryptionConfigurationArgs Empty = new ApplicationEncryptionConfigurationArgs();
 
     /**
-     * Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
+     * The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
      * 
      */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
     /**
-     * @return Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
+     * @return The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -54,7 +54,7 @@ public final class ApplicationEncryptionConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param kmsKeyId Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
+         * @param kmsKeyId The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationEncryptionConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param kmsKeyId Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
+         * @param kmsKeyId The identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn&#39;t support asymmetric keys.
          * 
          * @return builder
          * 

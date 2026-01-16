@@ -16,62 +16,30 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyAr
 
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs();
 
-    /**
-     * Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-     * 
-     */
     @Import(name="credentialLocation")
     private @Nullable Output<String> credentialLocation;
 
-    /**
-     * @return Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-     * 
-     */
     public Optional<Output<String>> credentialLocation() {
         return Optional.ofNullable(this.credentialLocation);
     }
 
-    /**
-     * Name of the parameter containing the API key credential.
-     * 
-     */
     @Import(name="credentialParameterName")
     private @Nullable Output<String> credentialParameterName;
 
-    /**
-     * @return Name of the parameter containing the API key credential.
-     * 
-     */
     public Optional<Output<String>> credentialParameterName() {
         return Optional.ofNullable(this.credentialParameterName);
     }
 
-    /**
-     * Prefix to add to the API key credential value.
-     * 
-     */
     @Import(name="credentialPrefix")
     private @Nullable Output<String> credentialPrefix;
 
-    /**
-     * @return Prefix to add to the API key credential value.
-     * 
-     */
     public Optional<Output<String>> credentialPrefix() {
         return Optional.ofNullable(this.credentialPrefix);
     }
 
-    /**
-     * ARN of the OIDC provider for API key authentication.
-     * 
-     */
     @Import(name="providerArn", required=true)
     private Output<String> providerArn;
 
-    /**
-     * @return ARN of the OIDC provider for API key authentication.
-     * 
-     */
     public Output<String> providerArn() {
         return this.providerArn;
     }
@@ -103,86 +71,38 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyAr
             $ = new AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credentialLocation Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialLocation(@Nullable Output<String> credentialLocation) {
             $.credentialLocation = credentialLocation;
             return this;
         }
 
-        /**
-         * @param credentialLocation Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialLocation(String credentialLocation) {
             return credentialLocation(Output.of(credentialLocation));
         }
 
-        /**
-         * @param credentialParameterName Name of the parameter containing the API key credential.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialParameterName(@Nullable Output<String> credentialParameterName) {
             $.credentialParameterName = credentialParameterName;
             return this;
         }
 
-        /**
-         * @param credentialParameterName Name of the parameter containing the API key credential.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialParameterName(String credentialParameterName) {
             return credentialParameterName(Output.of(credentialParameterName));
         }
 
-        /**
-         * @param credentialPrefix Prefix to add to the API key credential value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialPrefix(@Nullable Output<String> credentialPrefix) {
             $.credentialPrefix = credentialPrefix;
             return this;
         }
 
-        /**
-         * @param credentialPrefix Prefix to add to the API key credential value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialPrefix(String credentialPrefix) {
             return credentialPrefix(Output.of(credentialPrefix));
         }
 
-        /**
-         * @param providerArn ARN of the OIDC provider for API key authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerArn(Output<String> providerArn) {
             $.providerArn = providerArn;
             return this;
         }
 
-        /**
-         * @param providerArn ARN of the OIDC provider for API key authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder providerArn(String providerArn) {
             return providerArn(Output.of(providerArn));
         }

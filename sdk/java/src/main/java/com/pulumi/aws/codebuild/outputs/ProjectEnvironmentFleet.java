@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectEnvironmentFleet {
-    /**
-     * @return Compute fleet ARN for the build project.
-     * 
-     */
     private @Nullable String fleetArn;
 
     private ProjectEnvironmentFleet() {}
-    /**
-     * @return Compute fleet ARN for the build project.
-     * 
-     */
     public Optional<String> fleetArn() {
         return Optional.ofNullable(this.fleetArn);
     }

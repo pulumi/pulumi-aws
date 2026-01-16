@@ -14,17 +14,9 @@ public final class PipelineStageBeforeEntryArgs extends com.pulumi.resources.Res
 
     public static final PipelineStageBeforeEntryArgs Empty = new PipelineStageBeforeEntryArgs();
 
-    /**
-     * The conditions that are configured as entry condition. Defined as a `condition` block below.
-     * 
-     */
     @Import(name="condition", required=true)
     private Output<PipelineStageBeforeEntryConditionArgs> condition;
 
-    /**
-     * @return The conditions that are configured as entry condition. Defined as a `condition` block below.
-     * 
-     */
     public Output<PipelineStageBeforeEntryConditionArgs> condition() {
         return this.condition;
     }
@@ -53,23 +45,11 @@ public final class PipelineStageBeforeEntryArgs extends com.pulumi.resources.Res
             $ = new PipelineStageBeforeEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param condition The conditions that are configured as entry condition. Defined as a `condition` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(Output<PipelineStageBeforeEntryConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
-        /**
-         * @param condition The conditions that are configured as entry condition. Defined as a `condition` block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder condition(PipelineStageBeforeEntryConditionArgs condition) {
             return condition(Output.of(condition));
         }

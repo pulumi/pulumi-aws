@@ -84,41 +84,26 @@ class GetProductResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the product.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> _builtins.str:
-        """
-        Time when the product was created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the product.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def distributor(self) -> _builtins.str:
-        """
-        Vendor of the product.
-        """
         return pulumi.get(self, "distributor")
 
     @_builtins.property
     @pulumi.getter(name="hasDefaultPath")
     def has_default_path(self) -> _builtins.bool:
-        """
-        Whether the product has a default path.
-        """
         return pulumi.get(self, "has_default_path")
 
     @_builtins.property
@@ -129,17 +114,11 @@ class GetProductResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the product.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> _builtins.str:
-        """
-        Owner of the product.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
@@ -150,49 +129,31 @@ class GetProductResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of the product.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> _builtins.str:
-        """
-        Field that provides support information about the product.
-        """
         return pulumi.get(self, "support_description")
 
     @_builtins.property
     @pulumi.getter(name="supportEmail")
     def support_email(self) -> _builtins.str:
-        """
-        Contact email for product support.
-        """
         return pulumi.get(self, "support_email")
 
     @_builtins.property
     @pulumi.getter(name="supportUrl")
     def support_url(self) -> _builtins.str:
-        """
-        Contact URL for product support.
-        """
         return pulumi.get(self, "support_url")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Tags applied to the product.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Type of product.
-        """
         return pulumi.get(self, "type")
 
 
@@ -226,28 +187,7 @@ def get_product(accept_language: Optional[_builtins.str] = None,
                 tags: Optional[Mapping[str, _builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Use this data source to retrieve information about a Service Catalog product.
-
-    > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-    :param _builtins.str id: ID of the product.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags applied to the product.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -280,28 +220,7 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[_builtins
                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
-    Use this data source to retrieve information about a Service Catalog product.
-
-    > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
-    ```
-
-
-    :param _builtins.str accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-    :param _builtins.str id: ID of the product.
-           
-           The following arguments are optional:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags applied to the product.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

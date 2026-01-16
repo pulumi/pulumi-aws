@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerRuleConditionHttpRequestMethod {
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     private List<String> values;
 
     private GetListenerRuleConditionHttpRequestMethod() {}
-    /**
-     * @return Set of `key`-`value` pairs indicating the query string parameters to match.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

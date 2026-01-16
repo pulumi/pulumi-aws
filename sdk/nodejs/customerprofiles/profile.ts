@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon Customer Profiles Profile.
- * See the [Create Profile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
- * const exampleProfile = new aws.customerprofiles.Profile("example", {domainName: example.domainName});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
- * ```
- */
 export class Profile extends pulumi.CustomResource {
     /**
      * Get an existing Profile resource's state with the given name, ID, and optional extra
@@ -57,99 +35,28 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
-    /**
-     * A unique account number that you have given to the customer.
-     */
     declare public readonly accountNumber: pulumi.Output<string | undefined>;
-    /**
-     * Any additional information relevant to the customer’s profile.
-     */
     declare public readonly additionalInformation: pulumi.Output<string | undefined>;
-    /**
-     * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-     */
     declare public readonly address: pulumi.Output<outputs.customerprofiles.ProfileAddress | undefined>;
-    /**
-     * A key value pair of attributes of a customer profile.
-     */
     declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A block that specifies the customer’s billing address. Documented below.
-     */
     declare public readonly billingAddress: pulumi.Output<outputs.customerprofiles.ProfileBillingAddress | undefined>;
-    /**
-     * The customer’s birth date.
-     */
     declare public readonly birthDate: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s business email address.
-     */
     declare public readonly businessEmailAddress: pulumi.Output<string | undefined>;
-    /**
-     * The name of the customer’s business.
-     */
     declare public readonly businessName: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s business phone number.
-     */
     declare public readonly businessPhoneNumber: pulumi.Output<string | undefined>;
-    /**
-     * The name of your Customer Profile domain. It must be unique for your AWS account.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly domainName: pulumi.Output<string>;
-    /**
-     * The customer’s email address, which has not been specified as a personal or business address.
-     */
     declare public readonly emailAddress: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s first name.
-     */
     declare public readonly firstName: pulumi.Output<string | undefined>;
-    /**
-     * The gender with which the customer identifies.
-     */
     declare public readonly genderString: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s home phone number.
-     */
     declare public readonly homePhoneNumber: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s last name.
-     */
     declare public readonly lastName: pulumi.Output<string | undefined>;
-    /**
-     * A block that specifies the customer’s mailing address. Documented below.
-     */
     declare public readonly mailingAddress: pulumi.Output<outputs.customerprofiles.ProfileMailingAddress | undefined>;
-    /**
-     * The customer’s middle name.
-     */
     declare public readonly middleName: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s mobile phone number.
-     */
     declare public readonly mobilePhoneNumber: pulumi.Output<string | undefined>;
-    /**
-     * The type of profile used to describe the customer.
-     */
     declare public readonly partyTypeString: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s personal email address.
-     */
     declare public readonly personalEmailAddress: pulumi.Output<string | undefined>;
-    /**
-     * The customer’s phone number, which has not been specified as a mobile, home, or business number.
-     */
     declare public readonly phoneNumber: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A block that specifies the customer’s shipping address. Documented below.
-     */
     declare public readonly shippingAddress: pulumi.Output<outputs.customerprofiles.ProfileShippingAddress | undefined>;
 
     /**
@@ -226,99 +133,28 @@ export class Profile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Profile resources.
  */
 export interface ProfileState {
-    /**
-     * A unique account number that you have given to the customer.
-     */
     accountNumber?: pulumi.Input<string>;
-    /**
-     * Any additional information relevant to the customer’s profile.
-     */
     additionalInformation?: pulumi.Input<string>;
-    /**
-     * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-     */
     address?: pulumi.Input<inputs.customerprofiles.ProfileAddress>;
-    /**
-     * A key value pair of attributes of a customer profile.
-     */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A block that specifies the customer’s billing address. Documented below.
-     */
     billingAddress?: pulumi.Input<inputs.customerprofiles.ProfileBillingAddress>;
-    /**
-     * The customer’s birth date.
-     */
     birthDate?: pulumi.Input<string>;
-    /**
-     * The customer’s business email address.
-     */
     businessEmailAddress?: pulumi.Input<string>;
-    /**
-     * The name of the customer’s business.
-     */
     businessName?: pulumi.Input<string>;
-    /**
-     * The customer’s business phone number.
-     */
     businessPhoneNumber?: pulumi.Input<string>;
-    /**
-     * The name of your Customer Profile domain. It must be unique for your AWS account.
-     *
-     * The following arguments are optional:
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * The customer’s email address, which has not been specified as a personal or business address.
-     */
     emailAddress?: pulumi.Input<string>;
-    /**
-     * The customer’s first name.
-     */
     firstName?: pulumi.Input<string>;
-    /**
-     * The gender with which the customer identifies.
-     */
     genderString?: pulumi.Input<string>;
-    /**
-     * The customer’s home phone number.
-     */
     homePhoneNumber?: pulumi.Input<string>;
-    /**
-     * The customer’s last name.
-     */
     lastName?: pulumi.Input<string>;
-    /**
-     * A block that specifies the customer’s mailing address. Documented below.
-     */
     mailingAddress?: pulumi.Input<inputs.customerprofiles.ProfileMailingAddress>;
-    /**
-     * The customer’s middle name.
-     */
     middleName?: pulumi.Input<string>;
-    /**
-     * The customer’s mobile phone number.
-     */
     mobilePhoneNumber?: pulumi.Input<string>;
-    /**
-     * The type of profile used to describe the customer.
-     */
     partyTypeString?: pulumi.Input<string>;
-    /**
-     * The customer’s personal email address.
-     */
     personalEmailAddress?: pulumi.Input<string>;
-    /**
-     * The customer’s phone number, which has not been specified as a mobile, home, or business number.
-     */
     phoneNumber?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A block that specifies the customer’s shipping address. Documented below.
-     */
     shippingAddress?: pulumi.Input<inputs.customerprofiles.ProfileShippingAddress>;
 }
 
@@ -326,98 +162,27 @@ export interface ProfileState {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
-    /**
-     * A unique account number that you have given to the customer.
-     */
     accountNumber?: pulumi.Input<string>;
-    /**
-     * Any additional information relevant to the customer’s profile.
-     */
     additionalInformation?: pulumi.Input<string>;
-    /**
-     * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-     */
     address?: pulumi.Input<inputs.customerprofiles.ProfileAddress>;
-    /**
-     * A key value pair of attributes of a customer profile.
-     */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A block that specifies the customer’s billing address. Documented below.
-     */
     billingAddress?: pulumi.Input<inputs.customerprofiles.ProfileBillingAddress>;
-    /**
-     * The customer’s birth date.
-     */
     birthDate?: pulumi.Input<string>;
-    /**
-     * The customer’s business email address.
-     */
     businessEmailAddress?: pulumi.Input<string>;
-    /**
-     * The name of the customer’s business.
-     */
     businessName?: pulumi.Input<string>;
-    /**
-     * The customer’s business phone number.
-     */
     businessPhoneNumber?: pulumi.Input<string>;
-    /**
-     * The name of your Customer Profile domain. It must be unique for your AWS account.
-     *
-     * The following arguments are optional:
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * The customer’s email address, which has not been specified as a personal or business address.
-     */
     emailAddress?: pulumi.Input<string>;
-    /**
-     * The customer’s first name.
-     */
     firstName?: pulumi.Input<string>;
-    /**
-     * The gender with which the customer identifies.
-     */
     genderString?: pulumi.Input<string>;
-    /**
-     * The customer’s home phone number.
-     */
     homePhoneNumber?: pulumi.Input<string>;
-    /**
-     * The customer’s last name.
-     */
     lastName?: pulumi.Input<string>;
-    /**
-     * A block that specifies the customer’s mailing address. Documented below.
-     */
     mailingAddress?: pulumi.Input<inputs.customerprofiles.ProfileMailingAddress>;
-    /**
-     * The customer’s middle name.
-     */
     middleName?: pulumi.Input<string>;
-    /**
-     * The customer’s mobile phone number.
-     */
     mobilePhoneNumber?: pulumi.Input<string>;
-    /**
-     * The type of profile used to describe the customer.
-     */
     partyTypeString?: pulumi.Input<string>;
-    /**
-     * The customer’s personal email address.
-     */
     personalEmailAddress?: pulumi.Input<string>;
-    /**
-     * The customer’s phone number, which has not been specified as a mobile, home, or business number.
-     */
     phoneNumber?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A block that specifies the customer’s shipping address. Documented below.
-     */
     shippingAddress?: pulumi.Input<inputs.customerprofiles.ProfileShippingAddress>;
 }

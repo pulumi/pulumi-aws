@@ -61,33 +61,21 @@ class GetApprovalRuleTemplateResult:
     @_builtins.property
     @pulumi.getter(name="approvalRuleTemplateId")
     def approval_rule_template_id(self) -> _builtins.str:
-        """
-        The ID of the approval rule template.
-        """
         return pulumi.get(self, "approval_rule_template_id")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> _builtins.str:
-        """
-        Content of the approval rule template.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> _builtins.str:
-        """
-        Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the approval rule template.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -101,17 +89,11 @@ class GetApprovalRuleTemplateResult:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
-        """
-        Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> _builtins.str:
-        """
-        ARN of the user who made the most recent changes to the approval rule template.
-        """
         return pulumi.get(self, "last_modified_user")
 
     @_builtins.property
@@ -127,9 +109,6 @@ class GetApprovalRuleTemplateResult:
     @_builtins.property
     @pulumi.getter(name="ruleContentSha256")
     def rule_content_sha256(self) -> _builtins.str:
-        """
-        SHA-256 hash signature for the content of the approval rule template.
-        """
         return pulumi.get(self, "rule_content_sha256")
 
 
@@ -155,20 +134,7 @@ def get_approval_rule_template(name: Optional[_builtins.str] = None,
                                region: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApprovalRuleTemplateResult:
     """
-    Provides details about a specific CodeCommit Approval Rule Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
-    ```
-
-
-    :param _builtins.str name: Name for the approval rule template. This needs to be less than 100 characters.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -191,20 +157,7 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[_builtins.str]
                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
-    Provides details about a specific CodeCommit Approval Rule Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
-    ```
-
-
-    :param _builtins.str name: Name for the approval rule template. This needs to be less than 100 characters.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

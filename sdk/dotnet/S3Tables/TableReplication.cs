@@ -9,72 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Tables
 {
-    /// <summary>
-    /// Manages Amazon S3 Tables Table Replication configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Tables.TableReplication("example", new()
-    ///     {
-    ///         TableArn = exampleAwsS3tablesTable.Arn,
-    ///         Role = exampleAwsIamRole.Arn,
-    ///         Rule = new Aws.S3Tables.Inputs.TableReplicationRuleArgs
-    ///         {
-    ///             Destinations = new[]
-    ///             {
-    ///                 new Aws.S3Tables.Inputs.TableReplicationRuleDestinationArgs
-    ///                 {
-    ///                     DestinationTableBucketArn = target.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import S3 Tables Table Replication using the `table_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3tables/tableReplication:TableReplication example 'arn:aws:s3tables:us-west-2:123456789012:table/example-table'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3tables/tableReplication:TableReplication")]
     public partial class TableReplication : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN referencing the IAM role assumed by S3 when replicating tables.
-        /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
-        /// <summary>
-        /// Replication rules. See Rule below for more details.
-        /// </summary>
         [Output("rule")]
         public Output<Outputs.TableReplicationRule?> Rule { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN referencing the Table that owns this replication configuration.
-        /// </summary>
         [Output("tableArn")]
         public Output<string> TableArn { get; private set; } = null!;
 
@@ -127,27 +73,15 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TableReplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN referencing the IAM role assumed by S3 when replicating tables.
-        /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 
-        /// <summary>
-        /// Replication rules. See Rule below for more details.
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.TableReplicationRuleArgs>? Rule { get; set; }
 
-        /// <summary>
-        /// ARN referencing the Table that owns this replication configuration.
-        /// </summary>
         [Input("tableArn", required: true)]
         public Input<string> TableArn { get; set; } = null!;
 
@@ -159,27 +93,15 @@ namespace Pulumi.Aws.S3Tables
 
     public sealed class TableReplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN referencing the IAM role assumed by S3 when replicating tables.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// Replication rules. See Rule below for more details.
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.TableReplicationRuleGetArgs>? Rule { get; set; }
 
-        /// <summary>
-        /// ARN referencing the Table that owns this replication configuration.
-        /// </summary>
         [Input("tableArn")]
         public Input<string>? TableArn { get; set; }
 

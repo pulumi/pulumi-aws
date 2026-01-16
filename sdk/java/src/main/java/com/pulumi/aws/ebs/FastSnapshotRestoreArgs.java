@@ -17,47 +17,23 @@ public final class FastSnapshotRestoreArgs extends com.pulumi.resources.Resource
 
     public static final FastSnapshotRestoreArgs Empty = new FastSnapshotRestoreArgs();
 
-    /**
-     * Availability zone in which to enable fast snapshot restores.
-     * 
-     */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
-    /**
-     * @return Availability zone in which to enable fast snapshot restores.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the snapshot.
-     * 
-     */
     @Import(name="snapshotId", required=true)
     private Output<String> snapshotId;
 
-    /**
-     * @return ID of the snapshot.
-     * 
-     */
     public Output<String> snapshotId() {
         return this.snapshotId;
     }
@@ -96,65 +72,29 @@ public final class FastSnapshotRestoreArgs extends com.pulumi.resources.Resource
             $ = new FastSnapshotRestoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param availabilityZone Availability zone in which to enable fast snapshot restores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone Availability zone in which to enable fast snapshot restores.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param snapshotId ID of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotId(Output<String> snapshotId) {
             $.snapshotId = snapshotId;
             return this;
         }
 
-        /**
-         * @param snapshotId ID of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotId(String snapshotId) {
             return snapshotId(Output.of(snapshotId));
         }

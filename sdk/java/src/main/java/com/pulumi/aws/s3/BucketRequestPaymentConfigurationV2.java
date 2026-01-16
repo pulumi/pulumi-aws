@@ -17,63 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
- * 
- * &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfiguration` resource resets the bucket&#39;s `payer` to the S3 default: the bucket owner.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketRequestPaymentConfiguration;
- * import com.pulumi.aws.s3.BucketRequestPaymentConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketRequestPaymentConfiguration("example", BucketRequestPaymentConfigurationArgs.builder()
- *             .bucket(exampleAwsS3Bucket.id())
- *             .payer("Requester")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * __Using `pulumi import` to import__ S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- * 
- * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
- * ```
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
- * ```
- * 
  * @deprecated
  * aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration
  * 
@@ -81,59 +24,27 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration */
 @ResourceType(type="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")
 public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-     * 
-     */
     @Export(name="payer", refs={String.class}, tree="[0]")
     private Output<String> payer;
 
-    /**
-     * @return Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-     * 
-     */
     public Output<String> payer() {
         return this.payer;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

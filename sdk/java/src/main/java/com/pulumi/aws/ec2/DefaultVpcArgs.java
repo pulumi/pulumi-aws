@@ -46,17 +46,9 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enableNetworkAddressUsageMetrics);
     }
 
-    /**
-     * Whether destroying the resource deletes the default VPC. Default: `false`
-     * 
-     */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
-    /**
-     * @return Whether destroying the resource deletes the default VPC. Default: `false`
-     * 
-     */
     public Optional<Output<Boolean>> forceDestroy() {
         return Optional.ofNullable(this.forceDestroy);
     }
@@ -173,23 +165,11 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
             return enableNetworkAddressUsageMetrics(Output.of(enableNetworkAddressUsageMetrics));
         }
 
-        /**
-         * @param forceDestroy Whether destroying the resource deletes the default VPC. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
             $.forceDestroy = forceDestroy;
             return this;
         }
 
-        /**
-         * @param forceDestroy Whether destroying the resource deletes the default VPC. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDestroy(Boolean forceDestroy) {
             return forceDestroy(Output.of(forceDestroy));
         }

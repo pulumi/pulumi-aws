@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity {
-    /**
-     * @return UID and GIDs of the file system POSIX user. See `posixUser` Block for details.
-     * 
-     */
     private @Nullable S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUser posixUser;
-    /**
-     * @return FSx for OpenZFS user identity type. Valid values: `POSIX`.
-     * 
-     */
     private String type;
 
     private S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentity() {}
-    /**
-     * @return UID and GIDs of the file system POSIX user. See `posixUser` Block for details.
-     * 
-     */
     public Optional<S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUser> posixUser() {
         return Optional.ofNullable(this.posixUser);
     }
-    /**
-     * @return FSx for OpenZFS user identity type. Valid values: `POSIX`.
-     * 
-     */
     public String type() {
         return this.type;
     }

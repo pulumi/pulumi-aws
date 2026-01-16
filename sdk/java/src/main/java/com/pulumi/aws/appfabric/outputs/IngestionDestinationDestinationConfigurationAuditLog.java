@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLog {
-    /**
-     * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-     * 
-     */
     private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestination destination;
 
     private IngestionDestinationDestinationConfigurationAuditLog() {}
-    /**
-     * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-     * 
-     */
     public Optional<IngestionDestinationDestinationConfigurationAuditLogDestination> destination() {
         return Optional.ofNullable(this.destination);
     }

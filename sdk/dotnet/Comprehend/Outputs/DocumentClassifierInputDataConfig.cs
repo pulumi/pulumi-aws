@@ -13,27 +13,9 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class DocumentClassifierInputDataConfig
     {
-        /// <summary>
-        /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        /// Used if `DataFormat` is `AUGMENTED_MANIFEST`.
-        /// See the `AugmentedManifests` Configuration Block section below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DocumentClassifierInputDataConfigAugmentedManifest> AugmentedManifests;
-        /// <summary>
-        /// The format for the training data.
-        /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        /// </summary>
         public readonly string? DataFormat;
-        /// <summary>
-        /// Delimiter between labels when training a multi-label classifier.
-        /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-        /// Default is `|`.
-        /// </summary>
         public readonly string? LabelDelimiter;
-        /// <summary>
-        /// Location of training documents.
-        /// Used if `DataFormat` is `COMPREHEND_CSV`.
-        /// </summary>
         public readonly string? S3Uri;
         public readonly string? TestS3Uri;
 

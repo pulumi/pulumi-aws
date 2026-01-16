@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionOriginCustomHeader
     {
-        /// <summary>
-        /// Name of the header.
-        /// </summary>
         public readonly string HeaderName;
-        /// <summary>
-        /// Value for the header.
-        /// </summary>
         public readonly string HeaderValue;
 
         [OutputConstructor]

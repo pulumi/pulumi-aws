@@ -11,78 +11,12 @@ namespace Pulumi.Aws.SsmIncidents
 {
     public static class GetReplicationSet
     {
-        /// <summary>
-        /// &gt; **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-        /// 
-        /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsmIncidents.GetReplicationSet.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetReplicationSetResult> InvokeAsync(GetReplicationSetArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// &gt; **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-        /// 
-        /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsmIncidents.GetReplicationSet.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// &gt; **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-        /// 
-        /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsmIncidents.GetReplicationSet.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
     }
@@ -92,10 +26,6 @@ namespace Pulumi.Aws.SsmIncidents
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// All tags applied to the replication set.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -112,10 +42,6 @@ namespace Pulumi.Aws.SsmIncidents
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// All tags applied to the replication set.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -132,42 +58,17 @@ namespace Pulumi.Aws.SsmIncidents
     [OutputType]
     public sealed class GetReplicationSetResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the replication set.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The ARN of the user who created the replication set.
-        /// </summary>
         public readonly string CreatedBy;
-        /// <summary>
-        /// If `True`, the last remaining Region in a replication set can’t be deleted.
-        /// </summary>
         public readonly bool DeletionProtected;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The ARN of the user who last modified the replication set.
-        /// </summary>
         public readonly string LastModifiedBy;
-        /// <summary>
-        /// (**Deprecated**) The replication set's Regions. Use `Regions` instead.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationSetRegionResult> Region;
-        /// <summary>
-        /// The replication set's Regions.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationSetRegionResult> Regions;
-        /// <summary>
-        /// The current status of the Region.
-        /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// All tags applied to the replication set.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

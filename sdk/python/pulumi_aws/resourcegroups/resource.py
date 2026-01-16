@@ -24,9 +24,6 @@ class ResourceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Resource resource.
-        :param pulumi.Input[_builtins.str] group_arn: Name or ARN of the resource group to add resources to.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be added to the group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_arn", group_arn)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -36,9 +33,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter(name="groupArn")
     def group_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name or ARN of the resource group to add resources to.
-        """
         return pulumi.get(self, "group_arn")
 
     @group_arn.setter
@@ -48,9 +42,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        ARN of the resource to be added to the group.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -60,9 +51,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -79,10 +67,6 @@ class _ResourceState:
                  resource_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
-        :param pulumi.Input[_builtins.str] group_arn: Name or ARN of the resource group to add resources to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be added to the group.
-        :param pulumi.Input[_builtins.str] resource_type: The resource type of a resource, such as `AWS::EC2::Instance`.
         """
         if group_arn is not None:
             pulumi.set(__self__, "group_arn", group_arn)
@@ -96,9 +80,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter(name="groupArn")
     def group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name or ARN of the resource group to add resources to.
-        """
         return pulumi.get(self, "group_arn")
 
     @group_arn.setter
@@ -108,9 +89,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -120,9 +98,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the resource to be added to the group.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -132,9 +107,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The resource type of a resource, such as `AWS::EC2::Instance`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -153,40 +125,9 @@ class Resource(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Resource Groups Resource.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.DedicatedHost("example",
-            instance_family="t3",
-            availability_zone="us-east-1a",
-            host_recovery="off",
-            auto_placement="on")
-        example_group = aws.resourcegroups.Group("example", name="example")
-        example_resource = aws.resourcegroups.Resource("example",
-            group_arn=example_group.arn,
-            resource_arn=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
-        ```
-
+        Create a Resource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_arn: Name or ARN of the resource group to add resources to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be added to the group.
         """
         ...
     @overload
@@ -195,35 +136,7 @@ class Resource(pulumi.CustomResource):
                  args: ResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Resource Groups Resource.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.DedicatedHost("example",
-            instance_family="t3",
-            availability_zone="us-east-1a",
-            host_recovery="off",
-            auto_placement="on")
-        example_group = aws.resourcegroups.Group("example", name="example")
-        example_resource = aws.resourcegroups.Resource("example",
-            group_arn=example_group.arn,
-            resource_arn=example.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
-
-        ```sh
-        $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
-        ```
-
+        Create a Resource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,10 +193,6 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] group_arn: Name or ARN of the resource group to add resources to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be added to the group.
-        :param pulumi.Input[_builtins.str] resource_type: The resource type of a resource, such as `AWS::EC2::Instance`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,32 +207,20 @@ class Resource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="groupArn")
     def group_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name or ARN of the resource group to add resources to.
-        """
         return pulumi.get(self, "group_arn")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the resource to be added to the group.
-        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The resource type of a resource, such as `AWS::EC2::Instance`.
-        """
         return pulumi.get(self, "resource_type")
 

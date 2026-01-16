@@ -13,21 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainCognitoOptionResult
     {
-        /// <summary>
-        /// Enabled disabled toggle for off-peak update window
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Cognito Identity pool used by the domain.
-        /// </summary>
         public readonly string IdentityPoolId;
-        /// <summary>
-        /// IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// Cognito User pool used by the domain.
-        /// </summary>
         public readonly string UserPoolId;
 
         [OutputConstructor]

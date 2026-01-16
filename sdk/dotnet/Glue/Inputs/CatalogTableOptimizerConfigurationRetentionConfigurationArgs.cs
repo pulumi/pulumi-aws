@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableOptimizerConfigurationRetentionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration for an Iceberg snapshot retention optimizer.
-        /// </summary>
         [Input("icebergConfiguration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs>? IcebergConfiguration { get; set; }
 

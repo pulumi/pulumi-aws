@@ -11,96 +11,12 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetLocalGatewayRouteTable
     {
-        /// <summary>
-        /// Provides details about an EC2 Local Gateway Route Table.
-        /// 
-        /// This data source can prove useful when a module accepts a local gateway route table id as
-        /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example returns a specific local gateway route table ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
-        ///     var selected = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
-        ///     {
-        ///         LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetLocalGatewayRouteTableResult> InvokeAsync(GetLocalGatewayRouteTableArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an EC2 Local Gateway Route Table.
-        /// 
-        /// This data source can prove useful when a module accepts a local gateway route table id as
-        /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example returns a specific local gateway route table ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
-        ///     var selected = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
-        ///     {
-        ///         LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocalGatewayRouteTableResult> Invoke(GetLocalGatewayRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an EC2 Local Gateway Route Table.
-        /// 
-        /// This data source can prove useful when a module accepts a local gateway route table id as
-        /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example returns a specific local gateway route table ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
-        ///     var selected = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
-        ///     {
-        ///         LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetLocalGatewayRouteTableResult> Invoke(GetLocalGatewayRouteTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableInvokeArgs(), options.WithDefaults());
     }
@@ -116,47 +32,23 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific local gateway route table to retrieve.
-        /// </summary>
         [Input("localGatewayId")]
         public string? LocalGatewayId { get; set; }
 
-        /// <summary>
-        /// Local Gateway Route Table Id assigned to desired local gateway route table
-        /// </summary>
         [Input("localGatewayRouteTableId")]
         public string? LocalGatewayRouteTableId { get; set; }
 
-        /// <summary>
-        /// ARN of the Outpost the local gateway route table is associated with.
-        /// </summary>
         [Input("outpostArn")]
         public string? OutpostArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// State of the local gateway route table.
-        /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired local gateway route table.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Local Gateway Route Tables in the current region. The given filters must match exactly one
-        /// Local Gateway Route Table whose data will be exported as attributes.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -179,47 +71,23 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific local gateway route table to retrieve.
-        /// </summary>
         [Input("localGatewayId")]
         public Input<string>? LocalGatewayId { get; set; }
 
-        /// <summary>
-        /// Local Gateway Route Table Id assigned to desired local gateway route table
-        /// </summary>
         [Input("localGatewayRouteTableId")]
         public Input<string>? LocalGatewayRouteTableId { get; set; }
 
-        /// <summary>
-        /// ARN of the Outpost the local gateway route table is associated with.
-        /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the local gateway route table.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired local gateway route table.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// Local Gateway Route Tables in the current region. The given filters must match exactly one
-        /// Local Gateway Route Table whose data will be exported as attributes.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

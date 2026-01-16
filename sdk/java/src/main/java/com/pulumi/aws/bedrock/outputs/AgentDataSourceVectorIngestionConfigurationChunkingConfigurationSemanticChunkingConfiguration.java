@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
-    /**
-     * @return The dissimilarity threshold for splitting chunks.
-     * 
-     */
     private Integer breakpointPercentileThreshold;
-    /**
-     * @return The buffer size.
-     * 
-     */
     private Integer bufferSize;
-    /**
-     * @return The maximum number of tokens a chunk can contain.
-     * 
-     */
     private Integer maxToken;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration() {}
-    /**
-     * @return The dissimilarity threshold for splitting chunks.
-     * 
-     */
     public Integer breakpointPercentileThreshold() {
         return this.breakpointPercentileThreshold;
     }
-    /**
-     * @return The buffer size.
-     * 
-     */
     public Integer bufferSize() {
         return this.bufferSize;
     }
-    /**
-     * @return The maximum number of tokens a chunk can contain.
-     * 
-     */
     public Integer maxToken() {
         return this.maxToken;
     }

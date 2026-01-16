@@ -16,191 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Step Function Activity resource
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sfn.Activity;
- * import com.pulumi.aws.sfn.ActivityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()
- *             .name("my-activity")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Encryption
- * 
- * &gt; *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sfn.Activity;
- * import com.pulumi.aws.sfn.ActivityArgs;
- * import com.pulumi.aws.sfn.inputs.ActivityEncryptionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()
- *             .name("my-activity")
- *             .encryptionConfiguration(ActivityEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(kmsKeyForSfn.arn())
- *                 .type("CUSTOMER_MANAGED_KMS_KEY")
- *                 .kmsDataKeyReusePeriodSeconds(900)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import activities using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
- * ```
- * 
- */
 @ResourceType(type="aws:sfn/activity:Activity")
 public class Activity extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the activity.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the activity.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Date the activity was created.
-     * 
-     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
-    /**
-     * @return Date the activity was created.
-     * 
-     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
-    /**
-     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={ActivityEncryptionConfiguration.class}, tree="[0]")
     private Output<ActivityEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
-     * 
-     */
     public Output<ActivityEncryptionConfiguration> encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
-    /**
-     * The name of the activity to create.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the activity to create.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -23,17 +23,9 @@ public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resour
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-     * 
-     */
     @Import(name="types", required=true)
     private Output<String> types;
 
-    /**
-     * @return A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-     * 
-     */
     public Output<String> types() {
         return this.types;
     }
@@ -72,23 +64,11 @@ public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resour
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param types A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder types(Output<String> types) {
             $.types = types;
             return this;
         }
 
-        /**
-         * @param types A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder types(String types) {
             return types(Output.of(types));
         }

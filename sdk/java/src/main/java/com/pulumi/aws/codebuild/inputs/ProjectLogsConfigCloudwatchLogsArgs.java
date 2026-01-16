@@ -15,49 +15,23 @@ public final class ProjectLogsConfigCloudwatchLogsArgs extends com.pulumi.resour
 
     public static final ProjectLogsConfigCloudwatchLogsArgs Empty = new ProjectLogsConfigCloudwatchLogsArgs();
 
-    /**
-     * Group name of the logs in CloudWatch Logs.
-     * 
-     */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
-    /**
-     * @return Group name of the logs in CloudWatch Logs.
-     * 
-     */
     public Optional<Output<String>> groupName() {
         return Optional.ofNullable(this.groupName);
     }
 
-    /**
-     * Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-     * `DISABLED`. Defaults to `ENABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-     * `DISABLED`. Defaults to `ENABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * Prefix of the log stream name of the logs in CloudWatch Logs.
-     * 
-     */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
-    /**
-     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
-     * 
-     */
     public Optional<Output<String>> streamName() {
         return Optional.ofNullable(this.streamName);
     }
@@ -88,67 +62,29 @@ public final class ProjectLogsConfigCloudwatchLogsArgs extends com.pulumi.resour
             $ = new ProjectLogsConfigCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName Group name of the logs in CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName Group name of the logs in CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param status Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-         * `DISABLED`. Defaults to `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
-         * `DISABLED`. Defaults to `ENABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param streamName Prefix of the log stream name of the logs in CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(@Nullable Output<String> streamName) {
             $.streamName = streamName;
             return this;
         }
 
-        /**
-         * @param streamName Prefix of the log stream name of the logs in CloudWatch Logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(String streamName) {
             return streamName(Output.of(streamName));
         }

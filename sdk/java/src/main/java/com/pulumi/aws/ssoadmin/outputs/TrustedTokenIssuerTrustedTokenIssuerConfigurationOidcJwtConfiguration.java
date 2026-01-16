@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
-    /**
-     * @return Specifies the path of the source attribute in the JWT from the trusted token issuer.
-     * 
-     */
     private String claimAttributePath;
-    /**
-     * @return Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
-     * 
-     */
     private String identityStoreAttributePath;
-    /**
-     * @return Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-     * 
-     */
     private String issuerUrl;
-    /**
-     * @return The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-     * 
-     */
     private String jwksRetrievalOption;
 
     private TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration() {}
-    /**
-     * @return Specifies the path of the source attribute in the JWT from the trusted token issuer.
-     * 
-     */
     public String claimAttributePath() {
         return this.claimAttributePath;
     }
-    /**
-     * @return Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
-     * 
-     */
     public String identityStoreAttributePath() {
         return this.identityStoreAttributePath;
     }
-    /**
-     * @return Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-     * 
-     */
     public String issuerUrl() {
         return this.issuerUrl;
     }
-    /**
-     * @return The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-     * 
-     */
     public String jwksRetrievalOption() {
         return this.jwksRetrievalOption;
     }

@@ -15,62 +15,30 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
 
     public static final OptInResourceDataDataCellsFilterArgs Empty = new OptInResourceDataDataCellsFilterArgs();
 
-    /**
-     * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
-    /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
 
-    /**
-     * Name of the table.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the table.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * ID of the catalog to which the table belongs.
-     * 
-     */
     @Import(name="tableCatalogId")
     private @Nullable Output<String> tableCatalogId;
 
-    /**
-     * @return ID of the catalog to which the table belongs.
-     * 
-     */
     public Optional<Output<String>> tableCatalogId() {
         return Optional.ofNullable(this.tableCatalogId);
     }
 
-    /**
-     * Name of the table.
-     * 
-     */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
-    /**
-     * @return Name of the table.
-     * 
-     */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
@@ -102,86 +70,38 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
             $ = new OptInResourceDataDataCellsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param name Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tableCatalogId ID of the catalog to which the table belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableCatalogId(@Nullable Output<String> tableCatalogId) {
             $.tableCatalogId = tableCatalogId;
             return this;
         }
 
-        /**
-         * @param tableCatalogId ID of the catalog to which the table belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableCatalogId(String tableCatalogId) {
             return tableCatalogId(Output.of(tableCatalogId));
         }
 
-        /**
-         * @param tableName Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

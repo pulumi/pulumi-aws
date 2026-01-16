@@ -21,122 +21,58 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
 
     public static final VpcEncryptionControlResourceExclusionsArgs Empty = new VpcEncryptionControlResourceExclusionsArgs();
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
-     * 
-     */
     @Import(name="egressOnlyInternetGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs> egressOnlyInternetGateway;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs> egressOnlyInternetGateway() {
         return this.egressOnlyInternetGateway;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
-     * 
-     */
     @Import(name="elasticFileSystem", required=true)
     private Output<VpcEncryptionControlResourceExclusionsElasticFileSystemArgs> elasticFileSystem;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsElasticFileSystemArgs> elasticFileSystem() {
         return this.elasticFileSystem;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
-     * 
-     */
     @Import(name="internetGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsInternetGatewayArgs> internetGateway;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsInternetGatewayArgs> internetGateway() {
         return this.internetGateway;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
-     * 
-     */
     @Import(name="lambda", required=true)
     private Output<VpcEncryptionControlResourceExclusionsLambdaArgs> lambda;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsLambdaArgs> lambda() {
         return this.lambda;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
-     * 
-     */
     @Import(name="natGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsNatGatewayArgs> natGateway;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsNatGatewayArgs> natGateway() {
         return this.natGateway;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
-     * 
-     */
     @Import(name="virtualPrivateGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs> virtualPrivateGateway;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs> virtualPrivateGateway() {
         return this.virtualPrivateGateway;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
-     * 
-     */
     @Import(name="vpcLattice", required=true)
     private Output<VpcEncryptionControlResourceExclusionsVpcLatticeArgs> vpcLattice;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsVpcLatticeArgs> vpcLattice() {
         return this.vpcLattice;
     }
 
-    /**
-     * `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
-     * 
-     */
     @Import(name="vpcPeering", required=true)
     private Output<VpcEncryptionControlResourceExclusionsVpcPeeringArgs> vpcPeering;
 
-    /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
-     * 
-     */
     public Output<VpcEncryptionControlResourceExclusionsVpcPeeringArgs> vpcPeering() {
         return this.vpcPeering;
     }
@@ -172,170 +108,74 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
             $ = new VpcEncryptionControlResourceExclusionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param egressOnlyInternetGateway `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressOnlyInternetGateway(Output<VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs> egressOnlyInternetGateway) {
             $.egressOnlyInternetGateway = egressOnlyInternetGateway;
             return this;
         }
 
-        /**
-         * @param egressOnlyInternetGateway `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressOnlyInternetGateway(VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs egressOnlyInternetGateway) {
             return egressOnlyInternetGateway(Output.of(egressOnlyInternetGateway));
         }
 
-        /**
-         * @param elasticFileSystem `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder elasticFileSystem(Output<VpcEncryptionControlResourceExclusionsElasticFileSystemArgs> elasticFileSystem) {
             $.elasticFileSystem = elasticFileSystem;
             return this;
         }
 
-        /**
-         * @param elasticFileSystem `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder elasticFileSystem(VpcEncryptionControlResourceExclusionsElasticFileSystemArgs elasticFileSystem) {
             return elasticFileSystem(Output.of(elasticFileSystem));
         }
 
-        /**
-         * @param internetGateway `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGateway(Output<VpcEncryptionControlResourceExclusionsInternetGatewayArgs> internetGateway) {
             $.internetGateway = internetGateway;
             return this;
         }
 
-        /**
-         * @param internetGateway `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGateway(VpcEncryptionControlResourceExclusionsInternetGatewayArgs internetGateway) {
             return internetGateway(Output.of(internetGateway));
         }
 
-        /**
-         * @param lambda `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambda(Output<VpcEncryptionControlResourceExclusionsLambdaArgs> lambda) {
             $.lambda = lambda;
             return this;
         }
 
-        /**
-         * @param lambda `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambda(VpcEncryptionControlResourceExclusionsLambdaArgs lambda) {
             return lambda(Output.of(lambda));
         }
 
-        /**
-         * @param natGateway `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder natGateway(Output<VpcEncryptionControlResourceExclusionsNatGatewayArgs> natGateway) {
             $.natGateway = natGateway;
             return this;
         }
 
-        /**
-         * @param natGateway `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder natGateway(VpcEncryptionControlResourceExclusionsNatGatewayArgs natGateway) {
             return natGateway(Output.of(natGateway));
         }
 
-        /**
-         * @param virtualPrivateGateway `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualPrivateGateway(Output<VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs> virtualPrivateGateway) {
             $.virtualPrivateGateway = virtualPrivateGateway;
             return this;
         }
 
-        /**
-         * @param virtualPrivateGateway `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualPrivateGateway(VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs virtualPrivateGateway) {
             return virtualPrivateGateway(Output.of(virtualPrivateGateway));
         }
 
-        /**
-         * @param vpcLattice `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcLattice(Output<VpcEncryptionControlResourceExclusionsVpcLatticeArgs> vpcLattice) {
             $.vpcLattice = vpcLattice;
             return this;
         }
 
-        /**
-         * @param vpcLattice `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcLattice(VpcEncryptionControlResourceExclusionsVpcLatticeArgs vpcLattice) {
             return vpcLattice(Output.of(vpcLattice));
         }
 
-        /**
-         * @param vpcPeering `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcPeering(Output<VpcEncryptionControlResourceExclusionsVpcPeeringArgs> vpcPeering) {
             $.vpcPeering = vpcPeering;
             return this;
         }
 
-        /**
-         * @param vpcPeering `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcPeering(VpcEncryptionControlResourceExclusionsVpcPeeringArgs vpcPeering) {
             return vpcPeering(Output.of(vpcPeering));
         }

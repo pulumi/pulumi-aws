@@ -14,95 +14,31 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.KeyValueStore;
- * import com.pulumi.aws.cloudfront.KeyValueStoreArgs;
- * import com.pulumi.aws.cloudfront.KeyvaluestoreKey;
- * import com.pulumi.aws.cloudfront.KeyvaluestoreKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new KeyValueStore("example", KeyValueStoreArgs.builder()
- *             .name("ExampleKeyValueStore")
- *             .comment("This is an example key value store")
- *             .build());
- * 
- *         var exampleKeyvaluestoreKey = new KeyvaluestoreKey("exampleKeyvaluestoreKey", KeyvaluestoreKeyArgs.builder()
- *             .keyValueStoreArn(example.arn())
- *             .key("Test Key")
- *             .value("Test Value")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `key_value_store_arn` (String) ARN of the CloudFront Key Value Store.
- * 
- * * `key` (String) Key name.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * Using `pulumi import`, import CloudFront KeyValueStore Key using the `key_value_store_arn` and &#39;key&#39; separated by `,`. For example:
- * 
- * % pulumi import aws_cloudfrontkeyvaluestore_key.example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
- * 
- */
 @ResourceType(type="aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")
 public class KeyvaluestoreKey extends com.pulumi.resources.CustomResource {
     /**
-     * Key to put.
+     * The key to put.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return Key to put.
+     * @return The key to put.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     @Export(name="keyValueStoreArn", refs={String.class}, tree="[0]")
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
+     * @return The Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
     public Output<String> keyValueStoreArn() {
@@ -123,14 +59,14 @@ public class KeyvaluestoreKey extends com.pulumi.resources.CustomResource {
         return this.totalSizeInBytes;
     }
     /**
-     * Value to put.
+     * The value to put.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Value to put.
+     * @return The value to put.
      * 
      */
     public Output<String> value() {

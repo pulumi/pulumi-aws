@@ -15,47 +15,23 @@ public final class InsightFiltersFindingProviderFieldsCriticalityArgs extends co
 
     public static final InsightFiltersFindingProviderFieldsCriticalityArgs Empty = new InsightFiltersFindingProviderFieldsCriticalityArgs();
 
-    /**
-     * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     @Import(name="eq")
     private @Nullable Output<String> eq;
 
-    /**
-     * @return The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     public Optional<Output<String>> eq() {
         return Optional.ofNullable(this.eq);
     }
 
-    /**
-     * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     @Import(name="gte")
     private @Nullable Output<String> gte;
 
-    /**
-     * @return The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     public Optional<Output<String>> gte() {
         return Optional.ofNullable(this.gte);
     }
 
-    /**
-     * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     @Import(name="lte")
     private @Nullable Output<String> lte;
 
-    /**
-     * @return The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-     * 
-     */
     public Optional<Output<String>> lte() {
         return Optional.ofNullable(this.lte);
     }
@@ -86,65 +62,29 @@ public final class InsightFiltersFindingProviderFieldsCriticalityArgs extends co
             $ = new InsightFiltersFindingProviderFieldsCriticalityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eq The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eq(@Nullable Output<String> eq) {
             $.eq = eq;
             return this;
         }
 
-        /**
-         * @param eq The equal-to condition to be applied to a single field when querying for findings, provided as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eq(String eq) {
             return eq(Output.of(eq));
         }
 
-        /**
-         * @param gte The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gte(@Nullable Output<String> gte) {
             $.gte = gte;
             return this;
         }
 
-        /**
-         * @param gte The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gte(String gte) {
             return gte(Output.of(gte));
         }
 
-        /**
-         * @param lte The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lte(@Nullable Output<String> lte) {
             $.lte = lte;
             return this;
         }
 
-        /**
-         * @param lte The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lte(String lte) {
             return lte(Output.of(lte));
         }

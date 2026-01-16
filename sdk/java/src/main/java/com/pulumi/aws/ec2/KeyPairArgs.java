@@ -17,77 +17,37 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeyPairArgs Empty = new KeyPairArgs();
 
-    /**
-     * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-     * 
-     */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
-    /**
-     * @return The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-     * 
-     */
     public Optional<Output<String>> keyName() {
         return Optional.ofNullable(this.keyName);
     }
 
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-     * 
-     */
     @Import(name="keyNamePrefix")
     private @Nullable Output<String> keyNamePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-     * 
-     */
     public Optional<Output<String>> keyNamePrefix() {
         return Optional.ofNullable(this.keyNamePrefix);
     }
 
-    /**
-     * The public key material.
-     * 
-     */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
-    /**
-     * @return The public key material.
-     * 
-     */
     public Output<String> publicKey() {
         return this.publicKey;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,107 +80,47 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeyPairArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyName The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyName(@Nullable Output<String> keyName) {
             $.keyName = keyName;
             return this;
         }
 
-        /**
-         * @param keyName The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyName(String keyName) {
             return keyName(Output.of(keyName));
         }
 
-        /**
-         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyNamePrefix(@Nullable Output<String> keyNamePrefix) {
             $.keyNamePrefix = keyNamePrefix;
             return this;
         }
 
-        /**
-         * @param keyNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyNamePrefix(String keyNamePrefix) {
             return keyNamePrefix(Output.of(keyNamePrefix));
         }
 
-        /**
-         * @param publicKey The public key material.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicKey(Output<String> publicKey) {
             $.publicKey = publicKey;
             return this;
         }
 
-        /**
-         * @param publicKey The public key material.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicKey(String publicKey) {
             return publicKey(Output.of(publicKey));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

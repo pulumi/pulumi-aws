@@ -16,81 +16,37 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetPermissionSetPlainArgs Empty = new GetPermissionSetPlainArgs();
 
-    /**
-     * ARN of the permission set.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return ARN of the permission set.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ARN of the SSO Instance associated with the permission set.
-     * 
-     */
     @Import(name="instanceArn", required=true)
     private String instanceArn;
 
-    /**
-     * @return ARN of the SSO Instance associated with the permission set.
-     * 
-     */
     public String instanceArn() {
         return this.instanceArn;
     }
 
-    /**
-     * Name of the SSO Permission Set.
-     * 
-     * &gt; **NOTE:** Either `arn` or `name` must be configured.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the SSO Permission Set.
-     * 
-     * &gt; **NOTE:** Either `arn` or `name` must be configured.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -123,58 +79,26 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetPermissionSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the permission set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param instanceArn ARN of the SSO Instance associated with the permission set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param name Name of the SSO Permission Set.
-         * 
-         * &gt; **NOTE:** Either `arn` or `name` must be configured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

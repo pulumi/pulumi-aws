@@ -13,32 +13,16 @@ public final class GetOrganizationalUnitPlainArgs extends com.pulumi.resources.I
 
     public static final GetOrganizationalUnitPlainArgs Empty = new GetOrganizationalUnitPlainArgs();
 
-    /**
-     * Name of the organizational unit
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the organizational unit
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Parent ID of the organizational unit.
-     * 
-     */
     @Import(name="parentId", required=true)
     private String parentId;
 
-    /**
-     * @return Parent ID of the organizational unit.
-     * 
-     */
     public String parentId() {
         return this.parentId;
     }
@@ -68,23 +52,11 @@ public final class GetOrganizationalUnitPlainArgs extends com.pulumi.resources.I
             $ = new GetOrganizationalUnitPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param parentId Parent ID of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             $.parentId = parentId;
             return this;

@@ -15,32 +15,16 @@ public final class PipelineThumbnailConfigArgs extends com.pulumi.resources.Reso
 
     public static final PipelineThumbnailConfigArgs Empty = new PipelineThumbnailConfigArgs();
 
-    /**
-     * The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-     * 
-     */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
-    /**
-     * @return The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<String>> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }
@@ -70,44 +54,20 @@ public final class PipelineThumbnailConfigArgs extends com.pulumi.resources.Reso
             $ = new PipelineThumbnailConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param storageClass The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(@Nullable Output<String> storageClass) {
             $.storageClass = storageClass;
             return this;
         }
 
-        /**
-         * @param storageClass The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
         }

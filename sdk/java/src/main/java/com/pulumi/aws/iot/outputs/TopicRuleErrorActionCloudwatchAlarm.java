@@ -10,53 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleErrorActionCloudwatchAlarm {
-    /**
-     * @return The CloudWatch alarm name.
-     * 
-     */
     private String alarmName;
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return The reason for the alarm change.
-     * 
-     */
     private String stateReason;
-    /**
-     * @return The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-     * 
-     */
     private String stateValue;
 
     private TopicRuleErrorActionCloudwatchAlarm() {}
-    /**
-     * @return The CloudWatch alarm name.
-     * 
-     */
     public String alarmName() {
         return this.alarmName;
     }
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return The reason for the alarm change.
-     * 
-     */
     public String stateReason() {
         return this.stateReason;
     }
-    /**
-     * @return The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-     * 
-     */
     public String stateValue() {
         return this.stateValue;
     }

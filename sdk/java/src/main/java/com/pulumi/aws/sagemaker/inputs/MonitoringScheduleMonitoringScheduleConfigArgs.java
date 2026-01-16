@@ -17,47 +17,23 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
 
     public static final MonitoringScheduleMonitoringScheduleConfigArgs Empty = new MonitoringScheduleMonitoringScheduleConfigArgs();
 
-    /**
-     * The name of the monitoring job definition to schedule.
-     * 
-     */
     @Import(name="monitoringJobDefinitionName", required=true)
     private Output<String> monitoringJobDefinitionName;
 
-    /**
-     * @return The name of the monitoring job definition to schedule.
-     * 
-     */
     public Output<String> monitoringJobDefinitionName() {
         return this.monitoringJobDefinitionName;
     }
 
-    /**
-     * The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-     * 
-     */
     @Import(name="monitoringType", required=true)
     private Output<String> monitoringType;
 
-    /**
-     * @return The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-     * 
-     */
     public Output<String> monitoringType() {
         return this.monitoringType;
     }
 
-    /**
-     * Configures the monitoring schedule. Fields are documented below.
-     * 
-     */
     @Import(name="scheduleConfig")
     private @Nullable Output<MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs> scheduleConfig;
 
-    /**
-     * @return Configures the monitoring schedule. Fields are documented below.
-     * 
-     */
     public Optional<Output<MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs>> scheduleConfig() {
         return Optional.ofNullable(this.scheduleConfig);
     }
@@ -88,65 +64,29 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
             $ = new MonitoringScheduleMonitoringScheduleConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param monitoringJobDefinitionName The name of the monitoring job definition to schedule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringJobDefinitionName(Output<String> monitoringJobDefinitionName) {
             $.monitoringJobDefinitionName = monitoringJobDefinitionName;
             return this;
         }
 
-        /**
-         * @param monitoringJobDefinitionName The name of the monitoring job definition to schedule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringJobDefinitionName(String monitoringJobDefinitionName) {
             return monitoringJobDefinitionName(Output.of(monitoringJobDefinitionName));
         }
 
-        /**
-         * @param monitoringType The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringType(Output<String> monitoringType) {
             $.monitoringType = monitoringType;
             return this;
         }
 
-        /**
-         * @param monitoringType The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringType(String monitoringType) {
             return monitoringType(Output.of(monitoringType));
         }
 
-        /**
-         * @param scheduleConfig Configures the monitoring schedule. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleConfig(@Nullable Output<MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs> scheduleConfig) {
             $.scheduleConfig = scheduleConfig;
             return this;
         }
 
-        /**
-         * @param scheduleConfig Configures the monitoring schedule. Fields are documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleConfig(MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs scheduleConfig) {
             return scheduleConfig(Output.of(scheduleConfig));
         }

@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sizeConstraintSet = new aws.wafregional.SizeConstraintSet("size_constraint_set", {
- *     name: "tfsize_constraints",
- *     sizeConstraints: [{
- *         textTransformation: "NONE",
- *         comparisonOperator: "EQ",
- *         size: 4096,
- *         fieldToMatch: {
- *             type: "BODY",
- *         },
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
- *
- * ```sh
- * $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- */
 export class SizeConstraintSet extends pulumi.CustomResource {
     /**
      * Get an existing SizeConstraintSet resource's state with the given name, ID, and optional extra
@@ -66,17 +36,8 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name or description of the Size Constraint Set.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Specifies the parts of web requests that you want to inspect the size of.
-     */
     declare public readonly sizeConstraints: pulumi.Output<outputs.wafregional.SizeConstraintSetSizeConstraint[] | undefined>;
 
     /**
@@ -113,17 +74,8 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  */
 export interface SizeConstraintSetState {
     arn?: pulumi.Input<string>;
-    /**
-     * The name or description of the Size Constraint Set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the parts of web requests that you want to inspect the size of.
-     */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
 }
 
@@ -131,16 +83,7 @@ export interface SizeConstraintSetState {
  * The set of arguments for constructing a SizeConstraintSet resource.
  */
 export interface SizeConstraintSetArgs {
-    /**
-     * The name or description of the Size Constraint Set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Specifies the parts of web requests that you want to inspect the size of.
-     */
     sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
 }

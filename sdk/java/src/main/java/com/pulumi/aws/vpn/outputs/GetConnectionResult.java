@@ -16,133 +16,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionResult {
-    /**
-     * @return Category of the VPN connection. A value of VPN indicates an AWS VPN connection. A value of VPN-Classic indicates an AWS Classic VPN connection.
-     * 
-     */
     private String category;
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     private String coreNetworkArn;
-    /**
-     * @return ARN of the core network attachment.
-     * 
-     */
     private String coreNetworkAttachmentArn;
-    /**
-     * @return Configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
-     * 
-     */
     private String customerGatewayConfiguration;
-    /**
-     * @return ID of the customer gateway at your end of the VPN connection.
-     * 
-     */
     private String customerGatewayId;
     private @Nullable List<GetConnectionFilter> filters;
-    /**
-     * @return Current state of the gateway association.
-     * 
-     */
     private String gatewayAssociationState;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
-     * 
-     */
     private String preSharedKeyArn;
     private String region;
-    /**
-     * @return List of static routes associated with the VPN connection.
-     * 
-     */
     private List<GetConnectionRoute> routes;
-    /**
-     * @return Current state of the VPN connection.
-     * 
-     */
     private String state;
-    /**
-     * @return Tags associated to the VPN Connection.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return ID of a transit gateway associated with the VPN connection.
-     * 
-     */
     private String transitGatewayId;
-    /**
-     * @return Type of VPN connection. Currently the only supported type is ipsec.1.
-     * 
-     */
     private String type;
-    /**
-     * @return List of objects containing information about the VPN tunnel.
-     * 
-     */
     private List<GetConnectionVgwTelemetry> vgwTelemetries;
-    /**
-     * @return ID of a VPN concentrator associated with the VPN connection.
-     * 
-     */
     private String vpnConcentratorId;
     private String vpnConnectionId;
-    /**
-     * @return ID of a virtual private gateway associated with the VPN connection.
-     * 
-     */
     private String vpnGatewayId;
 
     private GetConnectionResult() {}
-    /**
-     * @return Category of the VPN connection. A value of VPN indicates an AWS VPN connection. A value of VPN-Classic indicates an AWS Classic VPN connection.
-     * 
-     */
     public String category() {
         return this.category;
     }
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     public String coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * @return ARN of the core network attachment.
-     * 
-     */
     public String coreNetworkAttachmentArn() {
         return this.coreNetworkAttachmentArn;
     }
-    /**
-     * @return Configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
-     * 
-     */
     public String customerGatewayConfiguration() {
         return this.customerGatewayConfiguration;
     }
-    /**
-     * @return ID of the customer gateway at your end of the VPN connection.
-     * 
-     */
     public String customerGatewayId() {
         return this.customerGatewayId;
     }
     public List<GetConnectionFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
-    /**
-     * @return Current state of the gateway association.
-     * 
-     */
     public String gatewayAssociationState() {
         return this.gatewayAssociationState;
     }
@@ -153,72 +69,36 @@ public final class GetConnectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
-     * 
-     */
     public String preSharedKeyArn() {
         return this.preSharedKeyArn;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return List of static routes associated with the VPN connection.
-     * 
-     */
     public List<GetConnectionRoute> routes() {
         return this.routes;
     }
-    /**
-     * @return Current state of the VPN connection.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Tags associated to the VPN Connection.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return ID of a transit gateway associated with the VPN connection.
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * @return Type of VPN connection. Currently the only supported type is ipsec.1.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return List of objects containing information about the VPN tunnel.
-     * 
-     */
     public List<GetConnectionVgwTelemetry> vgwTelemetries() {
         return this.vgwTelemetries;
     }
-    /**
-     * @return ID of a VPN concentrator associated with the VPN connection.
-     * 
-     */
     public String vpnConcentratorId() {
         return this.vpnConcentratorId;
     }
     public String vpnConnectionId() {
         return this.vpnConnectionId;
     }
-    /**
-     * @return ID of a virtual private gateway associated with the VPN connection.
-     * 
-     */
     public String vpnGatewayId() {
         return this.vpnGatewayId;
     }

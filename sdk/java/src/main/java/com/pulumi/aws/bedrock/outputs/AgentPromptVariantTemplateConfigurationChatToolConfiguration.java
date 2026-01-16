@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatToolConfiguration {
-    /**
-     * @return Defines which tools the model should request when invoked. See Tool Choice for more information.
-     * 
-     */
     private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice toolChoice;
-    /**
-     * @return A list of tools to pass to a model. See Tool for more information.
-     * 
-     */
     private @Nullable List<AgentPromptVariantTemplateConfigurationChatToolConfigurationTool> tools;
 
     private AgentPromptVariantTemplateConfigurationChatToolConfiguration() {}
-    /**
-     * @return Defines which tools the model should request when invoked. See Tool Choice for more information.
-     * 
-     */
     public Optional<AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice> toolChoice() {
         return Optional.ofNullable(this.toolChoice);
     }
-    /**
-     * @return A list of tools to pass to a model. See Tool for more information.
-     * 
-     */
     public List<AgentPromptVariantTemplateConfigurationChatToolConfigurationTool> tools() {
         return this.tools == null ? List.of() : this.tools;
     }

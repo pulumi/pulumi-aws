@@ -14,32 +14,16 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
 
     public static final GetProductFilterArgs Empty = new GetProductFilterArgs();
 
-    /**
-     * Product attribute name that you want to filter on.
-     * 
-     */
     @Import(name="field", required=true)
     private Output<String> field;
 
-    /**
-     * @return Product attribute name that you want to filter on.
-     * 
-     */
     public Output<String> field() {
         return this.field;
     }
 
-    /**
-     * Product attribute value that you want to filter on.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Product attribute value that you want to filter on.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
             $ = new GetProductFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param field Product attribute name that you want to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(Output<String> field) {
             $.field = field;
             return this;
         }
 
-        /**
-         * @param field Product attribute name that you want to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder field(String field) {
             return field(Output.of(field));
         }
 
-        /**
-         * @param value Product attribute value that you want to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Product attribute value that you want to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

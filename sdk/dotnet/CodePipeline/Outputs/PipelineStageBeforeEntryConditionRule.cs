@@ -13,37 +13,13 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineStageBeforeEntryConditionRule
     {
-        /// <summary>
-        /// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
-        /// </summary>
         public readonly ImmutableArray<string> Commands;
-        /// <summary>
-        /// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Configuration;
-        /// <summary>
-        /// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
-        /// </summary>
         public readonly ImmutableArray<string> InputArtifacts;
-        /// <summary>
-        /// The name of the rule that is created for the condition, such as `VariableCheck`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The Region for the condition associated with the rule.
-        /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// The pipeline role ARN associated with the rule.
-        /// </summary>
         public readonly string? RoleArn;
-        /// <summary>
-        /// The ID for the rule type, which is made up of the combined values for `Category`, `Owner`, `Provider`, and `Version`. Defined as an `RuleTypeId` block below.
-        /// </summary>
         public readonly Outputs.PipelineStageBeforeEntryConditionRuleRuleTypeId RuleTypeId;
-        /// <summary>
-        /// The action timeout for the rule.
-        /// </summary>
         public readonly int? TimeoutInMinutes;
 
         [OutputConstructor]

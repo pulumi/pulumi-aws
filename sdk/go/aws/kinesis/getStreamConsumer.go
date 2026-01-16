@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a Kinesis Stream Consumer.
-//
-// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.LookupStreamConsumer(ctx, &kinesis.LookupStreamConsumerArgs{
-//				Name:      pulumi.StringRef("example-consumer"),
-//				StreamArn: exampleAwsKinesisStream.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, opts ...pulumi.InvokeOption) (*LookupStreamConsumerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamConsumerResult
@@ -53,27 +23,21 @@ func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, o
 
 // A collection of arguments for invoking getStreamConsumer.
 type LookupStreamConsumerArgs struct {
-	// ARN of the stream consumer.
-	Arn *string `pulumi:"arn"`
-	// Name of the stream consumer.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the data stream the consumer is registered with.
+	Arn       *string           `pulumi:"arn"`
+	Name      *string           `pulumi:"name"`
+	Region    *string           `pulumi:"region"`
 	StreamArn string            `pulumi:"streamArn"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStreamConsumer.
 type LookupStreamConsumerResult struct {
-	Arn string `pulumi:"arn"`
-	// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
+	Arn               string `pulumi:"arn"`
 	CreationTimestamp string `pulumi:"creationTimestamp"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// Current status of the stream consumer.
+	Id        string            `pulumi:"id"`
+	Name      string            `pulumi:"name"`
+	Region    string            `pulumi:"region"`
 	Status    string            `pulumi:"status"`
 	StreamArn string            `pulumi:"streamArn"`
 	Tags      map[string]string `pulumi:"tags"`
@@ -90,13 +54,9 @@ func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOu
 
 // A collection of arguments for invoking getStreamConsumer.
 type LookupStreamConsumerOutputArgs struct {
-	// ARN of the stream consumer.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Name of the stream consumer.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ARN of the data stream the consumer is registered with.
+	Arn       pulumi.StringPtrInput `pulumi:"arn"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	StreamArn pulumi.StringInput    `pulumi:"streamArn"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -124,7 +84,6 @@ func (o LookupStreamConsumerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
 func (o LookupStreamConsumerResultOutput) CreationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.CreationTimestamp }).(pulumi.StringOutput)
 }
@@ -142,7 +101,6 @@ func (o LookupStreamConsumerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Current status of the stream consumer.
 func (o LookupStreamConsumerResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamConsumerResult) string { return v.Status }).(pulumi.StringOutput)
 }

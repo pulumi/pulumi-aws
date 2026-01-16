@@ -15,17 +15,9 @@ public final class ReplicatorReplicationInfoListTopicReplicationStartingPosition
 
     public static final ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs Empty = new ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs();
 
-    /**
-     * The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -54,23 +46,11 @@ public final class ReplicatorReplicationInfoListTopicReplicationStartingPosition
             $ = new ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

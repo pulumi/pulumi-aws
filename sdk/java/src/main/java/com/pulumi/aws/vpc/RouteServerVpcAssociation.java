@@ -15,81 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.vpc.RouteServerVpcAssociation;
- * import com.pulumi.aws.vpc.RouteServerVpcAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RouteServerVpcAssociation("example", RouteServerVpcAssociationArgs.builder()
- *             .routeServerId(exampleAwsVpcRouteServer.routeServerId())
- *             .vpcId(exampleAwsVpc.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
- * 
- * ```sh
- * $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
- * ```
- * 
- */
 @ResourceType(type="aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation")
 public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The unique identifier for the route server to be associated.
-     * 
-     */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
-    /**
-     * @return The unique identifier for the route server to be associated.
-     * 
-     */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
@@ -99,21 +35,9 @@ public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResour
     public Output<Optional<RouteServerVpcAssociationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * The ID of the VPC to associate with the route server.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to associate with the route server.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

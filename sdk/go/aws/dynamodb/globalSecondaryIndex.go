@@ -12,59 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `index_name` (String) Name of the index.
-//
-// * `table_name` (String) Name of the table this index belongs to.
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// * `region` (String) Region where this resource is managed.
-//
-// Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
-//
-// % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
 type GlobalSecondaryIndex struct {
 	pulumi.CustomResourceState
 
-	// ARN of the GSI.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the index.
-	IndexName pulumi.StringOutput `pulumi:"indexName"`
-	// Set of nested attribute definitions.
-	// At least 1 element defining a `HASH` is required.
-	// All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-	// Changing any values in `keySchema` will re-create the resource.
-	// See `keySchema` below.
-	KeySchemas GlobalSecondaryIndexKeySchemaArrayOutput `pulumi:"keySchemas"`
-	// Sets the maximum number of read and write units for the index.
-	// See `onDemandThroughput` below.
-	// Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
-	OnDemandThroughput GlobalSecondaryIndexOnDemandThroughputPtrOutput `pulumi:"onDemandThroughput"`
-	// Describes which attributes from the table are represented in the index.
-	// See `projection` below.
-	Projection GlobalSecondaryIndexProjectionPtrOutput `pulumi:"projection"`
-	// Provisioned throughput for the index.
-	// See `provisionedThroughput` below.
-	// Required if the table's `billingMode` is `PROVISIONED`.
+	Arn                   pulumi.StringOutput                                `pulumi:"arn"`
+	IndexName             pulumi.StringOutput                                `pulumi:"indexName"`
+	KeySchemas            GlobalSecondaryIndexKeySchemaArrayOutput           `pulumi:"keySchemas"`
+	OnDemandThroughput    GlobalSecondaryIndexOnDemandThroughputPtrOutput    `pulumi:"onDemandThroughput"`
+	Projection            GlobalSecondaryIndexProjectionPtrOutput            `pulumi:"projection"`
 	ProvisionedThroughput GlobalSecondaryIndexProvisionedThroughputPtrOutput `pulumi:"provisionedThroughput"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the table this index belongs to.
-	//
-	// The following arguments are optional:
-	TableName pulumi.StringOutput                   `pulumi:"tableName"`
-	Timeouts  GlobalSecondaryIndexTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Sets the number of warm read and write units for this index.
-	// See `warmThroughput` below.
-	WarmThroughput GlobalSecondaryIndexWarmThroughputOutput `pulumi:"warmThroughput"`
+	Region                pulumi.StringOutput                                `pulumi:"region"`
+	TableName             pulumi.StringOutput                                `pulumi:"tableName"`
+	Timeouts              GlobalSecondaryIndexTimeoutsPtrOutput              `pulumi:"timeouts"`
+	WarmThroughput        GlobalSecondaryIndexWarmThroughputOutput           `pulumi:"warmThroughput"`
 }
 
 // NewGlobalSecondaryIndex registers a new resource with the given unique name, arguments, and options.
@@ -103,71 +63,29 @@ func GetGlobalSecondaryIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalSecondaryIndex resources.
 type globalSecondaryIndexState struct {
-	// ARN of the GSI.
-	Arn *string `pulumi:"arn"`
-	// Name of the index.
-	IndexName *string `pulumi:"indexName"`
-	// Set of nested attribute definitions.
-	// At least 1 element defining a `HASH` is required.
-	// All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-	// Changing any values in `keySchema` will re-create the resource.
-	// See `keySchema` below.
-	KeySchemas []GlobalSecondaryIndexKeySchema `pulumi:"keySchemas"`
-	// Sets the maximum number of read and write units for the index.
-	// See `onDemandThroughput` below.
-	// Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
-	OnDemandThroughput *GlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
-	// Describes which attributes from the table are represented in the index.
-	// See `projection` below.
-	Projection *GlobalSecondaryIndexProjection `pulumi:"projection"`
-	// Provisioned throughput for the index.
-	// See `provisionedThroughput` below.
-	// Required if the table's `billingMode` is `PROVISIONED`.
+	Arn                   *string                                    `pulumi:"arn"`
+	IndexName             *string                                    `pulumi:"indexName"`
+	KeySchemas            []GlobalSecondaryIndexKeySchema            `pulumi:"keySchemas"`
+	OnDemandThroughput    *GlobalSecondaryIndexOnDemandThroughput    `pulumi:"onDemandThroughput"`
+	Projection            *GlobalSecondaryIndexProjection            `pulumi:"projection"`
 	ProvisionedThroughput *GlobalSecondaryIndexProvisionedThroughput `pulumi:"provisionedThroughput"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the table this index belongs to.
-	//
-	// The following arguments are optional:
-	TableName *string                       `pulumi:"tableName"`
-	Timeouts  *GlobalSecondaryIndexTimeouts `pulumi:"timeouts"`
-	// Sets the number of warm read and write units for this index.
-	// See `warmThroughput` below.
-	WarmThroughput *GlobalSecondaryIndexWarmThroughput `pulumi:"warmThroughput"`
+	Region                *string                                    `pulumi:"region"`
+	TableName             *string                                    `pulumi:"tableName"`
+	Timeouts              *GlobalSecondaryIndexTimeouts              `pulumi:"timeouts"`
+	WarmThroughput        *GlobalSecondaryIndexWarmThroughput        `pulumi:"warmThroughput"`
 }
 
 type GlobalSecondaryIndexState struct {
-	// ARN of the GSI.
-	Arn pulumi.StringPtrInput
-	// Name of the index.
-	IndexName pulumi.StringPtrInput
-	// Set of nested attribute definitions.
-	// At least 1 element defining a `HASH` is required.
-	// All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-	// Changing any values in `keySchema` will re-create the resource.
-	// See `keySchema` below.
-	KeySchemas GlobalSecondaryIndexKeySchemaArrayInput
-	// Sets the maximum number of read and write units for the index.
-	// See `onDemandThroughput` below.
-	// Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
-	OnDemandThroughput GlobalSecondaryIndexOnDemandThroughputPtrInput
-	// Describes which attributes from the table are represented in the index.
-	// See `projection` below.
-	Projection GlobalSecondaryIndexProjectionPtrInput
-	// Provisioned throughput for the index.
-	// See `provisionedThroughput` below.
-	// Required if the table's `billingMode` is `PROVISIONED`.
+	Arn                   pulumi.StringPtrInput
+	IndexName             pulumi.StringPtrInput
+	KeySchemas            GlobalSecondaryIndexKeySchemaArrayInput
+	OnDemandThroughput    GlobalSecondaryIndexOnDemandThroughputPtrInput
+	Projection            GlobalSecondaryIndexProjectionPtrInput
 	ProvisionedThroughput GlobalSecondaryIndexProvisionedThroughputPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the table this index belongs to.
-	//
-	// The following arguments are optional:
-	TableName pulumi.StringPtrInput
-	Timeouts  GlobalSecondaryIndexTimeoutsPtrInput
-	// Sets the number of warm read and write units for this index.
-	// See `warmThroughput` below.
-	WarmThroughput GlobalSecondaryIndexWarmThroughputPtrInput
+	Region                pulumi.StringPtrInput
+	TableName             pulumi.StringPtrInput
+	Timeouts              GlobalSecondaryIndexTimeoutsPtrInput
+	WarmThroughput        GlobalSecondaryIndexWarmThroughputPtrInput
 }
 
 func (GlobalSecondaryIndexState) ElementType() reflect.Type {
@@ -175,68 +93,28 @@ func (GlobalSecondaryIndexState) ElementType() reflect.Type {
 }
 
 type globalSecondaryIndexArgs struct {
-	// Name of the index.
-	IndexName string `pulumi:"indexName"`
-	// Set of nested attribute definitions.
-	// At least 1 element defining a `HASH` is required.
-	// All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-	// Changing any values in `keySchema` will re-create the resource.
-	// See `keySchema` below.
-	KeySchemas []GlobalSecondaryIndexKeySchema `pulumi:"keySchemas"`
-	// Sets the maximum number of read and write units for the index.
-	// See `onDemandThroughput` below.
-	// Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
-	OnDemandThroughput *GlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
-	// Describes which attributes from the table are represented in the index.
-	// See `projection` below.
-	Projection *GlobalSecondaryIndexProjection `pulumi:"projection"`
-	// Provisioned throughput for the index.
-	// See `provisionedThroughput` below.
-	// Required if the table's `billingMode` is `PROVISIONED`.
+	IndexName             string                                     `pulumi:"indexName"`
+	KeySchemas            []GlobalSecondaryIndexKeySchema            `pulumi:"keySchemas"`
+	OnDemandThroughput    *GlobalSecondaryIndexOnDemandThroughput    `pulumi:"onDemandThroughput"`
+	Projection            *GlobalSecondaryIndexProjection            `pulumi:"projection"`
 	ProvisionedThroughput *GlobalSecondaryIndexProvisionedThroughput `pulumi:"provisionedThroughput"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Name of the table this index belongs to.
-	//
-	// The following arguments are optional:
-	TableName string                        `pulumi:"tableName"`
-	Timeouts  *GlobalSecondaryIndexTimeouts `pulumi:"timeouts"`
-	// Sets the number of warm read and write units for this index.
-	// See `warmThroughput` below.
-	WarmThroughput *GlobalSecondaryIndexWarmThroughput `pulumi:"warmThroughput"`
+	Region                *string                                    `pulumi:"region"`
+	TableName             string                                     `pulumi:"tableName"`
+	Timeouts              *GlobalSecondaryIndexTimeouts              `pulumi:"timeouts"`
+	WarmThroughput        *GlobalSecondaryIndexWarmThroughput        `pulumi:"warmThroughput"`
 }
 
 // The set of arguments for constructing a GlobalSecondaryIndex resource.
 type GlobalSecondaryIndexArgs struct {
-	// Name of the index.
-	IndexName pulumi.StringInput
-	// Set of nested attribute definitions.
-	// At least 1 element defining a `HASH` is required.
-	// All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-	// Changing any values in `keySchema` will re-create the resource.
-	// See `keySchema` below.
-	KeySchemas GlobalSecondaryIndexKeySchemaArrayInput
-	// Sets the maximum number of read and write units for the index.
-	// See `onDemandThroughput` below.
-	// Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
-	OnDemandThroughput GlobalSecondaryIndexOnDemandThroughputPtrInput
-	// Describes which attributes from the table are represented in the index.
-	// See `projection` below.
-	Projection GlobalSecondaryIndexProjectionPtrInput
-	// Provisioned throughput for the index.
-	// See `provisionedThroughput` below.
-	// Required if the table's `billingMode` is `PROVISIONED`.
+	IndexName             pulumi.StringInput
+	KeySchemas            GlobalSecondaryIndexKeySchemaArrayInput
+	OnDemandThroughput    GlobalSecondaryIndexOnDemandThroughputPtrInput
+	Projection            GlobalSecondaryIndexProjectionPtrInput
 	ProvisionedThroughput GlobalSecondaryIndexProvisionedThroughputPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Name of the table this index belongs to.
-	//
-	// The following arguments are optional:
-	TableName pulumi.StringInput
-	Timeouts  GlobalSecondaryIndexTimeoutsPtrInput
-	// Sets the number of warm read and write units for this index.
-	// See `warmThroughput` below.
-	WarmThroughput GlobalSecondaryIndexWarmThroughputPtrInput
+	Region                pulumi.StringPtrInput
+	TableName             pulumi.StringInput
+	Timeouts              GlobalSecondaryIndexTimeoutsPtrInput
+	WarmThroughput        GlobalSecondaryIndexWarmThroughputPtrInput
 }
 
 func (GlobalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -326,57 +204,38 @@ func (o GlobalSecondaryIndexOutput) ToGlobalSecondaryIndexOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the GSI.
 func (o GlobalSecondaryIndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the index.
 func (o GlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) pulumi.StringOutput { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Set of nested attribute definitions.
-// At least 1 element defining a `HASH` is required.
-// All elements with the `keyType` of `HASH` must precede elements with `keyType` of `RANGE`.
-// Changing any values in `keySchema` will re-create the resource.
-// See `keySchema` below.
 func (o GlobalSecondaryIndexOutput) KeySchemas() GlobalSecondaryIndexKeySchemaArrayOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) GlobalSecondaryIndexKeySchemaArrayOutput { return v.KeySchemas }).(GlobalSecondaryIndexKeySchemaArrayOutput)
 }
 
-// Sets the maximum number of read and write units for the index.
-// See `onDemandThroughput` below.
-// Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
 func (o GlobalSecondaryIndexOutput) OnDemandThroughput() GlobalSecondaryIndexOnDemandThroughputPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) GlobalSecondaryIndexOnDemandThroughputPtrOutput {
 		return v.OnDemandThroughput
 	}).(GlobalSecondaryIndexOnDemandThroughputPtrOutput)
 }
 
-// Describes which attributes from the table are represented in the index.
-// See `projection` below.
 func (o GlobalSecondaryIndexOutput) Projection() GlobalSecondaryIndexProjectionPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) GlobalSecondaryIndexProjectionPtrOutput { return v.Projection }).(GlobalSecondaryIndexProjectionPtrOutput)
 }
 
-// Provisioned throughput for the index.
-// See `provisionedThroughput` below.
-// Required if the table's `billingMode` is `PROVISIONED`.
 func (o GlobalSecondaryIndexOutput) ProvisionedThroughput() GlobalSecondaryIndexProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) GlobalSecondaryIndexProvisionedThroughputPtrOutput {
 		return v.ProvisionedThroughput
 	}).(GlobalSecondaryIndexProvisionedThroughputPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlobalSecondaryIndexOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the table this index belongs to.
-//
-// The following arguments are optional:
 func (o GlobalSecondaryIndexOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
@@ -385,8 +244,6 @@ func (o GlobalSecondaryIndexOutput) Timeouts() GlobalSecondaryIndexTimeoutsPtrOu
 	return o.ApplyT(func(v *GlobalSecondaryIndex) GlobalSecondaryIndexTimeoutsPtrOutput { return v.Timeouts }).(GlobalSecondaryIndexTimeoutsPtrOutput)
 }
 
-// Sets the number of warm read and write units for this index.
-// See `warmThroughput` below.
 func (o GlobalSecondaryIndexOutput) WarmThroughput() GlobalSecondaryIndexWarmThroughputOutput {
 	return o.ApplyT(func(v *GlobalSecondaryIndex) GlobalSecondaryIndexWarmThroughputOutput { return v.WarmThroughput }).(GlobalSecondaryIndexWarmThroughputOutput)
 }

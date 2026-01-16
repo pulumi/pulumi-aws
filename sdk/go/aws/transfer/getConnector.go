@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS Transfer Family Connector.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.LookupConnector(ctx, &transfer.LookupConnectorArgs{
-//				Id: "c-xxxxxxxxxxxxxx",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectorResult
@@ -50,36 +23,24 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 
 // A collection of arguments for invoking getConnector.
 type LookupConnectorArgs struct {
-	// Unique identifier for connector
-	Id string `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConnector.
 type LookupConnectorResult struct {
-	// ARN of the AWS Identity and Access Management role.
-	AccessRole string `pulumi:"accessRole"`
-	// ARN of the Connector.
-	Arn string `pulumi:"arn"`
-	// Structure containing the parameters for an AS2 connector object. Contains the following attributes:
-	As2Configs []GetConnectorAs2Config `pulumi:"as2Configs"`
-	// Egress configuration for the connector. Contains the following attributes:
-	EgressConfigs []GetConnectorEgressConfig `pulumi:"egressConfigs"`
-	Id            string                     `pulumi:"id"`
-	// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
-	LoggingRole string `pulumi:"loggingRole"`
-	Region      string `pulumi:"region"`
-	// Name of security policy.
-	SecurityPolicyName string `pulumi:"securityPolicyName"`
-	// List of egress Ip addresses.
-	ServiceManagedEgressIpAddresses []string `pulumi:"serviceManagedEgressIpAddresses"`
-	// Object containing the following attributes:
-	SftpConfigs []GetConnectorSftpConfig `pulumi:"sftpConfigs"`
-	// Object containing the following attributes:
-	Tags map[string]string `pulumi:"tags"`
-	// URL of the partner's AS2 or SFTP endpoint.
-	Url string `pulumi:"url"`
+	AccessRole                      string                     `pulumi:"accessRole"`
+	Arn                             string                     `pulumi:"arn"`
+	As2Configs                      []GetConnectorAs2Config    `pulumi:"as2Configs"`
+	EgressConfigs                   []GetConnectorEgressConfig `pulumi:"egressConfigs"`
+	Id                              string                     `pulumi:"id"`
+	LoggingRole                     string                     `pulumi:"loggingRole"`
+	Region                          string                     `pulumi:"region"`
+	SecurityPolicyName              string                     `pulumi:"securityPolicyName"`
+	ServiceManagedEgressIpAddresses []string                   `pulumi:"serviceManagedEgressIpAddresses"`
+	SftpConfigs                     []GetConnectorSftpConfig   `pulumi:"sftpConfigs"`
+	Tags                            map[string]string          `pulumi:"tags"`
+	Url                             string                     `pulumi:"url"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -93,9 +54,7 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 
 // A collection of arguments for invoking getConnector.
 type LookupConnectorOutputArgs struct {
-	// Unique identifier for connector
-	Id pulumi.StringInput `pulumi:"id"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Id     pulumi.StringInput    `pulumi:"id"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -118,22 +77,18 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
-// ARN of the AWS Identity and Access Management role.
 func (o LookupConnectorResultOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.AccessRole }).(pulumi.StringOutput)
 }
 
-// ARN of the Connector.
 func (o LookupConnectorResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Structure containing the parameters for an AS2 connector object. Contains the following attributes:
 func (o LookupConnectorResultOutput) As2Configs() GetConnectorAs2ConfigArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []GetConnectorAs2Config { return v.As2Configs }).(GetConnectorAs2ConfigArrayOutput)
 }
 
-// Egress configuration for the connector. Contains the following attributes:
 func (o LookupConnectorResultOutput) EgressConfigs() GetConnectorEgressConfigArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []GetConnectorEgressConfig { return v.EgressConfigs }).(GetConnectorEgressConfigArrayOutput)
 }
@@ -142,7 +97,6 @@ func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
 func (o LookupConnectorResultOutput) LoggingRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.LoggingRole }).(pulumi.StringOutput)
 }
@@ -151,27 +105,22 @@ func (o LookupConnectorResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of security policy.
 func (o LookupConnectorResultOutput) SecurityPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.SecurityPolicyName }).(pulumi.StringOutput)
 }
 
-// List of egress Ip addresses.
 func (o LookupConnectorResultOutput) ServiceManagedEgressIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []string { return v.ServiceManagedEgressIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Object containing the following attributes:
 func (o LookupConnectorResultOutput) SftpConfigs() GetConnectorSftpConfigArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []GetConnectorSftpConfig { return v.SftpConfigs }).(GetConnectorSftpConfigArrayOutput)
 }
 
-// Object containing the following attributes:
 func (o LookupConnectorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// URL of the partner's AS2 or SFTP endpoint.
 func (o LookupConnectorResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Url }).(pulumi.StringOutput)
 }

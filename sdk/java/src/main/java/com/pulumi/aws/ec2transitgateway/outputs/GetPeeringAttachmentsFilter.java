@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPeeringAttachmentsFilter {
-    /**
-     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
-     * 
-     */
     private String name;
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     private List<String> values;
 
     private GetPeeringAttachmentsFilter() {}
-    /**
-     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of one or more values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

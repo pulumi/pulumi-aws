@@ -15,17 +15,9 @@ public final class LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs e
 
     public static final LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs Empty = new LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs();
 
-    /**
-     * The ARN of the S3 bucket to which the logs should be delivered.
-     * 
-     */
     @Import(name="bucketArn")
     private @Nullable Output<String> bucketArn;
 
-    /**
-     * @return The ARN of the S3 bucket to which the logs should be delivered.
-     * 
-     */
     public Optional<Output<String>> bucketArn() {
         return Optional.ofNullable(this.bucketArn);
     }
@@ -54,23 +46,11 @@ public final class LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs e
             $ = new LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketArn The ARN of the S3 bucket to which the logs should be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(@Nullable Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn The ARN of the S3 bucket to which the logs should be delivered.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }

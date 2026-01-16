@@ -15,47 +15,23 @@ public final class PlanScanSettingArgs extends com.pulumi.resources.ResourceArgs
 
     public static final PlanScanSettingArgs Empty = new PlanScanSettingArgs();
 
-    /**
-     * Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     @Import(name="malwareScanner", required=true)
     private Output<String> malwareScanner;
 
-    /**
-     * @return Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     public Output<String> malwareScanner() {
         return this.malwareScanner;
     }
 
-    /**
-     * List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-     * 
-     */
     @Import(name="resourceTypes", required=true)
     private Output<List<String>> resourceTypes;
 
-    /**
-     * @return List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-     * 
-     */
     public Output<List<String>> resourceTypes() {
         return this.resourceTypes;
     }
 
-    /**
-     * ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-     * 
-     */
     @Import(name="scannerRoleArn", required=true)
     private Output<String> scannerRoleArn;
 
-    /**
-     * @return ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-     * 
-     */
     public Output<String> scannerRoleArn() {
         return this.scannerRoleArn;
     }
@@ -86,75 +62,33 @@ public final class PlanScanSettingArgs extends com.pulumi.resources.ResourceArgs
             $ = new PlanScanSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param malwareScanner Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareScanner(Output<String> malwareScanner) {
             $.malwareScanner = malwareScanner;
             return this;
         }
 
-        /**
-         * @param malwareScanner Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-         * 
-         * @return builder
-         * 
-         */
         public Builder malwareScanner(String malwareScanner) {
             return malwareScanner(Output.of(malwareScanner));
         }
 
-        /**
-         * @param resourceTypes List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
-        /**
-         * @param resourceTypes List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
-        /**
-         * @param resourceTypes List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }
 
-        /**
-         * @param scannerRoleArn ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scannerRoleArn(Output<String> scannerRoleArn) {
             $.scannerRoleArn = scannerRoleArn;
             return this;
         }
 
-        /**
-         * @param scannerRoleArn ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scannerRoleArn(String scannerRoleArn) {
             return scannerRoleArn(Output.of(scannerRoleArn));
         }

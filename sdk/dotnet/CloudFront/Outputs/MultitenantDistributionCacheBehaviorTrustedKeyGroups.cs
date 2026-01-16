@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class MultitenantDistributionCacheBehaviorTrustedKeyGroups
     {
-        /// <summary>
-        /// Whether the distribution is enabled to accept end user requests for content.
-        /// </summary>
         public readonly bool? Enabled;
         public readonly ImmutableArray<string> Items;
 

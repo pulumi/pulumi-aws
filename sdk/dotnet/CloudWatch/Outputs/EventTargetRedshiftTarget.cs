@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetRedshiftTarget
     {
-        /// <summary>
-        /// The name of the database.
-        /// </summary>
         public readonly string Database;
-        /// <summary>
-        /// The database user name.
-        /// </summary>
         public readonly string? DbUser;
-        /// <summary>
-        /// The name or ARN of the secret that enables access to the database.
-        /// </summary>
         public readonly string? SecretsManagerArn;
-        /// <summary>
-        /// The SQL statement text to run.
-        /// </summary>
         public readonly string? Sql;
-        /// <summary>
-        /// The name of the SQL statement.
-        /// </summary>
         public readonly string? StatementName;
-        /// <summary>
-        /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        /// </summary>
         public readonly bool? WithEvent;
 
         [OutputConstructor]

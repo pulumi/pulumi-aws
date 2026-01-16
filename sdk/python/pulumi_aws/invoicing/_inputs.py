@@ -26,9 +26,6 @@ MYPY = False
 if not MYPY:
     class InvoiceUnitRuleArgsDict(TypedDict):
         linked_accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Set of AWS account IDs included in this invoice unit.
-        """
 elif False:
     InvoiceUnitRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -36,17 +33,11 @@ elif False:
 class InvoiceUnitRuleArgs:
     def __init__(__self__, *,
                  linked_accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_accounts: Set of AWS account IDs included in this invoice unit.
-        """
         pulumi.set(__self__, "linked_accounts", linked_accounts)
 
     @_builtins.property
     @pulumi.getter(name="linkedAccounts")
     def linked_accounts(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of AWS account IDs included in this invoice unit.
-        """
         return pulumi.get(self, "linked_accounts")
 
     @linked_accounts.setter

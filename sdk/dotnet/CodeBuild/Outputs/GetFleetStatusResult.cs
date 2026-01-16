@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class GetFleetStatusResult
     {
-        /// <summary>
-        /// Additional information about a compute fleet.
-        /// </summary>
         public readonly string Context;
-        /// <summary>
-        /// Message associated with the status of a compute fleet.
-        /// </summary>
         public readonly string Message;
-        /// <summary>
-        /// Status code of the compute fleet.
-        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]

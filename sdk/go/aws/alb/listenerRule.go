@@ -12,30 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Load Balancer Listener Rule resource.
-//
-// > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
-	// An Action block. Action blocks are documented below.
-	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
-	// The ARN of the rule (matches `id`)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-	Conditions ListenerRuleConditionArrayOutput `pulumi:"conditions"`
-	// The ARN of the listener to which to attach the rule.
-	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
-	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-	Transforms ListenerRuleTransformArrayOutput `pulumi:"transforms"`
+	Actions     ListenerRuleActionArrayOutput    `pulumi:"actions"`
+	Arn         pulumi.StringOutput              `pulumi:"arn"`
+	Conditions  ListenerRuleConditionArrayOutput `pulumi:"conditions"`
+	ListenerArn pulumi.StringOutput              `pulumi:"listenerArn"`
+	Priority    pulumi.IntOutput                 `pulumi:"priority"`
+	Region      pulumi.StringOutput              `pulumi:"region"`
+	Tags        pulumi.StringMapOutput           `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	Transforms  ListenerRuleTransformArrayOutput `pulumi:"transforms"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -83,45 +71,27 @@ func GetListenerRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ListenerRule resources.
 type listenerRuleState struct {
-	// An Action block. Action blocks are documented below.
-	Actions []ListenerRuleAction `pulumi:"actions"`
-	// The ARN of the rule (matches `id`)
-	Arn *string `pulumi:"arn"`
-	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-	Conditions []ListenerRuleCondition `pulumi:"conditions"`
-	// The ARN of the listener to which to attach the rule.
-	ListenerArn *string `pulumi:"listenerArn"`
-	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-	Transforms []ListenerRuleTransform `pulumi:"transforms"`
+	Actions     []ListenerRuleAction    `pulumi:"actions"`
+	Arn         *string                 `pulumi:"arn"`
+	Conditions  []ListenerRuleCondition `pulumi:"conditions"`
+	ListenerArn *string                 `pulumi:"listenerArn"`
+	Priority    *int                    `pulumi:"priority"`
+	Region      *string                 `pulumi:"region"`
+	Tags        map[string]string       `pulumi:"tags"`
+	TagsAll     map[string]string       `pulumi:"tagsAll"`
+	Transforms  []ListenerRuleTransform `pulumi:"transforms"`
 }
 
 type ListenerRuleState struct {
-	// An Action block. Action blocks are documented below.
-	Actions ListenerRuleActionArrayInput
-	// The ARN of the rule (matches `id`)
-	Arn pulumi.StringPtrInput
-	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-	Conditions ListenerRuleConditionArrayInput
-	// The ARN of the listener to which to attach the rule.
+	Actions     ListenerRuleActionArrayInput
+	Arn         pulumi.StringPtrInput
+	Conditions  ListenerRuleConditionArrayInput
 	ListenerArn pulumi.StringPtrInput
-	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-	Priority pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-	Transforms ListenerRuleTransformArrayInput
+	Priority    pulumi.IntPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	Transforms  ListenerRuleTransformArrayInput
 }
 
 func (ListenerRuleState) ElementType() reflect.Type {
@@ -129,38 +99,24 @@ func (ListenerRuleState) ElementType() reflect.Type {
 }
 
 type listenerRuleArgs struct {
-	// An Action block. Action blocks are documented below.
-	Actions []ListenerRuleAction `pulumi:"actions"`
-	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-	Conditions []ListenerRuleCondition `pulumi:"conditions"`
-	// The ARN of the listener to which to attach the rule.
-	ListenerArn string `pulumi:"listenerArn"`
-	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-	Priority *int `pulumi:"priority"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-	Transforms []ListenerRuleTransform `pulumi:"transforms"`
+	Actions     []ListenerRuleAction    `pulumi:"actions"`
+	Conditions  []ListenerRuleCondition `pulumi:"conditions"`
+	ListenerArn string                  `pulumi:"listenerArn"`
+	Priority    *int                    `pulumi:"priority"`
+	Region      *string                 `pulumi:"region"`
+	Tags        map[string]string       `pulumi:"tags"`
+	Transforms  []ListenerRuleTransform `pulumi:"transforms"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
 type ListenerRuleArgs struct {
-	// An Action block. Action blocks are documented below.
-	Actions ListenerRuleActionArrayInput
-	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-	Conditions ListenerRuleConditionArrayInput
-	// The ARN of the listener to which to attach the rule.
+	Actions     ListenerRuleActionArrayInput
+	Conditions  ListenerRuleConditionArrayInput
 	ListenerArn pulumi.StringInput
-	// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-	Priority pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-	Transforms ListenerRuleTransformArrayInput
+	Priority    pulumi.IntPtrInput
+	Region      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	Transforms  ListenerRuleTransformArrayInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
@@ -250,47 +206,38 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// An Action block. Action blocks are documented below.
 func (o ListenerRuleOutput) Actions() ListenerRuleActionArrayOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleActionArrayOutput { return v.Actions }).(ListenerRuleActionArrayOutput)
 }
 
-// The ARN of the rule (matches `id`)
 func (o ListenerRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 func (o ListenerRuleOutput) Conditions() ListenerRuleConditionArrayOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleConditionArrayOutput { return v.Conditions }).(ListenerRuleConditionArrayOutput)
 }
 
-// The ARN of the listener to which to attach the rule.
 func (o ListenerRuleOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
-// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
 func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ListenerRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ListenerRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ListenerRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
 func (o ListenerRuleOutput) Transforms() ListenerRuleTransformArrayOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleTransformArrayOutput { return v.Transforms }).(ListenerRuleTransformArrayOutput)
 }

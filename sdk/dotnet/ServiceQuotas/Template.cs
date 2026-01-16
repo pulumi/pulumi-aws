@@ -9,96 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceQuotas
 {
-    /// <summary>
-    /// Resource for managing an AWS Service Quotas Template.
-    /// 
-    /// &gt; Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceQuotas.Template("example", new()
-    ///     {
-    ///         AwsRegion = "us-east-1",
-    ///         QuotaCode = "L-2ACBD22F",
-    ///         ServiceCode = "lambda",
-    ///         Value = 80,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Service Quotas Template using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicequotas/template:Template")]
     public partial class Template : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS Region to which the template applies.
-        /// </summary>
         [Output("awsRegion")]
         public Output<string> AwsRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the quota is global.
-        /// </summary>
         [Output("globalQuota")]
         public Output<bool> GlobalQuota { get; private set; } = null!;
 
-        /// <summary>
-        /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-        /// </summary>
         [Output("quotaCode")]
         public Output<string> QuotaCode { get; private set; } = null!;
 
-        /// <summary>
-        /// Quota name.
-        /// </summary>
         [Output("quotaName")]
         public Output<string> QuotaName { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Region to which the template applies. Use `aws.getRegion` instead.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-        /// </summary>
         [Output("serviceCode")]
         public Output<string> ServiceCode { get; private set; } = null!;
 
-        /// <summary>
-        /// Service name.
-        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Unit of measurement.
-        /// </summary>
         [Output("unit")]
         public Output<string> Unit { get; private set; } = null!;
 
-        /// <summary>
-        /// The new, increased value for the quota.
-        /// </summary>
         [Output("value")]
         public Output<double> Value { get; private set; } = null!;
 
@@ -148,33 +85,18 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS Region to which the template applies.
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-        /// </summary>
         [Input("quotaCode", required: true)]
         public Input<string> QuotaCode { get; set; } = null!;
 
-        /// <summary>
-        /// AWS Region to which the template applies. Use `aws.getRegion` instead.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-        /// </summary>
         [Input("serviceCode", required: true)]
         public Input<string> ServiceCode { get; set; } = null!;
 
-        /// <summary>
-        /// The new, increased value for the quota.
-        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 
@@ -186,57 +108,30 @@ namespace Pulumi.Aws.ServiceQuotas
 
     public sealed class TemplateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS Region to which the template applies.
-        /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
 
-        /// <summary>
-        /// Indicates whether the quota is global.
-        /// </summary>
         [Input("globalQuota")]
         public Input<bool>? GlobalQuota { get; set; }
 
-        /// <summary>
-        /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
-        /// </summary>
         [Input("quotaCode")]
         public Input<string>? QuotaCode { get; set; }
 
-        /// <summary>
-        /// Quota name.
-        /// </summary>
         [Input("quotaName")]
         public Input<string>? QuotaName { get; set; }
 
-        /// <summary>
-        /// AWS Region to which the template applies. Use `aws.getRegion` instead.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
-        /// </summary>
         [Input("serviceCode")]
         public Input<string>? ServiceCode { get; set; }
 
-        /// <summary>
-        /// Service name.
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
-        /// <summary>
-        /// Unit of measurement.
-        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
-        /// <summary>
-        /// The new, increased value for the quota.
-        /// </summary>
         [Input("value")]
         public Input<double>? Value { get; set; }
 

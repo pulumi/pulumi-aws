@@ -12,77 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS WorkSpaces Web Trust Store Association.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: std.File(ctx, &std.FileArgs{
-//					Input: "certificate.pem",
-//				}, nil).Result,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleTrustStore, err := workspacesweb.NewTrustStore(ctx, "example", &workspacesweb.TrustStoreArgs{
-//				CertificateList: []*string{
-//					invokeBase64encode.Result,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewTrustStoreAssociation(ctx, "example", &workspacesweb.TrustStoreAssociationArgs{
-//				TrustStoreArn: exampleTrustStore.TrustStoreArn,
-//				PortalArn:     example.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:
-//
-// ```sh
-// $ pulumi import aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
-// ```
 type TrustStoreAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the portal to associate with the trust store. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the trust store to associate with the portal. Forces replacement if changed.
+	PortalArn     pulumi.StringOutput `pulumi:"portalArn"`
+	Region        pulumi.StringOutput `pulumi:"region"`
 	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
 }
 
@@ -122,24 +56,14 @@ func GetTrustStoreAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustStoreAssociation resources.
 type trustStoreAssociationState struct {
-	// ARN of the portal to associate with the trust store. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn *string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the trust store to associate with the portal. Forces replacement if changed.
+	PortalArn     *string `pulumi:"portalArn"`
+	Region        *string `pulumi:"region"`
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
 }
 
 type TrustStoreAssociationState struct {
-	// ARN of the portal to associate with the trust store. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the trust store to associate with the portal. Forces replacement if changed.
+	PortalArn     pulumi.StringPtrInput
+	Region        pulumi.StringPtrInput
 	TrustStoreArn pulumi.StringPtrInput
 }
 
@@ -148,25 +72,15 @@ func (TrustStoreAssociationState) ElementType() reflect.Type {
 }
 
 type trustStoreAssociationArgs struct {
-	// ARN of the portal to associate with the trust store. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn string `pulumi:"portalArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the trust store to associate with the portal. Forces replacement if changed.
-	TrustStoreArn string `pulumi:"trustStoreArn"`
+	PortalArn     string  `pulumi:"portalArn"`
+	Region        *string `pulumi:"region"`
+	TrustStoreArn string  `pulumi:"trustStoreArn"`
 }
 
 // The set of arguments for constructing a TrustStoreAssociation resource.
 type TrustStoreAssociationArgs struct {
-	// ARN of the portal to associate with the trust store. Forces replacement if changed.
-	//
-	// The following arguments are optional:
-	PortalArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the trust store to associate with the portal. Forces replacement if changed.
+	PortalArn     pulumi.StringInput
+	Region        pulumi.StringPtrInput
 	TrustStoreArn pulumi.StringInput
 }
 
@@ -257,19 +171,14 @@ func (o TrustStoreAssociationOutput) ToTrustStoreAssociationOutputWithContext(ct
 	return o
 }
 
-// ARN of the portal to associate with the trust store. Forces replacement if changed.
-//
-// The following arguments are optional:
 func (o TrustStoreAssociationOutput) PortalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreAssociation) pulumi.StringOutput { return v.PortalArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustStoreAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the trust store to associate with the portal. Forces replacement if changed.
 func (o TrustStoreAssociationOutput) TrustStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreAssociation) pulumi.StringOutput { return v.TrustStoreArn }).(pulumi.StringOutput)
 }

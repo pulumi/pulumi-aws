@@ -54,9 +54,6 @@ class GetAuthPolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[_builtins.str]:
-        """
-        The auth policy. The policy string in JSON must not contain newlines or blank lines.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetAuthPolicyResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-        """
         return pulumi.get(self, "state")
 
 
@@ -97,24 +91,7 @@ def get_auth_policy(policy: Optional[_builtins.str] = None,
                     state: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthPolicyResult:
     """
-    Data source for managing an AWS VPC Lattice Auth Policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.vpclattice.get_auth_policy(resource_identifier=test_aws_vpclattice_auth_policy["resourceIdentifier"])
-    ```
-
-
-    :param _builtins.str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-    :param _builtins.str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['policy'] = policy
@@ -136,24 +113,7 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[_builtins.str]
                            state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
-    Data source for managing an AWS VPC Lattice Auth Policy.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.vpclattice.get_auth_policy(resource_identifier=test_aws_vpclattice_auth_policy["resourceIdentifier"])
-    ```
-
-
-    :param _builtins.str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-    :param _builtins.str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['policy'] = policy

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InfrastructureConfigurationLogging {
-    /**
-     * @return Configuration block with S3 logging settings. Detailed below.
-     * 
-     */
     private InfrastructureConfigurationLoggingS3Logs s3Logs;
 
     private InfrastructureConfigurationLogging() {}
-    /**
-     * @return Configuration block with S3 logging settings. Detailed below.
-     * 
-     */
     public InfrastructureConfigurationLoggingS3Logs s3Logs() {
         return this.s3Logs;
     }

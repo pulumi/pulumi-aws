@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelCdiInputSpecification
     {
-        /// <summary>
-        /// Maximum CDI input resolution.
-        /// </summary>
         public readonly string Resolution;
 
         [OutputConstructor]

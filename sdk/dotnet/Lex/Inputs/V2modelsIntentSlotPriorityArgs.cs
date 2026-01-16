@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsIntentSlotPriorityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Priority that Amazon Lex should apply to the slot.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the slot.
-        /// </summary>
         [Input("slotId", required: true)]
         public Input<string> SlotId { get; set; } = null!;
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class MembershipPaymentConfigurationQueryComputeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether the collaboration member has accepted to pay for query compute costs.
-        /// </summary>
         [Input("isResponsible", required: true)]
         public Input<bool> IsResponsible { get; set; } = null!;
 

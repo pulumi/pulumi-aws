@@ -9,103 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Athena
 {
-    /// <summary>
-    /// Provides an Athena Workgroup.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Athena.Workgroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
-    ///         {
-    ///             EnforceWorkgroupConfiguration = true,
-    ///             PublishCloudwatchMetricsEnabled = true,
-    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
-    ///             {
-    ///                 OutputLocation = $"s3://{exampleAwsS3Bucket.Bucket}/output/",
-    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
-    ///                 {
-    ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = exampleAwsKmsKey.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Athena Workgroups using their name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:athena/workgroup:Workgroup example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:athena/workgroup:Workgroup")]
     public partial class Workgroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the workgroup
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with various settings for the workgroup. Documented below.
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.WorkgroupConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the workgroup.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
-        /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags for the workgroup. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -155,48 +85,26 @@ namespace Pulumi.Aws.Athena
 
     public sealed class WorkgroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with various settings for the workgroup. Documented below.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.WorkgroupConfigurationArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Description of the workgroup.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the workgroup. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -211,54 +119,29 @@ namespace Pulumi.Aws.Athena
 
     public sealed class WorkgroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the workgroup
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Configuration block with various settings for the workgroup. Documented below.
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.WorkgroupConfigurationGetArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// Description of the workgroup.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
-        /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
-        /// <summary>
-        /// Name of the workgroup.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the workgroup. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -267,10 +150,6 @@ namespace Pulumi.Aws.Athena
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

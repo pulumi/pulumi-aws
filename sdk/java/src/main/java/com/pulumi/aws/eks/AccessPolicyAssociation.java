@@ -14,155 +14,47 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Access Entry Policy Association for an EKS Cluster.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.eks.AccessPolicyAssociation;
- * import com.pulumi.aws.eks.AccessPolicyAssociationArgs;
- * import com.pulumi.aws.eks.inputs.AccessPolicyAssociationAccessScopeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccessPolicyAssociation("example", AccessPolicyAssociationArgs.builder()
- *             .clusterName(exampleAwsEksCluster.name())
- *             .policyArn("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy")
- *             .principalArn(exampleAwsIamUser.arn())
- *             .accessScope(AccessPolicyAssociationAccessScopeArgs.builder()
- *                 .type("namespace")
- *                 .namespaces("example-namespace")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by an octothorp (`#`). For example:
- * 
- * ```sh
- * $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
- * ```
- * 
- */
 @ResourceType(type="aws:eks/accessPolicyAssociation:AccessPolicyAssociation")
 public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The configuration block to determine the scope of the access. See `accessScope` Block below.
-     * 
-     */
     @Export(name="accessScope", refs={AccessPolicyAssociationAccessScope.class}, tree="[0]")
     private Output<AccessPolicyAssociationAccessScope> accessScope;
 
-    /**
-     * @return The configuration block to determine the scope of the access. See `accessScope` Block below.
-     * 
-     */
     public Output<AccessPolicyAssociationAccessScope> accessScope() {
         return this.accessScope;
     }
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-     * 
-     */
     @Export(name="associatedAt", refs={String.class}, tree="[0]")
     private Output<String> associatedAt;
 
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-     * 
-     */
     public Output<String> associatedAt() {
         return this.associatedAt;
     }
-    /**
-     * Name of the EKS Cluster.
-     * 
-     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the EKS Cluster.
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-     * 
-     */
     @Export(name="modifiedAt", refs={String.class}, tree="[0]")
     private Output<String> modifiedAt;
 
-    /**
-     * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-     * 
-     */
     public Output<String> modifiedAt() {
         return this.modifiedAt;
     }
-    /**
-     * The ARN of the access policy that you&#39;re associating.
-     * 
-     */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
-    /**
-     * @return The ARN of the access policy that you&#39;re associating.
-     * 
-     */
     public Output<String> policyArn() {
         return this.policyArn;
     }
-    /**
-     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
-    /**
-     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
-     * 
-     */
     public Output<String> principalArn() {
         return this.principalArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
-    /**
-     * @return Maximum number of tokens to return in the response.
-     * 
-     */
     private @Nullable Integer maxTokens;
-    /**
-     * @return List of strings that define sequences after which the model will stop generating.
-     * 
-     */
     private @Nullable List<String> stopSequences;
-    /**
-     * @return Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-     * 
-     */
     private @Nullable Double temperature;
-    /**
-     * @return Percentage of most-likely candidates that the model considers for the next token.
-     * 
-     */
     private @Nullable Double topP;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText() {}
-    /**
-     * @return Maximum number of tokens to return in the response.
-     * 
-     */
     public Optional<Integer> maxTokens() {
         return Optional.ofNullable(this.maxTokens);
     }
-    /**
-     * @return List of strings that define sequences after which the model will stop generating.
-     * 
-     */
     public List<String> stopSequences() {
         return this.stopSequences == null ? List.of() : this.stopSequences;
     }
-    /**
-     * @return Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
-     * 
-     */
     public Optional<Double> temperature() {
         return Optional.ofNullable(this.temperature);
     }
-    /**
-     * @return Percentage of most-likely candidates that the model considers for the next token.
-     * 
-     */
     public Optional<Double> topP() {
         return Optional.ofNullable(this.topP);
     }

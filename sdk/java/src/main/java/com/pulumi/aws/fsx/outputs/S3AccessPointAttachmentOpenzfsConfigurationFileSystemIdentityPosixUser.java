@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUser {
-    /**
-     * @return GID of the file system user.
-     * 
-     */
     private Integer gid;
-    /**
-     * @return List of secondary GIDs for the file system user..
-     * 
-     */
     private @Nullable List<Integer> secondaryGids;
-    /**
-     * @return UID of the file system user.
-     * 
-     */
     private Integer uid;
 
     private S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUser() {}
-    /**
-     * @return GID of the file system user.
-     * 
-     */
     public Integer gid() {
         return this.gid;
     }
-    /**
-     * @return List of secondary GIDs for the file system user..
-     * 
-     */
     public List<Integer> secondaryGids() {
         return this.secondaryGids == null ? List.of() : this.secondaryGids;
     }
-    /**
-     * @return UID of the file system user.
-     * 
-     */
     public Integer uid() {
         return this.uid;
     }

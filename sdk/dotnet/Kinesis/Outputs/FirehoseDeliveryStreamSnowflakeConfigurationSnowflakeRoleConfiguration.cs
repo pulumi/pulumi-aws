@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration
     {
-        /// <summary>
-        /// Whether the Snowflake role is enabled.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The Snowflake role.
-        /// </summary>
         public readonly string? SnowflakeRole;
 
         [OutputConstructor]

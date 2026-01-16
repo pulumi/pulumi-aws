@@ -12,24 +12,14 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketMetricFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 Access Point ARN for filtering (singular).
-        /// </summary>
         [Input("accessPoint")]
         public Input<string>? AccessPoint { get; set; }
 
-        /// <summary>
-        /// Object prefix for filtering (singular).
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Object tags for filtering (up to 10).
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

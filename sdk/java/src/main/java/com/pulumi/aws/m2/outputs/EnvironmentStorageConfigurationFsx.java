@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EnvironmentStorageConfigurationFsx {
-    /**
-     * @return Id of the FSX filesystem to mount.
-     * 
-     */
     private String fileSystemId;
-    /**
-     * @return Path to mount the filesystem on, must start with `/m2/mount/`.
-     * 
-     */
     private String mountPoint;
 
     private EnvironmentStorageConfigurationFsx() {}
-    /**
-     * @return Id of the FSX filesystem to mount.
-     * 
-     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
-    /**
-     * @return Path to mount the filesystem on, must start with `/m2/mount/`.
-     * 
-     */
     public String mountPoint() {
         return this.mountPoint;
     }

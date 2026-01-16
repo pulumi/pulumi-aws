@@ -12,27 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelDestinationSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key used to extract the password from EC2 Parameter store.
-        /// </summary>
         [Input("passwordParam")]
         public Input<string>? PasswordParam { get; set; }
 
-        /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
-        /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
 
-        /// <summary>
-        /// A URL specifying a destination.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
-        /// <summary>
-        /// Username for destination.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

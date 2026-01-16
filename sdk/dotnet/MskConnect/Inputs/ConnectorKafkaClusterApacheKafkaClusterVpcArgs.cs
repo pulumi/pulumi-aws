@@ -14,10 +14,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
     {
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// The security groups for the connector.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// The subnets for the connector.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

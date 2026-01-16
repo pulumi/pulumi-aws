@@ -12,54 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewLocalGatewayRoute(ctx, "example", &ec2.LocalGatewayRouteArgs{
-//				DestinationCidrBlock:                pulumi.String("172.16.0.0/16"),
-//				LocalGatewayRouteTableId:            pulumi.Any(exampleAwsEc2LocalGatewayRouteTable.Id),
-//				LocalGatewayVirtualInterfaceGroupId: pulumi.Any(exampleAwsEc2LocalGatewayVirtualInterfaceGroup.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
-// ```
 type LocalGatewayRoute struct {
 	pulumi.CustomResourceState
 
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
-	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
-	// Identifier of EC2 Local Gateway Virtual Interface Group.
+	DestinationCidrBlock                pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+	LocalGatewayRouteTableId            pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region                              pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLocalGatewayRoute registers a new resource with the given unique name, arguments, and options.
@@ -101,25 +60,17 @@ func GetLocalGatewayRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalGatewayRoute resources.
 type localGatewayRouteState struct {
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
-	// Identifier of EC2 Local Gateway Virtual Interface Group.
+	DestinationCidrBlock                *string `pulumi:"destinationCidrBlock"`
+	LocalGatewayRouteTableId            *string `pulumi:"localGatewayRouteTableId"`
 	LocalGatewayVirtualInterfaceGroupId *string `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                              *string `pulumi:"region"`
 }
 
 type LocalGatewayRouteState struct {
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock pulumi.StringPtrInput
-	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId pulumi.StringPtrInput
-	// Identifier of EC2 Local Gateway Virtual Interface Group.
+	DestinationCidrBlock                pulumi.StringPtrInput
+	LocalGatewayRouteTableId            pulumi.StringPtrInput
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteState) ElementType() reflect.Type {
@@ -127,26 +78,18 @@ func (LocalGatewayRouteState) ElementType() reflect.Type {
 }
 
 type localGatewayRouteArgs struct {
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
-	// Identifier of EC2 Local Gateway Virtual Interface Group.
-	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	DestinationCidrBlock                string  `pulumi:"destinationCidrBlock"`
+	LocalGatewayRouteTableId            string  `pulumi:"localGatewayRouteTableId"`
+	LocalGatewayVirtualInterfaceGroupId string  `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	Region                              *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LocalGatewayRoute resource.
 type LocalGatewayRouteArgs struct {
-	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock pulumi.StringInput
-	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId pulumi.StringInput
-	// Identifier of EC2 Local Gateway Virtual Interface Group.
+	DestinationCidrBlock                pulumi.StringInput
+	LocalGatewayRouteTableId            pulumi.StringInput
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                              pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteArgs) ElementType() reflect.Type {
@@ -236,22 +179,18 @@ func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx contex
 	return o
 }
 
-// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
 func (o LocalGatewayRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Local Gateway Route Table.
 func (o LocalGatewayRouteOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Local Gateway Virtual Interface Group.
 func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocalGatewayRouteOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

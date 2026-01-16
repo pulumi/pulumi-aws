@@ -16,32 +16,16 @@ public final class ServiceNetworkVpcAssociationDnsOptionsArgs extends com.pulumi
 
     public static final ServiceNetworkVpcAssociationDnsOptionsArgs Empty = new ServiceNetworkVpcAssociationDnsOptionsArgs();
 
-    /**
-     * Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-     * 
-     */
     @Import(name="privateDnsPreference")
     private @Nullable Output<String> privateDnsPreference;
 
-    /**
-     * @return Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-     * 
-     */
     public Optional<Output<String>> privateDnsPreference() {
         return Optional.ofNullable(this.privateDnsPreference);
     }
 
-    /**
-     * Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
-     * 
-     */
     @Import(name="privateDnsSpecifiedDomains")
     private @Nullable Output<List<String>> privateDnsSpecifiedDomains;
 
-    /**
-     * @return Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
-     * 
-     */
     public Optional<Output<List<String>>> privateDnsSpecifiedDomains() {
         return Optional.ofNullable(this.privateDnsSpecifiedDomains);
     }
@@ -71,54 +55,24 @@ public final class ServiceNetworkVpcAssociationDnsOptionsArgs extends com.pulumi
             $ = new ServiceNetworkVpcAssociationDnsOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param privateDnsPreference Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsPreference(@Nullable Output<String> privateDnsPreference) {
             $.privateDnsPreference = privateDnsPreference;
             return this;
         }
 
-        /**
-         * @param privateDnsPreference Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when `privateDnsEnabled` is `true`. Valid Values are `VERIFIED_DOMAINS_ONLY`, `ALL_DOMAINS`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and `SPECIFIED_DOMAINS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsPreference(String privateDnsPreference) {
             return privateDnsPreference(Output.of(privateDnsPreference));
         }
 
-        /**
-         * @param privateDnsSpecifiedDomains Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsSpecifiedDomains(@Nullable Output<List<String>> privateDnsSpecifiedDomains) {
             $.privateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
             return this;
         }
 
-        /**
-         * @param privateDnsSpecifiedDomains Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsSpecifiedDomains(List<String> privateDnsSpecifiedDomains) {
             return privateDnsSpecifiedDomains(Output.of(privateDnsSpecifiedDomains));
         }
 
-        /**
-         * @param privateDnsSpecifiedDomains Private domains to create private hosted zones for and associate with the specified VPC. Only supported when `privateDnsEnabled` is `true` and `privateDnsPreference` is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateDnsSpecifiedDomains(String... privateDnsSpecifiedDomains) {
             return privateDnsSpecifiedDomains(List.of(privateDnsSpecifiedDomains));
         }

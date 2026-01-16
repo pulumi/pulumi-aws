@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes
     {
-        /// <summary>
-        /// Whether audio input is allowed.
-        /// </summary>
         public readonly bool AllowAudioInput;
-        /// <summary>
-        /// Whether DTMF input is allowed.
-        /// </summary>
         public readonly bool AllowDtmfInput;
 
         [OutputConstructor]

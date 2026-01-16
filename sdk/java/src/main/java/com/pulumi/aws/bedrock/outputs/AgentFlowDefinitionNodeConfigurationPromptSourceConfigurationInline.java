@@ -14,57 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline {
-    /**
-     * @return Additional fields to be included in the model request for the Prompt node.
-     * 
-     */
     private @Nullable String additionalModelRequestFields;
-    /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration inferenceConfiguration;
     private String modelId;
-    /**
-     * @return Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration templateConfiguration;
-    /**
-     * @return The type of prompt template. Valid values: `TEXT`, `CHAT`.
-     * 
-     */
     private String templateType;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline() {}
-    /**
-     * @return Additional fields to be included in the model request for the Prompt node.
-     * 
-     */
     public Optional<String> additionalModelRequestFields() {
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
-    /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
     public String modelId() {
         return this.modelId;
     }
-    /**
-     * @return Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration> templateConfiguration() {
         return Optional.ofNullable(this.templateConfiguration);
     }
-    /**
-     * @return The type of prompt template. Valid values: `TEXT`, `CHAT`.
-     * 
-     */
     public String templateType() {
         return this.templateType;
     }

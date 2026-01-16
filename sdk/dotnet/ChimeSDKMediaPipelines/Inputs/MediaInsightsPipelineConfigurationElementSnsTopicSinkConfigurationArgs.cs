@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// SNS topic to deliver results.
-        /// </summary>
         [Input("insightsTarget", required: true)]
         public Input<string> InsightsTarget { get; set; } = null!;
 

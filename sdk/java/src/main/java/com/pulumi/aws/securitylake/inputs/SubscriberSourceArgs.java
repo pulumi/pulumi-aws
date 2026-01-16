@@ -16,32 +16,16 @@ public final class SubscriberSourceArgs extends com.pulumi.resources.ResourceArg
 
     public static final SubscriberSourceArgs Empty = new SubscriberSourceArgs();
 
-    /**
-     * Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-     * 
-     */
     @Import(name="awsLogSourceResource")
     private @Nullable Output<SubscriberSourceAwsLogSourceResourceArgs> awsLogSourceResource;
 
-    /**
-     * @return Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-     * 
-     */
     public Optional<Output<SubscriberSourceAwsLogSourceResourceArgs>> awsLogSourceResource() {
         return Optional.ofNullable(this.awsLogSourceResource);
     }
 
-    /**
-     * Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-     * 
-     */
     @Import(name="customLogSourceResource")
     private @Nullable Output<SubscriberSourceCustomLogSourceResourceArgs> customLogSourceResource;
 
-    /**
-     * @return Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-     * 
-     */
     public Optional<Output<SubscriberSourceCustomLogSourceResourceArgs>> customLogSourceResource() {
         return Optional.ofNullable(this.customLogSourceResource);
     }
@@ -71,44 +55,20 @@ public final class SubscriberSourceArgs extends com.pulumi.resources.ResourceArg
             $ = new SubscriberSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsLogSourceResource Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsLogSourceResource(@Nullable Output<SubscriberSourceAwsLogSourceResourceArgs> awsLogSourceResource) {
             $.awsLogSourceResource = awsLogSourceResource;
             return this;
         }
 
-        /**
-         * @param awsLogSourceResource Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs awsLogSourceResource) {
             return awsLogSourceResource(Output.of(awsLogSourceResource));
         }
 
-        /**
-         * @param customLogSourceResource Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customLogSourceResource(@Nullable Output<SubscriberSourceCustomLogSourceResourceArgs> customLogSourceResource) {
             $.customLogSourceResource = customLogSourceResource;
             return this;
         }
 
-        /**
-         * @param customLogSourceResource Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customLogSourceResource(SubscriberSourceCustomLogSourceResourceArgs customLogSourceResource) {
             return customLogSourceResource(Output.of(customLogSourceResource));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
-        /// </summary>
         [Input("maximumDaysSinceDeprecated")]
         public Input<int>? MaximumDaysSinceDeprecated { get; set; }
 

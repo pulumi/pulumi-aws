@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Cfg.Inputs
 
     public sealed class RemediationConfigurationExecutionControlsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for SSM controls. See below.
-        /// </summary>
         [Input("ssmControls")]
         public Input<Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs>? SsmControls { get; set; }
 

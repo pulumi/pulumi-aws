@@ -11,129 +11,12 @@ namespace Pulumi.Aws.EcrPublic
 {
     public static class GetImages
     {
-        /// <summary>
-        /// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EcrPublic.GetImages.Invoke(new()
-        ///     {
-        ///         RepositoryName = "my-public-repository",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["imageDigests"] = .Where(img =&gt; img.Digest != null).Select(img =&gt; 
-        ///         {
-        ///             return img.Digest;
-        ///         }).ToList(),
-        ///         ["imageTags"] = Std.Flatten.Invoke(new()
-        ///         {
-        ///             Input = .Select(img =&gt; 
-        ///             {
-        ///                 return img.Tags;
-        ///             }).ToList(),
-        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
-        ///         {
-        ///             Input = invoke.Result,
-        ///         })).Apply(invoke =&gt; invoke.Result),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetImagesResult> InvokeAsync(GetImagesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("aws:ecrpublic/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EcrPublic.GetImages.Invoke(new()
-        ///     {
-        ///         RepositoryName = "my-public-repository",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["imageDigests"] = .Where(img =&gt; img.Digest != null).Select(img =&gt; 
-        ///         {
-        ///             return img.Digest;
-        ///         }).ToList(),
-        ///         ["imageTags"] = Std.Flatten.Invoke(new()
-        ///         {
-        ///             Input = .Select(img =&gt; 
-        ///             {
-        ///                 return img.Tags;
-        ///             }).ToList(),
-        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
-        ///         {
-        ///             Input = invoke.Result,
-        ///         })).Apply(invoke =&gt; invoke.Result),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("aws:ecrpublic/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EcrPublic.GetImages.Invoke(new()
-        ///     {
-        ///         RepositoryName = "my-public-repository",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["imageDigests"] = .Where(img =&gt; img.Digest != null).Select(img =&gt; 
-        ///         {
-        ///             return img.Digest;
-        ///         }).ToList(),
-        ///         ["imageTags"] = Std.Flatten.Invoke(new()
-        ///         {
-        ///             Input = .Select(img =&gt; 
-        ///             {
-        ///                 return img.Tags;
-        ///             }).ToList(),
-        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
-        ///         {
-        ///             Input = invoke.Result,
-        ///         })).Apply(invoke =&gt; invoke.Result),
-        ///     };
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("aws:ecrpublic/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
     }
@@ -143,31 +26,18 @@ namespace Pulumi.Aws.EcrPublic
     {
         [Input("imageIds")]
         private List<Inputs.GetImagesImageIdArgs>? _imageIds;
-
-        /// <summary>
-        /// One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-        /// </summary>
         public List<Inputs.GetImagesImageIdArgs> ImageIds
         {
             get => _imageIds ?? (_imageIds = new List<Inputs.GetImagesImageIdArgs>());
             set => _imageIds = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-        /// </summary>
         [Input("registryId")]
         public string? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the public repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public string RepositoryName { get; set; } = null!;
 
@@ -181,31 +51,18 @@ namespace Pulumi.Aws.EcrPublic
     {
         [Input("imageIds")]
         private InputList<Inputs.GetImagesImageIdInputArgs>? _imageIds;
-
-        /// <summary>
-        /// One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
-        /// </summary>
         public InputList<Inputs.GetImagesImageIdInputArgs> ImageIds
         {
             get => _imageIds ?? (_imageIds = new InputList<Inputs.GetImagesImageIdInputArgs>());
             set => _imageIds = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the public repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -224,18 +81,9 @@ namespace Pulumi.Aws.EcrPublic
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetImagesImageIdResult> ImageIds;
-        /// <summary>
-        /// List of images returned. Each image contains:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageResult> Images;
         public readonly string Region;
-        /// <summary>
-        /// AWS account ID associated with the public registry.
-        /// </summary>
         public readonly string? RegistryId;
-        /// <summary>
-        /// Name of the repository.
-        /// </summary>
         public readonly string RepositoryName;
 
         [OutputConstructor]

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ComputeOptimizer.Inputs
 
     public sealed class RecommendationPreferencesUtilizationPreferenceMetricParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-        /// </summary>
         [Input("headroom", required: true)]
         public Input<string> Headroom { get; set; } = null!;
 
-        /// <summary>
-        /// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-        /// </summary>
         [Input("threshold")]
         public Input<string>? Threshold { get; set; }
 

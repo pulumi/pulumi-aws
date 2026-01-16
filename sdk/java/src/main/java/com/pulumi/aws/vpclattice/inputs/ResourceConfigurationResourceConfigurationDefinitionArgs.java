@@ -17,47 +17,23 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArgs exte
 
     public static final ResourceConfigurationResourceConfigurationDefinitionArgs Empty = new ResourceConfigurationResourceConfigurationDefinitionArgs();
 
-    /**
-     * Resource DNS Configuration. See `arnResource` Block for details.
-     * 
-     */
     @Import(name="arnResource")
     private @Nullable Output<ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs> arnResource;
 
-    /**
-     * @return Resource DNS Configuration. See `arnResource` Block for details.
-     * 
-     */
     public Optional<Output<ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs>> arnResource() {
         return Optional.ofNullable(this.arnResource);
     }
 
-    /**
-     * Resource DNS Configuration. See `dnsResource` Block for details.
-     * 
-     */
     @Import(name="dnsResource")
     private @Nullable Output<ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs> dnsResource;
 
-    /**
-     * @return Resource DNS Configuration. See `dnsResource` Block for details.
-     * 
-     */
     public Optional<Output<ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs>> dnsResource() {
         return Optional.ofNullable(this.dnsResource);
     }
 
-    /**
-     * Resource DNS Configuration. See `ipResource` Block for details.
-     * 
-     */
     @Import(name="ipResource")
     private @Nullable Output<ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs> ipResource;
 
-    /**
-     * @return Resource DNS Configuration. See `ipResource` Block for details.
-     * 
-     */
     public Optional<Output<ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs>> ipResource() {
         return Optional.ofNullable(this.ipResource);
     }
@@ -88,65 +64,29 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArgs exte
             $ = new ResourceConfigurationResourceConfigurationDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arnResource Resource DNS Configuration. See `arnResource` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arnResource(@Nullable Output<ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs> arnResource) {
             $.arnResource = arnResource;
             return this;
         }
 
-        /**
-         * @param arnResource Resource DNS Configuration. See `arnResource` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arnResource(ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs arnResource) {
             return arnResource(Output.of(arnResource));
         }
 
-        /**
-         * @param dnsResource Resource DNS Configuration. See `dnsResource` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsResource(@Nullable Output<ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs> dnsResource) {
             $.dnsResource = dnsResource;
             return this;
         }
 
-        /**
-         * @param dnsResource Resource DNS Configuration. See `dnsResource` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsResource(ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs dnsResource) {
             return dnsResource(Output.of(dnsResource));
         }
 
-        /**
-         * @param ipResource Resource DNS Configuration. See `ipResource` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipResource(@Nullable Output<ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs> ipResource) {
             $.ipResource = ipResource;
             return this;
         }
 
-        /**
-         * @param ipResource Resource DNS Configuration. See `ipResource` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipResource(ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs ipResource) {
             return ipResource(Output.of(ipResource));
         }

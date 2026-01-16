@@ -14,24 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetModelsModelSummary struct {
-	// Customizations that the model supports.
-	CustomizationsSupporteds []string `pulumi:"customizationsSupporteds"`
-	// Inference types that the model supports.
-	InferenceTypesSupporteds []string `pulumi:"inferenceTypesSupporteds"`
-	// Input modalities that the model supports.
-	InputModalities []string `pulumi:"inputModalities"`
-	// Model ARN.
-	ModelArn string `pulumi:"modelArn"`
-	// Model identifier.
-	ModelId string `pulumi:"modelId"`
-	// Model name.
-	ModelName string `pulumi:"modelName"`
-	// Output modalities that the model supports.
-	OutputModalities []string `pulumi:"outputModalities"`
-	// Model provider name.
-	ProviderName string `pulumi:"providerName"`
-	// Indicates whether the model supports streaming.
-	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
+	CustomizationsSupporteds   []string `pulumi:"customizationsSupporteds"`
+	InferenceTypesSupporteds   []string `pulumi:"inferenceTypesSupporteds"`
+	InputModalities            []string `pulumi:"inputModalities"`
+	ModelArn                   string   `pulumi:"modelArn"`
+	ModelId                    string   `pulumi:"modelId"`
+	ModelName                  string   `pulumi:"modelName"`
+	OutputModalities           []string `pulumi:"outputModalities"`
+	ProviderName               string   `pulumi:"providerName"`
+	ResponseStreamingSupported bool     `pulumi:"responseStreamingSupported"`
 }
 
 // GetModelsModelSummaryInput is an input type that accepts GetModelsModelSummaryArgs and GetModelsModelSummaryOutput values.
@@ -46,24 +37,15 @@ type GetModelsModelSummaryInput interface {
 }
 
 type GetModelsModelSummaryArgs struct {
-	// Customizations that the model supports.
-	CustomizationsSupporteds pulumi.StringArrayInput `pulumi:"customizationsSupporteds"`
-	// Inference types that the model supports.
-	InferenceTypesSupporteds pulumi.StringArrayInput `pulumi:"inferenceTypesSupporteds"`
-	// Input modalities that the model supports.
-	InputModalities pulumi.StringArrayInput `pulumi:"inputModalities"`
-	// Model ARN.
-	ModelArn pulumi.StringInput `pulumi:"modelArn"`
-	// Model identifier.
-	ModelId pulumi.StringInput `pulumi:"modelId"`
-	// Model name.
-	ModelName pulumi.StringInput `pulumi:"modelName"`
-	// Output modalities that the model supports.
-	OutputModalities pulumi.StringArrayInput `pulumi:"outputModalities"`
-	// Model provider name.
-	ProviderName pulumi.StringInput `pulumi:"providerName"`
-	// Indicates whether the model supports streaming.
-	ResponseStreamingSupported pulumi.BoolInput `pulumi:"responseStreamingSupported"`
+	CustomizationsSupporteds   pulumi.StringArrayInput `pulumi:"customizationsSupporteds"`
+	InferenceTypesSupporteds   pulumi.StringArrayInput `pulumi:"inferenceTypesSupporteds"`
+	InputModalities            pulumi.StringArrayInput `pulumi:"inputModalities"`
+	ModelArn                   pulumi.StringInput      `pulumi:"modelArn"`
+	ModelId                    pulumi.StringInput      `pulumi:"modelId"`
+	ModelName                  pulumi.StringInput      `pulumi:"modelName"`
+	OutputModalities           pulumi.StringArrayInput `pulumi:"outputModalities"`
+	ProviderName               pulumi.StringInput      `pulumi:"providerName"`
+	ResponseStreamingSupported pulumi.BoolInput        `pulumi:"responseStreamingSupported"`
 }
 
 func (GetModelsModelSummaryArgs) ElementType() reflect.Type {
@@ -117,47 +99,38 @@ func (o GetModelsModelSummaryOutput) ToGetModelsModelSummaryOutputWithContext(ct
 	return o
 }
 
-// Customizations that the model supports.
 func (o GetModelsModelSummaryOutput) CustomizationsSupporteds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.CustomizationsSupporteds }).(pulumi.StringArrayOutput)
 }
 
-// Inference types that the model supports.
 func (o GetModelsModelSummaryOutput) InferenceTypesSupporteds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.InferenceTypesSupporteds }).(pulumi.StringArrayOutput)
 }
 
-// Input modalities that the model supports.
 func (o GetModelsModelSummaryOutput) InputModalities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.InputModalities }).(pulumi.StringArrayOutput)
 }
 
-// Model ARN.
 func (o GetModelsModelSummaryOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) string { return v.ModelArn }).(pulumi.StringOutput)
 }
 
-// Model identifier.
 func (o GetModelsModelSummaryOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
-// Model name.
 func (o GetModelsModelSummaryOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// Output modalities that the model supports.
 func (o GetModelsModelSummaryOutput) OutputModalities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.OutputModalities }).(pulumi.StringArrayOutput)
 }
 
-// Model provider name.
 func (o GetModelsModelSummaryOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the model supports streaming.
 func (o GetModelsModelSummaryOutput) ResponseStreamingSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetModelsModelSummary) bool { return v.ResponseStreamingSupported }).(pulumi.BoolOutput)
 }

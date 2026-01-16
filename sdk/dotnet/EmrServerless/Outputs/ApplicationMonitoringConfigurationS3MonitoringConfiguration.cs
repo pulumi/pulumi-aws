@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     [OutputType]
     public sealed class ApplicationMonitoringConfigurationS3MonitoringConfiguration
     {
-        /// <summary>
-        /// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-        /// </summary>
         public readonly string? EncryptionKeyArn;
-        /// <summary>
-        /// The Amazon S3 destination URI for log publishing.
-        /// </summary>
         public readonly string? LogUri;
 
         [OutputConstructor]

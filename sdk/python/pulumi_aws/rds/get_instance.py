@@ -170,81 +170,51 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter
     def address(self) -> _builtins.str:
-        """
-        Hostname of the RDS instance. See also `endpoint` and `port`.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> _builtins.int:
-        """
-        Allocated storage size specified in gigabytes.
-        """
         return pulumi.get(self, "allocated_storage")
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> _builtins.bool:
-        """
-        Indicates that minor version patches are applied automatically.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
-        """
-        Name of the Availability Zone the DB instance is located in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> _builtins.int:
-        """
-        Specifies the number of days for which automatic DB snapshots are retained.
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @_builtins.property
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> _builtins.str:
-        """
-        Identifier of the CA certificate for the DB instance.
-        """
         return pulumi.get(self, "ca_cert_identifier")
 
     @_builtins.property
     @pulumi.getter(name="databaseInsightsMode")
     def database_insights_mode(self) -> _builtins.str:
-        """
-        The mode of Database Insights that is enabled for the DB instance.
-        """
         return pulumi.get(self, "database_insights_mode")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> _builtins.str:
-        """
-        If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceArn")
     def db_instance_arn(self) -> _builtins.str:
-        """
-        ARN for the DB instance.
-        """
         return pulumi.get(self, "db_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> _builtins.str:
-        """
-        Contains the name of the compute and memory capacity class of the DB instance.
-        """
         return pulumi.get(self, "db_instance_class")
 
     @_builtins.property
@@ -255,73 +225,46 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="dbInstancePort")
     def db_instance_port(self) -> _builtins.int:
-        """
-        Port that the DB instance listens on.
-        """
         return pulumi.get(self, "db_instance_port")
 
     @_builtins.property
     @pulumi.getter(name="dbName")
     def db_name(self) -> _builtins.str:
-        """
-        Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
-        """
         return pulumi.get(self, "db_name")
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroups")
     def db_parameter_groups(self) -> Sequence[_builtins.str]:
-        """
-        Provides the list of DB parameter groups applied to this DB instance.
-        """
         return pulumi.get(self, "db_parameter_groups")
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroup")
     def db_subnet_group(self) -> _builtins.str:
-        """
-        Name of the subnet group associated with the DB instance.
-        """
         return pulumi.get(self, "db_subnet_group")
 
     @_builtins.property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Sequence[_builtins.str]:
-        """
-        List of log types to export to cloudwatch.
-        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
-        """
-        Connection endpoint in `address:port` format.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> _builtins.str:
-        """
-        Provides the name of the database engine to be used for this DB instance.
-        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
-        """
-        Database engine version.
-        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
-        """
-        Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
@@ -335,121 +278,76 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter
     def iops(self) -> _builtins.int:
-        """
-        Provisioned IOPS (I/O operations per second) value.
-        """
         return pulumi.get(self, "iops")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
-        """
-        The Amazon Web Services KMS key identifier that is used to encrypt the secret.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> _builtins.str:
-        """
-        License model information for this DB instance.
-        """
         return pulumi.get(self, "license_model")
 
     @_builtins.property
     @pulumi.getter(name="masterUserSecrets")
     def master_user_secrets(self) -> Sequence['outputs.GetInstanceMasterUserSecretResult']:
-        """
-        Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
-        """
         return pulumi.get(self, "master_user_secrets")
 
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> _builtins.str:
-        """
-        Contains the master username for the DB instance.
-        """
         return pulumi.get(self, "master_username")
 
     @_builtins.property
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> _builtins.int:
-        """
-        The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
-        """
         return pulumi.get(self, "max_allocated_storage")
 
     @_builtins.property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> _builtins.int:
-        """
-        Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
-        """
         return pulumi.get(self, "monitoring_interval")
 
     @_builtins.property
     @pulumi.getter(name="monitoringRoleArn")
     def monitoring_role_arn(self) -> _builtins.str:
-        """
-        ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
-        """
         return pulumi.get(self, "monitoring_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> _builtins.bool:
-        """
-        If the DB instance is a Multi-AZ deployment.
-        """
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> _builtins.str:
-        """
-        Network type of the DB instance.
-        """
         return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="optionGroupMemberships")
     def option_group_memberships(self) -> Sequence[_builtins.str]:
-        """
-        Provides the list of option group memberships for this DB instance.
-        """
         return pulumi.get(self, "option_group_memberships")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> _builtins.str:
-        """
-        Specifies the daily time range during which automated backups are created.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> _builtins.str:
-        """
-        Specifies the weekly time range during which system maintenance can occur in UTC.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> _builtins.bool:
-        """
-        Accessibility options for the DB instance.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @_builtins.property
@@ -460,41 +358,26 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> _builtins.str:
-        """
-        Identifier of the source DB that this is a replica of.
-        """
         return pulumi.get(self, "replicate_source_db")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> _builtins.str:
-        """
-        RDS Resource ID of this instance.
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> _builtins.bool:
-        """
-        Whether the DB instance is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> _builtins.int:
-        """
-        Storage throughput value for the DB instance.
-        """
         return pulumi.get(self, "storage_throughput")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> _builtins.str:
-        """
-        Storage type associated with DB instance.
-        """
         return pulumi.get(self, "storage_type")
 
     @_builtins.property
@@ -505,25 +388,16 @@ class GetInstanceResult:
     @_builtins.property
     @pulumi.getter
     def timezone(self) -> _builtins.str:
-        """
-        Time zone of the DB instance.
-        """
         return pulumi.get(self, "timezone")
 
     @_builtins.property
     @pulumi.getter(name="upgradeRolloutOrder")
     def upgrade_rollout_order(self) -> _builtins.str:
-        """
-        Order in which the instances are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
-        """
         return pulumi.get(self, "upgrade_rollout_order")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroups")
     def vpc_security_groups(self) -> Sequence[_builtins.str]:
-        """
-        Provides a list of VPC security group elements that the DB instance belongs to.
-        """
         return pulumi.get(self, "vpc_security_groups")
 
 
@@ -586,21 +460,7 @@ def get_instance(db_instance_identifier: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
-    Use this data source to get information about an RDS instance
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    database = aws.rds.get_instance(db_instance_identifier="my-test-database")
-    ```
-
-
-    :param _builtins.str db_instance_identifier: Name of the RDS instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -661,21 +521,7 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[_
                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
-    Use this data source to get information about an RDS instance
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    database = aws.rds.get_instance(db_instance_identifier="my-test-database")
-    ```
-
-
-    :param _builtins.str db_instance_identifier: Name of the RDS instance.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier

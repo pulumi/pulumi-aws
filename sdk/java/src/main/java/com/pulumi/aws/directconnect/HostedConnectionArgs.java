@@ -17,77 +17,37 @@ public final class HostedConnectionArgs extends com.pulumi.resources.ResourceArg
 
     public static final HostedConnectionArgs Empty = new HostedConnectionArgs();
 
-    /**
-     * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
-     * 
-     */
     @Import(name="bandwidth", required=true)
     private Output<String> bandwidth;
 
-    /**
-     * @return The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
-     * 
-     */
     public Output<String> bandwidth() {
         return this.bandwidth;
     }
 
-    /**
-     * The ID of the interconnect or LAG.
-     * 
-     */
     @Import(name="connectionId", required=true)
     private Output<String> connectionId;
 
-    /**
-     * @return The ID of the interconnect or LAG.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
 
-    /**
-     * The name of the connection.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the connection.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The ID of the AWS account of the customer for the connection.
-     * 
-     */
     @Import(name="ownerAccountId", required=true)
     private Output<String> ownerAccountId;
 
-    /**
-     * @return The ID of the AWS account of the customer for the connection.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
 
-    /**
-     * The dedicated VLAN provisioned to the hosted connection.
-     * 
-     */
     @Import(name="vlan", required=true)
     private Output<Integer> vlan;
 
-    /**
-     * @return The dedicated VLAN provisioned to the hosted connection.
-     * 
-     */
     public Output<Integer> vlan() {
         return this.vlan;
     }
@@ -120,107 +80,47 @@ public final class HostedConnectionArgs extends com.pulumi.resources.ResourceArg
             $ = new HostedConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bandwidth The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder bandwidth(Output<String> bandwidth) {
             $.bandwidth = bandwidth;
             return this;
         }
 
-        /**
-         * @param bandwidth The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder bandwidth(String bandwidth) {
             return bandwidth(Output.of(bandwidth));
         }
 
-        /**
-         * @param connectionId The ID of the interconnect or LAG.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
-        /**
-         * @param connectionId The ID of the interconnect or LAG.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }
 
-        /**
-         * @param name The name of the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param ownerAccountId The ID of the AWS account of the customer for the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(Output<String> ownerAccountId) {
             $.ownerAccountId = ownerAccountId;
             return this;
         }
 
-        /**
-         * @param ownerAccountId The ID of the AWS account of the customer for the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
         }
 
-        /**
-         * @param vlan The dedicated VLAN provisioned to the hosted connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vlan(Output<Integer> vlan) {
             $.vlan = vlan;
             return this;
         }
 
-        /**
-         * @param vlan The dedicated VLAN provisioned to the hosted connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vlan(Integer vlan) {
             return vlan(Output.of(vlan));
         }

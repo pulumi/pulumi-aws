@@ -13,124 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Resource Groups Resource.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.DedicatedHost;
- * import com.pulumi.aws.ec2.DedicatedHostArgs;
- * import com.pulumi.aws.resourcegroups.Group;
- * import com.pulumi.aws.resourcegroups.GroupArgs;
- * import com.pulumi.aws.resourcegroups.Resource;
- * import com.pulumi.aws.resourcegroups.ResourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DedicatedHost("example", DedicatedHostArgs.builder()
- *             .instanceFamily("t3")
- *             .availabilityZone("us-east-1a")
- *             .hostRecovery("off")
- *             .autoPlacement("on")
- *             .build());
- * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
- *             .groupArn(exampleGroup.arn())
- *             .resourceArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
- * 
- * ```sh
- * $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
- * ```
- * 
- */
 @ResourceType(type="aws:resourcegroups/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
-    /**
-     * Name or ARN of the resource group to add resources to.
-     * 
-     */
     @Export(name="groupArn", refs={String.class}, tree="[0]")
     private Output<String> groupArn;
 
-    /**
-     * @return Name or ARN of the resource group to add resources to.
-     * 
-     */
     public Output<String> groupArn() {
         return this.groupArn;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ARN of the resource to be added to the group.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource to be added to the group.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The resource type of a resource, such as `AWS::EC2::Instance`.
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
-    /**
-     * @return The resource type of a resource, such as `AWS::EC2::Instance`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }

@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayProtocolConfigurationMcpArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Instructions for the MCP protocol configuration.
-        /// </summary>
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
 
-        /// <summary>
-        /// Search type for MCP. Valid values: `SEMANTIC`.
-        /// </summary>
         [Input("searchType")]
         public Input<string>? SearchType { get; set; }
 
         [Input("supportedVersions")]
         private InputList<string>? _supportedVersions;
-
-        /// <summary>
-        /// Set of supported MCP protocol versions.
-        /// </summary>
         public InputList<string> SupportedVersions
         {
             get => _supportedVersions ?? (_supportedVersions = new InputList<string>());

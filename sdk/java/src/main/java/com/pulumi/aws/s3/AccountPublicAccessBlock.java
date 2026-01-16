@@ -15,135 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- * 
- * &gt; **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
- * 
- * &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration, not the `s3` endpoint provider configuration.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.AccountPublicAccessBlock;
- * import com.pulumi.aws.s3.AccountPublicAccessBlockArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AccountPublicAccessBlock("example", AccountPublicAccessBlockArgs.builder()
- *             .blockPublicAcls(true)
- *             .blockPublicPolicy(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock")
 public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResource {
-    /**
-     * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-     * * PUT Object calls fail if the request includes a public ACL.
-     * 
-     */
     @Export(name="blockPublicAcls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicAcls;
 
-    /**
-     * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-     * * PUT Object calls fail if the request includes a public ACL.
-     * 
-     */
     public Output<Optional<Boolean>> blockPublicAcls() {
         return Codegen.optional(this.blockPublicAcls);
     }
-    /**
-     * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-     * 
-     */
     @Export(name="blockPublicPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicPolicy;
 
-    /**
-     * @return Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-     * 
-     */
     public Output<Optional<Boolean>> blockPublicPolicy() {
         return Codegen.optional(this.blockPublicPolicy);
     }
-    /**
-     * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
-     * 
-     */
     @Export(name="ignorePublicAcls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignorePublicAcls;
 
-    /**
-     * @return Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
-     * 
-     */
     public Output<Optional<Boolean>> ignorePublicAcls() {
         return Codegen.optional(this.ignorePublicAcls);
     }
-    /**
-     * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-     * * Only the bucket owner and AWS Services can access buckets with public policies.
-     * 
-     */
     @Export(name="restrictPublicBuckets", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restrictPublicBuckets;
 
-    /**
-     * @return Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-     * * Only the bucket owner and AWS Services can access buckets with public policies.
-     * 
-     */
     public Output<Optional<Boolean>> restrictPublicBuckets() {
         return Codegen.optional(this.restrictPublicBuckets);
     }

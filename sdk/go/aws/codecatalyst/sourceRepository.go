@@ -12,60 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CodeCatalyst Source Repository.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewSourceRepository(ctx, "example", &codecatalyst.SourceRepositoryArgs{
-//				Name:        pulumi.String("example-repo"),
-//				ProjectName: pulumi.String("example-project"),
-//				SpaceName:   pulumi.String("example-space"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
-// ```
 type SourceRepository struct {
 	pulumi.CustomResourceState
 
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the project in the CodeCatalyst space.
-	//
-	// The following arguments are optional:
-	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the CodeCatalyst space.
-	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	ProjectName pulumi.StringOutput    `pulumi:"projectName"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	SpaceName   pulumi.StringOutput    `pulumi:"spaceName"`
 }
 
 // NewSourceRepository registers a new resource with the given unique name, arguments, and options.
@@ -104,33 +58,19 @@ func GetSourceRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceRepository resources.
 type sourceRepositoryState struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description *string `pulumi:"description"`
-	// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-	Name *string `pulumi:"name"`
-	// The name of the project in the CodeCatalyst space.
-	//
-	// The following arguments are optional:
+	Name        *string `pulumi:"name"`
 	ProjectName *string `pulumi:"projectName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the CodeCatalyst space.
-	SpaceName *string `pulumi:"spaceName"`
+	Region      *string `pulumi:"region"`
+	SpaceName   *string `pulumi:"spaceName"`
 }
 
 type SourceRepositoryState struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description pulumi.StringPtrInput
-	// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-	Name pulumi.StringPtrInput
-	// The name of the project in the CodeCatalyst space.
-	//
-	// The following arguments are optional:
+	Name        pulumi.StringPtrInput
 	ProjectName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the CodeCatalyst space.
-	SpaceName pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
+	SpaceName   pulumi.StringPtrInput
 }
 
 func (SourceRepositoryState) ElementType() reflect.Type {
@@ -138,34 +78,20 @@ func (SourceRepositoryState) ElementType() reflect.Type {
 }
 
 type sourceRepositoryArgs struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description *string `pulumi:"description"`
-	// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-	Name *string `pulumi:"name"`
-	// The name of the project in the CodeCatalyst space.
-	//
-	// The following arguments are optional:
-	ProjectName string `pulumi:"projectName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The name of the CodeCatalyst space.
-	SpaceName string `pulumi:"spaceName"`
+	Name        *string `pulumi:"name"`
+	ProjectName string  `pulumi:"projectName"`
+	Region      *string `pulumi:"region"`
+	SpaceName   string  `pulumi:"spaceName"`
 }
 
 // The set of arguments for constructing a SourceRepository resource.
 type SourceRepositoryArgs struct {
-	// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 	Description pulumi.StringPtrInput
-	// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-	Name pulumi.StringPtrInput
-	// The name of the project in the CodeCatalyst space.
-	//
-	// The following arguments are optional:
+	Name        pulumi.StringPtrInput
 	ProjectName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The name of the CodeCatalyst space.
-	SpaceName pulumi.StringInput
+	Region      pulumi.StringPtrInput
+	SpaceName   pulumi.StringInput
 }
 
 func (SourceRepositoryArgs) ElementType() reflect.Type {
@@ -255,29 +181,22 @@ func (o SourceRepositoryOutput) ToSourceRepositoryOutputWithContext(ctx context.
 	return o
 }
 
-// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
 func (o SourceRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
 func (o SourceRepositoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the project in the CodeCatalyst space.
-//
-// The following arguments are optional:
 func (o SourceRepositoryOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SourceRepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the CodeCatalyst space.
 func (o SourceRepositoryOutput) SpaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringOutput { return v.SpaceName }).(pulumi.StringOutput)
 }

@@ -19,81 +19,37 @@ public final class UserHierarchyStructureHierarchyStructureArgs extends com.pulu
 
     public static final UserHierarchyStructureHierarchyStructureArgs Empty = new UserHierarchyStructureHierarchyStructureArgs();
 
-    /**
-     * A block that defines the details of level five. The level block is documented below.
-     * 
-     * Each level block supports the following arguments:
-     * 
-     */
     @Import(name="levelFive")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureLevelFiveArgs> levelFive;
 
-    /**
-     * @return A block that defines the details of level five. The level block is documented below.
-     * 
-     * Each level block supports the following arguments:
-     * 
-     */
     public Optional<Output<UserHierarchyStructureHierarchyStructureLevelFiveArgs>> levelFive() {
         return Optional.ofNullable(this.levelFive);
     }
 
-    /**
-     * A block that defines the details of level four. The level block is documented below.
-     * 
-     */
     @Import(name="levelFour")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureLevelFourArgs> levelFour;
 
-    /**
-     * @return A block that defines the details of level four. The level block is documented below.
-     * 
-     */
     public Optional<Output<UserHierarchyStructureHierarchyStructureLevelFourArgs>> levelFour() {
         return Optional.ofNullable(this.levelFour);
     }
 
-    /**
-     * A block that defines the details of level one. The level block is documented below.
-     * 
-     */
     @Import(name="levelOne")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureLevelOneArgs> levelOne;
 
-    /**
-     * @return A block that defines the details of level one. The level block is documented below.
-     * 
-     */
     public Optional<Output<UserHierarchyStructureHierarchyStructureLevelOneArgs>> levelOne() {
         return Optional.ofNullable(this.levelOne);
     }
 
-    /**
-     * A block that defines the details of level three. The level block is documented below.
-     * 
-     */
     @Import(name="levelThree")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureLevelThreeArgs> levelThree;
 
-    /**
-     * @return A block that defines the details of level three. The level block is documented below.
-     * 
-     */
     public Optional<Output<UserHierarchyStructureHierarchyStructureLevelThreeArgs>> levelThree() {
         return Optional.ofNullable(this.levelThree);
     }
 
-    /**
-     * A block that defines the details of level two. The level block is documented below.
-     * 
-     */
     @Import(name="levelTwo")
     private @Nullable Output<UserHierarchyStructureHierarchyStructureLevelTwoArgs> levelTwo;
 
-    /**
-     * @return A block that defines the details of level two. The level block is documented below.
-     * 
-     */
     public Optional<Output<UserHierarchyStructureHierarchyStructureLevelTwoArgs>> levelTwo() {
         return Optional.ofNullable(this.levelTwo);
     }
@@ -126,111 +82,47 @@ public final class UserHierarchyStructureHierarchyStructureArgs extends com.pulu
             $ = new UserHierarchyStructureHierarchyStructureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param levelFive A block that defines the details of level five. The level block is documented below.
-         * 
-         * Each level block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelFive(@Nullable Output<UserHierarchyStructureHierarchyStructureLevelFiveArgs> levelFive) {
             $.levelFive = levelFive;
             return this;
         }
 
-        /**
-         * @param levelFive A block that defines the details of level five. The level block is documented below.
-         * 
-         * Each level block supports the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelFive(UserHierarchyStructureHierarchyStructureLevelFiveArgs levelFive) {
             return levelFive(Output.of(levelFive));
         }
 
-        /**
-         * @param levelFour A block that defines the details of level four. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelFour(@Nullable Output<UserHierarchyStructureHierarchyStructureLevelFourArgs> levelFour) {
             $.levelFour = levelFour;
             return this;
         }
 
-        /**
-         * @param levelFour A block that defines the details of level four. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelFour(UserHierarchyStructureHierarchyStructureLevelFourArgs levelFour) {
             return levelFour(Output.of(levelFour));
         }
 
-        /**
-         * @param levelOne A block that defines the details of level one. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelOne(@Nullable Output<UserHierarchyStructureHierarchyStructureLevelOneArgs> levelOne) {
             $.levelOne = levelOne;
             return this;
         }
 
-        /**
-         * @param levelOne A block that defines the details of level one. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs levelOne) {
             return levelOne(Output.of(levelOne));
         }
 
-        /**
-         * @param levelThree A block that defines the details of level three. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelThree(@Nullable Output<UserHierarchyStructureHierarchyStructureLevelThreeArgs> levelThree) {
             $.levelThree = levelThree;
             return this;
         }
 
-        /**
-         * @param levelThree A block that defines the details of level three. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelThree(UserHierarchyStructureHierarchyStructureLevelThreeArgs levelThree) {
             return levelThree(Output.of(levelThree));
         }
 
-        /**
-         * @param levelTwo A block that defines the details of level two. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelTwo(@Nullable Output<UserHierarchyStructureHierarchyStructureLevelTwoArgs> levelTwo) {
             $.levelTwo = levelTwo;
             return this;
         }
 
-        /**
-         * @param levelTwo A block that defines the details of level two. The level block is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder levelTwo(UserHierarchyStructureHierarchyStructureLevelTwoArgs levelTwo) {
             return levelTwo(Output.of(levelTwo));
         }

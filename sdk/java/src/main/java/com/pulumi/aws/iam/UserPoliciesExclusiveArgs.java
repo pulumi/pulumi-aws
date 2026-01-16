@@ -15,32 +15,16 @@ public final class UserPoliciesExclusiveArgs extends com.pulumi.resources.Resour
 
     public static final UserPoliciesExclusiveArgs Empty = new UserPoliciesExclusiveArgs();
 
-    /**
-     * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     @Import(name="policyNames", required=true)
     private Output<List<String>> policyNames;
 
-    /**
-     * @return A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-     * 
-     */
     public Output<List<String>> policyNames() {
         return this.policyNames;
     }
 
-    /**
-     * IAM user name.
-     * 
-     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
-    /**
-     * @return IAM user name.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -70,54 +54,24 @@ public final class UserPoliciesExclusiveArgs extends com.pulumi.resources.Resour
             $ = new UserPoliciesExclusiveArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(Output<List<String>> policyNames) {
             $.policyNames = policyNames;
             return this;
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(List<String> policyNames) {
             return policyNames(Output.of(policyNames));
         }
 
-        /**
-         * @param policyNames A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
         }
 
-        /**
-         * @param userName IAM user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName IAM user name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearchIngest.Outputs
     [OutputType]
     public sealed class PipelineVpcOptions
     {
-        /// <summary>
-        /// A list of security groups associated with the VPC endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of subnet IDs associated with the VPC endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
-        /// </summary>
         public readonly string? VpcEndpointManagement;
 
         [OutputConstructor]

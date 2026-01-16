@@ -4,85 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS ECR (Elastic Container Registry) Pull Time Update Exclusion.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.Role("example", {
- *     name: "example-role",
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
- *             },
- *         }],
- *     }),
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     name: "example-role-policy",
- *     role: example.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: [
- *                 "ecr:GetAuthorizationToken",
- *                 "ecr:BatchCheckLayerAvailability",
- *                 "ecr:GetDownloadUrlForLayer",
- *                 "ecr:BatchGetImage",
- *             ],
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * const examplePullTimeUpdateExclusion = new aws.ecr.PullTimeUpdateExclusion("example", {principalArn: example.arn});
- * ```
- *
- * ### With IAM User
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.User("example", {name: "example-user"});
- * const exampleUserPolicy = new aws.iam.UserPolicy("example", {
- *     name: "example-user-policy",
- *     user: example.name,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: [
- *                 "ecr:GetAuthorizationToken",
- *                 "ecr:BatchCheckLayerAvailability",
- *                 "ecr:GetDownloadUrlForLayer",
- *                 "ecr:BatchGetImage",
- *             ],
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * const examplePullTimeUpdateExclusion = new aws.ecr.PullTimeUpdateExclusion("example", {principalArn: example.arn});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import ECR (Elastic Container Registry) Pull Time Update Exclusion using the `principal_arn`. For example:
- *
- * ```sh
- * $ pulumi import aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion example arn:aws:iam::123456789012:role/example-role
- * ```
- */
 export class PullTimeUpdateExclusion extends pulumi.CustomResource {
     /**
      * Get an existing PullTimeUpdateExclusion resource's state with the given name, ID, and optional extra
@@ -111,15 +32,7 @@ export class PullTimeUpdateExclusion extends pulumi.CustomResource {
         return obj['__pulumiType'] === PullTimeUpdateExclusion.__pulumiType;
     }
 
-    /**
-     * ARN of the IAM principal to exclude from having image pull times recorded.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly principalArn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -154,15 +67,7 @@ export class PullTimeUpdateExclusion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PullTimeUpdateExclusion resources.
  */
 export interface PullTimeUpdateExclusionState {
-    /**
-     * ARN of the IAM principal to exclude from having image pull times recorded.
-     *
-     * The following arguments are optional:
-     */
     principalArn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -170,14 +75,6 @@ export interface PullTimeUpdateExclusionState {
  * The set of arguments for constructing a PullTimeUpdateExclusion resource.
  */
 export interface PullTimeUpdateExclusionArgs {
-    /**
-     * ARN of the IAM principal to exclude from having image pull times recorded.
-     *
-     * The following arguments are optional:
-     */
     principalArn: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

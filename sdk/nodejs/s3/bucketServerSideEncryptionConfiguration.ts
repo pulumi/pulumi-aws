@@ -7,97 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a S3 bucket server-side encryption configuration resource.
- *
- * > **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
- *
- * > **NOTE:** Starting in March 2026, Amazon S3 will automatically block server-side encryption with customer-provided keys (SSE-C) for all new buckets. Use the `blockedEncryptionTypes` argument to manage this behavior. For more information, see the [SSE-C changes FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
- * const example = new aws.s3.BucketServerSideEncryptionConfiguration("example", {
- *     bucket: mybucket.id,
- *     rules: [{
- *         applyServerSideEncryptionByDefault: {
- *             kmsMasterKeyId: mykey.arn,
- *             sseAlgorithm: "aws:kms",
- *         },
- *     }],
- * });
- * ```
- *
- * ### Blocking SSE-C Uploads
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
- * const example = new aws.s3.BucketServerSideEncryptionConfiguration("example", {
- *     bucket: mybucket.id,
- *     rules: [{
- *         applyServerSideEncryptionByDefault: {
- *             kmsMasterKeyId: mykey.arn,
- *             sseAlgorithm: "aws:kms",
- *         },
- *         bucketKeyEnabled: true,
- *         blockedEncryptionTypes: ["SSE-C"],
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `bucket` (String) S3 bucket name.
- *
- * #### Optional
- *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- *
- * * `region` (String) Region where this resource is managed.
- *
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- *
- * terraform
- *
- * import {
- *
- *   to = aws_s3_bucket_server_side_encryption_configuration.example
- *
- *   id = "bucket-name,123456789012"
- *
- * }
- *
- * **Using `pulumi import` to import** S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- *
- * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
- *
- * % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name
- *
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- *
- * % pulumi import aws_s3_bucket_server_side_encryption_configuration.example bucket-name,123456789012
- */
 export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing BucketServerSideEncryptionConfiguration resource's state with the given name, ID, and optional extra
@@ -126,21 +35,9 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
         return obj['__pulumiType'] === BucketServerSideEncryptionConfiguration.__pulumiType;
     }
 
-    /**
-     * ID (name) of the bucket.
-     */
     declare public readonly bucket: pulumi.Output<string>;
-    /**
-     * Account ID of the expected bucket owner.
-     */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     */
     declare public readonly rules: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationRule[]>;
 
     /**
@@ -184,21 +81,9 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
  * Input properties used for looking up and filtering BucketServerSideEncryptionConfiguration resources.
  */
 export interface BucketServerSideEncryptionConfigurationState {
-    /**
-     * ID (name) of the bucket.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRule>[]>;
 }
 
@@ -206,20 +91,8 @@ export interface BucketServerSideEncryptionConfigurationState {
  * The set of arguments for constructing a BucketServerSideEncryptionConfiguration resource.
  */
 export interface BucketServerSideEncryptionConfigurationArgs {
-    /**
-     * ID (name) of the bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
-     */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRule>[]>;
 }

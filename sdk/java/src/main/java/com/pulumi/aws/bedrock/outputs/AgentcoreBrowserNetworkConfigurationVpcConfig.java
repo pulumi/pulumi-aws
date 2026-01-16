@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreBrowserNetworkConfigurationVpcConfig {
-    /**
-     * @return Set of security group IDs for the VPC configuration.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return Set of subnet IDs for the VPC configuration.
-     * 
-     */
     private List<String> subnets;
 
     private AgentcoreBrowserNetworkConfigurationVpcConfig() {}
-    /**
-     * @return Set of security group IDs for the VPC configuration.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return Set of subnet IDs for the VPC configuration.
-     * 
-     */
     public List<String> subnets() {
         return this.subnets;
     }

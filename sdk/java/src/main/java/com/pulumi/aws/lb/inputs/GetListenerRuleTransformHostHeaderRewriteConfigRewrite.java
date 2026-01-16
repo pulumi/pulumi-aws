@@ -13,32 +13,16 @@ public final class GetListenerRuleTransformHostHeaderRewriteConfigRewrite extend
 
     public static final GetListenerRuleTransformHostHeaderRewriteConfigRewrite Empty = new GetListenerRuleTransformHostHeaderRewriteConfigRewrite();
 
-    /**
-     * Regular expression to match in the input string.
-     * 
-     */
     @Import(name="regex", required=true)
     private String regex;
 
-    /**
-     * @return Regular expression to match in the input string.
-     * 
-     */
     public String regex() {
         return this.regex;
     }
 
-    /**
-     * Replacement string to use when rewriting the matched input.
-     * 
-     */
     @Import(name="replace", required=true)
     private String replace;
 
-    /**
-     * @return Replacement string to use when rewriting the matched input.
-     * 
-     */
     public String replace() {
         return this.replace;
     }
@@ -68,23 +52,11 @@ public final class GetListenerRuleTransformHostHeaderRewriteConfigRewrite extend
             $ = new GetListenerRuleTransformHostHeaderRewriteConfigRewrite(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regex Regular expression to match in the input string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regex(String regex) {
             $.regex = regex;
             return this;
         }
 
-        /**
-         * @param replace Replacement string to use when rewriting the matched input.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replace(String replace) {
             $.replace = replace;
             return this;

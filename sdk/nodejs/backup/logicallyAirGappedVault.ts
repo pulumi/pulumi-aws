@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Backup Logically Air Gapped Vault.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.LogicallyAirGappedVault("example", {
- *     name: "lag-example-vault",
- *     maxRetentionDays: 7,
- *     minRetentionDays: 7,
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Backup Logically Air Gapped Vault using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
- * ```
- */
 export class LogicallyAirGappedVault extends pulumi.CustomResource {
     /**
      * Get an existing LogicallyAirGappedVault resource's state with the given name, ID, and optional extra
@@ -61,37 +35,13 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogicallyAirGappedVault.__pulumiType;
     }
 
-    /**
-     * The ARN of the Logically Air Gapped Backup Vault.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-     */
     declare public readonly encryptionKeyArn: pulumi.Output<string>;
-    /**
-     * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     */
     declare public readonly maxRetentionDays: pulumi.Output<number>;
-    /**
-     * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     */
     declare public readonly minRetentionDays: pulumi.Output<number>;
-    /**
-     * Name of the Logically Air Gapped Backup Vault to create.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.backup.LogicallyAirGappedVaultTimeouts | undefined>;
 
@@ -144,37 +94,13 @@ export class LogicallyAirGappedVault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogicallyAirGappedVault resources.
  */
 export interface LogicallyAirGappedVaultState {
-    /**
-     * The ARN of the Logically Air Gapped Backup Vault.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-     */
     encryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     */
     maxRetentionDays?: pulumi.Input<number>;
-    /**
-     * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     */
     minRetentionDays?: pulumi.Input<number>;
-    /**
-     * Name of the Logically Air Gapped Backup Vault to create.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.backup.LogicallyAirGappedVaultTimeouts>;
 }
@@ -183,29 +109,11 @@ export interface LogicallyAirGappedVaultState {
  * The set of arguments for constructing a LogicallyAirGappedVault resource.
  */
 export interface LogicallyAirGappedVaultArgs {
-    /**
-     * The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
-     */
     encryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     */
     maxRetentionDays: pulumi.Input<number>;
-    /**
-     * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-     */
     minRetentionDays: pulumi.Input<number>;
-    /**
-     * Name of the Logically Air Gapped Backup Vault to create.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.backup.LogicallyAirGappedVaultTimeouts>;
 }

@@ -16,62 +16,30 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetParametersByPathPlainArgs Empty = new GetParametersByPathPlainArgs();
 
-    /**
-     * The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can&#39;t be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-     * 
-     */
     @Import(name="path", required=true)
     private String path;
 
-    /**
-     * @return The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can&#39;t be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-     * 
-     */
     public String path() {
         return this.path;
     }
 
-    /**
-     * Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-     * 
-     */
     @Import(name="recursive")
     private @Nullable Boolean recursive;
 
-    /**
-     * @return Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> recursive() {
         return Optional.ofNullable(this.recursive);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
-     * 
-     */
     @Import(name="withDecryption")
     private @Nullable Boolean withDecryption;
 
-    /**
-     * @return Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> withDecryption() {
         return Optional.ofNullable(this.withDecryption);
     }
@@ -103,45 +71,21 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
             $ = new GetParametersByPathPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can&#39;t be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param recursive Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recursive(@Nullable Boolean recursive) {
             $.recursive = recursive;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param withDecryption Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDecryption(@Nullable Boolean withDecryption) {
             $.withDecryption = withDecryption;
             return this;

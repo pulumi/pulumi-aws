@@ -10,77 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudExadataInfrastructuresCloudExadataInfrastructure {
-    /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     private String arn;
-    /**
-     * @return The display name of the Exadata infrastructure.
-     * 
-     */
     private String displayName;
-    /**
-     * @return The unique identifier of the Exadata infrastructure.
-     * 
-     */
     private String id;
-    /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
-     * 
-     */
     private String ociResourceAnchorName;
-    /**
-     * @return The HTTPS link to the Exadata infrastructure in OCI.
-     * 
-     */
     private String ociUrl;
-    /**
-     * @return The OCID of the Exadata infrastructure in OCI.
-     * 
-     */
     private String ocid;
 
     private GetCloudExadataInfrastructuresCloudExadataInfrastructure() {}
-    /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The display name of the Exadata infrastructure.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }
-    /**
-     * @return The unique identifier of the Exadata infrastructure.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
-     * 
-     */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
-    /**
-     * @return The HTTPS link to the Exadata infrastructure in OCI.
-     * 
-     */
     public String ociUrl() {
         return this.ociUrl;
     }
-    /**
-     * @return The OCID of the Exadata infrastructure in OCI.
-     * 
-     */
     public String ocid() {
         return this.ocid;
     }

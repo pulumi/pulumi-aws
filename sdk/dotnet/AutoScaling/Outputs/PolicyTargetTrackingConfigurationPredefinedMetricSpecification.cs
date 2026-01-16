@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyTargetTrackingConfigurationPredefinedMetricSpecification
     {
-        /// <summary>
-        /// Metric type.
-        /// </summary>
         public readonly string PredefinedMetricType;
-        /// <summary>
-        /// Identifies the resource associated with the metric type.
-        /// </summary>
         public readonly string? ResourceLabel;
 
         [OutputConstructor]

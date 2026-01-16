@@ -12,61 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS FIS (Fault Injection Simulator) Target Account Configuration.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fis.NewTargetAccountConfiguration(ctx, "example", &fis.TargetAccountConfigurationArgs{
-//				ExperimentTemplateId: pulumi.Any(exampleAwsFisExperimentTemplate.Id),
-//				AccountId:            pulumi.Any(current.AccountId),
-//				RoleArn:              pulumi.Any(fisRole.Arn),
-//				Description:          pulumi.String("Example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import FIS (Fault Injection Simulator) Target Account Configuration using the `account_id,experiment_template_id`. For example:
-//
-// ```sh
-// $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
-// ```
 type TargetAccountConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Account ID of the target account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Description of the target account.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Experiment Template ID.
-	//
-	// The following arguments are optional:
+	AccountId            pulumi.StringOutput `pulumi:"accountId"`
+	Description          pulumi.StringOutput `pulumi:"description"`
 	ExperimentTemplateId pulumi.StringOutput `pulumi:"experimentTemplateId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// ARN of the IAM Role for the target account.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	Region               pulumi.StringOutput `pulumi:"region"`
+	RoleArn              pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewTargetAccountConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -105,33 +58,19 @@ func GetTargetAccountConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TargetAccountConfiguration resources.
 type targetAccountConfigurationState struct {
-	// Account ID of the target account.
-	AccountId *string `pulumi:"accountId"`
-	// Description of the target account.
-	Description *string `pulumi:"description"`
-	// Experiment Template ID.
-	//
-	// The following arguments are optional:
+	AccountId            *string `pulumi:"accountId"`
+	Description          *string `pulumi:"description"`
 	ExperimentTemplateId *string `pulumi:"experimentTemplateId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM Role for the target account.
-	RoleArn *string `pulumi:"roleArn"`
+	Region               *string `pulumi:"region"`
+	RoleArn              *string `pulumi:"roleArn"`
 }
 
 type TargetAccountConfigurationState struct {
-	// Account ID of the target account.
-	AccountId pulumi.StringPtrInput
-	// Description of the target account.
-	Description pulumi.StringPtrInput
-	// Experiment Template ID.
-	//
-	// The following arguments are optional:
+	AccountId            pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
 	ExperimentTemplateId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the IAM Role for the target account.
-	RoleArn pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	RoleArn              pulumi.StringPtrInput
 }
 
 func (TargetAccountConfigurationState) ElementType() reflect.Type {
@@ -139,34 +78,20 @@ func (TargetAccountConfigurationState) ElementType() reflect.Type {
 }
 
 type targetAccountConfigurationArgs struct {
-	// Account ID of the target account.
-	AccountId string `pulumi:"accountId"`
-	// Description of the target account.
-	Description *string `pulumi:"description"`
-	// Experiment Template ID.
-	//
-	// The following arguments are optional:
-	ExperimentTemplateId string `pulumi:"experimentTemplateId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// ARN of the IAM Role for the target account.
-	RoleArn *string `pulumi:"roleArn"`
+	AccountId            string  `pulumi:"accountId"`
+	Description          *string `pulumi:"description"`
+	ExperimentTemplateId string  `pulumi:"experimentTemplateId"`
+	Region               *string `pulumi:"region"`
+	RoleArn              *string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a TargetAccountConfiguration resource.
 type TargetAccountConfigurationArgs struct {
-	// Account ID of the target account.
-	AccountId pulumi.StringInput
-	// Description of the target account.
-	Description pulumi.StringPtrInput
-	// Experiment Template ID.
-	//
-	// The following arguments are optional:
+	AccountId            pulumi.StringInput
+	Description          pulumi.StringPtrInput
 	ExperimentTemplateId pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// ARN of the IAM Role for the target account.
-	RoleArn pulumi.StringPtrInput
+	Region               pulumi.StringPtrInput
+	RoleArn              pulumi.StringPtrInput
 }
 
 func (TargetAccountConfigurationArgs) ElementType() reflect.Type {
@@ -256,29 +181,22 @@ func (o TargetAccountConfigurationOutput) ToTargetAccountConfigurationOutputWith
 	return o
 }
 
-// Account ID of the target account.
 func (o TargetAccountConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Description of the target account.
 func (o TargetAccountConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Experiment Template ID.
-//
-// The following arguments are optional:
 func (o TargetAccountConfigurationOutput) ExperimentTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.ExperimentTemplateId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TargetAccountConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM Role for the target account.
 func (o TargetAccountConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

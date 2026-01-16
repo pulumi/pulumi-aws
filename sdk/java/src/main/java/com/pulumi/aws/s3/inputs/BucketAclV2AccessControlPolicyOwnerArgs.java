@@ -17,8 +17,6 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
     public static final BucketAclV2AccessControlPolicyOwnerArgs Empty = new BucketAclV2AccessControlPolicyOwnerArgs();
 
     /**
-     * Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
@@ -28,8 +26,6 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Display name of the owner.
-     * 
      * @deprecated
      * display_name is deprecated. This attribute is no longer returned by AWS and will be removed in a future major version.
      * 
@@ -39,17 +35,9 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * ID of the owner.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return ID of the owner.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -80,8 +68,6 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
         }
 
         /**
-         * @param displayName Display name of the owner.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -95,8 +81,6 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
         }
 
         /**
-         * @param displayName Display name of the owner.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -108,23 +92,11 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param id ID of the owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

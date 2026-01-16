@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CanaryRunConfig {
-    /**
-     * @return Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-     * 
-     */
     private @Nullable Boolean activeTracing;
-    /**
-     * @return Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-     * 
-     */
     private @Nullable Map<String,String> environmentVariables;
-    /**
-     * @return Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-     * 
-     */
     private @Nullable Integer ephemeralStorage;
-    /**
-     * @return Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-     * 
-     */
     private @Nullable Integer memoryInMb;
-    /**
-     * @return Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-     * 
-     */
     private @Nullable Integer timeoutInSeconds;
 
     private CanaryRunConfig() {}
-    /**
-     * @return Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-     * 
-     */
     public Optional<Boolean> activeTracing() {
         return Optional.ofNullable(this.activeTracing);
     }
-    /**
-     * @return Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-     * 
-     */
     public Map<String,String> environmentVariables() {
         return this.environmentVariables == null ? Map.of() : this.environmentVariables;
     }
-    /**
-     * @return Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-     * 
-     */
     public Optional<Integer> ephemeralStorage() {
         return Optional.ofNullable(this.ephemeralStorage);
     }
-    /**
-     * @return Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-     * 
-     */
     public Optional<Integer> memoryInMb() {
         return Optional.ofNullable(this.memoryInMb);
     }
-    /**
-     * @return Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-     * 
-     */
     public Optional<Integer> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }

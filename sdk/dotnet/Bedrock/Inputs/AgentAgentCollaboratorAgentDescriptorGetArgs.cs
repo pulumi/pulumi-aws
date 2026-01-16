@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentCollaboratorAgentDescriptorGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Alias of an Agent to use as the collaborator.
-        /// </summary>
         [Input("aliasArn", required: true)]
         public Input<string> AliasArn { get; set; } = null!;
 

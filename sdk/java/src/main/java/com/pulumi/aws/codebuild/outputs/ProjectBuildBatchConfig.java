@@ -15,57 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectBuildBatchConfig {
-    /**
-     * @return Specifies if the build artifacts for the batch build should be combined into a single
-     * artifact location.
-     * 
-     */
     private @Nullable Boolean combineArtifacts;
-    /**
-     * @return Configuration block specifying the restrictions for the batch build. Detailed below.
-     * 
-     */
     private @Nullable ProjectBuildBatchConfigRestrictions restrictions;
-    /**
-     * @return Specifies the service role ARN for the batch build project.
-     * 
-     */
     private String serviceRole;
-    /**
-     * @return Specifies the maximum amount of time, in minutes, that the batch build must be
-     * completed in.
-     * 
-     */
     private @Nullable Integer timeoutInMins;
 
     private ProjectBuildBatchConfig() {}
-    /**
-     * @return Specifies if the build artifacts for the batch build should be combined into a single
-     * artifact location.
-     * 
-     */
     public Optional<Boolean> combineArtifacts() {
         return Optional.ofNullable(this.combineArtifacts);
     }
-    /**
-     * @return Configuration block specifying the restrictions for the batch build. Detailed below.
-     * 
-     */
     public Optional<ProjectBuildBatchConfigRestrictions> restrictions() {
         return Optional.ofNullable(this.restrictions);
     }
-    /**
-     * @return Specifies the service role ARN for the batch build project.
-     * 
-     */
     public String serviceRole() {
         return this.serviceRole;
     }
-    /**
-     * @return Specifies the maximum amount of time, in minutes, that the batch build must be
-     * completed in.
-     * 
-     */
     public Optional<Integer> timeoutInMins() {
         return Optional.ofNullable(this.timeoutInMins);
     }

@@ -16,17 +16,9 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
 
     public static final AgentFlowDefinitionNodeConfigurationPromptArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptArgs();
 
-    /**
-     * Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     @Import(name="guardrailConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs> guardrailConfiguration;
 
-    /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-     * 
-     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs>> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
@@ -63,23 +55,11 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
             $ = new AgentFlowDefinitionNodeConfigurationPromptArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs> guardrailConfiguration) {
             $.guardrailConfiguration = guardrailConfiguration;
             return this;
         }
 
-        /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder guardrailConfiguration(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs guardrailConfiguration) {
             return guardrailConfiguration(Output.of(guardrailConfiguration));
         }

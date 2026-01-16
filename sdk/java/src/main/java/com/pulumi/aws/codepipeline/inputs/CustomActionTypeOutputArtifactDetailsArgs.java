@@ -14,32 +14,16 @@ public final class CustomActionTypeOutputArtifactDetailsArgs extends com.pulumi.
 
     public static final CustomActionTypeOutputArtifactDetailsArgs Empty = new CustomActionTypeOutputArtifactDetailsArgs();
 
-    /**
-     * The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     @Import(name="maximumCount", required=true)
     private Output<Integer> maximumCount;
 
-    /**
-     * @return The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     public Output<Integer> maximumCount() {
         return this.maximumCount;
     }
 
-    /**
-     * The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     @Import(name="minimumCount", required=true)
     private Output<Integer> minimumCount;
 
-    /**
-     * @return The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-     * 
-     */
     public Output<Integer> minimumCount() {
         return this.minimumCount;
     }
@@ -69,44 +53,20 @@ public final class CustomActionTypeOutputArtifactDetailsArgs extends com.pulumi.
             $ = new CustomActionTypeOutputArtifactDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumCount The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumCount(Output<Integer> maximumCount) {
             $.maximumCount = maximumCount;
             return this;
         }
 
-        /**
-         * @param maximumCount The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumCount(Integer maximumCount) {
             return maximumCount(Output.of(maximumCount));
         }
 
-        /**
-         * @param minimumCount The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumCount(Output<Integer> minimumCount) {
             $.minimumCount = minimumCount;
             return this;
         }
 
-        /**
-         * @param minimumCount The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumCount(Integer minimumCount) {
             return minimumCount(Output.of(minimumCount));
         }

@@ -26,9 +26,6 @@ class VpcEndpointArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
-        :param pulumi.Input[_builtins.str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        :param pulumi.Input['VpcEndpointVpcOptionsArgs'] vpc_options: Options to specify the subnets and security groups for the endpoint.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "vpc_options", vpc_options)
@@ -38,9 +35,6 @@ class VpcEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="domainArn")
     def domain_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        """
         return pulumi.get(self, "domain_arn")
 
     @domain_arn.setter
@@ -50,9 +44,6 @@ class VpcEndpointArgs:
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Input['VpcEndpointVpcOptionsArgs']:
-        """
-        Options to specify the subnets and security groups for the endpoint.
-        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -62,9 +53,6 @@ class VpcEndpointArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -81,10 +69,6 @@ class _VpcEndpointState:
                  vpc_options: Optional[pulumi.Input['VpcEndpointVpcOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering VpcEndpoint resources.
-        :param pulumi.Input[_builtins.str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint ID for connecting to the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['VpcEndpointVpcOptionsArgs'] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         if domain_arn is not None:
             pulumi.set(__self__, "domain_arn", domain_arn)
@@ -98,9 +82,6 @@ class _VpcEndpointState:
     @_builtins.property
     @pulumi.getter(name="domainArn")
     def domain_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        """
         return pulumi.get(self, "domain_arn")
 
     @domain_arn.setter
@@ -110,9 +91,6 @@ class _VpcEndpointState:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The connection endpoint ID for connecting to the domain.
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -122,9 +100,6 @@ class _VpcEndpointState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -134,9 +109,6 @@ class _VpcEndpointState:
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['VpcEndpointVpcOptionsArgs']]:
-        """
-        Options to specify the subnets and security groups for the endpoint.
-        """
         return pulumi.get(self, "vpc_options")
 
     @vpc_options.setter
@@ -155,43 +127,9 @@ class VpcEndpoint(pulumi.CustomResource):
                  vpc_options: Optional[pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.opensearch.VpcEndpoint("foo",
-            domain_arn=domain1["arn"],
-            vpc_options={
-                "security_group_ids": [
-                    test["id"],
-                    test2["id"],
-                ],
-                "subnet_ids": [
-                    test_aws_subnet["id"],
-                    test2_aws_subnet["id"],
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
-        ```
-
+        Create a VpcEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         ...
     @overload
@@ -200,38 +138,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  args: VpcEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.opensearch.VpcEndpoint("foo",
-            domain_arn=domain1["arn"],
-            vpc_options={
-                "security_group_ids": [
-                    test["id"],
-                    test2["id"],
-                ],
-                "subnet_ids": [
-                    test_aws_subnet["id"],
-                    test2_aws_subnet["id"],
-                ],
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
-        ```
-
+        Create a VpcEndpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,10 +195,6 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        :param pulumi.Input[_builtins.str] endpoint: The connection endpoint ID for connecting to the domain.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,32 +209,20 @@ class VpcEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="domainArn")
     def domain_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        """
         return pulumi.get(self, "domain_arn")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
-        """
-        The connection endpoint ID for connecting to the domain.
-        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Output['outputs.VpcEndpointVpcOptions']:
-        """
-        Options to specify the subnets and security groups for the endpoint.
-        """
         return pulumi.get(self, "vpc_options")
 

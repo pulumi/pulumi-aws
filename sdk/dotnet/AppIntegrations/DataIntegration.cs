@@ -9,102 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppIntegrations
 {
-    /// <summary>
-    /// Provides an Amazon AppIntegrations Data Integration resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppIntegrations.DataIntegration("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Description = "example",
-    ///         KmsKey = test.Arn,
-    ///         SourceUri = "Salesforce://AppFlow/example",
-    ///         ScheduleConfig = new Aws.AppIntegrations.Inputs.DataIntegrationScheduleConfigArgs
-    ///         {
-    ///             FirstExecutionFrom = "1439788442681",
-    ///             Object = "Account",
-    ///             ScheduleExpression = "rate(1 hour)",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Key1", "Value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appintegrations/dataIntegration:DataIntegration")]
     public partial class DataIntegration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Data Integration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the description of the Data Integration.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        /// </summary>
         [Output("kmsKey")]
         public Output<string> KmsKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Data Integration.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        /// </summary>
         [Output("scheduleConfig")]
         public Output<Outputs.DataIntegrationScheduleConfig> ScheduleConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
-        /// </summary>
         [Output("sourceUri")]
         public Output<string> SourceUri { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the Data Integration. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -154,48 +85,26 @@ namespace Pulumi.Aws.AppIntegrations
 
     public sealed class DataIntegrationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the description of the Data Integration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        /// </summary>
         [Input("kmsKey", required: true)]
         public Input<string> KmsKey { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Data Integration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        /// </summary>
         [Input("scheduleConfig", required: true)]
         public Input<Inputs.DataIntegrationScheduleConfigArgs> ScheduleConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
-        /// </summary>
         [Input("sourceUri", required: true)]
         public Input<string> SourceUri { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Data Integration. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -210,54 +119,29 @@ namespace Pulumi.Aws.AppIntegrations
 
     public sealed class DataIntegrationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Data Integration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Specifies the description of the Data Integration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Data Integration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        /// </summary>
         [Input("scheduleConfig")]
         public Input<Inputs.DataIntegrationScheduleConfigGetArgs>? ScheduleConfig { get; set; }
 
-        /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
-        /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Data Integration. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -266,10 +150,6 @@ namespace Pulumi.Aws.AppIntegrations
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

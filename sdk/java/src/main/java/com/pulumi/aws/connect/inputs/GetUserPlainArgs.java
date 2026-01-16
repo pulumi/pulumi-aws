@@ -16,81 +16,37 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     * 
-     */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
-    /**
-     * @return Reference to the hosting Amazon Connect Instance
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Returns information on a specific User by name
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Returns information on a specific User by name
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the User.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags to assign to the User.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Returns information on a specific User by User id
-     * 
-     * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
-     * 
-     */
     @Import(name="userId")
     private @Nullable String userId;
 
-    /**
-     * @return Returns information on a specific User by User id
-     * 
-     * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
-     * 
-     */
     public Optional<String> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -123,58 +79,26 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param name Returns information on a specific User by name
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the User.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param userId Returns information on a specific User by User id
-         * 
-         * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable String userId) {
             $.userId = userId;
             return this;

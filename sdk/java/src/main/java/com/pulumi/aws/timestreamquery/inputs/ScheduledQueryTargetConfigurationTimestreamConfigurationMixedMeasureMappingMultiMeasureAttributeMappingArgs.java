@@ -16,47 +16,23 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixed
 
     public static final ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs Empty = new ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs();
 
-    /**
-     * Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-     * 
-     */
     @Import(name="measureValueType", required=true)
     private Output<String> measureValueType;
 
-    /**
-     * @return Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-     * 
-     */
     public Output<String> measureValueType() {
         return this.measureValueType;
     }
 
-    /**
-     * Source column from where the attribute value is to be read.
-     * 
-     */
     @Import(name="sourceColumn", required=true)
     private Output<String> sourceColumn;
 
-    /**
-     * @return Source column from where the attribute value is to be read.
-     * 
-     */
     public Output<String> sourceColumn() {
         return this.sourceColumn;
     }
 
-    /**
-     * Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
-     * 
-     */
     @Import(name="targetMultiMeasureAttributeName")
     private @Nullable Output<String> targetMultiMeasureAttributeName;
 
-    /**
-     * @return Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
-     * 
-     */
     public Optional<Output<String>> targetMultiMeasureAttributeName() {
         return Optional.ofNullable(this.targetMultiMeasureAttributeName);
     }
@@ -87,65 +63,29 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixed
             $ = new ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param measureValueType Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder measureValueType(Output<String> measureValueType) {
             $.measureValueType = measureValueType;
             return this;
         }
 
-        /**
-         * @param measureValueType Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder measureValueType(String measureValueType) {
             return measureValueType(Output.of(measureValueType));
         }
 
-        /**
-         * @param sourceColumn Source column from where the attribute value is to be read.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceColumn(Output<String> sourceColumn) {
             $.sourceColumn = sourceColumn;
             return this;
         }
 
-        /**
-         * @param sourceColumn Source column from where the attribute value is to be read.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceColumn(String sourceColumn) {
             return sourceColumn(Output.of(sourceColumn));
         }
 
-        /**
-         * @param targetMultiMeasureAttributeName Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetMultiMeasureAttributeName(@Nullable Output<String> targetMultiMeasureAttributeName) {
             $.targetMultiMeasureAttributeName = targetMultiMeasureAttributeName;
             return this;
         }
 
-        /**
-         * @param targetMultiMeasureAttributeName Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetMultiMeasureAttributeName(String targetMultiMeasureAttributeName) {
             return targetMultiMeasureAttributeName(Output.of(targetMultiMeasureAttributeName));
         }

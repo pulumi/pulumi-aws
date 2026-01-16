@@ -16,32 +16,16 @@ public final class CostCategorySplitChargeRuleParameterArgs extends com.pulumi.r
 
     public static final CostCategorySplitChargeRuleParameterArgs Empty = new CostCategorySplitChargeRuleParameterArgs();
 
-    /**
-     * Parameter type.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Parameter type.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * Parameter values.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
-    /**
-     * @return Parameter values.
-     * 
-     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -71,54 +55,24 @@ public final class CostCategorySplitChargeRuleParameterArgs extends com.pulumi.r
             $ = new CostCategorySplitChargeRuleParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Parameter type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Parameter type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param values Parameter values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Parameter values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Parameter values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

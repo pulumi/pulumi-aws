@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration
     {
-        /// <summary>
-        /// Enables or disables data processing.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Specifies the data processors as multiple blocks. See `Processors` block below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor> Processors;
 
         [OutputConstructor]

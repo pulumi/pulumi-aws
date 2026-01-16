@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetServiceDeploymentResult
     {
-        /// <summary>
-        /// Time when task set was created (RFC3339 format)
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// Desired number of tasks
-        /// </summary>
         public readonly int DesiredCount;
-        /// <summary>
-        /// Task set ID
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Number of pending tasks
-        /// </summary>
         public readonly int PendingCount;
-        /// <summary>
-        /// Number of running tasks
-        /// </summary>
         public readonly int RunningCount;
-        /// <summary>
-        /// Task set status
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Task definition ARN
-        /// </summary>
         public readonly string TaskDefinition;
-        /// <summary>
-        /// Time when task set was last updated (RFC3339 format)
-        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

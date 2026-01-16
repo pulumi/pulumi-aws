@@ -37,17 +37,11 @@ class GetBillingServiceAccountResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the AWS billing service account.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        ID of the AWS billing service account.
-        """
         return pulumi.get(self, "id")
 
 
@@ -64,53 +58,7 @@ class AwaitableGetBillingServiceAccountResult(GetBillingServiceAccountResult):
 def get_billing_service_account(id: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingServiceAccountResult:
     """
-    Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.get_billing_service_account()
-    billing_logs = aws.s3.Bucket("billing_logs", bucket="my-billing-tf-test-bucket")
-    billing_logs_acl = aws.s3.BucketAcl("billing_logs_acl",
-        bucket=billing_logs.id,
-        acl="private")
-    allow_billing_logging = pulumi.Output.all(
-        billingLogsArn=billing_logs.arn,
-        billingLogsArn1=billing_logs.arn
-    ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[
-        {
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [main.arn],
-            }],
-            "actions": [
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy",
-            ],
-            "resources": [resolved_outputs['billingLogsArn']],
-        },
-        {
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [main.arn],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [f"{resolved_outputs['billingLogsArn1']}/*"],
-        },
-    ]))
-
-    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allow_billing_logging",
-        bucket=billing_logs.id,
-        policy=allow_billing_logging.json)
-    ```
-
-
-    :param _builtins.str id: ID of the AWS billing service account.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -123,53 +71,7 @@ def get_billing_service_account(id: Optional[_builtins.str] = None,
 def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingServiceAccountResult]:
     """
-    Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.get_billing_service_account()
-    billing_logs = aws.s3.Bucket("billing_logs", bucket="my-billing-tf-test-bucket")
-    billing_logs_acl = aws.s3.BucketAcl("billing_logs_acl",
-        bucket=billing_logs.id,
-        acl="private")
-    allow_billing_logging = pulumi.Output.all(
-        billingLogsArn=billing_logs.arn,
-        billingLogsArn1=billing_logs.arn
-    ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[
-        {
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [main.arn],
-            }],
-            "actions": [
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy",
-            ],
-            "resources": [resolved_outputs['billingLogsArn']],
-        },
-        {
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [main.arn],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [f"{resolved_outputs['billingLogsArn1']}/*"],
-        },
-    ]))
-
-    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allow_billing_logging",
-        bucket=billing_logs.id,
-        policy=allow_billing_logging.json)
-    ```
-
-
-    :param _builtins.str id: ID of the AWS billing service account.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id

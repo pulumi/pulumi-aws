@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class AccessPolicyAssociationAccessScope
     {
-        /// <summary>
-        /// The namespaces to which the access scope applies when type is namespace.
-        /// </summary>
         public readonly ImmutableArray<string> Namespaces;
-        /// <summary>
-        /// Valid values are `Namespace` or `Cluster`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

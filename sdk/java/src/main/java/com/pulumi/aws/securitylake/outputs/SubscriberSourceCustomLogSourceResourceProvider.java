@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class SubscriberSourceCustomLogSourceResourceProvider {
-    /**
-     * @return The location of the partition in the Amazon S3 bucket for Security Lake.
-     * 
-     */
     private String location;
-    /**
-     * @return The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-     * 
-     */
     private String roleArn;
 
     private SubscriberSourceCustomLogSourceResourceProvider() {}
-    /**
-     * @return The location of the partition in the Amazon S3 bucket for Security Lake.
-     * 
-     */
     public String location() {
         return this.location;
     }
-    /**
-     * @return The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

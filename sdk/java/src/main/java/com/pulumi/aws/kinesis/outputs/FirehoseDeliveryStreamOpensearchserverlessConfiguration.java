@@ -17,137 +17,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-     * 
-     */
     private @Nullable Integer bufferingInterval;
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-     * 
-     */
     private @Nullable Integer bufferingSize;
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
-    /**
-     * @return The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
-     * 
-     */
     private String collectionEndpoint;
-    /**
-     * @return The Serverless offering for Amazon OpenSearch Service index name.
-     * 
-     */
     private String indexName;
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration processingConfiguration;
-    /**
-     * @return After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-     * 
-     */
     private @Nullable Integer retryDuration;
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-     * 
-     */
     private @Nullable String s3BackupMode;
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     private FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration;
-    /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
-     * 
-     */
     private @Nullable FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig vpcConfig;
 
     private FirehoseDeliveryStreamOpensearchserverlessConfiguration() {}
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-     * 
-     */
     public Optional<Integer> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-     * 
-     */
     public Optional<Integer> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
-    /**
-     * @return The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
-     * 
-     */
     public String collectionEndpoint() {
         return this.collectionEndpoint;
     }
-    /**
-     * @return The Serverless offering for Amazon OpenSearch Service index name.
-     * 
-     */
     public String indexName() {
         return this.indexName;
     }
-    /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
-    /**
-     * @return After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-     * 
-     */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
-    /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
-     * 
-     */
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
-    /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
-     * 
-     */
     public Optional<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }

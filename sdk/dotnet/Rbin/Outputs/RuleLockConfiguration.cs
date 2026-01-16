@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Rbin.Outputs
     [OutputType]
     public sealed class RuleLockConfiguration
     {
-        /// <summary>
-        /// Information about the retention rule unlock delay. See `UnlockDelay` below.
-        /// </summary>
         public readonly Outputs.RuleLockConfigurationUnlockDelay UnlockDelay;
 
         [OutputConstructor]

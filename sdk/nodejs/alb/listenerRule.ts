@@ -7,11 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Load Balancer Listener Rule resource.
- *
- * > **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
- */
 export class ListenerRule extends pulumi.CustomResource {
     /**
      * Get an existing ListenerRule resource's state with the given name, ID, and optional extra
@@ -40,41 +35,14 @@ export class ListenerRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerRule.__pulumiType;
     }
 
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     declare public readonly actions: pulumi.Output<outputs.alb.ListenerRuleAction[]>;
-    /**
-     * The ARN of the rule (matches `id`)
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     */
     declare public readonly conditions: pulumi.Output<outputs.alb.ListenerRuleCondition[]>;
-    /**
-     * The ARN of the listener to which to attach the rule.
-     */
     declare public readonly listenerArn: pulumi.Output<string>;
-    /**
-     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-     */
     declare public readonly priority: pulumi.Output<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     */
     declare public readonly transforms: pulumi.Output<outputs.alb.ListenerRuleTransform[] | undefined>;
 
     /**
@@ -131,41 +99,14 @@ export class ListenerRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ListenerRule resources.
  */
 export interface ListenerRuleState {
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     actions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleAction>[]>;
-    /**
-     * The ARN of the rule (matches `id`)
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     */
     conditions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleCondition>[]>;
-    /**
-     * The ARN of the listener to which to attach the rule.
-     */
     listenerArn?: pulumi.Input<string>;
-    /**
-     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-     */
     priority?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     */
     transforms?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleTransform>[]>;
 }
 
@@ -173,32 +114,11 @@ export interface ListenerRuleState {
  * The set of arguments for constructing a ListenerRule resource.
  */
 export interface ListenerRuleArgs {
-    /**
-     * An Action block. Action blocks are documented below.
-     */
     actions: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleAction>[]>;
-    /**
-     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-     */
     conditions: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleCondition>[]>;
-    /**
-     * The ARN of the listener to which to attach the rule.
-     */
     listenerArn: pulumi.Input<string>;
-    /**
-     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-     */
     priority?: pulumi.Input<number>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
-     */
     transforms?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleTransform>[]>;
 }

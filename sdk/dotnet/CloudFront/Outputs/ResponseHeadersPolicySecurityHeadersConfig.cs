@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicySecurityHeadersConfig
     {
-        /// <summary>
-        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy? ContentSecurityPolicy;
-        /// <summary>
-        /// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `Nosniff`. See Content Type Options for more information.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions? ContentTypeOptions;
-        /// <summary>
-        /// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions? FrameOptions;
-        /// <summary>
-        /// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy? ReferrerPolicy;
-        /// <summary>
-        /// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity? StrictTransportSecurity;
-        /// <summary>
-        /// Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
-        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection? XssProtection;
 
         [OutputConstructor]

@@ -86,9 +86,6 @@ class EnrollmentStatusTimeoutsArgs:
 if not MYPY:
     class RecommendationPreferencesExternalMetricsPreferenceArgsDict(TypedDict):
         source: pulumi.Input[_builtins.str]
-        """
-        The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-        """
 elif False:
     RecommendationPreferencesExternalMetricsPreferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -96,17 +93,11 @@ elif False:
 class RecommendationPreferencesExternalMetricsPreferenceArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] source: The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-        """
         pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
-        """
-        The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -118,13 +109,7 @@ if not MYPY:
     class RecommendationPreferencesPreferredResourceArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
         exclude_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-        """
         include_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
-        """
 elif False:
     RecommendationPreferencesPreferredResourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -134,10 +119,6 @@ class RecommendationPreferencesPreferredResourceArgs:
                  name: pulumi.Input[_builtins.str],
                  exclude_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_lists: The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_lists: The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
-        """
         pulumi.set(__self__, "name", name)
         if exclude_lists is not None:
             pulumi.set(__self__, "exclude_lists", exclude_lists)
@@ -156,9 +137,6 @@ class RecommendationPreferencesPreferredResourceArgs:
     @_builtins.property
     @pulumi.getter(name="excludeLists")
     def exclude_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-        """
         return pulumi.get(self, "exclude_lists")
 
     @exclude_lists.setter
@@ -168,9 +146,6 @@ class RecommendationPreferencesPreferredResourceArgs:
     @_builtins.property
     @pulumi.getter(name="includeLists")
     def include_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
-        """
         return pulumi.get(self, "include_lists")
 
     @include_lists.setter
@@ -181,13 +156,7 @@ class RecommendationPreferencesPreferredResourceArgs:
 if not MYPY:
     class RecommendationPreferencesScopeArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-        """
         value: pulumi.Input[_builtins.str]
-        """
-        The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-        """
 elif False:
     RecommendationPreferencesScopeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -196,19 +165,12 @@ class RecommendationPreferencesScopeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] name: The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-        :param pulumi.Input[_builtins.str] value: The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -218,9 +180,6 @@ class RecommendationPreferencesScopeArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -231,13 +190,7 @@ class RecommendationPreferencesScopeArgs:
 if not MYPY:
     class RecommendationPreferencesUtilizationPreferenceArgsDict(TypedDict):
         metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-        """
         metric_parameters: NotRequired[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict']]
-        """
-        The parameters to set when customizing the resource utilization thresholds.
-        """
 elif False:
     RecommendationPreferencesUtilizationPreferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -246,10 +199,6 @@ class RecommendationPreferencesUtilizationPreferenceArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[_builtins.str],
                  metric_parameters: Optional[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] metric_name: The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-        :param pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs'] metric_parameters: The parameters to set when customizing the resource utilization thresholds.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         if metric_parameters is not None:
             pulumi.set(__self__, "metric_parameters", metric_parameters)
@@ -257,9 +206,6 @@ class RecommendationPreferencesUtilizationPreferenceArgs:
     @_builtins.property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -269,9 +215,6 @@ class RecommendationPreferencesUtilizationPreferenceArgs:
     @_builtins.property
     @pulumi.getter(name="metricParameters")
     def metric_parameters(self) -> Optional[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']]:
-        """
-        The parameters to set when customizing the resource utilization thresholds.
-        """
         return pulumi.get(self, "metric_parameters")
 
     @metric_parameters.setter
@@ -282,13 +225,7 @@ class RecommendationPreferencesUtilizationPreferenceArgs:
 if not MYPY:
     class RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict(TypedDict):
         headroom: pulumi.Input[_builtins.str]
-        """
-        The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-        """
         threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-        """
 elif False:
     RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -297,10 +234,6 @@ class RecommendationPreferencesUtilizationPreferenceMetricParametersArgs:
     def __init__(__self__, *,
                  headroom: pulumi.Input[_builtins.str],
                  threshold: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] headroom: The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-        :param pulumi.Input[_builtins.str] threshold: The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-        """
         pulumi.set(__self__, "headroom", headroom)
         if threshold is not None:
             pulumi.set(__self__, "threshold", threshold)
@@ -308,9 +241,6 @@ class RecommendationPreferencesUtilizationPreferenceMetricParametersArgs:
     @_builtins.property
     @pulumi.getter
     def headroom(self) -> pulumi.Input[_builtins.str]:
-        """
-        The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-        """
         return pulumi.get(self, "headroom")
 
     @headroom.setter
@@ -320,9 +250,6 @@ class RecommendationPreferencesUtilizationPreferenceMetricParametersArgs:
     @_builtins.property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter

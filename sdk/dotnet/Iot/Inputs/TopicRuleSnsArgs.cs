@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleSnsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        /// </summary>
         [Input("messageFormat")]
         public Input<string>? MessageFormat { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS topic.
-        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 

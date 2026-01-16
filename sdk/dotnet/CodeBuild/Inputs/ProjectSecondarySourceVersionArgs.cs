@@ -12,17 +12,9 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectSecondarySourceVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An identifier for a source in the build project.
-        /// </summary>
         [Input("sourceIdentifier", required: true)]
         public Input<string> SourceIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The source version for the corresponding source identifier.
-        /// See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-        /// for more details.
-        /// </summary>
         [Input("sourceVersion", required: true)]
         public Input<string> SourceVersion { get; set; } = null!;
 

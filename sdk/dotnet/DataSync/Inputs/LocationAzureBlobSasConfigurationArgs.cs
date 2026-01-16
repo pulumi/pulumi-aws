@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class LocationAzureBlobSasConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A SAS token that provides permissions to access your Azure Blob Storage.
-        /// </summary>
         [Input("token", required: true)]
         public Input<string> Token { get; set; } = null!;
 

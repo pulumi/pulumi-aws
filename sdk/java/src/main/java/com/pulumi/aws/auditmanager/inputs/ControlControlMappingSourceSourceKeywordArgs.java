@@ -14,32 +14,16 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
 
     public static final ControlControlMappingSourceSourceKeywordArgs Empty = new ControlControlMappingSourceSourceKeywordArgs();
 
-    /**
-     * Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-     * 
-     */
     @Import(name="keywordInputType", required=true)
     private Output<String> keywordInputType;
 
-    /**
-     * @return Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-     * 
-     */
     public Output<String> keywordInputType() {
         return this.keywordInputType;
     }
 
-    /**
-     * The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-     * 
-     */
     @Import(name="keywordValue", required=true)
     private Output<String> keywordValue;
 
-    /**
-     * @return The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-     * 
-     */
     public Output<String> keywordValue() {
         return this.keywordValue;
     }
@@ -69,44 +53,20 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
             $ = new ControlControlMappingSourceSourceKeywordArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keywordInputType Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordInputType(Output<String> keywordInputType) {
             $.keywordInputType = keywordInputType;
             return this;
         }
 
-        /**
-         * @param keywordInputType Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordInputType(String keywordInputType) {
             return keywordInputType(Output.of(keywordInputType));
         }
 
-        /**
-         * @param keywordValue The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordValue(Output<String> keywordValue) {
             $.keywordValue = keywordValue;
             return this;
         }
 
-        /**
-         * @param keywordValue The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordValue(String keywordValue) {
             return keywordValue(Output.of(keywordValue));
         }

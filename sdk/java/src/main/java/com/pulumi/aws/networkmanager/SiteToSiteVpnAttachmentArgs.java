@@ -17,66 +17,30 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
 
     public static final SiteToSiteVpnAttachmentArgs Empty = new SiteToSiteVpnAttachmentArgs();
 
-    /**
-     * ID of a core network for the VPN attachment.
-     * 
-     */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network for the VPN attachment.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
 
-    /**
-     * The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Import(name="routingPolicyLabel")
     private @Nullable Output<String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Optional<Output<String>> routingPolicyLabel() {
         return Optional.ofNullable(this.routingPolicyLabel);
     }
 
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ARN of the site-to-site VPN connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="vpnConnectionArn", required=true)
     private Output<String> vpnConnectionArn;
 
-    /**
-     * @return ARN of the site-to-site VPN connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> vpnConnectionArn() {
         return this.vpnConnectionArn;
     }
@@ -108,90 +72,38 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
             $ = new SiteToSiteVpnAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param coreNetworkId ID of a core network for the VPN attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of a core network for the VPN attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(@Nullable Output<String> routingPolicyLabel) {
             $.routingPolicyLabel = routingPolicyLabel;
             return this;
         }
 
-        /**
-         * @param routingPolicyLabel The routing policy label to apply to the Site-to-Site VPN attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingPolicyLabel(String routingPolicyLabel) {
             return routingPolicyLabel(Output.of(routingPolicyLabel));
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpnConnectionArn ARN of the site-to-site VPN connection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionArn(Output<String> vpnConnectionArn) {
             $.vpnConnectionArn = vpnConnectionArn;
             return this;
         }
 
-        /**
-         * @param vpnConnectionArn ARN of the site-to-site VPN connection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionArn(String vpnConnectionArn) {
             return vpnConnectionArn(Output.of(vpnConnectionArn));
         }

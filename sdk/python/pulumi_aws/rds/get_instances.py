@@ -64,17 +64,11 @@ class GetInstancesResult:
     @_builtins.property
     @pulumi.getter(name="instanceArns")
     def instance_arns(self) -> Sequence[_builtins.str]:
-        """
-        ARNs of the matched RDS instances.
-        """
         return pulumi.get(self, "instance_arns")
 
     @_builtins.property
     @pulumi.getter(name="instanceIdentifiers")
     def instance_identifiers(self) -> Sequence[_builtins.str]:
-        """
-        Identifiers of the matched RDS instances.
-        """
         return pulumi.get(self, "instance_identifiers")
 
     @_builtins.property
@@ -107,37 +101,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
                   tags: Optional[Mapping[str, _builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Data source for listing RDS Database Instances.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(filters=[{
-        "name": "db-instance-id",
-        "values": ["my-database-id"],
-    }])
-    ```
-
-    ### Using tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(tags={
-        "Env": "test",
-    })
-    ```
-
-
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -158,37 +122,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
-    Data source for listing RDS Database Instances.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(filters=[{
-        "name": "db-instance-id",
-        "values": ["my-database-id"],
-    }])
-    ```
-
-    ### Using tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(tags={
-        "Env": "test",
-    })
-    ```
-
-
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataTable {
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private @Nullable String catalogId;
-    /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
-     * 
-     */
     private @Nullable Boolean wildcard;
 
     private OptInResourceDataTable() {}
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
-    /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
-     * 
-     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

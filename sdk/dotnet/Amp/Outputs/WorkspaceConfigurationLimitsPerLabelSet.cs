@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Amp.Outputs
     [OutputType]
     public sealed class WorkspaceConfigurationLimitsPerLabelSet
     {
-        /// <summary>
-        /// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> LabelSet;
-        /// <summary>
-        /// Configuration block for the limits to apply to the specified label set. Detailed below.
-        /// </summary>
         public readonly Outputs.WorkspaceConfigurationLimitsPerLabelSetLimits? Limits;
 
         [OutputConstructor]

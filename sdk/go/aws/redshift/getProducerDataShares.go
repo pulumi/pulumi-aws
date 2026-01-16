@@ -11,35 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Redshift Producer Data Shares.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.GetProducerDataShares(ctx, &redshift.GetProducerDataSharesArgs{
-//				ProducerArn: "",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetProducerDataShares(ctx *pulumi.Context, args *GetProducerDataSharesArgs, opts ...pulumi.InvokeOption) (*GetProducerDataSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProducerDataSharesResult
@@ -52,26 +23,18 @@ func GetProducerDataShares(ctx *pulumi.Context, args *GetProducerDataSharesArgs,
 
 // A collection of arguments for invoking getProducerDataShares.
 type GetProducerDataSharesArgs struct {
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-	//
-	// The following arguments are optional:
-	ProducerArn string `pulumi:"producerArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-	Status *string `pulumi:"status"`
+	ProducerArn string  `pulumi:"producerArn"`
+	Region      *string `pulumi:"region"`
+	Status      *string `pulumi:"status"`
 }
 
 // A collection of values returned by getProducerDataShares.
 type GetProducerDataSharesResult struct {
-	// An array of all data shares in the producer. See `dataShares` below.
-	DataShares []GetProducerDataSharesDataShare `pulumi:"dataShares"`
-	// Producer ARN.
-	Id string `pulumi:"id"`
-	// ARN (Amazon Resource Name) of the producer.
-	ProducerArn string  `pulumi:"producerArn"`
-	Region      string  `pulumi:"region"`
-	Status      *string `pulumi:"status"`
+	DataShares  []GetProducerDataSharesDataShare `pulumi:"dataShares"`
+	Id          string                           `pulumi:"id"`
+	ProducerArn string                           `pulumi:"producerArn"`
+	Region      string                           `pulumi:"region"`
+	Status      *string                          `pulumi:"status"`
 }
 
 func GetProducerDataSharesOutput(ctx *pulumi.Context, args GetProducerDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetProducerDataSharesResultOutput {
@@ -85,14 +48,9 @@ func GetProducerDataSharesOutput(ctx *pulumi.Context, args GetProducerDataShares
 
 // A collection of arguments for invoking getProducerDataShares.
 type GetProducerDataSharesOutputArgs struct {
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
-	//
-	// The following arguments are optional:
-	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ProducerArn pulumi.StringInput    `pulumi:"producerArn"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
+	Status      pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (GetProducerDataSharesOutputArgs) ElementType() reflect.Type {
@@ -114,17 +72,14 @@ func (o GetProducerDataSharesResultOutput) ToGetProducerDataSharesResultOutputWi
 	return o
 }
 
-// An array of all data shares in the producer. See `dataShares` below.
 func (o GetProducerDataSharesResultOutput) DataShares() GetProducerDataSharesDataShareArrayOutput {
 	return o.ApplyT(func(v GetProducerDataSharesResult) []GetProducerDataSharesDataShare { return v.DataShares }).(GetProducerDataSharesDataShareArrayOutput)
 }
 
-// Producer ARN.
 func (o GetProducerDataSharesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) of the producer.
 func (o GetProducerDataSharesResultOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesResult) string { return v.ProducerArn }).(pulumi.StringOutput)
 }

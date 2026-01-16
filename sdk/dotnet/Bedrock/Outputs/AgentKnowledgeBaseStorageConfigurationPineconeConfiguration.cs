@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration
     {
-        /// <summary>
-        /// Endpoint URL for your index management page.
-        /// </summary>
         public readonly string ConnectionString;
-        /// <summary>
-        /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-        /// </summary>
         public readonly string CredentialsSecretArn;
-        /// <summary>
-        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping? FieldMapping;
-        /// <summary>
-        /// Namespace to be used to write new data to your database.
-        /// </summary>
         public readonly string? Namespace;
 
         [OutputConstructor]

@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class PlanScanSetting {
-    /**
-     * @return Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     private String malwareScanner;
-    /**
-     * @return List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-     * 
-     */
     private List<String> resourceTypes;
-    /**
-     * @return ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-     * 
-     */
     private String scannerRoleArn;
 
     private PlanScanSetting() {}
-    /**
-     * @return Malware scanner to use for the scan setting. Currently only `GUARDDUTY` is supported.
-     * 
-     */
     public String malwareScanner() {
         return this.malwareScanner;
     }
-    /**
-     * @return List of resource types to apply the scan setting to. Valid values are `EBS`, `EC2`, `S3` and `ALL`.
-     * 
-     */
     public List<String> resourceTypes() {
         return this.resourceTypes;
     }
-    /**
-     * @return ARN of the IAM role that AWS Backup uses to scan resources. See [the AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection-backup-iam-permissions.html) for details.
-     * 
-     */
     public String scannerRoleArn() {
         return this.scannerRoleArn;
     }

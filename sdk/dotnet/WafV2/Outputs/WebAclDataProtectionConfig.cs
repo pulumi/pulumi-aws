@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclDataProtectionConfig
     {
-        /// <summary>
-        /// A block for data protection configurations for specific web request field types. See `DataProtection` block for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclDataProtectionConfigDataProtection> DataProtections;
 
         [OutputConstructor]

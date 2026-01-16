@@ -29,12 +29,6 @@ class CustomPluginArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomPlugin resource.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "location", location)
@@ -50,9 +44,6 @@ class CustomPluginArgs:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -62,9 +53,6 @@ class CustomPluginArgs:
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input['CustomPluginLocationArgs']:
-        """
-        Information about the location of a custom plugin. See `location` Block for details.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -74,9 +62,6 @@ class CustomPluginArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,9 +71,6 @@ class CustomPluginArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the custom plugin..
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,9 +80,6 @@ class CustomPluginArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -110,9 +89,6 @@ class CustomPluginArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,16 +111,6 @@ class _CustomPluginState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomPlugin resources.
-        :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the custom plugin.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
-        :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: the state of the custom plugin.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -170,9 +136,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        the Amazon Resource Name (ARN) of the custom plugin.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -182,9 +145,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -194,9 +154,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -206,9 +163,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        an ID of the latest successfully created revision of the custom plugin.
-        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -218,9 +172,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['CustomPluginLocationArgs']]:
-        """
-        Information about the location of a custom plugin. See `location` Block for details.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -230,9 +181,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the custom plugin..
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -242,9 +190,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -254,9 +199,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        the state of the custom plugin.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -266,9 +208,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -278,9 +217,6 @@ class _CustomPluginState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -302,48 +238,9 @@ class CustomPlugin(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon MSK Connect Custom Plugin Resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.id,
-            key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
-        example_custom_plugin = aws.mskconnect.CustomPlugin("example",
-            name="debezium-example",
-            content_type="ZIP",
-            location={
-                "s3": {
-                    "bucket_arn": example.arn,
-                    "file_key": example_bucket_objectv2.key,
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-        ```
-
+        Create a CustomPlugin resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
-        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -352,40 +249,7 @@ class CustomPlugin(pulumi.CustomResource):
                  args: CustomPluginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon MSK Connect Custom Plugin Resource.
-
-        ## Example Usage
-
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.Bucket("example", bucket="example")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example.id,
-            key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
-        example_custom_plugin = aws.mskconnect.CustomPlugin("example",
-            name="debezium-example",
-            content_type="ZIP",
-            location={
-                "s3": {
-                    "bucket_arn": example.arn,
-                    "file_key": example_bucket_objectv2.key,
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-        ```
-
+        Create a CustomPlugin resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomPluginArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -457,16 +321,6 @@ class CustomPlugin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the custom plugin.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
-        :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: the state of the custom plugin.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -487,80 +341,50 @@ class CustomPlugin(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        the Amazon Resource Name (ARN) of the custom plugin.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        """
         return pulumi.get(self, "content_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[_builtins.int]:
-        """
-        an ID of the latest successfully created revision of the custom plugin.
-        """
         return pulumi.get(self, "latest_revision")
 
     @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Output['outputs.CustomPluginLocation']:
-        """
-        Information about the location of a custom plugin. See `location` Block for details.
-        """
         return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the custom plugin..
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        the state of the custom plugin.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

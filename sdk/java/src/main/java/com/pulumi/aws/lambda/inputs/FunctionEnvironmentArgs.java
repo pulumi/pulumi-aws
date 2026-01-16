@@ -16,17 +16,9 @@ public final class FunctionEnvironmentArgs extends com.pulumi.resources.Resource
 
     public static final FunctionEnvironmentArgs Empty = new FunctionEnvironmentArgs();
 
-    /**
-     * Map of environment variables available to your Lambda function during execution.
-     * 
-     */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
-    /**
-     * @return Map of environment variables available to your Lambda function during execution.
-     * 
-     */
     public Optional<Output<Map<String,String>>> variables() {
         return Optional.ofNullable(this.variables);
     }
@@ -55,23 +47,11 @@ public final class FunctionEnvironmentArgs extends com.pulumi.resources.Resource
             $ = new FunctionEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param variables Map of environment variables available to your Lambda function during execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variables(@Nullable Output<Map<String,String>> variables) {
             $.variables = variables;
             return this;
         }
 
-        /**
-         * @param variables Map of environment variables available to your Lambda function during execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variables(Map<String,String> variables) {
             return variables(Output.of(variables));
         }

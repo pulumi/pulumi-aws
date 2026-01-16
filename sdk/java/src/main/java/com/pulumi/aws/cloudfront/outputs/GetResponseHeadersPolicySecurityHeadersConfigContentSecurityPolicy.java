@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
-    /**
-     * @return The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-     * 
-     */
     private String contentSecurityPolicy;
-    /**
-     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     private Boolean override;
 
     private GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy() {}
-    /**
-     * @return The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-     * 
-     */
     public String contentSecurityPolicy() {
         return this.contentSecurityPolicy;
     }
-    /**
-     * @return Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-     * 
-     */
     public Boolean override() {
         return this.override;
     }

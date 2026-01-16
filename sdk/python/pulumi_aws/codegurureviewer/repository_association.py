@@ -27,11 +27,6 @@ class RepositoryAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
-        :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-               
-               The following arguments are optional:
-        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "repository", repository)
         if kms_key_details is not None:
@@ -44,11 +39,6 @@ class RepositoryAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Input['RepositoryAssociationRepositoryArgs']:
-        """
-        An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -58,9 +48,6 @@ class RepositoryAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyDetails")
     def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]:
-        """
-        An object describing the KMS key to asssociate. Block is documented below.
-        """
         return pulumi.get(self, "kms_key_details")
 
     @kms_key_details.setter
@@ -70,9 +57,6 @@ class RepositoryAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -108,19 +92,6 @@ class _RepositoryAssociationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying the repository association.
-        :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the repository.
-        :param pulumi.Input[_builtins.str] owner: The owner of the repository.
-        :param pulumi.Input[_builtins.str] provider_type: The provider type of the repository association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] state: The state of the repository association.
-        :param pulumi.Input[_builtins.str] state_reason: A description of why the repository association is in the current state.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -154,9 +125,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) identifying the repository association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -166,9 +134,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the repository association.
-        """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
@@ -178,9 +143,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
@@ -190,9 +152,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyDetails")
     def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]:
-        """
-        An object describing the KMS key to asssociate. Block is documented below.
-        """
         return pulumi.get(self, "kms_key_details")
 
     @kms_key_details.setter
@@ -202,9 +161,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -214,9 +170,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The owner of the repository.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -226,9 +179,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The provider type of the repository association.
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -238,9 +188,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -250,11 +197,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]:
-        """
-        An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -273,9 +215,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state of the repository association.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -285,9 +224,6 @@ class _RepositoryAssociationState:
     @_builtins.property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of why the repository association is in the current state.
-        """
         return pulumi.get(self, "state_reason")
 
     @state_reason.setter
@@ -325,35 +261,9 @@ class RepositoryAssociation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CodeGuru Reviewer Repository Association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example")
-        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
-        example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
-            repository={
-                "codecommit": {
-                    "name": example_repository.repository_name,
-                },
-            },
-            kms_key_details={
-                "encryption_option": "CUSTOMER_MANAGED_CMK",
-                "kms_key_id": example.key_id,
-            })
-        ```
-
+        Create a RepositoryAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -362,28 +272,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  args: RepositoryAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CodeGuru Reviewer Repository Association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kms.Key("example")
-        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
-        example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
-            repository={
-                "codecommit": {
-                    "name": example_repository.repository_name,
-                },
-            },
-            kms_key_details={
-                "encryption_option": "CUSTOMER_MANAGED_CMK",
-                "kms_key_id": example.key_id,
-            })
-        ```
-
+        Create a RepositoryAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -459,19 +348,6 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying the repository association.
-        :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[_builtins.str] name: The name of the repository.
-        :param pulumi.Input[_builtins.str] owner: The owner of the repository.
-        :param pulumi.Input[_builtins.str] provider_type: The provider type of the repository association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] state: The state of the repository association.
-        :param pulumi.Input[_builtins.str] state_reason: A description of why the repository association is in the current state.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -496,75 +372,46 @@ class RepositoryAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) identifying the repository association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the repository association.
-        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
         return pulumi.get(self, "connection_arn")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyDetails")
     def kms_key_details(self) -> pulumi.Output[Optional['outputs.RepositoryAssociationKmsKeyDetails']]:
-        """
-        An object describing the KMS key to asssociate. Block is documented below.
-        """
         return pulumi.get(self, "kms_key_details")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the repository.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def owner(self) -> pulumi.Output[_builtins.str]:
-        """
-        The owner of the repository.
-        """
         return pulumi.get(self, "owner")
 
     @_builtins.property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        The provider type of the repository association.
-        """
         return pulumi.get(self, "provider_type")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def repository(self) -> pulumi.Output['outputs.RepositoryAssociationRepository']:
-        """
-        An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "repository")
 
     @_builtins.property
@@ -575,17 +422,11 @@ class RepositoryAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        The state of the repository association.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> pulumi.Output[_builtins.str]:
-        """
-        A description of why the repository association is in the current state.
-        """
         return pulumi.get(self, "state_reason")
 
     @_builtins.property

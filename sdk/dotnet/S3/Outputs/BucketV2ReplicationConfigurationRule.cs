@@ -13,37 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketV2ReplicationConfigurationRule
     {
-        /// <summary>
-        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `Filter` is used).
-        /// </summary>
         public readonly string? DeleteMarkerReplicationStatus;
-        /// <summary>
-        /// Specifies the destination for the rule (documented below).
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestination> Destinations;
-        /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies (documented below).
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleFilter> Filters;
-        /// <summary>
-        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Priority associated with the rule. Priority should only be set if `Filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
-        /// </summary>
         public readonly int? Priority;
-        /// <summary>
-        /// Specifies special object selection criteria (documented below).
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> SourceSelectionCriterias;
-        /// <summary>
-        /// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

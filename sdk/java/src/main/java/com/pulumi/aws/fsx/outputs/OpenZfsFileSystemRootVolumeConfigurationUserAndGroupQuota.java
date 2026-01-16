@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
-    /**
-     * @return The ID of the user or group. Valid values between `0` and `2147483647`
-     * 
-     */
     private Integer id;
-    /**
-     * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     * 
-     */
     private Integer storageCapacityQuotaGib;
-    /**
-     * @return A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
-     * 
-     */
     private String type;
 
     private OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota() {}
-    /**
-     * @return The ID of the user or group. Valid values between `0` and `2147483647`
-     * 
-     */
     public Integer id() {
         return this.id;
     }
-    /**
-     * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     * 
-     */
     public Integer storageCapacityQuotaGib() {
         return this.storageCapacityQuotaGib;
     }
-    /**
-     * @return A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetInstanceTypeOfferingsBrokerInstanceOptionResult
     {
-        /// <summary>
-        /// List of available Availability Zones. See Availability Zones below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult> AvailabilityZones;
-        /// <summary>
-        /// Filter response by engine type.
-        /// </summary>
         public readonly string EngineType;
-        /// <summary>
-        /// Filter response by host instance type.
-        /// </summary>
         public readonly string HostInstanceType;
-        /// <summary>
-        /// Filter response by storage type.
-        /// </summary>
         public readonly string StorageType;
-        /// <summary>
-        /// List of supported deployment modes.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedDeploymentModes;
-        /// <summary>
-        /// List of supported engine versions.
-        /// </summary>
         public readonly ImmutableArray<string> SupportedEngineVersions;
 
         [OutputConstructor]

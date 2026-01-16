@@ -16,111 +16,51 @@ public final class VpcEndpointConnectionNotificationState extends com.pulumi.res
 
     public static final VpcEndpointConnectionNotificationState Empty = new VpcEndpointConnectionNotificationState();
 
-    /**
-     * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
-     */
     @Import(name="connectionEvents")
     private @Nullable Output<List<String>> connectionEvents;
 
-    /**
-     * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
-     */
     public Optional<Output<List<String>>> connectionEvents() {
         return Optional.ofNullable(this.connectionEvents);
     }
 
-    /**
-     * The ARN of the SNS topic for the notifications.
-     * 
-     */
     @Import(name="connectionNotificationArn")
     private @Nullable Output<String> connectionNotificationArn;
 
-    /**
-     * @return The ARN of the SNS topic for the notifications.
-     * 
-     */
     public Optional<Output<String>> connectionNotificationArn() {
         return Optional.ofNullable(this.connectionNotificationArn);
     }
 
-    /**
-     * The type of notification.
-     * 
-     */
     @Import(name="notificationType")
     private @Nullable Output<String> notificationType;
 
-    /**
-     * @return The type of notification.
-     * 
-     */
     public Optional<Output<String>> notificationType() {
         return Optional.ofNullable(this.notificationType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The state of the notification.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The state of the notification.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * The ID of the VPC Endpoint to receive notifications for.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return The ID of the VPC Endpoint to receive notifications for.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
 
-    /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
-     * 
-     */
     @Import(name="vpcEndpointServiceId")
     private @Nullable Output<String> vpcEndpointServiceId;
 
-    /**
-     * @return The ID of the VPC Endpoint Service to receive notifications for.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointServiceId() {
         return Optional.ofNullable(this.vpcEndpointServiceId);
     }
@@ -155,165 +95,69 @@ public final class VpcEndpointConnectionNotificationState extends com.pulumi.res
             $ = new VpcEndpointConnectionNotificationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-         * 
-         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionEvents(@Nullable Output<List<String>> connectionEvents) {
             $.connectionEvents = connectionEvents;
             return this;
         }
 
-        /**
-         * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-         * 
-         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionEvents(List<String> connectionEvents) {
             return connectionEvents(Output.of(connectionEvents));
         }
 
-        /**
-         * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-         * 
-         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionEvents(String... connectionEvents) {
             return connectionEvents(List.of(connectionEvents));
         }
 
-        /**
-         * @param connectionNotificationArn The ARN of the SNS topic for the notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionNotificationArn(@Nullable Output<String> connectionNotificationArn) {
             $.connectionNotificationArn = connectionNotificationArn;
             return this;
         }
 
-        /**
-         * @param connectionNotificationArn The ARN of the SNS topic for the notifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionNotificationArn(String connectionNotificationArn) {
             return connectionNotificationArn(Output.of(connectionNotificationArn));
         }
 
-        /**
-         * @param notificationType The type of notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationType(@Nullable Output<String> notificationType) {
             $.notificationType = notificationType;
             return this;
         }
 
-        /**
-         * @param notificationType The type of notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notificationType(String notificationType) {
             return notificationType(Output.of(notificationType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param state The state of the notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state of the notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param vpcEndpointId The ID of the VPC Endpoint to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The ID of the VPC Endpoint to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }
 
-        /**
-         * @param vpcEndpointServiceId The ID of the VPC Endpoint Service to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(@Nullable Output<String> vpcEndpointServiceId) {
             $.vpcEndpointServiceId = vpcEndpointServiceId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointServiceId The ID of the VPC Endpoint Service to receive notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(String vpcEndpointServiceId) {
             return vpcEndpointServiceId(Output.of(vpcEndpointServiceId));
         }

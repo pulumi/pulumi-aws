@@ -15,51 +15,23 @@ public final class GetDbServerPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDbServerPlainArgs Empty = new GetDbServerPlainArgs();
 
-    /**
-     * The unique identifier of the cloud vm cluster.
-     * 
-     */
     @Import(name="cloudExadataInfrastructureId", required=true)
     private String cloudExadataInfrastructureId;
 
-    /**
-     * @return The unique identifier of the cloud vm cluster.
-     * 
-     */
     public String cloudExadataInfrastructureId() {
         return this.cloudExadataInfrastructureId;
     }
 
-    /**
-     * The unique identifier of db node associated with vm cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return The unique identifier of db node associated with vm cluster.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -90,36 +62,16 @@ public final class GetDbServerPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDbServerPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudExadataInfrastructureId The unique identifier of the cloud vm cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudExadataInfrastructureId(String cloudExadataInfrastructureId) {
             $.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             return this;
         }
 
-        /**
-         * @param id The unique identifier of db node associated with vm cluster.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

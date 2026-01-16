@@ -13,18 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactsRotationRecurrenceShiftCoverage {
-    /**
-     * @return (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-     * 
-     */
     private @Nullable List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes;
     private String mapBlockKey;
 
     private ContactsRotationRecurrenceShiftCoverage() {}
-    /**
-     * @return (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-     * 
-     */
     public List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes() {
         return this.coverageTimes == null ? List.of() : this.coverageTimes;
     }

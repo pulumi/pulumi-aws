@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class ThemeConfigurationSheetTileLayoutGutterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// This Boolean value controls whether to display a gutter space between sheet tiles.
-        /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }
 

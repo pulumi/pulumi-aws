@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AppImageConfigJupyterLabImageConfig {
-    /**
-     * @return The configuration used to run the application image container. See Container Config details below.
-     * 
-     */
     private @Nullable AppImageConfigJupyterLabImageConfigContainerConfig containerConfig;
-    /**
-     * @return The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     private @Nullable AppImageConfigJupyterLabImageConfigFileSystemConfig fileSystemConfig;
 
     private AppImageConfigJupyterLabImageConfig() {}
-    /**
-     * @return The configuration used to run the application image container. See Container Config details below.
-     * 
-     */
     public Optional<AppImageConfigJupyterLabImageConfigContainerConfig> containerConfig() {
         return Optional.ofNullable(this.containerConfig);
     }
-    /**
-     * @return The URL where the Git repository is located. See File System Config details below.
-     * 
-     */
     public Optional<AppImageConfigJupyterLabImageConfigFileSystemConfig> fileSystemConfig() {
         return Optional.ofNullable(this.fileSystemConfig);
     }

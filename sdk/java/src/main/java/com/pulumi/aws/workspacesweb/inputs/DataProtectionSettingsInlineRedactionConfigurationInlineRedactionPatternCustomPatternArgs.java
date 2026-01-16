@@ -16,62 +16,30 @@ public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedac
 
     public static final DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs Empty = new DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs();
 
-    /**
-     * The keyword regex for the customer pattern.
-     * 
-     */
     @Import(name="keywordRegex")
     private @Nullable Output<String> keywordRegex;
 
-    /**
-     * @return The keyword regex for the customer pattern.
-     * 
-     */
     public Optional<Output<String>> keywordRegex() {
         return Optional.ofNullable(this.keywordRegex);
     }
 
-    /**
-     * The pattern description for the customer pattern.
-     * 
-     */
     @Import(name="patternDescription")
     private @Nullable Output<String> patternDescription;
 
-    /**
-     * @return The pattern description for the customer pattern.
-     * 
-     */
     public Optional<Output<String>> patternDescription() {
         return Optional.ofNullable(this.patternDescription);
     }
 
-    /**
-     * The pattern name for the custom pattern.
-     * 
-     */
     @Import(name="patternName", required=true)
     private Output<String> patternName;
 
-    /**
-     * @return The pattern name for the custom pattern.
-     * 
-     */
     public Output<String> patternName() {
         return this.patternName;
     }
 
-    /**
-     * The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-     * 
-     */
     @Import(name="patternRegex", required=true)
     private Output<String> patternRegex;
 
-    /**
-     * @return The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-     * 
-     */
     public Output<String> patternRegex() {
         return this.patternRegex;
     }
@@ -103,86 +71,38 @@ public final class DataProtectionSettingsInlineRedactionConfigurationInlineRedac
             $ = new DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keywordRegex The keyword regex for the customer pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordRegex(@Nullable Output<String> keywordRegex) {
             $.keywordRegex = keywordRegex;
             return this;
         }
 
-        /**
-         * @param keywordRegex The keyword regex for the customer pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keywordRegex(String keywordRegex) {
             return keywordRegex(Output.of(keywordRegex));
         }
 
-        /**
-         * @param patternDescription The pattern description for the customer pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternDescription(@Nullable Output<String> patternDescription) {
             $.patternDescription = patternDescription;
             return this;
         }
 
-        /**
-         * @param patternDescription The pattern description for the customer pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternDescription(String patternDescription) {
             return patternDescription(Output.of(patternDescription));
         }
 
-        /**
-         * @param patternName The pattern name for the custom pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternName(Output<String> patternName) {
             $.patternName = patternName;
             return this;
         }
 
-        /**
-         * @param patternName The pattern name for the custom pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternName(String patternName) {
             return patternName(Output.of(patternName));
         }
 
-        /**
-         * @param patternRegex The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternRegex(Output<String> patternRegex) {
             $.patternRegex = patternRegex;
             return this;
         }
 
-        /**
-         * @param patternRegex The pattern regex for the customer pattern. The format must follow JavaScript regex format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patternRegex(String patternRegex) {
             return patternRegex(Output.of(patternRegex));
         }

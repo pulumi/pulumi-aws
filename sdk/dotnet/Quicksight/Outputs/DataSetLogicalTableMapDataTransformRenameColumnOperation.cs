@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransformRenameColumnOperation
     {
-        /// <summary>
-        /// Column to be renamed.
-        /// </summary>
         public readonly string ColumnName;
-        /// <summary>
-        /// New name for the column.
-        /// </summary>
         public readonly string NewColumnName;
 
         [OutputConstructor]

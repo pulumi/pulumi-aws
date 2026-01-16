@@ -13,29 +13,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class LogTransformerTransformerConfigListToMap
     {
-        /// <summary>
-        /// Specifies whether the list will be flattened into single items. Defaults to `False`.
-        /// </summary>
         public readonly bool? Flatten;
-        /// <summary>
-        /// Required if `Flatten` is set to true. Specifies the element to keep. Allowed values are `First` and `Last`.
-        /// </summary>
         public readonly string? FlattenedElement;
-        /// <summary>
-        /// Specifies the key of the field to be extracted as keys in the generated map.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Specifies the key in the log event that has a list of objects that will be converted to a map.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// Specifies the key of the field that will hold the generated map.
-        /// </summary>
         public readonly string? Target;
-        /// <summary>
-        /// Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
-        /// </summary>
         public readonly string? ValueKey;
 
         [OutputConstructor]

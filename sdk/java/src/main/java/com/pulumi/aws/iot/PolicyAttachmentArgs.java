@@ -16,47 +16,23 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
 
     public static final PolicyAttachmentArgs Empty = new PolicyAttachmentArgs();
 
-    /**
-     * The name of the policy to attach.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The name of the policy to attach.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The identity to which the policy is attached.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return The identity to which the policy is attached.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
@@ -87,65 +63,29 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
             $ = new PolicyAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The name of the policy to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The name of the policy to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param target The identity to which the policy is attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The identity to which the policy is attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

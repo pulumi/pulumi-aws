@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Managed Grafana workspace role association resource.
- *
- * ## Example Usage
- *
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assume = new aws.iam.Role("assume", {
- *     name: "grafana-assume",
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "grafana.amazonaws.com",
- *             },
- *         }],
- *     }),
- * });
- * const exampleWorkspace = new aws.grafana.Workspace("example", {
- *     accountAccessType: "CURRENT_ACCOUNT",
- *     authenticationProviders: ["SAML"],
- *     permissionType: "SERVICE_MANAGED",
- *     roleArn: assume.arn,
- * });
- * const example = new aws.grafana.RoleAssociation("example", {
- *     role: "ADMIN",
- *     userIds: [
- *         "USER_ID_1",
- *         "USER_ID_2",
- *     ],
- *     workspaceId: exampleWorkspace.id,
- * });
- * ```
- */
 export class RoleAssociation extends pulumi.CustomResource {
     /**
      * Get an existing RoleAssociation resource's state with the given name, ID, and optional extra
@@ -73,27 +32,10 @@ export class RoleAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAssociation.__pulumiType;
     }
 
-    /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
-     */
     declare public readonly groupIds: pulumi.Output<string[] | undefined>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     */
     declare public readonly role: pulumi.Output<string>;
-    /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
-     */
     declare public readonly userIds: pulumi.Output<string[] | undefined>;
-    /**
-     * The workspace id.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
@@ -137,27 +79,10 @@ export class RoleAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleAssociation resources.
  */
 export interface RoleAssociationState {
-    /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
-     */
     groupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     */
     role?: pulumi.Input<string>;
-    /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
-     */
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The workspace id.
-     *
-     * The following arguments are optional:
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -165,26 +90,9 @@ export interface RoleAssociationState {
  * The set of arguments for constructing a RoleAssociation resource.
  */
 export interface RoleAssociationArgs {
-    /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
-     */
     groupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     */
     role: pulumi.Input<string>;
-    /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
-     */
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The workspace id.
-     *
-     * The following arguments are optional:
-     */
     workspaceId: pulumi.Input<string>;
 }

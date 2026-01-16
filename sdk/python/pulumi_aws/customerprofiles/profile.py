@@ -46,31 +46,6 @@ class ProfileArgs:
                  shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
         """
         The set of arguments for constructing a Profile resource.
-        :param pulumi.Input[_builtins.str] domain_name: The name of your Customer Profile domain. It must be unique for your AWS account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
-        :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
-        :param pulumi.Input['ProfileAddressArgs'] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A key value pair of attributes of a customer profile.
-        :param pulumi.Input['ProfileBillingAddressArgs'] billing_address: A block that specifies the customer’s billing address. Documented below.
-        :param pulumi.Input[_builtins.str] birth_date: The customer’s birth date.
-        :param pulumi.Input[_builtins.str] business_email_address: The customer’s business email address.
-        :param pulumi.Input[_builtins.str] business_name: The name of the customer’s business.
-        :param pulumi.Input[_builtins.str] business_phone_number: The customer’s business phone number.
-        :param pulumi.Input[_builtins.str] email_address: The customer’s email address, which has not been specified as a personal or business address.
-        :param pulumi.Input[_builtins.str] first_name: The customer’s first name.
-        :param pulumi.Input[_builtins.str] gender_string: The gender with which the customer identifies.
-        :param pulumi.Input[_builtins.str] home_phone_number: The customer’s home phone number.
-        :param pulumi.Input[_builtins.str] last_name: The customer’s last name.
-        :param pulumi.Input['ProfileMailingAddressArgs'] mailing_address: A block that specifies the customer’s mailing address. Documented below.
-        :param pulumi.Input[_builtins.str] middle_name: The customer’s middle name.
-        :param pulumi.Input[_builtins.str] mobile_phone_number: The customer’s mobile phone number.
-        :param pulumi.Input[_builtins.str] party_type_string: The type of profile used to describe the customer.
-        :param pulumi.Input[_builtins.str] personal_email_address: The customer’s personal email address.
-        :param pulumi.Input[_builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ProfileShippingAddressArgs'] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if account_number is not None:
@@ -121,11 +96,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of your Customer Profile domain. It must be unique for your AWS account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -135,9 +105,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="accountNumber")
     def account_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique account number that you have given to the customer.
-        """
         return pulumi.get(self, "account_number")
 
     @account_number.setter
@@ -147,9 +114,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
     def additional_information(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Any additional information relevant to the customer’s profile.
-        """
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
@@ -159,9 +123,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input['ProfileAddressArgs']]:
-        """
-        A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -171,9 +132,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A key value pair of attributes of a customer profile.
-        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -183,9 +141,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="billingAddress")
     def billing_address(self) -> Optional[pulumi.Input['ProfileBillingAddressArgs']]:
-        """
-        A block that specifies the customer’s billing address. Documented below.
-        """
         return pulumi.get(self, "billing_address")
 
     @billing_address.setter
@@ -195,9 +150,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="birthDate")
     def birth_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s birth date.
-        """
         return pulumi.get(self, "birth_date")
 
     @birth_date.setter
@@ -207,9 +159,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
     def business_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s business email address.
-        """
         return pulumi.get(self, "business_email_address")
 
     @business_email_address.setter
@@ -219,9 +168,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="businessName")
     def business_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the customer’s business.
-        """
         return pulumi.get(self, "business_name")
 
     @business_name.setter
@@ -231,9 +177,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
     def business_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s business phone number.
-        """
         return pulumi.get(self, "business_phone_number")
 
     @business_phone_number.setter
@@ -243,9 +186,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s email address, which has not been specified as a personal or business address.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -255,9 +195,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s first name.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -267,9 +204,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="genderString")
     def gender_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The gender with which the customer identifies.
-        """
         return pulumi.get(self, "gender_string")
 
     @gender_string.setter
@@ -279,9 +213,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
     def home_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s home phone number.
-        """
         return pulumi.get(self, "home_phone_number")
 
     @home_phone_number.setter
@@ -291,9 +222,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s last name.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -303,9 +231,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="mailingAddress")
     def mailing_address(self) -> Optional[pulumi.Input['ProfileMailingAddressArgs']]:
-        """
-        A block that specifies the customer’s mailing address. Documented below.
-        """
         return pulumi.get(self, "mailing_address")
 
     @mailing_address.setter
@@ -315,9 +240,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s middle name.
-        """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
@@ -327,9 +249,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
     def mobile_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s mobile phone number.
-        """
         return pulumi.get(self, "mobile_phone_number")
 
     @mobile_phone_number.setter
@@ -339,9 +258,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="partyTypeString")
     def party_type_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of profile used to describe the customer.
-        """
         return pulumi.get(self, "party_type_string")
 
     @party_type_string.setter
@@ -351,9 +267,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="personalEmailAddress")
     def personal_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s personal email address.
-        """
         return pulumi.get(self, "personal_email_address")
 
     @personal_email_address.setter
@@ -363,9 +276,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -375,9 +285,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -387,9 +294,6 @@ class ProfileArgs:
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ProfileShippingAddressArgs']]:
-        """
-        A block that specifies the customer’s shipping address. Documented below.
-        """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
@@ -425,31 +329,6 @@ class _ProfileState:
                  shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
         """
         Input properties used for looking up and filtering Profile resources.
-        :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
-        :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
-        :param pulumi.Input['ProfileAddressArgs'] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A key value pair of attributes of a customer profile.
-        :param pulumi.Input['ProfileBillingAddressArgs'] billing_address: A block that specifies the customer’s billing address. Documented below.
-        :param pulumi.Input[_builtins.str] birth_date: The customer’s birth date.
-        :param pulumi.Input[_builtins.str] business_email_address: The customer’s business email address.
-        :param pulumi.Input[_builtins.str] business_name: The name of the customer’s business.
-        :param pulumi.Input[_builtins.str] business_phone_number: The customer’s business phone number.
-        :param pulumi.Input[_builtins.str] domain_name: The name of your Customer Profile domain. It must be unique for your AWS account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] email_address: The customer’s email address, which has not been specified as a personal or business address.
-        :param pulumi.Input[_builtins.str] first_name: The customer’s first name.
-        :param pulumi.Input[_builtins.str] gender_string: The gender with which the customer identifies.
-        :param pulumi.Input[_builtins.str] home_phone_number: The customer’s home phone number.
-        :param pulumi.Input[_builtins.str] last_name: The customer’s last name.
-        :param pulumi.Input['ProfileMailingAddressArgs'] mailing_address: A block that specifies the customer’s mailing address. Documented below.
-        :param pulumi.Input[_builtins.str] middle_name: The customer’s middle name.
-        :param pulumi.Input[_builtins.str] mobile_phone_number: The customer’s mobile phone number.
-        :param pulumi.Input[_builtins.str] party_type_string: The type of profile used to describe the customer.
-        :param pulumi.Input[_builtins.str] personal_email_address: The customer’s personal email address.
-        :param pulumi.Input[_builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ProfileShippingAddressArgs'] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         if account_number is not None:
             pulumi.set(__self__, "account_number", account_number)
@@ -501,9 +380,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="accountNumber")
     def account_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A unique account number that you have given to the customer.
-        """
         return pulumi.get(self, "account_number")
 
     @account_number.setter
@@ -513,9 +389,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
     def additional_information(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Any additional information relevant to the customer’s profile.
-        """
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
@@ -525,9 +398,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input['ProfileAddressArgs']]:
-        """
-        A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -537,9 +407,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A key value pair of attributes of a customer profile.
-        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -549,9 +416,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="billingAddress")
     def billing_address(self) -> Optional[pulumi.Input['ProfileBillingAddressArgs']]:
-        """
-        A block that specifies the customer’s billing address. Documented below.
-        """
         return pulumi.get(self, "billing_address")
 
     @billing_address.setter
@@ -561,9 +425,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="birthDate")
     def birth_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s birth date.
-        """
         return pulumi.get(self, "birth_date")
 
     @birth_date.setter
@@ -573,9 +434,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
     def business_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s business email address.
-        """
         return pulumi.get(self, "business_email_address")
 
     @business_email_address.setter
@@ -585,9 +443,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="businessName")
     def business_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the customer’s business.
-        """
         return pulumi.get(self, "business_name")
 
     @business_name.setter
@@ -597,9 +452,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
     def business_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s business phone number.
-        """
         return pulumi.get(self, "business_phone_number")
 
     @business_phone_number.setter
@@ -609,11 +461,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of your Customer Profile domain. It must be unique for your AWS account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -623,9 +470,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s email address, which has not been specified as a personal or business address.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -635,9 +479,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s first name.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -647,9 +488,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="genderString")
     def gender_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The gender with which the customer identifies.
-        """
         return pulumi.get(self, "gender_string")
 
     @gender_string.setter
@@ -659,9 +497,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
     def home_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s home phone number.
-        """
         return pulumi.get(self, "home_phone_number")
 
     @home_phone_number.setter
@@ -671,9 +506,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s last name.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -683,9 +515,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="mailingAddress")
     def mailing_address(self) -> Optional[pulumi.Input['ProfileMailingAddressArgs']]:
-        """
-        A block that specifies the customer’s mailing address. Documented below.
-        """
         return pulumi.get(self, "mailing_address")
 
     @mailing_address.setter
@@ -695,9 +524,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s middle name.
-        """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
@@ -707,9 +533,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
     def mobile_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s mobile phone number.
-        """
         return pulumi.get(self, "mobile_phone_number")
 
     @mobile_phone_number.setter
@@ -719,9 +542,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="partyTypeString")
     def party_type_string(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of profile used to describe the customer.
-        """
         return pulumi.get(self, "party_type_string")
 
     @party_type_string.setter
@@ -731,9 +551,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="personalEmailAddress")
     def personal_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s personal email address.
-        """
         return pulumi.get(self, "personal_email_address")
 
     @personal_email_address.setter
@@ -743,9 +560,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -755,9 +569,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -767,9 +578,6 @@ class _ProfileState:
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ProfileShippingAddressArgs']]:
-        """
-        A block that specifies the customer’s shipping address. Documented below.
-        """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
@@ -808,54 +616,9 @@ class Profile(pulumi.CustomResource):
                  shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Customer Profiles Profile.
-        See the [Create Profile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.customerprofiles.Domain("example", domain_name="example")
-        example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
-
-        ```sh
-        $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
-        ```
-
+        Create a Profile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
-        :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
-        :param pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A key value pair of attributes of a customer profile.
-        :param pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']] billing_address: A block that specifies the customer’s billing address. Documented below.
-        :param pulumi.Input[_builtins.str] birth_date: The customer’s birth date.
-        :param pulumi.Input[_builtins.str] business_email_address: The customer’s business email address.
-        :param pulumi.Input[_builtins.str] business_name: The name of the customer’s business.
-        :param pulumi.Input[_builtins.str] business_phone_number: The customer’s business phone number.
-        :param pulumi.Input[_builtins.str] domain_name: The name of your Customer Profile domain. It must be unique for your AWS account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] email_address: The customer’s email address, which has not been specified as a personal or business address.
-        :param pulumi.Input[_builtins.str] first_name: The customer’s first name.
-        :param pulumi.Input[_builtins.str] gender_string: The gender with which the customer identifies.
-        :param pulumi.Input[_builtins.str] home_phone_number: The customer’s home phone number.
-        :param pulumi.Input[_builtins.str] last_name: The customer’s last name.
-        :param pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']] mailing_address: A block that specifies the customer’s mailing address. Documented below.
-        :param pulumi.Input[_builtins.str] middle_name: The customer’s middle name.
-        :param pulumi.Input[_builtins.str] mobile_phone_number: The customer’s mobile phone number.
-        :param pulumi.Input[_builtins.str] party_type_string: The type of profile used to describe the customer.
-        :param pulumi.Input[_builtins.str] personal_email_address: The customer’s personal email address.
-        :param pulumi.Input[_builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         ...
     @overload
@@ -864,27 +627,7 @@ class Profile(pulumi.CustomResource):
                  args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Customer Profiles Profile.
-        See the [Create Profile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html) for more information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.customerprofiles.Domain("example", domain_name="example")
-        example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
-
-        ```sh
-        $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
-        ```
-
+        Create a Profile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -997,31 +740,6 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
-        :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
-        :param pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A key value pair of attributes of a customer profile.
-        :param pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']] billing_address: A block that specifies the customer’s billing address. Documented below.
-        :param pulumi.Input[_builtins.str] birth_date: The customer’s birth date.
-        :param pulumi.Input[_builtins.str] business_email_address: The customer’s business email address.
-        :param pulumi.Input[_builtins.str] business_name: The name of the customer’s business.
-        :param pulumi.Input[_builtins.str] business_phone_number: The customer’s business phone number.
-        :param pulumi.Input[_builtins.str] domain_name: The name of your Customer Profile domain. It must be unique for your AWS account.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] email_address: The customer’s email address, which has not been specified as a personal or business address.
-        :param pulumi.Input[_builtins.str] first_name: The customer’s first name.
-        :param pulumi.Input[_builtins.str] gender_string: The gender with which the customer identifies.
-        :param pulumi.Input[_builtins.str] home_phone_number: The customer’s home phone number.
-        :param pulumi.Input[_builtins.str] last_name: The customer’s last name.
-        :param pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']] mailing_address: A block that specifies the customer’s mailing address. Documented below.
-        :param pulumi.Input[_builtins.str] middle_name: The customer’s middle name.
-        :param pulumi.Input[_builtins.str] mobile_phone_number: The customer’s mobile phone number.
-        :param pulumi.Input[_builtins.str] party_type_string: The type of profile used to describe the customer.
-        :param pulumi.Input[_builtins.str] personal_email_address: The customer’s personal email address.
-        :param pulumi.Input[_builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1055,186 +773,115 @@ class Profile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountNumber")
     def account_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A unique account number that you have given to the customer.
-        """
         return pulumi.get(self, "account_number")
 
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
     def additional_information(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Any additional information relevant to the customer’s profile.
-        """
         return pulumi.get(self, "additional_information")
 
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[Optional['outputs.ProfileAddress']]:
-        """
-        A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
-        """
         return pulumi.get(self, "address")
 
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A key value pair of attributes of a customer profile.
-        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="billingAddress")
     def billing_address(self) -> pulumi.Output[Optional['outputs.ProfileBillingAddress']]:
-        """
-        A block that specifies the customer’s billing address. Documented below.
-        """
         return pulumi.get(self, "billing_address")
 
     @_builtins.property
     @pulumi.getter(name="birthDate")
     def birth_date(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s birth date.
-        """
         return pulumi.get(self, "birth_date")
 
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
     def business_email_address(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s business email address.
-        """
         return pulumi.get(self, "business_email_address")
 
     @_builtins.property
     @pulumi.getter(name="businessName")
     def business_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the customer’s business.
-        """
         return pulumi.get(self, "business_name")
 
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
     def business_phone_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s business phone number.
-        """
         return pulumi.get(self, "business_phone_number")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of your Customer Profile domain. It must be unique for your AWS account.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s email address, which has not been specified as a personal or business address.
-        """
         return pulumi.get(self, "email_address")
 
     @_builtins.property
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s first name.
-        """
         return pulumi.get(self, "first_name")
 
     @_builtins.property
     @pulumi.getter(name="genderString")
     def gender_string(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The gender with which the customer identifies.
-        """
         return pulumi.get(self, "gender_string")
 
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
     def home_phone_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s home phone number.
-        """
         return pulumi.get(self, "home_phone_number")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s last name.
-        """
         return pulumi.get(self, "last_name")
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress")
     def mailing_address(self) -> pulumi.Output[Optional['outputs.ProfileMailingAddress']]:
-        """
-        A block that specifies the customer’s mailing address. Documented below.
-        """
         return pulumi.get(self, "mailing_address")
 
     @_builtins.property
     @pulumi.getter(name="middleName")
     def middle_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s middle name.
-        """
         return pulumi.get(self, "middle_name")
 
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
     def mobile_phone_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s mobile phone number.
-        """
         return pulumi.get(self, "mobile_phone_number")
 
     @_builtins.property
     @pulumi.getter(name="partyTypeString")
     def party_type_string(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The type of profile used to describe the customer.
-        """
         return pulumi.get(self, "party_type_string")
 
     @_builtins.property
     @pulumi.getter(name="personalEmailAddress")
     def personal_email_address(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s personal email address.
-        """
         return pulumi.get(self, "personal_email_address")
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        """
         return pulumi.get(self, "phone_number")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> pulumi.Output[Optional['outputs.ProfileShippingAddress']]:
-        """
-        A block that specifies the customer’s shipping address. Documented below.
-        """
         return pulumi.get(self, "shipping_address")
 

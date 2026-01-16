@@ -9,71 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCatalyst
 {
-    /// <summary>
-    /// Resource for managing an AWS CodeCatalyst Project.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeCatalyst.Project("test", new()
-    ///     {
-    ///         SpaceName = "myproject",
-    ///         DisplayName = "MyProject",
-    ///         Description = "My CodeCatalyst Project created using Pulumi",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecatalyst/project:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The friendly name of the project that will be displayed to users.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the project in the space.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Output("spaceName")]
         public Output<string> SpaceName { get; private set; } = null!;
 
@@ -123,29 +73,15 @@ namespace Pulumi.Aws.CodeCatalyst
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The friendly name of the project that will be displayed to users.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName", required: true)]
         public Input<string> SpaceName { get; set; } = null!;
 
@@ -157,35 +93,18 @@ namespace Pulumi.Aws.CodeCatalyst
 
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The friendly name of the project that will be displayed to users.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// The name of the project in the space.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 

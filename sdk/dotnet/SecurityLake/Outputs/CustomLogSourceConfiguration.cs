@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class CustomLogSourceConfiguration
     {
-        /// <summary>
-        /// The configuration for the Glue Crawler for the third-party custom source.
-        /// </summary>
         public readonly Outputs.CustomLogSourceConfigurationCrawlerConfiguration? CrawlerConfiguration;
-        /// <summary>
-        /// The identity of the log provider for the third-party custom source.
-        /// </summary>
         public readonly Outputs.CustomLogSourceConfigurationProviderIdentity? ProviderIdentity;
 
         [OutputConstructor]

@@ -26,13 +26,6 @@ class AppregistryAttributeGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppregistryAttributeGroup resource.
-        :param pulumi.Input[_builtins.str] attributes: A JSON string of nested key-value pairs that represents the attributes of the group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the Attribute Group.
-        :param pulumi.Input[_builtins.str] name: Name of the Attribute Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "attributes", attributes)
         if description is not None:
@@ -47,11 +40,6 @@ class AppregistryAttributeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Input[_builtins.str]:
-        """
-        A JSON string of nested key-value pairs that represents the attributes of the group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -61,9 +49,6 @@ class AppregistryAttributeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the Attribute Group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,9 +58,6 @@ class AppregistryAttributeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Attribute Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +67,6 @@ class AppregistryAttributeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,9 +76,6 @@ class AppregistryAttributeGroupArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -119,15 +95,6 @@ class _AppregistryAttributeGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppregistryAttributeGroup resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Attribute Group.
-        :param pulumi.Input[_builtins.str] attributes: A JSON string of nested key-value pairs that represents the attributes of the group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the Attribute Group.
-        :param pulumi.Input[_builtins.str] name: Name of the Attribute Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -147,9 +114,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Attribute Group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -159,11 +123,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A JSON string of nested key-value pairs that represents the attributes of the group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -173,9 +132,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the Attribute Group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -185,9 +141,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the Attribute Group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -197,9 +150,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -209,9 +159,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -221,9 +168,6 @@ class _AppregistryAttributeGroupState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -244,43 +188,9 @@ class AppregistryAttributeGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Service Catalog AppRegistry Attribute Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryAttributeGroup("example",
-            name="example",
-            description="example description",
-            attributes=json.dumps({
-                "app": "exampleapp",
-                "group": "examplegroup",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Catalog AppRegistry Attribute Group using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup example 1234567890abcfedhijk09876s
-        ```
-
+        Create a AppregistryAttributeGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] attributes: A JSON string of nested key-value pairs that represents the attributes of the group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the Attribute Group.
-        :param pulumi.Input[_builtins.str] name: Name of the Attribute Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -289,34 +199,7 @@ class AppregistryAttributeGroup(pulumi.CustomResource):
                  args: AppregistryAttributeGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Service Catalog AppRegistry Attribute Group.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.AppregistryAttributeGroup("example",
-            name="example",
-            description="example description",
-            attributes=json.dumps({
-                "app": "exampleapp",
-                "group": "examplegroup",
-            }))
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Catalog AppRegistry Attribute Group using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup example 1234567890abcfedhijk09876s
-        ```
-
+        Create a AppregistryAttributeGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AppregistryAttributeGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,15 +262,6 @@ class AppregistryAttributeGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Attribute Group.
-        :param pulumi.Input[_builtins.str] attributes: A JSON string of nested key-value pairs that represents the attributes of the group.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: Description of the Attribute Group.
-        :param pulumi.Input[_builtins.str] name: Name of the Attribute Group.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -405,58 +279,35 @@ class AppregistryAttributeGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Attribute Group.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[_builtins.str]:
-        """
-        A JSON string of nested key-value pairs that represents the attributes of the group.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the Attribute Group.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the Attribute Group.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

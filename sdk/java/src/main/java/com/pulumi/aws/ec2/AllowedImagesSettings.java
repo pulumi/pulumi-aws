@@ -16,143 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
- * 
- * For more information about the image criteria that can be set, see the [AWS documentation on Allowed AMIs JSON configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#allowed-amis-json-configuration).
- * 
- * &gt; **NOTE:** The AWS API does not delete this resource. When you run `destroy`, the provider will attempt to disable the setting.
- * 
- * &gt; **NOTE:** There is only one allowed images settings configuration per AWS account and region. Creating this resource will configure the account-level settings.
- * 
- * ## Example Usage
- * 
- * ### Enable with Amazon AMIs only
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.AllowedImagesSettings;
- * import com.pulumi.aws.ec2.AllowedImagesSettingsArgs;
- * import com.pulumi.aws.ec2.inputs.AllowedImagesSettingsImageCriterionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AllowedImagesSettings("example", AllowedImagesSettingsArgs.builder()
- *             .state("enabled")
- *             .imageCriterions(AllowedImagesSettingsImageCriterionArgs.builder()
- *                 .imageProviders("amazon")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Enable audit mode with specific account IDs
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.AllowedImagesSettings;
- * import com.pulumi.aws.ec2.AllowedImagesSettingsArgs;
- * import com.pulumi.aws.ec2.inputs.AllowedImagesSettingsImageCriterionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AllowedImagesSettings("example", AllowedImagesSettingsArgs.builder()
- *             .state("audit-mode")
- *             .imageCriterions(AllowedImagesSettingsImageCriterionArgs.builder()
- *                 .imageProviders(                
- *                     "amazon",
- *                     "123456789012")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import EC2 allowed images settings. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/allowedImagesSettings:AllowedImagesSettings")
 public class AllowedImagesSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     * 
-     */
     @Export(name="imageCriterions", refs={List.class,AllowedImagesSettingsImageCriterion.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AllowedImagesSettingsImageCriterion>> imageCriterions;
 
-    /**
-     * @return List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
-     * 
-     */
     public Output<Optional<List<AllowedImagesSettingsImageCriterion>>> imageCriterions() {
         return Codegen.optional(this.imageCriterions);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }

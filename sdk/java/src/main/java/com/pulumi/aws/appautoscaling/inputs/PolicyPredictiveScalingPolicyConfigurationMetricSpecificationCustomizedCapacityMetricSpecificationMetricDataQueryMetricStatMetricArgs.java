@@ -17,47 +17,23 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
 
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs();
 
-    /**
-     * Dimensions of the metric. See supported fields below.
-     * 
-     */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>> dimensions;
 
-    /**
-     * @return Dimensions of the metric. See supported fields below.
-     * 
-     */
     public Optional<Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<Output<String>> metricName() {
         return Optional.ofNullable(this.metricName);
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
@@ -88,75 +64,33 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             $ = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(@Nullable Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
-        /**
-         * @param dimensions Dimensions of the metric. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
-        /**
-         * @param dimensions Dimensions of the metric. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimensions(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

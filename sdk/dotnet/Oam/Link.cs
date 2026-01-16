@@ -9,195 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Oam
 {
-    /// <summary>
-    /// Resource for managing an AWS CloudWatch Observability Access Manager Link.
-    /// 
-    /// &gt; **NOTE:** Creating an `aws.oam.Link` may sometimes fail if the `aws.oam.SinkPolicy` for the attached `aws.oam.Sink` is not created before the `aws.oam.Link`. To prevent this, declare an explicit dependency using a `DependsOn` meta-argument.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSink = new Aws.Oam.Sink("example");
-    /// 
-    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("example", new()
-    ///     {
-    ///         SinkIdentifier = exampleSink.Arn,
-    ///     });
-    /// 
-    ///     var example = new Aws.Oam.Link("example", new()
-    ///     {
-    ///         LabelTemplate = "$AccountName",
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "AWS::CloudWatch::Metric",
-    ///         },
-    ///         SinkIdentifier = exampleSink.Arn,
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "prod" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleSinkPolicy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Log Group Filtering
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Oam.Link("example", new()
-    ///     {
-    ///         LabelTemplate = "$AccountName",
-    ///         LinkConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationArgs
-    ///         {
-    ///             LogGroupConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationLogGroupConfigurationArgs
-    ///             {
-    ///                 Filter = "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
-    ///             },
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "AWS::Logs::LogGroup",
-    ///         },
-    ///         SinkIdentifier = exampleAwsOamSink.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsOamSinkPolicy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Metric Filtering
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Oam.Link("example", new()
-    ///     {
-    ///         LabelTemplate = "$AccountName",
-    ///         LinkConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationArgs
-    ///         {
-    ///             MetricConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationMetricConfigurationArgs
-    ///             {
-    ///                 Filter = "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
-    ///             },
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "AWS::CloudWatch::Metric",
-    ///         },
-    ///         SinkIdentifier = exampleAwsOamSink.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsOamSinkPolicy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:oam/link:Link")]
     public partial class Link : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the link.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Label that is assigned to this link.
-        /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
-        /// <summary>
-        /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-        /// </summary>
         [Output("labelTemplate")]
         public Output<string> LabelTemplate { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `LinkConfiguration` Block for details.
-        /// </summary>
         [Output("linkConfiguration")]
         public Output<Outputs.LinkLinkConfiguration?> LinkConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// ID string that AWS generated as part of the link ARN.
-        /// </summary>
         [Output("linkId")]
         public Output<string> LinkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Types of data that the source account shares with the monitoring account.
-        /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<string>> ResourceTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the sink that is used for this link.
-        /// </summary>
         [Output("sinkArn")]
         public Output<string> SinkArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the sink to use to create this link.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("sinkIdentifier")]
         public Output<string> SinkIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -250,50 +91,28 @@ namespace Pulumi.Aws.Oam
 
     public sealed class LinkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-        /// </summary>
         [Input("labelTemplate", required: true)]
         public Input<string> LabelTemplate { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `LinkConfiguration` Block for details.
-        /// </summary>
         [Input("linkConfiguration")]
         public Input<Inputs.LinkLinkConfigurationArgs>? LinkConfiguration { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// Types of data that the source account shares with the monitoring account.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
             set => _resourceTypes = value;
         }
 
-        /// <summary>
-        /// Identifier of the sink to use to create this link.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("sinkIdentifier", required: true)]
         public Input<string> SinkIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -308,74 +127,40 @@ namespace Pulumi.Aws.Oam
 
     public sealed class LinkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the link.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Label that is assigned to this link.
-        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
-        /// <summary>
-        /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
-        /// </summary>
         [Input("labelTemplate")]
         public Input<string>? LabelTemplate { get; set; }
 
-        /// <summary>
-        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `LinkConfiguration` Block for details.
-        /// </summary>
         [Input("linkConfiguration")]
         public Input<Inputs.LinkLinkConfigurationGetArgs>? LinkConfiguration { get; set; }
 
-        /// <summary>
-        /// ID string that AWS generated as part of the link ARN.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// Types of data that the source account shares with the monitoring account.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
             set => _resourceTypes = value;
         }
 
-        /// <summary>
-        /// ARN of the sink that is used for this link.
-        /// </summary>
         [Input("sinkArn")]
         public Input<string>? SinkArn { get; set; }
 
-        /// <summary>
-        /// Identifier of the sink to use to create this link.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("sinkIdentifier")]
         public Input<string>? SinkIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -12,65 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Route 53 Recovery Readiness Resource Set.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53recoveryreadiness"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoveryreadiness.NewResourceSet(ctx, "example", &route53recoveryreadiness.ResourceSetArgs{
-//				ResourceSetName: pulumi.Any(my_cw_alarm_set),
-//				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
-//				Resources: route53recoveryreadiness.ResourceSetResourceArray{
-//					&route53recoveryreadiness.ResourceSetResourceArgs{
-//						ResourceArn: pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
-//
-// ```sh
-// $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
-// ```
 type ResourceSet struct {
 	pulumi.CustomResourceState
 
-	// ARN of the resource set
-	// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Unique name describing the resource set.
-	ResourceSetName pulumi.StringOutput `pulumi:"resourceSetName"`
-	// Type of the resources in the resource set.
-	ResourceSetType pulumi.StringOutput `pulumi:"resourceSetType"`
-	// List of resources to add to this resource set. See below.
-	//
-	// The following arguments are optional:
-	Resources ResourceSetResourceArrayOutput `pulumi:"resources"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput            `pulumi:"arn"`
+	ResourceSetName pulumi.StringOutput            `pulumi:"resourceSetName"`
+	ResourceSetType pulumi.StringOutput            `pulumi:"resourceSetType"`
+	Resources       ResourceSetResourceArrayOutput `pulumi:"resources"`
+	Tags            pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput         `pulumi:"tagsAll"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -112,39 +62,21 @@ func GetResourceSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceSet resources.
 type resourceSetState struct {
-	// ARN of the resource set
-	// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
-	Arn *string `pulumi:"arn"`
-	// Unique name describing the resource set.
-	ResourceSetName *string `pulumi:"resourceSetName"`
-	// Type of the resources in the resource set.
-	ResourceSetType *string `pulumi:"resourceSetType"`
-	// List of resources to add to this resource set. See below.
-	//
-	// The following arguments are optional:
-	Resources []ResourceSetResource `pulumi:"resources"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string               `pulumi:"arn"`
+	ResourceSetName *string               `pulumi:"resourceSetName"`
+	ResourceSetType *string               `pulumi:"resourceSetType"`
+	Resources       []ResourceSetResource `pulumi:"resources"`
+	Tags            map[string]string     `pulumi:"tags"`
+	TagsAll         map[string]string     `pulumi:"tagsAll"`
 }
 
 type ResourceSetState struct {
-	// ARN of the resource set
-	// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
-	Arn pulumi.StringPtrInput
-	// Unique name describing the resource set.
+	Arn             pulumi.StringPtrInput
 	ResourceSetName pulumi.StringPtrInput
-	// Type of the resources in the resource set.
 	ResourceSetType pulumi.StringPtrInput
-	// List of resources to add to this resource set. See below.
-	//
-	// The following arguments are optional:
-	Resources ResourceSetResourceArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Resources       ResourceSetResourceArrayInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (ResourceSetState) ElementType() reflect.Type {
@@ -152,30 +84,18 @@ func (ResourceSetState) ElementType() reflect.Type {
 }
 
 type resourceSetArgs struct {
-	// Unique name describing the resource set.
-	ResourceSetName string `pulumi:"resourceSetName"`
-	// Type of the resources in the resource set.
-	ResourceSetType string `pulumi:"resourceSetType"`
-	// List of resources to add to this resource set. See below.
-	//
-	// The following arguments are optional:
-	Resources []ResourceSetResource `pulumi:"resources"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
+	ResourceSetName string                `pulumi:"resourceSetName"`
+	ResourceSetType string                `pulumi:"resourceSetType"`
+	Resources       []ResourceSetResource `pulumi:"resources"`
+	Tags            map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
-	// Unique name describing the resource set.
 	ResourceSetName pulumi.StringInput
-	// Type of the resources in the resource set.
 	ResourceSetType pulumi.StringInput
-	// List of resources to add to this resource set. See below.
-	//
-	// The following arguments are optional:
-	Resources ResourceSetResourceArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
+	Resources       ResourceSetResourceArrayInput
+	Tags            pulumi.StringMapInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -265,35 +185,26 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// ARN of the resource set
-// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
 func (o ResourceSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Unique name describing the resource set.
 func (o ResourceSetOutput) ResourceSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.ResourceSetName }).(pulumi.StringOutput)
 }
 
-// Type of the resources in the resource set.
 func (o ResourceSetOutput) ResourceSetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.ResourceSetType }).(pulumi.StringOutput)
 }
 
-// List of resources to add to this resource set. See below.
-//
-// The following arguments are optional:
 func (o ResourceSetOutput) Resources() ResourceSetResourceArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) ResourceSetResourceArrayOutput { return v.Resources }).(ResourceSetResourceArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ResourceSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResourceSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

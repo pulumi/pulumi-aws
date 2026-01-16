@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.HsmConfiguration("example", {
- *     description: "example",
- *     hsmConfigurationIdentifier: "example",
- *     hsmIpAddress: "10.0.0.1",
- *     hsmPartitionName: "aws",
- *     hsmPartitionPassword: "example",
- *     hsmServerPublicCertificate: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
- *
- * ```sh
- * $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
- * ```
- */
 export class HsmConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing HsmConfiguration resource's state with the given name, ID, and optional extra
@@ -59,45 +32,15 @@ export class HsmConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === HsmConfiguration.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * A text description of the HSM configuration to be created.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     */
     declare public readonly hsmConfigurationIdentifier: pulumi.Output<string>;
-    /**
-     * The IP address that the Amazon Redshift cluster must use to access the HSM.
-     */
     declare public readonly hsmIpAddress: pulumi.Output<string>;
-    /**
-     * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     */
     declare public readonly hsmPartitionName: pulumi.Output<string>;
-    /**
-     * The password required to access the HSM partition.
-     */
     declare public readonly hsmPartitionPassword: pulumi.Output<string>;
-    /**
-     * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     */
     declare public readonly hsmServerPublicCertificate: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -165,45 +108,15 @@ export class HsmConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HsmConfiguration resources.
  */
 export interface HsmConfigurationState {
-    /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A text description of the HSM configuration to be created.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     */
     hsmConfigurationIdentifier?: pulumi.Input<string>;
-    /**
-     * The IP address that the Amazon Redshift cluster must use to access the HSM.
-     */
     hsmIpAddress?: pulumi.Input<string>;
-    /**
-     * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     */
     hsmPartitionName?: pulumi.Input<string>;
-    /**
-     * The password required to access the HSM partition.
-     */
     hsmPartitionPassword?: pulumi.Input<string>;
-    /**
-     * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     */
     hsmServerPublicCertificate?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -211,36 +124,12 @@ export interface HsmConfigurationState {
  * The set of arguments for constructing a HsmConfiguration resource.
  */
 export interface HsmConfigurationArgs {
-    /**
-     * A text description of the HSM configuration to be created.
-     */
     description: pulumi.Input<string>;
-    /**
-     * The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     */
     hsmConfigurationIdentifier: pulumi.Input<string>;
-    /**
-     * The IP address that the Amazon Redshift cluster must use to access the HSM.
-     */
     hsmIpAddress: pulumi.Input<string>;
-    /**
-     * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     */
     hsmPartitionName: pulumi.Input<string>;
-    /**
-     * The password required to access the HSM partition.
-     */
     hsmPartitionPassword: pulumi.Input<string>;
-    /**
-     * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     */
     hsmServerPublicCertificate: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

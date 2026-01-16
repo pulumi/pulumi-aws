@@ -64,33 +64,21 @@ class GetDistributionConfigurationResult:
     @_builtins.property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> _builtins.str:
-        """
-        Date the distribution configuration was created.
-        """
         return pulumi.get(self, "date_created")
 
     @_builtins.property
     @pulumi.getter(name="dateUpdated")
     def date_updated(self) -> _builtins.str:
-        """
-        Date the distribution configuration was updated.
-        """
         return pulumi.get(self, "date_updated")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the container distribution configuration.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def distributions(self) -> Sequence['outputs.GetDistributionConfigurationDistributionResult']:
-        """
-        Set of distributions.
-        """
         return pulumi.get(self, "distributions")
 
     @_builtins.property
@@ -104,25 +92,16 @@ class GetDistributionConfigurationResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the distribution configuration.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
-        """
-        AWS Region of distribution.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value map of resource tags for the distribution configuration.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -148,21 +127,7 @@ def get_distribution_configuration(arn: Optional[_builtins.str] = None,
                                    tags: Optional[Mapping[str, _builtins.str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionConfigurationResult:
     """
-    Provides details about an Image Builder Distribution Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the distribution configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the distribution configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -186,21 +151,7 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[_builtins.s
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
-    Provides details about an Image Builder Distribution Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
-    ```
-
-
-    :param _builtins.str arn: ARN of the distribution configuration.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the distribution configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn

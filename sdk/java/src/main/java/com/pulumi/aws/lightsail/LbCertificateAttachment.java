@@ -13,116 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
- * 
- * Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Lb;
- * import com.pulumi.aws.lightsail.LbArgs;
- * import com.pulumi.aws.lightsail.LbCertificate;
- * import com.pulumi.aws.lightsail.LbCertificateArgs;
- * import com.pulumi.aws.lightsail.LbCertificateAttachment;
- * import com.pulumi.aws.lightsail.LbCertificateAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Lb("example", LbArgs.builder()
- *             .name("example-load-balancer")
- *             .healthCheckPath("/")
- *             .instancePort(80)
- *             .tags(Map.of("foo", "bar"))
- *             .build());
- * 
- *         var exampleLbCertificate = new LbCertificate("exampleLbCertificate", LbCertificateArgs.builder()
- *             .name("example-load-balancer-certificate")
- *             .lbName(example.id())
- *             .domainName("example.com")
- *             .build());
- * 
- *         var exampleLbCertificateAttachment = new LbCertificateAttachment("exampleLbCertificateAttachment", LbCertificateAttachmentArgs.builder()
- *             .lbName(example.name())
- *             .certificateName(exampleLbCertificate.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
- * 
- * ```sh
- * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")
 public class LbCertificateAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of your SSL/TLS certificate.
-     * 
-     */
     @Export(name="certificateName", refs={String.class}, tree="[0]")
     private Output<String> certificateName;
 
-    /**
-     * @return Name of your SSL/TLS certificate.
-     * 
-     */
     public Output<String> certificateName() {
         return this.certificateName;
     }
-    /**
-     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
-    /**
-     * @return Name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

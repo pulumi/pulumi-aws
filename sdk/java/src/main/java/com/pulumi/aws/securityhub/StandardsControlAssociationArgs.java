@@ -16,81 +16,37 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
 
     public static final StandardsControlAssociationArgs Empty = new StandardsControlAssociationArgs();
 
-    /**
-     * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="associationStatus", required=true)
     private Output<String> associationStatus;
 
-    /**
-     * @return The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Output<String> associationStatus() {
         return this.associationStatus;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique identifier for the security control whose enablement status you want to update.
-     * 
-     */
     @Import(name="securityControlId", required=true)
     private Output<String> securityControlId;
 
-    /**
-     * @return The unique identifier for the security control whose enablement status you want to update.
-     * 
-     */
     public Output<String> securityControlId() {
         return this.securityControlId;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="standardsArn", required=true)
     private Output<String> standardsArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> standardsArn() {
         return this.standardsArn;
     }
 
-    /**
-     * The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     * 
-     */
     @Import(name="updatedReason")
     private @Nullable Output<String> updatedReason;
 
-    /**
-     * @return The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> updatedReason() {
         return Optional.ofNullable(this.updatedReason);
     }
@@ -123,111 +79,47 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
             $ = new StandardsControlAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param associationStatus The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationStatus(Output<String> associationStatus) {
             $.associationStatus = associationStatus;
             return this;
         }
 
-        /**
-         * @param associationStatus The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder associationStatus(String associationStatus) {
             return associationStatus(Output.of(associationStatus));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param securityControlId The unique identifier for the security control whose enablement status you want to update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlId(Output<String> securityControlId) {
             $.securityControlId = securityControlId;
             return this;
         }
 
-        /**
-         * @param securityControlId The unique identifier for the security control whose enablement status you want to update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityControlId(String securityControlId) {
             return securityControlId(Output.of(securityControlId));
         }
 
-        /**
-         * @param standardsArn The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder standardsArn(Output<String> standardsArn) {
             $.standardsArn = standardsArn;
             return this;
         }
 
-        /**
-         * @param standardsArn The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder standardsArn(String standardsArn) {
             return standardsArn(Output.of(standardsArn));
         }
 
-        /**
-         * @param updatedReason The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedReason(@Nullable Output<String> updatedReason) {
             $.updatedReason = updatedReason;
             return this;
         }
 
-        /**
-         * @param updatedReason The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedReason(String updatedReason) {
             return updatedReason(Output.of(updatedReason));
         }

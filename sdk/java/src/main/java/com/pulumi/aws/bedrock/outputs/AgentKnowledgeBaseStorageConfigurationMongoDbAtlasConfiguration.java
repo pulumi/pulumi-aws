@@ -13,101 +13,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration {
-    /**
-     * @return The name of the collection in the MongoDB Atlas database.
-     * 
-     */
     private String collectionName;
-    /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
-     * 
-     */
     private String credentialsSecretArn;
-    /**
-     * @return The name of the database in the MongoDB Atlas database.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return The endpoint URL of the MongoDB Atlas database.
-     * 
-     */
     private String endpoint;
-    /**
-     * @return The name of the service that hosts the MongoDB Atlas database.
-     * 
-     */
     private @Nullable String endpointServiceName;
-    /**
-     * @return Contains the names of the fields to which to map information about the vector store.
-     * 
-     */
     private @Nullable AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping;
-    /**
-     * @return The name of the vector index.
-     * 
-     */
     private @Nullable String textIndexName;
-    /**
-     * @return The name of the vector index.
-     * 
-     */
     private String vectorIndexName;
 
     private AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration() {}
-    /**
-     * @return The name of the collection in the MongoDB Atlas database.
-     * 
-     */
     public String collectionName() {
         return this.collectionName;
     }
-    /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
-     * 
-     */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
-    /**
-     * @return The name of the database in the MongoDB Atlas database.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return The endpoint URL of the MongoDB Atlas database.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return The name of the service that hosts the MongoDB Atlas database.
-     * 
-     */
     public Optional<String> endpointServiceName() {
         return Optional.ofNullable(this.endpointServiceName);
     }
-    /**
-     * @return Contains the names of the fields to which to map information about the vector store.
-     * 
-     */
     public Optional<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
-    /**
-     * @return The name of the vector index.
-     * 
-     */
     public Optional<String> textIndexName() {
         return Optional.ofNullable(this.textIndexName);
     }
-    /**
-     * @return The name of the vector index.
-     * 
-     */
     public String vectorIndexName() {
         return this.vectorIndexName;
     }

@@ -24,62 +24,30 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GuardrailArgs Empty = new GuardrailArgs();
 
-    /**
-     * Message to return when the guardrail blocks a prompt.
-     * 
-     */
     @Import(name="blockedInputMessaging", required=true)
     private Output<String> blockedInputMessaging;
 
-    /**
-     * @return Message to return when the guardrail blocks a prompt.
-     * 
-     */
     public Output<String> blockedInputMessaging() {
         return this.blockedInputMessaging;
     }
 
-    /**
-     * Message to return when the guardrail blocks a model response.
-     * 
-     */
     @Import(name="blockedOutputsMessaging", required=true)
     private Output<String> blockedOutputsMessaging;
 
-    /**
-     * @return Message to return when the guardrail blocks a model response.
-     * 
-     */
     public Output<String> blockedOutputsMessaging() {
         return this.blockedOutputsMessaging;
     }
 
-    /**
-     * Content policy config for a guardrail. See Content Policy Config for more information.
-     * 
-     */
     @Import(name="contentPolicyConfig")
     private @Nullable Output<GuardrailContentPolicyConfigArgs> contentPolicyConfig;
 
-    /**
-     * @return Content policy config for a guardrail. See Content Policy Config for more information.
-     * 
-     */
     public Optional<Output<GuardrailContentPolicyConfigArgs>> contentPolicyConfig() {
         return Optional.ofNullable(this.contentPolicyConfig);
     }
 
-    /**
-     * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-     * 
-     */
     @Import(name="contextualGroundingPolicyConfig")
     private @Nullable Output<GuardrailContextualGroundingPolicyConfigArgs> contextualGroundingPolicyConfig;
 
-    /**
-     * @return Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-     * 
-     */
     public Optional<Output<GuardrailContextualGroundingPolicyConfigArgs>> contextualGroundingPolicyConfig() {
         return Optional.ofNullable(this.contextualGroundingPolicyConfig);
     }
@@ -91,96 +59,44 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.crossRegionConfig);
     }
 
-    /**
-     * Description of the guardrail or its version.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the guardrail or its version.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The KMS key with which the guardrail was encrypted at rest.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return The KMS key with which the guardrail was encrypted at rest.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * Name of the guardrail.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the guardrail.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-     * 
-     */
     @Import(name="sensitiveInformationPolicyConfig")
     private @Nullable Output<GuardrailSensitiveInformationPolicyConfigArgs> sensitiveInformationPolicyConfig;
 
-    /**
-     * @return Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-     * 
-     */
     public Optional<Output<GuardrailSensitiveInformationPolicyConfigArgs>> sensitiveInformationPolicyConfig() {
         return Optional.ofNullable(this.sensitiveInformationPolicyConfig);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -192,32 +108,16 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Topic policy config for a guardrail. See Topic Policy Config for more information.
-     * 
-     */
     @Import(name="topicPolicyConfig")
     private @Nullable Output<GuardrailTopicPolicyConfigArgs> topicPolicyConfig;
 
-    /**
-     * @return Topic policy config for a guardrail. See Topic Policy Config for more information.
-     * 
-     */
     public Optional<Output<GuardrailTopicPolicyConfigArgs>> topicPolicyConfig() {
         return Optional.ofNullable(this.topicPolicyConfig);
     }
 
-    /**
-     * Word policy config for a guardrail. See Word Policy Config for more information.
-     * 
-     */
     @Import(name="wordPolicyConfig")
     private @Nullable Output<GuardrailWordPolicyConfigArgs> wordPolicyConfig;
 
-    /**
-     * @return Word policy config for a guardrail. See Word Policy Config for more information.
-     * 
-     */
     public Optional<Output<GuardrailWordPolicyConfigArgs>> wordPolicyConfig() {
         return Optional.ofNullable(this.wordPolicyConfig);
     }
@@ -259,86 +159,38 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GuardrailArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param blockedInputMessaging Message to return when the guardrail blocks a prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedInputMessaging(Output<String> blockedInputMessaging) {
             $.blockedInputMessaging = blockedInputMessaging;
             return this;
         }
 
-        /**
-         * @param blockedInputMessaging Message to return when the guardrail blocks a prompt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedInputMessaging(String blockedInputMessaging) {
             return blockedInputMessaging(Output.of(blockedInputMessaging));
         }
 
-        /**
-         * @param blockedOutputsMessaging Message to return when the guardrail blocks a model response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedOutputsMessaging(Output<String> blockedOutputsMessaging) {
             $.blockedOutputsMessaging = blockedOutputsMessaging;
             return this;
         }
 
-        /**
-         * @param blockedOutputsMessaging Message to return when the guardrail blocks a model response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockedOutputsMessaging(String blockedOutputsMessaging) {
             return blockedOutputsMessaging(Output.of(blockedOutputsMessaging));
         }
 
-        /**
-         * @param contentPolicyConfig Content policy config for a guardrail. See Content Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentPolicyConfig(@Nullable Output<GuardrailContentPolicyConfigArgs> contentPolicyConfig) {
             $.contentPolicyConfig = contentPolicyConfig;
             return this;
         }
 
-        /**
-         * @param contentPolicyConfig Content policy config for a guardrail. See Content Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentPolicyConfig(GuardrailContentPolicyConfigArgs contentPolicyConfig) {
             return contentPolicyConfig(Output.of(contentPolicyConfig));
         }
 
-        /**
-         * @param contextualGroundingPolicyConfig Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contextualGroundingPolicyConfig(@Nullable Output<GuardrailContextualGroundingPolicyConfigArgs> contextualGroundingPolicyConfig) {
             $.contextualGroundingPolicyConfig = contextualGroundingPolicyConfig;
             return this;
         }
 
-        /**
-         * @param contextualGroundingPolicyConfig Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contextualGroundingPolicyConfig(GuardrailContextualGroundingPolicyConfigArgs contextualGroundingPolicyConfig) {
             return contextualGroundingPolicyConfig(Output.of(contextualGroundingPolicyConfig));
         }
@@ -352,132 +204,56 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
             return crossRegionConfig(Output.of(crossRegionConfig));
         }
 
-        /**
-         * @param description Description of the guardrail or its version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the guardrail or its version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param kmsKeyArn The KMS key with which the guardrail was encrypted at rest.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The KMS key with which the guardrail was encrypted at rest.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param name Name of the guardrail.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the guardrail.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param sensitiveInformationPolicyConfig Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sensitiveInformationPolicyConfig(@Nullable Output<GuardrailSensitiveInformationPolicyConfigArgs> sensitiveInformationPolicyConfig) {
             $.sensitiveInformationPolicyConfig = sensitiveInformationPolicyConfig;
             return this;
         }
 
-        /**
-         * @param sensitiveInformationPolicyConfig Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sensitiveInformationPolicyConfig(GuardrailSensitiveInformationPolicyConfigArgs sensitiveInformationPolicyConfig) {
             return sensitiveInformationPolicyConfig(Output.of(sensitiveInformationPolicyConfig));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -491,44 +267,20 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param topicPolicyConfig Topic policy config for a guardrail. See Topic Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicPolicyConfig(@Nullable Output<GuardrailTopicPolicyConfigArgs> topicPolicyConfig) {
             $.topicPolicyConfig = topicPolicyConfig;
             return this;
         }
 
-        /**
-         * @param topicPolicyConfig Topic policy config for a guardrail. See Topic Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicPolicyConfig(GuardrailTopicPolicyConfigArgs topicPolicyConfig) {
             return topicPolicyConfig(Output.of(topicPolicyConfig));
         }
 
-        /**
-         * @param wordPolicyConfig Word policy config for a guardrail. See Word Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wordPolicyConfig(@Nullable Output<GuardrailWordPolicyConfigArgs> wordPolicyConfig) {
             $.wordPolicyConfig = wordPolicyConfig;
             return this;
         }
 
-        /**
-         * @param wordPolicyConfig Word policy config for a guardrail. See Word Policy Config for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wordPolicyConfig(GuardrailWordPolicyConfigArgs wordPolicyConfig) {
             return wordPolicyConfig(Output.of(wordPolicyConfig));
         }

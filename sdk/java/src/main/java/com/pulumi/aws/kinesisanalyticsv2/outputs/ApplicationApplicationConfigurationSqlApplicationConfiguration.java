@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfiguration {
-    /**
-     * @return The input stream used by the application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInput input;
-    /**
-     * @return The destination streams used by the application.
-     * 
-     */
     private @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutput> outputs;
-    /**
-     * @return The reference data source used by the application.
-     * 
-     */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource referenceDataSource;
 
     private ApplicationApplicationConfigurationSqlApplicationConfiguration() {}
-    /**
-     * @return The input stream used by the application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationInput> input() {
         return Optional.ofNullable(this.input);
     }
-    /**
-     * @return The destination streams used by the application.
-     * 
-     */
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutput> outputs() {
         return this.outputs == null ? List.of() : this.outputs;
     }
-    /**
-     * @return The reference data source used by the application.
-     * 
-     */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource> referenceDataSource() {
         return Optional.ofNullable(this.referenceDataSource);
     }

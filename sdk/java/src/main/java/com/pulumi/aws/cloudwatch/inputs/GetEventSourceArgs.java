@@ -15,32 +15,16 @@ public final class GetEventSourceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEventSourceArgs Empty = new GetEventSourceArgs();
 
-    /**
-     * Specifying this limits the results to only those partner event sources with names that start with the specified prefix
-     * 
-     */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
-    /**
-     * @return Specifying this limits the results to only those partner event sources with names that start with the specified prefix
-     * 
-     */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetEventSourceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetEventSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param namePrefix Specifying this limits the results to only those partner event sources with names that start with the specified prefix
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(@Nullable Output<String> namePrefix) {
             $.namePrefix = namePrefix;
             return this;
         }
 
-        /**
-         * @param namePrefix Specifying this limits the results to only those partner event sources with names that start with the specified prefix
-         * 
-         * @return builder
-         * 
-         */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

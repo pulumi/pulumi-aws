@@ -17,123 +17,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a scope for AWS IPAM.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpamScope;
- * import com.pulumi.aws.ec2.VpcIpamScopeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         var example = new VpcIpam("example", VpcIpamArgs.builder()
- *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.region())
- *                 .build())
- *             .build());
- * 
- *         var exampleVpcIpamScope = new VpcIpamScope("exampleVpcIpamScope", VpcIpamScopeArgs.builder()
- *             .ipamId(example.id())
- *             .description("Another Scope")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IPAMs using the `scope_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcIpamScope:VpcIpamScope")
 public class VpcIpamScope extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the scope.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description for the scope you&#39;re creating.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description for the scope you&#39;re creating.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The ARN of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     @Export(name="ipamArn", refs={String.class}, tree="[0]")
     private Output<String> ipamArn;
 
-    /**
-     * @return The ARN of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     public Output<String> ipamArn() {
         return this.ipamArn;
     }
-    /**
-     * The ID of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     @Export(name="ipamId", refs={String.class}, tree="[0]")
     private Output<String> ipamId;
 
-    /**
-     * @return The ID of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     public Output<String> ipamId() {
         return this.ipamId;
     }
@@ -143,59 +49,27 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
     public Output<String> ipamScopeType() {
         return this.ipamScopeType;
     }
-    /**
-     * Defines if the scope is the default scope or not.
-     * 
-     */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
-    /**
-     * @return Defines if the scope is the default scope or not.
-     * 
-     */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
-    /**
-     * The number of pools in the scope.
-     * 
-     */
     @Export(name="poolCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> poolCount;
 
-    /**
-     * @return The number of pools in the scope.
-     * 
-     */
     public Output<Integer> poolCount() {
         return this.poolCount;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

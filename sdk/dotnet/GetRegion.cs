@@ -11,90 +11,12 @@ namespace Pulumi.Aws
 {
     public static class GetRegion
     {
-        /// <summary>
-        /// `aws.getRegion` provides details about a specific AWS Region.
-        /// 
-        /// As well as validating a given Region name this resource can be used to
-        /// discover the name of the Region configured within the provider. The latter
-        /// can be useful in a child module which is inheriting an AWS provider
-        /// configuration from its parent module.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how the resource might be used to obtain
-        /// the name of the AWS Region configured on the provider.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetRegionResult> InvokeAsync(GetRegionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.getRegion` provides details about a specific AWS Region.
-        /// 
-        /// As well as validating a given Region name this resource can be used to
-        /// discover the name of the Region configured within the provider. The latter
-        /// can be useful in a child module which is inheriting an AWS provider
-        /// configuration from its parent module.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how the resource might be used to obtain
-        /// the name of the AWS Region configured on the provider.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRegionResult> Invoke(GetRegionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.getRegion` provides details about a specific AWS Region.
-        /// 
-        /// As well as validating a given Region name this resource can be used to
-        /// discover the name of the Region configured within the provider. The latter
-        /// can be useful in a child module which is inheriting an AWS provider
-        /// configuration from its parent module.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// The following example shows how the resource might be used to obtain
-        /// the name of the AWS Region configured on the provider.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetRegionResult> Invoke(GetRegionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithDefaults());
     }
@@ -102,24 +24,15 @@ namespace Pulumi.Aws
 
     public sealed class GetRegionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// EC2 endpoint of the region to select.
-        /// </summary>
         [Input("endpoint")]
         public string? Endpoint { get; set; }
 
         [Input("id")]
         public string? Id { get; set; }
 
-        /// <summary>
-        /// Full name of the region to select. Use `Region` instead.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -131,24 +44,15 @@ namespace Pulumi.Aws
 
     public sealed class GetRegionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// EC2 endpoint of the region to select.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// Full name of the region to select. Use `Region` instead.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -162,9 +66,6 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetRegionResult
     {
-        /// <summary>
-        /// Region's description in this format: "Location (Region name)".
-        /// </summary>
         public readonly string Description;
         public readonly string Endpoint;
         public readonly string Id;

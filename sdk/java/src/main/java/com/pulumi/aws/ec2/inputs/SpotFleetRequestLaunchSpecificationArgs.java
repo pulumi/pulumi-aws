@@ -36,17 +36,9 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
         return Optional.ofNullable(this.associatePublicIpAddress);
     }
 
-    /**
-     * The availability zone in which to place the request.
-     * 
-     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
-    /**
-     * @return The availability zone in which to place the request.
-     * 
-     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
@@ -86,17 +78,9 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
         return Optional.ofNullable(this.iamInstanceProfileArn);
     }
 
-    /**
-     * The type of instance to request.
-     * 
-     */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
-    /**
-     * @return The type of instance to request.
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
@@ -136,47 +120,23 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
         return Optional.ofNullable(this.rootBlockDevices);
     }
 
-    /**
-     * The maximum bid price per unit hour.
-     * 
-     */
     @Import(name="spotPrice")
     private @Nullable Output<String> spotPrice;
 
-    /**
-     * @return The maximum bid price per unit hour.
-     * 
-     */
     public Optional<Output<String>> spotPrice() {
         return Optional.ofNullable(this.spotPrice);
     }
 
-    /**
-     * The subnet in which to launch the requested instance.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The subnet in which to launch the requested instance.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -195,17 +155,9 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
         return Optional.ofNullable(this.vpcSecurityGroupIds);
     }
 
-    /**
-     * The capacity added to the fleet by a fulfilled request.
-     * 
-     */
     @Import(name="weightedCapacity")
     private @Nullable Output<String> weightedCapacity;
 
-    /**
-     * @return The capacity added to the fleet by a fulfilled request.
-     * 
-     */
     public Optional<Output<String>> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }
@@ -271,23 +223,11 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
             return associatePublicIpAddress(Output.of(associatePublicIpAddress));
         }
 
-        /**
-         * @param availabilityZone The availability zone in which to place the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
-        /**
-         * @param availabilityZone The availability zone in which to place the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
@@ -345,23 +285,11 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
             return iamInstanceProfileArn(Output.of(iamInstanceProfileArn));
         }
 
-        /**
-         * @param instanceType The type of instance to request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType The type of instance to request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
@@ -415,65 +343,29 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
             return rootBlockDevices(List.of(rootBlockDevices));
         }
 
-        /**
-         * @param spotPrice The maximum bid price per unit hour.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotPrice(@Nullable Output<String> spotPrice) {
             $.spotPrice = spotPrice;
             return this;
         }
 
-        /**
-         * @param spotPrice The maximum bid price per unit hour.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotPrice(String spotPrice) {
             return spotPrice(Output.of(spotPrice));
         }
 
-        /**
-         * @param subnetId The subnet in which to launch the requested instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The subnet in which to launch the requested instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -500,23 +392,11 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }
 
-        /**
-         * @param weightedCapacity The capacity added to the fleet by a fulfilled request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedCapacity(@Nullable Output<String> weightedCapacity) {
             $.weightedCapacity = weightedCapacity;
             return this;
         }
 
-        /**
-         * @param weightedCapacity The capacity added to the fleet by a fulfilled request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedCapacity(String weightedCapacity) {
             return weightedCapacity(Output.of(weightedCapacity));
         }

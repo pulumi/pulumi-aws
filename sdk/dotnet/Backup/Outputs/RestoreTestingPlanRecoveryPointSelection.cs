@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class RestoreTestingPlanRecoveryPointSelection
     {
-        /// <summary>
-        /// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
-        /// </summary>
         public readonly string Algorithm;
-        /// <summary>
-        /// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludeVaults;
-        /// <summary>
-        /// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
-        /// </summary>
         public readonly ImmutableArray<string> IncludeVaults;
-        /// <summary>
-        /// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
-        /// </summary>
         public readonly ImmutableArray<string> RecoveryPointTypes;
-        /// <summary>
-        /// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
-        /// </summary>
         public readonly int? SelectionWindowDays;
 
         [OutputConstructor]

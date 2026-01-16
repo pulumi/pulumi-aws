@@ -15,86 +15,86 @@ import java.util.Objects;
 @CustomType
 public final class GetPrincipalPolicySimulationResult {
     /**
-     * @return The name of the single IAM action used for this particular request.
+     * @return The name of the action whose simulation this result is describing.
      * 
      */
     private String actionName;
     /**
-     * @return `true` if `decision` is &#34;allowed&#34;, and `false` otherwise.
+     * @return A summary of attribute &#34;decision&#34; which is true only if the decision is &#34;allowed&#34;.
      * 
      */
     private Boolean allowed;
     /**
-     * @return The raw decision determined from all of the policies in scope; either &#34;allowed&#34;, &#34;explicitDeny&#34;, or &#34;implicitDeny&#34;.
+     * @return The exact decision keyword returned by the policy simulator: &#34;allowed&#34;, &#34;explicitDeny&#34;, or &#34;implicitDeny&#34;.
      * 
      */
     private String decision;
     /**
-     * @return A map of arbitrary metadata entries returned by the policy simulator for this request.
+     * @return A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
      * 
      */
     private Map<String,String> decisionDetails;
     /**
-     * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
+     * @return Detail about which specific policies contributed to this result.
      * 
      */
     private List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements;
     /**
-     * @return A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+     * @return Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
      * 
      */
     private List<String> missingContextKeys;
     /**
-     * @return ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+     * @return ARN of the resource that the action was tested against.
      * 
      */
     private String resourceArn;
 
     private GetPrincipalPolicySimulationResult() {}
     /**
-     * @return The name of the single IAM action used for this particular request.
+     * @return The name of the action whose simulation this result is describing.
      * 
      */
     public String actionName() {
         return this.actionName;
     }
     /**
-     * @return `true` if `decision` is &#34;allowed&#34;, and `false` otherwise.
+     * @return A summary of attribute &#34;decision&#34; which is true only if the decision is &#34;allowed&#34;.
      * 
      */
     public Boolean allowed() {
         return this.allowed;
     }
     /**
-     * @return The raw decision determined from all of the policies in scope; either &#34;allowed&#34;, &#34;explicitDeny&#34;, or &#34;implicitDeny&#34;.
+     * @return The exact decision keyword returned by the policy simulator: &#34;allowed&#34;, &#34;explicitDeny&#34;, or &#34;implicitDeny&#34;.
      * 
      */
     public String decision() {
         return this.decision;
     }
     /**
-     * @return A map of arbitrary metadata entries returned by the policy simulator for this request.
+     * @return A mapping of various additional details that are relevant to the decision, exactly as returned by the policy simulator.
      * 
      */
     public Map<String,String> decisionDetails() {
         return this.decisionDetails;
     }
     /**
-     * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
+     * @return Detail about which specific policies contributed to this result.
      * 
      */
     public List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements() {
         return this.matchedStatements;
     }
     /**
-     * @return A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+     * @return Set of context entry keys that were needed for one or more of the relevant policies but not included in the request. You must specify suitable values for all context keys used in all of the relevant policies in order to obtain a correct simulation result.
      * 
      */
     public List<String> missingContextKeys() {
         return this.missingContextKeys;
     }
     /**
-     * @return ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+     * @return ARN of the resource that the action was tested against.
      * 
      */
     public String resourceArn() {

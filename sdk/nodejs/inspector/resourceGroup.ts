@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Inspector Classic Resource Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.inspector.ResourceGroup("example", {tags: {
- *     Name: "foo",
- *     Env: "bar",
- * }});
- * ```
- */
 export class ResourceGroup extends pulumi.CustomResource {
     /**
      * Get an existing ResourceGroup resource's state with the given name, ID, and optional extra
@@ -47,17 +32,8 @@ export class ResourceGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceGroup.__pulumiType;
     }
 
-    /**
-     * The resource group ARN.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -94,17 +70,8 @@ export class ResourceGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceGroup resources.
  */
 export interface ResourceGroupState {
-    /**
-     * The resource group ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -112,12 +79,6 @@ export interface ResourceGroupState {
  * The set of arguments for constructing a ResourceGroup resource.
  */
 export interface ResourceGroupArgs {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
-     */
     tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

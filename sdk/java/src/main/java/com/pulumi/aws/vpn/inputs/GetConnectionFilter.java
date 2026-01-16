@@ -14,32 +14,16 @@ public final class GetConnectionFilter extends com.pulumi.resources.InvokeArgs {
 
     public static final GetConnectionFilter Empty = new GetConnectionFilter();
 
-    /**
-     * Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -69,34 +53,16 @@ public final class GetConnectionFilter extends com.pulumi.resources.InvokeArgs {
             $ = new GetConnectionFilter(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class BillingGroupProperties
     {
-        /// <summary>
-        /// A description of the Billing Group.
-        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

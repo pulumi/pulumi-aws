@@ -9,102 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpenSearch.Domain("example", new()
-    ///     {
-    ///         DomainName = "tf-test",
-    ///         EngineVersion = "OpenSearch_1.1",
-    ///     });
-    /// 
-    ///     var main = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "*",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "es:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{example.Arn}/*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "IpAddress",
-    ///                         Variable = "aws:SourceIp",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "127.0.0.1/32",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var mainDomainPolicy = new Aws.OpenSearch.DomainPolicy("main", new()
-    ///     {
-    ///         DomainName = example.DomainName,
-    ///         AccessPolicies = main.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// IAM policy document specifying the access policies for the domain
-        /// </summary>
         [Output("accessPolicies")]
         public Output<string> AccessPolicies { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -154,21 +67,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class DomainPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM policy document specifying the access policies for the domain
-        /// </summary>
         [Input("accessPolicies", required: true)]
         public Input<string> AccessPolicies { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -180,21 +84,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class DomainPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// IAM policy document specifying the access policies for the domain
-        /// </summary>
         [Input("accessPolicies")]
         public Input<string>? AccessPolicies { get; set; }
 
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

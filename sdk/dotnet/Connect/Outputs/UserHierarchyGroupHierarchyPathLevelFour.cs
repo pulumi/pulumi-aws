@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class UserHierarchyGroupHierarchyPathLevelFour
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy group.
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// The identifier of the hierarchy group.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The name of the user hierarchy group. Must not be more than 100 characters.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

@@ -16,154 +16,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Step Function State Machine Alias.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sfn.Alias;
- * import com.pulumi.aws.sfn.AliasArgs;
- * import com.pulumi.aws.sfn.inputs.AliasRoutingConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sfnAlias = new Alias("sfnAlias", AliasArgs.builder()
- *             .name("my_sfn_alias")
- *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
- *                 .stateMachineVersionArn(sfnTest.stateMachineVersionArn())
- *                 .weight(100)
- *                 .build())
- *             .build());
- * 
- *         var mySfnAlias = new Alias("mySfnAlias", AliasArgs.builder()
- *             .name("my_sfn_alias")
- *             .routingConfigurations(            
- *                 AliasRoutingConfigurationArgs.builder()
- *                     .stateMachineVersionArn("arn:aws:states:us-east-1:12345:stateMachine:demo:3")
- *                     .weight(50)
- *                     .build(),
- *                 AliasRoutingConfigurationArgs.builder()
- *                     .stateMachineVersionArn("arn:aws:states:us-east-1:12345:stateMachine:demo:2")
- *                     .weight(50)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
- * ```
- * 
- */
 @ResourceType(type="aws:sfn/alias:Alias")
 public class Alias extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) identifying your state machine alias.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date the state machine alias was created.
-     * 
-     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
-    /**
-     * @return The date the state machine alias was created.
-     * 
-     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
-    /**
-     * Description of the alias.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the alias.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name for the alias you are creating.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the alias you are creating.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The StateMachine alias&#39; route configuration settings. Fields documented below
-     * 
-     */
     @Export(name="routingConfigurations", refs={List.class,AliasRoutingConfiguration.class}, tree="[0,1]")
     private Output<List<AliasRoutingConfiguration>> routingConfigurations;
 
-    /**
-     * @return The StateMachine alias&#39; route configuration settings. Fields documented below
-     * 
-     */
     public Output<List<AliasRoutingConfiguration>> routingConfigurations() {
         return this.routingConfigurations;
     }

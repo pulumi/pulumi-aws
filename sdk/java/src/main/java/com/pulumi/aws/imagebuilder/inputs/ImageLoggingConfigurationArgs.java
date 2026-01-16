@@ -14,17 +14,9 @@ public final class ImageLoggingConfigurationArgs extends com.pulumi.resources.Re
 
     public static final ImageLoggingConfigurationArgs Empty = new ImageLoggingConfigurationArgs();
 
-    /**
-     * Name of the CloudWatch Log Group to send logs to.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return Name of the CloudWatch Log Group to send logs to.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
@@ -53,23 +45,11 @@ public final class ImageLoggingConfigurationArgs extends com.pulumi.resources.Re
             $ = new ImageLoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupName Name of the CloudWatch Log Group to send logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName Name of the CloudWatch Log Group to send logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }

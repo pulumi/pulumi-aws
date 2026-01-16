@@ -7,109 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage a VPC peering connection.
- *
- * > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
- * can be done using the `autoAccept` attribute. Alternatively, the VPC Peering
- * Connection has to be made active manually using other means. See notes below for
- * more information.
- *
- * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
- * both a standalone VPC Peering Connection Options and a VPC Peering Connection
- * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
- * connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
- * Doing so will cause a conflict of options and will overwrite the options.
- * Using a VPC Peering Connection Options resource decouples management of the connection options from
- * management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
- *
- * > **Note:** For cross-account (requester's AWS account differs from the accepter's AWS account) or inter-region
- * VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
- * connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
- *
- * > **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peerVpcId` and `vpcId` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: peerOwnerId,
- *     peerVpcId: bar.id,
- *     vpcId: fooAwsVpc.id,
- * });
- * ```
- *
- * Basic usage with connection options:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: peerOwnerId,
- *     peerVpcId: bar.id,
- *     vpcId: fooAwsVpc.id,
- *     accepter: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- *     requester: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- * });
- * ```
- *
- * Basic usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooVpc = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
- * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
- * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: peerOwnerId,
- *     peerVpcId: bar.id,
- *     vpcId: fooVpc.id,
- *     autoAccept: true,
- *     tags: {
- *         Name: "VPC Peering between foo and bar",
- *     },
- * });
- * ```
- *
- * Basic usage with region:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooVpc = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
- * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
- * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: peerOwnerId,
- *     peerVpcId: bar.id,
- *     vpcId: fooVpc.id,
- *     peerRegion: "us-east-1",
- * });
- * ```
- *
- * ## Notes
- *
- * If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
- * The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
- * or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
- *
- * ## Import
- *
- * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
- * ```
- */
 export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
      * Get an existing VpcPeeringConnection resource's state with the given name, ID, and optional extra
@@ -138,53 +35,16 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcPeeringConnection.__pulumiType;
     }
 
-    /**
-     * The status of the VPC Peering Connection request.
-     */
     declare public /*out*/ readonly acceptStatus: pulumi.Output<string>;
-    /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-     * the peering connection (a maximum of one).
-     */
     declare public readonly accepter: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter>;
-    /**
-     * Accept the peering (both VPCs need to be in the same AWS account and region).
-     */
     declare public readonly autoAccept: pulumi.Output<boolean | undefined>;
-    /**
-     * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
-     */
     declare public readonly peerOwnerId: pulumi.Output<string>;
-    /**
-     * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
-     * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-     */
     declare public readonly peerRegion: pulumi.Output<string>;
-    /**
-     * The ID of the target VPC with which you are creating the VPC Peering Connection.
-     */
     declare public readonly peerVpcId: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-     * the peering connection (a maximum of one).
-     */
     declare public readonly requester: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ID of the requester VPC.
-     */
     declare public readonly vpcId: pulumi.Output<string>;
 
     /**
@@ -240,53 +100,16 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcPeeringConnection resources.
  */
 export interface VpcPeeringConnectionState {
-    /**
-     * The status of the VPC Peering Connection request.
-     */
     acceptStatus?: pulumi.Input<string>;
-    /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-     * the peering connection (a maximum of one).
-     */
     accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepter>;
-    /**
-     * Accept the peering (both VPCs need to be in the same AWS account and region).
-     */
     autoAccept?: pulumi.Input<boolean>;
-    /**
-     * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
-     */
     peerOwnerId?: pulumi.Input<string>;
-    /**
-     * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
-     * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-     */
     peerRegion?: pulumi.Input<string>;
-    /**
-     * The ID of the target VPC with which you are creating the VPC Peering Connection.
-     */
     peerVpcId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-     * the peering connection (a maximum of one).
-     */
     requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the requester VPC.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -294,44 +117,13 @@ export interface VpcPeeringConnectionState {
  * The set of arguments for constructing a VpcPeeringConnection resource.
  */
 export interface VpcPeeringConnectionArgs {
-    /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-     * the peering connection (a maximum of one).
-     */
     accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepter>;
-    /**
-     * Accept the peering (both VPCs need to be in the same AWS account and region).
-     */
     autoAccept?: pulumi.Input<boolean>;
-    /**
-     * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
-     */
     peerOwnerId?: pulumi.Input<string>;
-    /**
-     * The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
-     * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-     */
     peerRegion?: pulumi.Input<string>;
-    /**
-     * The ID of the target VPC with which you are creating the VPC Peering Connection.
-     */
     peerVpcId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-     * the peering connection (a maximum of one).
-     */
     requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the requester VPC.
-     */
     vpcId: pulumi.Input<string>;
 }

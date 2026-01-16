@@ -12,98 +12,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Routing Profile resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:                   pulumi.String("example"),
-//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				Description:            pulumi.String("example description"),
-//				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
-//					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("VOICE"),
-//						Concurrency: pulumi.Int(1),
-//						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
-//							BehaviorType: pulumi.String("ROUTE_ANY_CHANNEL"),
-//						},
-//					},
-//					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("CHAT"),
-//						Concurrency: pulumi.Int(3),
-//						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
-//							BehaviorType: pulumi.String("ROUTE_CURRENT_CHANNEL_ONLY"),
-//						},
-//					},
-//				},
-//				QueueConfigs: connect.RoutingProfileQueueConfigArray{
-//					&connect.RoutingProfileQueueConfigArgs{
-//						Channel:  pulumi.String("VOICE"),
-//						Delay:    pulumi.Int(2),
-//						Priority: pulumi.Int(1),
-//						QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Routing Profile"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
-//
-// ```sh
-// $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-// ```
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Routing Profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the default outbound queue for the Routing Profile.
-	DefaultOutboundQueueId pulumi.StringOutput `pulumi:"defaultOutboundQueueId"`
-	// Specifies the description of the Routing Profile.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-	MediaConcurrencies RoutingProfileMediaConcurrencyArrayOutput `pulumi:"mediaConcurrencies"`
-	// Specifies the name of the Routing Profile.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Identifier for the Routing Profile.
-	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                    pulumi.StringOutput                       `pulumi:"arn"`
+	DefaultOutboundQueueId pulumi.StringOutput                       `pulumi:"defaultOutboundQueueId"`
+	Description            pulumi.StringOutput                       `pulumi:"description"`
+	InstanceId             pulumi.StringOutput                       `pulumi:"instanceId"`
+	MediaConcurrencies     RoutingProfileMediaConcurrencyArrayOutput `pulumi:"mediaConcurrencies"`
+	Name                   pulumi.StringOutput                       `pulumi:"name"`
+	QueueConfigs           RoutingProfileQueueConfigArrayOutput      `pulumi:"queueConfigs"`
+	Region                 pulumi.StringOutput                       `pulumi:"region"`
+	RoutingProfileId       pulumi.StringOutput                       `pulumi:"routingProfileId"`
+	Tags                   pulumi.StringMapOutput                    `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput                    `pulumi:"tagsAll"`
 }
 
 // NewRoutingProfile registers a new resource with the given unique name, arguments, and options.
@@ -148,55 +70,31 @@ func GetRoutingProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoutingProfile resources.
 type routingProfileState struct {
-	// Amazon Resource Name (ARN) of the Routing Profile.
-	Arn *string `pulumi:"arn"`
-	// Specifies the default outbound queue for the Routing Profile.
-	DefaultOutboundQueueId *string `pulumi:"defaultOutboundQueueId"`
-	// Specifies the description of the Routing Profile.
-	Description *string `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-	MediaConcurrencies []RoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
-	// Specifies the name of the Routing Profile.
-	Name *string `pulumi:"name"`
-	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Identifier for the Routing Profile.
-	RoutingProfileId *string `pulumi:"routingProfileId"`
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                    *string                          `pulumi:"arn"`
+	DefaultOutboundQueueId *string                          `pulumi:"defaultOutboundQueueId"`
+	Description            *string                          `pulumi:"description"`
+	InstanceId             *string                          `pulumi:"instanceId"`
+	MediaConcurrencies     []RoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
+	Name                   *string                          `pulumi:"name"`
+	QueueConfigs           []RoutingProfileQueueConfig      `pulumi:"queueConfigs"`
+	Region                 *string                          `pulumi:"region"`
+	RoutingProfileId       *string                          `pulumi:"routingProfileId"`
+	Tags                   map[string]string                `pulumi:"tags"`
+	TagsAll                map[string]string                `pulumi:"tagsAll"`
 }
 
 type RoutingProfileState struct {
-	// Amazon Resource Name (ARN) of the Routing Profile.
-	Arn pulumi.StringPtrInput
-	// Specifies the default outbound queue for the Routing Profile.
+	Arn                    pulumi.StringPtrInput
 	DefaultOutboundQueueId pulumi.StringPtrInput
-	// Specifies the description of the Routing Profile.
-	Description pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-	MediaConcurrencies RoutingProfileMediaConcurrencyArrayInput
-	// Specifies the name of the Routing Profile.
-	Name pulumi.StringPtrInput
-	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs RoutingProfileQueueConfigArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Identifier for the Routing Profile.
-	RoutingProfileId pulumi.StringPtrInput
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Description            pulumi.StringPtrInput
+	InstanceId             pulumi.StringPtrInput
+	MediaConcurrencies     RoutingProfileMediaConcurrencyArrayInput
+	Name                   pulumi.StringPtrInput
+	QueueConfigs           RoutingProfileQueueConfigArrayInput
+	Region                 pulumi.StringPtrInput
+	RoutingProfileId       pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
 }
 
 func (RoutingProfileState) ElementType() reflect.Type {
@@ -204,44 +102,26 @@ func (RoutingProfileState) ElementType() reflect.Type {
 }
 
 type routingProfileArgs struct {
-	// Specifies the default outbound queue for the Routing Profile.
-	DefaultOutboundQueueId string `pulumi:"defaultOutboundQueueId"`
-	// Specifies the description of the Routing Profile.
-	Description string `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-	MediaConcurrencies []RoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
-	// Specifies the name of the Routing Profile.
-	Name *string `pulumi:"name"`
-	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DefaultOutboundQueueId string                           `pulumi:"defaultOutboundQueueId"`
+	Description            string                           `pulumi:"description"`
+	InstanceId             string                           `pulumi:"instanceId"`
+	MediaConcurrencies     []RoutingProfileMediaConcurrency `pulumi:"mediaConcurrencies"`
+	Name                   *string                          `pulumi:"name"`
+	QueueConfigs           []RoutingProfileQueueConfig      `pulumi:"queueConfigs"`
+	Region                 *string                          `pulumi:"region"`
+	Tags                   map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RoutingProfile resource.
 type RoutingProfileArgs struct {
-	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringInput
-	// Specifies the description of the Routing Profile.
-	Description pulumi.StringInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
-	MediaConcurrencies RoutingProfileMediaConcurrencyArrayInput
-	// Specifies the name of the Routing Profile.
-	Name pulumi.StringPtrInput
-	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs RoutingProfileQueueConfigArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Description            pulumi.StringInput
+	InstanceId             pulumi.StringInput
+	MediaConcurrencies     RoutingProfileMediaConcurrencyArrayInput
+	Name                   pulumi.StringPtrInput
+	QueueConfigs           RoutingProfileQueueConfigArrayInput
+	Region                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (RoutingProfileArgs) ElementType() reflect.Type {
@@ -331,58 +211,46 @@ func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Routing Profile.
 func (o RoutingProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the default outbound queue for the Routing Profile.
 func (o RoutingProfileOutput) DefaultOutboundQueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.DefaultOutboundQueueId }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Routing Profile.
 func (o RoutingProfileOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o RoutingProfileOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
 func (o RoutingProfileOutput) MediaConcurrencies() RoutingProfileMediaConcurrencyArrayOutput {
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileMediaConcurrencyArrayOutput { return v.MediaConcurrencies }).(RoutingProfileMediaConcurrencyArrayOutput)
 }
 
-// Specifies the name of the Routing Profile.
 func (o RoutingProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 func (o RoutingProfileOutput) QueueConfigs() RoutingProfileQueueConfigArrayOutput {
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigArrayOutput { return v.QueueConfigs }).(RoutingProfileQueueConfigArrayOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RoutingProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Identifier for the Routing Profile.
 func (o RoutingProfileOutput) RoutingProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.RoutingProfileId }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Routing Profile. If configured with a provider
-// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RoutingProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RoutingProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

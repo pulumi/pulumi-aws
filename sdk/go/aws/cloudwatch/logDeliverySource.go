@@ -12,64 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudWatch Logs Delivery Source.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDeliverySource(ctx, "example", &cloudwatch.LogDeliverySourceArgs{
-//				Name:        pulumi.String("example"),
-//				LogType:     pulumi.String("APPLICATION_LOGS"),
-//				ResourceArn: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Logs Delivery Source using the `name`. For example:
-//
-// ```sh
-// $ pulumi import aws:cloudwatch/logDeliverySource:LogDeliverySource example example
-// ```
 type LogDeliverySource struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the delivery source.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-	LogType pulumi.StringOutput `pulumi:"logType"`
-	// The name for this delivery source.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ARN of the AWS resource that is generating and sending logs.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The AWS service that is sending logs.
-	Service pulumi.StringOutput `pulumi:"service"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	LogType     pulumi.StringOutput    `pulumi:"logType"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Region      pulumi.StringOutput    `pulumi:"region"`
+	ResourceArn pulumi.StringOutput    `pulumi:"resourceArn"`
+	Service     pulumi.StringOutput    `pulumi:"service"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLogDeliverySource registers a new resource with the given unique name, arguments, and options.
@@ -108,41 +61,25 @@ func GetLogDeliverySource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDeliverySource resources.
 type logDeliverySourceState struct {
-	// The Amazon Resource Name (ARN) of the delivery source.
-	Arn *string `pulumi:"arn"`
-	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-	LogType *string `pulumi:"logType"`
-	// The name for this delivery source.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the AWS resource that is generating and sending logs.
-	ResourceArn *string `pulumi:"resourceArn"`
-	// The AWS service that is sending logs.
-	Service *string `pulumi:"service"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	LogType     *string           `pulumi:"logType"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	ResourceArn *string           `pulumi:"resourceArn"`
+	Service     *string           `pulumi:"service"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type LogDeliverySourceState struct {
-	// The Amazon Resource Name (ARN) of the delivery source.
-	Arn pulumi.StringPtrInput
-	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-	LogType pulumi.StringPtrInput
-	// The name for this delivery source.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the AWS resource that is generating and sending logs.
+	Arn         pulumi.StringPtrInput
+	LogType     pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
-	// The AWS service that is sending logs.
-	Service pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Service     pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (LogDeliverySourceState) ElementType() reflect.Type {
@@ -150,30 +87,20 @@ func (LogDeliverySourceState) ElementType() reflect.Type {
 }
 
 type logDeliverySourceArgs struct {
-	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-	LogType string `pulumi:"logType"`
-	// The name for this delivery source.
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ARN of the AWS resource that is generating and sending logs.
-	ResourceArn string `pulumi:"resourceArn"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	LogType     string            `pulumi:"logType"`
+	Name        *string           `pulumi:"name"`
+	Region      *string           `pulumi:"region"`
+	ResourceArn string            `pulumi:"resourceArn"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogDeliverySource resource.
 type LogDeliverySourceArgs struct {
-	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
-	LogType pulumi.StringInput
-	// The name for this delivery source.
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ARN of the AWS resource that is generating and sending logs.
+	LogType     pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Region      pulumi.StringPtrInput
 	ResourceArn pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
 }
 
 func (LogDeliverySourceArgs) ElementType() reflect.Type {
@@ -263,42 +190,34 @@ func (o LogDeliverySourceOutput) ToLogDeliverySourceOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery source.
 func (o LogDeliverySourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
 func (o LogDeliverySourceOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.LogType }).(pulumi.StringOutput)
 }
 
-// The name for this delivery source.
 func (o LogDeliverySourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDeliverySourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS resource that is generating and sending logs.
 func (o LogDeliverySourceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The AWS service that is sending logs.
 func (o LogDeliverySourceOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LogDeliverySourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LogDeliverySourceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

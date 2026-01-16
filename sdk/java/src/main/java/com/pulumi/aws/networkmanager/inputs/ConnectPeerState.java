@@ -19,231 +19,107 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
 
     public static final ConnectPeerState Empty = new ConnectPeerState();
 
-    /**
-     * ARN of the Connect peer.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Connect peer.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Connect peer BGP options. See bgpOptions for more information.
-     * 
-     */
     @Import(name="bgpOptions")
     private @Nullable Output<ConnectPeerBgpOptionsArgs> bgpOptions;
 
-    /**
-     * @return Connect peer BGP options. See bgpOptions for more information.
-     * 
-     */
     public Optional<Output<ConnectPeerBgpOptionsArgs>> bgpOptions() {
         return Optional.ofNullable(this.bgpOptions);
     }
 
-    /**
-     * Configuration of the Connect peer.
-     * 
-     */
     @Import(name="configurations")
     private @Nullable Output<List<ConnectPeerConfigurationArgs>> configurations;
 
-    /**
-     * @return Configuration of the Connect peer.
-     * 
-     */
     public Optional<Output<List<ConnectPeerConfigurationArgs>>> configurations() {
         return Optional.ofNullable(this.configurations);
     }
 
-    /**
-     * ID of the connection attachment.
-     * 
-     */
     @Import(name="connectAttachmentId")
     private @Nullable Output<String> connectAttachmentId;
 
-    /**
-     * @return ID of the connection attachment.
-     * 
-     */
     public Optional<Output<String>> connectAttachmentId() {
         return Optional.ofNullable(this.connectAttachmentId);
     }
 
-    /**
-     * ID of the Connect peer.
-     * 
-     */
     @Import(name="connectPeerId")
     private @Nullable Output<String> connectPeerId;
 
-    /**
-     * @return ID of the Connect peer.
-     * 
-     */
     public Optional<Output<String>> connectPeerId() {
         return Optional.ofNullable(this.connectPeerId);
     }
 
-    /**
-     * Connect peer core network address.
-     * 
-     */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
-    /**
-     * @return Connect peer core network address.
-     * 
-     */
     public Optional<Output<String>> coreNetworkAddress() {
         return Optional.ofNullable(this.coreNetworkAddress);
     }
 
-    /**
-     * ID of a core network.
-     * 
-     */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
-    /**
-     * @return ID of a core network.
-     * 
-     */
     public Optional<Output<String>> coreNetworkId() {
         return Optional.ofNullable(this.coreNetworkId);
     }
 
-    /**
-     * Timestamp when the Connect peer was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return Timestamp when the Connect peer was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Region where the peer is located.
-     * 
-     */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
-    /**
-     * @return Region where the peer is located.
-     * 
-     */
     public Optional<Output<String>> edgeLocation() {
         return Optional.ofNullable(this.edgeLocation);
     }
 
-    /**
-     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
-    /**
-     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     public Optional<Output<List<String>>> insideCidrBlocks() {
         return Optional.ofNullable(this.insideCidrBlocks);
     }
 
-    /**
-     * Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
-    /**
-     * @return Connect peer address.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }
 
-    /**
-     * State of the Connect peer.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return State of the Connect peer.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     @Import(name="subnetArn")
     private @Nullable Output<String> subnetArn;
 
-    /**
-     * @return Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-     * 
-     */
     public Optional<Output<String>> subnetArn() {
         return Optional.ofNullable(this.subnetArn);
     }
 
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -286,341 +162,145 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
             $ = new ConnectPeerState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param bgpOptions Connect peer BGP options. See bgpOptions for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpOptions(@Nullable Output<ConnectPeerBgpOptionsArgs> bgpOptions) {
             $.bgpOptions = bgpOptions;
             return this;
         }
 
-        /**
-         * @param bgpOptions Connect peer BGP options. See bgpOptions for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bgpOptions(ConnectPeerBgpOptionsArgs bgpOptions) {
             return bgpOptions(Output.of(bgpOptions));
         }
 
-        /**
-         * @param configurations Configuration of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurations(@Nullable Output<List<ConnectPeerConfigurationArgs>> configurations) {
             $.configurations = configurations;
             return this;
         }
 
-        /**
-         * @param configurations Configuration of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurations(List<ConnectPeerConfigurationArgs> configurations) {
             return configurations(Output.of(configurations));
         }
 
-        /**
-         * @param configurations Configuration of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurations(ConnectPeerConfigurationArgs... configurations) {
             return configurations(List.of(configurations));
         }
 
-        /**
-         * @param connectAttachmentId ID of the connection attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectAttachmentId(@Nullable Output<String> connectAttachmentId) {
             $.connectAttachmentId = connectAttachmentId;
             return this;
         }
 
-        /**
-         * @param connectAttachmentId ID of the connection attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectAttachmentId(String connectAttachmentId) {
             return connectAttachmentId(Output.of(connectAttachmentId));
         }
 
-        /**
-         * @param connectPeerId ID of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectPeerId(@Nullable Output<String> connectPeerId) {
             $.connectPeerId = connectPeerId;
             return this;
         }
 
-        /**
-         * @param connectPeerId ID of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectPeerId(String connectPeerId) {
             return connectPeerId(Output.of(connectPeerId));
         }
 
-        /**
-         * @param coreNetworkAddress Connect peer core network address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkAddress(@Nullable Output<String> coreNetworkAddress) {
             $.coreNetworkAddress = coreNetworkAddress;
             return this;
         }
 
-        /**
-         * @param coreNetworkAddress Connect peer core network address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkAddress(String coreNetworkAddress) {
             return coreNetworkAddress(Output.of(coreNetworkAddress));
         }
 
-        /**
-         * @param coreNetworkId ID of a core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(@Nullable Output<String> coreNetworkId) {
             $.coreNetworkId = coreNetworkId;
             return this;
         }
 
-        /**
-         * @param coreNetworkId ID of a core network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder coreNetworkId(String coreNetworkId) {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
-        /**
-         * @param createdAt Timestamp when the Connect peer was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt Timestamp when the Connect peer was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param edgeLocation Region where the peer is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(@Nullable Output<String> edgeLocation) {
             $.edgeLocation = edgeLocation;
             return this;
         }
 
-        /**
-         * @param edgeLocation Region where the peer is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(String edgeLocation) {
             return edgeLocation(Output.of(edgeLocation));
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(@Nullable Output<List<String>> insideCidrBlocks) {
             $.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(List<String> insideCidrBlocks) {
             return insideCidrBlocks(Output.of(insideCidrBlocks));
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
 
-        /**
-         * @param peerAddress Connect peer address.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(@Nullable Output<String> peerAddress) {
             $.peerAddress = peerAddress;
             return this;
         }
 
-        /**
-         * @param peerAddress Connect peer address.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder peerAddress(String peerAddress) {
             return peerAddress(Output.of(peerAddress));
         }
 
-        /**
-         * @param state State of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state State of the Connect peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param subnetArn Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetArn(@Nullable Output<String> subnetArn) {
             $.subnetArn = subnetArn;
             return this;
         }
 
-        /**
-         * @param subnetArn Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetArn(String subnetArn) {
             return subnetArn(Output.of(subnetArn));
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

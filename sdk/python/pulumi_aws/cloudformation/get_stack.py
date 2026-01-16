@@ -70,33 +70,21 @@ class GetStackResult:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Sequence[_builtins.str]:
-        """
-        List of capabilities
-        """
         return pulumi.get(self, "capabilities")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the stack
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="disableRollback")
     def disable_rollback(self) -> _builtins.bool:
-        """
-        Whether the rollback of the stack is disabled when stack creation fails
-        """
         return pulumi.get(self, "disable_rollback")
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM role used to create the stack.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @_builtins.property
@@ -115,25 +103,16 @@ class GetStackResult:
     @_builtins.property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Sequence[_builtins.str]:
-        """
-        List of SNS topic ARNs to publish stack related events
-        """
         return pulumi.get(self, "notification_arns")
 
     @_builtins.property
     @pulumi.getter
     def outputs(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of outputs from the stack.
-        """
         return pulumi.get(self, "outputs")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of parameters that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
@@ -144,25 +123,16 @@ class GetStackResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Map of tags associated with this stack.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> _builtins.str:
-        """
-        Structure containing the template body.
-        """
         return pulumi.get(self, "template_body")
 
     @_builtins.property
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> _builtins.int:
-        """
-        Amount of time that can pass before the stack status becomes `CREATE_FAILED`
-        """
         return pulumi.get(self, "timeout_in_minutes")
 
 
@@ -192,29 +162,7 @@ def get_stack(name: Optional[_builtins.str] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStackResult:
     """
-    The CloudFormation Stack data source allows access to stack
-    outputs and other useful data including the template body.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    network = aws.cloudformation.get_stack(name="my-network-stack")
-    web = aws.ec2.Instance("web",
-        ami="ami-abb07bcb",
-        instance_type=aws.ec2.InstanceType.T2_MICRO,
-        subnet_id=network.outputs["SubnetId"],
-        tags={
-            "Name": "HelloWorld",
-        })
-    ```
-
-
-    :param _builtins.str name: Name of the stack
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags associated with this stack.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -242,29 +190,7 @@ def get_stack_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackResult]:
     """
-    The CloudFormation Stack data source allows access to stack
-    outputs and other useful data including the template body.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    network = aws.cloudformation.get_stack(name="my-network-stack")
-    web = aws.ec2.Instance("web",
-        ami="ami-abb07bcb",
-        instance_type=aws.ec2.InstanceType.T2_MICRO,
-        subnet_id=network.outputs["SubnetId"],
-        tags={
-            "Name": "HelloWorld",
-        })
-    ```
-
-
-    :param _builtins.str name: Name of the stack
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags associated with this stack.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

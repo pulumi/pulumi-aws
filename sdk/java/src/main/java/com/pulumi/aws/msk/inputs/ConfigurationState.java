@@ -17,107 +17,51 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
 
     public static final ConfigurationState Empty = new ConfigurationState();
 
-    /**
-     * Amazon Resource Name (ARN) of the configuration.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the configuration.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Description of the configuration.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the configuration.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * List of Apache Kafka versions which can use this configuration.
-     * 
-     */
     @Import(name="kafkaVersions")
     private @Nullable Output<List<String>> kafkaVersions;
 
-    /**
-     * @return List of Apache Kafka versions which can use this configuration.
-     * 
-     */
     public Optional<Output<List<String>>> kafkaVersions() {
         return Optional.ofNullable(this.kafkaVersions);
     }
 
-    /**
-     * Latest revision of the configuration.
-     * 
-     */
     @Import(name="latestRevision")
     private @Nullable Output<Integer> latestRevision;
 
-    /**
-     * @return Latest revision of the configuration.
-     * 
-     */
     public Optional<Output<Integer>> latestRevision() {
         return Optional.ofNullable(this.latestRevision);
     }
 
-    /**
-     * Name of the configuration.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the configuration.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-     * 
-     */
     @Import(name="serverProperties")
     private @Nullable Output<String> serverProperties;
 
-    /**
-     * @return Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-     * 
-     */
     public Optional<Output<String>> serverProperties() {
         return Optional.ofNullable(this.serverProperties);
     }
@@ -152,159 +96,69 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
             $ = new ConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param description Description of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param kafkaVersions List of Apache Kafka versions which can use this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kafkaVersions(@Nullable Output<List<String>> kafkaVersions) {
             $.kafkaVersions = kafkaVersions;
             return this;
         }
 
-        /**
-         * @param kafkaVersions List of Apache Kafka versions which can use this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kafkaVersions(List<String> kafkaVersions) {
             return kafkaVersions(Output.of(kafkaVersions));
         }
 
-        /**
-         * @param kafkaVersions List of Apache Kafka versions which can use this configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kafkaVersions(String... kafkaVersions) {
             return kafkaVersions(List.of(kafkaVersions));
         }
 
-        /**
-         * @param latestRevision Latest revision of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latestRevision(@Nullable Output<Integer> latestRevision) {
             $.latestRevision = latestRevision;
             return this;
         }
 
-        /**
-         * @param latestRevision Latest revision of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latestRevision(Integer latestRevision) {
             return latestRevision(Output.of(latestRevision));
         }
 
-        /**
-         * @param name Name of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverProperties Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverProperties(@Nullable Output<String> serverProperties) {
             $.serverProperties = serverProperties;
             return this;
         }
 
-        /**
-         * @param serverProperties Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverProperties(String serverProperties) {
             return serverProperties(Output.of(serverProperties));
         }

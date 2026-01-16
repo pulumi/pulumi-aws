@@ -18,47 +18,23 @@ public final class LifecyclePolicyPolicyDetailsExclusionsArgs extends com.pulumi
 
     public static final LifecyclePolicyPolicyDetailsExclusionsArgs Empty = new LifecyclePolicyPolicyDetailsExclusionsArgs();
 
-    /**
-     * Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-     * 
-     */
     @Import(name="excludeBootVolumes")
     private @Nullable Output<Boolean> excludeBootVolumes;
 
-    /**
-     * @return Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-     * 
-     */
     public Optional<Output<Boolean>> excludeBootVolumes() {
         return Optional.ofNullable(this.excludeBootVolumes);
     }
 
-    /**
-     * Map specifies whether to exclude volumes that have specific tags.
-     * 
-     */
     @Import(name="excludeTags")
     private @Nullable Output<Map<String,String>> excludeTags;
 
-    /**
-     * @return Map specifies whether to exclude volumes that have specific tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> excludeTags() {
         return Optional.ofNullable(this.excludeTags);
     }
 
-    /**
-     * List specifies the volume types to exclude.
-     * 
-     */
     @Import(name="excludeVolumeTypes")
     private @Nullable Output<List<String>> excludeVolumeTypes;
 
-    /**
-     * @return List specifies the volume types to exclude.
-     * 
-     */
     public Optional<Output<List<String>>> excludeVolumeTypes() {
         return Optional.ofNullable(this.excludeVolumeTypes);
     }
@@ -89,75 +65,33 @@ public final class LifecyclePolicyPolicyDetailsExclusionsArgs extends com.pulumi
             $ = new LifecyclePolicyPolicyDetailsExclusionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludeBootVolumes Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeBootVolumes(@Nullable Output<Boolean> excludeBootVolumes) {
             $.excludeBootVolumes = excludeBootVolumes;
             return this;
         }
 
-        /**
-         * @param excludeBootVolumes Indicates whether to exclude volumes that are attached to instances as the boot volume. To exclude boot volumes, specify `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeBootVolumes(Boolean excludeBootVolumes) {
             return excludeBootVolumes(Output.of(excludeBootVolumes));
         }
 
-        /**
-         * @param excludeTags Map specifies whether to exclude volumes that have specific tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeTags(@Nullable Output<Map<String,String>> excludeTags) {
             $.excludeTags = excludeTags;
             return this;
         }
 
-        /**
-         * @param excludeTags Map specifies whether to exclude volumes that have specific tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeTags(Map<String,String> excludeTags) {
             return excludeTags(Output.of(excludeTags));
         }
 
-        /**
-         * @param excludeVolumeTypes List specifies the volume types to exclude.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeVolumeTypes(@Nullable Output<List<String>> excludeVolumeTypes) {
             $.excludeVolumeTypes = excludeVolumeTypes;
             return this;
         }
 
-        /**
-         * @param excludeVolumeTypes List specifies the volume types to exclude.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeVolumeTypes(List<String> excludeVolumeTypes) {
             return excludeVolumeTypes(Output.of(excludeVolumeTypes));
         }
 
-        /**
-         * @param excludeVolumeTypes List specifies the volume types to exclude.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludeVolumeTypes(String... excludeVolumeTypes) {
             return excludeVolumeTypes(List.of(excludeVolumeTypes));
         }

@@ -12,119 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
-//
-// ## Example Usage
-//
-// ### Organization Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewPolicyAttachment(ctx, "account", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(example.Id),
-//				TargetId: pulumi.String("123456789012"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Root
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewPolicyAttachment(ctx, "root", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(example.Id),
-//				TargetId: pulumi.Any(exampleAwsOrganizationsOrganization.Roots[0].Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Organization Unit
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewPolicyAttachment(ctx, "unit", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(example.Id),
-//				TargetId: pulumi.Any(exampleAwsOrganizationsOrganizationalUnit.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `policy_id` (String) Organizations policy ID.
-//
-// * `target_id` (String) Organizations target ID (account, OU, or root).
-//
-// #### Optional
-//
-// * `account_id` (String) AWS Account where this resource is managed.
-//
-// Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
-//
-// With an account target:
-//
-// % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
 type PolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// The unique identifier (ID) of the policy that you want to attach to the target.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	PolicyId    pulumi.StringOutput  `pulumi:"policyId"`
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-	TargetId pulumi.StringOutput `pulumi:"targetId"`
+	TargetId    pulumi.StringOutput  `pulumi:"targetId"`
 }
 
 // NewPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -163,21 +56,15 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
-	// The unique identifier (ID) of the policy that you want to attach to the target.
-	PolicyId *string `pulumi:"policyId"`
-	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-	TargetId *string `pulumi:"targetId"`
+	PolicyId    *string `pulumi:"policyId"`
+	SkipDestroy *bool   `pulumi:"skipDestroy"`
+	TargetId    *string `pulumi:"targetId"`
 }
 
 type PolicyAttachmentState struct {
-	// The unique identifier (ID) of the policy that you want to attach to the target.
-	PolicyId pulumi.StringPtrInput
-	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	PolicyId    pulumi.StringPtrInput
 	SkipDestroy pulumi.BoolPtrInput
-	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-	TargetId pulumi.StringPtrInput
+	TargetId    pulumi.StringPtrInput
 }
 
 func (PolicyAttachmentState) ElementType() reflect.Type {
@@ -185,22 +72,16 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type policyAttachmentArgs struct {
-	// The unique identifier (ID) of the policy that you want to attach to the target.
-	PolicyId string `pulumi:"policyId"`
-	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-	TargetId string `pulumi:"targetId"`
+	PolicyId    string `pulumi:"policyId"`
+	SkipDestroy *bool  `pulumi:"skipDestroy"`
+	TargetId    string `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
-	// The unique identifier (ID) of the policy that you want to attach to the target.
-	PolicyId pulumi.StringInput
-	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	PolicyId    pulumi.StringInput
 	SkipDestroy pulumi.BoolPtrInput
-	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-	TargetId pulumi.StringInput
+	TargetId    pulumi.StringInput
 }
 
 func (PolicyAttachmentArgs) ElementType() reflect.Type {
@@ -290,17 +171,14 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.
 	return o
 }
 
-// The unique identifier (ID) of the policy that you want to attach to the target.
 func (o PolicyAttachmentOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
 func (o PolicyAttachmentOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 func (o PolicyAttachmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }

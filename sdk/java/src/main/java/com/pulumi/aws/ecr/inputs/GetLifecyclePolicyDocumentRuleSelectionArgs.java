@@ -18,107 +18,51 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
 
     public static final GetLifecyclePolicyDocumentRuleSelectionArgs Empty = new GetLifecyclePolicyDocumentRuleSelectionArgs();
 
-    /**
-     * Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-     * 
-     */
     @Import(name="countNumber", required=true)
     private Output<Integer> countNumber;
 
-    /**
-     * @return Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-     * 
-     */
     public Output<Integer> countNumber() {
         return this.countNumber;
     }
 
-    /**
-     * Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-     * 
-     */
     @Import(name="countType", required=true)
     private Output<String> countType;
 
-    /**
-     * @return Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-     * 
-     */
     public Output<String> countType() {
         return this.countType;
     }
 
-    /**
-     * Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-     * 
-     */
     @Import(name="countUnit")
     private @Nullable Output<String> countUnit;
 
-    /**
-     * @return Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-     * 
-     */
     public Optional<Output<String>> countUnit() {
         return Optional.ofNullable(this.countUnit);
     }
 
-    /**
-     * The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-     * 
-     */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
-    /**
-     * @return The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-     * 
-     */
     public Optional<Output<String>> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }
 
-    /**
-     * You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
-     * 
-     */
     @Import(name="tagPatternLists")
     private @Nullable Output<List<String>> tagPatternLists;
 
-    /**
-     * @return You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
-     * 
-     */
     public Optional<Output<List<String>>> tagPatternLists() {
         return Optional.ofNullable(this.tagPatternLists);
     }
 
-    /**
-     * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix &#34;prod&#34; to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-     * 
-     */
     @Import(name="tagPrefixLists")
     private @Nullable Output<List<String>> tagPrefixLists;
 
-    /**
-     * @return You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix &#34;prod&#34; to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-     * 
-     */
     public Optional<Output<List<String>>> tagPrefixLists() {
         return Optional.ofNullable(this.tagPrefixLists);
     }
 
-    /**
-     * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
-     * 
-     */
     @Import(name="tagStatus", required=true)
     private Output<String> tagStatus;
 
-    /**
-     * @return Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
-     * 
-     */
     public Output<String> tagStatus() {
         return this.tagStatus;
     }
@@ -153,169 +97,73 @@ public final class GetLifecyclePolicyDocumentRuleSelectionArgs extends com.pulum
             $ = new GetLifecyclePolicyDocumentRuleSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param countNumber Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countNumber(Output<Integer> countNumber) {
             $.countNumber = countNumber;
             return this;
         }
 
-        /**
-         * @param countNumber Specify a count number. If the `countType` used is `imageCountMoreThan`, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is `sinceImagePushed`, then the value is the maximum age limit for your images. If the `countType` used is `sinceImagePulled`, then the value is the maximum number of days since the image was last pulled. If the `countType` used is `sinceImageTransitioned`, then the value is the maximum number of days since the image was archived.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countNumber(Integer countNumber) {
             return countNumber(Output.of(countNumber));
         }
 
-        /**
-         * @param countType Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countType(Output<String> countType) {
             $.countType = countType;
             return this;
         }
 
-        /**
-         * @param countType Specify a count type to apply to the images. If `countType` is set to `imageCountMoreThan`, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to `sinceImagePushed`, `sinceImagePulled`, or `sinceImageTransitioned`, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countType(String countType) {
             return countType(Output.of(countType));
         }
 
-        /**
-         * @param countUnit Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countUnit(@Nullable Output<String> countUnit) {
             $.countUnit = countUnit;
             return this;
         }
 
-        /**
-         * @param countUnit Specify a count unit of `days` to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countUnit(String countUnit) {
             return countUnit(Output.of(countUnit));
         }
 
-        /**
-         * @param storageClass The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(@Nullable Output<String> storageClass) {
             $.storageClass = storageClass;
             return this;
         }
 
-        /**
-         * @param storageClass The rule will only select images of this storage class. When using a `countType` of `imageCountMoreThan`, `sinceImagePushed`, or `sinceImagePulled`, the only supported value is `standard`. When using a `countType` of `sinceImageTransitioned`, this is required, and the only supported value is `archive`. If you omit this, the value of `standard` will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
         }
 
-        /**
-         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagPatternLists(@Nullable Output<List<String>> tagPatternLists) {
             $.tagPatternLists = tagPatternLists;
             return this;
         }
 
-        /**
-         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagPatternLists(List<String> tagPatternLists) {
             return tagPatternLists(Output.of(tagPatternLists));
         }
 
-        /**
-         * @param tagPatternLists You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `[&#34;prod\*&#34;]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `[&#34;*test*1*2*3&#34;, &#34;test*1*2*3*&#34;]` is valid but `[&#34;test*1*2*3*4*5*6&#34;]` is invalid.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagPatternLists(String... tagPatternLists) {
             return tagPatternLists(List.of(tagPatternLists));
         }
 
-        /**
-         * @param tagPrefixLists You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix &#34;prod&#34; to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagPrefixLists(@Nullable Output<List<String>> tagPrefixLists) {
             $.tagPrefixLists = tagPrefixLists;
             return this;
         }
 
-        /**
-         * @param tagPrefixLists You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix &#34;prod&#34; to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagPrefixLists(List<String> tagPrefixLists) {
             return tagPrefixLists(Output.of(tagPrefixLists));
         }
 
-        /**
-         * @param tagPrefixLists You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix &#34;prod&#34; to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagPrefixLists(String... tagPrefixLists) {
             return tagPrefixLists(List.of(tagPrefixLists));
         }
 
-        /**
-         * @param tagStatus Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagStatus(Output<String> tagStatus) {
             $.tagStatus = tagStatus;
             return this;
         }
 
-        /**
-         * @param tagStatus Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are `tagged`, `untagged`, or `any`. If you specify `any`, then all images have the rule evaluated against them. If you specify `tagged`, then you must also specify a `tagPrefixList` value or a `tagPatternList` value. If you specify `untagged`, then you must omit both `tagPrefixList` and `tagPatternList`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagStatus(String tagStatus) {
             return tagStatus(Output.of(tagStatus));
         }

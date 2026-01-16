@@ -16,47 +16,23 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserEmailsArgs Empty = new UserEmailsArgs();
 
-    /**
-     * When `true`, this is the primary email associated with the user.
-     * 
-     */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
-    /**
-     * @return When `true`, this is the primary email associated with the user.
-     * 
-     */
     public Optional<Output<Boolean>> primary() {
         return Optional.ofNullable(this.primary);
     }
 
-    /**
-     * The type of email.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of email.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The email address. This value must be unique across the identity store.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return The email address. This value must be unique across the identity store.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -87,65 +63,29 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UserEmailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param primary When `true`, this is the primary email associated with the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(@Nullable Output<Boolean> primary) {
             $.primary = primary;
             return this;
         }
 
-        /**
-         * @param primary When `true`, this is the primary email associated with the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
         }
 
-        /**
-         * @param type The type of email.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of email.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value The email address. This value must be unique across the identity store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The email address. This value must be unique across the identity store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

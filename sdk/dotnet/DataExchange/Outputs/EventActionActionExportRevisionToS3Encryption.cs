@@ -13,14 +13,7 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class EventActionActionExportRevisionToS3Encryption
     {
-        /// <summary>
-        /// ARN of the KMS key used for encryption.
-        /// </summary>
         public readonly string? KmsKeyArn;
-        /// <summary>
-        /// Type of server-side encryption.
-        /// Valid values are `aws:kms` or `aws:s3`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreMemoryStrategyConfiguration
     {
-        /// <summary>
-        /// Consolidation configuration for processing and organizing memory content. See `Consolidation` below. Once added, this block cannot be removed without recreating the resource.
-        /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationConsolidation? Consolidation;
-        /// <summary>
-        /// Extraction configuration for identifying and extracting relevant information. See `Extraction` below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
-        /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationExtraction? Extraction;
-        /// <summary>
-        /// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

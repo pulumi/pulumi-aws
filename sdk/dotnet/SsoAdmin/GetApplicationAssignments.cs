@@ -11,81 +11,12 @@ namespace Pulumi.Aws.SsoAdmin
 {
     public static class GetApplicationAssignments
     {
-        /// <summary>
-        /// Data source for managing AWS SSO Admin Application Assignments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
-        ///     {
-        ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetApplicationAssignmentsResult> InvokeAsync(GetApplicationAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS SSO Admin Application Assignments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
-        ///     {
-        ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationAssignmentsResult> Invoke(GetApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing AWS SSO Admin Application Assignments.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
-        ///     {
-        ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetApplicationAssignmentsResult> Invoke(GetApplicationAssignmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationAssignmentsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public string ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class GetApplicationAssignmentsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -135,13 +54,7 @@ namespace Pulumi.Aws.SsoAdmin
     [OutputType]
     public sealed class GetApplicationAssignmentsResult
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         public readonly string ApplicationArn;
-        /// <summary>
-        /// List of principals assigned to the application. See the `ApplicationAssignments` attribute reference below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationAssignmentsApplicationAssignmentResult> ApplicationAssignments;
         public readonly string Id;
         public readonly string Region;

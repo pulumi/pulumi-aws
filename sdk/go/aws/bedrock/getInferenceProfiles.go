@@ -11,59 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Bedrock Inference Profiles.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetInferenceProfiles(ctx, &bedrock.GetInferenceProfilesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Filter by Type
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetInferenceProfiles(ctx, &bedrock.GetInferenceProfilesArgs{
-//				Type: pulumi.StringRef("APPLICATION"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInferenceProfiles(ctx *pulumi.Context, args *GetInferenceProfilesArgs, opts ...pulumi.InvokeOption) (*GetInferenceProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInferenceProfilesResult
@@ -76,21 +23,17 @@ func GetInferenceProfiles(ctx *pulumi.Context, args *GetInferenceProfilesArgs, o
 
 // A collection of arguments for invoking getInferenceProfiles.
 type GetInferenceProfilesArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-	Type *string `pulumi:"type"`
+	Type   *string `pulumi:"type"`
 }
 
 // A collection of values returned by getInferenceProfiles.
 type GetInferenceProfilesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of inference profile summary objects. See `inferenceProfileSummaries`.
+	Id                        string                                        `pulumi:"id"`
 	InferenceProfileSummaries []GetInferenceProfilesInferenceProfileSummary `pulumi:"inferenceProfileSummaries"`
 	Region                    string                                        `pulumi:"region"`
-	// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
-	Type *string `pulumi:"type"`
+	Type                      *string                                       `pulumi:"type"`
 }
 
 func GetInferenceProfilesOutput(ctx *pulumi.Context, args GetInferenceProfilesOutputArgs, opts ...pulumi.InvokeOption) GetInferenceProfilesResultOutput {
@@ -104,10 +47,8 @@ func GetInferenceProfilesOutput(ctx *pulumi.Context, args GetInferenceProfilesOu
 
 // A collection of arguments for invoking getInferenceProfiles.
 type GetInferenceProfilesOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Filters for inference profiles that match the type you specify. Valid values are: `SYSTEM_DEFINED`, `APPLICATION`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetInferenceProfilesOutputArgs) ElementType() reflect.Type {
@@ -134,7 +75,6 @@ func (o GetInferenceProfilesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of inference profile summary objects. See `inferenceProfileSummaries`.
 func (o GetInferenceProfilesResultOutput) InferenceProfileSummaries() GetInferenceProfilesInferenceProfileSummaryArrayOutput {
 	return o.ApplyT(func(v GetInferenceProfilesResult) []GetInferenceProfilesInferenceProfileSummary {
 		return v.InferenceProfileSummaries
@@ -145,7 +85,6 @@ func (o GetInferenceProfilesResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInferenceProfilesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means the inference profile was created by a user.
 func (o GetInferenceProfilesResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetInferenceProfilesResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

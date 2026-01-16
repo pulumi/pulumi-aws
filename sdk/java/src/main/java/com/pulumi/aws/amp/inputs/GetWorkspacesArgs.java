@@ -15,32 +15,16 @@ public final class GetWorkspacesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWorkspacesArgs Empty = new GetWorkspacesArgs();
 
-    /**
-     * Limits results to workspaces with aliases that begin with this value.
-     * 
-     */
     @Import(name="aliasPrefix")
     private @Nullable Output<String> aliasPrefix;
 
-    /**
-     * @return Limits results to workspaces with aliases that begin with this value.
-     * 
-     */
     public Optional<Output<String>> aliasPrefix() {
         return Optional.ofNullable(this.aliasPrefix);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -70,44 +54,20 @@ public final class GetWorkspacesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetWorkspacesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasPrefix Limits results to workspaces with aliases that begin with this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasPrefix(@Nullable Output<String> aliasPrefix) {
             $.aliasPrefix = aliasPrefix;
             return this;
         }
 
-        /**
-         * @param aliasPrefix Limits results to workspaces with aliases that begin with this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasPrefix(String aliasPrefix) {
             return aliasPrefix(Output.of(aliasPrefix));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

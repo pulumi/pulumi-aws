@@ -14,32 +14,16 @@ public final class DistributionTenantParameterArgs extends com.pulumi.resources.
 
     public static final DistributionTenantParameterArgs Empty = new DistributionTenantParameterArgs();
 
-    /**
-     * Name of the distribution tenant.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the distribution tenant.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Value of the parameter.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Value of the parameter.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class DistributionTenantParameterArgs extends com.pulumi.resources.
             $ = new DistributionTenantParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the distribution tenant.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value Value of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of the parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

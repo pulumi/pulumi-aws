@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNodeGroupLaunchTemplate {
-    /**
-     * @return The ID of the launch template.
-     * 
-     */
     private String id;
-    /**
-     * @return Name of the AutoScaling Group.
-     * 
-     */
     private String name;
-    /**
-     * @return Kubernetes version.
-     * 
-     */
     private String version;
 
     private GetNodeGroupLaunchTemplate() {}
-    /**
-     * @return The ID of the launch template.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the AutoScaling Group.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Kubernetes version.
-     * 
-     */
     public String version() {
         return this.version;
     }

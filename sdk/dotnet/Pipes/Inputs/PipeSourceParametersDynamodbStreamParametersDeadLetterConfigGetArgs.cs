@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of this pipe.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

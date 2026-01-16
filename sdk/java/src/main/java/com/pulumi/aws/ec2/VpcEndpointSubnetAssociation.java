@@ -13,101 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create an association between a VPC endpoint and a subnet.
- * 
- * &gt; **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
- * both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
- * and a single `subnetId`) and a VPC Endpoint resource with a `subnetIds`
- * attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
- * Association resource. Doing so will cause a conflict of associations and will overwrite the association.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpointSubnetAssociation;
- * import com.pulumi.aws.ec2.VpcEndpointSubnetAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var snEc2 = new VpcEndpointSubnetAssociation("snEc2", VpcEndpointSubnetAssociationArgs.builder()
- *             .vpcEndpointId(ec2.id())
- *             .subnetId(sn.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")
 public class VpcEndpointSubnetAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The ID of the subnet to be associated with the VPC endpoint.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to be associated with the VPC endpoint.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
-    /**
-     * The ID of the VPC endpoint with which the subnet will be associated.
-     * 
-     */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return The ID of the VPC endpoint with which the subnet will be associated.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }

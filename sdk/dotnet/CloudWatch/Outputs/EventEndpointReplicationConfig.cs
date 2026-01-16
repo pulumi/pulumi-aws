@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventEndpointReplicationConfig
     {
-        /// <summary>
-        /// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `RoleArn`. If you don't have a `RoleArn` or you don't want event replication enabled, set `State` to `DISABLED`.
-        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

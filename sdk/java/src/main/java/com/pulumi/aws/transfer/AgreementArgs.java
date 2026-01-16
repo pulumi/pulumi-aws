@@ -17,122 +17,58 @@ public final class AgreementArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgreementArgs Empty = new AgreementArgs();
 
-    /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-     * 
-     */
     @Import(name="accessRole", required=true)
     private Output<String> accessRole;
 
-    /**
-     * @return The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-     * 
-     */
     public Output<String> accessRole() {
         return this.accessRole;
     }
 
-    /**
-     * The landing directory for the files transferred by using the AS2 protocol.
-     * 
-     */
     @Import(name="baseDirectory", required=true)
     private Output<String> baseDirectory;
 
-    /**
-     * @return The landing directory for the files transferred by using the AS2 protocol.
-     * 
-     */
     public Output<String> baseDirectory() {
         return this.baseDirectory;
     }
 
-    /**
-     * The Optional description of the transdfer.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The Optional description of the transdfer.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The unique identifier for the AS2 local profile.
-     * 
-     */
     @Import(name="localProfileId", required=true)
     private Output<String> localProfileId;
 
-    /**
-     * @return The unique identifier for the AS2 local profile.
-     * 
-     */
     public Output<String> localProfileId() {
         return this.localProfileId;
     }
 
-    /**
-     * The unique identifier for the AS2 partner profile.
-     * 
-     */
     @Import(name="partnerProfileId", required=true)
     private Output<String> partnerProfileId;
 
-    /**
-     * @return The unique identifier for the AS2 partner profile.
-     * 
-     */
     public Output<String> partnerProfileId() {
         return this.partnerProfileId;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
-     * 
-     */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
-    /**
-     * @return The unique server identifier for the server instance. This is the specific server the agreement uses.
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -168,170 +104,74 @@ public final class AgreementArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AgreementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessRole(Output<String> accessRole) {
             $.accessRole = accessRole;
             return this;
         }
 
-        /**
-         * @param accessRole The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessRole(String accessRole) {
             return accessRole(Output.of(accessRole));
         }
 
-        /**
-         * @param baseDirectory The landing directory for the files transferred by using the AS2 protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseDirectory(Output<String> baseDirectory) {
             $.baseDirectory = baseDirectory;
             return this;
         }
 
-        /**
-         * @param baseDirectory The landing directory for the files transferred by using the AS2 protocol.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseDirectory(String baseDirectory) {
             return baseDirectory(Output.of(baseDirectory));
         }
 
-        /**
-         * @param description The Optional description of the transdfer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The Optional description of the transdfer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param localProfileId The unique identifier for the AS2 local profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localProfileId(Output<String> localProfileId) {
             $.localProfileId = localProfileId;
             return this;
         }
 
-        /**
-         * @param localProfileId The unique identifier for the AS2 local profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localProfileId(String localProfileId) {
             return localProfileId(Output.of(localProfileId));
         }
 
-        /**
-         * @param partnerProfileId The unique identifier for the AS2 partner profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partnerProfileId(Output<String> partnerProfileId) {
             $.partnerProfileId = partnerProfileId;
             return this;
         }
 
-        /**
-         * @param partnerProfileId The unique identifier for the AS2 partner profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partnerProfileId(String partnerProfileId) {
             return partnerProfileId(Output.of(partnerProfileId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serverId The unique server identifier for the server instance. This is the specific server the agreement uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
-        /**
-         * @param serverId The unique server identifier for the server instance. This is the specific server the agreement uses.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

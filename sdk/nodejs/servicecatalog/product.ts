@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Product.
- *
- * > **NOTE:** The user or role that uses this resources must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `templatePhysicalId` argument.
- *
- * > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.Product("example", {
- *     name: "example",
- *     owner: "example-owner",
- *     type: "CLOUD_FORMATION_TEMPLATE",
- *     provisioningArtifactParameters: {
- *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
- *
- * ```sh
- * $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
- * ```
- */
 export class Product extends pulumi.CustomResource {
     /**
      * Get an existing Product resource's state with the given name, ID, and optional extra
@@ -71,75 +35,22 @@ export class Product extends pulumi.CustomResource {
         return obj['__pulumiType'] === Product.__pulumiType;
     }
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the product.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * Time when the product was created.
-     */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
-    /**
-     * Description of the product.
-     */
     declare public readonly description: pulumi.Output<string>;
-    /**
-     * Distributor (i.e., vendor) of the product.
-     */
     declare public readonly distributor: pulumi.Output<string>;
-    /**
-     * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-     */
     declare public /*out*/ readonly hasDefaultPath: pulumi.Output<boolean>;
-    /**
-     * Name of the product.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Owner of the product.
-     */
     declare public readonly owner: pulumi.Output<string>;
-    /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
-     */
     declare public readonly provisioningArtifactParameters: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Status of the product.
-     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
-    /**
-     * Support information about the product.
-     */
     declare public readonly supportDescription: pulumi.Output<string>;
-    /**
-     * Contact email for product support.
-     */
     declare public readonly supportEmail: pulumi.Output<string>;
-    /**
-     * Contact URL for product support.
-     */
     declare public readonly supportUrl: pulumi.Output<string>;
-    /**
-     * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-     *
-     * The following arguments are optional:
-     */
     declare public readonly type: pulumi.Output<string>;
 
     /**
@@ -210,75 +121,22 @@ export class Product extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Product resources.
  */
 export interface ProductState {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * ARN of the product.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Time when the product was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Description of the product.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Distributor (i.e., vendor) of the product.
-     */
     distributor?: pulumi.Input<string>;
-    /**
-     * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-     */
     hasDefaultPath?: pulumi.Input<boolean>;
-    /**
-     * Name of the product.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Owner of the product.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
-     */
     provisioningArtifactParameters?: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Status of the product.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Support information about the product.
-     */
     supportDescription?: pulumi.Input<string>;
-    /**
-     * Contact email for product support.
-     */
     supportEmail?: pulumi.Input<string>;
-    /**
-     * Contact URL for product support.
-     */
     supportUrl?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-     *
-     * The following arguments are optional:
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -286,54 +144,16 @@ export interface ProductState {
  * The set of arguments for constructing a Product resource.
  */
 export interface ProductArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Description of the product.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Distributor (i.e., vendor) of the product.
-     */
     distributor?: pulumi.Input<string>;
-    /**
-     * Name of the product.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Owner of the product.
-     */
     owner: pulumi.Input<string>;
-    /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
-     */
     provisioningArtifactParameters: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Support information about the product.
-     */
     supportDescription?: pulumi.Input<string>;
-    /**
-     * Contact email for product support.
-     */
     supportEmail?: pulumi.Input<string>;
-    /**
-     * Contact URL for product support.
-     */
     supportUrl?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
-     *
-     * The following arguments are optional:
-     */
     type: pulumi.Input<string>;
 }

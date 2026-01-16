@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallFirewallStatusSyncStateAttachment
     {
-        /// <summary>
-        /// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        /// </summary>
         public readonly string? EndpointId;
-        /// <summary>
-        /// The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
-        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

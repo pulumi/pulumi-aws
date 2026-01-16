@@ -14,19 +14,12 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
-
-        /// <summary>
-        /// The access token aud claim values that you want to accept in your policy store.
-        /// </summary>
         public InputList<string> Audiences
         {
             get => _audiences ?? (_audiences = new InputList<string>());
             set => _audiences = value;
         }
 
-        /// <summary>
-        /// The claim that determines the principal in OIDC access tokens.
-        /// </summary>
         [Input("principalIdClaim")]
         public Input<string>? PrincipalIdClaim { get; set; }
 

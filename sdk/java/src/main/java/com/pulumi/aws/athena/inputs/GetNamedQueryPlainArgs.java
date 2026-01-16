@@ -15,47 +15,23 @@ public final class GetNamedQueryPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetNamedQueryPlainArgs Empty = new GetNamedQueryPlainArgs();
 
-    /**
-     * The plain language name for the query. Maximum length of 128.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return The plain language name for the query. Maximum length of 128.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The workgroup to which the query belongs. Defaults to `primary`.
-     * 
-     */
     @Import(name="workgroup")
     private @Nullable String workgroup;
 
-    /**
-     * @return The workgroup to which the query belongs. Defaults to `primary`.
-     * 
-     */
     public Optional<String> workgroup() {
         return Optional.ofNullable(this.workgroup);
     }
@@ -86,34 +62,16 @@ public final class GetNamedQueryPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetNamedQueryPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The plain language name for the query. Maximum length of 128.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param workgroup The workgroup to which the query belongs. Defaults to `primary`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workgroup(@Nullable String workgroup) {
             $.workgroup = workgroup;
             return this;

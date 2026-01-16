@@ -17,67 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketAccelerateConfiguration;
- * import com.pulumi.aws.s3.BucketAccelerateConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
- *             .bucket("mybucket")
- *             .build());
- * 
- *         var example = new BucketAccelerateConfiguration("example", BucketAccelerateConfigurationArgs.builder()
- *             .bucket(mybucket.id())
- *             .status("Enabled")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * __Using `pulumi import` to import.__ For example:
- * 
- * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
- * ```
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
- * ```
- * 
  * @deprecated
  * aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration
  * 
@@ -85,59 +24,27 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration */
 @ResourceType(type="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")
 public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

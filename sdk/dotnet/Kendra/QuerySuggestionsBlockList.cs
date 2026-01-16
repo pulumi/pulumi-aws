@@ -9,90 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kendra
 {
-    /// <summary>
-    /// Use the `AwsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kendra.QuerySuggestionsBlockList("example", new()
-    ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         SourceS3Path = new Aws.Kendra.Inputs.QuerySuggestionsBlockListSourceS3PathArgs
-    ///         {
-    ///             Bucket = exampleAwsS3Bucket.Id,
-    ///             Key = "example/suggestions.txt",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Kendra Index" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")]
     public partial class QuerySuggestionsBlockList : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the block list.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the index for a block list.
-        /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for the block list.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier of the block list.
-        /// </summary>
         [Output("querySuggestionsBlockListId")]
         public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
 
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM (Identity and Access Management) role used to access the block list text file in S3.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// S3 path where your block list text file is located. See details below.
-        /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.QuerySuggestionsBlockListSourceS3Path> SourceS3Path { get; private set; } = null!;
 
@@ -102,9 +42,6 @@ namespace Pulumi.Aws.Kendra
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider's DefaultTags configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -157,30 +94,18 @@ namespace Pulumi.Aws.Kendra
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of the index for a block list.
-        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
-        /// <summary>
-        /// Name for the block list.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// IAM (Identity and Access Management) role used to access the block list text file in S3.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// S3 path where your block list text file is located. See details below.
-        /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathArgs> SourceS3Path { get; set; } = null!;
 
@@ -200,45 +125,27 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class QuerySuggestionsBlockListState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the block list.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Identifier of the index for a block list.
-        /// </summary>
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
 
-        /// <summary>
-        /// Name for the block list.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Unique identifier of the block list.
-        /// </summary>
         [Input("querySuggestionsBlockListId")]
         public Input<string>? QuerySuggestionsBlockListId { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// IAM (Identity and Access Management) role used to access the block list text file in S3.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// S3 path where your block list text file is located. See details below.
-        /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathGetArgs>? SourceS3Path { get; set; }
 
@@ -255,10 +162,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider's DefaultTags configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

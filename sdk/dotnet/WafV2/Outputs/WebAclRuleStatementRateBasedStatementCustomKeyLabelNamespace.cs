@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace
     {
-        /// <summary>
-        /// The namespace to use for aggregation
-        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

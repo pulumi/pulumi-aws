@@ -24,9 +24,6 @@ class RouteTablePropagationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RouteTablePropagation resource.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -36,9 +33,6 @@ class RouteTablePropagationArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -48,9 +42,6 @@ class RouteTablePropagationArgs:
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway Route Table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -60,9 +51,6 @@ class RouteTablePropagationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -80,11 +68,6 @@ class _RouteTablePropagationState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTablePropagation resources.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource
-        :param pulumi.Input[_builtins.str] resource_type: Type of the resource
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -100,9 +83,6 @@ class _RouteTablePropagationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -112,9 +92,6 @@ class _RouteTablePropagationState:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of the resource
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -124,9 +101,6 @@ class _RouteTablePropagationState:
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Type of the resource
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -136,9 +110,6 @@ class _RouteTablePropagationState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -148,9 +119,6 @@ class _RouteTablePropagationState:
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of EC2 Transit Gateway Route Table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -169,83 +137,9 @@ class RouteTablePropagation(pulumi.CustomResource):
                  transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway Route Table propagation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
-            transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
-        ```
-
-        ### Direct Connect Gateway Propagation
-
-        When propagating routes from a Direct Connect Gateway attachment, reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource (available in v6.5.0+):
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.Gateway("example",
-            name="example",
-            amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
-        example_gateway_association = aws.directconnect.GatewayAssociation("example",
-            dx_gateway_id=example.id,
-            associated_gateway_id=example_transit_gateway.id,
-            allowed_prefixes=["10.0.0.0/16"])
-        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
-        # Correct: Reference the attachment ID directly from the association resource
-        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=example_gateway_association.transit_gateway_attachment_id,
-            transit_gateway_route_table_id=example_route_table.id)
-        ```
-
-        > **NOTE:** Avoid using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `allowed_prefixes`). Always reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource when available.
-
-        ### VPC Attachment Propagation
-
-        For VPC attachments, always reference the attachment resource's `id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example.id,
-            cidr_block="10.0.1.0/24")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
-        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[example_subnet.id],
-            transit_gateway_id=example_transit_gateway.id,
-            vpc_id=example.id)
-        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
-        # Correct: Reference the VPC attachment ID directly
-        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=example_vpc_attachment.id,
-            transit_gateway_route_table_id=example_route_table.id)
-        ```
-
-        > **NOTE:** When the `transit_gateway_attachment_id` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table propagation.
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
-        ```
-
+        Create a RouteTablePropagation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         ...
     @overload
@@ -254,78 +148,7 @@ class RouteTablePropagation(pulumi.CustomResource):
                  args: RouteTablePropagationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway Route Table propagation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
-            transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
-        ```
-
-        ### Direct Connect Gateway Propagation
-
-        When propagating routes from a Direct Connect Gateway attachment, reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource (available in v6.5.0+):
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.Gateway("example",
-            name="example",
-            amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
-        example_gateway_association = aws.directconnect.GatewayAssociation("example",
-            dx_gateway_id=example.id,
-            associated_gateway_id=example_transit_gateway.id,
-            allowed_prefixes=["10.0.0.0/16"])
-        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
-        # Correct: Reference the attachment ID directly from the association resource
-        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=example_gateway_association.transit_gateway_attachment_id,
-            transit_gateway_route_table_id=example_route_table.id)
-        ```
-
-        > **NOTE:** Avoid using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `allowed_prefixes`). Always reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource when available.
-
-        ### VPC Attachment Propagation
-
-        For VPC attachments, always reference the attachment resource's `id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example.id,
-            cidr_block="10.0.1.0/24")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
-        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("example",
-            subnet_ids=[example_subnet.id],
-            transit_gateway_id=example_transit_gateway.id,
-            vpc_id=example.id)
-        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
-        # Correct: Reference the VPC attachment ID directly
-        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
-            transit_gateway_attachment_id=example_vpc_attachment.id,
-            transit_gateway_route_table_id=example_route_table.id)
-        ```
-
-        > **NOTE:** When the `transit_gateway_attachment_id` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table propagation.
-
-        ## Import
-
-        Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-
-        ```sh
-        $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
-        ```
-
+        Create a RouteTablePropagation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteTablePropagationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -384,11 +207,6 @@ class RouteTablePropagation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource
-        :param pulumi.Input[_builtins.str] resource_type: Type of the resource
-        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -404,40 +222,25 @@ class RouteTablePropagation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of the resource
-        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the resource
-        """
         return pulumi.get(self, "resource_type")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Identifier of EC2 Transit Gateway Route Table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

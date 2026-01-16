@@ -19,77 +19,37 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy extends com.pulu
 
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicy Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicy();
 
-    /**
-     * Action to take when a condition is true. Detailed Below.
-     * 
-     */
     @Import(name="action", required=true)
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
 
-    /**
-     * @return Action to take when a condition is true. Detailed Below.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentAttachmentPolicyAction action() {
         return this.action;
     }
 
-    /**
-     * Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-     * 
-     */
     @Import(name="conditionLogic")
     private @Nullable String conditionLogic;
 
-    /**
-     * @return Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-     * 
-     */
     public Optional<String> conditionLogic() {
         return Optional.ofNullable(this.conditionLogic);
     }
 
-    /**
-     * A block argument. Detailed Below.
-     * 
-     */
     @Import(name="conditions", required=true)
     private List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions;
 
-    /**
-     * @return A block argument. Detailed Below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions() {
         return this.conditions;
     }
 
-    /**
-     * A user-defined description that further helps identify the rule.
-     * 
-     */
     @Import(name="description")
     private @Nullable String description;
 
-    /**
-     * @return A user-defined description that further helps identify the rule.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-     * 
-     */
     @Import(name="ruleNumber", required=true)
     private Integer ruleNumber;
 
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }
@@ -122,66 +82,30 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy extends com.pulu
             $ = new GetCoreNetworkPolicyDocumentAttachmentPolicy(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take when a condition is true. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(GetCoreNetworkPolicyDocumentAttachmentPolicyAction action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param conditionLogic Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditionLogic(@Nullable String conditionLogic) {
             $.conditionLogic = conditionLogic;
             return this;
         }
 
-        /**
-         * @param conditions A block argument. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions A block argument. Detailed Below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyCondition... conditions) {
             return conditions(List.of(conditions));
         }
 
-        /**
-         * @param description A user-defined description that further helps identify the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable String description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param ruleNumber An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleNumber(Integer ruleNumber) {
             $.ruleNumber = ruleNumber;
             return this;

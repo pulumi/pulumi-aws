@@ -10,89 +10,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
-    /**
-     * @return Regular expression that identifies the claim.
-     * 
-     */
     private String claimRegex;
-    /**
-     * @return The group attribute field.
-     * 
-     */
     private String groupAttributeField;
-    /**
-     * @return Issuer of the token.
-     * 
-     */
     private String issuer;
-    /**
-     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
-     * 
-     */
     private String keyLocation;
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     private String secretsManagerArn;
-    /**
-     * @return Signing key URL.
-     * 
-     */
     private String url;
-    /**
-     * @return The user name attribute field.
-     * 
-     */
     private String userNameAttributeField;
 
     private GetIndexUserTokenConfigurationJwtTokenTypeConfiguration() {}
-    /**
-     * @return Regular expression that identifies the claim.
-     * 
-     */
     public String claimRegex() {
         return this.claimRegex;
     }
-    /**
-     * @return The group attribute field.
-     * 
-     */
     public String groupAttributeField() {
         return this.groupAttributeField;
     }
-    /**
-     * @return Issuer of the token.
-     * 
-     */
     public String issuer() {
         return this.issuer;
     }
-    /**
-     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`
-     * 
-     */
     public String keyLocation() {
         return this.keyLocation;
     }
-    /**
-     * @return ARN of the secret.
-     * 
-     */
     public String secretsManagerArn() {
         return this.secretsManagerArn;
     }
-    /**
-     * @return Signing key URL.
-     * 
-     */
     public String url() {
         return this.url;
     }
-    /**
-     * @return The user name attribute field.
-     * 
-     */
     public String userNameAttributeField() {
         return this.userNameAttributeField;
     }

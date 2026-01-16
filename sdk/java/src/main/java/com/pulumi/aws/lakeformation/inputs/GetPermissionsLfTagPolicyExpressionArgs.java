@@ -15,32 +15,16 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
 
     public static final GetPermissionsLfTagPolicyExpressionArgs Empty = new GetPermissionsLfTagPolicyExpressionArgs();
 
-    /**
-     * Key-name of an LF-Tag.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Key-name of an LF-Tag.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * List of possible values of an LF-Tag.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return List of possible values of an LF-Tag.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -70,54 +54,24 @@ public final class GetPermissionsLfTagPolicyExpressionArgs extends com.pulumi.re
             $ = new GetPermissionsLfTagPolicyExpressionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Key-name of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key-name of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

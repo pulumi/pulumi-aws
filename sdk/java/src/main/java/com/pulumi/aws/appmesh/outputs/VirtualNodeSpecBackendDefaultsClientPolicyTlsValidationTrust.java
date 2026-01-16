@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
-    /**
-     * @return TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm;
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file;
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust() {}
-    /**
-     * @return TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm> acm() {
         return Optional.ofNullable(this.acm);
     }
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile> file() {
         return Optional.ofNullable(this.file);
     }
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds> sds() {
         return Optional.ofNullable(this.sds);
     }

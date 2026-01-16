@@ -13,21 +13,9 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult
     {
-        /// <summary>
-        /// string value
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// Valid values include: `Equals`, `not-equals`, `Contains`, `begins-with`.
-        /// </summary>
         public readonly string? Operator;
-        /// <summary>
-        /// Must be `routing-policy-label`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Routing policy label to match.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -16,47 +16,23 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
 
     public static final EmailIdentityFeedbackAttributesState Empty = new EmailIdentityFeedbackAttributesState();
 
-    /**
-     * Sets the feedback forwarding configuration for the identity.
-     * 
-     */
     @Import(name="emailForwardingEnabled")
     private @Nullable Output<Boolean> emailForwardingEnabled;
 
-    /**
-     * @return Sets the feedback forwarding configuration for the identity.
-     * 
-     */
     public Optional<Output<Boolean>> emailForwardingEnabled() {
         return Optional.ofNullable(this.emailForwardingEnabled);
     }
 
-    /**
-     * The email identity.
-     * 
-     */
     @Import(name="emailIdentity")
     private @Nullable Output<String> emailIdentity;
 
-    /**
-     * @return The email identity.
-     * 
-     */
     public Optional<Output<String>> emailIdentity() {
         return Optional.ofNullable(this.emailIdentity);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -87,65 +63,29 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
             $ = new EmailIdentityFeedbackAttributesState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param emailForwardingEnabled Sets the feedback forwarding configuration for the identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailForwardingEnabled(@Nullable Output<Boolean> emailForwardingEnabled) {
             $.emailForwardingEnabled = emailForwardingEnabled;
             return this;
         }
 
-        /**
-         * @param emailForwardingEnabled Sets the feedback forwarding configuration for the identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailForwardingEnabled(Boolean emailForwardingEnabled) {
             return emailForwardingEnabled(Output.of(emailForwardingEnabled));
         }
 
-        /**
-         * @param emailIdentity The email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(@Nullable Output<String> emailIdentity) {
             $.emailIdentity = emailIdentity;
             return this;
         }
 
-        /**
-         * @param emailIdentity The email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

@@ -12,56 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewRouteServerVpcAssociation(ctx, "example", &vpc.RouteServerVpcAssociationArgs{
-//				RouteServerId: pulumi.Any(exampleAwsVpcRouteServer.RouteServerId),
-//				VpcId:         pulumi.Any(exampleAwsVpc.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
-//
-// ```sh
-// $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
-// ```
 type RouteServerVpcAssociation struct {
 	pulumi.CustomResourceState
 
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The unique identifier for the route server to be associated.
+	Region        pulumi.StringOutput                        `pulumi:"region"`
 	RouteServerId pulumi.StringOutput                        `pulumi:"routeServerId"`
 	Timeouts      RouteServerVpcAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the VPC to associate with the route server.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId         pulumi.StringOutput                        `pulumi:"vpcId"`
 }
 
 // NewRouteServerVpcAssociation registers a new resource with the given unique name, arguments, and options.
@@ -100,27 +57,17 @@ func GetRouteServerVpcAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteServerVpcAssociation resources.
 type routeServerVpcAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The unique identifier for the route server to be associated.
+	Region        *string                            `pulumi:"region"`
 	RouteServerId *string                            `pulumi:"routeServerId"`
 	Timeouts      *RouteServerVpcAssociationTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC to associate with the route server.
-	//
-	// The following arguments are optional:
-	VpcId *string `pulumi:"vpcId"`
+	VpcId         *string                            `pulumi:"vpcId"`
 }
 
 type RouteServerVpcAssociationState struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The unique identifier for the route server to be associated.
+	Region        pulumi.StringPtrInput
 	RouteServerId pulumi.StringPtrInput
 	Timeouts      RouteServerVpcAssociationTimeoutsPtrInput
-	// The ID of the VPC to associate with the route server.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringPtrInput
+	VpcId         pulumi.StringPtrInput
 }
 
 func (RouteServerVpcAssociationState) ElementType() reflect.Type {
@@ -128,28 +75,18 @@ func (RouteServerVpcAssociationState) ElementType() reflect.Type {
 }
 
 type routeServerVpcAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The unique identifier for the route server to be associated.
+	Region        *string                            `pulumi:"region"`
 	RouteServerId string                             `pulumi:"routeServerId"`
 	Timeouts      *RouteServerVpcAssociationTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC to associate with the route server.
-	//
-	// The following arguments are optional:
-	VpcId string `pulumi:"vpcId"`
+	VpcId         string                             `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a RouteServerVpcAssociation resource.
 type RouteServerVpcAssociationArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The unique identifier for the route server to be associated.
+	Region        pulumi.StringPtrInput
 	RouteServerId pulumi.StringInput
 	Timeouts      RouteServerVpcAssociationTimeoutsPtrInput
-	// The ID of the VPC to associate with the route server.
-	//
-	// The following arguments are optional:
-	VpcId pulumi.StringInput
+	VpcId         pulumi.StringInput
 }
 
 func (RouteServerVpcAssociationArgs) ElementType() reflect.Type {
@@ -239,12 +176,10 @@ func (o RouteServerVpcAssociationOutput) ToRouteServerVpcAssociationOutputWithCo
 	return o
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteServerVpcAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerVpcAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the route server to be associated.
 func (o RouteServerVpcAssociationOutput) RouteServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerVpcAssociation) pulumi.StringOutput { return v.RouteServerId }).(pulumi.StringOutput)
 }
@@ -253,9 +188,6 @@ func (o RouteServerVpcAssociationOutput) Timeouts() RouteServerVpcAssociationTim
 	return o.ApplyT(func(v *RouteServerVpcAssociation) RouteServerVpcAssociationTimeoutsPtrOutput { return v.Timeouts }).(RouteServerVpcAssociationTimeoutsPtrOutput)
 }
 
-// The ID of the VPC to associate with the route server.
-//
-// The following arguments are optional:
 func (o RouteServerVpcAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerVpcAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

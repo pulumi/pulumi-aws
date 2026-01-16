@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the distribution is enabled to accept end user requests for content.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

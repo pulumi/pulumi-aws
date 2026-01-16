@@ -16,32 +16,16 @@ public final class DistributionViewerMtlsConfigArgs extends com.pulumi.resources
 
     public static final DistributionViewerMtlsConfigArgs Empty = new DistributionViewerMtlsConfigArgs();
 
-    /**
-     * The mode for viewer mTLS. Valid values: `required`, `optional`.
-     * 
-     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
-    /**
-     * @return The mode for viewer mTLS. Valid values: `required`, `optional`.
-     * 
-     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
 
-    /**
-     * The trust store configuration for viewer mTLS (maximum one).
-     * 
-     */
     @Import(name="trustStoreConfig")
     private @Nullable Output<DistributionViewerMtlsConfigTrustStoreConfigArgs> trustStoreConfig;
 
-    /**
-     * @return The trust store configuration for viewer mTLS (maximum one).
-     * 
-     */
     public Optional<Output<DistributionViewerMtlsConfigTrustStoreConfigArgs>> trustStoreConfig() {
         return Optional.ofNullable(this.trustStoreConfig);
     }
@@ -71,44 +55,20 @@ public final class DistributionViewerMtlsConfigArgs extends com.pulumi.resources
             $ = new DistributionViewerMtlsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mode The mode for viewer mTLS. Valid values: `required`, `optional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
-        /**
-         * @param mode The mode for viewer mTLS. Valid values: `required`, `optional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param trustStoreConfig The trust store configuration for viewer mTLS (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreConfig(@Nullable Output<DistributionViewerMtlsConfigTrustStoreConfigArgs> trustStoreConfig) {
             $.trustStoreConfig = trustStoreConfig;
             return this;
         }
 
-        /**
-         * @param trustStoreConfig The trust store configuration for viewer mTLS (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustStoreConfig(DistributionViewerMtlsConfigTrustStoreConfigArgs trustStoreConfig) {
             return trustStoreConfig(Output.of(trustStoreConfig));
         }

@@ -16,17 +16,9 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
 
     public static final WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs Empty = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs();
 
-    /**
-     * Headers to insert into the request. See below.
-     * 
-     */
     @Import(name="insertHeaders")
     private @Nullable Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
-    /**
-     * @return Headers to insert into the request. See below.
-     * 
-     */
     public Optional<Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs>>> insertHeaders() {
         return Optional.ofNullable(this.insertHeaders);
     }
@@ -55,33 +47,15 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideA
             $ = new WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insertHeaders Headers to insert into the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(@Nullable Output<List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
-        /**
-         * @param insertHeaders Headers to insert into the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
-        /**
-         * @param insertHeaders Headers to insert into the request. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

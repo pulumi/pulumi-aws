@@ -12,96 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic File System (EFS) File System Policy resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", &efs.FileSystemArgs{
-//				CreationToken: pulumi.String("my-product"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			policy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("ExampleStatement01"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("elasticfilesystem:ClientMount"),
-//							pulumi.String("elasticfilesystem:ClientWrite"),
-//						},
-//						Resources: pulumi.StringArray{
-//							fs.Arn,
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("Bool"),
-//								Variable: pulumi.String("aws:SecureTransport"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("true"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
-//				FileSystemId: fs.ID(),
-//				Policy: pulumi.String(policy.ApplyT(func(policy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &policy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the EFS file system policies using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
-// ```
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState
 
-	// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	// The ID of the EFS file system.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-	//
-	// The following arguments are optional:
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	FileSystemId                   pulumi.StringOutput  `pulumi:"fileSystemId"`
+	Policy                         pulumi.StringOutput  `pulumi:"policy"`
+	Region                         pulumi.StringOutput  `pulumi:"region"`
 }
 
 // NewFileSystemPolicy registers a new resource with the given unique name, arguments, and options.
@@ -140,29 +57,17 @@ func GetFileSystemPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileSystemPolicy resources.
 type fileSystemPolicyState struct {
-	// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
-	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	// The ID of the EFS file system.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-	//
-	// The following arguments are optional:
-	Policy *string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BypassPolicyLockoutSafetyCheck *bool   `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	FileSystemId                   *string `pulumi:"fileSystemId"`
+	Policy                         *string `pulumi:"policy"`
+	Region                         *string `pulumi:"region"`
 }
 
 type FileSystemPolicyState struct {
-	// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
-	// The ID of the EFS file system.
-	FileSystemId pulumi.StringPtrInput
-	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-	//
-	// The following arguments are optional:
-	Policy pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	FileSystemId                   pulumi.StringPtrInput
+	Policy                         pulumi.StringPtrInput
+	Region                         pulumi.StringPtrInput
 }
 
 func (FileSystemPolicyState) ElementType() reflect.Type {
@@ -170,30 +75,18 @@ func (FileSystemPolicyState) ElementType() reflect.Type {
 }
 
 type fileSystemPolicyArgs struct {
-	// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
-	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	// The ID of the EFS file system.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-	//
-	// The following arguments are optional:
-	Policy string `pulumi:"policy"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	BypassPolicyLockoutSafetyCheck *bool   `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	FileSystemId                   string  `pulumi:"fileSystemId"`
+	Policy                         string  `pulumi:"policy"`
+	Region                         *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FileSystemPolicy resource.
 type FileSystemPolicyArgs struct {
-	// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
-	// The ID of the EFS file system.
-	FileSystemId pulumi.StringInput
-	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-	//
-	// The following arguments are optional:
-	Policy pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	FileSystemId                   pulumi.StringInput
+	Policy                         pulumi.StringInput
+	Region                         pulumi.StringPtrInput
 }
 
 func (FileSystemPolicyArgs) ElementType() reflect.Type {
@@ -283,24 +176,18 @@ func (o FileSystemPolicyOutput) ToFileSystemPolicyOutputWithContext(ctx context.
 	return o
 }
 
-// A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
 func (o FileSystemPolicyOutput) BypassPolicyLockoutSafetyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.BoolPtrOutput { return v.BypassPolicyLockoutSafetyCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the EFS file system.
 func (o FileSystemPolicyOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-//
-// The following arguments are optional:
 func (o FileSystemPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FileSystemPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

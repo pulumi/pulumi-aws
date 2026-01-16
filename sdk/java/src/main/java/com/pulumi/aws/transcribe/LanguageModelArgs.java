@@ -18,77 +18,37 @@ public final class LanguageModelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LanguageModelArgs Empty = new LanguageModelArgs();
 
-    /**
-     * Name of reference base model.
-     * 
-     */
     @Import(name="baseModelName", required=true)
     private Output<String> baseModelName;
 
-    /**
-     * @return Name of reference base model.
-     * 
-     */
     public Output<String> baseModelName() {
         return this.baseModelName;
     }
 
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     * 
-     */
     @Import(name="inputDataConfig", required=true)
     private Output<LanguageModelInputDataConfigArgs> inputDataConfig;
 
-    /**
-     * @return The input data config for the LanguageModel. See Input Data Config for more details.
-     * 
-     */
     public Output<LanguageModelInputDataConfigArgs> inputDataConfig() {
         return this.inputDataConfig;
     }
 
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     * 
-     */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
-    /**
-     * @return The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     * 
-     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
 
-    /**
-     * The model name.
-     * 
-     */
     @Import(name="modelName", required=true)
     private Output<String> modelName;
 
-    /**
-     * @return The model name.
-     * 
-     */
     public Output<String> modelName() {
         return this.modelName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -129,107 +89,47 @@ public final class LanguageModelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LanguageModelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baseModelName Name of reference base model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseModelName(Output<String> baseModelName) {
             $.baseModelName = baseModelName;
             return this;
         }
 
-        /**
-         * @param baseModelName Name of reference base model.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baseModelName(String baseModelName) {
             return baseModelName(Output.of(baseModelName));
         }
 
-        /**
-         * @param inputDataConfig The input data config for the LanguageModel. See Input Data Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputDataConfig(Output<LanguageModelInputDataConfigArgs> inputDataConfig) {
             $.inputDataConfig = inputDataConfig;
             return this;
         }
 
-        /**
-         * @param inputDataConfig The input data config for the LanguageModel. See Input Data Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputDataConfig(LanguageModelInputDataConfigArgs inputDataConfig) {
             return inputDataConfig(Output.of(inputDataConfig));
         }
 
-        /**
-         * @param languageCode The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
-        /**
-         * @param languageCode The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
-        /**
-         * @param modelName The model name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelName(Output<String> modelName) {
             $.modelName = modelName;
             return this;
         }
 
-        /**
-         * @param modelName The model name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modelName(String modelName) {
             return modelName(Output.of(modelName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

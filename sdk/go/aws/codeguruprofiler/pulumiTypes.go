@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ProfilingGroupAgentOrchestrationConfig struct {
-	// (Required) Boolean that specifies whether the profiling agent collects profiling data or
 	ProfilingEnabled bool `pulumi:"profilingEnabled"`
 }
 
@@ -30,7 +29,6 @@ type ProfilingGroupAgentOrchestrationConfigInput interface {
 }
 
 type ProfilingGroupAgentOrchestrationConfigArgs struct {
-	// (Required) Boolean that specifies whether the profiling agent collects profiling data or
 	ProfilingEnabled pulumi.BoolInput `pulumi:"profilingEnabled"`
 }
 
@@ -111,7 +109,6 @@ func (o ProfilingGroupAgentOrchestrationConfigOutput) ToProfilingGroupAgentOrche
 	}).(ProfilingGroupAgentOrchestrationConfigPtrOutput)
 }
 
-// (Required) Boolean that specifies whether the profiling agent collects profiling data or
 func (o ProfilingGroupAgentOrchestrationConfigOutput) ProfilingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProfilingGroupAgentOrchestrationConfig) bool { return v.ProfilingEnabled }).(pulumi.BoolOutput)
 }
@@ -140,7 +137,6 @@ func (o ProfilingGroupAgentOrchestrationConfigPtrOutput) Elem() ProfilingGroupAg
 	}).(ProfilingGroupAgentOrchestrationConfigOutput)
 }
 
-// (Required) Boolean that specifies whether the profiling agent collects profiling data or
 func (o ProfilingGroupAgentOrchestrationConfigPtrOutput) ProfilingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProfilingGroupAgentOrchestrationConfig) *bool {
 		if v == nil {

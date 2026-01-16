@@ -15,10 +15,6 @@ public final class GetResourcePolicyResult {
      * 
      */
     private String id;
-    /**
-     * @return The [policy][1] for the resource.
-     * 
-     */
     private String policy;
     private String region;
     private String resourceArn;
@@ -31,10 +27,6 @@ public final class GetResourcePolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The [policy][1] for the resource.
-     * 
-     */
     public String policy() {
         return this.policy;
     }

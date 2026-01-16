@@ -14,17 +14,9 @@ public final class V2modelsSlotObfuscationSettingArgs extends com.pulumi.resourc
 
     public static final V2modelsSlotObfuscationSettingArgs Empty = new V2modelsSlotObfuscationSettingArgs();
 
-    /**
-     * Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-     * 
-     */
     @Import(name="obfuscationSettingType", required=true)
     private Output<String> obfuscationSettingType;
 
-    /**
-     * @return Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-     * 
-     */
     public Output<String> obfuscationSettingType() {
         return this.obfuscationSettingType;
     }
@@ -53,23 +45,11 @@ public final class V2modelsSlotObfuscationSettingArgs extends com.pulumi.resourc
             $ = new V2modelsSlotObfuscationSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param obfuscationSettingType Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder obfuscationSettingType(Output<String> obfuscationSettingType) {
             $.obfuscationSettingType = obfuscationSettingType;
             return this;
         }
 
-        /**
-         * @param obfuscationSettingType Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder obfuscationSettingType(String obfuscationSettingType) {
             return obfuscationSettingType(Output.of(obfuscationSettingType));
         }

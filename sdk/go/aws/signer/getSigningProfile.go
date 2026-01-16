@@ -11,33 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Signer Signing Profile.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/signer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.LookupSigningProfile(ctx, &signer.LookupSigningProfileArgs{
-//				Name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, opts ...pulumi.InvokeOption) (*LookupSigningProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSigningProfileResult
@@ -50,42 +23,28 @@ func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, o
 
 // A collection of arguments for invoking getSigningProfile.
 type LookupSigningProfileArgs struct {
-	// Name of the target signing profile.
-	Name string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// List of tags associated with the signing profile.
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSigningProfile.
 type LookupSigningProfileResult struct {
-	// ARN for the signing profile.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// A human-readable name for the signing platform associated with the signing profile.
-	PlatformDisplayName string `pulumi:"platformDisplayName"`
-	// ID of the platform that is used by the target signing profile.
-	PlatformId string `pulumi:"platformId"`
-	Region     string `pulumi:"region"`
-	// Revocation information for a signing profile.
-	RevocationRecords []GetSigningProfileRevocationRecord `pulumi:"revocationRecords"`
-	// The validity period for a signing job.
+	Id                       string                                     `pulumi:"id"`
+	Name                     string                                     `pulumi:"name"`
+	PlatformDisplayName      string                                     `pulumi:"platformDisplayName"`
+	PlatformId               string                                     `pulumi:"platformId"`
+	Region                   string                                     `pulumi:"region"`
+	RevocationRecords        []GetSigningProfileRevocationRecord        `pulumi:"revocationRecords"`
 	SignatureValidityPeriods []GetSigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriods"`
-	// AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
-	SigningMaterials []GetSigningProfileSigningMaterial `pulumi:"signingMaterials"`
-	// Map of key-value pairs for signing.
-	SigningParameters map[string]string `pulumi:"signingParameters"`
-	// Status of the target signing profile.
-	Status string `pulumi:"status"`
-	// List of tags associated with the signing profile.
-	Tags map[string]string `pulumi:"tags"`
-	// Current version of the signing profile.
-	Version string `pulumi:"version"`
-	// Signing profile ARN, including the profile version.
-	VersionArn string `pulumi:"versionArn"`
+	SigningMaterials         []GetSigningProfileSigningMaterial         `pulumi:"signingMaterials"`
+	SigningParameters        map[string]string                          `pulumi:"signingParameters"`
+	Status                   string                                     `pulumi:"status"`
+	Tags                     map[string]string                          `pulumi:"tags"`
+	Version                  string                                     `pulumi:"version"`
+	VersionArn               string                                     `pulumi:"versionArn"`
 }
 
 func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSigningProfileResultOutput {
@@ -99,12 +58,9 @@ func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOu
 
 // A collection of arguments for invoking getSigningProfile.
 type LookupSigningProfileOutputArgs struct {
-	// Name of the target signing profile.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// List of tags associated with the signing profile.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSigningProfileOutputArgs) ElementType() reflect.Type {
@@ -126,7 +82,6 @@ func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutputWith
 	return o
 }
 
-// ARN for the signing profile.
 func (o LookupSigningProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -140,12 +95,10 @@ func (o LookupSigningProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A human-readable name for the signing platform associated with the signing profile.
 func (o LookupSigningProfileResultOutput) PlatformDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.PlatformDisplayName }).(pulumi.StringOutput)
 }
 
-// ID of the platform that is used by the target signing profile.
 func (o LookupSigningProfileResultOutput) PlatformId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.PlatformId }).(pulumi.StringOutput)
 }
@@ -154,44 +107,36 @@ func (o LookupSigningProfileResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Revocation information for a signing profile.
 func (o LookupSigningProfileResultOutput) RevocationRecords() GetSigningProfileRevocationRecordArrayOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) []GetSigningProfileRevocationRecord { return v.RevocationRecords }).(GetSigningProfileRevocationRecordArrayOutput)
 }
 
-// The validity period for a signing job.
 func (o LookupSigningProfileResultOutput) SignatureValidityPeriods() GetSigningProfileSignatureValidityPeriodArrayOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) []GetSigningProfileSignatureValidityPeriod {
 		return v.SignatureValidityPeriods
 	}).(GetSigningProfileSignatureValidityPeriodArrayOutput)
 }
 
-// AWS Certificate Manager certificate that will be used to sign code with the new signing profile.
 func (o LookupSigningProfileResultOutput) SigningMaterials() GetSigningProfileSigningMaterialArrayOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) []GetSigningProfileSigningMaterial { return v.SigningMaterials }).(GetSigningProfileSigningMaterialArrayOutput)
 }
 
-// Map of key-value pairs for signing.
 func (o LookupSigningProfileResultOutput) SigningParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) map[string]string { return v.SigningParameters }).(pulumi.StringMapOutput)
 }
 
-// Status of the target signing profile.
 func (o LookupSigningProfileResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// List of tags associated with the signing profile.
 func (o LookupSigningProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Current version of the signing profile.
 func (o LookupSigningProfileResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// Signing profile ARN, including the profile version.
 func (o LookupSigningProfileResultOutput) VersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.VersionArn }).(pulumi.StringOutput)
 }

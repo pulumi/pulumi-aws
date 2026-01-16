@@ -15,269 +15,93 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateNetworkInterface {
-    /**
-     * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
-     * 
-     */
     private @Nullable String associateCarrierIpAddress;
-    /**
-     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
-     * 
-     */
     private @Nullable String associatePublicIpAddress;
-    /**
-     * @return The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
-     * 
-     */
     private @Nullable LaunchTemplateNetworkInterfaceConnectionTrackingSpecification connectionTrackingSpecification;
-    /**
-     * @return Whether the network interface should be destroyed on instance termination.
-     * 
-     */
     private @Nullable String deleteOnTermination;
-    /**
-     * @return Description of the network interface.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return The integer index of the network interface attachment.
-     * 
-     */
     private @Nullable Integer deviceIndex;
-    /**
-     * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
-     * 
-     */
     private @Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecification enaSrdSpecification;
-    /**
-     * @return The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
-     * 
-     */
     private @Nullable String interfaceType;
-    /**
-     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
-     * 
-     */
     private @Nullable Integer ipv4AddressCount;
-    /**
-     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
-     * 
-     */
     private @Nullable List<String> ipv4Addresses;
-    /**
-     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
-     * 
-     */
     private @Nullable Integer ipv4PrefixCount;
-    /**
-     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
-     * 
-     */
     private @Nullable List<String> ipv4Prefixes;
-    /**
-     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
-     * 
-     */
     private @Nullable Integer ipv6AddressCount;
-    /**
-     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
-     * 
-     */
     private @Nullable List<String> ipv6Addresses;
-    /**
-     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
-     * 
-     */
     private @Nullable Integer ipv6PrefixCount;
-    /**
-     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
-     * 
-     */
     private @Nullable List<String> ipv6Prefixes;
-    /**
-     * @return The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
-     * 
-     */
     private @Nullable Integer networkCardIndex;
-    /**
-     * @return The ID of the network interface to attach.
-     * 
-     */
     private @Nullable String networkInterfaceId;
-    /**
-     * @return Whether the first IPv6 GUA will be made the primary IPv6 address.
-     * 
-     */
     private @Nullable String primaryIpv6;
-    /**
-     * @return The primary private IPv4 address.
-     * 
-     */
     private @Nullable String privateIpAddress;
-    /**
-     * @return A list of security group IDs to associate.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return The VPC Subnet ID to associate.
-     * 
-     */
     private @Nullable String subnetId;
 
     private LaunchTemplateNetworkInterface() {}
-    /**
-     * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
-     * 
-     */
     public Optional<String> associateCarrierIpAddress() {
         return Optional.ofNullable(this.associateCarrierIpAddress);
     }
-    /**
-     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
-     * 
-     */
     public Optional<String> associatePublicIpAddress() {
         return Optional.ofNullable(this.associatePublicIpAddress);
     }
-    /**
-     * @return The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
-     * 
-     */
     public Optional<LaunchTemplateNetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecification() {
         return Optional.ofNullable(this.connectionTrackingSpecification);
     }
-    /**
-     * @return Whether the network interface should be destroyed on instance termination.
-     * 
-     */
     public Optional<String> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    /**
-     * @return Description of the network interface.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return The integer index of the network interface attachment.
-     * 
-     */
     public Optional<Integer> deviceIndex() {
         return Optional.ofNullable(this.deviceIndex);
     }
-    /**
-     * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
-     * 
-     */
     public Optional<LaunchTemplateNetworkInterfaceEnaSrdSpecification> enaSrdSpecification() {
         return Optional.ofNullable(this.enaSrdSpecification);
     }
-    /**
-     * @return The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
-     * 
-     */
     public Optional<String> interfaceType() {
         return Optional.ofNullable(this.interfaceType);
     }
-    /**
-     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
-     * 
-     */
     public Optional<Integer> ipv4AddressCount() {
         return Optional.ofNullable(this.ipv4AddressCount);
     }
-    /**
-     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
-     * 
-     */
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses == null ? List.of() : this.ipv4Addresses;
     }
-    /**
-     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
-     * 
-     */
     public Optional<Integer> ipv4PrefixCount() {
         return Optional.ofNullable(this.ipv4PrefixCount);
     }
-    /**
-     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
-     * 
-     */
     public List<String> ipv4Prefixes() {
         return this.ipv4Prefixes == null ? List.of() : this.ipv4Prefixes;
     }
-    /**
-     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
-     * 
-     */
     public Optional<Integer> ipv6AddressCount() {
         return Optional.ofNullable(this.ipv6AddressCount);
     }
-    /**
-     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
-     * 
-     */
     public List<String> ipv6Addresses() {
         return this.ipv6Addresses == null ? List.of() : this.ipv6Addresses;
     }
-    /**
-     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
-     * 
-     */
     public Optional<Integer> ipv6PrefixCount() {
         return Optional.ofNullable(this.ipv6PrefixCount);
     }
-    /**
-     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
-     * 
-     */
     public List<String> ipv6Prefixes() {
         return this.ipv6Prefixes == null ? List.of() : this.ipv6Prefixes;
     }
-    /**
-     * @return The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
-     * 
-     */
     public Optional<Integer> networkCardIndex() {
         return Optional.ofNullable(this.networkCardIndex);
     }
-    /**
-     * @return The ID of the network interface to attach.
-     * 
-     */
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
-    /**
-     * @return Whether the first IPv6 GUA will be made the primary IPv6 address.
-     * 
-     */
     public Optional<String> primaryIpv6() {
         return Optional.ofNullable(this.primaryIpv6);
     }
-    /**
-     * @return The primary private IPv4 address.
-     * 
-     */
     public Optional<String> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
-    /**
-     * @return A list of security group IDs to associate.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return The VPC Subnet ID to associate.
-     * 
-     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }

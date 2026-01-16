@@ -26,9 +26,6 @@ class DeviceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
-        :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker AI Edge Manager. See Device details below.
-        :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "device", device)
         pulumi.set(__self__, "device_fleet_name", device_fleet_name)
@@ -38,9 +35,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def device(self) -> pulumi.Input['DeviceDeviceArgs']:
-        """
-        The device to register with SageMaker AI Edge Manager. See Device details below.
-        """
         return pulumi.get(self, "device")
 
     @device.setter
@@ -50,9 +44,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Device Fleet.
-        """
         return pulumi.get(self, "device_fleet_name")
 
     @device_fleet_name.setter
@@ -62,9 +53,6 @@ class DeviceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -82,10 +70,6 @@ class _DeviceState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Device resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker AI Edge Manager. See Device details below.
-        :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
@@ -110,9 +94,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -122,9 +103,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def device(self) -> Optional[pulumi.Input['DeviceDeviceArgs']]:
-        """
-        The device to register with SageMaker AI Edge Manager. See Device details below.
-        """
         return pulumi.get(self, "device")
 
     @device.setter
@@ -134,9 +112,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Device Fleet.
-        """
         return pulumi.get(self, "device_fleet_name")
 
     @device_fleet_name.setter
@@ -146,9 +121,6 @@ class _DeviceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -167,36 +139,9 @@ class Device(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker AI Device resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Device("example",
-            device_fleet_name=example_aws_sagemaker_device_fleet["deviceFleetName"],
-            device={
-                "device_name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-        ```
-
+        Create a Device resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict']] device: The device to register with SageMaker AI Edge Manager. See Device details below.
-        :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -205,31 +150,7 @@ class Device(pulumi.CustomResource):
                  args: DeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker AI Device resource.
-
-        ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Device("example",
-            device_fleet_name=example_aws_sagemaker_device_fleet["deviceFleetName"],
-            device={
-                "device_name": "example",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
-
-        ```sh
-        $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-        ```
-
+        Create a Device resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,10 +209,6 @@ class Device(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        :param pulumi.Input[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict']] device: The device to register with SageMaker AI Edge Manager. See Device details below.
-        :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,32 +229,20 @@ class Device(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def device(self) -> pulumi.Output['outputs.DeviceDevice']:
-        """
-        The device to register with SageMaker AI Edge Manager. See Device details below.
-        """
         return pulumi.get(self, "device")
 
     @_builtins.property
     @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the Device Fleet.
-        """
         return pulumi.get(self, "device_fleet_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

@@ -34,19 +34,6 @@ class PrimaryContactArgs:
                  website_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryContact resource.
-        :param pulumi.Input[_builtins.str] address_line1: The first line of the primary contact address.
-        :param pulumi.Input[_builtins.str] city: The city of the primary contact address.
-        :param pulumi.Input[_builtins.str] country_code: The ISO-3166 two-letter country code for the primary contact address.
-        :param pulumi.Input[_builtins.str] full_name: The full name of the primary contact address.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of the primary contact address.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[_builtins.str] address_line2: The second line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] address_line3: The third line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] company_name: The name of the company associated with the primary contact information, if any.
-        :param pulumi.Input[_builtins.str] district_or_county: The district or county of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] state_or_region: The state or region of the primary contact address. This field is required in selected countries.
-        :param pulumi.Input[_builtins.str] website_url: The URL of the website associated with the primary contact information, if any.
         """
         pulumi.set(__self__, "address_line1", address_line1)
         pulumi.set(__self__, "city", city)
@@ -72,9 +59,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> pulumi.Input[_builtins.str]:
-        """
-        The first line of the primary contact address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -84,9 +68,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter
     def city(self) -> pulumi.Input[_builtins.str]:
-        """
-        The city of the primary contact address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -96,9 +77,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ISO-3166 two-letter country code for the primary contact address.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -108,9 +86,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="fullName")
     def full_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The full name of the primary contact address.
-        """
         return pulumi.get(self, "full_name")
 
     @full_name.setter
@@ -120,9 +95,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Input[_builtins.str]:
-        """
-        The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -132,9 +104,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        The postal code of the primary contact address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -144,9 +113,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -156,9 +122,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The second line of the primary contact address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -168,9 +131,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="addressLine3")
     def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The third line of the primary contact address, if any.
-        """
         return pulumi.get(self, "address_line3")
 
     @address_line3.setter
@@ -180,9 +140,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="companyName")
     def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the company associated with the primary contact information, if any.
-        """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
@@ -192,9 +149,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
     def district_or_county(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The district or county of the primary contact address, if any.
-        """
         return pulumi.get(self, "district_or_county")
 
     @district_or_county.setter
@@ -204,9 +158,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="stateOrRegion")
     def state_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or region of the primary contact address. This field is required in selected countries.
-        """
         return pulumi.get(self, "state_or_region")
 
     @state_or_region.setter
@@ -216,9 +167,6 @@ class PrimaryContactArgs:
     @_builtins.property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the website associated with the primary contact information, if any.
-        """
         return pulumi.get(self, "website_url")
 
     @website_url.setter
@@ -244,19 +192,6 @@ class _PrimaryContactState:
                  website_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrimaryContact resources.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[_builtins.str] address_line1: The first line of the primary contact address.
-        :param pulumi.Input[_builtins.str] address_line2: The second line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] address_line3: The third line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the primary contact address.
-        :param pulumi.Input[_builtins.str] company_name: The name of the company associated with the primary contact information, if any.
-        :param pulumi.Input[_builtins.str] country_code: The ISO-3166 two-letter country code for the primary contact address.
-        :param pulumi.Input[_builtins.str] district_or_county: The district or county of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] full_name: The full name of the primary contact address.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of the primary contact address.
-        :param pulumi.Input[_builtins.str] state_or_region: The state or region of the primary contact address. This field is required in selected countries.
-        :param pulumi.Input[_builtins.str] website_url: The URL of the website associated with the primary contact information, if any.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -288,9 +223,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -300,9 +232,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The first line of the primary contact address.
-        """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
@@ -312,9 +241,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The second line of the primary contact address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
@@ -324,9 +250,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="addressLine3")
     def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The third line of the primary contact address, if any.
-        """
         return pulumi.get(self, "address_line3")
 
     @address_line3.setter
@@ -336,9 +259,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter
     def city(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The city of the primary contact address.
-        """
         return pulumi.get(self, "city")
 
     @city.setter
@@ -348,9 +268,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="companyName")
     def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the company associated with the primary contact information, if any.
-        """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
@@ -360,9 +277,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ISO-3166 two-letter country code for the primary contact address.
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -372,9 +286,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
     def district_or_county(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The district or county of the primary contact address, if any.
-        """
         return pulumi.get(self, "district_or_county")
 
     @district_or_county.setter
@@ -384,9 +295,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="fullName")
     def full_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The full name of the primary contact address.
-        """
         return pulumi.get(self, "full_name")
 
     @full_name.setter
@@ -396,9 +304,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -408,9 +313,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The postal code of the primary contact address.
-        """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
@@ -420,9 +322,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="stateOrRegion")
     def state_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The state or region of the primary contact address. This field is required in selected countries.
-        """
         return pulumi.get(self, "state_or_region")
 
     @state_or_region.setter
@@ -432,9 +331,6 @@ class _PrimaryContactState:
     @_builtins.property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the website associated with the primary contact information, if any.
-        """
         return pulumi.get(self, "website_url")
 
     @website_url.setter
@@ -463,50 +359,9 @@ class PrimaryContact(pulumi.CustomResource):
                  website_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages the specified primary contact information associated with an AWS Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.account.PrimaryContact("test",
-            address_line1="123 Any Street",
-            city="Seattle",
-            company_name="Example Corp, Inc.",
-            country_code="US",
-            district_or_county="King",
-            full_name="My Name",
-            phone_number="+64211111111",
-            postal_code="98101",
-            state_or_region="WA",
-            website_url="https://www.examplecorp.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-        ```
-
+        Create a PrimaryContact resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[_builtins.str] address_line1: The first line of the primary contact address.
-        :param pulumi.Input[_builtins.str] address_line2: The second line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] address_line3: The third line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the primary contact address.
-        :param pulumi.Input[_builtins.str] company_name: The name of the company associated with the primary contact information, if any.
-        :param pulumi.Input[_builtins.str] country_code: The ISO-3166 two-letter country code for the primary contact address.
-        :param pulumi.Input[_builtins.str] district_or_county: The district or county of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] full_name: The full name of the primary contact address.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of the primary contact address.
-        :param pulumi.Input[_builtins.str] state_or_region: The state or region of the primary contact address. This field is required in selected countries.
-        :param pulumi.Input[_builtins.str] website_url: The URL of the website associated with the primary contact information, if any.
         """
         ...
     @overload
@@ -515,35 +370,7 @@ class PrimaryContact(pulumi.CustomResource):
                  args: PrimaryContactArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the specified primary contact information associated with an AWS Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.account.PrimaryContact("test",
-            address_line1="123 Any Street",
-            city="Seattle",
-            company_name="Example Corp, Inc.",
-            country_code="US",
-            district_or_county="King",
-            full_name="My Name",
-            phone_number="+64211111111",
-            postal_code="98101",
-            state_or_region="WA",
-            website_url="https://www.examplecorp.com")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
-
-        ```sh
-        $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-        ```
-
+        Create a PrimaryContact resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PrimaryContactArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -636,19 +463,6 @@ class PrimaryContact(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        :param pulumi.Input[_builtins.str] address_line1: The first line of the primary contact address.
-        :param pulumi.Input[_builtins.str] address_line2: The second line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] address_line3: The third line of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] city: The city of the primary contact address.
-        :param pulumi.Input[_builtins.str] company_name: The name of the company associated with the primary contact information, if any.
-        :param pulumi.Input[_builtins.str] country_code: The ISO-3166 two-letter country code for the primary contact address.
-        :param pulumi.Input[_builtins.str] district_or_county: The district or county of the primary contact address, if any.
-        :param pulumi.Input[_builtins.str] full_name: The full name of the primary contact address.
-        :param pulumi.Input[_builtins.str] phone_number: The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        :param pulumi.Input[_builtins.str] postal_code: The postal code of the primary contact address.
-        :param pulumi.Input[_builtins.str] state_or_region: The state or region of the primary contact address. This field is required in selected countries.
-        :param pulumi.Input[_builtins.str] website_url: The URL of the website associated with the primary contact information, if any.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -672,104 +486,65 @@ class PrimaryContact(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter(name="addressLine1")
     def address_line1(self) -> pulumi.Output[_builtins.str]:
-        """
-        The first line of the primary contact address.
-        """
         return pulumi.get(self, "address_line1")
 
     @_builtins.property
     @pulumi.getter(name="addressLine2")
     def address_line2(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The second line of the primary contact address, if any.
-        """
         return pulumi.get(self, "address_line2")
 
     @_builtins.property
     @pulumi.getter(name="addressLine3")
     def address_line3(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The third line of the primary contact address, if any.
-        """
         return pulumi.get(self, "address_line3")
 
     @_builtins.property
     @pulumi.getter
     def city(self) -> pulumi.Output[_builtins.str]:
-        """
-        The city of the primary contact address.
-        """
         return pulumi.get(self, "city")
 
     @_builtins.property
     @pulumi.getter(name="companyName")
     def company_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the company associated with the primary contact information, if any.
-        """
         return pulumi.get(self, "company_name")
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ISO-3166 two-letter country code for the primary contact address.
-        """
         return pulumi.get(self, "country_code")
 
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
     def district_or_county(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The district or county of the primary contact address, if any.
-        """
         return pulumi.get(self, "district_or_county")
 
     @_builtins.property
     @pulumi.getter(name="fullName")
     def full_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The full name of the primary contact address.
-        """
         return pulumi.get(self, "full_name")
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Output[_builtins.str]:
-        """
-        The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
-        """
         return pulumi.get(self, "phone_number")
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        The postal code of the primary contact address.
-        """
         return pulumi.get(self, "postal_code")
 
     @_builtins.property
     @pulumi.getter(name="stateOrRegion")
     def state_or_region(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The state or region of the primary contact address. This field is required in selected countries.
-        """
         return pulumi.get(self, "state_or_region")
 
     @_builtins.property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The URL of the website associated with the primary contact information, if any.
-        """
         return pulumi.get(self, "website_url")
 

@@ -18,47 +18,23 @@ public final class GetLogDataProtectionPolicyDocumentStatementArgs extends com.p
 
     public static final GetLogDataProtectionPolicyDocumentStatementArgs Empty = new GetLogDataProtectionPolicyDocumentStatementArgs();
 
-    /**
-     * Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-     * 
-     */
     @Import(name="dataIdentifiers", required=true)
     private Output<List<String>> dataIdentifiers;
 
-    /**
-     * @return Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-     * 
-     */
     public Output<List<String>> dataIdentifiers() {
         return this.dataIdentifiers;
     }
 
-    /**
-     * Configures the data protection operation applied by this statement.
-     * 
-     */
     @Import(name="operation", required=true)
     private Output<GetLogDataProtectionPolicyDocumentStatementOperationArgs> operation;
 
-    /**
-     * @return Configures the data protection operation applied by this statement.
-     * 
-     */
     public Output<GetLogDataProtectionPolicyDocumentStatementOperationArgs> operation() {
         return this.operation;
     }
 
-    /**
-     * Name of this statement.
-     * 
-     */
     @Import(name="sid")
     private @Nullable Output<String> sid;
 
-    /**
-     * @return Name of this statement.
-     * 
-     */
     public Optional<Output<String>> sid() {
         return Optional.ofNullable(this.sid);
     }
@@ -89,75 +65,33 @@ public final class GetLogDataProtectionPolicyDocumentStatementArgs extends com.p
             $ = new GetLogDataProtectionPolicyDocumentStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataIdentifiers Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataIdentifiers(Output<List<String>> dataIdentifiers) {
             $.dataIdentifiers = dataIdentifiers;
             return this;
         }
 
-        /**
-         * @param dataIdentifiers Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataIdentifiers(List<String> dataIdentifiers) {
             return dataIdentifiers(Output.of(dataIdentifiers));
         }
 
-        /**
-         * @param dataIdentifiers Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataIdentifiers(String... dataIdentifiers) {
             return dataIdentifiers(List.of(dataIdentifiers));
         }
 
-        /**
-         * @param operation Configures the data protection operation applied by this statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operation(Output<GetLogDataProtectionPolicyDocumentStatementOperationArgs> operation) {
             $.operation = operation;
             return this;
         }
 
-        /**
-         * @param operation Configures the data protection operation applied by this statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs operation) {
             return operation(Output.of(operation));
         }
 
-        /**
-         * @param sid Name of this statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sid(@Nullable Output<String> sid) {
             $.sid = sid;
             return this;
         }
 
-        /**
-         * @param sid Name of this statement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sid(String sid) {
             return sid(Output.of(sid));
         }

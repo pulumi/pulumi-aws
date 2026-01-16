@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the launch template to use for faster launching for a Windows AMI.
-        /// </summary>
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
-        /// <summary>
-        /// The name of the launch template to use for faster launching for a Windows AMI.
-        /// </summary>
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
-        /// <summary>
-        /// The version of the launch template to use for faster launching for a Windows AMI.
-        /// </summary>
         [Input("launchTemplateVersion")]
         public Input<string>? LaunchTemplateVersion { get; set; }
 

@@ -9,59 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ComputeOptimizer
 {
-    /// <summary>
-    /// Manages AWS Compute Optimizer enrollment status.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ComputeOptimizer.EnrollmentStatus("example", new()
-    ///     {
-    ///         Status = "Active",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import enrollment status using the account ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:computeoptimizer/enrollmentStatus:EnrollmentStatus example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")]
     public partial class EnrollmentStatus : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `False`.
-        /// </summary>
         [Output("includeMemberAccounts")]
         public Output<bool> IncludeMemberAccounts { get; private set; } = null!;
 
-        /// <summary>
-        /// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-        /// </summary>
         [Output("numberOfMemberAccountsOptedIn")]
         public Output<int> NumberOfMemberAccountsOptedIn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -114,21 +73,12 @@ namespace Pulumi.Aws.ComputeOptimizer
 
     public sealed class EnrollmentStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `False`.
-        /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
@@ -143,27 +93,15 @@ namespace Pulumi.Aws.ComputeOptimizer
 
     public sealed class EnrollmentStatusState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `False`.
-        /// </summary>
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
 
-        /// <summary>
-        /// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-        /// </summary>
         [Input("numberOfMemberAccountsOptedIn")]
         public Input<int>? NumberOfMemberAccountsOptedIn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

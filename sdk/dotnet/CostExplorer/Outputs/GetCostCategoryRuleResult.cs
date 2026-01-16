@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class GetCostCategoryRuleResult
     {
-        /// <summary>
-        /// Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleInheritedValueResult> InheritedValues;
-        /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleResult> Rules;
-        /// <summary>
-        /// Parameter type.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Default value for the cost category.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataExchange.Outputs
     [OutputType]
     public sealed class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant
     {
-        /// <summary>
-        /// The ARN of the KMS key.
-        /// </summary>
         public readonly string KmsKeyArn;
 
         [OutputConstructor]

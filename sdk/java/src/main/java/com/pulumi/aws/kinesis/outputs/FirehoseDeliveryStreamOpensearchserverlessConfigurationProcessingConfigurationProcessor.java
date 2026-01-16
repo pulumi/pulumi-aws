@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
-    /**
-     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-     * 
-     */
     private @Nullable List<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter> parameters;
-    /**
-     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
-     * 
-     */
     private String type;
 
     private FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor() {}
-    /**
-     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
-     * 
-     */
     public List<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
-    /**
-     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
-     * 
-     */
     public String type() {
         return this.type;
     }

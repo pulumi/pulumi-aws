@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionLoggingConfig {
-    /**
-     * @return Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-     * 
-     */
     private @Nullable String applicationLogLevel;
-    /**
-     * @return Log format. Valid values: `Text`, `JSON`.
-     * 
-     */
     private String logFormat;
-    /**
-     * @return CloudWatch log group where logs are sent.
-     * 
-     */
     private @Nullable String logGroup;
-    /**
-     * @return Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-     * 
-     */
     private @Nullable String systemLogLevel;
 
     private FunctionLoggingConfig() {}
-    /**
-     * @return Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
-     * 
-     */
     public Optional<String> applicationLogLevel() {
         return Optional.ofNullable(this.applicationLogLevel);
     }
-    /**
-     * @return Log format. Valid values: `Text`, `JSON`.
-     * 
-     */
     public String logFormat() {
         return this.logFormat;
     }
-    /**
-     * @return CloudWatch log group where logs are sent.
-     * 
-     */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
-    /**
-     * @return Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
-     * 
-     */
     public Optional<String> systemLogLevel() {
         return Optional.ofNullable(this.systemLogLevel);
     }

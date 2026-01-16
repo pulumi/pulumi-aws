@@ -18,232 +18,41 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
- * 
- * ## Example Usage
- * 
- * ### Database Example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.LfTag;
- * import com.pulumi.aws.lakeformation.LfTagArgs;
- * import com.pulumi.aws.lakeformation.ResourceLfTags;
- * import com.pulumi.aws.lakeformation.ResourceLfTagsArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsDatabaseArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsLfTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()
- *             .key("right")
- *             .values(            
- *                 "abbey",
- *                 "village",
- *                 "luffield",
- *                 "woodcote",
- *                 "copse",
- *                 "chapel",
- *                 "stowe",
- *                 "club")
- *             .build());
- * 
- *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()
- *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
- *                 .build())
- *             .lfTags(ResourceLfTagsLfTagArgs.builder()
- *                 .key(example.key())
- *                 .value("stowe")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multiple Tags Example
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.LfTag;
- * import com.pulumi.aws.lakeformation.LfTagArgs;
- * import com.pulumi.aws.lakeformation.ResourceLfTags;
- * import com.pulumi.aws.lakeformation.ResourceLfTagsArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsDatabaseArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsLfTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()
- *             .key("right")
- *             .values(            
- *                 "abbey",
- *                 "village",
- *                 "luffield",
- *                 "woodcote",
- *                 "copse",
- *                 "chapel",
- *                 "stowe",
- *                 "club")
- *             .build());
- * 
- *         var example2 = new LfTag("example2", LfTagArgs.builder()
- *             .key("left")
- *             .values(            
- *                 "farm",
- *                 "theloop",
- *                 "aintree",
- *                 "brooklands",
- *                 "maggotts",
- *                 "becketts",
- *                 "vale")
- *             .build());
- * 
- *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()
- *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(exampleAwsGlueCatalogDatabase.name())
- *                 .build())
- *             .lfTags(            
- *                 ResourceLfTagsLfTagArgs.builder()
- *                     .key("right")
- *                     .value("luffield")
- *                     .build(),
- *                 ResourceLfTagsLfTagArgs.builder()
- *                     .key("left")
- *                     .value("aintree")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:lakeformation/resourceLfTags:ResourceLfTags")
 public class ResourceLfTags extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
-    /**
-     * Configuration block for a database resource. See below.
-     * 
-     */
     @Export(name="database", refs={ResourceLfTagsDatabase.class}, tree="[0]")
     private Output<ResourceLfTagsDatabase> database;
 
-    /**
-     * @return Configuration block for a database resource. See below.
-     * 
-     */
     public Output<ResourceLfTagsDatabase> database() {
         return this.database;
     }
-    /**
-     * Set of LF-tags to attach to the resource. See below.
-     * 
-     * Exactly one of the following is required:
-     * 
-     */
     @Export(name="lfTags", refs={List.class,ResourceLfTagsLfTag.class}, tree="[0,1]")
     private Output<List<ResourceLfTagsLfTag>> lfTags;
 
-    /**
-     * @return Set of LF-tags to attach to the resource. See below.
-     * 
-     * Exactly one of the following is required:
-     * 
-     */
     public Output<List<ResourceLfTagsLfTag>> lfTags() {
         return this.lfTags;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration block for a table resource. See below.
-     * 
-     */
     @Export(name="table", refs={ResourceLfTagsTable.class}, tree="[0]")
     private Output<ResourceLfTagsTable> table;
 
-    /**
-     * @return Configuration block for a table resource. See below.
-     * 
-     */
     public Output<ResourceLfTagsTable> table() {
         return this.table;
     }
-    /**
-     * Configuration block for a table with columns resource. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="tableWithColumns", refs={ResourceLfTagsTableWithColumns.class}, tree="[0]")
     private Output<ResourceLfTagsTableWithColumns> tableWithColumns;
 
-    /**
-     * @return Configuration block for a table with columns resource. See below.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<ResourceLfTagsTableWithColumns> tableWithColumns() {
         return this.tableWithColumns;
     }

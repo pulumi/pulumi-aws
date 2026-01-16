@@ -19,81 +19,37 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ViewArgs Empty = new ViewArgs();
 
-    /**
-     * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-     * 
-     */
     @Import(name="dataFilterExpression")
     private @Nullable Output<ViewDataFilterExpressionArgs> dataFilterExpression;
 
-    /**
-     * @return Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-     * 
-     */
     public Optional<Output<ViewDataFilterExpressionArgs>> dataFilterExpression() {
         return Optional.ofNullable(this.dataFilterExpression);
     }
 
-    /**
-     * Description of the custom billing view.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the custom billing view.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the custom billing view to be created.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the custom billing view to be created.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * List of ARNs of the source data views for the custom billing view.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="sourceViews")
     private @Nullable Output<List<String>> sourceViews;
 
-    /**
-     * @return List of ARNs of the source data views for the custom billing view.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<String>>> sourceViews() {
         return Optional.ofNullable(this.sourceViews);
     }
 
-    /**
-     * List of key value map specifying tags associated to the billing view being created.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return List of key value map specifying tags associated to the billing view being created.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -134,123 +90,51 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ViewArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataFilterExpression Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFilterExpression(@Nullable Output<ViewDataFilterExpressionArgs> dataFilterExpression) {
             $.dataFilterExpression = dataFilterExpression;
             return this;
         }
 
-        /**
-         * @param dataFilterExpression Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataFilterExpression(ViewDataFilterExpressionArgs dataFilterExpression) {
             return dataFilterExpression(Output.of(dataFilterExpression));
         }
 
-        /**
-         * @param description Description of the custom billing view.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the custom billing view.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the custom billing view to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the custom billing view to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param sourceViews List of ARNs of the source data views for the custom billing view.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceViews(@Nullable Output<List<String>> sourceViews) {
             $.sourceViews = sourceViews;
             return this;
         }
 
-        /**
-         * @param sourceViews List of ARNs of the source data views for the custom billing view.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceViews(List<String> sourceViews) {
             return sourceViews(Output.of(sourceViews));
         }
 
-        /**
-         * @param sourceViews List of ARNs of the source data views for the custom billing view.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceViews(String... sourceViews) {
             return sourceViews(List.of(sourceViews));
         }
 
-        /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags List of key value map specifying tags associated to the billing view being created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

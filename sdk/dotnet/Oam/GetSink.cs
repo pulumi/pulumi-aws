@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Oam
 {
     public static class GetSink
     {
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Sink.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetSink.Invoke(new()
-        ///     {
-        ///         SinkIdentifier = "arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetSinkResult> InvokeAsync(GetSinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSinkResult>("aws:oam/getSink:getSink", args ?? new GetSinkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Sink.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetSink.Invoke(new()
-        ///     {
-        ///         SinkIdentifier = "arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSinkResult> Invoke(GetSinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSinkResult>("aws:oam/getSink:getSink", args ?? new GetSinkInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS CloudWatch Observability Access Manager Sink.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Oam.GetSink.Invoke(new()
-        ///     {
-        ///         SinkIdentifier = "arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetSinkResult> Invoke(GetSinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSinkResult>("aws:oam/getSink:getSink", args ?? new GetSinkInvokeArgs(), options.WithDefaults());
     }
@@ -93,24 +24,14 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetSinkArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the sink.
-        /// </summary>
         [Input("sinkIdentifier", required: true)]
         public string SinkIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the sink.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -125,24 +46,14 @@ namespace Pulumi.Aws.Oam
 
     public sealed class GetSinkInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the sink.
-        /// </summary>
         [Input("sinkIdentifier", required: true)]
         public Input<string> SinkIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the sink.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,27 +70,15 @@ namespace Pulumi.Aws.Oam
     [OutputType]
     public sealed class GetSinkResult
     {
-        /// <summary>
-        /// ARN of the sink.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the sink.
-        /// </summary>
         public readonly string Name;
         public readonly string Region;
-        /// <summary>
-        /// Random ID string that AWS generated as part of the sink ARN.
-        /// </summary>
         public readonly string SinkId;
         public readonly string SinkIdentifier;
-        /// <summary>
-        /// Tags assigned to the sink.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

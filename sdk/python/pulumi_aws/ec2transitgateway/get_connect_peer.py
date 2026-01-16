@@ -72,33 +72,21 @@ class GetConnectPeerResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        EC2 Transit Gateway Connect Peer ARN
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> _builtins.str:
-        """
-        BGP ASN number assigned customer device
-        """
         return pulumi.get(self, "bgp_asn")
 
     @_builtins.property
     @pulumi.getter(name="bgpPeerAddress")
     def bgp_peer_address(self) -> _builtins.str:
-        """
-        The IP address assigned to customer device, which is used as BGP IP address.
-        """
         return pulumi.get(self, "bgp_peer_address")
 
     @_builtins.property
     @pulumi.getter(name="bgpTransitGatewayAddresses")
     def bgp_transit_gateway_addresses(self) -> Sequence[_builtins.str]:
-        """
-        The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
-        """
         return pulumi.get(self, "bgp_transit_gateway_addresses")
 
     @_builtins.property
@@ -117,17 +105,11 @@ class GetConnectPeerResult:
     @_builtins.property
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Sequence[_builtins.str]:
-        """
-        CIDR blocks that will be used for addressing within the tunnel.
-        """
         return pulumi.get(self, "inside_cidr_blocks")
 
     @_builtins.property
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> _builtins.str:
-        """
-        IP addressed assigned to customer device, which is used as tunnel endpoint
-        """
         return pulumi.get(self, "peer_address")
 
     @_builtins.property
@@ -138,25 +120,16 @@ class GetConnectPeerResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
-        """
-        Key-value tags for the EC2 Transit Gateway Connect Peer
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAddress")
     def transit_gateway_address(self) -> _builtins.str:
-        """
-        The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-        """
         return pulumi.get(self, "transit_gateway_address")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> _builtins.str:
-        """
-        The Transit Gateway Connect
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @_builtins.property
@@ -192,36 +165,7 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
                      transit_gateway_connect_peer_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectPeerResult:
     """
-    Get information on an EC2 Transit Gateway Connect Peer.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(filters=[{
-        "name": "transit-gateway-attachment-id",
-        "values": ["tgw-attach-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(transit_gateway_connect_peer_id="tgw-connect-peer-12345678")
-    ```
-
-
-    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
-    :param _builtins.str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -251,36 +195,7 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             transit_gateway_connect_peer_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectPeerResult]:
     """
-    Get information on an EC2 Transit Gateway Connect Peer.
-
-    ## Example Usage
-
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(filters=[{
-        "name": "transit-gateway-attachment-id",
-        "values": ["tgw-attach-12345678"],
-    }])
-    ```
-
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(transit_gateway_connect_peer_id="tgw-connect-peer-12345678")
-    ```
-
-
-    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
-    :param _builtins.str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

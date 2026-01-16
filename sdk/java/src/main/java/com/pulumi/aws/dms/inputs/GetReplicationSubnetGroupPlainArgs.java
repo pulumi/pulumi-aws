@@ -16,32 +16,16 @@ public final class GetReplicationSubnetGroupPlainArgs extends com.pulumi.resourc
 
     public static final GetReplicationSubnetGroupPlainArgs Empty = new GetReplicationSubnetGroupPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-     * 
-     */
     @Import(name="replicationSubnetGroupId", required=true)
     private String replicationSubnetGroupId;
 
-    /**
-     * @return Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-     * 
-     */
     public String replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
@@ -79,23 +63,11 @@ public final class GetReplicationSubnetGroupPlainArgs extends com.pulumi.resourc
             $ = new GetReplicationSubnetGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
             $.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;

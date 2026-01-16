@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableStorageDescriptorSchemaReferenceSchemaIdGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the schema registry that contains the schema. Must be provided when `SchemaName` is specified and conflicts with `SchemaArn`.
-        /// </summary>
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 
-        /// <summary>
-        /// ARN of the schema. One of `SchemaArn` or `SchemaName` has to be provided.
-        /// </summary>
         [Input("schemaArn")]
         public Input<string>? SchemaArn { get; set; }
 
-        /// <summary>
-        /// Name of the schema. One of `SchemaArn` or `SchemaName` has to be provided.
-        /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
 

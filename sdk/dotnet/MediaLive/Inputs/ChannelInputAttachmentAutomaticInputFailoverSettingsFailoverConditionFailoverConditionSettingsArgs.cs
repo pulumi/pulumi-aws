@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
-        /// </summary>
         [Input("audioSilenceSettings")]
         public Input<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs>? AudioSilenceSettings { get; set; }
 
-        /// <summary>
-        /// MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
-        /// </summary>
         [Input("inputLossSettings")]
         public Input<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs>? InputLossSettings { get; set; }
 
-        /// <summary>
-        /// MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
-        /// </summary>
         [Input("videoBlackSettings")]
         public Input<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs>? VideoBlackSettings { get; set; }
 

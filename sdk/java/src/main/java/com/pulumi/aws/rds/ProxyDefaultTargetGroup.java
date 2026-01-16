@@ -14,87 +14,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * ## Import
- * 
- * Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
- * 
- * ```sh
- * $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")
 public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) representing the target group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) representing the target group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
-     * 
-     */
     @Export(name="connectionPoolConfig", refs={ProxyDefaultTargetGroupConnectionPoolConfig.class}, tree="[0]")
     private Output<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig;
 
-    /**
-     * @return The settings that determine the size and behavior of the connection pool for the target group.
-     * 
-     */
     public Output<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig() {
         return this.connectionPoolConfig;
     }
-    /**
-     * Name of the RDS DB Proxy.
-     * 
-     */
     @Export(name="dbProxyName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyName;
 
-    /**
-     * @return Name of the RDS DB Proxy.
-     * 
-     */
     public Output<String> dbProxyName() {
         return this.dbProxyName;
     }
-    /**
-     * The name of the default target group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the default target group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics {
-    /**
-     * @return Whether advanced data-protection metrics are enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics() {}
-    /**
-     * @return Whether advanced data-protection metrics are enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

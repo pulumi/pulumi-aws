@@ -16,77 +16,37 @@ public final class AccountRegistrationState extends com.pulumi.resources.Resourc
 
     public static final AccountRegistrationState Empty = new AccountRegistrationState();
 
-    /**
-     * Identifier for the delegated administrator account.
-     * 
-     */
     @Import(name="delegatedAdminAccount")
     private @Nullable Output<String> delegatedAdminAccount;
 
-    /**
-     * @return Identifier for the delegated administrator account.
-     * 
-     */
     public Optional<Output<String>> delegatedAdminAccount() {
         return Optional.ofNullable(this.delegatedAdminAccount);
     }
 
-    /**
-     * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     * 
-     */
     @Import(name="deregisterOnDestroy")
     private @Nullable Output<Boolean> deregisterOnDestroy;
 
-    /**
-     * @return Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-     * 
-     */
     public Optional<Output<Boolean>> deregisterOnDestroy() {
         return Optional.ofNullable(this.deregisterOnDestroy);
     }
 
-    /**
-     * KMS key identifier.
-     * 
-     */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
-    /**
-     * @return KMS key identifier.
-     * 
-     */
     public Optional<Output<String>> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Status of the account registration request.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the account registration request.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -119,107 +79,47 @@ public final class AccountRegistrationState extends com.pulumi.resources.Resourc
             $ = new AccountRegistrationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param delegatedAdminAccount Identifier for the delegated administrator account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delegatedAdminAccount(@Nullable Output<String> delegatedAdminAccount) {
             $.delegatedAdminAccount = delegatedAdminAccount;
             return this;
         }
 
-        /**
-         * @param delegatedAdminAccount Identifier for the delegated administrator account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delegatedAdminAccount(String delegatedAdminAccount) {
             return delegatedAdminAccount(Output.of(delegatedAdminAccount));
         }
 
-        /**
-         * @param deregisterOnDestroy Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deregisterOnDestroy(@Nullable Output<Boolean> deregisterOnDestroy) {
             $.deregisterOnDestroy = deregisterOnDestroy;
             return this;
         }
 
-        /**
-         * @param deregisterOnDestroy Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-         * 
-         * @return builder
-         * 
-         */
         public Builder deregisterOnDestroy(Boolean deregisterOnDestroy) {
             return deregisterOnDestroy(Output.of(deregisterOnDestroy));
         }
 
-        /**
-         * @param kmsKey KMS key identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(@Nullable Output<String> kmsKey) {
             $.kmsKey = kmsKey;
             return this;
         }
 
-        /**
-         * @param kmsKey KMS key identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param status Status of the account registration request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the account registration request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

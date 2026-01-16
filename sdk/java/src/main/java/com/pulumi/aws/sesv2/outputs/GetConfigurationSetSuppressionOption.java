@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationSetSuppressionOption {
-    /**
-     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
-     * 
-     */
     private List<String> suppressedReasons;
 
     private GetConfigurationSetSuppressionOption() {}
-    /**
-     * @return A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
-     * 
-     */
     public List<String> suppressedReasons() {
         return this.suppressedReasons;
     }

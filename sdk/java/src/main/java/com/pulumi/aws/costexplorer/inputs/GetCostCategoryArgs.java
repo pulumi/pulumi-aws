@@ -17,32 +17,16 @@ public final class GetCostCategoryArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCostCategoryArgs Empty = new GetCostCategoryArgs();
 
-    /**
-     * Unique name for the Cost Category.
-     * 
-     */
     @Import(name="costCategoryArn", required=true)
     private Output<String> costCategoryArn;
 
-    /**
-     * @return Unique name for the Cost Category.
-     * 
-     */
     public Output<String> costCategoryArn() {
         return this.costCategoryArn;
     }
 
-    /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,44 +56,20 @@ public final class GetCostCategoryArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetCostCategoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param costCategoryArn Unique name for the Cost Category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategoryArn(Output<String> costCategoryArn) {
             $.costCategoryArn = costCategoryArn;
             return this;
         }
 
-        /**
-         * @param costCategoryArn Unique name for the Cost Category.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategoryArn(String costCategoryArn) {
             return costCategoryArn(Output.of(costCategoryArn));
         }
 
-        /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.DataSync.Inputs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
-
-        /// <summary>
-        /// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
-        /// </summary>
         public InputList<string> AgentArns
         {
             get => _agentArns ?? (_agentArns = new InputList<string>());

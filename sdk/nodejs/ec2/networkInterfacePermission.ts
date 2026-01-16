@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Grant cross-account access to an Elastic network interface (ENI).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NetworkInterface("example", {
- *     subnetId: exampleAwsSubnet.id,
- *     privateIps: ["10.0.0.50"],
- *     securityGroups: [exampleAwsSecurityGroup.id],
- *     attachments: [{
- *         instance: exampleAwsInstance.id,
- *         deviceIndex: 1,
- *     }],
- * });
- * const exampleNetworkInterfacePermission = new aws.ec2.NetworkInterfacePermission("example", {
- *     networkInterfaceId: example.id,
- *     awsAccountId: "123456789012",
- *     permission: "INSTANCE-ATTACH",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import Network Interface Permissions using the `network_interface_permission_id`. For example:
- *
- * ```sh
- * $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
- * ```
- */
 export class NetworkInterfacePermission extends pulumi.CustomResource {
     /**
      * Get an existing NetworkInterfacePermission resource's state with the given name, ID, and optional extra
@@ -68,25 +35,10 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInterfacePermission.__pulumiType;
     }
 
-    /**
-     * The Amazon Web Services account ID.
-     */
     declare public readonly awsAccountId: pulumi.Output<string>;
-    /**
-     * The ID of the network interface.
-     */
     declare public readonly networkInterfaceId: pulumi.Output<string>;
-    /**
-     * ENI permission ID.
-     */
     declare public /*out*/ readonly networkInterfacePermissionId: pulumi.Output<string>;
-    /**
-     * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     */
     declare public readonly permission: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.NetworkInterfacePermissionTimeouts | undefined>;
 
@@ -136,25 +88,10 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkInterfacePermission resources.
  */
 export interface NetworkInterfacePermissionState {
-    /**
-     * The Amazon Web Services account ID.
-     */
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The ID of the network interface.
-     */
     networkInterfaceId?: pulumi.Input<string>;
-    /**
-     * ENI permission ID.
-     */
     networkInterfacePermissionId?: pulumi.Input<string>;
-    /**
-     * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     */
     permission?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts>;
 }
@@ -163,21 +100,9 @@ export interface NetworkInterfacePermissionState {
  * The set of arguments for constructing a NetworkInterfacePermission resource.
  */
 export interface NetworkInterfacePermissionArgs {
-    /**
-     * The Amazon Web Services account ID.
-     */
     awsAccountId: pulumi.Input<string>;
-    /**
-     * The ID of the network interface.
-     */
     networkInterfaceId: pulumi.Input<string>;
-    /**
-     * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
-     */
     permission: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts>;
 }

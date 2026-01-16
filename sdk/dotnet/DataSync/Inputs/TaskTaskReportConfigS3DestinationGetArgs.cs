@@ -12,21 +12,12 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class TaskTaskReportConfigS3DestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
-        /// </summary>
         [Input("bucketAccessRoleArn", required: true)]
         public Input<string> BucketAccessRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the ARN of the S3 bucket where DataSync uploads your report.
-        /// </summary>
         [Input("s3BucketArn", required: true)]
         public Input<string> S3BucketArn { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies a bucket prefix for your report.
-        /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 

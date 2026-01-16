@@ -13,17 +13,8 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class GameServerGroupLaunchTemplate
     {
-        /// <summary>
-        /// A unique identifier for an existing EC2 launch template.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// A readable identifier for an existing EC2 launch template.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The version of the EC2 launch template to use. If none is set, the default is the first version created.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

@@ -17,161 +17,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
- * 
- * &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
- * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.BucketCorsConfiguration;
- * import com.pulumi.aws.s3.BucketCorsConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketCorsConfigurationCorsRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()
- *             .bucket("mybucket")
- *             .build());
- * 
- *         var exampleBucketCorsConfiguration = new BucketCorsConfiguration("exampleBucketCorsConfiguration", BucketCorsConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .corsRules(            
- *                 BucketCorsConfigurationCorsRuleArgs.builder()
- *                     .allowedHeaders("*")
- *                     .allowedMethods(                    
- *                         "PUT",
- *                         "POST")
- *                     .allowedOrigins("https://s3-website-test.domain.example")
- *                     .exposeHeaders("ETag")
- *                     .maxAgeSeconds(3000)
- *                     .build(),
- *                 BucketCorsConfigurationCorsRuleArgs.builder()
- *                     .allowedMethods("GET")
- *                     .allowedOrigins("*")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * ### Identity Schema
- * 
- * #### Required
- * 
- * * `bucket` (String) S3 bucket name.
- * 
- * #### Optional
- * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- * 
- * * `region` (String) Region where this resource is managed.
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * terraform
- * 
- * import {
- * 
- *   to = aws_s3_bucket_cors_configuration.example
- * 
- *   id = &#34;bucket-name,123456789012&#34;
- * 
- * }
- * 
- * **Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
- * 
- * If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
- * 
- * % pulumi import aws_s3_bucket_cors_configuration.example bucket-name
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
- * 
- * % pulumi import aws_s3_bucket_cors_configuration.example bucket-name,123456789012
- * 
- */
 @ResourceType(type="aws:s3/bucketCorsConfiguration:BucketCorsConfiguration")
 public class BucketCorsConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return Name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     * 
-     */
     @Export(name="corsRules", refs={List.class,BucketCorsConfigurationCorsRule.class}, tree="[0,1]")
     private Output<List<BucketCorsConfigurationCorsRule>> corsRules;
 
-    /**
-     * @return Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
-     * 
-     */
     public Output<List<BucketCorsConfigurationCorsRule>> corsRules() {
         return this.corsRules;
     }
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

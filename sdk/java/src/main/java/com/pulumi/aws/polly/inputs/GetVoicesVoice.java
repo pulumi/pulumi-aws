@@ -14,107 +14,51 @@ public final class GetVoicesVoice extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVoicesVoice Empty = new GetVoicesVoice();
 
-    /**
-     * Additional codes for languages available for the specified voice in addition to its default language.
-     * 
-     */
     @Import(name="additionalLanguageCodes", required=true)
     private List<String> additionalLanguageCodes;
 
-    /**
-     * @return Additional codes for languages available for the specified voice in addition to its default language.
-     * 
-     */
     public List<String> additionalLanguageCodes() {
         return this.additionalLanguageCodes;
     }
 
-    /**
-     * Gender of the voice.
-     * 
-     */
     @Import(name="gender", required=true)
     private String gender;
 
-    /**
-     * @return Gender of the voice.
-     * 
-     */
     public String gender() {
         return this.gender;
     }
 
-    /**
-     * Amazon Polly assigned voice ID.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Amazon Polly assigned voice ID.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-     * 
-     */
     @Import(name="languageCode", required=true)
     private String languageCode;
 
-    /**
-     * @return Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
 
-    /**
-     * Human readable name of the language in English.
-     * 
-     */
     @Import(name="languageName", required=true)
     private String languageName;
 
-    /**
-     * @return Human readable name of the language in English.
-     * 
-     */
     public String languageName() {
         return this.languageName;
     }
 
-    /**
-     * Name of the voice.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the voice.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Specifies which engines are supported by a given voice.
-     * 
-     */
     @Import(name="supportedEngines", required=true)
     private List<String> supportedEngines;
 
-    /**
-     * @return Specifies which engines are supported by a given voice.
-     * 
-     */
     public List<String> supportedEngines() {
         return this.supportedEngines;
     }
@@ -149,99 +93,45 @@ public final class GetVoicesVoice extends com.pulumi.resources.InvokeArgs {
             $ = new GetVoicesVoice(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalLanguageCodes Additional codes for languages available for the specified voice in addition to its default language.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalLanguageCodes(List<String> additionalLanguageCodes) {
             $.additionalLanguageCodes = additionalLanguageCodes;
             return this;
         }
 
-        /**
-         * @param additionalLanguageCodes Additional codes for languages available for the specified voice in addition to its default language.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalLanguageCodes(String... additionalLanguageCodes) {
             return additionalLanguageCodes(List.of(additionalLanguageCodes));
         }
 
-        /**
-         * @param gender Gender of the voice.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gender(String gender) {
             $.gender = gender;
             return this;
         }
 
-        /**
-         * @param id Amazon Polly assigned voice ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param languageCode Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(String languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
-        /**
-         * @param languageName Human readable name of the language in English.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageName(String languageName) {
             $.languageName = languageName;
             return this;
         }
 
-        /**
-         * @param name Name of the voice.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param supportedEngines Specifies which engines are supported by a given voice.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportedEngines(List<String> supportedEngines) {
             $.supportedEngines = supportedEngines;
             return this;
         }
 
-        /**
-         * @param supportedEngines Specifies which engines are supported by a given voice.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportedEngines(String... supportedEngines) {
             return supportedEngines(List.of(supportedEngines));
         }

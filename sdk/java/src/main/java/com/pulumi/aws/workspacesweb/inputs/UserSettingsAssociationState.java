@@ -15,51 +15,23 @@ public final class UserSettingsAssociationState extends com.pulumi.resources.Res
 
     public static final UserSettingsAssociationState Empty = new UserSettingsAssociationState();
 
-    /**
-     * ARN of the portal to associate with the user settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="portalArn")
     private @Nullable Output<String> portalArn;
 
-    /**
-     * @return ARN of the portal to associate with the user settings. Forces replacement if changed.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> portalArn() {
         return Optional.ofNullable(this.portalArn);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ARN of the user settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     @Import(name="userSettingsArn")
     private @Nullable Output<String> userSettingsArn;
 
-    /**
-     * @return ARN of the user settings to associate with the portal. Forces replacement if changed.
-     * 
-     */
     public Optional<Output<String>> userSettingsArn() {
         return Optional.ofNullable(this.userSettingsArn);
     }
@@ -90,69 +62,29 @@ public final class UserSettingsAssociationState extends com.pulumi.resources.Res
             $ = new UserSettingsAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the user settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(@Nullable Output<String> portalArn) {
             $.portalArn = portalArn;
             return this;
         }
 
-        /**
-         * @param portalArn ARN of the portal to associate with the user settings. Forces replacement if changed.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder portalArn(String portalArn) {
             return portalArn(Output.of(portalArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userSettingsArn ARN of the user settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userSettingsArn(@Nullable Output<String> userSettingsArn) {
             $.userSettingsArn = userSettingsArn;
             return this;
         }
 
-        /**
-         * @param userSettingsArn ARN of the user settings to associate with the portal. Forces replacement if changed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userSettingsArn(String userSettingsArn) {
             return userSettingsArn(Output.of(userSettingsArn));
         }

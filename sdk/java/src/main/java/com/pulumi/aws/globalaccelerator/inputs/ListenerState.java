@@ -17,77 +17,37 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
 
     public static final ListenerState Empty = new ListenerState();
 
-    /**
-     * The Amazon Resource Name (ARN) of your accelerator.
-     * 
-     */
     @Import(name="acceleratorArn")
     private @Nullable Output<String> acceleratorArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of your accelerator.
-     * 
-     */
     public Optional<Output<String>> acceleratorArn() {
         return Optional.ofNullable(this.acceleratorArn);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the listener.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the listener.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
-     * 
-     */
     @Import(name="clientAffinity")
     private @Nullable Output<String> clientAffinity;
 
-    /**
-     * @return Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
-     * 
-     */
     public Optional<Output<String>> clientAffinity() {
         return Optional.ofNullable(this.clientAffinity);
     }
 
-    /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     @Import(name="portRanges")
     private @Nullable Output<List<ListenerPortRangeArgs>> portRanges;
 
-    /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     */
     public Optional<Output<List<ListenerPortRangeArgs>>> portRanges() {
         return Optional.ofNullable(this.portRanges);
     }
 
-    /**
-     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -120,117 +80,51 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
             $ = new ListenerState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of your accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceleratorArn(@Nullable Output<String> acceleratorArn) {
             $.acceleratorArn = acceleratorArn;
             return this;
         }
 
-        /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of your accelerator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceleratorArn(String acceleratorArn) {
             return acceleratorArn(Output.of(acceleratorArn));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the listener.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param clientAffinity Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAffinity(@Nullable Output<String> clientAffinity) {
             $.clientAffinity = clientAffinity;
             return this;
         }
 
-        /**
-         * @param clientAffinity Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAffinity(String clientAffinity) {
             return clientAffinity(Output.of(clientAffinity));
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(@Nullable Output<List<ListenerPortRangeArgs>> portRanges) {
             $.portRanges = portRanges;
             return this;
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(List<ListenerPortRangeArgs> portRanges) {
             return portRanges(Output.of(portRanges));
         }
 
-        /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portRanges(ListenerPortRangeArgs... portRanges) {
             return portRanges(List.of(portRanges));
         }
 
-        /**
-         * @param protocol The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

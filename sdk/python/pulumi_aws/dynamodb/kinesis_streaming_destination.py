@@ -25,10 +25,6 @@ class KinesisStreamingDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KinesisStreamingDestination resource.
-        :param pulumi.Input[_builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-        :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
         pulumi.set(__self__, "table_name", table_name)
@@ -40,9 +36,6 @@ class KinesisStreamingDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
@@ -52,9 +45,6 @@ class KinesisStreamingDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -64,9 +54,6 @@ class KinesisStreamingDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
     def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
@@ -76,9 +63,6 @@ class KinesisStreamingDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,10 +79,6 @@ class _KinesisStreamingDestinationState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KinesisStreamingDestination resources.
-        :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         if approximate_creation_date_time_precision is not None:
             pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
@@ -112,9 +92,6 @@ class _KinesisStreamingDestinationState:
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
     def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
@@ -124,9 +101,6 @@ class _KinesisStreamingDestinationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -136,9 +110,6 @@ class _KinesisStreamingDestinationState:
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
@@ -148,9 +119,6 @@ class _KinesisStreamingDestinationState:
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -170,44 +138,9 @@ class KinesisStreamingDestination(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.Table("example",
-            name="orders",
-            hash_key="id",
-            attributes=[{
-                "name": "id",
-                "type": "S",
-            }])
-        example_stream = aws.kinesis.Stream("example",
-            name="order_item_changes",
-            shard_count=1)
-        example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("example",
-            stream_arn=example_stream.arn,
-            table_name=example.name,
-            approximate_creation_date_time_precision="MICROSECOND")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
-        ```
-
+        Create a KinesisStreamingDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         ...
     @overload
@@ -216,38 +149,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
                  args: KinesisStreamingDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dynamodb.Table("example",
-            name="orders",
-            hash_key="id",
-            attributes=[{
-                "name": "id",
-                "type": "S",
-            }])
-        example_stream = aws.kinesis.Stream("example",
-            name="order_item_changes",
-            shard_count=1)
-        example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("example",
-            stream_arn=example_stream.arn,
-            table_name=example.name,
-            approximate_creation_date_time_precision="MICROSECOND")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
-        ```
-
+        Create a KinesisStreamingDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KinesisStreamingDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,10 +207,6 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -323,32 +221,20 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
     def approximate_creation_date_time_precision(self) -> pulumi.Output[_builtins.str]:
-        """
-        Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        """
         return pulumi.get(self, "stream_arn")
 
     @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
-        """
         return pulumi.get(self, "table_name")
 

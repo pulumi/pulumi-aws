@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterShard {
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of nodes in this shard.
-     * 
-     */
     private List<GetClusterShardNode> nodes;
-    /**
-     * @return Number of individual nodes in this shard.
-     * 
-     */
     private Integer numNodes;
-    /**
-     * @return Keyspace for this shard. Example: `0-16383`.
-     * 
-     */
     private String slots;
 
     private GetClusterShard() {}
-    /**
-     * @return Name of the cluster.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of nodes in this shard.
-     * 
-     */
     public List<GetClusterShardNode> nodes() {
         return this.nodes;
     }
-    /**
-     * @return Number of individual nodes in this shard.
-     * 
-     */
     public Integer numNodes() {
         return this.numNodes;
     }
-    /**
-     * @return Keyspace for this shard. Example: `0-16383`.
-     * 
-     */
     public String slots() {
         return this.slots;
     }

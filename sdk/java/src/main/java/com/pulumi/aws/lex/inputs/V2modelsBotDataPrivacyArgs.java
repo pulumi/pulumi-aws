@@ -14,17 +14,9 @@ public final class V2modelsBotDataPrivacyArgs extends com.pulumi.resources.Resou
 
     public static final V2modelsBotDataPrivacyArgs Empty = new V2modelsBotDataPrivacyArgs();
 
-    /**
-     * (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children&#39;s Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
-     * 
-     */
     @Import(name="childDirected", required=true)
     private Output<Boolean> childDirected;
 
-    /**
-     * @return (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children&#39;s Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
-     * 
-     */
     public Output<Boolean> childDirected() {
         return this.childDirected;
     }
@@ -53,23 +45,11 @@ public final class V2modelsBotDataPrivacyArgs extends com.pulumi.resources.Resou
             $ = new V2modelsBotDataPrivacyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param childDirected (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children&#39;s Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder childDirected(Output<Boolean> childDirected) {
             $.childDirected = childDirected;
             return this;
         }
 
-        /**
-         * @param childDirected (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children&#39;s Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder childDirected(Boolean childDirected) {
             return childDirected(Output.of(childDirected));
         }

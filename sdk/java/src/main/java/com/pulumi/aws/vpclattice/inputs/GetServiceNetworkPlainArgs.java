@@ -16,32 +16,16 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetServiceNetworkPlainArgs Empty = new GetServiceNetworkPlainArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier of the service network.
-     * 
-     */
     @Import(name="serviceNetworkIdentifier", required=true)
     private String serviceNetworkIdentifier;
 
-    /**
-     * @return Identifier of the service network.
-     * 
-     */
     public String serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
@@ -79,23 +63,11 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
             $ = new GetServiceNetworkPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param serviceNetworkIdentifier Identifier of the service network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNetworkIdentifier(String serviceNetworkIdentifier) {
             $.serviceNetworkIdentifier = serviceNetworkIdentifier;
             return this;

@@ -49,17 +49,11 @@ class GetRuleGroupResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        ARN of the entity.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        Description of the rule group that helps with identification.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -105,22 +99,7 @@ def get_rule_group(name: Optional[_builtins.str] = None,
                    scope: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleGroupResult:
     """
-    Retrieves the summary of a WAFv2 Rule Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_rule_group(name="some-rule-group",
-        scope="REGIONAL")
-    ```
-
-
-    :param _builtins.str name: Name of the WAFv2 Rule Group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -141,22 +120,7 @@ def get_rule_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                           scope: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
-    Retrieves the summary of a WAFv2 Rule Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_rule_group(name="some-rule-group",
-        scope="REGIONAL")
-    ```
-
-
-    :param _builtins.str name: Name of the WAFv2 Rule Group.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name

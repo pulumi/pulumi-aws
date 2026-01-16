@@ -14,10 +14,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     {
         [Input("excludedColumnNames")]
         private InputList<string>? _excludedColumnNames;
-
-        /// <summary>
-        /// (Optional) Excludes column names. Any column with this name will be excluded.
-        /// </summary>
         public InputList<string> ExcludedColumnNames
         {
             get => _excludedColumnNames ?? (_excludedColumnNames = new InputList<string>());

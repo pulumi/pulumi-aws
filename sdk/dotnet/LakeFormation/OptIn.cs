@@ -9,59 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Resource for managing an AWS Lake Formation Opt In.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LakeFormation.OptIn("example");
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/optIn:OptIn")]
     public partial class OptIn : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-        /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.OptInCondition>> Conditions { get; private set; } = null!;
 
-        /// <summary>
-        /// Last modified date and time of the record.
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
         [Output("lastUpdatedBy")]
         public Output<string> LastUpdatedBy { get; private set; } = null!;
 
-        /// <summary>
-        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<Outputs.OptInPrincipal>> Principals { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Structure for the resource. See Resource for more details.
-        /// </summary>
         [Output("resourceDatas")]
         public Output<ImmutableArray<Outputs.OptInResourceData>> ResourceDatas { get; private set; } = null!;
 
@@ -113,10 +78,6 @@ namespace Pulumi.Aws.LakeFormation
     {
         [Input("conditions")]
         private InputList<Inputs.OptInConditionArgs>? _conditions;
-
-        /// <summary>
-        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-        /// </summary>
         public InputList<Inputs.OptInConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.OptInConditionArgs>());
@@ -125,28 +86,17 @@ namespace Pulumi.Aws.LakeFormation
 
         [Input("principals")]
         private InputList<Inputs.OptInPrincipalArgs>? _principals;
-
-        /// <summary>
-        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        /// </summary>
         public InputList<Inputs.OptInPrincipalArgs> Principals
         {
             get => _principals ?? (_principals = new InputList<Inputs.OptInPrincipalArgs>());
             set => _principals = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceDatas")]
         private InputList<Inputs.OptInResourceDataArgs>? _resourceDatas;
-
-        /// <summary>
-        /// Structure for the resource. See Resource for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataArgs> ResourceDatas
         {
             get => _resourceDatas ?? (_resourceDatas = new InputList<Inputs.OptInResourceDataArgs>());
@@ -163,19 +113,12 @@ namespace Pulumi.Aws.LakeFormation
     {
         [Input("conditions")]
         private InputList<Inputs.OptInConditionGetArgs>? _conditions;
-
-        /// <summary>
-        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-        /// </summary>
         public InputList<Inputs.OptInConditionGetArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.OptInConditionGetArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// Last modified date and time of the record.
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
@@ -184,28 +127,17 @@ namespace Pulumi.Aws.LakeFormation
 
         [Input("principals")]
         private InputList<Inputs.OptInPrincipalGetArgs>? _principals;
-
-        /// <summary>
-        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        /// </summary>
         public InputList<Inputs.OptInPrincipalGetArgs> Principals
         {
             get => _principals ?? (_principals = new InputList<Inputs.OptInPrincipalGetArgs>());
             set => _principals = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("resourceDatas")]
         private InputList<Inputs.OptInResourceDataGetArgs>? _resourceDatas;
-
-        /// <summary>
-        /// Structure for the resource. See Resource for more details.
-        /// </summary>
         public InputList<Inputs.OptInResourceDataGetArgs> ResourceDatas
         {
             get => _resourceDatas ?? (_resourceDatas = new InputList<Inputs.OptInResourceDataGetArgs>());

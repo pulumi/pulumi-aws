@@ -17,17 +17,9 @@ public final class TemplateAliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TemplateAliasArgs Empty = new TemplateAliasArgs();
 
-    /**
-     * Display name of the template alias.
-     * 
-     */
     @Import(name="aliasName", required=true)
     private Output<String> aliasName;
 
-    /**
-     * @return Display name of the template alias.
-     * 
-     */
     public Output<String> aliasName() {
         return this.aliasName;
     }
@@ -39,51 +31,23 @@ public final class TemplateAliasArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the template.
-     * 
-     */
     @Import(name="templateId", required=true)
     private Output<String> templateId;
 
-    /**
-     * @return ID of the template.
-     * 
-     */
     public Output<String> templateId() {
         return this.templateId;
     }
 
-    /**
-     * Version number of the template.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="templateVersionNumber", required=true)
     private Output<Integer> templateVersionNumber;
 
-    /**
-     * @return Version number of the template.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> templateVersionNumber() {
         return this.templateVersionNumber;
     }
@@ -116,23 +80,11 @@ public final class TemplateAliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TemplateAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aliasName Display name of the template alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasName(Output<String> aliasName) {
             $.aliasName = aliasName;
             return this;
         }
 
-        /**
-         * @param aliasName Display name of the template alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aliasName(String aliasName) {
             return aliasName(Output.of(aliasName));
         }
@@ -146,69 +98,29 @@ public final class TemplateAliasArgs extends com.pulumi.resources.ResourceArgs {
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param templateId ID of the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateId(Output<String> templateId) {
             $.templateId = templateId;
             return this;
         }
 
-        /**
-         * @param templateId ID of the template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateId(String templateId) {
             return templateId(Output.of(templateId));
         }
 
-        /**
-         * @param templateVersionNumber Version number of the template.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateVersionNumber(Output<Integer> templateVersionNumber) {
             $.templateVersionNumber = templateVersionNumber;
             return this;
         }
 
-        /**
-         * @param templateVersionNumber Version number of the template.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder templateVersionNumber(Integer templateVersionNumber) {
             return templateVersionNumber(Output.of(templateVersionNumber));
         }

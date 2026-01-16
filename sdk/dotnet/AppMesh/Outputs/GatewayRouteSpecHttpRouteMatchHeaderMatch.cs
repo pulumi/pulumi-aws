@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttpRouteMatchHeaderMatch
     {
-        /// <summary>
-        /// Header value sent by the client must match the specified value exactly.
-        /// </summary>
         public readonly string? Exact;
-        /// <summary>
-        /// Header value sent by the client must begin with the specified characters.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Object that specifies the range of numbers that the header value sent by the client must be included in.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange? Range;
-        /// <summary>
-        /// Header value sent by the client must include the specified characters.
-        /// </summary>
         public readonly string? Regex;
-        /// <summary>
-        /// Header value sent by the client must end with the specified characters.
-        /// </summary>
         public readonly string? Suffix;
 
         [OutputConstructor]

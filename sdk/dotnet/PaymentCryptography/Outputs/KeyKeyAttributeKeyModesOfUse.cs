@@ -13,41 +13,14 @@ namespace Pulumi.Aws.PaymentCryptography.Outputs
     [OutputType]
     public sealed class KeyKeyAttributeKeyModesOfUse
     {
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to decrypt data.
-        /// </summary>
         public readonly bool? Decrypt;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to derive new keys.
-        /// </summary>
         public readonly bool? DeriveKey;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to encrypt data.
-        /// </summary>
         public readonly bool? Encrypt;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-        /// </summary>
         public readonly bool? Generate;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-        /// </summary>
         public readonly bool? NoRestrictions;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used for signing.
-        /// </summary>
         public readonly bool? Sign;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-        /// </summary>
         public readonly bool? Unwrap;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to verify signatures.
-        /// </summary>
         public readonly bool? Verify;
-        /// <summary>
-        /// Whether an AWS Payment Cryptography key can be used to wrap other keys.
-        /// </summary>
         public readonly bool? Wrap;
 
         [OutputConstructor]

@@ -18,107 +18,51 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
 
     public static final EventConnectionArgs Empty = new EventConnectionArgs();
 
-    /**
-     * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     @Import(name="authParameters", required=true)
     private Output<EventConnectionAuthParametersArgs> authParameters;
 
-    /**
-     * @return Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     public Output<EventConnectionAuthParametersArgs> authParameters() {
         return this.authParameters;
     }
 
-    /**
-     * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     @Import(name="authorizationType", required=true)
     private Output<String> authorizationType;
 
-    /**
-     * @return Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
 
-    /**
-     * Description for the connection. Maximum of 512 characters.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description for the connection. Maximum of 512 characters.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Parameters to use for invoking a private API. Documented below.
-     * 
-     */
     @Import(name="invocationConnectivityParameters")
     private @Nullable Output<EventConnectionInvocationConnectivityParametersArgs> invocationConnectivityParameters;
 
-    /**
-     * @return Parameters to use for invoking a private API. Documented below.
-     * 
-     */
     public Optional<Output<EventConnectionInvocationConnectivityParametersArgs>> invocationConnectivityParameters() {
         return Optional.ofNullable(this.invocationConnectivityParameters);
     }
 
-    /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-     * 
-     */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
-    /**
-     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-     * 
-     */
     public Optional<Output<String>> kmsKeyIdentifier() {
         return Optional.ofNullable(this.kmsKeyIdentifier);
     }
 
-    /**
-     * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -153,149 +97,65 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
             $ = new EventConnectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authParameters Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authParameters(Output<EventConnectionAuthParametersArgs> authParameters) {
             $.authParameters = authParameters;
             return this;
         }
 
-        /**
-         * @param authParameters Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authParameters(EventConnectionAuthParametersArgs authParameters) {
             return authParameters(Output.of(authParameters));
         }
 
-        /**
-         * @param authorizationType Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(Output<String> authorizationType) {
             $.authorizationType = authorizationType;
             return this;
         }
 
-        /**
-         * @param authorizationType Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(String authorizationType) {
             return authorizationType(Output.of(authorizationType));
         }
 
-        /**
-         * @param description Description for the connection. Maximum of 512 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description for the connection. Maximum of 512 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param invocationConnectivityParameters Parameters to use for invoking a private API. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationConnectivityParameters(@Nullable Output<EventConnectionInvocationConnectivityParametersArgs> invocationConnectivityParameters) {
             $.invocationConnectivityParameters = invocationConnectivityParameters;
             return this;
         }
 
-        /**
-         * @param invocationConnectivityParameters Parameters to use for invoking a private API. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationConnectivityParameters(EventConnectionInvocationConnectivityParametersArgs invocationConnectivityParameters) {
             return invocationConnectivityParameters(Output.of(invocationConnectivityParameters));
         }
 
-        /**
-         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
             $.kmsKeyIdentifier = kmsKeyIdentifier;
             return this;
         }
 
-        /**
-         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
             return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
-        /**
-         * @param name The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

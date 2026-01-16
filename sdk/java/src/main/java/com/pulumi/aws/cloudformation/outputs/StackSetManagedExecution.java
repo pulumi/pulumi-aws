@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetManagedExecution {
-    /**
-     * @return When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-     * 
-     */
     private @Nullable Boolean active;
 
     private StackSetManagedExecution() {}
-    /**
-     * @return When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-     * 
-     */
     public Optional<Boolean> active() {
         return Optional.ofNullable(this.active);
     }

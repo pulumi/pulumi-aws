@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class InputSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key used to extract the password from EC2 Parameter store.
-        /// </summary>
         [Input("passwordParam", required: true)]
         public Input<string> PasswordParam { get; set; } = null!;
 
-        /// <summary>
-        /// The URL where the stream is pulled from.
-        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
-        /// <summary>
-        /// The username for the input source.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

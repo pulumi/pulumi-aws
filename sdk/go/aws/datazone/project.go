@@ -12,102 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS DataZone Project.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainId: testAwsDatazoneDomain.Id,
-//				GlossaryTerms: pulumi.StringArray{
-//					pulumi.String("2N8w6XJCwZf"),
-//				},
-//				Name:              pulumi.String("name"),
-//				Description:       pulumi.String("desc"),
-//				SkipDeletionCheck: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: pulumi.Any(testAwsDatazoneDomain.Id),
-//				Name:             pulumi.String("name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
-// ```
 type Project struct {
 	pulumi.CustomResourceState
 
-	// Timestamp of when the project was made.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Creator of the project.
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Description of project.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
-	// List of error messages if operation cannot be completed.
-	FailureReasons ProjectFailureReasonArrayOutput `pulumi:"failureReasons"`
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-	GlossaryTerms pulumi.StringArrayOutput `pulumi:"glossaryTerms"`
-	// Timestamp of when the project was last updated.
-	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
-	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-	ProjectStatus pulumi.StringOutput `pulumi:"projectStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Optional flag to delete all child entities within the project.
-	SkipDeletionCheck pulumi.BoolPtrOutput     `pulumi:"skipDeletionCheck"`
-	Timeouts          ProjectTimeoutsPtrOutput `pulumi:"timeouts"`
+	CreatedAt         pulumi.StringOutput             `pulumi:"createdAt"`
+	CreatedBy         pulumi.StringOutput             `pulumi:"createdBy"`
+	Description       pulumi.StringPtrOutput          `pulumi:"description"`
+	DomainIdentifier  pulumi.StringOutput             `pulumi:"domainIdentifier"`
+	FailureReasons    ProjectFailureReasonArrayOutput `pulumi:"failureReasons"`
+	GlossaryTerms     pulumi.StringArrayOutput        `pulumi:"glossaryTerms"`
+	LastUpdatedAt     pulumi.StringOutput             `pulumi:"lastUpdatedAt"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	ProjectStatus     pulumi.StringOutput             `pulumi:"projectStatus"`
+	Region            pulumi.StringOutput             `pulumi:"region"`
+	SkipDeletionCheck pulumi.BoolPtrOutput            `pulumi:"skipDeletionCheck"`
+	Timeouts          ProjectTimeoutsPtrOutput        `pulumi:"timeouts"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -143,57 +62,31 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// Timestamp of when the project was made.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Creator of the project.
-	CreatedBy *string `pulumi:"createdBy"`
-	// Description of project.
-	Description *string `pulumi:"description"`
-	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-	DomainIdentifier *string `pulumi:"domainIdentifier"`
-	// List of error messages if operation cannot be completed.
-	FailureReasons []ProjectFailureReason `pulumi:"failureReasons"`
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-	GlossaryTerms []string `pulumi:"glossaryTerms"`
-	// Timestamp of when the project was last updated.
-	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
-	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-	ProjectStatus *string `pulumi:"projectStatus"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Optional flag to delete all child entities within the project.
-	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
-	Timeouts          *ProjectTimeouts `pulumi:"timeouts"`
+	CreatedAt         *string                `pulumi:"createdAt"`
+	CreatedBy         *string                `pulumi:"createdBy"`
+	Description       *string                `pulumi:"description"`
+	DomainIdentifier  *string                `pulumi:"domainIdentifier"`
+	FailureReasons    []ProjectFailureReason `pulumi:"failureReasons"`
+	GlossaryTerms     []string               `pulumi:"glossaryTerms"`
+	LastUpdatedAt     *string                `pulumi:"lastUpdatedAt"`
+	Name              *string                `pulumi:"name"`
+	ProjectStatus     *string                `pulumi:"projectStatus"`
+	Region            *string                `pulumi:"region"`
+	SkipDeletionCheck *bool                  `pulumi:"skipDeletionCheck"`
+	Timeouts          *ProjectTimeouts       `pulumi:"timeouts"`
 }
 
 type ProjectState struct {
-	// Timestamp of when the project was made.
-	CreatedAt pulumi.StringPtrInput
-	// Creator of the project.
-	CreatedBy pulumi.StringPtrInput
-	// Description of project.
-	Description pulumi.StringPtrInput
-	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-	DomainIdentifier pulumi.StringPtrInput
-	// List of error messages if operation cannot be completed.
-	FailureReasons ProjectFailureReasonArrayInput
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-	GlossaryTerms pulumi.StringArrayInput
-	// Timestamp of when the project was last updated.
-	LastUpdatedAt pulumi.StringPtrInput
-	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-	ProjectStatus pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Optional flag to delete all child entities within the project.
+	CreatedAt         pulumi.StringPtrInput
+	CreatedBy         pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	DomainIdentifier  pulumi.StringPtrInput
+	FailureReasons    ProjectFailureReasonArrayInput
+	GlossaryTerms     pulumi.StringArrayInput
+	LastUpdatedAt     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	ProjectStatus     pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	SkipDeletionCheck pulumi.BoolPtrInput
 	Timeouts          ProjectTimeoutsPtrInput
 }
@@ -203,38 +96,22 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// Description of project.
-	Description *string `pulumi:"description"`
-	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-	DomainIdentifier string `pulumi:"domainIdentifier"`
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-	GlossaryTerms []string `pulumi:"glossaryTerms"`
-	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Optional flag to delete all child entities within the project.
+	Description       *string          `pulumi:"description"`
+	DomainIdentifier  string           `pulumi:"domainIdentifier"`
+	GlossaryTerms     []string         `pulumi:"glossaryTerms"`
+	Name              *string          `pulumi:"name"`
+	Region            *string          `pulumi:"region"`
 	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
 	Timeouts          *ProjectTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// Description of project.
-	Description pulumi.StringPtrInput
-	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-	DomainIdentifier pulumi.StringInput
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-	GlossaryTerms pulumi.StringArrayInput
-	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Optional flag to delete all child entities within the project.
+	Description       pulumi.StringPtrInput
+	DomainIdentifier  pulumi.StringInput
+	GlossaryTerms     pulumi.StringArrayInput
+	Name              pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
 	SkipDeletionCheck pulumi.BoolPtrInput
 	Timeouts          ProjectTimeoutsPtrInput
 }
@@ -326,59 +203,46 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// Timestamp of when the project was made.
 func (o ProjectOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Creator of the project.
 func (o ProjectOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Description of project.
 func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 func (o ProjectOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
-// List of error messages if operation cannot be completed.
 func (o ProjectOutput) FailureReasons() ProjectFailureReasonArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectFailureReasonArrayOutput { return v.FailureReasons }).(ProjectFailureReasonArrayOutput)
 }
 
-// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 func (o ProjectOutput) GlossaryTerms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringArrayOutput { return v.GlossaryTerms }).(pulumi.StringArrayOutput)
 }
 
-// Timestamp of when the project was last updated.
 func (o ProjectOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
-//
-// The following arguments are optional:
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 func (o ProjectOutput) ProjectStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectStatus }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Optional flag to delete all child entities within the project.
 func (o ProjectOutput) SkipDeletionCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.BoolPtrOutput { return v.SkipDeletionCheck }).(pulumi.BoolPtrOutput)
 }

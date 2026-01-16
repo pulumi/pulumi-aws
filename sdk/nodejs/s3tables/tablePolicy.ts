@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an Amazon S3 Tables Table Policy.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ## Import
- *
- * Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
- *
- * ```sh
- * $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
- * ```
- */
 export class TablePolicy extends pulumi.CustomResource {
     /**
      * Get an existing TablePolicy resource's state with the given name, ID, and optional extra
@@ -47,29 +32,10 @@ export class TablePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TablePolicy.__pulumiType;
     }
 
-    /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     declare public readonly namespace: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     */
     declare public readonly resourcePolicy: pulumi.Output<string>;
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     */
     declare public readonly tableBucketArn: pulumi.Output<string>;
 
     /**
@@ -116,29 +82,10 @@ export class TablePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TablePolicy resources.
  */
 export interface TablePolicyState {
-    /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     */
     resourcePolicy?: pulumi.Input<string>;
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     */
     tableBucketArn?: pulumi.Input<string>;
 }
 
@@ -146,28 +93,9 @@ export interface TablePolicyState {
  * The set of arguments for constructing a TablePolicy resource.
  */
 export interface TablePolicyArgs {
-    /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     */
     namespace: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Amazon Web Services resource-based policy document in JSON format.
-     */
     resourcePolicy: pulumi.Input<string>;
-    /**
-     * ARN referencing the Table Bucket that contains this Namespace.
-     */
     tableBucketArn: pulumi.Input<string>;
 }

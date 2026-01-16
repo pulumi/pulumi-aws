@@ -28,13 +28,6 @@ class ReservedInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReservedInstance resource.
-        :param pulumi.Input[_builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "offering_id", offering_id)
         if instance_count is not None:
@@ -49,11 +42,6 @@ class ReservedInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="offeringId")
     def offering_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "offering_id")
 
     @offering_id.setter
@@ -63,9 +51,6 @@ class ReservedInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of instances to reserve. Default value is `1`.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -75,9 +60,6 @@ class ReservedInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -87,9 +69,6 @@ class ReservedInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customer-specified identifier to track this reservation.
-        """
         return pulumi.get(self, "reservation_id")
 
     @reservation_id.setter
@@ -99,9 +78,6 @@ class ReservedInstanceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -133,27 +109,6 @@ class _ReservedInstanceState:
                  usage_price: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ReservedInstance resources.
-        :param pulumi.Input[_builtins.str] arn: ARN for the reserved DB instance.
-        :param pulumi.Input[_builtins.str] currency_code: Currency code for the reserved DB instance.
-        :param pulumi.Input[_builtins.str] db_instance_class: DB instance class for the reserved DB instance.
-        :param pulumi.Input[_builtins.int] duration: Duration of the reservation in seconds.
-        :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved DB instance.
-        :param pulumi.Input[_builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
-        :param pulumi.Input[_builtins.str] lease_id: Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        :param pulumi.Input[_builtins.bool] multi_az: Whether the reservation applies to Multi-AZ deployments.
-        :param pulumi.Input[_builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved DB instance.
-        :param pulumi.Input[_builtins.str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
-        :param pulumi.Input[_builtins.str] start_time: Time the reservation started.
-        :param pulumi.Input[_builtins.str] state: State of the reserved DB instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.float] usage_price: Hourly price charged for this reserved DB instance.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -197,9 +152,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN for the reserved DB instance.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -209,9 +161,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="currencyCode")
     def currency_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Currency code for the reserved DB instance.
-        """
         return pulumi.get(self, "currency_code")
 
     @currency_code.setter
@@ -221,9 +170,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        DB instance class for the reserved DB instance.
-        """
         return pulumi.get(self, "db_instance_class")
 
     @db_instance_class.setter
@@ -233,9 +179,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Duration of the reservation in seconds.
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -245,9 +188,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
     def fixed_price(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Fixed price charged for this reserved DB instance.
-        """
         return pulumi.get(self, "fixed_price")
 
     @fixed_price.setter
@@ -257,9 +197,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of instances to reserve. Default value is `1`.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -269,9 +206,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="leaseId")
     def lease_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        """
         return pulumi.get(self, "lease_id")
 
     @lease_id.setter
@@ -281,9 +215,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Whether the reservation applies to Multi-AZ deployments.
-        """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
@@ -293,11 +224,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="offeringId")
     def offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "offering_id")
 
     @offering_id.setter
@@ -307,9 +233,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="offeringType")
     def offering_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Offering type of this reserved DB instance.
-        """
         return pulumi.get(self, "offering_type")
 
     @offering_type.setter
@@ -319,9 +242,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="productDescription")
     def product_description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the reserved DB instance.
-        """
         return pulumi.get(self, "product_description")
 
     @product_description.setter
@@ -331,9 +251,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="recurringCharges")
     def recurring_charges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]:
-        """
-        Recurring price charged to run this reserved DB instance.
-        """
         return pulumi.get(self, "recurring_charges")
 
     @recurring_charges.setter
@@ -343,9 +260,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -355,9 +269,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Customer-specified identifier to track this reservation.
-        """
         return pulumi.get(self, "reservation_id")
 
     @reservation_id.setter
@@ -367,9 +278,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Time the reservation started.
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -379,9 +287,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        State of the reserved DB instance.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -391,9 +296,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -403,9 +305,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -415,9 +314,6 @@ class _ReservedInstanceState:
     @_builtins.property
     @pulumi.getter(name="usagePrice")
     def usage_price(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        Hourly price charged for this reserved DB instance.
-        """
         return pulumi.get(self, "usage_price")
 
     @usage_price.setter
@@ -438,46 +334,9 @@ class ReservedInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an RDS DB Reserved Instance.
-
-        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
-
-        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-            duration=31536000,
-            multi_az=False,
-            offering_type="All Upfront",
-            product_description="mysql")
-        example = aws.rds.ReservedInstance("example",
-            offering_id=test.offering_id,
-            reservation_id="optionalCustomReservationID",
-            instance_count=3)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-        ```
-
+        Create a ReservedInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
-        :param pulumi.Input[_builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -486,37 +345,7 @@ class ReservedInstance(pulumi.CustomResource):
                  args: ReservedInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an RDS DB Reserved Instance.
-
-        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
-
-        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-            duration=31536000,
-            multi_az=False,
-            offering_type="All Upfront",
-            product_description="mysql")
-        example = aws.rds.ReservedInstance("example",
-            offering_id=test.offering_id,
-            reservation_id="optionalCustomReservationID",
-            instance_count=3)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
-
-        ```sh
-        $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-        ```
-
+        Create a ReservedInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReservedInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -603,27 +432,6 @@ class ReservedInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN for the reserved DB instance.
-        :param pulumi.Input[_builtins.str] currency_code: Currency code for the reserved DB instance.
-        :param pulumi.Input[_builtins.str] db_instance_class: DB instance class for the reserved DB instance.
-        :param pulumi.Input[_builtins.int] duration: Duration of the reservation in seconds.
-        :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved DB instance.
-        :param pulumi.Input[_builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
-        :param pulumi.Input[_builtins.str] lease_id: Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        :param pulumi.Input[_builtins.bool] multi_az: Whether the reservation applies to Multi-AZ deployments.
-        :param pulumi.Input[_builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved DB instance.
-        :param pulumi.Input[_builtins.str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
-        :param pulumi.Input[_builtins.str] start_time: Time the reservation started.
-        :param pulumi.Input[_builtins.str] state: State of the reserved DB instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.float] usage_price: Hourly price charged for this reserved DB instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -653,154 +461,95 @@ class ReservedInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN for the reserved DB instance.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="currencyCode")
     def currency_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        Currency code for the reserved DB instance.
-        """
         return pulumi.get(self, "currency_code")
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> pulumi.Output[_builtins.str]:
-        """
-        DB instance class for the reserved DB instance.
-        """
         return pulumi.get(self, "db_instance_class")
 
     @_builtins.property
     @pulumi.getter
     def duration(self) -> pulumi.Output[_builtins.int]:
-        """
-        Duration of the reservation in seconds.
-        """
         return pulumi.get(self, "duration")
 
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
     def fixed_price(self) -> pulumi.Output[_builtins.float]:
-        """
-        Fixed price charged for this reserved DB instance.
-        """
         return pulumi.get(self, "fixed_price")
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Number of instances to reserve. Default value is `1`.
-        """
         return pulumi.get(self, "instance_count")
 
     @_builtins.property
     @pulumi.getter(name="leaseId")
     def lease_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
-        """
         return pulumi.get(self, "lease_id")
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Whether the reservation applies to Multi-AZ deployments.
-        """
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
     def offering_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "offering_id")
 
     @_builtins.property
     @pulumi.getter(name="offeringType")
     def offering_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Offering type of this reserved DB instance.
-        """
         return pulumi.get(self, "offering_type")
 
     @_builtins.property
     @pulumi.getter(name="productDescription")
     def product_description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the reserved DB instance.
-        """
         return pulumi.get(self, "product_description")
 
     @_builtins.property
     @pulumi.getter(name="recurringCharges")
     def recurring_charges(self) -> pulumi.Output[Sequence['outputs.ReservedInstanceRecurringCharge']]:
-        """
-        Recurring price charged to run this reserved DB instance.
-        """
         return pulumi.get(self, "recurring_charges")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Customer-specified identifier to track this reservation.
-        """
         return pulumi.get(self, "reservation_id")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        Time the reservation started.
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
-        """
-        State of the reserved DB instance.
-        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="usagePrice")
     def usage_price(self) -> pulumi.Output[_builtins.float]:
-        """
-        Hourly price charged for this reserved DB instance.
-        """
         return pulumi.get(self, "usage_price")
 

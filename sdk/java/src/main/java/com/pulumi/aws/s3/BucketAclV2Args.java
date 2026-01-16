@@ -17,77 +17,37 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketAclV2Args Empty = new BucketAclV2Args();
 
-    /**
-     * Configuration block that sets the ACL permissions for an object per grantee. See below.
-     * 
-     */
     @Import(name="accessControlPolicy")
     private @Nullable Output<BucketAclV2AccessControlPolicyArgs> accessControlPolicy;
 
-    /**
-     * @return Configuration block that sets the ACL permissions for an object per grantee. See below.
-     * 
-     */
     public Optional<Output<BucketAclV2AccessControlPolicyArgs>> accessControlPolicy() {
         return Optional.ofNullable(this.accessControlPolicy);
     }
 
-    /**
-     * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-     * 
-     */
     @Import(name="acl")
     private @Nullable Output<String> acl;
 
-    /**
-     * @return Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-     * 
-     */
     public Optional<Output<String>> acl() {
         return Optional.ofNullable(this.acl);
     }
 
-    /**
-     * Bucket to which to apply the ACL.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Bucket to which to apply the ACL.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return Account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -120,107 +80,47 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
             $ = new BucketAclV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessControlPolicy Configuration block that sets the ACL permissions for an object per grantee. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlPolicy(@Nullable Output<BucketAclV2AccessControlPolicyArgs> accessControlPolicy) {
             $.accessControlPolicy = accessControlPolicy;
             return this;
         }
 
-        /**
-         * @param accessControlPolicy Configuration block that sets the ACL permissions for an object per grantee. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlPolicy(BucketAclV2AccessControlPolicyArgs accessControlPolicy) {
             return accessControlPolicy(Output.of(accessControlPolicy));
         }
 
-        /**
-         * @param acl Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-         * 
-         * @return builder
-         * 
-         */
         public Builder acl(@Nullable Output<String> acl) {
             $.acl = acl;
             return this;
         }
 
-        /**
-         * @param acl Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-         * 
-         * @return builder
-         * 
-         */
         public Builder acl(String acl) {
             return acl(Output.of(acl));
         }
 
-        /**
-         * @param bucket Bucket to which to apply the ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Bucket to which to apply the ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner Account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

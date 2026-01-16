@@ -7,56 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Comprehend Entity Recognizer.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const documents = new aws.s3.BucketObjectv2("documents", {});
- * const entities = new aws.s3.BucketObjectv2("entities", {});
- * const example = new aws.comprehend.EntityRecognizer("example", {
- *     name: "example",
- *     dataAccessRoleArn: exampleAwsIamRole.arn,
- *     languageCode: "en",
- *     inputDataConfig: {
- *         entityTypes: [
- *             {
- *                 type: "ENTITY_1",
- *             },
- *             {
- *                 type: "ENTITY_2",
- *             },
- *         ],
- *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.key}`,
- *         },
- *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.key}`,
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleAwsIamRolePolicy],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the Comprehend entity recognizer.
- *
- * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
- *
- * % pulumi import aws_comprehend_entity_recognizer.example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
- */
 export class EntityRecognizer extends pulumi.CustomResource {
     /**
      * Get an existing EntityRecognizer resource's state with the given name, ID, and optional extra
@@ -85,73 +35,18 @@ export class EntityRecognizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === EntityRecognizer.__pulumiType;
     }
 
-    /**
-     * ARN of the Entity Recognizer version.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-     */
     declare public readonly dataAccessRoleArn: pulumi.Output<string>;
-    /**
-     * Configuration for the training and testing data.
-     * See the `inputDataConfig` Configuration Block section below.
-     */
     declare public readonly inputDataConfig: pulumi.Output<outputs.comprehend.EntityRecognizerInputDataConfig>;
-    /**
-     * Two-letter language code for the language.
-     * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-     */
     declare public readonly languageCode: pulumi.Output<string>;
-    /**
-     * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
-     */
     declare public readonly modelKmsKeyId: pulumi.Output<string | undefined>;
-    /**
-     * Name for the Entity Recognizer.
-     * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     *
-     * The following arguments are optional:
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Name for the version of the Entity Recognizer.
-     * Each version must have a unique name within the Entity Recognizer.
-     * If omitted, the provider will assign a random, unique version name.
-     * If explicitly set to `""`, no version name will be set.
-     * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `versionNamePrefix`.
-     */
     declare public readonly versionName: pulumi.Output<string>;
-    /**
-     * Creates a unique version name beginning with the specified prefix.
-     * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `versionName`.
-     */
     declare public readonly versionNamePrefix: pulumi.Output<string>;
-    /**
-     * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-     */
     declare public readonly volumeKmsKeyId: pulumi.Output<string | undefined>;
-    /**
-     * Configuration parameters for VPC to contain Entity Recognizer resources.
-     * See the `vpcConfig` Configuration Block section below.
-     */
     declare public readonly vpcConfig: pulumi.Output<outputs.comprehend.EntityRecognizerVpcConfig | undefined>;
 
     /**
@@ -214,73 +109,18 @@ export class EntityRecognizer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EntityRecognizer resources.
  */
 export interface EntityRecognizerState {
-    /**
-     * ARN of the Entity Recognizer version.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-     */
     dataAccessRoleArn?: pulumi.Input<string>;
-    /**
-     * Configuration for the training and testing data.
-     * See the `inputDataConfig` Configuration Block section below.
-     */
     inputDataConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerInputDataConfig>;
-    /**
-     * Two-letter language code for the language.
-     * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-     */
     languageCode?: pulumi.Input<string>;
-    /**
-     * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
-     */
     modelKmsKeyId?: pulumi.Input<string>;
-    /**
-     * Name for the Entity Recognizer.
-     * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name for the version of the Entity Recognizer.
-     * Each version must have a unique name within the Entity Recognizer.
-     * If omitted, the provider will assign a random, unique version name.
-     * If explicitly set to `""`, no version name will be set.
-     * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `versionNamePrefix`.
-     */
     versionName?: pulumi.Input<string>;
-    /**
-     * Creates a unique version name beginning with the specified prefix.
-     * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `versionName`.
-     */
     versionNamePrefix?: pulumi.Input<string>;
-    /**
-     * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-     */
     volumeKmsKeyId?: pulumi.Input<string>;
-    /**
-     * Configuration parameters for VPC to contain Entity Recognizer resources.
-     * See the `vpcConfig` Configuration Block section below.
-     */
     vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig>;
 }
 
@@ -288,64 +128,15 @@ export interface EntityRecognizerState {
  * The set of arguments for constructing a EntityRecognizer resource.
  */
 export interface EntityRecognizerArgs {
-    /**
-     * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-     */
     dataAccessRoleArn: pulumi.Input<string>;
-    /**
-     * Configuration for the training and testing data.
-     * See the `inputDataConfig` Configuration Block section below.
-     */
     inputDataConfig: pulumi.Input<inputs.comprehend.EntityRecognizerInputDataConfig>;
-    /**
-     * Two-letter language code for the language.
-     * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-     */
     languageCode: pulumi.Input<string>;
-    /**
-     * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
-     */
     modelKmsKeyId?: pulumi.Input<string>;
-    /**
-     * Name for the Entity Recognizer.
-     * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     *
-     * The following arguments are optional:
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name for the version of the Entity Recognizer.
-     * Each version must have a unique name within the Entity Recognizer.
-     * If omitted, the provider will assign a random, unique version name.
-     * If explicitly set to `""`, no version name will be set.
-     * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `versionNamePrefix`.
-     */
     versionName?: pulumi.Input<string>;
-    /**
-     * Creates a unique version name beginning with the specified prefix.
-     * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `versionName`.
-     */
     versionNamePrefix?: pulumi.Input<string>;
-    /**
-     * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-     */
     volumeKmsKeyId?: pulumi.Input<string>;
-    /**
-     * Configuration parameters for VPC to contain Entity Recognizer resources.
-     * See the `vpcConfig` Configuration Block section below.
-     */
     vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig>;
 }

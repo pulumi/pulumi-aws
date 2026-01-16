@@ -9,355 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides an EventBridge connection resource.
-    /// 
-    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "API_KEY",
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
-    ///             {
-    ///                 Key = "x-signature",
-    ///                 Value = "1234",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Basic Authorization
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
-    ///             {
-    ///                 Username = "user",
-    ///                 Password = "Pass1234!",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### OAuth Authorization
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
-    ///             {
-    ///                 AuthorizationEndpoint = "https://auth.url.com/endpoint",
-    ///                 HttpMethod = "GET",
-    ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
-    ///                 {
-    ///                     ClientId = "1234567890",
-    ///                     ClientSecret = "Pass1234!",
-    ///                 },
-    ///                 OauthHttpParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs
-    ///                 {
-    ///                     Bodies = new[]
-    ///                     {
-    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs
-    ///                         {
-    ///                             Key = "body-parameter-key",
-    ///                             Value = "body-parameter-value",
-    ///                             IsValueSecret = false,
-    ///                         },
-    ///                     },
-    ///                     Headers = new[]
-    ///                     {
-    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs
-    ///                         {
-    ///                             Key = "header-parameter-key",
-    ///                             Value = "header-parameter-value",
-    ///                             IsValueSecret = false,
-    ///                         },
-    ///                     },
-    ///                     QueryStrings = new[]
-    ///                     {
-    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs
-    ///                         {
-    ///                             Key = "query-string-parameter-key",
-    ///                             Value = "query-string-parameter-value",
-    ///                             IsValueSecret = false,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Invocation Http Parameters
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
-    ///             {
-    ///                 Username = "user",
-    ///                 Password = "Pass1234!",
-    ///             },
-    ///             InvocationHttpParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersArgs
-    ///             {
-    ///                 Bodies = new[]
-    ///                 {
-    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs
-    ///                     {
-    ///                         Key = "body-parameter-key",
-    ///                         Value = "body-parameter-value",
-    ///                         IsValueSecret = false,
-    ///                     },
-    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs
-    ///                     {
-    ///                         Key = "body-parameter-key2",
-    ///                         Value = "body-parameter-value2",
-    ///                         IsValueSecret = true,
-    ///                     },
-    ///                 },
-    ///                 Headers = new[]
-    ///                 {
-    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs
-    ///                     {
-    ///                         Key = "header-parameter-key",
-    ///                         Value = "header-parameter-value",
-    ///                         IsValueSecret = false,
-    ///                     },
-    ///                 },
-    ///                 QueryStrings = new[]
-    ///                 {
-    ///                     new Aws.CloudWatch.Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs
-    ///                     {
-    ///                         Key = "query-string-parameter-key",
-    ///                         Value = "query-string-parameter-value",
-    ///                         IsValueSecret = false,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### CMK Encryption
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var test = new Aws.Kms.Key("test", new()
-    ///     {
-    ///         DeletionWindowInDays = 7,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Id"] = "key-policy-example",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Enable IAM User Permissions",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
-    ///                         {
-    ///                             var currentGetPartition = values.Item1;
-    ///                             var current = values.Item2;
-    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
-    ///                         }),
-    ///                     },
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "Allow use of the key",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
-    ///                         {
-    ///                             var currentGetPartition = values.Item1;
-    ///                             var current = values.Item2;
-    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
-    ///                         }),
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "kms:DescribeKey",
-    ///                         "kms:Decrypt",
-    ///                         "kms:GenerateDataKey",
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["StringLike"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["kms:ViaService"] = "secretsmanager.*.amazonaws.com",
-    ///                             ["kms:EncryptionContext:SecretARN"] = new[]
-    ///                             {
-    ///                                 "arn:aws:secretsmanager:*:*:secret:events!connection/*",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///         Tags = 
-    ///         {
-    ///             { "EventBridgeApiDestinations", "true" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testEventConnection = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
-    ///             {
-    ///                 Username = "user",
-    ///                 Password = "Pass1234!",
-    ///             },
-    ///         },
-    ///         KmsKeyIdentifier = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/eventConnection:EventConnection")]
     public partial class EventConnection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        /// </summary>
         [Output("authParameters")]
         public Output<Outputs.EventConnectionAuthParameters> AuthParameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        /// </summary>
         [Output("authorizationType")]
         public Output<string> AuthorizationType { get; private set; } = null!;
 
-        /// <summary>
-        /// Description for the connection. Maximum of 512 characters.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Parameters to use for invoking a private API. Documented below.
-        /// </summary>
         [Output("invocationConnectivityParameters")]
         public Output<Outputs.EventConnectionInvocationConnectivityParameters?> InvocationConnectivityParameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-        /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
 
@@ -407,45 +85,24 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        /// </summary>
         [Input("authParameters", required: true)]
         public Input<Inputs.EventConnectionAuthParametersArgs> AuthParameters { get; set; } = null!;
 
-        /// <summary>
-        /// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;
 
-        /// <summary>
-        /// Description for the connection. Maximum of 512 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Parameters to use for invoking a private API. Documented below.
-        /// </summary>
         [Input("invocationConnectivityParameters")]
         public Input<Inputs.EventConnectionInvocationConnectivityParametersArgs>? InvocationConnectivityParameters { get; set; }
 
-        /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 
-        /// <summary>
-        /// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -457,57 +114,30 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        /// </summary>
         [Input("authParameters")]
         public Input<Inputs.EventConnectionAuthParametersGetArgs>? AuthParameters { get; set; }
 
-        /// <summary>
-        /// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
 
-        /// <summary>
-        /// Description for the connection. Maximum of 512 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Parameters to use for invoking a private API. Documented below.
-        /// </summary>
         [Input("invocationConnectivityParameters")]
         public Input<Inputs.EventConnectionInvocationConnectivityParametersGetArgs>? InvocationConnectivityParameters { get; set; }
 
-        /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
-        /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 
-        /// <summary>
-        /// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 

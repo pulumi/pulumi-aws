@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CertificateAuthorityCertificateAuthorityConfiguration {
-    /**
-     * @return Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-     * 
-     */
     private String keyAlgorithm;
-    /**
-     * @return Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-     * 
-     */
     private String signingAlgorithm;
-    /**
-     * @return Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-     * 
-     */
     private CertificateAuthorityCertificateAuthorityConfigurationSubject subject;
 
     private CertificateAuthorityCertificateAuthorityConfiguration() {}
-    /**
-     * @return Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-     * 
-     */
     public String keyAlgorithm() {
         return this.keyAlgorithm;
     }
-    /**
-     * @return Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-     * 
-     */
     public String signingAlgorithm() {
         return this.signingAlgorithm;
     }
-    /**
-     * @return Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-     * 
-     */
     public CertificateAuthorityCertificateAuthorityConfigurationSubject subject() {
         return this.subject;
     }

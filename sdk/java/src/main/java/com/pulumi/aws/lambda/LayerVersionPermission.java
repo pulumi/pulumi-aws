@@ -16,347 +16,65 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Lambda Layer Version Permission. Use this resource to share Lambda Layers with other AWS accounts, organizations, or make them publicly accessible.
- * 
- * For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer).
- * 
- * &gt; **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
- * 
- * ## Example Usage
- * 
- * ### Share Layer with Specific Account
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.LayerVersion;
- * import com.pulumi.aws.lambda.LayerVersionArgs;
- * import com.pulumi.aws.lambda.LayerVersionPermission;
- * import com.pulumi.aws.lambda.LayerVersionPermissionArgs;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Lambda layer to share
- *         var example = new LayerVersion("example", LayerVersionArgs.builder()
- *             .code(new FileArchive("layer.zip"))
- *             .layerName("shared_utilities")
- *             .description("Common utilities for Lambda functions")
- *             .compatibleRuntimes(            
- *                 "nodejs20.x",
- *                 "python3.12")
- *             .build());
- * 
- *         // Grant permission to specific AWS account
- *         var exampleLayerVersionPermission = new LayerVersionPermission("exampleLayerVersionPermission", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
- *             .principal("123456789012")
- *             .action("lambda:GetLayerVersion")
- *             .statementId("dev-account-access")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Share Layer with Organization
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.LayerVersionPermission;
- * import com.pulumi.aws.lambda.LayerVersionPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LayerVersionPermission("example", LayerVersionPermissionArgs.builder()
- *             .layerName(exampleAwsLambdaLayerVersion.layerName())
- *             .versionNumber(exampleAwsLambdaLayerVersion.version())
- *             .principal("*")
- *             .organizationId("o-1234567890")
- *             .action("lambda:GetLayerVersion")
- *             .statementId("org-wide-access")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Share Layer Publicly
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.LayerVersionPermission;
- * import com.pulumi.aws.lambda.LayerVersionPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LayerVersionPermission("example", LayerVersionPermissionArgs.builder()
- *             .layerName(exampleAwsLambdaLayerVersion.layerName())
- *             .versionNumber(exampleAwsLambdaLayerVersion.version())
- *             .principal("*")
- *             .action("lambda:GetLayerVersion")
- *             .statementId("public-access")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multiple Account Access
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.LayerVersionPermission;
- * import com.pulumi.aws.lambda.LayerVersionPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Share with multiple specific accounts
- *         var devAccount = new LayerVersionPermission("devAccount", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
- *             .principal("111111111111")
- *             .action("lambda:GetLayerVersion")
- *             .statementId("dev-account")
- *             .build());
- * 
- *         var stagingAccount = new LayerVersionPermission("stagingAccount", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
- *             .principal("222222222222")
- *             .action("lambda:GetLayerVersion")
- *             .statementId("staging-account")
- *             .build());
- * 
- *         var prodAccount = new LayerVersionPermission("prodAccount", LayerVersionPermissionArgs.builder()
- *             .layerName(example.layerName())
- *             .versionNumber(example.version())
- *             .principal("333333333333")
- *             .action("lambda:GetLayerVersion")
- *             .statementId("prod-account")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * For backwards compatibility, the following legacy `pulumi import` command is also supported:
- * 
- * ```sh
- * $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456789012:layer:shared_utilities,1
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/layerVersionPermission:LayerVersionPermission")
 public class LayerVersionPermission extends com.pulumi.resources.CustomResource {
-    /**
-     * Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
-    /**
-     * @return Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
-    /**
-     * Name or ARN of the Lambda Layer.
-     * 
-     */
     @Export(name="layerName", refs={String.class}, tree="[0]")
     private Output<String> layerName;
 
-    /**
-     * @return Name or ARN of the Lambda Layer.
-     * 
-     */
     public Output<String> layerName() {
         return this.layerName;
     }
-    /**
-     * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
-     * 
-     */
     @Export(name="organizationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationId;
 
-    /**
-     * @return AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
-     * 
-     */
     public Output<Optional<String>> organizationId() {
         return Codegen.optional(this.organizationId);
     }
-    /**
-     * Full Lambda Layer Permission policy.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Full Lambda Layer Permission policy.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Unique identifier for the current revision of the policy.
-     * 
-     */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
-    /**
-     * @return Unique identifier for the current revision of the policy.
-     * 
-     */
     public Output<String> revisionId() {
         return this.revisionId;
     }
-    /**
-     * Whether to retain the permission when the resource is destroyed. Default is `false`.
-     * 
-     */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
-    /**
-     * @return Whether to retain the permission when the resource is destroyed. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
-    /**
-     * Unique identifier for the permission statement.
-     * 
-     */
     @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
-    /**
-     * @return Unique identifier for the permission statement.
-     * 
-     */
     public Output<String> statementId() {
         return this.statementId;
     }
-    /**
-     * Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
-    /**
-     * @return Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Integer> versionNumber() {
         return this.versionNumber;
     }

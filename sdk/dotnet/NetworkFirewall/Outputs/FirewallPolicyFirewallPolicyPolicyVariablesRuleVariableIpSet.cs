@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet
     {
-        /// <summary>
-        /// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-        /// </summary>
         public readonly ImmutableArray<string> Definitions;
 
         [OutputConstructor]

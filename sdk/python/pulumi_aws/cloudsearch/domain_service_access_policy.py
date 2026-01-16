@@ -24,9 +24,6 @@ class DomainServiceAccessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainServiceAccessPolicy resource.
-        :param pulumi.Input[_builtins.str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[_builtins.str] domain_name: The CloudSearch domain name the policy applies to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_policy", access_policy)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -36,9 +33,6 @@ class DomainServiceAccessPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Input[_builtins.str]:
-        """
-        The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -48,9 +42,6 @@ class DomainServiceAccessPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The CloudSearch domain name the policy applies to.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -60,9 +51,6 @@ class DomainServiceAccessPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -78,9 +66,6 @@ class _DomainServiceAccessPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainServiceAccessPolicy resources.
-        :param pulumi.Input[_builtins.str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[_builtins.str] domain_name: The CloudSearch domain name the policy applies to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -92,9 +77,6 @@ class _DomainServiceAccessPolicyState:
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -104,9 +86,6 @@ class _DomainServiceAccessPolicyState:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The CloudSearch domain name the policy applies to.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -116,9 +95,6 @@ class _DomainServiceAccessPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -137,52 +113,9 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an CloudSearch domain service access policy resource.
-
-        The provider waits for the domain service access policy to become `Active` when applying a configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.cloudsearch.Domain("example", name="example-domain")
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "search_only",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": [
-                "cloudsearch:search",
-                "cloudsearch:document",
-            ],
-            "conditions": [{
-                "test": "IpAddress",
-                "variable": "aws:SourceIp",
-                "values": ["192.0.2.0/32"],
-            }],
-        }])
-        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("example",
-            domain_name=example_domain.id,
-            access_policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
-
-        ```sh
-        $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-        ```
-
+        Create a DomainServiceAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[_builtins.str] domain_name: The CloudSearch domain name the policy applies to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -191,47 +124,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  args: DomainServiceAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an CloudSearch domain service access policy resource.
-
-        The provider waits for the domain service access policy to become `Active` when applying a configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.cloudsearch.Domain("example", name="example-domain")
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "search_only",
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": [
-                "cloudsearch:search",
-                "cloudsearch:document",
-            ],
-            "conditions": [{
-                "test": "IpAddress",
-                "variable": "aws:SourceIp",
-                "values": ["192.0.2.0/32"],
-            }],
-        }])
-        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("example",
-            domain_name=example_domain.id,
-            access_policy=example.json)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
-
-        ```sh
-        $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-        ```
-
+        Create a DomainServiceAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainServiceAccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,9 +179,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[_builtins.str] domain_name: The CloudSearch domain name the policy applies to.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -302,24 +192,15 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[_builtins.str]:
-        """
-        The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        """
         return pulumi.get(self, "access_policy")
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The CloudSearch domain name the policy applies to.
-        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 

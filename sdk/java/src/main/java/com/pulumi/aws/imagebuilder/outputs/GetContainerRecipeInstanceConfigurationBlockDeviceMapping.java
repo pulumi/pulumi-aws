@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContainerRecipeInstanceConfigurationBlockDeviceMapping {
-    /**
-     * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Single list of object with Elastic Block Storage (EBS) block device mapping settings.
-     * 
-     */
     private List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs;
-    /**
-     * @return Whether to remove a mapping from the parent image.
-     * 
-     */
     private String noDevice;
-    /**
-     * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-     * 
-     */
     private String virtualName;
 
     private GetContainerRecipeInstanceConfigurationBlockDeviceMapping() {}
-    /**
-     * @return Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Single list of object with Elastic Block Storage (EBS) block device mapping settings.
-     * 
-     */
     public List<GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb> ebs() {
         return this.ebs;
     }
-    /**
-     * @return Whether to remove a mapping from the parent image.
-     * 
-     */
     public String noDevice() {
         return this.noDevice;
     }
-    /**
-     * @return Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-     * 
-     */
     public String virtualName() {
         return this.virtualName;
     }

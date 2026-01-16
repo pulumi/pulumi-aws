@@ -9,67 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryReadiness
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Readiness Recovery Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.RecoveryGroup("example", new()
-    ///     {
-    ///         RecoveryGroupName = "my-high-availability-app",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")]
     public partial class RecoveryGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the recovery group
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// List of cell arns to add as nested fault domains within this recovery group
-        /// </summary>
         [Output("cells")]
         public Output<ImmutableArray<string>> Cells { get; private set; } = null!;
 
-        /// <summary>
-        /// A unique name describing the recovery group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("recoveryGroupName")]
         public Output<string> RecoveryGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -121,30 +75,17 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     {
         [Input("cells")]
         private InputList<string>? _cells;
-
-        /// <summary>
-        /// List of cell arns to add as nested fault domains within this recovery group
-        /// </summary>
         public InputList<string> Cells
         {
             get => _cells ?? (_cells = new InputList<string>());
             set => _cells = value;
         }
 
-        /// <summary>
-        /// A unique name describing the recovery group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("recoveryGroupName", required: true)]
         public Input<string> RecoveryGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,38 +100,22 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class RecoveryGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the recovery group
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("cells")]
         private InputList<string>? _cells;
-
-        /// <summary>
-        /// List of cell arns to add as nested fault domains within this recovery group
-        /// </summary>
         public InputList<string> Cells
         {
             get => _cells ?? (_cells = new InputList<string>());
             set => _cells = value;
         }
 
-        /// <summary>
-        /// A unique name describing the recovery group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("recoveryGroupName")]
         public Input<string>? RecoveryGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -199,10 +124,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

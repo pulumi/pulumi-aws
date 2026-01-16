@@ -12,89 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Device Farm Network Profiles.
-// ∂
-// > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devicefarm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := devicefarm.NewProject(ctx, "example", &devicefarm.ProjectArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devicefarm.NewNetworkProfile(ctx, "example", &devicefarm.NetworkProfileArgs{
-//				Name:       pulumi.String("example"),
-//				ProjectArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
-//
-// Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
-//
-// % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this network profile.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the network profile.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	DownlinkBandwidthBits pulumi.IntPtrOutput `pulumi:"downlinkBandwidthBits"`
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	DownlinkDelayMs pulumi.IntPtrOutput `pulumi:"downlinkDelayMs"`
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	DownlinkJitterMs pulumi.IntPtrOutput `pulumi:"downlinkJitterMs"`
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	DownlinkLossPercent pulumi.IntPtrOutput `pulumi:"downlinkLossPercent"`
-	// The name for the network profile.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ARN of the project for the network profile.
-	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	UplinkBandwidthBits pulumi.IntPtrOutput `pulumi:"uplinkBandwidthBits"`
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	UplinkDelayMs pulumi.IntPtrOutput `pulumi:"uplinkDelayMs"`
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	UplinkJitterMs pulumi.IntPtrOutput `pulumi:"uplinkJitterMs"`
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	UplinkLossPercent pulumi.IntPtrOutput `pulumi:"uplinkLossPercent"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	DownlinkBandwidthBits pulumi.IntPtrOutput    `pulumi:"downlinkBandwidthBits"`
+	DownlinkDelayMs       pulumi.IntPtrOutput    `pulumi:"downlinkDelayMs"`
+	DownlinkJitterMs      pulumi.IntPtrOutput    `pulumi:"downlinkJitterMs"`
+	DownlinkLossPercent   pulumi.IntPtrOutput    `pulumi:"downlinkLossPercent"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	ProjectArn            pulumi.StringOutput    `pulumi:"projectArn"`
+	Region                pulumi.StringOutput    `pulumi:"region"`
+	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type                  pulumi.StringPtrOutput `pulumi:"type"`
+	UplinkBandwidthBits   pulumi.IntPtrOutput    `pulumi:"uplinkBandwidthBits"`
+	UplinkDelayMs         pulumi.IntPtrOutput    `pulumi:"uplinkDelayMs"`
+	UplinkJitterMs        pulumi.IntPtrOutput    `pulumi:"uplinkJitterMs"`
+	UplinkLossPercent     pulumi.IntPtrOutput    `pulumi:"uplinkLossPercent"`
 }
 
 // NewNetworkProfile registers a new resource with the given unique name, arguments, and options.
@@ -130,73 +66,41 @@ func GetNetworkProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkProfile resources.
 type networkProfileState struct {
-	// The Amazon Resource Name of this network profile.
-	Arn *string `pulumi:"arn"`
-	// The description of the network profile.
-	Description *string `pulumi:"description"`
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	DownlinkBandwidthBits *int `pulumi:"downlinkBandwidthBits"`
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	DownlinkDelayMs *int `pulumi:"downlinkDelayMs"`
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	DownlinkJitterMs *int `pulumi:"downlinkJitterMs"`
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	DownlinkLossPercent *int `pulumi:"downlinkLossPercent"`
-	// The name for the network profile.
-	Name *string `pulumi:"name"`
-	// The ARN of the project for the network profile.
-	ProjectArn *string `pulumi:"projectArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-	Type *string `pulumi:"type"`
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	UplinkBandwidthBits *int `pulumi:"uplinkBandwidthBits"`
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	UplinkDelayMs *int `pulumi:"uplinkDelayMs"`
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	UplinkJitterMs *int `pulumi:"uplinkJitterMs"`
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	UplinkLossPercent *int `pulumi:"uplinkLossPercent"`
+	Arn                   *string           `pulumi:"arn"`
+	Description           *string           `pulumi:"description"`
+	DownlinkBandwidthBits *int              `pulumi:"downlinkBandwidthBits"`
+	DownlinkDelayMs       *int              `pulumi:"downlinkDelayMs"`
+	DownlinkJitterMs      *int              `pulumi:"downlinkJitterMs"`
+	DownlinkLossPercent   *int              `pulumi:"downlinkLossPercent"`
+	Name                  *string           `pulumi:"name"`
+	ProjectArn            *string           `pulumi:"projectArn"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
+	Type                  *string           `pulumi:"type"`
+	UplinkBandwidthBits   *int              `pulumi:"uplinkBandwidthBits"`
+	UplinkDelayMs         *int              `pulumi:"uplinkDelayMs"`
+	UplinkJitterMs        *int              `pulumi:"uplinkJitterMs"`
+	UplinkLossPercent     *int              `pulumi:"uplinkLossPercent"`
 }
 
 type NetworkProfileState struct {
-	// The Amazon Resource Name of this network profile.
-	Arn pulumi.StringPtrInput
-	// The description of the network profile.
-	Description pulumi.StringPtrInput
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
+	Arn                   pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
 	DownlinkBandwidthBits pulumi.IntPtrInput
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	DownlinkDelayMs pulumi.IntPtrInput
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	DownlinkJitterMs pulumi.IntPtrInput
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	DownlinkLossPercent pulumi.IntPtrInput
-	// The name for the network profile.
-	Name pulumi.StringPtrInput
-	// The ARN of the project for the network profile.
-	ProjectArn pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-	Type pulumi.StringPtrInput
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	UplinkBandwidthBits pulumi.IntPtrInput
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	UplinkDelayMs pulumi.IntPtrInput
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	UplinkJitterMs pulumi.IntPtrInput
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	UplinkLossPercent pulumi.IntPtrInput
+	DownlinkDelayMs       pulumi.IntPtrInput
+	DownlinkJitterMs      pulumi.IntPtrInput
+	DownlinkLossPercent   pulumi.IntPtrInput
+	Name                  pulumi.StringPtrInput
+	ProjectArn            pulumi.StringPtrInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
+	Type                  pulumi.StringPtrInput
+	UplinkBandwidthBits   pulumi.IntPtrInput
+	UplinkDelayMs         pulumi.IntPtrInput
+	UplinkJitterMs        pulumi.IntPtrInput
+	UplinkLossPercent     pulumi.IntPtrInput
 }
 
 func (NetworkProfileState) ElementType() reflect.Type {
@@ -204,66 +108,38 @@ func (NetworkProfileState) ElementType() reflect.Type {
 }
 
 type networkProfileArgs struct {
-	// The description of the network profile.
-	Description *string `pulumi:"description"`
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	DownlinkBandwidthBits *int `pulumi:"downlinkBandwidthBits"`
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	DownlinkDelayMs *int `pulumi:"downlinkDelayMs"`
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	DownlinkJitterMs *int `pulumi:"downlinkJitterMs"`
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	DownlinkLossPercent *int `pulumi:"downlinkLossPercent"`
-	// The name for the network profile.
-	Name *string `pulumi:"name"`
-	// The ARN of the project for the network profile.
-	ProjectArn string `pulumi:"projectArn"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-	Type *string `pulumi:"type"`
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	UplinkBandwidthBits *int `pulumi:"uplinkBandwidthBits"`
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	UplinkDelayMs *int `pulumi:"uplinkDelayMs"`
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	UplinkJitterMs *int `pulumi:"uplinkJitterMs"`
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	UplinkLossPercent *int `pulumi:"uplinkLossPercent"`
+	Description           *string           `pulumi:"description"`
+	DownlinkBandwidthBits *int              `pulumi:"downlinkBandwidthBits"`
+	DownlinkDelayMs       *int              `pulumi:"downlinkDelayMs"`
+	DownlinkJitterMs      *int              `pulumi:"downlinkJitterMs"`
+	DownlinkLossPercent   *int              `pulumi:"downlinkLossPercent"`
+	Name                  *string           `pulumi:"name"`
+	ProjectArn            string            `pulumi:"projectArn"`
+	Region                *string           `pulumi:"region"`
+	Tags                  map[string]string `pulumi:"tags"`
+	Type                  *string           `pulumi:"type"`
+	UplinkBandwidthBits   *int              `pulumi:"uplinkBandwidthBits"`
+	UplinkDelayMs         *int              `pulumi:"uplinkDelayMs"`
+	UplinkJitterMs        *int              `pulumi:"uplinkJitterMs"`
+	UplinkLossPercent     *int              `pulumi:"uplinkLossPercent"`
 }
 
 // The set of arguments for constructing a NetworkProfile resource.
 type NetworkProfileArgs struct {
-	// The description of the network profile.
-	Description pulumi.StringPtrInput
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
+	Description           pulumi.StringPtrInput
 	DownlinkBandwidthBits pulumi.IntPtrInput
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	DownlinkDelayMs pulumi.IntPtrInput
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	DownlinkJitterMs pulumi.IntPtrInput
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	DownlinkLossPercent pulumi.IntPtrInput
-	// The name for the network profile.
-	Name pulumi.StringPtrInput
-	// The ARN of the project for the network profile.
-	ProjectArn pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
-	Type pulumi.StringPtrInput
-	// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
-	UplinkBandwidthBits pulumi.IntPtrInput
-	// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
-	UplinkDelayMs pulumi.IntPtrInput
-	// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
-	UplinkJitterMs pulumi.IntPtrInput
-	// Proportion of received packets that fail to arrive from `0` to `100` percent.
-	UplinkLossPercent pulumi.IntPtrInput
+	DownlinkDelayMs       pulumi.IntPtrInput
+	DownlinkJitterMs      pulumi.IntPtrInput
+	DownlinkLossPercent   pulumi.IntPtrInput
+	Name                  pulumi.StringPtrInput
+	ProjectArn            pulumi.StringInput
+	Region                pulumi.StringPtrInput
+	Tags                  pulumi.StringMapInput
+	Type                  pulumi.StringPtrInput
+	UplinkBandwidthBits   pulumi.IntPtrInput
+	UplinkDelayMs         pulumi.IntPtrInput
+	UplinkJitterMs        pulumi.IntPtrInput
+	UplinkLossPercent     pulumi.IntPtrInput
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
@@ -353,82 +229,66 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name of this network profile.
 func (o NetworkProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the network profile.
 func (o NetworkProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
 func (o NetworkProfileOutput) DownlinkBandwidthBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkBandwidthBits }).(pulumi.IntPtrOutput)
 }
 
-// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
 func (o NetworkProfileOutput) DownlinkDelayMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkDelayMs }).(pulumi.IntPtrOutput)
 }
 
-// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
 func (o NetworkProfileOutput) DownlinkJitterMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkJitterMs }).(pulumi.IntPtrOutput)
 }
 
-// Proportion of received packets that fail to arrive from `0` to `100` percent.
 func (o NetworkProfileOutput) DownlinkLossPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkLossPercent }).(pulumi.IntPtrOutput)
 }
 
-// The name for the network profile.
 func (o NetworkProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ARN of the project for the network profile.
 func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 func (o NetworkProfileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
 func (o NetworkProfileOutput) UplinkBandwidthBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkBandwidthBits }).(pulumi.IntPtrOutput)
 }
 
-// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
 func (o NetworkProfileOutput) UplinkDelayMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkDelayMs }).(pulumi.IntPtrOutput)
 }
 
-// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
 func (o NetworkProfileOutput) UplinkJitterMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkJitterMs }).(pulumi.IntPtrOutput)
 }
 
-// Proportion of received packets that fail to arrive from `0` to `100` percent.
 func (o NetworkProfileOutput) UplinkLossPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkLossPercent }).(pulumi.IntPtrOutput)
 }

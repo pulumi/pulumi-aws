@@ -23,96 +23,44 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
 
     public static final ExpressGatewayServiceArgs Empty = new ExpressGatewayServiceArgs();
 
-    /**
-     * Name or ARN of the ECS cluster. Defaults to `default`.
-     * 
-     */
     @Import(name="cluster")
     private @Nullable Output<String> cluster;
 
-    /**
-     * @return Name or ARN of the ECS cluster. Defaults to `default`.
-     * 
-     */
     public Optional<Output<String>> cluster() {
         return Optional.ofNullable(this.cluster);
     }
 
-    /**
-     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-     * 
-     */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
-    /**
-     * @return Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-     * 
-     */
     public Optional<Output<String>> cpu() {
         return Optional.ofNullable(this.cpu);
     }
 
-    /**
-     * ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-     * 
-     */
     @Import(name="executionRoleArn", required=true)
     private Output<String> executionRoleArn;
 
-    /**
-     * @return ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-     * 
-     */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
 
-    /**
-     * Path for health check requests. Defaults to `/ping`.
-     * 
-     */
     @Import(name="healthCheckPath")
     private @Nullable Output<String> healthCheckPath;
 
-    /**
-     * @return Path for health check requests. Defaults to `/ping`.
-     * 
-     */
     public Optional<Output<String>> healthCheckPath() {
         return Optional.ofNullable(this.healthCheckPath);
     }
 
-    /**
-     * ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="infrastructureRoleArn", required=true)
     private Output<String> infrastructureRoleArn;
 
-    /**
-     * @return ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> infrastructureRoleArn() {
         return this.infrastructureRoleArn;
     }
 
-    /**
-     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-     * 
-     */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
-    /**
-     * @return Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-     * 
-     */
     public Optional<Output<String>> memory() {
         return Optional.ofNullable(this.memory);
     }
@@ -131,17 +79,9 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.primaryContainer);
     }
 
-    /**
-     * AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -153,47 +93,23 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.scalingTargets);
     }
 
-    /**
-     * Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
-    /**
-     * @return Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-     * 
-     */
     @Import(name="taskRoleArn")
     private @Nullable Output<String> taskRoleArn;
 
-    /**
-     * @return ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-     * 
-     */
     public Optional<Output<String>> taskRoleArn() {
         return Optional.ofNullable(this.taskRoleArn);
     }
@@ -205,17 +121,9 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-     * 
-     */
     @Import(name="waitForSteadyState")
     private @Nullable Output<Boolean> waitForSteadyState;
 
-    /**
-     * @return Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> waitForSteadyState() {
         return Optional.ofNullable(this.waitForSteadyState);
     }
@@ -258,132 +166,56 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
             $ = new ExpressGatewayServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cluster Name or ARN of the ECS cluster. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cluster(@Nullable Output<String> cluster) {
             $.cluster = cluster;
             return this;
         }
 
-        /**
-         * @param cluster Name or ARN of the ECS cluster. Defaults to `default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cluster(String cluster) {
             return cluster(Output.of(cluster));
         }
 
-        /**
-         * @param cpu Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(@Nullable Output<String> cpu) {
             $.cpu = cpu;
             return this;
         }
 
-        /**
-         * @param cpu Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cpu(String cpu) {
             return cpu(Output.of(cpu));
         }
 
-        /**
-         * @param executionRoleArn ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(Output<String> executionRoleArn) {
             $.executionRoleArn = executionRoleArn;
             return this;
         }
 
-        /**
-         * @param executionRoleArn ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRoleArn(String executionRoleArn) {
             return executionRoleArn(Output.of(executionRoleArn));
         }
 
-        /**
-         * @param healthCheckPath Path for health check requests. Defaults to `/ping`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckPath(@Nullable Output<String> healthCheckPath) {
             $.healthCheckPath = healthCheckPath;
             return this;
         }
 
-        /**
-         * @param healthCheckPath Path for health check requests. Defaults to `/ping`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckPath(String healthCheckPath) {
             return healthCheckPath(Output.of(healthCheckPath));
         }
 
-        /**
-         * @param infrastructureRoleArn ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder infrastructureRoleArn(Output<String> infrastructureRoleArn) {
             $.infrastructureRoleArn = infrastructureRoleArn;
             return this;
         }
 
-        /**
-         * @param infrastructureRoleArn ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder infrastructureRoleArn(String infrastructureRoleArn) {
             return infrastructureRoleArn(Output.of(infrastructureRoleArn));
         }
 
-        /**
-         * @param memory Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(@Nullable Output<String> memory) {
             $.memory = memory;
             return this;
         }
 
-        /**
-         * @param memory Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memory(String memory) {
             return memory(Output.of(memory));
         }
@@ -410,23 +242,11 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
             return primaryContainer(Output.of(primaryContainer));
         }
 
-        /**
-         * @param region AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -444,65 +264,29 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
             return scalingTargets(List.of(scalingTargets));
         }
 
-        /**
-         * @param serviceName Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param taskRoleArn ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskRoleArn(@Nullable Output<String> taskRoleArn) {
             $.taskRoleArn = taskRoleArn;
             return this;
         }
 
-        /**
-         * @param taskRoleArn ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskRoleArn(String taskRoleArn) {
             return taskRoleArn(Output.of(taskRoleArn));
         }
@@ -516,23 +300,11 @@ public final class ExpressGatewayServiceArgs extends com.pulumi.resources.Resour
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param waitForSteadyState Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForSteadyState(@Nullable Output<Boolean> waitForSteadyState) {
             $.waitForSteadyState = waitForSteadyState;
             return this;
         }
 
-        /**
-         * @param waitForSteadyState Whether to wait for the service to reach a steady state before considering the operation complete. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder waitForSteadyState(Boolean waitForSteadyState) {
             return waitForSteadyState(Output.of(waitForSteadyState));
         }

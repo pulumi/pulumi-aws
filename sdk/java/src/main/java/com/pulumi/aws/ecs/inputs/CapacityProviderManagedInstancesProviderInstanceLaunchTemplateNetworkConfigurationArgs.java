@@ -17,32 +17,16 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs();
 
-    /**
-     * The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-     * 
-     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
-    /**
-     * @return The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
 
-    /**
-     * The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-     * 
-     */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
-    /**
-     * @return The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-     * 
-     */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
@@ -72,64 +56,28 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroups The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param subnets The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
-        /**
-         * @param subnets The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
-        /**
-         * @param subnets The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

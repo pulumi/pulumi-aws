@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ReplicatorReplicationInfoListTopicReplicationStartingPosition
     {
-        /// <summary>
-        /// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

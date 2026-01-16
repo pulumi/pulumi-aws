@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SecurityLake.Inputs
 
     public sealed class DataLakeConfigurationLifecycleConfigurationExpirationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 

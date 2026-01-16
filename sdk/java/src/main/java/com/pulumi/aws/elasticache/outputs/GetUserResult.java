@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
-    /**
-     * @return String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     * 
-     */
     private @Nullable String accessString;
     private @Nullable List<GetUserAuthenticationMode> authenticationModes;
     private @Nullable String engine;
@@ -30,22 +26,10 @@ public final class GetUserResult {
     private @Nullable Boolean noPasswordRequired;
     private @Nullable List<String> passwords;
     private String region;
-    /**
-     * @return Identifier for the user.
-     * 
-     */
     private String userId;
-    /**
-     * @return User name of the user.
-     * 
-     */
     private @Nullable String userName;
 
     private GetUserResult() {}
-    /**
-     * @return String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-     * 
-     */
     public Optional<String> accessString() {
         return Optional.ofNullable(this.accessString);
     }
@@ -71,17 +55,9 @@ public final class GetUserResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return Identifier for the user.
-     * 
-     */
     public String userId() {
         return this.userId;
     }
-    /**
-     * @return User name of the user.
-     * 
-     */
     public Optional<String> userName() {
         return Optional.ofNullable(this.userName);
     }

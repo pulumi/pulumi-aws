@@ -11,89 +11,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProvisioningArtifactsProvisioningArtifactDetail {
-    /**
-     * @return Indicates whether the product version is active.
-     * 
-     */
     private Boolean active;
-    /**
-     * @return The UTC time stamp of the creation time.
-     * 
-     */
     private String createdTime;
-    /**
-     * @return The description of the provisioning artifact.
-     * 
-     */
     private String description;
-    /**
-     * @return Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-     * 
-     */
     private String guidance;
-    /**
-     * @return The identifier of the provisioning artifact.
-     * 
-     */
     private String id;
-    /**
-     * @return The name of the provisioning artifact.
-     * 
-     */
     private String name;
-    /**
-     * @return The type of provisioning artifact.
-     * 
-     */
     private String type;
 
     private GetProvisioningArtifactsProvisioningArtifactDetail() {}
-    /**
-     * @return Indicates whether the product version is active.
-     * 
-     */
     public Boolean active() {
         return this.active;
     }
-    /**
-     * @return The UTC time stamp of the creation time.
-     * 
-     */
     public String createdTime() {
         return this.createdTime;
     }
-    /**
-     * @return The description of the provisioning artifact.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-     * 
-     */
     public String guidance() {
         return this.guidance;
     }
-    /**
-     * @return The identifier of the provisioning artifact.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The name of the provisioning artifact.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The type of provisioning artifact.
-     * 
-     */
     public String type() {
         return this.type;
     }

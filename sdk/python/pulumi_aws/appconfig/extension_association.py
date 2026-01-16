@@ -25,10 +25,6 @@ class ExtensionAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "extension_arn", extension_arn)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -40,9 +36,6 @@ class ExtensionAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the extension defined in the association.
-        """
         return pulumi.get(self, "extension_arn")
 
     @extension_arn.setter
@@ -52,9 +45,6 @@ class ExtensionAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the application, configuration profile, or environment to associate with the extension.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -64,9 +54,6 @@ class ExtensionAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The parameter names and values defined for the association.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -76,9 +63,6 @@ class ExtensionAssociationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -97,12 +81,6 @@ class _ExtensionAssociationState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExtensionAssociation resources.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension Association.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[_builtins.int] extension_version: The version number for the extension defined in the association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -120,9 +98,6 @@ class _ExtensionAssociationState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the AppConfig Extension Association.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -132,9 +107,6 @@ class _ExtensionAssociationState:
     @_builtins.property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the extension defined in the association.
-        """
         return pulumi.get(self, "extension_arn")
 
     @extension_arn.setter
@@ -144,9 +116,6 @@ class _ExtensionAssociationState:
     @_builtins.property
     @pulumi.getter(name="extensionVersion")
     def extension_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The version number for the extension defined in the association.
-        """
         return pulumi.get(self, "extension_version")
 
     @extension_version.setter
@@ -156,9 +125,6 @@ class _ExtensionAssociationState:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The parameter names and values defined for the association.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -168,9 +134,6 @@ class _ExtensionAssociationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,9 +143,6 @@ class _ExtensionAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the application, configuration profile, or environment to associate with the extension.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -202,59 +162,9 @@ class ExtensionAssociation(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Associates an AppConfig Extension with a Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("test", name="test")
-        test = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["appconfig.amazonaws.com"],
-            }],
-        }])
-        test_role = aws.iam.Role("test",
-            name="test",
-            assume_role_policy=test.json)
-        test_extension = aws.appconfig.Extension("test",
-            name="test",
-            description="test description",
-            action_points=[{
-                "point": "ON_DEPLOYMENT_COMPLETE",
-                "actions": [{
-                    "name": "test",
-                    "role_arn": test_role.arn,
-                    "uri": test_topic.arn,
-                }],
-            }],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        test_application = aws.appconfig.Application("test", name="test")
-        test_extension_association = aws.appconfig.ExtensionAssociation("test",
-            extension_arn=test_extension.arn,
-            resource_arn=test_application.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-        ```
-
+        Create a ExtensionAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
         ...
     @overload
@@ -263,53 +173,7 @@ class ExtensionAssociation(pulumi.CustomResource):
                  args: ExtensionAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates an AppConfig Extension with a Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("test", name="test")
-        test = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["appconfig.amazonaws.com"],
-            }],
-        }])
-        test_role = aws.iam.Role("test",
-            name="test",
-            assume_role_policy=test.json)
-        test_extension = aws.appconfig.Extension("test",
-            name="test",
-            description="test description",
-            action_points=[{
-                "point": "ON_DEPLOYMENT_COMPLETE",
-                "actions": [{
-                    "name": "test",
-                    "role_arn": test_role.arn,
-                    "uri": test_topic.arn,
-                }],
-            }],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        test_application = aws.appconfig.Application("test", name="test")
-        test_extension_association = aws.appconfig.ExtensionAssociation("test",
-            extension_arn=test_extension.arn,
-            resource_arn=test_application.arn)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
-
-        ```sh
-        $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-        ```
-
+        Create a ExtensionAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ExtensionAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -371,12 +235,6 @@ class ExtensionAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension Association.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[_builtins.int] extension_version: The version number for the extension defined in the association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,48 +251,30 @@ class ExtensionAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the AppConfig Extension Association.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the extension defined in the association.
-        """
         return pulumi.get(self, "extension_arn")
 
     @_builtins.property
     @pulumi.getter(name="extensionVersion")
     def extension_version(self) -> pulumi.Output[_builtins.int]:
-        """
-        The version number for the extension defined in the association.
-        """
         return pulumi.get(self, "extension_version")
 
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        The parameter names and values defined for the association.
-        """
         return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the application, configuration profile, or environment to associate with the extension.
-        """
         return pulumi.get(self, "resource_arn")
 

@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupMixedInstancesPolicy {
-    /**
-     * @return Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-     * 
-     */
     private @Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution;
-    /**
-     * @return Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-     * 
-     */
     private GroupMixedInstancesPolicyLaunchTemplate launchTemplate;
 
     private GroupMixedInstancesPolicy() {}
-    /**
-     * @return Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-     * 
-     */
     public Optional<GroupMixedInstancesPolicyInstancesDistribution> instancesDistribution() {
         return Optional.ofNullable(this.instancesDistribution);
     }
-    /**
-     * @return Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-     * 
-     */
     public GroupMixedInstancesPolicyLaunchTemplate launchTemplate() {
         return this.launchTemplate;
     }

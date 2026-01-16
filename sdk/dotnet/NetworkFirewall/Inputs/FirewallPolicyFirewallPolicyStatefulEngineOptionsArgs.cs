@@ -12,21 +12,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
-        /// </summary>
         [Input("flowTimeouts")]
         public Input<Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs>? FlowTimeouts { get; set; }
 
-        /// <summary>
-        /// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        /// </summary>
         [Input("ruleOrder")]
         public Input<string>? RuleOrder { get; set; }
 
-        /// <summary>
-        /// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
-        /// </summary>
         [Input("streamExceptionPolicy")]
         public Input<string>? StreamExceptionPolicy { get; set; }
 

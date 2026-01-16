@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
         private InputList<string>? _labels;
 
         /// <summary>
-        /// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+        /// Specifies what you want to detect in the video, such as people, packages, or pets.
         /// </summary>
         public InputList<string> Labels
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
         }
 
         /// <summary>
-        /// Minimum confidence required to label an object in the video.
+        /// The minimum confidence required to label an object in the video.
         /// </summary>
         [Input("minConfidence")]
         public Input<double>? MinConfidence { get; set; }

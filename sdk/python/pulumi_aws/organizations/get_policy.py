@@ -55,33 +55,21 @@ class GetPolicyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The Amazon Resource Name of the policy.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="awsManaged")
     def aws_managed(self) -> _builtins.bool:
-        """
-        Indicates if a policy is an AWS managed policy.
-        """
         return pulumi.get(self, "aws_managed")
 
     @_builtins.property
     @pulumi.getter
     def content(self) -> _builtins.str:
-        """
-        The text content of the policy.
-        """
         return pulumi.get(self, "content")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
-        """
-        The description of the policy.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -95,9 +83,6 @@ class GetPolicyResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The friendly name of the policy.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -108,9 +93,6 @@ class GetPolicyResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
-        """
         return pulumi.get(self, "type")
 
 
@@ -133,12 +115,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
 def get_policy(policy_id: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
-    Data source for managing an AWS Organizations Policy.
-
-    ## Example Usage
-
-
-    :param _builtins.str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['policyId'] = policy_id
@@ -157,12 +134,7 @@ def get_policy(policy_id: Optional[_builtins.str] = None,
 def get_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
-    Data source for managing an AWS Organizations Policy.
-
-    ## Example Usage
-
-
-    :param _builtins.str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['policyId'] = policy_id

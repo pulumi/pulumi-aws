@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerlessCacheCacheUsageLimitsEcpuPerSecond {
-    /**
-     * @return The maximum number of ECPUs the cache can consume per second.
-     * 
-     */
     private Integer maximum;
-    /**
-     * @return The minimum number of ECPUs the cache can consume per second.
-     * 
-     */
     private Integer minimum;
 
     private GetServerlessCacheCacheUsageLimitsEcpuPerSecond() {}
-    /**
-     * @return The maximum number of ECPUs the cache can consume per second.
-     * 
-     */
     public Integer maximum() {
         return this.maximum;
     }
-    /**
-     * @return The minimum number of ECPUs the cache can consume per second.
-     * 
-     */
     public Integer minimum() {
         return this.minimum;
     }

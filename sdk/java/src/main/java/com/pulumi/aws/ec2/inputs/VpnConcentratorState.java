@@ -16,111 +16,51 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
 
     public static final VpnConcentratorState Empty = new VpnConcentratorState();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * ID of the transit gateway attachment created for the VPN concentrator.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId")
     private @Nullable Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return ID of the transit gateway attachment created for the VPN concentrator.
-     * 
-     */
     public Optional<Output<String>> transitGatewayAttachmentId() {
         return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
 
-    /**
-     * ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
-    /**
-     * @return ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
     }
 
-    /**
-     * Type of VPN concentrator. Valid value: `ipsec.1`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Type of VPN concentrator. Valid value: `ipsec.1`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * ID of the VPN Concentrator.
-     * 
-     */
     @Import(name="vpnConcentratorId")
     private @Nullable Output<String> vpnConcentratorId;
 
-    /**
-     * @return ID of the VPN Concentrator.
-     * 
-     */
     public Optional<Output<String>> vpnConcentratorId() {
         return Optional.ofNullable(this.vpnConcentratorId);
     }
@@ -155,153 +95,65 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
             $ = new VpnConcentratorState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param transitGatewayAttachmentId ID of the transit gateway attachment created for the VPN concentrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId ID of the transit gateway attachment created for the VPN concentrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayId ID of the transit gateway to attach the VPN concentrator to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId ID of the transit gateway to attach the VPN concentrator to.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }
 
-        /**
-         * @param type Type of VPN concentrator. Valid value: `ipsec.1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of VPN concentrator. Valid value: `ipsec.1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param vpnConcentratorId ID of the VPN Concentrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConcentratorId(@Nullable Output<String> vpnConcentratorId) {
             $.vpnConcentratorId = vpnConcentratorId;
             return this;
         }
 
-        /**
-         * @param vpnConcentratorId ID of the VPN Concentrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConcentratorId(String vpnConcentratorId) {
             return vpnConcentratorId(Output.of(vpnConcentratorId));
         }

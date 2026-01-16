@@ -15,17 +15,9 @@ public final class LogTransformerTransformerConfigTrimStringArgs extends com.pul
 
     public static final LogTransformerTransformerConfigTrimStringArgs Empty = new LogTransformerTransformerConfigTrimStringArgs();
 
-    /**
-     * Specifies the keys of the fields to trim.
-     * 
-     */
     @Import(name="withKeys", required=true)
     private Output<List<String>> withKeys;
 
-    /**
-     * @return Specifies the keys of the fields to trim.
-     * 
-     */
     public Output<List<String>> withKeys() {
         return this.withKeys;
     }
@@ -54,33 +46,15 @@ public final class LogTransformerTransformerConfigTrimStringArgs extends com.pul
             $ = new LogTransformerTransformerConfigTrimStringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param withKeys Specifies the keys of the fields to trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withKeys(Output<List<String>> withKeys) {
             $.withKeys = withKeys;
             return this;
         }
 
-        /**
-         * @param withKeys Specifies the keys of the fields to trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withKeys(List<String> withKeys) {
             return withKeys(Output.of(withKeys));
         }
 
-        /**
-         * @param withKeys Specifies the keys of the fields to trim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withKeys(String... withKeys) {
             return withKeys(List.of(withKeys));
         }

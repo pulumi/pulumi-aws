@@ -13,15 +13,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetComputeEnvironmentResult {
-    /**
-     * @return ARN of the compute environment.
-     * 
-     */
     private String arn;
-    /**
-     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
-     * 
-     */
     private String ecsClusterArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,54 +22,18 @@ public final class GetComputeEnvironmentResult {
     private String id;
     private String name;
     private String region;
-    /**
-     * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-     * 
-     */
     private String serviceRole;
-    /**
-     * @return State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
-     * 
-     */
     private String state;
-    /**
-     * @return Current status of the compute environment (for example, `CREATING` or `VALID`).
-     * 
-     */
     private String status;
-    /**
-     * @return Short, human-readable string to provide additional details about the current status of the compute environment.
-     * 
-     */
     private String statusReason;
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
-     * 
-     */
     private String type;
-    /**
-     * @return Specifies the infrastructure update policy for the compute environment.
-     * 
-     */
     private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
 
     private GetComputeEnvironmentResult() {}
-    /**
-     * @return ARN of the compute environment.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
-     * 
-     */
     public String ecsClusterArn() {
         return this.ecsClusterArn;
     }
@@ -94,52 +50,24 @@ public final class GetComputeEnvironmentResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-     * 
-     */
     public String serviceRole() {
         return this.serviceRole;
     }
-    /**
-     * @return State of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Current status of the compute environment (for example, `CREATING` or `VALID`).
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Short, human-readable string to provide additional details about the current status of the compute environment.
-     * 
-     */
     public String statusReason() {
         return this.statusReason;
     }
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Specifies the infrastructure update policy for the compute environment.
-     * 
-     */
     public List<GetComputeEnvironmentUpdatePolicy> updatePolicies() {
         return this.updatePolicies;
     }

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.ElastiCache.Inputs
 
     public sealed class ClusterLogDeliveryConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        /// </summary>
         [Input("destinationType", required: true)]
         public Input<string> DestinationType { get; set; } = null!;
 
-        /// <summary>
-        /// Valid values are `Json` or `Text`
-        /// </summary>
         [Input("logFormat", required: true)]
         public Input<string> LogFormat { get; set; } = null!;
 
-        /// <summary>
-        /// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        /// </summary>
         [Input("logType", required: true)]
         public Input<string> LogType { get; set; } = null!;
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows
     {
-        /// <summary>
-        /// Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-        /// </summary>
         public readonly string? CustomAuthMode;
 
         [OutputConstructor]

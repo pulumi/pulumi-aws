@@ -16,265 +16,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Network Manager transit gateway route table attachment.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.TransitGatewayRouteTableAttachment;
- * import com.pulumi.aws.networkmanager.TransitGatewayRouteTableAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TransitGatewayRouteTableAttachment("example", TransitGatewayRouteTableAttachmentArgs.builder()
- *             .peeringId(exampleAwsNetworkmanagerTransitGatewayPeering.id())
- *             .transitGatewayRouteTableArn(exampleAwsEc2TransitGatewayRouteTable.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")
 public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Attachment ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Attachment ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Policy rule number associated with the attachment.
-     * 
-     */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
-    /**
-     * @return Policy rule number associated with the attachment.
-     * 
-     */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
-    /**
-     * Type of attachment.
-     * 
-     */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
-    /**
-     * @return Type of attachment.
-     * 
-     */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
-    /**
-     * ARN of the core network.
-     * 
-     */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
-    /**
-     * @return ARN of the core network.
-     * 
-     */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
-    /**
-     * ID of the core network.
-     * 
-     */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
-    /**
-     * @return ID of the core network.
-     * 
-     */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
-    /**
-     * Edge location for the peer.
-     * 
-     */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
-    /**
-     * @return Edge location for the peer.
-     * 
-     */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
-    /**
-     * ID of the attachment account owner.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return ID of the attachment account owner.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * ID of the peer for the attachment.
-     * 
-     */
     @Export(name="peeringId", refs={String.class}, tree="[0]")
     private Output<String> peeringId;
 
-    /**
-     * @return ID of the peer for the attachment.
-     * 
-     */
     public Output<String> peeringId() {
         return this.peeringId;
     }
-    /**
-     * Attachment resource ARN.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Attachment resource ARN.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     @Export(name="routingPolicyLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routingPolicyLabel;
 
-    /**
-     * @return The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
-     * 
-     */
     public Output<Optional<String>> routingPolicyLabel() {
         return Codegen.optional(this.routingPolicyLabel);
     }
-    /**
-     * Name of the segment attachment.
-     * 
-     */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
-    /**
-     * @return Name of the segment attachment.
-     * 
-     */
     public Output<String> segmentName() {
         return this.segmentName;
     }
-    /**
-     * State of the attachment.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the attachment.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * ARN of the transit gateway route table for the attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="transitGatewayRouteTableArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableArn;
 
-    /**
-     * @return ARN of the transit gateway route table for the attachment.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> transitGatewayRouteTableArn() {
         return this.transitGatewayRouteTableArn;
     }

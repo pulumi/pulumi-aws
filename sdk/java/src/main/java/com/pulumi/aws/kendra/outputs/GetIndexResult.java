@@ -18,225 +18,81 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIndexResult {
-    /**
-     * @return ARN of the Index.
-     * 
-     */
     private String arn;
-    /**
-     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
-     * 
-     */
     private List<GetIndexCapacityUnit> capacityUnits;
-    /**
-     * @return Unix datetime that the index was created.
-     * 
-     */
     private String createdAt;
-    /**
-     * @return Description of the Index.
-     * 
-     */
     private String description;
-    /**
-     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
-     * 
-     */
     private List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
-    /**
-     * @return Amazon Kendra edition for the index.
-     * 
-     */
     private String edition;
-    /**
-     * @return When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     private String errorMessage;
-    /**
-     * @return Identifier of the Index.
-     * 
-     */
     private String id;
-    /**
-     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
-     * 
-     */
     private List<GetIndexIndexStatistic> indexStatistics;
-    /**
-     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
-     * 
-     */
     private String name;
     private String region;
-    /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
-     * 
-     */
     private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
-    /**
-     * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-     * 
-     */
     private String status;
-    /**
-     * @return Metadata that helps organize the Indices you create.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Unix datetime that the index was last updated.
-     * 
-     */
     private String updatedAt;
-    /**
-     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
-     * 
-     */
     private String userContextPolicy;
-    /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
-     * 
-     */
     private List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations;
-    /**
-     * @return A block that specifies the user token configuration. Documented below.
-     * 
-     */
     private List<GetIndexUserTokenConfiguration> userTokenConfigurations;
 
     private GetIndexResult() {}
-    /**
-     * @return ARN of the Index.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
-     * 
-     */
     public List<GetIndexCapacityUnit> capacityUnits() {
         return this.capacityUnits;
     }
-    /**
-     * @return Unix datetime that the index was created.
-     * 
-     */
     public String createdAt() {
         return this.createdAt;
     }
-    /**
-     * @return Description of the Index.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
-     * 
-     */
     public List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates() {
         return this.documentMetadataConfigurationUpdates;
     }
-    /**
-     * @return Amazon Kendra edition for the index.
-     * 
-     */
     public String edition() {
         return this.edition;
     }
-    /**
-     * @return When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     public String errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * @return Identifier of the Index.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
-     * 
-     */
     public List<GetIndexIndexStatistic> indexStatistics() {
         return this.indexStatistics;
     }
-    /**
-     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Documented below.
-     * 
-     */
     public List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations() {
         return this.serverSideEncryptionConfigurations;
     }
-    /**
-     * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Metadata that helps organize the Indices you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Unix datetime that the index was last updated.
-     * 
-     */
     public String updatedAt() {
         return this.updatedAt;
     }
-    /**
-     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
-     * 
-     */
     public String userContextPolicy() {
         return this.userContextPolicy;
     }
-    /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
-     * 
-     */
     public List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations() {
         return this.userGroupResolutionConfigurations;
     }
-    /**
-     * @return A block that specifies the user token configuration. Documented below.
-     * 
-     */
     public List<GetIndexUserTokenConfiguration> userTokenConfigurations() {
         return this.userTokenConfigurations;
     }

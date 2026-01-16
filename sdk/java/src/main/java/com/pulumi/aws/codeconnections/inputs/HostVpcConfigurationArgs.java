@@ -17,62 +17,30 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
 
     public static final HostVpcConfigurationArgs Empty = new HostVpcConfigurationArgs();
 
-    /**
-     * ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
-    /**
-     * The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-     * 
-     */
     @Import(name="tlsCertificate")
     private @Nullable Output<String> tlsCertificate;
 
-    /**
-     * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-     * 
-     */
     public Optional<Output<String>> tlsCertificate() {
         return Optional.ofNullable(this.tlsCertificate);
     }
 
-    /**
-     * The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -104,106 +72,46 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
             $ = new HostVpcConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tlsCertificate The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsCertificate(@Nullable Output<String> tlsCertificate) {
             $.tlsCertificate = tlsCertificate;
             return this;
         }
 
-        /**
-         * @param tlsCertificate The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsCertificate(String tlsCertificate) {
             return tlsCertificate(Output.of(tlsCertificate));
         }
 
-        /**
-         * @param vpcId The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

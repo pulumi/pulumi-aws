@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventBusLogConfig {
-    /**
-     * @return Whether EventBridge include detailed event information in the records it generates.
-     * 
-     */
     private String includeDetail;
-    /**
-     * @return Level of logging detail to include.
-     * 
-     */
     private String level;
 
     private GetEventBusLogConfig() {}
-    /**
-     * @return Whether EventBridge include detailed event information in the records it generates.
-     * 
-     */
     public String includeDetail() {
         return this.includeDetail;
     }
-    /**
-     * @return Level of logging detail to include.
-     * 
-     */
     public String level() {
         return this.level;
     }

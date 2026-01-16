@@ -9,61 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var exampleOrganizationalUnit = new Aws.Organizations.OrganizationalUnit("example", new()
-    ///     {
-    ///         Name = "ExampleOU",
-    ///         ParentId = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-    ///     });
-    /// 
-    ///     var exampleTag = new Aws.Organizations.Tag("example", new()
-    ///     {
-    ///         ResourceId = exampleOrganizationalUnit.Id,
-    ///         Key = "ExampleKey",
-    ///         Value = "ExampleValue",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:organizations/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// Id of the Organizations resource to tag.
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -113,21 +67,12 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Id of the Organizations resource to tag.
-        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -139,21 +84,12 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class TagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Id of the Organizations resource to tag.
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

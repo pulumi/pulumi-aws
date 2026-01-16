@@ -17,77 +17,37 @@ public final class UserPoolDomainArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final UserPoolDomainArgs Empty = new UserPoolDomainArgs();
 
-    /**
-     * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-     * 
-     */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
-    /**
-     * @return The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-     * 
-     */
     public Optional<Output<String>> certificateArn() {
         return Optional.ofNullable(this.certificateArn);
     }
 
-    /**
-     * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
 
-    /**
-     * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-     * 
-     */
     @Import(name="managedLoginVersion")
     private @Nullable Output<Integer> managedLoginVersion;
 
-    /**
-     * @return A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-     * 
-     */
     public Optional<Output<Integer>> managedLoginVersion() {
         return Optional.ofNullable(this.managedLoginVersion);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The user pool ID.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return The user pool ID.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -120,107 +80,47 @@ public final class UserPoolDomainArgs extends com.pulumi.resources.ResourceArgs 
             $ = new UserPoolDomainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateArn The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(@Nullable Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }
 
-        /**
-         * @param domain For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param managedLoginVersion A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedLoginVersion(@Nullable Output<Integer> managedLoginVersion) {
             $.managedLoginVersion = managedLoginVersion;
             return this;
         }
 
-        /**
-         * @param managedLoginVersion A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedLoginVersion(Integer managedLoginVersion) {
             return managedLoginVersion(Output.of(managedLoginVersion));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param userPoolId The user pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId The user pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

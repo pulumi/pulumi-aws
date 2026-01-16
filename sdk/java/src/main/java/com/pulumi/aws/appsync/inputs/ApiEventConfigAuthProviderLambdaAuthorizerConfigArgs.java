@@ -17,47 +17,23 @@ public final class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs extends 
 
     public static final ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs Empty = new ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs();
 
-    /**
-     * TTL in seconds for the authorization result cache.
-     * 
-     */
     @Import(name="authorizerResultTtlInSeconds")
     private @Nullable Output<Integer> authorizerResultTtlInSeconds;
 
-    /**
-     * @return TTL in seconds for the authorization result cache.
-     * 
-     */
     public Optional<Output<Integer>> authorizerResultTtlInSeconds() {
         return Optional.ofNullable(this.authorizerResultTtlInSeconds);
     }
 
-    /**
-     * URI of the Lambda function for authorization.
-     * 
-     */
     @Import(name="authorizerUri", required=true)
     private Output<String> authorizerUri;
 
-    /**
-     * @return URI of the Lambda function for authorization.
-     * 
-     */
     public Output<String> authorizerUri() {
         return this.authorizerUri;
     }
 
-    /**
-     * Regular expression for identity validation.
-     * 
-     */
     @Import(name="identityValidationExpression")
     private @Nullable Output<String> identityValidationExpression;
 
-    /**
-     * @return Regular expression for identity validation.
-     * 
-     */
     public Optional<Output<String>> identityValidationExpression() {
         return Optional.ofNullable(this.identityValidationExpression);
     }
@@ -88,65 +64,29 @@ public final class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs extends 
             $ = new ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizerResultTtlInSeconds TTL in seconds for the authorization result cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizerResultTtlInSeconds(@Nullable Output<Integer> authorizerResultTtlInSeconds) {
             $.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
             return this;
         }
 
-        /**
-         * @param authorizerResultTtlInSeconds TTL in seconds for the authorization result cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizerResultTtlInSeconds(Integer authorizerResultTtlInSeconds) {
             return authorizerResultTtlInSeconds(Output.of(authorizerResultTtlInSeconds));
         }
 
-        /**
-         * @param authorizerUri URI of the Lambda function for authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizerUri(Output<String> authorizerUri) {
             $.authorizerUri = authorizerUri;
             return this;
         }
 
-        /**
-         * @param authorizerUri URI of the Lambda function for authorization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizerUri(String authorizerUri) {
             return authorizerUri(Output.of(authorizerUri));
         }
 
-        /**
-         * @param identityValidationExpression Regular expression for identity validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityValidationExpression(@Nullable Output<String> identityValidationExpression) {
             $.identityValidationExpression = identityValidationExpression;
             return this;
         }
 
-        /**
-         * @param identityValidationExpression Regular expression for identity validation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityValidationExpression(String identityValidationExpression) {
             return identityValidationExpression(Output.of(identityValidationExpression));
         }

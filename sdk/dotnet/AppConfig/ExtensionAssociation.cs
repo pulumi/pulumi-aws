@@ -9,139 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppConfig
 {
-    /// <summary>
-    /// Associates an AppConfig Extension with a Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testTopic = new Aws.Sns.Topic("test", new()
-    ///     {
-    ///         Name = "test",
-    ///     });
-    /// 
-    ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "appconfig.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testRole = new Aws.Iam.Role("test", new()
-    ///     {
-    ///         Name = "test",
-    ///         AssumeRolePolicy = test.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testExtension = new Aws.AppConfig.Extension("test", new()
-    ///     {
-    ///         Name = "test",
-    ///         Description = "test description",
-    ///         ActionPoints = new[]
-    ///         {
-    ///             new Aws.AppConfig.Inputs.ExtensionActionPointArgs
-    ///             {
-    ///                 Point = "ON_DEPLOYMENT_COMPLETE",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.AppConfig.Inputs.ExtensionActionPointActionArgs
-    ///                     {
-    ///                         Name = "test",
-    ///                         RoleArn = testRole.Arn,
-    ///                         Uri = testTopic.Arn,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Extension" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testApplication = new Aws.AppConfig.Application("test", new()
-    ///     {
-    ///         Name = "test",
-    ///     });
-    /// 
-    ///     var testExtensionAssociation = new Aws.AppConfig.ExtensionAssociation("test", new()
-    ///     {
-    ///         ExtensionArn = testExtension.Arn,
-    ///         ResourceArn = testApplication.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]
     public partial class ExtensionAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the AppConfig Extension Association.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the extension defined in the association.
-        /// </summary>
         [Output("extensionArn")]
         public Output<string> ExtensionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The version number for the extension defined in the association.
-        /// </summary>
         [Output("extensionVersion")]
         public Output<int> ExtensionVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The parameter names and values defined for the association.
-        /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the application, configuration profile, or environment to associate with the extension.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -191,33 +76,20 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class ExtensionAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the extension defined in the association.
-        /// </summary>
         [Input("extensionArn", required: true)]
         public Input<string> ExtensionArn { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// The parameter names and values defined for the association.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the application, configuration profile, or environment to associate with the extension.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -229,45 +101,26 @@ namespace Pulumi.Aws.AppConfig
 
     public sealed class ExtensionAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the AppConfig Extension Association.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ARN of the extension defined in the association.
-        /// </summary>
         [Input("extensionArn")]
         public Input<string>? ExtensionArn { get; set; }
 
-        /// <summary>
-        /// The version number for the extension defined in the association.
-        /// </summary>
         [Input("extensionVersion")]
         public Input<int>? ExtensionVersion { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// The parameter names and values defined for the association.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The ARN of the application, configuration profile, or environment to associate with the extension.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

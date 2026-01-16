@@ -17,47 +17,23 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIdentityPoolArgs Empty = new GetIdentityPoolArgs();
 
-    /**
-     * The Cognito Identity Pool name.
-     * 
-     */
     @Import(name="identityPoolName", required=true)
     private Output<String> identityPoolName;
 
-    /**
-     * @return The Cognito Identity Pool name.
-     * 
-     */
     public Output<String> identityPoolName() {
         return this.identityPoolName;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assigned to the Identity Pool.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assigned to the Identity Pool.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetIdentityPoolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityPoolName The Cognito Identity Pool name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolName(Output<String> identityPoolName) {
             $.identityPoolName = identityPoolName;
             return this;
         }
 
-        /**
-         * @param identityPoolName The Cognito Identity Pool name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolName(String identityPoolName) {
             return identityPoolName(Output.of(identityPoolName));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assigned to the Identity Pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assigned to the Identity Pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

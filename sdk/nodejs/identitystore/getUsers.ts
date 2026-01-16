@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get a list of users in an Identity Store instance.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetUsers = example.then(example => aws.identitystore.getUsers({
- *     identityStoreId: example.identityStoreIds?.[0],
- * }));
- * ```
- */
 export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getUsers:getUsers", {
@@ -36,13 +19,7 @@ export function getUsers(args: GetUsersArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersArgs {
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     identityStoreId: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -55,32 +32,9 @@ export interface GetUsersResult {
      */
     readonly id: string;
     readonly identityStoreId: string;
-    /**
-     * Region of the address.
-     */
     readonly region: string;
-    /**
-     * List of Identity Store Users
-     */
     readonly users: outputs.identitystore.GetUsersUser[];
 }
-/**
- * Use this data source to get a list of users in an Identity Store instance.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetUsers = example.then(example => aws.identitystore.getUsers({
- *     identityStoreId: example.identityStoreIds?.[0],
- * }));
- * ```
- */
 export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getUsers:getUsers", {
@@ -93,12 +47,6 @@ export function getUsersOutput(args: GetUsersOutputArgs, opts?: pulumi.InvokeOut
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersOutputArgs {
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

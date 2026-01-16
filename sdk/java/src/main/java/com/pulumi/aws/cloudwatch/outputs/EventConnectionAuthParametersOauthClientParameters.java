@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventConnectionAuthParametersOauthClientParameters {
-    /**
-     * @return The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     private String clientId;
-    /**
-     * @return The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     private String clientSecret;
 
     private EventConnectionAuthParametersOauthClientParameters() {}
-    /**
-     * @return The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public String clientSecret() {
         return this.clientSecret;
     }

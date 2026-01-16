@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotTypeValueSelectionSettingRegexFilter {
-    /**
-     * @return A regular expression used to validate the value of a slot.
-     * 
-     */
     private String pattern;
 
     private V2modelsSlotTypeValueSelectionSettingRegexFilter() {}
-    /**
-     * @return A regular expression used to validate the value of a slot.
-     * 
-     */
     public String pattern() {
         return this.pattern;
     }

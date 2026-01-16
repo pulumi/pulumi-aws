@@ -12,24 +12,14 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerRuleActionJwtValidationAdditionalClaimGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Format of the claim value. Valid values are `single-string`, `string-array` and `space-separated-values`.
-        /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the claim to validate. `Exp`, `Iss`, `Nbf`, or `Iat` cannot be specified because they are validated by default.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// List of expected values of the claim.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

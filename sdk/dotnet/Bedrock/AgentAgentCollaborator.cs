@@ -9,216 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Bedrock
 {
-    /// <summary>
-    /// Resource for managing an AWS Bedrock Agents Agent Collaborator.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleAgentTrust = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "bedrock.amazonaws.com",
-    ///                         },
-    ///                         Type = "Service",
-    ///                     },
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "aws:SourceAccount",
-    ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "ArnLike",
-    ///                         Values = new[]
-    ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
-    ///                         },
-    ///                         Variable = "AWS:SourceArn",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAgentPermissions = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "bedrock:InvokeModel",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "bedrock:GetAgentAlias",
-    ///                     "bedrock:InvokeAgent",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:{currentAgent.Partition}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
-    ///                     $"arn:{currentAgent.Partition}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent-alias/*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         AssumeRolePolicy = exampleAgentTrust.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         NamePrefix = "AmazonBedrockExecutionRoleForAgents_",
-    ///     });
-    /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
-    ///     {
-    ///         Policy = exampleAgentPermissions.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         Role = example.Id,
-    ///     });
-    /// 
-    ///     var exampleCollaborator = new Aws.Bedrock.AgentAgent("example_collaborator", new()
-    ///     {
-    ///         AgentName = "my-agent-collaborator",
-    ///         AgentResourceRoleArn = example.Arn,
-    ///         IdleSessionTtlInSeconds = 500,
-    ///         FoundationModel = "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    ///         Instruction = "do what the supervisor tells you to do",
-    ///     });
-    /// 
-    ///     var exampleSupervisor = new Aws.Bedrock.AgentAgent("example_supervisor", new()
-    ///     {
-    ///         AgentName = "my-agent-supervisor",
-    ///         AgentResourceRoleArn = example.Arn,
-    ///         AgentCollaboration = "SUPERVISOR",
-    ///         IdleSessionTtlInSeconds = 500,
-    ///         FoundationModel = "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    ///         Instruction = "tell the sub agent what to do",
-    ///         PrepareAgent = false,
-    ///     });
-    /// 
-    ///     var exampleAgentAgentAlias = new Aws.Bedrock.AgentAgentAlias("example", new()
-    ///     {
-    ///         AgentAliasName = "my-agent-alias",
-    ///         AgentId = exampleCollaborator.AgentId,
-    ///         Description = "Test Alias",
-    ///     });
-    /// 
-    ///     var exampleAgentAgentCollaborator = new Aws.Bedrock.AgentAgentCollaborator("example", new()
-    ///     {
-    ///         AgentId = exampleSupervisor.AgentId,
-    ///         CollaborationInstruction = "tell the other agent what to do",
-    ///         CollaboratorName = "my-collab-example",
-    ///         RelayConversationHistory = "TO_COLLABORATOR",
-    ///         AgentDescriptor = new Aws.Bedrock.Inputs.AgentAgentCollaboratorAgentDescriptorArgs
-    ///         {
-    ///             AliasArn = exampleAgentAgentAlias.AgentAliasArn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agent_id`, `agent_version`, and `collaborator_id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")]
     public partial class AgentAgentCollaborator : global::Pulumi.CustomResource
     {
         [Output("agentDescriptor")]
         public Output<Outputs.AgentAgentCollaboratorAgentDescriptor?> AgentDescriptor { get; private set; } = null!;
 
-        /// <summary>
-        /// ID if the agent to associate the collaborator.
-        /// </summary>
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Instruction to give the collaborator.
-        /// </summary>
         [Output("collaborationInstruction")]
         public Output<string> CollaborationInstruction { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the Agent Collaborator.
-        /// </summary>
         [Output("collaboratorId")]
         public Output<string> CollaboratorId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of this collaborator.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("collaboratorName")]
         public Output<string> CollaboratorName { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
-        /// </summary>
         [Output("prepareAgent")]
         public Output<bool> PrepareAgent { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Configure relaying the history to the collaborator.
-        /// </summary>
         [Output("relayConversationHistory")]
         public Output<string> RelayConversationHistory { get; private set; } = null!;
 
@@ -274,44 +91,24 @@ namespace Pulumi.Aws.Bedrock
         [Input("agentDescriptor")]
         public Input<Inputs.AgentAgentCollaboratorAgentDescriptorArgs>? AgentDescriptor { get; set; }
 
-        /// <summary>
-        /// ID if the agent to associate the collaborator.
-        /// </summary>
         [Input("agentId", required: true)]
         public Input<string> AgentId { get; set; } = null!;
 
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
-        /// <summary>
-        /// Instruction to give the collaborator.
-        /// </summary>
         [Input("collaborationInstruction", required: true)]
         public Input<string> CollaborationInstruction { get; set; } = null!;
 
-        /// <summary>
-        /// Name of this collaborator.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("collaboratorName", required: true)]
         public Input<string> CollaboratorName { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
-        /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configure relaying the history to the collaborator.
-        /// </summary>
         [Input("relayConversationHistory")]
         public Input<string>? RelayConversationHistory { get; set; }
 
@@ -329,50 +126,27 @@ namespace Pulumi.Aws.Bedrock
         [Input("agentDescriptor")]
         public Input<Inputs.AgentAgentCollaboratorAgentDescriptorGetArgs>? AgentDescriptor { get; set; }
 
-        /// <summary>
-        /// ID if the agent to associate the collaborator.
-        /// </summary>
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
-        /// <summary>
-        /// Instruction to give the collaborator.
-        /// </summary>
         [Input("collaborationInstruction")]
         public Input<string>? CollaborationInstruction { get; set; }
 
-        /// <summary>
-        /// ID of the Agent Collaborator.
-        /// </summary>
         [Input("collaboratorId")]
         public Input<string>? CollaboratorId { get; set; }
 
-        /// <summary>
-        /// Name of this collaborator.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("collaboratorName")]
         public Input<string>? CollaboratorName { get; set; }
 
-        /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
-        /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Configure relaying the history to the collaborator.
-        /// </summary>
         [Input("relayConversationHistory")]
         public Input<string>? RelayConversationHistory { get; set; }
 

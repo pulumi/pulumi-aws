@@ -12,29 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the parameter.
-        /// 
-        /// **Note:** The argument name `MapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
-        /// </summary>
         [Input("mapBlockKey", required: true)]
         public Input<string> MapBlockKey { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the parameter is required for the agent to complete the function for action group invocation.
-        /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
-        /// <summary>
-        /// Data type of the parameter. Valid values: `String`, `Number`, `Integer`, `Boolean`, `Array`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

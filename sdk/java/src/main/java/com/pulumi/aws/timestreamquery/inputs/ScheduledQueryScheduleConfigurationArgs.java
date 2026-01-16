@@ -14,17 +14,9 @@ public final class ScheduledQueryScheduleConfigurationArgs extends com.pulumi.re
 
     public static final ScheduledQueryScheduleConfigurationArgs Empty = new ScheduledQueryScheduleConfigurationArgs();
 
-    /**
-     * When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-     * 
-     */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
-    /**
-     * @return When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-     * 
-     */
     public Output<String> scheduleExpression() {
         return this.scheduleExpression;
     }
@@ -53,23 +45,11 @@ public final class ScheduledQueryScheduleConfigurationArgs extends com.pulumi.re
             $ = new ScheduledQueryScheduleConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param scheduleExpression When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(Output<String> scheduleExpression) {
             $.scheduleExpression = scheduleExpression;
             return this;
         }
 
-        /**
-         * @param scheduleExpression When to trigger the scheduled query run. This can be a cron expression or a rate expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
         }

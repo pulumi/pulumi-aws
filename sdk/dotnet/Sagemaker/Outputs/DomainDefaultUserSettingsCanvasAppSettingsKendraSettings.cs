@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultUserSettingsCanvasAppSettingsKendraSettings
     {
-        /// <summary>
-        /// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

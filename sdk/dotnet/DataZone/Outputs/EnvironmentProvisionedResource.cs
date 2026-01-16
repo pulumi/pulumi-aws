@@ -13,15 +13,9 @@ namespace Pulumi.Aws.DataZone.Outputs
     [OutputType]
     public sealed class EnvironmentProvisionedResource
     {
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
         public readonly string Name;
         public readonly string Provider;
         public readonly string Type;
-        /// <summary>
-        /// The value of an environment profile parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

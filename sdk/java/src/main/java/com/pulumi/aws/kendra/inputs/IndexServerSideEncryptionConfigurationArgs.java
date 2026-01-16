@@ -15,17 +15,9 @@ public final class IndexServerSideEncryptionConfigurationArgs extends com.pulumi
 
     public static final IndexServerSideEncryptionConfigurationArgs Empty = new IndexServerSideEncryptionConfigurationArgs();
 
-    /**
-     * The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -54,23 +46,11 @@ public final class IndexServerSideEncryptionConfigurationArgs extends com.pulumi
             $ = new IndexServerSideEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

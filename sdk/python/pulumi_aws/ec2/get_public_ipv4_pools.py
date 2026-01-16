@@ -61,9 +61,6 @@ class GetPublicIpv4PoolsResult:
     @_builtins.property
     @pulumi.getter(name="poolIds")
     def pool_ids(self) -> Sequence[_builtins.str]:
-        """
-        List of all the pool IDs found.
-        """
         return pulumi.get(self, "pool_ids")
 
     @_builtins.property
@@ -95,39 +92,7 @@ def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFi
                           tags: Optional[Mapping[str, _builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpv4PoolsResult:
     """
-    Data source for getting information about AWS EC2 Public IPv4 Pools.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Returns all public IPv4 pools.
-    example = aws.ec2.get_public_ipv4_pools()
-    ```
-
-    ### Usage with Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pools(filters=[{
-        "name": "tag-key",
-        "values": ["ExampleTagKey"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired pools.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -147,39 +112,7 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolsResult]:
     """
-    Data source for getting information about AWS EC2 Public IPv4 Pools.
-
-    ## Example Usage
-
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    # Returns all public IPv4 pools.
-    example = aws.ec2.get_public_ipv4_pools()
-    ```
-
-    ### Usage with Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pools(filters=[{
-        "name": "tag-key",
-        "values": ["ExampleTagKey"],
-    }])
-    ```
-
-
-    :param Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']] filters: Custom filter block as described below.
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired pools.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

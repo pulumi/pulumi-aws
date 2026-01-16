@@ -25,10 +25,6 @@ class ResourceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Resource resource.
-        :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
-        :param pulumi.Input[_builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "parent_id", parent_id)
         pulumi.set(__self__, "path_part", path_part)
@@ -39,9 +35,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the parent API resource
-        """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
@@ -51,9 +44,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter(name="pathPart")
     def path_part(self) -> pulumi.Input[_builtins.str]:
-        """
-        Last path segment of this API resource.
-        """
         return pulumi.get(self, "path_part")
 
     @path_part.setter
@@ -63,9 +53,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -75,9 +62,6 @@ class ResourceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -95,11 +79,6 @@ class _ResourceState:
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
-        :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
-        :param pulumi.Input[_builtins.str] path: Complete path for this API resource, including all parent paths.
-        :param pulumi.Input[_builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         """
         if parent_id is not None:
             pulumi.set(__self__, "parent_id", parent_id)
@@ -115,9 +94,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the parent API resource
-        """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
@@ -127,9 +103,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Complete path for this API resource, including all parent paths.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -139,9 +112,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter(name="pathPart")
     def path_part(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last path segment of this API resource.
-        """
         return pulumi.get(self, "path_part")
 
     @path_part.setter
@@ -151,9 +121,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -163,9 +130,6 @@ class _ResourceState:
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -185,37 +149,9 @@ class Resource(pulumi.CustomResource):
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an API Gateway Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
-            name="MyDemoAPI",
-            description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
-            rest_api=my_demo_api.id,
-            parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-        ```
-
+        Create a Resource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
-        :param pulumi.Input[_builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         """
         ...
     @overload
@@ -224,31 +160,7 @@ class Resource(pulumi.CustomResource):
                  args: ResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an API Gateway Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("MyDemoAPI",
-            name="MyDemoAPI",
-            description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("MyDemoResource",
-            rest_api=my_demo_api.id,
-            parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
-
-        ```sh
-        $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-        ```
-
+        Create a Resource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,11 +222,6 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
-        :param pulumi.Input[_builtins.str] path: Complete path for this API resource, including all parent paths.
-        :param pulumi.Input[_builtins.str] path_part: Last path segment of this API resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -330,40 +237,25 @@ class Resource(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the parent API resource
-        """
         return pulumi.get(self, "parent_id")
 
     @_builtins.property
     @pulumi.getter
     def path(self) -> pulumi.Output[_builtins.str]:
-        """
-        Complete path for this API resource, including all parent paths.
-        """
         return pulumi.get(self, "path")
 
     @_builtins.property
     @pulumi.getter(name="pathPart")
     def path_part(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last path segment of this API resource.
-        """
         return pulumi.get(self, "path_part")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 

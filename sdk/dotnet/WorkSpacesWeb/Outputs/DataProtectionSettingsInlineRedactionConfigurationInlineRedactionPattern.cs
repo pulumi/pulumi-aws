@@ -13,29 +13,11 @@ namespace Pulumi.Aws.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern
     {
-        /// <summary>
-        /// The built-in pattern from the list of preconfigured patterns. Either a `CustomPattern` or `BuiltInPatternId` is required.
-        /// </summary>
         public readonly string? BuiltInPatternId;
-        /// <summary>
-        /// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
-        /// </summary>
         public readonly int? ConfidenceLevel;
-        /// <summary>
-        /// The configuration for a custom pattern. Either a `CustomPattern` or `BuiltInPatternId` is required. Detailed below.
-        /// </summary>
         public readonly Outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern? CustomPattern;
-        /// <summary>
-        /// The enforced URL configuration for the inline redaction pattern.
-        /// </summary>
         public readonly ImmutableArray<string> EnforcedUrls;
-        /// <summary>
-        /// The exempt URL configuration for the inline redaction pattern.
-        /// </summary>
         public readonly ImmutableArray<string> ExemptUrls;
-        /// <summary>
-        /// The redaction placeholder that will replace the redacted text in session. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder> RedactionPlaceHolders;
 
         [OutputConstructor]

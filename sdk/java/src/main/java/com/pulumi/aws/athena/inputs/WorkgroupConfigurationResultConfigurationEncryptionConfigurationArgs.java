@@ -15,32 +15,16 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
 
     public static final WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs Empty = new WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs();
 
-    /**
-     * Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-     * 
-     */
     @Import(name="encryptionOption")
     private @Nullable Output<String> encryptionOption;
 
-    /**
-     * @return Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-     * 
-     */
     public Optional<Output<String>> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
 
-    /**
-     * For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -70,44 +54,20 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
             $ = new WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionOption Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(@Nullable Output<String> encryptionOption) {
             $.encryptionOption = encryptionOption;
             return this;
         }
 
-        /**
-         * @param encryptionOption Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionOption(String encryptionOption) {
             return encryptionOption(Output.of(encryptionOption));
         }
 
-        /**
-         * @param kmsKeyArn For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

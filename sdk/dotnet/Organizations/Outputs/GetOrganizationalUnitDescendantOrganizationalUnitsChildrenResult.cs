@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class GetOrganizationalUnitDescendantOrganizationalUnitsChildrenResult
     {
-        /// <summary>
-        /// ARN of the organizational unit
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Parent identifier of the organizational units.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the organizational unit
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

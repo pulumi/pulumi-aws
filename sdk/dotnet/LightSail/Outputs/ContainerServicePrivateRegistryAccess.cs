@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServicePrivateRegistryAccess
     {
-        /// <summary>
-        /// Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
-        /// </summary>
         public readonly Outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole? EcrImagePullerRole;
 
         [OutputConstructor]

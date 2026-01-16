@@ -15,17 +15,9 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts
 
     public static final FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs Empty = new FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs();
 
-    /**
-     * Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-     * 
-     */
     @Import(name="tcpIdleTimeoutSeconds")
     private @Nullable Output<Integer> tcpIdleTimeoutSeconds;
 
-    /**
-     * @return Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-     * 
-     */
     public Optional<Output<Integer>> tcpIdleTimeoutSeconds() {
         return Optional.ofNullable(this.tcpIdleTimeoutSeconds);
     }
@@ -54,23 +46,11 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts
             $ = new FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tcpIdleTimeoutSeconds Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tcpIdleTimeoutSeconds(@Nullable Output<Integer> tcpIdleTimeoutSeconds) {
             $.tcpIdleTimeoutSeconds = tcpIdleTimeoutSeconds;
             return this;
         }
 
-        /**
-         * @param tcpIdleTimeoutSeconds Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tcpIdleTimeoutSeconds(Integer tcpIdleTimeoutSeconds) {
             return tcpIdleTimeoutSeconds(Output.of(tcpIdleTimeoutSeconds));
         }

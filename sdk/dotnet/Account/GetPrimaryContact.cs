@@ -11,66 +11,12 @@ namespace Pulumi.Aws.Account
 {
     public static class GetPrimaryContact
     {
-        /// <summary>
-        /// Data source for the primary contact information associated with an AWS Account.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Account.GetPrimaryContact.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetPrimaryContactResult> InvokeAsync(GetPrimaryContactArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryContactResult>("aws:account/getPrimaryContact:getPrimaryContact", args ?? new GetPrimaryContactArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for the primary contact information associated with an AWS Account.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Account.GetPrimaryContact.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPrimaryContactResult> Invoke(GetPrimaryContactInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryContactResult>("aws:account/getPrimaryContact:getPrimaryContact", args ?? new GetPrimaryContactInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for the primary contact information associated with an AWS Account.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Account.GetPrimaryContact.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetPrimaryContactResult> Invoke(GetPrimaryContactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryContactResult>("aws:account/getPrimaryContact:getPrimaryContact", args ?? new GetPrimaryContactInvokeArgs(), options.WithDefaults());
     }
@@ -78,9 +24,6 @@ namespace Pulumi.Aws.Account
 
     public sealed class GetPrimaryContactArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
@@ -92,9 +35,6 @@ namespace Pulumi.Aws.Account
 
     public sealed class GetPrimaryContactInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -109,57 +49,21 @@ namespace Pulumi.Aws.Account
     public sealed class GetPrimaryContactResult
     {
         public readonly string AccountId;
-        /// <summary>
-        /// The first line of the primary contact address.
-        /// </summary>
         public readonly string AddressLine1;
-        /// <summary>
-        /// The second line of the primary contact address.
-        /// </summary>
         public readonly string AddressLine2;
-        /// <summary>
-        /// The third line of the primary contact address.
-        /// </summary>
         public readonly string AddressLine3;
-        /// <summary>
-        /// The city of the primary contact address.
-        /// </summary>
         public readonly string City;
-        /// <summary>
-        /// The name of the company associated with the primary contact information.
-        /// </summary>
         public readonly string CompanyName;
-        /// <summary>
-        /// The ISO-3166 two-letter country code for the primary contact address.
-        /// </summary>
         public readonly string CountryCode;
-        /// <summary>
-        /// The district or county of the primary contact address.
-        /// </summary>
         public readonly string DistrictOrCounty;
-        /// <summary>
-        /// The full name of the primary contact address.
-        /// </summary>
         public readonly string FullName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The phone number of the primary contact information.
-        /// </summary>
         public readonly string PhoneNumber;
-        /// <summary>
-        /// The postal code of the primary contact address.
-        /// </summary>
         public readonly string PostalCode;
-        /// <summary>
-        /// The state or region of the primary contact address.
-        /// </summary>
         public readonly string StateOrRegion;
-        /// <summary>
-        /// The URL of the website associated with the primary contact information.
-        /// </summary>
         public readonly string WebsiteUrl;
 
         [OutputConstructor]

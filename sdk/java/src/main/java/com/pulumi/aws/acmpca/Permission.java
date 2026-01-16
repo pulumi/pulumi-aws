@@ -14,146 +14,41 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
- * Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acmpca.CertificateAuthority;
- * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import com.pulumi.aws.acmpca.Permission;
- * import com.pulumi.aws.acmpca.PermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm("RSA_4096")
- *                 .signingAlgorithm("SHA512WITHRSA")
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName("example.com")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new Permission("example", PermissionArgs.builder()
- *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
- *             .actions(            
- *                 "IssueCertificate",
- *                 "GetCertificate",
- *                 "ListPermissions")
- *             .principal("acm.amazonaws.com")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:acmpca/permission:Permission")
 public class Permission extends com.pulumi.resources.CustomResource {
-    /**
-     * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     * 
-     */
     @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> actions;
 
-    /**
-     * @return Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
-     * 
-     */
     public Output<List<String>> actions() {
         return this.actions;
     }
-    /**
-     * ARN of the CA that grants the permissions.
-     * 
-     */
     @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output<String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of the CA that grants the permissions.
-     * 
-     */
     public Output<String> certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
-    /**
-     * IAM policy that is associated with the permission.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return IAM policy that is associated with the permission.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * ID of the calling account
-     * 
-     */
     @Export(name="sourceAccount", refs={String.class}, tree="[0]")
     private Output<String> sourceAccount;
 
-    /**
-     * @return ID of the calling account
-     * 
-     */
     public Output<String> sourceAccount() {
         return this.sourceAccount;
     }

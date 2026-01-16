@@ -16,21 +16,9 @@ public final class AnalysisParametersIntegerParameterArgs extends com.pulumi.res
 
     public static final AnalysisParametersIntegerParameterArgs Empty = new AnalysisParametersIntegerParameterArgs();
 
-    /**
-     * Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -67,27 +55,11 @@ public final class AnalysisParametersIntegerParameterArgs extends com.pulumi.res
             $ = new AnalysisParametersIntegerParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Display name for the analysis.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Display name for the analysis.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

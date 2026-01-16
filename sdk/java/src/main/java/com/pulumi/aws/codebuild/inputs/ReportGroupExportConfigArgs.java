@@ -17,32 +17,16 @@ public final class ReportGroupExportConfigArgs extends com.pulumi.resources.Reso
 
     public static final ReportGroupExportConfigArgs Empty = new ReportGroupExportConfigArgs();
 
-    /**
-     * contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-     * 
-     */
     @Import(name="s3Destination")
     private @Nullable Output<ReportGroupExportConfigS3DestinationArgs> s3Destination;
 
-    /**
-     * @return contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-     * 
-     */
     public Optional<Output<ReportGroupExportConfigS3DestinationArgs>> s3Destination() {
         return Optional.ofNullable(this.s3Destination);
     }
 
-    /**
-     * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,44 +56,20 @@ public final class ReportGroupExportConfigArgs extends com.pulumi.resources.Reso
             $ = new ReportGroupExportConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Destination contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(@Nullable Output<ReportGroupExportConfigS3DestinationArgs> s3Destination) {
             $.s3Destination = s3Destination;
             return this;
         }
 
-        /**
-         * @param s3Destination contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(ReportGroupExportConfigS3DestinationArgs s3Destination) {
             return s3Destination(Output.of(s3Destination));
         }
 
-        /**
-         * @param type The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

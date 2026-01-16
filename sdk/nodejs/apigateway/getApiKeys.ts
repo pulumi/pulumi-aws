@@ -7,18 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Data source for managing AWS API Gateway API Keys.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getApiKeys({});
- * ```
- */
 export function getApiKeys(args?: GetApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeysResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,17 +21,8 @@ export function getApiKeys(args?: GetApiKeysArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getApiKeys.
  */
 export interface GetApiKeysArgs {
-    /**
-     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     */
     customerId?: string;
-    /**
-     * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-     */
     includeValues?: boolean;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -51,33 +30,12 @@ export interface GetApiKeysArgs {
  * A collection of values returned by getApiKeys.
  */
 export interface GetApiKeysResult {
-    /**
-     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     */
     readonly customerId?: string;
-    /**
-     * ID of the API Key.
-     */
     readonly id: string;
     readonly includeValues?: boolean;
-    /**
-     * List of objects containing API Key information. See below.
-     */
     readonly items: outputs.apigateway.GetApiKeysItem[];
     readonly region: string;
 }
-/**
- * Data source for managing AWS API Gateway API Keys.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getApiKeys({});
- * ```
- */
 export function getApiKeysOutput(args?: GetApiKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiKeysResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,16 +50,7 @@ export function getApiKeysOutput(args?: GetApiKeysOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getApiKeys.
  */
 export interface GetApiKeysOutputArgs {
-    /**
-     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
-     */
     customerId?: pulumi.Input<string>;
-    /**
-     * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-     */
     includeValues?: pulumi.Input<boolean>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

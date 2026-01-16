@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataExchange.Inputs
 
     public sealed class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the KMS key.
-        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 

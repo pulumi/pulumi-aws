@@ -9,67 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog Tag Option.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.TagOption("example", new()
-    ///     {
-    ///         Key = "nyckel",
-    ///         Value = "värde",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/tagOption:TagOption")]
     public partial class TagOption : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether tag option is active. Default is `True`.
-        /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag option key.
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag option value.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -119,29 +73,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class TagOptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether tag option is active. Default is `True`.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
-        /// <summary>
-        /// Tag option key.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Tag option value.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -153,32 +93,18 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class TagOptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether tag option is active. Default is `True`.
-        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
-        /// <summary>
-        /// Tag option key.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Tag option value.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

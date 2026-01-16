@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventConnectionAuthParametersBasic {
-    /**
-     * @return A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     private String password;
-    /**
-     * @return A username for the authorization.
-     * 
-     */
     private String username;
 
     private EventConnectionAuthParametersBasic() {}
-    /**
-     * @return A password for the authorization. Created and stored in AWS Secrets Manager.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return A username for the authorization.
-     * 
-     */
     public String username() {
         return this.username;
     }

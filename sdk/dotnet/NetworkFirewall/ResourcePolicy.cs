@@ -9,119 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall
 {
-    /// <summary>
-    /// Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### For a Firewall Policy resource
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
-    ///     {
-    ///         ResourceArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "network-firewall:ListFirewallPolicies",
-    ///                         "network-firewall:CreateFirewall",
-    ///                         "network-firewall:UpdateFirewall",
-    ///                         "network-firewall:AssociateFirewallPolicy",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = exampleAwsNetworkfirewallFirewallPolicy.Arn,
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2012-10-17",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### For a Rule Group resource
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
-    ///     {
-    ///         ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "network-firewall:ListRuleGroups",
-    ///                         "network-firewall:CreateFirewallPolicy",
-    ///                         "network-firewall:UpdateFirewallPolicy",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = exampleAwsNetworkfirewallRuleGroup.Arn,
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2012-10-17",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
-    /// ```sh
-    /// $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkfirewall/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule group or firewall policy.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -171,21 +67,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule group or firewall policy.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
@@ -197,21 +84,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule group or firewall policy.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

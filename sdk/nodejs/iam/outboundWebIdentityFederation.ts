@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.OutboundWebIdentityFederation("example", {});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
- *
- * ```sh
- * $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
- * ```
- */
 export class OutboundWebIdentityFederation extends pulumi.CustomResource {
     /**
      * Get an existing OutboundWebIdentityFederation resource's state with the given name, ID, and optional extra
@@ -50,9 +32,6 @@ export class OutboundWebIdentityFederation extends pulumi.CustomResource {
         return obj['__pulumiType'] === OutboundWebIdentityFederation.__pulumiType;
     }
 
-    /**
-     * A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-     */
     declare public /*out*/ readonly issuerIdentifier: pulumi.Output<string>;
 
     /**
@@ -82,9 +61,6 @@ export class OutboundWebIdentityFederation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutboundWebIdentityFederation resources.
  */
 export interface OutboundWebIdentityFederationState {
-    /**
-     * A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
-     */
     issuerIdentifier?: pulumi.Input<string>;
 }
 

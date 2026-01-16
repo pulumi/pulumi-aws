@@ -11,72 +11,12 @@ namespace Pulumi.Aws.VpcLattice
 {
     public static class GetListener
     {
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Listener.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetListener.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:vpclattice/getListener:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Listener.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetListener.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:vpclattice/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS VPC Lattice Listener.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.VpcLattice.GetListener.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:vpclattice/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
@@ -84,30 +24,17 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener
-        /// </summary>
         [Input("listenerIdentifier", required: true)]
         public string ListenerIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network
-        /// </summary>
         [Input("serviceIdentifier", required: true)]
         public string ServiceIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// List of tags associated with the listener.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -122,30 +49,17 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener
-        /// </summary>
         [Input("listenerIdentifier", required: true)]
         public Input<string> ListenerIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network
-        /// </summary>
         [Input("serviceIdentifier", required: true)]
         public Input<string> ServiceIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// List of tags associated with the listener.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -162,56 +76,23 @@ namespace Pulumi.Aws.VpcLattice
     [OutputType]
     public sealed class GetListenerResult
     {
-        /// <summary>
-        /// ARN of the listener.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The date and time that the listener was created.
-        /// </summary>
         public readonly string CreatedAt;
-        /// <summary>
-        /// The actions for the default listener rule.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The date and time the listener was last updated.
-        /// </summary>
         public readonly string LastUpdatedAt;
-        /// <summary>
-        /// The ID of the listener.
-        /// </summary>
         public readonly string ListenerId;
         public readonly string ListenerIdentifier;
-        /// <summary>
-        /// The name of the listener.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The listener port.
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// The listener protocol. Either `HTTPS` or `HTTP`.
-        /// </summary>
         public readonly string Protocol;
         public readonly string Region;
-        /// <summary>
-        /// The ARN of the service.
-        /// </summary>
         public readonly string ServiceArn;
-        /// <summary>
-        /// The ID of the service.
-        /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceIdentifier;
-        /// <summary>
-        /// List of tags associated with the listener.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotObfuscationSetting {
-    /**
-     * @return Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-     * 
-     */
     private String obfuscationSettingType;
 
     private V2modelsSlotObfuscationSetting() {}
-    /**
-     * @return Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
-     * 
-     */
     public String obfuscationSettingType() {
         return this.obfuscationSettingType;
     }

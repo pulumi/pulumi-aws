@@ -21,54 +21,18 @@ import javax.annotation.Nullable;
 public final class GetJobDefinitionResult {
     private @Nullable String arn;
     private String arnPrefix;
-    /**
-     * @return The orchestration type of the compute environment.
-     * 
-     */
     private String containerOrchestrationType;
-    /**
-     * @return An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
-     * 
-     */
     private List<GetJobDefinitionEksProperty> eksProperties;
-    /**
-     * @return The ARN
-     * 
-     */
     private String id;
-    /**
-     * @return The name of the volume.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition&#39;s type parameter is container, then you must specify either containerProperties or nodeProperties.
-     * 
-     */
     private List<GetJobDefinitionNodeProperty> nodeProperties;
     private String region;
-    /**
-     * @return The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that&#39;s specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn&#39;t retried.
-     * 
-     */
     private List<GetJobDefinitionRetryStrategy> retryStrategies;
     private @Nullable Integer revision;
-    /**
-     * @return The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
-     * 
-     */
     private Integer schedulingPriority;
     private @Nullable String status;
     private Map<String,String> tags;
-    /**
-     * @return The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn&#39;t retried. The minimum value for the timeout is 60 seconds.
-     * 
-     */
     private List<GetJobDefinitionTimeout> timeouts;
-    /**
-     * @return The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
-     * 
-     */
     private String type;
 
     private GetJobDefinitionResult() {}
@@ -78,58 +42,30 @@ public final class GetJobDefinitionResult {
     public String arnPrefix() {
         return this.arnPrefix;
     }
-    /**
-     * @return The orchestration type of the compute environment.
-     * 
-     */
     public String containerOrchestrationType() {
         return this.containerOrchestrationType;
     }
-    /**
-     * @return An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
-     * 
-     */
     public List<GetJobDefinitionEksProperty> eksProperties() {
         return this.eksProperties;
     }
-    /**
-     * @return The ARN
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return The name of the volume.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition&#39;s type parameter is container, then you must specify either containerProperties or nodeProperties.
-     * 
-     */
     public List<GetJobDefinitionNodeProperty> nodeProperties() {
         return this.nodeProperties;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that&#39;s specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn&#39;t retried.
-     * 
-     */
     public List<GetJobDefinitionRetryStrategy> retryStrategies() {
         return this.retryStrategies;
     }
     public Optional<Integer> revision() {
         return Optional.ofNullable(this.revision);
     }
-    /**
-     * @return The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
-     * 
-     */
     public Integer schedulingPriority() {
         return this.schedulingPriority;
     }
@@ -139,17 +75,9 @@ public final class GetJobDefinitionResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn&#39;t retried. The minimum value for the timeout is 60 seconds.
-     * 
-     */
     public List<GetJobDefinitionTimeout> timeouts() {
         return this.timeouts;
     }
-    /**
-     * @return The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
-     * 
-     */
     public String type() {
         return this.type;
     }

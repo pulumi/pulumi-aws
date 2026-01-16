@@ -40,17 +40,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         return this.objectPath;
     }
 
-    /**
-     * Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-     * 
-     */
     @Import(name="successResponseHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs> successResponseHandlingConfig;
 
-    /**
-     * @return Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs>> successResponseHandlingConfig() {
         return Optional.ofNullable(this.successResponseHandlingConfig);
     }
@@ -121,23 +113,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
             return objectPath(Output.of(objectPath));
         }
 
-        /**
-         * @param successResponseHandlingConfig Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successResponseHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs> successResponseHandlingConfig) {
             $.successResponseHandlingConfig = successResponseHandlingConfig;
             return this;
         }
 
-        /**
-         * @param successResponseHandlingConfig Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successResponseHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs successResponseHandlingConfig) {
             return successResponseHandlingConfig(Output.of(successResponseHandlingConfig));
         }

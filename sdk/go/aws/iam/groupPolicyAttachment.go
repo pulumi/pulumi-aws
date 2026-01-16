@@ -12,64 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a Managed IAM Policy to an IAM group
-//
-// > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", &iam.GroupArgs{
-//				Name: pulumi.String("test-group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-//				Name:        pulumi.String("test-policy"),
-//				Description: pulumi.String("A test policy"),
-//				Policy:      pulumi.Any("{ ... policy JSON ... }"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewGroupPolicyAttachment(ctx, "test-attach", &iam.GroupPolicyAttachmentArgs{
-//				Group:     group.Name,
-//				PolicyArn: policy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
-//
-// ```sh
-// $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-// ```
 type GroupPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// The group the policy should be applied to
-	Group pulumi.StringOutput `pulumi:"group"`
-	// The ARN of the policy you want to apply
+	Group     pulumi.StringOutput `pulumi:"group"`
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 }
 
@@ -109,16 +55,12 @@ func GetGroupPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupPolicyAttachment resources.
 type groupPolicyAttachmentState struct {
-	// The group the policy should be applied to
-	Group interface{} `pulumi:"group"`
-	// The ARN of the policy you want to apply
-	PolicyArn *string `pulumi:"policyArn"`
+	Group     interface{} `pulumi:"group"`
+	PolicyArn *string     `pulumi:"policyArn"`
 }
 
 type GroupPolicyAttachmentState struct {
-	// The group the policy should be applied to
-	Group pulumi.Input
-	// The ARN of the policy you want to apply
+	Group     pulumi.Input
 	PolicyArn pulumi.StringPtrInput
 }
 
@@ -127,17 +69,13 @@ func (GroupPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type groupPolicyAttachmentArgs struct {
-	// The group the policy should be applied to
-	Group interface{} `pulumi:"group"`
-	// The ARN of the policy you want to apply
-	PolicyArn string `pulumi:"policyArn"`
+	Group     interface{} `pulumi:"group"`
+	PolicyArn string      `pulumi:"policyArn"`
 }
 
 // The set of arguments for constructing a GroupPolicyAttachment resource.
 type GroupPolicyAttachmentArgs struct {
-	// The group the policy should be applied to
-	Group pulumi.Input
-	// The ARN of the policy you want to apply
+	Group     pulumi.Input
 	PolicyArn pulumi.StringInput
 }
 
@@ -228,12 +166,10 @@ func (o GroupPolicyAttachmentOutput) ToGroupPolicyAttachmentOutputWithContext(ct
 	return o
 }
 
-// The group the policy should be applied to
 func (o GroupPolicyAttachmentOutput) Group() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyAttachment) pulumi.StringOutput { return v.Group }).(pulumi.StringOutput)
 }
 
-// The ARN of the policy you want to apply
 func (o GroupPolicyAttachmentOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyAttachment) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }

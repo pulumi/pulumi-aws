@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Get information about an account in an organization.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.organizations.getAccount({
- *     accountId: "AWS ACCOUNT ID",
- * });
- * ```
- */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getAccount:getAccount", {
@@ -32,13 +16,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountArgs {
-    /**
-     * Account ID number of a delegated administrator account in the organization.
-     */
     accountId: string;
-    /**
-     * Map of tags for the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -47,59 +25,19 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     readonly accountId: string;
-    /**
-     * ARN of the organization.
-     */
     readonly arn: string;
-    /**
-     * Email address of the owner assigned to the new member account.
-     */
     readonly email: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Method by which the account joined the organization.
-     */
     readonly joinedMethod: string;
-    /**
-     * Date the account became a part of the organization.
-     */
     readonly joinedTimestamp: string;
-    /**
-     * Friendly name for the member account.
-     */
     readonly name: string;
-    /**
-     * Parent Organizational Unit ID or Root ID for the account.
-     */
     readonly parentId: string;
-    /**
-     * State of the account in the organization.
-     */
     readonly state: string;
-    /**
-     * Map of tags for the resource.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Get information about an account in an organization.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.organizations.getAccount({
- *     accountId: "AWS ACCOUNT ID",
- * });
- * ```
- */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getAccount:getAccount", {
@@ -112,12 +50,6 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountOutputArgs {
-    /**
-     * Account ID number of a delegated administrator account in the organization.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * Map of tags for the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

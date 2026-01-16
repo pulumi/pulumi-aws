@@ -7,77 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CloudFront real-time log configuration resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["cloudfront.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "cloudfront-realtime-log-config-example",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "kinesis:DescribeStreamSummary",
- *             "kinesis:DescribeStream",
- *             "kinesis:PutRecord",
- *             "kinesis:PutRecords",
- *         ],
- *         resources: [exampleAwsKinesisStream.arn],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     name: "cloudfront-realtime-log-config-example",
- *     role: exampleRole.id,
- *     policy: example.then(example => example.json),
- * });
- * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("example", {
- *     name: "example",
- *     samplingRate: 75,
- *     fields: [
- *         "timestamp",
- *         "c-ip",
- *     ],
- *     endpoint: {
- *         streamType: "Kinesis",
- *         kinesisStreamConfig: {
- *             roleArn: exampleRole.arn,
- *             streamArn: exampleAwsKinesisStream.arn,
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleRolePolicy],
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
- *
- * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
- *
- * % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
- */
 export class RealtimeLogConfig extends pulumi.CustomResource {
     /**
      * Get an existing RealtimeLogConfig resource's state with the given name, ID, and optional extra
@@ -106,25 +35,10 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === RealtimeLogConfig.__pulumiType;
     }
 
-    /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The Amazon Kinesis data streams where real-time log data is sent.
-     */
     declare public readonly endpoint: pulumi.Output<outputs.cloudfront.RealtimeLogConfigEndpoint>;
-    /**
-     * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     */
     declare public readonly fields: pulumi.Output<string[]>;
-    /**
-     * The unique name to identify this real-time log configuration.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     */
     declare public readonly samplingRate: pulumi.Output<number>;
 
     /**
@@ -171,25 +85,10 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RealtimeLogConfig resources.
  */
 export interface RealtimeLogConfigState {
-    /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The Amazon Kinesis data streams where real-time log data is sent.
-     */
     endpoint?: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
-    /**
-     * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     */
     fields?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique name to identify this real-time log configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     */
     samplingRate?: pulumi.Input<number>;
 }
 
@@ -197,20 +96,8 @@ export interface RealtimeLogConfigState {
  * The set of arguments for constructing a RealtimeLogConfig resource.
  */
 export interface RealtimeLogConfigArgs {
-    /**
-     * The Amazon Kinesis data streams where real-time log data is sent.
-     */
     endpoint: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
-    /**
-     * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-     */
     fields: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique name to identify this real-time log configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-     */
     samplingRate: pulumi.Input<number>;
 }

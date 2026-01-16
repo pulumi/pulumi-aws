@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class FsxOpenZfsFileSystemProtocolNfsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Represents the mount options that are available for DataSync to access an NFS location. See below.
-        /// </summary>
         [Input("mountOptions", required: true)]
         public Input<Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs> MountOptions { get; set; } = null!;
 

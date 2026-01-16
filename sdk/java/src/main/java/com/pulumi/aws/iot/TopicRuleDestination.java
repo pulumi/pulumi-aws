@@ -16,110 +16,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.TopicRuleDestination;
- * import com.pulumi.aws.iot.TopicRuleDestinationArgs;
- * import com.pulumi.aws.iot.inputs.TopicRuleDestinationVpcConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TopicRuleDestination("example", TopicRuleDestinationArgs.builder()
- *             .vpcConfiguration(TopicRuleDestinationVpcConfigurationArgs.builder()
- *                 .roleArn(exampleAwsIamRole.arn())
- *                 .securityGroups(exampleAwsSecurityGroup.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *                 .vpcId(exampleAwsVpc.id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
- * 
- * ```sh
- * $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
- * ```
- * 
- */
 @ResourceType(type="aws:iot/topicRuleDestination:TopicRuleDestination")
 public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the topic rule destination
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the topic rule destination
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether or not to enable the destination. Default: `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether or not to enable the destination. Default: `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     * 
-     */
     @Export(name="vpcConfiguration", refs={TopicRuleDestinationVpcConfiguration.class}, tree="[0]")
     private Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration;
 
-    /**
-     * @return Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
-     * 
-     */
     public Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration() {
         return this.vpcConfiguration;
     }

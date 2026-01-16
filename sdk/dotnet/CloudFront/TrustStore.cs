@@ -9,118 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Manages an AWS CloudFront Trust Store.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.TrustStore("example", new()
-    ///     {
-    ///         Name = "example-trust-store",
-    ///         CaCertificatesBundleSource = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceArgs
-    ///         {
-    ///             CaCertificatesBundleS3Location = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs
-    ///             {
-    ///                 Bucket = "example-bucket",
-    ///                 Key = "ca-certificates.pem",
-    ///                 Region = "us-east-1",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With S3 Object Version
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.TrustStore("example", new()
-    ///     {
-    ///         Name = "example-trust-store",
-    ///         CaCertificatesBundleSource = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceArgs
-    ///         {
-    ///             CaCertificatesBundleS3Location = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs
-    ///             {
-    ///                 Bucket = "example-bucket",
-    ///                 Key = "ca-certificates.pem",
-    ///                 Region = "us-east-1",
-    ///                 Version = "abc123",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import CloudFront Trust Store using the trust store ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/trustStore:TrustStore")]
     public partial class TrustStore : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the trust store.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the CA certificates bundle source. See `CaCertificatesBundleSource` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("caCertificatesBundleSource")]
         public Output<Outputs.TrustStoreCaCertificatesBundleSource?> CaCertificatesBundleSource { get; private set; } = null!;
 
-        /// <summary>
-        /// ETag of the trust store.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the trust store. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of CA certificates in the trust store.
-        /// </summary>
         [Output("numberOfCaCertificates")]
         public Output<int> NumberOfCaCertificates { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -173,26 +82,14 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class TrustStoreArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for the CA certificates bundle source. See `CaCertificatesBundleSource` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("caCertificatesBundleSource")]
         public Input<Inputs.TrustStoreCaCertificatesBundleSourceArgs>? CaCertificatesBundleSource { get; set; }
 
-        /// <summary>
-        /// Name of the trust store. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -210,44 +107,23 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class TrustStoreState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the trust store.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Configuration block for the CA certificates bundle source. See `CaCertificatesBundleSource` below.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("caCertificatesBundleSource")]
         public Input<Inputs.TrustStoreCaCertificatesBundleSourceGetArgs>? CaCertificatesBundleSource { get; set; }
 
-        /// <summary>
-        /// ETag of the trust store.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// Name of the trust store. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Number of CA certificates in the trust store.
-        /// </summary>
         [Input("numberOfCaCertificates")]
         public Input<int>? NumberOfCaCertificates { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -256,10 +132,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

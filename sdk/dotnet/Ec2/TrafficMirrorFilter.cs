@@ -9,78 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides an Traffic mirror filter.\
-    /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-    /// 
-    /// ## Example Usage
-    /// 
-    /// To create a basic traffic mirror filter
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ec2.TrafficMirrorFilter("foo", new()
-    ///     {
-    ///         Description = "traffic mirror filter - example",
-    ///         NetworkServices = new[]
-    ///         {
-    ///             "amazon-dns",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import traffic mirror filter using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter")]
     public partial class TrafficMirrorFilter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the traffic mirror filter.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the filter.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        /// </summary>
         [Output("networkServices")]
         public Output<ImmutableArray<string>> NetworkServices { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -130,36 +76,22 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TrafficMirrorFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the filter.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("networkServices")]
         private InputList<string>? _networkServices;
-
-        /// <summary>
-        /// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        /// </summary>
         public InputList<string> NetworkServices
         {
             get => _networkServices ?? (_networkServices = new InputList<string>());
             set => _networkServices = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -174,42 +106,25 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TrafficMirrorFilterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the traffic mirror filter.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A description of the filter.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("networkServices")]
         private InputList<string>? _networkServices;
-
-        /// <summary>
-        /// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        /// </summary>
         public InputList<string> NetworkServices
         {
             get => _networkServices ?? (_networkServices = new InputList<string>());
             set => _networkServices = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -218,10 +133,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

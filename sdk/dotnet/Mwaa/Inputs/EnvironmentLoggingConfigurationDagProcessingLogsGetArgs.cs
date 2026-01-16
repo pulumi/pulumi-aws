@@ -15,15 +15,9 @@ namespace Pulumi.Aws.Mwaa.Inputs
         [Input("cloudWatchLogGroupArn")]
         public Input<string>? CloudWatchLogGroupArn { get; set; }
 
-        /// <summary>
-        /// Enabling or disabling the collection of logs
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 

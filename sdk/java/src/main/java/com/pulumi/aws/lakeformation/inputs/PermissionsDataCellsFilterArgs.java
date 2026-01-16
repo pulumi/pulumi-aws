@@ -14,62 +14,30 @@ public final class PermissionsDataCellsFilterArgs extends com.pulumi.resources.R
 
     public static final PermissionsDataCellsFilterArgs Empty = new PermissionsDataCellsFilterArgs();
 
-    /**
-     * The name of the database.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the database.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * The name of the data cells filter.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the data cells filter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The ID of the Data Catalog.
-     * 
-     */
     @Import(name="tableCatalogId", required=true)
     private Output<String> tableCatalogId;
 
-    /**
-     * @return The ID of the Data Catalog.
-     * 
-     */
     public Output<String> tableCatalogId() {
         return this.tableCatalogId;
     }
 
-    /**
-     * The name of the table.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -101,86 +69,38 @@ public final class PermissionsDataCellsFilterArgs extends com.pulumi.resources.R
             $ = new PermissionsDataCellsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName The name of the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param name The name of the data cells filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the data cells filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tableCatalogId The ID of the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableCatalogId(Output<String> tableCatalogId) {
             $.tableCatalogId = tableCatalogId;
             return this;
         }
 
-        /**
-         * @param tableCatalogId The ID of the Data Catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableCatalogId(String tableCatalogId) {
             return tableCatalogId(Output.of(tableCatalogId));
         }
 
-        /**
-         * @param tableName The name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

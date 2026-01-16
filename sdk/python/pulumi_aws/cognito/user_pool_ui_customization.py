@@ -26,11 +26,6 @@ class UserPoolUICustomizationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolUICustomization resource.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool.
-        :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        :param pulumi.Input[_builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if client_id is not None:
@@ -45,9 +40,6 @@ class UserPoolUICustomizationArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The user pool ID for the user pool.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -57,9 +49,6 @@ class UserPoolUICustomizationArgs:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -69,9 +58,6 @@ class UserPoolUICustomizationArgs:
     @_builtins.property
     @pulumi.getter
     def css(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        """
         return pulumi.get(self, "css")
 
     @css.setter
@@ -81,9 +67,6 @@ class UserPoolUICustomizationArgs:
     @_builtins.property
     @pulumi.getter(name="imageFile")
     def image_file(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        """
         return pulumi.get(self, "image_file")
 
     @image_file.setter
@@ -93,9 +76,6 @@ class UserPoolUICustomizationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -117,15 +97,6 @@ class _UserPoolUICustomizationState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolUICustomization resources.
-        :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        :param pulumi.Input[_builtins.str] creation_date: The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        :param pulumi.Input[_builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] css_version: The CSS version number.
-        :param pulumi.Input[_builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] image_url: The logo image URL for the UI customization.
-        :param pulumi.Input[_builtins.str] last_modified_date: The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -149,9 +120,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -161,9 +129,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
@@ -173,9 +138,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter
     def css(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        """
         return pulumi.get(self, "css")
 
     @css.setter
@@ -185,9 +147,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="cssVersion")
     def css_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The CSS version number.
-        """
         return pulumi.get(self, "css_version")
 
     @css_version.setter
@@ -197,9 +156,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="imageFile")
     def image_file(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        """
         return pulumi.get(self, "image_file")
 
     @image_file.setter
@@ -209,9 +165,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="imageUrl")
     def image_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The logo image URL for the UI customization.
-        """
         return pulumi.get(self, "image_url")
 
     @image_url.setter
@@ -221,9 +174,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @last_modified_date.setter
@@ -233,9 +183,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -245,9 +192,6 @@ class _UserPoolUICustomizationState:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The user pool ID for the user pool.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -268,65 +212,9 @@ class UserPoolUICustomization(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Cognito User Pool UI Customization resource.
-
-        > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
-
-        ## Example Usage
-
-        ### UI customization settings for a single client
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
-        ### UI customization settings for all clients
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
-        ```
-
+        Create a UserPoolUICustomization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        :param pulumi.Input[_builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool.
         """
         ...
     @overload
@@ -335,58 +223,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
                  args: UserPoolUICustomizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cognito User Pool UI Customization resource.
-
-        > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
-
-        ## Example Usage
-
-        ### UI customization settings for a single client
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
-        ### UI customization settings for all clients
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
-
-        ```sh
-        $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
-        ```
-
+        Create a UserPoolUICustomization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserPoolUICustomizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -453,15 +290,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        :param pulumi.Input[_builtins.str] creation_date: The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        :param pulumi.Input[_builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] css_version: The CSS version number.
-        :param pulumi.Input[_builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        :param pulumi.Input[_builtins.str] image_url: The logo image URL for the UI customization.
-        :param pulumi.Input[_builtins.str] last_modified_date: The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -481,72 +309,45 @@ class UserPoolUICustomization(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
-        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        """
         return pulumi.get(self, "creation_date")
 
     @_builtins.property
     @pulumi.getter
     def css(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
-        """
         return pulumi.get(self, "css")
 
     @_builtins.property
     @pulumi.getter(name="cssVersion")
     def css_version(self) -> pulumi.Output[_builtins.str]:
-        """
-        The CSS version number.
-        """
         return pulumi.get(self, "css_version")
 
     @_builtins.property
     @pulumi.getter(name="imageFile")
     def image_file(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
-        """
         return pulumi.get(self, "image_file")
 
     @_builtins.property
     @pulumi.getter(name="imageUrl")
     def image_url(self) -> pulumi.Output[_builtins.str]:
-        """
-        The logo image URL for the UI customization.
-        """
         return pulumi.get(self, "image_url")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> pulumi.Output[_builtins.str]:
-        """
-        The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
-        """
         return pulumi.get(self, "last_modified_date")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The user pool ID for the user pool.
-        """
         return pulumi.get(self, "user_pool_id")
 

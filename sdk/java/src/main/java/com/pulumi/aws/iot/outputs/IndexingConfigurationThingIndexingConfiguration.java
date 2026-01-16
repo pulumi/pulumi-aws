@@ -16,89 +16,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexingConfigurationThingIndexingConfiguration {
-    /**
-     * @return Contains custom field names and their data type. See below.
-     * 
-     */
     private @Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields;
-    /**
-     * @return Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
-     * 
-     */
     private @Nullable String deviceDefenderIndexingMode;
-    /**
-     * @return Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-     * 
-     */
     private @Nullable IndexingConfigurationThingIndexingConfigurationFilter filter;
-    /**
-     * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-     * 
-     */
     private @Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields;
-    /**
-     * @return [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
-     * 
-     */
     private @Nullable String namedShadowIndexingMode;
-    /**
-     * @return Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
-     * 
-     */
     private @Nullable String thingConnectivityIndexingMode;
-    /**
-     * @return Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
-     * 
-     */
     private String thingIndexingMode;
 
     private IndexingConfigurationThingIndexingConfiguration() {}
-    /**
-     * @return Contains custom field names and their data type. See below.
-     * 
-     */
     public List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields() {
         return this.customFields == null ? List.of() : this.customFields;
     }
-    /**
-     * @return Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
-     * 
-     */
     public Optional<String> deviceDefenderIndexingMode() {
         return Optional.ofNullable(this.deviceDefenderIndexingMode);
     }
-    /**
-     * @return Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-     * 
-     */
     public Optional<IndexingConfigurationThingIndexingConfigurationFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
-    /**
-     * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-     * 
-     */
     public List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields() {
         return this.managedFields == null ? List.of() : this.managedFields;
     }
-    /**
-     * @return [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
-     * 
-     */
     public Optional<String> namedShadowIndexingMode() {
         return Optional.ofNullable(this.namedShadowIndexingMode);
     }
-    /**
-     * @return Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
-     * 
-     */
     public Optional<String> thingConnectivityIndexingMode() {
         return Optional.ofNullable(this.thingConnectivityIndexingMode);
     }
-    /**
-     * @return Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
-     * 
-     */
     public String thingIndexingMode() {
         return this.thingIndexingMode;
     }

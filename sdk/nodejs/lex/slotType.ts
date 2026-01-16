@@ -7,48 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Lex Slot Type resource. For more information see
- * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const flowerTypes = new aws.lex.SlotType("flower_types", {
- *     createVersion: true,
- *     description: "Types of flowers to order",
- *     enumerationValues: [
- *         {
- *             synonyms: [
- *                 "Lirium",
- *                 "Martagon",
- *             ],
- *             value: "lilies",
- *         },
- *         {
- *             synonyms: [
- *                 "Eduardoregelia",
- *                 "Podonix",
- *             ],
- *             value: "tulips",
- *         },
- *     ],
- *     name: "FlowerTypes",
- *     valueSelectionStrategy: "ORIGINAL_VALUE",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import slot types using their name. For example:
- *
- * ```sh
- * $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
- * ```
- */
 export class SlotType extends pulumi.CustomResource {
     /**
      * Get an existing SlotType resource's state with the given name, ID, and optional extra
@@ -77,53 +35,15 @@ export class SlotType extends pulumi.CustomResource {
         return obj['__pulumiType'] === SlotType.__pulumiType;
     }
 
-    /**
-     * Checksum identifying the version of the slot type that was created. The checksum is
-     * not included as an argument because the resource will add it automatically when updating the slot type.
-     */
     declare public /*out*/ readonly checksum: pulumi.Output<string>;
-    /**
-     * Determines if a new slot type version is created when the initial resource is created and on each
-     * update. Defaults to `false`.
-     */
     declare public readonly createVersion: pulumi.Output<boolean | undefined>;
-    /**
-     * The date when the slot type version was created.
-     */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
-    /**
-     * A description of the slot type. Must be less than or equal to 200 characters in length.
-     */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * A list of EnumerationValue objects that defines the values that
-     * the slot type can take. Each value can have a list of synonyms, which are additional values that help
-     * train the machine learning model about the values that it resolves for a slot. Attributes are
-     * documented under enumeration_value.
-     */
     declare public readonly enumerationValues: pulumi.Output<outputs.lex.SlotTypeEnumerationValue[]>;
-    /**
-     * The date when the `$LATEST` version of this slot type was updated.
-     */
     declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
-    /**
-     * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * Determines the slot resolution strategy that Amazon Lex
-     * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-     * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-     */
     declare public readonly valueSelectionStrategy: pulumi.Output<string | undefined>;
-    /**
-     * The version of the slot type.
-     */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
@@ -174,53 +94,15 @@ export class SlotType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SlotType resources.
  */
 export interface SlotTypeState {
-    /**
-     * Checksum identifying the version of the slot type that was created. The checksum is
-     * not included as an argument because the resource will add it automatically when updating the slot type.
-     */
     checksum?: pulumi.Input<string>;
-    /**
-     * Determines if a new slot type version is created when the initial resource is created and on each
-     * update. Defaults to `false`.
-     */
     createVersion?: pulumi.Input<boolean>;
-    /**
-     * The date when the slot type version was created.
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * A description of the slot type. Must be less than or equal to 200 characters in length.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of EnumerationValue objects that defines the values that
-     * the slot type can take. Each value can have a list of synonyms, which are additional values that help
-     * train the machine learning model about the values that it resolves for a slot. Attributes are
-     * documented under enumeration_value.
-     */
     enumerationValues?: pulumi.Input<pulumi.Input<inputs.lex.SlotTypeEnumerationValue>[]>;
-    /**
-     * The date when the `$LATEST` version of this slot type was updated.
-     */
     lastUpdatedDate?: pulumi.Input<string>;
-    /**
-     * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Determines the slot resolution strategy that Amazon Lex
-     * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-     * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-     */
     valueSelectionStrategy?: pulumi.Input<string>;
-    /**
-     * The version of the slot type.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -228,35 +110,10 @@ export interface SlotTypeState {
  * The set of arguments for constructing a SlotType resource.
  */
 export interface SlotTypeArgs {
-    /**
-     * Determines if a new slot type version is created when the initial resource is created and on each
-     * update. Defaults to `false`.
-     */
     createVersion?: pulumi.Input<boolean>;
-    /**
-     * A description of the slot type. Must be less than or equal to 200 characters in length.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of EnumerationValue objects that defines the values that
-     * the slot type can take. Each value can have a list of synonyms, which are additional values that help
-     * train the machine learning model about the values that it resolves for a slot. Attributes are
-     * documented under enumeration_value.
-     */
     enumerationValues: pulumi.Input<pulumi.Input<inputs.lex.SlotTypeEnumerationValue>[]>;
-    /**
-     * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Determines the slot resolution strategy that Amazon Lex
-     * uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
-     * value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
-     * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
-     */
     valueSelectionStrategy?: pulumi.Input<string>;
 }

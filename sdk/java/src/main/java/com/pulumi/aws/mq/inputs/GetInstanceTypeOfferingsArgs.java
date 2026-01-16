@@ -15,62 +15,30 @@ public final class GetInstanceTypeOfferingsArgs extends com.pulumi.resources.Inv
 
     public static final GetInstanceTypeOfferingsArgs Empty = new GetInstanceTypeOfferingsArgs();
 
-    /**
-     * Filter response by engine type.
-     * 
-     */
     @Import(name="engineType")
     private @Nullable Output<String> engineType;
 
-    /**
-     * @return Filter response by engine type.
-     * 
-     */
     public Optional<Output<String>> engineType() {
         return Optional.ofNullable(this.engineType);
     }
 
-    /**
-     * Filter response by host instance type.
-     * 
-     */
     @Import(name="hostInstanceType")
     private @Nullable Output<String> hostInstanceType;
 
-    /**
-     * @return Filter response by host instance type.
-     * 
-     */
     public Optional<Output<String>> hostInstanceType() {
         return Optional.ofNullable(this.hostInstanceType);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Filter response by storage type.
-     * 
-     */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
-    /**
-     * @return Filter response by storage type.
-     * 
-     */
     public Optional<Output<String>> storageType() {
         return Optional.ofNullable(this.storageType);
     }
@@ -102,86 +70,38 @@ public final class GetInstanceTypeOfferingsArgs extends com.pulumi.resources.Inv
             $ = new GetInstanceTypeOfferingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param engineType Filter response by engine type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(@Nullable Output<String> engineType) {
             $.engineType = engineType;
             return this;
         }
 
-        /**
-         * @param engineType Filter response by engine type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineType(String engineType) {
             return engineType(Output.of(engineType));
         }
 
-        /**
-         * @param hostInstanceType Filter response by host instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostInstanceType(@Nullable Output<String> hostInstanceType) {
             $.hostInstanceType = hostInstanceType;
             return this;
         }
 
-        /**
-         * @param hostInstanceType Filter response by host instance type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostInstanceType(String hostInstanceType) {
             return hostInstanceType(Output.of(hostInstanceType));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param storageType Filter response by storage type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageType(@Nullable Output<String> storageType) {
             $.storageType = storageType;
             return this;
         }
 
-        /**
-         * @param storageType Filter response by storage type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageType(String storageType) {
             return storageType(Output.of(storageType));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
-        /// </summary>
         [Input("customAuthMode")]
         public Input<string>? CustomAuthMode { get; set; }
 

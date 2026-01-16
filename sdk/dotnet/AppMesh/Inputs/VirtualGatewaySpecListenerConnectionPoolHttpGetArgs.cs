@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualGatewaySpecListenerConnectionPoolHttpGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-        /// </summary>
         [Input("maxConnections", required: true)]
         public Input<int> MaxConnections { get; set; } = null!;
 
-        /// <summary>
-        /// Number of overflowing requests after `MaxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-        /// </summary>
         [Input("maxPendingRequests")]
         public Input<int>? MaxPendingRequests { get; set; }
 

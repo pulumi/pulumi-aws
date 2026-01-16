@@ -17,96 +17,44 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
 
     public static final VpcBlockPublicAccessExclusionState Empty = new VpcBlockPublicAccessExclusionState();
 
-    /**
-     * Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="internetGatewayExclusionMode")
     private @Nullable Output<String> internetGatewayExclusionMode;
 
-    /**
-     * @return Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<String>> internetGatewayExclusionMode() {
         return Optional.ofNullable(this.internetGatewayExclusionMode);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) the excluded resource.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) the excluded resource.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
-    /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -118,17 +66,9 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -164,132 +104,56 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
             $ = new VpcBlockPublicAccessExclusionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param internetGatewayExclusionMode Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayExclusionMode(@Nullable Output<String> internetGatewayExclusionMode) {
             $.internetGatewayExclusionMode = internetGatewayExclusionMode;
             return this;
         }
 
-        /**
-         * @param internetGatewayExclusionMode Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayExclusionMode(String internetGatewayExclusionMode) {
             return internetGatewayExclusionMode(Output.of(internetGatewayExclusionMode));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) the excluded resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The Amazon Resource Name (ARN) the excluded resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
-        /**
-         * @param subnetId Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -303,23 +167,11 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcId Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

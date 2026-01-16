@@ -11,74 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `secretsmanager.SecretRotation` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
-//
-// ## Example Usage
-//
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
-//
-// Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For example:
-//
-// % pulumi import aws_secretsmanager_secret.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 type Secret struct {
 	pulumi.CustomResourceState
 
-	// ARN of the secret.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the secret.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
-	ForceOverwriteReplicaSecret pulumi.BoolPtrOutput `pulumi:"forceOverwriteReplicaSecret"`
-	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block to support secret replication. See details below.
-	Replicas SecretReplicaArrayOutput `pulumi:"replicas"`
-	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                         pulumi.StringOutput      `pulumi:"arn"`
+	Description                 pulumi.StringPtrOutput   `pulumi:"description"`
+	ForceOverwriteReplicaSecret pulumi.BoolPtrOutput     `pulumi:"forceOverwriteReplicaSecret"`
+	KmsKeyId                    pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
+	Name                        pulumi.StringOutput      `pulumi:"name"`
+	NamePrefix                  pulumi.StringOutput      `pulumi:"namePrefix"`
+	Policy                      pulumi.StringOutput      `pulumi:"policy"`
+	RecoveryWindowInDays        pulumi.IntPtrOutput      `pulumi:"recoveryWindowInDays"`
+	Region                      pulumi.StringOutput      `pulumi:"region"`
+	Replicas                    SecretReplicaArrayOutput `pulumi:"replicas"`
+	Tags                        pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                     pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -111,57 +58,33 @@ func GetSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Secret resources.
 type secretState struct {
-	// ARN of the secret.
-	Arn *string `pulumi:"arn"`
-	// Description of the secret.
-	Description *string `pulumi:"description"`
-	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
-	ForceOverwriteReplicaSecret *bool `pulumi:"forceOverwriteReplicaSecret"`
-	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy *string `pulumi:"policy"`
-	// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block to support secret replication. See details below.
-	Replicas []SecretReplica `pulumi:"replicas"`
-	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                         *string           `pulumi:"arn"`
+	Description                 *string           `pulumi:"description"`
+	ForceOverwriteReplicaSecret *bool             `pulumi:"forceOverwriteReplicaSecret"`
+	KmsKeyId                    *string           `pulumi:"kmsKeyId"`
+	Name                        *string           `pulumi:"name"`
+	NamePrefix                  *string           `pulumi:"namePrefix"`
+	Policy                      *string           `pulumi:"policy"`
+	RecoveryWindowInDays        *int              `pulumi:"recoveryWindowInDays"`
+	Region                      *string           `pulumi:"region"`
+	Replicas                    []SecretReplica   `pulumi:"replicas"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TagsAll                     map[string]string `pulumi:"tagsAll"`
 }
 
 type SecretState struct {
-	// ARN of the secret.
-	Arn pulumi.StringPtrInput
-	// Description of the secret.
-	Description pulumi.StringPtrInput
-	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+	Arn                         pulumi.StringPtrInput
+	Description                 pulumi.StringPtrInput
 	ForceOverwriteReplicaSecret pulumi.BoolPtrInput
-	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId pulumi.StringPtrInput
-	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy pulumi.StringPtrInput
-	// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block to support secret replication. See details below.
-	Replicas SecretReplicaArrayInput
-	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	KmsKeyId                    pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	NamePrefix                  pulumi.StringPtrInput
+	Policy                      pulumi.StringPtrInput
+	RecoveryWindowInDays        pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	Replicas                    SecretReplicaArrayInput
+	Tags                        pulumi.StringMapInput
+	TagsAll                     pulumi.StringMapInput
 }
 
 func (SecretState) ElementType() reflect.Type {
@@ -169,50 +92,30 @@ func (SecretState) ElementType() reflect.Type {
 }
 
 type secretArgs struct {
-	// Description of the secret.
-	Description *string `pulumi:"description"`
-	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
-	ForceOverwriteReplicaSecret *bool `pulumi:"forceOverwriteReplicaSecret"`
-	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy *string `pulumi:"policy"`
-	// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Configuration block to support secret replication. See details below.
-	Replicas []SecretReplica `pulumi:"replicas"`
-	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description                 *string           `pulumi:"description"`
+	ForceOverwriteReplicaSecret *bool             `pulumi:"forceOverwriteReplicaSecret"`
+	KmsKeyId                    *string           `pulumi:"kmsKeyId"`
+	Name                        *string           `pulumi:"name"`
+	NamePrefix                  *string           `pulumi:"namePrefix"`
+	Policy                      *string           `pulumi:"policy"`
+	RecoveryWindowInDays        *int              `pulumi:"recoveryWindowInDays"`
+	Region                      *string           `pulumi:"region"`
+	Replicas                    []SecretReplica   `pulumi:"replicas"`
+	Tags                        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
-	// Description of the secret.
-	Description pulumi.StringPtrInput
-	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
+	Description                 pulumi.StringPtrInput
 	ForceOverwriteReplicaSecret pulumi.BoolPtrInput
-	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId pulumi.StringPtrInput
-	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
-	Policy pulumi.StringPtrInput
-	// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays pulumi.IntPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Configuration block to support secret replication. See details below.
-	Replicas SecretReplicaArrayInput
-	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	KmsKeyId                    pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	NamePrefix                  pulumi.StringPtrInput
+	Policy                      pulumi.StringPtrInput
+	RecoveryWindowInDays        pulumi.IntPtrInput
+	Region                      pulumi.StringPtrInput
+	Replicas                    SecretReplicaArrayInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -302,62 +205,50 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
-// ARN of the secret.
 func (o SecretOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the secret.
 func (o SecretOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
 func (o SecretOutput) ForceOverwriteReplicaSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.BoolPtrOutput { return v.ForceOverwriteReplicaSecret }).(pulumi.BoolPtrOutput)
 }
 
-// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 func (o SecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 func (o SecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o SecretOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
 func (o SecretOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 func (o SecretOutput) RecoveryWindowInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.IntPtrOutput { return v.RecoveryWindowInDays }).(pulumi.IntPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecretOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block to support secret replication. See details below.
 func (o SecretOutput) Replicas() SecretReplicaArrayOutput {
 	return o.ApplyT(func(v *Secret) SecretReplicaArrayOutput { return v.Replicas }).(SecretReplicaArrayOutput)
 }
 
-// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SecretOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SecretOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TemplateSourceEntitySourceAnalysis {
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     private String arn;
-    /**
-     * @return A list of dataset references used as placeholders in the template. See data_set_references.
-     * 
-     */
     private List<TemplateSourceEntitySourceAnalysisDataSetReference> dataSetReferences;
 
     private TemplateSourceEntitySourceAnalysis() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return A list of dataset references used as placeholders in the template. See data_set_references.
-     * 
-     */
     public List<TemplateSourceEntitySourceAnalysisDataSetReference> dataSetReferences() {
         return this.dataSetReferences;
     }

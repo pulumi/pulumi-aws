@@ -26,11 +26,6 @@ class SegmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Segment resource.
-        :param pulumi.Input[_builtins.str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
-        :param pulumi.Input[_builtins.str] name: A name for the segment.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "pattern", pattern)
         if description is not None:
@@ -45,9 +40,6 @@ class SegmentArgs:
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[_builtins.str]:
-        """
-        The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -57,9 +49,6 @@ class SegmentArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the segment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,9 +58,6 @@ class SegmentArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the segment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -81,9 +67,6 @@ class SegmentArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -93,9 +76,6 @@ class SegmentArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -119,17 +99,6 @@ class _SegmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Segment resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the segment.
-        :param pulumi.Input[_builtins.str] created_time: The date and time that the segment is created.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
-        :param pulumi.Input[_builtins.int] experiment_count: The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-        :param pulumi.Input[_builtins.str] last_updated_time: The date and time that this segment was most recently updated.
-        :param pulumi.Input[_builtins.int] launch_count: The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-        :param pulumi.Input[_builtins.str] name: A name for the segment.
-        :param pulumi.Input[_builtins.str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -157,9 +126,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the segment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -169,9 +135,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that the segment is created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -181,9 +144,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the description of the segment.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -193,9 +153,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter(name="experimentCount")
     def experiment_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-        """
         return pulumi.get(self, "experiment_count")
 
     @experiment_count.setter
@@ -205,9 +162,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time that this segment was most recently updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
@@ -217,9 +171,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter(name="launchCount")
     def launch_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-        """
         return pulumi.get(self, "launch_count")
 
     @launch_count.setter
@@ -229,9 +180,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A name for the segment.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -241,9 +189,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -253,9 +198,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -265,9 +207,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -277,9 +216,6 @@ class _SegmentState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -300,74 +236,9 @@ class Segment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch Evidently Segment resource.
-
-        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Segment("example",
-            name="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
-            tags={
-                "Key1": "example Segment",
-            })
-        ```
-
-        ### With JSON object in pattern
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Segment("example",
-            name="example",
-            pattern=\"\"\"  {
-            \\"Price\\": [
-              {
-                \\"numeric\\": [\\">\\",10,\\"<=\\",20]
-              }
-            ]
-          }
-        \"\"\",
-            tags={
-                "Key1": "example Segment",
-            })
-        ```
-
-        ### With Description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Segment("example",
-            name="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
-            description="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-        ```
-
+        Create a Segment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
-        :param pulumi.Input[_builtins.str] name: A name for the segment.
-        :param pulumi.Input[_builtins.str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -376,67 +247,7 @@ class Segment(pulumi.CustomResource):
                  args: SegmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch Evidently Segment resource.
-
-        > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
-
-        ## Example Usage
-
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Segment("example",
-            name="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
-            tags={
-                "Key1": "example Segment",
-            })
-        ```
-
-        ### With JSON object in pattern
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Segment("example",
-            name="example",
-            pattern=\"\"\"  {
-            \\"Price\\": [
-              {
-                \\"numeric\\": [\\">\\",10,\\"<=\\",20]
-              }
-            ]
-          }
-        \"\"\",
-            tags={
-                "Key1": "example Segment",
-            })
-        ```
-
-        ### With Description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Segment("example",
-            name="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
-            description="example")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
-
-        ```sh
-        $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-        ```
-
+        Create a Segment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SegmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -507,17 +318,6 @@ class Segment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the segment.
-        :param pulumi.Input[_builtins.str] created_time: The date and time that the segment is created.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
-        :param pulumi.Input[_builtins.int] experiment_count: The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-        :param pulumi.Input[_builtins.str] last_updated_time: The date and time that this segment was most recently updated.
-        :param pulumi.Input[_builtins.int] launch_count: The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-        :param pulumi.Input[_builtins.str] name: A name for the segment.
-        :param pulumi.Input[_builtins.str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,88 +339,55 @@ class Segment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the segment.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that the segment is created.
-        """
         return pulumi.get(self, "created_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies the description of the segment.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="experimentCount")
     def experiment_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-        """
         return pulumi.get(self, "experiment_count")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time that this segment was most recently updated.
-        """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter(name="launchCount")
     def launch_count(self) -> pulumi.Output[_builtins.int]:
-        """
-        The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-        """
         return pulumi.get(self, "launch_count")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        A name for the segment.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def pattern(self) -> pulumi.Output[_builtins.str]:
-        """
-        The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        """
         return pulumi.get(self, "pattern")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

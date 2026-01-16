@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentAgentAliasRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Version of the agent with which the alias is associated.
-        /// </summary>
         [Input("agentVersion", required: true)]
         public Input<string> AgentVersion { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the Provisioned Throughput assigned to the agent alias.
-        /// </summary>
         [Input("provisionedThroughput", required: true)]
         public Input<string> ProvisionedThroughput { get; set; } = null!;
 

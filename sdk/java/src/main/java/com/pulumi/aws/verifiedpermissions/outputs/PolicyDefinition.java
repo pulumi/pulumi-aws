@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyDefinition {
-    /**
-     * @return The static policy statement. See Static below.
-     * 
-     */
     private @Nullable PolicyDefinitionStatic static_;
-    /**
-     * @return The template linked policy. See Template Linked below.
-     * 
-     */
     private @Nullable PolicyDefinitionTemplateLinked templateLinked;
 
     private PolicyDefinition() {}
-    /**
-     * @return The static policy statement. See Static below.
-     * 
-     */
     public Optional<PolicyDefinitionStatic> static_() {
         return Optional.ofNullable(this.static_);
     }
-    /**
-     * @return The template linked policy. See Template Linked below.
-     * 
-     */
     public Optional<PolicyDefinitionTemplateLinked> templateLinked() {
         return Optional.ofNullable(this.templateLinked);
     }

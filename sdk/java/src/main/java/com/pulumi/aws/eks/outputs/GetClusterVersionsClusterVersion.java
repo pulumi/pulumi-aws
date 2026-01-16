@@ -11,117 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterVersionsClusterVersion {
-    /**
-     * @return Type of clusters to filter by.
-     * Currently, the only valid value is `eks`.
-     * 
-     */
     private String clusterType;
-    /**
-     * @return Kubernetes version supported by EKS.
-     * 
-     */
     private String clusterVersion;
-    /**
-     * @return Default eks platform version for the cluster version.
-     * 
-     */
     private String defaultPlatformVersion;
-    /**
-     * @return Default Kubernetes version for the cluster version.
-     * 
-     */
     private Boolean defaultVersion;
-    /**
-     * @return End of extended support date for the cluster version.
-     * 
-     */
     private String endOfExtendedSupportDate;
-    /**
-     * @return End of standard support date for the cluster version.
-     * 
-     */
     private String endOfStandardSupportDate;
-    /**
-     * @return Kubernetes patch version for the cluster version.
-     * 
-     */
     private String kubernetesPatchVersion;
-    /**
-     * @return Release date of the cluster version.
-     * 
-     */
     private String releaseDate;
-    /**
-     * @return Status of the EKS cluster versions to list.
-     * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-     * 
-     */
     private String versionStatus;
 
     private GetClusterVersionsClusterVersion() {}
-    /**
-     * @return Type of clusters to filter by.
-     * Currently, the only valid value is `eks`.
-     * 
-     */
     public String clusterType() {
         return this.clusterType;
     }
-    /**
-     * @return Kubernetes version supported by EKS.
-     * 
-     */
     public String clusterVersion() {
         return this.clusterVersion;
     }
-    /**
-     * @return Default eks platform version for the cluster version.
-     * 
-     */
     public String defaultPlatformVersion() {
         return this.defaultPlatformVersion;
     }
-    /**
-     * @return Default Kubernetes version for the cluster version.
-     * 
-     */
     public Boolean defaultVersion() {
         return this.defaultVersion;
     }
-    /**
-     * @return End of extended support date for the cluster version.
-     * 
-     */
     public String endOfExtendedSupportDate() {
         return this.endOfExtendedSupportDate;
     }
-    /**
-     * @return End of standard support date for the cluster version.
-     * 
-     */
     public String endOfStandardSupportDate() {
         return this.endOfStandardSupportDate;
     }
-    /**
-     * @return Kubernetes patch version for the cluster version.
-     * 
-     */
     public String kubernetesPatchVersion() {
         return this.kubernetesPatchVersion;
     }
-    /**
-     * @return Release date of the cluster version.
-     * 
-     */
     public String releaseDate() {
         return this.releaseDate;
     }
-    /**
-     * @return Status of the EKS cluster versions to list.
-     * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
-     * 
-     */
     public String versionStatus() {
         return this.versionStatus;
     }

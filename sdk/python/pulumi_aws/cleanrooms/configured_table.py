@@ -30,15 +30,6 @@ class ConfiguredTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfiguredTable resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
-        :param pulumi.Input[_builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
-               * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-               * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        :param pulumi.Input[_builtins.str] description: A description for the configured table.
-        :param pulumi.Input[_builtins.str] name: The name of the configured table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the configured table.
         """
         pulumi.set(__self__, "allowed_columns", allowed_columns)
         pulumi.set(__self__, "analysis_method", analysis_method)
@@ -55,9 +46,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter(name="allowedColumns")
     def allowed_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The columns of the references table which will be included in the configured table.
-        """
         return pulumi.get(self, "allowed_columns")
 
     @allowed_columns.setter
@@ -67,9 +55,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter(name="analysisMethod")
     def analysis_method(self) -> pulumi.Input[_builtins.str]:
-        """
-        The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        """
         return pulumi.get(self, "analysis_method")
 
     @analysis_method.setter
@@ -79,11 +64,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> pulumi.Input['ConfiguredTableTableReferenceArgs']:
-        """
-        A reference to the AWS Glue table which will be used to create the configured table.
-        * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        """
         return pulumi.get(self, "table_reference")
 
     @table_reference.setter
@@ -93,9 +73,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the configured table.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -105,9 +82,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the configured table.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,9 +91,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -129,9 +100,6 @@ class ConfiguredTableArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key value pairs which tag the configured table.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -155,18 +123,6 @@ class _ConfiguredTableState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfiguredTable resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
-        :param pulumi.Input[_builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the configured table.
-        :param pulumi.Input[_builtins.str] create_time: The date and time the configured table was created.
-        :param pulumi.Input[_builtins.str] description: A description for the configured table.
-        :param pulumi.Input[_builtins.str] name: The name of the configured table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
-               * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-               * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the configured table.
-        :param pulumi.Input[_builtins.str] update_time: The date and time the configured table was last updated.
         """
         if allowed_columns is not None:
             pulumi.set(__self__, "allowed_columns", allowed_columns)
@@ -194,9 +150,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter(name="allowedColumns")
     def allowed_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The columns of the references table which will be included in the configured table.
-        """
         return pulumi.get(self, "allowed_columns")
 
     @allowed_columns.setter
@@ -206,9 +159,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter(name="analysisMethod")
     def analysis_method(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        """
         return pulumi.get(self, "analysis_method")
 
     @analysis_method.setter
@@ -218,9 +168,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the configured table.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -230,9 +177,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time the configured table was created.
-        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -242,9 +186,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description for the configured table.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -254,9 +195,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the configured table.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -266,9 +204,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -278,11 +213,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> Optional[pulumi.Input['ConfiguredTableTableReferenceArgs']]:
-        """
-        A reference to the AWS Glue table which will be used to create the configured table.
-        * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        """
         return pulumi.get(self, "table_reference")
 
     @table_reference.setter
@@ -292,9 +222,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Key value pairs which tag the configured table.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -313,9 +240,6 @@ class _ConfiguredTableState:
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The date and time the configured table was last updated.
-        """
         return pulumi.get(self, "update_time")
 
     @update_time.setter
@@ -338,63 +262,9 @@ class ConfiguredTable(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
-
-        ## Example Usage
-
-        ### Configured table with tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
-            name="pulumi-example-table",
-            description="I made this table with Pulumi!",
-            analysis_method="DIRECT_QUERY",
-            allowed_columns=[
-                "column1",
-                "column2",
-                "column3",
-            ],
-            table_reference={
-                "database_name": "example_database",
-                "table_name": "example_table",
-            },
-            tags={
-                "Project": "Pulumi",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the cleanrooms configured table.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
-
-        % pulumi import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
-
+        Create a ConfiguredTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
-        :param pulumi.Input[_builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input[_builtins.str] description: A description for the configured table.
-        :param pulumi.Input[_builtins.str] name: The name of the configured table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
-               * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-               * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the configured table.
         """
         ...
     @overload
@@ -403,52 +273,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  args: ConfiguredTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
-
-        ## Example Usage
-
-        ### Configured table with tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_configured_table = aws.cleanrooms.ConfiguredTable("test_configured_table",
-            name="pulumi-example-table",
-            description="I made this table with Pulumi!",
-            analysis_method="DIRECT_QUERY",
-            allowed_columns=[
-                "column1",
-                "column2",
-                "column3",
-            ],
-            table_reference={
-                "database_name": "example_database",
-                "table_name": "example_table",
-            },
-            tags={
-                "Project": "Pulumi",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `id` - (String) ID of the cleanrooms configured table.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
-
-        % pulumi import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
-
+        Create a ConfiguredTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConfiguredTableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -525,18 +350,6 @@ class ConfiguredTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
-        :param pulumi.Input[_builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the configured table.
-        :param pulumi.Input[_builtins.str] create_time: The date and time the configured table was created.
-        :param pulumi.Input[_builtins.str] description: A description for the configured table.
-        :param pulumi.Input[_builtins.str] name: The name of the configured table.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
-               * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-               * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the configured table.
-        :param pulumi.Input[_builtins.str] update_time: The date and time the configured table was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -558,75 +371,46 @@ class ConfiguredTable(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowedColumns")
     def allowed_columns(self) -> pulumi.Output[Sequence[_builtins.str]]:
-        """
-        The columns of the references table which will be included in the configured table.
-        """
         return pulumi.get(self, "allowed_columns")
 
     @_builtins.property
     @pulumi.getter(name="analysisMethod")
     def analysis_method(self) -> pulumi.Output[_builtins.str]:
-        """
-        The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        """
         return pulumi.get(self, "analysis_method")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the configured table.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time the configured table was created.
-        """
         return pulumi.get(self, "create_time")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        A description for the configured table.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the configured table.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> pulumi.Output['outputs.ConfiguredTableTableReference']:
-        """
-        A reference to the AWS Glue table which will be used to create the configured table.
-        * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
-        * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        """
         return pulumi.get(self, "table_reference")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Key value pairs which tag the configured table.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -637,8 +421,5 @@ class ConfiguredTable(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time the configured table was last updated.
-        """
         return pulumi.get(self, "update_time")
 

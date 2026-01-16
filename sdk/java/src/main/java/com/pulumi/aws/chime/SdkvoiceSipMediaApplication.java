@@ -16,159 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.SdkvoiceSipMediaApplication;
- * import com.pulumi.aws.chime.SdkvoiceSipMediaApplicationArgs;
- * import com.pulumi.aws.chime.inputs.SdkvoiceSipMediaApplicationEndpointsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SdkvoiceSipMediaApplication("example", SdkvoiceSipMediaApplicationArgs.builder()
- *             .awsRegion("us-east-1")
- *             .name("example-sip-media-application")
- *             .endpoints(SdkvoiceSipMediaApplicationEndpointsArgs.builder()
- *                 .lambdaArn(test.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
- * 
- * ```sh
- * $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
- * ```
- * 
- */
 @ResourceType(type="aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")
 public class SdkvoiceSipMediaApplication extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-     * 
-     */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output<String> awsRegion;
 
-    /**
-     * @return The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-     * 
-     */
     public Output<String> awsRegion() {
         return this.awsRegion;
     }
-    /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
-     * 
-     */
     @Export(name="endpoints", refs={SdkvoiceSipMediaApplicationEndpoints.class}, tree="[0]")
     private Output<SdkvoiceSipMediaApplicationEndpoints> endpoints;
 
-    /**
-     * @return List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
-     * 
-     */
     public Output<SdkvoiceSipMediaApplicationEndpoints> endpoints() {
         return this.endpoints;
     }
-    /**
-     * The name of the AWS Chime SDK Voice Sip Media Application.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the AWS Chime SDK Voice Sip Media Application.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

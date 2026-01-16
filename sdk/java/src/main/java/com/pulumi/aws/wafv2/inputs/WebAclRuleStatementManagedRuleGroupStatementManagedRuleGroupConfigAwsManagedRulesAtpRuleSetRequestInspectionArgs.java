@@ -16,47 +16,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs();
 
-    /**
-     * Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
     @Import(name="passwordField", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField;
 
-    /**
-     * @return Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
     public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField() {
         return this.passwordField;
     }
 
-    /**
-     * The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     @Import(name="payloadType", required=true)
     private Output<String> payloadType;
 
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     public Output<String> payloadType() {
         return this.payloadType;
     }
 
-    /**
-     * Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
     @Import(name="usernameField", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField;
 
-    /**
-     * @return Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
     public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField() {
         return this.usernameField;
     }
@@ -87,65 +63,29 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordField Details about your login page password field. See `passwordField` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordField(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField) {
             $.passwordField = passwordField;
             return this;
         }
 
-        /**
-         * @param passwordField Details about your login page password field. See `passwordField` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs passwordField) {
             return passwordField(Output.of(passwordField));
         }
 
-        /**
-         * @param payloadType The payload type for your login endpoint, either JSON or form encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadType(Output<String> payloadType) {
             $.payloadType = payloadType;
             return this;
         }
 
-        /**
-         * @param payloadType The payload type for your login endpoint, either JSON or form encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadType(String payloadType) {
             return payloadType(Output.of(payloadType));
         }
 
-        /**
-         * @param usernameField Details about your login page username field. See `usernameField` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameField(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField) {
             $.usernameField = usernameField;
             return this;
         }
 
-        /**
-         * @param usernameField Details about your login page username field. See `usernameField` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs usernameField) {
             return usernameField(Output.of(usernameField));
         }

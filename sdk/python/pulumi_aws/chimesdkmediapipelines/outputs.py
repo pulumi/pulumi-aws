@@ -76,17 +76,6 @@ class MediaInsightsPipelineConfigurationElement(dict):
                  sns_topic_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration'] = None,
                  sqs_queue_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration'] = None,
                  voice_analytics_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration'] = None):
-        """
-        :param _builtins.str type: Element type.
-        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs' amazon_transcribe_call_analytics_processor_configuration: Configuration for Amazon Transcribe Call Analytics processor.
-        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs' amazon_transcribe_processor_configuration: Configuration for Amazon Transcribe processor.
-        :param 'MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs' kinesis_data_stream_sink_configuration: Configuration for Kinesis Data Stream sink.
-        :param 'MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs' lambda_function_sink_configuration: Configuration for Lambda Function sink.
-        :param 'MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs' s3_recording_sink_configuration: Configuration for S3 recording sink.
-        :param 'MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs' sns_topic_sink_configuration: Configuration for SNS Topic sink.
-        :param 'MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs' sqs_queue_sink_configuration: Configuration for SQS Queue sink.
-        :param 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs' voice_analytics_processor_configuration: Configuration for Voice analytics processor.
-        """
         pulumi.set(__self__, "type", type)
         if amazon_transcribe_call_analytics_processor_configuration is not None:
             pulumi.set(__self__, "amazon_transcribe_call_analytics_processor_configuration", amazon_transcribe_call_analytics_processor_configuration)
@@ -108,73 +97,46 @@ class MediaInsightsPipelineConfigurationElement(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Element type.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="amazonTranscribeCallAnalyticsProcessorConfiguration")
     def amazon_transcribe_call_analytics_processor_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration']:
-        """
-        Configuration for Amazon Transcribe Call Analytics processor.
-        """
         return pulumi.get(self, "amazon_transcribe_call_analytics_processor_configuration")
 
     @_builtins.property
     @pulumi.getter(name="amazonTranscribeProcessorConfiguration")
     def amazon_transcribe_processor_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration']:
-        """
-        Configuration for Amazon Transcribe processor.
-        """
         return pulumi.get(self, "amazon_transcribe_processor_configuration")
 
     @_builtins.property
     @pulumi.getter(name="kinesisDataStreamSinkConfiguration")
     def kinesis_data_stream_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration']:
-        """
-        Configuration for Kinesis Data Stream sink.
-        """
         return pulumi.get(self, "kinesis_data_stream_sink_configuration")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionSinkConfiguration")
     def lambda_function_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration']:
-        """
-        Configuration for Lambda Function sink.
-        """
         return pulumi.get(self, "lambda_function_sink_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3RecordingSinkConfiguration")
     def s3_recording_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration']:
-        """
-        Configuration for S3 recording sink.
-        """
         return pulumi.get(self, "s3_recording_sink_configuration")
 
     @_builtins.property
     @pulumi.getter(name="snsTopicSinkConfiguration")
     def sns_topic_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration']:
-        """
-        Configuration for SNS Topic sink.
-        """
         return pulumi.get(self, "sns_topic_sink_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sqsQueueSinkConfiguration")
     def sqs_queue_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration']:
-        """
-        Configuration for SQS Queue sink.
-        """
         return pulumi.get(self, "sqs_queue_sink_configuration")
 
     @_builtins.property
     @pulumi.getter(name="voiceAnalyticsProcessorConfiguration")
     def voice_analytics_processor_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration']:
-        """
-        Configuration for Voice analytics processor.
-        """
         return pulumi.get(self, "voice_analytics_processor_configuration")
 
 
@@ -235,21 +197,6 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
                  vocabulary_filter_method: Optional[_builtins.str] = None,
                  vocabulary_filter_name: Optional[_builtins.str] = None,
                  vocabulary_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str language_code: Language code for the transcription model.
-        :param Sequence[_builtins.str] call_analytics_stream_categories: Filter for category events to be delivered to insights target.
-        :param _builtins.str content_identification_type: Labels all personally identifiable information (PII) identified in Utterance events.
-        :param _builtins.str content_redaction_type: Redacts all personally identifiable information (PII) identified in Utterance events.
-        :param _builtins.bool enable_partial_results_stabilization: Enables partial result stabilization in Utterance events.
-        :param _builtins.bool filter_partial_results: Filters partial Utterance events from delivery to the insights target.
-        :param _builtins.str language_model_name: Name of custom language model for transcription.
-        :param _builtins.str partial_results_stability: Level of stability to use when partial results stabilization is enabled.
-        :param _builtins.str pii_entity_types: Types of personally identifiable information (PII) to redact from an Utterance event.
-        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs' post_call_analytics_settings: Settings for post call analytics.
-        :param _builtins.str vocabulary_filter_method: Method for applying a vocabulary filter to Utterance events.
-        :param _builtins.str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Utterance events.
-        :param _builtins.str vocabulary_name: Name of the custom vocabulary to use when processing Utterance events.
-        """
         pulumi.set(__self__, "language_code", language_code)
         if call_analytics_stream_categories is not None:
             pulumi.set(__self__, "call_analytics_stream_categories", call_analytics_stream_categories)
@@ -279,105 +226,66 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> _builtins.str:
-        """
-        Language code for the transcription model.
-        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
     @pulumi.getter(name="callAnalyticsStreamCategories")
     def call_analytics_stream_categories(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Filter for category events to be delivered to insights target.
-        """
         return pulumi.get(self, "call_analytics_stream_categories")
 
     @_builtins.property
     @pulumi.getter(name="contentIdentificationType")
     def content_identification_type(self) -> Optional[_builtins.str]:
-        """
-        Labels all personally identifiable information (PII) identified in Utterance events.
-        """
         return pulumi.get(self, "content_identification_type")
 
     @_builtins.property
     @pulumi.getter(name="contentRedactionType")
     def content_redaction_type(self) -> Optional[_builtins.str]:
-        """
-        Redacts all personally identifiable information (PII) identified in Utterance events.
-        """
         return pulumi.get(self, "content_redaction_type")
 
     @_builtins.property
     @pulumi.getter(name="enablePartialResultsStabilization")
     def enable_partial_results_stabilization(self) -> Optional[_builtins.bool]:
-        """
-        Enables partial result stabilization in Utterance events.
-        """
         return pulumi.get(self, "enable_partial_results_stabilization")
 
     @_builtins.property
     @pulumi.getter(name="filterPartialResults")
     def filter_partial_results(self) -> Optional[_builtins.bool]:
-        """
-        Filters partial Utterance events from delivery to the insights target.
-        """
         return pulumi.get(self, "filter_partial_results")
 
     @_builtins.property
     @pulumi.getter(name="languageModelName")
     def language_model_name(self) -> Optional[_builtins.str]:
-        """
-        Name of custom language model for transcription.
-        """
         return pulumi.get(self, "language_model_name")
 
     @_builtins.property
     @pulumi.getter(name="partialResultsStability")
     def partial_results_stability(self) -> Optional[_builtins.str]:
-        """
-        Level of stability to use when partial results stabilization is enabled.
-        """
         return pulumi.get(self, "partial_results_stability")
 
     @_builtins.property
     @pulumi.getter(name="piiEntityTypes")
     def pii_entity_types(self) -> Optional[_builtins.str]:
-        """
-        Types of personally identifiable information (PII) to redact from an Utterance event.
-        """
         return pulumi.get(self, "pii_entity_types")
 
     @_builtins.property
     @pulumi.getter(name="postCallAnalyticsSettings")
     def post_call_analytics_settings(self) -> Optional['outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings']:
-        """
-        Settings for post call analytics.
-        """
         return pulumi.get(self, "post_call_analytics_settings")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterMethod")
     def vocabulary_filter_method(self) -> Optional[_builtins.str]:
-        """
-        Method for applying a vocabulary filter to Utterance events.
-        """
         return pulumi.get(self, "vocabulary_filter_method")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the custom vocabulary filter to use when processing Utterance events.
-        """
         return pulumi.get(self, "vocabulary_filter_name")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the custom vocabulary to use when processing Utterance events.
-        """
         return pulumi.get(self, "vocabulary_name")
 
 
@@ -411,12 +319,6 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
                  output_location: _builtins.str,
                  content_redaction_output: Optional[_builtins.str] = None,
                  output_encryption_kms_key_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str data_access_role_arn: ARN of the role used by AWS Transcribe to upload your post call analysis.
-        :param _builtins.str output_location: The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-        :param _builtins.str content_redaction_output: Should output be redacted.
-        :param _builtins.str output_encryption_kms_key_id: ID of the KMS key used to encrypt the output.
-        """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "output_location", output_location)
         if content_redaction_output is not None:
@@ -427,33 +329,21 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @_builtins.property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> _builtins.str:
-        """
-        ARN of the role used by AWS Transcribe to upload your post call analysis.
-        """
         return pulumi.get(self, "data_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> _builtins.str:
-        """
-        The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-        """
         return pulumi.get(self, "output_location")
 
     @_builtins.property
     @pulumi.getter(name="contentRedactionOutput")
     def content_redaction_output(self) -> Optional[_builtins.str]:
-        """
-        Should output be redacted.
-        """
         return pulumi.get(self, "content_redaction_output")
 
     @_builtins.property
     @pulumi.getter(name="outputEncryptionKmsKeyId")
     def output_encryption_kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        ID of the KMS key used to encrypt the output.
-        """
         return pulumi.get(self, "output_encryption_kms_key_id")
 
 
@@ -511,20 +401,6 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
                  vocabulary_filter_method: Optional[_builtins.str] = None,
                  vocabulary_filter_name: Optional[_builtins.str] = None,
                  vocabulary_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str language_code: Language code for the transcription model.
-        :param _builtins.str content_identification_type: Labels all personally identifiable information (PII) identified in Transcript events.
-        :param _builtins.str content_redaction_type: Redacts all personally identifiable information (PII) identified in Transcript events.
-        :param _builtins.bool enable_partial_results_stabilization: Enables partial result stabilization in Transcript events.
-        :param _builtins.bool filter_partial_results: Filters partial Utterance events from delivery to the insights target.
-        :param _builtins.str language_model_name: Name of custom language model for transcription.
-        :param _builtins.str partial_results_stability: Level of stability to use when partial results stabilization is enabled.
-        :param _builtins.str pii_entity_types: Types of personally identifiable information (PII) to redact from a Transcript event.
-        :param _builtins.bool show_speaker_label: Enables speaker partitioning (diarization) in your Transcript events.
-        :param _builtins.str vocabulary_filter_method: Method for applying a vocabulary filter to Transcript events.
-        :param _builtins.str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Transcript events.
-        :param _builtins.str vocabulary_name: Name of the custom vocabulary to use when processing Transcript events.
-        """
         pulumi.set(__self__, "language_code", language_code)
         if content_identification_type is not None:
             pulumi.set(__self__, "content_identification_type", content_identification_type)
@@ -552,97 +428,61 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> _builtins.str:
-        """
-        Language code for the transcription model.
-        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
     @pulumi.getter(name="contentIdentificationType")
     def content_identification_type(self) -> Optional[_builtins.str]:
-        """
-        Labels all personally identifiable information (PII) identified in Transcript events.
-        """
         return pulumi.get(self, "content_identification_type")
 
     @_builtins.property
     @pulumi.getter(name="contentRedactionType")
     def content_redaction_type(self) -> Optional[_builtins.str]:
-        """
-        Redacts all personally identifiable information (PII) identified in Transcript events.
-        """
         return pulumi.get(self, "content_redaction_type")
 
     @_builtins.property
     @pulumi.getter(name="enablePartialResultsStabilization")
     def enable_partial_results_stabilization(self) -> Optional[_builtins.bool]:
-        """
-        Enables partial result stabilization in Transcript events.
-        """
         return pulumi.get(self, "enable_partial_results_stabilization")
 
     @_builtins.property
     @pulumi.getter(name="filterPartialResults")
     def filter_partial_results(self) -> Optional[_builtins.bool]:
-        """
-        Filters partial Utterance events from delivery to the insights target.
-        """
         return pulumi.get(self, "filter_partial_results")
 
     @_builtins.property
     @pulumi.getter(name="languageModelName")
     def language_model_name(self) -> Optional[_builtins.str]:
-        """
-        Name of custom language model for transcription.
-        """
         return pulumi.get(self, "language_model_name")
 
     @_builtins.property
     @pulumi.getter(name="partialResultsStability")
     def partial_results_stability(self) -> Optional[_builtins.str]:
-        """
-        Level of stability to use when partial results stabilization is enabled.
-        """
         return pulumi.get(self, "partial_results_stability")
 
     @_builtins.property
     @pulumi.getter(name="piiEntityTypes")
     def pii_entity_types(self) -> Optional[_builtins.str]:
-        """
-        Types of personally identifiable information (PII) to redact from a Transcript event.
-        """
         return pulumi.get(self, "pii_entity_types")
 
     @_builtins.property
     @pulumi.getter(name="showSpeakerLabel")
     def show_speaker_label(self) -> Optional[_builtins.bool]:
-        """
-        Enables speaker partitioning (diarization) in your Transcript events.
-        """
         return pulumi.get(self, "show_speaker_label")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterMethod")
     def vocabulary_filter_method(self) -> Optional[_builtins.str]:
-        """
-        Method for applying a vocabulary filter to Transcript events.
-        """
         return pulumi.get(self, "vocabulary_filter_method")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the custom vocabulary filter to use when processing Transcript events.
-        """
         return pulumi.get(self, "vocabulary_filter_name")
 
     @_builtins.property
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> Optional[_builtins.str]:
-        """
-        Name of the custom vocabulary to use when processing Transcript events.
-        """
         return pulumi.get(self, "vocabulary_name")
 
 
@@ -667,17 +507,11 @@ class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguratio
 
     def __init__(__self__, *,
                  insights_target: _builtins.str):
-        """
-        :param _builtins.str insights_target: Kinesis Data Stream to deliver results.
-        """
         pulumi.set(__self__, "insights_target", insights_target)
 
     @_builtins.property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> _builtins.str:
-        """
-        Kinesis Data Stream to deliver results.
-        """
         return pulumi.get(self, "insights_target")
 
 
@@ -702,17 +536,11 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(d
 
     def __init__(__self__, *,
                  insights_target: _builtins.str):
-        """
-        :param _builtins.str insights_target: Lambda Function to deliver results.
-        """
         pulumi.set(__self__, "insights_target", insights_target)
 
     @_builtins.property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> _builtins.str:
-        """
-        Lambda Function to deliver results.
-        """
         return pulumi.get(self, "insights_target")
 
 
@@ -720,18 +548,12 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(d
 class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration(dict):
     def __init__(__self__, *,
                  destination: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str destination: S3 URI to deliver recordings.
-        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
 
     @_builtins.property
     @pulumi.getter
     def destination(self) -> Optional[_builtins.str]:
-        """
-        S3 URI to deliver recordings.
-        """
         return pulumi.get(self, "destination")
 
 
@@ -756,17 +578,11 @@ class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
 
     def __init__(__self__, *,
                  insights_target: _builtins.str):
-        """
-        :param _builtins.str insights_target: SNS topic to deliver results.
-        """
         pulumi.set(__self__, "insights_target", insights_target)
 
     @_builtins.property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> _builtins.str:
-        """
-        SNS topic to deliver results.
-        """
         return pulumi.get(self, "insights_target")
 
 
@@ -791,17 +607,11 @@ class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration(dict):
 
     def __init__(__self__, *,
                  insights_target: _builtins.str):
-        """
-        :param _builtins.str insights_target: SQS queue to deliver results.
-        """
         pulumi.set(__self__, "insights_target", insights_target)
 
     @_builtins.property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> _builtins.str:
-        """
-        SQS queue to deliver results.
-        """
         return pulumi.get(self, "insights_target")
 
 
@@ -829,27 +639,17 @@ class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurat
     def __init__(__self__, *,
                  speaker_search_status: _builtins.str,
                  voice_tone_analysis_status: _builtins.str):
-        """
-        :param _builtins.str speaker_search_status: Enable speaker search.
-        :param _builtins.str voice_tone_analysis_status: Enable voice tone analysis.
-        """
         pulumi.set(__self__, "speaker_search_status", speaker_search_status)
         pulumi.set(__self__, "voice_tone_analysis_status", voice_tone_analysis_status)
 
     @_builtins.property
     @pulumi.getter(name="speakerSearchStatus")
     def speaker_search_status(self) -> _builtins.str:
-        """
-        Enable speaker search.
-        """
         return pulumi.get(self, "speaker_search_status")
 
     @_builtins.property
     @pulumi.getter(name="voiceToneAnalysisStatus")
     def voice_tone_analysis_status(self) -> _builtins.str:
-        """
-        Enable voice tone analysis.
-        """
         return pulumi.get(self, "voice_tone_analysis_status")
 
 
@@ -858,10 +658,6 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule'],
                  disabled: Optional[_builtins.bool] = None):
-        """
-        :param Sequence['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs'] rules: Collection of real time alert rules
-        :param _builtins.bool disabled: Disables real time alert rules.
-        """
         pulumi.set(__self__, "rules", rules)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
@@ -869,17 +665,11 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule']:
-        """
-        Collection of real time alert rules
-        """
         return pulumi.get(self, "rules")
 
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> Optional[_builtins.bool]:
-        """
-        Disables real time alert rules.
-        """
         return pulumi.get(self, "disabled")
 
 
@@ -911,12 +701,6 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
                  issue_detection_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration'] = None,
                  keyword_match_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration'] = None,
                  sentiment_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration'] = None):
-        """
-        :param _builtins.str type: Rule type.
-        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs' issue_detection_configuration: Configuration for an issue detection rule.
-        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs' keyword_match_configuration: Configuration for a keyword match rule.
-        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs' sentiment_configuration: Configuration for a sentiment rule.
-        """
         pulumi.set(__self__, "type", type)
         if issue_detection_configuration is not None:
             pulumi.set(__self__, "issue_detection_configuration", issue_detection_configuration)
@@ -928,33 +712,21 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
-        """
-        Rule type.
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="issueDetectionConfiguration")
     def issue_detection_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration']:
-        """
-        Configuration for an issue detection rule.
-        """
         return pulumi.get(self, "issue_detection_configuration")
 
     @_builtins.property
     @pulumi.getter(name="keywordMatchConfiguration")
     def keyword_match_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration']:
-        """
-        Configuration for a keyword match rule.
-        """
         return pulumi.get(self, "keyword_match_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sentimentConfiguration")
     def sentiment_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration']:
-        """
-        Configuration for a sentiment rule.
-        """
         return pulumi.get(self, "sentiment_configuration")
 
 
@@ -979,17 +751,11 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetec
 
     def __init__(__self__, *,
                  rule_name: _builtins.str):
-        """
-        :param _builtins.str rule_name: Rule name.
-        """
         pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> _builtins.str:
-        """
-        Rule name.
-        """
         return pulumi.get(self, "rule_name")
 
 
@@ -1016,11 +782,6 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
                  keywords: Sequence[_builtins.str],
                  rule_name: _builtins.str,
                  negate: Optional[_builtins.bool] = None):
-        """
-        :param Sequence[_builtins.str] keywords: Collection of keywords to match.
-        :param _builtins.str rule_name: Rule name.
-        :param _builtins.bool negate: Negate the rule.
-        """
         pulumi.set(__self__, "keywords", keywords)
         pulumi.set(__self__, "rule_name", rule_name)
         if negate is not None:
@@ -1029,25 +790,16 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
     @_builtins.property
     @pulumi.getter
     def keywords(self) -> Sequence[_builtins.str]:
-        """
-        Collection of keywords to match.
-        """
         return pulumi.get(self, "keywords")
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> _builtins.str:
-        """
-        Rule name.
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter
     def negate(self) -> Optional[_builtins.bool]:
-        """
-        Negate the rule.
-        """
         return pulumi.get(self, "negate")
 
 
@@ -1078,11 +830,6 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
                  rule_name: _builtins.str,
                  sentiment_type: _builtins.str,
                  time_period: _builtins.int):
-        """
-        :param _builtins.str rule_name: Rule name.
-        :param _builtins.str sentiment_type: Sentiment type to match.
-        :param _builtins.int time_period: Analysis interval.
-        """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "sentiment_type", sentiment_type)
         pulumi.set(__self__, "time_period", time_period)
@@ -1090,25 +837,16 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> _builtins.str:
-        """
-        Rule name.
-        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter(name="sentimentType")
     def sentiment_type(self) -> _builtins.str:
-        """
-        Sentiment type to match.
-        """
         return pulumi.get(self, "sentiment_type")
 
     @_builtins.property
     @pulumi.getter(name="timePeriod")
     def time_period(self) -> _builtins.int:
-        """
-        Analysis interval.
-        """
         return pulumi.get(self, "time_period")
 
 

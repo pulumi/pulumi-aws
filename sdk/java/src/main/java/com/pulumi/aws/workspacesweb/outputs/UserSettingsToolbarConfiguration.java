@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserSettingsToolbarConfiguration {
-    /**
-     * @return List of toolbar items to be hidden.
-     * 
-     */
     private @Nullable List<String> hiddenToolbarItems;
-    /**
-     * @return Maximum display resolution that is allowed for the session.
-     * 
-     */
     private @Nullable String maxDisplayResolution;
-    /**
-     * @return Type of toolbar displayed during the session.
-     * 
-     */
     private @Nullable String toolbarType;
-    /**
-     * @return Visual mode of the toolbar.
-     * 
-     */
     private @Nullable String visualMode;
 
     private UserSettingsToolbarConfiguration() {}
-    /**
-     * @return List of toolbar items to be hidden.
-     * 
-     */
     public List<String> hiddenToolbarItems() {
         return this.hiddenToolbarItems == null ? List.of() : this.hiddenToolbarItems;
     }
-    /**
-     * @return Maximum display resolution that is allowed for the session.
-     * 
-     */
     public Optional<String> maxDisplayResolution() {
         return Optional.ofNullable(this.maxDisplayResolution);
     }
-    /**
-     * @return Type of toolbar displayed during the session.
-     * 
-     */
     public Optional<String> toolbarType() {
         return Optional.ofNullable(this.toolbarType);
     }
-    /**
-     * @return Visual mode of the toolbar.
-     * 
-     */
     public Optional<String> visualMode() {
         return Optional.ofNullable(this.visualMode);
     }

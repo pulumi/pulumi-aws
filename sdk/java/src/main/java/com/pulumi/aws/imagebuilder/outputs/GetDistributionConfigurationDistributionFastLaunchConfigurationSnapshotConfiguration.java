@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
-    /**
-     * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-     * 
-     */
     private Integer targetResourceCount;
 
     private GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration() {}
-    /**
-     * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-     * 
-     */
     public Integer targetResourceCount() {
         return this.targetResourceCount;
     }

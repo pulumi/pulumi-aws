@@ -9,65 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Resource for managing an AWS SSO Admin Application Assignment Configuration.
-    /// 
-    /// By default, applications will require users to have an explicit assignment in order to access an application.
-    /// This resource can be used to adjust this default behavior if necessary.
-    /// 
-    /// &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `AssignmentRequired = true`).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsoAdmin.ApplicationAssignmentConfiguration("example", new()
-    ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
-    ///         AssignmentRequired = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-    /// 
-    /// Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
-    /// 
-    /// % pulumi import aws_ssoadmin_application_assignment_configuration.example arn:aws:sso::123456789012:application/id-12345678
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")]
     public partial class ApplicationAssignmentConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether users must have an explicit assignment to access the application. If `False`, all users have access to the application.
-        /// </summary>
         [Output("assignmentRequired")]
         public Output<bool> AssignmentRequired { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -117,21 +67,12 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ApplicationAssignmentConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether users must have an explicit assignment to access the application. If `False`, all users have access to the application.
-        /// </summary>
         [Input("assignmentRequired", required: true)]
         public Input<bool> AssignmentRequired { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -143,21 +84,12 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ApplicationAssignmentConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the application.
-        /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 
-        /// <summary>
-        /// Indicates whether users must have an explicit assignment to access the application. If `False`, all users have access to the application.
-        /// </summary>
         [Input("assignmentRequired")]
         public Input<bool>? AssignmentRequired { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

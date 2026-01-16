@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceHttpConfigAuthorizationConfig {
-    /**
-     * @return Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-     * 
-     */
     private @Nullable String authorizationType;
-    /**
-     * @return Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-     * 
-     */
     private @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig;
 
     private DataSourceHttpConfigAuthorizationConfig() {}
-    /**
-     * @return Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-     * 
-     */
     public Optional<String> authorizationType() {
         return Optional.ofNullable(this.authorizationType);
     }
-    /**
-     * @return Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
-     * 
-     */
     public Optional<DataSourceHttpConfigAuthorizationConfigAwsIamConfig> awsIamConfig() {
         return Optional.ofNullable(this.awsIamConfig);
     }

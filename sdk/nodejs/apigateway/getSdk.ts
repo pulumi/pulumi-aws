@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getSdk({
- *     restApiId: exampleAwsApiGatewayStage.restApiId,
- *     stageName: exampleAwsApiGatewayStage.stageName,
- *     sdkType: "android",
- *     parameters: {
- *         groupId: "example",
- *         artifactId: "example",
- *         artifactVersion: "example",
- *         invokerPackage: "example",
- *     },
- * });
- * ```
- */
 export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<GetSdkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getSdk:getSdk", {
@@ -39,25 +19,10 @@ export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getSdk.
  */
 export interface GetSdkArgs {
-    /**
-     * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-     */
     parameters?: {[key: string]: string};
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
-    /**
-     * Identifier of the associated REST API.
-     */
     restApiId: string;
-    /**
-     * Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-     */
     sdkType: string;
-    /**
-     * Name of the Stage that will be exported.
-     */
     stageName: string;
 }
 
@@ -65,17 +30,8 @@ export interface GetSdkArgs {
  * A collection of values returned by getSdk.
  */
 export interface GetSdkResult {
-    /**
-     * SDK as a string.
-     */
     readonly body: string;
-    /**
-     * Content-disposition header value in the HTTP response.
-     */
     readonly contentDisposition: string;
-    /**
-     * Content-type header value in the HTTP response.
-     */
     readonly contentType: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -87,26 +43,6 @@ export interface GetSdkResult {
     readonly sdkType: string;
     readonly stageName: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getSdk({
- *     restApiId: exampleAwsApiGatewayStage.restApiId,
- *     stageName: exampleAwsApiGatewayStage.stageName,
- *     sdkType: "android",
- *     parameters: {
- *         groupId: "example",
- *         artifactId: "example",
- *         artifactVersion: "example",
- *         invokerPackage: "example",
- *     },
- * });
- * ```
- */
 export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSdkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getSdk:getSdk", {
@@ -122,24 +58,9 @@ export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOutputO
  * A collection of arguments for invoking getSdk.
  */
 export interface GetSdkOutputArgs {
-    /**
-     * Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * Identifier of the associated REST API.
-     */
     restApiId: pulumi.Input<string>;
-    /**
-     * Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-     */
     sdkType: pulumi.Input<string>;
-    /**
-     * Name of the Stage that will be exported.
-     */
     stageName: pulumi.Input<string>;
 }

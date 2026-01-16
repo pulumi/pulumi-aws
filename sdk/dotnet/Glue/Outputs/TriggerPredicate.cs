@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class TriggerPredicate
     {
-        /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. See Conditions.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TriggerPredicateCondition> Conditions;
-        /// <summary>
-        /// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
-        /// </summary>
         public readonly string? Logical;
 
         [OutputConstructor]

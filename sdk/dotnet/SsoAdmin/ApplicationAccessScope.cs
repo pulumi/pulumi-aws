@@ -9,77 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Resource for managing an AWS SSO Admin Application Access Scope.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
-    ///     });
-    /// 
-    ///     var exampleApplicationAccessScope = new Aws.SsoAdmin.ApplicationAccessScope("example", new()
-    ///     {
-    ///         ApplicationArn = exampleApplication.Arn,
-    ///         AuthorizedTargets = new[]
-    ///         {
-    ///             "arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012",
-    ///         },
-    ///         Scope = "sso:account:access",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")]
     public partial class ApplicationAccessScope : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the ARN of the application with the access scope with the targets to add or update.
-        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        /// </summary>
         [Output("authorizedTargets")]
         public Output<ImmutableArray<string>> AuthorizedTargets { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the access scope to be associated with the specified targets.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
@@ -129,35 +70,20 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ApplicationAccessScopeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the ARN of the application with the access scope with the targets to add or update.
-        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
         [Input("authorizedTargets")]
         private InputList<string>? _authorizedTargets;
-
-        /// <summary>
-        /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        /// </summary>
         public InputList<string> AuthorizedTargets
         {
             get => _authorizedTargets ?? (_authorizedTargets = new InputList<string>());
             set => _authorizedTargets = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the access scope to be associated with the specified targets.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -169,35 +95,20 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ApplicationAccessScopeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the ARN of the application with the access scope with the targets to add or update.
-        /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 
         [Input("authorizedTargets")]
         private InputList<string>? _authorizedTargets;
-
-        /// <summary>
-        /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        /// </summary>
         public InputList<string> AuthorizedTargets
         {
             get => _authorizedTargets ?? (_authorizedTargets = new InputList<string>());
             set => _authorizedTargets = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the access scope to be associated with the specified targets.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 

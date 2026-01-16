@@ -11,75 +11,12 @@ namespace Pulumi.Aws.DirectoryService
 {
     public static class GetDirectory
     {
-        /// <summary>
-        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
-        ///     {
-        ///         DirectoryId = main.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
-        ///     {
-        ///         DirectoryId = main.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
-        ///     {
-        ///         DirectoryId = main.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
     }
@@ -87,24 +24,14 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the directory.
-        /// </summary>
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the directory/connector.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -119,24 +46,14 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the directory.
-        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the directory/connector.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -153,61 +70,25 @@ namespace Pulumi.Aws.DirectoryService
     [OutputType]
     public sealed class GetDirectoryResult
     {
-        /// <summary>
-        /// Access URL for the directory/connector, such as http://alias.awsapps.com.
-        /// </summary>
         public readonly string AccessUrl;
-        /// <summary>
-        /// Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
-        /// </summary>
         public readonly string Alias;
         public readonly ImmutableArray<Outputs.GetDirectoryConnectSettingResult> ConnectSettings;
-        /// <summary>
-        /// Textual description for the directory/connector.
-        /// </summary>
         public readonly string Description;
         public readonly string DirectoryId;
-        /// <summary>
-        /// List of IP addresses of the DNS servers for the directory/connector.
-        /// </summary>
         public readonly ImmutableArray<string> DnsIpAddresses;
-        /// <summary>
-        /// (for `MicrosoftAD`) Microsoft AD edition (`Standard` or `Enterprise`).
-        /// </summary>
         public readonly string Edition;
-        /// <summary>
-        /// Directory/connector single-sign on status.
-        /// </summary>
         public readonly bool EnableSso;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Fully qualified name for the directory/connector.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetDirectoryRadiusSettingResult> RadiusSettings;
         public readonly string Region;
-        /// <summary>
-        /// ID of the security group created by the directory/connector.
-        /// </summary>
         public readonly string SecurityGroupId;
-        /// <summary>
-        /// Short name of the directory/connector, such as `CORP`.
-        /// </summary>
         public readonly string ShortName;
-        /// <summary>
-        /// (for `SimpleAD` and `ADConnector`) Size of the directory/connector (`Small` or `Large`).
-        /// </summary>
         public readonly string Size;
-        /// <summary>
-        /// A map of tags assigned to the directory/connector.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
-        /// </summary>
         public readonly string Type;
         public readonly ImmutableArray<Outputs.GetDirectoryVpcSettingResult> VpcSettings;
 

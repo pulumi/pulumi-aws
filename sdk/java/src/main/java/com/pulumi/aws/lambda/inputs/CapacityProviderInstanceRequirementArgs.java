@@ -15,47 +15,23 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
 
     public static final CapacityProviderInstanceRequirementArgs Empty = new CapacityProviderInstanceRequirementArgs();
 
-    /**
-     * List of allowed instance types.
-     * 
-     */
     @Import(name="allowedInstanceTypes", required=true)
     private Output<List<String>> allowedInstanceTypes;
 
-    /**
-     * @return List of allowed instance types.
-     * 
-     */
     public Output<List<String>> allowedInstanceTypes() {
         return this.allowedInstanceTypes;
     }
 
-    /**
-     * List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-     * 
-     */
     @Import(name="architectures", required=true)
     private Output<List<String>> architectures;
 
-    /**
-     * @return List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-     * 
-     */
     public Output<List<String>> architectures() {
         return this.architectures;
     }
 
-    /**
-     * List of excluded instance types.
-     * 
-     */
     @Import(name="excludedInstanceTypes", required=true)
     private Output<List<String>> excludedInstanceTypes;
 
-    /**
-     * @return List of excluded instance types.
-     * 
-     */
     public Output<List<String>> excludedInstanceTypes() {
         return this.excludedInstanceTypes;
     }
@@ -86,95 +62,41 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
             $ = new CapacityProviderInstanceRequirementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedInstanceTypes List of allowed instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedInstanceTypes(Output<List<String>> allowedInstanceTypes) {
             $.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
 
-        /**
-         * @param allowedInstanceTypes List of allowed instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedInstanceTypes(List<String> allowedInstanceTypes) {
             return allowedInstanceTypes(Output.of(allowedInstanceTypes));
         }
 
-        /**
-         * @param allowedInstanceTypes List of allowed instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
             return allowedInstanceTypes(List.of(allowedInstanceTypes));
         }
 
-        /**
-         * @param architectures List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder architectures(Output<List<String>> architectures) {
             $.architectures = architectures;
             return this;
         }
 
-        /**
-         * @param architectures List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder architectures(List<String> architectures) {
             return architectures(Output.of(architectures));
         }
 
-        /**
-         * @param architectures List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder architectures(String... architectures) {
             return architectures(List.of(architectures));
         }
 
-        /**
-         * @param excludedInstanceTypes List of excluded instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedInstanceTypes(Output<List<String>> excludedInstanceTypes) {
             $.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
 
-        /**
-         * @param excludedInstanceTypes List of excluded instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedInstanceTypes(List<String> excludedInstanceTypes) {
             return excludedInstanceTypes(Output.of(excludedInstanceTypes));
         }
 
-        /**
-         * @param excludedInstanceTypes List of excluded instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedInstanceTypes(String... excludedInstanceTypes) {
             return excludedInstanceTypes(List.of(excludedInstanceTypes));
         }

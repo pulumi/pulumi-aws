@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class NetworkManagedServiceManagedS3BackupAccess
     {
         public readonly ImmutableArray<string> Ipv4Addresses;
-        /// <summary>
-        /// The status of the network resource.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

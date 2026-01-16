@@ -13,21 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration
     {
-        /// <summary>
-        /// Encryption configuration for the journal table. See `EncryptionConfiguration` Block for details.
-        /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration? EncryptionConfiguration;
-        /// <summary>
-        /// Journal table record expiration settings. See `RecordExpiration` Block for details.
-        /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration? RecordExpiration;
-        /// <summary>
-        /// Journal table ARN.
-        /// </summary>
         public readonly string? TableArn;
-        /// <summary>
-        /// Journal table name.
-        /// </summary>
         public readonly string? TableName;
 
         [OutputConstructor]

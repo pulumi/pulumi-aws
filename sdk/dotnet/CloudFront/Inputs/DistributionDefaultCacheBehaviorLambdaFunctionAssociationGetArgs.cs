@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionDefaultCacheBehaviorLambdaFunctionAssociationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
-        /// </summary>
         [Input("eventType", required: true)]
         public Input<string> EventType { get; set; } = null!;
 
-        /// <summary>
-        /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `True`, `False`.
-        /// </summary>
         [Input("includeBody")]
         public Input<bool>? IncludeBody { get; set; }
 
-        /// <summary>
-        /// ARN of the Lambda function.
-        /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;
 

@@ -15,47 +15,23 @@ public final class WebAclVisibilityConfigArgs extends com.pulumi.resources.Resou
 
     public static final WebAclVisibilityConfigArgs Empty = new WebAclVisibilityConfigArgs();
 
-    /**
-     * Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-     * 
-     */
     @Import(name="cloudwatchMetricsEnabled", required=true)
     private Output<Boolean> cloudwatchMetricsEnabled;
 
-    /**
-     * @return Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-     * 
-     */
     public Output<Boolean> cloudwatchMetricsEnabled() {
         return this.cloudwatchMetricsEnabled;
     }
 
-    /**
-     * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-     * 
-     */
     @Import(name="sampledRequestsEnabled", required=true)
     private Output<Boolean> sampledRequestsEnabled;
 
-    /**
-     * @return Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-     * 
-     */
     public Output<Boolean> sampledRequestsEnabled() {
         return this.sampledRequestsEnabled;
     }
@@ -86,65 +62,29 @@ public final class WebAclVisibilityConfigArgs extends com.pulumi.resources.Resou
             $ = new WebAclVisibilityConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchMetricsEnabled Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchMetricsEnabled(Output<Boolean> cloudwatchMetricsEnabled) {
             $.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
             return this;
         }
 
-        /**
-         * @param cloudwatchMetricsEnabled Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchMetricsEnabled(Boolean cloudwatchMetricsEnabled) {
             return cloudwatchMetricsEnabled(Output.of(cloudwatchMetricsEnabled));
         }
 
-        /**
-         * @param metricName A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param sampledRequestsEnabled Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampledRequestsEnabled(Output<Boolean> sampledRequestsEnabled) {
             $.sampledRequestsEnabled = sampledRequestsEnabled;
             return this;
         }
 
-        /**
-         * @param sampledRequestsEnabled Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampledRequestsEnabled(Boolean sampledRequestsEnabled) {
             return sampledRequestsEnabled(Output.of(sampledRequestsEnabled));
         }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasTestTrafficRuleHeaderValueArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Exact string value to match in the header.
-        /// </summary>
         [Input("exact", required: true)]
         public Input<string> Exact { get; set; } = null!;
 

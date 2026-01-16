@@ -13,15 +13,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     [OutputType]
     public sealed class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval
     {
-        /// <summary>
-        /// Settings object for unreferenced file removal.
-        /// See `iceberg_unreferenced_file_removal.settings` below.
-        /// </summary>
         public readonly Outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings Settings;
-        /// <summary>
-        /// Whether the configuration is enabled.
-        /// Valid values are `Enabled` and `Disabled`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

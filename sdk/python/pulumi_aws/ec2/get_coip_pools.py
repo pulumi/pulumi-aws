@@ -61,9 +61,6 @@ class GetCoipPoolsResult:
     @_builtins.property
     @pulumi.getter(name="poolIds")
     def pool_ids(self) -> Sequence[_builtins.str]:
-        """
-        Set of COIP Pool Identifiers
-        """
         return pulumi.get(self, "pool_ids")
 
     @_builtins.property
@@ -95,28 +92,7 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolsResult:
     """
-    Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputting all COIP Pool Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_coip_pools()
-    pulumi.export("foo", foo.ids)
-    ```
-
-
-    :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired aws_ec2_coip_pools.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -136,28 +112,7 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolsResult]:
     """
-    Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputting all COIP Pool Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_coip_pools()
-    pulumi.export("foo", foo.ids)
-    ```
-
-
-    :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired aws_ec2_coip_pools.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

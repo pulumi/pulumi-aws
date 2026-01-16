@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.LookupEncryptionByDefault(ctx, &ebs.LookupEncryptionByDefaultArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEncryptionByDefault(ctx *pulumi.Context, args *LookupEncryptionByDefaultArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionByDefaultResult
@@ -48,13 +23,11 @@ func LookupEncryptionByDefault(ctx *pulumi.Context, args *LookupEncryptionByDefa
 
 // A collection of arguments for invoking getEncryptionByDefault.
 type LookupEncryptionByDefaultArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEncryptionByDefault.
 type LookupEncryptionByDefaultResult struct {
-	// Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -72,7 +45,6 @@ func LookupEncryptionByDefaultOutput(ctx *pulumi.Context, args LookupEncryptionB
 
 // A collection of arguments for invoking getEncryptionByDefault.
 type LookupEncryptionByDefaultOutputArgs struct {
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -95,7 +67,6 @@ func (o LookupEncryptionByDefaultResultOutput) ToLookupEncryptionByDefaultResult
 	return o
 }
 
-// Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
 func (o LookupEncryptionByDefaultResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupEncryptionByDefaultResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }

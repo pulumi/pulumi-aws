@@ -12,30 +12,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDataSharesResult {
-    /**
-     * @return An array of all data shares in the current region. See `dataShares` below.
-     * 
-     */
     private List<GetDataSharesDataShare> dataShares;
-    /**
-     * @return AWS region.
-     * 
-     */
     private String id;
     private String region;
 
     private GetDataSharesResult() {}
-    /**
-     * @return An array of all data shares in the current region. See `dataShares` below.
-     * 
-     */
     public List<GetDataSharesDataShare> dataShares() {
         return this.dataShares;
     }
-    /**
-     * @return AWS region.
-     * 
-     */
     public String id() {
         return this.id;
     }

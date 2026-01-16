@@ -16,32 +16,16 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
 
     public static final IamPolicyAssignmentIdentitiesArgs Empty = new IamPolicyAssignmentIdentitiesArgs();
 
-    /**
-     * Array of Quicksight group names to assign the policy to.
-     * 
-     */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
-    /**
-     * @return Array of Quicksight group names to assign the policy to.
-     * 
-     */
     public Optional<Output<List<String>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
-    /**
-     * Array of Quicksight user names to assign the policy to.
-     * 
-     */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
-    /**
-     * @return Array of Quicksight user names to assign the policy to.
-     * 
-     */
     public Optional<Output<List<String>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -71,64 +55,28 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
             $ = new IamPolicyAssignmentIdentitiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groups Array of Quicksight group names to assign the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(@Nullable Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
-        /**
-         * @param groups Array of Quicksight group names to assign the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
-        /**
-         * @param groups Array of Quicksight group names to assign the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
-        /**
-         * @param users Array of Quicksight user names to assign the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(@Nullable Output<List<String>> users) {
             $.users = users;
             return this;
         }
 
-        /**
-         * @param users Array of Quicksight user names to assign the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(List<String> users) {
             return users(Output.of(users));
         }
 
-        /**
-         * @param users Array of Quicksight user names to assign the policy to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(String... users) {
             return users(List.of(users));
         }

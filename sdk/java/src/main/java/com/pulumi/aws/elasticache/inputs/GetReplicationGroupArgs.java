@@ -16,32 +16,16 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetReplicationGroupArgs Empty = new GetReplicationGroupArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Identifier for the replication group.
-     * 
-     */
     @Import(name="replicationGroupId", required=true)
     private Output<String> replicationGroupId;
 
-    /**
-     * @return Identifier for the replication group.
-     * 
-     */
     public Output<String> replicationGroupId() {
         return this.replicationGroupId;
     }
@@ -71,44 +55,20 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
             $ = new GetReplicationGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param replicationGroupId Identifier for the replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationGroupId(Output<String> replicationGroupId) {
             $.replicationGroupId = replicationGroupId;
             return this;
         }
 
-        /**
-         * @param replicationGroupId Identifier for the replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationGroupId(String replicationGroupId) {
             return replicationGroupId(Output.of(replicationGroupId));
         }

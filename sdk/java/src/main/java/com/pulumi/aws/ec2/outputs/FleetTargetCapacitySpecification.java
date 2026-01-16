@@ -13,67 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetTargetCapacitySpecification {
-    /**
-     * @return Default target capacity type. Valid values: `on-demand`, `spot`.
-     * 
-     */
     private String defaultTargetCapacityType;
-    /**
-     * @return The number of On-Demand units to request.
-     * 
-     */
     private @Nullable Integer onDemandTargetCapacity;
-    /**
-     * @return The number of Spot units to request.
-     * 
-     */
     private @Nullable Integer spotTargetCapacity;
-    /**
-     * @return The unit for the target capacity.
-     * If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
-     * 
-     */
     private @Nullable String targetCapacityUnitType;
-    /**
-     * @return The number of units to request, filled using `defaultTargetCapacityType`.
-     * 
-     */
     private Integer totalTargetCapacity;
 
     private FleetTargetCapacitySpecification() {}
-    /**
-     * @return Default target capacity type. Valid values: `on-demand`, `spot`.
-     * 
-     */
     public String defaultTargetCapacityType() {
         return this.defaultTargetCapacityType;
     }
-    /**
-     * @return The number of On-Demand units to request.
-     * 
-     */
     public Optional<Integer> onDemandTargetCapacity() {
         return Optional.ofNullable(this.onDemandTargetCapacity);
     }
-    /**
-     * @return The number of Spot units to request.
-     * 
-     */
     public Optional<Integer> spotTargetCapacity() {
         return Optional.ofNullable(this.spotTargetCapacity);
     }
-    /**
-     * @return The unit for the target capacity.
-     * If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
-     * 
-     */
     public Optional<String> targetCapacityUnitType() {
         return Optional.ofNullable(this.targetCapacityUnitType);
     }
-    /**
-     * @return The number of units to request, filled using `defaultTargetCapacityType`.
-     * 
-     */
     public Integer totalTargetCapacity() {
         return this.totalTargetCapacity;
     }

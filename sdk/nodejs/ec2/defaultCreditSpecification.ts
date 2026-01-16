@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.DefaultCreditSpecification("example", {
- *     instanceFamily: "t2",
- *     cpuCredits: "standard",
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
- *
- * % pulumi import aws_ec2_default_credit_specification.example t2
- */
 export class DefaultCreditSpecification extends pulumi.CustomResource {
     /**
      * Get an existing DefaultCreditSpecification resource's state with the given name, ID, and optional extra
@@ -58,17 +35,8 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultCreditSpecification.__pulumiType;
     }
 
-    /**
-     * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     */
     declare public readonly cpuCredits: pulumi.Output<string>;
-    /**
-     * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     */
     declare public readonly instanceFamily: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
 
@@ -111,17 +79,8 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultCreditSpecification resources.
  */
 export interface DefaultCreditSpecificationState {
-    /**
-     * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     */
     cpuCredits?: pulumi.Input<string>;
-    /**
-     * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     */
     instanceFamily?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
 }
@@ -130,17 +89,8 @@ export interface DefaultCreditSpecificationState {
  * The set of arguments for constructing a DefaultCreditSpecification resource.
  */
 export interface DefaultCreditSpecificationArgs {
-    /**
-     * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
-     */
     cpuCredits: pulumi.Input<string>;
-    /**
-     * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-     */
     instanceFamily: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
 }

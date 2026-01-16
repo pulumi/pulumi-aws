@@ -17,62 +17,30 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceArgs Empty = new GetServiceArgs();
 
-    /**
-     * ARN of the ECS Cluster
-     * 
-     */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
-    /**
-     * @return ARN of the ECS Cluster
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the ECS Service
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return Name of the ECS Service
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
 
-    /**
-     * Resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Resource tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn ARN of the ECS Cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param clusterArn ARN of the ECS Cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param serviceName Name of the ECS Service
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the ECS Service
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
-        /**
-         * @param tags Resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

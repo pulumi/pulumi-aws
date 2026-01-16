@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateStopCondition
     {
-        /// <summary>
-        /// Source of the condition. One of `None`, `aws:cloudwatch:alarm`.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -15,66 +15,30 @@ public final class TaskTaskReportConfigReportOverridesArgs extends com.pulumi.re
 
     public static final TaskTaskReportConfigReportOverridesArgs Empty = new TaskTaskReportConfigReportOverridesArgs();
 
-    /**
-     * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     @Import(name="deletedOverride")
     private @Nullable Output<String> deletedOverride;
 
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<Output<String>> deletedOverride() {
         return Optional.ofNullable(this.deletedOverride);
     }
 
-    /**
-     * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     @Import(name="skippedOverride")
     private @Nullable Output<String> skippedOverride;
 
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<Output<String>> skippedOverride() {
         return Optional.ofNullable(this.skippedOverride);
     }
 
-    /**
-     * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     @Import(name="transferredOverride")
     private @Nullable Output<String> transferredOverride;
 
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     */
     public Optional<Output<String>> transferredOverride() {
         return Optional.ofNullable(this.transferredOverride);
     }
 
-    /**
-     * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     * &gt; **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-     * 
-     */
     @Import(name="verifiedOverride")
     private @Nullable Output<String> verifiedOverride;
 
-    /**
-     * @return Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-     * 
-     * &gt; **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-     * 
-     */
     public Optional<Output<String>> verifiedOverride() {
         return Optional.ofNullable(this.verifiedOverride);
     }
@@ -106,90 +70,38 @@ public final class TaskTaskReportConfigReportOverridesArgs extends com.pulumi.re
             $ = new TaskTaskReportConfigReportOverridesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deletedOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletedOverride(@Nullable Output<String> deletedOverride) {
             $.deletedOverride = deletedOverride;
             return this;
         }
 
-        /**
-         * @param deletedOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deletedOverride(String deletedOverride) {
             return deletedOverride(Output.of(deletedOverride));
         }
 
-        /**
-         * @param skippedOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skippedOverride(@Nullable Output<String> skippedOverride) {
             $.skippedOverride = skippedOverride;
             return this;
         }
 
-        /**
-         * @param skippedOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skippedOverride(String skippedOverride) {
             return skippedOverride(Output.of(skippedOverride));
         }
 
-        /**
-         * @param transferredOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transferredOverride(@Nullable Output<String> transferredOverride) {
             $.transferredOverride = transferredOverride;
             return this;
         }
 
-        /**
-         * @param transferredOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transferredOverride(String transferredOverride) {
             return transferredOverride(Output.of(transferredOverride));
         }
 
-        /**
-         * @param verifiedOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * &gt; **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedOverride(@Nullable Output<String> verifiedOverride) {
             $.verifiedOverride = verifiedOverride;
             return this;
         }
 
-        /**
-         * @param verifiedOverride Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
-         * 
-         * &gt; **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedOverride(String verifiedOverride) {
             return verifiedOverride(Output.of(verifiedOverride));
         }

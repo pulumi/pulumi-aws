@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentRoutingPolicy {
-    /**
-     * @return Description of the routing policy.
-     * 
-     */
     private @Nullable String routingPolicyDescription;
-    /**
-     * @return Direction of the routing policy. Valid values: `inbound`, `outbound`.
-     * 
-     */
     private String routingPolicyDirection;
-    /**
-     * @return Name of the routing policy. Must be 1-100 alphanumeric characters.
-     * 
-     */
     private String routingPolicyName;
-    /**
-     * @return Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     private Integer routingPolicyNumber;
-    /**
-     * @return List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-     * 
-     */
     private List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule> routingPolicyRules;
 
     private GetCoreNetworkPolicyDocumentRoutingPolicy() {}
-    /**
-     * @return Description of the routing policy.
-     * 
-     */
     public Optional<String> routingPolicyDescription() {
         return Optional.ofNullable(this.routingPolicyDescription);
     }
-    /**
-     * @return Direction of the routing policy. Valid values: `inbound`, `outbound`.
-     * 
-     */
     public String routingPolicyDirection() {
         return this.routingPolicyDirection;
     }
-    /**
-     * @return Name of the routing policy. Must be 1-100 alphanumeric characters.
-     * 
-     */
     public String routingPolicyName() {
         return this.routingPolicyName;
     }
-    /**
-     * @return Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-     * 
-     */
     public Integer routingPolicyNumber() {
         return this.routingPolicyNumber;
     }
-    /**
-     * @return List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRule> routingPolicyRules() {
         return this.routingPolicyRules;
     }

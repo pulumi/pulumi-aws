@@ -18,47 +18,23 @@ public final class TopicRuleHttpArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleHttpArgs Empty = new TopicRuleHttpArgs();
 
-    /**
-     * The HTTPS URL used to verify ownership of `url`.
-     * 
-     */
     @Import(name="confirmationUrl")
     private @Nullable Output<String> confirmationUrl;
 
-    /**
-     * @return The HTTPS URL used to verify ownership of `url`.
-     * 
-     */
     public Optional<Output<String>> confirmationUrl() {
         return Optional.ofNullable(this.confirmationUrl);
     }
 
-    /**
-     * Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-     * 
-     */
     @Import(name="httpHeaders")
     private @Nullable Output<List<TopicRuleHttpHttpHeaderArgs>> httpHeaders;
 
-    /**
-     * @return Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-     * 
-     */
     public Optional<Output<List<TopicRuleHttpHttpHeaderArgs>>> httpHeaders() {
         return Optional.ofNullable(this.httpHeaders);
     }
 
-    /**
-     * The HTTPS URL.
-     * 
-     */
     @Import(name="url", required=true)
     private Output<String> url;
 
-    /**
-     * @return The HTTPS URL.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }
@@ -89,75 +65,33 @@ public final class TopicRuleHttpArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TopicRuleHttpArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param confirmationUrl The HTTPS URL used to verify ownership of `url`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder confirmationUrl(@Nullable Output<String> confirmationUrl) {
             $.confirmationUrl = confirmationUrl;
             return this;
         }
 
-        /**
-         * @param confirmationUrl The HTTPS URL used to verify ownership of `url`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder confirmationUrl(String confirmationUrl) {
             return confirmationUrl(Output.of(confirmationUrl));
         }
 
-        /**
-         * @param httpHeaders Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpHeaders(@Nullable Output<List<TopicRuleHttpHttpHeaderArgs>> httpHeaders) {
             $.httpHeaders = httpHeaders;
             return this;
         }
 
-        /**
-         * @param httpHeaders Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpHeaders(List<TopicRuleHttpHttpHeaderArgs> httpHeaders) {
             return httpHeaders(Output.of(httpHeaders));
         }
 
-        /**
-         * @param httpHeaders Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpHeaders(TopicRuleHttpHttpHeaderArgs... httpHeaders) {
             return httpHeaders(List.of(httpHeaders));
         }
 
-        /**
-         * @param url The HTTPS URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url The HTTPS URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

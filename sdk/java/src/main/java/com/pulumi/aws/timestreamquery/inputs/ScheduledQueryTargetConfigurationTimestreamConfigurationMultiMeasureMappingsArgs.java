@@ -17,32 +17,16 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
 
     public static final ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs Empty = new ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs();
 
-    /**
-     * Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-     * 
-     */
     @Import(name="multiMeasureAttributeMappings")
     private @Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings;
 
-    /**
-     * @return Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-     * 
-     */
     public Optional<Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>>> multiMeasureAttributeMappings() {
         return Optional.ofNullable(this.multiMeasureAttributeMappings);
     }
 
-    /**
-     * Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-     * 
-     */
     @Import(name="targetMultiMeasureName")
     private @Nullable Output<String> targetMultiMeasureName;
 
-    /**
-     * @return Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-     * 
-     */
     public Optional<Output<String>> targetMultiMeasureName() {
         return Optional.ofNullable(this.targetMultiMeasureName);
     }
@@ -72,54 +56,24 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
             $ = new ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param multiMeasureAttributeMappings Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiMeasureAttributeMappings(@Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings) {
             $.multiMeasureAttributeMappings = multiMeasureAttributeMappings;
             return this;
         }
 
-        /**
-         * @param multiMeasureAttributeMappings Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiMeasureAttributeMappings(List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs> multiMeasureAttributeMappings) {
             return multiMeasureAttributeMappings(Output.of(multiMeasureAttributeMappings));
         }
 
-        /**
-         * @param multiMeasureAttributeMappings Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multiMeasureAttributeMappings(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs... multiMeasureAttributeMappings) {
             return multiMeasureAttributeMappings(List.of(multiMeasureAttributeMappings));
         }
 
-        /**
-         * @param targetMultiMeasureName Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetMultiMeasureName(@Nullable Output<String> targetMultiMeasureName) {
             $.targetMultiMeasureName = targetMultiMeasureName;
             return this;
         }
 
-        /**
-         * @param targetMultiMeasureName Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetMultiMeasureName(String targetMultiMeasureName) {
             return targetMultiMeasureName(Output.of(targetMultiMeasureName));
         }

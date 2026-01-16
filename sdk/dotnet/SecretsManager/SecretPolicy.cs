@@ -9,104 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecretsManager
 {
-    /// <summary>
-    /// Provides a resource to manage AWS Secrets Manager secret policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "EnableAnotherAWSAccountToReadTheSecret",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "arn:aws:iam::123456789012:root",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "secretsmanager:GetSecretValue",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("example", new()
-    ///     {
-    ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
-    /// 
-    /// Using `pulumi import`, import `aws_secretsmanager_secret_policy` using the secret Amazon Resource Name (ARN). For example:
-    /// 
-    /// % pulumi import aws_secretsmanager_secret_policy.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-    /// </summary>
     [AwsResourceType("aws:secretsmanager/secretPolicy:SecretPolicy")]
     public partial class SecretPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-        /// </summary>
         [Output("blockPublicPolicy")]
         public Output<bool?> BlockPublicPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `Policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `Policy` is required.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Secret ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
 
@@ -156,29 +70,15 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class SecretPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-        /// </summary>
         [Input("blockPublicPolicy")]
         public Input<bool>? BlockPublicPolicy { get; set; }
 
-        /// <summary>
-        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `Policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `Policy` is required.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Secret ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
@@ -190,29 +90,15 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class SecretPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-        /// </summary>
         [Input("blockPublicPolicy")]
         public Input<bool>? BlockPublicPolicy { get; set; }
 
-        /// <summary>
-        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `Policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `Policy` is required.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Secret ARN.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 

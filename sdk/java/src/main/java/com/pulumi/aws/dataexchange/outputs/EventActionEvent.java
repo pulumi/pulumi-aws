@@ -11,19 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionEvent {
-    /**
-     * @return Configuration for a Revision Published event.
-     * Described in `revisionPublished` Configuration Block below.
-     * 
-     */
     private @Nullable EventActionEventRevisionPublished revisionPublished;
 
     private EventActionEvent() {}
-    /**
-     * @return Configuration for a Revision Published event.
-     * Described in `revisionPublished` Configuration Block below.
-     * 
-     */
     public Optional<EventActionEventRevisionPublished> revisionPublished() {
         return Optional.ofNullable(this.revisionPublished);
     }

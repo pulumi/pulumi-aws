@@ -13,25 +13,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainEbsOptions
     {
-        /// <summary>
-        /// Whether EBS volumes are attached to data nodes in the domain.
-        /// </summary>
         public readonly bool EbsEnabled;
-        /// <summary>
-        /// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-        /// </summary>
         public readonly int? Iops;
-        /// <summary>
-        /// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
-        /// </summary>
         public readonly int? Throughput;
-        /// <summary>
-        /// Size of EBS volumes attached to data nodes (in GiB).
-        /// </summary>
         public readonly int? VolumeSize;
-        /// <summary>
-        /// Type of EBS volumes attached to data nodes.
-        /// </summary>
         public readonly string? VolumeType;
 
         [OutputConstructor]

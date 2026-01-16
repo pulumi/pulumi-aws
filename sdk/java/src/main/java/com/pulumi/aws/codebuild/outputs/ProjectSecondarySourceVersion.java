@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ProjectSecondarySourceVersion {
-    /**
-     * @return An identifier for a source in the build project.
-     * 
-     */
     private String sourceIdentifier;
-    /**
-     * @return The source version for the corresponding source identifier.
-     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-     * for more details.
-     * 
-     */
     private String sourceVersion;
 
     private ProjectSecondarySourceVersion() {}
-    /**
-     * @return An identifier for a source in the build project.
-     * 
-     */
     public String sourceIdentifier() {
         return this.sourceIdentifier;
     }
-    /**
-     * @return The source version for the corresponding source identifier.
-     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
-     * for more details.
-     * 
-     */
     public String sourceVersion() {
         return this.sourceVersion;
     }

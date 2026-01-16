@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration
     {
-        /// <summary>
-        /// Configurations for authentication to Amazon Redshift. See `AuthConfiguration` block for details.
-        /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration? AuthConfiguration;
-        /// <summary>
-        /// ID of the Amazon Redshift cluster.
-        /// </summary>
         public readonly string ClusterIdentifier;
 
         [OutputConstructor]

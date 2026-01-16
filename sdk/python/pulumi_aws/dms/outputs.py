@@ -70,13 +70,6 @@ class EndpointElasticsearchSettings(dict):
                  error_retry_duration: Optional[_builtins.int] = None,
                  full_load_error_percentage: Optional[_builtins.int] = None,
                  use_new_mapping_type: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.str endpoint_uri: Endpoint for the OpenSearch cluster.
-        :param _builtins.str service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
-        :param _builtins.int error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-        :param _builtins.int full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-        :param _builtins.bool use_new_mapping_type: Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
-        """
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if error_retry_duration is not None:
@@ -89,41 +82,26 @@ class EndpointElasticsearchSettings(dict):
     @_builtins.property
     @pulumi.getter(name="endpointUri")
     def endpoint_uri(self) -> _builtins.str:
-        """
-        Endpoint for the OpenSearch cluster.
-        """
         return pulumi.get(self, "endpoint_uri")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM Role with permissions to write to the OpenSearch cluster.
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="errorRetryDuration")
     def error_retry_duration(self) -> Optional[_builtins.int]:
-        """
-        Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-        """
         return pulumi.get(self, "error_retry_duration")
 
     @_builtins.property
     @pulumi.getter(name="fullLoadErrorPercentage")
     def full_load_error_percentage(self) -> Optional[_builtins.int]:
-        """
-        Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-        """
         return pulumi.get(self, "full_load_error_percentage")
 
     @_builtins.property
     @pulumi.getter(name="useNewMappingType")
     def use_new_mapping_type(self) -> Optional[_builtins.bool]:
-        """
-        Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
-        """
         return pulumi.get(self, "use_new_mapping_type")
 
 
@@ -198,27 +176,6 @@ class EndpointKafkaSettings(dict):
                  ssl_client_key_arn: Optional[_builtins.str] = None,
                  ssl_client_key_password: Optional[_builtins.str] = None,
                  topic: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str broker: Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-        :param _builtins.bool include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
-        :param _builtins.bool include_null_and_empty: Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
-        :param _builtins.bool include_partition_value: Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
-        :param _builtins.bool include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
-        :param _builtins.bool include_transaction_details: Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
-        :param _builtins.str message_format: Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
-        :param _builtins.int message_max_bytes: Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
-        :param _builtins.bool no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-        :param _builtins.bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
-        :param _builtins.str sasl_mechanism: For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
-        :param _builtins.str sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        :param _builtins.str sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        :param _builtins.str security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        :param _builtins.str ssl_ca_certificate_arn: ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-        :param _builtins.str ssl_client_certificate_arn: ARN of the client certificate used to securely connect to a Kafka target endpoint.
-        :param _builtins.str ssl_client_key_arn: ARN for the client private key used to securely connect to a Kafka target endpoint.
-        :param _builtins.str ssl_client_key_password: Password for the client private key used to securely connect to a Kafka target endpoint.
-        :param _builtins.str topic: Kafka topic for migration. Default is `kafka-default-topic`.
-        """
         pulumi.set(__self__, "broker", broker)
         if include_control_details is not None:
             pulumi.set(__self__, "include_control_details", include_control_details)
@@ -260,153 +217,96 @@ class EndpointKafkaSettings(dict):
     @_builtins.property
     @pulumi.getter
     def broker(self) -> _builtins.str:
-        """
-        Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-        """
         return pulumi.get(self, "broker")
 
     @_builtins.property
     @pulumi.getter(name="includeControlDetails")
     def include_control_details(self) -> Optional[_builtins.bool]:
-        """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
-        """
         return pulumi.get(self, "include_control_details")
 
     @_builtins.property
     @pulumi.getter(name="includeNullAndEmpty")
     def include_null_and_empty(self) -> Optional[_builtins.bool]:
-        """
-        Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
-        """
         return pulumi.get(self, "include_null_and_empty")
 
     @_builtins.property
     @pulumi.getter(name="includePartitionValue")
     def include_partition_value(self) -> Optional[_builtins.bool]:
-        """
-        Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
-        """
         return pulumi.get(self, "include_partition_value")
 
     @_builtins.property
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[_builtins.bool]:
-        """
-        Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
-        """
         return pulumi.get(self, "include_table_alter_operations")
 
     @_builtins.property
     @pulumi.getter(name="includeTransactionDetails")
     def include_transaction_details(self) -> Optional[_builtins.bool]:
-        """
-        Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
-        """
         return pulumi.get(self, "include_transaction_details")
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[_builtins.str]:
-        """
-        Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
-        """
         return pulumi.get(self, "message_format")
 
     @_builtins.property
     @pulumi.getter(name="messageMaxBytes")
     def message_max_bytes(self) -> Optional[_builtins.int]:
-        """
-        Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
-        """
         return pulumi.get(self, "message_max_bytes")
 
     @_builtins.property
     @pulumi.getter(name="noHexPrefix")
     def no_hex_prefix(self) -> Optional[_builtins.bool]:
-        """
-        Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-        """
         return pulumi.get(self, "no_hex_prefix")
 
     @_builtins.property
     @pulumi.getter(name="partitionIncludeSchemaTable")
     def partition_include_schema_table(self) -> Optional[_builtins.bool]:
-        """
-        Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
-        """
         return pulumi.get(self, "partition_include_schema_table")
 
     @_builtins.property
     @pulumi.getter(name="saslMechanism")
     def sasl_mechanism(self) -> Optional[_builtins.str]:
-        """
-        For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
-        """
         return pulumi.get(self, "sasl_mechanism")
 
     @_builtins.property
     @pulumi.getter(name="saslPassword")
     def sasl_password(self) -> Optional[_builtins.str]:
-        """
-        Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        """
         return pulumi.get(self, "sasl_password")
 
     @_builtins.property
     @pulumi.getter(name="saslUsername")
     def sasl_username(self) -> Optional[_builtins.str]:
-        """
-        Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        """
         return pulumi.get(self, "sasl_username")
 
     @_builtins.property
     @pulumi.getter(name="securityProtocol")
     def security_protocol(self) -> Optional[_builtins.str]:
-        """
-        Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        """
         return pulumi.get(self, "security_protocol")
 
     @_builtins.property
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-        """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="sslClientCertificateArn")
     def ssl_client_certificate_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the client certificate used to securely connect to a Kafka target endpoint.
-        """
         return pulumi.get(self, "ssl_client_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="sslClientKeyArn")
     def ssl_client_key_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN for the client private key used to securely connect to a Kafka target endpoint.
-        """
         return pulumi.get(self, "ssl_client_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="sslClientKeyPassword")
     def ssl_client_key_password(self) -> Optional[_builtins.str]:
-        """
-        Password for the client private key used to securely connect to a Kafka target endpoint.
-        """
         return pulumi.get(self, "ssl_client_key_password")
 
     @_builtins.property
     @pulumi.getter
     def topic(self) -> Optional[_builtins.str]:
-        """
-        Kafka topic for migration. Default is `kafka-default-topic`.
-        """
         return pulumi.get(self, "topic")
 
 
@@ -458,18 +358,6 @@ class EndpointKinesisSettings(dict):
                  service_access_role_arn: Optional[_builtins.str] = None,
                  stream_arn: Optional[_builtins.str] = None,
                  use_large_integer_value: Optional[_builtins.bool] = None):
-        """
-        :param _builtins.bool include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-        :param _builtins.bool include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
-        :param _builtins.bool include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-        :param _builtins.bool include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-        :param _builtins.bool include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
-        :param _builtins.str message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
-        :param _builtins.bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-        :param _builtins.str service_access_role_arn: ARN of the IAM Role with permissions to write to the Kinesis data stream.
-        :param _builtins.str stream_arn: ARN of the Kinesis data stream.
-        :param _builtins.bool use_large_integer_value: Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
-        """
         if include_control_details is not None:
             pulumi.set(__self__, "include_control_details", include_control_details)
         if include_null_and_empty is not None:
@@ -494,81 +382,51 @@ class EndpointKinesisSettings(dict):
     @_builtins.property
     @pulumi.getter(name="includeControlDetails")
     def include_control_details(self) -> Optional[_builtins.bool]:
-        """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-        """
         return pulumi.get(self, "include_control_details")
 
     @_builtins.property
     @pulumi.getter(name="includeNullAndEmpty")
     def include_null_and_empty(self) -> Optional[_builtins.bool]:
-        """
-        Include NULL and empty columns in the target. Default is `false`.
-        """
         return pulumi.get(self, "include_null_and_empty")
 
     @_builtins.property
     @pulumi.getter(name="includePartitionValue")
     def include_partition_value(self) -> Optional[_builtins.bool]:
-        """
-        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-        """
         return pulumi.get(self, "include_partition_value")
 
     @_builtins.property
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[_builtins.bool]:
-        """
-        Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-        """
         return pulumi.get(self, "include_table_alter_operations")
 
     @_builtins.property
     @pulumi.getter(name="includeTransactionDetails")
     def include_transaction_details(self) -> Optional[_builtins.bool]:
-        """
-        Provides detailed transaction information from the source database. Default is `false`.
-        """
         return pulumi.get(self, "include_transaction_details")
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[_builtins.str]:
-        """
-        Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
-        """
         return pulumi.get(self, "message_format")
 
     @_builtins.property
     @pulumi.getter(name="partitionIncludeSchemaTable")
     def partition_include_schema_table(self) -> Optional[_builtins.bool]:
-        """
-        Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-        """
         return pulumi.get(self, "partition_include_schema_table")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the IAM Role with permissions to write to the Kinesis data stream.
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the Kinesis data stream.
-        """
         return pulumi.get(self, "stream_arn")
 
     @_builtins.property
     @pulumi.getter(name="useLargeIntegerValue")
     def use_large_integer_value(self) -> Optional[_builtins.bool]:
-        """
-        Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
-        """
         return pulumi.get(self, "use_large_integer_value")
 
 
@@ -608,14 +466,6 @@ class EndpointMongodbSettings(dict):
                  docs_to_investigate: Optional[_builtins.str] = None,
                  extract_doc_id: Optional[_builtins.str] = None,
                  nesting_level: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
-        :param _builtins.str auth_source: Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
-        :param _builtins.str auth_type: Authentication type to access the MongoDB source endpoint. Default is `password`.
-        :param _builtins.str docs_to_investigate: Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
-        :param _builtins.str extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
-        :param _builtins.str nesting_level: Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
-        """
         if auth_mechanism is not None:
             pulumi.set(__self__, "auth_mechanism", auth_mechanism)
         if auth_source is not None:
@@ -632,49 +482,31 @@ class EndpointMongodbSettings(dict):
     @_builtins.property
     @pulumi.getter(name="authMechanism")
     def auth_mechanism(self) -> Optional[_builtins.str]:
-        """
-        Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
-        """
         return pulumi.get(self, "auth_mechanism")
 
     @_builtins.property
     @pulumi.getter(name="authSource")
     def auth_source(self) -> Optional[_builtins.str]:
-        """
-        Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
-        """
         return pulumi.get(self, "auth_source")
 
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[_builtins.str]:
-        """
-        Authentication type to access the MongoDB source endpoint. Default is `password`.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter(name="docsToInvestigate")
     def docs_to_investigate(self) -> Optional[_builtins.str]:
-        """
-        Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
-        """
         return pulumi.get(self, "docs_to_investigate")
 
     @_builtins.property
     @pulumi.getter(name="extractDocId")
     def extract_doc_id(self) -> Optional[_builtins.str]:
-        """
-        Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
-        """
         return pulumi.get(self, "extract_doc_id")
 
     @_builtins.property
     @pulumi.getter(name="nestingLevel")
     def nesting_level(self) -> Optional[_builtins.str]:
-        """
-        Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
-        """
         return pulumi.get(self, "nesting_level")
 
 
@@ -726,18 +558,6 @@ class EndpointMysqlSettings(dict):
                  server_timezone: Optional[_builtins.str] = None,
                  service_access_role_arn: Optional[_builtins.str] = None,
                  target_db_type: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str after_connect_script: Script to run immediately after AWS DMS connects to the endpoint.
-        :param _builtins.str authentication_method: Authentication method to use. Valid values: `password`, `iam`.
-        :param _builtins.bool clean_source_metadata_on_mismatch: Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-        :param _builtins.int events_poll_interval: Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-        :param _builtins.int execute_timeout: Client statement timeout (in seconds) for a MySQL source endpoint.
-        :param _builtins.int max_file_size: Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-        :param _builtins.int parallel_load_threads: Number of threads to use to load the data into the MySQL-compatible target database.
-        :param _builtins.str server_timezone: Time zone for the source MySQL database.
-        :param _builtins.str service_access_role_arn: ARN of the IAM role to authenticate when connecting to the endpoint.
-        :param _builtins.str target_db_type: Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-        """
         if after_connect_script is not None:
             pulumi.set(__self__, "after_connect_script", after_connect_script)
         if authentication_method is not None:
@@ -762,81 +582,51 @@ class EndpointMysqlSettings(dict):
     @_builtins.property
     @pulumi.getter(name="afterConnectScript")
     def after_connect_script(self) -> Optional[_builtins.str]:
-        """
-        Script to run immediately after AWS DMS connects to the endpoint.
-        """
         return pulumi.get(self, "after_connect_script")
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> Optional[_builtins.str]:
-        """
-        Authentication method to use. Valid values: `password`, `iam`.
-        """
         return pulumi.get(self, "authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="cleanSourceMetadataOnMismatch")
     def clean_source_metadata_on_mismatch(self) -> Optional[_builtins.bool]:
-        """
-        Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-        """
         return pulumi.get(self, "clean_source_metadata_on_mismatch")
 
     @_builtins.property
     @pulumi.getter(name="eventsPollInterval")
     def events_poll_interval(self) -> Optional[_builtins.int]:
-        """
-        Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-        """
         return pulumi.get(self, "events_poll_interval")
 
     @_builtins.property
     @pulumi.getter(name="executeTimeout")
     def execute_timeout(self) -> Optional[_builtins.int]:
-        """
-        Client statement timeout (in seconds) for a MySQL source endpoint.
-        """
         return pulumi.get(self, "execute_timeout")
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[_builtins.int]:
-        """
-        Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-        """
         return pulumi.get(self, "max_file_size")
 
     @_builtins.property
     @pulumi.getter(name="parallelLoadThreads")
     def parallel_load_threads(self) -> Optional[_builtins.int]:
-        """
-        Number of threads to use to load the data into the MySQL-compatible target database.
-        """
         return pulumi.get(self, "parallel_load_threads")
 
     @_builtins.property
     @pulumi.getter(name="serverTimezone")
     def server_timezone(self) -> Optional[_builtins.str]:
-        """
-        Time zone for the source MySQL database.
-        """
         return pulumi.get(self, "server_timezone")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[_builtins.str]:
-        """
-        ARN of the IAM role to authenticate when connecting to the endpoint.
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="targetDbType")
     def target_db_type(self) -> Optional[_builtins.str]:
-        """
-        Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-        """
         return pulumi.get(self, "target_db_type")
 
 
@@ -861,18 +651,12 @@ class EndpointOracleSettings(dict):
 
     def __init__(__self__, *,
                  authentication_method: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str authentication_method: Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-        """
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> Optional[_builtins.str]:
-        """
-        Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-        """
         return pulumi.get(self, "authentication_method")
 
 
@@ -948,26 +732,6 @@ class EndpointPostgresSettings(dict):
                  plugin_name: Optional[_builtins.str] = None,
                  service_access_role_arn: Optional[_builtins.str] = None,
                  slot_name: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
-        :param _builtins.str authentication_method: Specifies the authentication method. Valid values: `password`, `iam`.
-        :param _builtins.str babelfish_database_name: The Babelfish for Aurora PostgreSQL database name for the endpoint.
-        :param _builtins.bool capture_ddls: To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
-        :param _builtins.str database_mode: Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
-        :param _builtins.str ddl_artifacts_schema: Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
-        :param _builtins.int execute_timeout: Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
-        :param _builtins.bool fail_tasks_on_lob_truncation: When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
-        :param _builtins.bool heartbeat_enable: The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
-        :param _builtins.int heartbeat_frequency: Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
-        :param _builtins.str heartbeat_schema: Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
-        :param _builtins.bool map_boolean_as_boolean: You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
-        :param _builtins.bool map_jsonb_as_clob: Optional When true, DMS migrates JSONB values as CLOB.
-        :param _builtins.str map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
-        :param _builtins.int max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-        :param _builtins.str plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
-        :param _builtins.str service_access_role_arn: Specifies the IAM role to use to authenticate the connection.
-        :param _builtins.str slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
-        """
         if after_connect_script is not None:
             pulumi.set(__self__, "after_connect_script", after_connect_script)
         if authentication_method is not None:
@@ -1008,145 +772,91 @@ class EndpointPostgresSettings(dict):
     @_builtins.property
     @pulumi.getter(name="afterConnectScript")
     def after_connect_script(self) -> Optional[_builtins.str]:
-        """
-        For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
-        """
         return pulumi.get(self, "after_connect_script")
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> Optional[_builtins.str]:
-        """
-        Specifies the authentication method. Valid values: `password`, `iam`.
-        """
         return pulumi.get(self, "authentication_method")
 
     @_builtins.property
     @pulumi.getter(name="babelfishDatabaseName")
     def babelfish_database_name(self) -> Optional[_builtins.str]:
-        """
-        The Babelfish for Aurora PostgreSQL database name for the endpoint.
-        """
         return pulumi.get(self, "babelfish_database_name")
 
     @_builtins.property
     @pulumi.getter(name="captureDdls")
     def capture_ddls(self) -> Optional[_builtins.bool]:
-        """
-        To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
-        """
         return pulumi.get(self, "capture_ddls")
 
     @_builtins.property
     @pulumi.getter(name="databaseMode")
     def database_mode(self) -> Optional[_builtins.str]:
-        """
-        Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
-        """
         return pulumi.get(self, "database_mode")
 
     @_builtins.property
     @pulumi.getter(name="ddlArtifactsSchema")
     def ddl_artifacts_schema(self) -> Optional[_builtins.str]:
-        """
-        Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
-        """
         return pulumi.get(self, "ddl_artifacts_schema")
 
     @_builtins.property
     @pulumi.getter(name="executeTimeout")
     def execute_timeout(self) -> Optional[_builtins.int]:
-        """
-        Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
-        """
         return pulumi.get(self, "execute_timeout")
 
     @_builtins.property
     @pulumi.getter(name="failTasksOnLobTruncation")
     def fail_tasks_on_lob_truncation(self) -> Optional[_builtins.bool]:
-        """
-        When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
-        """
         return pulumi.get(self, "fail_tasks_on_lob_truncation")
 
     @_builtins.property
     @pulumi.getter(name="heartbeatEnable")
     def heartbeat_enable(self) -> Optional[_builtins.bool]:
-        """
-        The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
-        """
         return pulumi.get(self, "heartbeat_enable")
 
     @_builtins.property
     @pulumi.getter(name="heartbeatFrequency")
     def heartbeat_frequency(self) -> Optional[_builtins.int]:
-        """
-        Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
-        """
         return pulumi.get(self, "heartbeat_frequency")
 
     @_builtins.property
     @pulumi.getter(name="heartbeatSchema")
     def heartbeat_schema(self) -> Optional[_builtins.str]:
-        """
-        Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
-        """
         return pulumi.get(self, "heartbeat_schema")
 
     @_builtins.property
     @pulumi.getter(name="mapBooleanAsBoolean")
     def map_boolean_as_boolean(self) -> Optional[_builtins.bool]:
-        """
-        You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
-        """
         return pulumi.get(self, "map_boolean_as_boolean")
 
     @_builtins.property
     @pulumi.getter(name="mapJsonbAsClob")
     def map_jsonb_as_clob(self) -> Optional[_builtins.bool]:
-        """
-        Optional When true, DMS migrates JSONB values as CLOB.
-        """
         return pulumi.get(self, "map_jsonb_as_clob")
 
     @_builtins.property
     @pulumi.getter(name="mapLongVarcharAs")
     def map_long_varchar_as(self) -> Optional[_builtins.str]:
-        """
-        Optional When true, DMS migrates LONG values as VARCHAR.
-        """
         return pulumi.get(self, "map_long_varchar_as")
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> Optional[_builtins.int]:
-        """
-        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-        """
         return pulumi.get(self, "max_file_size")
 
     @_builtins.property
     @pulumi.getter(name="pluginName")
     def plugin_name(self) -> Optional[_builtins.str]:
-        """
-        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
-        """
         return pulumi.get(self, "plugin_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[_builtins.str]:
-        """
-        Specifies the IAM role to use to authenticate the connection.
-        """
         return pulumi.get(self, "service_access_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="slotName")
     def slot_name(self) -> Optional[_builtins.str]:
-        """
-        Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
-        """
         return pulumi.get(self, "slot_name")
 
 
@@ -1187,15 +897,6 @@ class EndpointRedisSettings(dict):
                  auth_user_name: Optional[_builtins.str] = None,
                  ssl_ca_certificate_arn: Optional[_builtins.str] = None,
                  ssl_security_protocol: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
-        :param _builtins.int port: Transmission Control Protocol (TCP) port for the endpoint.
-        :param _builtins.str server_name: Fully qualified domain name of the endpoint.
-        :param _builtins.str auth_password: The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-        :param _builtins.str auth_user_name: The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        :param _builtins.str ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        :param _builtins.str ssl_security_protocol: The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-        """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "server_name", server_name)
@@ -1211,57 +912,36 @@ class EndpointRedisSettings(dict):
     @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> _builtins.str:
-        """
-        The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
-        """
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
-        """
-        Transmission Control Protocol (TCP) port for the endpoint.
-        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="serverName")
     def server_name(self) -> _builtins.str:
-        """
-        Fully qualified domain name of the endpoint.
-        """
         return pulumi.get(self, "server_name")
 
     @_builtins.property
     @pulumi.getter(name="authPassword")
     def auth_password(self) -> Optional[_builtins.str]:
-        """
-        The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-        """
         return pulumi.get(self, "auth_password")
 
     @_builtins.property
     @pulumi.getter(name="authUserName")
     def auth_user_name(self) -> Optional[_builtins.str]:
-        """
-        The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        """
         return pulumi.get(self, "auth_user_name")
 
     @_builtins.property
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
     @_builtins.property
     @pulumi.getter(name="sslSecurityProtocol")
     def ssl_security_protocol(self) -> Optional[_builtins.str]:
-        """
-        The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-        """
         return pulumi.get(self, "ssl_security_protocol")
 
 
@@ -1298,13 +978,6 @@ class EndpointRedshiftSettings(dict):
                  encryption_mode: Optional[_builtins.str] = None,
                  server_side_encryption_kms_key_id: Optional[_builtins.str] = None,
                  service_access_role_arn: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
-        :param _builtins.str bucket_name: Custom S3 Bucket name for intermediate storage.
-        :param _builtins.str encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-        :param _builtins.str server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
-        :param _builtins.str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-        """
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
         if bucket_name is not None:
@@ -1319,41 +992,26 @@ class EndpointRedshiftSettings(dict):
     @_builtins.property
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[_builtins.str]:
-        """
-        Custom S3 Bucket Object prefix for intermediate storage.
-        """
         return pulumi.get(self, "bucket_folder")
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[_builtins.str]:
-        """
-        Custom S3 Bucket name for intermediate storage.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[_builtins.str]:
-        """
-        The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-        """
         return pulumi.get(self, "encryption_mode")
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
-        """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[_builtins.str]:
-        """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-        """
         return pulumi.get(self, "service_access_role_arn")
 
 
@@ -1402,22 +1060,6 @@ class ReplicationConfigComputeConfig(dict):
                  multi_az: Optional[_builtins.bool] = None,
                  preferred_maintenance_window: Optional[_builtins.str] = None,
                  vpc_security_group_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str replication_subnet_group_id: Specifies a subnet group identifier to associate with the DMS Serverless replication.
-        :param _builtins.str availability_zone: The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-        :param _builtins.str dns_name_servers: A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-        :param _builtins.str kms_key_id: An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-        :param _builtins.int max_capacity_units: Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-        :param _builtins.int min_capacity_units: Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
-        :param _builtins.bool multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
-        :param _builtins.str preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-               
-               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-               - Format: `ddd:hh24:mi-ddd:hh24:mi`
-               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-               - Constraints: Minimum 30-minute window.
-        :param Sequence[_builtins.str] vpc_security_group_ids: Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-        """
         pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -1439,78 +1081,46 @@ class ReplicationConfigComputeConfig(dict):
     @_builtins.property
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> _builtins.str:
-        """
-        Specifies a subnet group identifier to associate with the DMS Serverless replication.
-        """
         return pulumi.get(self, "replication_subnet_group_id")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
-        """
-        The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="dnsNameServers")
     def dns_name_servers(self) -> Optional[_builtins.str]:
-        """
-        A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-        """
         return pulumi.get(self, "dns_name_servers")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
-        """
-        An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="maxCapacityUnits")
     def max_capacity_units(self) -> Optional[_builtins.int]:
-        """
-        Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-        """
         return pulumi.get(self, "max_capacity_units")
 
     @_builtins.property
     @pulumi.getter(name="minCapacityUnits")
     def min_capacity_units(self) -> Optional[_builtins.int]:
-        """
-        Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
-        """
         return pulumi.get(self, "min_capacity_units")
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[_builtins.bool]:
-        """
-        Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
-        """
         return pulumi.get(self, "multi_az")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[_builtins.str]:
-        """
-        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-
-        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        - Constraints: Minimum 30-minute window.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -1541,11 +1151,6 @@ class ReplicationInstanceKerberosAuthenticationSettings(dict):
                  key_cache_secret_iam_arn: _builtins.str,
                  key_cache_secret_id: _builtins.str,
                  krb5_file_contents: _builtins.str):
-        """
-        :param _builtins.str key_cache_secret_iam_arn: ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-        :param _builtins.str key_cache_secret_id: Secret ID that stores the key cache file required for Kerberos authentication.
-        :param _builtins.str krb5_file_contents: Contents of krb5 configuration file required for Kerberos authentication.
-        """
         pulumi.set(__self__, "key_cache_secret_iam_arn", key_cache_secret_iam_arn)
         pulumi.set(__self__, "key_cache_secret_id", key_cache_secret_id)
         pulumi.set(__self__, "krb5_file_contents", krb5_file_contents)
@@ -1553,25 +1158,16 @@ class ReplicationInstanceKerberosAuthenticationSettings(dict):
     @_builtins.property
     @pulumi.getter(name="keyCacheSecretIamArn")
     def key_cache_secret_iam_arn(self) -> _builtins.str:
-        """
-        ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-        """
         return pulumi.get(self, "key_cache_secret_iam_arn")
 
     @_builtins.property
     @pulumi.getter(name="keyCacheSecretId")
     def key_cache_secret_id(self) -> _builtins.str:
-        """
-        Secret ID that stores the key cache file required for Kerberos authentication.
-        """
         return pulumi.get(self, "key_cache_secret_id")
 
     @_builtins.property
     @pulumi.getter(name="krb5FileContents")
     def krb5_file_contents(self) -> _builtins.str:
-        """
-        Contents of krb5 configuration file required for Kerberos authentication.
-        """
         return pulumi.get(self, "krb5_file_contents")
 
 

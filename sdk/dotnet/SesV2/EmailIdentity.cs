@@ -9,166 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ### Email Address Identity
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "testing@example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Domain Identity
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuration Set
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
-    ///     {
-    ///         ConfigurationSetName = "example",
-    ///     });
-    /// 
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "example.com",
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### DKIM Signing Attributes (BYODKIM)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
-    ///     {
-    ///         EmailIdentityDetails = "example.com",
-    ///         DkimSigningAttributes = new Aws.SesV2.Inputs.EmailIdentityDkimSigningAttributesArgs
-    ///         {
-    ///             DomainSigningPrivateKey = "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
-    ///             DomainSigningSelector = "example",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentity:EmailIdentity")]
     public partial class EmailIdentity : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Email Identity.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        /// </summary>
         [Output("configurationSetName")]
         public Output<string?> ConfigurationSetName { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration of the DKIM authentication settings for an email domain identity.
-        /// </summary>
         [Output("dkimSigningAttributes")]
         public Output<Outputs.EmailIdentityDkimSigningAttributes> DkimSigningAttributes { get; private set; } = null!;
 
-        /// <summary>
-        /// The email address or domain to verify.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentityDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-        /// </summary>
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-        /// </summary>
         [Output("verificationStatus")]
         public Output<string> VerificationStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether or not the identity is verified.
-        /// </summary>
         [Output("verifiedForSendingStatus")]
         public Output<bool> VerifiedForSendingStatus { get; private set; } = null!;
 
@@ -218,38 +88,20 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
-        /// <summary>
-        /// The configuration of the DKIM authentication settings for an email domain identity.
-        /// </summary>
         [Input("dkimSigningAttributes")]
         public Input<Inputs.EmailIdentityDkimSigningAttributesArgs>? DkimSigningAttributes { get; set; }
 
-        /// <summary>
-        /// The email address or domain to verify.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentityDetails { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -264,50 +116,26 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class EmailIdentityState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Email Identity.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
-        /// <summary>
-        /// The configuration of the DKIM authentication settings for an email domain identity.
-        /// </summary>
         [Input("dkimSigningAttributes")]
         public Input<Inputs.EmailIdentityDkimSigningAttributesGetArgs>? DkimSigningAttributes { get; set; }
 
-        /// <summary>
-        /// The email address or domain to verify.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentityDetails { get; set; }
 
-        /// <summary>
-        /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-        /// </summary>
         [Input("identityType")]
         public Input<string>? IdentityType { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -316,25 +144,15 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
-        /// </summary>
         [Input("verificationStatus")]
         public Input<string>? VerificationStatus { get; set; }
 
-        /// <summary>
-        /// Specifies whether or not the identity is verified.
-        /// </summary>
         [Input("verifiedForSendingStatus")]
         public Input<bool>? VerifiedForSendingStatus { get; set; }
 

@@ -18,62 +18,30 @@ public final class CrawlerIcebergTargetArgs extends com.pulumi.resources.Resourc
 
     public static final CrawlerIcebergTargetArgs Empty = new CrawlerIcebergTargetArgs();
 
-    /**
-     * The name of the connection to use to connect to the Iceberg target.
-     * 
-     */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
-    /**
-     * @return The name of the connection to use to connect to the Iceberg target.
-     * 
-     */
     public Optional<Output<String>> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
 
-    /**
-     * A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     @Import(name="exclusions")
     private @Nullable Output<List<String>> exclusions;
 
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     public Optional<Output<List<String>>> exclusions() {
         return Optional.ofNullable(this.exclusions);
     }
 
-    /**
-     * The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
-     * 
-     */
     @Import(name="maximumTraversalDepth", required=true)
     private Output<Integer> maximumTraversalDepth;
 
-    /**
-     * @return The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
-     * 
-     */
     public Output<Integer> maximumTraversalDepth() {
         return this.maximumTraversalDepth;
     }
 
-    /**
-     * One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
-     * 
-     */
     @Import(name="paths", required=true)
     private Output<List<String>> paths;
 
-    /**
-     * @return One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
-     * 
-     */
     public Output<List<String>> paths() {
         return this.paths;
     }
@@ -105,106 +73,46 @@ public final class CrawlerIcebergTargetArgs extends com.pulumi.resources.Resourc
             $ = new CrawlerIcebergTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionName The name of the connection to use to connect to the Iceberg target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(@Nullable Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
-        /**
-         * @param connectionName The name of the connection to use to connect to the Iceberg target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(@Nullable Output<List<String>> exclusions) {
             $.exclusions = exclusions;
             return this;
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(List<String> exclusions) {
             return exclusions(Output.of(exclusions));
         }
 
-        /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusions(String... exclusions) {
             return exclusions(List.of(exclusions));
         }
 
-        /**
-         * @param maximumTraversalDepth The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumTraversalDepth(Output<Integer> maximumTraversalDepth) {
             $.maximumTraversalDepth = maximumTraversalDepth;
             return this;
         }
 
-        /**
-         * @param maximumTraversalDepth The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumTraversalDepth(Integer maximumTraversalDepth) {
             return maximumTraversalDepth(Output.of(maximumTraversalDepth));
         }
 
-        /**
-         * @param paths One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder paths(Output<List<String>> paths) {
             $.paths = paths;
             return this;
         }
 
-        /**
-         * @param paths One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder paths(List<String> paths) {
             return paths(Output.of(paths));
         }
 
-        /**
-         * @param paths One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder paths(String... paths) {
             return paths(List.of(paths));
         }

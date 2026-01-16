@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttpRouteMatchQueryParameterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The query parameter to match on.
-        /// </summary>
         [Input("match")]
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs>? Match { get; set; }
 
-        /// <summary>
-        /// Name for the query parameter that will be matched on.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

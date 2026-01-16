@@ -18,51 +18,23 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
 
     public static final ListenerRuleMatchHttpMatchHeaderMatchArgs Empty = new ListenerRuleMatchHttpMatchHeaderMatchArgs();
 
-    /**
-     * Indicates whether the match is case sensitive.
-     * Default is `false`.
-     * 
-     */
     @Import(name="caseSensitive")
     private @Nullable Output<Boolean> caseSensitive;
 
-    /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> caseSensitive() {
         return Optional.ofNullable(this.caseSensitive);
     }
 
-    /**
-     * The header match type.
-     * See Header Match `match` Block for details.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<ListenerRuleMatchHttpMatchHeaderMatchMatchArgs> match;
 
-    /**
-     * @return The header match type.
-     * See Header Match `match` Block for details.
-     * 
-     */
     public Output<ListenerRuleMatchHttpMatchHeaderMatchMatchArgs> match() {
         return this.match;
     }
 
-    /**
-     * The name of the header.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the header.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -93,69 +65,29 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
             $ = new ListenerRuleMatchHttpMatchHeaderMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caseSensitive(@Nullable Output<Boolean> caseSensitive) {
             $.caseSensitive = caseSensitive;
             return this;
         }
 
-        /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder caseSensitive(Boolean caseSensitive) {
             return caseSensitive(Output.of(caseSensitive));
         }
 
-        /**
-         * @param match The header match type.
-         * See Header Match `match` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<ListenerRuleMatchHttpMatchHeaderMatchMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match The header match type.
-         * See Header Match `match` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(ListenerRuleMatchHttpMatchHeaderMatchMatchArgs match) {
             return match(Output.of(match));
         }
 
-        /**
-         * @param name The name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

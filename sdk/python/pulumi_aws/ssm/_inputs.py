@@ -95,19 +95,8 @@ MYPY = False
 if not MYPY:
     class AssociationOutputLocationArgsDict(TypedDict):
         s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket name.
-        """
         s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 bucket prefix. Results stored in the root if not configured.
-        """
         s3_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 bucket region.
-
-        Targets specify what instance IDs or tags to apply the document to and has these keys:
-        """
 elif False:
     AssociationOutputLocationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -117,13 +106,6 @@ class AssociationOutputLocationArgs:
                  s3_bucket_name: pulumi.Input[_builtins.str],
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_region: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] s3_bucket_name: The S3 bucket name.
-        :param pulumi.Input[_builtins.str] s3_key_prefix: The S3 bucket prefix. Results stored in the root if not configured.
-        :param pulumi.Input[_builtins.str] s3_region: The S3 bucket region.
-               
-               Targets specify what instance IDs or tags to apply the document to and has these keys:
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
@@ -133,9 +115,6 @@ class AssociationOutputLocationArgs:
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The S3 bucket name.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -145,9 +124,6 @@ class AssociationOutputLocationArgs:
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 bucket prefix. Results stored in the root if not configured.
-        """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
@@ -157,11 +133,6 @@ class AssociationOutputLocationArgs:
     @_builtins.property
     @pulumi.getter(name="s3Region")
     def s3_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The S3 bucket region.
-
-        Targets specify what instance IDs or tags to apply the document to and has these keys:
-        """
         return pulumi.get(self, "s3_region")
 
     @s3_region.setter
@@ -172,13 +143,7 @@ class AssociationOutputLocationArgs:
 if not MYPY:
     class AssociationTargetArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        User-defined criteria that maps to Key. A list of instance IDs or tag values.
-        """
 elif False:
     AssociationTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -187,19 +152,12 @@ class AssociationTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] key: Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: User-defined criteria that maps to Key. A list of instance IDs or tag values.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -209,9 +167,6 @@ class AssociationTargetArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        User-defined criteria that maps to Key. A list of instance IDs or tag values.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -222,26 +177,11 @@ class AssociationTargetArgs:
 if not MYPY:
     class ContactsRotationRecurrenceArgsDict(TypedDict):
         number_of_on_calls: pulumi.Input[_builtins.int]
-        """
-        (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-        """
         recurrence_multiplier: pulumi.Input[_builtins.int]
-        """
-        (Required) The number of days, weeks, or months a single rotation lasts.
-        """
         daily_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceDailySettingArgsDict']]]]
         monthly_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgsDict']]]]
-        """
-        (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-        """
         shift_coverages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgsDict']]]]
-        """
-        (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-        """
         weekly_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgsDict']]]]
-        """
-        (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-        """
 elif False:
     ContactsRotationRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -254,13 +194,6 @@ class ContactsRotationRecurrenceArgs:
                  monthly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]]] = None,
                  shift_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]]] = None,
                  weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.int] number_of_on_calls: (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-        :param pulumi.Input[_builtins.int] recurrence_multiplier: (Required) The number of days, weeks, or months a single rotation lasts.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]] monthly_settings: (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]] shift_coverages: (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]] weekly_settings: (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-        """
         pulumi.set(__self__, "number_of_on_calls", number_of_on_calls)
         pulumi.set(__self__, "recurrence_multiplier", recurrence_multiplier)
         if daily_settings is not None:
@@ -275,9 +208,6 @@ class ContactsRotationRecurrenceArgs:
     @_builtins.property
     @pulumi.getter(name="numberOfOnCalls")
     def number_of_on_calls(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
-        """
         return pulumi.get(self, "number_of_on_calls")
 
     @number_of_on_calls.setter
@@ -287,9 +217,6 @@ class ContactsRotationRecurrenceArgs:
     @_builtins.property
     @pulumi.getter(name="recurrenceMultiplier")
     def recurrence_multiplier(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The number of days, weeks, or months a single rotation lasts.
-        """
         return pulumi.get(self, "recurrence_multiplier")
 
     @recurrence_multiplier.setter
@@ -308,9 +235,6 @@ class ContactsRotationRecurrenceArgs:
     @_builtins.property
     @pulumi.getter(name="monthlySettings")
     def monthly_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]]]:
-        """
-        (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
-        """
         return pulumi.get(self, "monthly_settings")
 
     @monthly_settings.setter
@@ -320,9 +244,6 @@ class ContactsRotationRecurrenceArgs:
     @_builtins.property
     @pulumi.getter(name="shiftCoverages")
     def shift_coverages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]]]:
-        """
-        (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
-        """
         return pulumi.get(self, "shift_coverages")
 
     @shift_coverages.setter
@@ -332,9 +253,6 @@ class ContactsRotationRecurrenceArgs:
     @_builtins.property
     @pulumi.getter(name="weeklySettings")
     def weekly_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]]]:
-        """
-        (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
-        """
         return pulumi.get(self, "weekly_settings")
 
     @weekly_settings.setter
@@ -345,13 +263,7 @@ class ContactsRotationRecurrenceArgs:
 if not MYPY:
     class ContactsRotationRecurrenceDailySettingArgsDict(TypedDict):
         hour_of_day: pulumi.Input[_builtins.int]
-        """
-        (Required) The hour of the day.
-        """
         minute_of_hour: pulumi.Input[_builtins.int]
-        """
-        (Required) The minutes of the hour.
-        """
 elif False:
     ContactsRotationRecurrenceDailySettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -360,19 +272,12 @@ class ContactsRotationRecurrenceDailySettingArgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[_builtins.int],
                  minute_of_hour: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] hour_of_day: (Required) The hour of the day.
-        :param pulumi.Input[_builtins.int] minute_of_hour: (Required) The minutes of the hour.
-        """
         pulumi.set(__self__, "hour_of_day", hour_of_day)
         pulumi.set(__self__, "minute_of_hour", minute_of_hour)
 
     @_builtins.property
     @pulumi.getter(name="hourOfDay")
     def hour_of_day(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The hour of the day.
-        """
         return pulumi.get(self, "hour_of_day")
 
     @hour_of_day.setter
@@ -382,9 +287,6 @@ class ContactsRotationRecurrenceDailySettingArgs:
     @_builtins.property
     @pulumi.getter(name="minuteOfHour")
     def minute_of_hour(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The minutes of the hour.
-        """
         return pulumi.get(self, "minute_of_hour")
 
     @minute_of_hour.setter
@@ -395,13 +297,7 @@ class ContactsRotationRecurrenceDailySettingArgs:
 if not MYPY:
     class ContactsRotationRecurrenceMonthlySettingArgsDict(TypedDict):
         day_of_month: pulumi.Input[_builtins.int]
-        """
-        (Required) The day of the month when monthly recurring on-call rotations begin.
-        """
         hand_off_time: NotRequired[pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgsDict']]
-        """
-        (Required) The hand off time. See Hand Off Time for more details.
-        """
 elif False:
     ContactsRotationRecurrenceMonthlySettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -410,10 +306,6 @@ class ContactsRotationRecurrenceMonthlySettingArgs:
     def __init__(__self__, *,
                  day_of_month: pulumi.Input[_builtins.int],
                  hand_off_time: Optional[pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.int] day_of_month: (Required) The day of the month when monthly recurring on-call rotations begin.
-        :param pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs'] hand_off_time: (Required) The hand off time. See Hand Off Time for more details.
-        """
         pulumi.set(__self__, "day_of_month", day_of_month)
         if hand_off_time is not None:
             pulumi.set(__self__, "hand_off_time", hand_off_time)
@@ -421,9 +313,6 @@ class ContactsRotationRecurrenceMonthlySettingArgs:
     @_builtins.property
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The day of the month when monthly recurring on-call rotations begin.
-        """
         return pulumi.get(self, "day_of_month")
 
     @day_of_month.setter
@@ -433,9 +322,6 @@ class ContactsRotationRecurrenceMonthlySettingArgs:
     @_builtins.property
     @pulumi.getter(name="handOffTime")
     def hand_off_time(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs']]:
-        """
-        (Required) The hand off time. See Hand Off Time for more details.
-        """
         return pulumi.get(self, "hand_off_time")
 
     @hand_off_time.setter
@@ -446,13 +332,7 @@ class ContactsRotationRecurrenceMonthlySettingArgs:
 if not MYPY:
     class ContactsRotationRecurrenceMonthlySettingHandOffTimeArgsDict(TypedDict):
         hour_of_day: pulumi.Input[_builtins.int]
-        """
-        (Required) The hour of the day.
-        """
         minute_of_hour: pulumi.Input[_builtins.int]
-        """
-        (Required) The minutes of the hour.
-        """
 elif False:
     ContactsRotationRecurrenceMonthlySettingHandOffTimeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -461,19 +341,12 @@ class ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[_builtins.int],
                  minute_of_hour: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] hour_of_day: (Required) The hour of the day.
-        :param pulumi.Input[_builtins.int] minute_of_hour: (Required) The minutes of the hour.
-        """
         pulumi.set(__self__, "hour_of_day", hour_of_day)
         pulumi.set(__self__, "minute_of_hour", minute_of_hour)
 
     @_builtins.property
     @pulumi.getter(name="hourOfDay")
     def hour_of_day(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The hour of the day.
-        """
         return pulumi.get(self, "hour_of_day")
 
     @hour_of_day.setter
@@ -483,9 +356,6 @@ class ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs:
     @_builtins.property
     @pulumi.getter(name="minuteOfHour")
     def minute_of_hour(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The minutes of the hour.
-        """
         return pulumi.get(self, "minute_of_hour")
 
     @minute_of_hour.setter
@@ -497,9 +367,6 @@ if not MYPY:
     class ContactsRotationRecurrenceShiftCoverageArgsDict(TypedDict):
         map_block_key: pulumi.Input[_builtins.str]
         coverage_times: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgsDict']]]]
-        """
-        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        """
 elif False:
     ContactsRotationRecurrenceShiftCoverageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -508,9 +375,6 @@ class ContactsRotationRecurrenceShiftCoverageArgs:
     def __init__(__self__, *,
                  map_block_key: pulumi.Input[_builtins.str],
                  coverage_times: Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]] coverage_times: (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        """
         pulumi.set(__self__, "map_block_key", map_block_key)
         if coverage_times is not None:
             pulumi.set(__self__, "coverage_times", coverage_times)
@@ -527,9 +391,6 @@ class ContactsRotationRecurrenceShiftCoverageArgs:
     @_builtins.property
     @pulumi.getter(name="coverageTimes")
     def coverage_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs']]]]:
-        """
-        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        """
         return pulumi.get(self, "coverage_times")
 
     @coverage_times.setter
@@ -540,13 +401,7 @@ class ContactsRotationRecurrenceShiftCoverageArgs:
 if not MYPY:
     class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgsDict(TypedDict):
         end: NotRequired[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgsDict']]
-        """
-        (Required) The end time of the on-call shift. See Hand Off Time for more details.
-        """
         start: NotRequired[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgsDict']]
-        """
-        (Required) The start time of the on-call shift. See Hand Off Time for more details.
-        """
 elif False:
     ContactsRotationRecurrenceShiftCoverageCoverageTimeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -555,10 +410,6 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs']] = None,
                  start: Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs']] = None):
-        """
-        :param pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs'] end: (Required) The end time of the on-call shift. See Hand Off Time for more details.
-        :param pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs'] start: (Required) The start time of the on-call shift. See Hand Off Time for more details.
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -567,9 +418,6 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs:
     @_builtins.property
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs']]:
-        """
-        (Required) The end time of the on-call shift. See Hand Off Time for more details.
-        """
         return pulumi.get(self, "end")
 
     @end.setter
@@ -579,9 +427,6 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs:
     @_builtins.property
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs']]:
-        """
-        (Required) The start time of the on-call shift. See Hand Off Time for more details.
-        """
         return pulumi.get(self, "start")
 
     @start.setter
@@ -592,13 +437,7 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs:
 if not MYPY:
     class ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgsDict(TypedDict):
         hour_of_day: pulumi.Input[_builtins.int]
-        """
-        (Required) The hour of the day.
-        """
         minute_of_hour: pulumi.Input[_builtins.int]
-        """
-        (Required) The minutes of the hour.
-        """
 elif False:
     ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -607,19 +446,12 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[_builtins.int],
                  minute_of_hour: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] hour_of_day: (Required) The hour of the day.
-        :param pulumi.Input[_builtins.int] minute_of_hour: (Required) The minutes of the hour.
-        """
         pulumi.set(__self__, "hour_of_day", hour_of_day)
         pulumi.set(__self__, "minute_of_hour", minute_of_hour)
 
     @_builtins.property
     @pulumi.getter(name="hourOfDay")
     def hour_of_day(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The hour of the day.
-        """
         return pulumi.get(self, "hour_of_day")
 
     @hour_of_day.setter
@@ -629,9 +461,6 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs:
     @_builtins.property
     @pulumi.getter(name="minuteOfHour")
     def minute_of_hour(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The minutes of the hour.
-        """
         return pulumi.get(self, "minute_of_hour")
 
     @minute_of_hour.setter
@@ -642,13 +471,7 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs:
 if not MYPY:
     class ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgsDict(TypedDict):
         hour_of_day: pulumi.Input[_builtins.int]
-        """
-        (Required) The hour of the day.
-        """
         minute_of_hour: pulumi.Input[_builtins.int]
-        """
-        (Required) The minutes of the hour.
-        """
 elif False:
     ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -657,19 +480,12 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[_builtins.int],
                  minute_of_hour: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] hour_of_day: (Required) The hour of the day.
-        :param pulumi.Input[_builtins.int] minute_of_hour: (Required) The minutes of the hour.
-        """
         pulumi.set(__self__, "hour_of_day", hour_of_day)
         pulumi.set(__self__, "minute_of_hour", minute_of_hour)
 
     @_builtins.property
     @pulumi.getter(name="hourOfDay")
     def hour_of_day(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The hour of the day.
-        """
         return pulumi.get(self, "hour_of_day")
 
     @hour_of_day.setter
@@ -679,9 +495,6 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs:
     @_builtins.property
     @pulumi.getter(name="minuteOfHour")
     def minute_of_hour(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The minutes of the hour.
-        """
         return pulumi.get(self, "minute_of_hour")
 
     @minute_of_hour.setter
@@ -692,13 +505,7 @@ class ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs:
 if not MYPY:
     class ContactsRotationRecurrenceWeeklySettingArgsDict(TypedDict):
         day_of_week: pulumi.Input[_builtins.str]
-        """
-        (Required) The day of the week when the shift coverage occurs.
-        """
         hand_off_time: NotRequired[pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgsDict']]
-        """
-        (Required) The hand off time. See Hand Off Time for more details.
-        """
 elif False:
     ContactsRotationRecurrenceWeeklySettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -707,10 +514,6 @@ class ContactsRotationRecurrenceWeeklySettingArgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[_builtins.str],
                  hand_off_time: Optional[pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] day_of_week: (Required) The day of the week when the shift coverage occurs.
-        :param pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs'] hand_off_time: (Required) The hand off time. See Hand Off Time for more details.
-        """
         pulumi.set(__self__, "day_of_week", day_of_week)
         if hand_off_time is not None:
             pulumi.set(__self__, "hand_off_time", hand_off_time)
@@ -718,9 +521,6 @@ class ContactsRotationRecurrenceWeeklySettingArgs:
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[_builtins.str]:
-        """
-        (Required) The day of the week when the shift coverage occurs.
-        """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
@@ -730,9 +530,6 @@ class ContactsRotationRecurrenceWeeklySettingArgs:
     @_builtins.property
     @pulumi.getter(name="handOffTime")
     def hand_off_time(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs']]:
-        """
-        (Required) The hand off time. See Hand Off Time for more details.
-        """
         return pulumi.get(self, "hand_off_time")
 
     @hand_off_time.setter
@@ -743,13 +540,7 @@ class ContactsRotationRecurrenceWeeklySettingArgs:
 if not MYPY:
     class ContactsRotationRecurrenceWeeklySettingHandOffTimeArgsDict(TypedDict):
         hour_of_day: pulumi.Input[_builtins.int]
-        """
-        (Required) The hour of the day.
-        """
         minute_of_hour: pulumi.Input[_builtins.int]
-        """
-        (Required) The minutes of the hour.
-        """
 elif False:
     ContactsRotationRecurrenceWeeklySettingHandOffTimeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -758,19 +549,12 @@ class ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[_builtins.int],
                  minute_of_hour: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.int] hour_of_day: (Required) The hour of the day.
-        :param pulumi.Input[_builtins.int] minute_of_hour: (Required) The minutes of the hour.
-        """
         pulumi.set(__self__, "hour_of_day", hour_of_day)
         pulumi.set(__self__, "minute_of_hour", minute_of_hour)
 
     @_builtins.property
     @pulumi.getter(name="hourOfDay")
     def hour_of_day(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The hour of the day.
-        """
         return pulumi.get(self, "hour_of_day")
 
     @hour_of_day.setter
@@ -780,9 +564,6 @@ class ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs:
     @_builtins.property
     @pulumi.getter(name="minuteOfHour")
     def minute_of_hour(self) -> pulumi.Input[_builtins.int]:
-        """
-        (Required) The minutes of the hour.
-        """
         return pulumi.get(self, "minute_of_hour")
 
     @minute_of_hour.setter
@@ -793,17 +574,8 @@ class ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs:
 if not MYPY:
     class DocumentAttachmentsSourceArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
-        """
-        The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the document attachment file.
-        """
 elif False:
     DocumentAttachmentsSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -813,11 +585,6 @@ class DocumentAttachmentsSourceArgs:
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
-        :param pulumi.Input[_builtins.str] name: The name of the document attachment file.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
         if name is not None:
@@ -826,9 +593,6 @@ class DocumentAttachmentsSourceArgs:
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -838,9 +602,6 @@ class DocumentAttachmentsSourceArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -850,9 +611,6 @@ class DocumentAttachmentsSourceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the document attachment file.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -863,21 +621,9 @@ class DocumentAttachmentsSourceArgs:
 if not MYPY:
     class DocumentParameterArgsDict(TypedDict):
         default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
-        """
         description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the document.
-        """
         type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of parameter. Valid values: `String`, `StringList`.
-        """
 elif False:
     DocumentParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -888,12 +634,6 @@ class DocumentParameterArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] default_value: If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
-        :param pulumi.Input[_builtins.str] description: A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-        :param pulumi.Input[_builtins.str] name: The name of the document.
-        :param pulumi.Input[_builtins.str] type: The type of parameter. Valid values: `String`, `StringList`.
-        """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
@@ -906,9 +646,6 @@ class DocumentParameterArgs:
     @_builtins.property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -918,9 +655,6 @@ class DocumentParameterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -930,9 +664,6 @@ class DocumentParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the document.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -942,9 +673,6 @@ class DocumentParameterArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The type of parameter. Valid values: `String`, `StringList`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -990,9 +718,6 @@ if not MYPY:
     class MaintenanceWindowTaskTargetArgsDict(TypedDict):
         key: pulumi.Input[_builtins.str]
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The array of strings.
-        """
 elif False:
     MaintenanceWindowTaskTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1001,9 +726,6 @@ class MaintenanceWindowTaskTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The array of strings.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -1019,9 +741,6 @@ class MaintenanceWindowTaskTargetArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The array of strings.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1032,21 +751,9 @@ class MaintenanceWindowTaskTargetArgs:
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersArgsDict(TypedDict):
         automation_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgsDict']]
-        """
-        The parameters for an AUTOMATION task type. Documented below.
-        """
         lambda_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgsDict']]
-        """
-        The parameters for a LAMBDA task type. Documented below.
-        """
         run_command_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict']]
-        """
-        The parameters for a RUN_COMMAND task type. Documented below.
-        """
         step_functions_parameters: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgsDict']]
-        """
-        The parameters for a STEP_FUNCTIONS task type. Documented below.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1057,12 +764,6 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
                  lambda_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']] = None,
                  run_command_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']] = None,
                  step_functions_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']] = None):
-        """
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs'] automation_parameters: The parameters for an AUTOMATION task type. Documented below.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs'] lambda_parameters: The parameters for a LAMBDA task type. Documented below.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs'] run_command_parameters: The parameters for a RUN_COMMAND task type. Documented below.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs'] step_functions_parameters: The parameters for a STEP_FUNCTIONS task type. Documented below.
-        """
         if automation_parameters is not None:
             pulumi.set(__self__, "automation_parameters", automation_parameters)
         if lambda_parameters is not None:
@@ -1075,9 +776,6 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
     @_builtins.property
     @pulumi.getter(name="automationParameters")
     def automation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs']]:
-        """
-        The parameters for an AUTOMATION task type. Documented below.
-        """
         return pulumi.get(self, "automation_parameters")
 
     @automation_parameters.setter
@@ -1087,9 +785,6 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
     @_builtins.property
     @pulumi.getter(name="lambdaParameters")
     def lambda_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']]:
-        """
-        The parameters for a LAMBDA task type. Documented below.
-        """
         return pulumi.get(self, "lambda_parameters")
 
     @lambda_parameters.setter
@@ -1099,9 +794,6 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
     @_builtins.property
     @pulumi.getter(name="runCommandParameters")
     def run_command_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']]:
-        """
-        The parameters for a RUN_COMMAND task type. Documented below.
-        """
         return pulumi.get(self, "run_command_parameters")
 
     @run_command_parameters.setter
@@ -1111,9 +803,6 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
     @_builtins.property
     @pulumi.getter(name="stepFunctionsParameters")
     def step_functions_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']]:
-        """
-        The parameters for a STEP_FUNCTIONS task type. Documented below.
-        """
         return pulumi.get(self, "step_functions_parameters")
 
     @step_functions_parameters.setter
@@ -1124,13 +813,7 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgsDict(TypedDict):
         document_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of an Automation document to use during task execution.
-        """
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgsDict']]]]
-        """
-        The parameters for the RUN_COMMAND task execution. Documented below.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1139,10 +822,6 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
     def __init__(__self__, *,
                  document_version: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] document_version: The version of an Automation document to use during task execution.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
-        """
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
         if parameters is not None:
@@ -1151,9 +830,6 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
     @_builtins.property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of an Automation document to use during task execution.
-        """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
@@ -1163,9 +839,6 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]]:
-        """
-        The parameters for the RUN_COMMAND task execution. Documented below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -1176,13 +849,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The parameter name.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The array of strings.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1191,19 +858,12 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] name: The parameter name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The array of strings.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The parameter name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1213,9 +873,6 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The array of strings.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1226,17 +883,8 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgsDict(TypedDict):
         client_context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Pass client-specific information to the Lambda function that you are invoking.
-        """
         payload: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JSON to provide to your Lambda function as input.
-        """
         qualifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify a Lambda function version or alias name.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1246,11 +894,6 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
                  client_context: Optional[pulumi.Input[_builtins.str]] = None,
                  payload: Optional[pulumi.Input[_builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] client_context: Pass client-specific information to the Lambda function that you are invoking.
-        :param pulumi.Input[_builtins.str] payload: JSON to provide to your Lambda function as input.
-        :param pulumi.Input[_builtins.str] qualifier: Specify a Lambda function version or alias name.
-        """
         if client_context is not None:
             pulumi.set(__self__, "client_context", client_context)
         if payload is not None:
@@ -1261,9 +904,6 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
     @_builtins.property
     @pulumi.getter(name="clientContext")
     def client_context(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Pass client-specific information to the Lambda function that you are invoking.
-        """
         return pulumi.get(self, "client_context")
 
     @client_context.setter
@@ -1273,9 +913,6 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
     @_builtins.property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        JSON to provide to your Lambda function as input.
-        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -1285,9 +922,6 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
     @_builtins.property
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specify a Lambda function version or alias name.
-        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -1298,49 +932,16 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict(TypedDict):
         cloudwatch_config: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgsDict']]
-        """
-        Configuration options for sending command output to CloudWatch Logs. Documented below.
-        """
         comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Information about the command(s) to execute.
-        """
         document_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        """
         document_hash_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        """
         document_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of an Automation document to use during task execution.
-        """
         notification_config: NotRequired[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgsDict']]
-        """
-        Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        """
         output_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon S3 bucket.
-        """
         output_s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 bucket subfolder.
-        """
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgsDict']]]]
-        """
-        The parameters for the RUN_COMMAND task execution. Documented below.
-        """
         service_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-        """
         timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        If this time is reached and the command has not already started executing, it doesn't run.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1358,19 +959,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]] = None,
                  service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs'] cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
-        :param pulumi.Input[_builtins.str] comment: Information about the command(s) to execute.
-        :param pulumi.Input[_builtins.str] document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        :param pulumi.Input[_builtins.str] document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        :param pulumi.Input[_builtins.str] document_version: The version of an Automation document to use during task execution.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs'] notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        :param pulumi.Input[_builtins.str] output_s3_bucket: The name of the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] output_s3_key_prefix: The Amazon S3 bucket subfolder.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
-        :param pulumi.Input[_builtins.str] service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-        :param pulumi.Input[_builtins.int] timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
-        """
         if cloudwatch_config is not None:
             pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
         if comment is not None:
@@ -1397,9 +985,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="cloudwatchConfig")
     def cloudwatch_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']]:
-        """
-        Configuration options for sending command output to CloudWatch Logs. Documented below.
-        """
         return pulumi.get(self, "cloudwatch_config")
 
     @cloudwatch_config.setter
@@ -1409,9 +994,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Information about the command(s) to execute.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -1421,9 +1003,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="documentHash")
     def document_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        """
         return pulumi.get(self, "document_hash")
 
     @document_hash.setter
@@ -1433,9 +1012,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="documentHashType")
     def document_hash_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        """
         return pulumi.get(self, "document_hash_type")
 
     @document_hash_type.setter
@@ -1445,9 +1021,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The version of an Automation document to use during task execution.
-        """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
@@ -1457,9 +1030,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="notificationConfig")
     def notification_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']]:
-        """
-        Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        """
         return pulumi.get(self, "notification_config")
 
     @notification_config.setter
@@ -1469,9 +1039,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="outputS3Bucket")
     def output_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Amazon S3 bucket.
-        """
         return pulumi.get(self, "output_s3_bucket")
 
     @output_s3_bucket.setter
@@ -1481,9 +1048,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="outputS3KeyPrefix")
     def output_s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon S3 bucket subfolder.
-        """
         return pulumi.get(self, "output_s3_key_prefix")
 
     @output_s3_key_prefix.setter
@@ -1493,9 +1057,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]]:
-        """
-        The parameters for the RUN_COMMAND task execution. Documented below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -1505,9 +1066,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-        """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
@@ -1517,9 +1075,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        If this time is reached and the command has not already started executing, it doesn't run.
-        """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
@@ -1530,13 +1085,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgsDict(TypedDict):
         cloudwatch_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-        """
         cloudwatch_output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables Systems Manager to send command output to CloudWatch Logs.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1545,10 +1094,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
     def __init__(__self__, *,
                  cloudwatch_log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cloudwatch_output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_name: The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-        :param pulumi.Input[_builtins.bool] cloudwatch_output_enabled: Enables Systems Manager to send command output to CloudWatch Logs.
-        """
         if cloudwatch_log_group_name is not None:
             pulumi.set(__self__, "cloudwatch_log_group_name", cloudwatch_log_group_name)
         if cloudwatch_output_enabled is not None:
@@ -1557,9 +1102,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroupName")
     def cloudwatch_log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-        """
         return pulumi.get(self, "cloudwatch_log_group_name")
 
     @cloudwatch_log_group_name.setter
@@ -1569,9 +1111,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
     @_builtins.property
     @pulumi.getter(name="cloudwatchOutputEnabled")
     def cloudwatch_output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enables Systems Manager to send command output to CloudWatch Logs.
-        """
         return pulumi.get(self, "cloudwatch_output_enabled")
 
     @cloudwatch_output_enabled.setter
@@ -1582,17 +1121,8 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgsDict(TypedDict):
         notification_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        """
         notification_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-        """
         notification_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1602,11 +1132,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
                  notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notification_type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] notification_arn: An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_events: The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-        :param pulumi.Input[_builtins.str] notification_type: When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        """
         if notification_arn is not None:
             pulumi.set(__self__, "notification_arn", notification_arn)
         if notification_events is not None:
@@ -1617,9 +1142,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
     @_builtins.property
     @pulumi.getter(name="notificationArn")
     def notification_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-        """
         return pulumi.get(self, "notification_arn")
 
     @notification_arn.setter
@@ -1629,9 +1151,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
     @_builtins.property
     @pulumi.getter(name="notificationEvents")
     def notification_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-        """
         return pulumi.get(self, "notification_events")
 
     @notification_events.setter
@@ -1641,9 +1160,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
     @_builtins.property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
@@ -1654,13 +1170,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgsDict(TypedDict):
         name: pulumi.Input[_builtins.str]
-        """
-        The parameter name.
-        """
         values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The array of strings.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1669,19 +1179,12 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] name: The parameter name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The array of strings.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The parameter name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1691,9 +1194,6 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
     @_builtins.property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The array of strings.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1704,13 +1204,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
 if not MYPY:
     class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgsDict(TypedDict):
         input: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The inputs for the STEP_FUNCTION task.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the STEP_FUNCTION task.
-        """
 elif False:
     MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1719,10 +1213,6 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
     def __init__(__self__, *,
                  input: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] input: The inputs for the STEP_FUNCTION task.
-        :param pulumi.Input[_builtins.str] name: The name of the STEP_FUNCTION task.
-        """
         if input is not None:
             pulumi.set(__self__, "input", input)
         if name is not None:
@@ -1731,9 +1221,6 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
     @_builtins.property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The inputs for the STEP_FUNCTION task.
-        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -1743,9 +1230,6 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the STEP_FUNCTION task.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1756,25 +1240,10 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
 if not MYPY:
     class PatchBaselineApprovalRuleArgsDict(TypedDict):
         patch_filters: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgsDict']]]
-        """
-        Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-        """
         approve_after_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
-        """
         approve_until_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
-        """
         compliance_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        """
         enable_non_security: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
-        """
 elif False:
     PatchBaselineApprovalRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1786,13 +1255,6 @@ class PatchBaselineApprovalRuleArgs:
                  approve_until_date: Optional[pulumi.Input[_builtins.str]] = None,
                  compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]] patch_filters: Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-        :param pulumi.Input[_builtins.int] approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
-        :param pulumi.Input[_builtins.str] approve_until_date: Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
-        :param pulumi.Input[_builtins.str] compliance_level: Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        :param pulumi.Input[_builtins.bool] enable_non_security: Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
-        """
         pulumi.set(__self__, "patch_filters", patch_filters)
         if approve_after_days is not None:
             pulumi.set(__self__, "approve_after_days", approve_after_days)
@@ -1806,9 +1268,6 @@ class PatchBaselineApprovalRuleArgs:
     @_builtins.property
     @pulumi.getter(name="patchFilters")
     def patch_filters(self) -> pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]]:
-        """
-        Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-        """
         return pulumi.get(self, "patch_filters")
 
     @patch_filters.setter
@@ -1818,9 +1277,6 @@ class PatchBaselineApprovalRuleArgs:
     @_builtins.property
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
-        """
         return pulumi.get(self, "approve_after_days")
 
     @approve_after_days.setter
@@ -1830,9 +1286,6 @@ class PatchBaselineApprovalRuleArgs:
     @_builtins.property
     @pulumi.getter(name="approveUntilDate")
     def approve_until_date(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
-        """
         return pulumi.get(self, "approve_until_date")
 
     @approve_until_date.setter
@@ -1842,9 +1295,6 @@ class PatchBaselineApprovalRuleArgs:
     @_builtins.property
     @pulumi.getter(name="complianceLevel")
     def compliance_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        """
         return pulumi.get(self, "compliance_level")
 
     @compliance_level.setter
@@ -1854,9 +1304,6 @@ class PatchBaselineApprovalRuleArgs:
     @_builtins.property
     @pulumi.getter(name="enableNonSecurity")
     def enable_non_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
-        """
         return pulumi.get(self, "enable_non_security")
 
     @enable_non_security.setter
@@ -1935,17 +1382,8 @@ class PatchBaselineGlobalFilterArgs:
 if not MYPY:
     class PatchBaselineSourceArgsDict(TypedDict):
         configuration: pulumi.Input[_builtins.str]
-        """
-        Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
-        """
         name: pulumi.Input[_builtins.str]
-        """
-        Name specified to identify the patch source.
-        """
         products: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
-        """
 elif False:
     PatchBaselineSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1955,11 +1393,6 @@ class PatchBaselineSourceArgs:
                  configuration: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  products: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        """
-        :param pulumi.Input[_builtins.str] configuration: Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
-        :param pulumi.Input[_builtins.str] name: Name specified to identify the patch source.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] products: Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
-        """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "products", products)
@@ -1967,9 +1400,6 @@ class PatchBaselineSourceArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -1979,9 +1409,6 @@ class PatchBaselineSourceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name specified to identify the patch source.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1991,9 +1418,6 @@ class PatchBaselineSourceArgs:
     @_builtins.property
     @pulumi.getter
     def products(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
-        """
         return pulumi.get(self, "products")
 
     @products.setter
@@ -2004,23 +1428,11 @@ class PatchBaselineSourceArgs:
 if not MYPY:
     class QuicksetupConfigurationManagerConfigurationDefinitionArgsDict(TypedDict):
         parameters: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-        """
         type: pulumi.Input[_builtins.str]
-        """
-        Type of the Quick Setup configuration.
-        """
         id: NotRequired[pulumi.Input[_builtins.str]]
         local_deployment_administration_role_arn: NotRequired[pulumi.Input[_builtins.str]]
         local_deployment_execution_role_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the IAM role used to deploy local configurations.
-        """
         type_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the Quick Setup type to use.
-        """
 elif False:
     QuicksetupConfigurationManagerConfigurationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2033,12 +1445,6 @@ class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
                  local_deployment_administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  local_deployment_execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
                  type_version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-        :param pulumi.Input[_builtins.str] type: Type of the Quick Setup configuration.
-        :param pulumi.Input[_builtins.str] local_deployment_execution_role_name: Name of the IAM role used to deploy local configurations.
-        :param pulumi.Input[_builtins.str] type_version: Version of the Quick Setup type to use.
-        """
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -2053,9 +1459,6 @@ class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
-        """
-        Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -2065,9 +1468,6 @@ class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of the Quick Setup configuration.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2095,9 +1495,6 @@ class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="localDeploymentExecutionRoleName")
     def local_deployment_execution_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the IAM role used to deploy local configurations.
-        """
         return pulumi.get(self, "local_deployment_execution_role_name")
 
     @local_deployment_execution_role_name.setter
@@ -2107,9 +1504,6 @@ class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="typeVersion")
     def type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Version of the Quick Setup type to use.
-        """
         return pulumi.get(self, "type_version")
 
     @type_version.setter
@@ -2120,17 +1514,8 @@ class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
 if not MYPY:
     class QuicksetupConfigurationManagerStatusSummaryArgsDict(TypedDict):
         status: pulumi.Input[_builtins.str]
-        """
-        Current status.
-        """
         status_message: pulumi.Input[_builtins.str]
-        """
-        When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-        """
         status_type: pulumi.Input[_builtins.str]
-        """
-        Type of a status summary.
-        """
 elif False:
     QuicksetupConfigurationManagerStatusSummaryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2140,11 +1525,6 @@ class QuicksetupConfigurationManagerStatusSummaryArgs:
                  status: pulumi.Input[_builtins.str],
                  status_message: pulumi.Input[_builtins.str],
                  status_type: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] status: Current status.
-        :param pulumi.Input[_builtins.str] status_message: When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-        :param pulumi.Input[_builtins.str] status_type: Type of a status summary.
-        """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "status_message", status_message)
         pulumi.set(__self__, "status_type", status_type)
@@ -2152,9 +1532,6 @@ class QuicksetupConfigurationManagerStatusSummaryArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
-        """
-        Current status.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -2164,9 +1541,6 @@ class QuicksetupConfigurationManagerStatusSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Input[_builtins.str]:
-        """
-        When applicable, returns an informational message relevant to the current status and status type of the status summary object.
-        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
@@ -2176,9 +1550,6 @@ class QuicksetupConfigurationManagerStatusSummaryArgs:
     @_builtins.property
     @pulumi.getter(name="statusType")
     def status_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Type of a status summary.
-        """
         return pulumi.get(self, "status_type")
 
     @status_type.setter
@@ -2261,25 +1632,10 @@ class QuicksetupConfigurationManagerTimeoutsArgs:
 if not MYPY:
     class ResourceDataSyncS3DestinationArgsDict(TypedDict):
         bucket_name: pulumi.Input[_builtins.str]
-        """
-        Name of S3 bucket where the aggregated data is stored.
-        """
         region: pulumi.Input[_builtins.str]
-        """
-        Region with the bucket targeted by the Resource Data Sync.
-        """
         kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of an encryption key for a destination in Amazon S3.
-        """
         prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prefix for the bucket.
-        """
         sync_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-        """
 elif False:
     ResourceDataSyncS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2291,13 +1647,6 @@ class ResourceDataSyncS3DestinationArgs:
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  sync_format: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] bucket_name: Name of S3 bucket where the aggregated data is stored.
-        :param pulumi.Input[_builtins.str] region: Region with the bucket targeted by the Resource Data Sync.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of an encryption key for a destination in Amazon S3.
-        :param pulumi.Input[_builtins.str] prefix: Prefix for the bucket.
-        :param pulumi.Input[_builtins.str] sync_format: A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "region", region)
         if kms_key_arn is not None:
@@ -2310,9 +1659,6 @@ class ResourceDataSyncS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of S3 bucket where the aggregated data is stored.
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -2322,9 +1668,6 @@ class ResourceDataSyncS3DestinationArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
-        """
-        Region with the bucket targeted by the Resource Data Sync.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -2334,9 +1677,6 @@ class ResourceDataSyncS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of an encryption key for a destination in Amazon S3.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -2346,9 +1686,6 @@ class ResourceDataSyncS3DestinationArgs:
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Prefix for the bucket.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -2358,9 +1695,6 @@ class ResourceDataSyncS3DestinationArgs:
     @_builtins.property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-        """
         return pulumi.get(self, "sync_format")
 
     @sync_format.setter
@@ -2371,13 +1705,7 @@ class ResourceDataSyncS3DestinationArgs:
 if not MYPY:
     class GetInstancesFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
 elif False:
     GetInstancesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2386,19 +1714,12 @@ class GetInstancesFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2408,9 +1729,6 @@ class GetInstancesFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2421,13 +1739,7 @@ class GetInstancesFilterArgs:
 if not MYPY:
     class GetMaintenanceWindowsFilterArgsDict(TypedDict):
         name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
-        """
         values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
 elif False:
     GetMaintenanceWindowsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2436,19 +1748,12 @@ class GetMaintenanceWindowsFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2458,9 +1763,6 @@ class GetMaintenanceWindowsFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2471,13 +1773,7 @@ class GetMaintenanceWindowsFilterArgs:
 if not MYPY:
     class GetPatchBaselinesFilterArgsDict(TypedDict):
         key: _builtins.str
-        """
-        Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-        """
         values: Sequence[_builtins.str]
-        """
-        Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-        """
 elif False:
     GetPatchBaselinesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2486,19 +1782,12 @@ class GetPatchBaselinesFilterArgs:
     def __init__(__self__, *,
                  key: _builtins.str,
                  values: Sequence[_builtins.str]):
-        """
-        :param _builtins.str key: Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-        :param Sequence[_builtins.str] values: Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2508,9 +1797,6 @@ class GetPatchBaselinesFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
-        """
-        Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

@@ -16,47 +16,23 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
 
     public static final FeatureGroupOfflineStoreConfigS3StorageConfigArgs Empty = new FeatureGroupOfflineStoreConfigS3StorageConfigArgs();
 
-    /**
-     * The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * The S3 path where offline records are written.
-     * 
-     */
     @Import(name="resolvedOutputS3Uri")
     private @Nullable Output<String> resolvedOutputS3Uri;
 
-    /**
-     * @return The S3 path where offline records are written.
-     * 
-     */
     public Optional<Output<String>> resolvedOutputS3Uri() {
         return Optional.ofNullable(this.resolvedOutputS3Uri);
     }
 
-    /**
-     * The S3 URI, or location in Amazon S3, of OfflineStore.
-     * 
-     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
-    /**
-     * @return The S3 URI, or location in Amazon S3, of OfflineStore.
-     * 
-     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
@@ -87,65 +63,29 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
             $ = new FeatureGroupOfflineStoreConfigS3StorageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyId The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param resolvedOutputS3Uri The S3 path where offline records are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolvedOutputS3Uri(@Nullable Output<String> resolvedOutputS3Uri) {
             $.resolvedOutputS3Uri = resolvedOutputS3Uri;
             return this;
         }
 
-        /**
-         * @param resolvedOutputS3Uri The S3 path where offline records are written.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolvedOutputS3Uri(String resolvedOutputS3Uri) {
             return resolvedOutputS3Uri(Output.of(resolvedOutputS3Uri));
         }
 
-        /**
-         * @param s3Uri The S3 URI, or location in Amazon S3, of OfflineStore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri The S3 URI, or location in Amazon S3, of OfflineStore.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

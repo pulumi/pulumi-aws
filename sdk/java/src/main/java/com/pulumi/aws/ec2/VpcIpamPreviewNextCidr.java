@@ -16,148 +16,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpamPool;
- * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
- * import com.pulumi.aws.ec2.VpcIpamPreviewNextCidr;
- * import com.pulumi.aws.ec2.VpcIpamPreviewNextCidrArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
- *             .build());
- * 
- *         var exampleVpcIpam = new VpcIpam("exampleVpcIpam", VpcIpamArgs.builder()
- *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.region())
- *                 .build())
- *             .build());
- * 
- *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()
- *             .addressFamily("ipv4")
- *             .ipamScopeId(exampleVpcIpam.privateDefaultScopeId())
- *             .locale(current.region())
- *             .build());
- * 
- *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr("exampleVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
- *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr("172.20.0.0/16")
- *             .build());
- * 
- *         var example = new VpcIpamPreviewNextCidr("example", VpcIpamPreviewNextCidrArgs.builder()
- *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .netmaskLength(28)
- *             .disallowedCidrs("172.2.0.0/32")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleVpcIpamPoolCidr)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- */
 @ResourceType(type="aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")
 public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource {
-    /**
-     * The previewed CIDR from the pool.
-     * 
-     */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
-    /**
-     * @return The previewed CIDR from the pool.
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     * 
-     */
     @Export(name="disallowedCidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> disallowedCidrs;
 
-    /**
-     * @return Exclude a particular CIDR range from being returned by the pool.
-     * 
-     */
     public Output<Optional<List<String>>> disallowedCidrs() {
         return Codegen.optional(this.disallowedCidrs);
     }
-    /**
-     * The ID of the pool to which you want to assign a CIDR.
-     * 
-     */
     @Export(name="ipamPoolId", refs={String.class}, tree="[0]")
     private Output<String> ipamPoolId;
 
-    /**
-     * @return The ID of the pool to which you want to assign a CIDR.
-     * 
-     */
     public Output<String> ipamPoolId() {
         return this.ipamPoolId;
     }
-    /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
-     * 
-     */
     @Export(name="netmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> netmaskLength;
 
-    /**
-     * @return The netmask length of the CIDR you would like to preview from the IPAM pool.
-     * 
-     */
     public Output<Optional<Integer>> netmaskLength() {
         return Codegen.optional(this.netmaskLength);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }

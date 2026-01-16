@@ -16,62 +16,30 @@ public final class LogTransformerTransformerConfigCsvArgs extends com.pulumi.res
 
     public static final LogTransformerTransformerConfigCsvArgs Empty = new LogTransformerTransformerConfigCsvArgs();
 
-    /**
-     * Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-     * 
-     */
     @Import(name="columns")
     private @Nullable Output<List<String>> columns;
 
-    /**
-     * @return Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-     * 
-     */
     public Optional<Output<List<String>>> columns() {
         return Optional.ofNullable(this.columns);
     }
 
-    /**
-     * Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-     * 
-     */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
-    /**
-     * @return Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-     * 
-     */
     public Optional<Output<String>> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
 
-    /**
-     * Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `&#34;` character.
-     * 
-     */
     @Import(name="quoteCharacter")
     private @Nullable Output<String> quoteCharacter;
 
-    /**
-     * @return Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `&#34;` character.
-     * 
-     */
     public Optional<Output<String>> quoteCharacter() {
         return Optional.ofNullable(this.quoteCharacter);
     }
 
-    /**
-     * Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
@@ -103,96 +71,42 @@ public final class LogTransformerTransformerConfigCsvArgs extends com.pulumi.res
             $ = new LogTransformerTransformerConfigCsvArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columns Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(@Nullable Output<List<String>> columns) {
             $.columns = columns;
             return this;
         }
 
-        /**
-         * @param columns Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(List<String> columns) {
             return columns(Output.of(columns));
         }
 
-        /**
-         * @param columns Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column2 ...]`) are used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columns(String... columns) {
             return columns(List.of(columns));
         }
 
-        /**
-         * @param delimiter Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(@Nullable Output<String> delimiter) {
             $.delimiter = delimiter;
             return this;
         }
 
-        /**
-         * @param delimiter Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delimiter(String delimiter) {
             return delimiter(Output.of(delimiter));
         }
 
-        /**
-         * @param quoteCharacter Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `&#34;` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quoteCharacter(@Nullable Output<String> quoteCharacter) {
             $.quoteCharacter = quoteCharacter;
             return this;
         }
 
-        /**
-         * @param quoteCharacter Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `&#34;` character.
-         * 
-         * @return builder
-         * 
-         */
         public Builder quoteCharacter(String quoteCharacter) {
             return quoteCharacter(Output.of(quoteCharacter));
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }

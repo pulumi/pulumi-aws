@@ -52,14 +52,6 @@ class RepositoryCatalogData(dict):
                  logo_image_blob: Optional[_builtins.str] = None,
                  operating_systems: Optional[Sequence[_builtins.str]] = None,
                  usage_text: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str about_text: A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-        :param Sequence[_builtins.str] architectures: The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-        :param _builtins.str description: A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-        :param _builtins.str logo_image_blob: The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-        :param Sequence[_builtins.str] operating_systems: The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
-        :param _builtins.str usage_text: Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-        """
         if about_text is not None:
             pulumi.set(__self__, "about_text", about_text)
         if architectures is not None:
@@ -76,49 +68,31 @@ class RepositoryCatalogData(dict):
     @_builtins.property
     @pulumi.getter(name="aboutText")
     def about_text(self) -> Optional[_builtins.str]:
-        """
-        A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-        """
         return pulumi.get(self, "about_text")
 
     @_builtins.property
     @pulumi.getter
     def architectures(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-        """
         return pulumi.get(self, "architectures")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
-        """
-        A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="logoImageBlob")
     def logo_image_blob(self) -> Optional[_builtins.str]:
-        """
-        The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-        """
         return pulumi.get(self, "logo_image_blob")
 
     @_builtins.property
     @pulumi.getter(name="operatingSystems")
     def operating_systems(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
-        """
         return pulumi.get(self, "operating_systems")
 
     @_builtins.property
     @pulumi.getter(name="usageText")
     def usage_text(self) -> Optional[_builtins.str]:
-        """
-        Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-        """
         return pulumi.get(self, "usage_text")
 
 
@@ -133,13 +107,6 @@ class GetImagesImageResult(dict):
                  image_tags: Sequence[_builtins.str],
                  registry_id: _builtins.str,
                  repository_name: _builtins.str):
-        """
-        :param _builtins.str artifact_media_type: Media type of the artifact.
-        :param _builtins.str image_digest: Digest of the image manifest.
-        :param _builtins.str image_manifest_media_type: Media type of the image manifest.
-        :param _builtins.str registry_id: AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-        :param _builtins.str repository_name: Name of the public repository.
-        """
         pulumi.set(__self__, "artifact_media_type", artifact_media_type)
         pulumi.set(__self__, "image_digest", image_digest)
         pulumi.set(__self__, "image_manifest_media_type", image_manifest_media_type)
@@ -152,25 +119,16 @@ class GetImagesImageResult(dict):
     @_builtins.property
     @pulumi.getter(name="artifactMediaType")
     def artifact_media_type(self) -> _builtins.str:
-        """
-        Media type of the artifact.
-        """
         return pulumi.get(self, "artifact_media_type")
 
     @_builtins.property
     @pulumi.getter(name="imageDigest")
     def image_digest(self) -> _builtins.str:
-        """
-        Digest of the image manifest.
-        """
         return pulumi.get(self, "image_digest")
 
     @_builtins.property
     @pulumi.getter(name="imageManifestMediaType")
     def image_manifest_media_type(self) -> _builtins.str:
-        """
-        Media type of the image manifest.
-        """
         return pulumi.get(self, "image_manifest_media_type")
 
     @_builtins.property
@@ -191,17 +149,11 @@ class GetImagesImageResult(dict):
     @_builtins.property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> _builtins.str:
-        """
-        AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
-        """
         return pulumi.get(self, "registry_id")
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> _builtins.str:
-        """
-        Name of the public repository.
-        """
         return pulumi.get(self, "repository_name")
 
 
@@ -211,8 +163,8 @@ class GetImagesImageIdResult(dict):
                  image_digest: Optional[_builtins.str] = None,
                  image_tag: Optional[_builtins.str] = None):
         """
-        :param _builtins.str image_digest: Digest of the image manifest.
-        :param _builtins.str image_tag: Tag used for the image.
+        :param _builtins.str image_digest: Image digest.
+        :param _builtins.str image_tag: Image tag.
         """
         if image_digest is not None:
             pulumi.set(__self__, "image_digest", image_digest)
@@ -223,7 +175,7 @@ class GetImagesImageIdResult(dict):
     @pulumi.getter(name="imageDigest")
     def image_digest(self) -> Optional[_builtins.str]:
         """
-        Digest of the image manifest.
+        Image digest.
         """
         return pulumi.get(self, "image_digest")
 
@@ -231,7 +183,7 @@ class GetImagesImageIdResult(dict):
     @pulumi.getter(name="imageTag")
     def image_tag(self) -> Optional[_builtins.str]:
         """
-        Tag used for the image.
+        Image tag.
         """
         return pulumi.get(self, "image_tag")
 

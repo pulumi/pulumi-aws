@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CrawlerLakeFormationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Required for cross account crawls. For same account crawls as the target data, this can omitted.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
-        /// </summary>
         [Input("useLakeFormationCredentials")]
         public Input<bool>? UseLakeFormationCredentials { get; set; }
 

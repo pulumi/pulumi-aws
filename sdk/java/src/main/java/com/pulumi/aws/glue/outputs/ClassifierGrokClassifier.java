@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassifierGrokClassifier {
-    /**
-     * @return An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-     * 
-     */
     private String classification;
-    /**
-     * @return Custom grok patterns used by this classifier.
-     * 
-     */
     private @Nullable String customPatterns;
-    /**
-     * @return The grok pattern used by this classifier.
-     * 
-     */
     private String grokPattern;
 
     private ClassifierGrokClassifier() {}
-    /**
-     * @return An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-     * 
-     */
     public String classification() {
         return this.classification;
     }
-    /**
-     * @return Custom grok patterns used by this classifier.
-     * 
-     */
     public Optional<String> customPatterns() {
         return Optional.ofNullable(this.customPatterns);
     }
-    /**
-     * @return The grok pattern used by this classifier.
-     * 
-     */
     public String grokPattern() {
         return this.grokPattern;
     }

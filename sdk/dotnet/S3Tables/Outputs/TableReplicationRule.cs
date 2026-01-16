@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Tables.Outputs
     [OutputType]
     public sealed class TableReplicationRule
     {
-        /// <summary>
-        /// Replication destination. See Destination below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TableReplicationRuleDestination> Destinations;
 
         [OutputConstructor]

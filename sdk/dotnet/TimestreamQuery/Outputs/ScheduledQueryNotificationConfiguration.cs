@@ -13,9 +13,6 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryNotificationConfiguration
     {
-        /// <summary>
-        /// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
-        /// </summary>
         public readonly Outputs.ScheduledQueryNotificationConfigurationSnsConfiguration SnsConfiguration;
 
         [OutputConstructor]

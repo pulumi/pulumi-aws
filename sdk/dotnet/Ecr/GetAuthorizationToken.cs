@@ -11,66 +11,12 @@ namespace Pulumi.Aws.Ecr
 {
     public static class GetAuthorizationToken
     {
-        /// <summary>
-        /// The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var token = Aws.Ecr.GetAuthorizationToken.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetAuthorizationTokenResult> InvokeAsync(GetAuthorizationTokenArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationTokenResult>("aws:ecr/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var token = Aws.Ecr.GetAuthorizationToken.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAuthorizationTokenResult> Invoke(GetAuthorizationTokenInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:ecr/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var token = Aws.Ecr.GetAuthorizationToken.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetAuthorizationTokenResult> Invoke(GetAuthorizationTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:ecr/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenInvokeArgs(), options.WithDefaults());
     }
@@ -78,15 +24,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetAuthorizationTokenArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the ECR Repository. If not specified the default account is assumed.
-        /// </summary>
         [Input("registryId")]
         public string? RegistryId { get; set; }
 
@@ -98,15 +38,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetAuthorizationTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// AWS account ID of the ECR Repository. If not specified the default account is assumed.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
@@ -120,31 +54,16 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetAuthorizationTokenResult
     {
-        /// <summary>
-        /// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-        /// </summary>
         public readonly string AuthorizationToken;
-        /// <summary>
-        /// Time in UTC RFC3339 format when the authorization token expires.
-        /// </summary>
         public readonly string ExpiresAt;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Password decoded from the authorization token.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// Registry URL to use in the docker login command.
-        /// </summary>
         public readonly string ProxyEndpoint;
         public readonly string Region;
         public readonly string? RegistryId;
-        /// <summary>
-        /// User name decoded from the authorization token.
-        /// </summary>
         public readonly string UserName;
 
         [OutputConstructor]

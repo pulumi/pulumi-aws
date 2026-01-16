@@ -28,221 +28,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentials {
-    /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude amplitude;
-    /**
-     * @return The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector customConnector;
-    /**
-     * @return Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog datadog;
-    /**
-     * @return The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace dynatrace;
-    /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics googleAnalytics;
-    /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode honeycode;
-    /**
-     * @return The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus inforNexus;
-    /**
-     * @return Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo marketo;
-    /**
-     * @return Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift redshift;
-    /**
-     * @return The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce salesforce;
-    /**
-     * @return The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData sapoData;
-    /**
-     * @return The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow serviceNow;
-    /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular singular;
-    /**
-     * @return Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack slack;
-    /**
-     * @return The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake snowflake;
-    /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro trendmicro;
-    /**
-     * @return Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva veeva;
-    /**
-     * @return Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk zendesk;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentials() {}
-    /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude> amplitude() {
         return Optional.ofNullable(this.amplitude);
     }
-    /**
-     * @return The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector> customConnector() {
         return Optional.ofNullable(this.customConnector);
     }
-    /**
-     * @return Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog> datadog() {
         return Optional.ofNullable(this.datadog);
     }
-    /**
-     * @return The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace> dynatrace() {
         return Optional.ofNullable(this.dynatrace);
     }
-    /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics> googleAnalytics() {
         return Optional.ofNullable(this.googleAnalytics);
     }
-    /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode> honeycode() {
         return Optional.ofNullable(this.honeycode);
     }
-    /**
-     * @return The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus> inforNexus() {
         return Optional.ofNullable(this.inforNexus);
     }
-    /**
-     * @return Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo> marketo() {
         return Optional.ofNullable(this.marketo);
     }
-    /**
-     * @return Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift> redshift() {
         return Optional.ofNullable(this.redshift);
     }
-    /**
-     * @return The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce> salesforce() {
         return Optional.ofNullable(this.salesforce);
     }
-    /**
-     * @return The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData> sapoData() {
         return Optional.ofNullable(this.sapoData);
     }
-    /**
-     * @return The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow> serviceNow() {
         return Optional.ofNullable(this.serviceNow);
     }
-    /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular> singular() {
         return Optional.ofNullable(this.singular);
     }
-    /**
-     * @return Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack> slack() {
         return Optional.ofNullable(this.slack);
     }
-    /**
-     * @return The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake> snowflake() {
         return Optional.ofNullable(this.snowflake);
     }
-    /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro> trendmicro() {
         return Optional.ofNullable(this.trendmicro);
     }
-    /**
-     * @return Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva> veeva() {
         return Optional.ofNullable(this.veeva);
     }
-    /**
-     * @return Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk> zendesk() {
         return Optional.ofNullable(this.zendesk);
     }

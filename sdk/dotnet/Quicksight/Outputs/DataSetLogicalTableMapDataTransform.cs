@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSetLogicalTableMapDataTransform
     {
-        /// <summary>
-        /// A transform operation that casts a column to a different type. See cast_column_type_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation? CastColumnTypeOperation;
-        /// <summary>
-        /// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation? CreateColumnsOperation;
-        /// <summary>
-        /// An operation that filters rows based on some condition. See filter_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformFilterOperation? FilterOperation;
-        /// <summary>
-        /// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformProjectOperation? ProjectOperation;
-        /// <summary>
-        /// An operation that renames a column. See rename_column_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation? RenameColumnOperation;
-        /// <summary>
-        /// An operation that tags a column with additional information. See tag_column_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformTagColumnOperation? TagColumnOperation;
-        /// <summary>
-        /// A transform operation that removes tags associated with a column. See untag_column_operation.
-        /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation? UntagColumnOperation;
 
         [OutputConstructor]

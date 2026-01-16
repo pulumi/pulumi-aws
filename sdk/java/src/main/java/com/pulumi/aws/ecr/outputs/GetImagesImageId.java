@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImagesImageId {
-    /**
-     * @return The sha256 digest of the image manifest.
-     * 
-     */
     private String imageDigest;
-    /**
-     * @return The tag associated with the image.
-     * 
-     */
     private String imageTag;
 
     private GetImagesImageId() {}
-    /**
-     * @return The sha256 digest of the image manifest.
-     * 
-     */
     public String imageDigest() {
         return this.imageDigest;
     }
-    /**
-     * @return The tag associated with the image.
-     * 
-     */
     public String imageTag() {
         return this.imageTag;
     }

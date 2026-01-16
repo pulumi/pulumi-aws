@@ -14,90 +14,34 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryCreationTemplateResult {
-    /**
-     * @return Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-     * 
-     */
     private List<String> appliedFors;
-    /**
-     * @return The ARN of the custom role used for repository creation.
-     * 
-     */
     private String customRoleArn;
-    /**
-     * @return The description for this template.
-     * 
-     */
     private String description;
-    /**
-     * @return Encryption configuration for any created repositories. See Encryption Configuration below.
-     * 
-     */
     private List<GetRepositoryCreationTemplateEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The tag mutability setting for any created repositories.
-     * 
-     */
     private String imageTagMutability;
-    /**
-     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
-     * 
-     */
     private List<GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters;
-    /**
-     * @return The lifecycle policy document to apply to any created repositories.
-     * 
-     */
     private String lifecyclePolicy;
     private String prefix;
     private String region;
-    /**
-     * @return The registry ID the repository creation template applies to.
-     * 
-     */
     private String registryId;
-    /**
-     * @return The registry policy document to apply to any created repositories.
-     * 
-     */
     private String repositoryPolicy;
-    /**
-     * @return A map of tags to assign to any created repositories.
-     * 
-     */
     private Map<String,String> resourceTags;
 
     private GetRepositoryCreationTemplateResult() {}
-    /**
-     * @return Which features this template applies to. Contains one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
-     * 
-     */
     public List<String> appliedFors() {
         return this.appliedFors;
     }
-    /**
-     * @return The ARN of the custom role used for repository creation.
-     * 
-     */
     public String customRoleArn() {
         return this.customRoleArn;
     }
-    /**
-     * @return The description for this template.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Encryption configuration for any created repositories. See Encryption Configuration below.
-     * 
-     */
     public List<GetRepositoryCreationTemplateEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations;
     }
@@ -108,24 +52,12 @@ public final class GetRepositoryCreationTemplateResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The tag mutability setting for any created repositories.
-     * 
-     */
     public String imageTagMutability() {
         return this.imageTagMutability;
     }
-    /**
-     * @return Block that defines filters to specify which image tags can override the default tag mutability setting.
-     * 
-     */
     public List<GetRepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters() {
         return this.imageTagMutabilityExclusionFilters;
     }
-    /**
-     * @return The lifecycle policy document to apply to any created repositories.
-     * 
-     */
     public String lifecyclePolicy() {
         return this.lifecyclePolicy;
     }
@@ -135,24 +67,12 @@ public final class GetRepositoryCreationTemplateResult {
     public String region() {
         return this.region;
     }
-    /**
-     * @return The registry ID the repository creation template applies to.
-     * 
-     */
     public String registryId() {
         return this.registryId;
     }
-    /**
-     * @return The registry policy document to apply to any created repositories.
-     * 
-     */
     public String repositoryPolicy() {
         return this.repositoryPolicy;
     }
-    /**
-     * @return A map of tags to assign to any created repositories.
-     * 
-     */
     public Map<String,String> resourceTags() {
         return this.resourceTags;
     }

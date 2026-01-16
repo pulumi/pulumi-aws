@@ -7,126 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
- *
- * ## Example Usage
- *
- * ### CloudWatch Destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
- *     eventDestination: {
- *         cloudWatchDestination: {
- *             dimensionConfigurations: [{
- *                 defaultDimensionValue: "example",
- *                 dimensionName: "example",
- *                 dimensionValueSource: "MESSAGE_TAG",
- *             }],
- *         },
- *         enabled: true,
- *         matchingEventTypes: ["SEND"],
- *     },
- * });
- * ```
- *
- * ### EventBridge Destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = aws.cloudwatch.getEventBus({
- *     name: "default",
- * });
- * const example = new aws.sesv2.ConfigurationSetEventDestination("example", {
- *     configurationSetName: exampleAwsSesv2ConfigurationSet.configurationSetName,
- *     eventDestinationName: "example",
- *     eventDestination: {
- *         eventBridgeDestination: {
- *             eventBusArn: _default.then(_default => _default.arn),
- *         },
- *         enabled: true,
- *         matchingEventTypes: ["SEND"],
- *     },
- * });
- * ```
- *
- * ### Kinesis Firehose Destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
- *     eventDestination: {
- *         kinesisFirehoseDestination: {
- *             deliveryStreamArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
- *             iamRoleArn: exampleAwsIamRole.arn,
- *         },
- *         enabled: true,
- *         matchingEventTypes: ["SEND"],
- *     },
- * });
- * ```
- *
- * ### Pinpoint Destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
- *     eventDestination: {
- *         pinpointDestination: {
- *             applicationArn: exampleAwsPinpointApp.arn,
- *         },
- *         enabled: true,
- *         matchingEventTypes: ["SEND"],
- *     },
- * });
- * ```
- *
- * ### SNS Destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ConfigurationSet("example", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("example", {
- *     configurationSetName: example.configurationSetName,
- *     eventDestinationName: "example",
- *     eventDestination: {
- *         snsDestination: {
- *             topicArn: exampleAwsSnsTopic.arn,
- *         },
- *         enabled: true,
- *         matchingEventTypes: ["SEND"],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
- *
- * ```sh
- * $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
- * ```
- */
 export class ConfigurationSetEventDestination extends pulumi.CustomResource {
     /**
      * Get an existing ConfigurationSetEventDestination resource's state with the given name, ID, and optional extra
@@ -155,21 +35,9 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSetEventDestination.__pulumiType;
     }
 
-    /**
-     * The name of the configuration set.
-     */
     declare public readonly configurationSetName: pulumi.Output<string>;
-    /**
-     * A name that identifies the event destination within the configuration set.
-     */
     declare public readonly eventDestination: pulumi.Output<outputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
-    /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
-     */
     declare public readonly eventDestinationName: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
 
     /**
@@ -214,21 +82,9 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
  */
 export interface ConfigurationSetEventDestinationState {
-    /**
-     * The name of the configuration set.
-     */
     configurationSetName?: pulumi.Input<string>;
-    /**
-     * A name that identifies the event destination within the configuration set.
-     */
     eventDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
-    /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
-     */
     eventDestinationName?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }
 
@@ -236,20 +92,8 @@ export interface ConfigurationSetEventDestinationState {
  * The set of arguments for constructing a ConfigurationSetEventDestination resource.
  */
 export interface ConfigurationSetEventDestinationArgs {
-    /**
-     * The name of the configuration set.
-     */
     configurationSetName: pulumi.Input<string>;
-    /**
-     * A name that identifies the event destination within the configuration set.
-     */
     eventDestination: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
-    /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
-     */
     eventDestinationName: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

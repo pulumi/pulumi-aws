@@ -37,26 +37,7 @@ class ParameterArgs:
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Parameter resource.
-        :param pulumi.Input[Union[_builtins.str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
-        :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        :param pulumi.Input[_builtins.str] description: Description of the parameter.
-        :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
-        :param pulumi.Input[_builtins.str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[_builtins.bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-               
-               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         pulumi.set(__self__, "type", type)
         if allowed_pattern is not None:
@@ -91,11 +72,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[_builtins.str, 'ParameterType']]:
-        """
-        Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -105,9 +81,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Regular expression used to validate the parameter value.
-        """
         return pulumi.get(self, "allowed_pattern")
 
     @allowed_pattern.setter
@@ -117,9 +90,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the parameter.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -129,9 +99,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
@@ -141,9 +108,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the parameter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -153,9 +117,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter(name="insecureValue")
     def insecure_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        """
         return pulumi.get(self, "insecure_value")
 
     @insecure_value.setter
@@ -165,9 +126,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key ID or ARN for encrypting a SecureString.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -177,9 +135,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -189,9 +144,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -201,9 +153,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -213,9 +162,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -225,9 +171,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        """
         return pulumi.get(self, "tier")
 
     @tier.setter
@@ -237,9 +180,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -251,7 +191,6 @@ class ParameterArgs:
     def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         """
         return pulumi.get(self, "value_wo")
 
@@ -262,11 +201,6 @@ class ParameterArgs:
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-
-        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        """
         return pulumi.get(self, "value_wo_version")
 
     @value_wo_version.setter
@@ -297,29 +231,7 @@ class _ParameterState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Parameter resources.
-        :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
-        :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        :param pulumi.Input[_builtins.str] description: Description of the parameter.
-        :param pulumi.Input[_builtins.bool] has_value_wo: Indicates whether the resource has a `value_wo` set.
-        :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
-        :param pulumi.Input[_builtins.str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[_builtins.bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        :param pulumi.Input[Union[_builtins.str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-               
-               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        :param pulumi.Input[_builtins.int] version: Version of the parameter.
         """
         if allowed_pattern is not None:
             pulumi.set(__self__, "allowed_pattern", allowed_pattern)
@@ -361,9 +273,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Regular expression used to validate the parameter value.
-        """
         return pulumi.get(self, "allowed_pattern")
 
     @allowed_pattern.setter
@@ -373,9 +282,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the parameter.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -385,9 +291,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
@@ -397,9 +300,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the parameter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -409,9 +309,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="hasValueWo")
     def has_value_wo(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the resource has a `value_wo` set.
-        """
         return pulumi.get(self, "has_value_wo")
 
     @has_value_wo.setter
@@ -421,9 +318,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="insecureValue")
     def insecure_value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        """
         return pulumi.get(self, "insecure_value")
 
     @insecure_value.setter
@@ -433,9 +327,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        KMS key ID or ARN for encrypting a SecureString.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -445,9 +336,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -457,9 +345,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -469,9 +354,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -481,9 +363,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -493,9 +372,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -505,9 +381,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        """
         return pulumi.get(self, "tier")
 
     @tier.setter
@@ -517,11 +390,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]]:
-        """
-        Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -531,9 +399,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -545,7 +410,6 @@ class _ParameterState:
     def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         """
         return pulumi.get(self, "value_wo")
 
@@ -556,11 +420,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-
-        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        """
         return pulumi.get(self, "value_wo_version")
 
     @value_wo_version.setter
@@ -570,9 +429,6 @@ class _ParameterState:
     @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Version of the parameter.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -603,91 +459,10 @@ class Parameter(pulumi.CustomResource):
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Provides an SSM Parameter resource.
-
-        > **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
-
-        ## Example Usage
-
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ssm.Parameter("foo",
-            name="foo",
-            type=aws.ssm.ParameterType.STRING,
-            value="bar")
-        ```
-
-        ### Encrypted string using default SSM KMS key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.Instance("default",
-            allocated_storage=10,
-            storage_type=aws.rds.StorageType.GP2,
-            engine="mysql",
-            engine_version="5.7.16",
-            instance_class=aws.rds.InstanceType.T2_MICRO,
-            db_name="mydb",
-            username="foo",
-            password=database_master_password,
-            db_subnet_group_name="my_database_subnet_group",
-            parameter_group_name="default.mysql5.7")
-        secret = aws.ssm.Parameter("secret",
-            name="/production/database/password/master",
-            description="The parameter description",
-            type=aws.ssm.ParameterType.SECURE_STRING,
-            value=database_master_password,
-            tags={
-                "environment": "production",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` - (String) Name of the parameter.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
-
-        % pulumi import aws_ssm_parameter.example /my_path/my_paramname
-
+        Create a Parameter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
-        :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        :param pulumi.Input[_builtins.str] description: Description of the parameter.
-        :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
-        :param pulumi.Input[_builtins.str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[_builtins.bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        :param pulumi.Input[Union[_builtins.str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-               
-               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         ...
     @overload
@@ -696,69 +471,7 @@ class Parameter(pulumi.CustomResource):
                  args: ParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SSM Parameter resource.
-
-        > **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
-
-        ## Example Usage
-
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ssm.Parameter("foo",
-            name="foo",
-            type=aws.ssm.ParameterType.STRING,
-            value="bar")
-        ```
-
-        ### Encrypted string using default SSM KMS key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.Instance("default",
-            allocated_storage=10,
-            storage_type=aws.rds.StorageType.GP2,
-            engine="mysql",
-            engine_version="5.7.16",
-            instance_class=aws.rds.InstanceType.T2_MICRO,
-            db_name="mydb",
-            username="foo",
-            password=database_master_password,
-            db_subnet_group_name="my_database_subnet_group",
-            parameter_group_name="default.mysql5.7")
-        secret = aws.ssm.Parameter("secret",
-            name="/production/database/password/master",
-            description="The parameter description",
-            type=aws.ssm.ParameterType.SECURE_STRING,
-            value=database_master_password,
-            tags={
-                "environment": "production",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` - (String) Name of the parameter.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
-        Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
-
-        % pulumi import aws_ssm_parameter.example /my_path/my_paramname
-
+        Create a Parameter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ParameterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -855,29 +568,7 @@ class Parameter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
-        :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        :param pulumi.Input[_builtins.str] description: Description of the parameter.
-        :param pulumi.Input[_builtins.bool] has_value_wo: Indicates whether the resource has a `value_wo` set.
-        :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
-        :param pulumi.Input[_builtins.str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        :param pulumi.Input[_builtins.bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        :param pulumi.Input[Union[_builtins.str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-               
-               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        :param pulumi.Input[_builtins.int] version: Version of the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -906,123 +597,76 @@ class Parameter(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Regular expression used to validate the parameter value.
-        """
         return pulumi.get(self, "allowed_pattern")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the parameter.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        """
         return pulumi.get(self, "data_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Description of the parameter.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="hasValueWo")
     def has_value_wo(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether the resource has a `value_wo` set.
-        """
         return pulumi.get(self, "has_value_wo")
 
     @_builtins.property
     @pulumi.getter(name="insecureValue")
     def insecure_value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        """
         return pulumi.get(self, "insecure_value")
 
     @_builtins.property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        KMS key ID or ARN for encrypting a SecureString.
-        """
         return pulumi.get(self, "key_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def overwrite(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
-        """
         return pulumi.get(self, "overwrite")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter
     def tier(self) -> pulumi.Output[_builtins.str]:
-        """
-        Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        """
         return pulumi.get(self, "tier")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
-        """
-        Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.str]:
-        """
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
-        """
         return pulumi.get(self, "value")
 
     @_builtins.property
@@ -1030,25 +674,16 @@ class Parameter(pulumi.CustomResource):
     def value_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         """
         return pulumi.get(self, "value_wo")
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
-        """
-        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
-
-        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        """
         return pulumi.get(self, "value_wo_version")
 
     @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
-        """
-        Version of the parameter.
-        """
         return pulumi.get(self, "version")
 

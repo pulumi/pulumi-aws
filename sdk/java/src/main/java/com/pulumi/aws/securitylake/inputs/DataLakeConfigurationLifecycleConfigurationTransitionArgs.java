@@ -16,32 +16,16 @@ public final class DataLakeConfigurationLifecycleConfigurationTransitionArgs ext
 
     public static final DataLakeConfigurationLifecycleConfigurationTransitionArgs Empty = new DataLakeConfigurationLifecycleConfigurationTransitionArgs();
 
-    /**
-     * Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-     * 
-     */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
-    /**
-     * @return The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-     * 
-     */
     public Optional<Output<String>> storageClass() {
         return Optional.ofNullable(this.storageClass);
     }
@@ -71,44 +55,20 @@ public final class DataLakeConfigurationLifecycleConfigurationTransitionArgs ext
             $ = new DataLakeConfigurationLifecycleConfigurationTransitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param days Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
-        /**
-         * @param storageClass The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(@Nullable Output<String> storageClass) {
             $.storageClass = storageClass;
             return this;
         }
 
-        /**
-         * @param storageClass The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
         }

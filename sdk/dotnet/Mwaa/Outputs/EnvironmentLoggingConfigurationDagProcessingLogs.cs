@@ -14,13 +14,7 @@ namespace Pulumi.Aws.Mwaa.Outputs
     public sealed class EnvironmentLoggingConfigurationDagProcessingLogs
     {
         public readonly string? CloudWatchLogGroupArn;
-        /// <summary>
-        /// Enabling or disabling the collection of logs
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-        /// </summary>
         public readonly string? LogLevel;
 
         [OutputConstructor]

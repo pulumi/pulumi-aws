@@ -9,170 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Manages an AWS Lambda Alias. Use this resource to create an alias that points to a specific Lambda function version for traffic management and deployment strategies.
-    /// 
-    /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html). For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Alias
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Alias("example", new()
-    ///     {
-    ///         Name = "production",
-    ///         Description = "Production environment alias",
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         FunctionVersion = "1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Alias with Traffic Splitting
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Alias("example", new()
-    ///     {
-    ///         Name = "staging",
-    ///         Description = "Staging environment with traffic splitting",
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         FunctionVersion = "2",
-    ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
-    ///         {
-    ///             AdditionalVersionWeights = 
-    ///             {
-    ///                 { "1", 0.1 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Blue-Green Deployment Alias
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Alias for gradual rollout
-    ///     var example = new Aws.Lambda.Alias("example", new()
-    ///     {
-    ///         Name = "live",
-    ///         Description = "Live traffic with gradual rollout to new version",
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         FunctionVersion = "5",
-    ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
-    ///         {
-    ///             AdditionalVersionWeights = 
-    ///             {
-    ///                 { "6", 0.05 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Development Alias
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Alias("example", new()
-    ///     {
-    ///         Name = "dev",
-    ///         Description = "Development environment - always points to latest",
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         FunctionVersion = "$LATEST",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// For backwards compatibility, the following legacy `pulumi import` command is also supported:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:lambda/alias:Alias example example/production
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN identifying your Lambda function alias.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the alias.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name or ARN of the Lambda function.
-        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
-        /// <summary>
-        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-        /// </summary>
         [Output("functionVersion")]
         public Output<string> FunctionVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
-        /// </summary>
         [Output("invokeArn")]
         public Output<string> InvokeArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Lambda alias' route configuration settings. See below.
-        /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.AliasRoutingConfig?> RoutingConfig { get; private set; } = null!;
 
@@ -222,41 +82,21 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the alias.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name or ARN of the Lambda function.
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-        /// </summary>
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
 
-        /// <summary>
-        /// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Lambda alias' route configuration settings. See below.
-        /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigArgs>? RoutingConfig { get; set; }
 
@@ -268,53 +108,27 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class AliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN identifying your Lambda function alias.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the alias.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name or ARN of the Lambda function.
-        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
-        /// <summary>
-        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-        /// </summary>
         [Input("functionVersion")]
         public Input<string>? FunctionVersion { get; set; }
 
-        /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
-        /// </summary>
         [Input("invokeArn")]
         public Input<string>? InvokeArn { get; set; }
 
-        /// <summary>
-        /// Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Lambda alias' route configuration settings. See below.
-        /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigGetArgs>? RoutingConfig { get; set; }
 

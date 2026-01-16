@@ -13,18 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration {
-    /**
-     * @return Boolean whether managed log persistence is enabled for the workgroup.
-     * 
-     */
     private Boolean enabled;
     private @Nullable String kmsKey;
 
     private WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration() {}
-    /**
-     * @return Boolean whether managed log persistence is enabled for the workgroup.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

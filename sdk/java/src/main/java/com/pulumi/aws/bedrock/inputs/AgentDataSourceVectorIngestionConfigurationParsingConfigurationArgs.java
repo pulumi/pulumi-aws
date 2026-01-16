@@ -17,32 +17,16 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
 
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs();
 
-    /**
-     * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
-     * 
-     */
     @Import(name="bedrockFoundationModelConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs> bedrockFoundationModelConfiguration;
 
-    /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
-     * 
-     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs>> bedrockFoundationModelConfiguration() {
         return Optional.ofNullable(this.bedrockFoundationModelConfiguration);
     }
 
-    /**
-     * Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-     * 
-     */
     @Import(name="parsingStrategy", required=true)
     private Output<String> parsingStrategy;
 
-    /**
-     * @return Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-     * 
-     */
     public Output<String> parsingStrategy() {
         return this.parsingStrategy;
     }
@@ -72,44 +56,20 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
             $ = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bedrockFoundationModelConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs> bedrockFoundationModelConfiguration) {
             $.bedrockFoundationModelConfiguration = bedrockFoundationModelConfiguration;
             return this;
         }
 
-        /**
-         * @param bedrockFoundationModelConfiguration Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bedrockFoundationModelConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs bedrockFoundationModelConfiguration) {
             return bedrockFoundationModelConfiguration(Output.of(bedrockFoundationModelConfiguration));
         }
 
-        /**
-         * @param parsingStrategy Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingStrategy(Output<String> parsingStrategy) {
             $.parsingStrategy = parsingStrategy;
             return this;
         }
 
-        /**
-         * @param parsingStrategy Currently only `BEDROCK_FOUNDATION_MODEL` is supported
-         * 
-         * @return builder
-         * 
-         */
         public Builder parsingStrategy(String parsingStrategy) {
             return parsingStrategy(Output.of(parsingStrategy));
         }

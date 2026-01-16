@@ -13,17 +13,8 @@ namespace Pulumi.Aws.TimestreamQuery.Outputs
     [OutputType]
     public sealed class ScheduledQueryErrorReportConfigurationS3Configuration
     {
-        /// <summary>
-        /// Name of the S3 bucket under which error reports will be created.
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
-        /// </summary>
         public readonly string? EncryptionOption;
-        /// <summary>
-        /// Prefix for the error report key.
-        /// </summary>
         public readonly string? ObjectKeyPrefix;
 
         [OutputConstructor]

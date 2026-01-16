@@ -13,45 +13,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkforceOidcConfig
     {
-        /// <summary>
-        /// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
-        /// <summary>
-        /// The OIDC IdP authorization endpoint used to configure your private workforce.
-        /// </summary>
         public readonly string AuthorizationEndpoint;
-        /// <summary>
-        /// The OIDC IdP client ID used to configure your private workforce.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// The OIDC IdP client secret used to configure your private workforce.
-        /// </summary>
         public readonly string ClientSecret;
-        /// <summary>
-        /// The OIDC IdP issuer used to configure your private workforce.
-        /// </summary>
         public readonly string Issuer;
-        /// <summary>
-        /// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
-        /// </summary>
         public readonly string JwksUri;
-        /// <summary>
-        /// The OIDC IdP logout endpoint used to configure your private workforce.
-        /// </summary>
         public readonly string LogoutEndpoint;
-        /// <summary>
-        /// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
-        /// </summary>
         public readonly string? Scope;
-        /// <summary>
-        /// The OIDC IdP token endpoint used to configure your private workforce.
-        /// </summary>
         public readonly string TokenEndpoint;
-        /// <summary>
-        /// The OIDC IdP user information endpoint used to configure your private workforce.
-        /// </summary>
         public readonly string UserInfoEndpoint;
 
         [OutputConstructor]

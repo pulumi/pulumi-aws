@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class EntityRecognizerInputDataConfigAnnotations
     {
-        /// <summary>
-        /// Location of training annotations.
-        /// </summary>
         public readonly string S3Uri;
         public readonly string? TestS3Uri;
 

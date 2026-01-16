@@ -15,47 +15,23 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
 
     public static final AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs Empty = new AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs();
 
-    /**
-     * Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     @Import(name="metadataField")
     private @Nullable Output<String> metadataField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
-     * 
-     */
     public Optional<Output<String>> metadataField() {
         return Optional.ofNullable(this.metadataField);
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     @Import(name="textField")
     private @Nullable Output<String> textField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-     * 
-     */
     public Optional<Output<String>> textField() {
         return Optional.ofNullable(this.textField);
     }
 
-    /**
-     * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     @Import(name="vectorField")
     private @Nullable Output<String> vectorField;
 
-    /**
-     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-     * 
-     */
     public Optional<Output<String>> vectorField() {
         return Optional.ofNullable(this.vectorField);
     }
@@ -86,65 +62,29 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
             $ = new AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataField(@Nullable Output<String> metadataField) {
             $.metadataField = metadataField;
             return this;
         }
 
-        /**
-         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataField(String metadataField) {
             return metadataField(Output.of(metadataField));
         }
 
-        /**
-         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textField(@Nullable Output<String> textField) {
             $.textField = textField;
             return this;
         }
 
-        /**
-         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textField(String textField) {
             return textField(Output.of(textField));
         }
 
-        /**
-         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorField(@Nullable Output<String> vectorField) {
             $.vectorField = vectorField;
             return this;
         }
 
-        /**
-         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vectorField(String vectorField) {
             return vectorField(Output.of(vectorField));
         }

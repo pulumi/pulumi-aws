@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RecordWeightedRoutingPolicy {
-    /**
-     * @return A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-     * 
-     */
     private Integer weight;
 
     private RecordWeightedRoutingPolicy() {}
-    /**
-     * @return A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-     * 
-     */
     public Integer weight() {
         return this.weight;
     }

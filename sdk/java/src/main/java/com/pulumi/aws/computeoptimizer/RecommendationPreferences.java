@@ -19,248 +19,65 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages AWS Compute Optimizer recommendation preferences.
- * 
- * ## Example Usage
- * 
- * ### Lookback Period Preference
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.computeoptimizer.RecommendationPreferences;
- * import com.pulumi.aws.computeoptimizer.RecommendationPreferencesArgs;
- * import com.pulumi.aws.computeoptimizer.inputs.RecommendationPreferencesScopeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RecommendationPreferences("example", RecommendationPreferencesArgs.builder()
- *             .resourceType("Ec2Instance")
- *             .scope(RecommendationPreferencesScopeArgs.builder()
- *                 .name("AccountId")
- *                 .value("123456789012")
- *                 .build())
- *             .lookBackPeriod("DAYS_32")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Multiple Preferences
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.computeoptimizer.RecommendationPreferences;
- * import com.pulumi.aws.computeoptimizer.RecommendationPreferencesArgs;
- * import com.pulumi.aws.computeoptimizer.inputs.RecommendationPreferencesScopeArgs;
- * import com.pulumi.aws.computeoptimizer.inputs.RecommendationPreferencesExternalMetricsPreferenceArgs;
- * import com.pulumi.aws.computeoptimizer.inputs.RecommendationPreferencesPreferredResourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RecommendationPreferences("example", RecommendationPreferencesArgs.builder()
- *             .resourceType("Ec2Instance")
- *             .scope(RecommendationPreferencesScopeArgs.builder()
- *                 .name("AccountId")
- *                 .value("123456789012")
- *                 .build())
- *             .enhancedInfrastructureMetrics("Active")
- *             .externalMetricsPreference(RecommendationPreferencesExternalMetricsPreferenceArgs.builder()
- *                 .source("Datadog")
- *                 .build())
- *             .preferredResources(RecommendationPreferencesPreferredResourceArgs.builder()
- *                 .includeLists(                
- *                     "m5.xlarge",
- *                     "r5")
- *                 .name("Ec2InstanceTypes")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import recommendation preferences using the resource type, scope name and scope value. For example:
- * 
- * ```sh
- * $ pulumi import aws:computeoptimizer/recommendationPreferences:RecommendationPreferences example Ec2Instance,AccountId,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")
 public class RecommendationPreferences extends com.pulumi.resources.CustomResource {
-    /**
-     * The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
-     * 
-     */
     @Export(name="enhancedInfrastructureMetrics", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enhancedInfrastructureMetrics;
 
-    /**
-     * @return The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
-     * 
-     */
     public Output<Optional<String>> enhancedInfrastructureMetrics() {
         return Codegen.optional(this.enhancedInfrastructureMetrics);
     }
-    /**
-     * The provider of the external metrics recommendation preference. See External Metrics Preference below.
-     * 
-     */
     @Export(name="externalMetricsPreference", refs={RecommendationPreferencesExternalMetricsPreference.class}, tree="[0]")
     private Output</* @Nullable */ RecommendationPreferencesExternalMetricsPreference> externalMetricsPreference;
 
-    /**
-     * @return The provider of the external metrics recommendation preference. See External Metrics Preference below.
-     * 
-     */
     public Output<Optional<RecommendationPreferencesExternalMetricsPreference>> externalMetricsPreference() {
         return Codegen.optional(this.externalMetricsPreference);
     }
-    /**
-     * The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
-     * 
-     */
     @Export(name="inferredWorkloadTypes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inferredWorkloadTypes;
 
-    /**
-     * @return The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
-     * 
-     */
     public Output<Optional<String>> inferredWorkloadTypes() {
         return Codegen.optional(this.inferredWorkloadTypes);
     }
-    /**
-     * The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
-     * 
-     */
     @Export(name="lookBackPeriod", refs={String.class}, tree="[0]")
     private Output<String> lookBackPeriod;
 
-    /**
-     * @return The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
-     * 
-     */
     public Output<String> lookBackPeriod() {
         return this.lookBackPeriod;
     }
-    /**
-     * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-     * 
-     */
     @Export(name="preferredResources", refs={List.class,RecommendationPreferencesPreferredResource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecommendationPreferencesPreferredResource>> preferredResources;
 
-    /**
-     * @return The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-     * 
-     */
     public Output<Optional<List<RecommendationPreferencesPreferredResource>>> preferredResources() {
         return Codegen.optional(this.preferredResources);
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
-    /**
-     * @return The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
-    /**
-     * The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
-     * 
-     */
     @Export(name="savingsEstimationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> savingsEstimationMode;
 
-    /**
-     * @return The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
-     * 
-     */
     public Output<Optional<String>> savingsEstimationMode() {
         return Codegen.optional(this.savingsEstimationMode);
     }
-    /**
-     * The scope of the recommendation preferences. See Scope below.
-     * 
-     */
     @Export(name="scope", refs={RecommendationPreferencesScope.class}, tree="[0]")
     private Output</* @Nullable */ RecommendationPreferencesScope> scope;
 
-    /**
-     * @return The scope of the recommendation preferences. See Scope below.
-     * 
-     */
     public Output<Optional<RecommendationPreferencesScope>> scope() {
         return Codegen.optional(this.scope);
     }
-    /**
-     * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
-     * 
-     */
     @Export(name="utilizationPreferences", refs={List.class,RecommendationPreferencesUtilizationPreference.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecommendationPreferencesUtilizationPreference>> utilizationPreferences;
 
-    /**
-     * @return The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
-     * 
-     */
     public Output<Optional<List<RecommendationPreferencesUtilizationPreference>>> utilizationPreferences() {
         return Codegen.optional(this.utilizationPreferences);
     }

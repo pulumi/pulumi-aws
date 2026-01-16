@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceParametersDatabricks {
-    /**
-     * @return The host name of the Databricks data source.
-     * 
-     */
     private String host;
-    /**
-     * @return The port for the Databricks data source.
-     * 
-     */
     private Integer port;
-    /**
-     * @return The HTTP path of the Databricks data source.
-     * 
-     */
     private String sqlEndpointPath;
 
     private DataSourceParametersDatabricks() {}
-    /**
-     * @return The host name of the Databricks data source.
-     * 
-     */
     public String host() {
         return this.host;
     }
-    /**
-     * @return The port for the Databricks data source.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return The HTTP path of the Databricks data source.
-     * 
-     */
     public String sqlEndpointPath() {
         return this.sqlEndpointPath;
     }

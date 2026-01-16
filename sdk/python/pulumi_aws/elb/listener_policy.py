@@ -26,11 +26,6 @@ class ListenerPolicyArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ListenerPolicy resource.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[_builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "load_balancer_port", load_balancer_port)
@@ -44,9 +39,6 @@ class ListenerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The load balancer to attach the policy to.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
@@ -56,9 +48,6 @@ class ListenerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancerPort")
     def load_balancer_port(self) -> pulumi.Input[_builtins.int]:
-        """
-        The load balancer listener port to apply the policy to.
-        """
         return pulumi.get(self, "load_balancer_port")
 
     @load_balancer_port.setter
@@ -68,9 +57,6 @@ class ListenerPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="policyNames")
     def policy_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Policy Names to apply to the backend server.
-        """
         return pulumi.get(self, "policy_names")
 
     @policy_names.setter
@@ -80,9 +66,6 @@ class ListenerPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -92,9 +75,6 @@ class ListenerPolicyArgs:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an update.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -112,11 +92,6 @@ class _ListenerPolicyState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ListenerPolicy resources.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[_builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         if load_balancer_name is not None:
             pulumi.set(__self__, "load_balancer_name", load_balancer_name)
@@ -132,9 +107,6 @@ class _ListenerPolicyState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The load balancer to attach the policy to.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
@@ -144,9 +116,6 @@ class _ListenerPolicyState:
     @_builtins.property
     @pulumi.getter(name="loadBalancerPort")
     def load_balancer_port(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The load balancer listener port to apply the policy to.
-        """
         return pulumi.get(self, "load_balancer_port")
 
     @load_balancer_port.setter
@@ -156,9 +125,6 @@ class _ListenerPolicyState:
     @_builtins.property
     @pulumi.getter(name="policyNames")
     def policy_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        List of Policy Names to apply to the backend server.
-        """
         return pulumi.get(self, "policy_names")
 
     @policy_names.setter
@@ -168,9 +134,6 @@ class _ListenerPolicyState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -180,9 +143,6 @@ class _ListenerPolicyState:
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an update.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -203,93 +163,9 @@ class ListenerPolicy(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Attaches a load balancer policy to an ELB Listener.
-
-        ## Example Usage
-
-        ### Custom Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[
-                {
-                    "name": "ECDHE-ECDSA-AES128-GCM-SHA256",
-                    "value": "true",
-                },
-                {
-                    "name": "Protocol-TLSv1.2",
-                    "value": "true",
-                },
-            ])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl.policy_name])
-        ```
-
-        This example shows how to customize the TLS settings of an HTTPS listener.
-
-        ### AWS Predefined Security Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ssl_tls_1_1 = aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[{
-                "name": "Reference-Security-Policy",
-                "value": "ELBSecurityPolicy-TLS-1-1-2017-01",
-            }])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl_tls_1_1.policy_name])
-        ```
-
-        This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
-
+        Create a ListenerPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[_builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         ...
     @overload
@@ -298,86 +174,7 @@ class ListenerPolicy(pulumi.CustomResource):
                  args: ListenerPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a load balancer policy to an ELB Listener.
-
-        ## Example Usage
-
-        ### Custom Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[
-                {
-                    "name": "ECDHE-ECDSA-AES128-GCM-SHA256",
-                    "value": "true",
-                },
-                {
-                    "name": "Protocol-TLSv1.2",
-                    "value": "true",
-                },
-            ])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl.policy_name])
-        ```
-
-        This example shows how to customize the TLS settings of an HTTPS listener.
-
-        ### AWS Predefined Security Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ssl_tls_1_1 = aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[{
-                "name": "Reference-Security-Policy",
-                "value": "ELBSecurityPolicy-TLS-1-1-2017-01",
-            }])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl_tls_1_1.policy_name])
-        ```
-
-        This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
-
+        Create a ListenerPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ListenerPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -440,11 +237,6 @@ class ListenerPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[_builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -460,40 +252,25 @@ class ListenerPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The load balancer to attach the policy to.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerPort")
     def load_balancer_port(self) -> pulumi.Output[_builtins.int]:
-        """
-        The load balancer listener port to apply the policy to.
-        """
         return pulumi.get(self, "load_balancer_port")
 
     @_builtins.property
     @pulumi.getter(name="policyNames")
     def policy_names(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
-        """
-        List of Policy Names to apply to the backend server.
-        """
         return pulumi.get(self, "policy_names")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger an update.
-        """
         return pulumi.get(self, "triggers")
 

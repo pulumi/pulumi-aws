@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryImageTagMutabilityExclusionFilter {
-    /**
-     * @return The filter pattern to use for excluding image tags from the mutability setting.
-     * 
-     */
     private String filter;
-    /**
-     * @return The type of filter to use.
-     * 
-     */
     private String filterType;
 
     private GetRepositoryImageTagMutabilityExclusionFilter() {}
-    /**
-     * @return The filter pattern to use for excluding image tags from the mutability setting.
-     * 
-     */
     public String filter() {
         return this.filter;
     }
-    /**
-     * @return The type of filter to use.
-     * 
-     */
     public String filterType() {
         return this.filterType;
     }

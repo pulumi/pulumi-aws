@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class VectorsVectorBucketEncryptionConfiguration {
-    /**
-     * @return AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-     * 
-     */
     private String sseType;
 
     private VectorsVectorBucketEncryptionConfiguration() {}
-    /**
-     * @return AWS KMS CMK ARN to use for the default encryption of the vector bucket. Allowed if and only if `sseType` is set to `aws:kms`.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return Server-side encryption type to use for the default encryption of the vector bucket. Valid values: `AES256`, `aws:kms`.
-     * 
-     */
     public String sseType() {
         return this.sseType;
     }

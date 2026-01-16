@@ -17,47 +17,23 @@ public final class OrganizationalUnitArgs extends com.pulumi.resources.ResourceA
 
     public static final OrganizationalUnitArgs Empty = new OrganizationalUnitArgs();
 
-    /**
-     * The name for the organizational unit
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for the organizational unit
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * ID of the parent organizational unit, which may be the root
-     * 
-     */
     @Import(name="parentId", required=true)
     private Output<String> parentId;
 
-    /**
-     * @return ID of the parent organizational unit, which may be the root
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class OrganizationalUnitArgs extends com.pulumi.resources.ResourceA
             $ = new OrganizationalUnitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name for the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for the organizational unit
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parentId ID of the parent organizational unit, which may be the root
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(Output<String> parentId) {
             $.parentId = parentId;
             return this;
         }
 
-        /**
-         * @param parentId ID of the parent organizational unit, which may be the root
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

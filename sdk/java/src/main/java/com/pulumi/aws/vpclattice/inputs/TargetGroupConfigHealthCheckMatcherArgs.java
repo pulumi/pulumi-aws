@@ -15,17 +15,9 @@ public final class TargetGroupConfigHealthCheckMatcherArgs extends com.pulumi.re
 
     public static final TargetGroupConfigHealthCheckMatcherArgs Empty = new TargetGroupConfigHealthCheckMatcherArgs();
 
-    /**
-     * The HTTP codes to use when checking for a successful response from a target.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return The HTTP codes to use when checking for a successful response from a target.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -54,23 +46,11 @@ public final class TargetGroupConfigHealthCheckMatcherArgs extends com.pulumi.re
             $ = new TargetGroupConfigHealthCheckMatcherArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value The HTTP codes to use when checking for a successful response from a target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The HTTP codes to use when checking for a successful response from a target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -13,18 +13,8 @@ namespace Pulumi.Aws.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceSourceConfigurationImageRepository
     {
-        /// <summary>
-        /// Configuration for running the identified image. See Image Configuration below for more details.
-        /// </summary>
         public readonly Outputs.ServiceSourceConfigurationImageRepositoryImageConfiguration? ImageConfiguration;
-        /// <summary>
-        /// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-        /// image name format, see Pulling an image in the Amazon ECR User Guide.
-        /// </summary>
         public readonly string ImageIdentifier;
-        /// <summary>
-        /// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-        /// </summary>
         public readonly string ImageRepositoryType;
 
         [OutputConstructor]

@@ -9,87 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Eks
 {
-    /// <summary>
-    /// Access Entry Policy Association for an EKS Cluster.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Eks.AccessPolicyAssociation("example", new()
-    ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         PolicyArn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
-    ///         PrincipalArn = exampleAwsIamUser.Arn,
-    ///         AccessScope = new Aws.Eks.Inputs.AccessPolicyAssociationAccessScopeArgs
-    ///         {
-    ///             Type = "namespace",
-    ///             Namespaces = new[]
-    ///             {
-    ///                 "example-namespace",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by an octothorp (`#`). For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:eks/accessPolicyAssociation:AccessPolicyAssociation")]
     public partial class AccessPolicyAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The configuration block to determine the scope of the access. See `AccessScope` Block below.
-        /// </summary>
         [Output("accessScope")]
         public Output<Outputs.AccessPolicyAssociationAccessScope> AccessScope { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-        /// </summary>
         [Output("associatedAt")]
         public Output<string> AssociatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS Cluster.
-        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the access policy that you're associating.
-        /// </summary>
         [Output("policyArn")]
         public Output<string> PolicyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -139,33 +79,18 @@ namespace Pulumi.Aws.Eks
 
     public sealed class AccessPolicyAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration block to determine the scope of the access. See `AccessScope` Block below.
-        /// </summary>
         [Input("accessScope", required: true)]
         public Input<Inputs.AccessPolicyAssociationAccessScopeArgs> AccessScope { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the EKS Cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the access policy that you're associating.
-        /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
 
-        /// <summary>
-        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -177,45 +102,24 @@ namespace Pulumi.Aws.Eks
 
     public sealed class AccessPolicyAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration block to determine the scope of the access. See `AccessScope` Block below.
-        /// </summary>
         [Input("accessScope")]
         public Input<Inputs.AccessPolicyAssociationAccessScopeGetArgs>? AccessScope { get; set; }
 
-        /// <summary>
-        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
-        /// </summary>
         [Input("associatedAt")]
         public Input<string>? AssociatedAt { get; set; }
 
-        /// <summary>
-        /// Name of the EKS Cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        /// <summary>
-        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
-        /// </summary>
         [Input("modifiedAt")]
         public Input<string>? ModifiedAt { get; set; }
 
-        /// <summary>
-        /// The ARN of the access policy that you're associating.
-        /// </summary>
         [Input("policyArn")]
         public Input<string>? PolicyArn { get; set; }
 
-        /// <summary>
-        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

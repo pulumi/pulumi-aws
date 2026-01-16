@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStageOnFailure {
-    /**
-     * @return The conditions that are failure conditions. Defined as a `condition` block below.
-     * 
-     */
     private @Nullable PipelineStageOnFailureCondition condition;
-    /**
-     * @return The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     private @Nullable String result;
-    /**
-     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
-     * 
-     */
     private @Nullable PipelineStageOnFailureRetryConfiguration retryConfiguration;
 
     private PipelineStageOnFailure() {}
-    /**
-     * @return The conditions that are failure conditions. Defined as a `condition` block below.
-     * 
-     */
     public Optional<PipelineStageOnFailureCondition> condition() {
         return Optional.ofNullable(this.condition);
     }
-    /**
-     * @return The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
-     * 
-     */
     public Optional<String> result() {
         return Optional.ofNullable(this.result);
     }
-    /**
-     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
-     * 
-     */
     public Optional<PipelineStageOnFailureRetryConfiguration> retryConfiguration() {
         return Optional.ofNullable(this.retryConfiguration);
     }

@@ -11,81 +11,12 @@ namespace Pulumi.Aws.Vpc
 {
     public static class GetEndpointAssociations
     {
-        /// <summary>
-        /// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetEndpointAssociations.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetEndpointAssociationsResult> InvokeAsync(GetEndpointAssociationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointAssociationsResult>("aws:vpc/getEndpointAssociations:getEndpointAssociations", args ?? new GetEndpointAssociationsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetEndpointAssociations.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEndpointAssociationsResult> Invoke(GetEndpointAssociationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointAssociationsResult>("aws:vpc/getEndpointAssociations:getEndpointAssociations", args ?? new GetEndpointAssociationsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetEndpointAssociations.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = exampleAwsVpcEndpoint.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetEndpointAssociationsResult> Invoke(GetEndpointAssociationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointAssociationsResult>("aws:vpc/getEndpointAssociations:getEndpointAssociations", args ?? new GetEndpointAssociationsInvokeArgs(), options.WithDefaults());
     }
@@ -93,15 +24,9 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class GetEndpointAssociationsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// ID of the specific VPC Endpoint to retrieve.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public string VpcEndpointId { get; set; } = null!;
 
@@ -113,15 +38,9 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class GetEndpointAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ID of the specific VPC Endpoint to retrieve.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
@@ -135,9 +54,6 @@ namespace Pulumi.Aws.Vpc
     [OutputType]
     public sealed class GetEndpointAssociationsResult
     {
-        /// <summary>
-        /// Associations for the VPC Endpoint. Association blocks are documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointAssociationsAssociationResult> Associations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

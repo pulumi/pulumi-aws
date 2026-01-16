@@ -12,96 +12,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an network ACL resource. You might set up network ACLs with rules similar
-// to your security groups in order to add an additional layer of security to your VPC.
-//
-// > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-// provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-// defined in-line. At this time you cannot use a Network ACL with in-line rules
-// in conjunction with any Network ACL Rule resources. Doing so will cause
-// a conflict of rule settings and will overwrite rules.
-//
-// > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
-// resource and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
-// resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(mainAwsVpc.Id),
-//				Egress: ec2.NetworkAclEgressArray{
-//					&ec2.NetworkAclEgressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(200),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(443),
-//						ToPort:    pulumi.Int(443),
-//					},
-//				},
-//				Ingress: ec2.NetworkAclIngressArray{
-//					&ec2.NetworkAclIngressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(80),
-//						ToPort:    pulumi.Int(80),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network ACLs using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
-// ```
 type NetworkAcl struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the network ACL
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies an egress rule. Parameters defined below.
-	Egress NetworkAclEgressArrayOutput `pulumi:"egress"`
-	// Specifies an ingress rule. Parameters defined below.
-	Ingress NetworkAclIngressArrayOutput `pulumi:"ingress"`
-	// The ID of the AWS account that owns the network ACL.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of Subnet IDs to apply the ACL to
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the associated VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn       pulumi.StringOutput          `pulumi:"arn"`
+	Egress    NetworkAclEgressArrayOutput  `pulumi:"egress"`
+	Ingress   NetworkAclIngressArrayOutput `pulumi:"ingress"`
+	OwnerId   pulumi.StringOutput          `pulumi:"ownerId"`
+	Region    pulumi.StringOutput          `pulumi:"region"`
+	SubnetIds pulumi.StringArrayOutput     `pulumi:"subnetIds"`
+	Tags      pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput       `pulumi:"tagsAll"`
+	VpcId     pulumi.StringOutput          `pulumi:"vpcId"`
 }
 
 // NewNetworkAcl registers a new resource with the given unique name, arguments, and options.
@@ -137,45 +59,27 @@ func GetNetworkAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkAcl resources.
 type networkAclState struct {
-	// The ARN of the network ACL
-	Arn *string `pulumi:"arn"`
-	// Specifies an egress rule. Parameters defined below.
-	Egress []NetworkAclEgress `pulumi:"egress"`
-	// Specifies an ingress rule. Parameters defined below.
-	Ingress []NetworkAclIngress `pulumi:"ingress"`
-	// The ID of the AWS account that owns the network ACL.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of Subnet IDs to apply the ACL to
-	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the associated VPC.
-	VpcId *string `pulumi:"vpcId"`
+	Arn       *string             `pulumi:"arn"`
+	Egress    []NetworkAclEgress  `pulumi:"egress"`
+	Ingress   []NetworkAclIngress `pulumi:"ingress"`
+	OwnerId   *string             `pulumi:"ownerId"`
+	Region    *string             `pulumi:"region"`
+	SubnetIds []string            `pulumi:"subnetIds"`
+	Tags      map[string]string   `pulumi:"tags"`
+	TagsAll   map[string]string   `pulumi:"tagsAll"`
+	VpcId     *string             `pulumi:"vpcId"`
 }
 
 type NetworkAclState struct {
-	// The ARN of the network ACL
-	Arn pulumi.StringPtrInput
-	// Specifies an egress rule. Parameters defined below.
-	Egress NetworkAclEgressArrayInput
-	// Specifies an ingress rule. Parameters defined below.
-	Ingress NetworkAclIngressArrayInput
-	// The ID of the AWS account that owns the network ACL.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of Subnet IDs to apply the ACL to
+	Arn       pulumi.StringPtrInput
+	Egress    NetworkAclEgressArrayInput
+	Ingress   NetworkAclIngressArrayInput
+	OwnerId   pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The ID of the associated VPC.
-	VpcId pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
+	VpcId     pulumi.StringPtrInput
 }
 
 func (NetworkAclState) ElementType() reflect.Type {
@@ -183,34 +87,22 @@ func (NetworkAclState) ElementType() reflect.Type {
 }
 
 type networkAclArgs struct {
-	// Specifies an egress rule. Parameters defined below.
-	Egress []NetworkAclEgress `pulumi:"egress"`
-	// Specifies an ingress rule. Parameters defined below.
-	Ingress []NetworkAclIngress `pulumi:"ingress"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// A list of Subnet IDs to apply the ACL to
-	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the associated VPC.
-	VpcId string `pulumi:"vpcId"`
+	Egress    []NetworkAclEgress  `pulumi:"egress"`
+	Ingress   []NetworkAclIngress `pulumi:"ingress"`
+	Region    *string             `pulumi:"region"`
+	SubnetIds []string            `pulumi:"subnetIds"`
+	Tags      map[string]string   `pulumi:"tags"`
+	VpcId     string              `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
-	// Specifies an egress rule. Parameters defined below.
-	Egress NetworkAclEgressArrayInput
-	// Specifies an ingress rule. Parameters defined below.
-	Ingress NetworkAclIngressArrayInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// A list of Subnet IDs to apply the ACL to
+	Egress    NetworkAclEgressArrayInput
+	Ingress   NetworkAclIngressArrayInput
+	Region    pulumi.StringPtrInput
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The ID of the associated VPC.
-	VpcId pulumi.StringInput
+	Tags      pulumi.StringMapInput
+	VpcId     pulumi.StringInput
 }
 
 func (NetworkAclArgs) ElementType() reflect.Type {
@@ -300,47 +192,38 @@ func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) Net
 	return o
 }
 
-// The ARN of the network ACL
 func (o NetworkAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies an egress rule. Parameters defined below.
 func (o NetworkAclOutput) Egress() NetworkAclEgressArrayOutput {
 	return o.ApplyT(func(v *NetworkAcl) NetworkAclEgressArrayOutput { return v.Egress }).(NetworkAclEgressArrayOutput)
 }
 
-// Specifies an ingress rule. Parameters defined below.
 func (o NetworkAclOutput) Ingress() NetworkAclIngressArrayOutput {
 	return o.ApplyT(func(v *NetworkAcl) NetworkAclIngressArrayOutput { return v.Ingress }).(NetworkAclIngressArrayOutput)
 }
 
-// The ID of the AWS account that owns the network ACL.
 func (o NetworkAclOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkAclOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of Subnet IDs to apply the ACL to
 func (o NetworkAclOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkAclOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkAclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the associated VPC.
 func (o NetworkAclOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -26,11 +26,6 @@ class TemplateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Template resource.
-        :param pulumi.Input[_builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        :param pulumi.Input[_builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        :param pulumi.Input[_builtins.float] value: The new, increased value for the quota.
-        :param pulumi.Input[_builtins.str] aws_region: AWS Region to which the template applies.
-        :param pulumi.Input[_builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
         """
         pulumi.set(__self__, "quota_code", quota_code)
         pulumi.set(__self__, "service_code", service_code)
@@ -46,9 +41,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        """
         return pulumi.get(self, "quota_code")
 
     @quota_code.setter
@@ -58,9 +50,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> pulumi.Input[_builtins.str]:
-        """
-        Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        """
         return pulumi.get(self, "service_code")
 
     @service_code.setter
@@ -70,9 +59,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.float]:
-        """
-        The new, increased value for the quota.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -82,9 +68,6 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Region to which the template applies.
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -95,9 +78,6 @@ class TemplateArgs:
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Region to which the template applies. Use `get_region` instead.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -119,15 +99,6 @@ class _TemplateState:
                  value: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering Template resources.
-        :param pulumi.Input[_builtins.str] aws_region: AWS Region to which the template applies.
-        :param pulumi.Input[_builtins.bool] global_quota: Indicates whether the quota is global.
-        :param pulumi.Input[_builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        :param pulumi.Input[_builtins.str] quota_name: Quota name.
-        :param pulumi.Input[_builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
-        :param pulumi.Input[_builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        :param pulumi.Input[_builtins.str] service_name: Service name.
-        :param pulumi.Input[_builtins.str] unit: Unit of measurement.
-        :param pulumi.Input[_builtins.float] value: The new, increased value for the quota.
         """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
@@ -154,9 +125,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Region to which the template applies.
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -166,9 +134,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="globalQuota")
     def global_quota(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Indicates whether the quota is global.
-        """
         return pulumi.get(self, "global_quota")
 
     @global_quota.setter
@@ -178,9 +143,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        """
         return pulumi.get(self, "quota_code")
 
     @quota_code.setter
@@ -190,9 +152,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="quotaName")
     def quota_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Quota name.
-        """
         return pulumi.get(self, "quota_name")
 
     @quota_name.setter
@@ -203,9 +162,6 @@ class _TemplateState:
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        AWS Region to which the template applies. Use `get_region` instead.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -215,9 +171,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        """
         return pulumi.get(self, "service_code")
 
     @service_code.setter
@@ -227,9 +180,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Service name.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -239,9 +189,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Unit of measurement.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -251,9 +198,6 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.float]]:
-        """
-        The new, increased value for the quota.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -274,40 +218,9 @@ class Template(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Service Quotas Template.
-
-        > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.Template("example",
-            aws_region="us-east-1",
-            quota_code="L-2ACBD22F",
-            service_code="lambda",
-            value=80)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Quotas Template using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
-        ```
-
+        Create a Template resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_region: AWS Region to which the template applies.
-        :param pulumi.Input[_builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        :param pulumi.Input[_builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
-        :param pulumi.Input[_builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        :param pulumi.Input[_builtins.float] value: The new, increased value for the quota.
         """
         ...
     @overload
@@ -316,33 +229,7 @@ class Template(pulumi.CustomResource):
                  args: TemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Service Quotas Template.
-
-        > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.Template("example",
-            aws_region="us-east-1",
-            quota_code="L-2ACBD22F",
-            service_code="lambda",
-            value=80)
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import Service Quotas Template using the `id`. For example:
-
-        ```sh
-        $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
-        ```
-
+        Create a Template resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -413,15 +300,6 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_region: AWS Region to which the template applies.
-        :param pulumi.Input[_builtins.bool] global_quota: Indicates whether the quota is global.
-        :param pulumi.Input[_builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        :param pulumi.Input[_builtins.str] quota_name: Quota name.
-        :param pulumi.Input[_builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
-        :param pulumi.Input[_builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        :param pulumi.Input[_builtins.str] service_name: Service name.
-        :param pulumi.Input[_builtins.str] unit: Unit of measurement.
-        :param pulumi.Input[_builtins.float] value: The new, increased value for the quota.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -441,73 +319,46 @@ class Template(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS Region to which the template applies.
-        """
         return pulumi.get(self, "aws_region")
 
     @_builtins.property
     @pulumi.getter(name="globalQuota")
     def global_quota(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Indicates whether the quota is global.
-        """
         return pulumi.get(self, "global_quota")
 
     @_builtins.property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        """
         return pulumi.get(self, "quota_code")
 
     @_builtins.property
     @pulumi.getter(name="quotaName")
     def quota_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Quota name.
-        """
         return pulumi.get(self, "quota_name")
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        AWS Region to which the template applies. Use `get_region` instead.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> pulumi.Output[_builtins.str]:
-        """
-        Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
-        """
         return pulumi.get(self, "service_code")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Service name.
-        """
         return pulumi.get(self, "service_name")
 
     @_builtins.property
     @pulumi.getter
     def unit(self) -> pulumi.Output[_builtins.str]:
-        """
-        Unit of measurement.
-        """
         return pulumi.get(self, "unit")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Output[_builtins.float]:
-        """
-        The new, increased value for the quota.
-        """
         return pulumi.get(self, "value")
 

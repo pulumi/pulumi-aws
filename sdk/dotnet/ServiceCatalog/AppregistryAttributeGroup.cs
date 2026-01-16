@@ -9,88 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Resource for managing an AWS Service Catalog AppRegistry Attribute Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.AppregistryAttributeGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Description = "example description",
-    ///         Attributes = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["app"] = "exampleapp",
-    ///             ["group"] = "examplegroup",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group using the `id`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup example 1234567890abcfedhijk09876s
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup")]
     public partial class AppregistryAttributeGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Attribute Group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A JSON string of nested key-value pairs that represents the attributes of the group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Output("attributes")]
         public Output<string> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the Attribute Group.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the Attribute Group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the Attribute Group. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -140,38 +79,20 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class AppregistryAttributeGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A JSON string of nested key-value pairs that represents the attributes of the group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("attributes", required: true)]
         public Input<string> Attributes { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the Attribute Group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the Attribute Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the Attribute Group. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -186,44 +107,23 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class AppregistryAttributeGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Attribute Group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A JSON string of nested key-value pairs that represents the attributes of the group.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
         [Input("attributes")]
         public Input<string>? Attributes { get; set; }
 
-        /// <summary>
-        /// Description of the Attribute Group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the Attribute Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags assigned to the Attribute Group. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -232,10 +132,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

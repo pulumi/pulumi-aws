@@ -15,15 +15,9 @@ namespace Pulumi.Aws.Transfer.Inputs
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Identity Center used for the web app.
-        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// ARN of an identity bearer role for your web app.
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 

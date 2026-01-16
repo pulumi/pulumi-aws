@@ -31,62 +31,30 @@ public final class QuicksetupConfigurationManagerConfigurationDefinitionArgs ext
         return Optional.ofNullable(this.localDeploymentAdministrationRoleArn);
     }
 
-    /**
-     * Name of the IAM role used to deploy local configurations.
-     * 
-     */
     @Import(name="localDeploymentExecutionRoleName")
     private @Nullable Output<String> localDeploymentExecutionRoleName;
 
-    /**
-     * @return Name of the IAM role used to deploy local configurations.
-     * 
-     */
     public Optional<Output<String>> localDeploymentExecutionRoleName() {
         return Optional.ofNullable(this.localDeploymentExecutionRoleName);
     }
 
-    /**
-     * Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-     * 
-     */
     @Import(name="parameters", required=true)
     private Output<Map<String,String>> parameters;
 
-    /**
-     * @return Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-     * 
-     */
     public Output<Map<String,String>> parameters() {
         return this.parameters;
     }
 
-    /**
-     * Type of the Quick Setup configuration.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of the Quick Setup configuration.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * Version of the Quick Setup type to use.
-     * 
-     */
     @Import(name="typeVersion")
     private @Nullable Output<String> typeVersion;
 
-    /**
-     * @return Version of the Quick Setup type to use.
-     * 
-     */
     public Optional<Output<String>> typeVersion() {
         return Optional.ofNullable(this.typeVersion);
     }
@@ -138,86 +106,38 @@ public final class QuicksetupConfigurationManagerConfigurationDefinitionArgs ext
             return localDeploymentAdministrationRoleArn(Output.of(localDeploymentAdministrationRoleArn));
         }
 
-        /**
-         * @param localDeploymentExecutionRoleName Name of the IAM role used to deploy local configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localDeploymentExecutionRoleName(@Nullable Output<String> localDeploymentExecutionRoleName) {
             $.localDeploymentExecutionRoleName = localDeploymentExecutionRoleName;
             return this;
         }
 
-        /**
-         * @param localDeploymentExecutionRoleName Name of the IAM role used to deploy local configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localDeploymentExecutionRoleName(String localDeploymentExecutionRoleName) {
             return localDeploymentExecutionRoleName(Output.of(localDeploymentExecutionRoleName));
         }
 
-        /**
-         * @param parameters Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param type Type of the Quick Setup configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the Quick Setup configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param typeVersion Version of the Quick Setup type to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typeVersion(@Nullable Output<String> typeVersion) {
             $.typeVersion = typeVersion;
             return this;
         }
 
-        /**
-         * @param typeVersion Version of the Quick Setup type to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typeVersion(String typeVersion) {
             return typeVersion(Output.of(typeVersion));
         }

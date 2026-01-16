@@ -12,147 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Transcribe LanguageModel.
-//
-// > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transcribe"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"transcribe.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"s3:GetObject",
-//							"s3:ListBucket",
-//						},
-//						"Effect": "Allow",
-//						"Resource": []string{
-//							"*",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewRolePolicy(ctx, "test_policy", &iam.RolePolicyArgs{
-//				Name:   pulumi.String("example"),
-//				Role:   exampleRole.ID(),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-//				Bucket:       pulumi.String("example-transcribe"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucket.ID(),
-//				Key:    pulumi.String("transcribe/test1.txt"),
-//				Source: pulumi.NewFileAsset("test1.txt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transcribe.NewLanguageModel(ctx, "example", &transcribe.LanguageModelArgs{
-//				ModelName:     pulumi.String("example"),
-//				BaseModelName: pulumi.String("NarrowBand"),
-//				InputDataConfig: &transcribe.LanguageModelInputDataConfigArgs{
-//					DataAccessRoleArn: exampleRole.Arn,
-//					S3Uri: exampleBucket.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("s3://%v/transcribe/", id), nil
-//					}).(pulumi.StringOutput),
-//				},
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("development"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
-//
-// ```sh
-// $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-// ```
 type LanguageModel struct {
 	pulumi.CustomResourceState
 
-	// ARN of the LanguageModel.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of reference base model.
-	BaseModelName pulumi.StringOutput `pulumi:"baseModelName"`
-	// The input data config for the LanguageModel. See Input Data Config for more details.
+	Arn             pulumi.StringOutput                `pulumi:"arn"`
+	BaseModelName   pulumi.StringOutput                `pulumi:"baseModelName"`
 	InputDataConfig LanguageModelInputDataConfigOutput `pulumi:"inputDataConfig"`
-	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// The model name.
-	ModelName pulumi.StringOutput `pulumi:"modelName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  pulumi.StringOutput    `pulumi:"region"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	LanguageCode    pulumi.StringOutput                `pulumi:"languageCode"`
+	ModelName       pulumi.StringOutput                `pulumi:"modelName"`
+	Region          pulumi.StringOutput                `pulumi:"region"`
+	Tags            pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewLanguageModel registers a new resource with the given unique name, arguments, and options.
@@ -197,37 +67,25 @@ func GetLanguageModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LanguageModel resources.
 type languageModelState struct {
-	// ARN of the LanguageModel.
-	Arn *string `pulumi:"arn"`
-	// Name of reference base model.
-	BaseModelName *string `pulumi:"baseModelName"`
-	// The input data config for the LanguageModel. See Input Data Config for more details.
+	Arn             *string                       `pulumi:"arn"`
+	BaseModelName   *string                       `pulumi:"baseModelName"`
 	InputDataConfig *LanguageModelInputDataConfig `pulumi:"inputDataConfig"`
-	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode *string `pulumi:"languageCode"`
-	// The model name.
-	ModelName *string `pulumi:"modelName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  *string           `pulumi:"region"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	LanguageCode    *string                       `pulumi:"languageCode"`
+	ModelName       *string                       `pulumi:"modelName"`
+	Region          *string                       `pulumi:"region"`
+	Tags            map[string]string             `pulumi:"tags"`
+	TagsAll         map[string]string             `pulumi:"tagsAll"`
 }
 
 type LanguageModelState struct {
-	// ARN of the LanguageModel.
-	Arn pulumi.StringPtrInput
-	// Name of reference base model.
-	BaseModelName pulumi.StringPtrInput
-	// The input data config for the LanguageModel. See Input Data Config for more details.
+	Arn             pulumi.StringPtrInput
+	BaseModelName   pulumi.StringPtrInput
 	InputDataConfig LanguageModelInputDataConfigPtrInput
-	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringPtrInput
-	// The model name.
-	ModelName pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	LanguageCode    pulumi.StringPtrInput
+	ModelName       pulumi.StringPtrInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (LanguageModelState) ElementType() reflect.Type {
@@ -235,32 +93,22 @@ func (LanguageModelState) ElementType() reflect.Type {
 }
 
 type languageModelArgs struct {
-	// Name of reference base model.
-	BaseModelName string `pulumi:"baseModelName"`
-	// The input data config for the LanguageModel. See Input Data Config for more details.
+	BaseModelName   string                       `pulumi:"baseModelName"`
 	InputDataConfig LanguageModelInputDataConfig `pulumi:"inputDataConfig"`
-	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode string `pulumi:"languageCode"`
-	// The model name.
-	ModelName string `pulumi:"modelName"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	LanguageCode    string                       `pulumi:"languageCode"`
+	ModelName       string                       `pulumi:"modelName"`
+	Region          *string                      `pulumi:"region"`
+	Tags            map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LanguageModel resource.
 type LanguageModelArgs struct {
-	// Name of reference base model.
-	BaseModelName pulumi.StringInput
-	// The input data config for the LanguageModel. See Input Data Config for more details.
+	BaseModelName   pulumi.StringInput
 	InputDataConfig LanguageModelInputDataConfigInput
-	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-	LanguageCode pulumi.StringInput
-	// The model name.
-	ModelName pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	LanguageCode    pulumi.StringInput
+	ModelName       pulumi.StringInput
+	Region          pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (LanguageModelArgs) ElementType() reflect.Type {
@@ -350,32 +198,26 @@ func (o LanguageModelOutput) ToLanguageModelOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ARN of the LanguageModel.
 func (o LanguageModelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of reference base model.
 func (o LanguageModelOutput) BaseModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.BaseModelName }).(pulumi.StringOutput)
 }
 
-// The input data config for the LanguageModel. See Input Data Config for more details.
 func (o LanguageModelOutput) InputDataConfig() LanguageModelInputDataConfigOutput {
 	return o.ApplyT(func(v *LanguageModel) LanguageModelInputDataConfigOutput { return v.InputDataConfig }).(LanguageModelInputDataConfigOutput)
 }
 
-// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 func (o LanguageModelOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// The model name.
 func (o LanguageModelOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LanguageModelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

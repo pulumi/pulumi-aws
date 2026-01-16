@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("definitions", required: true)]
         private InputList<string>? _definitions;
-
-        /// <summary>
-        /// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
-        /// </summary>
         public InputList<string> Definitions
         {
             get => _definitions ?? (_definitions = new InputList<string>());

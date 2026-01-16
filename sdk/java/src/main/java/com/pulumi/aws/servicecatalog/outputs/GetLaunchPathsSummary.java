@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLaunchPathsSummary {
-    /**
-     * @return Block for constraints on the portfolio-product relationship. See details below.
-     * 
-     */
     private List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries;
-    /**
-     * @return Name of the portfolio to which the path was assigned.
-     * 
-     */
     private String name;
-    /**
-     * @return Identifier of the product path.
-     * 
-     */
     private String pathId;
-    /**
-     * @return Tags associated with this product path.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetLaunchPathsSummary() {}
-    /**
-     * @return Block for constraints on the portfolio-product relationship. See details below.
-     * 
-     */
     public List<GetLaunchPathsSummaryConstraintSummary> constraintSummaries() {
         return this.constraintSummaries;
     }
-    /**
-     * @return Name of the portfolio to which the path was assigned.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Identifier of the product path.
-     * 
-     */
     public String pathId() {
         return this.pathId;
     }
-    /**
-     * @return Tags associated with this product path.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

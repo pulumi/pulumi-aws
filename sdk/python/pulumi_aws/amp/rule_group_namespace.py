@@ -26,11 +26,6 @@ class RuleGroupNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleGroupNamespace resource.
-        :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
-        :param pulumi.Input[_builtins.str] name: The name of the rule group namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -44,9 +39,6 @@ class RuleGroupNamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def data(self) -> pulumi.Input[_builtins.str]:
-        """
-        the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -56,9 +48,6 @@ class RuleGroupNamespaceArgs:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the prometheus workspace the rule group namespace should be linked to.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -68,9 +57,6 @@ class RuleGroupNamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the rule group namespace.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -80,9 +66,6 @@ class RuleGroupNamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -92,9 +75,6 @@ class RuleGroupNamespaceArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,13 +94,6 @@ class _RuleGroupNamespaceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuleGroupNamespace resources.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the rule group namespace.
-        :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[_builtins.str] name: The name of the rule group namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -140,9 +113,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the rule group namespace.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -152,9 +122,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -164,9 +131,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the rule group namespace.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -176,9 +140,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -188,9 +149,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -200,9 +158,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -212,9 +167,6 @@ class _RuleGroupNamespaceState:
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ID of the prometheus workspace the rule group namespace should be linked to.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -235,41 +187,9 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo = aws.amp.Workspace("demo")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demo",
-            name="rules",
-            workspace_id=demo.id,
-            data=\"\"\"groups:
-          - name: test
-            rules:
-            - record: metric:recording_rule
-              expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
-
-        ```sh
-        $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-        ```
-
+        Create a RuleGroupNamespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[_builtins.str] name: The name of the rule group namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
         ...
     @overload
@@ -278,34 +198,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  args: RuleGroupNamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo = aws.amp.Workspace("demo")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demo",
-            name="rules",
-            workspace_id=demo.id,
-            data=\"\"\"groups:
-          - name: test
-            rules:
-            - record: metric:recording_rule
-              expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-        \"\"\")
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
-
-        ```sh
-        $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-        ```
-
+        Create a RuleGroupNamespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RuleGroupNamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -370,13 +263,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the rule group namespace.
-        :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[_builtins.str] name: The name of the rule group namespace.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -394,56 +280,35 @@ class RuleGroupNamespace(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the rule group namespace.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def data(self) -> pulumi.Output[_builtins.str]:
-        """
-        the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        """
         return pulumi.get(self, "data")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the rule group namespace.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        ID of the prometheus workspace the rule group namespace should be linked to.
-        """
         return pulumi.get(self, "workspace_id")
 

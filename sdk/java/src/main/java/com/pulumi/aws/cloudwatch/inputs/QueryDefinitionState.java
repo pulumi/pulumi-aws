@@ -16,77 +16,37 @@ public final class QueryDefinitionState extends com.pulumi.resources.ResourceArg
 
     public static final QueryDefinitionState Empty = new QueryDefinitionState();
 
-    /**
-     * Specific log groups to use with the query.
-     * 
-     */
     @Import(name="logGroupNames")
     private @Nullable Output<List<String>> logGroupNames;
 
-    /**
-     * @return Specific log groups to use with the query.
-     * 
-     */
     public Optional<Output<List<String>>> logGroupNames() {
         return Optional.ofNullable(this.logGroupNames);
     }
 
-    /**
-     * The name of the query.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the query.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The query definition ID.
-     * 
-     */
     @Import(name="queryDefinitionId")
     private @Nullable Output<String> queryDefinitionId;
 
-    /**
-     * @return The query definition ID.
-     * 
-     */
     public Optional<Output<String>> queryDefinitionId() {
         return Optional.ofNullable(this.queryDefinitionId);
     }
 
-    /**
-     * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-     * 
-     */
     @Import(name="queryString")
     private @Nullable Output<String> queryString;
 
-    /**
-     * @return The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-     * 
-     */
     public Optional<Output<String>> queryString() {
         return Optional.ofNullable(this.queryString);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -119,117 +79,51 @@ public final class QueryDefinitionState extends com.pulumi.resources.ResourceArg
             $ = new QueryDefinitionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupNames Specific log groups to use with the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupNames(@Nullable Output<List<String>> logGroupNames) {
             $.logGroupNames = logGroupNames;
             return this;
         }
 
-        /**
-         * @param logGroupNames Specific log groups to use with the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupNames(List<String> logGroupNames) {
             return logGroupNames(Output.of(logGroupNames));
         }
 
-        /**
-         * @param logGroupNames Specific log groups to use with the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupNames(String... logGroupNames) {
             return logGroupNames(List.of(logGroupNames));
         }
 
-        /**
-         * @param name The name of the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the query.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param queryDefinitionId The query definition ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryDefinitionId(@Nullable Output<String> queryDefinitionId) {
             $.queryDefinitionId = queryDefinitionId;
             return this;
         }
 
-        /**
-         * @param queryDefinitionId The query definition ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryDefinitionId(String queryDefinitionId) {
             return queryDefinitionId(Output.of(queryDefinitionId));
         }
 
-        /**
-         * @param queryString The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(@Nullable Output<String> queryString) {
             $.queryString = queryString;
             return this;
         }
 
-        /**
-         * @param queryString The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

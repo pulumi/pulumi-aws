@@ -10,24 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class EnvironmentProvisionedResource {
-    /**
-     * @return The name of the environment.
-     * 
-     */
     private String name;
     private String provider;
     private String type;
-    /**
-     * @return The value of an environment profile parameter.
-     * 
-     */
     private String value;
 
     private EnvironmentProvisionedResource() {}
-    /**
-     * @return The name of the environment.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -37,10 +25,6 @@ public final class EnvironmentProvisionedResource {
     public String type() {
         return this.type;
     }
-    /**
-     * @return The value of an environment profile parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

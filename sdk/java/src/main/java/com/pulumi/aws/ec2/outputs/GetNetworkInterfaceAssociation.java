@@ -10,89 +10,33 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkInterfaceAssociation {
-    /**
-     * @return Allocation ID.
-     * 
-     */
     private String allocationId;
-    /**
-     * @return Association ID.
-     * 
-     */
     private String associationId;
-    /**
-     * @return Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
-     * 
-     */
     private String carrierIp;
-    /**
-     * @return Customer-owned IP address.
-     * 
-     */
     private String customerOwnedIp;
-    /**
-     * @return ID of the Elastic IP address owner.
-     * 
-     */
     private String ipOwnerId;
-    /**
-     * @return Public DNS name.
-     * 
-     */
     private String publicDnsName;
-    /**
-     * @return Address of the Elastic IP address bound to the network interface.
-     * 
-     */
     private String publicIp;
 
     private GetNetworkInterfaceAssociation() {}
-    /**
-     * @return Allocation ID.
-     * 
-     */
     public String allocationId() {
         return this.allocationId;
     }
-    /**
-     * @return Association ID.
-     * 
-     */
     public String associationId() {
         return this.associationId;
     }
-    /**
-     * @return Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
-     * 
-     */
     public String carrierIp() {
         return this.carrierIp;
     }
-    /**
-     * @return Customer-owned IP address.
-     * 
-     */
     public String customerOwnedIp() {
         return this.customerOwnedIp;
     }
-    /**
-     * @return ID of the Elastic IP address owner.
-     * 
-     */
     public String ipOwnerId() {
         return this.ipOwnerId;
     }
-    /**
-     * @return Public DNS name.
-     * 
-     */
     public String publicDnsName() {
         return this.publicDnsName;
     }
-    /**
-     * @return Address of the Elastic IP address bound to the network interface.
-     * 
-     */
     public String publicIp() {
         return this.publicIp;
     }

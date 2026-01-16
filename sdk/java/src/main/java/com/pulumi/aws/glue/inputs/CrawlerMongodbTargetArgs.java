@@ -17,47 +17,23 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
 
     public static final CrawlerMongodbTargetArgs Empty = new CrawlerMongodbTargetArgs();
 
-    /**
-     * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-     * 
-     */
     @Import(name="connectionName", required=true)
     private Output<String> connectionName;
 
-    /**
-     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-     * 
-     */
     public Output<String> connectionName() {
         return this.connectionName;
     }
 
-    /**
-     * The path of the Amazon DocumentDB or MongoDB target (database/collection).
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-     * 
-     */
     @Import(name="scanAll")
     private @Nullable Output<Boolean> scanAll;
 
-    /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> scanAll() {
         return Optional.ofNullable(this.scanAll);
     }
@@ -88,65 +64,29 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
             $ = new CrawlerMongodbTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionName The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
 
-        /**
-         * @param connectionName The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
         }
 
-        /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanAll(@Nullable Output<Boolean> scanAll) {
             $.scanAll = scanAll;
             return this;
         }
 
-        /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scanAll(Boolean scanAll) {
             return scanAll(Output.of(scanAll));
         }

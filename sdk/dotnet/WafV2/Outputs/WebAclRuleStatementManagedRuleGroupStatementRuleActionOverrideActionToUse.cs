@@ -15,9 +15,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     {
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow? Allow;
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock? Block;
-        /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See `Captcha` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha? Captcha;
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge? Challenge;
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount? Count;

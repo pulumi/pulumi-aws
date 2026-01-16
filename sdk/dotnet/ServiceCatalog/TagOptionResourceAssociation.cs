@@ -9,82 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog Tag Option Resource Association.
-    /// 
-    /// &gt; **Tip:** A "resource" is either a Service Catalog portfolio or product.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.TagOptionResourceAssociation("example", new()
-    ///     {
-    ///         ResourceId = "prod-dnigbtea24ste",
-    ///         TagOptionId = "tag-pjtvyakdlyo3m",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")]
     public partial class TagOptionResourceAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the resource.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation time of the resource.
-        /// </summary>
         [Output("resourceCreatedTime")]
         public Output<string> ResourceCreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the resource.
-        /// </summary>
         [Output("resourceDescription")]
         public Output<string> ResourceDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource identifier.
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the resource.
-        /// </summary>
         [Output("resourceName")]
         public Output<string> ResourceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Tag Option identifier.
-        /// </summary>
         [Output("tagOptionId")]
         public Output<string> TagOptionId { get; private set; } = null!;
 
@@ -134,21 +79,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class TagOptionResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Resource identifier.
-        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
-        /// <summary>
-        /// Tag Option identifier.
-        /// </summary>
         [Input("tagOptionId", required: true)]
         public Input<string> TagOptionId { get; set; } = null!;
 
@@ -160,45 +96,24 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class TagOptionResourceAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// ARN of the resource.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// Creation time of the resource.
-        /// </summary>
         [Input("resourceCreatedTime")]
         public Input<string>? ResourceCreatedTime { get; set; }
 
-        /// <summary>
-        /// Description of the resource.
-        /// </summary>
         [Input("resourceDescription")]
         public Input<string>? ResourceDescription { get; set; }
 
-        /// <summary>
-        /// Resource identifier.
-        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
-        /// <summary>
-        /// Description of the resource.
-        /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 
-        /// <summary>
-        /// Tag Option identifier.
-        /// </summary>
         [Input("tagOptionId")]
         public Input<string>? TagOptionId { get; set; }
 

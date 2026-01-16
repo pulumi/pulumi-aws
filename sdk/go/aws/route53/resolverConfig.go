@@ -12,62 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver config resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverConfig(ctx, "example", &route53.ResolverConfigArgs{
-//				ResourceId:             example.ID(),
-//				AutodefinedReverseFlag: pulumi.String("DISABLE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:
-//
-// ```sh
-// $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
-// ```
 type ResolverConfig struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringOutput `pulumi:"autodefinedReverseFlag"`
-	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC that the configuration is for.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	OwnerId                pulumi.StringOutput `pulumi:"ownerId"`
+	Region                 pulumi.StringOutput `pulumi:"region"`
+	ResourceId             pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewResolverConfig registers a new resource with the given unique name, arguments, and options.
@@ -106,25 +57,17 @@ func GetResolverConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverConfig resources.
 type resolverConfigState struct {
-	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag *string `pulumi:"autodefinedReverseFlag"`
-	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
-	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC that the configuration is for.
-	ResourceId *string `pulumi:"resourceId"`
+	OwnerId                *string `pulumi:"ownerId"`
+	Region                 *string `pulumi:"region"`
+	ResourceId             *string `pulumi:"resourceId"`
 }
 
 type ResolverConfigState struct {
-	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringPtrInput
-	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
-	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC that the configuration is for.
-	ResourceId pulumi.StringPtrInput
+	OwnerId                pulumi.StringPtrInput
+	Region                 pulumi.StringPtrInput
+	ResourceId             pulumi.StringPtrInput
 }
 
 func (ResolverConfigState) ElementType() reflect.Type {
@@ -132,22 +75,16 @@ func (ResolverConfigState) ElementType() reflect.Type {
 }
 
 type resolverConfigArgs struct {
-	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-	AutodefinedReverseFlag string `pulumi:"autodefinedReverseFlag"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// The ID of the VPC that the configuration is for.
-	ResourceId string `pulumi:"resourceId"`
+	AutodefinedReverseFlag string  `pulumi:"autodefinedReverseFlag"`
+	Region                 *string `pulumi:"region"`
+	ResourceId             string  `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverConfig resource.
 type ResolverConfigArgs struct {
-	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// The ID of the VPC that the configuration is for.
-	ResourceId pulumi.StringInput
+	Region                 pulumi.StringPtrInput
+	ResourceId             pulumi.StringInput
 }
 
 func (ResolverConfigArgs) ElementType() reflect.Type {
@@ -237,22 +174,18 @@ func (o ResolverConfigOutput) ToResolverConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 func (o ResolverConfigOutput) AutodefinedReverseFlag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.AutodefinedReverseFlag }).(pulumi.StringOutput)
 }
 
-// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
 func (o ResolverConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC that the configuration is for.
 func (o ResolverConfigOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

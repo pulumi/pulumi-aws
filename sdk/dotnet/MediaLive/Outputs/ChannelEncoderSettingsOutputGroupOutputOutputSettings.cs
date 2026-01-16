@@ -13,28 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettings
     {
-        /// <summary>
-        /// Archive output settings. See Archive Output Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings? ArchiveOutputSettings;
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings? FrameCaptureOutputSettings;
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings? HlsOutputSettings;
-        /// <summary>
-        /// Media package output settings. This can be set as an empty block.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings? MediaPackageOutputSettings;
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings? MsSmoothOutputSettings;
-        /// <summary>
-        /// Multiplex output settings. See Multiplex Output Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings? MultiplexOutputSettings;
-        /// <summary>
-        /// RTMP output settings. See RTMP Output Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings? RtmpOutputSettings;
-        /// <summary>
-        /// UDP output settings. See UDP Output Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings? UdpOutputSettings;
 
         [OutputConstructor]

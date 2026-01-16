@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SubscriberSourceCustomLogSourceResource {
-    /**
-     * @return The attributes of the third-party custom source. See `attributes` Block below.
-     * 
-     */
     private @Nullable List<SubscriberSourceCustomLogSourceResourceAttribute> attributes;
-    /**
-     * @return The details of the log provider for the third-party custom source. See `provider` Block below.
-     * 
-     */
     private @Nullable List<SubscriberSourceCustomLogSourceResourceProvider> providers;
-    /**
-     * @return The name for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     private String sourceName;
-    /**
-     * @return The version for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     private @Nullable String sourceVersion;
 
     private SubscriberSourceCustomLogSourceResource() {}
-    /**
-     * @return The attributes of the third-party custom source. See `attributes` Block below.
-     * 
-     */
     public List<SubscriberSourceCustomLogSourceResourceAttribute> attributes() {
         return this.attributes == null ? List.of() : this.attributes;
     }
-    /**
-     * @return The details of the log provider for the third-party custom source. See `provider` Block below.
-     * 
-     */
     public List<SubscriberSourceCustomLogSourceResourceProvider> providers() {
         return this.providers == null ? List.of() : this.providers;
     }
-    /**
-     * @return The name for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     public String sourceName() {
         return this.sourceName;
     }
-    /**
-     * @return The version for a third-party custom source. This must be a Regionally unique value.
-     * 
-     */
     public Optional<String> sourceVersion() {
         return Optional.ofNullable(this.sourceVersion);
     }

@@ -16,203 +16,67 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
-    /**
-     * @return Name of the Access Control List associated with the cluster.
-     * 
-     */
     private String aclName;
-    /**
-     * @return ARN of the cluster.
-     * 
-     */
     private String arn;
-    /**
-     * @return True when the cluster allows automatic minor version upgrades.
-     * 
-     */
     private Boolean autoMinorVersionUpgrade;
     private List<GetClusterClusterEndpoint> clusterEndpoints;
-    /**
-     * @return True when data tiering is enabled.
-     * 
-     */
     private Boolean dataTiering;
-    /**
-     * @return Description for the cluster.
-     * 
-     */
     private String description;
-    /**
-     * @return Engine that will run on cluster nodes.
-     * 
-     */
     private String engine;
-    /**
-     * @return Patch version number of the engine used by the cluster.
-     * 
-     */
     private String enginePatchVersion;
-    /**
-     * @return Version number of the engine used by the cluster.
-     * 
-     */
     private String engineVersion;
-    /**
-     * @return Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
-     * 
-     */
     private String finalSnapshotName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the KMS key used to encrypt the cluster at rest.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
-     * 
-     */
     private String maintenanceWindow;
-    /**
-     * @return Name of this node.
-     * 
-     */
     private String name;
-    /**
-     * @return Compute and memory capacity of the nodes in the cluster.
-     * 
-     */
     private String nodeType;
-    /**
-     * @return The number of replicas to apply to each shard.
-     * 
-     */
     private Integer numReplicasPerShard;
-    /**
-     * @return Number of shards in the cluster.
-     * 
-     */
     private Integer numShards;
-    /**
-     * @return The name of the parameter group associated with the cluster.
-     * 
-     */
     private String parameterGroupName;
-    /**
-     * @return Port number that this node is listening on.
-     * 
-     */
     private Integer port;
     private String region;
-    /**
-     * @return Set of VPC Security Group ID-s associated with this cluster.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return Set of shards in this cluster.
-     * 
-     */
     private List<GetClusterShard> shards;
-    /**
-     * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
-     * 
-     */
     private Integer snapshotRetentionLimit;
-    /**
-     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
-     * 
-     */
     private String snapshotWindow;
-    /**
-     * @return ARN of the SNS topic to which cluster notifications are sent.
-     * 
-     */
     private String snsTopicArn;
-    /**
-     * @return The name of the subnet group used for the cluster.
-     * 
-     */
     private String subnetGroupName;
-    /**
-     * @return Map of tags assigned to the cluster.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return When true, in-transit encryption is enabled for the cluster.
-     * 
-     */
     private Boolean tlsEnabled;
 
     private GetClusterResult() {}
-    /**
-     * @return Name of the Access Control List associated with the cluster.
-     * 
-     */
     public String aclName() {
         return this.aclName;
     }
-    /**
-     * @return ARN of the cluster.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return True when the cluster allows automatic minor version upgrades.
-     * 
-     */
     public Boolean autoMinorVersionUpgrade() {
         return this.autoMinorVersionUpgrade;
     }
     public List<GetClusterClusterEndpoint> clusterEndpoints() {
         return this.clusterEndpoints;
     }
-    /**
-     * @return True when data tiering is enabled.
-     * 
-     */
     public Boolean dataTiering() {
         return this.dataTiering;
     }
-    /**
-     * @return Description for the cluster.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Engine that will run on cluster nodes.
-     * 
-     */
     public String engine() {
         return this.engine;
     }
-    /**
-     * @return Patch version number of the engine used by the cluster.
-     * 
-     */
     public String enginePatchVersion() {
         return this.enginePatchVersion;
     }
-    /**
-     * @return Version number of the engine used by the cluster.
-     * 
-     */
     public String engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * @return Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
-     * 
-     */
     public String finalSnapshotName() {
         return this.finalSnapshotName;
     }
@@ -223,118 +87,54 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the KMS key used to encrypt the cluster at rest.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
-     * 
-     */
     public String maintenanceWindow() {
         return this.maintenanceWindow;
     }
-    /**
-     * @return Name of this node.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Compute and memory capacity of the nodes in the cluster.
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }
-    /**
-     * @return The number of replicas to apply to each shard.
-     * 
-     */
     public Integer numReplicasPerShard() {
         return this.numReplicasPerShard;
     }
-    /**
-     * @return Number of shards in the cluster.
-     * 
-     */
     public Integer numShards() {
         return this.numShards;
     }
-    /**
-     * @return The name of the parameter group associated with the cluster.
-     * 
-     */
     public String parameterGroupName() {
         return this.parameterGroupName;
     }
-    /**
-     * @return Port number that this node is listening on.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
     public String region() {
         return this.region;
     }
-    /**
-     * @return Set of VPC Security Group ID-s associated with this cluster.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return Set of shards in this cluster.
-     * 
-     */
     public List<GetClusterShard> shards() {
         return this.shards;
     }
-    /**
-     * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
-     * 
-     */
     public Integer snapshotRetentionLimit() {
         return this.snapshotRetentionLimit;
     }
-    /**
-     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
-     * 
-     */
     public String snapshotWindow() {
         return this.snapshotWindow;
     }
-    /**
-     * @return ARN of the SNS topic to which cluster notifications are sent.
-     * 
-     */
     public String snsTopicArn() {
         return this.snsTopicArn;
     }
-    /**
-     * @return The name of the subnet group used for the cluster.
-     * 
-     */
     public String subnetGroupName() {
         return this.subnetGroupName;
     }
-    /**
-     * @return Map of tags assigned to the cluster.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return When true, in-transit encryption is enabled for the cluster.
-     * 
-     */
     public Boolean tlsEnabled() {
         return this.tlsEnabled;
     }

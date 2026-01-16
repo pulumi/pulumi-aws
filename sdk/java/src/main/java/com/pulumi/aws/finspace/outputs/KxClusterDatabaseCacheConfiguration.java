@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KxClusterDatabaseCacheConfiguration {
-    /**
-     * @return Type of disk cache.
-     * 
-     */
     private String cacheType;
-    /**
-     * @return Paths within the database to cache.
-     * 
-     */
     private @Nullable List<String> dbPaths;
 
     private KxClusterDatabaseCacheConfiguration() {}
-    /**
-     * @return Type of disk cache.
-     * 
-     */
     public String cacheType() {
         return this.cacheType;
     }
-    /**
-     * @return Paths within the database to cache.
-     * 
-     */
     public List<String> dbPaths() {
         return this.dbPaths == null ? List.of() : this.dbPaths;
     }

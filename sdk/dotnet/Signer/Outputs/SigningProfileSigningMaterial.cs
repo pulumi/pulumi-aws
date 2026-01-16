@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class SigningProfileSigningMaterial
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-        /// </summary>
         public readonly string CertificateArn;
 
         [OutputConstructor]

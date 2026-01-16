@@ -13,9 +13,6 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ListenerDefaultActionFixedResponse
     {
-        /// <summary>
-        /// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
-        /// </summary>
         public readonly int StatusCode;
 
         [OutputConstructor]

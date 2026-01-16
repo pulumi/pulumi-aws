@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionTenantConfigParameterDefinition {
-    /**
-     * @return Definition of the parameter schema. See Parameter Definition Schema below.
-     * 
-     */
     private @Nullable List<MultitenantDistributionTenantConfigParameterDefinitionDefinition> definitions;
-    /**
-     * @return Name of the parameter.
-     * 
-     */
     private String name;
 
     private MultitenantDistributionTenantConfigParameterDefinition() {}
-    /**
-     * @return Definition of the parameter schema. See Parameter Definition Schema below.
-     * 
-     */
     public List<MultitenantDistributionTenantConfigParameterDefinitionDefinition> definitions() {
         return this.definitions == null ? List.of() : this.definitions;
     }
-    /**
-     * @return Name of the parameter.
-     * 
-     */
     public String name() {
         return this.name;
     }

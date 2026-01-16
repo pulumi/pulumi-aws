@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageImageScanningConfiguration {
-    /**
-     * @return Configuration block with ECR configuration.
-     * 
-     */
     private List<GetImageImageScanningConfigurationEcrConfiguration> ecrConfigurations;
-    /**
-     * @return Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
-     * 
-     */
     private Boolean imageScanningEnabled;
 
     private GetImageImageScanningConfiguration() {}
-    /**
-     * @return Configuration block with ECR configuration.
-     * 
-     */
     public List<GetImageImageScanningConfigurationEcrConfiguration> ecrConfigurations() {
         return this.ecrConfigurations;
     }
-    /**
-     * @return Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
-     * 
-     */
     public Boolean imageScanningEnabled() {
         return this.imageScanningEnabled;
     }

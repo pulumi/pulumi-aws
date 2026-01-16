@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class GetOrganizationalUnitChildAccountsAccountResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the account.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The email address associated with the AWS account.
-        /// </summary>
         public readonly string Email;
-        /// <summary>
-        /// Parent identifier of the organizational units.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Method by which the account joined the organization.
-        /// </summary>
         public readonly string JoinedMethod;
-        /// <summary>
-        /// Date the account became a part of the organization.
-        /// </summary>
         public readonly string JoinedTimestamp;
-        /// <summary>
-        /// The friendly name of the account.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// State of the account in the organization.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// (**Deprecated** use `State` instead) Status of the account in the organization.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

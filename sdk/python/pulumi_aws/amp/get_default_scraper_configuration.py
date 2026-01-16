@@ -40,9 +40,6 @@ class GetDefaultScraperConfigurationResult:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> _builtins.str:
-        """
-        The configuration file.
-        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
@@ -73,19 +70,7 @@ class AwaitableGetDefaultScraperConfigurationResult(GetDefaultScraperConfigurati
 def get_default_scraper_configuration(region: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultScraperConfigurationResult:
     """
-    Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_default_scraper_configuration()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -99,19 +84,7 @@ def get_default_scraper_configuration(region: Optional[_builtins.str] = None,
 def get_default_scraper_configuration_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
     """
-    Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_default_scraper_configuration()
-    ```
-
-
-    :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region

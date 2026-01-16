@@ -15,32 +15,16 @@ public final class PhoneNumberStatusArgs extends com.pulumi.resources.ResourceAr
 
     public static final PhoneNumberStatusArgs Empty = new PhoneNumberStatusArgs();
 
-    /**
-     * The status message.
-     * 
-     */
     @Import(name="message")
     private @Nullable Output<String> message;
 
-    /**
-     * @return The status message.
-     * 
-     */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
     }
 
-    /**
-     * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -70,44 +54,20 @@ public final class PhoneNumberStatusArgs extends com.pulumi.resources.ResourceAr
             $ = new PhoneNumberStatusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param message The status message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(@Nullable Output<String> message) {
             $.message = message;
             return this;
         }
 
-        /**
-         * @param message The status message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder message(String message) {
             return message(Output.of(message));
         }
 
-        /**
-         * @param status The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

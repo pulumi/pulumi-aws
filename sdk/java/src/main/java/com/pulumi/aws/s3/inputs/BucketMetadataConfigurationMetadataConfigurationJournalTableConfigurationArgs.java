@@ -17,62 +17,30 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
 
     public static final BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs();
 
-    /**
-     * Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
-     * 
-     */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
 
-    /**
-     * Journal table record expiration settings. See `recordExpiration` Block for details.
-     * 
-     */
     @Import(name="recordExpiration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration;
 
-    /**
-     * @return Journal table record expiration settings. See `recordExpiration` Block for details.
-     * 
-     */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs>> recordExpiration() {
         return Optional.ofNullable(this.recordExpiration);
     }
 
-    /**
-     * Journal table ARN.
-     * 
-     */
     @Import(name="tableArn")
     private @Nullable Output<String> tableArn;
 
-    /**
-     * @return Journal table ARN.
-     * 
-     */
     public Optional<Output<String>> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
 
-    /**
-     * Journal table name.
-     * 
-     */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
-    /**
-     * @return Journal table name.
-     * 
-     */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
@@ -104,86 +72,38 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
             $ = new BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionConfiguration Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
-        /**
-         * @param recordExpiration Journal table record expiration settings. See `recordExpiration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordExpiration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration) {
             $.recordExpiration = recordExpiration;
             return this;
         }
 
-        /**
-         * @param recordExpiration Journal table record expiration settings. See `recordExpiration` Block for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordExpiration(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs recordExpiration) {
             return recordExpiration(Output.of(recordExpiration));
         }
 
-        /**
-         * @param tableArn Journal table ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(@Nullable Output<String> tableArn) {
             $.tableArn = tableArn;
             return this;
         }
 
-        /**
-         * @param tableArn Journal table ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableArn(String tableArn) {
             return tableArn(Output.of(tableArn));
         }
 
-        /**
-         * @param tableName Journal table name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName Journal table name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

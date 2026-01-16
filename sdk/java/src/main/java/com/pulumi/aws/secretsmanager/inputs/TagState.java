@@ -15,62 +15,30 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
 
     public static final TagState Empty = new TagState();
 
-    /**
-     * Tag name.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return Tag name.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * ID of the AWS Secrets Manager secret to tag.
-     * 
-     */
     @Import(name="secretId")
     private @Nullable Output<String> secretId;
 
-    /**
-     * @return ID of the AWS Secrets Manager secret to tag.
-     * 
-     */
     public Optional<Output<String>> secretId() {
         return Optional.ofNullable(this.secretId);
     }
 
-    /**
-     * Tag value.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -102,86 +70,38 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
             $ = new TagState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Tag name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Tag name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param secretId ID of the AWS Secrets Manager secret to tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(@Nullable Output<String> secretId) {
             $.secretId = secretId;
             return this;
         }
 
-        /**
-         * @param secretId ID of the AWS Secrets Manager secret to tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             return secretId(Output.of(secretId));
         }
 
-        /**
-         * @param value Tag value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Tag value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

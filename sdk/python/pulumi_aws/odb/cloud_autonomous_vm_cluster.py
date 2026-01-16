@@ -44,8 +44,6 @@ class CloudAutonomousVmClusterArgs:
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] description: The description of the Autonomous VM cluster.
         :param pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs'] maintenance_window: The maintenance window of the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "autonomous_data_storage_size_in_tbs", autonomous_data_storage_size_in_tbs)
         pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
@@ -212,9 +210,6 @@ class CloudAutonomousVmClusterArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -224,9 +219,6 @@ class CloudAutonomousVmClusterArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -309,11 +301,10 @@ class _CloudAutonomousVmClusterState:
                  total_container_databases: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CloudAutonomousVmCluster resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_percentage: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.float] available_autonomous_data_storage_size_in_tbs: The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
         :param pulumi.Input[_builtins.int] available_container_databases: The number of Autonomous CDBs that you can create with the currently available storage.
-        :param pulumi.Input[_builtins.float] available_cpus: The number of CPU cores available for allocation to Autonomous Databases.
+        :param pulumi.Input[_builtins.float] available_cpus: The number of CPU cores available for allocation to Autonomous Databases
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous VM cluster: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_core_count: The total number of CPU cores in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
@@ -333,21 +324,17 @@ class _CloudAutonomousVmClusterState:
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor associated with this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] oci_url: The URL for accessing the OCI console page for this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] ocid: The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.int] odb_node_storage_size_in_gbs: The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        :param pulumi.Input[_builtins.int] odb_node_storage_size_in_gbs: The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
         :param pulumi.Input[_builtins.float] percent_progress: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.int] provisionable_autonomous_container_databases: The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] provisioned_autonomous_container_databases: The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.float] provisioned_cpus: The number of CPUs provisioned in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.float] reclaimable_cpus: The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.float] reserved_cpus: The number of CPU cores reserved for system operations and redundancy.
         :param pulumi.Input[_builtins.str] shape: The shape of the Exadata infrastructure for the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.str] status: The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+        :param pulumi.Input[_builtins.str] status: The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the Autonomous VM cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: The combined set of user-defined and provider-defined tags.
         :param pulumi.Input[_builtins.str] time_database_ssl_certificate_expires: The expiration date and time of the database SSL certificate.
-        :param pulumi.Input[_builtins.str] time_ords_certificate_expires: The expiration date and time of the ORDS certificate.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -457,9 +444,6 @@ class _CloudAutonomousVmClusterState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -515,7 +499,7 @@ class _CloudAutonomousVmClusterState:
     @pulumi.getter(name="availableCpus")
     def available_cpus(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The number of CPU cores available for allocation to Autonomous Databases.
+        The number of CPU cores available for allocation to Autonomous Databases
         """
         return pulumi.get(self, "available_cpus")
 
@@ -818,7 +802,7 @@ class _CloudAutonomousVmClusterState:
     @pulumi.getter(name="odbNodeStorageSizeInGbs")
     def odb_node_storage_size_in_gbs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
         """
         return pulumi.get(self, "odb_node_storage_size_in_gbs")
 
@@ -889,9 +873,6 @@ class _CloudAutonomousVmClusterState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -944,7 +925,7 @@ class _CloudAutonomousVmClusterState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+        The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
         """
         return pulumi.get(self, "status")
 
@@ -967,9 +948,6 @@ class _CloudAutonomousVmClusterState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -979,9 +957,6 @@ class _CloudAutonomousVmClusterState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        The combined set of user-defined and provider-defined tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1003,9 +978,6 @@ class _CloudAutonomousVmClusterState:
     @_builtins.property
     @pulumi.getter(name="timeOrdsCertificateExpires")
     def time_ords_certificate_expires(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The expiration date and time of the ORDS certificate.
-        """
         return pulumi.get(self, "time_ords_certificate_expires")
 
     @time_ords_certificate_expires.setter
@@ -1066,104 +1038,12 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  total_container_databases: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Resource managing cloud autonomous vm cluster in AWS for Oracle Database@AWS.
-
-        You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        avmc_with_minimum_parameters = aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=5,
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=["<my_db_server_id>"],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
-            maintenance_window={
-                "preference": "NO_PREFERENCE",
-            })
-        avmc_with_all_params = aws.odb.CloudAutonomousVmCluster("avmc_with_all_params",
-            description="my first avmc",
-            time_zone="UTC",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=5,
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=[
-                "<my_db_server_1>",
-                "<my_db_server_2>",
-            ],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
-            maintenance_window={
-                "days_of_weeks": [
-                    {
-                        "name": "MONDAY",
-                    },
-                    {
-                        "name": "TUESDAY",
-                    },
-                ],
-                "hours_of_days": [
-                    4,
-                    16,
-                ],
-                "lead_time_in_weeks": 3,
-                "months": [
-                    {
-                        "name": "FEBRUARY",
-                    },
-                    {
-                        "name": "MAY",
-                    },
-                    {
-                        "name": "AUGUST",
-                    },
-                    {
-                        "name": "NOVEMBER",
-                    },
-                ],
-                "preference": "CUSTOM_PREFERENCE",
-                "weeks_of_months": [
-                    2,
-                    4,
-                ],
-            },
-            tags={
-                "env": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import cloud autonomous vm cluster `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
-        ```
-
+        Create a CloudAutonomousVmCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] description: The description of the Autonomous VM cluster.
         :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']] maintenance_window: The maintenance window of the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -1172,97 +1052,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  args: CloudAutonomousVmClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource managing cloud autonomous vm cluster in AWS for Oracle Database@AWS.
-
-        You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        avmc_with_minimum_parameters = aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=5,
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=["<my_db_server_id>"],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
-            maintenance_window={
-                "preference": "NO_PREFERENCE",
-            })
-        avmc_with_all_params = aws.odb.CloudAutonomousVmCluster("avmc_with_all_params",
-            description="my first avmc",
-            time_zone="UTC",
-            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
-            odb_network_id="<aws_odb_network_id>",
-            display_name="my_autonomous_vm_cluster",
-            autonomous_data_storage_size_in_tbs=5,
-            memory_per_oracle_compute_unit_in_gbs=2,
-            total_container_databases=1,
-            cpu_core_count_per_node=40,
-            license_model="LICENSE_INCLUDED",
-            db_servers=[
-                "<my_db_server_1>",
-                "<my_db_server_2>",
-            ],
-            scan_listener_port_tls=8561,
-            scan_listener_port_non_tls=1024,
-            maintenance_window={
-                "days_of_weeks": [
-                    {
-                        "name": "MONDAY",
-                    },
-                    {
-                        "name": "TUESDAY",
-                    },
-                ],
-                "hours_of_days": [
-                    4,
-                    16,
-                ],
-                "lead_time_in_weeks": 3,
-                "months": [
-                    {
-                        "name": "FEBRUARY",
-                    },
-                    {
-                        "name": "MAY",
-                    },
-                    {
-                        "name": "AUGUST",
-                    },
-                    {
-                        "name": "NOVEMBER",
-                    },
-                ],
-                "preference": "CUSTOM_PREFERENCE",
-                "weeks_of_months": [
-                    2,
-                    4,
-                ],
-            },
-            tags={
-                "env": "dev",
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import cloud autonomous vm cluster `id`. For example:
-
-        ```sh
-        $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
-        ```
-
+        Create a CloudAutonomousVmCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CloudAutonomousVmClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1446,11 +1236,10 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_percentage: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.float] available_autonomous_data_storage_size_in_tbs: The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
         :param pulumi.Input[_builtins.int] available_container_databases: The number of Autonomous CDBs that you can create with the currently available storage.
-        :param pulumi.Input[_builtins.float] available_cpus: The number of CPU cores available for allocation to Autonomous Databases.
+        :param pulumi.Input[_builtins.float] available_cpus: The number of CPU cores available for allocation to Autonomous Databases
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous VM cluster: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_core_count: The total number of CPU cores in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
@@ -1470,21 +1259,17 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor associated with this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] oci_url: The URL for accessing the OCI console page for this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] ocid: The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.int] odb_node_storage_size_in_gbs: The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        :param pulumi.Input[_builtins.int] odb_node_storage_size_in_gbs: The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
         :param pulumi.Input[_builtins.float] percent_progress: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.int] provisionable_autonomous_container_databases: The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] provisioned_autonomous_container_databases: The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.float] provisioned_cpus: The number of CPUs provisioned in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.float] reclaimable_cpus: The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.float] reserved_cpus: The number of CPU cores reserved for system operations and redundancy.
         :param pulumi.Input[_builtins.str] shape: The shape of the Exadata infrastructure for the Autonomous VM cluster.
-        :param pulumi.Input[_builtins.str] status: The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+        :param pulumi.Input[_builtins.str] status: The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the Autonomous VM cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: The combined set of user-defined and provider-defined tags.
         :param pulumi.Input[_builtins.str] time_database_ssl_certificate_expires: The expiration date and time of the database SSL certificate.
-        :param pulumi.Input[_builtins.str] time_ords_certificate_expires: The expiration date and time of the ORDS certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1547,9 +1332,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) for the Exadata infrastructure.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -1585,7 +1367,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="availableCpus")
     def available_cpus(self) -> pulumi.Output[_builtins.float]:
         """
-        The number of CPU cores available for allocation to Autonomous Databases.
+        The number of CPU cores available for allocation to Autonomous Databases
         """
         return pulumi.get(self, "available_cpus")
 
@@ -1780,7 +1562,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="odbNodeStorageSizeInGbs")
     def odb_node_storage_size_in_gbs(self) -> pulumi.Output[_builtins.int]:
         """
-        The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
         """
         return pulumi.get(self, "odb_node_storage_size_in_gbs")
 
@@ -1827,9 +1609,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
@@ -1862,7 +1641,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+        The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED
         """
         return pulumi.get(self, "status")
 
@@ -1877,17 +1656,11 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        The combined set of user-defined and provider-defined tags.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1901,9 +1674,6 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="timeOrdsCertificateExpires")
     def time_ords_certificate_expires(self) -> pulumi.Output[_builtins.str]:
-        """
-        The expiration date and time of the ORDS certificate.
-        """
         return pulumi.get(self, "time_ords_certificate_expires")
 
     @_builtins.property

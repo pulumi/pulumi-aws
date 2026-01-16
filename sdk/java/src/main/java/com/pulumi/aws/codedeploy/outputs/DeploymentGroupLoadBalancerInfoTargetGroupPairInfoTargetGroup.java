@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
-    /**
-     * @return Name of the target group.
-     * 
-     */
     private String name;
 
     private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup() {}
-    /**
-     * @return Name of the target group.
-     * 
-     */
     public String name() {
         return this.name;
     }

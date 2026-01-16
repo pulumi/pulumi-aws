@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification
     {
-        /// <summary>
-        /// Whether the user can interrupt a speech prompt attempt from the bot.
-        /// </summary>
         public readonly bool? AllowInterrupt;
-        /// <summary>
-        /// Configuration block for the allowed input types of the prompt attempt. See `AllowedInputTypes`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes AllowedInputTypes;
-        /// <summary>
-        /// Configuration block for settings on audio and DTMF input. See `AudioAndDtmfInputSpecification`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification;
-        /// <summary>
-        /// Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-        /// </summary>
         public readonly string MapBlockKey;
-        /// <summary>
-        /// Configuration block for the settings on text input. See `TextInputSpecification`.
-        /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? TextInputSpecification;
 
         [OutputConstructor]

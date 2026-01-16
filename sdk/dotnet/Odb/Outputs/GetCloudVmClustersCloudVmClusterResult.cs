@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetCloudVmClustersCloudVmClusterResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the cloud vm cluster.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The ID of the Cloud Exadata Infrastructure.
-        /// </summary>
         public readonly string CloudExadataInfrastructureId;
-        /// <summary>
-        /// The display name of the VM cluster.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// The unique identifier of the cloud vm cluster.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the OCI Resource Anchor.
-        /// </summary>
         public readonly string OciResourceAnchorName;
-        /// <summary>
-        /// The HTTPS link to the VM cluster in OCI.
-        /// </summary>
         public readonly string OciUrl;
-        /// <summary>
-        /// The OCID of the VM cluster.
-        /// </summary>
         public readonly string Ocid;
-        /// <summary>
-        /// The ID of the ODB network.
-        /// </summary>
         public readonly string OdbNetworkId;
 
         [OutputConstructor]

@@ -18,177 +18,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Agents for Amazon Bedrock Data Source.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentDataSource;
- * import com.pulumi.aws.bedrock.AgentDataSourceArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
- *             .knowledgeBaseId("EMDPPAYPZI")
- *             .name("example")
- *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
- *                 .type("S3")
- *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketArn("arn:aws:s3:::example-bucket")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ## Import
- * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
- * 
- * ```sh
- * $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
- * ```
- * 
- */
 @ResourceType(type="aws:bedrock/agentDataSource:AgentDataSource")
 public class AgentDataSource extends com.pulumi.resources.CustomResource {
-    /**
-     * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-     * 
-     */
     @Export(name="dataDeletionPolicy", refs={String.class}, tree="[0]")
     private Output<String> dataDeletionPolicy;
 
-    /**
-     * @return Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-     * 
-     */
     public Output<String> dataDeletionPolicy() {
         return this.dataDeletionPolicy;
     }
-    /**
-     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-     * 
-     */
     @Export(name="dataSourceConfiguration", refs={AgentDataSourceDataSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentDataSourceDataSourceConfiguration> dataSourceConfiguration;
 
-    /**
-     * @return Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-     * 
-     */
     public Output<Optional<AgentDataSourceDataSourceConfiguration>> dataSourceConfiguration() {
         return Codegen.optional(this.dataSourceConfiguration);
     }
-    /**
-     * Unique identifier of the data source.
-     * 
-     */
     @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
-    /**
-     * @return Unique identifier of the data source.
-     * 
-     */
     public Output<String> dataSourceId() {
         return this.dataSourceId;
     }
-    /**
-     * Description of the data source.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the data source.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Unique identifier of the knowledge base to which the data source belongs.
-     * 
-     */
     @Export(name="knowledgeBaseId", refs={String.class}, tree="[0]")
     private Output<String> knowledgeBaseId;
 
-    /**
-     * @return Unique identifier of the knowledge base to which the data source belongs.
-     * 
-     */
     public Output<String> knowledgeBaseId() {
         return this.knowledgeBaseId;
     }
-    /**
-     * Name of the data source.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the data source.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
-    /**
-     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
-     * 
-     */
     @Export(name="serverSideEncryptionConfiguration", refs={AgentDataSourceServerSideEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentDataSourceServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
-    /**
-     * @return Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
-     * 
-     */
     public Output<Optional<AgentDataSourceServerSideEncryptionConfiguration>> serverSideEncryptionConfiguration() {
         return Codegen.optional(this.serverSideEncryptionConfiguration);
     }
@@ -198,17 +74,9 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
     public Output<Optional<AgentDataSourceTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-     * 
-     */
     @Export(name="vectorIngestionConfiguration", refs={AgentDataSourceVectorIngestionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentDataSourceVectorIngestionConfiguration> vectorIngestionConfiguration;
 
-    /**
-     * @return Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
-     * 
-     */
     public Output<Optional<AgentDataSourceVectorIngestionConfiguration>> vectorIngestionConfiguration() {
         return Codegen.optional(this.vectorIngestionConfiguration);
     }

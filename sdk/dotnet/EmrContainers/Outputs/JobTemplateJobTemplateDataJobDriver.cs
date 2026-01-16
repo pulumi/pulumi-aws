@@ -13,13 +13,7 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class JobTemplateJobTemplateDataJobDriver
     {
-        /// <summary>
-        /// The job driver for job type.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver? SparkSqlJobDriver;
-        /// <summary>
-        /// The job driver parameters specified for spark submit.
-        /// </summary>
         public readonly Outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver? SparkSubmitJobDriver;
 
         [OutputConstructor]

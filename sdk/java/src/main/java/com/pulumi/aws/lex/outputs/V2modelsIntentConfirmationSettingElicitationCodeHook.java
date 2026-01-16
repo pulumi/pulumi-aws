@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingElicitationCodeHook {
-    /**
-     * @return Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     private @Nullable Boolean enableCodeHookInvocation;
-    /**
-     * @return Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     private @Nullable String invocationLabel;
 
     private V2modelsIntentConfirmationSettingElicitationCodeHook() {}
-    /**
-     * @return Whether a Lambda function should be invoked for the dialog.
-     * 
-     */
     public Optional<Boolean> enableCodeHookInvocation() {
         return Optional.ofNullable(this.enableCodeHookInvocation);
     }
-    /**
-     * @return Label that indicates the dialog step from which the dialog code hook is happening.
-     * 
-     */
     public Optional<String> invocationLabel() {
         return Optional.ofNullable(this.invocationLabel);
     }

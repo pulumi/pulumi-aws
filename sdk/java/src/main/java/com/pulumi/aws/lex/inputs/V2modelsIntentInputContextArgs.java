@@ -14,17 +14,9 @@ public final class V2modelsIntentInputContextArgs extends com.pulumi.resources.R
 
     public static final V2modelsIntentInputContextArgs Empty = new V2modelsIntentInputContextArgs();
 
-    /**
-     * Name of the context.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the context.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,23 +45,11 @@ public final class V2modelsIntentInputContextArgs extends com.pulumi.resources.R
             $ = new V2modelsIntentInputContextArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the context.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

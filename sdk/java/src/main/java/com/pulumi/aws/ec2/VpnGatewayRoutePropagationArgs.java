@@ -16,47 +16,23 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
 
     public static final VpnGatewayRoutePropagationArgs Empty = new VpnGatewayRoutePropagationArgs();
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
-     * 
-     */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
-    /**
-     * @return The id of the `aws.ec2.RouteTable` to propagate routes into.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
 
-    /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
-     * 
-     */
     @Import(name="vpnGatewayId", required=true)
     private Output<String> vpnGatewayId;
 
-    /**
-     * @return The id of the `aws.ec2.VpnGateway` to propagate routes from.
-     * 
-     */
     public Output<String> vpnGatewayId() {
         return this.vpnGatewayId;
     }
@@ -87,65 +63,29 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
             $ = new VpnGatewayRoutePropagationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param routeTableId The id of the `aws.ec2.RouteTable` to propagate routes into.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
-        /**
-         * @param routeTableId The id of the `aws.ec2.RouteTable` to propagate routes into.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }
 
-        /**
-         * @param vpnGatewayId The id of the `aws.ec2.VpnGateway` to propagate routes from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(Output<String> vpnGatewayId) {
             $.vpnGatewayId = vpnGatewayId;
             return this;
         }
 
-        /**
-         * @param vpnGatewayId The id of the `aws.ec2.VpnGateway` to propagate routes from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(String vpnGatewayId) {
             return vpnGatewayId(Output.of(vpnGatewayId));
         }

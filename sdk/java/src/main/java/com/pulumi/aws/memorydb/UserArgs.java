@@ -18,81 +18,37 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserArgs Empty = new UserArgs();
 
-    /**
-     * Access permissions string used for this user.
-     * 
-     */
     @Import(name="accessString", required=true)
     private Output<String> accessString;
 
-    /**
-     * @return Access permissions string used for this user.
-     * 
-     */
     public Output<String> accessString() {
         return this.accessString;
     }
 
-    /**
-     * Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     @Import(name="authenticationMode", required=true)
     private Output<UserAuthenticationModeArgs> authenticationMode;
 
-    /**
-     * @return Denotes the user&#39;s authentication properties. Detailed below.
-     * 
-     */
     public Output<UserAuthenticationModeArgs> authenticationMode() {
         return this.authenticationMode;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the MemoryDB user. Up to 40 characters.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
-    /**
-     * @return Name of the MemoryDB user. Up to 40 characters.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -125,111 +81,47 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessString Access permissions string used for this user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(Output<String> accessString) {
             $.accessString = accessString;
             return this;
         }
 
-        /**
-         * @param accessString Access permissions string used for this user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessString(String accessString) {
             return accessString(Output.of(accessString));
         }
 
-        /**
-         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMode(Output<UserAuthenticationModeArgs> authenticationMode) {
             $.authenticationMode = authenticationMode;
             return this;
         }
 
-        /**
-         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationMode(UserAuthenticationModeArgs authenticationMode) {
             return authenticationMode(Output.of(authenticationMode));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param userName Name of the MemoryDB user. Up to 40 characters.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName Name of the MemoryDB user. Up to 40 characters.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

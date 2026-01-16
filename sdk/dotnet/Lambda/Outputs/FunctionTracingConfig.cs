@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionTracingConfig
     {
-        /// <summary>
-        /// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
-        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration {
-    /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat chat;
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration() {}
-    /**
-     * @return Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
-     * 
-     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat> chat() {
         return Optional.ofNullable(this.chat);
     }

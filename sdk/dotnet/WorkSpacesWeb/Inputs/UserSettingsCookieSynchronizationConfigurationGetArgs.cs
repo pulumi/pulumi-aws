@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
     {
         [Input("allowlists")]
         private InputList<Inputs.UserSettingsCookieSynchronizationConfigurationAllowlistGetArgs>? _allowlists;
-
-        /// <summary>
-        /// List of cookie specifications that are allowed to be synchronized to the remote browser.
-        /// </summary>
         public InputList<Inputs.UserSettingsCookieSynchronizationConfigurationAllowlistGetArgs> Allowlists
         {
             get => _allowlists ?? (_allowlists = new InputList<Inputs.UserSettingsCookieSynchronizationConfigurationAllowlistGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
 
         [Input("blocklists")]
         private InputList<Inputs.UserSettingsCookieSynchronizationConfigurationBlocklistGetArgs>? _blocklists;
-
-        /// <summary>
-        /// List of cookie specifications that are blocked from being synchronized to the remote browser.
-        /// </summary>
         public InputList<Inputs.UserSettingsCookieSynchronizationConfigurationBlocklistGetArgs> Blocklists
         {
             get => _blocklists ?? (_blocklists = new InputList<Inputs.UserSettingsCookieSynchronizationConfigurationBlocklistGetArgs>());

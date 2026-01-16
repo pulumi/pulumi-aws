@@ -17,32 +17,16 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
 
     public static final AppAuthorizationCredentialArgs Empty = new AppAuthorizationCredentialArgs();
 
-    /**
-     * Contains API key credential information.
-     * 
-     */
     @Import(name="apiKeyCredentials")
     private @Nullable Output<List<AppAuthorizationCredentialApiKeyCredentialArgs>> apiKeyCredentials;
 
-    /**
-     * @return Contains API key credential information.
-     * 
-     */
     public Optional<Output<List<AppAuthorizationCredentialApiKeyCredentialArgs>>> apiKeyCredentials() {
         return Optional.ofNullable(this.apiKeyCredentials);
     }
 
-    /**
-     * Contains OAuth2 client credential information.
-     * 
-     */
     @Import(name="oauth2Credential")
     private @Nullable Output<AppAuthorizationCredentialOauth2CredentialArgs> oauth2Credential;
 
-    /**
-     * @return Contains OAuth2 client credential information.
-     * 
-     */
     public Optional<Output<AppAuthorizationCredentialOauth2CredentialArgs>> oauth2Credential() {
         return Optional.ofNullable(this.oauth2Credential);
     }
@@ -72,54 +56,24 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
             $ = new AppAuthorizationCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKeyCredentials Contains API key credential information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyCredentials(@Nullable Output<List<AppAuthorizationCredentialApiKeyCredentialArgs>> apiKeyCredentials) {
             $.apiKeyCredentials = apiKeyCredentials;
             return this;
         }
 
-        /**
-         * @param apiKeyCredentials Contains API key credential information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyCredentials(List<AppAuthorizationCredentialApiKeyCredentialArgs> apiKeyCredentials) {
             return apiKeyCredentials(Output.of(apiKeyCredentials));
         }
 
-        /**
-         * @param apiKeyCredentials Contains API key credential information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKeyCredentials(AppAuthorizationCredentialApiKeyCredentialArgs... apiKeyCredentials) {
             return apiKeyCredentials(List.of(apiKeyCredentials));
         }
 
-        /**
-         * @param oauth2Credential Contains OAuth2 client credential information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2Credential(@Nullable Output<AppAuthorizationCredentialOauth2CredentialArgs> oauth2Credential) {
             $.oauth2Credential = oauth2Credential;
             return this;
         }
 
-        /**
-         * @param oauth2Credential Contains OAuth2 client credential information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2Credential(AppAuthorizationCredentialOauth2CredentialArgs oauth2Credential) {
             return oauth2Credential(Output.of(oauth2Credential));
         }

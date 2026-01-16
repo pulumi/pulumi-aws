@@ -9,171 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue
 {
-    /// <summary>
-    /// Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With description
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Description = "example",
-    ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
-    ///         Tags = 
-    ///         {
-    ///             { "hello", "world" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### With TargetTable
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
-    ///         TargetTable = new Aws.Glue.Inputs.DataQualityRulesetTargetTableArgs
-    ///         {
-    ///             DatabaseName = exampleAwsGlueCatalogDatabase.Name,
-    ///             TableName = exampleAwsGlueCatalogTable.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:glue/dataQualityRuleset:DataQualityRuleset")]
     public partial class DataQualityRuleset : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Glue Data Quality Ruleset.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The time and date that this data quality ruleset was created.
-        /// </summary>
         [Output("createdOn")]
         public Output<string> CreatedOn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the data quality ruleset.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The time and date that this data quality ruleset was created.
-        /// </summary>
         [Output("lastModifiedOn")]
         public Output<string> LastModifiedOn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the data quality ruleset.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-        /// </summary>
         [Output("recommendationRunId")]
         public Output<string> RecommendationRunId { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
-        /// </summary>
         [Output("ruleset")]
         public Output<string> Ruleset { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// A Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` below.
-        /// </summary>
         [Output("targetTable")]
         public Output<Outputs.DataQualityRulesetTargetTable?> TargetTable { get; private set; } = null!;
 
@@ -223,45 +91,26 @@ namespace Pulumi.Aws.Glue
 
     public sealed class DataQualityRulesetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the data quality ruleset.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the data quality ruleset.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
-        /// </summary>
         [Input("ruleset", required: true)]
         public Input<string> Ruleset { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// A Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` below.
-        /// </summary>
         [Input("targetTable")]
         public Input<Inputs.DataQualityRulesetTargetTableArgs>? TargetTable { get; set; }
 
@@ -273,60 +122,32 @@ namespace Pulumi.Aws.Glue
 
     public sealed class DataQualityRulesetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Glue Data Quality Ruleset.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The time and date that this data quality ruleset was created.
-        /// </summary>
         [Input("createdOn")]
         public Input<string>? CreatedOn { get; set; }
 
-        /// <summary>
-        /// Description of the data quality ruleset.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The time and date that this data quality ruleset was created.
-        /// </summary>
         [Input("lastModifiedOn")]
         public Input<string>? LastModifiedOn { get; set; }
 
-        /// <summary>
-        /// Name of the data quality ruleset.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-        /// </summary>
         [Input("recommendationRunId")]
         public Input<string>? RecommendationRunId { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
-        /// </summary>
         [Input("ruleset")]
         public Input<string>? Ruleset { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -335,19 +156,12 @@ namespace Pulumi.Aws.Glue
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// A Configuration block specifying a target table associated with the data quality ruleset. See `TargetTable` below.
-        /// </summary>
         [Input("targetTable")]
         public Input<Inputs.DataQualityRulesetTargetTableGetArgs>? TargetTable { get; set; }
 

@@ -23,17 +23,9 @@ public final class EventConnectionInvocationConnectivityParametersResourceParame
         return Optional.ofNullable(this.resourceAssociationArn);
     }
 
-    /**
-     * ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-     * 
-     */
     @Import(name="resourceConfigurationArn", required=true)
     private Output<String> resourceConfigurationArn;
 
-    /**
-     * @return ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-     * 
-     */
     public Output<String> resourceConfigurationArn() {
         return this.resourceConfigurationArn;
     }
@@ -72,23 +64,11 @@ public final class EventConnectionInvocationConnectivityParametersResourceParame
             return resourceAssociationArn(Output.of(resourceAssociationArn));
         }
 
-        /**
-         * @param resourceConfigurationArn ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationArn(Output<String> resourceConfigurationArn) {
             $.resourceConfigurationArn = resourceConfigurationArn;
             return this;
         }
 
-        /**
-         * @param resourceConfigurationArn ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceConfigurationArn(String resourceConfigurationArn) {
             return resourceConfigurationArn(Output.of(resourceConfigurationArn));
         }

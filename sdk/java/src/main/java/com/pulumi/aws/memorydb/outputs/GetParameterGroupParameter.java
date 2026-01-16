@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetParameterGroupParameter {
-    /**
-     * @return Name of the parameter group.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the parameter.
-     * 
-     */
     private String value;
 
     private GetParameterGroupParameter() {}
-    /**
-     * @return Name of the parameter group.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the parameter.
-     * 
-     */
     public String value() {
         return this.value;
     }

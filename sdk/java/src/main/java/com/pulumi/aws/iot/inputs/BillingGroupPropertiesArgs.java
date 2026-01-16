@@ -15,17 +15,9 @@ public final class BillingGroupPropertiesArgs extends com.pulumi.resources.Resou
 
     public static final BillingGroupPropertiesArgs Empty = new BillingGroupPropertiesArgs();
 
-    /**
-     * A description of the Billing Group.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description of the Billing Group.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -54,23 +46,11 @@ public final class BillingGroupPropertiesArgs extends com.pulumi.resources.Resou
             $ = new BillingGroupPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description of the Billing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description of the Billing Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

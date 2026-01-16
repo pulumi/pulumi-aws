@@ -9,123 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker AI endpoint configuration resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new()
-    ///     {
-    ///         Name = "my-endpoint-config",
-    ///         ProductionVariants = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
-    ///             {
-    ///                 VariantName = "variant-1",
-    ///                 ModelName = m.Name,
-    ///                 InitialInstanceCount = 1,
-    ///                 InstanceType = "ml.t2.medium",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import endpoint configurations using the `name`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
     public partial class EndpointConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN assigned by AWS to this endpoint configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// How an endpoint performs asynchronous inference.
-        /// </summary>
         [Output("asyncInferenceConfig")]
         public Output<Outputs.EndpointConfigurationAsyncInferenceConfig?> AsyncInferenceConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        /// </summary>
         [Output("dataCaptureConfig")]
         public Output<Outputs.EndpointConfigurationDataCaptureConfig?> DataCaptureConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `ModelName` is not specified in `ProductionVariants` to support Inference Components.
-        /// </summary>
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// List each model that you want to host at this endpoint. See below.
-        /// </summary>
         [Output("productionVariants")]
         public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `OroductionVariants`. If you use this field, you can only specify one variant for `ProductionVariants` and one variant for `ShadowProductionVariants`. See below (same arguments as `ProductionVariants`).
-        /// </summary>
         [Output("shadowProductionVariants")]
         public Output<ImmutableArray<Outputs.EndpointConfigurationShadowProductionVariant>> ShadowProductionVariants { get; private set; } = null!;
 
-        /// <summary>
-        /// Mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -175,66 +94,37 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class EndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How an endpoint performs asynchronous inference.
-        /// </summary>
         [Input("asyncInferenceConfig")]
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigArgs>? AsyncInferenceConfig { get; set; }
 
-        /// <summary>
-        /// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        /// </summary>
         [Input("dataCaptureConfig")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigArgs>? DataCaptureConfig { get; set; }
 
-        /// <summary>
-        /// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `ModelName` is not specified in `ProductionVariants` to support Inference Components.
-        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         [Input("productionVariants", required: true)]
         private InputList<Inputs.EndpointConfigurationProductionVariantArgs>? _productionVariants;
-
-        /// <summary>
-        /// List each model that you want to host at this endpoint. See below.
-        /// </summary>
         public InputList<Inputs.EndpointConfigurationProductionVariantArgs> ProductionVariants
         {
             get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantArgs>());
             set => _productionVariants = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("shadowProductionVariants")]
         private InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs>? _shadowProductionVariants;
-
-        /// <summary>
-        /// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `OroductionVariants`. If you use this field, you can only specify one variant for `ProductionVariants` and one variant for `ShadowProductionVariants`. See below (same arguments as `ProductionVariants`).
-        /// </summary>
         public InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs> ShadowProductionVariants
         {
             get => _shadowProductionVariants ?? (_shadowProductionVariants = new InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs>());
@@ -243,10 +133,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -261,72 +147,40 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class EndpointConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN assigned by AWS to this endpoint configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// How an endpoint performs asynchronous inference.
-        /// </summary>
         [Input("asyncInferenceConfig")]
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigGetArgs>? AsyncInferenceConfig { get; set; }
 
-        /// <summary>
-        /// Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        /// </summary>
         [Input("dataCaptureConfig")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigGetArgs>? DataCaptureConfig { get; set; }
 
-        /// <summary>
-        /// ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `ModelName` is not specified in `ProductionVariants` to support Inference Components.
-        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `Name`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         [Input("productionVariants")]
         private InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>? _productionVariants;
-
-        /// <summary>
-        /// List each model that you want to host at this endpoint. See below.
-        /// </summary>
         public InputList<Inputs.EndpointConfigurationProductionVariantGetArgs> ProductionVariants
         {
             get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>());
             set => _productionVariants = value;
         }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("shadowProductionVariants")]
         private InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs>? _shadowProductionVariants;
-
-        /// <summary>
-        /// Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `OroductionVariants`. If you use this field, you can only specify one variant for `ProductionVariants` and one variant for `ShadowProductionVariants`. See below (same arguments as `ProductionVariants`).
-        /// </summary>
         public InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs> ShadowProductionVariants
         {
             get => _shadowProductionVariants ?? (_shadowProductionVariants = new InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs>());
@@ -335,10 +189,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -347,10 +197,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

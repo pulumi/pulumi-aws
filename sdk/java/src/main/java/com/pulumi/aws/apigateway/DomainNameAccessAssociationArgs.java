@@ -17,77 +17,37 @@ public final class DomainNameAccessAssociationArgs extends com.pulumi.resources.
 
     public static final DomainNameAccessAssociationArgs Empty = new DomainNameAccessAssociationArgs();
 
-    /**
-     * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-     * 
-     */
     @Import(name="accessAssociationSource", required=true)
     private Output<String> accessAssociationSource;
 
-    /**
-     * @return The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-     * 
-     */
     public Output<String> accessAssociationSource() {
         return this.accessAssociationSource;
     }
 
-    /**
-     * The type of the domain name access association source. Valid values are `VPCE`.
-     * 
-     */
     @Import(name="accessAssociationSourceType", required=true)
     private Output<String> accessAssociationSourceType;
 
-    /**
-     * @return The type of the domain name access association source. Valid values are `VPCE`.
-     * 
-     */
     public Output<String> accessAssociationSourceType() {
         return this.accessAssociationSourceType;
     }
 
-    /**
-     * The ARN of the domain name.
-     * 
-     */
     @Import(name="domainNameArn", required=true)
     private Output<String> domainNameArn;
 
-    /**
-     * @return The ARN of the domain name.
-     * 
-     */
     public Output<String> domainNameArn() {
         return this.domainNameArn;
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,107 +80,47 @@ public final class DomainNameAccessAssociationArgs extends com.pulumi.resources.
             $ = new DomainNameAccessAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessAssociationSource The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessAssociationSource(Output<String> accessAssociationSource) {
             $.accessAssociationSource = accessAssociationSource;
             return this;
         }
 
-        /**
-         * @param accessAssociationSource The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessAssociationSource(String accessAssociationSource) {
             return accessAssociationSource(Output.of(accessAssociationSource));
         }
 
-        /**
-         * @param accessAssociationSourceType The type of the domain name access association source. Valid values are `VPCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessAssociationSourceType(Output<String> accessAssociationSourceType) {
             $.accessAssociationSourceType = accessAssociationSourceType;
             return this;
         }
 
-        /**
-         * @param accessAssociationSourceType The type of the domain name access association source. Valid values are `VPCE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessAssociationSourceType(String accessAssociationSourceType) {
             return accessAssociationSourceType(Output.of(accessAssociationSourceType));
         }
 
-        /**
-         * @param domainNameArn The ARN of the domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameArn(Output<String> domainNameArn) {
             $.domainNameArn = domainNameArn;
             return this;
         }
 
-        /**
-         * @param domainNameArn The ARN of the domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainNameArn(String domainNameArn) {
             return domainNameArn(Output.of(domainNameArn));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

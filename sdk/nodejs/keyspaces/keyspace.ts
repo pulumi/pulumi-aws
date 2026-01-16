@@ -7,28 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Keyspaces Keyspace.
- *
- * More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.keyspaces.Keyspace("example", {name: "my_keyspace"});
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import a keyspace using the `name`. For example:
- *
- * ```sh
- * $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
- * ```
- */
 export class Keyspace extends pulumi.CustomResource {
     /**
      * Get an existing Keyspace resource's state with the given name, ID, and optional extra
@@ -57,29 +35,11 @@ export class Keyspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Keyspace.__pulumiType;
     }
 
-    /**
-     * The ARN of the keyspace.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the keyspace to be created.
-     */
     declare public readonly name: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     declare public readonly region: pulumi.Output<string>;
-    /**
-     * The replication specification of the keyspace.
-     */
     declare public readonly replicationSpecification: pulumi.Output<outputs.keyspaces.KeyspaceReplicationSpecification>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -119,29 +79,11 @@ export class Keyspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Keyspace resources.
  */
 export interface KeyspaceState {
-    /**
-     * The ARN of the keyspace.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the keyspace to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The replication specification of the keyspace.
-     */
     replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -149,20 +91,8 @@ export interface KeyspaceState {
  * The set of arguments for constructing a Keyspace resource.
  */
 export interface KeyspaceArgs {
-    /**
-     * The name of the keyspace to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The replication specification of the keyspace.
-     */
     replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

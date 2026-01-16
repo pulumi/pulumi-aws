@@ -15,17 +15,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs();
 
-    /**
-     * Defines a custom response for the web request. See `customResponse` below for details.
-     * 
-     */
     @Import(name="customResponse")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs> customResponse;
 
-    /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs>> customResponse() {
         return Optional.ofNullable(this.customResponse);
     }
@@ -54,23 +46,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             $ = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customResponse Defines a custom response for the web request. See `customResponse` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponse(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs> customResponse) {
             $.customResponse = customResponse;
             return this;
         }
 
-        /**
-         * @param customResponse Defines a custom response for the web request. See `customResponse` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customResponse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs customResponse) {
             return customResponse(Output.of(customResponse));
         }

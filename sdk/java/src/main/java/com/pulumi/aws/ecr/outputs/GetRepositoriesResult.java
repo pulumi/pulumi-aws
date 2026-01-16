@@ -11,30 +11,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoriesResult {
-    /**
-     * @return AWS Region.
-     * 
-     */
     private String id;
-    /**
-     * @return A list if AWS Elastic Container Registries for the region.
-     * 
-     */
     private List<String> names;
     private String region;
 
     private GetRepositoriesResult() {}
-    /**
-     * @return AWS Region.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return A list if AWS Elastic Container Registries for the region.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineTriggerAllGitConfiguration {
-    /**
-     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-     * 
-     */
     private @Nullable List<PipelineTriggerAllGitConfigurationPullRequest> pullRequests;
-    /**
-     * @return The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-     * 
-     */
     private @Nullable List<PipelineTriggerAllGitConfigurationPush> pushes;
-    /**
-     * @return The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-     * 
-     */
     private @Nullable String sourceActionName;
 
     private PipelineTriggerAllGitConfiguration() {}
-    /**
-     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
-     * 
-     */
     public List<PipelineTriggerAllGitConfigurationPullRequest> pullRequests() {
         return this.pullRequests == null ? List.of() : this.pullRequests;
     }
-    /**
-     * @return The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
-     * 
-     */
     public List<PipelineTriggerAllGitConfigurationPush> pushes() {
         return this.pushes == null ? List.of() : this.pushes;
     }
-    /**
-     * @return The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
-     * 
-     */
     public Optional<String> sourceActionName() {
         return Optional.ofNullable(this.sourceActionName);
     }

@@ -16,62 +16,30 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
 
     public static final DataSetRowLevelPermissionTagConfigurationTagRuleArgs Empty = new DataSetRowLevelPermissionTagConfigurationTagRuleArgs();
 
-    /**
-     * Column name that a tag key is assigned to.
-     * 
-     */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
-    /**
-     * @return Column name that a tag key is assigned to.
-     * 
-     */
     public Output<String> columnName() {
         return this.columnName;
     }
 
-    /**
-     * A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-     * 
-     */
     @Import(name="matchAllValue")
     private @Nullable Output<String> matchAllValue;
 
-    /**
-     * @return A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-     * 
-     */
     public Optional<Output<String>> matchAllValue() {
         return Optional.ofNullable(this.matchAllValue);
     }
 
-    /**
-     * Unique key for a tag.
-     * 
-     */
     @Import(name="tagKey", required=true)
     private Output<String> tagKey;
 
-    /**
-     * @return Unique key for a tag.
-     * 
-     */
     public Output<String> tagKey() {
         return this.tagKey;
     }
 
-    /**
-     * A string that you want to use to delimit the values when you pass the values at run time.
-     * 
-     */
     @Import(name="tagMultiValueDelimiter")
     private @Nullable Output<String> tagMultiValueDelimiter;
 
-    /**
-     * @return A string that you want to use to delimit the values when you pass the values at run time.
-     * 
-     */
     public Optional<Output<String>> tagMultiValueDelimiter() {
         return Optional.ofNullable(this.tagMultiValueDelimiter);
     }
@@ -103,86 +71,38 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
             $ = new DataSetRowLevelPermissionTagConfigurationTagRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param columnName Column name that a tag key is assigned to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(Output<String> columnName) {
             $.columnName = columnName;
             return this;
         }
 
-        /**
-         * @param columnName Column name that a tag key is assigned to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder columnName(String columnName) {
             return columnName(Output.of(columnName));
         }
 
-        /**
-         * @param matchAllValue A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchAllValue(@Nullable Output<String> matchAllValue) {
             $.matchAllValue = matchAllValue;
             return this;
         }
 
-        /**
-         * @param matchAllValue A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matchAllValue(String matchAllValue) {
             return matchAllValue(Output.of(matchAllValue));
         }
 
-        /**
-         * @param tagKey Unique key for a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(Output<String> tagKey) {
             $.tagKey = tagKey;
             return this;
         }
 
-        /**
-         * @param tagKey Unique key for a tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagKey(String tagKey) {
             return tagKey(Output.of(tagKey));
         }
 
-        /**
-         * @param tagMultiValueDelimiter A string that you want to use to delimit the values when you pass the values at run time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMultiValueDelimiter(@Nullable Output<String> tagMultiValueDelimiter) {
             $.tagMultiValueDelimiter = tagMultiValueDelimiter;
             return this;
         }
 
-        /**
-         * @param tagMultiValueDelimiter A string that you want to use to delimit the values when you pass the values at run time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagMultiValueDelimiter(String tagMultiValueDelimiter) {
             return tagMultiValueDelimiter(Output.of(tagMultiValueDelimiter));
         }

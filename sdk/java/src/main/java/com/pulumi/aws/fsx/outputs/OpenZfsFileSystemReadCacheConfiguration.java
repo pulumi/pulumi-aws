@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OpenZfsFileSystemReadCacheConfiguration {
-    /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
-     * 
-     */
     private @Nullable Integer size;
-    /**
-     * @return Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-     * 
-     */
     private @Nullable String sizingMode;
 
     private OpenZfsFileSystemReadCacheConfiguration() {}
-    /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
-     * 
-     */
     public Optional<Integer> size() {
         return Optional.ofNullable(this.size);
     }
-    /**
-     * @return Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
-     * 
-     */
     public Optional<String> sizingMode() {
         return Optional.ofNullable(this.sizingMode);
     }

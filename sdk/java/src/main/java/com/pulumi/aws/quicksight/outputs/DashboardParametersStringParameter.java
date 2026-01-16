@@ -11,18 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardParametersStringParameter {
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     private String name;
     private List<String> values;
 
     private DashboardParametersStringParameter() {}
-    /**
-     * @return Display name for the dashboard.
-     * 
-     */
     public String name() {
         return this.name;
     }

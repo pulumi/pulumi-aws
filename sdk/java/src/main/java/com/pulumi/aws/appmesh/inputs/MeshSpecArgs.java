@@ -16,32 +16,16 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MeshSpecArgs Empty = new MeshSpecArgs();
 
-    /**
-     * Egress filter rules for the service mesh.
-     * 
-     */
     @Import(name="egressFilter")
     private @Nullable Output<MeshSpecEgressFilterArgs> egressFilter;
 
-    /**
-     * @return Egress filter rules for the service mesh.
-     * 
-     */
     public Optional<Output<MeshSpecEgressFilterArgs>> egressFilter() {
         return Optional.ofNullable(this.egressFilter);
     }
 
-    /**
-     * The service discovery information for the service mesh.
-     * 
-     */
     @Import(name="serviceDiscovery")
     private @Nullable Output<MeshSpecServiceDiscoveryArgs> serviceDiscovery;
 
-    /**
-     * @return The service discovery information for the service mesh.
-     * 
-     */
     public Optional<Output<MeshSpecServiceDiscoveryArgs>> serviceDiscovery() {
         return Optional.ofNullable(this.serviceDiscovery);
     }
@@ -71,44 +55,20 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MeshSpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param egressFilter Egress filter rules for the service mesh.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressFilter(@Nullable Output<MeshSpecEgressFilterArgs> egressFilter) {
             $.egressFilter = egressFilter;
             return this;
         }
 
-        /**
-         * @param egressFilter Egress filter rules for the service mesh.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressFilter(MeshSpecEgressFilterArgs egressFilter) {
             return egressFilter(Output.of(egressFilter));
         }
 
-        /**
-         * @param serviceDiscovery The service discovery information for the service mesh.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceDiscovery(@Nullable Output<MeshSpecServiceDiscoveryArgs> serviceDiscovery) {
             $.serviceDiscovery = serviceDiscovery;
             return this;
         }
 
-        /**
-         * @param serviceDiscovery The service discovery information for the service mesh.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceDiscovery(MeshSpecServiceDiscoveryArgs serviceDiscovery) {
             return serviceDiscovery(Output.of(serviceDiscovery));
         }

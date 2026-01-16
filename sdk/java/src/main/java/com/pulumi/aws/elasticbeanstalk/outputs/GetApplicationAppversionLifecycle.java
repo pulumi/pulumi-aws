@@ -12,53 +12,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationAppversionLifecycle {
-    /**
-     * @return Specifies whether delete a version&#39;s source bundle from S3 when the application version is deleted.
-     * 
-     */
     private Boolean deleteSourceFromS3;
-    /**
-     * @return Number of days to retain an application version.
-     * 
-     */
     private Integer maxAgeInDays;
-    /**
-     * @return Maximum number of application versions to retain.
-     * 
-     */
     private Integer maxCount;
-    /**
-     * @return ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-     * 
-     */
     private String serviceRole;
 
     private GetApplicationAppversionLifecycle() {}
-    /**
-     * @return Specifies whether delete a version&#39;s source bundle from S3 when the application version is deleted.
-     * 
-     */
     public Boolean deleteSourceFromS3() {
         return this.deleteSourceFromS3;
     }
-    /**
-     * @return Number of days to retain an application version.
-     * 
-     */
     public Integer maxAgeInDays() {
         return this.maxAgeInDays;
     }
-    /**
-     * @return Maximum number of application versions to retain.
-     * 
-     */
     public Integer maxCount() {
         return this.maxCount;
     }
-    /**
-     * @return ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-     * 
-     */
     public String serviceRole() {
         return this.serviceRole;
     }

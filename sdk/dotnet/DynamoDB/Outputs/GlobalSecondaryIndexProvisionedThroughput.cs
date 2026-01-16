@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalSecondaryIndexProvisionedThroughput
     {
-        /// <summary>
-        /// Number of read capacity units for this index.
-        /// </summary>
         public readonly int? ReadCapacityUnits;
-        /// <summary>
-        /// Number of write capacity units for this index.
-        /// </summary>
         public readonly int? WriteCapacityUnits;
 
         [OutputConstructor]

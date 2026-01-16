@@ -9,221 +9,81 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkSpacesWeb
 {
-    /// <summary>
-    /// Resource for managing an AWS WorkSpaces Web Portal.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example-portal",
-    ///         InstanceType = "standard.regular",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Complete Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "KMS key for WorkSpaces Web Portal",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var examplePortal = new Aws.WorkSpacesWeb.Portal("example", new()
-    ///     {
-    ///         DisplayName = "example-portal",
-    ///         InstanceType = "standard.large",
-    ///         AuthenticationType = "IAM_Identity_Center",
-    ///         CustomerManagedKey = example.Arn,
-    ///         MaxConcurrentSessions = 10,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-portal" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Using `pulumi import`, import WorkSpaces Web Portal using the `portal_arn`. For example:
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:workspacesweb/portal:Portal")]
     public partial class Portal : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Additional encryption context for the customer managed key. Forces replacement if changed.
-        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
-        /// <summary>
-        /// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the browser settings to use for the portal.
-        /// </summary>
         [Output("browserSettingsArn")]
         public Output<string> BrowserSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Browser type of the portal.
-        /// </summary>
         [Output("browserType")]
         public Output<string> BrowserType { get; private set; } = null!;
 
-        /// <summary>
-        /// Creation date of the portal.
-        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the customer managed key. Forces replacement if changed.
-        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the data protection settings associated with the portal.
-        /// </summary>
         [Output("dataProtectionSettingsArn")]
         public Output<string> DataProtectionSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Display name of the portal.
-        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the IP access settings associated with the portal.
-        /// </summary>
         [Output("ipAccessSettingsArn")]
         public Output<string> IpAccessSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum number of concurrent sessions for the portal.
-        /// </summary>
         [Output("maxConcurrentSessions")]
         public Output<int> MaxConcurrentSessions { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the network settings associated with the portal.
-        /// </summary>
         [Output("networkSettingsArn")]
         public Output<string> NetworkSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the portal.
-        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Endpoint URL of the portal.
-        /// </summary>
         [Output("portalEndpoint")]
         public Output<string> PortalEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the portal.
-        /// </summary>
         [Output("portalStatus")]
         public Output<string> PortalStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// Renderer type of the portal.
-        /// </summary>
         [Output("rendererType")]
         public Output<string> RendererType { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the session logger associated with the portal.
-        /// </summary>
         [Output("sessionLoggerArn")]
         public Output<string> SessionLoggerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Reason for the current status of the portal.
-        /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.PortalTimeouts?> Timeouts { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the trust store associated with the portal.
-        /// </summary>
         [Output("trustStoreArn")]
         public Output<string> TrustStoreArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the user access logging settings associated with the portal.
-        /// </summary>
         [Output("userAccessLoggingSettingsArn")]
         public Output<string> UserAccessLoggingSettingsArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the user settings associated with the portal.
-        /// </summary>
         [Output("userSettingsArn")]
         public Output<string> UserSettingsArn { get; private set; } = null!;
 
@@ -275,64 +135,35 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Additional encryption context for the customer managed key. Forces replacement if changed.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
-        /// <summary>
-        /// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        /// <summary>
-        /// ARN of the browser settings to use for the portal.
-        /// </summary>
         [Input("browserSettingsArn")]
         public Input<string>? BrowserSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the customer managed key. Forces replacement if changed.
-        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
-        /// <summary>
-        /// Display name of the portal.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// Maximum number of concurrent sessions for the portal.
-        /// </summary>
         [Input("maxConcurrentSessions")]
         public Input<int>? MaxConcurrentSessions { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -352,130 +183,68 @@ namespace Pulumi.Aws.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
-
-        /// <summary>
-        /// Additional encryption context for the customer managed key. Forces replacement if changed.
-        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
-        /// <summary>
-        /// Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
-        /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
-        /// <summary>
-        /// ARN of the browser settings to use for the portal.
-        /// </summary>
         [Input("browserSettingsArn")]
         public Input<string>? BrowserSettingsArn { get; set; }
 
-        /// <summary>
-        /// Browser type of the portal.
-        /// </summary>
         [Input("browserType")]
         public Input<string>? BrowserType { get; set; }
 
-        /// <summary>
-        /// Creation date of the portal.
-        /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
-        /// <summary>
-        /// ARN of the customer managed key. Forces replacement if changed.
-        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
-        /// <summary>
-        /// ARN of the data protection settings associated with the portal.
-        /// </summary>
         [Input("dataProtectionSettingsArn")]
         public Input<string>? DataProtectionSettingsArn { get; set; }
 
-        /// <summary>
-        /// Display name of the portal.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// ARN of the IP access settings associated with the portal.
-        /// </summary>
         [Input("ipAccessSettingsArn")]
         public Input<string>? IpAccessSettingsArn { get; set; }
 
-        /// <summary>
-        /// Maximum number of concurrent sessions for the portal.
-        /// </summary>
         [Input("maxConcurrentSessions")]
         public Input<int>? MaxConcurrentSessions { get; set; }
 
-        /// <summary>
-        /// ARN of the network settings associated with the portal.
-        /// </summary>
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the portal.
-        /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
 
-        /// <summary>
-        /// Endpoint URL of the portal.
-        /// </summary>
         [Input("portalEndpoint")]
         public Input<string>? PortalEndpoint { get; set; }
 
-        /// <summary>
-        /// Status of the portal.
-        /// </summary>
         [Input("portalStatus")]
         public Input<string>? PortalStatus { get; set; }
 
-        /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// Renderer type of the portal.
-        /// </summary>
         [Input("rendererType")]
         public Input<string>? RendererType { get; set; }
 
-        /// <summary>
-        /// ARN of the session logger associated with the portal.
-        /// </summary>
         [Input("sessionLoggerArn")]
         public Input<string>? SessionLoggerArn { get; set; }
 
-        /// <summary>
-        /// Reason for the current status of the portal.
-        /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -484,10 +253,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -497,21 +262,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
         [Input("timeouts")]
         public Input<Inputs.PortalTimeoutsGetArgs>? Timeouts { get; set; }
 
-        /// <summary>
-        /// ARN of the trust store associated with the portal.
-        /// </summary>
         [Input("trustStoreArn")]
         public Input<string>? TrustStoreArn { get; set; }
 
-        /// <summary>
-        /// ARN of the user access logging settings associated with the portal.
-        /// </summary>
         [Input("userAccessLoggingSettingsArn")]
         public Input<string>? UserAccessLoggingSettingsArn { get; set; }
 
-        /// <summary>
-        /// ARN of the user settings associated with the portal.
-        /// </summary>
         [Input("userSettingsArn")]
         public Input<string>? UserSettingsArn { get; set; }
 

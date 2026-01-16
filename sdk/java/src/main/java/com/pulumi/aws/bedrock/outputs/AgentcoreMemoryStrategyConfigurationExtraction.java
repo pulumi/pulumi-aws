@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreMemoryStrategyConfigurationExtraction {
-    /**
-     * @return Additional text to append to the model prompt for extraction processing.
-     * 
-     */
     private String appendToPrompt;
-    /**
-     * @return ID of the foundation model to use for extraction processing.
-     * 
-     */
     private String modelId;
 
     private AgentcoreMemoryStrategyConfigurationExtraction() {}
-    /**
-     * @return Additional text to append to the model prompt for extraction processing.
-     * 
-     */
     public String appendToPrompt() {
         return this.appendToPrompt;
     }
-    /**
-     * @return ID of the foundation model to use for extraction processing.
-     * 
-     */
     public String modelId() {
         return this.modelId;
     }

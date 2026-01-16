@@ -15,17 +15,9 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs();
 
-    /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-     * 
-     */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
-    /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-     * 
-     */
     public Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
         return this.insertHeaders;
     }
@@ -54,33 +46,15 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             $ = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs> insertHeaders) {
             return insertHeaders(Output.of(insertHeaders));
         }
 
-        /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insertHeaders(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs... insertHeaders) {
             return insertHeaders(List.of(insertHeaders));
         }

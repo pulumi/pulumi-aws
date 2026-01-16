@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class AssessmentScopeAwsService
     {
-        /// <summary>
-        /// Name of the Amazon Web Service.
-        /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]

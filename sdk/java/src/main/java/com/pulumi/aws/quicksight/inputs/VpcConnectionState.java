@@ -18,32 +18,16 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
 
     public static final VpcConnectionState Empty = new VpcConnectionState();
 
-    /**
-     * ARN of the VPC connection.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the VPC connection.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-     * 
-     */
     @Import(name="availabilityStatus")
     private @Nullable Output<String> availabilityStatus;
 
-    /**
-     * @return The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-     * 
-     */
     public Optional<Output<String>> availabilityStatus() {
         return Optional.ofNullable(this.availabilityStatus);
     }
@@ -55,126 +39,58 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.awsAccountId);
     }
 
-    /**
-     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     * 
-     */
     @Import(name="dnsResolvers")
     private @Nullable Output<List<String>> dnsResolvers;
 
-    /**
-     * @return A list of IP addresses of DNS resolver endpoints for the VPC connection.
-     * 
-     */
     public Optional<Output<List<String>>> dnsResolvers() {
         return Optional.ofNullable(this.dnsResolvers);
     }
 
-    /**
-     * The display name for the VPC connection.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The display name for the VPC connection.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * The IAM role to associate with the VPC connection.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The IAM role to associate with the VPC connection.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
-    /**
-     * A list of security group IDs for the VPC connection.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return A list of security group IDs for the VPC connection.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of subnet IDs for the VPC connection.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -186,17 +102,9 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * The ID of the VPC connection.
-     * 
-     */
     @Import(name="vpcConnectionId")
     private @Nullable Output<String> vpcConnectionId;
 
-    /**
-     * @return The ID of the VPC connection.
-     * 
-     */
     public Optional<Output<String>> vpcConnectionId() {
         return Optional.ofNullable(this.vpcConnectionId);
     }
@@ -237,44 +145,20 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
             $ = new VpcConnectionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param availabilityStatus The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityStatus(@Nullable Output<String> availabilityStatus) {
             $.availabilityStatus = availabilityStatus;
             return this;
         }
 
-        /**
-         * @param availabilityStatus The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder availabilityStatus(String availabilityStatus) {
             return availabilityStatus(Output.of(availabilityStatus));
         }
@@ -288,206 +172,86 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
             return awsAccountId(Output.of(awsAccountId));
         }
 
-        /**
-         * @param dnsResolvers A list of IP addresses of DNS resolver endpoints for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsResolvers(@Nullable Output<List<String>> dnsResolvers) {
             $.dnsResolvers = dnsResolvers;
             return this;
         }
 
-        /**
-         * @param dnsResolvers A list of IP addresses of DNS resolver endpoints for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsResolvers(List<String> dnsResolvers) {
             return dnsResolvers(Output.of(dnsResolvers));
         }
 
-        /**
-         * @param dnsResolvers A list of IP addresses of DNS resolver endpoints for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsResolvers(String... dnsResolvers) {
             return dnsResolvers(List.of(dnsResolvers));
         }
 
-        /**
-         * @param name The display name for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The display name for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param roleArn The IAM role to associate with the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM role to associate with the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param securityGroupIds A list of security group IDs for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds A list of security group IDs for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds A list of security group IDs for the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs for the VPC connection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs for the VPC connection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds A list of subnet IDs for the VPC connection.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -501,23 +265,11 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param vpcConnectionId The ID of the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConnectionId(@Nullable Output<String> vpcConnectionId) {
             $.vpcConnectionId = vpcConnectionId;
             return this;
         }
 
-        /**
-         * @param vpcConnectionId The ID of the VPC connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConnectionId(String vpcConnectionId) {
             return vpcConnectionId(Output.of(vpcConnectionId));
         }

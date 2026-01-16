@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings
     {
-        /// <summary>
-        /// The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
-        /// </summary>
         public readonly int? IdleTimeoutInMinutes;
-        /// <summary>
-        /// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
-        /// </summary>
         public readonly string? LifecycleManagement;
-        /// <summary>
-        /// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-        /// </summary>
         public readonly int? MaxIdleTimeoutInMinutes;
-        /// <summary>
-        /// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
-        /// </summary>
         public readonly int? MinIdleTimeoutInMinutes;
 
         [OutputConstructor]

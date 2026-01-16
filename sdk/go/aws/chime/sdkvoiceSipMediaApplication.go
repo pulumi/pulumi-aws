@@ -12,66 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceSipMediaApplication(ctx, "example", &chime.SdkvoiceSipMediaApplicationArgs{
-//				AwsRegion: pulumi.String("us-east-1"),
-//				Name:      pulumi.String("example-sip-media-application"),
-//				Endpoints: &chime.SdkvoiceSipMediaApplicationEndpointsArgs{
-//					LambdaArn: pulumi.Any(test.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
-//
-// ```sh
-// $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-// ```
 type SdkvoiceSipMediaApplication struct {
 	pulumi.CustomResourceState
 
-	// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	Arn       pulumi.StringOutput                        `pulumi:"arn"`
+	AwsRegion pulumi.StringOutput                        `pulumi:"awsRegion"`
 	Endpoints SdkvoiceSipMediaApplicationEndpointsOutput `pulumi:"endpoints"`
-	// The name of the AWS Chime SDK Voice Sip Media Application.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name      pulumi.StringOutput                        `pulumi:"name"`
+	Region    pulumi.StringOutput                        `pulumi:"region"`
+	Tags      pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 }
 
 // NewSdkvoiceSipMediaApplication registers a new resource with the given unique name, arguments, and options.
@@ -110,41 +60,23 @@ func GetSdkvoiceSipMediaApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SdkvoiceSipMediaApplication resources.
 type sdkvoiceSipMediaApplicationState struct {
-	// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-	Arn *string `pulumi:"arn"`
-	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-	AwsRegion *string `pulumi:"awsRegion"`
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	Arn       *string                               `pulumi:"arn"`
+	AwsRegion *string                               `pulumi:"awsRegion"`
 	Endpoints *SdkvoiceSipMediaApplicationEndpoints `pulumi:"endpoints"`
-	// The name of the AWS Chime SDK Voice Sip Media Application.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name      *string                               `pulumi:"name"`
+	Region    *string                               `pulumi:"region"`
+	Tags      map[string]string                     `pulumi:"tags"`
+	TagsAll   map[string]string                     `pulumi:"tagsAll"`
 }
 
 type SdkvoiceSipMediaApplicationState struct {
-	// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
-	Arn pulumi.StringPtrInput
-	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
+	Arn       pulumi.StringPtrInput
 	AwsRegion pulumi.StringPtrInput
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints SdkvoiceSipMediaApplicationEndpointsPtrInput
-	// The name of the AWS Chime SDK Voice Sip Media Application.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (SdkvoiceSipMediaApplicationState) ElementType() reflect.Type {
@@ -152,34 +84,20 @@ func (SdkvoiceSipMediaApplicationState) ElementType() reflect.Type {
 }
 
 type sdkvoiceSipMediaApplicationArgs struct {
-	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-	AwsRegion string `pulumi:"awsRegion"`
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	AwsRegion string                               `pulumi:"awsRegion"`
 	Endpoints SdkvoiceSipMediaApplicationEndpoints `pulumi:"endpoints"`
-	// The name of the AWS Chime SDK Voice Sip Media Application.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name      *string                              `pulumi:"name"`
+	Region    *string                              `pulumi:"region"`
+	Tags      map[string]string                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SdkvoiceSipMediaApplication resource.
 type SdkvoiceSipMediaApplicationArgs struct {
-	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion pulumi.StringInput
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints SdkvoiceSipMediaApplicationEndpointsInput
-	// The name of the AWS Chime SDK Voice Sip Media Application.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name      pulumi.StringPtrInput
+	Region    pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
 }
 
 func (SdkvoiceSipMediaApplicationArgs) ElementType() reflect.Type {
@@ -269,39 +187,30 @@ func (o SdkvoiceSipMediaApplicationOutput) ToSdkvoiceSipMediaApplicationOutputWi
 	return o
 }
 
-// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
 func (o SdkvoiceSipMediaApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 func (o SdkvoiceSipMediaApplicationOutput) AwsRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringOutput { return v.AwsRegion }).(pulumi.StringOutput)
 }
 
-// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 func (o SdkvoiceSipMediaApplicationOutput) Endpoints() SdkvoiceSipMediaApplicationEndpointsOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) SdkvoiceSipMediaApplicationEndpointsOutput { return v.Endpoints }).(SdkvoiceSipMediaApplicationEndpointsOutput)
 }
 
-// The name of the AWS Chime SDK Voice Sip Media Application.
-//
-// The following arguments are optional:
 func (o SdkvoiceSipMediaApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SdkvoiceSipMediaApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SdkvoiceSipMediaApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SdkvoiceSipMediaApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

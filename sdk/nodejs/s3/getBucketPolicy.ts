@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The bucket policy data source returns IAM policy of an S3 bucket.
- *
- * ## Example Usage
- *
- * The following example retrieves IAM policy of a specified S3 bucket.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getBucketPolicy({
- *     bucket: "example-bucket-name",
- * });
- * export const foo = example.then(example => example.policy);
- * ```
- */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucketPolicy:getBucketPolicy", {
@@ -33,13 +16,7 @@ export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getBucketPolicy.
  */
 export interface GetBucketPolicyArgs {
-    /**
-     * Bucket name.
-     */
     bucket: string;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: string;
 }
 
@@ -52,29 +29,9 @@ export interface GetBucketPolicyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IAM bucket policy.
-     */
     readonly policy: string;
     readonly region: string;
 }
-/**
- * The bucket policy data source returns IAM policy of an S3 bucket.
- *
- * ## Example Usage
- *
- * The following example retrieves IAM policy of a specified S3 bucket.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getBucketPolicy({
- *     bucket: "example-bucket-name",
- * });
- * export const foo = example.then(example => example.policy);
- * ```
- */
 export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getBucketPolicy:getBucketPolicy", {
@@ -87,12 +44,6 @@ export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pu
  * A collection of arguments for invoking getBucketPolicy.
  */
 export interface GetBucketPolicyOutputArgs {
-    /**
-     * Bucket name.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
 }

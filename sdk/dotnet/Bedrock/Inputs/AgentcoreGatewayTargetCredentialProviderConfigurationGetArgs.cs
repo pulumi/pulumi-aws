@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API key-based authentication configuration. See `ApiKey` below.
-        /// </summary>
         [Input("apiKey")]
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyGetArgs>? ApiKey { get; set; }
 
-        /// <summary>
-        /// Use the gateway's IAM role for authentication. This is an empty configuration block.
-        /// </summary>
         [Input("gatewayIamRole")]
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleGetArgs>? GatewayIamRole { get; set; }
 
-        /// <summary>
-        /// OAuth-based authentication configuration. See `Oauth` below.
-        /// </summary>
         [Input("oauth")]
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauthGetArgs>? Oauth { get; set; }
 

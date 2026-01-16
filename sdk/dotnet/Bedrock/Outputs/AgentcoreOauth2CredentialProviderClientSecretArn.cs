@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreOauth2CredentialProviderClientSecretArn
     {
-        /// <summary>
-        /// ARN of the secret in AWS Secrets Manager.
-        /// </summary>
         public readonly string SecretArn;
 
         [OutputConstructor]

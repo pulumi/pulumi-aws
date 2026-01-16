@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ControlTower.Inputs
 
     public sealed class BaselineParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key of the parameter.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the parameter.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

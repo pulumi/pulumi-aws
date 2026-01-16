@@ -12,129 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS SSO Admin Application.
-//
-// > The `CreateApplication` API only supports custom OAuth 2.0 applications.
-// Creation of 3rd party SAML or OAuth 2.0 applications require setup to be done through the associated app service or AWS console.
-// See this issue for additional context.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
-//				Name:                   pulumi.String("example"),
-//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### With Portal Options
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
-//				Name:                   pulumi.String("example"),
-//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            pulumi.String(example.Arns[0]),
-//				PortalOptions: &ssoadmin.ApplicationPortalOptionsArgs{
-//					Visibility: pulumi.String("ENABLED"),
-//					SignInOptions: &ssoadmin.ApplicationPortalOptionsSignInOptionsArgs{
-//						ApplicationUrl: pulumi.String("http://example.com"),
-//						Origin:         pulumi.String("APPLICATION"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
-//
-// Using `pulumi import`, import SSO Admin Application using the `id`. For example:
-//
-// % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
 type Application struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID.
 	ApplicationAccount pulumi.StringOutput `pulumi:"applicationAccount"`
-	// (**Deprecated** Reference `arn` instead) ARN of the application.
-	//
 	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
-	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	// ARN of the application provider.
-	ApplicationProviderArn pulumi.StringOutput `pulumi:"applicationProviderArn"`
-	// ARN of the application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
-	// Description of the application.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// Name of the application.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Options for the portal associated with an application. See `portalOptions` below.
-	PortalOptions ApplicationPortalOptionsPtrOutput `pulumi:"portalOptions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
-	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ApplicationArn         pulumi.StringOutput               `pulumi:"applicationArn"`
+	ApplicationProviderArn pulumi.StringOutput               `pulumi:"applicationProviderArn"`
+	Arn                    pulumi.StringOutput               `pulumi:"arn"`
+	ClientToken            pulumi.StringPtrOutput            `pulumi:"clientToken"`
+	Description            pulumi.StringPtrOutput            `pulumi:"description"`
+	InstanceArn            pulumi.StringOutput               `pulumi:"instanceArn"`
+	Name                   pulumi.StringOutput               `pulumi:"name"`
+	PortalOptions          ApplicationPortalOptionsPtrOutput `pulumi:"portalOptions"`
+	Region                 pulumi.StringOutput               `pulumi:"region"`
+	Status                 pulumi.StringOutput               `pulumi:"status"`
+	Tags                   pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -173,69 +67,37 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// AWS account ID.
 	ApplicationAccount *string `pulumi:"applicationAccount"`
-	// (**Deprecated** Reference `arn` instead) ARN of the application.
-	//
 	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
-	ApplicationArn *string `pulumi:"applicationArn"`
-	// ARN of the application provider.
-	ApplicationProviderArn *string `pulumi:"applicationProviderArn"`
-	// ARN of the application.
-	Arn *string `pulumi:"arn"`
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken *string `pulumi:"clientToken"`
-	// Description of the application.
-	Description *string `pulumi:"description"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// Name of the application.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Options for the portal associated with an application. See `portalOptions` below.
-	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
-	Status *string `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ApplicationArn         *string                   `pulumi:"applicationArn"`
+	ApplicationProviderArn *string                   `pulumi:"applicationProviderArn"`
+	Arn                    *string                   `pulumi:"arn"`
+	ClientToken            *string                   `pulumi:"clientToken"`
+	Description            *string                   `pulumi:"description"`
+	InstanceArn            *string                   `pulumi:"instanceArn"`
+	Name                   *string                   `pulumi:"name"`
+	PortalOptions          *ApplicationPortalOptions `pulumi:"portalOptions"`
+	Region                 *string                   `pulumi:"region"`
+	Status                 *string                   `pulumi:"status"`
+	Tags                   map[string]string         `pulumi:"tags"`
+	TagsAll                map[string]string         `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
-	// AWS account ID.
 	ApplicationAccount pulumi.StringPtrInput
-	// (**Deprecated** Reference `arn` instead) ARN of the application.
-	//
 	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
-	ApplicationArn pulumi.StringPtrInput
-	// ARN of the application provider.
+	ApplicationArn         pulumi.StringPtrInput
 	ApplicationProviderArn pulumi.StringPtrInput
-	// ARN of the application.
-	Arn pulumi.StringPtrInput
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken pulumi.StringPtrInput
-	// Description of the application.
-	Description pulumi.StringPtrInput
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringPtrInput
-	// Name of the application.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Options for the portal associated with an application. See `portalOptions` below.
-	PortalOptions ApplicationPortalOptionsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
-	Status pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                    pulumi.StringPtrInput
+	ClientToken            pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	InstanceArn            pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	PortalOptions          ApplicationPortalOptionsPtrInput
+	Region                 pulumi.StringPtrInput
+	Status                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -243,50 +105,28 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// ARN of the application provider.
-	ApplicationProviderArn string `pulumi:"applicationProviderArn"`
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken *string `pulumi:"clientToken"`
-	// Description of the application.
-	Description *string `pulumi:"description"`
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn string `pulumi:"instanceArn"`
-	// Name of the application.
-	//
-	// The following arguments are optional:
-	Name *string `pulumi:"name"`
-	// Options for the portal associated with an application. See `portalOptions` below.
-	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
-	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
-	Status *string `pulumi:"status"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationProviderArn string                    `pulumi:"applicationProviderArn"`
+	ClientToken            *string                   `pulumi:"clientToken"`
+	Description            *string                   `pulumi:"description"`
+	InstanceArn            string                    `pulumi:"instanceArn"`
+	Name                   *string                   `pulumi:"name"`
+	PortalOptions          *ApplicationPortalOptions `pulumi:"portalOptions"`
+	Region                 *string                   `pulumi:"region"`
+	Status                 *string                   `pulumi:"status"`
+	Tags                   map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringInput
-	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
-	ClientToken pulumi.StringPtrInput
-	// Description of the application.
-	Description pulumi.StringPtrInput
-	// ARN of the instance of IAM Identity Center.
-	InstanceArn pulumi.StringInput
-	// Name of the application.
-	//
-	// The following arguments are optional:
-	Name pulumi.StringPtrInput
-	// Options for the portal associated with an application. See `portalOptions` below.
-	PortalOptions ApplicationPortalOptionsPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
-	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
-	Status pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ClientToken            pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	InstanceArn            pulumi.StringInput
+	Name                   pulumi.StringPtrInput
+	PortalOptions          ApplicationPortalOptionsPtrInput
+	Region                 pulumi.StringPtrInput
+	Status                 pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -376,71 +216,55 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// AWS account ID.
 func (o ApplicationOutput) ApplicationAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationAccount }).(pulumi.StringOutput)
 }
 
-// (**Deprecated** Reference `arn` instead) ARN of the application.
-//
 // Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
-// ARN of the application provider.
 func (o ApplicationOutput) ApplicationProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationProviderArn }).(pulumi.StringOutput)
 }
 
-// ARN of the application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 func (o ApplicationOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
-// Description of the application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the instance of IAM Identity Center.
 func (o ApplicationOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// Name of the application.
-//
-// The following arguments are optional:
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Options for the portal associated with an application. See `portalOptions` below.
 func (o ApplicationOutput) PortalOptions() ApplicationPortalOptionsPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationPortalOptionsPtrOutput { return v.PortalOptions }).(ApplicationPortalOptionsPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 func (o ApplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

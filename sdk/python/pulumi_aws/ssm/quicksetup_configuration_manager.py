@@ -29,13 +29,6 @@ class QuicksetupConfigurationManagerArgs:
                  timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a QuicksetupConfigurationManager resource.
-        :param pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs'] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
-        :param pulumi.Input[_builtins.str] name: Configuration manager name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if configuration_definition is not None:
             pulumi.set(__self__, "configuration_definition", configuration_definition)
@@ -53,9 +46,6 @@ class QuicksetupConfigurationManagerArgs:
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
     def configuration_definition(self) -> Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]:
-        """
-        Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        """
         return pulumi.get(self, "configuration_definition")
 
     @configuration_definition.setter
@@ -65,9 +55,6 @@ class QuicksetupConfigurationManagerArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration manager.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -77,11 +64,6 @@ class QuicksetupConfigurationManagerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration manager name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +73,6 @@ class QuicksetupConfigurationManagerArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -103,9 +82,6 @@ class QuicksetupConfigurationManagerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -136,16 +112,6 @@ class _QuicksetupConfigurationManagerState:
                  timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering QuicksetupConfigurationManager resources.
-        :param pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs'] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
-        :param pulumi.Input[_builtins.str] manager_arn: ARN of the Configuration Manager.
-        :param pulumi.Input[_builtins.str] name: Configuration manager name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]] status_summaries: A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if configuration_definition is not None:
             pulumi.set(__self__, "configuration_definition", configuration_definition)
@@ -169,9 +135,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
     def configuration_definition(self) -> Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]:
-        """
-        Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        """
         return pulumi.get(self, "configuration_definition")
 
     @configuration_definition.setter
@@ -181,9 +144,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of the configuration manager.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -193,9 +153,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter(name="managerArn")
     def manager_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        ARN of the Configuration Manager.
-        """
         return pulumi.get(self, "manager_arn")
 
     @manager_arn.setter
@@ -205,11 +162,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Configuration manager name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -219,9 +171,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -231,9 +180,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter(name="statusSummaries")
     def status_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]]:
-        """
-        A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
-        """
         return pulumi.get(self, "status_summaries")
 
     @status_summaries.setter
@@ -243,9 +189,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -255,9 +198,6 @@ class _QuicksetupConfigurationManagerState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -288,71 +228,9 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SSM Quick Setup Configuration Manager.
-
-        ## Example Usage
-
-        ### Patch Policy Configuration Type
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example = aws.ssm.get_patch_baselines(default_baselines=True)
-        # transform the output of the aws_ssm_patch_baselines data source
-        # into the format expected by the SelectedPatchBaselines parameter
-        selected_patch_baselines = json.dumps({baseline.operating_system: {
-            "value": baseline.baseline_id,
-            "label": baseline.baseline_name,
-            "description": baseline.baseline_description,
-            "disabled": not baseline.default_baseline,
-        } for baseline in example.baseline_identities})
-        example_quicksetup_configuration_manager = aws.ssm.QuicksetupConfigurationManager("example",
-            name="example",
-            configuration_definition={
-                "local_deployment_administration_role_arn": f"arn:{current_get_partition.partition}:iam::{current.account_id}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole",
-                "local_deployment_execution_role_name": "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
-                "type": "AWSQuickSetupType-PatchPolicy",
-                "parameters": {
-                    "ConfigurationOptionsPatchOperation": "Scan",
-                    "ConfigurationOptionsScanValue": "cron(0 1 * * ? *)",
-                    "ConfigurationOptionsScanNextInterval": "false",
-                    "PatchBaselineRegion": current_get_region.region,
-                    "PatchBaselineUseDefault": "default",
-                    "PatchPolicyName": "example",
-                    "SelectedPatchBaselines": selected_patch_baselines,
-                    "OutputLogEnableS3": "false",
-                    "RateControlConcurrency": "10%",
-                    "RateControlErrorThreshold": "2%",
-                    "IsPolicyAttachAllowed": "false",
-                    "TargetAccounts": current.account_id,
-                    "TargetRegions": current_get_region.region,
-                    "TargetType": "*",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
-        ```
-
+        Create a QuicksetupConfigurationManager resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
-        :param pulumi.Input[_builtins.str] name: Configuration manager name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -361,62 +239,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                  args: Optional[QuicksetupConfigurationManagerArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SSM Quick Setup Configuration Manager.
-
-        ## Example Usage
-
-        ### Patch Policy Configuration Type
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        current_get_partition = aws.get_partition()
-        current_get_region = aws.get_region()
-        example = aws.ssm.get_patch_baselines(default_baselines=True)
-        # transform the output of the aws_ssm_patch_baselines data source
-        # into the format expected by the SelectedPatchBaselines parameter
-        selected_patch_baselines = json.dumps({baseline.operating_system: {
-            "value": baseline.baseline_id,
-            "label": baseline.baseline_name,
-            "description": baseline.baseline_description,
-            "disabled": not baseline.default_baseline,
-        } for baseline in example.baseline_identities})
-        example_quicksetup_configuration_manager = aws.ssm.QuicksetupConfigurationManager("example",
-            name="example",
-            configuration_definition={
-                "local_deployment_administration_role_arn": f"arn:{current_get_partition.partition}:iam::{current.account_id}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole",
-                "local_deployment_execution_role_name": "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
-                "type": "AWSQuickSetupType-PatchPolicy",
-                "parameters": {
-                    "ConfigurationOptionsPatchOperation": "Scan",
-                    "ConfigurationOptionsScanValue": "cron(0 1 * * ? *)",
-                    "ConfigurationOptionsScanNextInterval": "false",
-                    "PatchBaselineRegion": current_get_region.region,
-                    "PatchBaselineUseDefault": "default",
-                    "PatchPolicyName": "example",
-                    "SelectedPatchBaselines": selected_patch_baselines,
-                    "OutputLogEnableS3": "false",
-                    "RateControlConcurrency": "10%",
-                    "RateControlErrorThreshold": "2%",
-                    "IsPolicyAttachAllowed": "false",
-                    "TargetAccounts": current.account_id,
-                    "TargetRegions": current_get_region.region,
-                    "TargetType": "*",
-                },
-            })
-        ```
-
-        ## Import
-
-        Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
-
-        ```sh
-        $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
-        ```
-
+        Create a QuicksetupConfigurationManager resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param QuicksetupConfigurationManagerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,16 +305,6 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
-        :param pulumi.Input[_builtins.str] manager_arn: ARN of the Configuration Manager.
-        :param pulumi.Input[_builtins.str] name: Configuration manager name.
-               
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]] status_summaries: A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -511,67 +324,41 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
     def configuration_definition(self) -> pulumi.Output[Optional['outputs.QuicksetupConfigurationManagerConfigurationDefinition']]:
-        """
-        Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
-        """
         return pulumi.get(self, "configuration_definition")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
-        """
-        Description of the configuration manager.
-        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="managerArn")
     def manager_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        ARN of the Configuration Manager.
-        """
         return pulumi.get(self, "manager_arn")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Configuration manager name.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter(name="statusSummaries")
     def status_summaries(self) -> pulumi.Output[Sequence['outputs.QuicksetupConfigurationManagerStatusSummary']]:
-        """
-        A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
-        """
         return pulumi.get(self, "status_summaries")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
